@@ -1,371 +1,445 @@
 ---
-title: Aangepaste presentatieshapes in PHP
-linktitle: Aangepaste vorm
+title: "Aangepaste presentatievormen in PHP"
+linktitle: "Aangepaste vorm"
 type: docs
 weight: 20
 url: /nl/php-java/custom-shape/
 keywords:
-- aangepaste vorm
-- vorm toevoegen
-- vorm maken
-- vorm wijzigen
-- vormgeometrie
-- geometriepad
-- padpunten
-- bewerkingspunten
-- punt toevoegen
-- punt verwijderen
-- bewerkingsoperatie
-- afgeronde hoek
-- PowerPoint
-- presentatie
-- PHP
-- Aspose.Slides
-description: "Maak en pas vormen aan in PowerPoint‑presentaties met Aspose.Slides voor PHP via Java: geometriepaden, afgeronde hoeken, samengestelde vormen."
+- "aangepaste vorm"
+- "vorm toevoegen"
+- "vorm maken"
+- "vorm wijzigen"
+- "vormgeometrie"
+- "geometriepad"
+- "padpunten"
+- "bewerkingspunten"
+- "punt toevoegen"
+- "punt verwijderen"
+- "bewerkingsoperatie"
+- "afgeronde hoek"
+- "PowerPoint"
+- "presentatie"
+- "PHP"
+- "Aspose.Slides"
+description: "Maak en pas vormen aan in PowerPoint-presentaties met Aspose.Slides voor PHP via Java: geometriepaden, afgeronde hoeken, samengestelde vormen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u presentatieshapes in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometriepaden. Het laat zien hoe u met `GeometryPath` kunt werken om bestaande shapes te wijzigen, basisbewerkingsbewerkingen op paden uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug toe te passen op een shape.
+Dit artikel legt uit hoe je presentatievormen in Aspose.Slides kunt aanpassen door de vormgeometrie te bewerken via bewerkingspunten en geometriepaden. Het laat zien hoe je werkt met [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) om bestaande vormen te wijzigen, basisbewerkingsbewerkingen uit te voeren, punten toe te voegen of te verwijderen, en de bijgewerkte geometrie terug op een vorm toe te passen.
 
-Het laat ook zien hoe u aangepaste en samengestelde shapes kunt maken, shapes met afgeronde hoeken kunt bouwen, kunt bepalen of een shape‑geometrie gesloten is, en kunt converteren tussen `GeometryPath` en `java.awt.Shape` voor extra geometrie‑aanpassingsscenario's.
+Het toont ook hoe je aangepaste en samengestelde vormen maakt, vormen bouwt met afgeronde hoeken, bepaalt of een vormgeometrie gesloten is, vormelementen inspecteert, en Java AWT-tekstcontouren omzet in geometriepaden.
 
-## **Een shape wijzigen met bewerkingspunten**
-Beschouw een vierkant. In PowerPoint kunt u met **bewerkingpunten**:
+## **Een Vorm Wijzigen met Bewerkingpunten**
 
-* de hoek van het vierkant naar binnen of buiten verplaatsen
-* de kromming van een hoek of punt specificeren
-* nieuwe punten aan het vierkant toevoegen
-* punten op het vierkant manipuleren, enz.
+In PowerPoint kun je **Bewerkingpunten** gebruiken om een vierkant te wijzigen:
 
-Kortom, u kunt deze handelingen uitvoeren op elke shape. Met bewerkingspunten kunt u een shape wijzigen of een nieuwe shape maken op basis van een bestaande shape. 
+* Een hoek naar binnen of buiten verplaatsen.
+* De kromming op een punt aanpassen.
+* Nieuwe punten toevoegen.
 
-## **Tips voor shape‑bewerking**
+Bewerkingpunten laten je de omtrek van een vorm wijzigen of een bestaande vorm als basis voor een nieuwe gebruiken.
+
+## **Tips voor Vormbewerking**
 
 ![overview_image](custom_shape_0.png)
 
-Voordat u begint met het bewerken van PowerPoint shapes via bewerkingspunten, wilt u misschien rekening houden met de volgende punten over shapes:
+Houd bij het bewerken van PowerPoint‑vormen de volgende concepten in gedachten:
 
-* Een shape (of zijn pad) kan gesloten of geopend zijn.
-* Wanneer een shape gesloten is, heeft hij geen begin‑ of eindpunt. Wanneer een shape geopend is, heeft hij een begin en een einde. 
-* Alle shapes bestaan uit ten minste 2 ankerpunten die met elkaar verbonden zijn door lijnen
-* Een lijn is recht of gebogen. Ankerpunten bepalen de aard van de lijn. 
-* Ankerpunten komen voor als hoekpunten, rechte punten of soepele punten:
-  * Een hoekpunt is een punt waar twee rechte lijnen onder een hoek samenkomen. 
-  * Een soepel punt is een punt waar twee handvatten zich op een rechte lijn bevinden en de segmenten van de lijn elkaar in een vloeiende curve ontmoeten. In dit geval staan alle handvatten op gelijke afstand van het ankerpunt. 
-  * Een recht punt is een punt waar twee handvatten zich op een rechte lijn bevinden en de segmenten van die lijn elkaar in een vloeiende curve ontmoeten. In dit geval hoeven de handvatten niet op gelijke afstand van het ankerpunt te staan. 
-* Door ankerpunten te verplaatsen of te bewerken (wat de hoek van de lijnen wijzigt), kunt u de uitstraling van een shape wijzigen. 
+* Een vorm (of het pad ervan) kan gesloten of open zijn.
+* Het pad van een vorm bestaat uit ankerpunten die met segmenten verbonden zijn.
+* Een segment kan recht of gebogen zijn. Ankerpunten en controlehandvatten bepalen de vorm ervan.
+* Ankerpunten bestaan als hoekpunten, rechte punten of vloeiende punten:
+  * Bij een hoekpunt kunnen aangrenzende segmenten onder een hoek samenkomen.
+  * Bij een vloeiend punt zijn de twee controlehandvatten uitgelijnd en even ver van het ankerpunt verwijderd.
+  * Bij een recht punt zijn de twee controlehandvatten uitgelijnd maar kunnen ze verschillende afstanden tot het ankerpunt hebben.
+* Het verplaatsen van ankerpunten of het aanpassen van hun handvatten wijzigt de omtrek van de vorm.
 
-Om PowerPoint‑shapes via bewerkingspunten te bewerken, biedt **Aspose.Slides** de [**GeometryPath**](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse.
+Om PowerPoint‑vormen via bewerkingpunten te bewerken, biedt **Aspose.Slides** de klasse [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* Een [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑instantie vertegenwoordigt een geometriepad van het [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometryshape/)‑object.
-* Om de `GeometryPath` uit de `GeometryShape`‑instantie op te halen, kunt u de [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometryshape/#getGeometryPaths)‑methode gebruiken.
-* Om de `GeometryPath` voor een shape in te stellen, kunt u deze methoden gebruiken: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometryshape/#setGeometryPath) voor *solid shapes* en [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometryshape/#setGeometryPaths) voor *composite shapes*.
-* Om segmenten toe te voegen, kunt u de methoden onder [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/) gebruiken.
-* Met de [GeometryPath::setStroke](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/setstroke/)‑ en [GeometryPath::setFillMode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/setfillmode/)‑methoden kunt u het uiterlijk van een geometriepad instellen.
-* Met de [GeometryPath::getPathData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/getpathdata/)‑methode kunt u het geometriepad van een `GeometryShape` ophalen als een array van padsegmenten.
-* Om extra opties voor shape‑geometrie‑aanpassing te benaderen, kunt u [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/) converteren naar [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)
-* Gebruik [geometryPathToGraphicsPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) en [graphicsPathToGeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) methoden (van de [ShapeUtil](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ShapeUtil)‑klasse) om [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/geometrypath/) naar [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) en omgekeerd te converteren.
+* Een [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)‑instantie vertegenwoordigt een geometriepad van het object [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* Om het [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) van de [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/)‑instantie op te halen, kun je de methode [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) gebruiken.
+* Om het [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) voor een vorm in te stellen, kun je deze methoden gebruiken: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) voor vormen met één enkel pad en [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) voor vormen met meerdere paden.
+* Om segmenten toe te voegen, kun je de methoden onder [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) gebruiken.
+* Met behulp van de methoden [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) en [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) kun je het uiterlijk van een geometriepad instellen.
+* Met de methode [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) kun je het geometriepad van een [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) ophalen als een array van padsegmenten.
+* Voor extra aanpassingsopties van vormgeometrie kun je een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) uitlezen via zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) en de segmenten opnieuw afspelen op een [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-## **Eenvoudige bewerkingsbewerkingen**
+## **Eenvoudige Bewerkingstaken**
 
-**Voeg een lijn toe** aan het einde van een pad
+Gebruik de volgende methoden om een geometriepad te bewerken. Overloads die een index accepteren, voegen een segment in op die nul‑gebaseerde positie in de segmentarray van het pad.
 
-```php
+| Operatie | Methode |
+| --- | --- |
+| Een rechte lijn toevoegen of invoegen. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| Een kubische Bézier‑curve toevoegen of invoegen met twee controlepunten en een eindpunt. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Een kwadratische Bézier‑curve toevoegen of invoegen met één controlepunt en een eindpunt. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Een elliptische boog toevoegen met de opgegeven afmetingen en hoeken in graden. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| De huidige figuur sluiten door het eindpunt met het startpunt te verbinden. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| Het startpunt van een figuur instellen. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| Een segment op een nul‑gebaseerde index verwijderen. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
 
-```
-**Voeg een lijn toe** op een opgegeven positie op een pad:
+## **Aangepaste Punten aan een Vorm Toevoegen**
 
-```php
-
-```
-**Voeg een kubieke Bézier‑curve toe** aan het einde van een pad:
-
-```php
-
-```
-**Voeg een kubieke Bézier‑curve toe** op de opgegeven positie op een pad:
+Dit voorbeeld voegt twee punten in een rechthoekige vorm in met behulp van [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) en past het bewerkte pad toe met [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). De coördinaten zijn lokaal voor de vorm: beide nieuwe punten liggen in het midden, 100 punten van de linkerkant en 50 punten van de bovenkant. Segmentindices 1 en 4 plaatsen ze op respectievelijk de boven‑ en onderrand, waardoor die randen naar binnen worden getrokken.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-```
-**Voeg een kwadratische Bézier‑curve toe** aan het einde van een pad:
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-```php
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
 
-```
-**Voeg een kwadratische Bézier‑curve toe** op de opgegeven positie op een pad:
-
-```php
-
-```
-**Voeg een gegeven boog toe** aan een pad:
-
-```php
-
-```
-**Sluit de huidige figuur** van een pad:
-
-```php
-
-```
-**Stel de positie in voor het volgende punt:** 
-
-```php
-
-```
-**Verwijder het padsegment** op een opgegeven index:
-
-```php
-
-```
-
-## **Aangepaste punten aan een shape toevoegen**
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryShape)‑klasse en stel het type [ShapeType::Rectangle](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ShapeType) in.
-2. Haal een instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse op uit de shape.
-3. Voeg een nieuw punt toe tussen de twee bovenste punten op het pad.
-4. Voeg een nieuw punt toe tussen de twee onderste punten op het pad.
-5. Pas het pad toe op de shape.
-
-Deze PHP‑code laat zien hoe u aangepaste punten aan een shape toevoegt:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
+
     $shape->setGeometryPath($geometryPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example1_image](custom_shape_1.png)
-
-## **Punten van een shape verwijderen**
-
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryShape)‑klasse en stel het type [ShapeType::Heart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ShapeType) in.
-2. Haal een instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse op uit de shape.
-3. Verwijder het segment van het pad.
-4. Pas het pad toe op de shape.
-
-Deze PHP‑code laat zien hoe u punten uit een shape verwijdert:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
-    $path = $shape->getGeometryPaths()[0];
-    $path->removeAt(2);
-    $shape->setGeometryPath($path);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example2_image](custom_shape_2.png)
-
-## **Aangepaste shape maken**
-
-1. Bereken de punten voor de shape.
-2. Maak een instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse.
-3. Vul het pad met de punten.
-4. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryShape)‑klasse.
-5. Pas het pad toe op de shape.
-
-Deze Java‑code laat zien hoe u een aangepaste shape maakt:
-
-```php
-  $points = new Java("java.util.ArrayList");
-  $R = 100;
-  $r = 50;
-  $step = 72;
-  for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * java("java.lang.Math")->PI / 180.0;
-    $x = $R * java("java.lang.Math")->cos($radians);
-    $y = $R * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
-    $x = $r * java("java.lang.Math")->cos($radians);
-    $y = $r * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-  }
-  $starPath = new GeometryPath();
-  $starPath->moveTo($points->get(0));
-  for($i = 1; $i < java_values($points->size()) ; $i++) {
-    $starPath->lineTo($points->get($i));
-  }
-  $starPath->closeFigure();
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
-    $shape->setGeometryPath($starPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example3_image](custom_shape_3.png)
-
-
-## **Samengestelde aangepaste shape maken**
-
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryShape)‑klasse.
-2. Maak een eerste instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse.
-3. Maak een tweede instantie van de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑klasse.
-4. Pas de paden toe op de shape.
-
-Deze PHP‑code laat zien hoe u een samengestelde aangepaste shape maakt:
-
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
-    $geometryPath0 = new GeometryPath();
-    $geometryPath0->moveTo(0, 0);
-    $geometryPath0->lineTo($shape->getWidth(), 0);
-    $geometryPath0->lineTo($shape->getWidth(), $shape->getHeight() / 3);
-    $geometryPath0->lineTo(0, $shape->getHeight() / 3);
-    $geometryPath0->closeFigure();
-    $geometryPath1 = new GeometryPath();
-    $geometryPath1->moveTo(0, $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
-    $geometryPath1->lineTo(0, $shape->getHeight());
-    $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-![example4_image](custom_shape_4.png)
-
-## **Aangepaste shape met afgeronde hoeken maken**
-
-Deze PHP‑code laat zien hoe u een aangepaste shape met afgeronde hoeken (naar binnen) maakt;
-
-```php
-  $shapeX = 20.0;
-  $shapeY = 20.0;
-  $shapeWidth = 300.0;
-  $shapeHeight = 200.0;
-  $leftTopSize = 50.0;
-  $rightTopSize = 20.0;
-  $rightBottomSize = 40.0;
-  $leftBottomSize = 10.0;
-  $pres = new Presentation();
-  try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
-    $geometryPath = new GeometryPath();
-    $point1 = new Point2DFloat($leftTopSize, 0);
-    $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2DFloat($leftBottomSize, $shapeHeight);
-    $point5 = new Point2DFloat(0, $leftTopSize);
-    $geometryPath->moveTo($point1);
-    $geometryPath->lineTo($point2);
-    $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
-    $geometryPath->lineTo($point3);
-    $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
-    $geometryPath->lineTo($point4);
-    $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
-    $geometryPath->lineTo($point5);
-    $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
-    $geometryPath->closeFigure();
-    $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Nagaan of een shape‑geometrie gesloten is**
-
-Een gesloten shape wordt gedefinieerd als een shape waarbij al zijn zijden met elkaar verbonden zijn, waardoor één omtrek ontstaat zonder gaten. Zo'n shape kan een eenvoudige geometrische vorm zijn of een complexe aangepaste omtrek. De volgende code‑voorbeeld laat zien hoe u kunt controleren of een shape‑geometrie gesloten is:
-
-```php
-function isGeometryClosed($geometryShape)
-{
-    $isClosed = null;
-
-    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
-        $dataLength = count(java_values($geometryPath->getPathData()));
-        if ($dataLength === 0) {
-            continue;
-        }
-
-        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
-        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
-
-        if ($isClosed === false) {
-            return false;
-        }
-    }
-
-    return $isClosed === true;
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **GeometryPath converteren naar java.awt.Shape** 
+![example1_image](custom_shape_1.png)
 
-1. Maak een instantie van de [GeometryShape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryShape)‑klasse.
-2. Maak een instantie van de [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)‑klasse.
-3. Converteer de [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)‑instantie naar de [GeometryPath](https://reference.aspose.com/slides/nl/php-java/aspose.slides/GeometryPath)‑instantie met behulp van [ShapeUtil](https://reference.aspose.com/slides/nl/php-java/aspose.slides/ShapeUtil).
-4. Pas de paden toe op de shape.
+## **Punten uit een Vorm Verwijderen**
 
-Deze PHP‑code – een implementatie van de bovenstaande stappen – demonstreert het conversieproces van **GeometryPath** naar **GraphicsPath**:
+Dit voorbeeld wijzigt de omtrek van een hartvorm door het segment op nul‑gebaseerde index 2 te verwijderen met [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). Het toepassen van het aangepaste pad met [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) werkt de contour van de vorm bij.
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Nieuwe shape maken
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # Haal geometriepad op van de shape
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+
+    $path = $shape->getGeometryPaths()[0];
+    $path->removeAt(2);
+
+    $shape->setGeometryPath($path);
+} finally {
+    $presentation->dispose();
+}
+```
+![example2_image](custom_shape_2.png)
+
+## **Een Aangepaste Vorm Maken**
+
+Dit voorbeeld bouwt een ster met vijf punten met behulp van [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). Afwisselend buiten‑ en binnenstraal van respectievelijk 100 en 50 punten bepalen de punten en inkepingen; een stap van 72 graad verdeelt de vijf punten gelijkmatig. Het pad wordt gesloten met [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) en toegepast op een rechthoekige vorm via [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), waardoor de omtrek wordt vervangen.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$points = [];
+$outerRadius = 100;
+$innerRadius = 50;
+$angleStep = 72;
+for ($angle = -90; $angle < 270; $angle += $angleStep) {
+    $radians = deg2rad($angle);
+    $points[] = [$outerRadius * cos($radians) + $outerRadius, $outerRadius * sin($radians) + $outerRadius];
+    $radians = deg2rad($angle + $angleStep / 2);
+    $points[] = [$innerRadius * cos($radians) + $outerRadius, $innerRadius * sin($radians) + $outerRadius];
+}
+
+$starPath = new GeometryPath();
+$starPath->moveTo($points[0][0], $points[0][1]);
+for ($i = 1; $i < count($points); $i++) {
+    $starPath->lineTo($points[$i][0], $points[$i][1]);
+}
+$starPath->closeFigure();
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $outerRadius * 2, $outerRadius * 2);
+    $shape->setGeometryPath($starPath);
+} finally {
+    $presentation->dispose();
+}
+```
+![example3_image](custom_shape_3.png)
+
+## **Een Samengestelde Aangepaste Vorm Maken**
+
+Dit voorbeeld definieert twee gesloten [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/)‑objecten voor respectievelijk het boven‑ en onderste derde deel van een vorm. Beide paden toepassen met [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) creëert één samengestelde vorm met een gat over het middelste derde deel.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
+    $topPath = new GeometryPath();
+    $topPath->moveTo(0, 0);
+    $topPath->lineTo(java_values($shape->getWidth()), 0);
+    $topPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3);
+    $topPath->lineTo(0, java_values($shape->getHeight()) / 3);
+    $topPath->closeFigure();
+
+    $bottomPath = new GeometryPath();
+    $bottomPath->moveTo(0, java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()));
+    $bottomPath->lineTo(0, java_values($shape->getHeight()));
+    $bottomPath->closeFigure();
+
+    $shape->setGeometryPaths([$topPath, $bottomPath]);
+} finally {
+    $presentation->dispose();
+}
+```
+![example4_image](custom_shape_4.png)
+
+## **Een Aangepaste Vorm met Afgeronde Hoeken Maken**
+
+Dit voorbeeld combineert rechte segmenten met [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) om een vorm met naar binnen gebogen hoeken te creëren. Elke hoekgrootte stelt de breedte en hoogte van de boog in punten in, en de -90‑graden sweep tekent een tegen de klok in kwart‑ellips. Het voltooide pad wordt toegepast met [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath), en de presentatie wordt opgeslagen in PPTX‑formaat.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$shapeX = 20;
+$shapeY = 20;
+$shapeWidth = 300;
+$shapeHeight = 200;
+
+$leftTopSize = 50;
+$rightTopSize = 20;
+$rightBottomSize = 40;
+$leftBottomSize = 10;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+
+    $topLeft = new Point2DFloat($leftTopSize, 0);
+    $topRight = new Point2DFloat($shapeWidth - $rightTopSize, 0);
+    $rightBottom = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
+    $bottomLeft = new Point2DFloat($leftBottomSize, $shapeHeight);
+    $leftTop = new Point2DFloat(0, $leftTopSize);
+
+    $geometryPath = new GeometryPath();
+    $geometryPath->moveTo($topLeft);
+    $geometryPath->lineTo($topRight);
+    $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
+    $geometryPath->lineTo($rightBottom);
+    $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
+    $geometryPath->lineTo($bottomLeft);
+    $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
+    $geometryPath->lineTo($leftTop);
+    $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
+    $geometryPath->closeFigure();
+
+    $shape->setGeometryPath($geometryPath);
+
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Controleren of een Vormgeometrie Gesloten Is**
+
+De volgende hulpfunctie controleert of elke niet‑lege geometriepad eindigt met een sluitsegment. Hij leest [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) en vergelijkt het laatste segment‑[PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) met [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). Hij retourneert false wanneer er geen niet‑lege paden zijn. Deze controleert het laatste commando van elk pad; hij inspecteert niet elke subfiguur binnen een pad. Het voorbeeld print `true` voor een rechthoek.
+
+```php
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function isGeometryClosed($geometryShape)
+{
+    $hasNonemptyPath = false;
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $segments = java_values($geometryPath->getPathData());
+        if (count($segments) === 0) {
+            continue;
+        }
+        $hasNonemptyPath = true;
+        $lastSegment = $segments[count($segments) - 1];
+        if (java_values($lastSegment->getPathCommand()) !== PathCommandType::Close) {
+            return false;
+        }
+    }
+    return $hasNonemptyPath;
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $closed = isGeometryClosed($shape);
+    echo ($closed ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Vormelementen Uittrekken en Inspecteren**
+
+Gebruik [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) om een bestaande vorm te bekijken als elementen die padpunten en punt‑typen bevatten. Gebruik elk geretourneerd [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) om de punt‑ en type‑arrays op te halen via de methoden [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) en [getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). Deze representatie is nuttig voor contouranalyse of voor het doorgeven van geometrie aan aangepaste tekengereedschappen.
+
+Het voorbeeld opent `input.pptx`, vindt de eerste geometrievorm direct op de eerste dia, en print de padsegmenten. Gebruik een presentatie met een vorm die rechte en gebogen segmenten bevat om beide soorten uitvoer te zien. Het zoekt niet binnen groepen.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = null;
+    $shapes = $slide->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $candidate = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($candidate, java("com.aspose.slides.GeometryShape"))) {
+            $shape = $candidate;
+            break;
+        }
+    }
+
+    if ($shape === null) {
+        echo "No geometry shape found on the first slide." . PHP_EOL;
+    } else {
+        foreach ($shape->createShapeElements() as $element) {
+            $points = java_values($element->getPathPoints());
+            $types = array_values(unpack("C*", java_values($element->getPathTypes())));
+            echo "Shape element:" . PHP_EOL;
+            for ($i = 0; $i < count($points); $i++) {
+                $pointType = $types[$i] & 0x07; // Behoud het segmenttype, exclusief vlaggen.
+                switch ($pointType) {
+                    case 0:
+                        echo "Start figure at " . $points[$i] . PHP_EOL;
+                        break;
+                    case 1:
+                        echo "Line to " . $points[$i] . PHP_EOL;
+                        break;
+                    case 3:
+                        echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
+                        $i += 2; // Verwerk zowel de controlepunten als het eindpunt.
+                        break;
+                }
+                if (($types[$i] & 0x80) !== 0) {
+                    echo "Close subpath back to its starting point." . PHP_EOL;
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+De arrays corresponderen op index: `$points[$i]` is een punt en `$types[$i]` beschrijft zijn rol. Type `0` start een figuur, en type `1` tekent een lijn van het vorige punt naar het huidige punt. Een kubisch Bézier‑segment start bij het vorige eindpunt en gebruikt drie opeenvolgende type‑`3`‑items: twee controlepunten gevolgd door het nieuwe eindpunt. De lus consumeert deze drie items samen en controleert het eindpunt op sluiting.
+
+Punt‑typen bevatten ook vlaggen. Maskeer met `0x07` om het segmenttype te identificeren, en test `0x80` apart om een gesloten subpad te detecteren. Bijvoorbeeld, `129` (`0x81`) betekent een lijneindpunt dat een subpad sluit, en `131` (`0x83`) betekent een Bézier‑eindpunt dat een subpad sluit. De PHP/Java‑Bridge geeft de byte‑array terug als een binaire string; uitpakken met `"C*"` levert ongetekende byte‑waarden. Maskeermethoden behouden de bedoelde bitwaarden. Het vergelijken van de ruwe waarde alleen met `1` of `3` zou deze gevallen missen. Andere vlaggen, zoals streep (`0x10`) en marker (`0x20`), veranderen het basissegmenttype niet.
+
+**Coördinaten en transformaties.** Punten worden gemeten in punten (1/72 inch), met X toenemend naar rechts en Y toenemend naar beneden. Voor een niet‑gegroepeerde vorm bevatten de uitgepakte coördinaten al de positie die teruggegeven wordt door [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) en [getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) en weerspiegelen ze de huidige breedte en hoogte. Bijvoorbeeld, een ongerotateerde rechthoek op `(100, 200)` met grootte `120 × 80` heeft contourgrenzen `(100, 200)`–`(220, 280)`. Voeg de positie van de vorm niet opnieuw toe. Trek X en Y af om coördinaten te verkrijgen relatief aan het ongerotateerde kader.
+
+De uitgepakte punten houden geen rekening met de rotatie van de vorm, teruggegeven door [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation), of horizontale en verticale spiegelingen. Om de weergegeven contour te reproduceren, pas je die transformaties toe rond het middelpunt van de vorm. Voor gegroepeerde vormen moet je ook rekening houden met de coördinatenmapping en transformaties van de groep; ga er niet van uit dat de uitgepakte punten de uiteindelijke weergegeven dia‑coördinaten zijn of dat je een translatie of schaal tweemaal toepast als die al in het kindkader is verwerkt.
+
+**Inspectie versus bewerking.** Uitgepakte arrays beschrijven de contour; wijzigen ervan werkt de originele vorm niet bij. Kies deze aanpak wanneer je analyse‑ of tekencode punt‑/type‑arrays nodig heeft. Gebruik [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) wanneer je geometrie‑commando’s in het lokale coördinatensysteem van de vorm wilt of wanneer je de geometrie wilt bewerken. Pas bewerkte paden toe via [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) of [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+
+## **Een Java AWT‑Vorm Omzetten naar GeometryPath**
+
+Dit voorbeeld combineert een rechthoekige omtrek met tekst die naar geometrie wordt omgezet. De [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode)‑methode van de omtrek schakelt de vulling uit. Een [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) creëert de tekstcontour in een [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Zijn [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levert verplaatsings‑, lijn‑, kwadratische, kubische en sluitsegmenten, die het voorbeeld opnieuw afspeelt op een [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+
+Het voorbeeld gebruikt een Java‑float‑array zodat de PHP/Java‑Bridge de door de iterator geschreven coördinaten behoudt. De tekst gebruikt een Arial‑lettertype van 40 punten. De omtrek wordt horizontaal 20 punten verschoven en verticaal zo geplaatst dat de visuele bovenkant 10 punten onder de bovenrand van de vorm ligt. Het tekstpad wordt gevuld, terwijl de oorspronkelijke rechthoek een omtrek blijft. Beide paden toepassen met [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) levert één vorm op die de rechthoek en de tekst bevat.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\PathFillModeType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
+    
     $originalPath = $shape->getGeometryPaths()[0];
     $originalPath->setFillMode(PathFillModeType::None);
-    # Maak nieuw graphics path met tekst
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
-    $g2 = $img->createGraphics();
+
+    $fontClass = java("java.awt.Font");
+    $imageClass = java("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
+    $image = new Java("java.awt.image.BufferedImage", 100, 100, $imageClass->TYPE_INT_ARGB);
+    $graphics = $image->createGraphics();
     try {
-      $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);
-      $graphicsPath = $glyphVector->getOutline(20.0, -$glyphVector->getVisualBounds()->getY() + 10);
+        $fontContext = $graphics->getFontRenderContext();
+        $glyphVector = $font->createGlyphVector($fontContext, "Text in shape");
+        $textBounds = $glyphVector->getVisualBounds();
+        $baseline = -java_values($textBounds->getY()) + 10;
+        $graphicsPath = $glyphVector->getOutline(20.0, $baseline);
     } finally {
-      $g2->dispose();
+        $graphics->dispose();
     }
-    # Converteer graphics path naar geometry path
-    $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
+
+    $textPath = new GeometryPath();
+    $pathIterator = $graphicsPath->getPathIterator(null);
+    $iteratorClass = java("java.awt.geom.PathIterator");
+    $arrayClass = java("java.lang.reflect.Array");
+    $floatClass = java("java.lang.Float");
+    $coordinates = $arrayClass->newInstance($floatClass->TYPE, 6);
+
+    while (!java_values($pathIterator->isDone())) {
+        $segmentType = java_values($pathIterator->currentSegment($coordinates));
+        $points = java_values($coordinates);
+        switch ($segmentType) {
+            case java_values($iteratorClass->SEG_MOVETO):
+                $textPath->moveTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_LINETO):
+                $textPath->lineTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_QUADTO):
+                $textPath->quadraticBezierTo($points[0], $points[1], $points[2], $points[3]);
+                break;
+            case java_values($iteratorClass->SEG_CUBICTO):
+                $textPath->cubicBezierTo($points[0], $points[1], $points[2], $points[3], $points[4], $points[5]);
+                break;
+            case java_values($iteratorClass->SEG_CLOSE):
+                $textPath->closeFigure();
+                break;
+        }
+        $pathIterator->next();
+    }
     $textPath->setFillMode(PathFillModeType::Normal);
-    # Stel combinatie van nieuw geometry path en origineel geometry path in op de shape
-    $shape->setGeometryPaths(array($originalPath, $textPath ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $shape->setGeometryPaths([$originalPath, $textPath]);
+} finally {
+    $presentation->dispose();
+}
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Wat gebeurt er met de vulling en omtrek nadat de geometrie is vervangen?**
+**Wat gebeurt er met de vulling en omtrek na het vervangen van de geometrie?**
 
-De stijl blijft behouden bij de shape; alleen de contour verandert. De vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
+De stijl blijft bij de vorm; alleen de contour verandert. De vulling en omtrek worden automatisch toegepast op de nieuwe geometrie.
 
-**Hoe roteer ik een aangepaste shape correct samen met zijn geometrie?**
+**Hoe roteer ik een aangepaste vorm correct samen met de geometrie?**
 
-Gebruik de [setRotation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/setrotation/)‑methode van de shape; de geometrie roteert mee met de shape omdat deze gebonden is aan het eigen coördinatensysteem van de shape.
+Gebruik de [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation)‑methode van de vorm; de geometrie roteert mee omdat deze gekoppeld is aan het eigen coördinatensysteem van de vorm.
 
-**Kan ik een aangepaste shape converteren naar een afbeelding om het resultaat 'vast te leggen'?**
+**Kan ik een aangepaste vorm omzetten naar een afbeelding om het resultaat vast te leggen?**
 
-Ja. Exporteer het benodigde [slide](/slides/nl/php-java/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/php-java/create-shape-thumbnails/) zelf naar een rasterformaat; dit vereenvoudigt vervolgwerk met zware geometrieën.
+Ja. Exporteer het gewenste [slide](/slides/nl/php-java/convert-powerpoint-to-png/)‑gebied of de [shape](/slides/nl/php-java/create-shape-thumbnails/) zelf naar een rasterformaat; dat maakt verder werk met complexe geometrieën eenvoudiger.

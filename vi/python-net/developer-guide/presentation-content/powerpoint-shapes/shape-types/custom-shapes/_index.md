@@ -1,149 +1,87 @@
 ---
-title: Tùy chỉnh các hình dạng trong bản trình chiếu bằng Python
+title: Tùy chỉnh hình dạng trong bản trình chiếu bằng Python
 linktitle: Hình dạng tùy chỉnh
 type: docs
 weight: 20
 url: /vi/python-net/custom-shape/
 keywords:
 - hình dạng tùy chỉnh
-- thêm hình dạng
-- tạo hình dạng
-- thay đổi hình dạng
-- hình học hình dạng
-- đường hình học
-- các điểm đường
-- chỉnh sửa điểm
+- thêm hình
+- tạo hình
+- thay đổi hình
+- hình học của hình
+- đường dẫn hình học
+- điểm đường dẫn
+- điểm chỉnh sửa
 - thêm điểm
 - xóa điểm
 - hoạt động chỉnh sửa
 - góc cong
 - PowerPoint
-- OpenDocument
 - bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tạo và tùy chỉnh các hình dạng trong bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Python thông qua .NET: đường geometry, góc cong, hình dạng ghép hợp."
+description: "Tạo và tùy chỉnh các hình dạng trong bản trình chiếu PowerPoint bằng Aspose.Slides cho Python qua .NET: đường dẫn hình học, góc cong, hình hợp thành."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Hãy xem một hình vuông. Trong PowerPoint, sử dụng **Edit Points**, bạn có thể:
+Bài viết này giải thích cách tùy chỉnh các hình dạng trong bài thuyết trình bằng Aspose.Slides bằng cách chỉnh sửa hình học của hình thông qua các điểm chỉnh sửa và các đường dẫn hình học. Nó cho thấy cách làm việc với [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) để sửa đổi các hình hiện có, thực hiện các thao tác chỉnh sửa đường cơ bản, thêm hoặc xóa điểm, và áp dụng hình học đã cập nhật trở lại cho một hình.
 
-* di chuyển góc của hình vuông vào trong hoặc ra ngoài,
-* điều chỉnh độ cong của một góc hoặc điểm,
-* thêm các điểm mới vào hình vuông,
-* thao tác với các điểm của nó.
+Nó cũng minh họa cách tạo các hình tùy chỉnh và hợp thành, xây dựng các hình có góc cong, xác định xem hình học của một hình có đóng không, và trích xuất các phần tử hình để phân tích đường viền.
 
-Bạn có thể áp dụng các thao tác này cho bất kỳ hình dạng nào. Với **Edit Points**, bạn có thể sửa đổi một hình dạng hoặc tạo một hình mới từ một hình dạng hiện có.
+## **Thay đổi một hình bằng các điểm chỉnh sửa**
+
+Trong PowerPoint, bạn có thể sử dụng **Edit Points** để chỉnh sửa một hình vuông:
+
+* Di chuyển một góc vào trong hoặc ra ngoài.
+* Điều chỉnh độ cong tại một điểm.
+* Thêm các điểm mới.
+
+Chỉnh sửa các điểm cho phép bạn sửa đổi đường viền của một hình hoặc sử dụng một hình hiện có làm cơ sở cho một hình mới.
 
 ## **Mẹo chỉnh sửa hình dạng**
 
-!["Edit Points" command](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Trước khi bắt đầu chỉnh sửa các hình dạng PowerPoint bằng **Edit Points**, hãy lưu ý các điểm sau về hình dạng:
+Khi chỉnh sửa các hình PowerPoint, hãy ghi nhớ các khái niệm sau:
 
-* Một hình dạng (hoặc đường path của nó) có thể **đóng** hoặc **mở**.
-* Một hình dạng đóng không có điểm bắt đầu hay kết thúc; một hình dạng mở có điểm đầu và điểm cuối.
-* Mỗi hình dạng có ít nhất hai điểm neo được nối với nhau bằng các đoạn thẳng.
-* Một đoạn có thể thẳng hoặc cong; các điểm neo xác định tính chất của đoạn.
-* Các điểm neo có thể là **corner**, **smooth**, hoặc **straight**:
-  * Điểm **corner** là nơi hai đoạn thẳng gặp nhau tạo góc.
-  * Điểm **smooth** có hai tay cầm nằm trên cùng một đường thẳng, và các đoạn liền kề tạo một đường cong mượt. Trong trường hợp này, cả hai tay cầm có cùng khoảng cách tới điểm neo.
-  * Điểm **straight** cũng có hai tay cầm thẳng hàng, và các đoạn liền kề tạo một đường cong mượt. Tuy nhiên, các tay cầm không nhất thiết phải có cùng khoảng cách tới điểm neo.
-* Bằng cách di chuyển hoặc chỉnh sửa các điểm neo (do đó thay đổi góc của các đoạn), bạn có thể thay đổi hình dáng của hình.
+* Một hình (hoặc đường dẫn của nó) có thể là đóng hoặc mở.
+* Đường dẫn của một hình bao gồm các điểm neo được nối bởi các đoạn.
+* Một đoạn có thể thẳng hoặc cong. Các điểm neo và tay cầm điều khiển xác định hình dạng của nó.
+* Các điểm neo tồn tại dưới dạng điểm góc, điểm thẳng hoặc điểm mượt:
+  * Tại một điểm góc, các đoạn liền kề có thể gặp nhau tạo thành một góc.
+  * Tại một điểm mượt, hai tay cầm điều khiển được sắp thẳng hàng và cách đều điểm neo.
+  * Tại một điểm thẳng, hai tay cầm điều khiển được sắp thẳng hàng nhưng có thể có khoảng cách khác nhau tới điểm neo.
+* Di chuyển các điểm neo hoặc điều chỉnh các tay cầm của chúng sẽ thay đổi đường viền của hình.
 
-Để chỉnh sửa các hình dạng PowerPoint, Aspose.Slides cung cấp lớp [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/).
+Để chỉnh sửa các hình PowerPoint thông qua các điểm chỉnh sửa, **Aspose.Slides** cung cấp lớp [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
-* Một đối tượng [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) đại diện cho đường geometry của một đối tượng [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/).
-* Để lấy [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) từ một thể hiện của [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/), hãy sử dụng phương thức [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/get_geometry_paths/).
-* Để đặt [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) cho một hình dạng, sử dụng [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/set_geometry_path/) cho *solid shapes* và [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/set_geometry_paths/) cho *composite shapes*.
-* Để thêm các đoạn, sử dụng các phương thức trên lớp [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/).
-* Sử dụng các thuộc tính [GeometryPath.stroke](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/stroke/) và [GeometryPath.fill_mode](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/fill_mode/) để điều khiển cách hiển thị của đường geometry.
-* Sử dụng thuộc tính [GeometryPath.path_data](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/path_data/) để lấy đường geometry của một hình dạng dưới dạng mảng các đoạn path.
+* Một thể hiện [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) đại diện cho một đường dẫn hình học của đối tượng [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
+* Để lấy [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) từ thể hiện [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/), bạn có thể sử dụng phương thức [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
+* Để đặt [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) cho một hình, bạn có thể sử dụng các phương thức: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) cho các hình có một đường và [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) cho các hình có nhiều đường.
+* Để thêm các đoạn, bạn có thể sử dụng các phương thức dưới [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+* Bằng cách sử dụng các thuộc tính [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) và [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/), bạn có thể đặt kiểu hiển thị cho một đường dẫn hình học.
+* Bằng cách sử dụng thuộc tính [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/), bạn có thể lấy đường dẫn hình học của một [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) dưới dạng một mảng các đoạn đường.
 
 ## **Các thao tác chỉnh sửa đơn giản**
 
-Các phương thức sau được sử dụng cho các thao tác chỉnh sửa đơn giản.
+Sử dụng các phương thức sau để chỉnh sửa một đường dẫn hình học. Các phiên bản chấp nhận chỉ mục sẽ chèn một đoạn tại vị trí bắt đầu từ 0 trong mảng đoạn của đường dẫn.
 
-**Thêm một đường thẳng** vào cuối một path:
+| Thao tác | Phương thức |
+| --- | --- |
+| Thêm hoặc chèn một đường thẳng. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| Thêm hoặc chèn một đường cong Bézier bậc ba với hai điểm điều khiển và một điểm cuối. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Thêm hoặc chèn một đường cong Bézier bậc hai với một điểm điều khiển và một điểm cuối. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Thêm một cung elip với kích thước và góc đã chỉ định tính bằng độ. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Đóng hình hiện tại bằng cách nối điểm cuối của nó với điểm bắt đầu. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Đặt điểm bắt đầu của một hình. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Xóa một đoạn tại chỉ mục bắt đầu từ 0. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
-```py
-line_to(point)
-line_to(x, y)
-```
+## **Thêm các điểm tùy chỉnh vào một hình**
 
-**Thêm một đường thẳng** tại vị trí chỉ định trong một path:
+Ví dụ này chèn hai điểm vào một hình chữ nhật bằng cách sử dụng [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) và áp dụng đường đã chỉnh sửa với [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Các tọa độ là nội bộ của hình: cả hai điểm mới đều nằm ở trung tâm của nó, cách lề trái 100 điểm và cách lề trên 50 điểm. Các chỉ mục đoạn 1 và 4 đặt chúng trên các cạnh trên và dưới, kéo các cạnh đó vào trong.
 
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
-
-**Thêm một đường cong Bezier bậc ba** vào cuối một path:
-
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-**Thêm một đường cong Bezier bậc ba** tại vị trí chỉ định trong một path:
-
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-**Thêm một đường cong Bezier bậc hai** vào cuối một path:
-
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-**Thêm một đường cong Bezier bậc hai** tại vị trí chỉ định trong một path:
-
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-**Gắn một cung** vào một path:
-
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-**Đóng hình hiện tại** trong một path:
-
-```py
-close_figure()
-```
-
-**Đặt vị trí cho điểm tiếp theo**:
-
-```py
-move_to(point)
-move_to(x, y)
-```
-
-**Xóa đoạn path** tại một chỉ mục cho trước:
-
-```py
-remove_at(index)
-```
-
-## **Thêm các điểm tùy chỉnh vào hình dạng**
-
-Ở đây bạn sẽ học cách định nghĩa một hình dạng tự do bằng cách thêm chuỗi các điểm của riêng bạn. Bằng cách chỉ định các điểm có thứ tự và loại đoạn (thẳng hoặc cong) và tùy chọn đóng path, bạn có thể vẽ các đồ họa tùy chỉnh chính xác—đa giác, biểu tượng, chú thích, hoặc logo—trực tiếp trên slide của mình.
-
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/) và đặt kiểu của nó thành [ShapeType.RECTANGLE](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapetype/).
-2. Lấy một thể hiện [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) từ hình dạng.
-3. Chèn một điểm mới giữa hai điểm trên cùng của path.
-4. Chèn một điểm mới giữa hai điểm dưới cùng của path.
-5. Áp dụng path đã cập nhật cho hình dạng.
-
-Mã Python sau minh họa cách thêm các điểm tùy chỉnh vào một hình dạng:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +94,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Custom points](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-##  **Xóa các điểm khỏi hình dạng**
+## **Xóa các điểm khỏi một hình**
 
-Đôi khi một hình dạng tùy chỉnh chứa các điểm không cần thiết gây phức tạp cho geometry hoặc ảnh hưởng đến cách hiển thị. Phần này hướng dẫn cách xóa các điểm cụ thể khỏi path của một hình dạng để bạn có thể đơn giản hoá đường viền và đạt được kết quả sạch sẽ, chính xác hơn.
+Ví dụ này thay đổi đường viền hình tim bằng cách xóa đoạn tại chỉ mục bắt đầu từ 0 là 2 với [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Áp dụng đường đã sửa đổi với [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) sẽ cập nhật đường viền của hình.
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/) và đặt kiểu của nó thành [ShapeType.HEART](https://reference.aspose.com/slides/vi/python-net/aspose.slides/shapetype/).
-2. Lấy một thể hiện [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) từ hình dạng.
-3. Xóa một đoạn khỏi path.
-4. Áp dụng path đã cập nhật cho hình dạng.
-
-Mã Python sau minh họa cách xóa các điểm khỏi một hình dạng:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +114,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example2_image](custom_shape_2.png)
 
-![Removed points](custom_shape_2.png)
+## **Tạo một hình tùy chỉnh**
 
-##  **Tạo hình dạng tùy chỉnh**
+Ví dụ này xây dựng một ngôi sao năm cánh bằng [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Các bán kính ngoài và trong xen kẽ 100 và 50 điểm xác định các đầu nhọn và các vết lõm; bước 72 độ làm cho năm đầu nhọn được cách đều nhau. Đường được đóng bằng [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) và áp dụng vào một hình chữ nhật bằng [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), thay thế đường viền ban đầu.
 
-Tạo các hình vector độc đáo bằng cách định nghĩa một [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/) và cấu thành nó từ các đường thẳng, cung và đường cong Bézier. Phần này chỉ ra cách xây dựng một geometry tùy chỉnh từ đầu và thêm hình dạng kết quả vào slide của bạn.
-
-1. Tính toán các điểm cho hình dạng.
-2. Tạo một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/).
-3. Điền các điểm vào path.
-4. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/).
-5. Áp dụng path cho hình dạng.
-
-Mã Python sau minh họa cách tạo một hình dạng tùy chỉnh:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +154,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example3_image](custom_shape_3.png)
 
-![Custom shape](custom_shape_3.png)
+## **Tạo một hình hợp thành tùy chỉnh**
 
-## **Tạo các hình dạng tùy chỉnh ghép hợp**
+Ví dụ này định nghĩa hai đối tượng [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) đóng cho phần trên và phần dưới của một hình. Áp dụng cả hai đường bằng [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) tạo ra một hình hợp thành duy nhất với một khoảng trống ở phần giữa của nó.
 
-Tạo một hình dạng tùy chỉnh ghép hợp cho phép bạn kết hợp nhiều đường geometry thành một hình dạng duy nhất, có thể tái sử dụng trên slide. Định nghĩa và hợp nhất các path này để xây dựng các hình ảnh phức tạp vượt qua bộ hình dạng tiêu chuẩn.
-
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/).
-2. Tạo thể hiện đầu tiên của lớp [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/).
-3. Tạo thể hiện thứ hai của lớp [GeometryPath](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometrypath/).
-4. Áp dụng cả hai path cho hình dạng.
-
-Mã Python sau minh họa cách tạo một hình dạng tùy chỉnh ghép hợp:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +171,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![example4_image](custom_shape_4.png)
 
-![Composite shape](custom_shape_4.png)
+## **Tạo một hình tùy chỉnh với các góc cong**
 
-## **Tạo các hình dạng tùy chỉnh với các góc cong**
+Ví dụ này kết hợp các đoạn thẳng với [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) để tạo một hình có các góc cong vào trong. Kích thước mỗi góc đặt chiều rộng và chiều cao của cung tính bằng điểm, và góc quét -90 độ vẽ một phần tư elip ngược chiều kim đồng hồ. Đường đã hoàn thành được áp dụng bằng [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), và bản trình bày được lưu ở định dạng PPTX.
 
-Phần này chỉ ra cách vẽ một hình dạng tùy chỉnh với các góc cong mượt mà bằng một geometry path. Bạn sẽ kết hợp các đoạn thẳng và các cung tròn để tạo ra đường viền và thêm hình dạng hoàn chỉnh vào slide.
-
-Mã Python sau minh họa cách tạo một hình dạng tùy chỉnh với các góc cong:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,66 +210,118 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Curved corners](custom_shape_6.png)
+## **Kiểm tra xem hình học của một hình có đóng không**
 
-## **Xác định liệu geometry của một hình dạng có bị đóng hay không**
+Trợ giúp sau kiểm tra xem mỗi đường hình học không rỗng có kết thúc bằng một đoạn đóng hay không. Nó đọc [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) và so sánh lệnh cuối cùng của đoạn với [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) so với [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Nó trả về false khi không có đường không rỗng. Kiểm tra này chỉ xem lệnh cuối của mỗi đường; nó không kiểm tra mọi tiểu hình bên trong một đường. Ví dụ in ra `True` cho một hình chữ nhật.
 
-Một hình dạng đóng được định nghĩa là hình mà tất cả các cạnh của nó kết nối với nhau, tạo thành một ranh giới duy nhất không có khoảng trống. Hình dạng như vậy có thể là một hình học đơn giản hoặc một đường viền tùy chỉnh phức tạp. Đoạn mã dưới đây cho thấy cách kiểm tra xem geometry của một hình dạng có bị đóng hay không:
+```python
+import aspose.slides as slides
 
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
+
+## **Trích xuất và kiểm tra các phần tử hình**
+
+Sử dụng [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) để kiểm tra một hình hiện có như các phần tử chứa các điểm đường và kiểu điểm. Mỗi [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) trả về sẽ hiển thị các mảng [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) và [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Đại diện này hữu ích cho việc phân tích đường viền hoặc truyền hình học cho các công cụ vẽ tùy chỉnh.
+
+Ví dụ mở một bản trình bày, tìm hình geometry đầu tiên trực tiếp trên slide đầu tiên, và in ra các đoạn đường của nó. Sử dụng một bản trình bày chứa một hình có các đoạn thẳng và cong để xem cả hai loại đầu ra. Nó không tìm kiếm bên trong các nhóm.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Giữ lại loại đoạn, loại trừ các cờ.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Tiêu thụ cả hai điểm điều khiển và điểm cuối.
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+Các mảng tương ứng theo chỉ số: `points[i]` là một điểm và `types[i]` mô tả vai trò của nó. Kiểu `0` bắt đầu một hình, và kiểu `1` vẽ một đoạn từ điểm trước tới điểm hiện tại. Một đoạn Bézier bậc ba bắt đầu tại điểm cuối trước và sử dụng ba mục kiểu `3` liên tiếp: hai điểm điều khiển và sau đó là điểm cuối mới. Vòng lặp tiêu thụ ba mục này cùng nhau và kiểm tra điểm cuối để xác định đóng.
+
+Các kiểu điểm cũng chứa các cờ. Áp dụng mặt nạ `0x07` để xác định kiểu đoạn, và kiểm tra `0x80` riêng biệt để phát hiện một tiểu đường đóng. Ví dụ, `129` (`0x81`) có nghĩa là một điểm cuối đoạn line đóng một tiểu đường, và `131` (`0x83`) có nghĩa là một điểm cuối Bézier đóng một tiểu đường. So sánh giá trị thô chỉ với `1` hoặc `3` sẽ bỏ qua các trường hợp này. Các cờ khác, như gạch ngang (`0x10`) và dấu đánh dấu (`0x20`), không thay đổi kiểu đoạn cơ bản.
+
+**Tọa độ và biến đổi.** Các điểm được đo bằng điểm (1/72 inch), với X tăng sang bên phải và Y tăng xuống dưới. Đối với một hình không thuộc nhóm, các tọa độ đã trích xuất đã bao gồm vị trí [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) và [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) và phản ánh chiều rộng và chiều cao hiện tại của nó. Ví dụ, một hình chữ nhật không xoay tại `(100, 200)` với kích thước `120 × 80` có giới hạn đường viền `(100, 200)`–`(220, 280)`. Đừng cộng lại vị trí của hình một lần nữa. Trừ X và Y của nó để có được tọa độ tương đối với khung không xoay.
+
+Các điểm đã trích xuất không áp dụng việc xoay [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) hoặc lật ngang và dọc của hình. Để tái tạo đường viền hiển thị, hãy áp dụng các biến đổi này quanh trung tâm của hình. Đối với các hình trong nhóm, cũng cần tính tới ánh xạ và biến đổi tọa độ của nhóm; đừng giả định rằng các điểm đã trích xuất là tọa độ cuối cùng trên slide hoặc áp dụng một phép dịch hoặc tỉ lệ đôi khi đã được phản ánh trong khung của đối tượng con.
+
+**Kiểm tra so với chỉnh sửa.** Các mảng đã trích xuất mô tả đường viền; việc thay đổi chúng không cập nhật hình gốc. Chọn cách tiếp cận này khi phân tích hoặc mã vẽ của bạn cần các mảng điểm/kiểu. Sử dụng [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) khi bạn cần các lệnh hình học trong hệ tọa độ cục bộ của hình hoặc muốn chỉnh sửa hình học của nó. Áp dụng các đường đã chỉnh sửa qua [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) hoặc [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
 
 ## **FAQ**
 
-**Điều gì sẽ xảy ra với màu nền và viền sau khi thay thế geometry?**
+**Điều gì sẽ xảy ra với màu nền và đường viền sau khi thay thế hình học?**
 
-Kiểu dáng vẫn giữ với hình dạng; chỉ có đường viền thay đổi. Màu nền và viền sẽ tự động được áp dụng cho geometry mới.
+Kiểu vẫn giữ nguyên trên hình; chỉ đường viền thay đổi. Màu nền và đường viền sẽ tự động được áp dụng cho hình học mới.
 
-**Làm thế nào để xoay một hình dạng tùy chỉnh cùng với geometry của nó một cách đúng?**
+**Làm sao để xoay đúng một hình tùy chỉnh cùng với hình học của nó?**
 
-Sử dụng thuộc tính [rotation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/geometryshape/rotation/) của hình dạng; geometry sẽ quay cùng với hình dạng vì nó được gắn vào hệ tọa độ của chính hình dạng.
+Sử dụng thuộc tính [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) của hình; hình học sẽ xoay cùng với hình vì nó gắn vào hệ tọa độ của hình.
 
-**Tôi có thể chuyển đổi một hình dạng tùy chỉnh thành hình ảnh để "khóa" kết quả không?**
+**Tôi có thể chuyển đổi một hình tùy chỉnh sang ảnh để \"khóa\" kết quả không?**
 
-Có. Xuất khu vực [slide](/slides/vi/python-net/convert-powerpoint-to-png/) cần thiết hoặc chính [shape](/slides/vi/python-net/create-shape-thumbnails/) sang định dạng raster; việc này sẽ đơn giản hoá công việc tiếp theo với các geometry phức tạp.
+Có. Xuất vùng [slide](/slides/vi/python-net/convert-powerpoint-to-png/) cần thiết hoặc [shape](/slides/vi/python-net/create-shape-thumbnails/) riêng sang định dạng raster; điều này đơn giản hoá việc làm việc tiếp theo với các hình học phức tạp.

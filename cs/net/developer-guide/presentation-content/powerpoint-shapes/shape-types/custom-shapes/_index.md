@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení tvarů prezentací v .NET
+title: Přizpůsobení tvarů prezentace v .NET
 linktitle: Vlastní tvar
 type: docs
 weight: 20
@@ -10,11 +10,11 @@ keywords:
 - vytvořit tvar
 - změnit tvar
 - geometrie tvaru
-- cesta geometrie
+- geometrická cesta
 - body cesty
-- upravit body
+- editační body
 - přidat bod
-- odebrat bod
+- odstranit bod
 - operace úpravy
 - zakřivený roh
 - PowerPoint
@@ -22,244 +22,190 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte tvary v prezentacích PowerPoint pomocí Aspose.Slides pro .NET: geometrické cesty, zakřivené rohy, kompozitní tvary."
+description: "Vytvářejte a přizpůsobujte tvary v PowerPoint prezentacích pomocí Aspose.Slides pro .NET: geometrické cesty, zakřivené rohy, složené tvary."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak přizpůsobit tvary v prezentaci v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s `GeometryPath` a `IGeometryPath` k úpravě existujících tvarů, provádění základních operací úpravy cest, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
+Tento článek vysvětluje, jak přizpůsobit tvary prezentace v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) pro úpravu existujících tvarů, provádění základních operací úprav cest, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
 
-Také demonstruje, jak vytvářet vlastní a kompozitní tvary, vytvářet tvary se zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, a převádět mezi `GeometryPath` a `GraphicsPath` pro další scénáře přizpůsobení geometrie.
+Také ukazuje, jak vytvořit vlastní a složené tvary, sestavit tvary se zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, a použít starší konverzi mezi [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) pro další scénáře přizpůsobení geometrie.
 
 ## **Změna tvaru pomocí editačních bodů**
 
-Zvažte čtverec. V PowerPointu, pomocí **edit points**, můžete
+V PowerPoint můžete použít **Edit Points** k úpravě čtverce:
 
-* přesunout roh čtverce dovnitř nebo ven
-* specifikovat zakřivení rohu nebo bodu
-* přidat nové body do čtverce
-* manipulovat body na čtverci atd.
+* Posunout roh dovnitř nebo ven.
+* Upravit zakřivení v bodě.
+* Přidat nové body.
 
-V podstatě můžete provádět popsané úkoly na libovolném tvaru. Používáním edit points můžete změnit tvar nebo vytvořit nový tvar z existujícího tvaru.
+Úprava bodů vám umožní změnit obrys tvaru nebo použít existující tvar jako základ pro nový.
 
 ## **Tipy pro úpravu tvarů**
 
-![prehled_obrazek](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Než začnete upravovat tvary v PowerPointu pomocí edit points, můžete zvážit následující body o tvarech:
+Při úpravě tvarů PowerPointu mějte na paměti následující pojmy:
 
-* Tvar (nebo jeho cesta) může být buď uzavřený, nebo otevřený.
-* Všechny tvary se skládají alespoň ze 2 ukotvovacích bodů spojených čarami
-* Čára je buď rovná, nebo zakřivená. Ukotvovací body určují charakter čáry. 
-* Ukotvovací body existují jako rohové body, rovné body nebo hladké body:
-  * Rohový bod je bod, kde se dva rovné segmenty setkávají pod úhlem. 
-  * Hladký bod je bod, kde jsou dva ovládací výběry (handle) na jedné přímce a segmenty čáry se spojují plynulou křivkou. V tomto případě jsou všechny ovládací výběry od ukotvovacího bodu vzdáleny stejně. 
-  * Rovný bod je bod, kde jsou dva ovládací výběry na jedné přímce a segmenty čáry se spojují plynulou křivkou. V tomto případě nemusí být ovládací výběry od ukotvovacího bodu vzdáleny stejně. 
-* Přesunem nebo úpravou ukotvovacích bodů (což mění úhel čar) můžete změnit vzhled tvaru. 
+* Tvar (nebo jeho cesta) může být buď uzavřená, nebo otevřená.
+* Cesta tvaru se skládá z kotevních bodů spojených segmenty.
+* Segment může být přímý nebo zakřivený. Kotevní body a řídící úchyty určují jeho tvar.
+* Kotevní body existují jako rohové body, přímé body nebo hladké body:
+  * U rohového bodu se sousední segmenty mohou setkat pod úhlem.
+  * U hladkého bodu jsou dva řídící úchyty zarovnány a stejně vzdáleny od kotevního bodu.
+  * U přímého bodu jsou dva řídící úchyty zarovnány, ale mohou mít různou vzdálenost od kotevního bodu.
+* Posun kotevních bodů nebo úprava jejich úchytů mění obrys tvaru.
 
-To edit PowerPoint shapes through edit points, **Aspose.Slides** provides the [**GeometryPath**](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) class and [**IGeometryPath**](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometrypath) interface. 
+Pro úpravu tvarů PowerPointu pomocí editačních bodů poskytuje **Aspose.Slides** třídu [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a rozhraní [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
 
-* Instance třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape). 
-* Chcete-li získat `GeometryPath` z instance `IGeometryShape`, můžete použít metodu [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/methods/getgeometrypaths). 
-* Chcete-li nastavit `GeometryPath` pro tvar, můžete použít tyto metody: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/methods/setgeometrypath) pro *solid shapes* a [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometryshape/methods/setgeometrypaths) pro *composite shapes*.
-* Pro přidání segmentů můžete použít metody pod [IGeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometrypath). 
-* Pomocí vlastností [IGeometryPath.Stroke](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometrypath/properties/stroke) a [IGeometryPath.FillMode](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometrypath/properties/fillmode) můžete nastavit vzhled geometrické cesty.
-* Pomocí vlastnosti [IGeometryPath.PathData](https://reference.aspose.com/slides/cs/net/aspose.slides/igeometrypath/properties/pathdata) můžete získat geometrickou cestu objektu `GeometryShape` jako pole segmentů cesty. 
-* Pro přístup k dalším možnostem přizpůsobení geometrie tvaru můžete převést [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) na [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0)
-* Použijte metody [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cs/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) (z třídy [ShapeUtil](https://reference.aspose.com/slides/cs/net/aspose.slides.util/shapeutil)) k převodu [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) na [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) a zpět. 
+* Instanci [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/).
+* Pro získání [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) z instance [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) můžete použít metodu [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/).
+* Pro nastavení [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) pro tvar můžete použít tyto metody: [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) pro tvary s jednou cestou a [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) pro tvary s více cestami.
+* Pro přidání segmentů můžete použít metody pod rozhraním [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/).
+* Pomocí vlastností [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) a [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) můžete nastavit vzhled geometrické cesty.
+* Pomocí vlastnosti [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) můžete získat geometrickou cestu [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) jako pole segmentů cesty.
+* Ve starších verzích, které podporují níže uvedené konverzní metody, můžete převést [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) na [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
+* Použijte metody [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) (z třídy [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/)) pro konverzi mezi [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) a [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath).
 
-## **Jednoduché operace úpravy**
+## **Jednoduché operace úprav**
 
-Tento C# kód vám ukazuje, jak
+Použijte následující metody k úpravě geometrické cesty. Přetížené verze, které přijímají index, vloží segment na tuto nulově založenou pozici v poli segmentů cesty.
 
-**Přidat čáru** na konec cesty
-
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Přidat čáru** na určenou pozici v cestě:
-
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```
-**Přidat kubickou Bézierovu křivku** na konec cesty:
-
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Přidat kubickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```
-**Přidat kvadratickou Bézierovu křivku** na konec cesty:
-
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Přidat kvadratickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```
-**Přidat daný oblouk** do cesty:
-
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Uzavřít aktuální figuru** cesty:
-
-``` csharp
-void CloseFigure();
-```
-**Nastavit pozici pro další bod**:
-
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Odstranit segment cesty** na daném indexu:
-
-``` csharp
-void RemoveAt(int index);
-```
+| Operace | Metoda |
+| --- | --- |
+| Přidat nebo vložit přímou čáru. | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| Přidat nebo vložit kubickou Bézierovu křivku se dvěma řídícími body a koncovým bodem. | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| Přidat nebo vložit kvadratickou Bézierovu křivku s jedním řídícím bodem a koncovým bodem. | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| Přidat eliptický oblouk se zadanými rozměry a úhly ve stupních. | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| Uzavřít aktuální obrazec propojením koncového bodu se startovním bodem. | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| Nastavit výchozí bod obrazce. | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| Odstranit segment na nulově založeném indexu. | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
 ## **Přidání vlastních bodů do tvaru**
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/geometryshape) a nastavte typ [ShapeType.Rectangle](https://reference.aspose.com/slides/cs/net/aspose.slides/shapetype).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) ze tvaru.
-3. Přidejte nový bod mezi dva horní body na cestě.
-4. Přidejte nový bod mezi dva dolní body na cestě.
-5. Aplikujte cestu na tvar.
+Tento příklad vloží dva body do pravoúhlého tvaru pomocí [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) a aplikuje upravenou cestu pomocí [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/). Souřadnice jsou lokální k tvaru: oba nové body jsou ve středu, 100 bodů od levého okraje a 50 bodů od horního. Indexy segmentů 1 a 4 je umístí na horní a dolní hranu, čímž tyto hrany stáhnou dovnitř.
 
-Tento C# kód vám ukazuje, jak přidat vlastní body do tvaru:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
+
+shape.SetGeometryPath(geometryPath);
 ```
 
-![priklad1_obrazek](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
 ## **Odstranění bodů z tvaru**
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/geometryshape) a nastavte typ [ShapeType.Heart](https://reference.aspose.com/slides/cs/net/aspose.slides/shapetype).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) ze tvaru.
-3. Odstraňte segment cesty.
-4. Aplikujte cestu na tvar.
+Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nulově založeném indexu 2 pomocí [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/). Aplikace upravené cesty pomocí [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) aktualizuje konturu tvaru.
 
-Tento C# kód vám ukazuje, jak odstranit body z tvaru:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
-![priklad2_obrazek](custom_shape_2.png)
+![example2_image](custom_shape_2.png)
 
 ## **Vytvoření vlastního tvaru**
 
-1. Vypočítejte body pro tvar.
-2. Vytvořte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath).
-3. Naplněte cestu body.
-4. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/geometryshape).
-5. Aplikujte cestu na tvar.
+Tento příklad vytvoří pěticípou hvězdu pomocí [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a rezy; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) a aplikována na pravoúhlý tvar pomocí [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), čímž nahradí jeho obrys.
 
-Tento C# kód vám ukazuje, jak vytvořit vlastní tvar:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-``` csharp
-List<PointF> points = new List<PointF>();
+var points = new List<PointF>();
 
-float R = 100, r = 50;
-int step = 72;
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
-![priklad3_obrazek](custom_shape_3.png)
+![example3_image](custom_shape_3.png)
 
-## **Vytvoření kompozitního vlastního tvaru**
+## **Vytvoření složeného vlastního tvaru**
 
-  1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/geometryshape).
-  2. Vytvořte první instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath).
-  3. Vytvořte druhou instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath).
-  4. Aplikujte cesty na tvar.
+Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) pro horní a dolní třetinu tvaru. Aplikace obou cest pomocí [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) vytvoří jeden složený tvar s mezerou ve střední třetině.
 
-Tento C# kód vám ukazuje, jak vytvořit kompozitní vlastní tvar:
+```csharp
+using Aspose.Slides;
 
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-![priklad4_obrazek](custom_shape_4.png)
+![example4_image](custom_shape_4.png)
 
 ## **Vytvoření vlastního tvaru se zakřivenými rohy**
 
-Tento C# kód vám ukazuje, jak vytvořit vlastní tvar se zakřivenými rohy (dovnitř);
+Tento příklad kombinuje přímé segmenty s [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) k vytvoření tvaru se zakřivenými rohy dovnitř. Každá velikost rohu určuje šířku a výšku oblouku v bodech a úhel –90 stupňů vykreslí proti směru hodinových ručiček čtvrtkruh. Dokončená cesta je aplikována pomocí [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/), a prezentace je uložena ve formátu PPTX.
 
-```c#
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -270,102 +216,177 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Zjistit, zda je geometrie tvaru uzavřená**
 
-Uzavřený tvar je definován jako takový, kde všechny jeho strany jsou propojeny, tvoří jeden okraj bez mezer. Takový tvar může být jednoduchý geometrický útvar nebo složitý vlastní obrys. Následující ukázka kódu ukazuje, jak zkontrolovat, zda je geometrie tvaru uzavřená:
+Následující pomocná metoda kontroluje, zda každá neprázdná geometrická cesta končí uzavíracím segmentem. Čte [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) a porovnává poslední segmentů [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) s [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/). Vrátí false, když neexistují neprázdné cesty. Tato kontrola zkoumá poslední příkaz každé cesty; neinspekcovaně zkoumá všechny podobrazce uvnitř cesty. Příklad vypíše `True` pro pravoúhlý tvar.
 
-```cs
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
 
-## **Převod GeometryPath na GraphicsPath (System.Drawing.Drawing2D)** 
+## **Extrahování a inspekce prvků tvaru**
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/net/aspose.slides/geometryshape).
-2. Vytvořte instanci třídy [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) z namespace [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0).
-3. Převěďte instanci [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) na instanci [GeometryPath](https://reference.aspose.com/slides/cs/net/aspose.slides/geometrypath) pomocí třídy [ShapeUtil](https://reference.aspose.com/slides/cs/net/aspose.slides.util/shapeutil).
-4. Aplikujte cesty na tvar.
+Použijte [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) k prozkoumání existujícího tvaru jako prvků obsahujících body cesty a typy bodů. Přetypujte každý vrácený [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) a přečtěte jeho pole [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) a [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/). Toto znázornění je užitečné pro analýzu kontur nebo předání geometrie vlastním kreslicím nástrojům.
 
-Tento C# kód — implementace výše uvedených kroků — ukazuje proces převodu **GeometryPath** na **GraphicsPath**:
+Příklad otevře prezentaci, najde první geometrický tvar přímo na první snímku a vypíše jeho segmenty cesty. Použijte prezentaci obsahující tvar s přímými i zakřivenými segmenty, abyste viděli oba typy výstupu. Neprohledává skupiny.
 
-``` csharp
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
 {
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
 
-    GraphicsPath gPath = new GraphicsPath();
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // Zachovat typ segmentu, vynechat příznaky.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // Consume both control points and the endpoint.
+                break;
+        }
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
-
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
-
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
 }
 ```
-![priklad5_obrazek](custom_shape_5.png)
+
+Pole odpovídají podle indexu: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` zahajuje obrazec a typ `1` kreslí čáru z předchozího bodu do aktuálního. Kubický Bézier segment začíná na předchozím koncovém bodu a používá tři po sobě jdoucí položky typu `3`: dva řídící body a následně nový koncový bod. Smyčka spotřebuje tyto tři položky najednou a kontroluje koncový bod pro uzavření.
+
+Typy bodů také obsahují příznaky. Pomocí masky `0x07` zjistíte typ segmentu a samostatně testujte `0x80` pro detekci uzavřeného podcesty. Například `129` (`0x81`) znamená koncový bod line, který uzavírá podcestu, a `131` (`0x83`) znamená koncový bod Bézieru, který uzavírá podcestu. Porovnání surové hodnoty jen s `1` nebo `3` by tyto případy přehlédlo. Ostatní příznaky, jako pomlčka (`0x10`) a značka (`0x20`), nezmění základní typ segmentu.
+
+**Souřadnice a transformace.** Body jsou měřeny v bodech (1/72 palce), přičemž X roste doprava a Y dolů. U negruoupovaného tvaru již extrahované souřadnice zahrnují jeho [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) a [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) pozici a odrážejí jeho aktuální šířku a výšku. Například neotočený pravoúhlý tvar na `(100, 200)` s velikostí `120 × 80` má obrysové hranice `(100, 200)`–`(220, 280)`. Nepřičítávejte pozici tvaru znovu. Odečtěte jeho X a Y, abyste získali souřadnice relativní k neotočenému rámu.
+
+Extrahované body neaplikují rotaci tvaru ([Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/)) ani horizontální a vertikální převrácení. Pro reprodukci zobrazeného obrysu aplikujte tyto transformace kolem středu tvaru. U seskupených tvarů také zohledněte mapování a transformace souřadnic skupiny; nepředpokládejte, že extrahované body jsou finální souřadnice na snímku, ani je nepřidávejte ani neskalujte dvakrát, pokud jsou již zahrnuty v rámci dítěte.
+
+**Inspekce versus úprava.** Extrahovaná pole popisují konturu; jejich změna neaktualizuje původní tvar. Použijte tento přístup, když vaše analýza nebo kreslicí kód potřebuje pole bodů/typů. Když potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete editovat jeho geometrii, použijte [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/). Upravené cesty aplikujte pomocí [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) nebo [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/).
+
+## **Převod GeometryPath na GraphicsPath (System.Drawing.Drawing2D)**
+
+Následující příklad vyžaduje starší sestavení Aspose.Slides for .NET, které podporuje [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/), například verzi 25.10, a Windows prostředí s `System.Drawing.Common`. Konverzní metody byly odebrány ve [verzi 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/).
+
+Tento příklad kombinuje pravoúhlý obrys s textem převedeným na geometrii. Obrysovi [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) je nastaveno, aby zakázalo vyplnění. [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) ukládá obrys textu, který [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) převádí na vyplněnou geometrickou cestu. Aplikace obou cest pomocí [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) vytvoří jeden tvar obsahující obdélník i text. Pro převod opačným směrem použijte [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/).
+
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
+
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
+
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
+```
+![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
 **Co se stane s výplní a obrysem po nahrazení geometrie?**
 
-Styl zůstává u tvaru; mění se pouze kontura. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
+Styl zůstane u tvaru; mění se jen kontura. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
 
 **Jak správně otočit vlastní tvar spolu s jeho geometrií?**
 
-Použijte vlastnost [rotation](https://reference.aspose.com/slides/cs/net/aspose.slides/shape/rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána se souřadnicovým systémem tvaru.
+Použijte vlastnost [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s jeho vlastním souřadnicovým systémem.
 
-**Mohu převést vlastní tvar na obrázek, aby byl výsledek „zamčen“?**
+**Mohu převést vlastní tvar na obrázek, aby byl „uzamčen“ výsledek?**
 
-Ano. Exportujte požadovanou oblast [slide](/slides/cs/net/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/net/create-shape-thumbnails/) do rastrového formátu; to usnadňuje další práci s těžkými geometriemi.
+Ano. Exportujte požadovanou [slide](/slides/cs/net/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/net/create-shape-thumbnails/) do rastrového formátu; to usnadní další práci s komplexními geometriemi.

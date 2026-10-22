@@ -1,17 +1,17 @@
 ---
-title: Alakzatok testreszabása PowerPoint prezentációkban C++-ban
-linktitle: Egyedi alakzat
+title: Prezentációs alakzatok testreszabása C++-ban
+linktitle: Egyéni alakzat
 type: docs
 weight: 20
 url: /hu/cpp/custom-shape/
 keywords:
-- egyedi alakzat
+- egyéni alakzat
 - alakzat hozzáadása
 - alakzat létrehozása
 - alakzat módosítása
-- alakzat geometriája
-- geometriai útvonal
-- útvonal pontok
+- alakzat geometria
+- geometriai út
+- út pontok
 - szerkesztési pontok
 - pont hozzáadása
 - pont eltávolítása
@@ -21,129 +21,88 @@ keywords:
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for C++ segítségével: geometriai útvonalak, ívelt sarkok, összetett alakzatok."
+description: "Alakzatok létrehozása és testreszabása PowerPoint prezentációkban az Aspose.Slides for C++ segítségével: geometriai utak, ívelt sarkok, összetett alakzatok."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet testreszabni a megjelenítési alakzatokat az Aspose.Slides-ban úgy, hogy a forma geometriáját szerkesztési pontokkal és geometriai útvonalakkal módosítjuk. Megmutatja, hogyan kell a `GeometryPath` és az `IGeometryPath` segítségével meglévő alakzatokat módosítani, alapvető útvonal‑szerkesztési műveleteket végezni, pontokat hozzáadni vagy eltávolítani, és a frissített geometriát visszaalkalmazni egy alakzatra.
+Ez a cikk elmagyarázza, hogyan lehet testreszabni a prezentáció alakzatokat az Aspose.Slides-ban, az alakzatgeometria szerkesztésével szerkesztési pontok és geometriai utak segítségével. Bemutatja, hogyan kell használni a [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) és a [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) elemeket a meglévő alakzatok módosításához, alapvető út szerkesztési műveletek végrehajtásához, pontok hozzáadásához vagy eltávolításához, és a frissített geometria visszaalkalmazásához egy alakzatra.
+
+Emellett bemutatja, hogyan lehet egyéni és összetett alakzatokat létrehozni, ívelt sarkokkal rendelkező alakzatokat építeni, valamint meghatározni, hogy egy alakzat geometria zárt‑e.
 
 ## **Alakzat módosítása szerkesztési pontokkal**
-Tekintsünk egy négyzetet. A PowerPointban a **szerkesztési pontok** használatával a következőket tehetjük:
 
-* a négyzet sarkát befelé vagy kifelé mozgathatjuk
-* megadhatjuk egy sarok vagy pont görbületét
-* új pontokat adhatunk a négyzethez
-* a négyzet pontjait manipulálhatjuk, stb.
+PowerPointban a **Edit Points** segítségével módosíthat egy négyzetet:
 
-Lényegében a leírt feladatokat bármely alakzatra elvégezhetjük. A szerkesztési pontok segítségével módosíthatunk egy alakzatot, vagy létrehozhatunk egy új alakzatot egy meglévőből.
+* Egy sarkot befelé vagy kifelé mozgathat.
+* Egy pont görbületét állíthatja.
+* Új pontokat adhat hozzá.
+
+A szerkesztési pontok használata lehetővé teszi az alakzat körvonalának módosítását vagy egy meglévő alakzat alapul vételét egy újhoz.
 
 ## **Alakzat szerkesztési tippek**
 
 ![overview_image](custom_shape_0.png)
 
-Mielőtt elkezdené szerkeszteni a PowerPoint‑alakzatokat szerkesztési pontokkal, vegye figyelembe a következőket az alakzatokról:
+PowerPoint alakzatok szerkesztésekor tartsa szem előtt a következő fogalmakat:
 
-* Egy alakzat (vagy annak útvonala) lehet lezárt vagy nyitott.
-* Ha egy alakzat lezárt, nincs kezdő‑ vagy végpontja. Ha nyitott, van kezdő‑ és végpontja. 
-* Minden alakzat legalább 2 horgonypontból áll, amelyeket vonalak kötnek össze.
-* Egy vonal lehet egyenes vagy ívelt. A horgonypontok határozzák meg a vonal típusát. 
-* A horgonypontok létezhetnek sarokpontként, egyenespontként vagy sima pontként:
-  * Egy sarokpont az a pont, ahol 2 egyenes vonal egy szögnél találkozik. 
-  * Egy sima pont az a pont, ahol 2 fogantyú egy egyenes vonalban helyezkedik el, és a vonal szegmensei sima görbével csatlakoznak. Ebben az esetben minden fogantyú egyenlő távolságra van a horgonyponttól. 
-  * Egy egyenespont az a pont, ahol 2 fogantyú egy egyenes vonalban helyezkedik el, de a vonal szegmensei nem feltétlenül egyenlő távolságra csatlakoznak a horgonyponttól. 
-* A horgonypontok mozgatásával vagy szerkesztésével (amely megváltoztatja a vonalak szögét) megváltoztathatja az alakzat megjelenését. 
+* Egy alakzat (vagy annak útja) lehet zárt vagy nyitott.
+* Az alakzat útja horgonypontokból áll, amelyeket szegmensek kötnek össze.
+* Egy szegmens lehet egyenes vagy íves. A horgonypontok és a vezérlőkarok határozzák meg alakját.
+* A horgonypontok lehetnek sarokpontok, egyenes pontok vagy sima pontok:
+  * Sarokpont esetén a szomszédos szegmensek szöggel találkozhatnak.
+  * Sima pont esetén a két vezérlőkar egyvonalú és egyenlő távolságra van a horgonyponttól.
+  * Egyenes pont esetén a két vezérlőkar egyvonalú, de eltérő távolságra lehet a horgonyponttól.
+* A horgonypontok mozgatása vagy a karjaik állítása megváltoztatja az alakzat körvonalát.
 
-A PowerPoint‑alakzatok szerkesztéséhez szerkesztési pontokkal az **Aspose.Slides** a [**GeometryPath**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályt és a [**IGeometryPath**](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_path) interfészt biztosítja.
+A PowerPoint alakzatok szerkesztéséhez **Aspose.Slides** a [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) osztályt és az [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) interfészt biztosítja.
 
-* Egy [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) példány a [IGeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_shape) objektum geometriai útvonalát képviseli. 
-* A `GeometryPath` lekéréséhez a `IGeometryShape` példányból használja a [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1) metódust. 
-* Egy alakzat `GeometryPath`‑jének beállításához használja a következő metódusokat: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) *szilárd alakzatok* esetén és [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) *összetett alakzatok* esetén.
-* Szegmensek hozzáadásához használja a [IGeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_path) alatti metódusokat. 
-* A [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) és [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) metódusokkal állíthatja be a geometriai útvonal megjelenését.
-* A [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) metódus segítségével a `GeometryShape` útvonalát egy útvonal‑szegmensekből álló tömbként kérheti le. 
-* További alakzat‑geometria testreszabási lehetőségekhez konvertálhatja a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) objektumot egy [GraphicsPath](https://reference.aspose.com/slides/hu/cpp/class/system.drawing.drawing2_d.graphics_path) típusúra.
-* Használja a [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) és a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) metódusokat (a [ShapeUtil](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.util.shape_util) osztályból) a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) és a [GraphicsPath](https://reference.aspose.com/slides/hu/cpp/class/system.drawing.drawing2_d.graphics_path) közötti átalakításhoz mindkét irányban. 
+* A [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) példány egy [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) objektum geometriai útját képviseli.
+* A [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) példányból a [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) metódussal kérhető le a [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/).
+* Egy alakzat [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) beállításához használhatja a [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) metódust egyetlen út esetén, illetve a [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) metódust több út esetén.
+* Szegmensek hozzáadásához használhatja az [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) alatti metódusokat.
+* Az [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) és az [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) metódusokkal beállíthatja egy geometriai út megjelenését.
+* Az [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) metódussal lekérhető egy [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) geometriai útja szegmens tömbként.
 
 ## **Egyszerű szerkesztési műveletek**
 
-Ez a C++ kód megmutatja, hogyan lehet
+Használja az alábbi metódusokat egy geometriai út szerkesztéséhez. Az indexet elfogadó túlterhelések egy szegmenst szúrnak be a nullától indexelt pozícióba a szegmens tömbben.
 
-**Vonal hozzáadása** az útvonal végéhez
+| Művelet | Metódus |
+| --- | --- |
+| Egyenes vonal hozzáfűzése vagy beszúrása. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Két vezérlőponttal és egy végponttal rendelkező köb‑Bézier‑görbe hozzáfűzése vagy beszúrása. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Egy vezérlőponttal és egy végponttal rendelkező kvadratikus Bézier‑görbe hozzáfűzése vagy beszúrása. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Ellipszis ív hozzáfűzése a megadott méretekkel és fokban kifejezett szögekkel. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Az aktuális alakzat lezárása az végpont és a kezdőpont összekötésével. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Alakzat kezdőpontjának beállítása. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Szegmens eltávolítása a nullától indexelt pozícióban. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Vonal hozzáadása** egy meghatározott pozícióban az útvonalon:
+## **Egyéni pontok hozzáadása egy alakzathoz**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Köbös Bézier‑görbe hozzáadása** az útvonal végéhez:
+Ez a példa két pontot szúr be egy téglalap alakzatba a [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) segítségével, majd a módosított úttal a [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) alkalmazza azt. A koordináták az alakzathoz relatívak: mindkét új pont a középpontjában helyezkedik el, 100 pont nyugatra és 50 pont felfelé a bal felső saroktól. Az 1‑es és 4‑es szegmensindexek a felső és alsó szélén helyezik el őket, behúzva ezeket a széleket.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Köbös Bézier‑görbe hozzáadása** a megadott pozíción az útvonalon:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Másodfokú Bézier‑görbe hozzáadása** az útvonal végéhez:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Másodfokú Bézier‑görbe hozzáadása** egy meghatározott pozícióban az útvonalon:
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Megadott ív hozzáfűzése** az útvonalhoz:
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Az aktuális alakzat lezárása** az útvonalon:
-
-``` cpp
-void CloseFigure();
-```
-**A következő pont pozíciójának beállítása**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Az útvonal‑szegmens eltávolítása** egy adott indexnél:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-## **Egyedi pontok hozzáadása egy alakzathoz**
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_shape) osztályból, és állítsa be a [ShapeType.Rectangle](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) típust.
-2. Szerezzen egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályból az alakzatról.
-3. Adjon hozzá egy új pontot a két felső pont között az útvonalon.
-4. Adjon hozzá egy új pontot a két alsó pont között az útvonalon.
-5. Alkalmazza az útvonalat az alakzatra.
-
-Ez a C++ kód megmutatja, hogyan adhat hozzá egyedi pontokat egy alakzathoz:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
@@ -151,215 +110,337 @@ shape->SetGeometryPath(geometryPath);
 
 ## **Pontok eltávolítása egy alakzatról**
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_shape) osztályból, és állítsa be a [ShapeType.Heart](https://reference.aspose.com/slides/hu/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) típust. 
-2. Szerezzen egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályból az alakzatról.
-3. Távolítsa el a szegmenst az útvonalból.
-4. Alkalmazza az útvonalat az alakzatra.
+Ez a példa egy szív alakú körvonalat módosít azzal, hogy a 2‑es (nullától indexelt) szegmenst eltávolítja a [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) segítségével. A módosított út alkalmazása a [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) metódussal frissíti az alakzat kontúrját.
 
-Ez a C++ kód megmutatja, hogyan távolíthat el pontokat egy alakzatról:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Egyedi alakzat létrehozása**
+## **Egyéni alakzat létrehozása**
 
-1. Számolja ki az alakzat pontjait.
-2. Hozzon létre egy példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályból. 
-3. Töltse fel az útvonalat a pontokkal.
-4. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_shape) osztályból. 
-5. Alkalmazza az útvonalat az alakzatra.
+Ez a példa egy ötszögletű csillagot épít a [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) segítségével. A 100‑es és 50‑es pont méretű külső‑ és belső‑sugár váltakozása adja meg a csúcsokat és a bemetszéseket; a 72 fokos lépés egyenlően osztja el az öt csúcsot. Az út a [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) segítségével záródik, majd a [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) alkalmazásával egy téglalap alakzatra kerül, felülírva annak körvonalát.
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy egyedi alakzatot:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
+## **Összetett egyéni alakzat létrehozása**
 
-## **Összetett egyedi alakzat létrehozása**
+Ez a példa két zárt [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) objektumot definiál az alakzat felső és alsó harmadához. Mindkét út [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) segítségével való alkalmazása egyetlen összetett alakzatot hoz létre, melynek középső harmadában rés található.
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_shape) osztályból.
-2. Hozzon létre egy első példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályból.
-3. Hozzon létre egy második példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) osztályból.
-4. Alkalmazza az útvonalakat az alakzatra.
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy összetett egyedi alakzatot:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Egyedi alakzat létrehozása ívelt sarkokkal**
+## **Egyéni alakzat ívelt sarkokkal**
 
-Ez a C++ kód megmutatja, hogyan hozhat létre egy egyedi alakzatot ívelt sarkokkal (befelé):
+Ez a példa egyenes szegmenseket kombinál a [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) segítségével, hogy egy befelé ívelt sarkokkal rendelkező alakzatot hozzon létre. Minden sarokméret beállítja az ív szélességét és magasságát pontban, a -90 fokos ív pedig egy óramutatóval ellentétes negyed‑ellipszist rajzol. A kész út a [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) segítségével kerül alkalmazásra, és a bemutató PPTX formátumban mentésre kerül.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Megállapítás, hogy egy alakzat geometriája zárt-e**
+## **Megállapítás, hogy egy alakzat geometria zárt‑e**
 
-A zárt alakzat olyan, amelynek minden oldala összekapcsolódik, egyetlen határvonalat alkotva hézagok nélkül. Egy ilyen alakzat lehet egyszerű geometriai forma vagy összetett egyedi körvonal. Az alábbi kódrészlet bemutatja, hogyan ellenőrizheti, hogy egy alakzat geometriája zárt-e:
+Az alábbi segédfüggvény ellenőrzi, hogy minden nem üres geometriai út záró szegmenssel végződik‑e. A [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) adatot olvassa, és a végső szegmens [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) értékét a [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) típusúval hasonlítja össze. Hamis értéket ad vissza, ha nincs nem üres út. Ez a függvény az egyes utak végső parancsát ellenőrzi; nem vizsgálja meg az út minden részalakját. A példa `True` értéket ír ki egy téglalap esetén.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Alakzatelemek kinyerése és vizsgálata**
+
+Használja a [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) metódust egy meglévő alakzat elemeinek vizsgálatához, melyek útpontokat és ponttípusokat tartalmazó elemekként jelennek meg. A visszaadott [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) minden példányát alakítsa [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) típusra, hogy elérhesse a [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) és a [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) tömböket. Ez a reprezentáció hasznos kontúr‑elemzéshez vagy a geometria egyedi rajzolóeszközöknek való átadásához.
+
+A példa megnyit egy bemutatót, megtalálja az első geometriai alakzatot az első dián, és kiírja annak út szegmenseit. Használjon egy olyan bemutatót, amelynek alakzata egyenes és íves szegmenseket is tartalmaz, hogy mindkét kimenetet lássa. A csoporton belüli keresést a példa nem végzi.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Tartsa meg a szegmens típust, a flag-eket kihagyva.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Consume both control points and the endpoint.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **GeometryPath konvertálása GraphicsPath-re** 
+A tömbök index szerint egyeznek: `points[i]` egy pont, a `types[i]` pedig annak szerepét írja le. Az `0` típusú bejegyzés egy új figura kezdetét jelzi, az `1` típusú egy vonalat a korábbi pontból a jelenlegibe. Egy köb‑Bézier szegmens a korábbi végpontból indul, és három egymást követő `3` típusú bejegyzést használ: két vezérlőpontot, majd az új végpontot. A ciklus ezeket a három bejegyzést egyszerre fogyasztja, és a végpont zártságát ellenőrzi.
 
-1. Hozzon létre egy példányt a [GeometryShape](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_shape) osztályból.
-2. Hozzon létre egy példányt a [GraphicsPath](https://reference.aspose.com/slides/hu/cpp/class/system.drawing.drawing2_d.graphics_path) osztályból a [System.Drawing.Drawing2D](https://reference.aspose.com/slides/hu/cpp/namespace/system.drawing.drawing2_d) névtérben.
-3. Konvertálja a [GraphicsPath](https://reference.aspose.com/slides/hu/cpp/class/system.drawing.drawing2_d.graphics_path) példányt a [GeometryPath](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.geometry_path) példányra a [ShapeUtil](https://reference.aspose.com/slides/hu/cpp/class/aspose.slides.util.shape_util) segítségével.
-4. Alkalmazza az útvonalakat az alakzatra.
+A ponttípusok flag‑eket is tartalmazhatnak. Maszkáljon a `0x07` értékkel a szegmens típus azonosításához, és külön ellenőrizze a `0x80`‑at a zárt alútrész felismeréséhez. Például a `129` (`0x81`) egy olyan vonal‑végpont, amely zárja az alútrészt, míg a `131` (`0x83`) egy Bézier‑végpont, amely szintén zár. Ha csak a nyers értéket hasonlítja `1`‑hez vagy `3`‑as értékhez, ezeket a helyzeteket figyelmen kívül hagyja. Más flag‑ek, például a szaggatottság (`0x10`) vagy a marker (`0x20`), nem változtatják meg az alap szegmens típusát.
 
-Ez a C++ kód – a fenti lépések megvalósítása – demonstrálja a **GeometryPath**‑t **GraphicsPath**‑re történő konvertálási folyamatot:
+**Koordináták és transzformációk.** A pontok pontban vannak megadva (1/72 hüvelyk), az X jobbra, a Y lefelé növekszik. Nem csoportosított alakzat esetén a kinyert koordináták már tartalmazzák a [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) és [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) által visszaadott pozíciót, és tükrözik az aktuális szélességet és magasságot. Például egy forgatás nélküli téglalap `(100, 200)`‑nél, `120 × 80` mérettel, a kontúr határa `(100, 200)`–`(220, 280)`. Ne adja hozzá újra az alakzat pozícióját; vonja ki az X‑et és Y‑t a nem forgatott kerethez viszonyított koordinátákhoz.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+A kinyert pontok nem veszik figyelembe a [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) vagy a vízszintes és függőleges tükrözések által beállított forgatást. A megjelenített kontúr reprodukálásához ezeket a transzformációkat az alakzat középpontja körül alkalmazza. Csoportosított alakzatoknál számítson a csoportkoordináta-leképezésre és a transzformációkra is; ne feltételezze, hogy a kinyert pontok már a végleges diakép koordinátái, és ne alkalmazzon egy további eltolást vagy méretezést, ha már a gyermek keretben szerepelnek.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Vizsgálat vs. szerkesztés.** A kinyert tömbök a kontúrt írják le; ezek módosítása nem frissíti az eredeti alakzatot. Válassza ezt a megközelítést, ha a pont‑típus tömbökre van szüksége elemzéshez vagy saját rajzolókódhoz. Használja a [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) metódust, ha a geometriai parancsokra van szüksége az alakzat helyi koordináta‑rendszerében, vagy ha a geometria szerkesztése a cél. A szerkesztett utak alkalmazásához használja a [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) vagy a [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) metódusokat.
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **GeometryPath átalakítása GraphicsPath‑re**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+Az aktuális Aspose.Slides for C++ nyilvános API nem teszi közzé a geometriai utak és a graphics path‑ok közötti átalakításokat. Kontúrok vizsgálatához használja a fenti módon kinyert alakzatelemeket. Alakzat szerkesztéséhez használjon geometriai utakat, és alkalmazza a frissített utakat az alakzatra.
 
 ## **GYIK**
 
 **Mi történik a kitöltéssel és a körvonallal a geometria cseréje után?**
 
-A stílus megmarad az alakzattal; csak a kontúr változik. A kitöltés és a körvonal automatikusan az új geometriára kerül alkalmazásra.
+A stílus megmarad az alakzaton; csak a kontúr változik. A kitöltés és a körvonal automatikusan alkalmazásra kerül az új geometriára.
 
-**Hogyan lehet helyesen elforgatni egy egyedi alakzatot a geometriájával együtt?**
+**Hogyan forgassam helyesen az egyéni alakzatot a geometriai adatokkal együtt?**
 
-Használja az alakzat [rotation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/set_rotation/) tulajdonságát; a geometria az alakzattal együtt forog, mivel a saját koordináta‑rendszeréhez van kötve.
+Használja az alakzat [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) metódusát; a geometria a shape‑hez kapcsolódó koordináta‑rendszer miatt együtt forgik.
 
-**Átalakítható-e egy egyedi alakzat képpé a "lezáráshoz"?**
+**Átalakíthatom-e az egyéni alakzatot képpé a „lezáráshoz”?**
 
-Igen. Exportálja a szükséges [slide](/slides/hu/cpp/convert-powerpoint-to-png/) területet vagy magát a [shape](/slides/hu/cpp/create-shape-thumbnails/) elemet raszteres formátumba; ez leegyszerűsíti a nehéz geometriákkal való további munkát.
+Igen. Exportálja a szükséges [diát](/slides/hu/cpp/convert-powerpoint-to-png/) vagy a [alakzatot](/slides/hu/cpp/shape-thumbnails/) magát raszter formátumba; ez egyszerűsíti a komplex geometriákkal való további munkát.

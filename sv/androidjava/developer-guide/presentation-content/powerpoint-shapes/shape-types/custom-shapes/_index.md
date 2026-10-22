@@ -16,197 +16,145 @@ keywords:
 - lägga till punkt
 - ta bort punkt
 - redigeringsoperation
-- kurvat hörn
+- rundat hörn
 - PowerPoint
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för Android via Java: geometribanor, kurvade hörn, sammansatta former."
+description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för Android via Java: geometribanor, rundade hörn, sammansatta former."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometriska banor. Den visar hur du arbetar med `GeometryPath` och `IGeometryPath` för att modifiera befintliga former, utföra grundläggande banredigeringsoperationer, lägga till eller ta bort punkter och applicera uppdaterad geometri tillbaka på en form.
+Denna artikel förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometri­vägar. Den visar hur du arbetar med [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) och [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) för att ändra befintliga former, utföra grundläggande redigeringsoperationer för vägar, lägga till eller ta bort punkter och tillämpa den uppdaterade geometrin på en form.
 
-Den demonstrerar också hur du skapar anpassade och sammansatta former, bygger former med kurvade hörn, avgör om en formgeometri är sluten och konverterar mellan `GeometryPath` och `java.awt.Shape` för ytterligare scenarier för geometrianpassning.
+Den visar också hur du skapar anpassade och sammansatta former, bygger former med rundade hörn, avgör om en formgeometri är sluten och inspekterar formelement med Android‑punktarrayer.
 
 ## **Ändra en form med redigeringspunkter**
 
-Föreställ dig en kvadrat. I PowerPoint kan du, med **redigeringspunkter**, 
+I PowerPoint kan du använda **Edit Points** för att ändra en fyrkant:
 
-* flytta kvadratens hörn inåt eller utåt
-* ange krökningen för ett hörn eller en punkt
-* lägga till nya punkter på kvadraten
-* manipulera punkter på kvadraten osv. 
+* Flytta ett hörn inåt eller utåt.
+* Justera krökningen vid en punkt.
+* Lägg till nya punkter.
 
-Kort sagt kan du utföra beskrivna uppgifter på vilken form som helst. Med redigeringspunkter kan du ändra en form eller skapa en ny form utifrån en befintlig form. 
+Genom att redigera punkter kan du ändra en forms kontur eller använda en befintlig form som grund för en ny.
 
-## **Tips för att redigera former**
+## **Tips för formredigering**
 
 ![overview_image](custom_shape_0.png)
 
-Innan du börjar redigera PowerPoint‑former via redigeringspunkter kan du vilja tänka på följande om former:
+När du redigerar PowerPoint‑former, ha dessa koncept i åtanke:
 
-* En form (eller dess bana) kan vara antingen sluten eller öppen.
-* När en form är sluten saknas en start‑ eller slutpunkt. När en form är öppen har den en början och ett slut. 
-* Alla former består av minst två ankarlänkpunkter som är sammankopplade med linjer
-* En linje är antingen rak eller kurvad. Ankarlänkpunkter bestämmer linjens natur. 
-* Ankarlänkpunkter kan vara hörnpunkter, raka punkter eller jämna punkter:
-  * En hörnpunkt är en punkt där två raka linjer möts i en vinkel. 
-  * En jämn punkt är en punkt där två handtag ligger på en rak linje och linjens segment förenas i en mjuk kurva. I detta fall är alla handtag separerade från ankarlänkpunkten med ett lika avstånd. 
-  * En rak punkt är en punkt där två handtag ligger på en rak linje och linjens segment förenas i en mjuk kurva. I detta fall behöver handtagen inte vara separerade från ankarlänkpunkten med ett lika avstånd. 
-* Genom att flytta eller redigera ankarlänkpunkter (vilket ändrar linjernas vinkel) kan du förändra hur en form ser ut. 
+* En form (eller dess bana) kan antingen vara sluten eller öppen.
+* En forms bana består av ankarpunkter som är sammankopplade av segment.
+* Ett segment kan vara rakt eller kurvat. Ankarlägen och kontrollhandtag bestämmer dess form.
+* Ankarlägen finns som hörnpunkter, raka punkter eller släta punkter:
+  * Vid en hörnpunkt kan intilliggande segment mötas i en vinkel.
+  * Vid en slät punkt är de två kontrollhandtagen i linje och lika långt från ankarläget.
+  * Vid en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankarläget.
+* Att flytta ankarlägen eller justera deras handtag ändrar formens kontur.
 
-För att redigera PowerPoint‑former via redigeringspunkter erbjuder **Aspose.Slides** klassen [**GeometryPath**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath) och gränssnittet [**IGeometryPath**](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryPath).
+För att redigera PowerPoint‑former via redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) och gränssnittet [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
 
-* En [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath)‑instans representerar en geometrisk bana för objektet [IGeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryShape).
-* För att hämta `GeometryPath` från `IGeometryShape`‑instansen kan du använda metoden [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--).
-* För att ange `GeometryPath` för en form kan du använda dessa metoder: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) för *solida former* och [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) för *sammansatta former*.
-* För att lägga till segment kan du använda metoderna under [IGeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryPath).
-* Genom att använda metoderna [IGeometryPath.setStroke](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) och [IGeometryPath.setFillMode](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) kan du ange utseendet för en geometrisk bana.
-* Med metoden [IGeometryPath.getPathData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IGeometryPath#getPathData--) kan du hämta geometribanan för en `GeometryShape` som en array av bansegment.
-* För att få tillgång till ytterligare anpassningsalternativ för formgeometri kan du konvertera [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath) till [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Använd [geometryPathToGraphicsPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) och [graphicsPathToGeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) metoder (från klassen [ShapeUtil](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeUtil)) för att konvertera [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath) till [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) fram och tillbaka.
+* En [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)‑instans representerar en geometri­bana för objektet [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/).
+* För att hämta [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) från [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/)‑instansen kan du använda metoden [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) .
+* För att ange [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) för en form kan du använda dessa metoder: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) för former med en enda bana och [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) för former med flera banor.
+* För att lägga till segment kan du använda metoderna under [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/).
+* Genom att använda metoderna [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) och [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) kan du ange utseendet för en geometri­bana.
+* Genom att använda metoden [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) kan du hämta geometri­banan för en [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) som en array av segment.
 
 ## **Enkla redigeringsoperationer**
 
-Denna Java‑kod visar hur du
+Använd följande metoder för att redigera en geometri­bana. Överlagringar som tar ett index sätter in ett segment på den nollbaserade positionen i bana­segment‑arrayen.
 
-**Lägg till en linje** i slutet av en bana
-
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Lägg till en linje** på en angiven position på en bana:
-
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Lägg till en kubisk Bezier‑kurva** i slutet av en bana:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Lägg till en kubisk Bezier‑kurva** på den angivna positionen på en bana:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Lägg till en kvadratisk Bezier‑kurva** i slutet av en bana:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Lägg till en kvadratisk Bezier‑kurva** på en angiven position på en bana:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Lägg till en given båge** till en bana:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Stäng den aktuella figuren** i en bana:
-
-``` java
-public void closeFigure();
-```
-**Ange positionen för nästa punkt**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Ta bort bansegmentet** på ett givet index:
-
-``` java
-public void removeAt(int index);
-```
+| Operation | Metod |
+| --- | --- |
+| Lägg till eller infoga en rak linje. | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Lägg till eller infoga en kubisk Bézier‑kurva med två kontrollpunkter och en slutpunkt. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Lägg till eller infoga en kvadratisk Bézier‑kurva med en kontrollpunkt och en slutpunkt. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Lägg till en elliptisk båge med angivna dimensioner och vinklar i grader. | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Stäng den aktuella figur genom att koppla dess slutpunkt till dess startpunkt. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| Ange startpunkten för en figur. | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Ta bort ett segment på en nollbaserad index. | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **Lägg till anpassade punkter i en form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryShape) och ange typ [ShapeType.Rectangle](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeType).
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath) från formen.
-3. Lägg till en ny punkt mellan de två övre punkterna på banan.
-4. Lägg till en ny punkt mellan de två nedre punkterna på banan.
-5. Applicera banan på formen.
+Detta exempel infogar två punkter i en rektangulär form med [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) och tillämpar den redigerade banan med [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på de övre och nedre kanterna och drar dessa kanter inåt.
 
-Denna Java‑kod visar hur du lägger till anpassade punkter i en form:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
 ## **Ta bort punkter från en form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryShape) och ange typ [ShapeType.Heart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeType).
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath) från formen.
-3. Ta bort segmentet för banan.
-4. Applicera banan på formen.
+Detta exempel ändrar en hjärtformad kontur genom att ta bort segmentet på nollbaserad index 2 med [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-). Genom att tillämpa den modifierade banan med [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) uppdateras formens kontur.
 
-Denna Java‑kod visar hur du tar bort punkter från en form:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Skapa en anpassad form**
 
-1. Beräkna punkterna för formen.
-2. Skapa en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath).
-3. Fyll banan med punkterna.
-4. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryShape).
-5. Applicera banan på formen.
+Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och indragningarna; ett 72‑gradigt steg placerar de fem spetsarna jämnt. Banam avslutas med [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) och appliceras på en rektangulär form med [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), vilket ersätter dess kontur.
 
-Denna Java‑kod visar hur du skapar en anpassad form:
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<PointF> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -219,61 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Skapa en sammansatt anpassad form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryShape).
-2. Skapa en första instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath).
-3. Skapa en andra instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath).
-4. Applicera banorna på formen.
+Detta exempel definierar två sluta [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)‑objekt för de övre och nedre tredjedelarna av en form. Genom att tillämpa båda banorna med [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) skapas en enda sammansatt form med ett glapp över dess mittersta tredjedel.
 
-Denna Java‑kod visar hur du skapar en sammansatt anpassad form:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Skapa en anpassad form med kurvade hörn**
+## **Skapa en anpassad form med rundade hörn**
 
-Denna Java‑kod visar hur du skapar en anpassad form med kurvade hörn (inåt);
+Detta exempel kombinerar raka segment med [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) för att skapa en form med inåtkurvade hörn. Varje hörnstorlek anger bågens bredd och höjd i punkter, och den -90‑gradiga svepningen ritar en moturs kvartselips. Den färdiga banan appliceras med [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), och presentationen sparas i PPTX‑format.
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -284,122 +231,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Ta reda på om en formgeometri är sluten**
 
-En sluten form definieras som en där alla dess sidor är sammanlänkade och bildar en enda kontur utan luckor. En sådan form kan vara en enkel geometrisk form eller en komplex anpassad kontur. Följande kodexempel visar hur du kontrollerar om en formgeometri är sluten:
+Följande hjälpfunktion kontrollerar om varje icke‑tom geometri­bana avslutas med ett slutsegment. Den läser [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) och jämför det sista segmentets [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) med [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/). Den returnerar false när det inte finns några icke‑tomma banor. Detta kontrollerar det sista kommandet för varje bana; den inspekterar inte varje subfigur inom en bana. Exemplet skriver ut `true` för en rektangel.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **Konvertera GeometryPath till java.awt.Shape**
-
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryShape).
-2. Skapa en instans av klassen [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. Konvertera [java.awt Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)‑instansen till [GeometryPath](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/GeometryPath)‑instansen med hjälp av [ShapeUtil](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ShapeUtil).
-4. Applicera banorna på formen.
-
-Denna Java‑kod – en implementation av stegen ovan – demonstrerar konverteringsprocessen från **GeometryPath** till **GraphicsPath**:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Skapa ny form
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Hämta geometribana för formen
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // Skapa ny grafikbana med text
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // Konvertera grafikbana till geometribana
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // Ställ in kombinationen av ny geometribana och ursprunglig geometribana på formen
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
 
-## **Vanliga frågor**
+## **Extrahera och inspektera formelement**
+
+Använd [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) för att inspektera en befintlig form som element som innehåller banapunkter och punt­typer. Kast varje returnerad [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) till [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) för att hämta punkt‑ och typ‑arrayerna via metoderna [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) och [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) . Denna representation är användbar för kontur‑analys eller för att skicka geometri till anpassade ritverktyg.
+
+Exemplet öppnar input.pptx, hittar den första geometri‑formen direkt på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och kurviga segment för att se båda typerna av utskrift. Det söker inte i grupper.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Behåll segmenttypen, exklusive flaggor.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Arrayerna korresponderar efter index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följda av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar om slutpunkten är sluten.
+
+Punkt‑typer innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen och testa `0x80` separat för att upptäcka en sluten delbana. Till exempel betyder `129` (`0x81`) en linjeslutpunkt som stänger en delbana, och `131` (`0x83`) betyder en Bézier‑slutpunkt som stänger en. Java lagrar dessa flaggor i signerade byte; maskering bevarar de avsedda bitvärdena. Att bara jämföra det råa värdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), ändrar inte bassegmenttypen.
+
+**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X som ökar åt höger och Y som ökar nedåt. För en ogrupperad form inkluderar de extraherade koordinaterna redan positionen som returneras av [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) och [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) och reflekterar dess nuvarande bredd och höjd. Till exempel har en orotated rektangel på `(100, 200)` med storlek `120 × 80` konturbounderna `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt till dess orotated ram.
+
+De extraherade punkterna applicerar inte formens rotation, som returneras av [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--), eller horisontella och vertikala speglingar. För att reproducera den visade konturen, applicera dessa transformationer runt formens centrum. För grupperade former, ta även hänsyn till gruppens koordinat‑mappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bild‑koordinaterna eller applicera en translation eller skala två gånger om den redan reflekteras i barnets ram.
+
+**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att förändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) när du behöver geometrikommando i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) eller [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+
+## **FAQ**
 
 **Vad händer med fyllning och kontur efter att geometrin har ersatts?**
 
-Stilen förblir kopplad till formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
+Stilen förblir på formen; endast konturen förändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
 
-**Hur roterar jag korrekt en anpassad form tillsammans med dess geometri?**
+**Hur roterar jag en anpassad form korrekt tillsammans med dess geometri?**
 
-Använd formens [setRotation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/shape/#setRotation-float-)‑metod; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
+Använd formens [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-)‑metod; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
 
-**Kan jag konvertera en anpassad form till en bild för att "låsa" resultatet?**
+**Kan jag konvertera en anpassad form till en bild för att “låsa” resultatet?**
 
-Ja. Exportera det behövliga [slide](/slides/sv/androidjava/convert-powerpoint-to-png/) området eller själva [shape](/slides/sv/androidjava/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med tunga geometrier.
+Ja. Exportera det önskade [bildspel](/slides/sv/androidjava/convert-powerpoint-to-png/)‑området eller själva [form](/slides/sv/androidjava/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.

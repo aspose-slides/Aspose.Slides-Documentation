@@ -18,193 +18,143 @@ keywords:
 - การดำเนินการแก้ไข
 - มุมโค้ง
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "สร้างและปรับแต่งรูปร่างในการนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างแบบผสม"
+description: "สร้างและปรับแต่งรูปร่างในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ Android ผ่าน Java: เส้นทางเรขาคณิต, มุมโค้ง, รูปร่างผสม."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีปรับแต่งรูปร่างการนำเสนอใน Aspose.Slides ด้วยการแก้ไขเรขาคณิตของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงวิธีการทำงานกับ `GeometryPath` และ `IGeometryPath` เพื่อแก้ไขรูปร่างที่มีอยู่, ทำการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือลบจุด, และนำเรขาคณิตที่อัปเดตกลับไปใช้กับรูปร่าง
+บทความนี้อธิบายวิธีปรับแต่งรูปร่างการนำเสนอใน Aspose.Slides โดยการแก้ไขเรขาคณิตของรูปร่างผ่านจุดแก้ไขและเส้นทางเรขาคณิต มันแสดงวิธีใช้ [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) และ [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) เพื่อแก้ไขรูปร่างที่มีอยู่, ทำการดำเนินการแก้ไขเส้นทางพื้นฐาน, เพิ่มหรือเอาจุดออก, และนำเรขาคณิตที่อัปเดตกลับไปยังรูปร่าง
 
-นอกจากนี้ยังสาธิตวิธีสร้างรูปร่างแบบกำหนดเองและแบบผสม, สร้างรูปร่างที่มีมุมโค้ง, ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่, และแปลงระหว่าง `GeometryPath` กับ `java.awt.Shape` สำหรับสถานการณ์การปรับแต่งเรขาคณิตเพิ่มเติม
+นอกจากนี้ยังสาธิตวิธีสร้างรูปร่างแบบกำหนดเองและแบบผสม, สร้างรูปร่างที่มีมุมโค้ง, ตรวจสอบว่ารูปร่างเรขาคณิตปิดหรือไม่, และตรวจสอบส่วนประกอบของรูปร่างโดยใช้แอร์เรย์จุดของ Android
 
 ## **เปลี่ยนรูปร่างโดยใช้จุดแก้ไข**
-พิจารณาสี่เหลี่ยมจัตุรัส ใน PowerPoint โดยใช้ **จุดแก้ไข** คุณสามารถ
 
-* ย้ายมุมของสี่เหลี่ยมเข้าไปหรือออกไป
-* ระบุความโค้งสำหรับมุมหรือจุด
-* เพิ่มจุดใหม่ลงในสี่เหลี่ยม
-* จัดการจุดบนสี่เหลี่ยม เป็นต้น
+ใน PowerPoint, คุณสามารถใช้ **Edit Points** เพื่อแก้ไขสี่เหลี่ยมจัตุรัส:
 
-โดยสรุป คุณสามารถทำงานที่อธิบายไว้กับรูปร่างใดก็ได้ ด้วยการใช้จุดแก้ไข คุณสามารถเปลี่ยนรูปร่างหรือสร้างรูปร่างใหม่จากรูปร่างที่มีอยู่
+* ย้ายมุมเข้าไปหรือออกไป
+* ปรับความโค้งที่จุด
+* เพิ่มจุดใหม่
+
+การแก้ไขจุดทำให้คุณสามารถเปลี่ยนโครงร่างของรูปร่างหรือใช้รูปร่างที่มีอยู่เป็นพื้นฐานสำหรับรูปร่างใหม่ได้
 
 ## **เคล็ดลับการแก้ไขรูปร่าง**
 
 ![overview_image](custom_shape_0.png)
 
-ก่อนที่คุณจะเริ่มแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข คุณอาจต้องพิจารณาประเด็นต่อไปนี้เกี่ยวกับรูปร่าง:
+เมื่อแก้ไขรูปร่างใน PowerPoint ให้คำนึงถึงแนวคิดต่อไปนี้:
 
 * รูปร่าง (หรือเส้นทางของมัน) สามารถเป็นแบบปิดหรือเปิดได้
-* เมื่อรูปร่างเป็นแบบปิด จะไม่มีจุดเริ่มต้นหรือจุดสิ้นสุด เมื่อรูปร่างเป็นแบบเปิด จะมีจุดเริ่มต้นและจุดสิ้นสุด
-* รูปร่างทั้งหมดประกอบด้วยจุดยึด (anchor points) อย่างน้อย 2 จุดที่เชื่อมต่อกันด้วยเส้น
-* เส้นสามารถเป็นเส้นตรงหรือเส้นโค้ง จุดยึดกำหนดลักษณะของเส้น
-* จุดยึดมีอยู่ในรูปแบบจุดมุม, จุดตรง, หรือจุดเรียบ:
-  * จุดมุมคือจุดที่เส้นตรง 2 เส้นมาบรรจบกันที่มุม
-  * จุดเรียบคือจุดที่มีมือ (handle) 2 ตัวอยู่ในเส้นตรงและส่วนของเส้นเชื่อมต่อกันเป็นโค้งเรียบ ในกรณีนี้มือทั้งหมดห่างจากจุดยึดเท่ากัน
-  * จุดตรงคือจุดที่มีมือ 2 ตัวอยู่ในเส้นตรงและส่วนของเส้นเชื่อมต่อกันเป็นโค้งเรียบ ในกรณีนี้มือไม่จำเป็นต้องห่างจากจุดยึดเท่ากัน
-* ด้วยการย้ายหรือแก้ไขจุดยึด (ซึ่งเปลี่ยนมุมของเส้น) คุณสามารถเปลี่ยนลักษณะของรูปร่างได้
+* เส้นทางของรูปร่างประกอบด้วยจุดเยื้องเชื่อมต่อกันด้วยส่วนเส้น
+* ส่วนเส้นสามารถเป็นแบบตรงหรือโค้งได้ จุดเยื้อนและแฮนด์จับควบคุมกำหนดรูปทรงของมัน
+* จุดเยื้อนมีอยู่ในรูปแบบจุดมุม, จุดตรง, หรือจุดเรียบ:
+  * ที่จุดมุม, ส่วนเส้นที่ต่อกันอาจเจอที่มุม
+  * ที่จุดเรียบ, แฮนด์จับสองตัวจะจัดแนวและห่างจากจุดเยื้อนเท่ากัน
+  * ที่จุดตรง, แฮนด์จับสองตัวจะจัดแนวแต่ระยะห่างจากจุดเยื้อนอาจต่างกัน
+* การย้ายจุดเยื้อนหรือปรับแฮนด์จับของมันจะเปลี่ยนโครงร่างของรูปร่าง
 
-เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** ให้บริการคลาส [**GeometryPath**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) และอินเตอร์เฟส [**IGeometryPath**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryPath)
+เพื่อแก้ไขรูปร่าง PowerPoint ผ่านจุดแก้ไข, **Aspose.Slides** ให้คลาส [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) และอินเทอร์เฟซ [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/)
 
-* ตัว [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) แทนเส้นทางเรขาคณิตของอ็อบเจกต์ [IGeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryShape)
-* เพื่อดึง `GeometryPath` จากอินสแตนซ์ `IGeometryShape` ให้ใช้เมธอด [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--)
-* เพื่อกำหนด `GeometryPath` ให้กับรูปร่าง ให้ใช้เมธอดเหล่านี้: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) สำหรับ *solid shapes* และ [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) สำหรับ *composite shapes*
-* เพื่อเพิ่มเซกเมนต์ ให้ใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryPath)
-* ด้วยเมธอด [IGeometryPath.setStroke](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) และ [IGeometryPath.setFillMode](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) คุณสามารถกำหนดลักษณะการแสดงผลของเส้นทางเรขาคณิตได้
-* ด้วยเมธอด [IGeometryPath.getPathData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IGeometryPath#getPathData--) คุณสามารถดึงเส้นทางเรขาคณิตของ `GeometryShape` เป็นอาเรย์ของเซกเมนต์เส้นทาง
-* เพื่อเข้าถึงตัวเลือกการปรับแต่งเรขาคณิตของรูปร่างเพิ่มเติม คุณสามารถแปลง [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) เป็น [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* ใช้เมธอด [geometryPathToGraphicsPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) และ [graphicsPathToGeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (จากคลาส [ShapeUtil](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeUtil)) เพื่อแปลง [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) ไปเป็น [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) และกลับกัน
+* ตัวอย่าง [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) แทนเส้นทางเรขาคณิตของวัตถุ [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/)
+* เพื่อดึง [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) จากอินสแตนซ์ของ [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/), คุณสามารถใช้เมธอด [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) 
+* เพื่อกำหนด [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) ให้กับรูปร่าง, คุณสามารถใช้เมธอดเหล่านี้: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) สำหรับรูปร่างที่มีเส้นทางเดียวและ [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) สำหรับรูปร่างที่มีหลายเส้นทาง
+* เพื่อเพิ่มส่วนเส้น, คุณสามารถใช้เมธอดภายใต้ [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/)
+* ด้วยเมธอด [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) และ [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-), คุณสามารถกำหนดลักษณะการแสดงของเส้นทางเรขาคณิตได้
+* ด้วยเมธอด [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) คุณสามารถดึงเส้นทางเรขาคณิตของ [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) เป็นแอร์เรย์ของส่วนเส้นได้
 
 ## **การดำเนินการแก้ไขอย่างง่าย**
 
-โค้ด Java นี้แสดงวิธี
+ใช้เมธอดต่อไปนี้เพื่อแก้ไขเส้นทางเรขาคณิต การโอเวอร์โหลดที่รับดัชนีจะใส่ส่วนเส้นที่ตำแหน่งศูนย์ฐานในแอร์เรย์ส่วนเส้นของเส้นทาง
 
-**เพิ่มเส้น** ที่ปลายของเส้นทาง
-
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**เพิ่มเส้น** ที่ตำแหน่งที่ระบุบนเส้นทาง:
-
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**เพิ่มเส้นโค้ง Bezier cubic** ที่ปลายของเส้นทาง:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**เพิ่มเส้นโค้ง Bezier cubic** ที่ตำแหน่งที่ระบุบนเส้นทาง:
-
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**เพิ่มเส้นโค้ง Bezier quadratic** ที่ปลายของเส้นทาง:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**เพิ่มเส้นโค้ง Bezier quadratic** ที่ตำแหน่งที่ระบุบนเส้นทาง:
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**ต่อเติมส่วนโค้ง** ที่กำหนดให้กับเส้นทาง:
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**ปิดรูปทรงปัจจุบัน** ของเส้นทาง:
-
-``` java
-public void closeFigure();
-```
-**กำหนดตำแหน่งสำหรับจุดต่อไป**:
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**ลบเซกเมนต์ของเส้นทาง** ที่ดัชนีที่ระบุ:
-
-``` java
-public void removeAt(int index);
-```
+| การดำเนินการ | วิธีการ |
+| --- | --- |
+| เพิ่มหรือแทรกเส้นตรง | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| เพิ่มหรือแทรกเส้นโค้งเบซิเยร์แบบคิวบิกที่มีจุดควบคุมสองจุดและจุดสิ้นสุด | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| เพิ่มหรือแทรกเส้นโค้งเบซิเยร์แบบควอดราติกที่มีจุดควบคุมหนึ่งจุดและจุดสิ้นสุด | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| เพิ่มส่วนโค้งวงรีโดยกำหนดมิติและมุมเป็นองศา | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| ปิดรูปภาพปัจจุบันโดยเชื่อมจุดสิ้นสุดกับจุดเริ่มต้น | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| กำหนดจุดเริ่มต้นของรูปภาพ | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| เอาส่วนเส้นออกที่ดัชนีศูนย์ฐาน | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **เพิ่มจุดกำหนดเองให้กับรูปร่าง**
-1. สร้างอินสแตนซ์ของคลาส [GeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryShape) และกำหนดประเภทเป็น [ShapeType.Rectangle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeType)
-2. ดึงอินสแตนซ์ของคลาส [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) จากรูปร่าง
-3. เพิ่มจุดใหม่ระหว่างจุดบนสุด 2 จุดของเส้นทาง
-4. เพิ่มจุดใหม่ระหว่างจุดล่างสุด 2 จุดของเส้นทาง
-5. นําเส้นทางไปใช้กับรูปร่าง
 
-โค้ด Java นี้แสดงวิธีเพิ่มจุดกำหนดเองให้กับรูปร่าง:
+ตัวอย่างนี้ใส่จุดสองจุดลงในรูปร่างสี่เหลี่ยมโดยใช้ [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) และนำเส้นทางที่แก้ไขไปใช้กับ [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) พิกัดเป็นค่าท้องถิ่นของรูปร่าง: ทั้งสองจุดใหม่อยู่ที่กึ่งกลาง, ห่างจากด้านซ้าย 100 จุดและจากด้านบน 50 จุด ดัชนีส่วนเส้น 1 และ 4 จะวางจุดเหล่านี้บนขอบบนและขอบล่าง, ดึงขอบเหล่านั้นเข้าไป
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **ลบจุดจากรูปร่าง**
+## **เอาจุดออกจากรูปร่าง**
 
-1. สร้างอินสแตนซ์ของคลาส [GeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryShape) และกำหนดประเภทเป็น [ShapeType.Heart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeType)
-2. ดึงอินสแตนซ์ของคลาส [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath) จากรูปร่าง
-3. ลบเซกเมนต์ของเส้นทาง
-4. นําเส้นทางไปใช้กับรูปร่าง
+ตัวอย่างนี้เปลี่ยนโครงร่างรูปหัวใจโดยเอาส่วนเส้นที่ดัชนีศูนย์ฐาน 2 ออกด้วย [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) การใช้เส้นทางที่แก้ไขแล้วกับ [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) จะอัปเดตขอบของรูปร่าง
 
-โค้ด Java นี้แสดงวิธีลบจุดจากรูปร่าง:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **สร้างรูปร่างกำหนดเอง**
 
-1. คำนวณจุดสำหรับรูปร่าง
-2. สร้างอินสแตนซ์ของคลาส [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath)
-3. เติมเส้นทางด้วยจุดต่าง ๆ
-4. สร้างอินสแตนซ์ของคลาส [GeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryShape)
-5. นําเส้นทางไปใช้กับรูปร่าง
+ตัวอย่างนี้สร้างดาวห้าแฉกด้วย [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) รัศมีภายนอกและภายในสลับกันที่ 100 และ 50 จุดกำหนดจุดและช่องว่าง; การขั้น 72 องศาจะเว้นระยะห่างให้ดาวห้าแฉกเท่าๆ กัน เส้นทางถูกปิดด้วย [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) และนำไปใช้กับรูปร่างสี่เหลี่ยมโดยใช้ [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) แทนที่โครงร่างเดิม
 
-โค้ด Java นี้แสดงวิธีสร้างรูปร่างกำหนดเอง:
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<PointF> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
-
 ```
 ![example3_image](custom_shape_3.png)
 
-## **สร้างรูปร่างกำหนดเองแบบผสม**
+## **สร้างรูปร่างผสมกำหนดเอง**
 
-  1. สร้างอินสแตนซ์ของคลาส [GeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryShape)
-  2. สร้างอินสแตนซ์แรกของคลาส [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath)
-  3. สร้างอินสแตนซ์ที่สองของคลาส [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath)
-  4. นําเส้นทางไปใช้กับรูปร่าง
+ตัวอย่างนี้กำหนดสอง [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) ปิดสำหรับส่วนบนและส่วนล่างของรูปร่าง การใช้ทั้งสองเส้นทางด้วย [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) จะสร้างรูปร่างผสมเดียวที่มีช่องว่างอยู่กลางส่วนที่สามของรูปร่าง
 
-โค้ด Java นี้แสดงวิธีสร้างรูปร่างกำหนดเองแบบผสม:
+```java
+import com.aspose.slides.*;
 
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **สร้างรูปร่างกำหนดเองพร้อมมุมโค้ง**
+## **สร้างรูปร่างกำหนดเองด้วยมุมโค้ง**
 
-โค้ด Java นี้แสดงวิธีสร้างรูปร่างกำหนดเองพร้อมมุมโค้ง (ด้านใน);
+ตัวอย่างนี้ผสมส่วนเส้นตรงกับ [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) เพื่อสร้างรูปร่างที่มุมโค้งเข้าด้านใน แต่ละขนาดมุมกำหนดความกว้างและความสูงของโค้งในหน่วยจุด, และการสวิง -90 องศาจะวาดส่วนสี่เหลี่ยมวงรีแบบทวนเข็มนาฬิกา เส้นทางที่สมบูรณ์จะนำไปใช้กับ [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) และการนำเสนอจะถูกบันทึกเป็นรูปแบบ PPTX
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -281,122 +231,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่**
+## **ตรวจสอบว่ารูปร่างเรขาคณิตปิดหรือไม่**
 
-รูปร่างแบบปิดหมายถึงรูปร่างที่ทุกด้านเชื่อมต่อกัน形成เส้นขอบเดียวโดยไม่มีช่องว่าง รูปร่างเช่นนี้อาจเป็นรูปทรงเรขาคณิตง่ายหรือโม่งเส้นแนวกำหนดเองที่ซับซ้อน ตัวอย่างโค้ดต่อไปนี้แสดงวิธีตรวจสอบว่ารูปร่างเรขาคณิตเป็นแบบปิดหรือไม่:
+ตัวช่วยต่อไปนี้ตรวจสอบว่าทุกเส้นทางเรขาคณิตที่ไม่ว่างเปล่าจบด้วยส่วนเส้นปิดหรือไม่ มันอ่าน [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) และเปรียบเทียบคำสั่งของส่วนสุดท้ายด้วย [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) กับ [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) หากไม่มีเส้นทางที่ไม่ว่างเปล่า จะคืนค่า false ตัวตรวจสอบนี้ดูคำสั่งสุดท้ายของแต่ละเส้นทาง; มันไม่ได้ตรวจสอบทุกส่วนย่อยภายในเส้นทาง ตัวอย่างพิมพ์ `true` สำหรับสี่เหลี่ยม
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **แปลง GeometryPath เป็น java.awt.Shape** 
-
-1. สร้างอินสแตนซ์ของคลาส [GeometryShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryShape)
-2. สร้างอินสแตนซ์ของคลาส [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-3. ใช้ [ShapeUtil](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ShapeUtil) แปลงอินสแตนซ์ [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) ให้เป็นอินสแตนซ์ [GeometryPath](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/GeometryPath)
-4. นําเส้นทางไปใช้กับรูปร่าง
-
-โค้ด Java นี้—การนำขั้นตอนข้างต้นไปใช้—แสดงกระบวนการแปลง **GeometryPath** ไปเป็น **GraphicsPath**:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // สร้างรูปร่างใหม่
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // รับเส้นทางเรขาคณิตของรูปร่าง
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // สร้างเส้นกราฟิกใหม่พร้อมข้อความ
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // แปลงเส้นกราฟิกเป็นเส้นทางเรขาคณิต
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // กำหนดการรวมของเส้นทางเรขาคณิตใหม่และเส้นทางเรขาคณิตเดิมให้กับรูปร่าง
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+
+## **ดึงและตรวจสอบส่วนประกอบของรูปร่าง**
+
+ใช้ [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) เพื่อสอบสอบรูปร่างที่มีอยู่เป็นส่วนประกอบที่มีจุดเส้นทางและประเภทจุด แคสแต่ละ [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) ที่คืนค่าเป็น [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/) เพื่อดึงแอร์เรย์จุดและประเภทผ่านเมธอด [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) และ [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) การแสดงผลนี้มีประโยชน์สำหรับการวิเคราะห์โครงร่างหรือการส่งเรขาคณิตไปยังเครื่องมือวาดแบบกำหนดเอง
+
+ตัวอย่างเปิด input.pptx, ค้นหารูปร่างเรขาคณิตแรกบนสไลด์แรกโดยตรง, แล้วพิมพ์ส่วนเส้นของมัน ใช้การนำเสนอที่มีรูปร่างที่มีส่วนเส้นตรงและส่วนเส้นโค้งเพื่อดูผลลัพธ์ทั้งสองประเภท ไม่ได้ค้นหาภายในกลุ่ม
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // เก็บประเภทส่วนเส้น, ยกเว้นแฟล็ก.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+แอร์เรย์สอดคล้องกันตามดัชนี: `points[i]` เป็นจุดและ `types[i]` บรรยายบทบาทของมัน ประเภท `0` เริ่มรูปภาพ, ประเภท `1` วาดเส้นจากจุดก่อนหน้าไปยังจุดปัจจุบัน ส่วนโค้งเบซิเยร์แบบคิวบิกเริ่มจากจุดสิ้นสุดก่อนหน้าและใช้รายการประเภท `3` สามรายการต่อเนื่อง: จุดควบคุมสองจุดตามด้วยจุดสิ้นสุดใหม่ ลูปจะรับสามรายการนี้พร้อมกันและตรวจสอบจุดสิ้นสุดเพื่อปิด
+
+ประเภทจุดยังมีแฟล็กด้วย การทำมาสก์ด้วย `0x07` เพื่อระบุประเภทส่วนเส้น, และทดสอบ `0x80` แยกกันเพื่อค้นหาส่วนย่อยที่ปิด ตัวอย่างเช่น `129` (`0x81`) หมายถึงจุดสิ้นสุดของเส้นที่ปิดส่วนย่อย, และ `131` (`0x83`) หมายถึงจุดสิ้นสุดของเบซิเยร์ที่ปิดหนึ่งส่วน แฟล็กเหล่านี้ถูกเก็บเป็นไบต์ที่เป็นเครื่องหมายใน Java; การทำมาสก์จะรักษาค่าบิตตามที่ตั้งใจ การเปรียบเทียบค่าดิบเฉพาะ `1` หรือ `3` จะพลาดกรณีเหล่านี้ แฟล็กอื่นเช่น dash (`0x10`) และ marker (`0x20`) ไม่เปลี่ยนประเภทส่วนพื้นฐาน
+
+**พิกัดและการแปลง** จุดวัดเป็นจุด (1/72 นิ้ว) โดย X เพิ่มไปทางขวาและ Y เพิ่มลงด้านล่าง สำหรับรูปร่างที่ไม่ได้จัดกลุ่ม, พิกัดที่ดึงออกมามีตำแหน่งที่คืนโดย [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) และ [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) รวมถึงความกว้างและความสูงปัจจุบัน ตัวอย่างเช่น สี่เหลี่ยมที่ไม่ได้หมุนที่ตำแหน่ง `(100, 200)` ขนาด `120 × 80` มีขอบโครงร่าง `(100, 200)`–`(220, 280)` อย่าเพิ่มตำแหน่งของรูปร่างอีกครั้ง ให้ลบ X และ Y เพื่อนำพิกัดมาเป็นค่าตามกรอบที่ไม่ได้หมุน
+
+จุดที่ดึงออกมาไม่รวมการหมุนของรูปร่างที่คืนโดย [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) หรือการพลิกแนวนอนและแนวตั้ง เพื่อทำให้โครงร่างที่แสดงตรงกับที่เห็น ให้ใช้การแปลงเหล่านี้รอบจุดศูนย์กลางของรูปร่าง สำหรับรูปร่างในกลุ่ม ต้องคำนึงถึงการแมปพิกัดของกลุ่มและการแปลง; อย่าสมมติว่าจุดที่ดึงออกมาคือพิกัดสุดท้ายบนสไลด์หรือทำการแปลหรือสเกลซ้ำหากมันได้สะท้อนอยู่แล้วในกรอบของลูก
+
+**การตรวจสอบเทียบกับการแก้ไข** แอร์เรย์ที่ดึงออกมาจะบรรยายโครงร่าง; การเปลี่ยนแปลงแอร์เรย์เหล่านี้จะไม่อัปเดตรูปร่างเดิม ใช้วิธีนี้เมื่อการวิเคราะห์หรือโค้ดวาดต้องการแอร์เรย์จุด/ประเภท ใช้ [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) หากต้องการคำสั่งเรขาคณิตในระบบพิกัดท้องถิ่นของรูปร่างหรือแก้ไขเรขาคณิตของมัน ใช้ [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) หรือ [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) เพื่อใช้เส้นทางที่แก้ไข
 
 ## **คำถามที่พบบ่อย**
 
-**การแทนที่เรขาคณิตจะส่งผลต่อการเติมสีและเส้นขอบอย่างไร?**
+**จะเกิดอะไรขึ้นกับการเติมสีและเส้นขอบหลังจากแทนที่เรขาคณิต?**
 
-สไตล์ยังคงอยู่กับรูปร่าง; เพียงแค่โครงร่างเปลี่ยนไป การเติมสีและเส้นขอบจะถูกนำไปใช้กับเรขาคณิตใหม่โดยอัตโนมัติ
+สไตล์จะคงอยู่กับรูปร่าง; เพียงแค่โครงร่างเปลี่ยนไป การเติมสีและเส้นขอบจะถูกนำไปใช้โดยอัตโนมัติกับเรขาคณิตใหม่
 
-**ฉันจะหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องได้อย่างไร?**
+**ฉันจะหมุนรูปร่างกำหนดเองพร้อมกับเรขาคณิตอย่างถูกต้องอย่างไร?**
 
-ใช้เมธอด [setRotation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#setRotation-float-) ของรูปร่าง; เรขาคณิตจะหมุนพร้อมกับรูปร่างเพราะเชื่อมโยงกับระบบพิกัดของรูปร่างเอง
+ใช้เมธอด [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) ของรูปร่าง; เรขาคณิตจะหมุนตามรูปร่างเนื่องจากผูกกับระบบพิกัดของรูปร่างเอง
 
 **ฉันสามารถแปลงรูปร่างกำหนดเองเป็นภาพเพื่อ "ล็อก" ผลลัพธ์ได้หรือไม่?**
 
-ได้. ให้ส่งออก [slide](/slides/th/androidjava/convert-powerpoint-to-png/) ที่ต้องการหรือ [shape](/slides/th/androidjava/create-shape-thumbnails/) เองเป็นรูปแบบแรสเตอร์; วิธีนี้ทำให้การทำงานต่อกับเรขาคณิตที่ซับซ้อนง่ายขึ้น
+ได้. ส่งออก [สไลด์](/slides/th/androidjava/convert-powerpoint-to-png/) ที่ต้องการหรือ [รูปร่าง](/slides/th/androidjava/create-shape-thumbnails/) เองเป็นรูปแบบเรสเตอร์; วิธีนี้ทำให้การทำงานต่อกับเรขาคณิตซับซ้อนง่ายขึ้น

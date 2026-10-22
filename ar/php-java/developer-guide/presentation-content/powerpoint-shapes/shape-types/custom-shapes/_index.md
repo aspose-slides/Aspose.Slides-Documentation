@@ -12,7 +12,7 @@ keywords:
 - هندسة الشكل
 - مسار الهندسة
 - نقاط المسار
-- نقاط التحرير
+- نقاط تحرير
 - إضافة نقطة
 - إزالة نقطة
 - عملية تحرير
@@ -21,348 +21,425 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إنشاء وتخصيص أشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides للـ PHP عبر Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام Aspose.Slides لـ PHP عبر Java: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
+## **نظرة عامة**
+
+تشرح هذه المقالة كيفية تخصيص أشكال العرض التقديمي في Aspose.Slides عن طريق تحرير هندسة الشكل من خلال نقاط التحرير ومسارات الهندسة. توضح كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، وإجراء عمليات تحرير أساسية للمسار، وإضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة مرة أخرى على الشكل.
+
+كما توضح كيفية إنشاء أشكال مخصصة ومركبة، وبناء أشكال ذات زوايا منحنية، وتحديد ما إذا كانت هندسة الشكل مغلقة، وفحص عناصر الشكل، وتحويل خطوط مخططات نص Java AWT إلى مسارات هندسية.
 
 ## **تغيير شكل باستخدام نقاط التحرير**
-ضع في اعتبارك مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك 
 
-* تحريك زاوية المربع إلى الداخل أو الخارج
-* تحديد انحناء الزاوية أو النقطة
-* إضافة نقاط جديدة إلى المربع
-* معالجة النقاط على المربع، إلخ. 
+في PowerPoint، يمكنك استخدام **نقاط التحرير** لتعديل مربع:
 
-في الأساس، يمكنك تنفيذ هذه المهام على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود. 
+* تحريك زاوية إلى الداخل أو الخارج.
+* ضبط الانحناء عند نقطة.
+* إضافة نقاط جديدة.
+
+تسمح لك نقاط التحرير بتعديل حدود الشكل أو استخدام شكل موجود كأساس للحصول على شكل جديد.
 
 ## **نصائح تحرير الشكل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل أن تبدأ في تحرير أشكال PowerPoint عبر نقاط التحرير، قد ترغب في مراعاة هذه النقاط حول الأشكال:
+عند تحرير أشكال PowerPoint، احرص على مراعاة المفاهيم التالية:
 
-* قد يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* عندما يكون الشكل مغلقًا، لا يحتوي على نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، لديه بداية ونهاية. 
-* تتكون جميع الأشكال من نقطتي ارتكاز على الأقل مرتبطتين ببعضهما عبر خطوط
-* الخط قد يكون مستقيمًا أو منحنيًا. تحدد نقاط الارتكاز طبيعة الخط. 
-* نقاط الارتكاز توجد كزوايا، أو نقاط مستقيمة، أو نقاط ناعمة:
-  * نقطة الزاوية هي نقطة يلتقي فيها خطان مستقيران بزاوية. 
-  * نقطة ناعمة هي نقطة حيث يوجد مقبضان على خط مستقيم وتتصل أجزاء الخط بمنحنى ناعم. في هذه الحالة، تكون جميع المقابض موزعة على مسافة متساوية من نقطة الارتكاز. 
-  * نقطة مستقيمة هي نقطة حيث يوجد مقبضان على خط مستقيم ويتصل جزءا الخط بمنحنى ناعم. في هذه الحالة، لا يلزم أن تكون المقابض على مسافة متساوية من نقطة الارتكاز. 
-* عن طريق تحريك أو تحرير نقاط الارتكاز (التي تغير زاوية الخطوط)، يمكنك تعديل مظهر الشكل. 
+* يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
+* يتكوّن مسار الشكل من نقاط ربط متصلة بقطاعات.
+* يمكن أن تكون القطعة مستقيمة أو منحنية. تحدد نقاط الربط ومقابض التحكم شكلها.
+* توجد نقاط الربط كزاوين، أو نقاط مستقيمة، أو نقاط ناعمة:
+  * في نقطة الزاوية، يمكن للقطاعات المتجاورة أن تلتقي بزاوية.
+  * في النقطة الناعمة، تكون مقبضا التحكم محاذيين وبعيدين مسافة متساوية عن نقطة الربط.
+  * في النقطة المستقيمة، تكون مقبضا التحكم محاذيين لكن قد تكون المسافة عنهما مختلفة.
+* تحريك نقاط الربط أو تعديل مقابضها يغيّر حدود الشكل.
 
-لتحرير أشكال PowerPoint عبر نقاط التحرير، **Aspose.Slides** يوفر الفئة [**GeometryPath**](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath).
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** الفئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
-* تمثل مثيل [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) مسار الهندسة لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) .
-* لاسترداد `GeometryPath` من مثيل `GeometryShape`، يمكنك استخدام طريقة [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) .
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) للأشكال الصلبة و [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) للأشكال المركبة.
-* لإضافة مقاطع، يمكنك استخدام الطرق تحت [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) .
-* باستخدام طريقتي [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/setstroke/) و [GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/setfillmode/) ، يمكنك تعيين مظهر مسار الهندسة.
-* باستخدام طريقة [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/getpathdata/) ، يمكنك استرداد مسار الهندسة لكائن `GeometryShape` كمصفوفة من مقاطع المسار.
-* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html)
-* استخدم طريقتي [geometryPathToGraphicsPath](https://reference.aspose.com/slides/php-java/aspose.slides/shapeutil/geometrypathtographicspath/) و [graphicsPathToGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/shapeutil/graphicspathtogeometrypath/) (من فئة [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) ) لتحويل [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) والعكس.
+* تمثّل نسخة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) مسار هندسي لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/).
+* لاسترجاع [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) من نسخة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/)، يمكنك استخدام طريقة [GeometryShape::getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths).
+* لتعيين [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) لشكل، يمكنك استخدام الطريقتين: [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) للأشكال ذات المسار الواحد و[GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) للأشكال ذات المسارات المتعددة.
+* لإضافة قطاعات، يمكنك استخدام الطرائق المتوفرة تحت [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+* باستخدام طريقتي [GeometryPath::setStroke](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setStroke) و[GeometryPath::setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode)، يمكنك ضبط مظهر مسار الهندسة.
+* باستخدام طريقة [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData)، يمكنك استرجاع مسار الهندسة لكائن [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/) كمصفوفة من قطاعات المسار.
+* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك قراءة كائن [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) عبر [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) وإعادة تشغيل القطاعات على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
 
 ## **عمليات تحرير بسيطة**
 
-يبين لك هذا الكود PHP كيفية
+استخدم الطرق التالية لتحرير مسار هندسي. التحميلات التي تقبل فهرسًا تُدرج قطاعًا في الموضع الصفري‑المستند إلى الفهرس داخل مصفوفة قطاعات المسار.
 
-**إضافة خط** إلى نهاية المسار
+| عملية | طريقة |
+| --- | --- |
+| إلحاق أو إدراج خط مستقيم. | [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) |
+| إلحاق أو إدراج منحنى بيزيه مكعب مع نقطتي تحكم ونقطة نهائية. | [GeometryPath::cubicBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| إلحاق أو إدراج منحنى بيزيه تربيعي مع نقطة تحكم واحدة ونقطة نهائية. | [GeometryPath::quadraticBezierTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| إلحاق قوس بيضاوي بالأبعاد والزوايا المحددة بالدرجات. | [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) |
+| إغلاق الشكل الحالي بربط نقطته النهائية بنقطة البداية. | [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) |
+| تعيين نقطة البداية لشكل. | [GeometryPath::moveTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#moveTo) |
+| إزالة قطاع عند فهرس صفري‑مستند إلى الفهرس. | [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt) |
+
+## **إضافة نقاط مخصصة إلى الشكل**
+
+تُدرج هذه العينة نقطتين في شكل مستطيل باستخدام [GeometryPath::lineTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#lineTo) وتطبيق المسار المعدل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath). الإحداثيات محلية إلى الشكل: النقطتان الجديدتان في مركزه، 100 نقطة من اليسار و50 نقطة من الأعلى. تُوضع مؤشرات القطاعات 1 و4 على الحافتين العلوية والسفلية، مما يجذب هاتين الحافتين إلى الداخل.
+
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
-```
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
 
-**إضافة خط** إلى موضع محدد على المسار:
-```php
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
 
-```
-
-**إضافة منحنى بيزيه مكعب** إلى نهاية المسار:
-```php
-
-```
-
-**إضافة منحنى بيزيه مكعب** إلى الموضع المحدد على المسار:
-```php
-
-```
-
-**إضافة منحنى بيزيه تربيعي** إلى نهاية المسار:
-```php
-
-```
-
-**إضافة منحنى بيزيه تربيعي** إلى الموضع المحدد على المسار:
-```php
-
-```
-
-**إلحاق قوس معين** إلى مسار:
-```php
-
-```
-
-**إغلاق الشكل الحالي** لمسار:
-```php
-
-```
-
-**تعيين الموضع للنقطة التالية**:
-```php
-
-```
-
-**إزالة جزء من المسار** عند فهرس معين:
-```php
-
-```
-
-
-## **إضافة نقاط مخصصة إلى شكل**
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) وحدد النوع [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) .
-2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) من الشكل.
-3. أضف نقطة جديدة بين النقطتين العلويتين على المسار.
-4. أضف نقطة جديدة بين النقطتين السفلية على المسار.
-5. طبّق المسار على الشكل.
-
-يبين لك هذا الكود PHP كيفية إضافة نقاط مخصصة إلى شكل:
-```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
     $geometryPath = $shape->getGeometryPaths()[0];
     $geometryPath->lineTo(100, 50, 1);
     $geometryPath->lineTo(100, 50, 4);
+
     $shape->setGeometryPath($geometryPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **إزالة نقاط من شكل**
+## **إزالة نقاط من الشكل**
 
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) وحدد النوع [ShapeType::Heart](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeType) .
-2. احصل على مثيل من فئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) من الشكل.
-3. احذف المقطع للمسار.
-4. طبّق المسار على الشكل.
+تُغيّر هذه العينة مخطط القلب بإزالة القطاع عند الفهرس الصفري‑مستند إلى الفهرس 2 باستخدام [GeometryPath::removeAt](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#removeAt). تطبيق المسار المعدل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) يُحدّث محيط الشكل.
 
-يبين لك هذا الكود PHP كيفية إزالة نقاط من شكل:
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Heart, 100, 100, 300, 300);
+
     $path = $shape->getGeometryPaths()[0];
     $path->removeAt(2);
-    $shape->setGeometryPath($path);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
+    $shape->setGeometryPath($path);
+} finally {
+    $presentation->dispose();
+}
+```
 ![example2_image](custom_shape_2.png)
 
 ## **إنشاء شكل مخصص**
 
-1. احسب النقاط للشكل.
-2. أنشئ مثيلًا لفئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) .
-3. املأ المسار بالنقاط.
-4. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) .
-5. طبّق المسار على الشكل.
+تبني هذه العينة نجمة خماسية باستخدام [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/). تُعرّف الأنصاف القطرية المتناوبة للعينتين الخارجية والداخلية بـ 100 و50 نقطة لتحديد القمم والانحناءات؛ خطوة 72 درجة تُوزّع الخمس قمم بالتساوي. يُغلق المسار عبر [GeometryPath::closeFigure](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#closeFigure) ويُطبق على شكل مستطيل باستخدام [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، مستبدلًا مخططه.
 
-هذا Java يوضح لك كيفية إنشاء شكل مخصص:
 ```php
-  $points = new Java("java.util.ArrayList");
-  $R = 100;
-  $r = 50;
-  $step = 72;
-  for($angle = -90; $angle < 270; $angle += $step) {
-    $radians = $angle * java("java.lang.Math")->PI / 180.0;
-    $x = $R * java("java.lang.Math")->cos($radians);
-    $y = $R * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-    $radians = java("java.lang.Math")->PI * $angle . $step / 2 / 180.0;
-    $x = $r * java("java.lang.Math")->cos($radians);
-    $y = $r * java("java.lang.Math")->sin($radians);
-    $points->add(new Point2DFloat($x + $R, $y + $R));
-  }
-  $starPath = new GeometryPath();
-  $starPath->moveTo($points->get(0));
-  for($i = 1; $i < java_values($points->size()) ; $i++) {
-    $starPath->lineTo($points->get($i));
-  }
-  $starPath->closeFigure();
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $R * 2, $R * 2);
-    $shape->setGeometryPath($starPath);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$points = [];
+$outerRadius = 100;
+$innerRadius = 50;
+$angleStep = 72;
+for ($angle = -90; $angle < 270; $angle += $angleStep) {
+    $radians = deg2rad($angle);
+    $points[] = [$outerRadius * cos($radians) + $outerRadius, $outerRadius * sin($radians) + $outerRadius];
+    $radians = deg2rad($angle + $angleStep / 2);
+    $points[] = [$innerRadius * cos($radians) + $outerRadius, $innerRadius * sin($radians) + $outerRadius];
+}
+
+$starPath = new GeometryPath();
+$starPath->moveTo($points[0][0], $points[0][1]);
+for ($i = 1; $i < count($points); $i++) {
+    $starPath->lineTo($points[$i][0], $points[$i][1]);
+}
+$starPath->closeFigure();
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, $outerRadius * 2, $outerRadius * 2);
+    $shape->setGeometryPath($starPath);
+} finally {
+    $presentation->dispose();
+}
+```
 ![example3_image](custom_shape_3.png)
 
+## **إنشاء شكل مدمج مخصص**
 
-## **إنشاء شكل مخصص مركب**
+تحدّد هذه العينة كائنين [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/) مغلقين للثلثين العلوي والسفلي من الشكل. يُنشئ تطبيق كلا المسارين عبر [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) شكلاً مركبًا واحدًا به فجوة عبر الثلث الأوسط.
 
-  1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) .
-  2. أنشئ المثيل الأول من فئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) .
-  3. أنشئ المثيل الثاني من فئة [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) .
-  4. طبّق المسارات على الشكل.
-
-هذا الكود PHP يوضح لك إنشاء شكل مخصص مركب:
 ```php
-  $pres = new Presentation();
-  try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
-    $geometryPath0 = new GeometryPath();
-    $geometryPath0->moveTo(0, 0);
-    $geometryPath0->lineTo($shape->getWidth(), 0);
-    $geometryPath0->lineTo($shape->getWidth(), $shape->getHeight() / 3);
-    $geometryPath0->lineTo(0, $shape->getHeight() / 3);
-    $geometryPath0->closeFigure();
-    $geometryPath1 = new GeometryPath();
-    $geometryPath1->moveTo(0, $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight() / 3 * 2);
-    $geometryPath1->lineTo($shape->getWidth(), $shape->getHeight());
-    $geometryPath1->lineTo(0, $shape->getHeight());
-    $geometryPath1->closeFigure();
-    $shape->setGeometryPaths(array($geometryPath0, $geometryPath1 ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\GeometryPath;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
 
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+
+    $topPath = new GeometryPath();
+    $topPath->moveTo(0, 0);
+    $topPath->lineTo(java_values($shape->getWidth()), 0);
+    $topPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3);
+    $topPath->lineTo(0, java_values($shape->getHeight()) / 3);
+    $topPath->closeFigure();
+
+    $bottomPath = new GeometryPath();
+    $bottomPath->moveTo(0, java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()) / 3 * 2);
+    $bottomPath->lineTo(java_values($shape->getWidth()), java_values($shape->getHeight()));
+    $bottomPath->lineTo(0, java_values($shape->getHeight()));
+    $bottomPath->closeFigure();
+
+    $shape->setGeometryPaths([$topPath, $bottomPath]);
+} finally {
+    $presentation->dispose();
+}
+```
 ![example4_image](custom_shape_4.png)
 
 ## **إنشاء شكل مخصص بزوايا منحنية**
 
-هذا الكود PHP يوضح لك كيفية إنشاء شكل مخصص بزوايا منحنية (للداخل);
+تمزج هذه العينة القطاعات المستقيمة مع [GeometryPath::arcTo](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#arcTo) لإنشاء شكل بزوايا منحنية إلى الداخل. تحدد كل زاوية حجم القوس بالعرض والارتفاع بالنقاط، وتُرسم القطعة ذات القوس –90 درجة قوسًا إهليلجيًا ربعًا باتجاه عكس عقارب الساعة. يُطبق المسار المكتمل عبر [GeometryShape::setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath)، وتُحفظ العرض التقديمي بصيغة PPTX.
+
 ```php
-  $shapeX = 20.0;
-  $shapeY = 20.0;
-  $shapeWidth = 300.0;
-  $shapeHeight = 200.0;
-  $leftTopSize = 50.0;
-  $rightTopSize = 20.0;
-  $rightBottomSize = 40.0;
-  $leftBottomSize = 10.0;
-  $pres = new Presentation();
-  try {
-    $childShape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+use aspose\slides\GeometryPath;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$shapeX = 20;
+$shapeY = 20;
+$shapeWidth = 300;
+$shapeHeight = 200;
+
+$leftTopSize = 50;
+$rightTopSize = 20;
+$rightBottomSize = 40;
+$leftBottomSize = 10;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Custom, $shapeX, $shapeY, $shapeWidth, $shapeHeight);
+
+    $topLeft = new Point2DFloat($leftTopSize, 0);
+    $topRight = new Point2DFloat($shapeWidth - $rightTopSize, 0);
+    $rightBottom = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
+    $bottomLeft = new Point2DFloat($leftBottomSize, $shapeHeight);
+    $leftTop = new Point2DFloat(0, $leftTopSize);
+
     $geometryPath = new GeometryPath();
-    $point1 = new Point2DFloat($leftTopSize, 0);
-    $point2 = new Point2DFloat($shapeWidth - $rightTopSize, 0);
-    $point3 = new Point2DFloat($shapeWidth, $shapeHeight - $rightBottomSize);
-    $point4 = new Point2DFloat($leftBottomSize, $shapeHeight);
-    $point5 = new Point2DFloat(0, $leftTopSize);
-    $geometryPath->moveTo($point1);
-    $geometryPath->lineTo($point2);
+    $geometryPath->moveTo($topLeft);
+    $geometryPath->lineTo($topRight);
     $geometryPath->arcTo($rightTopSize, $rightTopSize, 180, -90);
-    $geometryPath->lineTo($point3);
+    $geometryPath->lineTo($rightBottom);
     $geometryPath->arcTo($rightBottomSize, $rightBottomSize, -90, -90);
-    $geometryPath->lineTo($point4);
+    $geometryPath->lineTo($bottomLeft);
     $geometryPath->arcTo($leftBottomSize, $leftBottomSize, 0, -90);
-    $geometryPath->lineTo($point5);
+    $geometryPath->lineTo($leftTop);
     $geometryPath->arcTo($leftTopSize, $leftTopSize, 90, -90);
     $geometryPath->closeFigure();
-    $childShape->setGeometryPath($geometryPath);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
 
+    $shape->setGeometryPath($geometryPath);
 
-## **اكتشاف ما إذا كان شكل الهندسة مغلقًا**
-
-يُعرَّف الشكل المغلق بأنه الشكل الذي تتصل جميع جوانبه، مكوّنًا حدًا واحدًا دون فجوات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح مثال الكود التالي كيفية التحقق مما إذا كان شكل الهندسة مغلقًا:
-```php
-function isGeometryClosed($geometryShape)
-{
-    $isClosed = null;
-
-    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
-        $dataLength = count(java_values($geometryPath->getPathData()));
-        if ($dataLength === 0) {
-            continue;
-        }
-
-        $lastSegment = java_values($geometryPath->getPathData())[$dataLength - 1];
-        $isClosed = $lastSegment->getPathCommand() === PathCommandType::Close;
-
-        if ($isClosed === false) {
-            return false;
-        }
-    }
-
-    return $isClosed === true;
+    $presentation->save("output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
 }
 ```
 
+## **التحقق مما إذا كانت هندسة الشكل مغلقة**
 
-## **تحويل GeometryPath إلى java.awt.Shape** 
+تتحقق الدالة المساعدة التالية ما إذا كان كل مسار هندسي غير فارغ ينتهي بقطاع إغلاق. تقرأ [GeometryPath::getPathData](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#getPathData) وتقارن أمر القطاع النهائي عبر [PathSegment::getPathCommand](https://reference.aspose.com/slides/php-java/aspose.slides/pathsegment/#getPathCommand) مع [PathCommandType::Close](https://reference.aspose.com/slides/php-java/aspose.slides/pathcommandtype/). تُعيد false عندما لا توجد مسارات غير فارغة. تتحقق هذه الدالة من الأمر النهائي لكل مسار؛ لا تقوم بفحص كل شكل فرعي داخل المسار. تطبع العينة `true` لمستطيل.
 
-1. أنشئ مثيلًا لفئة [GeometryShape](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryShape) .
-2. أنشئ مثيلًا لفئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) .
-3. حوّل مثيل [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/php-java/awt/Shape.html) إلى مثيل [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/php-java/aspose.slides/ShapeUtil) .
-4. طبّق المسارات على الشكل.
-
-هذا الكود PHP—تنفيذ الخطوات أعلاه—يظهر عملية تحويل **GeometryPath** إلى **GraphicsPath**:
 ```php
-  $pres = new Presentation();
-  try {
-    # إنشاء شكل جديد
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
-    # الحصول على مسار الهندسة للشكل
-    $originalPath = $shape->getGeometryPaths()[0];
-    $originalPath->setFillMode(PathFillModeType::None);
-    # إنشاء مسار رسومي جديد بالنص
-    $graphicsPath;
-    $font = new Font("Arial", Font->PLAIN, 40);
-    $text = "Text in shape";
-    $img = new BufferedImage(100, 100, BufferedImage->TYPE_INT_ARGB);
-    $g2 = $img->createGraphics();
-    try {
-      $glyphVector = $font->createGlyphVector($g2->getFontRenderContext(), $text);
-      $graphicsPath = $glyphVector->getOutline(20.0, -$glyphVector->getVisualBounds()->getY() + 10);
-    } finally {
-      $g2->dispose();
+use aspose\slides\PathCommandType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function isGeometryClosed($geometryShape)
+{
+    $hasNonemptyPath = false;
+    foreach ($geometryShape->getGeometryPaths() as $geometryPath) {
+        $segments = java_values($geometryPath->getPathData());
+        if (count($segments) === 0) {
+            continue;
+        }
+        $hasNonemptyPath = true;
+        $lastSegment = $segments[count($segments) - 1];
+        if (java_values($lastSegment->getPathCommand()) !== PathCommandType::Close) {
+            return false;
+        }
     }
-    # تحويل المسار الرسومي إلى مسار هندسي
-    $textPath = ShapeUtil->graphicsPathToGeometryPath($graphicsPath);
-    $textPath->setFillMode(PathFillModeType::Normal);
-    # تعيين مزيج من مسار الهندسة الجديد ومسار الهندسة الأصلي إلى الشكل
-    $shape->setGeometryPaths(array($originalPath, $textPath ));
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    return $hasNonemptyPath;
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+    $closed = isGeometryClosed($shape);
+    echo ($closed ? "true" : "false") . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **استخراج وفحص عناصر الشكل**
+
+استخدم [GeometryShape::createShapeElements](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#createShapeElements) لفحص شكل موجود كعناصر تحتوي على نقاط المسار وأنواع النقاط. استخدم كل [ShapeElement](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/) مُرجع لاسترجاع مصفوفات النقاط والأنواع عبر طريقتي [getPathPoints](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathPoints) و[getPathTypes](https://reference.aspose.com/slides/php-java/aspose.slides/shapeelement/#getPathTypes). يُعدّ هذا التمثيل مفيدًا لتحليل الحدود أو لتمرير الهندسة إلى أدوات رسم مخصصة.
+
+تفتح العينة ملف input.pptx، وتجد أول شكل هندسي مباشرة على الشريحة الأولى، وتطبع قطاعات مساره. استخدم عرضًا يحتوي على شكل بقطاعات مستقيمة ومنحنية لتُظهر كلا النوعين من الإخراج. لا تبحث داخل المجموعات.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = null;
+    $shapes = $slide->getShapes();
+    for ($shapeIndex = 0; $shapeIndex < java_values($shapes->size()); $shapeIndex++) {
+        $candidate = $shapes->get_Item($shapeIndex);
+        if (java_instanceof($candidate, java("com.aspose.slides.GeometryShape"))) {
+            $shape = $candidate;
+            break;
+        }
+    }
+
+    if ($shape === null) {
+        echo "No geometry shape found on the first slide." . PHP_EOL;
+    } else {
+        foreach ($shape->createShapeElements() as $element) {
+            $points = java_values($element->getPathPoints());
+            $types = array_values(unpack("C*", java_values($element->getPathTypes())));
+            echo "Shape element:" . PHP_EOL;
+            for ($i = 0; $i < count($points); $i++) {
+                $pointType = $types[$i] & 0x07; // احتفظ بنوع القطعة، مع استبعاد العلامات.
+                switch ($pointType) {
+                    case 0:
+                        echo "Start figure at " . $points[$i] . PHP_EOL;
+                        break;
+                    case 1:
+                        echo "Line to " . $points[$i] . PHP_EOL;
+                        break;
+                    case 3:
+                        echo "Cubic Bezier: controls " . $points[$i] . ", " . $points[$i + 1] . "; end " . $points[$i + 2] . PHP_EOL;
+                        $i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+                if (($types[$i] & 0x80) !== 0) {
+                    echo "Close subpath back to its starting point." . PHP_EOL;
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+المصفوفات تتطابق بحسب الفهرس: `$points[$i]` هو نقطة و`$types[$i]` يصف دورها. النوع `0` يبدأ الشكل، والنوع `1` يرسم خطًا من النقطة السابقة إلى النقطة الحالية. يبدأ قطاع بيزيه مكعب من النقطة النهائية السابقة ويستخدم ثلاث إدخالات من النوع `3` متتالية: نقطتا تحكم ثم النقطة النهائية الجديدة. يستهلك الحلقة هذه الثلاث إدخالات معًا ويفحص النقطة النهائية للإغلاق.
+
+تحتوي أنواع النقاط أيضًا على أعلام. قُم بالـ mask بـ `0x07` لتحديد نوع القطاع، واختبر `0x80` منفصلًا لاكتشاف مسار فرعي مغلق. على سبيل المثال، `129` (`0x81`) يعني نقطة نهاية خط تُغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزيه تُغلق واحدًا. تُعيد جسر PHP/Java المصفوفة البايتية كسلسلة ثنائية؛ فكّها باستخدام `"C*"` لتنتج قيم بايت غير موقّعة. يحافظ الـ masking على القيم البتية المقصودة. مقارنة القيمة الخام فقط بـ `1` أو `3` سيفوت هذه الحالات. الأعلام الأخرى، مثل الواصل (`0x10`) والعلامة (`0x20`)، لا تغير نوع القطاع الأساسي.
+
+**الإحداثيات والتحويلات.** تُقاس النقاط بوحدات النقاط (1/72 بوصة)، مع زيادة X إلى اليمين وزيادة Y إلى الأسفل. بالنسبة لشكل غير مجمع، تضم الإحداثيات المستخرجة بالفعل الموضع الذي تُرجعه [getX](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getX) و[getY](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getY) وتعكس عرضه وارتفاعه الحالي. على سبيل المثال، مستطيل غير مدوَّر عند `(100, 200)` بالحجم `120 × 80` له حدود محيط `(100, 200)`–`(220, 280)`. لا تُضيف موضع الشكل مرة أخرى. اطرح قيم X وY للحصول على إحداثيات نسبية لإطار الشكل غير المدوَّر.
+
+لا تطبق الإحداثيات المستخرجة دوران الشكل، الذي تُرجعه [getRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getRotation)، أو الانعكاسات الأفقية والعمودية. لتكرار المخطط المعروض، طبّق تلك التحويلات حول مركز الشكل. بالنسبة للأشكال المجمعة، احسب أيضًا تحويلات وإسقاطات إحداثيات المجموعة؛ لا تفترض أن الإحداثيات المستخرجة هي إحداثيات الشريحة النهائية أو تُطبق ترجمة أو مقياسًا مرتين إذا كان مُعكسًا بالفعل في إطار الطفل.
+
+**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة المحيط؛ تعديلها لا يُحدّث الشكل الأصلي. اختر هذا الأسلوب عندما تحتاج إلى مصفوفات نقطة/نوع لتحليل أو رسمك. استخدم [getGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#getGeometryPaths) عندما تحتاج إلى أوامر هندسية في نظام إحداثيات الشكل المحلي أو ترغب في تحرير هندسته. طبّق المسارات المعدلة عبر [setGeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPath) أو [setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths).
+
+## **تحويل شكل Java AWT إلى GeometryPath**
+
+تجمع هذه العينة مخططًا مستطیلیًا مع نص محوَّل إلى هندسة. تُعطّل طريقة [setFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/#setFillMode) ملء المخطط. تُنشئ فئة [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) مخطط النص في كائن [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). يوفّر [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) تحركات، خطوط، منحنيات تربيعية، مكعبة، وقطاعات إغلاق، والتي يُعيد تنفيذها على [GeometryPath](https://reference.aspose.com/slides/php-java/aspose.slides/geometrypath/).
+
+تستخدم العينة مصفوفة عائمة Java حتى يحتفظ جسر PHP/Java بالإحداثيات التي كتبها المتiter. يستخدم النص خطًا Arial بحجم 40 نقطة. يُزاح المخطط أفقياً 20 نقطة ويُوضَع بحيث أعلىه البصري 10 نقاط أسفل حافة أعلى الشكل. يُملأ مسار النص، بينما يبقى المستطيل الأصلي مخططًا فقط. يدمج تطبيق كلا المسارين عبر [GeometryShape::setGeometryPaths](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setGeometryPaths) شكلًا واحدًا يحتوي على المستطيل والنص.
+
+```php
+use aspose\slides\GeometryPath;
+use aspose\slides\PathFillModeType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 100);
+    
+    $originalPath = $shape->getGeometryPaths()[0];
+    $originalPath->setFillMode(PathFillModeType::None);
+
+    $fontClass = java("java.awt.Font");
+    $imageClass = java("java.awt.image.BufferedImage");
+    $font = new Java("java.awt.Font", "Arial", $fontClass->PLAIN, 40);
+    $image = new Java("java.awt.image.BufferedImage", 100, 100, $imageClass->TYPE_INT_ARGB);
+    $graphics = $image->createGraphics();
+    try {
+        $fontContext = $graphics->getFontRenderContext();
+        $glyphVector = $font->createGlyphVector($fontContext, "Text in shape");
+        $textBounds = $glyphVector->getVisualBounds();
+        $baseline = -java_values($textBounds->getY()) + 10;
+        $graphicsPath = $glyphVector->getOutline(20.0, $baseline);
+    } finally {
+        $graphics->dispose();
+    }
+
+    $textPath = new GeometryPath();
+    $pathIterator = $graphicsPath->getPathIterator(null);
+    $iteratorClass = java("java.awt.geom.PathIterator");
+    $arrayClass = java("java.lang.reflect.Array");
+    $floatClass = java("java.lang.Float");
+    $coordinates = $arrayClass->newInstance($floatClass->TYPE, 6);
+
+    while (!java_values($pathIterator->isDone())) {
+        $segmentType = java_values($pathIterator->currentSegment($coordinates));
+        $points = java_values($coordinates);
+        switch ($segmentType) {
+            case java_values($iteratorClass->SEG_MOVETO):
+                $textPath->moveTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_LINETO):
+                $textPath->lineTo($points[0], $points[1]);
+                break;
+            case java_values($iteratorClass->SEG_QUADTO):
+                $textPath->quadraticBezierTo($points[0], $points[1], $points[2], $points[3]);
+                break;
+            case java_values($iteratorClass->SEG_CUBICTO):
+                $textPath->cubicBezierTo($points[0], $points[1], $points[2], $points[3], $points[4], $points[5]);
+                break;
+            case java_values($iteratorClass->SEG_CLOSE):
+                $textPath->closeFigure();
+                break;
+        }
+        $pathIterator->next();
+    }
+    $textPath->setFillMode(PathFillModeType::Normal);
+    $shape->setGeometryPaths([$originalPath, $textPath]);
+} finally {
+    $presentation->dispose();
+}
+```
 ![example5_image](custom_shape_5.png)
 
 ## **الأسئلة المتكررة**
 
-**ماذا سيحدث للملء والحد بعد استبدال الهندسة؟**
+**ماذا سيحدث للملء والحدّ بعد استبدال الهندسة؟**
 
-يبقى النمط مع الشكل؛ فقط يبدو الشكل يتغير. يتم تطبيق الملء والحد تلقائيًا على الهندسة الجديدة.
+يبقى النمط مع الشكل؛ يتغيّر فقط المخطط. يُطبّق الملء والحدّ تلقائيًا على الهندسة الجديدة.
 
-**كيف يمكنني تدوير شكل مخصص بشكل صحيح مع هندسته؟**
+**كيف يمكنني تدوير شكل مخصص مع هندسته بشكل صحيح؟**
 
-استخدم طريقة [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/setrotation/) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+استخدم طريقة [setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
 
 **هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**
 
-نعم. صدِّر المنطقة المطلوبة من [الشريحة](/slides/ar/php-java/convert-powerpoint-to-png/) أو [الشكل](/slides/ar/php-java/create-shape-thumbnails/) نفسه إلى صيغة نقطية؛ هذا يبسط العمل لاحقًا مع الهندسات الثقيلة.
+نعم. صدّر منطقة [slide](/slides/ar/php-java/convert-powerpoint-to-png/) المطلوبة أو الـ [shape](/slides/ar/php-java/create-shape-thumbnails/) نفسها إلى صيغة نقطية؛ يُبسّط هذا العمل اللاحق مع الهندسات المعقّدة.

@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中自定义演示文稿形状
+title: 在 Java 中定制演示文稿形状
 linktitle: 自定义形状
 type: docs
 weight: 20
@@ -21,184 +21,138 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建和自定义形状：几何路径、曲线角、复合形状。"
+description: "使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建并定制形状：几何路径、曲线角、复合形状。"
 ---
+## **概述**
 
-# 使用编辑点更改形状
-考虑一个正方形。在 PowerPoint 中，使用 **编辑点**，您可以
+本文介绍如何通过编辑点和几何路径编辑形状几何来自定义 Aspose.Slides 中的演示文稿形状。它展示了如何使用 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 和 [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) 来修改现有形状，执行基本的路径编辑操作，添加或删除点，并将更新后的几何应用回形状。
 
-* 将正方形的角向内或向外移动
-* 为角或点指定曲率
-* 为正方形添加新点
-* 操作正方形上的点，等等 
+它还演示了如何创建自定义和复合形状，构建带曲线角的形状，判断形状几何是否闭合，检查形状元素，以及将 Java AWT 文本轮廓转换为几何路径。
 
-本质上，您可以对任何形状执行上述操作。使用编辑点，您可以更改形状或从现有形状创建新形状。 
+## **使用编辑点更改形状**
+
+* 将角点向内或向外移动。
+* 调整点处的曲率。
+* 添加新点。
+
+编辑点可让您修改形状的轮廓，或以现有形状为基础创建新形状。
 
 ## **形状编辑技巧**
 
 ![overview_image](custom_shape_0.png)
 
-在使用编辑点编辑 PowerPoint 形状之前，您可能需要考虑以下关于形状的要点：
+编辑 PowerPoint 形状时，请牢记以下概念：
 
 * 形状（或其路径）可以是闭合的，也可以是开放的。
-* 当形状闭合时，它没有起点或终点。形状开放时，则有起点和终点。 
-* 所有形状至少由 2 个锚点组成，这些锚点通过线段相连
-* 线段可以是直的或曲的。锚点决定线段的属性。 
-* 锚点存在为角点、直线点或平滑点：
-  * 角点是两条直线在某个角度相交的点。 
-  * 平滑点是两个控制柄在同一直线上，且线段以平滑曲线相连的点。在这种情况下，所有控制柄与锚点的距离相等。 
-  * 直线点是两个控制柄在同一直线上，且线段以平滑曲线相连的点。在这种情况下，控制柄与锚点的距离不必相等。 
-* 通过移动或编辑锚点（从而改变线段的角度），您可以改变形状的外观。 
+* 形状的路径由锚点和它们之间的线段组成。
+* 线段可以是直的或曲的。锚点和控制柄决定其形状。
+* 锚点可以是角点、直点或平滑点：
+  * 在角点，相邻的线段可以成角相接。
+  * 在平滑点，两个控制柄在同一直线上且距离锚点相等。
+  * 在直点，两个控制柄仍在同一直线上，但距离锚点的距离可以不同。
+* 移动锚点或调整其控制柄会改变形状的轮廓。
 
-要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类和 [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) 接口。 
+要通过编辑点编辑 PowerPoint 形状，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 类和 [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) 接口。
 
-* 一个 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 实例表示 [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape) 对象的几何路径。 
-* 要从 `IGeometryShape` 实例检索 `GeometryPath`，可以使用 [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) 方法。 
-* 要为形状设置 `GeometryPath`，可以使用以下方法：针对 *实心形状* 使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-)，针对 *复合形状* 使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)。 
-* 要添加段，可以使用 [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath) 下的方法。 
-* 使用 [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) 和 [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) 方法，可以设置几何路径的外观。 
-* 使用 [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) 方法，可将 `GeometryShape` 的几何路径检索为路径段数组。 
-* 要访问更多形状几何自定义选项，可以将 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 转换为 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)。 
-* 使用 [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) 和 [graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) 方法（来自 [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) 类），在 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 与 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 之间相互转换。 
+* 一个 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 实例表示 [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) 对象的几何路径。
+* 要从 [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) 实例检索 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/)，可以使用 [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) 方法。
+* 要为形状设置 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/)，可以使用以下方法：对单一路径的形状使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-)，对多路径形状使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---)。
+* 要添加线段，可以使用 [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) 下的方法。
+* 使用 [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) 和 [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) 方法，可以设置几何路径的外观。
+* 使用 [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) 方法，可以将 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) 的几何路径作为路径线段数组检索。
+* 要访问更多形状几何自定义选项，可以通过其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 读取 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 并在 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 上重放这些线段。
 
 ## **简单编辑操作**
 
-以下 Java 代码展示了如何
+使用以下方法编辑几何路径。接受索引的重载会在路径的线段数组中零基位置插入线段。
 
-* **添加直线** 到路径的末端
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-
-* **添加直线** 到路径的指定位置：
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-
-* **添加三次贝塞尔曲线** 到路径的末端：
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-
-* **添加三次贝塞尔曲线** 到路径的指定位置：
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-
-* **添加二次贝塞尔曲线** 到路径的末端：
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-
-* **添加二次贝塞尔曲线** 到路径的指定位置：
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-
-* **追加给定弧线** 到路径：
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-
-* **关闭路径的当前图形**：
-``` java
-public void closeFigure();
-```
-
-* **设置下一个点的位置**：
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-
-* **移除指定索引的路径段**：
-``` java
-public void removeAt(int index);
-```
-
+| 操作 | 方法 |
+| --- | --- |
+| 追加或插入直线。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| 追加或插入具有两个控制点和终点的三次 Bézier 曲线。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| 追加或插入具有一个控制点和终点的二次 Bézier 曲线。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| 追加具有指定尺寸和角度（度）的椭圆弧。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| 通过将终点连接到起点来闭合当前图形。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| 设置图形的起始点。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| 删除指定索引（从0开始）的线段。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
 ## **向形状添加自定义点**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) 类的实例并将类型设置为 [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType)。
-2. 从形状获取 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类的实例。
-3. 在路径的两个顶部点之间添加一个新点。
-4. 在路径的两个底部点之间添加一个新点。
-5. 将路径应用到形状。
+此示例使用 [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) 向矩形形状插入两个点，并使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 应用编辑后的路径。坐标是相对于形状的局部坐标：两个新点位于形状中心，距左侧 100 点，距顶部 50 点。线段索引 1 和 4 将它们放在上、下边缘上，向内拉动这些边缘。
 
-以下 Java 代码展示了如何向形状添加自定义点：
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **从形状中移除点**
+## **从形状移除点**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) 类的实例并将类型设置为 [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType)。
-2. 从形状获取 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类的实例。
-3. 移除路径的段。
-4. 将路径应用到形状。
+此示例使用 [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) 删除零基索引 2 处的线段，从而更改心形轮廓。使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 应用修改后的路径会更新形状的轮廓。
 
-以下 Java 代码展示了如何从形状中移除点：
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
-##  **创建自定义形状**
+## **创建自定义形状**
 
-1. 计算形状的点。
-2. 创建 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类的实例。 
-3. 使用这些点填充路径。
-4. 创建 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) 类的实例。 
-5. 将路径应用到形状。
+此示例使用 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 构建一个五角星。交替的外半径 100 点和内半径 50 点定义了星尖和凹口；72 度的步进使五个星尖均匀分布。路径使用 [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) 闭合，并通过 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 应用于矩形形状，替换其轮廓。
 
-以下 Java 示例展示了如何创建自定义形状：
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-float R = 100, r = 50;
-int step = 72;
+List<Point2D.Float> points = new ArrayList<>();
 
-for (int angle = -90; angle < 270; angle += step)
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
+
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -211,60 +165,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
-
 
 ## **创建复合自定义形状**
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) 类的实例。
-2. 创建第一个 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类的实例。
-3. 创建第二个 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 类的实例。
-4. 将这些路径应用到形状。
+此示例为形状的顶部和底部三分之一定义了两个闭合的 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 对象。使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) 同时应用这两个路径，可创建一个在中部三分之一留有空隙的单一复合形状。
 
-以下 Java 代码展示了如何创建复合自定义形状：
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
 ## **创建带曲线角的自定义形状**
 
-以下 Java 代码展示了如何创建带内凹曲线角的自定义形状；
+此示例将直线段与 [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) 组合，生成一个角部向内弯曲的形状。每个角的尺寸以点为单位设置弧的宽度和高度，-90 度的扫掠绘制逆时针四分之一椭圆。完成的路径使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 应用，演示文稿以 PPTX 格式保存。
+
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -275,79 +229,170 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 
 ## **判断形状几何是否闭合**
 
-闭合形状的定义是其所有边相连，形成无间隙的单一边界。此类形状可以是简单的几何形状，也可以是复杂的自定义轮廓。以下代码示例展示了如何检查形状几何是否闭合：
+下面的辅助方法检查每条非空几何路径是否以闭合线段结束。它读取 [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) 并将最终线段的 [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) 与 [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) 比较。当不存在非空路径时返回 false。此检查每条路径的最终命令，而不检查路径内部的每个子图形。示例对矩形输出 `true`。
+
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **提取并检查形状元素**
 
-## **将 GeometryPath 转换为 java.awt.Shape** 
+使用 [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) 可将现有形状检查为包含路径点和点类型的元素。将每个返回的 [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) 强制转换为 [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) ，即可通过 [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) 和 [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) 方法获取点数组和类型数组。这种表示方式对轮廓分析或将几何传递给自定义绘图工具非常有用。
 
-1. 创建 [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) 类的实例。
-2. 创建 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 类的实例。
-3. 使用 [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil) 将 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 实例转换为 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) 实例。
-4. 将路径应用到形状。
+示例打开 `input.pptx`，在第一张幻灯片上直接找到第一个几何形状，并打印其路径线段。使用包含直线和曲线段的形状进行演示，可看到两种输出。它不会在组内部搜索。
 
-以下 Java 代码（上述步骤的实现）演示了 **GeometryPath** 到 **GraphicsPath** 的转换过程：
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // 保留线段类型，排除标志位。
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // 消耗两个控制点和终点。
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+数组按索引对应：`points[i]` 为一个点，`types[i]` 描述其角色。类型 `0` 开始一个图形，类型 `1` 从前一点绘制到当前点的直线。三次 Bézier 线段起始于前一个端点，使用连续的三个类型为 `3` 的条目：两个控制点后跟新的端点。循环一次性消费这三个条目并检查端点是否闭合。
+
+点类型还包含标志位。使用 `0x07` 掩码可识别线段类型，单独测试 `0x80` 可检测闭合子路径。例如，`129` (`0x81`) 表示闭合子路径的直线端点，`131` (`0x83`) 表示闭合的 Bézier 端点。Java 将这些标志存储在有符号字节中；进行掩码可保留预期的位值。仅与 `1` 或 `3` 比较原始值会遗漏这些情况。其他标志，如虚线 (`0x10`) 和标记 (`0x20`)，不会改变基础线段类型。
+
+**坐标与变换。** 点的单位为 point（1/72 英寸），X 向右递增，Y 向下递增。对于未分组的形状，提取的坐标已经包含了 [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) 和 [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) 返回的位置，并反映其当前宽度和高度。例如，未旋转的矩形位于 `(100, 200)`，尺寸为 `120 × 80`，其轮廓边界为 `(100, 200)`–`(220, 280)`。不要再次添加形状的位置。减去其 X 和 Y 可得到相对于未旋转框架的坐标。
+
+提取的点不考虑由 [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) 返回的形状旋转，也不考虑水平和垂直翻转。要重现显示的轮廓，需要围绕形状中心应用这些变换。对于分组形状，还需考虑组坐标映射和变换；不要假设提取的点已经是最终渲染的幻灯片坐标，也不要在已经在子框架中体现的情况下再次平移或缩放。
+
+**检查 vs 编辑。** 提取的数组仅描述轮廓，修改它们不会更新原始形状。仅在分析或绘图代码需要点/类型数组时使用此方法。需要在形状本地坐标系中获取几何命令或编辑几何时，请使用 [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--)。编辑后通过 [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 或 [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) 应用。
+
+## **将 Java AWT Shape 转换为 GeometryPath**
+
+此示例将矩形轮廓与转换后的文本几何相结合。轮廓的 [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) 方法关闭填充。[GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) 在 [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) 中创建文本轮廓。其 [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) 提供移动、直线、二次、三次和闭合线段，示例将在 [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) 上重放这些线段。
+
+文本使用 40 点 Arial 字体。轮廓水平偏移 20 点，且其可视顶部位于形状顶部以下 10 点。文本路径被填充，而原始矩形保持为轮廓。使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) 同时应用两条路径，生成包含矩形和文本的单一形状。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
     // 创建新形状
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
     // 获取形状的几何路径
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
@@ -355,43 +400,72 @@ try {
 
     // 使用文本创建新的图形路径
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
     // 将图形路径转换为几何路径
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // 将新的几何路径与原始几何路径的组合设置到形状上
+    // 将新的几何路径与原始几何路径组合并设置到形状
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example5_image](custom_shape_5.png)
 
 ## **常见问题**
 
 **替换几何后填充和轮廓会怎样？**
 
-样式仍保留在形状上，仅轮廓发生变化。填充和轮廓会自动应用到新的几何形状。
+样式仍然保留在形状上；只有轮廓发生变化。填充和轮廓会自动应用到新的几何上。
 
-**如何正确旋转自定义形状及其几何？**
+**如何正确地连同几何一起旋转自定义形状？**
 
-使用形状的 [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) 方法；几何会随形状一起旋转，因为它绑定在形状自身的坐标系上。
+使用形状的 [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) 方法；几何会随形状一起旋转，因为它绑定在形状自己的坐标系上。
 
-**我能将自定义形状转换为图像以“锁定”结果吗？**
+**是否可以将自定义形状转换为图像以“锁定”结果？**
 
-可以。将所需的 [slide](/slides/zh/java/convert-powerpoint-to-png/) 区域或 [shape](/slides/zh/java/create-shape-thumbnails/) 本身导出为光栅格式；这可简化后续对复杂几何的处理。
+可以。将所需的[幻灯片](/slides/zh/java/convert-powerpoint-to-png/)区域或[形状](/slides/zh/java/create-shape-thumbnails/)本身导出为光栅格式，这会简化对复杂几何的后续操作。

@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlarda Şekilleri Özelleştirme
+title: Python'da Sunum Şekillerini Özelleştirme
 linktitle: Özel Şekil
 type: docs
 weight: 20
@@ -8,142 +8,78 @@ keywords:
 - özel şekil
 - şekil ekle
 - şekil oluştur
-- şekli değiştir
+- şekil değiştir
 - şekil geometrisi
 - geometri yolu
 - yol noktaları
-- nokta düzenleme
+- düzenleme noktaları
 - nokta ekle
 - nokta kaldır
 - düzenleme işlemi
-- kavisli köşe
+- eğri köşe
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile PowerPoint ve OpenDocument sunumlarında şekil oluşturun ve özelleştirin: geometri yolları, kavisli köşeler, bileşik şekiller."
+description: "Aspose.Slides for Python via .NET ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, eğri köşeler, birleşik şekiller."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir kareyi düşünün. PowerPoint'te **Edit Points** kullanarak şunları yapabilirsiniz:
+Bu makale, Aspose.Slides içinde sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek nasıl özelleştireceğinizi açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemleri yapmak, nokta eklemek veya kaldırmak ve güncellenen geometriyi bir şekle geri uygulamak için [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) ile nasıl çalışılacağını gösterir.
 
-* bir karenin köşesini içeriye ya da dışarıya hareket ettirin,
-* bir köşenin ya da noktanın eğriliğini ayarlayın,
-* kareye yeni noktalar ekleyin,
-* noktasını manipüle edin.
+Ayrıca özel ve birleşik şekiller oluşturmayı, eğri köşeli şekiller inşa etmeyi, bir şekil geometrisinin kapalı olup olmadığını belirlemeyi ve kontur analizleri için şekil elemanlarını çıkarmayı da gösterir.
 
-Bu işlemleri herhangi bir şekle uygulayabilirsiniz. **Edit Points** ile bir şekli değiştirebilir veya mevcut bir şekilden yeni bir şekil oluşturabilirsiniz.
+## **Düzenleme Noktalarını Kullanarak Bir Şekli Değiştirme**
+
+* Bir köşeyi içe ya da dışa doğru hareket ettirin.
+* Bir noktadaki eğriliği ayarlayın.
+* Yeni noktalar ekleyin.
+
+Düzenleme noktalarını kullanarak bir şeklin dış hatlarını değiştirebilir veya mevcut bir şekli yeni bir şeklin temeli olarak kullanabilirsiniz.
 
 ## **Şekil Düzenleme İpuçları**
 
-!["Edit Points" komutu](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-PowerPoint şekillerini **Edit Points** ile düzenlemeye başlamadan önce, şekillerle ilgili şu notları göz önünde bulundurun:
+PowerPoint şekillerini düzenlerken şu kavramları aklınızda bulundurun:
 
-* Bir şekil (veya yolu) **closed** ya da **open** olabilir.
-* Kapalı bir şeklin başlangıç ya da bitiş noktası yoktur; açık bir şeklin bir başlangıcı ve bir sonu vardır.
-* Her şeklin en az iki, çizgi segmentleriyle bağlanan anchor noktası vardır.
-* Bir segment düz ya da eğridir; anchor noktaları segmentin doğasını belirler.
-* Anchor noktaları **corner**, **smooth** veya **straight** olabilir:
-  * Bir **corner** noktası, iki düz segmentin bir açıda buluştuğu yerdir.
-  * Bir **smooth** noktasının iki kolu aynı doğrultudadır ve komşu segmentler düzgün bir eğri oluşturur. Bu durumda, iki kol da anchor noktasına aynı mesafededir.
-  * Bir **straight** nokta da iki aynı doğrultuda kol içerir ve komşu segmentler düzgün bir eğri oluşturur. Bu durumda, kolların anchor noktasına olan mesafeleri aynı olmak zorunda değildir.
-* Anchor noktalarını hareket ettirerek veya düzenleyerek (segment açılarını değiştirerek) şeklin görünümünü değiştirebilirsiniz.
+* Bir şekil (veya yolu) kapalı ya da açık olabilir.
+* Bir şeklin yolu, segmentlerle bağlanmış tutma noktalarından oluşur.
+* Bir segment düz veya eğri olabilir. Tutma noktaları ve kontrol tutamaçları şekli belirler.
+* Tutma noktaları köşe noktası, düz nokta veya düzgün nokta olarak bulunur:
+  * Köşe noktasında, bitişik segmentler bir açıyla buluşabilir.
+  * Düzgün noktada, iki kontrol tutamaçı hizalıdır ve tutma noktasına eşit mesafededir.
+  * Düz nokta için, iki kontrol tutamaçı hizalıdır ancak tutma noktasına farklı mesafelerde olabilir.
+* Tutma noktalarını taşımak veya tutamaçlarını ayarlamak, şeklin dış hatlarını değiştirir.
 
-PowerPoint şekillerini düzenlemek için Aspose.Slides, [GeometryPath](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometrypath/) sınıfını sunar.
+PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) sınıfını sağlar.
 
-* Bir [GeometryPath] örneği, bir [GeometryShape] nesnesinin geometri yolunu temsil eder.
-* Bir [GeometryShape] örneğinden [GeometryPath] elde etmek için [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometryshape/get_geometry_paths/) metodunu kullanın.
-* Bir şekil için [GeometryPath] ayarlamak üzere, *solid shapes* için [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometryshape/set_geometry_path/) ve *composite shapes* için [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/tr/python-net/aspose.slides/geometryshape/set_geometry_paths/) kullanın.
-* [GeometryPath] üzerindeki metodları kullanarak segment ekleyin.
-* [GeometryPath.stroke] ve [GeometryPath.fill_mode] özelliklerini kullanarak bir geometri yolunun görünümünü kontrol edin.
-* [GeometryPath.path_data] özelliğini kullanarak bir şeklin geometri yolunu segment dizisi olarak alın.
+* Bir [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) örneği, [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) nesnesinin geometri yolunu temsil eder.
+* Bir [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) örneğinden [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) almak için [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) yöntemini kullanabilirsiniz.
+* Bir şekil için [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) ayarlamak için şu yöntemleri kullanabilirsiniz: tek bir yola sahip şekiller için [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ve birden çok yola sahip şekiller için [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+* Segment eklemek için [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) altındaki yöntemleri kullanabilirsiniz.
+* [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) ve [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) özelliklerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
+* [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) özelliğiyle bir [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/)​'in geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Aşağıdaki yöntemler basit düzenleme işlemleri için kullanılır.
+Aşağıdaki yöntemleri kullanarak bir geometri yolunu düzenleyin. Bir indeks kabul eden aşırı yüklemeler, segmenti yolun segment dizisindeki sıfır tabanlı konuma ekler.
 
-**Bir çizgi ekle** yolun sonuna:
+| İşlem | Yöntem |
+| --- | --- |
+| Düz bir çizgi ekleyin veya araya ekleyin. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| İki kontrol noktası ve bir son nokta içeren kübik Bézier eğrisi ekleyin veya araya ekleyin. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Bir kontrol noktası ve bir son nokta içeren ikincil Bézier eğrisi ekleyin veya araya ekleyin. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Belirtilen boyut ve derecelerde bir eliptik yay ekleyin. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Bitiş noktasını başlangıç noktasına bağlayarak geçerli şekli kapatın. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Şeklin başlangıç noktasını ayarlayın. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Sıfır tabanlı bir indeksdeki segmenti kaldırın. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
-```py
-line_to(point)
-line_to(x, y)
-```
+## **Bir Şekle Özel Noktalar Ekleme**
 
-**Bir çizgi ekle** yol içinde belirtilen konumda:
+Bu örnek, bir dikdörtgen şekle iki nokta eklemek için [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) kullanır ve düzenlenmiş yolu [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ile uygular. Koordinatlar şekle göre lokal olup, her iki yeni nokta da şeklin ortasında, soldan 100 puan ve yukarıdan 50 puan uzaklıktadır. Segment indeksleri 1 ve 4, bu noktaları üst ve alt kenarlara yerleştirir ve bu kenarları içe doğru çeker.
 
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
-
-**Kübik Bezier eğrisi ekle** yolun sonuna:
-
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-**Kübik Bezier eğrisi ekle** yol içinde belirtilen konumda:
-
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-**Kare Bezier eğrisi ekle** yolun sonuna:
-
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-**Kare Bezier eğrisi ekle** yol içinde belirtilen konumda:
-
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-**Bir yay ekle** yoluna:
-
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-**Geçerli şekli kapat** yol içinde:
-
-```py
-close_figure()
-```
-
-**Sonraki nokta için konumu ayarla**:
-
-```py
-move_to(point)
-move_to(x, y)
-```
-
-**Verilen indeksdeki yol segmentini kaldır**:
-
-```py
-remove_at(index)
-```
-
-## **Şekillere Özel Noktalar Ekle**
-
-Burada, kendi nokta dizinizi ekleyerek serbest biçimli bir şekil tanımlamayı öğreneceksiniz. Sıralı noktalar ve segment tiplerini (düz ya da eğri) belirleyerek ve isteğe bağlı olarak yolu kapatarak, slaytlarınıza doğrudan kesin özel grafikler—poligonlar, ikonlar, açıklama balonları veya logolar—çizebilirsiniz.
-
-1. [GeometryShape] sınıfının bir örneğini oluşturun ve [ShapeType.RECTANGLE] ayarlayın.
-2. Şekilden bir [GeometryPath] örneği alın.
-3. Yoldaki iki üst nokta arasına yeni bir nokta ekleyin.
-4. Yoldaki iki alt nokta arasına yeni bir nokta ekleyin.
-5. Güncellenen yolu şekle uygulayın.
-
-Aşağıdaki Python kodu, bir şekle özel noktalar eklemeyi gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +92,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Özel noktalar](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-##  **Şekillerden Nokta Kaldırma**
+## **Bir Şekilden Noktaları Kaldırma**
 
-Bazen özel bir şekil, geometrisini karmaşıklaştıran ya da render edilmesini etkileyen gereksiz noktalara sahiptir. Bu bölüm, bir şeklin yolundan belirli noktaları kaldırarak konturu basitleştirmenizi ve daha temiz, daha kesin sonuçlar elde etmenizi gösterir.
+Bu örnek, [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) ile sıfır tabanlı 2 indeksindeki segmenti kaldırarak bir kalp şeklinin dış hattını değiştirir. Değiştirilen yolu [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ile uygulamak şeklin konturunu günceller.
 
-1. [GeometryShape] sınıfının bir örneğini oluşturun ve [ShapeType.HEART] tipini ayarlayın.
-2. Şekilden bir [GeometryPath] örneği alın.
-3. Yoldan bir segment kaldırın.
-4. Güncellenen yolu şekle uygulayın.
-
-Aşağıdaki Python kodu, bir şekilden nokta kaldırmayı gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +112,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example2_image](custom_shape_2.png)
 
-![Kaldırılan noktalar](custom_shape_2.png)
+## **Özel Bir Şekil Oluşturma**
 
-##  **Özel Şekiller Oluşturma**
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız oluşturur. 100 ve 50 puanlık dış ve iç yarıçapların dönüşümlü olarak kullanılması, uçları ve girintileri tanımlar; 72 derecelik adım beş ucu eşit şekilde aralar. Yol, [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) ile kapatılır ve [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) kullanılarak dikdörtgen bir şekle uygulanır, böylece dış hatı değiştirilir.
 
-Çizgiler, yaylar ve Bézier eğrilerinden oluşan bir [GeometryPath] tanımlayarak özel vektör şekilleri oluşturun. Bu bölüm, sıfırdan bir özel geometri oluşturmayı ve ortaya çıkan şekli slaytınıza eklemeyi gösterir.
-
-1. Şekil için noktaları hesaplayın.
-2. [GeometryPath] sınıfının bir örneğini oluşturun.
-3. Yolu noktalarla doldurun.
-4. [GeometryShape] sınıfının bir örneğini oluşturun.
-5. Yolu şekle uygulayın.
-
-Aşağıdaki Python kodu, bir özel şekil oluşturmayı gösterir:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +152,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example3_image](custom_shape_3.png)
 
-![Özel şekil](custom_shape_3.png)
+## **Bileşik Özel Şekil Oluşturma**
 
-## **Bileşik Özel Şekiller Oluşturma**
+Bu örnek, bir şeklin üst ve alt üçte birleri için iki kapalı [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yolu da [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) ile uygulamak, ortasındaki boşlukla tek bir bileşik şekil oluşturur.
 
-Bileşik bir özel şekil oluşturmak, bir slaytta birden çok geometri yolunu tek, yeniden kullanılabilir bir şekle birleştirmenizi sağlar. Bu yolları tanımlayıp birleştirerek standart şekil setinin ötesinde karmaşık görseller oluşturabilirsiniz.
-
-1. [GeometryShape] sınıfının bir örneğini oluşturun.
-2. [GeometryPath] sınıfının ilk örneğini oluşturun.
-3. [GeometryPath] sınıfının ikinci örneğini oluşturun.
-4. Her iki yolu da şekle uygulayın.
-
-Aşağıdaki Python kodu, bir bileşik özel şekil oluşturmayı gösterir:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +169,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![example4_image](custom_shape_4.png)
 
-![Bileşik şekil](custom_shape_4.png)
+## **Eğri Köşeli Özel Şekil Oluşturma**
 
-## **Kavisli Köşeli Özel Şekiller Oluşturma**
+Bu örnek, doğrudan segmentleri [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) ile birleştirerek içe doğru eğri köşeli bir şekil üretir. Her köşe boyutu, yayı puan cinsinden genişlik ve yükseklik olarak ayarlar ve -90 derecelik tarama, saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) ile uygulanır ve sunum PPTX formatında kaydedilir.
 
-Bu bölüm, bir geometry path kullanarak düzgün kavisli köşelere sahip bir özel şekil çizmeyi gösterir. Düz segmentleri ve dairesel yayları birleştirerek konturu oluşturacak ve tamamlanan şekli slaytınıza ekleyeceksiniz.
-
-Aşağıdaki Python kodu, kavisli köşeli bir özel şekil oluşturmayı gösterir:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,66 +208,115 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Kavisli köşeler](custom_shape_6.png)
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
 
-## **Bir Şeklin Geometrisinin Kapalı Olup Olmadığını Belirleme**
+Aşağıdaki yardımcı, her dolu olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini kontrol eder. [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) okunur ve son segmentin [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) değeri [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/) ile karşılaştırılır. Boş olmayan yollar yoksa false döner. Bu, her yolun son komutunu kontrol eder; bir yol içindeki her alt şekli incelemez. Örnek, bir dikdörtgen için `True` yazdırır.
 
-Kapalı bir şekil, tüm kenarlarının birbirine bağlandığı ve boşluk bırakmadan tek bir sınır oluşturduğu şekil olarak tanımlanır. Böyle bir şekil basit bir geometrik form ya da karmaşık bir özel kontur olabilir. Aşağıdaki kod örneği, bir şeklin geometrisinin kapalı olup olmadığını kontrol etmeyi gösterir:
+```python
+import aspose.slides as slides
 
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
+
+## **Şekil Elemanlarını Çıkar ve İncele**
+
+Mevcut bir şekli, yol noktaları ve nokta türleri içeren elemanlar olarak incelemek için [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) kullanın. Her döndürülen [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) kendi [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) ve [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/) dizilerini ortaya koyar. Bu temsil, kontur analizleri veya geometrinin özel çizim araçlarına aktarılması için faydalıdır.
+
+Örnek, bir sunumu açar, ilk slayttaki ilk geometri şeklini bulur ve yol segmentlerini yazdırır. Hem düz hem de eğri segmentler içeren bir şekil içeren bir sunum kullanın; grup içindeki şekilleri aramaz.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Segment tipini tut, bayrakları hariç tut.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Hem kontrol noktalarını hem de son noktayı tüket.
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+Diziler indeks bazında eşleşir: `points[i]` bir noktadır ve `types[i]` onun rolünü tanımlar. Tip `0` bir şekli başlatır, tip `1` önceki noktadan geçerli noktaya doğru bir çizgi çizer. Kübik Bézier segmenti önceki son noktada başlar ve üç ardışık tip‑`3` girdisi kullanır: iki kontrol noktası ardından yeni son nokta. Döngü bu üç girişi birlikte tüketir ve son noktanın kapalı olup olmadığını kontrol eder.
+
+Nokta türleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesi, kapalı bir alt yolu tespit etmek için `0x80` ayrı olarak test edilir. Örneğin, `129` (`0x81`) bir alt yolu kapatan bir çizgi son noktası, `131` (`0x83`) ise bir Bézier son noktasıdır. Yalnızca `1` veya `3` ile ham değeri karşılaştırmak bu durumları kaçırır. Dash (`0x10`) ve marker (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
+
+**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) biriminde ölçülür; X sağa, Y aşağı doğru artar. Grup dışı bir şekil için çıkarılan koordinatlar zaten [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) ve [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) konumunu içerir ve mevcut genişlik‑yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda ve `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)` şeklindedir. Şeklin konumunu tekrar eklemeyin. Koordinatları, X ve Y değerlerini çıkartarak döndürülmemiş çerçeveye göre göreceli hale getirin.
+
+Çıkarılan noktalar şeklin [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) ya da yatay‑düşey çevirilerini içermez. Görüntülenen konturu yeniden üretmek için bu dönüşümleri şeklin merkezine göre uygulayın. Gruplanmış şekillerde ayrıca grup koordinat haritalaması ve dönüşümlerini hesaba katın; çıkarılan noktaların son slayt koordinatları olduğunu varsaymayın ve bir çeviri ya da ölçekleme zaten çocuğun çerçevesinde yansıtılmışsa iki kez uygulamayın.
+
+**İnceleme ve düzenleme arasındaki fark.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz ya da çizim kodunuz nokta/tür dizilerine ihtiyaç duyduğunda bu yöntemi tercih edin. Şeklin yerel koordinat sistemi içinde geometri komutlarına ihtiyacınız varsa veya geometrisini düzenlemek istiyorsanız [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) kullanın. Düzenlenmiş yolları [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) veya [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) ile uygulayın.
 
 ## **SSS**
 
-**Geometriyi değiştirdikten sonra doldurma ve kenarlık ne olacak?**
+**Geometri değiştirildikten sonra dolgu ve kenarlık ne olur?**  
+Stil şekilde kalır; sadece kontur değişir. Dolgu ve kenarlık otomatik olarak yeni geometriye uygulanır.
 
-Stil şekille kalır; sadece kontur değişir. Doldurma ve kenarlık yeni geometriye otomatik olarak uygulanır.
+**Bir özel şekli geometrisiyle birlikte doğru şekilde nasıl döndürebilirim?**  
+Şeklin [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) özelliğini kullanın; geometri şeklin kendi koordinat sistemine bağlı olduğu için şekilyle birlikte döner.
 
-**Özel bir şekli geometrisiyle birlikte nasıl doğru şekilde döndürebilirim?**
-
-Şeklin [rotation] (döndürme) özelliğini kullanın; geometri şekille birlikte döner çünkü şeklin kendi koordinat sistemine bağlıdır.
-
-**Sonucu 'kilitlemek' için bir özel şekli görüntüye dönüştürebilir miyim?**
-
-Evet. Gerekli [slide](/slides/tr/python-net/convert-powerpoint-to-png/) bölgesini veya [shape](/slides/tr/python-net/create-shape-thumbnails/) öğesini raster formatına dışa aktarın; bu, karmaşık geometrilerle çalışmayı kolaylaştırır.
+**Sonucu “kilitlemek” için özel bir şekli görsele dönüştürebilir miyim?**  
+Evet. Gerekli [slayt](/slides/tr/python-net/convert-powerpoint-to-png/) alanını veya [şekil](/slides/tr/python-net/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, karmaşık geometrilerle sonraki çalışmaları basitleştirir.

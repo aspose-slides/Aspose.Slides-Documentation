@@ -6,144 +6,101 @@ weight: 20
 url: /sv/cpp/custom-shape/
 keywords:
 - anpassad form
-- lägg till form
+- lägga till form
 - skapa form
 - ändra form
 - formgeometri
 - geometrisk bana
 - banpunkter
-- redigeringspunkter
-- lägg till punkt
+- redigera punkter
+- lägga till punkt
 - ta bort punkt
 - redigeringsoperation
-- krökt hörn
+- kurvat hörn
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för C++: geometriska banor, krökta hörn, sammansatta former."
+description: "Skapa och anpassa former i PowerPoint-presentationer med Aspose.Slides för C++: geometriska banor, kurvade hörn, sammansatta former."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur du anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometriska banor. Den visar hur du arbetar med `GeometryPath` och `IGeometryPath` för att ändra befintliga former, utföra grundläggande redigeringsoperationer för banor, lägga till eller ta bort punkter och tillämpa uppdaterad geometri på en form.
+Denna artikel förklarar hur man anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri med hjälp av redigeringspunkter och geometriska banor. Den visar hur man arbetar med [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) och [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) för att modifiera befintliga former, utföra grundläggande banredigeringsoperationer, lägga till eller ta bort punkter och applicera uppdaterad geometri tillbaka på en form.
 
-## **Ändra en form med hjälp av redigeringspunkter**
-Tänk på en kvadrat. I PowerPoint, med **redigeringspunkter**, kan du 
+Den visar också hur man skapar anpassade och sammansatta former, bygger former med kurvade hörn och bestämmer om en formgeometri är sluten.
 
-* flytta kvadratens hörn inåt eller utåt  
-* ange krökning för ett hörn eller en punkt  
-* lägga till nya punkter till kvadraten  
-* manipulera punkter på kvadraten osv.  
+## **Ändra en form med redigeringspunkter**
 
-I princip kan du utföra de beskrivna uppgifterna på vilken form som helst. Med redigeringspunkter kan du ändra en form eller skapa en ny form utifrån en befintlig form. 
+* Flytta ett hörn inåt eller utåt.
+* Justera krökningen vid en punkt.
+* Lägg till nya punkter.
 
-## **Tips för redigering av former**
+Att redigera punkter låter dig modifiera en forms kontur eller använda en befintlig form som grund för en ny.
+
+## **Tips för formredigering**
 
 ![overview_image](custom_shape_0.png)
 
-Innan du börjar redigera PowerPoint‑former via redigeringspunkter kan du fundera på dessa aspekter av former:
+När du redigerar PowerPoint-former, håll dessa koncept i åtanke:
 
-* En form (eller dess bana) kan antingen vara sluten eller öppen.  
-* När en form är sluten saknar den en start‑ eller slutpunkt. När en form är öppen har den ett början och ett slut.  
-* Alla former består av minst två ankarpunkter som är kopplade till varandra med linjer.  
-* En linje är antingen rak eller kurvig. Ankarnpunkterna bestämmer linjens natur.  
-* Ankarnpunkter finns som hörnpunkter, raka punkter eller jämna punkter:  
-  * En hörnpunkt är en punkt där två raka linjer möts i en vinkel.  
-  * En jämn punkt är en punkt där två handtag finns på en rak linje och linjesegmenten förenas i en mjuk kurva. I detta fall är alla handtag separerade från ankarnpunkten med lika stort avstånd.  
-  * En rak punkt är en punkt där två handtag finns på en rak linje och linjesegmenten förenas i en mjuk kurva. I detta fall behöver handtagen inte vara lika långt från ankarnpunkten.  
-* Genom att flytta eller redigera ankarnpunkter (vilket ändrar linjernas vinklar) kan du förändra hur en form ser ut.  
+* En form (eller dess bana) kan antingen vara sluten eller öppen.
+* En forms bana består av ankarnpunkter som är sammankopplade med segment.
+* Ett segment kan vara rakt eller kurvat. Ankarnpunkter och kontrollhandtag bestämmer dess form.
+* Ankarnpunkter finns som hörnpunkter, raka punkter eller mjuka punkter:
+  * Vid en hörnpunkt kan intilliggande segment mötas i en vinkel.
+  * Vid en mjuk punkt är de två kontrollhandtagen i linje och lika långt från ankarnpunkten.
+  * Vid en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankarnpunkten.
+* Att flytta ankarnpunkter eller justera deras handtag förändrar formens kontur.
 
-För att redigera PowerPoint‑former via redigeringspunkter tillhandahåller **Aspose.Slides** klassen [**GeometryPath**](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path) och gränssnittet [**IGeometryPath**](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_path).
+För att redigera PowerPoint-former genom redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) och gränssnittet [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* En [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path)-instans representerar en geometrisk bana för objektet [IGeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_shape).  
-* För att hämta `GeometryPath` från `IGeometryShape`‑instansen kan du använda metoden [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1).  
-* För att ange `GeometryPath` för en form kan du använda dessa metoder: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) för *solida former* och [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) för *komposita former*.  
-* För att lägga till segment kan du använda metoderna under [IGeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_path).  
-* Genom att använda metoderna [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) och [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) kan du ange utseendet för en geometrisk bana.  
-* Genom att använda metoden [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) kan du hämta geometribanan för en `GeometryShape` som en array av bansegment.  
-* För att komma åt ytterligare anpassningsalternativ för formgeometri kan du konvertera [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path) till [GraphicsPath](https://reference.aspose.com/slides/sv/cpp/class/system.drawing.drawing2_d.graphics_path).  
-* Använd metoderna [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) och [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (från klassen [ShapeUtil](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.util.shape_util)) för att konvertera [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path) till [GraphicsPath](https://reference.aspose.com/slides/sv/cpp/class/system.drawing.drawing2_d.graphics_path) och tillbaka.  
+* En [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) instans representerar en geometrisk bana för objektet [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* För att hämta [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) från [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/)‑instansen kan du använda metoden [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* För att sätta [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) för en form kan du använda dessa metoder: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) för former med en enda bana och [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) för former med flera banor.
+* För att lägga till segment kan du använda metoderna under [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Med metoderna [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) och [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) kan du ange utseendet för en geometrisk bana.
+* Med metoden [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) kan du hämta geometrisk bana för en [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) som en array av bansegment.
 
 ## **Enkla redigeringsoperationer**
 
-Den här C++‑koden visar hur du
+Använd följande metoder för att redigera en geometrisk bana. Överlagringar som accepterar ett index infogar ett segment på den nollbaserade positionen i banans segmentarray.
 
-**Lägg till en linje** i slutet av en bana
+| Operation | Metod |
+| --- | --- |
+| Lägg till eller infoga en rak linje. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Lägg till eller infoga en kubisk Bézier-kurva med två kontrollpunkter och en slutpunkt. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Lägg till eller infoga en kvadratisk Bézier-kurva med en kontrollpunkt och en slutpunkt. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Lägg till en elliptisk båge med angivna dimensioner och vinklar i grader. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Stäng den aktuella figuren genom att ansluta dess slutpunkt till startpunkten. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Sätt startpunkten för en figur. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Ta bort ett segment på ett nollbaserat index. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Lägg till en linje** på en specificerad position i en bana:
+## **Lägg till anpassade punkter i en form**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Lägg till en kubisk Bezier‑kurva** i slutet av en bana:
+Detta exempel inför två punkter i en rektangulär form med hjälp av [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) och applicerar den redigerade banan med [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på de övre och nedre kanterna och drar dessa kanter inåt.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Lägg till en kubisk Bezier‑kurva** på den specificerade positionen i en bana:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Lägg till en kvadratisk Bezier‑kurva** i slutet av en bana:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Lägg till en kvadratisk Bezier‑kurva** på en specificerad position i en bana:
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Lägg till en given båge** till en bana:
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Stäng den aktuella figuren** i en bana:
-
-``` cpp
-void CloseFigure();
-```
-**Ange positionen för nästa punkt**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Ta bort bansegmentet** vid ett givet index:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-## **Lägg till anpassade punkter till en form**
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_shape) och ange typen [ShapeType.Rectangle](https://reference.aspose.com/slides/sv/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path) från formen.  
-3. Lägg till en ny punkt mellan de två övre punkterna på banan.  
-4. Lägg till en ny punkt mellan de två nedre punkterna på banan.  
-5. Tillämpa banan på formen.  
-
-Den här C++‑koden visar hur du lägger till anpassade punkter till en form:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
@@ -151,215 +108,337 @@ shape->SetGeometryPath(geometryPath);
 
 ## **Ta bort punkter från en form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_shape) och ange typen [ShapeType.Heart](https://reference.aspose.com/slides/sv/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path) från formen.  
-3. Ta bort segmentet för banan.  
-4. Tillämpa banan på formen.  
+Detta exempel ändrar en hjärtformad kontur genom att ta bort segmentet på nollbaserat index 2 med [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Att applicera den modifierade banan med [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) uppdaterar formens kontur.
 
-Den här C++‑koden visar hur du tar bort punkter från en form:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Skapa en anpassad form**
 
-1. Beräkna punkterna för formen.  
-2. Skapa en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path).  
-3. Fyll banan med punkterna.  
-4. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_shape).  
-5. Tillämpa banan på formen.  
+Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och fördjupningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banan stängs med [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) och appliceras på en rektangulär form med [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), vilket ersätter dess kontur.
 
-Den här C++‑koden visar hur du skapar en anpassad form:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Skapa en sammansatt anpassad form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_shape).  
-2. Skapa en första instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path).  
-3. Skapa en andra instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path).  
-4. Tillämpa banorna på formen.  
+Detta exempel definierar två stängda [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/)‑objekt för den övre och nedre tredjedelen av en form. Att applicera båda banorna med [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) skapar en enda sammansatt form med ett glapp över dess mellersta tredjedel.
 
-Den här C++‑koden visar hur du skapar en sammansatt anpassad form:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(shape->get_Height() / 3 * 2, 0.0f);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Skapa en anpassad form med krökta hörn**
+## **Skapa en anpassad form med kurvade hörn**
 
-Den här C++‑koden visar hur du skapar en anpassad form med krökta hörn (inåtriktade);
+Detta exempel kombinerar raka segment med [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) för att skapa en form med inåtriktade kurvade hörn. Varje hörnstorlek sätter bågens bredd och höjd i punkter, och -90‑gradssvepet ritar en moturs kvartselipse. Den färdiga banan appliceras med [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) och presentationen sparas i PPTX-format.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
 ## **Ta reda på om en formgeometri är sluten**
 
-En sluten form definieras som en där alla sidor är sammankopplade och bildar en enda gräns utan luckor. En sådan form kan vara en enkel geometrisk form eller en komplex anpassad kontur. Följande kodexempel visar hur du kontrollerar om en formgeometri är sluten:
+Följande hjälpfunktion kontrollerar om varje icke‑tom geometrisk bana slutar med ett avslutande segment. Den läser [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) och jämför den sista segmentets [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) med [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Den returnerar false när det inte finns några icke‑tomma banor. Detta kontrollerar det sista kommandot för varje bana; den inspekterar inte varje subfigur i en bana. Exemplet skriver ut `True` för en rektangel.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Extrahera och inspektera formelement**
+
+Använd [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) för att inspektera en befintlig form som element som innehåller banpunkter och punkttyper. Kast varje returnerad [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) till [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) för att läsa arrayerna som returneras av [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) och [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Denna representation är användbar för kontur‑analys eller för att överföra geometri till anpassade ritverktyg.
+
+Exemplet öppnar en presentation, hittar den första geometriska formen direkt på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och kurvade segment för att se båda typer av utskrift. Den söker inte inuti grupper.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Behåll segmenttypen, exklusive flaggor.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Förbrukar båda kontrollpunkterna och slutpunkten.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **Konvertera GeometryPath till GraphicsPath** 
+Arrayerna motsvarar varandra efter index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följda av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar slutpunkten för slutförande.
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_shape).  
-2. Skapa en instans av klassen [GraphicsPath](https://reference.aspose.com/slides/sv/cpp/class/system.drawing.drawing2_d.graphics_path) i namnområdet [System.Drawing.Drawing2D](https://reference.aspose.com/slides/sv/cpp/namespace/system.drawing.drawing2_d).  
-3. Konvertera [GraphicsPath](https://reference.aspose.com/slides/sv/cpp/class/system.drawing.drawing2_d.graphics_path)-instansen till [GeometryPath](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.geometry_path)-instansen med hjälp av [ShapeUtil](https://reference.aspose.com/slides/sv/cpp/class/aspose.slides.util.shape_util).  
-4. Tillämpa banorna på formen.  
+Punkttyper innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen, och testa `0x80` separat för att upptäcka en sluten underbana. Till exempel betyder `129` (`0x81`) en linjeändpunkt som stänger en underbana, och `131` (`0x83`) betyder en Bézier‑ändpunkt som stänger en sådan. Att endast jämföra det råa värdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), förändrar inte grundsegmenttypen.
 
-Den här C++‑koden—en implementering av stegen ovan—demonstrerar konverteringsprocessen från **GeometryPath** till **GraphicsPath**:
+**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), med X som ökar åt höger och Y som ökar nedåt. För en icke‑grupperad form inkluderar de extraherade koordinaterna redan positionen som returneras av [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) och [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) och återspeglar dess aktuella bredd och höjd. Till exempel har en orotated rektangel på `(100, 200)` med storlek `120 × 80` konturgränserna `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt dess orotated ram.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+De extraherade punkterna tillämpar inte rotationen som ställts in via [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) eller horisontella och vertikala speglingar. För att reproducera den visade konturen, applicera dessa transformationer runt formens centrum. För grupperade former, ta också hänsyn till gruppens koordinatmappning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bildpunkterna eller applicera en translation eller skala två gånger om den redan är reflekterad i barnets ram.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) när du behöver geometriska kommandon i formens lokala koordinatsystem eller vill redigera dess geometri. Applicera redigerade banor via [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) eller [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **Konvertera GeometryPath till GraphicsPath**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
+Det nuvarande offentliga API:t för Aspose.Slides för C++ exponerar inte konverteringar mellan geometriska banor och grafikbanor. För att inspektera en kontur, använd formelement som beskrivits ovan. För att redigera en form, använd geometriska banor och applicera de uppdaterade banorna på formen.
 
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
+## **FAQ**
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+**Vad händer med fyllning och kontur efter att geometrin har ersatts?**
 
-## **Vanliga frågor**
-
-**Vad händer med fyllning och kontur efter att geometrin ersatts?**
-
-Stilen förblir på formen; endast konturen ändras. Fyllning och kontur tillämpas automatiskt på den nya geometrin.
+Stilen förblir på formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
 
 **Hur roterar jag korrekt en anpassad form tillsammans med dess geometri?**
 
-Använd formens [rotation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/shape/set_rotation/)‑egenskap; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
+Använd formens [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/)‑metod; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
 
-**Kan jag konvertera en anpassad form till en bild för att "låsa" resultatet?**
+**Kan jag konvertera en anpassad form till en bild för att “låsa” resultatet?**
 
-Ja. Exportera det önskade [slide](/slides/sv/cpp/convert-powerpoint-to-png/)-området eller själva [shape](/slides/sv/cpp/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med tunga geometrier.
+Ja. Exportera det önskade [bild](/slides/sv/cpp/convert-powerpoint-to-png/)‑området eller själva [form](/slides/sv/cpp/shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.

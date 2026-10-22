@@ -8,7 +8,7 @@ keywords:
 - özel şekil
 - şekil ekle
 - şekil oluştur
-- şekil değiştir
+- şekli değiştir
 - şekil geometrisi
 - geometri yolu
 - yol noktaları
@@ -16,347 +16,426 @@ keywords:
 - nokta ekle
 - nokta kaldır
 - düzenleme işlemi
-- eğimli köşe
+- kıvrımlı köşe
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, eğimli köşeler, bileşik şekiller."
+description: "Aspose.Slides for C++ ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, kıvrımlı köşeler, birleşik şekiller."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek özelleştirmenin yolunu açıklar. `GeometryPath` ve `IGeometryPath` ile mevcut şekilleri değiştirmeyi, temel yol düzenleme işlemlerini yapmayı, nokta eklemeyi veya kaldırmayı ve güncellenen geometriyi bir şekle geri uygulamayı gösterir.
+Bu makale, Aspose.Slides'te sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek nasıl özelleştireceğinizi açıklar. [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ve [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) ile mevcut şekilleri nasıl değiştireceğinizi, temel yol düzenleme işlemlerini nasıl yapacağınızı, nokta ekleyip kaldıracağınızı ve güncellenen geometrinin bir şekle nasıl uygulanacağını gösterir. Ayrıca, özel ve birleşik şekillerin nasıl oluşturulacağını, eğimli köşeli şekillerin nasıl inşa edileceğini ve bir şekil geometrisinin kapalı olup olmadığını nasıl belirleyeceğinizi gösterir.
 
-## **Düzenleme Noktalarını Kullanarak Bir Şekli Değiştirme**
-Bir kareyi düşünün. PowerPoint’te **düzenleme noktalarını** kullanarak  
+## **Düzenleme Noktalarıyla Bir Şekli Değiştirme**
 
-* karenin köşesini içe ya da dışa hareket ettirin  
-* bir köşe ya da nokta için eğrilik belirleyin  
-* kareye yeni noktalar ekleyin  
-* kare üzerindeki noktaları düzenleyin, vb.  
+PowerPoint'te **Edit Points** özelliğini kullanarak bir kareyi değiştirebilirsiniz:
 
-Temelde, bu görevleri herhangi bir şekil üzerinde gerçekleştirebilirsiniz. Düzenleme noktalarını kullanarak bir şekli değiştirebilir ya da mevcut bir şekilden yeni bir şekil oluşturabilirsiniz. 
+* Bir köşeyi içeriye veya dışarıya hareket ettirin.
+* Bir noktadaki eğriliği ayarlayın.
+* Yeni noktalar ekleyin.
+
+Nokta düzenleme, bir şeklin dış hattını değiştirmenizi veya mevcut bir şekli yeni bir şeklin temeli olarak kullanmanızı sağlar.
 
 ## **Şekil Düzenleme İpuçları**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemeye başlamadan önce şekiller hakkında şu noktalara dikkat edebilirsiniz:
+PowerPoint şekillerini düzenlerken şu kavramları aklınızda tutun:
 
-* Bir şekil (veya yolu) kapalı ya da açık olabilir.  
-* Bir şekil kapalı olduğunda bir başlangıç ya da bitiş noktası yoktur. Açık olduğunda ise bir başlangıcı ve bir sonu vardır.  
-* Tüm şekiller en az 2 tutama noktasından oluşur ve bu noktalar çizgilerle birbirine bağlanır.  
-* Bir çizgi düz ya da eğridir. Tutama noktaları çizginin niteliğini belirler.  
-* Tutama noktaları köşe noktaları, düz noktalar veya yumuşak noktalar şeklinde bulunur:  
-  * Köşe noktası, iki düz çizginin bir açıda birleştiği noktadır.  
-  * Yumuşak nokta, iki tutamağın düz bir hat üzerinde olduğu ve çizgi segmentlerinin yumuşak bir kırıma birleştiği noktadır. Bu durumda, tüm tutamaçlar tutama noktasından eşit mesafede bulunur.  
-  * Düz nokta, iki tutamağın düz bir hat üzerinde olduğu ve o hat segmentlerinin yumuşak bir kıvrıma birleştiği noktadır. Bu durumda tutamaçların tutama noktasından eşit mesafede olması gerekmez.  
-* Tutama noktalarını hareket ettirerek ya da düzenleyerek (çizgi açılarını değiştirerek) şeklin görünümünü değiştirebilirsiniz.  
+* Bir şekil (veya yolu) kapalı ya da açık olabilir.
+* Bir şeklin yolu, bölümlerle birbirine bağlanan tutma noktalarından oluşur.
+* Bir bölüm düz veya eğimli olabilir. Tutma noktaları ve kontrol tutamaçları şeklinin şeklini belirler.
+* Tutma noktaları köşe noktaları, düz noktalar veya yumuşak noktalar olarak bulunur:
+  * Köşe noktasında, bitişik bölümler bir açıyla birleşir.
+  * Yumuşak noktada, iki kontrol tutamaç hizalanır ve tutma noktasına eşit mesafededir.
+  * Düz noktada, iki kontrol tutamaç hizalanır ancak tutma noktasına farklı mesafelerde olabilir.
+* Tutma noktalarını hareket ettirmek veya tutamaçlarını ayarlamak şeklin dış hattını değiştirir.
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [**GeometryPath**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.geometry_path) sınıfını ve [**IGeometryPath**](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.i_geometry_path) arabirimini sağlar.  
+Düzenleme noktalarıyla PowerPoint şekillerini düzenlemek için **Aspose.Slides**, [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) sınıfını ve [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) arayüzünü sağlar.
 
-* Bir [GeometryPath] örneği, [IGeometryShape] nesnesinin geometri yolunu temsil eder.  
-* `IGeometryShape` örneğinden `GeometryPath`'i almak için [IGeometryShape::GetGeometryPaths] yöntemini kullanabilirsiniz.  
-* Bir şekil için `GeometryPath`'i ayarlamak üzere bu yöntemleri kullanabilirsiniz: katı şekiller için [IGeometryShape::SetGeometryPath()] ve birleşik şekiller için [IGeometryShape::SetGeometryPaths()].  
-* Segment eklemek için [IGeometryPath] altındaki yöntemleri kullanabilirsiniz.  
-* [IGeometryPath::set_Stroke()] ve [IGeometryPath::set_FillMode()] yöntemlerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.  
-* [IGeometryPath::get_PathData()] yöntemiyle bir `GeometryShape`'in geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.  
-* Ek şekil geometri özelleştirme seçeneklerine erişmek için [GeometryPath]'i [GraphicsPath]'e dönüştürebilirsiniz.  
-* [GeometryPathToGraphicsPath] ve [GraphicsPathToGeometryPath] yöntemlerini ( [ShapeUtil] sınıfından ) kullanarak [GeometryPath]'i [GraphicsPath]'e geri ve ileri dönüştürebilirsiniz.  
+* Bir [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) örneği, [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) nesnesinin bir geometri yolunu temsil eder.
+* [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) öğesini [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) örneğinden almak için [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) yöntemini kullanabilirsiniz.
+* Bir şekle [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) ayarlamak için şu yöntemleri kullanabilirsiniz: tek bir yola sahip şekiller için [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ve birden fazla yola sahip şekiller için [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
+* Bölümler eklemek için [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) altındaki yöntemleri kullanabilirsiniz.
+* [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) ve [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) yöntemlerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
+* [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) yöntemini kullanarak bir [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) geometrisinin yol verisini yol segmentleri dizisi olarak alabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Bu C++ kodu size nasıl yapılacağını gösterir  
+Bir geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Dizini kabul eden aşırı yüklemeler, yolun segment dizisinde sıfırdan başlayan bir konuma bir segment ekler.
 
-**Bir çizgi ekle** yolun sonuna  
+| İşlem | Yöntem |
+| --- | --- |
+| Düz bir çizgi ekleyin veya yerleştirin. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| İki kontrol noktası ve bir bitiş noktasıyla kübik Bézier eğrisi ekleyin veya yerleştirin. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Bir kontrol noktası ve bir bitiş noktasına sahip ikili Bézier eğrisi ekleyin veya yerleştirin. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Belirtilen boyut ve derecelerde bir eliptik yay ekleyin. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Geçerli şekli, bitiş noktasını başlangıç noktasına bağlayarak kapatın. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Şeklin başlangıç noktasını ayarlayın. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Sıfırdan başlayan bir dizinde bir bölümü kaldırın. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Bir çizgi ekle** yoldaki belirli bir konuma:  
+## **Bir Şekle Özel Noktalar Ekleme**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Bir kübik Bezier eğrisi ekle** yolun sonuna:  
+Bu örnek, bir dikdörtgen şekline iki nokta eklemek için [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) kullanır ve düzenlenmiş yolu [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ile uygular. Koordinatlar şekle göre lokalizedir: her iki yeni nokta da şeklin ortasında, soldan 100 puan ve üstten 50 puan uzaklıkta bulunur. 1 ve 4 indeksli bölümler bu noktaları üst ve alt kenarlara yerleştirir, bu kenarları içe doğru çeker.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Bir kübik Bezier eğrisi ekle** yoldaki belirli bir konuma:  
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Bir ikinci derece Bezier eğrisi ekle** yolun sonuna:  
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**İkinci derece Bezier eğrisi ekle** yoldaki belirli bir konuma:  
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Verilen bir yay ekle** bir yola:  
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Mevcut şekli kapat** bir yolda:  
-
-``` cpp
-void CloseFigure();
-```
-**Sonraki nokta için konumu ayarla**:  
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Belirli bir indeksteki yol segmentini kaldır**:  
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-## **Şekle Özel Noktalar Ekleme**
-1. [GeometryShape] sınıfının bir örneğini oluşturun ve [ShapeType.Rectangle] tipini ayarlayın.  
-2. Şekilden [GeometryPath] sınıfının bir örneğini alın.  
-3. Yoldaki iki üst nokta arasında yeni bir nokta ekleyin.  
-4. Yoldaki iki alt nokta arasında yeni bir nokta ekleyin.  
-5. Yolu şekle uygulayın.  
-
-Bu C++ kodu size şekle özel noktalar eklemenin nasıl yapılacağını gösterir:  
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **Şekilden Noktaları Kaldırma**
+## **Bir Şekilden Noktaları Kaldırma**
 
-1. [GeometryShape] sınıfının bir örneğini oluşturun ve [ShapeType.Heart] tipini ayarlayın.  
-2. Şekilden [GeometryPath] sınıfının bir örneğini alın.  
-3. Yolun segmentini kaldırın.  
-4. Yolu şekle uygulayın.  
+Bu örnek, [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) kullanarak sıfırdan başlayan 2. indeksteki bölümü kaldırarak kalp şeklindeki dış hatı değiştirir. Değiştirilmiş yolu [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ile uygulamak şeklin konturunu günceller.
 
-Bu C++ kodu size şekilden noktaları kaldırmanın nasıl yapılacağını gösterir:  
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Özel Bir Şekil Oluşturma**
 
-1. Şekil için noktaları hesaplayın.  
-2. [GeometryPath] sınıfının bir örneğini oluşturun.  
-3. Yolu noktalarla doldurun.  
-4. [GeometryShape] sınıfının bir örneğini oluşturun.  
-5. Yolu şekle uygulayın.  
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız oluşturur. 100 ve 50 puanlık dış ve iç yarıçapların dönüşümlü olarak kullanılması uçları ve girintileri belirler; 72 derece adım beş ucu eşit aralıklarla yerleştirir. Yol, [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) ile kapatılır ve [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) kullanılarak bir dikdörtgen şekle uygulanır, böylece dış hattı değiştirilir.
 
-Bu C++ kodu size özel bir şekil oluşturmanın nasıl yapılacağını gösterir:  
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Bileşik Özel Şekil Oluşturma**
 
-1. [GeometryShape] sınıfının bir örneğini oluşturun.  
-2. [GeometryPath] sınıfının ilk örneğini oluşturun.  
-3. [GeometryPath] sınıfının ikinci örneğini oluşturun.  
-4. Yolları şekle uygulayın.  
+Bu örnek, bir şeklin üst ve alt üçte bir bölümleri için iki kapalı [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yolu da [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) ile uygulamak, ortasında bir boşluk bulunan tek bir bileşik şekil oluşturur.
 
-Bu C++ kodu size bileşik bir özel şekil oluşturmayı gösterir:  
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Eğimli Köşelerle Özel Şekil Oluşturma**
+## **Eğri Köşeli Özel Şekil Oluşturma**
 
-Bu C++ kodu size içe doğru eğimli köşelere sahip bir özel şekil oluşturmanın nasıl yapılacağını gösterir;  
+Bu örnek, içe doğru kıvrılmış köşelere sahip bir şekil oluşturmak için düz bölümleri [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) ile birleştirir. Her köşe boyutu, yayı puan cinsinden genişlik ve yükseklik olarak ayarlar ve -90 derece süpürme, saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) ile uygulanır ve sunum PPTX formatında kaydedilir.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenin**
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
 
-Kapalı bir şekil, tüm kenarları birbirine bağlanarak boşluk bırakmayan tek bir sınır oluşturduğu durum olarak tanımlanır. Böyle bir şekil basit bir geometrik form ya da karmaşık bir özel kontur olabilir. Aşağıdaki kod örneği bir şekil geometrisinin kapalı olup olmadığını kontrol etmeyi gösterir:  
+Aşağıdaki yardımcı, her boş olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini denetler. [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) okur ve son segmentin [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) değerini [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) ile karşılaştırır. Boş yol olmadığında false döndürür. Bu, her yolun son komutunu kontrol eder; yol içinde her alt şekli incelemez. Örnek, bir dikdörtgen için `True` yazdırır.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Şekil Öğelerini Çıkarma ve İnceleme**
+
+[IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) yöntemini kullanarak mevcut bir şekli yol noktaları ve nokta türleri içeren öğeler olarak inceleyin. Döndürülen her [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) öğesini [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) tipine dönüştürerek [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) ve [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) tarafından dönen dizileri okuyabilirsiniz. Bu temsili, kontur analizi veya geometrinin özel çizim araçlarına aktarılması için kullanışlıdır.
+
+Bu örnek bir sunumu açar, ilk slayttaki ilk geometri şekline doğrudan ulaşır ve yol segmentlerini yazdırır. Hem düz hem de eğimli segmentlere sahip bir şekil içeren bir sunum kullanarak her iki çıktıyı da görebilirsiniz. Grupların içini aramaz.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Bölüm tipini koru, bayrakları hariç tut.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Consume both control points and the endpoint.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **GeometryPath'i GraphicsPath'e Dönüştürme** 
+Diziler indeks bazında eşleşir: `points[i]` bir noktadır ve `types[i]` onun rolünü tanımlar. Tip `0` bir şekli başlatır, tip `1` önceki noktadan mevcut noktaya bir çizgi çizer. Kübik Bézier segmenti, önceki bitiş noktasından başlar ve üç ardışık tip-`3` girdisini kullanır: iki kontrol noktası ve ardından yeni bitiş noktası. Döngü bu üç girişi birlikte tüketir ve kapanış için bitiş noktasını kontrol eder.
 
-1. [GeometryShape] sınıfının bir örneğini oluşturun.  
-2. [System.Drawing.Drawing2D] ad alanının [GraphicsPath] sınıfının bir örneğini oluşturun.  
-3. [GraphicsPath] örneğini [ShapeUtil] kullanarak [GeometryPath] örneğine dönüştürün.  
-4. Yolları şekle uygulayın.  
+Nokta tipleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesini, kapalı bir alt yolu tespit etmek için ise `0x80` değerini ayrı ayrı test edin. Örneğin, `129` (`0x81`) bir alt yolu kapatan çizgi bitiş noktasını, `131` (`0x83`) ise bir Bézier bitiş noktasını kapatır. Ham değeri yalnızca `1` veya `3` ile karşılaştırmak bu durumları kaçırır. Çizgi (`0x10`) ve işaretçi (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
 
-Bu C++ kodu—yukarıdaki adımların bir uygulaması—**GeometryPath**'i **GraphicsPath**'e dönüştürme sürecini gösterir:  
+**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) cinsinden ölçülür; X sağa doğru, Y aşağı doğru artar. Gruplanmamış bir şekil için, çıkarılan koordinatlar zaten [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) ve [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) tarafından döndürülen konumu içerir ve mevcut genişlik ve yüksekliğini yansıtır. Örneğin, `(100, 200)` konumunda ve `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)` şeklindedir. Şeklin konumunu tekrar eklemeyin. X ve Y değerini çıkararak koordinatları döndürülmemiş çerçeveye göre elde edin.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Çıkarılan noktalar, [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ile ayarlanan döndürmeyi veya yatay ve dikey çevirileri uygulamaz. Görüntülenen konturu yeniden üretmek için bu dönüşümleri şeklin merkezinde uygulayın. Gruplu şekiller için ayrıca grup koordinat haritalamasını ve dönüşümleri hesaba katın; çıkarılan noktaların nihai slayt koordinatları olduğunu varsaymayın ve çocuğun çerçevesinde zaten yansıtılmışsa bir çeviri veya ölçeklendirmeyi iki kez uygulamayın.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**İnceleme vs. düzenleme.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz veya çizim kodunuzun nokta/tür dizilerine ihtiyacı olduğunda bu yöntemi seçin. Şeklin yerel koordinat sistemindeki geometri komutlarına ihtiyacınız olduğunda veya geometrisini düzenlemek istediğinizde [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) kullanın. Düzenlenmiş yolları [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) veya [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) aracılığıyla uygulayın.
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **GeometryPath'i GraphicsPath'e Dönüştürme**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+C++ için mevcut Aspose.Slides genel API'si, geometri yolları ile grafik yolları arasındaki dönüşümleri sunmaz. Bir konturu incelemek için yukarıda açıklanan şekil öğelerini kullanın. Bir şekli düzenlemek için geometri yollarını kullanın ve güncellenen yolları şekle uygulayın.
 
 ## **SSS**
 
-**Geometri değiştirildiğinde dolgu ve kontur ne olur?**  
-Stil şekilyle birlikte kalır; sadece kontur değişir. Dolgu ve kontur yeni geometriye otomatik olarak uygulanır.  
+**Geometriyi değiştirdikten sonra dolgu ve dış hat ne olur?**  
+Stil şekille kalır; yalnızca kontur değişir. Dolgu ve dış hat otomatik olarak yeni geometriye uygulanır.
 
-**Özel bir şekli ve geometrisini nasıl doğru şekilde döndürürüm?**  
-Şeklin [rotation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/shape/set_rotation/) özelliğini kullanın; geometri şeklin kendi koordinat sistemine bağlı olduğundan şekil ile birlikte döner.  
+**Özel bir şekli geometrisiyle birlikte doğru şekilde nasıl döndürürüm?**  
+Şeklin [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) metodunu kullanın; geometri, şeklin kendi koordinat sistemine bağlı olduğu için şekille birlikte döner.
 
-**Sonucu “kilitlemek” için özel bir şekli bir görüntüye dönüştürebilir miyim?**  
-Evet. Gerekli [slide](/slides/tr/cpp/convert-powerpoint-to-png/) alanını ya da [shape](/slides/tr/cpp/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, ağır geometrilerle çalışmayı basitleştirir.
+**Sonucu "kilitlemek" için özel bir şekli görüntüye dönüştürebilir miyim?**  
+Evet. Gerekli [slayt](/slides/tr/cpp/convert-powerpoint-to-png/) alanını veya [şekil](/slides/tr/cpp/shape-thumbnails/) öğesini raster bir formata dışa aktarın; bu, karmaşık geometrilerle çalışmayı basitleştirir.

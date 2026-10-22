@@ -1,5 +1,5 @@
 ---
-title: Python üzerinden Java ile Sunum Şekillerini Özelleştirme
+title: Python ile Java Üzerinden Sunum Şekillerini Özelleştirme
 linktitle: Özel Şekil
 type: docs
 weight: 20
@@ -12,7 +12,7 @@ keywords:
 - şekil geometrisi
 - geometri yolu
 - yol noktaları
-- düzenleme noktaları
+- nokta düzenle
 - nokta ekle
 - nokta kaldır
 - düzenleme işlemi
@@ -21,111 +21,66 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, eğri köşeler, bileşik şekiller."
+description: "Aspose.Slides for Python via Java kullanarak PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, eğri köşeler, birleşik şekiller."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek nasıl özelleştireceğinizi açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemlerini gerçekleştirmek, nokta eklemek veya kaldırmak ve güncellenen geometriyi bir şekle uygulamak için [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) ile nasıl çalışılacağını gösterir.
+Bu makale, şekil geometrisini düzenleme noktaları ve geometri yolları aracılığıyla düzenleyerek Aspose.Slides içinde sunum şekillerini nasıl özelleştireceğinizi açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemleri yapmak, nokta eklemek veya kaldırmak ve güncellenen geometriyi bir şekle uygulamak için [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) ile nasıl çalışılacağını gösterir.
 
-Ayrıca, özel ve bileşik şekiller oluşturma, eğri köşeli şekiller inşa etme, bir şekil geometrisinin kapalı olup olmadığını belirleme ve ek geometri özelleştirme senaryoları için [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) ile [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) arasında dönüştürme yöntemlerini de gösterir.
+Ayrıca, özel ve birleşik şekiller oluşturmayı, köşeleri eğimli şekiller inşa etmeyi, bir şekil geometrisinin kapalı olup olmadığını belirlemeyi, şekil öğelerini incelemeyi ve Java AWT metin konturlarını geometri yollarına dönüştürmeyi gösterir.
 
-## **Düzenleme Noktaları Kullanarak Bir Şekli Değiştirme**
+## **Bir Şekli Düzenleme Noktalarıyla Değiştirme**
 
-Bir kareyi düşünün. PowerPoint'te **düzenleme noktaları** kullanarak
+PowerPoint'te **Düzenleme Noktaları** kullanarak bir kareyi şu şekilde değiştirebilirsiniz:
 
-* karenin köşesini içe ya da dışa hareket ettirebilir,
-* bir köşe ya da noktanın kıvrımını belirleyebilir,
-* kareye yeni noktalar ekleyebilir,
-* karenin üzerindeki noktaları manipüle edebilir, vb.
+* Köşeyi içeriye veya dışarıya taşıyın.
+* Bir noktadaki eğriliği ayarlayın.
+* Yeni noktalar ekleyin.
 
-Temelde, bu görevleri herhangi bir şekil üzerinde gerçekleştirebilirsiniz. Düzenleme noktaları sayesinde bir şekli değiştirebilir veya mevcut bir şekilden yeni bir şekil oluşturabilirsiniz.
+Düzenleme noktaları, bir şeklin ana hatlarını değiştirmek veya mevcut bir şekli yeni bir şeklin temeli olarak kullanmak için kullanılabilir.
 
 ## **Şekil Düzenleme İpuçları**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemeye başlamadan önce, şekillerle ilgili şu noktalara dikkat etmek isteyebilirsiniz:
+PowerPoint şekillerini düzenlerken şu kavramları aklınızda bulundurun:
 
-* Bir şeklin (veya yolunun) kapalı ya da açık olabilir.
-* Şekil kapalıysa bir başlangıç ya da bitiş noktası yoktur. Açık bir şeklin ise bir başlangıcı ve bir bitişi vardır.
-* Tüm şekiller en az 2 adet birbirine çizgiyle bağlanmış tutma noktasına sahiptir.
-* Bir çizgi düz veya eğri olabilir. Tutma noktaları çizginin doğasını belirler.
-* Tutma noktaları köşe noktası, düz nokta veya yumuşak nokta olarak bulunur:
-  * Köşe noktası, iki düz çizginin bir açıyla birleştiği noktadır.
-  * Yumuşak nokta, iki tutamağın düz bir hatta bulunduğu ve çizgi segmentlerinin sorunsuz bir eğriyle birleştiği noktadır. Bu durumda tüm tutamaçlar tutma noktasından eşit mesafede bulunur.
-  * Düz nokta, iki tutamağın düz bir hatta bulunduğu ancak tutamaçların tutma noktasından eşit mesafede olmak zorunda olmadığı noktadır.
-* Tutma noktalarını (çizgi açılarını değiştiren) hareket ettirerek veya düzenleyerek şeklin görünümünü değiştirebilirsiniz.
+* Bir şekil (veya yolu) kapalı ya da açık olabilir.
+* Bir şeklin yolu, segmentlerle bağlanmış tutama noktalarından oluşur.
+* Bir segment düz veya eğri olabilir. Tutama noktaları ve kontrol sapları şekli belirler.
+* Tutama noktaları köşe noktaları, düz noktalar veya pürüzsüz noktalar olarak bulunur:
+  * Köşe noktasında, bitişik segmentler bir açıyla birleşebilir.
+  * Pürüzsüz noktada, iki kontrol sapı hizalıdır ve tutama noktasına eşit mesafededir.
+  * Düz noktada, iki kontrol sapı hizalıdır ancak tutama noktasına farklı mesafelerde olabilir.
+* Tutama noktalarını hareket ettirmek veya saplarını ayarlamak şeklin dış hatlarını değiştirir.
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) sınıfını sağlar.
+PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides**, [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) sınıfını sunar.
 
-* Bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği, [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) nesnesinin geometri yolunu temsil eder.
-* [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) örneğinden [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) elde etmek için [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/#getGeometryPaths) metodunu kullanabilirsiniz.
-* Bir şekil için [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) ayarlamak istiyorsanız, *katı şekiller* için [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/#setGeometryPath), *bileşik şekiller* için ise [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/#setGeometryPaths) metodlarını kullanabilirsiniz.
-* Segment eklemek için [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) altındaki metodları kullanabilirsiniz.
-* [GeometryPath.setStroke](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/#setStroke) ve [GeometryPath.setFillMode](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/#setFillMode) metodlarıyla bir geometri yolunun görünümünü ayarlayabilirsiniz.
-* [GeometryPath.getPathData](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/#getPathData) metodunu kullanarak bir [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) nin geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.
-* Ek şekil geometri özelleştirme seçeneklerine erişmek için [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) i [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) a dönüştürebilirsiniz.
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapeutil/) ve [graphicsPathToGeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapeutil/) metodlarını ([ShapeUtil](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapeutil/) sınıfından) kullanarak [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) i [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) e ve tersine dönüştürebilirsiniz.
+* Bir [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) örneği, [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) nesnesinin bir geometri yolunu temsil eder.
+* [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)'ı [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/) örneğinden almak için [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) yöntemini kullanabilirsiniz.
+* Bir şeklin [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/)'ını ayarlamak için şu yöntemleri kullanabilirsiniz: tek bir yola sahip şekiller için [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath), birden fazla yola sahip şekiller için [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths).
+* Segment eklemek için [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) altında bulunan yöntemleri kullanabilirsiniz.
+* [GeometryPath.setStroke](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setStroke) ve [GeometryPath.setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) yöntemlerini kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
+* [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) yöntemini kullanarak bir [GeometryShape](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/)'ın geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.
+* Ek şekil geometri özelleştirme seçeneklerine erişmek için bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html)'ı [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) aracılığıyla okuyabilir ve segmentleri bir [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) üzerine yeniden oynatabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Aşağıdaki imzalar temel düzenleme işlemlerini gösterir:
+Bir geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Bir indeks kabul eden aşırı yüklemeler, segmenti yolun segment dizisindeki sıfır tabanlı konuma ekler.
 
-**Bir yola bir çizgi ekle**:
-
-- `geometry_path.lineTo(point)`
-- `geometry_path.lineTo(x, y)`
-
-**Belirli bir konuma bir çizgi ekle**:
-
-- `geometry_path.lineTo(point, index)`
-- `geometry_path.lineTo(x, y, index)`
-
-**Bir yola bir kübik Bezier eğrisi ekle**:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3)`
-
-**Belirli bir konuma bir kübik Bezier eğrisi ekle**:
-
-- `geometry_path.cubicBezierTo(point1, point2, point3, index)`
-- `geometry_path.cubicBezierTo(x1, y1, x2, y2, x3, y3, index)`
-
-**Bir yola bir ikinci dereceden Bezier eğrisi ekle**:
-
-- `geometry_path.quadraticBezierTo(point1, point2)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2)`
-
-**Belirli bir konuma bir ikinci dereceden Bezier eğrisi ekle**:
-
-- `geometry_path.quadraticBezierTo(point1, point2, index)`
-- `geometry_path.quadraticBezierTo(x1, y1, x2, y2, index)`
-
-**Verilen bir yay ekle**:
-
-- `geometry_path.arcTo(width, height, start_angle, sweep_angle)`
-
-**Mevcut figürü kapat**:
-
-- `geometry_path.closeFigure()`
-
-**Sonraki nokta için konumu ayarla**:
-
-- `geometry_path.moveTo(point)`
-- `geometry_path.moveTo(x, y)`
-
-**Belirli bir indeksteki yol segmentini kaldır**:
-
-- `geometry_path.removeAt(index)`
+| İşlem | Yöntem |
+| --- | --- |
+| Düz bir çizgi ekleyin veya ekleyin. | [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) |
+| İki kontrol noktası ve bir son nokta içeren kübik Bézier eğrisi ekleyin veya ekleyin. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Bir kontrol noktası ve bir son nokta içeren ikinci dereceli Bézier eğrisi ekleyin veya ekleyin. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Belirtilen ölçüler ve derece cinsinden açılarıyla eliptik bir yay ekleyin. | [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) |
+| Şu anki şekli, son noktasını başlangıç noktasına bağlayarak kapatın. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) |
+| Bir şeklin başlangıç noktasını ayarlayın. | [GeometryPath.moveTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#moveTo) |
+| Sıfır tabanlı bir indeksdeki segmenti kaldırın. | [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Bir Şekle Özel Noktalar Ekleme**
-1. [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) sınıfından bir örnek oluşturun ve [ShapeType.Rectangle](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapetype/#Rectangle) tipini ayarlayın.
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği alın.
-3. Yol üzerindeki iki üst nokta arasına yeni bir nokta ekleyin.
-4. Yol üzerindeki iki alt nokta arasına yeni bir nokta ekleyin.
-5. Yolu şekle uygulayın.
 
-Bu Python kodu, bir şekle özel noktalar eklemenizi gösterir:
+Bu örnek, bir dikdörtgen şekle iki nokta ekler; [GeometryPath.lineTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#lineTo) kullanılır ve düzenlenmiş yol, [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) ile uygulanır. Koordinatlar şekle göre yereldir: iki yeni nokta da şeklin merkezindedir, soldan 100 puan ve üstten 50 puan uzakta. Segment indeksleri 1 ve 4, bu noktaları üst ve alt kenarlara yerleştirir ve bu kenarları içeri çeker.
 
 ```python
 import jpype
@@ -138,39 +93,43 @@ from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.lineTo(100, 50, 1)
     geometry_path.lineTo(100, 50, 4)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **Şekilden Noktalar Kaldırma**
+## **Bir Şekilden Noktaları Kaldırma**
 
-1. [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) sınıfından bir örnek oluşturun ve [ShapeType.Heart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shapetype/#Heart) tipini ayarlayın. 
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği alın.
-3. Yol için segmenti kaldırın.
-4. Yolu şekle uygulayın.
-
-Bu Python kodu, bir şekilden noktaları nasıl kaldıracağınızı gösterir:
+Bu örnek, bir kalp şeklinin dış hattını [GeometryPath.removeAt](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#removeAt) kullanarak sıfır tabanlı 2 indeksindeki segmenti kaldırarak değiştirir. Değiştirilen yol, [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) ile uygulanır ve şeklin konturu güncellenir.
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
-    jpime.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Presentation, ShapeType
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300)
+
     geometry_path = shape.getGeometryPaths()[0]
     geometry_path.removeAt(2)
+
     shape.setGeometryPath(geometry_path)
 finally:
     presentation.dispose()
@@ -179,13 +138,7 @@ finally:
 
 ## **Özel Bir Şekil Oluşturma**
 
-1. Şeklin noktalarını hesaplayın.
-2. Bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği oluşturun. 
-3. Yolu noktalarla doldurun.
-4. Bir [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) örneği oluşturun. 
-5. Yolu şekle uygulayın.
-
-Bu Python kodu, özel bir şekil oluşturmanızı gösterir:
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız oluşturur. Dış ve iç yarıçapların 100 ve 50 puan olarak değişmesi, uçları ve girintileri tanımlar; 72 derece adım, beş ucu eşit aralarla yerleştirir. Yol, [GeometryPath.closeFigure](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#closeFigure) ile kapatılır ve [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) kullanılarak bir dikdörtgen şekle uygulanır, böylece dış hattı değiştirilir.
 
 ```python
 import jpype
@@ -201,15 +154,15 @@ import math
 points = []
 outer_radius = 100
 inner_radius = 50
-step = 72
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = math.radians(angle)
     x = outer_radius * math.cos(radians)
     y = outer_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
 
-    radians = math.radians(angle + step / 2)
+    radians = math.radians(angle + angle_step / 2)
     x = inner_radius * math.cos(radians)
     y = inner_radius * math.sin(radians)
     points.append((x + outer_radius, y + outer_radius))
@@ -222,7 +175,9 @@ star_path.closeFigure()
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.setGeometryPath(star_path)
 finally:
     presentation.dispose()
@@ -231,12 +186,7 @@ finally:
 
 ## **Bileşik Özel Şekil Oluşturma**
 
-1. Bir [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) örneği oluşturun.
-2. İlk bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği oluşturun.
-3. İkinci bir [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneği oluşturun.
-4. Path'leri şekle uygulayın.
-
-Bu Python kodu, bileşik bir özel şekil oluşturmanızı gösterir:
+Bu örnek, bir şeklin üst ve alt üçte birleri için iki kapalı [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yol da [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) ile uygulanarak ortasındaki bir boşlukla tek bir birleşik şekil oluşturulur.
 
 ```python
 import jpype
@@ -249,7 +199,9 @@ from asposeslides.api import Presentation, ShapeType, GeometryPath
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
 
     top_path = GeometryPath()
     top_path.moveTo(0, 0)
@@ -273,7 +225,7 @@ finally:
 
 ## **Eğri Köşeli Özel Şekil Oluşturma**
 
-Bu Python kodu, içe doğru eğri köşeli bir özel şekil oluşturmanızı gösterir:
+Bu örnek, düz segmentleri [GeometryPath.arcTo](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#arcTo) ile birleştirerek içe doğru eğimli köşelere sahip bir şekil üretir. Her köşe boyutu, yay genişliği ve yüksekliğini puan cinsinden ayarlar; -90 derece süpürme, saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) ile uygulanır ve sunum PPTX formatında kaydedilir.
 
 ```python
 import jpype
@@ -296,7 +248,10 @@ left_bottom_size = 10
 
 presentation = Presentation()
 try:
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Custom, shape_x, shape_y, shape_width, shape_height)
+
     geometry_path = GeometryPath()
     geometry_path.moveTo(left_top_size, 0)
     geometry_path.lineTo(shape_width - right_top_size, 0)
@@ -308,15 +263,17 @@ try:
     geometry_path.lineTo(0, left_top_size)
     geometry_path.arcTo(left_top_size, left_top_size, 90, -90)
     geometry_path.closeFigure()
+    
     shape.setGeometryPath(geometry_path)
+
     presentation.save("output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenin**
 
-Kapalı bir şekil, tüm kenarlarının birleştiği ve boşluk bırakmadan tek bir sınır oluşturduğu şekil olarak tanımlanır. Bu şekil basit bir geometrik form ya da karmaşık bir özel kontur olabilir. Aşağıdaki kod örneği, bir şekil geometrisinin kapalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
+Aşağıdaki yardımcı, her boş olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini kontrol eder. [GeometryPath.getPathData](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#getPathData) okunur ve son segmentin [PathSegment.getPathCommand](https://reference.aspose.com/slides/python-java/aspose.slides/pathsegment/#getPathCommand) değeri [PathCommandType.Close](https://reference.aspose.com/slides/python-java/aspose.slides/pathcommandtype/) ile karşılaştırılır. Boş yol olmadığında `False` döner. Bu, her yolun son komutunu kontrol eder; bir yol içindeki her alt şekli incelemez. Örnek, bir dikdörtgen için `True` yazdırır.
 
 ```python
 import jpype
@@ -325,29 +282,97 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import PathCommandType
+from asposeslides.api import Presentation, ShapeType, PathCommandType
 
 def is_geometry_closed(geometry_shape):
-    is_closed = False
+    has_nonempty_path = False
     for geometry_path in geometry_shape.getGeometryPaths():
         path_data = geometry_path.getPathData()
         if len(path_data) == 0:
             continue
         last_segment = path_data[-1]
-        is_closed = last_segment.getPathCommand() == PathCommandType.Close
-        if not is_closed:
+        has_nonempty_path = True
+        if last_segment.getPathCommand() != PathCommandType.Close:
             return False
-    return is_closed
+    return has_nonempty_path
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100)
+    closed = is_geometry_closed(shape)
+    print(closed)
+finally:
+    presentation.dispose()
 ```
 
-## **GeometryPath'ı java.awt.Shape'ye Dönüştürme**
+## **Şekil Öğelerini Çıkarma ve İnceleme**
 
-1. Bir [GeometryShape](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometryshape/) örneği oluşturun.
-2. Bir [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) örneği oluşturun.
-3. [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) örneğini, [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) üzerinden yürüyerek ve her segmenti yolda yeniden oynatarak [GeometryPath](https://reference.aspose.com/slides/tr/python-java/aspose.slides/geometrypath/) örneğine dönüştürün.
-4. Path'leri şekle uygulayın.
+Mevcut bir şekli, yol noktaları ve nokta türleri içeren öğeler olarak incelemek için [GeometryShape.createShapeElements](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#createShapeElements) kullanın. Döndürülen her öğeyi `jpype.JObject` ile [ShapeElement](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/) tipine dönüştürerek [getPathPoints](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathPoints) ve [getPathTypes](https://reference.aspose.com/slides/python-java/aspose.slides/shapeelement/#getPathTypes) yöntemleriyle nokta ve tür dizilerini alın. Bu temsil, kontur analizi veya geometriyi özel çizim araçlarına aktarmak için yararlıdır.
 
-Bu Python kodu, bir grafik yolunu geometri yoluna dönüştürmek için yukarıdaki adımları uygular:
+Örnek, input.pptx dosyasını açar, ilk slayttaki ilk geometry şeklini bulur ve yol segmentlerini yazdırır. Hem düz hem de eğri segmentlere sahip bir şekil içeren bir sunum kullanarak her iki çıktıyı da görebilirsiniz. Gruplar içinde arama yapmaz.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, GeometryShape, ShapeElement
+
+presentation = Presentation("input.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = None
+    for candidate in slide.getShapes():
+        if isinstance(candidate, GeometryShape):
+            shape = candidate
+            break
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.createShapeElements():
+            shape_element = jpype.JObject(element, ShapeElement)
+            points = shape_element.getPathPoints()
+            types = shape_element.getPathTypes()
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Segment tipini tut, bayrakları hariç.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Consume both control points and the endpoint.
+
+                if types[i] & 0x80:
+                    print("Close subpath back to its starting point.")
+                i += 1
+finally:
+    presentation.dispose()
+```
+
+Diziler indeks bazında eşleşir: `points[i]` bir nokta, `types[i]` ise onun rolünü tanımlar. Tür `0` bir şekli başlatır, tür `1` önceki noktadan mevcut noktaya doğru bir çizgi çizer. Kübik Bézier segmenti, önceki son noktadan başlar ve üç ardışık tür-`3` girdisini kullanır: iki kontrol noktası ve yeni son nokta. Döngü bu üç girişi birlikte işler ve son noktanın kapalı olup olmadığını kontrol eder.
+
+Nokta türleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesini, kapalı bir alt yolu tespit etmek için ise `0x80` bayrağını ayrı ayrı test edin. Örneğin `129` (`0x81`) bir satır son noktası olup alt yolu kapatır, `131` (`0x83`) ise bir Bézier son noktası olup birini kapatır. Java bu bayrakları imzalı byte olarak saklar; maskelenmesi istenen bit değerlerini korur. Sadece `1` veya `3` ile ham değeri karşılaştırmak bu durumları kaçırır. Çizgi (`0x10`) ve işaretçi (`0x20`) gibi diğer bayraklar temel segment tipini değiştirmez.
+
+**Koordinatlar ve dönüşümler.** Noktalar puan (1/72 inç) biriminde ölçülür; X sağa, Y aşağı doğru artar. Gruplandırılmamış bir şekil için çıkarılan koordinatlar, zaten [getX](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getX) ve [getY](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getY) tarafından döndürülen konumu içerir ve mevcut genişlik ve yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda ve `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)` şeklindedir. Şeklin konumunu tekrar eklemeyin. X ve Y değerlerini çıkararak koordinatları döndürülmemiş çerçeveye göre elde edin.
+
+Çıkarılan noktalar, [getRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getRotation) tarafından döndürülen şekil dönüşünü veya yatay ve dikey çevirileri içermez. Görüntülenen konturu yeniden üretmek için bu dönüşümleri şeklin merkezine göre uygulayın. Gruplandırılmış şekillerde ayrıca grup koordinat haritalamasını ve dönüşümleri de hesaba katın; çıkarılan noktaların slayt üzerinde son render koordinatları olduğunu varsaymayın ve zaten çocuğun çerçevesinde yansıtılmışsa bir çeviri ya da ölçeklendirmeyi iki kez uygulamayın.
+
+**İnceleme vs. düzenleme.** Çıkarılan diziler konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz veya çizim kodunuz nokta/tür dizilerine ihtiyaç duyuyorsa bu yaklaşımı seçin. Şeklin yerel koordinat sistemindeki geometri komutlarına ihtiyacınız varsa veya geometrisini düzenlemek istiyorsanız [getGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#getGeometryPaths) kullanın. Düzenlenmiş yolları [setGeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPath) veya [setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) aracılığıyla uygulayın.
+
+## **Java AWT Şekilini GeometryPath'e Dönüştürme**
+
+Bu örnek, metne dönüştürülmüş bir geometriyle bir dikdörtgen konturunu birleştirir. Konturun [setFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/#setFillMode) yöntemi doldurulmasını devre dışı bırakır. Bir [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html), bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) içinde metin konturunu oluşturur. Onun [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) hareket, çizgi, ikinci dereceli, kübik ve kapatma segmentleri sağlar; örnek bunları bir [GeometryPath](https://reference.aspose.com/slides/python-java/aspose.slides/geometrypath/) üzerinde yeniden oynatır.
+
+Metin, 40 puanlık Arial yazı tipinde kullanılır. Kontur, yatay olarak 20 puan kaydırılır ve görsel üstü, şeklin üst kenarının 10 puan altında konumlandırılır. Metin yolu doldurulurken, orijinal dikdörtgen sadece bir kontur kalır. Her iki yol da [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setGeometryPaths) ile uygulanarak dikdörtgen ve metni içeren tek bir şekil üretilir.
 
 ```python
 import jpype
@@ -364,10 +389,11 @@ from java.awt.image import BufferedImage
 
 presentation = Presentation()
 try:
-    # Yeni bir şekil oluştur.
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+    slide = presentation.getSlides().get_Item(0)
 
-    # Şeklin geometri yolunu alın.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100)
+
+    # Şeklin geometri yolunu al.
     original_path = shape.getGeometryPaths()[0]
     original_path.setFillMode(PathFillModeType.None_)
 
@@ -377,8 +403,11 @@ try:
     image = BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB)
     graphics = image.createGraphics()
     try:
-        glyph_vector = font.createGlyphVector(graphics.getFontRenderContext(), text)
-        graphics_path = glyph_vector.getOutline(20.0, -glyph_vector.getVisualBounds().getY() + 10)
+        font_context = graphics.getFontRenderContext()
+        glyph_vector = font.createGlyphVector(font_context, text)
+        text_bounds = glyph_vector.getVisualBounds()
+        baseline = -text_bounds.getY() + 10
+        graphics_path = glyph_vector.getOutline(20.0, baseline)
     finally:
         graphics.dispose()
 
@@ -408,16 +437,13 @@ finally:
 ```
 ![example5_image](custom_shape_5.png)
 
-## **SSS**
+## **FAQ**
 
-**Geometriyi değiştirdikten sonra dolgu ve kenarlık ne olur?**
+**Geometriyi değiştirdikten sonra dolgu ve kenarlık ne olur?**  
+Stil şekille kalır; yalnızca kontur değişir. Dolgu ve kenarlık yeni geometriye otomatik olarak uygulanır.
 
-Stil şekille kalır; sadece kontur değişir. Dolgu ve kenarlık otomatik olarak yeni geometriye uygulanır.
+**Özel bir şekli geometrisiyle birlikte nasıl doğru şekilde döndürürüm?**  
+Şeklin [setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) yöntemini kullanın; geometri şeklin kendi koordinat sistemine bağlı olduğu için şekil ile birlikte döner.
 
-**Özel şekli ve geometrisini nasıl doğru şekilde döndürürüm?**
-
-Şeklin [setRotation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/shape/#setRotation) metodunu kullanın; geometri, şeklin kendi koordinat sistemine bağlı olduğu için şekilyle birlikte döner.
-
-**Özel şekli bir görüntüye dönüştürüp sonucu “kilitleyebilir” miyim?**
-
-Evet. Gerekli [slide](/slides/tr/python-java/convert-powerpoint-to-png/) alanını ya da [shape](/slides/tr/python-java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, ağır geometrilerle çalışmayı kolaylaştırır.
+**Sonucu "kilitlemek" için özel bir şekli bir görüntüye dönüştürebilir miyim?**  
+Evet. Gereken [slayt](/slides/tr/python-java/convert-powerpoint-to-png/) alanını ya da [şekil](/slides/tr/python-java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, karmaşık geometrilerle çalışmayı basitleştirir.

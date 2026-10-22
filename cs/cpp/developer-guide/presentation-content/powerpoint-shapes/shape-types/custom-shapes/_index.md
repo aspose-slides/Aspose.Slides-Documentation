@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení tvarů v prezentaci v C++
+title: Přizpůsobení tvarů prezentací v C++
 linktitle: Vlastní tvar
 type: docs
 weight: 20
@@ -12,7 +12,7 @@ keywords:
 - geometrie tvaru
 - geometrická cesta
 - body cesty
-- editační body
+- upravit body
 - přidat bod
 - odstranit bod
 - operace úpravy
@@ -21,130 +21,88 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte tvary v PowerPoint prezentacích pomocí Aspose.Slides pro C++: geometrické cesty, zakřivené rohy, složené tvary."
+description: "Vytvořte a přizpůsobte tvary v PowerPoint prezentacích pomocí Aspose.Slides pro C++: geometrické cesty, zakřivené rohy, složené tvary."
 ---
 ## **Přehled**
 
-Tento článek popisuje, jak přizpůsobit tvary v prezentacích v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s `GeometryPath` a `IGeometryPath` pro úpravu existujících tvarů, provádění základních operací úpravy cesty, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
+Tento článek vysvětluje, jak přizpůsobit tvary prezentací v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) a [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) k úpravě existujících tvarů, provádění základních operací úpravy cesty, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
+
+Také demonstruje, jak vytvořit vlastní a složené tvary, sestavit tvary s zakřivenými rohy a určit, zda je geometrie tvaru uzavřená.
 
 ## **Změna tvaru pomocí editačních bodů**
-Zvažte čtverec. V PowerPointu můžete pomocí **edit points**:
 
-* posunout roh čtverce dovnitř nebo ven
-* zadat zakřivení pro roh nebo bod
-* přidat nové body do čtverce
-* manipulovat body na čtverci atd.
+V PowerPointu můžete použít **Edit Points** k úpravě čtverce:
 
-V podstatě můžete provádět popsané úkoly na jakémkoli tvaru. Pomocí editačních bodů můžete změnit tvar nebo vytvořit nový tvar ze stávajícího.
+* Posunout roh dovnitř nebo ven.
+* Upravit zakřivení v bodě.
+* Přidat nové body.
+
+Úprava bodů vám umožní měnit obrys tvaru nebo použít existující tvar jako základ pro nový.
 
 ## **Tipy pro úpravu tvarů**
 
 ![overview_image](custom_shape_0.png)
 
-Předtím, než začnete upravovat tvary v PowerPointu pomocí editačních bodů, můžete zvážit následující body o tvarech:
+Při úpravě tvarů v PowerPointu mějte na paměti následující pojmy:
 
 * Tvar (nebo jeho cesta) může být buď uzavřený, nebo otevřený.
-* Když je tvar uzavřený, postrádá počáteční nebo koncový bod. Když je tvar otevřený, má začátek a konec.
-* Všechny tvary se skládají alespoň ze 2 kotevních bodů spojených čarami
-* Čára může být buď přímá, nebo zakřivená. Kotevní body určují charakter čáry.
-* Kotevní body se vyskytují jako rohové body, přímé body nebo hladké body:
-  * Rohový bod je bod, kde se dvě přímé čáry setkávají pod úhlem.
-  * Hladký bod je bod, kde dvě rukojeti leží na přímé linii a úseky čáry se spojují plynulou křivkou. V tomto případě jsou všechny rukojeti od kotevního bodu vzdáleny stejnou vzdáleností.
-  * Přímý bod je bod, kde dvě rukojeti leží na přímé linii a úseky čáry se spojují plynulou křivkou. V tomto případě rukojeti nemusí být od kotevního bodu vzdáleny stejně.
-* Přesunutím nebo úpravou kotevních bodů (což mění úhel čar) můžete změnit vzhled tvaru.
+* Cesta tvaru se skládá z kotevních bodů spojených segmenty.
+* Segment může být přímý nebo zakřivený. Kotevní body a ovládací úchyty určují jeho tvar.
+* Kotevní body existují jako rohové body, přímé body nebo hladké body:
+  * V rohovém bodě se sousední segmenty mohou setkat pod úhlem.
+  * V hladkém bodě jsou oba ovládací úchyty zarovnané a stejně vzdálené od kotevního bodu.
+  * V přímém bodě jsou oba ovládací úchyty zarovnané, ale mohou mít různou vzdálenost od kotevního bodu.
+* Posun kotevních bodů nebo úprava jejich úchytů mění obrys tvaru.
 
-Pro úpravu tvarů v PowerPointu pomocí editačních bodů **Aspose.Slides** poskytuje třídu [**GeometryPath**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) a rozhraní [**IGeometryPath**](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_path).
+Pro úpravu tvarů PowerPointu pomocí editačních bodů poskytuje **Aspose.Slides** třídu [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) a rozhraní [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Instance třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_shape).
-* Pro získání `GeometryPath` z instance `IGeometryShape` můžete použít metodu [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1).
-* Pro nastavení `GeometryPath` pro tvar můžete použít tyto metody: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) pro *plné tvary* a [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) pro *složené tvary*.
-* Pro přidání segmentů můžete použít metody pod [IGeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_path).
-* Pomocí metod [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) a [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) můžete nastavit vzhled geometrické cesty.
-* Pomocí metody [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) můžete získat geometrickou cestu `GeometryShape` jako pole segmentů cesty.
-* Pro přístup k dalším možnostem přizpůsobení geometrie tvaru můžete převést [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) na [GraphicsPath](https://reference.aspose.com/slides/cs/cpp/class/system.drawing.drawing2_d.graphics_path)
-* Použijte metody [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) a [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (ze třídy [ShapeUtil](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.util.shape_util)) pro převod [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) na [GraphicsPath](https://reference.aspose.com/slides/cs/cpp/class/system.drawing.drawing2_d.graphics_path) a zpět.
+* Instance [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) představuje geometrickou cestu objektu [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Pro získání [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) z instance [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) můžete použít metodu [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Pro nastavení [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) pro tvar můžete použít tyto metody: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) pro tvary s jednou cestou a [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) pro tvary s více cestami.
+* Pro přidání segmentů můžete použít metody pod [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Pomocí metod [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) a [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/) můžete nastavit vzhled geometrické cesty.
+* Pomocí metody [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) můžete získat geometrickou cestu [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) jako pole segmentů cesty.
 
 ## **Jednoduché operace úpravy**
 
-Tento C++ kód vám ukazuje jak
+Použijte následující metody k úpravě geometrické cesty. Přetížení, která přijímají index, vloží segment na tuto nulovou pozici v poli segmentů cesty.
 
-**Přidat čáru** na konec cesty
-
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Přidat čáru** na určenou pozici v cestě:
-
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Přidat kubickou Bézierovu křivku** na konec cesty:
-
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Přidat kubickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Přidat kvadratickou Bézierovu křivku** na konec cesty:
-
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Přidat kvadratickou Bézierovu křivku** na určenou pozici v cestě:
-
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Připojit daný oblouk** k cestě:
-
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Uzavřít aktuální figurku** cesty:
-
-``` cpp
-void CloseFigure();
-```
-**Nastavit pozici pro další bod**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Odstranit segment cesty** na zadaném indexu:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
+| Operace | Metoda |
+| --- | --- |
+| Přidat nebo vložit přímou čáru. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Přidat nebo vložit kubické Bézierovo zakřivení se dvěma ovládacími body a koncovým bodem. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Přidat nebo vložit kvadratické Bézierovo zakřivení s jedním ovládacím bodem a koncovým bodem. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Přidat eliptický oblouk se zadanými rozměry a úhly ve stupních. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Uzavřít aktuální figuru propojením jejího koncového bodu s počátečním bodem. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Nastavit počáteční bod figury. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Odstranit segment na nulovém indexu. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
 ## **Přidání vlastních bodů do tvaru**
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_shape) a nastavte typ [ShapeType.Rectangle](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) ze tvaru.
-3. Přidejte nový bod mezi dvěma horními body v cestě.
-4. Přidejte nový bod mezi dvěma dolními body v cestě.
-5. Aplikujte cestu na tvar.
 
-Tento C++ kód vám ukazuje, jak přidat vlastní body do tvaru:
+Tento příklad vloží dva body do obdélníkového tvaru pomocí [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) a použije upravenou cestu pomocí [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Souřadnice jsou lokální k tvaru: oba nové body jsou ve středu, 100 bodů od levého okraje a 50 bodů od horního okraje. Indexy segmentů 1 a 4 je umístí na horní a dolní hranu a stáhnou tyto hrany dovnitř.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
+
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
@@ -152,215 +110,337 @@ shape->SetGeometryPath(geometryPath);
 
 ## **Odstranění bodů z tvaru**
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_shape) a nastavte typ [ShapeType.Heart](https://reference.aspose.com/slides/cs/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).
-2. Získejte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) ze tvaru.
-3. Odstraňte segment cesty.
-4. Aplikujte cestu na tvar.
+Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nulovém indexu 2 pomocí [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Použití upravené cesty pomocí [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) aktualizuje konturu tvaru.
 
-Tento C++ kód vám ukazuje, jak odstranit body z tvaru:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
 ![example2_image](custom_shape_2.png)
 
 ## **Vytvoření vlastního tvaru**
 
-1. Vypočítejte body pro tvar.
-2. Vytvořte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path).
-3. Naplněte cestu body.
-4. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_shape).
-5. Aplikujte cestu na tvar.
+Tento příklad vytvoří pětihrotou hvězdu pomocí [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a zapouzdření; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) a aplikována na obdélníkový tvar pomocí [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), čímž nahradí jeho obrys.
 
-Tento C++ kód vám ukazuje, jak vytvořit vlastní tvar:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
 ![example3_image](custom_shape_3.png)
 
-
 ## **Vytvoření složeného vlastního tvaru**
 
-  1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_shape).
-  2. Vytvořte první instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path).
-  3. Vytvořte druhou instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path).
-  4. Aplikujte cesty na tvar.
+Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) pro horní a dolní třetinu tvaru. Použití obou cest pomocí [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) vytvoří jediný složený tvar s prohlášením uprostřed jeho střední třetiny.
 
-Tento C++ kód vám ukazuje, jak vytvořit složený vlastní tvar:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(shape->get_Height() / 3 * 2, 0.0f);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Vytvoření vlastního tvaru s zakřivenými rohy**
+## **Vytvoření vlastního tvaru se zakřivenými rohy**
 
-Tento C++ kód vám ukazuje, jak vytvořit vlastní tvar se zakřivenými rohy (dovnitř);
+Tento příklad kombinuje přímé segmenty s [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) k vytvoření tvaru se zakřivenými rohy dovnitř. Každá velikost rohu nastavuje šířku a výšku oblouku v bodech a natočení -90 stupňů kreslí proti směru hodinových ručiček čtvrtkruh elipsy. Dokončená cesta je aplikována pomocí [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) a prezentace je uložena ve formátu PPTX.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Zjistit, zda je geometrie tvaru uzavřená**
+## **Zjištění, zda je geometrie tvaru uzavřená**
 
-Uzavřený tvar je definován jako takový, kde všechny jeho strany jsou propojené, tvorí jednotnou hranici bez mezer. Takový tvar může být jednoduchý geometrický tvar nebo složitý vlastní obrys. Následující ukázkový kód ukazuje, jak zkontrolovat, zda je geometrie tvaru uzavřená:
+Následující pomocná funkce kontroluje, zda každý neprázdný geometrický cest končí uzavíracím segmentem. Čte [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) a porovnává poslední segmentů [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) s [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Vrací false, když neexistují neprázdné cesty. Tato kontrola zkoumá poslední příkaz každé cesty; neprohledává každou podfiguru uvnitř cesty. Příklad vypisuje `True` pro obdélník.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Extrahování a inspekce prvků tvaru**
+
+Použijte [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) k inspekci existujícího tvaru jako prvků obsahujících body cesty a typy bodů. Přetypujte každý vrácený [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) na [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) a přečtěte pole vrácená metodami [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) a [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Toto znázornění je užitečné pro analýzu obrysu nebo předání geometrie nástrojům pro vlastní kreslení.
+
+Příklad otevře prezentaci, najde první geometrický tvar přímo na první snímku a vypíše jeho segmenty cesty. Použijte prezentaci obsahující tvar s přímými i zakřivenými segmenty, abyste viděli oba typy výstupu. Nepřechází do skupin.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Uchovat typ segmentu, vyjma příznaků.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Consume both control points and the endpoint.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **Převod GeometryPath na GraphicsPath** 
+Pole jsou podle indexu spárována: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` začíná figuru a typ `1` kreslí úsečku od předchozího bodu k aktuálnímu bodu. Kubický Bézierův segment začíná předchozím koncovým bodem a používá tři po sobě jdoucí položky typu `3`: dva ovládací body a nový koncový bod. Smyčka konzumuje těchto tři položky najednou a kontroluje koncový bod pro uzavření.
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_shape).
-2. Vytvořte instanci třídy [GraphicsPath](https://reference.aspose.com/slides/cs/cpp/class/system.drawing.drawing2_d.graphics_path) ze jmenného prostoru [System.Drawing.Drawing2D](https://reference.aspose.com/slides/cs/cpp/namespace/system.drawing.drawing2_d).
-3. Převěďte instanci [GraphicsPath](https://reference.aspose.com/slides/cs/cpp/class/system.drawing.drawing2_d.graphics_path) na instanci [GeometryPath](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.geometry_path) pomocí [ShapeUtil](https://reference.aspose.com/slides/cs/cpp/class/aspose.slides.util.shape_util).
-4. Aplikujte cesty na tvar.
+Typy bodů také obsahují příznaky. Maskujte `0x07` pro určení typu segmentu a testujte `0x80` samostatně pro detekci uzavřené podcesty. Například `129` (`0x81`) znamená koncový bod úsečky, který uzavře podcestu, a `131` (`0x83`) znamená Bézierův koncový bod, který uzavře podcestu. Pouze porovnání surové hodnoty s `1` nebo `3` by tyto případy minulo. Další příznaky, jako pomlčka (`0x10`) a značka (`0x20`), nemění základní typ segmentu.
 
-Tento C++ kód — implementace výše uvedených kroků — ukazuje proces převodu **GeometryPath** na **GraphicsPath**:
+**Souřadnice a transformace.** Body jsou měřeny v bodech (1/72 palce), přičemž X roste doprava a Y dolů. Pro neztvořený tvar již extrahované souřadnice zahrnují pozici vrácenou metodami [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) a [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) a odrážejí jeho aktuální šířku a výšku. Například neotočený obdélník v `(100, 200)` se šířkou `120 × 80` má obrysové limity `(100, 200)`–`(220, 280)`. Nepřidávejte pozici tvaru znovu. Odečtěte jeho X a Y pro získání souřadnic relativních k jeho neotočenému rámci.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Extrahované body neaplikují rotaci nastavenou pomocí [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) ani horizontální a vertikální převrácení. Pro reprodukci zobrazeného obrysu aplikujte tyto transformace kolem středu tvaru. Pro seskupené tvary také zohledněte mapování souřadnic skupiny a transformace; nepředpokládejte, že extrahované body jsou konečné vykreslené souřadnice snímku, ani neaplikujte posun nebo měřítko dvakrát, pokud už jsou zahrnuty ve rámci potomka.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Inspekce versus úprava.** Extrahovaná pole popisují obrys; jejich změna neaktualizuje původní tvar. Zvolte tento přístup, když vaše analytické nebo kreslicí kódy vyžadují pole bodů/typů. Použijte [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) když potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete upravit jeho geometriku. Použijte upravené cesty prostřednictvím [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) nebo [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **Převod GeometryPath na GraphicsPath**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-![example5_image](custom_shape_5.png)
+Veřejné API Aspose.Slides pro C++ aktuálně neumožňuje převody mezi geometrickými cestami a grafickými cestami. K inspekci obrysu použijte prvky tvaru, jak je popsáno výše. K úpravě tvaru použijte geometrické cesty a aplikujte aktualizované cesty na tvar.
 
 ## **Často kladené otázky**
 
 **Co se stane s výplní a obrysem po nahrazení geometrie?**
 
-Styl zůstává u tvaru; mění se jen obrys. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
+Styl zůstává u tvaru; mění se pouze obrys. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
 
 **Jak správně otočit vlastní tvar spolu s jeho geometrií?**
 
-Použijte vlastnost [rotation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/shape/set_rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s vlastním souřadnicovým systémem tvaru.
+Použijte metodu [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s lokálním souřadnicovým systémem tvaru.
 
 **Mohu převést vlastní tvar na obrázek, abych „uzamkl“ výsledek?**
 
-Ano. Exportujte požadovanou oblast [slide](/slides/cs/cpp/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/cpp/create-shape-thumbnails/) do rastrového formátu; to usnadní další práci s rozsáhlými geometriemi.
+Ano. Exportujte požadovanou [slide](/slides/cs/cpp/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/cpp/shape-thumbnails/) do rastrového formátu; to zjednoduší další práci s komplikovanými geometriemi.

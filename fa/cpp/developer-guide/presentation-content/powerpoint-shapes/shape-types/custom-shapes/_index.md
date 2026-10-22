@@ -1,5 +1,5 @@
 ---
-title: سفارشی‌سازی اشکال ارائه در C++
+title: سفارشی‌سازی شکل‌های ارائه در C++
 linktitle: شکل سفارشی
 type: docs
 weight: 20
@@ -15,136 +15,94 @@ keywords:
 - نقاط ویرایش
 - افزودن نقطه
 - حذف نقطه
-- عملیات ویرایش
+- عملیات ویرایشی
 - گوشه منحنی
-- PowerPoint
+- پاورپوینت
 - ارائه
 - C++
 - Aspose.Slides
-description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های PowerPoint با Aspose.Slides برای C++: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
+description: "ایجاد و سفارشی‌سازی اشکال در ارائه‌های پاورپوینت با Aspose.Slides برای C++: مسیرهای هندسی، گوشه‌های منحنی، اشکال ترکیبی."
 ---
-## **مرور کلی**
+## **بررسی کلی**
 
-این مقاله توضیح می‌دهد چگونه می‌توان اشکال ارائه در Aspose.Slides را با ویرایش هندسه شکل از طریق نقاط ویرایش و مسیرهای هندسی سفارشی کرد. نشان می‌دهد چگونه با `GeometryPath` و `IGeometryPath` کار کنید تا شکل‌های موجود را تغییر دهید، عملیات پایه ویرایش مسیر را انجام دهید، نقاط را اضافه یا حذف کنید و هندسه به‌روزشده را به شکل اعمال کنید.
+این مقاله نحوهٔ سفارشی‌سازی شکل‌های ارائه در Aspose.Slides را از طریق ویرایش هندسه شکل با استفاده از نقاط و مسیرهای هندسی توضیح می‌دهد. نشان می‌دهد چگونه با [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) و [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) به‌منظور تغییر شکل‌های موجود، انجام عملیات پایهٔ ویرایش مسیر، اضافه یا حذف نقاط و اعمال هندسهٔ به‌روز شده به یک شکل کار کنید.
+
+همچنین نحوهٔ ایجاد شکل‌های سفارشی و ترکیبی، ساخت شکل‌ها با گوشه‌های منحنی، و تعیین اینکه آیا هندسهٔ یک شکل بسته است را نیز نشان می‌دهد.
 
 ## **تغییر شکل با استفاده از نقاط ویرایش**
-در نظر بگیرید یک مربع. در PowerPoint، با استفاده از **نقاط ویرایش** می‌توانید  
 
-* گوشهٔ مربع را به داخل یا خارج ببرید  
-* انحنا برای یک گوشه یا نقطه را مشخص کنید  
-* نقاط جدید به مربع اضافه کنید  
-* نقاط روی مربع را دستکاری کنید و غیره  
+در PowerPoint می‌توانید با **نقاط ویرایش** یک مربع را اصلاح کنید:
 
-به‌طور کلی می‌توانید کارهای توصیف‌شده را بر روی هر شکلی انجام دهید. با نقاط ویرایش می‌توانید شکل را تغییر داده یا شکل جدیدی از شکل موجود بسازید.
+* حرکت یک گوشه به سمت داخل یا خارج.
+* تنظیم انحنا در یک نقطه.
+* افزودن نقاط جدید.
+
+ویرایش نقاط به شما امکان می‌دهد مرز یک شکل را تغییر دهید یا از یک شکل موجود به‌عنوان پایهٔ یک شکل جدید استفاده کنید.
 
 ## **نکات ویرایش شکل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل از شروع به ویرایش اشکال PowerPoint از طریق نقاط ویرایت، بهتر است این نکات را دربارهٔ اشکال در نظر بگیرید:
+هنگام ویرایش شکل‌های PowerPoint، این مفاهیم را در نظر داشته باشید:
 
-* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.  
-* وقتی یک شکل بسته است، نقطهٔ شروع یا پایان ندارد. وقتی یک شکل باز است، دارای آغاز و پایان است.  
-* تمام اشکال حداقل شامل ۲ نقطهٔ لنگر هستند که توسط خطوط به هم متصل می‌شوند.  
-* یک خط می‌تواند مستقیم یا منحنی باشد. نقطه‌های لنگر مشخص‌کنندهٔ نوع خط هستند.  
-* نقطه‌های لنگر می‌توانند به صورت نقطهٔ گوشه‌ای، مستقیم یا صاف وجود داشته باشند:  
-  * نقطهٔ گوشه‌ای نقطه‌ای است که دو خط مستقیم در زاویه‌ای به هم می‌رسند.  
-  * نقطهٔ صاف نقطه‌ای است که دو دستگیره در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت منحنی صاف به هم می‌پیوندند. در این حالت تمام دستگیره‌ها فاصلهٔ مساوی از نقطهٔ لنگر دارند.  
-  * نقطهٔ مستقیم نقطه‌ای است که دو دستگیره در یک خط مستقیم قرار دارند و بخش‌های خط به‌صورت منحنی صاف به هم می‌پیوندند. در این حالت دستگیره‌ها نیازی به فاصلهٔ مساوی از نقطهٔ لنگر ندارند.  
-* با جابه‌جایی یا ویرایش نقطه‌های لنگر (که زاویهٔ خطوط را تغییر می‌دهد) می‌توانید ظاهر شکل را تغییر دهید.  
+* یک شکل (یا مسیر آن) می‌تواند بسته یا باز باشد.
+* مسیر یک شکل از نقاط لنگر متصل‌شده توسط بخش‌ها تشکیل می‌شود.
+* یک بخش می‌تواند مستقیم یا منحنی باشد. نقاط لنگر و دستگیره‌های کنترل شکل آن را تعیین می‌کنند.
+* نقاط لنگر به‌عنوان نقاط گوشه‌ای، مستقیم یا صاف وجود دارند:
+  * در یک نقطهٔ گوشه‌ای، بخش‌های مجاور می‌توانند با زاویه‌ای به‌یکدیگر ملحق شوند.
+  * در یک نقطهٔ صاف، دو دستگیرهٔ کنترل هم‌محور هستند و فاصلهٔ مساوی از نقطهٔ لنگر دارند.
+  * در یک نقطهٔ مستقیم، دو دستگیرهٔ کنترل هم‌محور هستند اما می‌توانند فاصله‌های متفاوتی از نقطهٔ لنگر داشته باشند.
+* جابه‌جایی نقاط لنگر یا تنظیم دستگیره‌هایشان مرز شکل را تغییر می‌دهد.
 
-برای ویرایش اشکال PowerPoint از طریق نقاط ویرایت، **Aspose.Slides** کلاس [**GeometryPath**](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) و رابط [**IGeometryPath**](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_path) را فراهم می‌کند.
+برای ویرایش شکل‌های PowerPoint از طریق نقاط ویرایش، **Aspose.Slides** کلاس [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) و رابط [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) را فراهم می‌کند.
 
-* نمونهٔ کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_shape) را نشان می‌دهد.  
-* برای دریافت `GeometryPath` از نمونهٔ `IGeometryShape` می‌توانید از متد [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1) استفاده کنید.  
-* برای تنظیم `GeometryPath` برای یک شکل، می‌توانید این متدها را استفاده کنید: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) برای *اشکال ثابت* و [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) برای *اشکال ترکیبی*.  
-* برای اضافه کردن بخش‌ها می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_path) استفاده کنید.  
-* با استفاده از متدهای [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) و [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7) می‌توانید ظاهر یک مسیر هندسی را تعیین کنید.  
-* با استفاده از متد [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca) می‌توانید مسیر هندسی یک `GeometryShape` را به‌صورت آرایه‌ای از بخش‌های مسیر بازیابی کنید.  
-* برای دسترسی به گزینه‌های سفارشی‌سازی بیشتر هندسه شکل، می‌توانید [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) را به [GraphicsPath](https://reference.aspose.com/slides/fa/cpp/class/system.drawing.drawing2_d.graphics_path) تبدیل کنید.  
-* از متدهای [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) و [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (از کلاس [ShapeUtil](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.util.shape_util)) برای تبدیل [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) به [GraphicsPath](https://reference.aspose.com/slides/fa/cpp/class/system.drawing.drawing2_d.graphics_path) و برعکس استفاده کنید.  
+* یک نمونهٔ [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) مسیر هندسی شیء [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/) را نشان می‌دهد.
+* برای دریافت [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) از نمونهٔ [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/)، می‌توانید از متد [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) استفاده کنید.
+* برای تنظیم [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) برای یک شکل، می‌توانید این متدها را استفاده کنید: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) برای شکل‌های با مسیر واحد و [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) برای شکل‌های با مسیرهای متعدد.
+* برای افزودن بخش‌ها، می‌توانید از متدهای موجود در [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) استفاده کنید.
+* با استفاده از متدهای [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) و [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/)، می‌توانید ظاهر یک مسیر هندسی را تعیین کنید.
+* با استفاده از متد [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/)، می‌توانید مسیر هندسی یک [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) را به‌صورت آرایه‌ای از بخش‌های مسیر دریافت کنید.
 
 ## **عملیات ساده ویرایش**
 
-این کد C++ نشان می‌دهد چگونه  
+از روش‌های زیر برای ویرایش یک مسیر هندسی استفاده کنید. نسخه‌های بارگذاری‌شده که یک ایندکس می‌پذیرند، بخشی را در آن موقعیت صفر‑پایه در آرایهٔ بخش‌های مسیر درج می‌کنند.
 
-**افزودن خط** به انتهای مسیر
-
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**افزودن خط** به موقعیت مشخصی در مسیر:
-
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**افزودن منحنی بزیه کروی** در انتهای مسیر:
-
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**افزودن منحنی بزیه کروی** به موقعیت مشخصی در مسیر:
-
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**افزودن منحنی بزیه درجه دوم** در انتهای مسیر:
-
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**افزودن منحنی بزیه درجه دوم** به موقعیت مشخصی در مسیر:
-
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**ضمیمه کردن قوس داده شده** به مسیر:
-
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**بستن شکل فعلی** مسیر:
-
-``` cpp
-void CloseFigure();
-```
-**تنظیم موقعیت نقطهٔ بعدی**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**حذف بخش مسیر** در شاخص مشخص:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
+| عملیات | متد |
+| --- | --- |
+| افزودن یا درج یک خط مستقیم. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| افزودن یا درج یک منحنی Bézier مکعبی با دو نقطهٔ کنترل و یک نقطهٔ انتهایی. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| افزودن یا درج یک منحنی Bézier درجهٔ دو با یک نقطهٔ کنترل و یک نقطهٔ انتهایی. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| افزودن یک قوس بیضوی با ابعاد و زاویه‌های مشخص به‌درجه. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| بستن شکل جاری با وصل نقطهٔ انتهایی به نقطهٔ شروع. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| تنظیم نقطهٔ شروع یک شکل. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| حذف یک بخش در ایندکس صفر‑پایه. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
 ## **افزودن نقاط سفارشی به یک شکل**
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_shape) ایجاد کنید و نوع [ShapeType.Rectangle](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) را تنظیم کنید.  
-2. یک نمونه از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) را از شکل دریافت کنید.  
-3. یک نقطهٔ جدید بین دو نقطهٔ بالایی مسیر اضافه کنید.  
-4. یک نقطهٔ جدید بین دو نقطهٔ پایینی مسیر اضافه کنید.  
-5. مسیر را به شکل اعمال کنید.  
 
-این کد C++ نشان می‌دهد چگونه نقاط سفارشی به یک شکل اضافه کنید:
+این مثال دو نقطه را به یک شکل مستطیلی با استفاده از [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) وارد می‌کند و مسیر ویرایش‌شده را با [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) اعمال می‌کند. مختصات‌ها به‌صورت محلی نسبت به شکل هستند: هر دو نقطه جدید در مرکز آن قرار دارند، ۱۰۰ نقطه از سمت چپ و ۵۰ نقطه از بالای شکل. ایندکس‌های بخش ۱ و ۴ آن‌ها را بر لبهٔ بالا و پایین قرار می‌دهند و این لبه‌ها را به‌سوی داخل می‌کشند.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
+
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
@@ -152,218 +110,337 @@ shape->SetGeometryPath(geometryPath);
 
 ## **حذف نقاط از یک شکل**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_shape) ایجاد کنید و نوع [ShapeType.Heart](https://reference.aspose.com/slides/fa/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5) را تنظیم کنید.  
-2. یک نمونه از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) را از شکل دریافت کنید.  
-3. بخش مسیر را حذف کنید.  
-4. مسیر را به شکل اعمال کنید.  
+این مثال با حذف بخش در ایندکس صفر‑پایهٔ ۲ با استفاده از [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) قالب قلبی شکل را تغییر می‌دهد. اعمال مسیر اصلاح‌شده با [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) مرز شکل را به‌روزرسانی می‌کند.
 
-این کد C++ نشان می‌دهد چگونه نقاط را از یک شکل حذف کنید:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
-
 ![example2_image](custom_shape_2.png)
 
 ## **ایجاد یک شکل سفارشی**
 
-1. نقاط مورد نیاز برای شکل را محاسبه کنید.  
-2. یک نمونه از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) ایجاد کنید.  
-3. مسیر را با نقاط پر کنید.  
-4. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_shape) ایجاد کنید.  
-5. مسیر را به شکل اعمال کنید.  
+این مثال یک ستارهٔ پنج‌پره با استفاده از [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) می‌سازد. شعاع‌های بیرونی و داخلی متناوب به ترتیب ۱۰۰ و ۵۰ نقطه نکات و برآمدگی‌ها را تعریف می‌کنند؛ گامی به‌اندازهٔ ۷۲ درجه پنج نکته را به‌طور مساوی فاصله می‌دهد. مسیر با [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) بسته می‌شود و با استفاده از [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) به یک شکل مستطیلی اعمال می‌گردد و قالب آن جایگزین می‌شود.
 
-این کد C++ نشان می‌دهد چگونه یک شکل سفارشی بسازید:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **ایجاد یک شکل ترکیبی سفارشی**
+## **ایجاد یک شکل سفارشی ترکیبی**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_shape) ایجاد کنید.  
-2. یک نمونه اول از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) ایجاد کنید.  
-3. یک نمونه دوم از کلاس [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) ایجاد کنید.  
-4. مسیرها را به شکل اعمال کنید.  
+این مثال دو شیء [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) بسته برای یک‌سوم بالایی و پایینی یک شکل تعریف می‌کند. اعمال هر دو مسیر با [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) یک شکل ترکیبی واحد با یک فاصله در یک‌سوم میانی آن ایجاد می‌کند.
 
-این کد C++ نشان می‌دهد چگونه یک شکل ترکیبی سفارشی بسازید:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(0.0f, shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
 ```
-
 ![example4_image](custom_shape_4.png)
 
 ## **ایجاد یک شکل سفارشی با گوشه‌های منحنی**
 
-این کد C++ نشان می‌دهد چگونه یک شکل سفارشی با گوشه‌های منحنی (به سمت درون) ایجاد کنید:
+این مثال بخش‌های مستقیم را با [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) ترکیب می‌کند تا شکلی با گوشه‌های داخلی منحنی ایجاد شود. اندازهٔ هر گوشه عرض و ارتفاع قوس را بر حسب نقاط تنظیم می‌کند و بازهٔ -90 درجه یک ربع بیضی پاد ساعت جهت می‌کشاند. مسیر نهایی با [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) اعمال می‌شود و ارائه در قالب PPTX ذخیره می‌شود.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
 ## **تشخیص اینکه آیا هندسهٔ یک شکل بسته است**
 
-یک شکل بسته به‌عنوان شکلی تعریف می‌شود که تمام لبه‌های آن به‌هم متصل می‌شوند و یک مرز واحد بدون فاصله ایجاد می‌کنند. چنین شکلی می‌تواند یک فرم هندسی ساده یا یک قالب سفارشی پیچیده باشد. مثال کد زیر نشان می‌دهد چگونه بررسی کنید آیا هندسهٔ شکل بسته است یا خیر:
+کمک‌کنندهٔ زیر بررسی می‌کند که آیا هر مسیر هندسی غیرخالی با یک بخش بسته به پایان می‌رسد یا نه. این تابع [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) را می‌خواند و دستور نهایی [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) را با [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/) مقایسه می‌کند. وقتی مسیرهای غیرخالی وجود نداشته باشد، مقدار false برمی‌گرداند. این بررسی تنها دستور نهایی هر مسیر را می‌سنجد؛ تمام زیرشکل‌های داخل مسیر را بررسی نمی‌کند. مثال برای یک مستطیل مقدار `True` چاپ می‌کند.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **استخراج و بررسی عناصر شکل**
+
+از [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) برای بررسی یک شکل موجود به‌عنوان عناصری حاوی نقاط مسیر و انواع نقاط استفاده کنید. هر [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) بازگشتی را به [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) تبدیل کنید تا آرایه‌های بازگشتی توسط [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) و [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/) را بخوانید. این نمایش برای تحلیل مرز یا انتقال هندسه به ابزارهای رسم سفارشی مفید است.
+
+مثال یک ارائه را باز می‌کند، اولین شکل هندسی را مستقیماً در اولین اسلاید پیدا می‌کند و بخش‌های مسیر آن را چاپ می‌کند. برای مشاهده خروجی‌های هر دو نوع بخش مستقیم و منحنی، از یک ارائه حاوی شکل با این دو نوع بخش استفاده کنید. این روش درون گروه‌ها را جستجو نمی‌کند.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // نوع بخش را نگه می‌دارد و پرچم‌ها را مستثنی می‌کند.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // هر دو نقطهٔ کنترل و نقطهٔ انتهایی را مصرف می‌کند.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
+آرایه‌ها بر اساس ایندکس مطابقت دارند: `points[i]` یک نقطه و `types[i]` نقش آن را توصیف می‌کند. نوع `0` یک شکل را شروع می‌کند و نوع `1` خطی را از نقطهٔ قبلی به نقطهٔ فعلی می‌کشد. یک بخش Bézier مکعبی از نقطهٔ انتهایی قبلی شروع می‌شود و از سه ورودی متوالی نوع‑`3` استفاده می‌کند: دو نقطهٔ کنترل و سپس نقطهٔ انتهای جدید. حلقه این سه ورودی را به‌هم‌راه مصرف می‌کند و نقطهٔ انتهای آن را برای بسته بودن بررسی می‌کند.
+
+انواع نقاط همچنین حاوی پرچم‌ها هستند. با ماسک `0x07` نوع بخش را شناسایی کنید و با تست `0x80` به‌طور جداگانه برای تشخیص زیرمسیر بسته استفاده کنید. برای مثال، `129` (`0x81`) به معنای نقطهٔ انتهایی خطی است که زیرمسیر را می‌بندد و `131` (`0x83`) نقطهٔ انتهایی Bézier است که بسته می‌شود. مقایسهٔ مقدار خام تنها با `1` یا `3` این موارد را از دست می‌دهد. پرچم‌های دیگر مانند خط‌چین (`0x10`) و نشانگر (`0x20`) نوع پایهٔ بخش را تغییر نمی‌دهند.
+
+**مختصات و تبدیل‌ها.** نقاط با واحد نقطه (۱/۷۲ اینچ) اندازه‌گیری می‌شوند؛ X به سمت راست و Y به سمت پایین افزایش می‌یابد. برای یک شکل غیرگروه‌شده، مختصات استخراج‌شده قبلاً موقعیت بازگردانده‌شده توسط [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) و [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) و عرض و ارتفاع فعلی آن را شامل می‌شود. برای مثال، یک مستطیل بدون چرخش در `(100, 200)` با اندازهٔ `120 × 80` دارای محدودهٔ مرزی `(100, 200)`–`(220, 280)` است. موقعیت شکل را دوباره اضافه نکنید. برای به‌دست آوردن مختصات نسبت به چارچوب بدون چرخش، X و Y آن را کم کنید.
+
+نقاط استخراج‌شده چرخشی که از طریق [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) تعیین شده یا انقلابات افقی/عمودی را اعمال نمی‌کنند. برای بازتولید مرزی نمایش داده‌شده، این تبدیل‌ها را حول مرکز شکل اعمال کنید. برای شکل‌های گروهی، همچنین باید نگاشت مختصات گروه و تبدیل‌ها را درنظر بگیرید؛ فرض نکنید که نقاط استخراج‌شده نهایی‌ترین مختصات اسلاید رندر شده‌اند یا ترجمه یا مقیاس را دو بار اعمال کنید اگر قبلاً در چارچوب فرزند منعکس شده است.
+
+**بازرسی در مقابل ویرایش.** آرایه‌های استخراج‌شده مرز را توصیف می‌کنند؛ تغییر آن‌ها شکل اصلی را به‌روزرسانی نمی‌کند. وقتی تحلیل یا کد رسم شما به آرایهٔ نقطه/نوع نیاز دارد، از این روش استفاده کنید. برای دریافت دستورات هندسی در سیستم مختصات محلی شکل یا برای ویرایش هندسه، از [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) استفاده کنید. مسیرهای ویرایش‌شده را از طریق [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) یا [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) اعمال کنید.
+
 ## **تبدیل GeometryPath به GraphicsPath**
 
-1. یک نمونه از کلاس [GeometryShape](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_shape) ایجاد کنید.  
-2. یک نمونه از کلاس [GraphicsPath](https://reference.aspose.com/slides/fa/cpp/class/system.drawing.drawing2_d.graphics_path) در فضای نامی [System.Drawing.Drawing2D](https://reference.aspose.com/slides/fa/cpp/namespace/system.drawing.drawing2_d) ایجاد کنید.  
-3. نمونهٔ [GraphicsPath](https://reference.aspose.com/slides/fa/cpp/class/system.drawing.drawing2_d.graphics_path) را با استفاده از [ShapeUtil](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.util.shape_util) به نمونهٔ [GeometryPath](https://reference.aspose.com/slides/fa/cpp/class/aspose.slides.geometry_path) تبدیل کنید.  
-4. مسیرها را به شکل اعمال کنید.  
+API عمومی فعلی Aspose.Slides برای C++ تبدیل‌های بین مسیرهای هندسی و مسیرهای گرافیکی را افشا نمی‌کند. برای بررسی یک مرز، از عناصر شکل همان‌گونه که در بالا توضیح داده شد استفاده کنید. برای ویرایش یک شکل، از مسیرهای هندسی استفاده کنید و مسیرهای بروز‌رسانی‌شده را به شکل اعمال کنید.
 
-این کد C++—پیاده‌سازی مراحل فوق—فرآیند تبدیل **GeometryPath** به **GraphicsPath** را نشان می‌دهد:
+## **پرسش‌های متداول**
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+**بعد از جایگزینی هندسه، پرکننده و خطوط پیرامونی چگونه رفتار می‌کنند؟**
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+استایل همراه با شکل باقی می‌ماند؛ فقط مرز تغییر می‌کند. پرکننده و خطوط پیرامونی به‌طور خودکار بر هندسهٔ جدید اعمال می‌شوند.
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+**چگونه می‌توانم یک شکل سفارشی را همراه با هندسه‌اش به‌درستی چرخانده کنم؟**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
+از متد [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) شکل استفاده کنید؛ هندسه همراه با شکل می‌چرخد زیرا به سیستم مختصات خود شکل متصل است.
 
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
+**آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «نتیجه» را قفل کنم؟**
 
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-
-![example5_image](custom_shape_5.png)
-
-## **سوالات متداول**
-
-**پس از جایگزینی هندسه، پر کننده و خط مرزی چه اتفاقی می‌افتد؟**
-
-استایل همچنان به شکل باقی می‌ماند؛ فقط مرز تغییر می‌کند. پر کننده و خط مرزی به‌صورت خودکار به هندسهٔ جدید اعمال می‌شوند.
-
-**چگونه می‌توان یک شکل سفارشی را همراه با هندسه‌اش به‌درستی چرخاند؟**
-
-از ویژگی [rotation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shape/set_rotation/) شکل استفاده کنید؛ زیرا هندسه با شکل می‌چرخد، چراکه به سیستم مختصات خود شکل متصل است.
-
-**آیا می‌توانم یک شکل سفارشی را به تصویر تبدیل کنم تا «قفل» شود؟**
-
-بله. ناحیهٔ [slide](/slides/fa/cpp/convert-powerpoint-to-png/) یا خود [shape](/slides/fa/cpp/create-shape-thumbnails/) را به فرمت رستری صادر کنید؛ این کار کار با هندسه‌های سنگین را ساده‌تر می‌کند.
+بله. ناحیهٔ [slide](/slides/fa/cpp/convert-powerpoint-to-png/) مورد نیاز یا خودش [shape](/slides/fa/cpp/shape-thumbnails/) را به فرمت رستر صادر کنید؛ این کار کار با هندسه‌های پیچیده را ساده‌تر می‌کند.

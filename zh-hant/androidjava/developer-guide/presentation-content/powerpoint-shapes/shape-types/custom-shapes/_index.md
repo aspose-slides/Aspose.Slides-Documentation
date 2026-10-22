@@ -1,15 +1,15 @@
 ---
-title: 自訂 Android 上的簡報形狀
-linktitle: 自訂形狀
+title: 在 Android 上自訂簡報圖形
+linktitle: 自訂圖形
 type: docs
 weight: 20
 url: /zh-hant/androidjava/custom-shape/
 keywords:
-- 自訂形狀
-- 新增形狀
-- 建立形狀
-- 變更形狀
-- 形狀幾何
+- 自訂圖形
+- 新增圖形
+- 建立圖形
+- 變更圖形
+- 圖形幾何
 - 幾何路徑
 - 路徑點
 - 編輯點
@@ -22,177 +22,139 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android 於 Java 中建立與自訂 PowerPoint 簡報的形狀：幾何路徑、圓角、複合形狀。"
+description: "使用 Aspose.Slides for Android 透過 Java 在 PowerPoint 簡報中建立與自訂圖形：幾何路徑、圓角、複合圖形。"
 ---
 ## **概述**
 
-本文說明如何透過編輯點和幾何路徑編輯形狀幾何，來自訂 Aspose.Slides 中的簡報形狀。它示範如何使用 `GeometryPath` 與 `IGeometryPath` 來修改現有形狀、執行基本的路徑編輯操作、加入或移除點，並將更新後的幾何套用回形狀。
+本文說明如何透過編輯點與幾何路徑來編輯形狀幾何，以自訂 Aspose.Slides 簡報中的圖形。它示範如何使用 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) 和 [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) 變更既有圖形、執行基本路徑編輯操作、加入或移除點，並將更新後的幾何套用回圖形。
 
-它同時展示如何建立自訂與複合形狀、建構具有圓角的形狀、判斷形狀幾何是否為封閉，以及在 `GeometryPath` 與 `java.awt.Shape` 之間轉換，以應對額外的幾何自訂情境。
+同時也示範如何建立自訂與複合圖形、建構具有圓角的圖形、判斷圖形幾何是否為閉合，以及使用 Android 點陣列檢查圖形元素。
 
-## **使用編輯點變更形狀**
-以正方形為例。在 PowerPoint 中，使用 **編輯點**，您可以
+## **使用編輯點變更圖形**
 
-* 將正方形的角向內或向外移動
-* 為角或點指定曲率
-* 為正方形新增點
-* 操作正方形上的點等
+在 PowerPoint 中，您可以使用 **編輯點** 來修改方形：
 
-基本上，您可以對任何形狀執行上述工作。使用編輯點，您可以變更形狀或從現有形狀建立新形狀。
+* 將角落向內或向外移動。
+* 調整某點的曲率。
+* 新增點。
 
-## **形狀編輯技巧**
+透過編輯點可以修改圖形的輪廓，或以既有圖形作為新圖形的基礎。
+
+## **圖形編輯要點**
 
 ![overview_image](custom_shape_0.png)
 
-在開始透過編輯點編輯 PowerPoint 形狀之前，您可能想先了解以下關於形狀的要點：
+編輯 PowerPoint 圖形時，請留意以下概念：
 
-* 形狀（或其路徑）可以是封閉的或開放的。
-* 當形狀為封閉時，沒有起始點或結束點。當形狀為開放時，則具有起始點與結束點。 
-* 所有形狀至少由 2 個錨點組成，這些錨點透過線條互相連接。 
-* 線條可以是直線或曲線。錨點決定線條的性質。 
-* 錨點可分為拐角點、直點或平滑點：
-  * 拐角點是兩條直線在某角度相交的點。 
-  * 平滑點是兩個控制柄位於同一直線上，並且線段以平滑曲線相連的點。此情況下，所有控制柄與錨點的距離相等。 
-  * 直點是兩個控制柄位於同一直線上，且線段以平滑曲線相連的點。此情況下，控制柄與錨點的距離不必相等。 
-* 透過移動或編輯錨點（會改變線條角度），即可改變形狀的外觀。 
+* 圖形（或其路徑）可以是閉合或開放的。
+* 圖形的路徑由透過線段相連的錨點組成。
+* 線段可以是直線或曲線。錨點與控制手柄決定其形狀。
+* 錨點可分為角點、直線點或平滑點：
+  * 在角點，相鄰的線段可以形成角度。
+  * 在平滑點，兩個控制手柄共線且與錨點的距離相等。
+  * 在直線點，兩個控制手柄共線，但與錨點的距離可能不同。
+* 移動錨點或調整其手柄會改變圖形的輪廓。
 
-要透過編輯點編輯 PowerPoint 形狀，**Aspose.Slides** 提供了 [**GeometryPath**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別以及 [**IGeometryPath**](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryPath) 介面。
+為了透過編輯點編輯 PowerPoint 圖形，**Aspose.Slides** 提供了 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) 類別與 [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) 介面。
 
-* 一個 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 實例代表 [IGeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryShape) 物件的幾何路徑。  
-* 若要從 `IGeometryShape` 實例取得 `GeometryPath`，可以使用 [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryShape#getGeometryPaths--) 方法。  
-* 若要為形狀設定 `GeometryPath`，可使用以下方法：針對*實心形狀*使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-)，針對*複合形狀*使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-)。  
-* 若要加入線段，可使用 [IGeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryPath) 下的相關方法。  
-* 使用 [IGeometryPath.setStroke](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryPath#setStroke-boolean-) 與 [IGeometryPath.setFillMode](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryPath#setFillMode-byte-) 方法，即可設定幾何路徑的外觀。  
-* 透過 [IGeometryPath.getPathData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IGeometryPath#getPathData--) 方法，可取得 `GeometryShape` 的幾何路徑，回傳為路徑段陣列。  
-* 若要存取額外的形狀幾何自訂選項，可將 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 轉換為 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)。  
-* 使用 [geometryPathToGraphicsPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) 與 [graphicsPathToGeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) 方法（來自 [ShapeUtil](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeUtil) 類別）可以在 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 與 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 之間互相轉換。
+* 一個 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) 實例代表 [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) 物件的幾何路徑。
+* 若要從 [IGeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/) 取得 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)，可使用 [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--) 方法。
+* 若要為圖形設定 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/)，可使用以下方法：單一路徑圖形使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-)，多路徑圖形使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---)。
+* 若要新增線段，可使用屬於 [IGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/) 的方法。
+* 透過 [IGeometryPath.setStroke](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setStroke-boolean-) 與 [IGeometryPath.setFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#setFillMode-byte-) 方法，可設定幾何路徑的外觀。
+* 使用 [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--) 方法，可將 [GeometryShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometryshape/) 的幾何路徑以路徑段陣列形式取得。
 
-## **簡易編輯操作**
+## **簡單編輯操作**
 
-以下 Java 程式碼示範如何
+使用下列方法編輯幾何路徑。接受索引的重載會在路徑的線段陣列中於零基索引位置插入線段。
 
-**在路徑末端新增線段**  
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**在路徑的指定位置新增線段**：  
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**在路徑末端新增立方貝茲曲線**：  
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**在路徑的指定位置新增立方貝茲曲線**：  
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**在路徑末端新增二次貝茲曲線**：  
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**在路徑的指定位置新增二次貝茲曲線**：  
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**將給定的弧段附加至路徑**：  
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**關閉路徑的目前圖形**：  
-``` java
-public void closeFigure();
-```
-**設定下一個點的位置**：  
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**移除指定索引的路徑段**：  
-``` java
-public void removeAt(int index);
-```
+| 操作 | 方法 |
+| --- | --- |
+| 追加或插入直線。 | [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| 追加或插入具有兩個控制點與終點的三次貝茲曲線。 | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| 追加或插入具有一個控制點與終點的二次貝茲曲線。 | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| 追加具有指定尺寸與角度（度）的橢圓弧。 | [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| 透過將終點連回起點關閉目前圖形。 | [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) |
+| 設定圖形的起始點。 | [GeometryPath.moveTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| 移除指定零基索引處的線段。 | [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-## **向形狀新增自訂點**
+## **為圖形新增自訂點**
 
-1. 建立 [GeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryShape) 類別的實例，並設定其 [ShapeType.Rectangle](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeType) 類型。  
-2. 從形狀取得 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別的實例。  
-3. 在路徑的兩個上方點之間新增一個點。  
-4. 在路徑的兩個下方點之間新增一個點。  
-5. 將路徑套用至形狀。  
+此範例使用 [GeometryPath.lineTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#lineTo-float-float-) 在矩形圖形中插入兩個點，並使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 套用編輯後的路徑。座標為相對於圖形的本地座標：兩個新點均位於圖形中心，距左側 100 點、距上方 50 點。線段索引 1 與 4 分別將它們放在上緣與下緣，將這兩條邊向內拉。
 
-以下 Java 程式碼示範如何向形狀新增自訂點：  
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
-## **從形狀移除點**
+## **從圖形移除點**
 
-1. 建立 [GeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryShape) 類別的實例，並設定其 [ShapeType.Heart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeType) 類型。  
-2. 從形狀取得 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別的實例。  
-3. 移除路徑的線段。  
-4. 將路徑套用至形狀。  
+此範例透過 [GeometryPath.removeAt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#removeAt-int-) 移除零基索引 2 處的線段，變更心形輪廓。使用 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 套用修改後的路徑，即可更新圖形的外框。
 
-以下 Java 程式碼示範如何從形狀移除點：  
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-## **建立自訂形狀**
+## **建立自訂圖形**
 
-1. 計算形狀的點座標。  
-2. 建立 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別的實例。  
-3. 以點填充路徑。  
-4. 建立 [GeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryShape) 類別的實例。  
-5. 將路徑套用至形狀。  
+此範例使用 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) 建立一個五角星。交替的外徑與內徑分別為 100 點與 50 點，形成星尖與凹陷；每 72 度的步進使五個星尖均勻分布。路徑最後以 [GeometryPath.closeFigure](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#closeFigure--) 閉合，並透過 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 套用到矩形圖形，取代其原始輪廓。
 
-以下 Java 程式碼示範如何建立自訂形狀：  
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.List;
 
-float R = 100, r = 50;
-int step = 72;
+List<PointF> points = new ArrayList<>();
 
-for (int angle = -90; angle < 270; angle += step)
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
+
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    PointF point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new PointF((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -205,58 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example3_image](custom_shape_3.png)
 
+## **建立複合自訂圖形**
 
-## **建立複合自訂形狀**
+此範例為圖形的上三分之一與下三分之一分別定義兩個閉合的 [GeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/) 物件。使用 [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) 同時套用兩條路徑，便可產生一個在中間三分之一留有間隙的單一複合圖形。
 
-1. 建立 [GeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryShape) 類別的實例。  
-2. 建立第一個 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別的實例。  
-3. 建立第二個 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 類別的實例。  
-4. 將路徑套用至形狀。  
+```java
+import com.aspose.slides.*;
 
-以下 Java 程式碼示範如何建立複合自訂形狀：  
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **建立具有圓角的自訂形狀**
+## **建立具有圓角的自訂圖形**
 
-以下 Java 程式碼示範如何建立具有內凹圓角的自訂形狀；  
+此範例將直線段與 [GeometryPath.arcTo](https://reference.aspose.com/slides/androidjava/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) 結合，打造具有內彎圓角的圖形。每個角的大小設定弧的寬度與高度（以點為單位），且 -90 度的掃描角度繪製逆時針四分之一橢圓。完成的路徑以 [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 套用，最後將簡報存為 PPTX 格式。
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -267,117 +231,157 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    PointF topLeft = new PointF(leftTopSize, 0);
+    PointF topRight = new PointF(shapeWidth - rightTopSize, 0);
+    PointF rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+    PointF bottomLeft = new PointF(leftBottomSize, shapeHeight);
+    PointF leftTop = new PointF(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **判斷形狀幾何是否為封閉**
+## **判斷圖形幾何是否為閉合**
 
-封閉形狀的定義是其所有邊皆相連，形成沒有缺口的單一邊界。此類形狀可以是簡單的幾何形狀，也可以是複雜的自訂輪廓。以下程式碼範例示範如何檢查形狀幾何是否為封閉：  
+以下輔助程式會檢查每個非空幾何路徑是否以閉合線段結尾。它會讀取 [IGeometryPath.getPathData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometrypath/#getPathData--)，並將最終線段的 [IPathSegment.getPathCommand](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipathsegment/#getPathCommand--) 與 [PathCommandType.Close](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pathcommandtype/) 進行比較。若無非空路徑，則回傳 false。此檢查僅比對每條路徑的最後指令，不會檢查路徑內的每個子圖形。範例會對矩形輸出 `true`。
+
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
-
-    return isClosed == true;
 }
-```
 
-## **將 GeometryPath 轉換為 java.awt.Shape**
-
-1. 建立 [GeometryShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryShape) 類別的實例。  
-2. 建立 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 類別的實例。  
-3. 使用 [ShapeUtil](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ShapeUtil) 將 [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) 實例轉換為 [GeometryPath](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/GeometryPath) 實例。  
-4. 將路徑套用至形狀。  
-
-以下 Java 程式碼（上述步驟的實作）示範 **GeometryPath** 轉換至 **GraphicsPath** 的過程：  
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // 建立新形狀
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 取得形狀的幾何路徑
-    IGeometryPath originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(PathFillModeType.None);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    // 建立包含文字的圖形路徑
-    Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
-    String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
-
-    try
-    {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
-    }
-    finally {
-        g2.dispose();
-    }
-
-    // 將圖形路徑轉換為幾何路徑
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(PathFillModeType.Normal);
-
-    // 將新幾何路徑與原始幾何路徑的組合設定到形狀
-    shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+
+## **擷取與檢查圖形元素**
+
+使用 [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#createShapeElements--) 可將現有圖形檢視為包含路徑點與點類型的元素。將每個回傳的 [IShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapeelement/) 轉型為 [ShapeElement](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/)，即可透過 [getPathPoints](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathPoints--) 與 [getPathTypes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapeelement/#getPathTypes--) 方法取得點陣列與類型陣列。此表示方式適合輪廓分析或將幾何傳遞給自訂繪圖工具。
+
+範例會開啟 `input.pptx`，在第一張投影片上直接尋找第一個幾何圖形，並列印其路徑線段。請使用包含直線與曲線線段的圖形測試，以觀察兩種輸出。此程式不會搜尋群組內部。
+
+```java
+import com.aspose.slides.*;
+import android.graphics.PointF;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            PointF[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // 保留線段類型，排除旗標。
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+陣列依索引對應：`points[i]` 為座標點，`types[i]` 描述其角色。類型 `0` 代表開始圖形，類型 `1` 表示從前一點畫直線至當前點。三次貝茲線段以先前的終點為起點，接著使用三個連續的類型 `3` 條目：兩個控制點與新的終點。迴圈會一起處理這三條目，並檢查終點是否形成閉合。
+
+點類型亦包含旗標。使用 `0x07` 掩碼可辨識線段類型，另以 `0x80` 判斷是否為閉合子路徑。例如 `129` (`0x81`) 代表閉合的直線終點，`131` (`0x83`) 代表閉合的貝茲終點。Java 以有號位元組儲存這些旗標；透過掩碼可保留正確的位元值。僅以 `1` 或 `3` 直接比較原始值會遺漏這些情況。其他旗標如虛線 (`0x10`) 與標記 (`0x20`) 不會改變基礎線段類型。
+
+**座標與變換。** 點的單位為點 (1/72 吋)，X 向右增加，Y 向下增加。對於未群組的圖形，擷取的座標已包含由 [getX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getX--) 與 [getY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getY--) 回傳的位置，且反映當前寬度與高度。例如，位於 `(100, 200)`、尺寸為 `120 × 80` 的未旋轉矩形，其輪廓界限為 `(100, 200)`–`(220, 280)`。請勿再次加上圖形的位置。將其 X、Y 扣除即可取得相對於未旋轉框架的座標。
+
+擷取的點不會套用圖形的旋轉（由 [getRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#getRotation--) 回傳）或水平、垂直翻轉。若要還原顯示出的輪廓，需在圖形中心周圍套用這些變換。對於群組圖形，還需考慮群組座標映射與變換；切勿假設擷取的點已是最終投影片座標，亦不要在已反映於子圖形框架的情況下再次平移或縮放。
+
+**檢查 vs. 編輯。** 擷取的陣列僅描述輪廓，變更它們不會更新原始圖形。當您僅需點/類型陣列以進行分析或繪圖時，請使用此方式。若需在圖形本地座標系統中取得幾何指令或編輯幾何，請使用 [getGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#getGeometryPaths--)。編輯後的路徑可透過 [setGeometryPath](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) 或 [setGeometryPaths](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) 套用。
 
 ## **常見問題**
 
-**替換幾何後填充與輪廓會發生什麼變化？**  
-樣式仍保留在形狀上，僅輪廓會變更。填充與輪廓會自動套用到新幾何上。
+**取代幾何後，填色與輪廓會發生什麼變化？**
 
-**如何正確地一起旋轉自訂形狀及其幾何？**  
-使用形狀的 [setRotation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shape/#setRotation-float-) 方法；因為幾何綁定於形狀自身的座標系統，旋轉形狀時幾何也會一起旋轉。
+樣式仍屬於圖形本身，只有輪廓會改變。填色與輪廓會自動套用到新的幾何上。
 
-**我可以將自訂形狀轉換成影像以「鎖定」結果嗎？**  
-可以。將所需的 [投影片](/slides/zh-hant/androidjava/convert-powerpoint-to-png/) 區域或 [形狀](/slides/zh-hant/androidjava/create-shape-thumbnails/) 本身匯出為點陣圖格式；這樣可簡化對複雜幾何的後續處理。
+**如何正確地旋轉自訂圖形以及其幾何？**
+
+使用圖形的 [setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setRotation-float-) 方法；幾何會隨圖形一起旋轉，因為它繫結於圖形的座標系統。
+
+**我可以把自訂圖形轉換成圖像以「鎖定」結果嗎？**
+
+可以。將所需的 [slide](/slides/zh-hant/androidjava/convert-powerpoint-to-png/) 區域或 [shape](/slides/zh-hant/androidjava/create-shape-thumbnails/) 本身匯出為點陣圖格式；這樣可簡化後續對複雜幾何的處理。

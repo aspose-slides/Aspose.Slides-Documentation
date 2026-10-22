@@ -1,5 +1,5 @@
 ---
-title: Sunum Şekillerini Java’da Özelleştirme
+title: Java'da Sunum Şekillerini Özelleştirme
 linktitle: Özel Şekil
 type: docs
 weight: 20
@@ -8,7 +8,7 @@ keywords:
 - özel şekil
 - şekil ekle
 - şekil oluştur
-- şekil değiştir
+- şekli değiştir
 - şekil geometrisi
 - geometri yolu
 - yol noktaları
@@ -21,190 +21,140 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarında şekil oluşturun ve özelleştirin: geometri yolları, eğimli köşeler, birleşik şekiller."
+description: "Aspose.Slides for Java ile PowerPoint sunumlarında şekiller oluşturun ve özelleştirin: geometri yolları, eğimli köşeler, birleşik şekiller."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde şekil geometriğini düzenleme noktaları ve geometri yolları aracılığıyla düzenleyerek sunum şekillerini nasıl özelleştireceğinizi açıklar. `GeometryPath` ve `IGeometryPath` ile mevcut şekilleri nasıl değiştireceğinizi, temel yol düzenleme işlemlerini nasıl yapacağınızı, nokta ekleme veya kaldırma işlemlerini ve güncellenen geometrinin bir şekle nasıl uygulanacağını gösterir.
+Bu makale, Aspose.Slides içinde sunum şekillerini düzenleme noktaları ve geometri yolları aracılığıyla şekil geometrisini düzenleyerek özelleştirmenin nasıl yapılacağını açıklar. Mevcut şekilleri değiştirmek, temel yol düzenleme işlemlerini gerçekleştirmek, nokta eklemek veya kaldırmak ve güncellenmiş geometrinin bir şekle uygulanmasını göstermek için [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) ve [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) ile nasıl çalışılacağını gösterir.
 
-Ayrıca özel ve birleşik şekiller oluşturmayı, köşeleri eğimli şekiller inşa etmeyi, bir şekil geometrisinin kapalı olup olmadığını belirlemeyi ve ek geometri özelleştirme senaryoları için `GeometryPath` ile `java.awt.Shape` arasında dönüşüm yapmayı da gösterir.
+Ayrıca, özel ve birleşik şekiller oluşturmayı, köşeleri eğimli şekiller inşa etmeyi, bir şekil geometrisinin kapalı olup olmadığını belirlemeyi, şekil öğelerini incelemeyi ve Java AWT metin konturlarını geometri yollarına dönüştürmeyi gösterir.
 
-## **Düzenleme Noktalarıyla Bir Şekli Değiştirme**
+## **Düzenleme Noktalarıyla Bir Şekli Değiştirmek**
 
-Bir kareyi düşünün. PowerPoint’te **düzenleme noktalarını** kullanarak
+PowerPoint'te **Edit Points** (Düzenleme Noktaları) kullanarak bir kareyi değiştirebilirsiniz:
 
-* karenin köşesini içine ya da dışına hareket ettirebilir,
-* bir köşe ya da nokta için eğriliği belirtebilir,
-* kareye yeni noktalar ekleyebilir,
-* kare üzerindeki noktalarıManipüle edebilirsiniz, vb.
+* Köşeyi içe veya dışa doğru taşıyın.
+* Bir noktadaki eğriliği ayarlayın.
+* Yeni noktalar ekleyin.
 
-Temelde, bu görevleri herhangi bir şekil üzerinde gerçekleştirebilirsiniz. Düzenleme noktalarını kullanarak bir şekli değiştirebilir ya da mevcut bir şekilden yeni bir şekil oluşturabilirsiniz.
+Düzenleme noktaları, bir şeklin dış hattını değiştirmenizi veya mevcut bir şekli yeni bir şeklin temeli olarak kullanmanızı sağlar.
 
 ## **Şekil Düzenleme İpuçları**
 
-![overview_image](custom_shape_0.png)
+![genel_resim](custom_shape_0.png)
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemeye başlamadan önce şekillerle ilgili şu noktalara dikkat etmek isteyebilirsiniz:
+PowerPoint şekillerini düzenlerken şu kavramları akılda tutun:
 
 * Bir şekil (veya yolu) kapalı ya da açık olabilir.
-* Bir şekil kapalı olduğunda bir başlangıç veya bitiş noktası yoktur. Açık olduğunda ise bir başlangıç ve bir bitiş noktası bulunur.
-* Tüm şekiller en az iki, birbirine hatlarla bağlanmış çapa noktasına sahiptir.
-* Bir çizgi düz ya da eğimli olabilir. Çapa noktaları çizginin niteliğini belirler.
-* Çapa noktaları köşe noktası, düz nokta veya yumuşak nokta olarak bulunur:
-  * Köşe noktası, iki düz hatın bir açıyla buluştuğu noktadır.
-  * Yumuşak nokta, iki tutamağın düz bir hat üzerinde bulunduğu ve hat segmentlerinin yumuşak bir eğriyle birleştiği noktadır. Bu durumda tüm tutamaçlar çapa noktasından eşit bir mesafede bulunur.
-  * Düz nokta, iki tutamağın düz bir hat üzerinde bulunduğu ve hat segmentlerinin bir eğri oluşturmak zorunda olmadığı noktadır. Bu durumda tutamaçların çapa noktasından eşit mesafede olması gerekmez.
-* Çapa noktalarını hareket ettirerek veya düzenleyerek (çizgi açılarını değiştirerek) şeklin görünümünü değiştirebilirsiniz.
+* Bir şeklin yolu, segmentlerle bağlanan çapa noktalarından oluşur.
+* Bir segment düz veya eğri olabilir. Çapa noktaları ve kontrol tutamaçları şeklinin şeklini belirler.
+* Çapa noktaları köşe noktaları, düz noktalar veya yumuşak noktalar olarak bulunur:
+  * Bir köşe noktasında, bitişik segmentler bir açıyla buluşabilir.
+  * Bir yumuşak noktada, iki kontrol tutamaçı hizalıdır ve çapa noktasına eşit mesafededir.
+  * Bir düz noktada, iki kontrol tutamaçı hizalıdır ancak çapa noktasına farklı mesafelerde olabilir.
+* Çapa noktalarını taşımak veya tutamaçlarını ayarlamak şeklin dış hattını değiştirir.
 
-PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides** aşağıdaki sınıfları sağlar: [**GeometryPath**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) sınıfı ve [**IGeometryPath**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryPath) arayüzü.
+PowerPoint şekillerini düzenleme noktalarıyla düzenlemek için **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) sınıfı ve [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) arayüzünü sağlar.
 
-* Bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği, [IGeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryShape) nesnesinin geometri yolunu temsil eder.
-* `IGeometryShape` örneğinden `GeometryPath` alabilmek için [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryShape#getGeometryPaths--) metodunu kullanabilirsiniz.
-* Bir şeklin `GeometryPath` değerini ayarlamak için şu metodları kullanın: katı şekiller için [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) ve birleşik şekiller için [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-).
-* Segment eklemek için [IGeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryPath) altında bulunan metodları kullanabilirsiniz.
-* [IGeometryPath.setStroke](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) ve [IGeometryPath.setFillMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) metodlarıyla bir geometri yolunun görünümünü ayarlayabilirsiniz.
-* [IGeometryPath.getPathData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IGeometryPath#getPathData--) metodunu kullanarak bir `GeometryShape` nesnesinin geometri yolunu yol segmentleri dizisi olarak alabilirsiniz.
-* Ek şekil geometri özelleştirme seçeneklerine erişmek için [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath)’i [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) tipine dönüştürebilirsiniz.
-* [geometryPathToGraphicsPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) ve [graphicsPathToGeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) metodlarını ( [ShapeUtil](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeUtil) sınıfından) kullanarak [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath)’i [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)’e ve tersine dönüştürebilirsiniz.
+* Bir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) örneği, [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) nesnesinin bir geometri yolunu temsil eder.
+* [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) metodunu kullanarak [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/) örneğinden [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) alabilirsiniz.
+* Bir şekle [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) ayarlamak için tek yollu şekiller için [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) metodunu ve çoklu yollu şekiller için [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) metodunu kullanabilirsiniz.
+* Segment eklemek için [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) altındaki metodları kullanabilirsiniz.
+* [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) ve [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) metodlarını kullanarak bir geometri yolunun görünümünü ayarlayabilirsiniz.
+* [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) metodunu kullanarak bir [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) geometrisini yol segmentleri dizisi olarak alabilirsiniz.
+* Ek şekil geometri özelleştirme seçeneklerine erişmek için bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) öğesini [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) aracılığıyla okuyup segmentleri bir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) üzerine yeniden oynatabilirsiniz.
 
 ## **Basit Düzenleme İşlemleri**
 
-Bu Java kodu aşağıdakileri gösterir
+Geometri yolunu düzenlemek için aşağıdaki yöntemleri kullanın. Bir dizin kabul eden aşırı yüklemeler, segmenti yolun sıfır tabanlı konumuna ekler.
 
-**Bir yolun sonuna bir çizgi ekleme**
+| İşlem | Metot |
+| --- | --- |
+| Düz bir çizgi ekle veya ekle. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| İki kontrol noktası ve bir uç nokta ile kübik Bézier eğrisi ekle veya ekle. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Bir kontrol noktası ve bir uç nokta ile ikinci dereceden Bézier eğrisi ekle veya ekle. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Belirtilen boyut ve derece cinsinden açıyla eliptik bir yay ekle. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Şeklin uç noktasını başlangıç noktasına bağlayarak mevcut figürü kapat. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| Bir figürün başlangıç noktasını ayarla. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Sıfır tabanlı bir indekste bir segmenti kaldır. | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
-**Bir yolda belirli bir konuma çizgi ekleme:**
+## **Bir Şekle Özel Noktalar Eklemek**
 
-``` java    
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
-**Bir yolun sonuna kübik Bezier eğrisi ekleme:**
+Bu örnek, bir dikdörtgen şekline iki nokta eklemek için [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) kullanır ve düzenlenmiş yolu [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ile uygular. Koordinatlar şekle göre lokaldir: iki yeni nokta da şeklin merkezindedir, sol kenardan 100 puan ve üstten 50 puan uzakta. Segment indeksleri 1 ve 4, bu noktaları üst ve alt kenarlara yerleştirir ve bu kenarları içe doğru çeker.
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Bir yolda belirli bir konuma kübik Bezier eğrisi ekleme:**
+```java
+import com.aspose.slides.*;
 
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
-**Bir yolun sonuna ikisel Bezier eğrisi ekleme:**
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Bir yolda belirli bir konuma ikisel Bezier eğrisi ekleme:**
-
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-**Verilen bir yay ekleme:**
-
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Bir yolun mevcut figürünü kapatma:**
-
-``` java
-public void closeFigure();
-```
-**Sonraki nokta konumunu ayarlama:**
-
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-**Belirli bir indeksteki yol segmentini kaldırma:**
-
-``` java
-public void removeAt(int index);
-```
-
-## **Bir Şekle Özel Noktalar Ekleme**
-1. [GeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun ve [ShapeType.Rectangle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeType) tipini ayarlayın.
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği alın.
-3. Yol üzerindeki iki üst noktası arasına yeni bir nokta ekleyin.
-4. Yol üzerindeki iki alt nokta arasına yeni bir nokta ekleyin.
-5. Yolu şekle uygulayın.
-
-Bu Java kodu, bir şekle özel noktalar eklemeyi gösterir:
-
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example1_image](custom_shape_1.png)
 
-## **Bir Şekilden Noktaları Kaldırma**
+![örnek1_resim](custom_shape_1.png)
 
-1. [GeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryShape) sınıfının bir örneğini oluşturun ve [ShapeType.Heart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeType) tipini ayarlayın.
-2. Şekilden bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği alın.
-3. Yol için segmenti kaldırın.
-4. Yolu şekle uygulayın.
+## **Bir Şekilden Noktaları Kaldırmak**
 
-Bu Java kodu, bir şekilden noktaları kaldırmayı gösterir:
+Bu örnek, [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) ile sıfır tabanlı 2 indeksteki segmenti kaldırarak kalp şekilli bir dış hattı değiştirir. Değiştirilmiş yolu [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ile uygulamak şeklin konturunu günceller.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example2_image](custom_shape_2.png)
+![örnek2_resim](custom_shape_2.png)
 
-## **Özel Bir Şekil Oluşturma**
+## **Özel Bir Şekil Oluşturmak**
 
-1. Şeklin noktalarını hesaplayın.
-2. Bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği oluşturun.
-3. Yolu noktalara doldurun.
-4. Bir [GeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryShape) örneği oluşturun.
-5. Yolu şekle uygulayın.
+Bu örnek, [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) kullanarak beş köşeli bir yıldız oluşturur. Dış ve iç yarıçapların 100 ve 50 puan dönüşümlü olması uçları ve girintileri tanımlar; 72 derece adım beş ucu eşit olarak aralar. Yol, [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) ile kapatılır ve [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ile bir dikdörtgen şekline uygulanarak dış hattı değiştirilir.
 
-Bu Java kodu, özel bir şekil oluşturmayı gösterir:
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+List<Point2D.Float> points = new ArrayList<>();
 
-float R = 100, r = 50;
-int step = 72;
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
 
-for (int angle = -90; angle < 270; angle += step)
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -217,61 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
-}
-
-```
-![example3_image](custom_shape_3.png)
-
-
-## **Birleşik Özel Şekil Oluşturma**
-
-  1. Bir [GeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryShape) örneği oluşturun.
-  2. İlk bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği oluşturun.
-  3. İkinci bir [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneği oluşturun.
-  4. Yolları şekle uygulayın.
-
-Bu Java kodu, birleşik bir özel şekil oluşturmayı gösterir:
-
-``` java
-Presentation pres = new Presentation();
-try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-} finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example4_image](custom_shape_4.png)
+![örnek3_resim](custom_shape_3.png)
 
-## **Eğimli Köşeli Özel Şekil Oluşturma**
+## **Bileşik Özel Bir Şekil Oluşturmak**
 
-Bu Java kodu, eğimli köşelere (içeriye doğru) sahip bir özel şekil oluşturmayı gösterir:
+Bu örnek, bir şeklin üst ve alt üçte birleri için iki kapalı [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) nesnesi tanımlar. Her iki yolu da [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) ile uygulamak, orta üçte birinde bir boşluk olan tek bir bileşik şekil oluşturur.
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
+
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
+} finally {
+    presentation.dispose();
+}
+```
+![örnek4_resim](custom_shape_4.png)
+
+## **Eğimli Köşeli Özel Bir Şekil Oluşturmak**
+
+Bu örnek, düz segmentleri [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) ile birleştirerek içe doğru eğimli köşelere sahip bir şekil oluşturur. Her köşe boyutu, yay genişliğini ve yüksekliğini puan cinsinden ayarlar ve -90 derece süpürme saat yönünün tersine bir çeyrek elips çizer. Tamamlanan yol, [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) ile uygulanır ve sunum PPTX formatında kaydedilir.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -282,122 +231,243 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenme**
+## **Bir Şekil Geometrisinin Kapalı Olup Olmadığını Öğrenmek**
 
-Kapalı bir şekil, tüm kenarlarının birbirine bağlandığı ve boşluk bırakmadan tek bir sınır oluşturduğu şekil olarak tanımlanır. Bu şekil basit bir geometrik form ya da karmaşık bir özel kontur olabilir. Aşağıdaki kod örneği, bir şekil geometrisinin kapalı olup olmadığını kontrol etmeyi gösterir:
+Aşağıdaki yardımcı, her boş olmayan geometri yolunun kapanış segmentiyle bitip bitmediğini kontrol eder. [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) okunur ve son segmentin [IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) değeri [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/) ile karşılaştırılır. Boş olmayan yol yoksa false döner. Bu, her yolun son komutunu kontrol eder; bir yol içindeki her alt şekli incelemez. Örnek bir dikdörtgen için `true` yazdırır.
 
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
     }
+}
 
-    return isClosed == true;
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **GeometryPath’i java.awt.Shape’a Dönüştürme**
+## **Şekil Öğelerini Çıkarmak ve İncelemek**
 
-1. Bir [GeometryShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryShape) örneği oluşturun.
-2. Bir [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) örneği oluşturun.
-3. [ShapeUtil](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ShapeUtil) kullanarak [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) örneğini [GeometryPath](https://reference.aspose.com/slides/tr/java/com.aspose.slides/GeometryPath) örneğine dönüştürün.
-4. Yolları şekle uygulayın.
+[IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) kullanarak mevcut bir şekli yol noktaları ve nokta türleri içeren öğeler olarak inceleyin. Döndürülen her [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/)’e dönüştürülerek [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) ve [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--) metodlarıyla nokta ve tip dizileri alınır. Bu temsili, kontur analizi veya geometrinin özel çizim araçlarına aktarılması için yararlıdır.
 
-Yukarıdaki adımları gerçekleştiren bu Java kodu, **GeometryPath**’i **GraphicsPath**’a dönüştürme sürecini gösterir:
+Örnek, input.pptx dosyasını açar, ilk slayttaki ilk geometri şeklini bulur ve yol segmentlerini yazdırır. Hem düz hem de eğri segmentler içeren bir şekil içeren bir sunum kullanın; grupların içine arama yapmaz.
 
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Segment tipini tut, bayrakları hariç.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Array'ler indeks bazında eşleşir: `points[i]` bir noktadır ve `types[i]` rolünü tanımlar. Tip `0` bir figürü başlatır, tip `1` bir önceki noktadan şimdiki noktaya bir çizgi çizer. Bir kübik Bézier segmenti önceki uç noktadan başlar ve ardışık üç `type-3` girdisi kullanır: iki kontrol noktası ve yeni uç nokta. Döngü bu üç girişi birlikte tüketir ve kapanış için uç noktayı kontrol eder.
+
+Nokta türleri ayrıca bayraklar içerir. Segment tipini belirlemek için `0x07` maskesi uygulanır, kapalı bir alt yolu tespit etmek için `0x80` ayrı ayrı test edilir. Örneğin, `129` (`0x81`) bir alt yolu kapatan çizgi uç noktası, `131` (`0x83`) ise bir Bézier uç noktasının kapatıldığı anlamına gelir. Java bu bayrakları imzalı baytlar olarak saklar; maskeleme amaçlanan bit değerlerini korur. Yalnızca `1` veya `3` ile ham değeri karşılaştırmak bu durumları kaçırır. Diğer bayraklar, örneğin tire (`0x10`) ve işaretçi (`0x20`), temel segment tipini değiştirmez.
+
+**Koordinatlar ve dönüşümler.** Noktalar puan cinsindendir (inç'in 1/72'i), X sağa, Y aşağı doğru artar. Gruplanmamış bir şekil için çıkarılan koordinatlar zaten [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) ve [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--) tarafından döndürülen pozisyonu içerir ve mevcut genişlik ve yüksekliği yansıtır. Örneğin, `(100, 200)` konumunda ve `120 × 80` boyutunda döndürülmemiş bir dikdörtgenin kontur sınırları `(100, 200)`–`(220, 280)`'dir. Şeklin konumunu tekrar eklemeyin. X ve Y'yi çıkararak koordinatları döndürülmemiş çerçeveye göre alın.
+
+Çıkarılan noktalar, [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--) tarafından döndürülen şekil dönüşünü veya yatay ve dikey çevirileri içermez. Görünen konturu yeniden üretmek için bu dönüşümleri şeklin merkezinde uygulayın. Gruplu şekiller için grup koordinat haritalaması ve dönüşümlerini de hesaba katın; çıkarılan noktaların nihai slayt koordinatları olduğunu varsaymayın ve çocuğun çerçevesinde zaten yansıtılmışsa bir çevirme veya ölçekleme iki kez uygulanmasın.
+
+**İnceleme vs. düzenleme.** Çıkarılan dizi konturu tanımlar; bunları değiştirmek orijinal şekli güncellemez. Analiz veya çizim kodunuz nokta/tip dizilerine ihtiyaç duyduğunda bu yaklaşımı seçin. Şeklin yerel koordinat sistemindeki geometri komutlarına ihtiyacınız varsa veya geometrisini düzenlemek istiyorsanız [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) kullanın. Düzenlenmiş yolları [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) veya [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) ile uygulayın.
+
+## **Java AWT Şeklini GeometryPath'e Dönüştürmek**
+
+Bu örnek, bir dikdörtgen konturunu metinle birleştirerek geometriye dönüştürür. Konturun [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) yöntemi doldurmasını devre dışı bırakır. Bir [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) bir [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) içinde metin konturunu yaratır. Bunun [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) hareket, çizgi, ikinci dereceden, kübik ve kapanış segmentlerini sağlar; örnek bunları bir [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) üzerinde tekrar oynatır.
+
+Metin 40 puanlık Arial yazı tipini kullanır. Kontur, yatayda 20 puan kaydırılır ve görsel üstü şeklin üst kenarının 10 puan altında konumlandırılır. Metin yolu doldurulur, orijinal dikdörtgen ise sadece bir kontur kalır. Her iki yolu da [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) ile uygulamak, dikdörtgen ve metni içeren tek bir şekil üretir.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
     // Yeni şekil oluştur
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
     // Şeklin geometri yolunu al
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
-    // Metin ile yeni grafik yolu oluştur
+    // Metinle yeni grafik yolu oluştur
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
     // Grafik yolunu geometri yoluna dönüştür
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Yeni geometri yolu ve orijinal geometri yolunun birleşimini şekle ayarla
+    // Şekle yeni geometri yolu ve orijinal geometri yolunun kombinasyonunu ayarla
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-![example5_image](custom_shape_5.png)
+![örnek5_resim](custom_shape_5.png)
 
 ## **SSS**
 
-**Geometriyi değiştirdikten sonra dolgu ve kenarlık ne olur?**
+**Geometriyi değiştirdikten sonra doldurma ve dış hat ne olur?**
 
-Stil şekille kalır; sadece kontur değişir. Dolgu ve kenarlık yeni geometrinin üzerine otomatik olarak uygulanır.
+Stil şekil ile kalır; sadece kontur değişir. Doldurma ve dış hat yeni geometriye otomatik olarak uygulanır.
 
-**Özel şekli ve geometrisini aynı anda doğru şekilde nasıl döndürürüm?**
+**Özel bir şekli geometrisiyle birlikte nasıl doğru bir şekilde döndürürüm?**
 
-Şeklin [setRotation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#setRotation-float-) metodunu kullanın; geometri şeklin kendi koordinat sistemine bağlı olduğu için şekilyle birlikte döner.
+Şeklin [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-) metodunu kullanın; geometri şekille birlikte döner çünkü şeklin kendi koordinat sistemine bağlıdır.
 
-**Özel şekli bir görsele dönüştürüp sonucu “kilitleyebilir” miyim?**
+**Sonucu "kilitlemek" için özel bir şekli görüntüye dönüştürebilir miyim?**
 
-Evet. Gerekli [slide](/slides/tr/java/convert-powerpoint-to-png/) alanını ya da [shape](/slides/tr/java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, ağır geometrilerle çalışmayı kolaylaştırır.
+Evet. Gerekli [slaytı](/slides/tr/java/convert-powerpoint-to-png/) alanını veya [şekli](/slides/tr/java/create-shape-thumbnails/) kendisini raster bir formata dışa aktarın; bu, karmaşık geometrilerle daha sonraki çalışmayı basitleştirir.

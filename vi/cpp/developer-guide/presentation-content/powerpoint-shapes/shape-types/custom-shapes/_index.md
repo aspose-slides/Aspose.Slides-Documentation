@@ -6,13 +6,13 @@ weight: 20
 url: /vi/cpp/custom-shape/
 keywords:
 - hình dạng tùy chỉnh
-- thêm hình dạng
-- tạo hình dạng
-- thay đổi hình dạng
+- thêm hình
+- tạo hình
+- thay đổi hình
 - hình học hình dạng
 - đường hình học
-- điểm đường
-- điểm chỉnh sửa
+- các điểm đường
+- chỉnh sửa điểm
 - thêm điểm
 - xóa điểm
 - thao tác chỉnh sửa
@@ -21,351 +21,426 @@ keywords:
 - bài thuyết trình
 - C++
 - Aspose.Slides
-description: "Tạo và tùy chỉnh các hình dạng trong bài thuyết trình PowerPoint với Aspose.Slides cho C++: đường hình học, góc cong, hình dạng tổng hợp."
+description: "Tạo và tùy chỉnh các hình dạng trong bài thuyết trình PowerPoint với Aspose.Slides cho C++: đường hình học, góc cong, hình tổng hợp."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách tùy chỉnh các hình dạng trong bài thuyết trình trên Aspose.Slides bằng cách chỉnh sửa hình học của hình thông qua các điểm chỉnh sửa và đường dẫn hình học. Nó cho thấy cách làm việc với `GeometryPath` và `IGeometryPath` để sửa đổi các hình hiện có, thực hiện các thao tác chỉnh sửa đường cơ bản, thêm hoặc loại bỏ các điểm, và áp dụng hình học đã cập nhật trở lại cho một hình.
+Bài viết này giải thích cách tùy chỉnh các hình dạng trong bài thuyết trình của Aspose.Slides bằng cách chỉnh sửa hình học của hình thông qua các điểm chỉnh sửa và các đường dẫn hình học. Nó cho thấy cách làm việc với [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) và [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/) để sửa đổi các hình hiện có, thực hiện các thao tác chỉnh sửa đường cơ bản, thêm hoặc xóa điểm, và áp dụng hình học đã cập nhật trở lại cho một hình.
 
-## **Thay đổi hình bằng các điểm chỉnh sửa**
+Nó cũng trình bày cách tạo các hình tùy chỉnh và tổng hợp, xây dựng các hình có góc cong, và xác định xem một hình học của hình có kín hay không.
 
-Xem xét một hình vuông. Trong PowerPoint, sử dụng **edit points**, bạn có thể 
+## **Thay đổi một hình bằng Điểm chỉnh sửa**
 
-* di chuyển góc của hình vuông vào trong hoặc ra ngoài  
-* xác định độ cong cho một góc hoặc một điểm  
-* thêm các điểm mới vào hình vuông  
-* thao tác các điểm trên hình vuông, v.v.  
+Trong PowerPoint, bạn có thể sử dụng **Edit Points** để chỉnh sửa một hình vuông:
 
-Về cơ bản, bạn có thể thực hiện các nhiệm vụ đã mô tả trên bất kỳ hình dạng nào. Sử dụng các điểm chỉnh sửa, bạn có thể thay đổi một hình hoặc tạo một hình mới từ một hình hiện có. 
+* Di chuyển một góc vào trong hoặc ra ngoài.
+* Điều chỉnh độ cong tại một điểm.
+* Thêm các điểm mới.
+
+Việc chỉnh sửa các điểm cho phép bạn thay đổi đường viền của một hình hoặc sử dụng một hình hiện có làm cơ sở cho một hình mới.
 
 ## **Mẹo chỉnh sửa hình dạng**
 
 ![overview_image](custom_shape_0.png)
 
-Trước khi bạn bắt đầu chỉnh sửa các hình dạng trong PowerPoint thông qua các điểm chỉnh sửa, bạn có thể muốn cân nhắc những điểm sau về các hình dạng:
+Khi chỉnh sửa các hình trong PowerPoint, hãy nhớ những khái niệm sau:
 
-* Một hình dạng (hoặc đường dẫn của nó) có thể là khép kín hoặc mở.  
-* Khi một hình dạng khép kín, nó không có điểm bắt đầu hoặc kết thúc. Khi một hình dạng mở, nó có điểm đầu và điểm cuối.  
-* Tất cả các hình dạng bao gồm ít nhất 2 điểm neo được liên kết với nhau bằng các đường.  
-* Một đường có thể thẳng hoặc cong. Các điểm neo quyết định tính chất của đường.  
-* Các điểm neo tồn tại dưới dạng điểm góc, điểm thẳng hoặc điểm mượt:  
-  * Điểm góc là điểm mà 2 đường thẳng nối lại với nhau tại một góc.  
-  * Điểm mượt là điểm mà 2 tay cầm nằm trên một đường thẳng và các đoạn của đường nối lại trong một đường cong mượt. Trong trường hợp này, tất cả các tay cầm cách điểm neo một khoảng cách bằng nhau.  
-  * Điểm thẳng là điểm mà 2 tay cầm nằm trên một đường thẳng và các đoạn của đường nối lại trong một đường cong mượt. Trong trường hợp này, các tay cầm không cần cách điểm neo một khoảng cách bằng nhau.  
-* Bằng cách di chuyển hoặc chỉnh sửa các điểm neo (điều này thay đổi góc của các đường), bạn có thể thay đổi giao diện của một hình dạng.  
+* Một hình (hoặc đường dẫn của nó) có thể là đóng hoặc mở.
+* Đường dẫn của một hình bao gồm các điểm neo được nối bằng các đoạn.
+* Một đoạn có thể thẳng hoặc cong. Các điểm neo và tay cầm điều khiển quyết định hình dạng của nó.
+* Các điểm neo tồn tại dưới dạng điểm góc, điểm thẳng, hoặc điểm mượt:
+  * Ở điểm góc, các đoạn liền kề có thể gặp nhau tạo một góc.
+  * Ở điểm mượt, hai tay cầm điều khiển được căn chỉnh và cách đều nhau so với điểm neo.
+  * Ở điểm thẳng, hai tay cầm điều khiển được căn chỉnh nhưng có thể có khoảng cách khác nhau tới điểm neo.
+* Di chuyển các điểm neo hoặc điều chỉnh tay cầm của chúng sẽ thay đổi đường viền của hình.
 
-Để chỉnh sửa các hình dạng PowerPoint thông qua các điểm chỉnh sửa, **Aspose.Slides** cung cấp lớp [**GeometryPath**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) và giao diện [**IGeometryPath**](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_path).
+Để chỉnh sửa các hình PowerPoint thông qua các điểm chỉnh sửa, **Aspose.Slides** cung cấp lớp [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) và giao diện [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
 
-* Một thể hiện của [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) đại diện cho đường hình học của đối tượng [IGeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_shape).  
-* Để lấy `GeometryPath` từ thể hiện `IGeometryShape`, bạn có thể sử dụng phương pháp [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_shape#a91c25d805702d632c17db86ca3b279c1).  
-* Để đặt `GeometryPath` cho một hình, bạn có thể sử dụng các phương pháp này: [IGeometryShape::SetGeometryPath()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_shape#a350a80e5544519f5f840318f13ad7986) cho *solid shapes* và [IGeometryShape::SetGeometryPaths()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_shape#a4b3837a4e393693b3ceaa0928181b750) cho *composite shapes*.  
-* Để thêm các đoạn, bạn có thể sử dụng các phương pháp trong [IGeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_path).  
-* Bằng cách sử dụng các phương pháp [IGeometryPath::set_Stroke()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_path#aa819370fbd22ef49387672b8fe2ed147) và [IGeometryPath::set_FillMode()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_path#adf7a4e1a1a28b52a97bff0d5cad6f3d7), bạn có thể thiết lập ngoại hình cho một đường hình học.  
-* Bằng cách sử dụng phương pháp [IGeometryPath::get_PathData()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_geometry_path#a9b1e40e8db9d4dd95fa4784e95d73fca), bạn có thể lấy đường hình học của một `GeometryShape` dưới dạng một mảng các đoạn đường.  
-* Để truy cập các tùy chọn tùy chỉnh hình học bổ sung cho hình, bạn có thể chuyển đổi [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) sang [GraphicsPath](https://reference.aspose.com/slides/vi/cpp/class/system.drawing.drawing2_d.graphics_path).  
-* Sử dụng các phương pháp [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) và [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.shape_util#ab319f6b9578de90a4863c883690f7daf) (từ lớp [ShapeUtil](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.shape_util)) để chuyển đổi [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) sang [GraphicsPath](https://reference.aspose.com/slides/vi/cpp/class/system.drawing.drawing2_d.graphics_path) và ngược lại.  
+* Một thể hiện của [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) đại diện cho đường dẫn hình học của đối tượng [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/).
+* Để lấy [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) từ thể hiện [IGeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/), bạn có thể sử dụng phương thức [IGeometryShape::GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/).
+* Để đặt [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) cho một hình, bạn có thể sử dụng các phương thức: [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) cho các hình có một đường duy nhất và [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) cho các hình có nhiều đường.
+* Để thêm các đoạn, bạn có thể sử dụng các phương thức trong [IGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/).
+* Sử dụng các phương thức [IGeometryPath::set_Stroke](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_stroke/) và [IGeometryPath::set_FillMode](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/set_fillmode/), bạn có thể thiết lập cách hiển thị cho một đường dẫn hình học.
+* Sử dụng phương thức [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/), bạn có thể lấy đường dẫn hình học của một [GeometryShape](https://reference.aspose.com/slides/cpp/aspose.slides/geometryshape/) dưới dạng một mảng các đoạn đường.
 
 ## **Các thao tác chỉnh sửa đơn giản**
 
-Mã C++ này cho bạn thấy cách
+Sử dụng các phương thức sau để chỉnh sửa một đường dẫn hình học. Các overload chấp nhận chỉ mục sẽ chèn một đoạn vào vị trí chỉ mục không bắt đầu từ 0 trong mảng các đoạn của đường.
 
-**Thêm một đường** vào cuối một đường dẫn
+| Thao tác | Phương thức |
+| --- | --- |
+| Thêm hoặc chèn một đoạn thẳng. | [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) |
+| Thêm hoặc chèn một đường cong Bézier bậc ba với hai điểm điều khiển và một điểm cuối. | [GeometryPath::CubicBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/cubicbezierto/) |
+| Thêm hoặc chèn một đường cong Bézier bậc hai với một điểm điều khiển và một điểm cuối. | [GeometryPath::QuadraticBezierTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/quadraticbezierto/) |
+| Thêm một cung elip với kích thước và góc đã chỉ định tính bằng độ. | [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) |
+| Đóng hình hiện tại bằng cách nối điểm cuối của nó với điểm bắt đầu. | [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) |
+| Đặt điểm bắt đầu của một hình. | [GeometryPath::MoveTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/moveto/) |
+| Xóa một đoạn tại chỉ mục không bắt đầu từ 0. | [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/) |
 
-``` cpp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```
-**Thêm một đường** vào vị trí chỉ định trên một đường dẫn:
+## **Thêm các điểm tùy chỉnh vào một hình**
 
-``` cpp    
-void LineTo(PointF point, uint32_t index);
-void LineTo(float x, float y, uint32_t index);
-```
-**Thêm một đường cong Bezier bậc ba** vào cuối một đường dẫn:
+Ví dụ này chèn hai điểm vào một hình chữ nhật bằng cách sử dụng [GeometryPath::LineTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/lineto/) và áp dụng đường đã chỉnh sửa bằng [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/). Các tọa độ là cục bộ đối với hình: cả hai điểm mới đều ở trung tâm, cách mép trái 100 điểm và cách mép trên 50 điểm. Các chỉ mục đoạn 1 và 4 đặt chúng trên các cạnh trên và dưới, kéo các cạnh này vào trong.
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
-**Thêm một đường cong Bezier bậc ba** vào vị trí chỉ định trên một đường dẫn:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint32_t index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint32_t index);
-```
-**Thêm một đường cong Bezier bậc hai** vào cuối một đường dẫn:
+using namespace Aspose::Slides;
+using namespace System;
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-**Thêm đường cong Bezier bậc hai** vào vị trí chỉ định trên một đường dẫn:
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-``` cpp
-void QuadraticBezierTo(PointF point1, PointF point2, uint32_t index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint32_t index);
-```
-**Thêm một cung** đã cho vào một đường dẫn:
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
 
-``` cpp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-**Đóng hình hiện tại** của một đường dẫn:
-
-``` cpp
-void CloseFigure();
-```
-**Đặt vị trí cho điểm tiếp theo**:
-
-``` cpp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```
-**Xóa đoạn đường** tại một chỉ số cho trước:
-
-``` cpp
-void RemoveAt(int32_t index);
-```
-
-## **Thêm các điểm tùy chỉnh vào một hình dạng**
-
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_shape) và đặt loại [ShapeType.Rectangle](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Lấy một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) từ hình.  
-3. Thêm một điểm mới giữa hai điểm trên cùng trên đường dẫn.  
-4. Thêm một điểm mới giữa hai điểm dưới cùng trên đường dẫn.  
-5. Áp dụng đường dẫn cho hình.
-
-Mã C++ này cho bạn thấy cách thêm các điểm tùy chỉnh vào một hình dạng:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath = shape->GetGeometryPaths()->idx_get(0);
-
+auto geometryPath = shape->GetGeometryPaths()->idx_get(0);
 geometryPath->LineTo(100.0f, 50.0f, 1);
 geometryPath->LineTo(100.0f, 50.0f, 4);
+
 shape->SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **Xóa các điểm khỏi một hình dạng**
+## **Xóa các điểm khỏi một hình**
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_shape) và đặt loại [ShapeType.Heart](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides#abe1c0baea327186bde49ad44636bb8c5).  
-2. Lấy một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) từ hình.  
-3. Xóa đoạn cho đường dẫn.  
-4. Áp dụng đường dẫn cho hình.
+Ví dụ này thay đổi đường viền dạng trái tim bằng cách xóa đoạn tại chỉ mục không bắt đầu từ 0 là 2 bằng [GeometryPath::RemoveAt](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/removeat/). Áp dụng đường đã sửa đổi bằng [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) sẽ cập nhật đường viền của hình.
 
-Mã C++ này cho bạn thấy cách xóa các điểm khỏi một hình dạng:
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f));
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IGeometryPath> path = shape->GetGeometryPaths()->idx_get(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Heart, 100.0f, 100.0f, 300.0f, 300.0f);
+
+auto path = shape->GetGeometryPaths()->idx_get(0);
 path->RemoveAt(2);
+
 shape->SetGeometryPath(path);
 ```
-
 ![example2_image](custom_shape_2.png)
 
-## **Tạo một hình dạng tùy chỉnh**
+## **Tạo một hình tùy chỉnh**
 
-1. Tính toán các điểm cho hình dạng.  
-2. Tạo một thể hiện của lớp [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path).  
-3. Điền các điểm vào đường dẫn.  
-4. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_shape).  
-5. Áp dụng đường dẫn cho hình.
+Ví dụ này xây dựng một ngôi sao năm cánh bằng [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/). Các bán kính ngoài và trong xen kẽ 100 và 50 điểm xác định các đầu mũi và các rãnh; một bước 72 độ chia đều năm đầu mũi. Đường được đóng bằng [GeometryPath::CloseFigure](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/closefigure/) và áp dụng vào một hình chữ nhật bằng [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), thay thế đường viền của nó.
 
-Mã C++ này cho bạn thấy cách tạo một hình dạng tùy chỉnh:
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/math.h>
+#include <system/smart_ptr.h>
 
-``` cpp
-SharedPtr<List<PointF>> points = System::MakeObject<List<PointF>>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+using namespace System::Drawing;
 
-float R = 100.0f, r = 50.0f;
-int32_t step = 72;
+auto points = System::MakeObject<List<PointF>>();
 
-for (int32_t angle = -90; angle < 270; angle += step)
+auto outerRadius = 100.0f;
+auto innerRadius = 50.0f;
+auto angleStep = 72;
+
+for (auto angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math::PI / 180.f);
-    double x = outerRadius * Math::Cos(radians);
-    double y = outerRadius * Math::Sin(radians);
+    auto radians = angle * (Math::PI / 180.f);
+    auto x = outerRadius * Math::Cos(radians);
+    auto y = outerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math::PI * (angle + step / 2) / 180.0;
-    x = innerRadiusr * Math::Cos(radians);
-    y = innerRadiusr * Math::Sin(radians);
+    radians = Math::PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math::Cos(radians);
+    y = innerRadius * Math::Sin(radians);
     points->Add(PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-SharedPtr<GeometryPath> starPath = System::MakeObject<GeometryPath>();
+auto starPath = System::MakeObject<GeometryPath>();
 starPath->MoveTo(points->idx_get(0));
 
-for (int32_t i = 1; i < points->get_Count(); i++)
+for (auto i = 1; i < points->get_Count(); i++)
 {
     starPath->LineTo(points->idx_get(i));
 }
 
 starPath->CloseFigure();
 
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, R * 2, R * 2));
-
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, outerRadius * 2, outerRadius * 2);
 shape->SetGeometryPath(starPath);
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **Tạo một hình dạng tùy chỉnh tổng hợp**
+## **Tạo một hình tùy chỉnh tổng hợp**
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_shape).  
-2. Tạo một thể hiện đầu tiên của lớp [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path).  
-3. Tạo một thể hiện thứ hai của lớp [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path).  
-4. Áp dụng các đường dẫn cho hình.
-
-Mã C++ này cho bạn thấy cách tạo một hình dạng tùy chỉnh tổng hợp:
-
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f));
-
-SharedPtr<IGeometryPath> geometryPath0 = System::MakeObject<GeometryPath>();
-geometryPath0->MoveTo(0.0f, 0.0f);
-geometryPath0->LineTo(shape->get_Width(), 0.0f);
-geometryPath0->LineTo(shape->get_Width(), shape->get_Height() / 3);
-geometryPath0->LineTo(0.0f, shape->get_Height() / 3);
-geometryPath0->CloseFigure();
-
-SharedPtr<IGeometryPath> geometryPath1 = System::MakeObject<GeometryPath>();
-geometryPath1->MoveTo(0.0f, shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
-geometryPath1->LineTo(shape->get_Width(), shape->get_Height());
-geometryPath1->LineTo(0.0f, shape->get_Height());
-geometryPath1->CloseFigure();
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ geometryPath0, geometryPath1 }));
-```
-
-![example4_image](custom_shape_4.png)
-
-## **Tạo một hình dạng tùy chỉnh với các góc cong**
-
-Mã C++ này cho bạn thấy cách tạo một hình dạng tùy chỉnh với các góc cong (hướng vào trong);
+Ví dụ này định nghĩa hai [GeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/) đóng cho phần trên và phần dưới của một hình. Áp dụng cả hai đường bằng [IGeometryShape::SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/) tạo ra một hình tổng hợp duy nhất với một khoảng trống ở phần giữa của nó.
 
 ```cpp
-float shapeX = 20.f;
-float shapeY = 20.f;
-float shapeWidth = 300.f;
-float shapeHeight = 200.f;
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/smart_ptr.h>
 
-float leftTopSize = 50.f;
-float rightTopSize = 20.f;
-float rightBottomSize = 40.f;
-float leftBottomSize = 10.f;
+using namespace Aspose::Slides;
+using namespace System;
 
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto childShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 200.0f, 100.0f);
+
+auto topPath = System::MakeObject<GeometryPath>();
+topPath->MoveTo(0.0f, 0.0f);
+topPath->LineTo(shape->get_Width(), 0.0f);
+topPath->LineTo(shape->get_Width(), shape->get_Height() / 3);
+topPath->LineTo(0.0f, shape->get_Height() / 3);
+topPath->CloseFigure();
+
+auto bottomPath = System::MakeObject<GeometryPath>();
+bottomPath->MoveTo(shape->get_Height() / 3 * 2, 0.0f);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height() / 3 * 2);
+bottomPath->LineTo(shape->get_Width(), shape->get_Height());
+bottomPath->LineTo(0.0f, shape->get_Height());
+bottomPath->CloseFigure();
+
+auto paths = System::MakeArray<SharedPtr<IGeometryPath>>({ topPath, bottomPath });
+
+shape->SetGeometryPaths(paths);
+```
+![example4_image](custom_shape_4.png)
+
+## **Tạo một hình tùy chỉnh với các góc cong**
+
+Ví dụ này kết hợp các đoạn thẳng với [GeometryPath::ArcTo](https://reference.aspose.com/slides/cpp/aspose.slides/geometrypath/arcto/) để tạo một hình có các góc cong vào trong. Mỗi kích thước góc đặt độ rộng và chiều cao của cung tính bằng points, và góc quét -90 độ vẽ một phần tư elip ngược chiều kim đồng hồ. Đường hoàn chỉnh được áp dụng bằng [IGeometryShape::SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/), và bài thuyết trình được lưu ở định dạng PPTX.
+
+```cpp
+#include <DOM/GeometryPath.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto shapeX = 20.f;
+auto shapeY = 20.f;
+auto shapeWidth = 300.f;
+auto shapeHeight = 200.f;
+
+auto leftTopSize = 50.f;
+auto rightTopSize = 20.f;
+auto rightBottomSize = 40.f;
+auto leftBottomSize = 10.f;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+auto topLeft = PointF(leftTopSize, 0.0f);
+auto topRight = PointF(shapeWidth - rightTopSize, 0.0f);
+auto rightBottom = PointF(shapeWidth, shapeHeight - rightBottomSize);
+auto bottomLeft = PointF(leftBottomSize, shapeHeight);
+auto leftTop = PointF(0.0f, leftTopSize);
 
 auto geometryPath = System::MakeObject<GeometryPath>();
-
-PointF point1(leftTopSize, 0.0f);
-PointF point2(shapeWidth - rightTopSize, 0.0f);
-PointF point3(shapeWidth, shapeHeight - rightBottomSize);
-PointF point4(leftBottomSize, shapeHeight);
-PointF point5(0.0f, leftTopSize);
-
-geometryPath->MoveTo(point1);
-geometryPath->LineTo(point2);
+geometryPath->MoveTo(topLeft);
+geometryPath->LineTo(topRight);
 geometryPath->ArcTo(rightTopSize, rightTopSize, 180.0f, -90.0f);
-geometryPath->LineTo(point3);
+geometryPath->LineTo(rightBottom);
 geometryPath->ArcTo(rightBottomSize, rightBottomSize, -90.0f, -90.0f);
-geometryPath->LineTo(point4);
+geometryPath->LineTo(bottomLeft);
 geometryPath->ArcTo(leftBottomSize, leftBottomSize, 0.0f, -90.0f);
-geometryPath->LineTo(point5);
+geometryPath->LineTo(leftTop);
 geometryPath->ArcTo(leftTopSize, leftTopSize, 90.0f, -90.0f);
-
 geometryPath->CloseFigure();
 
-childShape->SetGeometryPath(geometryPath);
+shape->SetGeometryPath(geometryPath);
 
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 ```
 
-## **Xác định xem hình học của một hình dạng có bị đóng không**
+## **Xác định xem một hình học của hình có đóng không**
 
-Một hình dạng khép kín được định nghĩa là hình mà tất cả các cạnh của nó nối nhau, tạo thành một ranh giới duy nhất không có khoảng trống. Hình dạng như vậy có thể là một hình học đơn giản hoặc một đường viền tùy chỉnh phức tạp. Ví dụ mã dưới đây cho thấy cách kiểm tra xem hình học của một hình dạng có bị đóng không:
+Trình trợ giúp sau kiểm tra xem mọi đường hình học không rỗng có kết thúc bằng một đoạn đóng hay không. Nó đọc [IGeometryPath::get_PathData](https://reference.aspose.com/slides/cpp/aspose.slides/igeometrypath/get_pathdata/) và so sánh lệnh cuối cùng của đoạn với [IPathSegment::get_PathCommand](https://reference.aspose.com/slides/cpp/aspose.slides/ipathsegment/get_pathcommand/) bằng [PathCommandType::Close](https://reference.aspose.com/slides/cpp/aspose.slides/pathcommandtype/). Nó trả về false khi không có đường không rỗng. Kiểm tra này chỉ xem lệnh cuối cùng của mỗi đường; nó không kiểm tra từng hình con bên trong một đường. Ví dụ in ra `True` cho một hình chữ nhật.
 
 ```cpp
-bool IsGeometryClosed(SharedPtr<IGeometryShape> geometryShape)
-{
-    bool isClosed = false;
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IPathSegment.h>
+#include <DOM/PathCommandType.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto isGeometryClosed = [](SharedPtr<IGeometryShape> geometryShape)
+{
+    auto hasNonemptyPath = false;
     for (auto&& geometryPath : geometryShape->GetGeometryPaths())
     {
-        auto dataLength = geometryPath->get_PathData()->get_Length();
-        if (dataLength == 0)
+        auto segments = geometryPath->get_PathData();
+        if (segments->get_Length() == 0)
+        {
             continue;
+        }
 
-        auto lastSegment = geometryPath->get_PathData()[dataLength - 1];
-        isClosed = lastSegment->get_PathCommand() == PathCommandType::Close;
-
-        if (!isClosed)
+        hasNonemptyPath = true;
+        auto lastSegment = segments->idx_get(segments->get_Length() - 1);
+        if (lastSegment->get_PathCommand() != PathCommandType::Close)
+        {
             return false;
+        }
     }
+    return hasNonemptyPath;
+};
 
-    return isClosed;
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 200, 100);
+Console::WriteLine(isGeometryClosed(shape));
+```
+
+## **Trích xuất và kiểm tra các thành phần của hình**
+
+Sử dụng [IGeometryShape::CreateShapeElements](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/createshapeelements/) để kiểm tra một hình hiện có dưới dạng các thành phần chứa các điểm đường và loại điểm. Chuyển đổi mỗi [IShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/ishapeelement/) trả về sang [ShapeElement](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/) để đọc các mảng trả về bởi [get_PathPoints](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathpoints/) và [get_PathTypes](https://reference.aspose.com/slides/cpp/aspose.slides/shapeelement/get_pathtypes/). Đại diện này hữu ích cho việc phân tích đường viền hoặc truyền hình học tới các công cụ vẽ tùy chỉnh.
+
+Ví dụ mở một bài thuyết trình, tìm hình học đầu tiên trực tiếp trên slide đầu tiên, và in ra các đoạn đường của nó. Sử dụng một bài thuyết trình có chứa hình với các đoạn thẳng và cong để xem cả hai kiểu đầu ra. Nó không tìm kiếm bên trong các nhóm.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGeometryShape.h>
+#include <DOM/IGeometryPath.h>
+#include <DOM/ShapeType.h>
+#include <system/array.h>
+#include <system/smart_ptr.h>
+#include <system/console.h>
+#include <DOM/IShapeElement.h>
+#include <DOM/ShapeElement.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IGeometryShape> shape;
+for (auto&& candidate : slide->get_Shapes())
+{
+    shape = AsCast<IGeometryShape>(candidate);
+    if (shape != nullptr)
+    {
+        break;
+    }
+}
+if (shape == nullptr)
+{
+    Console::WriteLine(u"No geometry shape found on the first slide.");
+    return;
+}
+
+for (auto&& element : shape->CreateShapeElements())
+{
+    auto shapeElement = ExplicitCast<ShapeElement>(element);
+    auto points = shapeElement->get_PathPoints();
+    auto types = shapeElement->get_PathTypes();
+    Console::WriteLine(u"Shape element:");
+
+    for (auto i = 0; i < points->get_Length(); i++)
+    {
+        auto pointType = types[i] & 0x07; // Giữ lại loại đoạn, loại trừ các cờ.
+        switch (pointType)
+        {
+            case 0:
+                Console::WriteLine(u"Start figure at {0}", points[i]);
+                break;
+            case 1:
+                Console::WriteLine(u"Line to {0}", points[i]);
+                break;
+            case 3:
+                Console::WriteLine(u"Cubic Bezier: controls {0}, {1}; end {2}", points[i], points[i + 1], points[i + 2]);
+                i += 2; // Tiêu thụ cả hai điểm điều khiển và điểm cuối.
+                break;
+        }
+        if ((types[i] & 0x80) != 0)
+        {
+            Console::WriteLine(u"Close subpath back to its starting point.");
+        }
+    }
 }
 ```
 
-## **Chuyển đổi GeometryPath sang GraphicsPath** 
+Các mảng tương ứng theo chỉ mục: `points[i]` là một điểm và `types[i]` mô tả vai trò của nó. Kiểu `0` bắt đầu một hình, và kiểu `1` vẽ một đoạn thẳng từ điểm trước tới điểm hiện tại. Một đoạn Bézier bậc ba bắt đầu từ điểm cuối trước và sử dụng ba mục kiểu `3` liên tiếp: hai điểm điều khiển rồi điểm cuối mới. Vòng lặp tiêu thụ ba mục này cùng nhau và kiểm tra điểm cuối để xác định độ kín.
 
-1. Tạo một thể hiện của lớp [GeometryShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_shape).  
-2. Tạo một thể hiện của lớp [GraphicsPath](https://reference.aspose.com/slides/vi/cpp/class/system.drawing.drawing2_d.graphics_path) trong không gian tên [System.Drawing.Drawing2D](https://reference.aspose.com/slides/vi/cpp/namespace/system.drawing.drawing2_d).  
-3. Chuyển đổi thể hiện [GraphicsPath](https://reference.aspose.com/slides/vi/cpp/class/system.drawing.drawing2_d.graphics_path) sang thể hiện [GeometryPath](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.geometry_path) bằng [ShapeUtil](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.util.shape_util).  
-4. Áp dụng các đường dẫn cho hình.
+Các kiểu điểm cũng chứa các cờ. Áp dụng mask `0x07` để xác định kiểu đoạn, và kiểm tra `0x80` riêng để phát hiện một đường phụ đóng. Ví dụ, `129` (`0x81`) có nghĩa là một điểm cuối của đoạn thẳng đóng một đường phụ, và `131` (`0x83`) có nghĩa là một điểm cuối của Bézier đóng một đường phụ. So sánh giá trị thô chỉ với `1` hoặc `3` sẽ bỏ lỡ các trường hợp này. Các cờ khác, như dash (`0x10`) và marker (`0x20`), không thay đổi kiểu đoạn cơ bản.
 
-Mã C++ này — một triển khai các bước trên — trình bày quá trình chuyển đổi **GeometryPath** sang **GraphicsPath**:
+**Tọa độ và phép biến đổi.** Các điểm được đo bằng points (1/72 inch), với X tăng sang phải và Y tăng xuống dưới. Đối với một hình không được nhóm, các tọa độ đã trích xuất đã bao gồm vị trí trả về bởi [get_X](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_x/) và [get_Y](https://reference.aspose.com/slides/cpp/aspose.slides/shape/get_y/) và phản ánh chiều rộng và chiều cao hiện tại của nó. Ví dụ, một hình chữ nhật không xoay tại `(100, 200)` với kích thước `120 × 80` có giới hạn viền `(100, 200)`–`(220, 280)`. Đừng cộng thêm vị trí của hình một lần nữa. Trừ X và Y của nó để nhận được tọa độ tương đối với khung không xoay.
 
-``` cpp
-SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+Các điểm đã trích xuất không áp dụng việc xoay được thiết lập qua [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) hoặc các lật ngang và dọc. Để tái tạo đường viền hiển thị, hãy áp dụng các phép biến đổi này quanh trung tâm của hình. Đối với các hình được nhóm, cũng cần tính đến việc ánh xạ và biến đổi tọa độ của nhóm; đừng giả định rằng các điểm đã trích xuất là tọa độ cuối cùng trên slide hoặc áp dụng một phép dịch hoặc tỉ lệ hai lần nếu đã được phản ánh trong khung của đối tượng con.
 
-SharedPtr<IShapeCollection> shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-SharedPtr<GeometryShape> shape = System::ExplicitCast<GeometryShape>(shapes->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 300.0f, 100.0f));
+**Kiểm tra so với chỉnh sửa.** Các mảng đã trích xuất mô tả đường viền; việc thay đổi chúng không cập nhật lại hình gốc. Chọn cách này khi phân tích hoặc mã vẽ của bạn cần các mảng điểm/kiểu. Sử dụng [GetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/getgeometrypaths/) khi bạn cần các lệnh hình học trong hệ tọa độ cục bộ của hình hoặc muốn chỉnh sửa hình học của nó. Áp dụng các đường đã chỉnh sửa qua [SetGeometryPath](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypath/) hoặc [SetGeometryPaths](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/setgeometrypaths/).
 
-SharedPtr<IGeometryPath> originalPath = shape->GetGeometryPaths()->idx_get(0);
-originalPath->set_FillMode(PathFillModeType::None);
+## **Chuyển GeometryPath sang GraphicsPath**
 
-SharedPtr<Drawing2D::GraphicsPath> graphicsPath = System::MakeObject<Drawing2D::GraphicsPath>();
-graphicsPath->AddString(u"Text in shape", System::MakeObject<FontFamily>(u"Arial"), 1, 40.0f, PointF(10.0f, 10.0f), StringFormat::get_GenericDefault());
-
-SharedPtr<IGeometryPath> textPath = ShapeUtil::GraphicsPathToGeometryPath(graphicsPath);
-textPath->set_FillMode(PathFillModeType::Normal);
-
-shape->SetGeometryPaths(System::MakeArray<SharedPtr<IGeometryPath>>({ originalPath, textPath }));
-```
-
-![example5_image](custom_shape_5.png)
+API công cộng hiện tại của Aspose.Slides cho C++ không cung cấp chuyển đổi giữa các đường hình học và các đường đồ họa. Để kiểm tra một đường viền, hãy sử dụng các thành phần hình như mô tả ở trên. Để chỉnh sửa một hình, sử dụng các đường hình học và áp dụng các đường đã cập nhật cho hình.
 
 ## **Câu hỏi thường gặp**
 
-**Điều gì sẽ xảy ra với phần tô và đường viền sau khi thay thế hình học?**
+**Điều gì sẽ xảy ra với màu nền và viền sau khi thay thế hình học?**
 
-Kiểu dáng vẫn giữ nguyên với hình; chỉ đường viền thay đổi. Phần tô và đường viền sẽ tự động được áp dụng cho hình học mới.
+Kiểu dáng vẫn giữ nguyên trên hình; chỉ có đường viền thay đổi. Màu nền và viền sẽ tự động áp dụng cho hình học mới.
 
-**Làm thế nào để quay đúng một hình dạng tùy chỉnh cùng với hình học của nó?**
+**Làm thế nào để xoay đúng một hình tùy chỉnh cùng với hình học của nó?**
 
-Sử dụng thuộc tính [rotation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shape/set_rotation/) của hình; hình học sẽ quay cùng với hình vì nó được gắn vào hệ tọa độ của chính hình.
+Sử dụng phương thức [set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_rotation/) của hình; hình học sẽ xoay cùng với hình vì nó được gắn vào hệ tọa độ của chính hình.
 
-**Tôi có thể chuyển đổi một hình dạng tùy chỉnh thành ảnh để "khóa" kết quả không?**
+**Tôi có thể chuyển một hình tùy chỉnh thành hình ảnh để “khóa” kết quả không?**
 
-Có. Xuất vùng [slide](/slides/vi/cpp/convert-powerpoint-to-png/) cần thiết hoặc chính [shape](/slides/vi/cpp/create-shape-thumbnails/) ra định dạng raster; điều này làm cho việc làm việc với các hình học phức tạp trở nên đơn giản hơn.
+Có. Xuất vùng [slide](/slides/vi/cpp/convert-powerpoint-to-png/) cần thiết hoặc chính [shape](/slides/vi/cpp/shape-thumbnails/) sang định dạng raster; cách này đơn giản hoá công việc với các hình học phức tạp.

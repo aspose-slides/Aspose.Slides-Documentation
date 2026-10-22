@@ -1,369 +1,435 @@
 ---
-title: شكل مخصص
+title: تخصيص أشكال العروض التقديمية في JavaScript
+linktitle: شكل مخصص
 type: docs
 weight: 20
 url: /ar/nodejs-java/custom-shape/
 keywords:
-- شكل
 - شكل مخصص
+- إضافة شكل
 - إنشاء شكل
-- هندسة
+- تغيير شكل
 - هندسة الشكل
 - مسار الهندسة
 - نقاط المسار
-- نقاط التحرير
+- نقاط تحرير
+- إضافة نقطة
+- إزالة نقطة
+- عملية تحرير
+- زاوية منحنية
 - PowerPoint
 - عرض تقديمي
-- جافا سكريبت
-- Aspose.Slides لـ Node.js عبر Java
-description: "إضافة شكل مخصص إلى عرض تقديمي PowerPoint باستخدام جافا سكريبت"
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إنشاء وتخصيص الأشكال في عروض PowerPoint التقديمية باستخدام JavaScript و Aspose.Slides لـ Node.js: مسارات الهندسة، زوايا منحنية، أشكال مركبة."
 ---
+## **نظرة عامة**
+
+تشرح هذه المقالة كيفية تخصيص أشكال العروض التقديمية في Aspose.Slides عن طريق تحرير هندسة الشكل من خلال نقاط التحرير ومسارات الهندسة. تُظهر كيفية العمل مع [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) لتعديل الأشكال الموجودة، إجراء عمليات تحرير أساسية للمسار، إضافة أو إزالة نقاط، وتطبيق الهندسة المحدثة مرة أخرى على الشكل.
+
+كما توضح كيفية إنشاء أشكال مخصصة ومركبة، بناء أشكال ذات زوايا منحنية، تحديد ما إذا كانت هندسة الشكل مغلقة، فحص عناصر الشكل، وتحويل مخططات النص في Java AWT إلى مسارات هندسية.
 
 ## **تغيير شكل باستخدام نقاط التحرير**
 
-تخيل مربعًا. في PowerPoint، باستخدام **نقاط التحرير**، يمكنك
+في PowerPoint، يمكنك استخدام **نقاط التحرير** لتعديل مربع:
 
-* تحريك زاوية المربع إلى الداخل أو الخارج
-* تحديد الانحناء لزاوية أو نقطة
-* إضافة نقاط جديدة إلى المربع
-* معالجة النقاط على المربع، إلخ.
+* تحريك زاوية إلى الداخل أو الخارج.
+* ضبط الانحناء عند نقطة.
+* إضافة نقاط جديدة.
 
-بشكل عام، يمكنك تنفيذ المهام الموصوفة على أي شكل. باستخدام نقاط التحرير، يمكنك تغيير شكل أو إنشاء شكل جديد من شكل موجود.
+تتيح لك تحرير النقاط تعديل حدود الشكل أو استخدام شكل موجود كأساس لآخر جديد.
 
-## **نصائح تحرير الأشكال**
+## **نصائح تحرير الشكل**
 
 ![overview_image](custom_shape_0.png)
 
-قبل الشروع في تحرير أشكال PowerPoint عبر نقاط التحرير، قد ترغب في مراعاة هذه النقاط حول الأشكال:
+عند تحرير أشكال PowerPoint، ضع في اعتبارك المفاهيم التالية:
 
 * يمكن أن يكون الشكل (أو مساره) مغلقًا أو مفتوحًا.
-* عندما يكون الشكل مغلقًا، لا يوجد له نقطة بداية أو نهاية. عندما يكون الشكل مفتوحًا، يكون له بداية ونهاية.
-* جميع الأشكال تتكون من نقطتي تثبيت على الأقل مرتبطة ببعضها عبر خطوط
-* الخط إما مستقيم أو منحني. تحدد نقاط التثبيت طبيعة الخط.
-* نقاط التثبيت وجودها كنقاط زاوية، أو نقاط مستقيمة، أو نقاط ناعمة:
-  * نقطة الزاوية هي نقطة يلتقي فيها خطان مستقيران بزاوية.
-  * نقطة ناعمة هي نقطة يوجد فيها مقبضان على خط مستقيم وتلتقي مقاطع الخط في انحناء سلس. في هذه الحالة، تكون جميع المقابض مفصولة عن نقطة التثبيت بمسافة متساوية.
-  * نقطة مستقيمة هي نقطة يوجد فيها مقبضان على خط مستقيم وتلتقي مقاطع الخط في انحناء سلس. في هذه الحالة، لا يلزم أن تكون المقابض مفصولة عن نقطة التثبيت بمسافة متساوية.
-* عن طريق تحريك أو تحرير نقاط التثبيت (التي تغير زاوية الخطوط)، يمكنك تعديل مظهر الشكل.
+* يتكون مسار الشكل من نقاط ارتساء متصلة بقطاعات.
+* يمكن أن تكون القطعة مستقيمة أو منحنية. تحدد نقاط الارتساء ومقابض التحكم شكلها.
+* توجد نقاط الارتساء كالنقاط الزاوية، أو النقاط المستقيمة، أو النقاط السلسة:
+  * في نقطة زاوية، يمكن للقطاعات المتجاورة أن تلتقي بزاوية.
+  * في نقطة سلسة، تكون مقابض التحكم محاذية ومتساوية البعد عن نقطة الارتساء.
+  * في نقطة مستقيمة، تكون مقابض التحكم محاذية لكن يمكن أن تكون بأبعاد مختلفة عن نقطة الارتساء.
+* تحريك نقاط الارتساء أو تعديل مقبضاتها يغير حدود الشكل.
 
-لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** فئة [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) وفئة [**GeometryPath**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
+لتحرير أشكال PowerPoint عبر نقاط التحرير، توفر **Aspose.Slides** فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-* تمثل مثيلة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) مسار هندسي لكائن [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape).
-* لاسترجاع `GeometryPath` من مثيلة `GeometryShape`، يمكنك استخدام طريقة [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--) .
-* لتعيين `GeometryPath` لشكل، يمكنك استخدام هذه الطرق: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setGeometryPath-aspose.slides.IGeometryPath-) للأشكال *الصلبة* و[GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape#setGeometryPaths-aspose.slides.IGeometryPath:A-) للأشكال *المركبة*.
-* لإضافة مقاطع، يمكنك استخدام الطرق الموجودة تحت [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
-* باستخدام طرق [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath#setStroke-boolean-) و[GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath#setFillMode-byte-) يمكنك تعيين مظهر المسار الهندسي.
-* باستخدام طريقة [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath#getPathData--) يمكنك استرجاع المسار الهندسي لـ `GeometryShape` كمصفوفة من مقاطع المسار.
-* للوصول إلى خيارات تخصيص هندسة الشكل الإضافية، يمكنك تحويل [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* استخدم طرق [geometryPathToGraphicsPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-aspose.slides.IGeometryPath-) و[graphicsPathToGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (من فئة [ShapeUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil)) لتحويل [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) إلى [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) والعكس.
+* تمثل إحدى حالات [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) مسار هندسي لكائن [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
+* لاسترداد [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) من كائن [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)، يمكنك استخدام طريقة [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
+* لتعيين [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) لشكل، يمكنك استخدام هذه الطرق: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) للأشكال ذات المسار الواحد و[GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) للأشكال ذات المسارات المتعددة.
+* لإضافة قطاعات، يمكنك استخدام الطرق الموجودة تحت [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* باستخدام الطريقتين [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) و[GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode)، يمكنك تحديد مظهر مسار الهندسة.
+* باستخدام طريقة [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData)، يمكنك استرجاع مسار الهندسة لكائن [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) كمصفوفة من قطاعات المسار.
+* للوصول إلى خيارات تخصيص إضافية لهندسة الشكل، يمكنك قراءة كائن [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) عبر ما يعرف بـ [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) وإعادة تشغيل القطاعات على [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 ## **عمليات تحرير بسيطة**
 
-يظهر لك هذا الشيفرة JavaScript كيفية
+استخدم الطرق التالية لتحرير مسار هندسي. التحميلات التي تقبل فهرسًا تُدرج قطاعًا في ذلك الموضع الصفري‑الأساس في مصفوفة قطاعات المسار.
 
-**إضافة خط** إلى نهاية المسار
+| عملية | طريقة |
+| --- | --- |
+| إلحاق أو إدراج خط مستقيم. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
+| إلحاق أو إدراج منحنى بيزيه مكعب مع نقطتي تحكم ونقطة نهاية. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| إلحاق أو إدراج منحنى بيزيه تربيعي مع نقطة تحكم واحدة ونقطة نهاية. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| إلحاق قوس بيضاوي بالأبعاد والزوايا المحددة بالدرجة. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| إغلاق الشكل الحالي بربط نقطة النهاية بالنقطة البداية. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| تعيين نقطة البداية لشكل. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| إزالة قطاع عند فهرس صفري‑الأساس. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
+
+## **إضافة نقاط مخصصة إلى شكل**
+
+هذا المثال يدرج نقطتين في شكل مستطيل باستخدام [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) ويطبق المسار المعدل عبر [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). الإحداثيات محلية بالنسبة للشكل: كلا النقطتين الجديدتين في مركزه، 100 نقطة من اليسار و50 نقطة من الأعلى. الفهارس 1 و4 للقطاعات تضعهما على الحافتين العليا والسفلى، مما يسحب هاتين الحافتين إلى الداخل.
+
 ```javascript
-lineTo(point);
-lineTo(x, y);
-```
+const slides = require("aspose.slides.via.java");
 
-**إضافة خط** إلى موضع محدد على المسار:
-```javascript
-lineTo(point, index);
-lineTo(x, y, index);
-```
-
-**إضافة منحنى بيزيه مكعب** إلى نهاية المسار:
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-
-**إضافة منحنى بيزيه مكعب** إلى الموضع المحدد على المسار:
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-
-**إضافة منحنى بيزيه تربيعي** إلى نهاية المسار:
-```javascript
-quadraticBezierTo(point1, point2);
-quadraticBezierTo(x1, y1, x2, y2);
-```
-
-**إضافة منحنى بيزيه تربيعي** إلى موضع محدد على المسارع:
-```javascript
-quadraticBezierTo(point1, point2, index);
-quadraticBezierTo(x1, y1, x2, y2, index);
-```
-
-**إلحاق قوس معين** إلى مسار:
-```javascript
-arcTo(width, heigth, startAngle, sweepAngle);
-```
-
-**إغلاق الشكل الحالي** للمسار:
-```javascript
-closeFigure();
-```
-
-**تحديد الموقع للنقطة التالية**:
-```javascript
-moveTo(point);
-moveTo(x, y);
-```
-
-**إزالة مقطع المسار** عند فهرس معين:
-```javascript
-removeAt(index);
-```
-
-
-## **إضافة نقاط مخصصة إلى الشكل**
-
-1. إنشاء مثيلة من فئة [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) وضبط النوع إلى [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType).
-2. الحصول على مثيلة من فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) من الشكل.
-3. إضافة نقطة جديدة بين النقطتين العلويتين على المسار.
-4. إضافة نقطة جديدة بين النقطتين السُفْلَيتين على المسار.
-5. تطبيق المسار على الشكل.
-
-تظهر لك هذه الشيفرة JavaScript كيفية إضافة نقاط مخصصة إلى شكل:
-```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **إزالة نقاط من الشكل**
+## **إزالة نقاط من شكل**
 
-1. إنشاء مثيلة من فئة [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape) وضبط النوع إلى [ShapeType.Heart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeType).
-2. الحصول على مثيلة من فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) من الشكل.
-3. إزالة المقطع من المسار.
-4. تطبيق المسار على الشكل.
+هذا المثال يغير مخطط شكل على شكل قلب بإزالة القطاع عند الفهرس الصفري‑الأساس 2 عبر [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). تطبيق المسار المعدل عبر [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) يحدث حدود الشكل.
 
-تُظهر لك هذه الشيفرة JavaScript كيفية إزالة النقاط من الشكل:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
-    var path = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Heart, 100, 100, 300, 300);
+
+    const path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
 ## **إنشاء شكل مخصص**
 
-1. حساب النقاط للشكل.
-2. إنشاء مثيلة من فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
-3. تعبئة المسار بالنقاط.
-4. إنشاء مثيلة من فئة [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape).
-5. تطبيق المسار على الشكل.
+هذا المثال يبني نجمة خماسية باستخدام [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). نصفا القطر المتناوبين 100 و50 نقطة يحددان رؤوس الشكل وتعريجاته؛ خطوة 72 درجة توزع الرؤوس الخمسة بالتساوي. يُغلق المسار باستخدام [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) ويطبق على شكل مستطيل عبر [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath)، مستبدلاً مخططه الأصلي.
 
-تُظهر لك هذه الشيفرة JavaScript كيفية إنشاء شكل مخصص:
 ```javascript
-var points = java.newInstanceSync("java.util.ArrayList");
-var R = 100;
-var r = 50;
-var step = 72;
-for (var angle = -90; angle < 270; angle += step) {
-    var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
-    var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
-    radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
-    x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const points = [];
+const outerRadius = 100;
+const innerRadius = 50;
+const angleStep = 72;
+
+for (let angle = -90; angle < 270; angle += angleStep) {
+    let radians = angle * Math.PI / 180;
+    points.push({ x: outerRadius * Math.cos(radians) + outerRadius, y: outerRadius * Math.sin(radians) + outerRadius });
+    radians = (angle + angleStep / 2) * Math.PI / 180;
+    points.push({ x: innerRadius * Math.cos(radians) + outerRadius, y: innerRadius * Math.sin(radians) + outerRadius });
 }
-var starPath = new aspose.slides.GeometryPath();
-starPath.moveTo(points.get(0));
-for (var i = 1; i < points.size(); i++) {
-    starPath.lineTo(points.get(i));
+
+const starPath = new slides.GeometryPath();
+starPath.moveTo(java.newFloat(points[0].x), java.newFloat(points[0].y));
+for (let i = 1; i < points.length; i++) {
+    starPath.lineTo(java.newFloat(points[i].x), java.newFloat(points[i].y));
 }
 starPath.closeFigure();
-var pres = new aspose.slides.Presentation();
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **إنشاء شكل مكوّن مخصص**
+## **إنشاء شكل مدمج مخصص**
 
-1. إنشاء مثيلة من فئة [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape).
-2. إنشاء المثيلة الأولى من فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
-3. إنشاء المثيلة الثانية من فئة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath).
-4. تطبيق المسارات على الشكل.
+هذا المثال يعرّف مسارين مغلقين من نوع [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) للثلث العلوي والسفلي من الشكل. تطبيق المسارين معًا عبر [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) يُنشئ شكلًا مركبًا واحدًا به فجوة عبر الثلث الأوسط.
 
-تُظهر لك هذه الشيفرة JavaScript كيفية إنشاء شكل مكوّن مخصص:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath0 = new aspose.slides.GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-    var geometryPath1 = new aspose.slides.GeometryPath();
-    geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.GeometryPath",[geometryPath0, geometryPath1]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const topPath = new slides.GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3));
+    topPath.lineTo(0, java.newFloat(shape.getHeight() / 3));
+    topPath.closeFigure();
+
+    const bottomPath = new slides.GeometryPath();
+    bottomPath.moveTo(0, java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [topPath, bottomPath]);
+    shape.setGeometryPaths(paths);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
 ## **إنشاء شكل مخصص بزوايا منحنية**
 
-تظهر لك هذه الشيفرة JavaScript كيفية إنشاء شكل مخصص بزوايا منحنية ( إلى الداخل);
+هذا المثال يجمع قطاعات مستقيمة مع [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) لإنشاء شكل ذو زوايا منحنية للداخل. كل حجم زاوية يحدد عرض وارتفاع القوس بالنقاط، والالتفاف -90 درجة يرسم ربع إهليلجية في الاتجاه العكسى لعقارب الساعة. يُطبق المسار المكتمل عبر [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath)، ثم يُحفظ العرض التقديمي بصيغة PPTX.
+
 ```javascript
-var shapeX = 20.0;
-var shapeY = 20.0;
-var shapeWidth = 300.0;
-var shapeHeight = 200.0;
-var leftTopSize = 50.0;
-var rightTopSize = 20.0;
-var rightBottomSize = 40.0;
-var leftBottomSize = 10.0;
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const shapeX = 20;
+const shapeY = 20;
+const shapeWidth = 300;
+const shapeHeight = 200;
+
+const leftTopSize = 50;
+const rightTopSize = 20;
+const rightBottomSize = 40;
+const leftBottomSize = 10;
+
+const presentation = new slides.Presentation();
 try {
-    var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-    var geometryPath = new aspose.slides.GeometryPath();
-    var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftTopSize, 0);
-    var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth - rightTopSize, 0);
-    var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftBottomSize, shapeHeight);
-    var point5 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 0, leftTopSize);
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    const geometryPath = new slides.GeometryPath();
+    geometryPath.moveTo(leftTopSize, 0);
+    geometryPath.lineTo(shapeWidth - rightTopSize, 0);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(shapeWidth, shapeHeight - rightBottomSize);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(leftBottomSize, shapeHeight);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(0, leftTopSize);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
     geometryPath.closeFigure();
-    childShape.setGeometryPath(geometryPath);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.setGeometryPath(geometryPath);
+
+    presentation.save("output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **معرفة ما إذا كانت هندسة الشكل مغلقة**
 
-## **اكتشاف ما إذا كانت هندسة الشكل مغلقة**
+تتحقق الدالة المساعدة التالية مما إذا كان كل مسار هندسي غير فارغ ينتهي بقطاع إغلاق. تقرأ [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) وتقارن أمر القطاع الأخير عبر [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) مع [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). تُعيد false عندما لا توجد مسارات غير فارغة. يتحقق من الأمر النهائي لكل مسار؛ لا يفحص كل شكل فرعي داخل المسار. يطبع المثال `true` لمستطيل.
 
-يُعرّف الشكل المغلق بأنه الشكل الذي تتصل جميع جوانبه، مكوّناً حدًا واحدًا دون فراغات. يمكن أن يكون هذا الشكل شكلًا هندسيًا بسيطًا أو مخططًا مخصصًا معقدًا. يوضح المثال البرمجي التالي كيفية التحقق مما إذا كانت هندسة الشكل مغلقة:
-```java
-function isGeometryClosed(geometryShape) 
-{
-    let isClosed = null;
-
-    geometryShape.getGeometryPaths().forEach(geometryPath => {
-        const pathData = geometryPath.getPathData();
-        const dataLength = pathData.length;
-
-        if (dataLength === 0) return;
-
-        const lastSegment = pathData[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() === aspose.slides.PathCommandType.Close;
-
-        if (!isClosed) return false;
-    });
-
-    return isClosed === true;
-}
-```
-
-
-## **تحويل GeometryPath إلى java.awt.Shape**
-
-1. إنشاء مثيلة من فئة [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryShape).
-2. إنشاء مثيلة من فئة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. تحويل مثيلة [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) إلى مثيلة [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/GeometryPath) باستخدام [ShapeUtil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeUtil).
-4. تطبيق المسارات على الشكل.
-
-تُظهر لك هذه الشيفرة JavaScript — تنفيذ للخطوات أعلاه — عملية تحويل **GeometryPath** إلى **GraphicsPath**:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+function isGeometryClosed(geometryShape) {
+    let hasNonemptyPath = false;
+    for (const geometryPath of geometryShape.getGeometryPaths()) {
+        const segments = geometryPath.getPathData();
+        if (segments.length === 0) {
+            continue;
+        }
+        hasNonemptyPath = true;
+        const lastSegment = segments[segments.length - 1];
+        if (lastSegment.getPathCommand() !== slides.PathCommandType.Close) {
+            return false;
+        }
+    }
+    return hasNonemptyPath;
+}
+
+const presentation = new slides.Presentation();
 try {
-    // إنشاء شكل جديد
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);
-    // الحصول على مسار الهندسة للشكل
-    var originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(aspose.slides.PathFillModeType.None);
-    // إنشاء مسار رسومي جديد مع النص
-    var graphicsPath;
-    var font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
-    var text = "Text in shape";
-    var img = java.newInstanceSync("BufferedImage", 100, 100, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
-    var g2 = img.createGraphics();
-    try {
-        var glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20.0, -glyphVector.getVisualBounds().getY() + 10);
-    } finally {
-        g2.dispose();
-    }
-    // تحويل المسار الرسومي إلى مسار هندسي
-    var textPath = aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(aspose.slides.PathFillModeType.Normal);
-    // تعيين دمج مسار الهندسة الجديد مع مسار الهندسة الأصلي إلى الشكل
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.IGeometryPath", [originalPath, textPath]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const closed = isGeometryClosed(shape);
+    console.log(closed);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **استخراج وفحص عناصر الشكل**
+
+استخدم [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) لفحص شكل موجود كعناصر تحتوي نقاط المسار وأنواع النقاط. استخدم كل [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) مُسترد للحصول على مصفوفات النقاط والأنواع عبر طريقتي [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) و[getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). هذا التمثيل مفيد لتحليل الحدود أو لتمرير الهندسة إلى أدوات رسم مخصصة.
+
+يفتح المثال ملف input.pptx، يجد أول شكل هندسي مباشرةً على الشريحة الأولى، ويطبع قطاعات مساره. استخدم عرضًا يحتوي على شكل به قطاعات مستقيمة ومنحنية لرؤية كلا النوعين من الإخراج. لا يبحث داخل المجموعات.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    let shape = null;
+    for (let index = 0; index < slide.getShapes().size(); index++) {
+        const candidate = slide.getShapes().get_Item(index);
+        if (java.instanceOf(candidate, "com.aspose.slides.GeometryShape")) {
+            shape = candidate;
+            break;
+        }
+    }
+
+    if (shape == null) {
+        console.log("No geometry shape found on the first slide.");
+    } else {
+        for (const shapeElement of shape.createShapeElements()) {
+            const points = shapeElement.getPathPoints();
+            const types = shapeElement.getPathTypes();
+            console.log("Shape element:");
+
+            for (let i = 0; i < points.length; i++) {
+                const pointType = types[i] & 0x07; // احتفظ بنوع القطعة، مستثنياً العلامات.
+                switch (pointType) {
+                    case 0:
+                        console.log("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        console.log("Line to " + points[i]);
+                        break;
+                    case 3:
+                        console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // استهلك نقطتي التحكم والنقطة النهاية.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    console.log("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+المصفوفات تتطابق حسب الفهرس: `points[i]` هي نقطة و`types[i]` تصف دورها. النوع `0` يبدأ الشكل، والنوع `1` يرسم خطًا من النقطة السابقة إلى الحالية. يبدأ قطاع بيزيه مكعب من النقطة السابقة ويستخدم ثلاث مداخل من النوع `3` متتالية: نقطتا تحكم ثم نقطة النهاية الجديدة. يستهلك الحلقة هذه المداخل الثلاثة معًا ويفحص نقطة النهاية للإغلاق.
+
+تحتوي أنواع النقاط أيضًا على علامات. استخدم القناع `0x07` لتحديد نوع القطاع، واختبر `0x80` منفصلًا لاكتشاف مسار فرعي مغلق. على سبيل المثال، `129` (`0x81`) يعني نقطة نهاية خط تغلق مسارًا فرعيًا، و`131` (`0x83`) يعني نقطة نهاية بيزيه تغلق واحدًا. تخزن Java هذه العلامات في بايتات موقعة؛ القناع يحافظ على قيم البت المقصودة. مقارنة القيمة الخام فقط بـ `1` أو `3` سيغفل هذه الحالات. العلامات الأخرى، مثل الشرط (`0x10`) والعلامة (`0x20`)، لا تغير نوع القطاع الأساسي.
+
+**الإحداثيات والتحويلات.** تُقاس النقاط بوحدات النقطة (1/72 بوصة)، حيث X يزداد نحو اليمين وY يزداد نحو الأسفل. بالنسبة لشكل غير مجموعة، تتضمن الإحداثيات المستخرجة بالفعل الموقع المرجع من [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) و[getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) وتعكس عرضه وارتفاعه الحاليين. على سبيل المثال، مستطيل غير مدوَّر عند `(100, 200)` بحجم `120 × 80` له حدود ` (100, 200)`–`(220, 280)`. لا تُضيف موقع الشكل مرة أخرى. اطرح X وY للحصول على إحداثيات نسبية لإطار الشكل غير المدوَّر.
+
+لا تُطبق النقاط المستخرجة دوران الشكل المُسترجع عبر [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation) أو الانعكاس الأفقي والعمودي. لإعادة إنتاج الحد المعروض، طبّق تلك التحويلات حول مركز الشكل. بالنسبة للأشكال المجمعة، احسب أيضًا تحويلات وإسقاطات إحداثيات المجموعة؛ لا تفترض أن النقاط المستخرجة هي إحداثيات الشريحة النهائية أو أن تُطبق ترجمة أو مقياسًا مرتين إذا كان ذلك مُعكسًا بالفعل في إطار العنصر.
+
+**الفحص مقابل التحرير.** تصف المصفوفات المستخرجة الحد؛ تعديلها لا يُحدّث الشكل الأصلي. اختر هذا النهج عندما تحتاج إلى مصفوفات نقطة/نوع في تحليل أو كود رسم. استخدم [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) عندما تحتاج إلى أوامر هندسية في نظام إحداثيات الشكل المحلي أو تريد تحرير هندسته. طبّق المسارات المعدلة عبر [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) أو [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+
+## **تحويل شكل Java AWT إلى GeometryPath**
+
+هذا المثال يجمع مخططًا مستطيلًا مع نص محوَّل إلى هندسة. تُعطل طريقة [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) ملء المخطط. يُنشئ كائن [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) مخطط النص في [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). يزود [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) المتحرك بقطاعات move وline وquadratic وcubic وإغلاق، التي يُعيد المثال تشغيلها على [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+
+يستخدم الجسر Java قيم float وbyte صريحة للمعلمات المقابلة في Java. يكتب المكرِّر الإحداثيات في مصفوفة float Java؛ يقرأ الانعكاس قيمها المحدثة مرة أخرى إلى JavaScript. يستخدم النص خط Arial بحجم 40 نقطة. يُزاح المخطط 20 نقطة أفقيًا ويُوضَع أعلىه البصري 10 نقاط أسفل الحافة العلوية للشكل. يُملأ مسار النص، بينما يبقى المستطيل الأصلي مخططًا. تطبيق المسارين معًا عبر [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) ينتج شكلًا واحدًا يحتوي على المستطيل والنص.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 300, 100);
+    
+    const originalPath = shape.getGeometryPaths()[0];
+    originalPath.setFillMode(java.newByte(slides.PathFillModeType.None));
+
+    const font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
+    const image = java.newInstanceSync("java.awt.image.BufferedImage", 100, 100, java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
+    const graphics = image.createGraphics();
+    let graphicsPath;
+    try {
+        const fontContext = graphics.getFontRenderContext();
+        const glyphVector = font.createGlyphVector(fontContext, "Text in shape");
+        const textBounds = glyphVector.getVisualBounds();
+        const baseline = java.newFloat(-textBounds.getY() + 10);
+        graphicsPath = glyphVector.getOutline(java.newFloat(20), baseline);
+    } finally {
+        graphics.dispose();
+    }
+
+    const textPath = new slides.GeometryPath();
+    const pathIterator = graphicsPath.getPathIterator(null);
+    const coordinates = java.newArray("float", [0, 0, 0, 0, 0, 0]);
+
+    while (!pathIterator.isDone()) {
+        const segmentType = pathIterator.currentSegment(coordinates);
+        const points = [];
+        for (let i = 0; i < 6; i++) {
+            const coordinate = java.callStaticMethodSync("java.lang.reflect.Array", "getFloat", coordinates, i);
+            points.push(java.newFloat(coordinate));
+        }
+        switch (segmentType) {
+            case 0: // تحريك إلى.
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case 1: // خط إلى.
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case 2: // منحنى بيزيه تربيعي.
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case 3: // منحنى بيزيه مكعب.
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case 4: // إغلاق الشكل.
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+    textPath.setFillMode(java.newByte(slides.PathFillModeType.Normal));
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [originalPath, textPath]);
+    shape.setGeometryPaths(paths);
+} finally {
+    presentation.dispose();
+}
+```
 ![example5_image](custom_shape_5.png)
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**ماذا سيحدث للملء والحدود بعد استبدال الهندسة؟**
+**ماذا يحدث للملء والحد بعد استبدال الهندسة؟**
 
-يبقى النمط مع الشكل؛ يتغير فقط الحدود. يتم تطبيق الملء والحدود تلقائيًا على الهندسة الجديدة.
+يبقى النمط مرتبطًا بالشكل؛ يتغير الحد فقط. يُطبق الملء والحد تلقائيًا على الهندسة الجديدة.
 
-**كيف أقوم بتدوير شكل مخصص مع هندسته بشكل صحيح؟**
+**كيف يمكنني تدوير شكل مخصص مع هندسته بشكل صحيح؟**
 
-استخدم طريقة [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/setrotation/) الخاصة بالشكل؛ تدور الهندسة مع الشكل لأنها مرتبطة بنظام إحداثيات الشكل نفسه.
+استخدم طريقة [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) الخاصة بالشكل؛ الهندسة تدور مع الشكل لأنها مرتبطة بنظام إحداثياته.
 
-**هل يمكنني تحويل الشكل المخصص إلى صورة لتثبيت النتيجة؟**
+**هل يمكنني تحويل شكل مخصص إلى صورة لتثبيت النتيجة؟**
 
-نعم. صدّر المنطقة المطلوبة من الـ[شريحة](/slides/ar/nodejs-java/convert-powerpoint-to-png/) أو الـ[شكل](/slides/ar/nodejs-java/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ هذا يبسط العمل اللاحق مع الهندسات الكبيرة.
+نعم. صدّر الـ[الشريحة](/slides/ar/nodejs-java/convert-powerpoint-to-png/) أو الـ[الشكل](/slides/ar/nodejs-java/create-shape-thumbnails/) نفسه إلى تنسيق نقطي؛ هذا يبسط العمل مع الهندسات المعقدة لاحقًا.

@@ -6,375 +6,430 @@ weight: 20
 url: /sv/nodejs-java/custom-shape/
 keywords:
 - anpassad form
-- lägga till form
+- lägg till form
 - skapa form
 - ändra form
 - formgeometri
-- geometribana
+- geometrisk bana
 - banpunkter
 - redigera punkter
-- lägga till punkt
+- lägg till punkt
 - ta bort punkt
 - redigeringsoperation
-- kurvat hörn
+- böjt hörn
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Skapa och anpassa former i PowerPoint-presentationer med JavaScript och Aspose.Slides för Node.js: geometribanor, kurvade hörn, sammansatta former."
+description: "Skapa och anpassa former i PowerPoint-presentationer med JavaScript och Aspose.Slides för Node.js: geometriska banor, böjda hörn, sammansatta former."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri med redigeringspunkter och geometriska banor. Den visar hur man arbetar med `GeometryPath` för att ändra befintliga former, utföra enkla redigeringsoperationer på banor, lägga till eller ta bort punkter och applicera uppdaterad geometri tillbaka på en form.
+Den här artikeln förklarar hur man anpassar presentationsformer i Aspose.Slides genom att redigera formgeometri via redigeringspunkter och geometriska banor. Den visar hur man arbetar med [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) för att ändra befintliga former, utföra grundläggande redigeringsoperationer, lägga till eller ta bort punkter och tillämpa uppdaterad geometri på en form.
 
-Den visar också hur man skapar anpassade och sammansatta former, bygger former med kurvade hörn, avgör om en formgeometri är sluten, och konverterar mellan `GeometryPath` och `java.awt.Shape` för ytterligare scenarier för geometrianpassning.
+Den visar också hur man skapar anpassade och sammansatta former, bygger former med böjda hörn, avgör huruvida en formgeometri är sluten, inspekterar formelement och konverterar Java AWT-textkonturer till geometriska banor.
 
 ## **Ändra en form med redigeringspunkter**
 
-Tänk dig en kvadrat. I PowerPoint, med **redigeringspunkter**, kan du
+I PowerPoint kan du använda **Edit Points** för att ändra en fyrkant:
 
-* flytta kvadratens hörn inåt eller utåt
-* ange krökning för ett hörn eller en punkt
-* lägga till nya punkter på kvadraten
-* manipulera punkter på kvadraten osv. 
+* Flytta ett hörn inåt eller utåt.
+* Justera krökningen på en punkt.
+* Lägg till nya punkter.
 
-I grund och botten kan du utföra de beskrivna uppgifterna på vilken form som helst. Med redigeringspunkter kan du förändra en form eller skapa en ny form från en befintlig form. 
+Att redigera punkter låter dig förändra en formes kontur eller använda en befintlig form som grund för en ny.
 
 ## **Tips för formredigering**
 
 ![overview_image](custom_shape_0.png)
 
-Innan du börjar redigera PowerPoint‑former med redigeringspunkter kan du vilja ta hänsyn till följande punkter om former:
+När du redigerar PowerPoint‑former, håll dessa begrepp i åtanke:
 
 * En form (eller dess bana) kan antingen vara sluten eller öppen.
-* När en form är sluten saknar den en start- eller slutpunkt. När en form är öppen har den en början och ett slut. 
-* Alla former består av minst två förankringspunkter som är länkade till varandra med linjer
-* En linje är antingen rak eller kurvad. Förankringspunkter bestämmer linjens karaktär. 
-* Förankringspunkter finns som hörnpunkter, raka punkter eller mjuka punkter:
-  * En hörnpunkt är en punkt där två raka linjer möts i en vinkel. 
-  * En mjuk punkt är en punkt där två handtag finns på en rak linje och linjesegmenten möts i en mjuk kurva. I detta fall är alla handtag placerade på samma avstånd från förankringspunkten. 
-  * En rak punkt är en punkt där två handtag finns på en rak linje och linjesegmenten möts i en rak linje. I detta fall behöver handtagen inte vara placerade på lika avstånd från förankringspunkten. 
-* Genom att flytta eller redigera förankringspunkter (vilket ändrar linjernas vinklar) kan du ändra hur en form ser ut. 
+* En formens bana består av ankarpunkter som är kopplade med segment.
+* Ett segment kan vara rakt eller kurvat. Ankarpunkter och kontrollhandtag bestämmer dess form.
+* Ankarpunkter finns som hörnpunkter, raka punkter eller släta punkter:
+  * Vid en hörnpunkt kan intilliggande segment mötas i en vinkel.
+  * Vid en slät punkt är de två kontrollhandtagen i linje och lika långt från ankpunkten.
+  * Vid en rak punkt är de två kontrollhandtagen i linje men kan ha olika avstånd från ankpunkten.
+* Att flytta ankarpunkter eller justera deras handtag förändrar formens kontur.
 
-För att redigera PowerPoint‑former med redigeringspunkter tillhandahåller **Aspose.Slides** klassen [**GeometryPath**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath) och klassen [**GeometryPath**](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath).
+För att redigera PowerPoint‑former via redigeringspunkter tillhandahåller **Aspose.Slides** klassen [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
-* En [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath)-instans representerar en geometribana för [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape)-objektet.
-* För att hämta `GeometryPath` från `GeometryShape`‑instansen kan du använda metoden [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape#getGeometryPaths--).
-* För att ange `GeometryPath` för en form kan du använda dessa metoder: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape#setGeometryPath-aspose.slides.IGeometryPath-) för *solida former* och [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape#setGeometryPaths-aspose.slides.IGeometryPath:A-) för *sammansatta former*.
-* För att lägga till segment kan du använda metoderna under [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath).
-* Genom att använda metoderna [GeometryPath.setStroke](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath#setStroke-boolean-) och [GeometryPath.setFillMode](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath#setFillMode-byte-) kan du ange utseendet för en geometribana.
-* Genom att använda metoden [GeometryPath.getPathData](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath#getPathData--) kan du hämta geometribanen för en `GeometryShape` som en array av bansegment.
-* För att få tillgång till ytterligare anpassningsalternativ för formgeometri kan du konvertera [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath) till [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)
-* Använd [geometryPathToGraphicsPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeUtil#geometryPathToGraphicsPath-aspose.slides.IGeometryPath-) och [graphicsPathToGeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (från klassen [ShapeUtil](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeUtil)) för att konvertera [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath) till [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) fram och tillbaka.
+* En [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑instans representerar en geometrisk bana för objektet [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/).
+* För att hämta [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) från [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/)‑instansen kan du använda metoden [GeometryShape.getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths).
+* För att ställa in [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/) för en form kan du använda dessa metoder: [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) för former med en enkel bana och [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) för former med flera banor.
+* För att lägga till segment kan du använda metoderna under [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+* Genom att använda metoderna [GeometryPath.setStroke](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setStroke) och [GeometryPath.setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode) kan du ange utseendet för en geometrisk bana.
+* Genom att använda metoden [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) kan du hämta geometrisk bana för en [GeometryShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/) som en array av segment.
+* För att komma åt ytterligare anpassningsalternativ för formgeometri kan du läsa ett [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) via dess [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) och återge segmenten på en [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
 
 ## **Enkla redigeringsoperationer**
 
-Denna JavaScript‑kod visar hur man
+Använd följande metoder för att redigera en geometrisk bana. Överlagringar som tar emot ett index infogar ett segment på den nollbaserade positionen i bana‑segmentarrayen.
 
-**Lägg till en linje** i slutet av en bana
-
-```javascript
-lineTo(point);
-lineTo(x, y);
-```
-**Lägg till en linje** på en angiven position på en bana:
-
-```javascript
-lineTo(point, index);
-lineTo(x, y, index);
-```
-**Lägg till en kubisk Bézier‑kurva** i slutet av en bana:
-
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-**Lägg till en kubisk Bézier‑kurva** på den angivna positionen på en bana:
-
-```javascript
-cubicBezierTo(point1, point2, point3);
-cubicBezierTo(x1, y1, x2, y2, x3, y3);
-```
-**Lägg till en kvadratisk Bézier‑kurva** i slutet av en bana:
-
-```javascript
-quadraticBezierTo(point1, point2);
-quadraticBezierTo(x1, y1, x2, y2);
-```
-**Lägg till en kvadratisk Bézier‑kurva** på en angiven position på en bana:
-
-```javascript
-quadraticBezierTo(point1, point2, index);
-quadraticBezierTo(x1, y1, x2, y2, index);
-```
-**Lägg till en given båge** till en bana:
-
-```javascript
-arcTo(width, heigth, startAngle, sweepAngle);
-```
-**Stäng den aktuella figuren** för en bana:
-
-```javascript
-closeFigure();
-```
-**Ange positionen för nästa punkt**:
-
-```javascript
-moveTo(point);
-moveTo(x, y);
-```
-**Ta bort bansegmentet** på ett givet index:
-
-```javascript
-removeAt(index);
-```
+| Operation | Metod |
+| --- | --- |
+| Lägg till eller infoga en rak linje. | [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) |
+| Lägg till eller infoga en kubisk Bézier-kurva med två kontrollpunkter och en slutpunkt. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#cubicBezierTo) |
+| Lägg till eller infoga en kvadratisk Bézier-kurva med en kontrollpunkt och en slutpunkt. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#quadraticBezierTo) |
+| Lägg till en elliptisk båge med angivna dimensioner och vinklar i grader. | [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) |
+| Stäng den aktuella figuren genom att ansluta dess slutpunkt till startpunkten. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) |
+| Ange startpunkten för en figur. | [GeometryPath.moveTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#moveTo) |
+| Ta bort ett segment vid ett nollbaserat index. | [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt) |
 
 ## **Lägg till anpassade punkter till en form**
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape) och sätt typen [ShapeType.Rectangle](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeType).
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath) från formen.
-3. Lägg till en ny punkt mellan de två översta punkterna på banan.
-4. Lägg till en ny punkt mellan de två nedersta punkterna på banan.
-5. Applicera banan på formen.
 
-Denna JavaScript‑kod visar hur man lägger till anpassade punkter till en form:
+Detta exempel infogar två punkter i en rektangulär form med hjälp av [GeometryPath.lineTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#lineTo) och tillämpar den redigerade banan med [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath). Koordinaterna är lokala för formen: båda nya punkterna ligger i dess centrum, 100 punkter från vänster och 50 punkter från toppen. Segmentindex 1 och 4 placerar dem på övre och nedre kanterna och drar dessa kanter inåt.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
 ![example1_image](custom_shape_1.png)
 
 ## **Ta bort punkter från en form**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape) och sätt typen [ShapeType.Heart](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeType).
-2. Hämta en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath) från formen.
-3. Ta bort segmentet för banan.
-4. Applicera banan på formen.
-
-Denna JavaScript‑kod visar hur man tar bort punkter från en form:
+Detta exempel ändrar en hjärtformad kontur genom att ta bort segmentet vid nollbaserat index 2 med [GeometryPath.removeAt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#removeAt). Att tillämpa den modifierade banan med [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) uppdaterar formens kontur.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Heart, 100, 100, 300, 300);
-    var path = shape.getGeometryPaths()[0];
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Heart, 100, 100, 300, 300);
+
+    const path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example2_image](custom_shape_2.png)
 
-## **Skapa anpassad form**
+## **Skapa en anpassad form**
 
-1. Beräkna punkterna för formen.
-2. Skapa en instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath).
-3. Fyll banan med punkterna.
-4. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape).
-5. Applicera banan på formen.
-
-Denna JavaScript‑kod visar hur man skapar en anpassad form:
+Detta exempel bygger en femspetsig stjärna med [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/). Växlande yttre och inre radier på 100 respektive 50 punkter definierar spetsarna och indragningarna; ett steg på 72 grader placerar de fem spetsarna jämnt. Banen stängs med [GeometryPath.closeFigure](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#closeFigure) och tillämpas på en rektangulär form med [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath), vilket ersätter dess kontur.
 
 ```javascript
-var points = java.newInstanceSync("java.util.ArrayList");
-var R = 100;
-var r = 50;
-var step = 72;
-for (var angle = -90; angle < 270; angle += step) {
-    var radians = angle * (java.getStaticFieldValue("java.lang.Math", "PI") / 180.0);
-    var x = R * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    var y = R * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
-    radians = (java.getStaticFieldValue("java.lang.Math", "PI") * (angle + (step / 2))) / 180.0;
-    x = r * java.callStaticMethodSync("java.lang.Math", "cos", radians);
-    y = r * java.callStaticMethodSync("java.lang.Math", "sin", radians);
-    points.add(java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(x + R), java.newFloat(y + R)));
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const points = [];
+const outerRadius = 100;
+const innerRadius = 50;
+const angleStep = 72;
+
+for (let angle = -90; angle < 270; angle += angleStep) {
+    let radians = angle * Math.PI / 180;
+    points.push({ x: outerRadius * Math.cos(radians) + outerRadius, y: outerRadius * Math.sin(radians) + outerRadius });
+    radians = (angle + angleStep / 2) * Math.PI / 180;
+    points.push({ x: innerRadius * Math.cos(radians) + outerRadius, y: innerRadius * Math.sin(radians) + outerRadius });
 }
-var starPath = new aspose.slides.GeometryPath();
-starPath.moveTo(points.get(0));
-for (var i = 1; i < points.size(); i++) {
-    starPath.lineTo(points.get(i));
+
+const starPath = new slides.GeometryPath();
+starPath.moveTo(java.newFloat(points[0].x), java.newFloat(points[0].y));
+for (let i = 1; i < points.length; i++) {
+    starPath.lineTo(java.newFloat(points[i].x), java.newFloat(points[i].y));
 }
 starPath.closeFigure();
-var pres = new aspose.slides.Presentation();
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example3_image](custom_shape_3.png)
 
+## **Skapa en sammansatt anpassad form**
 
-## **Skapa sammansatt anpassad form**
-
-  1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape).
-  2. Skapa en första instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath).
-  3. Skapa en andra instans av klassen [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath).
-  4. Applicera banorna på formen.
-
-Denna JavaScript‑kod visar hur man skapar en sammansatt anpassad form:
+Detta exempel definierar två stängda [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/)‑objekt för den övre och nedre tredjedelen av en form. Att tillämpa båda banorna med [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) skapar en enda sammansatt form med ett mellanrum över dess mittersta tredjedel.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 200, 100);
-    var geometryPath0 = new aspose.slides.GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight() / 3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
-    var geometryPath1 = new aspose.slides.GeometryPath();
-    geometryPath1.moveTo(0, (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), (shape.getHeight() / 3) * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.GeometryPath",[geometryPath0, geometryPath1]));
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
+
+    const topPath = new slides.GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3));
+    topPath.lineTo(0, java.newFloat(shape.getHeight() / 3));
+    topPath.closeFigure();
+
+    const bottomPath = new slides.GeometryPath();
+    bottomPath.moveTo(0, java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), java.newFloat(shape.getHeight() / 3 * 2));
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [topPath, bottomPath]);
+    shape.setGeometryPaths(paths);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 ![example4_image](custom_shape_4.png)
 
-## **Skapa anpassad form med kurvade hörn**
+## **Skapa en anpassad form med böjda hörn**
 
-Denna JavaScript‑kod visar hur man skapar en anpassad form med kurvade hörn (inåt);
+Detta exempel kombinerar raka segment med [GeometryPath.arcTo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#arcTo) för att skapa en form med inåtböjda hörn. Varje hörnstorlek sätter bågens bredd och höjd i punkter, och -90‑gradssvepet ritar en moturs kvarts‑ellips. Den färdiga banan tillämpas med [GeometryShape.setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) och presentationen sparas i PPTX‑format.
 
 ```javascript
-var shapeX = 20.0;
-var shapeY = 20.0;
-var shapeWidth = 300.0;
-var shapeHeight = 200.0;
-var leftTopSize = 50.0;
-var rightTopSize = 20.0;
-var rightBottomSize = 40.0;
-var leftBottomSize = 10.0;
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+
+const shapeX = 20;
+const shapeY = 20;
+const shapeWidth = 300;
+const shapeHeight = 200;
+
+const leftTopSize = 50;
+const rightTopSize = 20;
+const rightBottomSize = 40;
+const leftBottomSize = 10;
+
+const presentation = new slides.Presentation();
 try {
-    var childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
-    var geometryPath = new aspose.slides.GeometryPath();
-    var point1 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftTopSize, 0);
-    var point2 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth - rightTopSize, 0);
-    var point3 = java.newInstanceSync("com.aspose.slides.Point2DFloat", shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = java.newInstanceSync("com.aspose.slides.Point2DFloat", leftBottomSize, shapeHeight);
-    var point5 = java.newInstanceSync("com.aspose.slides.Point2DFloat", 0, leftTopSize);
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    const geometryPath = new slides.GeometryPath();
+    geometryPath.moveTo(leftTopSize, 0);
+    geometryPath.lineTo(shapeWidth - rightTopSize, 0);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(shapeWidth, shapeHeight - rightBottomSize);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(leftBottomSize, shapeHeight);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(0, leftTopSize);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
     geometryPath.closeFigure();
-    childShape.setGeometryPath(geometryPath);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.setGeometryPath(geometryPath);
+
+    presentation.save("output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Ta reda på om en formgeometri är sluten**
 
-En sluten form definieras som en där alla sidor är sammanlänkade och bildar en enda omkrets utan hål. En sådan form kan vara en enkel geometrisk form eller en komplex anpassad kontur. Följande kodexempel visar hur man kontrollerar om en formgeometri är sluten:
+Följande hjälpfunktion kontrollerar om varje icke‑tom geometrisk bana avslutas med ett avslutningssegment. Den läser [GeometryPath.getPathData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#getPathData) och jämför det sista segmentets [PathSegment.getPathCommand](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathsegment/#getPathCommand) med [PathCommandType.Close](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pathcommandtype/). Den returnerar falskt när det inte finns några icke‑tomma banor. Detta kontrollerar det sista kommandot för varje bana; den inspekterar inte varje underfigur inom en bana. Exemplet skriver ut `true` för en rektangel.
 
-```java
-function isGeometryClosed(geometryShape) 
-{
-    let isClosed = null;
+```javascript
+const slides = require("aspose.slides.via.java");
 
-    geometryShape.getGeometryPaths().forEach(geometryPath => {
-        const pathData = geometryPath.getPathData();
-        const dataLength = pathData.length;
+function isGeometryClosed(geometryShape) {
+    let hasNonemptyPath = false;
+    for (const geometryPath of geometryShape.getGeometryPaths()) {
+        const segments = geometryPath.getPathData();
+        if (segments.length === 0) {
+            continue;
+        }
+        hasNonemptyPath = true;
+        const lastSegment = segments[segments.length - 1];
+        if (lastSegment.getPathCommand() !== slides.PathCommandType.Close) {
+            return false;
+        }
+    }
+    return hasNonemptyPath;
+}
 
-        if (dataLength === 0) return;
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
 
-        const lastSegment = pathData[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() === aspose.slides.PathCommandType.Close;
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 200, 100);
 
-        if (!isClosed) return false;
-    });
-
-    return isClosed === true;
+    const closed = isGeometryClosed(shape);
+    console.log(closed);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Konvertera GeometryPath till java.awt.Shape** 
+## **Extrahera och inspektera formelement**
 
-1. Skapa en instans av klassen [GeometryShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryShape).
-2. Skapa en instans av klassen [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-3. Konvertera [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html)-instansen till [GeometryPath](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/GeometryPath)-instansen med hjälp av [ShapeUtil](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/ShapeUtil).
-4. Applicera banorna på formen.
+Använd [GeometryShape.createShapeElements](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#createShapeElements) för att inspektera en befintlig form som element som innehåller banpunkter och punkttyper. Använd varje returnerad [ShapeElement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/) för att hämta punkt‑ och typ‑arrayerna via metoderna [getPathPoints](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathPoints) och [getPathTypes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapeelement/#getPathTypes). Denna representation är användbar för konturanalys eller för att vidarebefordra geometri till anpassade ritverktyg.
 
-Denna JavaScript‑kod—en implementering av stegen ovan—demonstrerar konverteringsprocessen från **GeometryPath** till **GraphicsPath**:
+Exemplet öppnar input.pptx, hittar den första geometriska formen direkt på den första bilden och skriver ut dess bansegment. Använd en presentation som innehåller en form med raka och kurvade segment för att se båda typerna av resultat. Det söker inte inuti grupper.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation("input.pptx");
 try {
-    // Skapa ny form
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 100);
-    // Hämta geometribana för formen
-    var originalPath = shape.getGeometryPaths()[0];
-    originalPath.setFillMode(aspose.slides.PathFillModeType.None);
-    // Skapa ny grafikbana med text
-    var graphicsPath;
-    var font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
-    var text = "Text in shape";
-    var img = java.newInstanceSync("BufferedImage", 100, 100, java.getStaticFieldValue("BufferedImage", "TYPE_INT_ARGB"));
-    var g2 = img.createGraphics();
-    try {
-        var glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20.0, -glyphVector.getVisualBounds().getY() + 10);
-    } finally {
-        g2.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    let shape = null;
+    for (let index = 0; index < slide.getShapes().size(); index++) {
+        const candidate = slide.getShapes().get_Item(index);
+        if (java.instanceOf(candidate, "com.aspose.slides.GeometryShape")) {
+            shape = candidate;
+            break;
+        }
     }
-    // Konvertera grafikbana till geometribana
-    var textPath = aspose.slides.ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
-    textPath.setFillMode(aspose.slides.PathFillModeType.Normal);
-    // Ställ in kombinationen av den nya geometribanen och den ursprungliga geometribanen på formen
-    shape.setGeometryPaths(java.newArray("com.aspose.slides.IGeometryPath", [originalPath, textPath]));
+
+    if (shape == null) {
+        console.log("No geometry shape found on the first slide.");
+    } else {
+        for (const shapeElement of shape.createShapeElements()) {
+            const points = shapeElement.getPathPoints();
+            const types = shapeElement.getPathTypes();
+            console.log("Shape element:");
+
+            for (let i = 0; i < points.length; i++) {
+                const pointType = types[i] & 0x07; // Behåll segmenttypen, exklusive flaggor.
+                switch (pointType) {
+                    case 0:
+                        console.log("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        console.log("Line to " + points[i]);
+                        break;
+                    case 3:
+                        console.log("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Consume both control points and the endpoint.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    console.log("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+Arrayerna motsvarar varandra via index: `points[i]` är en punkt och `types[i]` beskriver dess roll. Typ `0` startar en figur, och typ `1` ritar en linje från föregående punkt till den aktuella punkten. Ett kubiskt Bézier‑segment startar vid föregående slutpunkt och använder tre på varandra följande typ‑`3`‑poster: två kontrollpunkter följda av den nya slutpunkten. Loopen konsumerar dessa tre poster tillsammans och kontrollerar slutpunkten för stängning.
+
+Punkttyper innehåller också flaggor. Maskera med `0x07` för att identifiera segmenttypen och testa `0x80` separat för att upptäcka en sluten delbana. Till exempel betyder `129` (`0x81`) en linjeslutpunkt som stänger en delbana, och `131` (`0x83`) betyder en Bézier‑slutpunkt som stänger en sådan. Java lagrar dessa flaggor i signerade byte; maskning bevarar de avsedda bitvärdena. Att bara jämföra det råa värdet med `1` eller `3` skulle missa dessa fall. Andra flaggor, såsom streck (`0x10`) och markör (`0x20`), förändrar inte bassegmenttypen.
+
+**Koordinater och transformationer.** Punkter mäts i punkter (1/72 tum), där X ökar åt höger och Y ökar nedåt. För en icke‑grupperad form inkluderar de extraherade koordinaterna redan positionen som returneras av [getX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getX) och [getY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getY) och speglar dess aktuella bredd och höjd. Till exempel har en icke‑roterad rektangel på `(100, 200)` med storleken `120 × 80` konturboundaries `(100, 200)`–`(220, 280)`. Lägg inte till formens position igen. Subtrahera dess X och Y för att få koordinater relativt dess icke‑roterade ram.
+
+De extraherade punkterna tar inte hänsyn till formens rotation, som returneras av [getRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getRotation), eller horisontella och vertikala speglingar. För att reproducera den visade konturen, applicera dessa transformationer kring formens centrum. För grupperade former, ta också hänsyn till gruppens koordinatavbildning och transformationer; anta inte att de extraherade punkterna är de slutgiltiga renderade bildpunkterna eller applicera en förskjutning eller skalning två gånger om den redan återspeglas i barnets ram.
+
+**Inspektion kontra redigering.** Extraherade arrayer beskriver konturen; att ändra dem uppdaterar inte den ursprungliga formen. Välj detta tillvägagångssätt när din analys‑ eller ritkod behöver punkt‑/typ‑arrayer. Använd [getGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#getGeometryPaths) när du behöver geometrikommando i formens lokala koordinatsystem eller vill redigera dess geometri. Tillämpa redigerade banor via [setGeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPath) eller [setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths).
+
+## **Konvertera en Java AWT-form till GeometryPath**
+
+Detta exempel kombinerar en rektangulär kontur med text konverterad till geometri. Konturens [setFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/#setFillMode)‑metod inaktiverar dess fyllning. En [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) skapar textkonturen i en [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Dess [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) levererar flytt, linje, kvadratisk, kubisk och avslutningssegment, vilka exemplet återspelar på en [GeometryPath](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometrypath/).
+
+Java‑bron använder explicita float‑ och byte‑värden för motsvarande Java‑parametrar. Iteratören skriver koordinater i en Java‑float‑array; reflektion läser tillbaka de uppdaterade värdena till JavaScript. Texten använder ett 40‑punkt Arial‑typsnitt. Konturen är förskjuten 20 punkter horisontellt och placerad med sin visuella topp 10 punkter under formens övre kant. Textbanan är fylld, medan den ursprungliga rektangeln förblir en kontur. Att tillämpa båda banorna med [GeometryShape.setGeometryPaths](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setGeometryPaths) skapar en enda form som innehåller rektangeln och texten.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(slides.ShapeType.Rectangle, 100, 100, 300, 100);
+    
+    const originalPath = shape.getGeometryPaths()[0];
+    originalPath.setFillMode(java.newByte(slides.PathFillModeType.None));
+
+    const font = java.newInstanceSync("java.awt.Font", "Arial", java.getStaticFieldValue("java.awt.Font", "PLAIN"), 40);
+    const image = java.newInstanceSync("java.awt.image.BufferedImage", 100, 100, java.getStaticFieldValue("java.awt.image.BufferedImage", "TYPE_INT_ARGB"));
+    const graphics = image.createGraphics();
+    let graphicsPath;
+    try {
+        const fontContext = graphics.getFontRenderContext();
+        const glyphVector = font.createGlyphVector(fontContext, "Text in shape");
+        const textBounds = glyphVector.getVisualBounds();
+        const baseline = java.newFloat(-textBounds.getY() + 10);
+        graphicsPath = glyphVector.getOutline(java.newFloat(20), baseline);
+    } finally {
+        graphics.dispose();
     }
+
+    const textPath = new slides.GeometryPath();
+    const pathIterator = graphicsPath.getPathIterator(null);
+    const coordinates = java.newArray("float", [0, 0, 0, 0, 0, 0]);
+
+    while (!pathIterator.isDone()) {
+        const segmentType = pathIterator.currentSegment(coordinates);
+        const points = [];
+        for (let i = 0; i < 6; i++) {
+            const coordinate = java.callStaticMethodSync("java.lang.reflect.Array", "getFloat", coordinates, i);
+            points.push(java.newFloat(coordinate));
+        }
+        switch (segmentType) {
+            case 0: // Flytta till.
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case 1: // Linje till.
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case 2: // Kvadratisk Bézier-kurva.
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case 3: // Kubisk Bézier-kurva.
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case 4: // Stäng figur.
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+    textPath.setFillMode(java.newByte(slides.PathFillModeType.Normal));
+    const paths = java.newArray("com.aspose.slides.GeometryPath", [originalPath, textPath]);
+    shape.setGeometryPaths(paths);
+} finally {
+    presentation.dispose();
 }
 ```
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
-**Vad händer med fyllning och kontur efter att geometrin ersatts?**
+**Vad händer med fyllning och kontur efter att geometrin har ersatts?**
 
-Stilen förblir på formen; endast konturen ändras. Fyllning och kontur appliceras automatiskt på den nya geometrin.
+Stilen förblir på formen; endast konturen förändras. Fyllning och kontur tillämpas automatiskt på den nya geometrin.
 
 **Hur roterar jag en anpassad form korrekt tillsammans med dess geometri?**
 
-Använd formens [setRotation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/setrotation/)‑metod; geometrin roterar med formen eftersom den är bunden till formens egna koordinatsystem.
+Använd formens [setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation)‑metod; geometrin roterar med formen eftersom den är bunden till formens eget koordinatsystem.
 
 **Kan jag konvertera en anpassad form till en bild för att "låsa" resultatet?**
 
-Ja. Exportera det önskade [slide](/slides/sv/nodejs-java/convert-powerpoint-to-png/)-området eller själva [shape](/slides/sv/nodejs-java/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.
+Ja. Exportera det önskade [slide](/slides/sv/nodejs-java/convert-powerpoint-to-png/)‑området eller själva [shape](/slides/sv/nodejs-java/create-shape-thumbnails/) till ett rasterformat; detta förenklar vidare arbete med komplexa geometrier.

@@ -1,203 +1,160 @@
 ---
-title: Настройка фигур презентаций в Java
-linktitle: Пользовательская фигура
+title: Настройка форм презентаций в Java
+linktitle: Пользовательская форма
 type: docs
 weight: 20
 url: /ru/java/custom-shape/
 keywords:
-- пользовательская фигура
-- добавить фигуру
-- создать фигуру
-- изменить фигуру
-- геометрия фигуры
+- пользовательская форма
+- добавить форму
+- создать форму
+- изменить форму
+- геометрия формы
 - путь геометрии
 - точки пути
 - точки редактирования
 - добавить точку
 - удалить точку
 - операция редактирования
-- закруглённый угол
+- скруглённый угол
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Создавайте и настраивайте фигуры в презентациях PowerPoint с помощью Aspose.Slides для Java: геометрические пути, закруглённые углы, составные фигуры."
+description: "Создавайте и настраивайте формы в презентациях PowerPoint с помощью Aspose.Slides для Java: пути геометрии, скруглённые углы, составные формы."
 ---
+## **Обзор**
 
-# Изменение формы с помощью точек редактирования
-Рассмотрим квадрат. В PowerPoint, используя **точки редактирования**, вы можете 
+Эта статья объясняет, как настраивать формы презентаций в Aspose.Slides, редактируя геометрию формы с помощью точек редактирования и путей геометрии. Показано, как работать с [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) и [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/) для изменения существующих форм, выполнения базовых операций редактирования путей, добавления или удаления точек и применения обновлённой геометрии обратно к форме.
 
-* перемещать угол квадрата внутрь или наружу
-* задавать кривизну угла или точки
-* добавлять новые точки к квадрату
-* манипулировать точками на квадрате и т.д. 
+Также демонстрируется, как создавать пользовательские и составные формы, построить формы со сглаженными углами, определить, замкнута ли геометрия формы, просмотреть элементы формы и преобразовать контуры текста Java AWT в пути геометрии.
 
-По сути, вы можете выполнять описанные действия с любой фигурой. С помощью точек редактирования вы можете изменить форму или создать новую форму из существующей.
+## **Изменение формы с помощью точек редактирования**
 
-## **Советы по редактированию фигур**
+В PowerPoint можно использовать **Edit Points** для изменения квадрата:
+
+* Переместить угол внутрь или наружу.
+* Отрегулировать кривизну в точке.
+* Добавить новые точки.
+
+Редактирование точек позволяет изменять контур формы или использовать существующую форму как основу для новой.
+
+## **Советы по редактированию форм**
 
 ![overview_image](custom_shape_0.png)
 
-Прежде чем начать редактировать фигуры PowerPoint через точки редактирования, обратите внимание на следующие моменты относительно фигур:
+При редактировании форм PowerPoint учитывайте следующие понятия:
 
-* Фигура (или её путь) может быть замкнутой или открытой.
-* Когда фигура замкнута, у неё нет начальной или конечной точки. Когда фигура открыта, у неё есть начало и конец. 
-* Все фигуры состоят как минимум из 2 якорных точек, соединённых линиями.
-* Линия может быть прямой или кривой. Якорные точки определяют характер линии. 
-* Якорные точки бывают угловыми, прямыми или гладкими:
-  * Угловая точка — это точка, где две прямые линии соединяются под углом. 
-  * Гладкая точка — это точка, где два управляющих узла находятся на одной прямой, а сегменты линии соединяются плавной кривой. В этом случае все управляющие узлы находятся на одинаковом расстоянии от якорной точки. 
-  * Прямая точка — это точка, где два управляющих узла находятся на одной прямой, а сегменты линии соединяются плавной кривой. В этом случае расстояния от управляющих узлов до якорной точки могут различаться. 
-* Перемещая или редактируя якорные точки (что меняет угол линий), вы можете изменять внешний вид фигуры. 
+* Форма (или её путь) может быть замкнутой или открытой.
+* Путь формы состоит из контрольных точек, соединённых сегментами.
+* Сегмент может быть прямым или кривым. Точки и управляющие рычаги определяют его форму.
+* Точки бывают угловыми, прямыми или сглаженными:
+  * В угловой точке соединяющие сегменты могут встречаться под углом.
+  * В сглаженной точке два управляющих рычага выровнены и находятся на одинаковом расстоянии от точки.
+  * В прямой точке два управляющих рычага выровнены, но могут находиться на разном расстоянии от точки.
+* Перемещение точек или изменение их рычагов меняет контур формы.
 
-Для редактирования фигур PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [**GeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) и интерфейс [**IGeometryPath**](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath).
+Для редактирования форм PowerPoint через точки редактирования **Aspose.Slides** предоставляет класс [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) и интерфейс [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
 
-* Экземпляр [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) представляет геометрический путь объекта [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape). 
-* Чтобы получить `GeometryPath` из экземпляра `IGeometryShape`, используйте метод [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#getGeometryPaths--). 
-* Чтобы задать `GeometryPath` для фигуры, используйте методы: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPath-com.aspose.slides.IGeometryPath-) для *твердых фигур* и [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryShape#setGeometryPaths-com.aspose.slides.IGeometryPath:A-) для *композитных фигур*.
-* Чтобы добавить сегменты, используйте методы из [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath). 
-* С помощью методов [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setStroke-boolean-) и [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#setFillMode-byte-) можно задать внешний вид геометрического пути.
-* Методом [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/IGeometryPath#getPathData--) можно получить геометрический путь `GeometryShape` в виде массива сегментов пути. 
-* Для доступа к дополнительным параметрам настройки геометрии фигуры вы можете преобразовать [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) в [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html).
-* Используйте методы [geometryPathToGraphicsPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#geometryPathToGraphicsPath-com.aspose.slides.IGeometryPath-) и [graphicsPathToGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil#graphicsPathToGeometryPath-java.awt.Shape-) (из класса [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil)) для преобразования [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) в [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) и обратно. 
+* Экземпляр [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) представляет путь геометрии объекта [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/).
+* Чтобы получить [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) из экземпляра [IGeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/), используйте метод [IGeometryShape.getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--).
+* Чтобы задать [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) для формы, используйте методы: [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) для форм с одним путем и [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) для форм с несколькими путями.
+* Чтобы добавить сегменты, используйте методы интерфейса [IGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/).
+* С помощью методов [IGeometryPath.setStroke](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setStroke-boolean-) и [IGeometryPath.setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) можно задать внешний вид пути геометрии.
+* Методом [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) можно получить путь геометрии [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/geometryshape/) в виде массива сегментов пути.
+* Чтобы получить дополнительные возможности настройки геометрии формы, можно прочитать объект [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html) через его [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) и воспроизвести сегменты на [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/).
 
 ## **Простые операции редактирования**
 
-Этот Java‑код показывает, как
+Используйте перечисленные ниже методы для редактирования пути геометрии. Перегрузки, принимающие индекс, вставляют сегмент в указанную позицию (нумерация с нуля) в массиве сегментов пути.
 
-**Добавить линию** в конец пути
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point);
-public void lineTo(float x, float y);
-```
+| Операция | Метод |
+| --- | --- |
+| Добавить или вставить прямую линию. | [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) |
+| Добавить или вставить кубическую кривую Безье с двумя контрольными точками и конечной точкой. | [GeometryPath.cubicBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#cubicBezierTo-float-float-float-float-float-float-) |
+| Добавить или вставить квадратичную кривую Безье с одной контрольной точкой и конечной точкой. | [GeometryPath.quadraticBezierTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#quadraticBezierTo-float-float-float-float-) |
+| Добавить эллиптическую дугу с указанными размерами и углами в градусах. | [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) |
+| Замкнуть текущую фигуру, соединив её конечную точку с начальной. | [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) |
+| Задать начальную точку фигуры. | [GeometryPath.moveTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#moveTo-float-float-) |
+| Удалить сегмент по индексу (ноль‑based). | [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-) |
 
-**Добавить линию** в указанную позицию пути:
-``` java
-public void lineTo(java.awt.geom.Point2D.Float point, long index);
-public void lineTo(float x, float y, long index);
-```
+## **Добавление пользовательских точек в форму**
 
-**Добавить кубическую кривую Безье** в конец пути:
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```
+В этом примере в прямоугольную форму вставляются две точки с помощью [GeometryPath.lineTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#lineTo-float-float-) и применяется отредактированный путь через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-). Координаты задаются локально относительно формы: обе новые точки находятся в её центре, на 100 пунктов от левого края и 50 пунктов от верхнего. Индексы сегментов 1 и 4 помещают их на верхнюю и нижнюю границы, притягивая эти грани внутрь.
 
-**Добавить кубическую кривую Безье** в указанную позицию пути:
-``` java
-public void cubicBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, java.awt.geom.Point2D.Float point3, long index);
-public void cubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, long index);
-```
+```java
+import com.aspose.slides.*;
 
-**Добавить квадратичную кривую Безье** в конец пути:
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2);
-```
-
-**Добавить квадратичную кривую Безье** в указанную позицию пути:
-``` java
-public void quadraticBezierTo(java.awt.geom.Point2D.Float point1, java.awt.geom.Point2D.Float point2, long index);
-public void quadraticBezierTo(float x1, float y1, float x2, float y2, long index);
-```
-
-**Присоединить заданную дугу** к пути:
-``` java
-public void arcTo(float width, float heigth, float startAngle, float sweepAngle);
-```
-
-**Замкнуть текущую фигуру** пути:
-``` java
-public void closeFigure();
-```
-
-**Задать позицию следующей точки**:
-``` java
-public void moveTo(java.awt.geom.Point2D.Float point);
-public void moveTo(float x, float y);
-```
-
-**Удалить сегмент пути** по указанному индексу:
-``` java
-public void removeAt(int index);
-```
-
-
-## **Добавление пользовательских точек к фигуре**
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) и задайте тип [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType). 
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) из фигуры. 
-3. Добавьте новую точку между двумя верхними точками пути. 
-4. Добавьте новую точку между двумя нижними точками пути. 
-5. Примените путь к фигуре. 
-
-Этот Java‑код показывает, как добавить пользовательские точки к фигуре:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
-    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    IGeometryPath geometryPath = shape.getGeometryPaths()[0];
     geometryPath.lineTo(100, 50, 1);
     geometryPath.lineTo(100, 50, 4);
+
     shape.setGeometryPath(geometryPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ![example1_image](custom_shape_1.png)
 
-## **Удаление точек из фигуры**
+## **Удаление точек из формы**
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape) и задайте тип [ShapeType.Heart](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeType). 
-2. Получите экземпляр класса [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) из фигуры. 
-3. Удалите сегмент пути. 
-4. Примените путь к фигуре. 
+В этом примере контур сердца изменяется удалением сегмента с ноль‑based индексом 2 с помощью [GeometryPath.removeAt](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#removeAt-int-). Применив изменённый путь через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), контур формы обновляется.
 
-Этот Java‑код показывает, как удалить точки из фигуры:
-``` java
-Presentation pres = new Presentation();
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Heart, 100, 100, 300, 300);
 
     IGeometryPath path = shape.getGeometryPaths()[0];
     path.removeAt(2);
+
     shape.setGeometryPath(path);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example2_image](custom_shape_2.png)
 
-## **Создание пользовательской фигуры**
+## **Создание пользовательской формы**
 
-1. Вычислите точки фигуры. 
-2. Создайте экземпляр класса [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath). 
-3. Заполните путь точками. 
-4. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape). 
-5. Примените путь к фигуре. 
+В данном примере создаётся пятиконечная звезда с помощью [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/). Чередующиеся внешние и внутренние радиусы 100 и 50 пунктов задают кончики и впадины; шаг в 72 градуса равномерно распределяет пять кончиков. Путь замыкается методом [GeometryPath.closeFigure](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#closeFigure--) и применяется к прямоугольной форме через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), заменяя её контур.
 
-Этот Java‑пример показывает, как создать пользовательскую фигуру:
-``` java
-List<Point2D.Float> points = new ArrayList<Point2D.Float>();
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-float R = 100, r = 50;
-int step = 72;
+List<Point2D.Float> points = new ArrayList<>();
 
-for (int angle = -90; angle < 270; angle += step)
+float outerRadius = 100f;
+float innerRadius = 50f;
+int angleStep = 72;
+
+for (int angle = -90; angle < 270; angle += angleStep)
 {
     double radians = angle * (Math.PI / 180f);
-    double x = R * Math.cos(radians);
-    double y = R * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    double x = outerRadius * Math.cos(radians);
+    double y = outerRadius * Math.sin(radians);
+    Point2D.Float point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.cos(radians);
-    y = r * Math.sin(radians);
-    points.add(new Point2D.Float((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.cos(radians);
+    y = innerRadius * Math.sin(radians);
+    point = new Point2D.Float((float)x + outerRadius, (float)y + outerRadius);
+    points.add(point);
 }
 
 GeometryPath starPath = new GeometryPath();
@@ -210,60 +167,60 @@ for (int i = 1; i < points.size(); i++)
 
 starPath.closeFigure();
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
     shape.setGeometryPath(starPath);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example3_image](custom_shape_3.png)
 
+## **Создание составной пользовательской формы**
 
-## **Создание составной пользовательской фигуры**
+В этом примере определяются два замкнутых объекта [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) для верхней и нижней трети формы. Применив оба пути через [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---) создаётся единая составная форма с разрывом в её средней трети.
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape). 
-2. Создайте первый экземпляр класса [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath). 
-3. Создайте второй экземпляр класса [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath). 
-4. Примените пути к фигуре. 
+```java
+import com.aspose.slides.*;
 
-Этот Java‑код показывает, как создать составную пользовательскую фигуру:
-``` java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    GeometryShape shape = (GeometryShape) pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.moveTo(0, 0);
-    geometryPath0.lineTo(shape.getWidth(), 0);
-    geometryPath0.lineTo(shape.getWidth(), shape.getHeight()/3);
-    geometryPath0.lineTo(0, shape.getHeight() / 3);
-    geometryPath0.closeFigure();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.moveTo(0, shape.getHeight()/3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
-    geometryPath1.lineTo(shape.getWidth(), shape.getHeight());
-    geometryPath1.lineTo(0, shape.getHeight());
-    geometryPath1.closeFigure();
+    GeometryPath topPath = new GeometryPath();
+    topPath.moveTo(0, 0);
+    topPath.lineTo(shape.getWidth(), 0);
+    topPath.lineTo(shape.getWidth(), shape.getHeight() / 3);
+    topPath.lineTo(0, shape.getHeight() / 3);
+    topPath.closeFigure();
 
-    shape.setGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
+    GeometryPath bottomPath = new GeometryPath();
+    bottomPath.moveTo(0, shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight() / 3 * 2);
+    bottomPath.lineTo(shape.getWidth(), shape.getHeight());
+    bottomPath.lineTo(0, shape.getHeight());
+    bottomPath.closeFigure();
+
+    shape.setGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example4_image](custom_shape_4.png)
 
-## **Создание пользовательской фигуры с закруглёнными углами**
+## **Создание пользовательской формы со сглажёнными углами**
 
-Этот Java‑код показывает, как создать пользовательскую фигуру с закруглёнными углами (внутренняя кривая);
+В этом примере прямые сегменты комбинируются с [GeometryPath.arcTo](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/#arcTo-float-float-float-float-) для создания формы с внутреннями изогнутыми углами. Размер каждого угла задаёт ширину и высоту дуги в пунктах, а sweep ‑90° рисует контр‑часовую четверть эллипса. Готовый путь применяется через [IGeometryShape.setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-), а презентация сохраняется в формате PPTX.
+
 ```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
 float shapeX = 20f;
 float shapeY = 20f;
 float shapeWidth = 300f;
@@ -274,123 +231,243 @@ float rightTopSize = 20f;
 float rightBottomSize = 40f;
 float leftBottomSize = 10f;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IAutoShape childShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(
-            ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+
+    Point2D.Float topLeft = new Point2D.Float(leftTopSize, 0);
+    Point2D.Float topRight = new Point2D.Float(shapeWidth - rightTopSize, 0);
+    Point2D.Float rightBottom = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
+    Point2D.Float bottomLeft = new Point2D.Float(leftBottomSize, shapeHeight);
+    Point2D.Float leftTop = new Point2D.Float(0, leftTopSize);
 
     GeometryPath geometryPath = new GeometryPath();
-
-    Point2D.Float point1 = new Point2D.Float(leftTopSize, 0);
-    Point2D.Float point2 = new Point2D.Float(shapeWidth - rightTopSize, 0);
-    Point2D.Float point3 = new Point2D.Float(shapeWidth, shapeHeight - rightBottomSize);
-    Point2D.Float point4 = new Point2D.Float(leftBottomSize, shapeHeight);
-    Point2D.Float point5 = new Point2D.Float(0, leftTopSize);
-
-    geometryPath.moveTo(point1);
-    geometryPath.lineTo(point2);
+    geometryPath.moveTo(topLeft);
+    geometryPath.lineTo(topRight);
     geometryPath.arcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.lineTo(point3);
+    geometryPath.lineTo(rightBottom);
     geometryPath.arcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.lineTo(point4);
+    geometryPath.lineTo(bottomLeft);
     geometryPath.arcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.lineTo(point5);
+    geometryPath.lineTo(leftTop);
     geometryPath.arcTo(leftTopSize, leftTopSize, 90, -90);
-
     geometryPath.closeFigure();
 
-    childShape.setGeometryPath(geometryPath);
+    shape.setGeometryPath(geometryPath);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres!= null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Определение, замкнута ли геометрия формы**
 
-## **Определение, замкнута ли геометрия фигуры**
+Следующая вспомогательная функция проверяет, заканчивается ли каждый непустой путь геометрии закрывающим сегментом. Она читает [IGeometryPath.getPathData](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#getPathData--) и сравнивает команду последнего сегмента — [ IPathSegment.getPathCommand](https://reference.aspose.com/slides/java/com.aspose.slides/ipathsegment/#getPathCommand--) — с [PathCommandType.Close](https://reference.aspose.com/slides/java/com.aspose.slides/pathcommandtype/). Возвращает false, когда нет непустых путей. Функция проверяет окончательную команду каждого пути; она не просматривает каждую подфигуру внутри пути. Пример выводит `true` для прямоугольника.
 
-Замкнутая фигура определяется как та, у которой все стороны соединены, образуя единую границу без разрывов. Такая фигура может быть простой геометрической формой или сложным пользовательским контуром. Ниже приведён пример кода, показывающий, как проверить, замкнута ли геометрия фигуры:
 ```java
-boolean isGeometryClosed(IGeometryShape geometryShape)
-{
-    Boolean isClosed = null;
+import com.aspose.slides.*;
 
-    for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
-        int dataLength = geometryPath.getPathData().length;
-        if (dataLength == 0)
-            continue;
+class GeometryInspector {
+    boolean isGeometryClosed(IGeometryShape geometryShape) {
+        boolean hasNonemptyPath = false;
 
-        IPathSegment lastSegment = geometryPath.getPathData()[dataLength - 1];
-        isClosed = lastSegment.getPathCommand() == PathCommandType.Close;
+        for (IGeometryPath geometryPath : geometryShape.getGeometryPaths()) {
+            IPathSegment[] segments = geometryPath.getPathData();
+            if (segments.length == 0) {
+                continue;
+            }
 
-        if (isClosed == false)
-            return false;
+            hasNonemptyPath = true;
+            IPathSegment lastSegment = segments[segments.length - 1];
+            if (lastSegment.getPathCommand() != PathCommandType.Close) {
+                return false;
+            }
+        }
+
+        return hasNonemptyPath;
+    }
+}
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+
+    GeometryInspector inspector = new GeometryInspector();
+    boolean closed = inspector.isGeometryClosed(shape);
+    System.out.println(closed);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Извлечение и анализ элементов формы**
+
+Используйте [IGeometryShape.createShapeElements](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#createShapeElements--) для получения существующей формы в виде элементов, содержащих точки пути и типы точек. Приведите каждый полученный [IShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/ishapeelement/) к типу [ShapeElement](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/) чтобы получить массивы точек и типов через методы [getPathPoints](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathPoints--) и [getPathTypes](https://reference.aspose.com/slides/java/com.aspose.slides/shapeelement/#getPathTypes--). Такое представление удобно для анализа контура или передачи геометрии в пользовательские инструменты рисования.
+
+Пример открывает `input.pptx`, находит первую геометрическую форму на первой странице и выводит её сегменты пути. Используйте презентацию, содержащую форму с прямыми и кривыми сегментами, чтобы увидеть оба типа вывода. Поиск внутри групп не производится.
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Point2D;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IGeometryShape shape = null;
+    for (IShape candidate : slide.getShapes()) {
+        if (candidate instanceof IGeometryShape) {
+            shape = (IGeometryShape) candidate;
+            break;
+        }
     }
 
-    return isClosed == true;
+    if (shape == null) {
+        System.out.println("No geometry shape found on the first slide.");
+    } else {
+        for (IShapeElement element : shape.createShapeElements()) {
+            ShapeElement shapeElement = (ShapeElement) element;
+            Point2D.Float[] points = shapeElement.getPathPoints();
+            byte[] types = shapeElement.getPathTypes();
+            System.out.println("Shape element:");
+
+            for (int i = 0; i < points.length; i++) {
+                int pointType = types[i] & 0x07; // Сохраняет тип сегмента, исключая флаги.
+                switch (pointType) {
+                    case 0:
+                        System.out.println("Start figure at " + points[i]);
+                        break;
+                    case 1:
+                        System.out.println("Line to " + points[i]);
+                        break;
+                    case 3:
+                        System.out.println("Cubic Bezier: controls " + points[i] + ", " + points[i + 1] + "; end " + points[i + 2]);
+                        i += 2; // Потребляет обе контрольные точки и конечную точку.
+                        break;
+                }
+
+                if ((types[i] & 0x80) != 0) {
+                    System.out.println("Close subpath back to its starting point.");
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Массивы сопоставляются по индексу: `points[i]` — это точка, `types[i]` — её роль. Тип `0` начинается фигура, тип `1` рисует линию от предыдущей точки к текущей. Кубический сегмент Безье начинается в предыдущей конечной точке и использует три последовательных типа `3`: две контрольные точки и новую конечную точку. Цикл потребляет эти три записи совместно и проверяет конечную точку на замыкание.
 
-## **Преобразование GeometryPath в java.awt.Shape** 
+Типы точек также содержат флаги. Маска `0x07` позволяет определить тип сегмента, а отдельная проверка `0x80` выявляет закрытый подпуть. Например, `129` (`0x81`) — конечная точка линии, закрывающая подпуть, а `131` (`0x83`) — конечная точка Безье, закрывающая подпуть. Java хранит эти флаги в знаковых байтах; маскирование сохраняет нужные битовые значения. Сравнение «сырого» значения только с `1` или `3` упустит такие случаи. Другие флаги, такие как тире (`0x10`) и маркер (`0x20`), не меняют базовый тип сегмента.
 
-1. Создайте экземпляр класса [GeometryShape](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryShape). 
-2. Создайте экземпляр класса [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html). 
-3. Преобразуйте экземпляр [java.awt.Shape](https://docs.oracle.com/javase/7/docs/api/java/awt/Shape.html) в экземпляр [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/GeometryPath) с помощью [ShapeUtil](https://reference.aspose.com/slides/java/com.aspose.slides/ShapeUtil). 
-4. Примените пути к фигуре. 
+**Координаты и преобразования.** Точки измеряются в пунктах (1/72 дюйма), X — вправо, Y — вниз. Для отдельной формы извлечённые координаты уже включают позицию, возвращаемую методами [getX](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getX--) и [getY](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getY--), и отражают её текущую ширину и высоту. Например, неповёрнутый прямоугольник с координатами `(100, 200)` и размером `120 × 80` имеет границы контура `(100, 200)`–`(220, 280)`. Не добавляйте позицию формы повторно. Вычтите её X и Y, чтобы получить координаты относительно её неповороченного кадра.
 
-Этот Java‑код, реализующий описанные шаги, демонстрирует процесс преобразования **GeometryPath** в **GraphicsPath**:
-``` java
-Presentation pres = new Presentation();
+Извлечённые точки не учитывают вращение формы, возвращаемое методом [getRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getRotation--), а также горизонтальное и вертикальное отражения. Чтобы воспроизвести отображаемый контур, примените эти преобразования относительно центра формы. Для сгруппированных форм также учитывайте преобразования координат группы; не считӓйте, что извлечённые точки уже являются конечными координатами слайда, и не применяйте трансляцию или масштаб дважды, если они уже отражены в кадре дочернего элемента.
+
+**Анализ vs. редактирование.** Извлечённые массивы описывают контур; изменение их не обновит исходную форму. Используйте такой подход, когда нужен массив точек/типов для анализа или собственного кода отрисовки. Применяйте [getGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getGeometryPaths--) когда нужны команды геометрии в локальной системе координат формы или требуется редактировать её геометрию. Применяйте отредактированные пути через [setGeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPath-com.aspose.slides.IGeometryPath-) или [setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---).
+
+## **Преобразование Java AWT Shape в GeometryPath**
+
+В этом примере комбинируется прямоугольный контур с текстом, преобразованным в геометрию. Метод [setFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/igeometrypath/#setFillMode-byte-) отключает заливку контура. Объект [GlyphVector](https://docs.oracle.com/javase/8/docs/api/java/awt/font/GlyphVector.html) создаёт контур текста в виде [java.awt.Shape](https://docs.oracle.com/javase/8/docs/api/java/awt/Shape.html). Его [PathIterator](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/PathIterator.html) поставляет сегменты перемещения, линии, квадратичной, кубической и закрывающие сегменты, которые пример воспроизводит на [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/).
+
+Текст использует шрифт Arial размером 40 пунктов. Контур сдвинут на 20 пунктов по горизонтали и расположен так, чтобы его визуальная верхняя граница была на 10 пунктов ниже верхнего края формы. Путь текста заполнен, тогда как исходный прямоугольник остаётся контуру. Оба пути применяются через [IGeometryShape.setGeometryPaths](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setGeometryPaths-com.aspose.slides.IGeometryPath---), образуя одну форму, содержащую прямоугольник и текст.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.GlyphVector;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.PathIterator;
+import java.awt.image.BufferedImage;
+
+Presentation presentation = new Presentation();
 try {
-    // Создать новую фигуру
-    GeometryShape shape = (GeometryShape)pres.getSlides().get_Item(0).
-            getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+    // Создать новую форму
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Получить геометрический путь фигуры
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
+
+    // Получить путь геометрии формы
     IGeometryPath originalPath = shape.getGeometryPaths()[0];
     originalPath.setFillMode(PathFillModeType.None);
 
     // Создать новый графический путь с текстом
     Shape graphicsPath;
-    Font font = new java.awt.Font("Arial", Font.PLAIN, 40);
+    Font font = new Font("Arial", Font.PLAIN, 40);
     String text = "Text in shape";
-    BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
-    Graphics2D g2 = img.createGraphics();
+    BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+    Graphics2D graphics = image.createGraphics();
 
     try
     {
-        GlyphVector glyphVector = font.createGlyphVector(g2.getFontRenderContext(), text);
-        graphicsPath = glyphVector.getOutline(20f, ((float) -glyphVector.getVisualBounds().getY()) + 10);
+        FontRenderContext fontContext = graphics.getFontRenderContext();
+        GlyphVector glyphVector = font.createGlyphVector(fontContext, text);
+        Rectangle2D textBounds = glyphVector.getVisualBounds();
+        float baseline = (float) -textBounds.getY() + 10;
+        graphicsPath = glyphVector.getOutline(20f, baseline);
     }
     finally {
-        g2.dispose();
+        graphics.dispose();
     }
 
-    // Преобразовать графический путь в геометрический путь
-    IGeometryPath textPath = ShapeUtil.graphicsPathToGeometryPath(graphicsPath);
+    // Преобразовать графический путь в путь геометрии
+    IGeometryPath textPath = new GeometryPath();
+    PathIterator pathIterator = graphicsPath.getPathIterator(null);
+    float[] points = new float[6];
+
+    while (!pathIterator.isDone())
+    {
+        int segmentType = pathIterator.currentSegment(points);
+        switch (segmentType)
+        {
+            case PathIterator.SEG_MOVETO:
+                textPath.moveTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_LINETO:
+                textPath.lineTo(points[0], points[1]);
+                break;
+            case PathIterator.SEG_QUADTO:
+                textPath.quadraticBezierTo(points[0], points[1], points[2], points[3]);
+                break;
+            case PathIterator.SEG_CUBICTO:
+                textPath.cubicBezierTo(points[0], points[1], points[2], points[3], points[4], points[5]);
+                break;
+            case PathIterator.SEG_CLOSE:
+                textPath.closeFigure();
+                break;
+        }
+        pathIterator.next();
+    }
+
     textPath.setFillMode(PathFillModeType.Normal);
 
-    // Установить комбинацию нового геометрического пути и исходного геометрического пути для фигуры
+    // Установить комбинацию нового пути геометрии и исходного пути геометрии для формы
     shape.setGeometryPaths(new IGeometryPath[] { originalPath, textPath });
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
-
 ![example5_image](custom_shape_5.png)
 
 ## **FAQ**
 
 **Что произойдёт с заливкой и контурами после замены геометрии?**
 
-Стиль остаётся привязанным к фигуре; меняется лишь контур. Заливка и контур автоматически применяются к новой геометрии.
+Стиль остаётся привязанным к форме; меняется только контур. Заливка и контур автоматически применяются к новой геометрии.
 
-**Как корректно повернуть пользовательскую фигуру вместе с её геометрией?**
+**Как правильно повернуть пользовательскую форму вместе с её геометрией?**
 
-Вызовите метод фигуры [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-); геометрия будет повёрнута вместе с фигурой, так как она привязана к её собственной системе координат.
+Вызовите метод формы [setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setRotation-float-); геометрия вращается вместе с формой, поскольку привязана к её собственной системе координат.
 
-**Можно ли преобразовать пользовательскую фигуру в изображение, чтобы «зафиксировать» результат?**
+**Можно ли преобразовать пользовательскую форму в изображение, чтобы «запечатлеть» результат?**
 
-Да. Экспортируйте требуемую [slide](/slides/ru/java/convert-powerpoint-to-png/) или саму [shape](/slides/ru/java/create-shape-thumbnails/) в растровый формат; это упростит дальнейшую работу с тяжёлыми геометриями.
+Да. Экспортируйте нужный [slide](/slides/ru/java/convert-powerpoint-to-png/) или саму [shape](/slides/ru/java/create-shape-thumbnails/) в растровый формат; это упрощает дальнейшую работу со сложными геометриями.

@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení tvarů v prezentacích pomocí Pythonu
+title: Přizpůsobení tvarů prezentace v Pythonu
 linktitle: Vlastní tvar
 type: docs
 weight: 20
@@ -12,138 +12,74 @@ keywords:
 - geometrie tvaru
 - geometrická cesta
 - body cesty
-- upravit body
+- editační body
 - přidat bod
-- odebrat bod
-- operace úprav
+- odstranit bod
+- operace úpravy
 - zakřivený roh
 - PowerPoint
-- OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Vytvářejte a přizpůsobujte tvary v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python na platformě .NET: geometrické cesty, zakřivené rohy, kompozitní tvary."
+description: "Vytvářejte a přizpůsobujte tvary v prezentacích PowerPoint pomocí Aspose.Slides pro Python na platformě .NET: geometrické cesty, zakřivené rohy, složené tvary."
 ---
-## **Úvod**
+## **Přehled**
 
-Zvažte čtverec. V PowerPointu můžete pomocí **Edit Points**:
+Tento článek vysvětluje, jak přizpůsobit tvary prezentace v Aspose.Slides úpravou geometrie tvaru pomocí editačních bodů a geometrických cest. Ukazuje, jak pracovat s [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) k úpravě existujících tvarů, provádění základních operací úpravy cesty, přidávání nebo odstraňování bodů a aplikaci aktualizované geometrie zpět na tvar.
 
-* posunout roh čtverce dovnitř nebo ven,
-* upravit zakřivení rohu nebo bodu,
-* přidat nové body do čtverce,
-* manipulovat s jeho body.
+Také ukazuje, jak vytvořit vlastní a složené tvary, vytvářet tvary se zakřivenými rohy, zjistit, zda je geometrie tvaru uzavřená, a extrahovat elementy tvaru pro analýzu kontury.
 
-Tyto operace můžete použít na libovolný tvar. Pomocí **Edit Points** můžete upravit tvar nebo vytvořit nový z existujícího tvaru.
+## **Změna tvaru pomocí editačních bodů**
+
+* Přesunout roh dovnitř nebo ven.
+* Upravit zakřivení v bodě.
+* Přidat nové body.
+
+Úprava bodů vám umožňuje změnit obrys tvaru nebo použít existující tvar jako základ pro nový.
 
 ## **Tipy pro úpravu tvarů**
 
-!["Edit Points" příkaz](custom_shape_0.png)
+![overview_image](custom_shape_0.png)
 
-Před zahájením úprav tvarů v PowerPointu pomocí **Edit Points** si přečtěte tyto poznámky o tvarech:
+Při úpravě tvarů v PowerPointu mějte na paměti následující koncepty:
 
-* Tvar (nebo jeho cesta) může být **uzavřený** nebo **otevřený**.
-* Uzavřený tvar nemá počáteční ani koncový bod; otevřený tvar má začátek i konec.
-* Každý tvar má alespoň dva kotvící body spojené úsečkami.
-* Úsek je buď přímý, nebo zakřivený; kotvící body určují povahu úseku.
-* Kotvící body mohou být **roh**, **hladký** nebo **přímý**:
-  * **Roh** je bod, kde se dva přímé úseky setkávají pod úhlem.
-  * **Hladký** bod má dva úchyty, které jsou kolineární, a sousední úseky tvoří hladkou křivku. V tomto případě jsou oba úchyty ve stejné vzdálenosti od kotvícího bodu.
-  * **Přímý** bod také má dva kolineární úchyty, a sousední úseky tvoří hladkou křivku. V tomto případě nemusí být úchyty ve stejné vzdálenosti od kotvícího bodu.
-* Posunutím nebo úpravou kotvících bodů (tím změníte úhly úseků) můžete změnit vzhled tvaru.
+* Tvar (nebo jeho cesta) může být buď uzavřená, nebo otevřená.
+* Cesta tvaru se skládá z kotevních bodů spojených segmenty.
+* Segment může být rovný nebo zakřivený. Kotevní body a ovládací úchyty určují jeho tvar.
+* Kotevní body existují jako rohové body, rovné body nebo hladké body:
+  * U rohového bodu se sousední segmenty mohou setkat pod úhlem.
+  * U hladkého bodu jsou oba ovládací úchyty zarovnány a stejně vzdálené od kotevního bodu.
+  * U rovného bodu jsou oba ovládací úchyty zarovnány, ale mohou být od kotevního bodu v různých vzdálenostech.
+* Přesunutí kotevních bodů nebo úprava jejich úchytek mění obrys tvaru.
 
-Pro úpravu tvarů v PowerPointu poskytuje Aspose.Slides třídu [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/).
+Pro úpravu tvarů v PowerPointu pomocí editačních bodů **Aspose.Slides** poskytuje třídu [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
 
-* Instance třídy [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) představuje geometrickou cestu objektu [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/).
-* Pro získání [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) z instance [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/) použijte metodu [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/get_geometry_paths/).
-* Pro nastavení [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) pro tvar použijte [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/set_geometry_path/) pro *pevné tvary* a [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/set_geometry_paths/) pro *kompozitní tvary*.
-* Pro přidání úseků použijte metody třídy [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/).
-* Použijte vlastnosti [GeometryPath.stroke](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/stroke/) a [GeometryPath.fill_mode](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/fill_mode/) pro řízení vzhledu geometrické cesty.
-* Vlastnost [GeometryPath.path_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/path_data/) použijte k získání geometrické cesty tvaru jako pole úseků cesty.
+* Instancia [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) představuje geometrickou cestu objektu [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/).
+* Chcete-li získat [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) z instance [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/), můžete použít metodu [GeometryShape.get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/).
+* Chcete-li nastavit [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) pro tvar, můžete použít tyto metody: [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) pro tvary s jednou cestou a [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) pro tvary s více cestami.
+* Pro přidání segmentů můžete použít metody pod [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/).
+* Pomocí vlastností [GeometryPath.stroke](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/stroke/) a [GeometryPath.fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/fill_mode/) můžete nastavit vzhled geometrické cesty.
+* Pomocí vlastnosti [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) můžete získat geometrickou cestu [GeometryShape](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/) jako pole segmentů cesty.
 
-## **Jednoduché operace úprav**
+## **Jednoduché operace úpravy**
 
-Následující metody se používají pro jednoduché operace úprav.
+Použijte následující metody k úpravě geometrické cesty. Přetížení, která přijímají index, vloží segment na tuto nula‑založenou pozici v poli segmentů cesty.
 
-**Přidat čáru** na konec cesty:
+| Operace | Metoda |
+| --- | --- |
+| Přidat nebo vložit přímou čáru. | [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) |
+| Přidat nebo vložit kubický Bézierův křivku se dvěma řídícími body a koncovým bodem. | [GeometryPath.cubic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/cubic_bezier_to/) |
+| Přidat nebo vložit kvadratický Bézierův křivku s jedním řídícím bodem a koncovým bodem. | [GeometryPath.quadratic_bezier_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/quadratic_bezier_to/) |
+| Přidat eliptický oblouk se zadanými rozměry a úhly ve stupních. | [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) |
+| Uzavřít aktuální obrazec spojení jeho koncového bodu se startovním bodem. | [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) |
+| Nastavit počáteční bod obrazce. | [GeometryPath.move_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/move_to/) |
+| Odstranit segment na nula‑založeném indexu. | [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/) |
 
-```py
-line_to(point)
-line_to(x, y)
-```
+## **Přidání vlastních bodů do tvaru**
 
-**Přidat čáru** na určenou pozici v cestě:
+Tento příklad vloží dva body do obdélníkového tvaru pomocí [GeometryPath.line_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/line_to/) a použije upravenou cestu s [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/). Souřadnice jsou lokální k tvaru: oba nové body jsou ve středu, 100 bodů od levé strany a 50 bodů od horní. Indexy segmentů 1 a 4 je umístí na horní a dolní hranu, čímž tyto hrany stáhnou dovnitř.
 
-```py    
-line_to(point, index)
-line_to(x, y, index)
-```
-
-**Přidat kubickou Bézierovu křivku** na konec cesty:
-
-```py
-cubic_bezier_to(point1, point2, point3)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3)
-```
-
-**Přidat kubickou Bézierovu křivku** na určenou pozici v cestě:
-
-```py
-cubic_bezier_to(point1, point2, point3, index)
-cubic_bezier_to(x1, y1, x2, y2, x3, y3, index)
-```
-
-**Přidat kvadratickou Bézierovu křivku** na konec cesty:
-
-```py
-quadratic_bezier_to(point1, point2)
-quadratic_bezier_to(x1, y1, x2, y2)
-```
-
-**Přidat kvadratickou Bézierovu křivku** na určenou pozici v cestě:
-
-```py
-quadratic_bezier_to(point1, point2, index)
-quadratic_bezier_to(x1, y1, x2, y2, index)
-```
-
-**Připojit oblouk** k cestě:
-
-```py
-arc_to(width, heigth, startAngle, sweepAngle)
-```
-
-**Uzavřít aktuální obrazec** v cestě:
-
-```py
-close_figure()
-```
-
-**Nastavit polohu pro další bod**:
-
-```py
-move_to(point)
-move_to(x, y)
-```
-
-**Odstranit úsek cesty** na daném indexu:
-
-```py
-remove_at(index)
-```
-
-## **Přidání vlastních bodů do tvarů**
-
-Zde se naučíte, jak definovat volný tvar přidáním vlastní posloupnosti bodů. Zadáním uspořádaných bodů a typů úseků (přímý nebo zakřivený) a volitelným uzavřením cesty můžete vytvořit přesnou vlastní grafiku — polygony, ikony, vysvětlivky nebo loga — přímo ve vašich snímcích.
-
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/) a nastavte její [ShapeType.RECTANGLE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapetype/).
-2. Získejte instanci [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) ze tvaru.
-3. Vložte nový bod mezi dva horní body na cestě.
-4. Vložte nový bod mezi dva dolní body na cestě.
-5. Aplikujte aktualizovanou cestu na tvar.
-
-Následující kód v Pythonu ukazuje, jak přidat vlastní body do tvaru:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -156,24 +92,15 @@ with slides.Presentation() as presentation:
     geometry_path.line_to(100, 50, 4)
 
     shape.set_geometry_path(geometry_path)
-
-    presentation.save("custom_points.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Vlastní body](custom_shape_1.png)
+![example1_image](custom_shape_1.png)
 
-##  **Odstranění bodů z tvarů**
+## **Odstranění bodů ze tvaru**
 
-Někdy vlastní tvar obsahuje zbytečné body, které komplikují jeho geometrii nebo ovlivňují vykreslení. Tento odstavec ukazuje, jak odstranit konkrétní body z cesty tvaru, abyste mohli zjednodušit obrys a dosáhnout čistších, přesnějších výsledků.
+Tento příklad mění obrys ve tvaru srdce odstraněním segmentu na nula‑založeném indexu 2 pomocí [GeometryPath.remove_at](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/remove_at/). Použití upravené cesty s [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) aktualizuje konturu tvaru.
 
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/) a nastavte její typ [ShapeType.HEART](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapetype/).
-2. Získejte instanci [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) ze tvaru.
-3. Odstraňte úsek z cesty.
-4. Aplikujte aktualizovanou cestu na tvar.
-
-Následující kód v Pythonu ukazuje, jak odstranit body z tvaru:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -185,50 +112,39 @@ with slides.Presentation() as presentation:
     path.remove_at(2)
 
     shape.set_geometry_path(path)
-
-    presentation.save("removed_points.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example2_image](custom_shape_2.png)
 
-![Odstraněné body](custom_shape_2.png)
+## **Vytvoření vlastního tvaru**
 
-##  **Vytvoření vlastních tvarů**
+Tento příklad vytvoří pětiprstý hvězdicový tvar pomocí [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/). Střídavé vnější a vnitřní poloměry 100 a 50 bodů definují špičky a zapuštění; krok 72 stupňů rovnoměrně rozmístí pět špiček. Cesta je uzavřena pomocí [GeometryPath.close_figure](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/close_figure/) a aplikována na obdélníkový tvar pomocí [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/), čímž nahradí jeho obrys.
 
-Vytvořte jedinečné vektorové tvary definováním [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/) a jeho sestavením z úseků, oblouků a Bézierových křivek. Tento odstavec ukazuje, jak od základů vytvořit vlastní geometrii a přidat výsledný tvar do snímku.
-
-1. Vypočítejte body pro tvar.
-2. Vytvořte instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/).
-3. Naplňte cestu body.
-4. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/).
-5. Aplikujte cestu na tvar.
-
-Následující kód v Pythonu ukazuje, jak vytvořit vlastní tvar:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 import math
 
 points = []
 
-R = 100
-r = 50
-step = 72
+outer_radius = 100
+inner_radius = 50
+angle_step = 72
 
-for angle in range(-90, 270, step):
+for angle in range(-90, 270, angle_step):
     radians = angle * (math.pi / 180)
-    x = R * math.cos(radians)
-    y = R * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    x = outer_radius * math.cos(radians)
+    y = outer_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
-    radians = math.pi * (angle + step / 2) / 180.0
-    x = r * math.cos(radians)
-    y = r * math.sin(radians)
-    points.append(draw.PointF(x + R, y + R))
+    radians = math.pi * (angle + angle_step / 2) / 180.0
+    x = inner_radius * math.cos(radians)
+    y = inner_radius * math.sin(radians)
+    points.append(slides.PointF(x + outer_radius, y + outer_radius))
 
 star_path = slides.GeometryPath()
 star_path.move_to(points[0])
 
-for i in range(len(points)):
+for i in range(1, len(points)):
     star_path.line_to(points[i])
 
 star_path.close_figure()
@@ -236,26 +152,16 @@ star_path.close_figure()
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, R * 2, R * 2)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, outer_radius * 2, outer_radius * 2)
     shape.set_geometry_path(star_path)
-
-    presentation.save("custom_shape.pptx", slides.export.SaveFormat.PPTX)
 ```
+![example3_image](custom_shape_3.png)
 
-![Vlastní tvar](custom_shape_3.png)
+## **Vytvoření složeného vlastního tvaru**
 
-## **Vytvoření kompozitních vlastních tvarů**
+Tento příklad definuje dva uzavřené objekty [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/) pro horní a dolní třetinu tvaru. Použití obou cest s [GeometryShape.set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/) vytvoří jeden složený tvar s mezerou přes střední třetinu.
 
-Vytvoření kompozitního vlastního tvaru vám umožní spojit několik geometrických cest do jednoho, opakovaně použitelného tvaru na snímku. Definujte a sloučte tyto cesty pro vytvoření složitých vizuálů, které přesahují standardní sadu tvarů.
-
-1. Vytvořte instanci třídy [GeometryShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/).
-2. Vytvořte první instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/).
-3. Vytvořte druhou instanci třídy [GeometryPath](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometrypath/).
-4. Aplikujte obě cesty na tvar.
-
-Následující kód v Pythonu ukazuje, jak vytvořit kompozitní vlastní tvar:
-
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
@@ -263,34 +169,29 @@ with slides.Presentation() as presentation:
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
 
-    geometry_path_0 = slides.GeometryPath()
-    geometry_path_0.move_to(0, 0)
-    geometry_path_0.line_to(shape.width, 0)
-    geometry_path_0.line_to(shape.width, shape.height/3)
-    geometry_path_0.line_to(0, shape.height / 3)
-    geometry_path_0.close_figure()
+    top_path = slides.GeometryPath()
+    top_path.move_to(0, 0)
+    top_path.line_to(shape.width, 0)
+    top_path.line_to(shape.width, shape.height / 3)
+    top_path.line_to(0, shape.height / 3)
+    top_path.close_figure()
 
-    geometry_path_1 = slides.GeometryPath()
-    geometry_path_1.move_to(0, shape.height/3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height / 3 * 2)
-    geometry_path_1.line_to(shape.width, shape.height)
-    geometry_path_1.line_to(0, shape.height)
-    geometry_path_1.close_figure()
+    bottom_path = slides.GeometryPath()
+    bottom_path.move_to(0, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height / 3 * 2)
+    bottom_path.line_to(shape.width, shape.height)
+    bottom_path.line_to(0, shape.height)
+    bottom_path.close_figure()
 
-    shape.set_geometry_paths([ geometry_path_0, geometry_path_1])
-
-    presentation.save("composite_shape.pptx", slides.export.SaveFormat.PPTX)
+    shape.set_geometry_paths([top_path, bottom_path])
 ```
+![example4_image](custom_shape_4.png)
 
-![Kompozitní tvar](custom_shape_4.png)
+## **Vytvoření vlastního tvaru se zakřivenými rohy**
 
-## **Vytvoření vlastních tvarů se zakřivenými rohy**
+Tento příklad kombinuje rovné segmenty s [GeometryPath.arc_to](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/arc_to/) pro vytvoření tvaru se zakřivenými rohy dovnitř. Velikost každého rohu určuje šířku a výšku oblouku v bodech a úhel -90° vykresluje proti směru hodinových ručiček čtvrtkruh elipsy. Dokončená cesta je aplikována pomocí [GeometryShape.set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) a prezentace je uložena ve formátu PPTX.
 
-Tento odstavec ukazuje, jak pomocí geometrické cesty nakreslit vlastní tvar s hladce zakřivenými rohy. Kombinujete přímé úseky a kruhové oblouky k vytvoření obrysu a přidáte hotový tvar do snímku.
-
-Následující kód v Pythonu ukazuje, jak vytvořit vlastní tvar se zakřivenými rohy:
-
-```py
+```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
@@ -307,66 +208,118 @@ left_bottom_size = 10
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
-    shape = slide.shapes.add_auto_shape(
-        slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.CUSTOM, shape_x, shape_y, shape_width, shape_height)
 
-    point1 = draw.PointF(left_top_size, 0)
-    point2 = draw.PointF(shape_width - right_top_size, 0)
-    point3 = draw.PointF(shape_width, shape_height - right_bottom_size)
-    point4 = draw.PointF(left_bottom_size, shape_height)
-    point5 = draw.PointF(0, left_top_size)
+    top_left = slides.PointF(left_top_size, 0)
+    top_right = slides.PointF(shape_width - right_top_size, 0)
+    right_bottom = slides.PointF(shape_width, shape_height - right_bottom_size)
+    bottom_left = slides.PointF(left_bottom_size, shape_height)
+    left_top = slides.PointF(0, left_top_size)
 
     geometry_path = slides.GeometryPath()
-    geometry_path.move_to(point1)
-    geometry_path.line_to(point2)
+    geometry_path.move_to(top_left)
+    geometry_path.line_to(top_right)
     geometry_path.arc_to(right_top_size, right_top_size, 180, -90)
-    geometry_path.line_to(point3)
+    geometry_path.line_to(right_bottom)
     geometry_path.arc_to(right_bottom_size, right_bottom_size, -90, -90)
-    geometry_path.line_to(point4)
+    geometry_path.line_to(bottom_left)
     geometry_path.arc_to(left_bottom_size, left_bottom_size, 0, -90)
-    geometry_path.line_to(point5)
+    geometry_path.line_to(left_top)
     geometry_path.arc_to(left_top_size, left_top_size, 90, -90)
     geometry_path.close_figure()
 
     shape.set_geometry_path(geometry_path)
 
-    presentation.save("curved_corners.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Zakřivené rohy](custom_shape_6.png)
+## **Zjistit, zda je geometrie tvaru uzavřená**
 
-## **Zjištění, zda je geometrie tvaru uzavřená**
+Následující pomocná funkce kontroluje, zda každá neprázdná geometrická cesta končí uzavíracím segmentem. Čte [GeometryPath.path_data](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/path_data/) a porovnává příkaz posledního segmentu [PathSegment.path_command](https://reference.aspose.com/slides/python-net/aspose.slides/pathsegment/path_command/) s [PathCommandType.CLOSE](https://reference.aspose.com/slides/python-net/aspose.slides/pathcommandtype/). Vracejí false, když neexistují neprázdné cesty. Toto kontroluje poslední příkaz každé cesty; nezkoumá každou podfiguru v cestě. Příklad vytiskne `True` pro obdélník.
 
-Uzavřený tvar je definován jako takový, jehož všechny strany jsou propojené, tvořící jedinou hranici bez mezer. Takový tvar může být jednoduchý geometrický tvar nebo složitý vlastní obrys. Následující příklad kódu ukazuje, jak zkontrolovat, zda je geometrie tvaru uzavřená:
+```python
+import aspose.slides as slides
 
-```py
+
 def is_geometry_closed(geometry_shape):
-    is_closed = None
+    has_nonempty_path = False
 
     for geometry_path in geometry_shape.get_geometry_paths():
-        data_length = len(geometry_path.path_data)
-        if data_length == 0:
+        segments = geometry_path.path_data
+        if len(segments) == 0:
             continue
 
-        last_segment = geometry_path.path_data[data_length - 1]
-        is_closed = last_segment.path_command == PathCommandType.CLOSE
-
-        if not is_closed:
+        has_nonempty_path = True
+        last_segment = segments[len(segments) - 1]
+        if last_segment.path_command != slides.PathCommandType.CLOSE:
             return False
 
-    return is_closed
+    return has_nonempty_path
+
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 200, 100)
+    print(is_geometry_closed(shape))
 ```
 
-## **Často kladené otázky**
+## **Extrahování a inspekce elementů tvaru**
+
+Použijte [GeometryShape.create_shape_elements](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/create_shape_elements/) k inspekci existujícího tvaru jako elementů obsahujících body cesty a typy bodů. Každý vrácený [ShapeElement](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/) poskytuje pole [path_points](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_points/) a [path_types](https://reference.aspose.com/slides/python-net/aspose.slides/shapeelement/path_types/). Toto znázornění je užitečné pro analýzu kontury nebo předání geometrie vlastním kreslícím nástrojům.
+
+Příklad otevře prezentaci, najde první geometrický tvar přímo na první snímku a vytiskne jeho segmenty cesty. Použijte prezentaci obsahující tvar s rovnými i zakřivenými segmenty, abyste viděli oba typy výstupu. Neprohledává skupiny.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = next((item for item in slide.shapes if isinstance(item, slides.GeometryShape)), None)
+
+    if shape is None:
+        print("No geometry shape found on the first slide.")
+    else:
+        for element in shape.create_shape_elements():
+            points = element.path_points
+            types = element.path_types
+            print("Shape element:")
+
+            i = 0
+            while i < len(points):
+                point_type = types[i] & 0x07  # Zachovat typ segmentu, vyjma příznaků.
+                if point_type == 0:
+                    print(f"Start figure at {points[i]}")
+                elif point_type == 1:
+                    print(f"Line to {points[i]}")
+                elif point_type == 3:
+                    print(f"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}")
+                    i += 2  # Spotřebovat oba řídící body a koncový bod.
+
+                if (types[i] & 0x80) != 0:
+                    print("Close subpath back to its starting point.")
+                i += 1
+```
+
+Pole odpovídají podle indexu: `points[i]` je bod a `types[i]` popisuje jeho roli. Typ `0` zahajuje obrazec a typ `1` kreslí čáru od předchozího bodu k aktuálnímu bodu. Kubický Bézier segment začíná na předchozím koncovém bodu a používá tři po sobě jdoucí položky typu `3`: dva řídící body následované novým koncovým bodem. Smyčka spotřebuje těchto tři položky najednou a kontroluje koncový bod na uzavřenost.
+
+Typy bodů také obsahují příznaky. Maskujte pomocí `0x07` pro identifikaci typu segmentu a testujte `0x80` samostatně pro detekci uzavřené podcesty. Například `129` (`0x81`) znamená koncový bod čáry, který uzavírá podcestu, a `131` (`0x83`) znamená koncový bod Bézieru, který uzavírá podcestu. Porovnání surové hodnoty jen s `1` nebo `3` by tyto případy prošvihlo. Další příznaky, jako čárka (`0x10`) a značka (`0x20`), nemění základní typ segmentu.
+
+**Souřadnice a transformace.** Body jsou měřeny v bodech (1/72 palce), přičemž X roste doprava a Y dolů. Pro neagregovaný tvar již extrahované souřadnice zahrnují jeho pozici [x](https://reference.aspose.com/slides/python-net/aspose.slides/shape/x/) a [y](https://reference.aspose.com/slides/python-net/aspose.slides/shape/y/) a odrážejí jeho aktuální šířku a výšku. Například neotočený obdélník v `(100, 200)` s velikostí `120 × 80` má hranice kontury `(100, 200)`–`(220, 280)`. Nepřidávejte pozici tvaru znovu. Odečtěte jeho X a Y pro získání souřadnic relativně k neotočenému rámci.
+
+Extrahované body neaplikují [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) tvaru ani vodorovné a svislé převrácení. Pro reprodukci zobrazené kontury aplikujte tyto transformace kolem středu tvaru. Pro seskupené tvary také zohledněte mapování souřadnic skupiny a transformace; nepředpokládejte, že extrahované body jsou konečné vykreslené souřadnice snímku nebo že použijete posunutí či škálování dvakrát, pokud už je zahrnuto v rámci dítěte.
+
+**Inspekce vs. úprava.** Extrahovaná pole popisují konturu; jejich změna neaktualizuje původní tvar. Zvolte tento přístup, když vaše analytické nebo kreslící kódy potřebují pole bodů/typů. Použijte [get_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/get_geometry_paths/) pokud potřebujete geometrické příkazy v lokálním souřadnicovém systému tvaru nebo chcete upravit jeho geometrii. Aplikujte upravené cesty pomocí [set_geometry_path](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_path/) nebo [set_geometry_paths](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/set_geometry_paths/).
+
+## **FAQ**
 
 **Co se stane s výplní a obrysem po nahrazení geometrie?**
 
-Styl zůstává u tvaru; mění se pouze obrys. Výplň a obrys jsou automaticky použity na novou geometrii.
+Styl zůstává na tvaru; mění se pouze kontura. Výplň a obrys jsou automaticky aplikovány na novou geometrii.
 
-**Jak správně otáčet vlastní tvar spolu s jeho geometrií?**
+**Jak správně otočit vlastní tvar společně s jeho geometrií?**
 
-Použijte vlastnost [rotation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/geometryshape/rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s jeho vlastním souřadnicovým systémem.
+Použijte vlastnost [rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) tvaru; geometrie se otáčí spolu s tvarem, protože je svázána s jeho vlastním souřadnicovým systémem.
 
-**Mohu převést vlastní tvar na obrázek, aby byl výsledek "uzamčen"?**
+**Mohu převést vlastní tvar na obrázek, aby byl výsledek „uzamčen“?**
 
-Ano. Exportujte požadovanou oblast [slide](/slides/cs/python-net/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/python-net/create-shape-thumbnails/) do rastrového formátu; to usnadní další práci s těžkými geometriemi.
+Ano. Exportujte požadovanou oblast [slide](/slides/cs/python-net/convert-powerpoint-to-png/) nebo samotný [shape](/slides/cs/python-net/create-shape-thumbnails/) do rastrového formátu; to zjednoduší další práci s komplexními geometriemi.

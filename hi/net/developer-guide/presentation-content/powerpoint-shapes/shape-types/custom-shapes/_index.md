@@ -1,262 +1,211 @@
 ---
-title: ".NET में प्रस्तुति आकृतियों को अनुकूलित करें"
-linktitle: "कस्टम आकृति"
+title: .NET में प्रस्तुति शैलियों को अनुकूलित करें
+linktitle: कस्टम शैली
 type: docs
 weight: 20
 url: /hi/net/custom-shape/
 keywords:
-- "कस्टम आकृति"
-- "आकृति जोड़ें"
-- "आकृति बनाएं"
-- "आकृति बदलें"
-- "आकृति ज्यामिति"
-- "ज्यामिति पथ"
-- "पथ बिंदु"
-- "संपादन बिंदु"
-- "बिंदु जोड़ें"
-- "बिंदु हटाएं"
-- "संपादन संचालन"
-- "घुमावदार कोना"
-- "PowerPoint"
-- "प्रस्तुति"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Aspose.Slides for .NET के साथ PowerPoint प्रस्तुति में आकृतियों को बनाएं और अनुकूलित करें: ज्यामिति पथ, घुमावदार कोने, समग्र आकृतियां."
+- कस्टम शैली
+- शैली जोड़ें
+- शैली बनाएं
+- शैली बदलें
+- शैली ज्यामिति
+- ज्यामिति पाथ
+- पाथ बिंदु
+- संपादन बिंदु
+- बिंदु जोड़ें
+- बिंदु हटाएँ
+- संपादन ऑपरेशन
+- मोड़ वाला कोना
+- PowerPoint
+- प्रस्तुति
+- .NET
+- C#
+- Aspose.Slides
+description: "Aspose.Slides for .NET के साथ PowerPoint प्रस्तुतियों में शैलियों को बनाएं और अनुकूलित करें: ज्यामिति पाथ, मोड़ वाले कोने, सम्मिलित शैलियां।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुति आकृतियों को संपादन बिंदुओं और ज्यामिति पथों के माध्यम से आकृति ज्यामिति को संपादित करके अनुकूलित करने के तरीके को समझाता है। यह दिखाता है कि `GeometryPath` और `IGeometryPath` के साथ काम करके मौजूदा आकृतियों को संशोधित कैसे करें, बेसिक पथ संपादन संचालन करें, बिंदु जोड़ें या हटाएँ, और अपडेटेड ज्यामिति को फिर से आकृति पर लागू करें।
+यह लेख Aspose.Slides में प्रस्तुति शैलियों को कस्टमाइज़ करने के लिए शैलियों की ज्यामिती को संपादन बिंदुओं और ज्यामिति पाथ के माध्यम से संपादित करने की प्रक्रिया को समझाता है। यह दिखाता है कि कैसे [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) और [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) के साथ मौजूदा शैलियों को बदलें, बुनियादी पाथ संपादन ऑपरेशन्स करें, बिंदु जोड़ें या हटाएं, और अपडेटेड ज्यामिति को फिर से शैली पर लागू करें।
 
-यह यह भी दर्शाता है कि कैसे कस्टम और समग्र (कॉम्पोज़िट) आकृतियां बनाई जाएँ, घुमावदार कोनों वाली आकृतियां निर्मित की जाएँ, यह निर्धारित किया जाए कि क्या आकृति की ज्यामिति बंद (क्लोज़) है, और अतिरिक्त ज्यामिति अनुकूलन परिदृश्यों के लिए `GeometryPath` और `GraphicsPath` के बीच रूपांतरण कैसे किया जाए।
+यह यह भी दर्शाता है कि कैसे कस्टम और कंपोज़िट शैलियों को बनाया जाए, मोड़ वाले कोनों के साथ शैलियों को निर्मित किया जाए, यह निर्धारित किया जाए कि शैली की ज्यामिति बंद है या नहीं, और अतिरिक्त ज्यामिति कस्टमाइज़ेशन परिदृश्यों के लिए [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) और [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) के बीच लेगेसी रूपांतरण का उपयोग किया जाए।
 
-## **संपादन बिंदुओं का उपयोग करके आकृति बदलें**
+## **संपादन बिंदुओं द्वारा शैली बदलें**
 
-एक वर्ग (square) पर विचार करें। PowerPoint में, **संपादन बिंदुओं** (edit points) का उपयोग करके आप  
+PowerPoint में, आप **Edit Points** का उपयोग करके एक वर्ग को संशोधित कर सकते हैं:
 
-* वर्ग के कोने को अंदर या बाहर ले जा सकते हैं  
-* कोने या बिंदु के लिए घुमाव को निर्दिष्ट कर सकते हैं  
-* वर्ग में नए बिंदु जोड़ सकते हैं  
-* वर्ग के बिंदुओं को हेर-फेर कर सकते हैं, आदि  
+* कोने को अंदर या बाहर ले जाएँ।
+* किसी बिंदु पर वक्रता को समायोजित करें।
+* नए बिंदु जोड़ें।
 
-मूल रूप से, आप वर्णित कार्यों को किसी भी आकृति पर कर सकते हैं। संपादन बिंदुओं का उपयोग करके आप एक आकृति को बदल सकते हैं या मौजूदा आकृति से नई आकृति बना सकते हैं।  
+संपादन बिंदु आपको शैली की रूपरेखा बदलने या मौजूदा शैली को नई शैली के आधार के रूप में उपयोग करने की अनुमति देते हैं।
 
-## **आकृति संपादन टिप्स**
+## **शैली संपादन टिप्स**
 
 ![overview_image](custom_shape_0.png)
 
-PowerPoint आकृतियों को संपादन बिंदुओं के माध्यम से संपादित करने से पहले, आपको इन बिंदुओं पर विचार करना चाहिए:
+PowerPoint शैलियों को संपादित करते समय निम्नलिखित अवधारणाओं को ध्यान में रखें:
 
-* एक आकृति (या इसका पथ) बंद या खुला दोनों हो सकता है।  
-* सभी आकृतियों में कम से कम 2 एंकर पॉइंट होते हैं जो रेखाओं द्वारा जुड़ी होती हैं।  
-* एक रेखा या तो सीधी या घुमावदार हो सकती है। एंकर पॉइंट रेखा की प्रकृति निर्धारित करते हैं।  
-* एंकर पॉइंट कोने के बिंदु, सीधी बिंदु, या स्मूद बिंदु के रूप में मौजूद होते हैं:  
-  * एक कोने का बिंदु वह बिंदु है जहाँ दो सीधी रेखाएँ कोण पर जुड़ती हैं।  
-  * एक स्मूद बिंदु वह बिंदु है जहाँ दो हैंडल सीधी रेखा में होते हैं और रेखा के खंड एक स्मूद वक्र में जुड़ते हैं। इस स्थिति में, सभी हैंडल एंकर पॉइंट से समान दूरी पर होते हैं।  
-  * एक सीधा बिंदु वह बिंदु है जहाँ दो हैंडल सीधी रेखा में होते हैं और उस रेखा के खंड स्मूद कर्व में जुड़ते हैं। इस स्थिति में, हैंडल को एंकर पॉइंट से समान दूरी पर रहने की आवश्यकता नहीं है।  
-* एंकर पॉइंट को ले जाकर या संपादित करके (जिससे रेखाओं का कोण बदलता है), आप आकृति की दिखावट बदल सकते हैं।  
+* एक शैली (या इसका पाथ) बंद या खुला हो सकता है।
+* शैली का पाथ एंकर बिंदुओं से जुड़े खण्डों से बना होता है।
+* एक खण्ड सीधा या वक्र हो सकता है। एंकर बिंदु और नियंत्रण हैंडल उसके आकार को निर्धारित करते हैं।
+* एंकर बिंदु कोने बिंदु, सीधा बिंदु, या स्मूद बिंदु के रूप में मौजूद होते हैं:
+  * कोने बिंदु पर, सटे खण्ड एक कोण पर मिल सकते हैं।
+  * स्मूद बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं और एंकर बिंदु से समान दूरी पर होते हैं।
+  * सीधा बिंदु पर, दो नियंत्रण हैंडल संरेखित होते हैं लेकिन एंकर बिंदु से विभिन्न दूरी पर हो सकते हैं।
+* एंकर बिंदुओं को स्थानांतरित करने या उनके हैंडल को समायोजित करने से शैली की रूपरेखा बदलती है।
 
-PowerPoint आकृतियों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** [**GeometryPath**](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास और [**IGeometryPath**](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometrypath) इंटरफ़ेस प्रदान करता है।  
+PowerPoint शैलियों को संपादन बिंदुओं के माध्यम से संपादित करने के लिए, **Aspose.Slides** [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) क्लास और [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) इंटरफ़ेस प्रदान करता है।
 
-* एक [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) उदाहरण [IGeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometryshape) ऑब्जेक्ट का जियोमेट्री पथ दर्शाता है।  
-* `IGeometryShape` उदाहरण से `GeometryPath` प्राप्त करने के लिए आप [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometryshape/methods/getgeometrypaths) मेथड का उपयोग कर सकते हैं।  
-* आकृति के लिए `GeometryPath` सेट करने हेतु आप इन मेथड्स का उपयोग कर सकते हैं: सॉलिड आकृतियों के लिए [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometryshape/methods/setgeometrypath) और कॉम्पोज़िट आकृतियों के लिए [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometryshape/methods/setgeometrypaths)।  
-* सेगमेंट जोड़ने के लिए आप [IGeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometrypath) के तहत मेथड्स का उपयोग कर सकते हैं।  
-* [IGeometryPath.Stroke](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometrypath/properties/stroke) और [IGeometryPath.FillMode](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometrypath/properties/fillmode) प्रॉपर्टीज़ का उपयोग करके आप जियोमेट्री पथ की उपस्थिति सेट कर सकते हैं।  
-* [IGeometryPath.PathData](https://reference.aspose.com/slides/hi/net/aspose.slides/igeometrypath/properties/pathdata) प्रॉपर्टी का उपयोग करके आप `GeometryShape` का जियोमेट्री पथ पथ सेगमेंट के एरे के रूप में प्राप्त कर सकते हैं।  
-* अतिरिक्त आकृति जियोमेट्री कस्टमाइज़ेशन विकल्पों तक पहुँचने के लिये आप [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) को [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) में रूपांतरित कर सकते हैं।  
-* [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/hi/net/aspose.slides.util/shapeutil/methods/geometrypathtographicspath) और [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides.util/shapeutil/methods/graphicspathtogeometrypath) मेथड्स (जो [ShapeUtil](https://reference.aspose.com/slides/hi/net/aspose.slides.util/shapeutil) क्लास से हैं) का उपयोग करके आप [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) को [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) में और वापस रूपांतरण कर सकते हैं।  
+* एक [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) इंस्टेंस [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) ऑब्जेक्ट की ज्यामिति पाथ का प्रतिनिधित्व करता है।
+* [IGeometryShape.GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) मेथड का उपयोग करके आप [IGeometryShape](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/) इंस्टेंस से [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) प्राप्त कर सकते हैं।
+* शैली के लिए [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) सेट करने हेतु आप इन मेथड्स का उपयोग कर सकते हैं: एकल पाथ वाली शैलियों के लिए [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) और कई पाथ वाली शैलियों के लिए [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/)।
+* खण्ड जोड़ने के लिए आप [IGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/) के तहत मेथड्स का उपयोग कर सकते हैं।
+* [IGeometryPath.Stroke](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/stroke/) और [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) प्रॉपर्टीज़ के माध्यम से आप ज्यामिति पाथ की उपस्थिति निर्धारित कर सकते हैं।
+* [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) प्रॉपर्टी का उपयोग करके आप एक [GeometryShape](https://reference.aspose.com/slides/net/aspose.slides/geometryshape/) की ज्यामिति पाथ को पाथ खण्डों की ऐरे के रूप में प्राप्त कर सकते हैं।
+* उन लेगेसी संस्करणों में जो नीचे दिए गए रूपांतरण मेथड्स को सपोर्ट करते हैं, आप [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) को [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) में बदल सकते हैं।
+* [ShapeUtil](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/) क्लास से [GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) और [GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) मेथड्स का उपयोग करके आप [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) और [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) के बीच रूपांतरण कर सकते हैं।
 
-## **सरल संपादन संचालन**
+## **सरल संपादन ऑपरेशन्स**
 
-यह C# कोड दिखाता है कि कैसे  
+निम्नलिखित मेथड्स का उपयोग करके आप एक ज्यामिति पाथ को संपादित कर सकते हैं। ओवरलोड जो इंडेक्स स्वीकार करते हैं, पाथ के खण्ड एरे में शून्य-आधारित स्थिति पर खण्ड सम्मिलित करते हैं।
 
-**एक रेखा जोड़ें** पथ के अंत में  
-``` csharp
-void LineTo(PointF point);
-void LineTo(float x, float y);
-```  
+| ऑपरेशन | मेथड |
+| --- | --- |
+| सीधी रेखा जोड़ें या सम्मिलित करें। | [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) |
+| दो नियंत्रण बिंदुओं और एक अंतिम बिंदु के साथ क्यूबिक बीज़ियर वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.CubicBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/cubicbezierto/) |
+| एक नियंत्रण बिंदु और एक अंतिम बिंदु के साथ क्वाड्रेटिक बीज़ियर वक्र जोड़ें या सम्मिलित करें। | [GeometryPath.QuadraticBezierTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/quadraticbezierto/) |
+| निर्दिष्ट आयाम और डिग्री में एंगल के साथ दीर्घवृत्तीय चाप जोड़ें। | [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) |
+| वर्तमान आकृति को उसके अंतिम बिंदु को प्रारंभ बिंदु से जोड़कर बंद करें। | [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) |
+| आकृति के प्रारंभ बिंदु को सेट करें। | [GeometryPath.MoveTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/moveto/) |
+| शून्य-आधारित इंडेक्स पर खण्ड हटाएँ। | [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) |
 
-**एक रेखा जोड़ें** पथ पर निर्दिष्ट स्थिति में:  
-``` csharp    
-void LineTo(PointF point, uint index);
-void LineTo(float x, float y, uint index);
-```  
+## **शैली में कस्टम बिंदु जोड़ें**
 
-**एक क्यूबिक Bezier वक्र जोड़ें** पथ के अंत में:  
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3);
-```  
+यह उदाहरण [GeometryPath.LineTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/lineto/) का उपयोग करके आयताकार शैली में दो बिंदु सम्मिलित करता है और संशोधित पाथ को [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) द्वारा लागू करता है। निर्देशांक शैली के स्थानीय होते हैं: दोनों नए बिंदु शैली के केंद्र में स्थित हैं, बाएँ से 100 प्वाइंट और शीर्ष से 50 प्वाइंट पर। खण्ड इंडेक्स 1 और 4 उन्हें ऊपर और नीचे किनारों पर रखते हैं, जिससे वे किनारे अंदर की ओर खींचे जाते हैं।
 
-**एक क्यूबिक Bezier वक्र जोड़ें** पथ पर निर्दिष्ट स्थिति में:  
-``` csharp
-void CubicBezierTo(PointF point1, PointF point2, PointF point3, uint index);
-void CubicBezierTo(float x1, float y1, float x2, float y2, float x3, float y3, uint index);
-```  
+```csharp
+using Aspose.Slides;
 
-**एक क्वाड्रेटिक Bezier वक्र जोड़ें** पथ के अंत में:  
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2);
-```  
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-**एक क्वाड्रेटिक Bezier वक्र जोड़ें** पथ पर निर्दिष्ट स्थिति में:  
-``` csharp
-void QuadraticBezierTo(PointF point1, PointF point2, uint index);
-void QuadraticBezierTo(float x1, float y1, float x2, float y2, uint index);
-```  
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-**एक दिया गया आर्क जोड़ें** पथ में:  
-``` csharp
-void ArcTo(float width, float heigth, float startAngle, float sweepAngle);
-```  
+var geometryPath = shape.GetGeometryPaths()[0];
+geometryPath.LineTo(100, 50, 1);
+geometryPath.LineTo(100, 50, 4);
 
-**पथ की वर्तमान आकृति को बंद करें**:  
-``` csharp
-void CloseFigure();
-```  
-
-**अगले बिंदु के लिए स्थिति सेट करें**:  
-``` csharp
-void MoveTo(PointF point);
-void MoveTo(float x, float y);
-```  
-
-**दिए गए इंडेक्स पर पथ सेगमेंट हटाएँ**:  
-``` csharp
-void RemoveAt(int index);
-```  
-
-## **आकृति में कस्टम बिंदु जोड़ें**
-
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/geometryshape) क्लास का एक इंस्टेंस बनाएं और [ShapeType.Rectangle](https://reference.aspose.com/slides/hi/net/aspose.slides/shapetype) प्रकार सेट करें।  
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास का एक इंस्टेंस प्राप्त करें।  
-3. पथ में दो शीर्ष बिंदुओं के बीच एक नया बिंदु जोड़ें।  
-4. पथ में दो निचले बिंदुओं के बीच एक नया बिंदु जोड़ें।  
-5. पथ को आकृति पर लागू करें।  
-
-यह C# कोड दिखाता है कि कैसे कस्टम बिंदु आकृति में जोड़ें:  
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
-    IGeometryPath geometryPath = shape.GetGeometryPaths()[0];
-
-    geometryPath.LineTo(100, 50, 1);
-    geometryPath.LineTo(100, 50, 4);
-    shape.SetGeometryPath(geometryPath);
-}
+shape.SetGeometryPath(geometryPath);
 ```
 
 ![example1_image](custom_shape_1.png)
 
-##  **आकृति से बिंदु हटाएँ**
+## **शैली से बिंदु हटाएँ**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/geometryshape) क्लास का एक इंस्टेंस बनाएं और [ShapeType.Heart](https://reference.aspose.com/slides/hi/net/aspose.slides/shapetype) प्रकार सेट करें।  
-2. आकृति से [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास का एक इंस्टेंस प्राप्त करें।  
-3. पथ का सेगमेंट हटाएँ।  
-4. पथ को आकृति पर लागू करें।  
+यह उदाहरण [GeometryPath.RemoveAt](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/removeat/) के साथ शून्य-आधारित इंडेक्स 2 पर खण्ड हटाकर हृदय-आकार की रूपरेखा बदलता है। संशोधित पाथ को [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) द्वारा लागू करने से शैली की ध्रुजें अपडेट हो जाती हैं।
 
-यह C# कोड दिखाता है कि कैसे बिंदु आकृति से हटाएँ:  
-``` csharp
-using (Presentation pres = new Presentation())
-{
-	GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-	IGeometryPath path = shape.GetGeometryPaths()[0];
-	path.RemoveAt(2);
-	shape.SetGeometryPath(path);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Heart, 100, 100, 300, 300);
+
+var path = shape.GetGeometryPaths()[0];
+path.RemoveAt(2);
+
+shape.SetGeometryPath(path);
 ```
-
 ![example2_image](custom_shape_2.png)
 
-##  **एक कस्टम आकृति बनाएं**
+## **कस्टम शैली बनाएँ**
 
-1. आकृति के बिंदुओं की गणना करें।  
-2. एक [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास का एक इंस्टेंस बनाएं।  
-3. बिंदुओं के साथ पथ को भरें।  
-4. एक [GeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/geometryshape) क्लास का एक इंस्टेंस बनाएं।  
-5. पथ को आकृति पर लागू करें।  
+यह उदाहरण [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) का उपयोग करके पाँच‑बिंदु वाले सितारे का निर्माण करता है। बाहरी और भीतरी त्रिज्या क्रमशः 100 और 50 प्वाइंट होते हैं, जो टिप्स और कटाव को परिभाषित करते हैं; 72‑डिग्री चरण पाँच टिप्स को समान रूप से विभाजित करता है। पाथ को [GeometryPath.CloseFigure](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/closefigure/) द्वारा बंद किया जाता है और आयताकार शैली पर [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) के माध्यम से लागू किया जाता है, जिससे उसकी रूपरेखा बदल जाती है।
 
-यह C# दिखाता है कि कैसे कस्टम आकृति बनाएँ:  
-``` csharp
-List<PointF> points = new List<PointF>();
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
 
-float R = 100, r = 50;
-int step = 72;
+var points = new List<PointF>();
 
-for (int angle = -90; angle < 270; angle += step)
+var outerRadius = 100f;
+var innerRadius = 50f;
+var angleStep = 72;
+
+for (var angle = -90; angle < 270; angle += angleStep)
 {
-    double radians = angle * (Math.PI / 180f);
-    double x = R * Math.Cos(radians);
-    double y = R * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    var radians = angle * (Math.PI / 180f);
+    var x = outerRadius * Math.Cos(radians);
+    var y = outerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 
-    radians = Math.PI * (angle + step / 2) / 180.0;
-    x = r * Math.Cos(radians);
-    y = r * Math.Sin(radians);
-    points.Add(new PointF((float)x + R, (float)y + R));
+    radians = Math.PI * (angle + angleStep / 2) / 180.0;
+    x = innerRadius * Math.Cos(radians);
+    y = innerRadius * Math.Sin(radians);
+    points.Add(new PointF((float)x + outerRadius, (float)y + outerRadius));
 }
 
-GeometryPath starPath = new GeometryPath();
+var starPath = new GeometryPath();
 starPath.MoveTo(points[0]);
 
-for (int i = 1; i < points.Count; i++)
+for (var i = 1; i < points.Count; i++)
 {
     starPath.LineTo(points[i]);
 }
 
 starPath.CloseFigure();
 
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, R * 2, R * 2) as GeometryShape;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    shape.SetGeometryPath(starPath);
-}
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, outerRadius * 2, outerRadius * 2);
+shape.SetGeometryPath(starPath);
 ```
-
 ![example3_image](custom_shape_3.png)
 
-## **समग्र कस्टम आकृति बनाएं**
+## **कम्पोज़िट कस्टम शैली बनाएँ**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/geometryshape) क्लास का एक इंस्टेंस बनाएं।  
-2. एक पहला [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास का इंस्टेंस बनाएं।  
-3. एक दूसरा [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) क्लास का इंस्टेंस बनाएं।  
-4. पथों को आकृति पर लागू करें।  
+यह उदाहरण शैली के ऊपर और नीचे के तिहाई भागों के लिए दो बंद [GeometryPath](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/) ऑब्जेक्ट्स परिभाषित करता है। दोनों पाथ को [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) द्वारा लागू करने से मध्य तिहाई में एक अंतर के साथ एकल कम्पोज़िट शैली बनती है।
 
-यह C# कोड दिखाता है कि कैसे समग्र कस्टम आकृति बनाएँ:  
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100) as GeometryShape;
+```csharp
+using Aspose.Slides;
 
-    GeometryPath geometryPath0 = new GeometryPath();
-    geometryPath0.MoveTo(0, 0);
-    geometryPath0.LineTo(shape.Width, 0);
-    geometryPath0.LineTo(shape.Width, shape.Height/3);
-    geometryPath0.LineTo(0, shape.Height / 3);
-    geometryPath0.CloseFigure();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    GeometryPath geometryPath1 = new GeometryPath();
-    geometryPath1.MoveTo(0, shape.Height/3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height / 3 * 2);
-    geometryPath1.LineTo(shape.Width, shape.Height);
-    geometryPath1.LineTo(0, shape.Height);
-    geometryPath1.CloseFigure();
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
 
-    shape.SetGeometryPaths(new GeometryPath[] { geometryPath0, geometryPath1});
-}
+var topPath = new GeometryPath();
+topPath.MoveTo(0, 0);
+topPath.LineTo(shape.Width, 0);
+topPath.LineTo(shape.Width, shape.Height / 3);
+topPath.LineTo(0, shape.Height / 3);
+topPath.CloseFigure();
+
+var bottomPath = new GeometryPath();
+bottomPath.MoveTo(shape.Height / 3 * 2, 0);
+bottomPath.LineTo(shape.Width, shape.Height / 3 * 2);
+bottomPath.LineTo(shape.Width, shape.Height);
+bottomPath.LineTo(0, shape.Height);
+bottomPath.CloseFigure();
+
+shape.SetGeometryPaths(new GeometryPath[] { topPath, bottomPath });
 ```
-
 ![example4_image](custom_shape_4.png)
 
-## **घुमावदार कोनों वाली कस्टम आकृति बनाएं**
+## **मोड़ वाले कोनों के साथ कस्टम शैली बनाएँ**
 
-यह C# कोड दिखाता है कि कैसे घुमावदार कोनों (भीतर की ओर) वाली कस्टम आकृति बनाएँ;  
-```c#
+यह उदाहरण [GeometryPath.ArcTo](https://reference.aspose.com/slides/net/aspose.slides/geometrypath/arcto/) के साथ सीधी खण्डों को मिलाकर अंदर की ओर मोड़ वाले कोनों वाली शैली बनाता है। प्रत्येक कोना आकार बिंदुओं में चाप की चौड़ाई और ऊँचाई निर्धारित करता है, और -90‑डिग्री स्वीप एक विरोधी घड़ी की दिशा में चतुर्थक दीर्घवृत्त बनाता है। पूर्ण पाथ को [IGeometryShape.SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) द्वारा लागू किया जाता है, तथा प्रस्तुति को PPTX स्वरूप में सहेजा जाता है।
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 var shapeX = 20f;
 var shapeY = 20f;
 var shapeWidth = 300f;
@@ -267,98 +216,177 @@ var rightTopSize = 20f;
 var rightBottomSize = 40f;
 var leftBottomSize = 10f;
 
-using (var presentation = new Presentation())
-{
-    var childShape = presentation.Slides[0].Shapes.AddAutoShape(
-        ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    var geometryPath = new GeometryPath();
+var topLeft = new PointF(leftTopSize, 0);
+var topRight = new PointF(shapeWidth - rightTopSize, 0);
+var rightBottom = new PointF(shapeWidth, shapeHeight - rightBottomSize);
+var bottomLeft = new PointF(leftBottomSize, shapeHeight);
+var leftTop = new PointF(0, leftTopSize);
 
-    var point1 = new PointF(leftTopSize, 0);
-    var point2 = new PointF(shapeWidth - rightTopSize, 0);
-    var point3 = new PointF(shapeWidth, shapeHeight - rightBottomSize);
-    var point4 = new PointF(leftBottomSize, shapeHeight);
-    var point5 = new PointF(0, leftTopSize);
+var geometryPath = new GeometryPath();
+geometryPath.MoveTo(topLeft);
+geometryPath.LineTo(topRight);
+geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
+geometryPath.LineTo(rightBottom);
+geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
+geometryPath.LineTo(bottomLeft);
+geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
+geometryPath.LineTo(leftTop);
+geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+geometryPath.CloseFigure();
 
-    geometryPath.MoveTo(point1);
-    geometryPath.LineTo(point2);
-    geometryPath.ArcTo(rightTopSize, rightTopSize, 180, -90);
-    geometryPath.LineTo(point3);
-    geometryPath.ArcTo(rightBottomSize, rightBottomSize, -90, -90);
-    geometryPath.LineTo(point4);
-    geometryPath.ArcTo(leftBottomSize, leftBottomSize, 0, -90);
-    geometryPath.LineTo(point5);
-    geometryPath.ArcTo(leftTopSize, leftTopSize, 90, -90);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Custom, shapeX, shapeY, shapeWidth, shapeHeight);
+shape.SetGeometryPath(geometryPath);
 
-    geometryPath.CloseFigure();
-
-    childShape.SetGeometryPath(geometryPath);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-## **जाँचें कि क्या आकृति की ज्यामिति बंद है**
+## **जांचें कि शैली की ज्यामिति बंद है या नहीं**
 
-एक बंद आकृति वह होती है जहाँ सभी पक्ष मिलते हैं और बिना गैप के एक एकल सीमा बनाते हैं। ऐसी आकृति सरल ज्यामितीय रूप या जटिल कस्टम रूपरेखा हो सकती है। नीचे दिया गया कोड उदाहरण दिखाता है कि कैसे जाँचें कि आकृति की ज्यामिति बंद है या नहीं:  
-```cs
+निम्नलिखित हेल्पर यह जाँचता है कि प्रत्येक गैर‑रिक्त ज्यामिति पाथ समाप्ति खण्ड के साथ बंद है या नहीं। यह [IGeometryPath.PathData](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/pathdata/) को पढ़ता है और अंतिम खण्ड के [IPathSegment.PathCommand](https://reference.aspose.com/slides/net/aspose.slides/ipathsegment/pathcommand/) की तुलना [PathCommandType.Close](https://reference.aspose.com/slides/net/aspose.slides/pathcommandtype/) से करता है। यदि कोई गैर‑रिक्त पाथ नहीं है तो यह false लौटाता है। यह प्रत्येक पाथ के अंतिम कमांड की जाँच करता है; यह पाथ के भीतर प्रत्येक सब‑फ़िगर को नहीं देखता। उदाहरण एक आयत के लिए `True` प्रिंट करता है।
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 200, 100);
+Console.WriteLine(IsGeometryClosed(shape));
+
 bool IsGeometryClosed(IGeometryShape geometryShape)
 {
-    bool? isClosed = null;
+    var hasNonemptyPath = false;
 
     foreach (var geometryPath in geometryShape.GetGeometryPaths())
     {
-        var dataLength = geometryPath.PathData.Length;
-        if (dataLength == 0)
+        var segments = geometryPath.PathData;
+        if (segments.Length == 0)
+        {
             continue;
+        }
 
-        var lastSegment = geometryPath.PathData[dataLength - 1];
-        isClosed = lastSegment.PathCommand == PathCommandType.Close;
-
-        if (isClosed == false)
+        hasNonemptyPath = true;
+        var lastSegment = segments[segments.Length - 1];
+        if (lastSegment.PathCommand != PathCommandType.Close)
+        {
             return false;
+        }
     }
-    
-    return isClosed == true;
+
+    return hasNonemptyPath;
 }
 ```
+
+## **शैली तत्वों को निकालें और जाँचें**
+
+एक मौजूदा शैली को पाथ बिंदुओं और बिंदु प्रकारों वाले तत्वों के रूप में निरीक्षण करने के लिये [IGeometryShape.CreateShapeElements](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/createshapeelements/) का उपयोग करें। प्रत्येक लौटाए गए [IShapeElement](https://reference.aspose.com/slides/net/aspose.slides/ishapeelement/) को [ShapeElement](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/) में कास्ट करके आप उसके [PathPoints](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathpoints/) और [PathTypes](https://reference.aspose.com/slides/net/aspose.slides/shapeelement/pathtypes/) ऐरे पढ़ सकते हैं। यह प्रतिनिधित्व कंटूर विश्लेषण या कस्टम ड्राइंग टूल्स को ज्यामिति पास करने के लिये उपयोगी है।
+
+उदाहरण एक प्रस्तुति खोलता है, पहली स्लाइड पर सीधे पहली ज्यामिति शैली खोजता है, और उसके पाथ खण्डों को प्रिंट करता है। दोनों सीधी और वक्र खण्ड वाली शैली वाले प्रेज़ेंटेशन का उपयोग करें ताकि दोनों प्रकार के आउटपुट देख सकें। यह समूहों के भीतर नहीं खोजता।
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.OfType<IGeometryShape>().FirstOrDefault();
+if (shape == null)
+{
+    Console.WriteLine("No geometry shape found on the first slide.");
+    return;
+}
+
+foreach (IShapeElement element in shape.CreateShapeElements())
+{
+    var shapeElement = (ShapeElement)element;
+    var points = shapeElement.PathPoints;
+    var types = shapeElement.PathTypes;
+    Console.WriteLine("Shape element:");
+
+    for (var i = 0; i < points.Length; i++)
+    {
+        var pointType = types[i] & 0x07; // Keep the segment type, excluding flags.
+        switch (pointType)
+        {
+            case 0:
+                Console.WriteLine($"Start figure at {points[i]}");
+                break;
+            case 1:
+                Console.WriteLine($"Line to {points[i]}");
+                break;
+            case 3:
+                Console.WriteLine($"Cubic Bezier: controls {points[i]}, {points[i + 1]}; end {points[i + 2]}");
+                i += 2; // Consume both control points and the endpoint.
+                break;
+        }
+
+        if ((types[i] & 0x80) != 0)
+        {
+            Console.WriteLine("Close subpath back to its starting point.");
+        }
+    }
+}
+```
+
+ऐरे इंडेक्स के अनुसार संगत होते हैं: `points[i]` एक बिंदु है और `types[i]` उसकी भूमिका को दर्शाता है। प्रकार `0` एक आकृति की शुरुआत करता है, और प्रकार `1` पिछले बिंदु से वर्तमान बिंदु तक रेखा बनाता है। एक क्यूबिक बीज़ियर खण्ड पिछले अंतिम बिंदु से शुरू होता है और क्रमिक तीन प्रकार‑`3` प्रविष्टियों का उपयोग करता है: दो नियंत्रण बिंदु और नया अंतिम बिंदु। लूप इन तीन प्रविष्टियों को साथ में उपभोग करता है और बंद होने के लिए अंतिम बिंदु की जाँच करता है।
+
+बिंदु प्रकारों में फ़्लैग भी होते हैं। खण्ड प्रकार पहचानने के लिये `0x07` से मास्क करें, और बंद सब‑पाथ का पता लगाने के लिये `0x80` को अलग से टेस्ट करें। उदाहरण के लिये, `129` (`0x81`) का अर्थ है एक रेखा अंत बिंदु जो सब‑पाथ को बंद करता है, और `131` (`0x83`) का अर्थ है एक बीज़ियर अंत बिंदु जो बंद करता है। केवल `1` या `3` से कच्चे मान की तुलना करने से ये केस छूट जाएंगे। डैश (`0x10`) और मार्कर (`0x20`) जैसे अन्य फ़्लैग मूल खण्ड प्रकार को नहीं बदलते।
+
+**निर्देशांक और रूपांतरण।** बिंदु पॉइंट्स (1/72 इंच) में मापे जाते हैं, जहाँ X दाएँ और Y नीचे की ओर बढ़ता है। अपरिभाषित शैली के लिए निकाले गए निर्देशांक पहले ही उसके [X](https://reference.aspose.com/slides/net/aspose.slides/shape/x/) और [Y](https://reference.aspose.com/slides/net/aspose.slides/shape/y/) स्थिति को सम्मिलित करते हैं और वर्तमान चौड़ाई व ऊँचाई को दर्शाते हैं। उदाहरण के लिये, `(100, 200)` पर स्थित, आकार `120 × 80` वाला बिना घुमाए आयत की कंटूर सीमा `(100, 200)`‑`(220, 280)` होती है। शैली की स्थिति को पुनः न जोड़ें। अपने निर्देशांक को अनरोटेटेड फ्रेम के सापेक्ष प्राप्त करने हेतु उसके X और Y को घटाएँ।
+
+निकाले गए बिंदु शैली के [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) या क्षैतिज‑वर्टिकल फ़्लिप को लागू नहीं करते। प्रदर्शित कंटूर को पुनः बनाने के लिये इन रूपांतरणों को शैली के केंद्र के चारों ओर लागू करें। समूहित शैलियों के लिये समूह निर्देशांक मैपिंग और रूपांतरणों को भी ध्यान में रखें; यह मान कर न चलें कि निकाले गए बिंदु अंतिम स्लाइड निर्देशांक हैं या अनावश्यक रूप से ट्रांसलेशन या स्केल दो बार लागू हो रहा है।
+
+**निरीक्षण बनाम संपादन।** निकाले गए ऐरे कंटूर का वर्णन करते हैं; उन्हें बदलने से मूल शैली अपडेट नहीं होती। जब आपके विश्लेषण या ड्राइंग कोड को बिंदु/प्रकार ऐरे की आवश्यकता हो तो इस विधि का उपयोग करें। शैली के स्थानीय निर्देशांक प्रणाली में ज्यामिति कमांड चाहिए या ज्यामिति संपादित करनी हो तो [GetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/getgeometrypaths/) का उपयोग करें। संपादित पाथ को [SetGeometryPath](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypath/) या [SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) द्वारा लागू करें।
 
 ## **GeometryPath को GraphicsPath (System.Drawing.Drawing2D) में बदलें**
 
-1. एक [GeometryShape](https://reference.aspose.com/slides/hi/net/aspose.slides/geometryshape) क्लास का एक इंस्टेंस बनाएं।  
-2. [System.Drawing.Drawing2D](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d?view=dotnet-plat-ext-5.0) नेमस्पेस की [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) क्लास का एक इंस्टेंस बनाएं।  
-3. [ShapeUtil](https://reference.aspose.com/slides/hi/net/aspose.slides.util/shapeutil) का उपयोग करके [GraphicsPath](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath?view=dotnet-plat-ext-5.0) इंस्टेंस को [GeometryPath](https://reference.aspose.com/slides/hi/net/aspose.slides/geometrypath) इंस्टेंस में रूपांतरित करें।  
-4. पथों को आकृति पर लागू करें।  
+निम्नलिखित उदाहरण एक लेगेसी Aspose.Slides for .NET असेंबली की आवश्यकता रखता है जो [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) को सपोर्ट करता है, जैसे संस्करण 25.10, और Windows पर `System.Drawing.Common` उपलब्ध हो। यह रूपांतरण मेथड्स [संस्करण 25.11](https://releases.aspose.com/slides/net/release-notes/2025/aspose-slides-for-net-25-11-release-notes/) में हटा दिए गए हैं।
 
-यह C# कोड—ऊपर बताए गए चरणों का कार्यान्वयन—**GeometryPath** से **GraphicsPath** रूपांतरण प्रक्रिया को दर्शाता है:  
-``` csharp
-using (Presentation pres = new Presentation())
-{
-    GeometryShape shape = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100) as GeometryShape;
+यह उदाहरण एक आयताकार रूपरेखा को टेक्स्ट के ज्यामिति में बदलता है। रूपरेखा का [IGeometryPath.FillMode](https://reference.aspose.com/slides/net/aspose.slides/igeometrypath/fillmode/) फ़िल को निष्क्रिय करने के लिये सेट किया गया है। एक [GraphicsPath](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.drawing2d.graphicspath) टेक्स्ट रूपरेखा को संग्रहीत करता है, जिसे [ShapeUtil.GraphicsPathToGeometryPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/graphicspathtogeometrypath/) द्वारा एक भरावयुक्त ज्यामिति पाथ में बदला जाता है। दोनों पाथ को [IGeometryShape.SetGeometryPaths](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/setgeometrypaths/) द्वारा लागू करने से आयत और टेक्स्ट दोनों को सम्मिलित करने वाली एकल शैली बनती है। विपरीत दिशा में रूपांतरण के लिये आप [ShapeUtil.GeometryPathToGraphicsPath](https://reference.aspose.com/slides/net/aspose.slides.util/shapeutil/geometrypathtographicspath/) का उपयोग कर सकते हैं।
 
-    IGeometryPath originalPath = shape.GetGeometryPaths()[0];
-    originalPath.FillMode = PathFillModeType.None;
+```csharp
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using Aspose.Slides;
+using Aspose.Slides.Util;
 
-    GraphicsPath gPath = new GraphicsPath();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    gPath.AddString("Text in shape", new FontFamily("Arial"), 1, 40, new PointF(10, 10), StringFormat.GenericDefault);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 100);
 
-    IGeometryPath textPath = ShapeUtil.GraphicsPathToGeometryPath(gPath);
-    textPath.FillMode = PathFillModeType.Normal;
+var originalPath = shape.GetGeometryPaths()[0];
+originalPath.FillMode = PathFillModeType.None;
 
-    shape.SetGeometryPaths(new[] {originalPath, textPath}) ;
-}
+using var graphicsPath = new GraphicsPath();
+using var fontFamily = new FontFamily("Arial");
+using var stringFormat = StringFormat.GenericDefault;
+
+graphicsPath.AddString("Text in shape", fontFamily, (int)FontStyle.Bold, 40, new PointF(10, 10), stringFormat);
+
+var textPath = ShapeUtil.GraphicsPathToGeometryPath(graphicsPath);
+textPath.FillMode = PathFillModeType.Normal;
+
+shape.SetGeometryPaths(new[] { originalPath, textPath });
 ```
-
 ![example5_image](custom_shape_5.png)
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**जियोमेट्री बदलने के बाद फ़िल और आउटलाइन के साथ क्या होगा?**  
-स्टाइल आकृति के साथ रहता है; केवल कंटूर बदलता है। फ़िल और आउटलाइन स्वचालित रूप से नई जियोमेट्री पर लागू हो जाते हैं।
+**ज्यामिति बदलने के बाद फ़िल और रूपरेखा क्या होगी?**
 
-**मैं कस्टम आकृति को उसकी जियोमेट्री के साथ सही तरीके से कैसे घुमाऊँ?**  
-आकृति की [rotation](https://reference.aspose.com/slides/hi/net/aspose.slides/shape/rotation/) प्रॉपर्टी का उपयोग करें; जियोमेट्री आकृति के अपने कोऑर्डिनेट सिस्टम से बंधी होने के कारण आकृति के साथ घूमती है।
+स्टाइल शैली के साथ रहता है; केवल कंटूर बदलता है। फ़िल और रूपरेखा नए ज्यामिति पर स्वतः लागू हो जाते हैं।
 
-**क्या मैं कस्टम आकृति को एक इमेज में बदल कर परिणाम “लॉक” कर सकता हूँ?**  
-हाँ। आवश्यक [slide](/slides/hi/net/convert-powerpoint-to-png/) क्षेत्र या [shape](/slides/hi/net/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में एक्सपोर्ट करें; यह भारी जियोमेट्री के साथ आगे के काम को सरल बनाता है।
+**कस्टम शैली को उसकी ज्यामिति के साथ सही ढंग से कैसे घुमाएँ?**
+
+शैली की [Rotation](https://reference.aspose.com/slides/net/aspose.slides/shape/rotation/) प्रॉपर्टी का उपयोग करें; क्योंकि ज्यामिति शैली के स्वयं के निर्देशांक प्रणाली से जुड़ी है, वह शैली के साथ घुम जाएगी।
+
+**क्या मैं कस्टम शैली को एक चित्र में बदल कर परिणाम “लॉक” कर सकता हूँ?**
+
+हाँ। आवश्यक [slide](/slides/hi/net/convert-powerpoint-to-png/) क्षेत्र या [shape](/slides/hi/net/create-shape-thumbnails/) को रास्टर फ़ॉर्मेट में निर्यात करें; यह जटिल ज्यामितियों के साथ आगे के कार्य को सरल बनाता है।
