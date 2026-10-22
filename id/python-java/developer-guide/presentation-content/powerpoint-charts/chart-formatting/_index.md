@@ -1,63 +1,35 @@
 ---
-title: Format Grafik Presentasi dalam Python
-linktitle: Pemformatan Grafik
+title: Format Diagram Presentasi dalam Python
+linktitle: Pemformatan Diagram
 type: docs
 weight: 60
 url: /id/python-java/chart-formatting/
 keywords:
-- format grafik
-- pemformatan grafik
-- entitas grafik
-- properti grafik
-- pengaturan grafik
-- opsi grafik
+- format diagram
+- pemformatan diagram
+- entitas diagram
+- properti diagram
+- pengaturan diagram
+- opsi diagram
 - properti font
-- garis tepi melengkung
+- border bulat
 - PowerPoint
 - presentasi
 - Python
 - Aspose.Slides
-description: "Pelajari pemformatan grafik di Aspose.Slides untuk Python via Java dan tingkatkan presentasi PowerPoint Anda dengan gaya profesional yang menarik perhatian."
+description: "Pelajari pemformatan diagram di Aspose.Slides untuk Python melalui Java dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, dan border diagram yang bulat."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat grafik dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen grafik utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan tampilan dan keterbacaan data grafik.
+Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Artikel ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isi dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
 
-Artikel ini juga memperagakan cara mengatur properti font untuk teks grafik, menerapkan format numerik preset dan kustom pada data grafik, serta mengaktifkan sudut melengkung untuk area grafik. Bersama-sama, contoh-contoh ini menunjukkan cara mengendalikan gaya visual dan penyajian data grafik dalam sebuah presentasi.
+Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut bulat untuk area diagram. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol gaya visual dan penyajian data diagram dalam sebuah presentasi.
 
-## **Format Entitas Grafik**
-Aspose.Slides for Python via Java memungkinkan pengembang menambahkan grafik kustom ke slide mereka dari awal. Artikel ini menjelaskan cara memformat berbagai entitas grafik termasuk sumbu kategori dan nilai.
+## **Format Entitas Diagram**
 
-Aspose.Slides for Python via Java menyediakan API sederhana untuk mengelola berbagai entitas grafik dan memformatnya menggunakan nilai kustom:
+Gunakan [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, lalu menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font dan lebar garis ditentukan dalam poin; label kategori diputar sebesar 45 derajat.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Akses slide berdasarkan indeksnya.
-1. Tambahkan grafik tipe yang diinginkan dengan data default (contoh ini menggunakan [ChartType.LineWithMarkers](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Akses sumbu nilai grafik dan atur properti berikut:
-   1. Atur **Line format** untuk garis kisi utama sumbu nilai.
-   1. Atur **Line format** untuk garis kisi minor sumbu nilai.
-   1. Atur **Number Format** untuk sumbu nilai.
-   1. Atur **minimum, maximum, major, and minor units** untuk sumbu nilai.
-   1. Atur **Text Properties** untuk data sumbu nilai.
-   1. Atur **Title** untuk sumbu nilai.
-1. Akses sumbu kategori grafik dan atur properti berikut:
-   1. Atur **Line format** untuk garis kisi utama sumbu kategori.
-   1. Atur **Line format** untuk garis kisi minor sumbu kategori.
-   1. Atur **Text Properties** untuk data sumbu kategori.
-   1. Atur **Title** untuk sumbu kategori.
-   1. Atur **Label Positioning** untuk sumbu kategori.
-   1. Atur **Rotation Angle** untuk label sumbu kategori.
-1. Akses legenda grafik dan atur **text properties**‑nya.
-1. Tampilkan legenda grafik tanpa menutupi grafik.
-1. Akses **secondary value axis** grafik dan atur properti berikut:
-   1. Aktifkan **value axis** sekunder.
-   1. Atur **Line Format** untuk sumbu nilai sekunder.
-   1. Atur **Number Format** untuk sumbu nilai sekunder.
-   1. Atur **minimum, maximum, major, and minor units** untuk sumbu nilai sekunder.
-1. Plot seri grafik pertama pada sumbu nilai sekunder.
-1. Atur warna isi back wall grafik.
-1. Atur warna isi area plot grafik.
-1. Tulis presentasi yang telah dimodifikasi ke file PPTX.
+Sumbu nilai menggunakan [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) secara mandiri dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval mayor 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan makna dan besaran data Anda. Legenda berada di luar area plot karena [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) dipanggil dengan `False`. Isi dinding belakang dan lantai dikonfigurasi melalui [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) dan [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), tetapi permukaan ini hanya terlihat pada diagram 3D.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Buat sebuah instance dari kelas Presentation
 presentation = Presentation()
 try:
-    # Akses slide pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Tambahkan grafik contoh
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Setel Judul Grafik
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Setel format garis kisi utama untuk sumbu nilai
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Setel format garis kisi minor untuk sumbu nilai
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Setel format angka sumbu nilai
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Setel nilai maksimum dan minimum grafik
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Setel Properti Teks Sumbu Nilai
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Setel judul sumbu nilai
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Setel format garis kisi utama untuk sumbu Kategori
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Setel format garis kisi minor untuk sumbu Kategori
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Setel Properti Teks Sumbu Kategori
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Setel Judul Kategori
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Setel posisi label sumbu kategori
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Setel sudut rotasi label sumbu kategori
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Setel Properti Teks Legenda
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Tampilkan legenda grafik tanpa menutupi grafik
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Setel sumbu nilai sekunder
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Setel format angka sumbu nilai sekunder
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Setel nilai maksimum dan minimum grafik
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Setel warna dinding belakang grafik
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Setel warna area plot
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Simpan presentasi
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Atur Properti Font untuk Grafik**
-Aspose.Slides for Python via Java mendukung pengaturan properti font untuk grafik. Ikuti langkah‑langkah berikut untuk mengatur properti font:
+## **Atur Properti Font untuk Diagram**
 
-- Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-- Tambahkan grafik ke slide.
-- Atur tinggi font.
-- Simpan presentasi yang telah dimodifikasi.
-
-Contoh berikut memperagakan langkah‑langkah tersebut.
+Atur ukuran font default untuk teks diagram melalui [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Elemen teks dengan pengaturan font eksplisit mereka sendiri dapat mengganti nilai default diagram.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Buat sebuah instance dari kelas Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -261,14 +184,8 @@ finally:
 ```
 
 ## **Atur Format Numerik**
-Aspose.Slides for Python via Java menyediakan API sederhana untuk mengelola format data grafik:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Akses slide berdasarkan indeksnya.
-1. Tambahkan grafik tipe yang diinginkan dengan data default (contoh ini menggunakan [ChartType.ClusteredColumn](https://reference.aspose.com/slides/id/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Atur format angka preset dari nilai preset yang tersedia.
-1. Iterasi melalui sel data pada setiap seri grafik dan atur format angka mereka.
-1. Simpan presentasi.
+Gunakan [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) untuk menerapkan format angka bawaan pada sel workbook diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan dalam workbook tanpa mengubah angka yang mendasarinya; misalnya, 0,25 ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Buat sebuah instance dari kelas Presentation
 presentation = Presentation()
 try:
-    # Akses slide presentasi pertama
     slide = presentation.getSlides().get_Item(0)
 
-    # Tambahkan grafik kolom berkelompok default
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Akses koleksi seri grafik
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Iterasi melalui setiap seri grafik
     for chart_series in chart_series_collection:
-        # Iterasi melalui setiap titik data dalam seri
         for data_point in chart_series.getDataPoints():
-            # Atur format angka
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # Simpan presentasi
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Format angka preset yang tersedia dan indeksnya terdaftar di bawah ini:
+Tabel berikut mencantumkan indeks format angka bawaan dengan format Excel representatif untuk locale Inggris (Amerika Serikat). String format yang tepat dan tampilan mereka dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, seperti dijelaskan dalam [catatan implementasi format angka Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Umum|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Indeks | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Atur Sudut Melengkung pada Area Grafik**
-Aspose.Slides for Python via Java mendukung sudut melengkung untuk area grafik melalui metode [hasRoundedCorners](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#hasRoundedCorners) dan [setRoundedCorners](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/#setRoundedCorners) pada kelas [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/).
+## **Atur Sudut Membulat Area Diagram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/python-java/aspose.slides/presentation/).
-1. Tambahkan grafik ke slide.
-1. Atur tipe dan gaya isian garis batas grafik.
-1. Aktifkan sudut melengkung.
-1. Simpan presentasi yang telah dimodifikasi.
-
-Contoh berikut memperagakan langkah‑langkah tersebut.
+Panggil [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) dengan `True` untuk memberikan sudut membulat pada area diagram. Contoh ini membuat diagram kolom berkelompok dan menggunakan [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) untuk memberi outline warna abu-abu solid dan gaya satu garis sebelum menyimpan presentasi.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Buat sebuah instance dari kelas Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Sunting Anotasi Diagram yang Ada**
+
+Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk-bentuk ini melalui [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Koleksi yang dikembalikan oleh [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) berisi bentuk-bentuk yang dimiliki diagram.
+
+Kotak teks biasa yang ditempatkan di atas diagram menjadi milik slide, meskipun tampaknya menjadi bagian diagram. Iterasi melalui [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) menemukan diagram serta bentuk slide biasa, namun tidak melistir bentuk individu di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
+
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi diagram dengan anotasi tidak dikelompokkan yang bertuliskan "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa yang bertuliskan "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya menyunting sebuah [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) dengan bingkai teks selain `None` yang dikembalikan oleh [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) serta teks yang diharapkan.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menampilkan input dan hasil yang disimpan serta dibuka kembali:
+
+| Sebelum penyuntingan | Setelah penyuntingan |
+| --- | --- |
+| ![Anotasi diagram membaca Preliminary results](chart-annotations-before.png) | ![Anotasi diagram membaca Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Contoh ini memeriksa hanya bentuk tingkat atas yang dimiliki diagram. Jika anotasi berada di dalam sebuah [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), periksa juga koleksi [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) pada grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan pemeriksaan teks yang sama pada bentuk anak mereka. Sebuah grup sendiri adalah kontainer; jangan perlakukan sebagai kotak teks.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil menjaga batas tetap opak?**
+**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil mempertahankan batas tidak transparan?**
 
-Ya. Transparansi isian dan outline diatur secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan outline dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana saya menangani label data ketika mereka saling menumpuk?**
+**Bagaimana cara menangani label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya kategori), atur offset/posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "nilai + legenda".
+Kurangi ukuran font, matikan komponen label yang tidak penting (misalnya kategori), sesuaikan posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "nilai + legenda".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Baik isian solid maupun gradien/pola biasanya tersedia. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian padat, gradien, dan pola. Pada praktiknya, gunakan gradien secara hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

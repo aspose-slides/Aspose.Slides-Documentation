@@ -6,339 +6,335 @@ weight: 60
 url: /ar/nodejs-java/chart-formatting/
 keywords:
 - تنسيق المخطط
-- تنسيق المخطط
+- تنسيق المخططات
 - كيان المخطط
 - خصائص المخطط
 - إعدادات المخطط
 - خيارات المخطط
 - خصائص الخط
-- حدود مستديرة
+- حد مستدير
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم تنسيق المخططات في Aspose.Slides لـ Node.js باستخدام JavaScript وارتقِ بعرض PowerPoint التقديمي إلى مستوى احترافي مع أنماط جذابة بصريًا."
+description: "تعلم تنسيق المخططات في Aspose.Slides لـ Node.js عبر Java وارتقِ بعرض PowerPoint التقديمي باستخدام محاور مخصصة، وخطوط، وتنسيقات رقمية، وحدود مخطط مستديرة."
 ---
+## **نظرة عامة**
 
-## **تنسيق كائنات المخطط**
+توضح هذه المقالة كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. تظهر كيفية تخصيص عناصر المخطط الرئيسية مثل المحاور وخطوط الشبكة والعناوين والأساطير ومنطقة الرسم وتعبئة الجدران لتحسين مظهر البيانات وقابلية قراءتها.
 
-Aspose.Slides for Node.js via Java يتيح للمطورين إضافة مخططات مخصصة إلى الشرائح من الصفر. يشرح هذا المقال كيفية تنسيق كائنات المخطط المختلفة بما في ذلك محور الفئات ومحور القيم.
+كما توضح كيفية تعيين خصائص الخط لنص المخطط، وتطبيق تنسيقات رقمية معدة مسبقًا على بيانات المخطط، وتمكين زوايا مستديرة لمنطقة المخطط. تُظهر هذه الأمثلة معًا كيفية التحكم في كل من النمط البصري وعرض البيانات للمخططات في العرض التقديمي.
 
-Aspose.Slides for Node.js عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة كائنات المخطط المختلفة وتنسيقها باستخدام قيم مخصصة:
+## **تنسيق كيانات المخطط**
 
-1. إنشاء نسخة من الفئة [**Presentation**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-1. الحصول على مرجع الشريحة عبر فهرستها.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (في هذا المثال سنستخدم ChartType.LineWithMarkers).
-1. الوصول إلى محور القيم للمخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط شبكة المحور القيمي الرئيسية
-   1. تعيين **Line format** لخطوط شبكة المحور القيمي الثانوية
-   1. تعيين **Number Format** للمحور القيمي
-   1. تعيين **Min, Max, Major and Minor units** للمحور القيمي
-   1. تعيين **Text Properties** لبيانات المحور القيمي
-   1. تعيين **Title** للمحور القيمي
-   1. تعيين **Line Format** للمحور القيمي
-1. الوصول إلى محور الفئات للمخطط وتعيين الخصائص التالية:
-   1. تعيين **Line format** لخطوط شبكة محور الفئات الرئيسية
-   1. تعيين **Line format** لخطوط شبكة محور الفئات الثانوية
-   1. تعيين **Text Properties** لبيانات محور الفئات
-   1. تعيين **Title** لمحور الفئات
-   1. تعيين **Label Positioning** لمحور الفئات
-   1. تعيين **Rotation Angle** لتسميات محور الفئات
-1. الوصول إلى مفتاح المخطط وتعيين **Text Properties** له
-1. تعيين إظهار مفاتيح المخطط دون تداخل مع المخطط
-1. الوصول إلى **Secondary Value Axis** للمخطط وتعيين الخصائص التالية:
-   1. تمكين **Value Axis** الثانوي
-   1. تعيين **Line Format** للمحور القيمي الثانوي
-   1. تعيين **Number Format** للمحور القيمي الثانوي
-   1. تعيين **Min, Max, Major and Minor units** للمحور القيمي الثانوي
-1. الآن رسم السلسلة الأولى للمخطط على المحور القيمي الثانوي
-1. تعيين لون تعبئة الجدار الخلفي للمخطط
-1. تعيين لون تعبئة منطقة الرسم للمخطط
-1. كتابة العرض التقديمي المعدل إلى ملف PPTX
+استخدم [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) لتنسيق عناوين المخطط والمحاور وخطوط الشبكة والأساطير ومنطقة الرسم. يخلق هذا المثال مخططًا خطيًا مع علامات ونقاط بيانات افتراضية، ثم يطبق أنماط نصية وخطية منفصلة على محوري القيمة والفئة. يتم تحديد أحجام الخطوط وعروض الخطوط بالنقاط؛ وتُدوَّر تسميات الفئة بزاوية 45 درجة.
+
+يستخدم محور القيمة الدالة [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) بشكل مستقل عن الخلايا المصدرية. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية مقدارها 2 وفواصل فرعية مقدارها 0.5. يجمع المثال أيضًا بين تنسيق النسبة المئوية واستخدام [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) إلى الآلاف، لذا قم بتكييف هذه الإعدادات وفقًا لمعنى وحجم بياناتك. تبقى الأسطورة خارج منطقة الرسم لأن [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) تُستدعى بالـ `false`. يتم تكوين تعبئة الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor)، لكن هذه الأسطح لا تُظهر إلا في المخططات ثلاثية الأبعاد.
+
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // الوصول إلى الشريحة الأولى
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة المخطط النموذجي
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // تعيين عنوان المخطط
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // تعيين تنسيق خطوط الشبكة الرئيسية للمحور القيمي
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // تعيين تنسيق خطوط الشبكة الثانوية للمحور القيمي
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // تعيين تنسيق رقم المحور القيمي
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // تعيين قيم الحد الأقصى والحد الأدنى للمحور القيمي
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // تعيين خصائص نص محور القيم
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // تعيين عنوان محور القيم
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // تعيين تنسيق خطوط الشبكة الرئيسية لمحور الفئات
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // تعيين تنسيق خطوط الشبكة الثانوية لمحور الفئات
+
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // تعيين خصائص نص محور الفئات
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // تعيين عنوان الفئات
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // تعيين موضع تسمية محور الفئات
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // تعيين زاوية دوران تسمية محور الفئات
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // تعيين خصائص نص وسيلة الإيضاح
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // تعيين إظهار وسيلة إيضاح المخطط دون تداخل مع المخطط
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // تعيين محور القيم الثانوي
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // تعيين تنسيق رقم محور القيم الثانوي
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // تعيين قيم الحد الأقصى والحد الأدنى للمحور الثانوي
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // تعيين لون جدار الخلفية للمخطط
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // تعيين لون منطقة الرسم
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // حفظ العرض التقديمي
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تعيين خصائص الخط لمخطط**
 
-## **تعيين خصائص الخط للمخطط**
+عيّن حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat). يخلق المثال مخطط أعمدة مجمع بحجم خط 20 نقطة ويفعل تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue). يمكن لعناصر النص التي لديها إعدادات خط صريحة أن تتجاوز الإعداد الافتراضي للمخطط.
 
-Aspose.Slides for Node.js عبر Java يوفر دعمًا لتعيين خصائص الخط المتعلقة بالمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
-
-- إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-- إضافة مخطط إلى الشريحة.
-- تعيين ارتفاع الخط.
-- حفظ العرض التقديمي المعدل.
-
-مثال العينة أدناه.
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تعيين التنسيق الرقمي**
 
-## **تعيين تنسيق الأرقام**
+استخدم [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) لتطبيق تنسيق رقم مدمج على خلايا دفتر عمل المخطط. يُنشئ هذا المثال مخطط أعمدة مجمع ببيانات افتراضية مدعومة بالخلية ويطبق فهرس التنسيق 10 (`0.00%`) على كل خلية قيمة للسلسلة. يغير هذا طريقة عرض القيم في دفتر العمل دون تعديل الأرقام الأساسية؛ على سبيل المثال، تُعرض 0.25 كـ 25.00%. يمكن تكوين تنسيقات المحور وتنسيقات تسميات البيانات بشكل منفصل.
 
-Aspose.Slides for Node.js عبر Java يوفر واجهة برمجة تطبيقات بسيطة لإدارة تنسيق بيانات المخطط:
-
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
-1. الحصول على مرجع الشريحة عبر فهرستها.
-1. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم **ChartType.ClusteredColumn**).
-1. تعيين تنسيق الرقم المسبق من القيم المسبقة المتاحة.
-1. استعراض خلايا بيانات المخطط في كل سلسلة وتعيين تنسيق رقم البيانات.
-1. حفظ العرض التقديمي.
-1. تعيين تنسيق رقم مخصص.
-1. استعراض خلايا بيانات المخطط داخل كل سلسلة وتعيين تنسيق رقم مختلف.
-1. حفظ العرض التقديمي.
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // الوصول إلى الشريحة الأولى للعرض التقديمي
-    var slide = pres.getSlides().get_Item(0);
-    // إضافة مخطط عمودي متجمع افتراضي
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // الوصول إلى مجموعة سلاسل المخطط
-    var series = chart.getChartData().getSeries();
-    // التجول عبر كل سلسلة مخطط
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // التجول عبر كل خلية بيانات في السلسلة
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // تعيين تنسيق الرقم
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
         }
     }
-    // حفظ العرض التقديمي
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+القائمة التالية تسرد فهارس تنسيقات الأرقام المدمجة مع تنسيقات Excel التمثيلية للمنطقة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل التنسيق الدقيقة وعرضها حسب التطبيق والمنطقة، خاصةً للعملات والتواريخ. بعض تنسيقات Excel تختلف أيضًا عن الإعدادات الافتراضية في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-القيم المسبقة لتنسيق الأرقام الممكنة مع فهرسها والتي يمكن استخدامها موضحة أدناه:
-
-|**0**|عام|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| المؤشر | التنسيق |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **تعيين حدود مستديرة لمنطقة المخطط**
 
-Aspose.Slides for Node.js عبر Java يوفر دعمًا لتعيين منطقة المخطط. تم إضافة الطريقتين [**hasRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) و[**setRoundedCorners**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) إلى فئة [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Chart).
+استدعِ [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) مع `true` لجعل زوايا منطقة المخطط مستديرة. يُنشئ المثال مخطط أعمدة مجمع ويستخدم [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) لإعطاء حدوده لونًا رماديًا صلبًا ونمط خط واحد قبل حفظ العرض التقديمي.
 
-1. إنشاء كائن من فئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) .
-1. إضافة مخطط إلى الشريحة.
-1. تعيين نوع التعبئة ولون التعبئة للمخطط
-1. تعيين الخاصية round corner إلى True.
-1. حفظ العرض التقديمي المعدل.
-
-مثال العينة أدناه. 
 ```javascript
-// إنشاء مثيل من فئة Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **تحرير التعليقات التوضيحية للمخطط الموجودة**
+
+يمكن أن يحتوي المخطط على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير. يمكنك الوصول إلى هذه الأشكال عبر [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes). المجموعة التي تُرجعها [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) تحتوي على الأشكال المملوكة للمخطط.
+
+مربع النص العادي الموضوع فوق المخطط يخص الشريحة، حتى وإن بدا كجزء من المخطط. يكتشف التكرار عبر [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) المخطط والأشكال العادية للشريحة، لكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات توضيحية مخصصة في هذه المجموعة.
+
+قم بتنزيل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. تحتوي شريحته الأولى على مخطط مع تعليق غير مجموع يُظهر "Preliminary results"، وخط مملوك للمخطط، ومربع نص شريحة عادي يُظهر "Slide overlay". يتعرف المثال على أول مخطط في تلك الشريحة ويغيّر التعليق إلى "Final results" عندما يصبح التقرير جاهزًا للنشر. يتحقق من أن المجموعة ليست فارغة ويعدل فقط [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) التي تُعيد إطار نص غير فارغ عبر [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) والنص المتوقع.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+يبقى الخط ومربع النص الشريحة كما هو دون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة بعد إعادة الفتح:
+
+| قبل التعديل | بعد التعديل |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+يفحص المثال فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان هناك تعليق داخل [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/)، فافحص مجموعة [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) الخاصة بها أيضًا. كرّر ذلك بصورة متكررة للمجموعات المتداخلة، مع تطبيق نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تعاملها كصندوق نص.
+{{% /alert %}}
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تعيين تعبئات شبه شفافة للأعمدة/المناطق مع الحفاظ على الحدود غير شفافة؟**
+**هل يمكنني تعيين تعبئة نصف شفافة للأعمدة/المناطق مع الحفاظ على الحد غير شفاف؟**
 
-نعم. يتم تكوين شفافية التعبئة والمحيط بشكل منفصل. هذا مفيد لتحسين وضوح الشبكة والبيانات في الرسوم البيانية الكثيفة.
+نعم. تُضبط شفافية التعبئة والحد الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
 **كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
 
-قلل حجم الخط، عطل المكونات غير الأساسية للتسمية (مثل الفئات)، اضبط إزاحة/موضع التسمية، أظهر التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + المفتاح".
+قلل حجم الخط، أو عطل مكونات التسمية غير الضرورية (مثل الفئات)، أو اضبط موضع التسمية، أو اعرض التسميات فقط للنقاط المختارة إذا لزم الأمر، أو غيّر التنسيق إلى "القيمة + الأسطورة".
 
-**هل يمكنني تطبيق تعبئات متدرجة أو بنمط على السلاسل؟**
+**هل يمكنني تطبيق تعبئة تدرج لوني أو نمط على السلاسل؟**
 
-نعم. عادةً ما تكون التعبئات الصلبة والمتدرجة/النمطية متاحة. في الممارسة العملية، استخدم التدرجات بحذر وتجنب الجمع بينها إذا كان ذلك يقلل من التباين مع الشبكة والنص.
+نعم. تدعم السلاسل تعبئات صلبة، وتدرجات لونية، ونقوش. في الممارسة العملية، استخدم التدرجات باعتدال وتجنّب الجمع بينها بحيث لا يقلل التباين مع الشبكة والنص.

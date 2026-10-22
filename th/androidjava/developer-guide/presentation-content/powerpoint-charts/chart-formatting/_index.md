@@ -7,8 +7,8 @@ url: /th/androidjava/chart-formatting/
 keywords:
 - จัดรูปแบบแผนภูมิ
 - การจัดรูปแบบแผนภูมิ
-- องค์ประกอบแผนภูมิ
-- คุณสมบัติของแผนภูมิ
+- เอนทิตี้แผนภูมิ
+- คุณสมบัติแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
 - คุณสมบัติฟอนต์
@@ -18,61 +18,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Android ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยสไตล์มืออาชีพที่ดึงดูดสายตา"
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Android ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้ง"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides โดยแสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นตาราง, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมสีผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วยการใช้ Aspose.Slides. แสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อตและการเติมสีกำแพง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ  
 
-บทความยังแสดงวิธีการตั้งค่าลักษณะฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดล่วงหน้าและกำหนดเองสำหรับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+นอกจากนี้ยังสาธิตวิธีตั้งค่าคุณสมบัติฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดล่วงหน้ากับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงให้เห็นวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ  
 
 ## **จัดรูปแบบเอนทิตี้ของแผนภูมิ**
-Aspose.Slides for Android via Java ให้ผู้พัฒนาสร้างแผนภูมิแบบกำหนดเองตั้งแต่ต้นบนสไลด์ บทความนี้อธิบายวิธีการจัดรูปแบบเอนทิตี้ของแผนภูมิต่าง ๆ รวมถึงแกนหมวดหมู่และแกนค่าของแผนภูมิ
 
-Aspose.Slides for Android via Java มี API ง่ายสำหรับการจัดการเอนทิตี้ของแผนภูมิและจัดรูปแบบด้วยค่าที่กำหนดเอง:
+ใช้ [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบายและพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นแบบมีมาร์คเกอร์และข้อมูลเริ่มต้น, จากนั้นใช้สไตล์ข้อความและเส้นแยกต่างหากกับแกนค่าและแกนประเภทของมัน ขนาดฟอนต์และความกว้างของเส้นระบุเป็นพอยท์; ป้ายชื่อประเภทถูกหมุน 45 องศา  
 
-1. สร้างอินสแตนซ์ของคลาส [**Presentation**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) 
-1. รับอ้างอิงสไลด์ตามดัชนี
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและประเภทที่ต้องการ (ในตัวอย่างนี้เราจะใช้ ChartType.LineWithMarkers)
-1. เข้าถึง Value Axis ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. ตั้งค่า **Line format** สำหรับ Value Axis Major Grid lines
-   1. ตั้งค่า **Line format** สำหรับ Value Axis Minor Grid lines
-   1. ตั้งค่า **Number Format** สำหรับ Value Axis
-   1. ตั้งค่า **Min, Max, Major and Minor units** สำหรับ Value Axis
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูลของ Value Axis
-   1. ตั้งค่า **Title** สำหรับ Value Axis
-   1. ตั้งค่า **Line Format** สำหรับ Value Axis
-1. เข้าถึง Category Axis ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. ตั้งค่า **Line format** สำหรับ Category Axis Major Grid lines
-   1. ตั้งค่า **Line format** สำหรับ Category Axis Minor Grid lines
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูลของ Category Axis
-   1. ตั้งค่า **Title** สำหรับ Category Axis
-   1. ตั้งค่า **Label Positioning** สำหรับ Category Axis
-   1. ตั้งค่า **Rotation Angle** สำหรับป้ายชื่อ Category Axis
-1. เข้าถึง Legend ของแผนภูมิและตั้งค่า **Text Properties** ให้กับมัน
-1. ตั้งค่าให้แสดง Legend ของแผนภูมิโดยไม่ให้ทับซ้อนกับแผนภูมิ
-1. เข้าถึง Secondary Value Axis ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. เปิดใช้งาน Secondary **Value Axis**
-   1. ตั้งค่า **Line Format** สำหรับ Secondary Value Axis
-   1. ตั้งค่า **Number Format** สำหรับ Secondary Value Axis
-   1. ตั้งค่า **Min, Max, Major and Minor units** สำหรับ Secondary Value Axis
-1. ตอนนี้พล็อตซีรีส์แผนภูมิแรกบน Secondary Value Axis
-1. ตั้งค่าสีเติมผนังด้านหลังของแผนภูมิ
-1. ตั้งค่าสีเติมพื้นที่พล็อตของแผนภูมิ
-1. เขียนไฟล์พรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
+แกนค่าจะใช้ [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) อย่างอิสระจากเซลล์ต้นทาง ช่วงของแกนตั้งแต่ -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างยังรวมการฟอร์แมตเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) ที่ตั้งเป็นพัน, ดังนั้นให้ปรับการตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและระดับของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจากเรียกใช้ [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) ด้วยค่า `false`. การเติมสีด้านหลังผนังและพื้นดินกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) และ [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), แต่พื้นผิวเหล่านี้เห็นได้เฉพาะในแผนภูมิ 3D  
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation();
-try {
-    // เข้าถึงสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // เพิ่มแผนภูมุตัวอย่าง
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // ตั้งค่าชื่อแผนภูมิ
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,313 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนค่า
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // ตั้งค่ารูปแบบเส้นกริดรองสำหรับแกนค่า
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // ตั้งค่ารูปแบบตัวเลขของแกนค่า
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // ตั้งค่าค่าสูงสุดและค่าต่ำสุดของแผนภูมิ
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // ตั้งค่าคุณสมบัติข้อความของแกนค่า
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // ตั้งค่าชื่อแกนค่า
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนหมวดหมู่
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // ตั้งค่ารูปแบบเส้นกริดรองสำหรับแกนหมวดหมู่
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // ตั้งค่าคุณสมบัติข้อความของแกนหมวดหมู่
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // ตั้งค่าชื่อหมวดหมู่
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // ตั้งค่าตำแหน่งป้ายกำกับของแกนหมวดหมู่
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // ตั้งค่ามุมการหมุนของป้ายกำกับแกนหมวดหมู่
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // ตั้งค่าคุณสมบัติข้อความของ Legend
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // ตั้งค่าให้แสดง Legend ของแผนภูมิโดยไม่ทับซ้อนแผนภูมิ
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // ตั้งค่าแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // ตั้งค่ารูปแบบตัวเลขของแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // ตั้งค่าค่าสูงสุดและค่าต่ำสุดของแผนภูมิ
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // ตั้งค่าสีผนังด้านหลังของแผนภูมิ
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // ตั้งค่าสีพื้นที่พล็อต
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // บันทึกพรีเซนเทชัน
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าคุณสมบัติดีไซน์ฟอนต์สำหรับแผนภูมิ**
-Aspose.Slides for Android via Java ให้การสนับสนุนการตั้งค่าคุณสมบัติที่เกี่ยวข้องกับฟอนต์สำหรับแผนภูมิ โปรดทำตามขั้นตอนด้านล่างเพื่อกำหนดคุณสมบัติฟอนต์สำหรับแผนภูมิ
+## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-- สร้างอ็อบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) 
-- เพิ่มแผนภูมิบนสไลด์
-- กำหนดความสูงของฟอนต์
-- บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-
-ตัวอย่างโค้ดต่อไปนี้เป็นตัวอย่าง
+ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). ตัวอย่างสร้างแผนภูมิคอลัมน์จัดกลุ่มด้วยฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายกำกับค่าสำหรับซีรีส์แรกผ่าน [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). องค์ประกอบข้อความที่มีการตั้งค่าฟอนต์เฉพาะของตนเองสามารถทับค่าปริยายของแผนภูมิได้  
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **ตั้งค่ารูปแบบตัวเลข**
-Aspose.Slides for Android via Java มี API ง่ายสำหรับการจัดการรูปแบบข้อมูลของแผนภูมิ:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation) 
-1. รับอ้างอิงสไลด์ตามดัชนี
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นและประเภทที่ต้องการ (ตัวอย่างนี้ใช้ **ChartType.ClusteredColumn**)
-1. ตั้งค่ารูปแบบตัวเลขล่วงหน้าจากค่า preset ที่มีอยู่
-1. วนผ่านเซลล์ข้อมูลของแผนภูมิในแต่ละซีรีส์และตั้งค่ารูปแบบตัวเลขของข้อมูลแผนภูมิ
-1. บันทึกพรีเซนเทชัน
-1. ตั้งค่ารูปแบบตัวเลขที่กำหนดเอง
-1. วนผ่านเซลล์ข้อมูลของแผนภูมิในแต่ละซีรีส์และตั้งค่ารูปแบบตัวเลขของข้อมูลแผนภูมิที่แตกต่างกัน
-1. บันทึกพรีเซนเทชัน
+ใช้ [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) เพื่อกำหนดรูปแบบตัวเลขที่มีมาให้กับเซลล์ในเวิร์กบุ๊คของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์จัดกลุ่มด้วยข้อมูลแบบเริ่มต้นที่มาจากเซลล์และกำหนดดัชนีรูปแบบ 10 (`0.00%`) ให้กับเซลล์ค่าของแต่ละซีรีส์ ซึ่งจะเปลี่ยนวิธีการแสดงค่าในเวิร์กบุ๊คโดยไม่เปลี่ยนตัวเลขเดิม; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้  
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงสไลด์การนำเสนอแรก
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มแผนภูมิคอลัมน์แบบกลุ่มเริ่มต้น
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // เข้าถึงคอลเลกชันของซีรีส์แผนภูมิ
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // วนผ่านทุกซีรีส์ของแผนภูมิ
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // วนผ่านทุกเซลล์ข้อมูลในซีรีส์
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // ตั้งค่ารูปแบบตัวเลข
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // บันทึกการนำเสนอ
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-ค่ารูปแบบตัวเลขล่วงหน้าที่เป็นไปได้พร้อมดัชนี preset ที่สามารถใช้ได้มีดังต่อไปนี้:
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีมาให้พร้อมรูปแบบ Excel ตัวอย่างสำหรับโลแคล United States (อังกฤษ). สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและโลแคล, โดยเฉพาะสำหรับสกุลเงินและวันที่. บางรูปแบบของ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML, ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| ดัชนี | รูปแบบ |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
-Aspose.Slides for Android via Java ให้การสนับสนุนการตั้งค่าพื้นที่แผนภูมิ วิธีการ [**hasRoundedCorners**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) และ [**setRoundedCorners**](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) ได้ถูกเพิ่มลงในอินเทอร์เฟซ [IChart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChart) และคลาส [Chart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Chart) 
 
-1. สร้างอ็อบเจกต์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation) 
-1. เพิ่มแผนภูมิบนสไลด์
-1. ตั้งค่าประเภทการเติมและสีเติมของแผนภูมิ
-1. ตั้งค่าคุณสมบัติมุมโค้งเป็น True
-1. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-
-ตัวอย่างโค้ดต่อไปนี้เป็นตัวอย่าง
+เรียกใช้ [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) พร้อมค่า `true` เพื่อให้มุมของพื้นที่แผนภูมิเป็นโค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์จัดกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) เพื่อกำหนดให้เส้นขอบของมันเป็นสีเทาเที่ยงธรรมและสไตล์เส้นเดี่ยวก่อนบันทึกงานนำเสนอ  
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-**ฉันสามารถตั้งค่าการเติมแบบกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยยังคงให้ขอบไม่โปร่งใสได้หรือไม่?**
+แผนภูมิสามารถมีรูปทรงที่กำหนดเองได้, เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปทรงเหล่านี้ผ่าน [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), ซึ่งยังแสดงอยู่ภายใต้ [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) ในเอกสารอ้างอิง API ของ Chart. คอลเลคชันที่ส่งกลับโดย [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) มีรูปทรงที่เป็นของแผนภูมิ  
 
-ใช่ การตั้งค่าความโปร่งใสของการเติมและเส้นขอบทำแยกกัน ซึ่งช่วยให้ปรับปรุงความอ่านง่ายของตารางและข้อมูลในภาพที่หนาแน่น
+กล่องข้อความธรรมดาที่วางบนแผนภูมิจะเป็นของสไลด์, แม้ว่าจะดูเหมือนส่วนหนึ่งของแผนภูมิ กำหนดการวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) จะพบแผนภูมิและรูปทรงสไลด์ทั่วไป, แต่จะไม่ไล่รูปทรงแต่ละอันภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นองค์ประกอบแผนภูมิแยกจากกัน, ไม่ได้เป็นคำอธิบายกำหนดเองในคอลเลคชันนี้  
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อตรงกันได้อย่างไร?**
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์มีแผนภูมิพร้อมคำอธิบายที่ไม่รวมกลุ่มโดยมีข้อความ "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่มีข้อความ "Slide overlay". ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลคชันไม่ว่างและทำการแก้ไขเฉพาะ [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ที่มีเฟรมข้อความไม่เป็นค่าว่างที่คืนจาก [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) และข้อความที่คาดหวัง  
 
-ลดขนาดฟอนต์ ปิดการทำงานของส่วนที่ไม่สำคัญของป้าย (เช่น หมวดหมู่) ตั้งค่าออฟเซ็ต/ตำแหน่งของป้าย แสดงป้ายเฉพาะสำหรับจุดที่เลือกเมื่อต้องการ หรือเปลี่ยนรูปแบบเป็น "value + legend"
+```java
+import com.aspose.slides.*;
 
-**ฉันสามารถใช้การเติมเต็มแบบไล่สีหรือรูปแบบลงในซีรีส์ได้หรือไม่?**
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-ใช้งานได้ ทั้งแบบสีทับทานและสีไล่สี/ลวดลาย จะเป็นช่วงเวลาที่ทำให้ใช้ไล่สีอย่างสั้น ๆ และหลีกเลี่ยงการผสมผสานที่ลดความคมชัดกับตารางและข้อความ
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
 
----
-title: จัดรูปแบบแผนภูมิการนำเสนอบน Android
-linktitle: การจัดรูปแบบแผนภูมิ
-type: docs
-weight: 60
-url: /th/androidjava/chart-formatting/
-keywords:
-- จัดรูปแบบแผนภูมิ
-- การจัดรูปแบบแผนภูมิ
-- องค์ประกอบแผนภูมิ
-- คุณสมบัติของแผนภูมิ
-- การตั้งค่าแผนภูมิ
-- ตัวเลือกแผนภูมิ
-- คุณสมบัติฟอนต์
-- ขอบโค้ง
-- PowerPoint
-- การนำเสนอ
-- Android
-- Java
-- Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Android ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยสไตล์มืออาชีพที่ดึงดูดสายตา"
----
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง รูปภาพต่อไปนี้แสดงภาพก่อนและผลลัพธ์ที่บันทึกแล้วเปิดใหม่:
+
+| ก่อนแก้ไข | หลังแก้ไข |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+ตัวอย่างตรวจสอบเฉพาะรูปทรงระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/), ให้ตรวจสอบคอลเลคชัน [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) ของกลุ่มนั้นด้วยกัน ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกัน, ใช้การตรวจสอบข้อความเดียวกันกับรูปทรงลูก กลุ่มเองเป็นคอนเทนเนอร์; ไม่ต้องถือว่ามันเป็นกล่องข้อความ  
+{{% /alert %}}
+
+## **คำถามที่พบบ่อย**
+
+**ฉันสามารถตั้งค่าสีเติมแบบกึ่งโปร่งใสให้กับคอลัมน์/พื้นที่ได้โดยยังคงทำให้เส้นขอบไม่โปร่งใสได้หรือไม่?**  
+
+ใช่. ความโปร่งใสของการเติมและเส้นขอบกำหนดแยกกัน ซึ่งเป็นประโยชน์ในการเพิ่มความอ่านง่ายของกริดและข้อมูลในภาพที่มีความหนาแน่นสูง  
+
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันอย่างไร?**  
+
+ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่า + คำอธิบาย"  
+
+**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลายเส้นให้กับซีรีส์ได้หรือไม่?**  
+
+ได้. ซีรีส์รองรับการเติมแบบทึบ, ไล่สีและลายเส้น อย่างไรก็ตามควรใช้ไล่สีอย่างจำกัดและหลีกเลี่ยงการผสมผสานที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง  

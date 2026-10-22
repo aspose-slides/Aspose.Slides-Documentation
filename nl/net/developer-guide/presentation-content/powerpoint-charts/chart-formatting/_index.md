@@ -18,63 +18,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer diagramopmaak in Aspose.Slides voor .NET en til uw PowerPoint-presentatie naar een professioneel, opvallend gestyled niveau."
+description: "Leer hoe u diagrammen kunt opmaken in Aspose.Slides voor .NET en til uw PowerPoint-presentatie naar een hoger niveau met aangepaste assen, lettertypen, numerieke opmaken en afgeronde diagramranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je diagrammen in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het toont hoe je belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wand‑vullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
+Dit artikel legt uit hoe u diagrammen in PowerPoint‑presentaties kunt opmaken met Aspose.Slides. Het laat zien hoe u belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het laat ook zien hoe je lettertype‑eigenschappen voor diagramtekst instelt, vooraf‑ingestelde en aangepaste numerieke opmaak op diagramgegevens toepast, en afgeronde hoeken voor het diagramgebied inschakelt. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie kunt beheersen.
+Het laat ook zien hoe u lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf ingestelde numerieke opmaken op diagramgegevens kunt toepassen en afgeronde hoeken voor het diagramgebied kunt inschakelen. Samen tonen deze voorbeelden hoe u zowel de visuele stijl als de gegevenspresentatie van diagrammen in een presentatie kunt beheersen.
 
 ## **Diagramonderdelen opmaken**
-Aspose.Slides for .NET stelt ontwikkelaars in staat om vanaf nul aangepaste diagrammen aan hun dia’s toe te voegen. Dit artikel legt uit hoe je verschillende diagramonderdelen opmaakt, inclusief de categorie‑ en waardenas van een diagram.
 
-Aspose.Slides for .NET biedt een eenvoudige API voor het beheren van verschillende diagramonderdelen en het opmaken ervan met aangepaste waarden:
+Gebruik [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) om diagramtitels, assen, rasterlijnen, legenda’s en het plotgebied op te maken. Dit voorbeeld maakt een lijndiagram met markers en standaardgegevens, en past vervolgens aparte tekst‑ en lijstopmaken toe op respectievelijk de waardenas en de categorie‑as. Lettergrootten en lijndiktes worden opgegeven in punten; categoriënlabels worden 45 graden gedraaid.
 
-1. Maak een instantie van de **Presentation**‑klasse.
-1. Verkrijg een referentie naar een dia op basis van de index.
-1. Voeg een diagram toe met standaardgegevens en het gewenste type (in dit voorbeeld gebruiken we ChartType.LineWithMarkers).
-1. Toegang tot de Value Axis van het diagram en stel de volgende eigenschappen in:
-   1. Instellen van **Line format** voor Value Axis Major Grid‑lines
-   1. Instellen van **Line format** voor Value Axis Minor Grid‑lines
-   1. Instellen van **Number Format** voor Value Axis
-   1. Instellen van **Min, Max, Major and Minor units** voor Value Axis
-   1. Instellen van **Text Properties** voor Value Axis‑gegevens
-   1. Instellen van **Title** voor Value Axis
-   1. Instellen van **Line Format** voor Value Axis
-1. Toegang tot de Category Axis van het diagram en stel de volgende eigenschappen in:
-   1. Instellen van **Line format** voor Category Axis Major Grid‑lines
-   1. Instellen van **Line format** voor Category Axis Minor Grid‑lines
-   1. Instellen van **Text Properties** voor Category Axis‑gegevens
-   1. Instellen van **Title** voor Category Axis
-   1. Instellen van **Label Positioning** voor Category Axis
-   1. Instellen van **Rotation Angle** voor Category Axis‑labels
-1. Toegang tot de Legend van het diagram en stel de **Text Properties** hiervoor in
-1. Toon diagramlegenda’s zonder de diagrammen te overlappen
-1. Toegang tot de **Secondary Value Axis** van het diagram en stel de volgende eigenschappen in:
-   1. Schakel de secundaire **Value Axis** in
-   1. Instellen van **Line Format** voor Secondary Value Axis
-   1. Instellen van **Number Format** voor Secondary Value Axis
-   1. Instellen van **Min, Max, Major and Minor units** voor Secondary Value Axis
-1. Plot nu de eerste diagramreeks op de Secondary Value Axis
-1. Stel de vulkleur van de achterwand van het diagram in
-1. Stel de vulkleur van het plotgebied van het diagram in
-1. Schrijf de aangepaste presentatie weg naar een PPTX‑bestand
+De waardenas gebruikt [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofd‑intervallen van 2 en onder‑intervallen van 0,5. Het voorbeeld combineert procent‑opmaak met [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ingesteld op duizenden, dus pas deze instellingen aan op de betekenis en omvang van uw gegevens. De legenda blijft buiten het plotgebied omdat [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) is uitgeschakeld. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) en [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
-```c#
-// Presentatie instantieren// Presentatie instantieren
-Presentation pres = new Presentation();
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Toegang tot de eerste dia
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Voorbeelddiagram toevoegen
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Diagramtitel instellen
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -82,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Opmaak van hoofd‑rasterlijnen voor waardenas instellen
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Opmaak van kleine rasterlijnen voor waardenas instellen
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Nummeropmaak voor waardenas instellen
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Maximum‑ en minimumwaarden voor diagram instellen
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -109,234 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Teksteigenschappen voor waardenas instellen
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Titel voor waardenas instellen
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Lijnopmaak voor waardenas instellen: nu verouderd
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Opmaak van hoofd‑rasterlijnen voor categoriemodus instellen
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Opmaak van kleine rasterlijnen voor categoriemodus instellen
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Teksteigenschappen voor categoriemodus instellen
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Categoriatitel instellen
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Labelpositie van categoriemodus instellen
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Rotatiehoek van categoriemodus‑labels instellen
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Teksteigenschappen voor legenda instellen
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Legenda’s weergeven zonder het diagram te overlappen
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Eerste reeks plotten op secundaire waardenas
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Achterwandkleur van diagram instellen
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Kleur van plot‑gebied instellen
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Save Presentation
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **Lettertype‑eigenschappen instellen voor een diagram**
-Aspose.Slides for .NET biedt ondersteuning voor het instellen van lettertype‑gerelateerde eigenschappen voor een diagram. Volg de onderstaande stappen om de lettertype‑eigenschappen voor een diagram in te stellen.
 
-- Maak een **Presentation**‑object.
-- Voeg een diagram toe op de dia.
-- Stel de lettertype‑hoogte in.
-- Sla de aangepaste presentatie op.
+Stel de standaard lettergrootte voor diagramtekst in via [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Het voorbeeld maakt een gegroepeerd kolomdiagram met een 20‑punt lettertype en schakelt waardelabels in voor de eerste serie via [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
-Hieronder staat een voorbeeld.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Numerieke opmaak instellen**
-Aspose.Slides for .NET biedt een eenvoudige API voor het beheren van de opmaak van diagramgegevens:
+## **Het numerieke formaat instellen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation)‑klasse.
-1. Verkrijg een referentie naar een dia op basis van de index.
-1. Voeg een diagram toe met standaardgegevens en het gewenste type (dit voorbeeld gebruikt **ChartType.ClusteredColumn**).
-1. Stel de vooraf‑ingestelde nummeropmaak in uit de beschikbare preset‑waarden.
-1. Doorloop elke cel in de diagramgegevens van elke diagramreeks en stel de nummeropmaak van de diagramgegevens in.
-1. Sla de presentatie op.
-1. Stel een aangepaste nummeropmaak in.
-1. Doorloop de diagramgegevenscellen in elke reeks en stel een andere nummeropmaak in.
-1. Sla de presentatie op.
+Gebruik [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) om een ingebouwd getalformaat toe te passen op de werkbladcellen van een diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past formaatindex 10 (`0.00%`) toe op elke waardecel van de serie. Hierdoor wordt de weergave van de waarden in het werkblad aangepast zonder de onderliggende getallen te wijzigen; bijvoorbeeld wordt 0.25 weergegeven als 25.00%. As‑ en datalabel‑formaten kunnen afzonderlijk worden geconfigureerd.
 
-```c#
-// Instantieer de presentatie// Instantieer de presentatie
-Presentation pres = new Presentation();
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Toegang tot de eerste presentatiedia
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Een standaard gegroepeerde kolomdiagram toevoegen
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-// Toegang tot de collecties van grafiekreeksen
-IChartSeriesCollection series = chart.ChartData.Series;
-
-// Vooraf ingestelde nummeropmaak instellen
-// Doorloop elke grafiekreeks
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Doorloop elke gegevenscel in de reeks
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // Nummeropmaak instellen
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Presentatie opslaan
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-De mogelijke vooraf‑ingestelde nummeropmaak‑waarden, inclusief hun preset‑index, die je kunt gebruiken, staan hieronder:
+De onderstaande tabel geeft ingebouwde getalformaat‑indexen weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en hun weergave kunnen per toepassing en locale variëren, vooral voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardwaarden in de OOXML‑standaard, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Algemeen|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Formaat |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Afgeronde hoeken voor diagramgebied instellen**
-Aspose.Slides for .NET ondersteunt het instellen van het diagramgebied. De eigenschappen **IChart.HasRoundedCorners** en **Chart.HasRoundedCorners** zijn toegevoegd in Aspose.Slides.
+## **Afgeronde randen voor diagramgebied instellen**
 
-1. Maak een `Presentation`‑object.
-1. Voeg een diagram toe op de dia.
-1. Stel het vultype en de vulkleur van het diagram in.
-1. Schakel de eigenschap voor afgeronde hoeken in op **True**.
-1. Sla de aangepaste presentatie op.
+Schakel [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) in om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) om de omtrek een effen grijze kleur en een enkele lijnstijl te geven voordat de presentatie wordt opgeslagen.
 
-Hieronder staat een voorbeeld.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Bestaande diagramannotaties bewerken**
+
+Een diagram kan aangepaste vormen bevatten, zoals een tekstannotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijgt u via [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), ook vermeld onder [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) in de Chart‑API‑referentie. De [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)-collectie bevat de diagram‑eigendomsvormen.
+
+Een gewone tekstvak geplaatst boven een diagram behoort tot de dia, zelfs als het lijkt op een onderdeel van het diagram. Itereren door [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) vindt het diagram en de gewone dia‑vormen, maar geeft geen opsomming van de individuele vormen binnen het diagram. Diagramtitels en datalabels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een diagram met een niet‑gegroepeerde annotatie met de tekst “Preliminary results”, een diagram‑eigendomslijn, en een gewone dia‑tekstvak met de tekst “Slide overlay”. Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar “Final results” zodra het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) met een niet‑null [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) en de verwachte tekst.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
-## **Veelgestelde vragen**
+De lijn en het dia‑tekstvak blijven onveranderd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
 
-**Kan ik halftransparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+| Before editing | After editing |
+| --- | --- |
+| ![Diagramannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met tekst Final results](chart-annotations-after.png) |
 
-Ja. Transparantie van de vulling en de omtrek worden afzonderlijk geconfigureerd. Dit is handig om de leesbaarheid van rasterlijnen en gegevens in dichte visualisaties te verbeteren.
+{{% alert color="info" title="Note" %}}
+Het voorbeeld inspecteert alleen de diagram‑eigendomsvormen op het hoogste niveau. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)-collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij dezelfde tekstcontroles op hun kindvormen worden toegepast. Een groep zelf is een container; behandel deze niet als een tekstvak.
+{{% /alert %}}
 
-**Hoe ga ik om met gegevenslabels die elkaar overlappen?**
+## **FAQ**
 
-Verklein de lettertypegrootte, schakel niet‑essentiële labelonderdelen uit (bijv. categorieën), stel de offset/positie van het label in, toon alleen labels voor geselecteerde punten indien nodig, of wijzig het formaat naar “waarde + legenda”.
+**Kan ik semi‑transparante vullingen instellen voor kolommen/gebieden terwijl de rand ondoorzichtig blijft?**
 
-**Kan ik een verloop‑ of patroonvulling op een reeks toepassen?**
+Ja. Vullingstransparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-Ja. Zowel effen als verloop‑/patroonvullingen zijn meestal beschikbaar. In de praktijk gebruik je verlopen spaarzaam en vermijd je combinaties die het contrast met rasterlijnen en tekst verminderen.
+**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
+
+Verminder de lettergrootte, schakel niet‑essentiële labelcomponenten uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar “value + legend”.
+
+**Kan ik verlopen‑ of patroonvullingen toepassen op reeksen?**
+
+Ja. Reeksen ondersteunen effen, verlopen‑ en patroonvullingen. Gebruik verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

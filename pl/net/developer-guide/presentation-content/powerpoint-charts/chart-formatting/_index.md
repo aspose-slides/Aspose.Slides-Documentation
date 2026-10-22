@@ -1,6 +1,6 @@
 ---
-title: Formatowanie wykresów w prezentacji w .NET
-linktitle: Formatowanie wykresów
+title: Formatowanie wykresów w prezentacjach .NET
+linktitle: Formatowanie wykresu
 type: docs
 weight: 60
 url: /pl/net/chart-formatting/
@@ -12,65 +12,40 @@ keywords:
 - ustawienia wykresu
 - opcje wykresu
 - właściwości czcionki
-- zaokrąglona krawędź
+- zaokrąglone krawędzie
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak formatować wykresy w Aspose.Slides dla .NET i podnieś swoją prezentację PowerPoint dzięki profesjonalnemu, przyciągającemu wzrok stylowi."
+description: "Poznaj formatowanie wykresów w Aspose.Slides dla .NET i podnieś swoją prezentację PowerPoint dzięki niestandardowym osiom, czcionkom, formatom liczb oraz zaokrąglonym krawędziom wykresu."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu. Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępne i własne formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
+Ten artykuł wyjaśnia, jak formatować wykresy w prezentacjach PowerPoint przy użyciu Aspose.Slides. Pokazuje, jak dostosować kluczowe elementy wykresu, takie jak osie, linie siatki, tytuły, legendy, obszar wykresu i wypełnienia ścian, aby poprawić wygląd i czytelność danych wykresu.
 
-## **Formatowanie elementów wykresu**
-Aspose.Slides for .NET pozwala programistom dodawać własne wykresy do slajdów od podstaw. Ten artykuł wyjaśnia, jak formatować różne elementy wykresu, w tym oś kategorii i oś wartości. Aspose.Slides for .NET udostępnia prosty interfejs API do zarządzania różnymi elementami wykresu i formatowania ich przy użyciu własnych wartości:
+Pokazuje również, jak ustawić właściwości czcionki dla tekstu wykresu, zastosować wstępnie zdefiniowane formaty liczbowe do danych wykresu oraz włączyć zaokrąglone rogi obszaru wykresu. Razem te przykłady pokazują, jak kontrolować zarówno styl wizualny, jak i prezentację danych wykresu w prezentacji.
 
-1. Utwórz instancję klasy **Presentation** class.
-1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z domyślnymi danymi wraz z wybranym typem (w tym przykładzie użyjemy ChartType.LineWithMarkers).
-1. Uzyskaj dostęp do osi wartości wykresu i ustaw następujące właściwości:
-   1. Ustaw **Line format** dla głównych linii siatki osi wartości
-   1. Ustaw **Line format** dla pobocznych linii siatki osi wartości
-   1. Ustaw **Number Format** dla osi wartości
-   1. Ustaw **Min, Max, Major and Minor units** dla osi wartości
-   1. Ustaw **Text Properties** dla danych osi wartości
-   1. Ustaw **Title** dla osi wartości
-   1. Ustaw **Line Format** dla osi wartości
-1. Uzyskaj dostęp do osi kategorii wykresu i ustaw następujące właściwości:
-   1. Ustaw **Line format** dla głównych linii siatki osi kategorii
-   1. Ustaw **Line format** dla pobocznych linii siatki osi kategorii
-   1. Ustaw **Text Properties** dla danych osi kategorii
-   1. Ustaw **Title** dla osi kategorii
-   1. Ustaw **Label Positioning** dla osi kategorii
-   1. Ustaw **Rotation Angle** dla etykiet osi kategorii
-1. Uzyskaj dostęp do legendy wykresu i ustaw **Text Properties** dla niej
-1. Ustaw wyświetlanie legend wykresu bez nakładania się na wykres
-1. Uzyskaj dostęp do **Secondary Value Axis** wykresu i ustaw następujące właściwości:
-   1. Włącz drugorzędną **Value Axis**
-   1. Ustaw **Line Format** dla drugorzędnej osi wartości
-   1. Ustaw **Number Format** dla drugorzędnej osi wartości
-   1. Ustaw **Min, Max, Major and Minor units** dla drugorzędnej osi wartości
-1. Teraz narysuj pierwszą serię wykresu na drugorzędnej osi wartości
-1. Ustaw kolor wypełnienia tylnej ściany wykresu
-1. Ustaw kolor wypełnienia obszaru wykresu
-1. Zapisz zmodyfikowaną prezentację do pliku PPTX
+## **Formatuj elementy wykresu**
 
-```c#
-// Tworzenie prezentacji// Tworzenie prezentacji
-Presentation pres = new Presentation();
+Użyj [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) do formatowania tytułów wykresu, osi, linii siatki, legend i obszaru wykresu. Ten przykład tworzy wykres liniowy z znacznikami i danymi domyślnymi, a następnie stosuje osobne style tekstu i linii do osi wartości i osi kategorii. Rozmiary czcionek i grubości linii są określane w punktach; etykiety kategorii są obrócone o 45 stopni.
 
-// Uzyskiwanie pierwszego slajdu
-ISlide slide = pres.Slides[0];
+Oś wartości używa [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) niezależnie od komórek źródłowych. Jej skala rozciąga się od -2 do 15, z głównymi przedziałami co 2 i mniejszymi co 0,5. Przykład łączy formatowanie procentowe z [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ustawionym na tysiące, więc dostosuj te ustawienia do znaczenia i wielkości swoich danych. Legenda pozostaje poza obszarem wykresu, ponieważ [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) jest wyłączony. Wypełnienia tylnej ściany i podłogi są konfigurowane za pomocą [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) i [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), ale te powierzchnie są widoczne tylko w wykresach 3D.
 
-// Dodawanie przykładowego wykresu
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Ustawianie tytułu wykresu
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -78,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Ustawianie formatu głównych linii siatki dla osi wartości
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Ustawianie formatu pobocznych linii siatki dla osi wartości
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Ustawianie formatu liczbowego osi wartości
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Ustawianie maksymalnych i minimalnych wartości wykresu
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -105,239 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Ustawianie właściwości tekstu osi wartości
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Ustawianie tytułu osi wartości
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Ustawianie formatu linii osi wartości : Now Obselete
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Ustawianie formatu głównych linii siatki dla osi kategorii
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Ustawianie formatu pobocznych linii siatki dla osi kategorii
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Ustawianie właściwości tekstu osi kategorii
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Ustawianie tytułu osi kategorii
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Ustawianie pozycji etykiet osi kategorii
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Ustawianie kąta obrotu etykiet osi kategorii
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Ustawianie właściwości tekstu legend
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Ustaw wyświetlanie legend wykresu bez nachodzenia na wykres
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-            // Rysowanie pierwszej serii na drugorzędnej osi wartości
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Ustawianie koloru tylnej ścianki wykresu
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Ustawianie koloru obszaru wykresu
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Zapisz prezentację
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **Ustaw właściwości czcionki wykresu**
 
+Ustaw domyślny rozmiar czcionki dla tekstu wykresu za pomocą [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Przykład tworzy skumulowany wykres słupkowy z czcionką 20 punktów i włącza etykiety wartości dla pierwszej serii za pomocą [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elementy tekstowe z własnymi, wyraźnymi ustawieniami czcionki mogą nadpisać domyślne ustawienia wykresu.
 
-## **Ustaw właściwości czcionki dla wykresu**
-Aspose.Slides for .NET zapewnia wsparcie w ustawianiu właściwości czcionki dla wykresu. Proszę postępować zgodnie z poniższymi krokami, aby ustawić właściwości czcionki wykresu.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- Utwórz obiekt klasy Presentation.
-- Dodaj wykres na slajdzie.
-- Ustaw wysokość czcionki.
-- Zapisz zmodyfikowaną prezentację.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Poniżej znajduje się przykładowy kod.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
-
-
-
 
 ## **Ustaw format liczbowy**
-Aspose.Slides for .NET udostępnia prosty interfejs API do zarządzania formatem danych wykresu:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-1. Uzyskaj odniesienie do slajdu za pomocą jego indeksu.
-1. Dodaj wykres z domyślnymi danymi wraz z wybranym typem (w tym przykładzie użyto **ChartType.ClusteredColumn**).
-1. Ustaw wstępny format liczbowy spośród dostępnych wartości wstępnych.
-1. Przejdź przez komórki danych wykresu w każdej serii wykresu i ustaw format liczbowy danych wykresu.
-1. Zapisz prezentację.
-1. Ustaw własny format liczbowy.
-1. Przejdź przez komórki danych wykresu w każdej serii i ustaw inny format liczbowy danych wykresu.
-1. Zapisz prezentację.
+Użyj [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) , aby zastosować wbudowany format liczbowy do komórek skoroszytu wykresu. Ten przykład tworzy skumulowany wykres słupkowy z domyślnymi, opartymi na komórkach danymi i stosuje indeks formatu 10 (`0.00%`) do każdej komórki wartości serii. Zmienia to sposób wyświetlania wartości w skoroszycie bez zmiany liczb podstawowych; na przykład 0,25 jest wyświetlane jako 25,00%. Format osi i etykiet danych może być konfigurowany osobno.
 
-```c#
-// Utwórz prezentację// Utwórz prezentację
-Presentation pres = new Presentation();
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Uzyskaj dostęp do pierwszego slajdu prezentacji
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Dodawanie domyślnego wykresu słupkowego skumulowanego
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-// Uzyskanie kolekcji serii wykresu
-IChartSeriesCollection series = chart.ChartData.Series;
-
-// Ustawianie wstępnego formatu liczbowego
-// Przejście przez każdą serię wykresu
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Przejście przez każdą komórkę danych w serii
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // Ustawianie formatu liczbowego
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Zapis prezentacji
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-The possible preset number format values along with their preset index and that can be used are given below:
+Poniższa tabela zawiera wbudowane indeksy formatów liczbowych wraz z reprezentatywnymi formatami Excel dla ustawień języka angielskiego (Stany Zjednoczone). Dokładne ciągi formatów i ich wyświetlanie mogą się różnić w zależności od aplikacji i lokalizacji, szczególnie w przypadku walut i dat. Niektóre formaty Excel różnią się również od domyślnych w standardzie OOXML, jak opisano w [Notatki implementacji formatów liczbowych Microsoft](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Indeks | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **Ustaw zaokrąglone krawędzie obszaru wykresu**
-Aspose.Slides for .NET zapewnia wsparcie w ustawianiu obszaru wykresu. Dodano właściwości **IChart.HasRoundedCorners** i **Chart.HasRoundedCorners** w Aspose.Slides. 
 
-1. Utwórz obiekt klasy `Presentation`.
-1. Dodaj wykres na slajdzie.
-1. Ustaw typ wypełnienia i kolor wypełnienia wykresu
-1. Ustaw właściwość zaokrąglonych rogów na True.
-1. Zapisz zmodyfikowaną prezentację.
+Włącz [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) , aby zaokrąglić rogi obszaru wykresu. Przykład tworzy skumulowany wykres słupkowy i używa [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) , aby nadać jego obramowaniu jednolite szare wypełnienie i styl jednej linii przed zapisaniem prezentacji.
 
-Poniżej znajduje się przykładowy kod. 
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Edytuj istniejące adnotacje wykresu**
+
+Wykres może zawierać własne kształty, takie jak adnotacja tekstowa wyjaśniająca status raportu. Dostęp do tych kształtów uzyskuje się przez [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), wymienione również pod [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) w dokumentacji API wykresu. Jego kolekcja [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) zawiera kształty należące do wykresu.
+
+Zwykłe pole tekstowe umieszczone nad wykresem należy do slajdu, nawet jeśli wygląda jak część wykresu. Iteracja przez [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) znajduje wykres i zwykłe kształty slajdu, ale nie wylicza pojedynczych kształtów wewnątrz wykresu. Tytuły wykresu i etykiety danych są odrębnymi elementami wykresu, a nie własnymi adnotacjami w tej kolekcji.
+
+Pobierz [chart-annotations.pptx](chart-annotations.pptx) i umieść go w katalogu roboczym aplikacji. Jego pierwszy slajd zawiera wykres z niezgłoskowaną adnotacją o treści „Wstępne wyniki”, linią należącą do wykresu oraz zwykłym polem tekstowym slajdu o treści „Nakładka slajdu”. Przykład znajduje pierwszy wykres na tym slajdzie i zmienia adnotację na „Końcowe wyniki”, gdy raport jest gotowy do publikacji. Sprawdza, czy kolekcja nie jest pusta i edytuje tylko [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) z niepustym [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) i oczekiwaną treścią.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+Linia i pole tekstowe slajdu pozostają niezmienione. Poniższe obrazy przedstawiają wejście oraz zapisany, ponownie otwarty wynik:
+
+| Przed edycją | Po edycji |
+| --- | --- |
+| ![Adnotacja wykresu z treścią Wstępne wyniki](chart-annotations-before.png) | ![Adnotacja wykresu z treścią Końcowe wyniki](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Przykład inspekcjonuje tylko kształty należące do wykresu na najwyższym poziomie. Jeśli adnotacja znajduje się wewnątrz [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), sprawdź również kolekcję [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) tej grupy. Powtarzaj to rekurencyjnie dla zagnieżdżonych grup, stosując te same kontrole tekstu do ich kształtów potomnych. Grupa sama w sobie jest kontenerem; nie traktuj jej jako pola tekstowego.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, pozostawiając obramowanie nieprzezroczyste?**
+**Czy mogę ustawić półprzezroczyste wypełnienia dla kolumn/obszarów, zachowując nieprzezroczyste krawędzie?**
 
-Tak. Przezroczystość wypełnienia i obramowanie są konfigurowane osobno. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
+Tak. Przezroczystość wypełnienia i kontur są konfigurowane oddzielnie. Jest to przydatne do poprawy czytelności siatki i danych w gęstych wizualizacjach.
 
-**Jak radzić sobie z etykietami danych, gdy zachodzą na siebie?**
+**Jak radzić sobie z etykietami danych, gdy nachodzą na siebie?**
 
-Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (np. kategorie), ustaw offset/pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów w razie potrzeby lub zmień format na „wartość + legenda”.
+Zmniejsz rozmiar czcionki, wyłącz nieistotne elementy etykiet (na przykład kategorie), dostosuj pozycję etykiety, wyświetlaj etykiety tylko dla wybranych punktów, jeśli to konieczne, lub zmień format na „wartość + legenda”.
 
-**Czy mogę zastosować wypełnienia gradientowe lub wzorcowe do serii?**
+**Czy mogę zastosować wypełnienia gradientowe lub wzorzec do serii?**
 
-Tak. Zarówno jednolite, jak i wypełnienia gradientowe/wzorcowe są zwykle dostępne. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast względem siatki i tekstu.
+Tak. Serie obsługują wypełnienia stałe, gradientowe i wzorcowe. W praktyce używaj gradientów oszczędnie i unikaj kombinacji, które zmniejszają kontrast z siatką i tekstem.

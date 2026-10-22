@@ -1,5 +1,5 @@
 ---
-title: Diagrammen in presentaties opmaken in PHP
+title: Diagrammen in presentaties formatteren in PHP
 linktitle: Diagramopmaak
 type: docs
 weight: 60
@@ -17,59 +17,39 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer diagramopmaak in Aspose.Slides for PHP via Java en verbeter uw PowerPoint-presentatie met professionele, opvallende styling."
+description: "Leer diagramopmaak in Aspose.Slides voor PHP via Java en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalopmaak en afgeronde diagramranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u diagrammen in PowerPoint‑presentaties kunt opmaken met behulp van Aspose.Slides. Het laat zien hoe u belangrijke diagramelementen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
+Dit artikel legt uit hoe je diagrammen in PowerPoint‑presentaties kunt opmaken met behulp van Aspose.Slides. Het laat zien hoe je belangrijke diagramonderdelen zoals assen, rasterlijnen, titels, legenda's, het plotgebied en vulvullingen van de wanden kunt aanpassen om het uiterlijk en de leesbaarheid van diagramgegevens te verbeteren.
 
-Het laat ook zien hoe u lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf‑ingestelde en aangepaste numerieke opmaak op diagramgegevens kunt toepassen, en afgeronde hoeken voor het diagramgebied kunt inschakelen. Samen tonen deze voorbeelden hoe u zowel de visuele stijl als de weergave van gegevens in diagrammen binnen een presentatie kunt beheersen.
+Het toont ook hoe je lettertype‑eigenschappen voor diagramtekst kunt instellen, vooraf gedefinieerde numerieke opmaak op diagramgegevens kunt toepassen en afgeronde hoeken voor het diagramgebied kunt inschakelen. Samen laten deze voorbeelden zien hoe je zowel de visuele stijl als de weergave van gegevens van diagrammen in een presentatie kunt beheersen.
 
 ## **Diagramonderdelen opmaken**
-Aspose.Slides for PHP via Java stelt ontwikkelaars in staat aangepaste diagrammen vanaf nul aan hun dia’s toe te voegen. Dit artikel legt uit hoe u verschillende diagramonderdelen kunt opmaken, waaronder de categorische en de waardenas.
 
-Aspose.Slides for PHP via Java biedt een eenvoudige API voor het beheren van verschillende diagramonderdelen en het opmaken ervan met aangepaste waarden:
+Gebruik [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) om diagramtitels, assen, rasterlijnen, legenda's en het plotgebied op te maken. Deze voorbeeld maakt een lijndiagram met markers en standaardgegevens, en past vervolgens aparte tekst‑ en lijntstijlen toe op de waarden‑ en categorie‑assen. Lettergroottes en lijndiktes worden gespecificeerd in punten; categorie‑labels worden 45 graden gedraaid.
 
-1. Maak een instantie van de [**Presentation**](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse aan.
-1. Haal een referentie naar een dia op via de index.
-1. Voeg een diagram toe met standaardgegevens en een gewenst type (in dit voorbeeld gebruiken we ChartType::LineWithMarkers).
-1. Benader de waardenas van het diagram en stel de volgende eigenschappen in:
-   1. Instelling **Line format** voor de grote rasterlijnen van de waardenas
-   1. Instelling **Line format** voor de kleine rasterlijnen van de waardenas
-   1. Instelling **Number Format** voor de waardenas
-   1. Instelling **Min, Max, Major and Minor units** voor de waardenas
-   1. Instelling **Text Properties** voor waardenas‑gegevens
-   1. Instelling **Title** voor de waardenas
-   1. Instelling **Line Format** voor de waardenas
-1. Benader de categorische as van het diagram en stel de volgende eigenschappen in:
-   1. Instelling **Line format** voor de grote rasterlijnen van de categorische as
-   1. Instelling **Line format** voor de kleine rasterlijnen van de categorische as
-   1. Instelling **Text Properties** voor categorische as‑gegevens
-   1. Instelling **Title** voor de categorische as
-   1. Instelling **Label Positioning** voor de categorische as
-   1. Instelling **Rotation Angle** voor de labels van de categorische as
-1. Benader de legenda van het diagram en stel de **Text Properties** in.
-1. Zet weergave van diagramlegenda’s zonder dat ze het diagram overlappen.
-1. Benader de **Secondary Value Axis** van het diagram en stel de volgende eigenschappen in:
-   1. Schakel de secundaire **Value Axis** in.
-   1. Instelling **Line Format** voor de secundaire waardenas
-   1. Instelling **Number Format** voor de secundaire waardenas
-   1. Instelling **Min, Max, Major and Minor units** voor de secundaire waardenas
-1. Plot nu de eerste diagramreeks op de secundaire waardenas.
-1. Stel de vulkleur van de achterwand van het diagram in.
-1. Stel de vulkleur van het plotgebied van het diagram in.
-1. Schrijf de aangepaste presentatie weg naar een PPTX‑bestand.
+De waardenas gebruikt [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met hoofdintervallen van 2 en onderintervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) ingesteld op duizenden, pas deze instellingen dus aan op de betekenis en omvang van je gegevens. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) wordt aangeroepen met `false`. Achter‑wand‑ en vloer‑vullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) en [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/), maar deze oppervlakken zijn alleen zichtbaar in 3D‑diagrammen.
 
 ```php
-  # Maak een instantie van de Presentation‑klasse
-  $pres = new Presentation();
-  try {
-    # De eerste dia benaderen
-    $slide = $pres->getSlides()->get_Item(0);
-    # Voorbeeld‑diagram toevoegen
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # Titel van het diagram instellen
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -78,265 +58,301 @@ Aspose.Slides for PHP via Java biedt een eenvoudige API voor het beheren van ver
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Opmaak van grote rasterlijnen voor de waardenas instellen
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # Opmaak van kleine rasterlijnen voor de waardenas instellen
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Numeriek formaat van de waardenas instellen
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # Maximale en minimale waarden van het diagram instellen
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # Teksteigenschappen van de waardenas instellen
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # Titel van de waardenas instellen
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Opmaak van grote rasterlijnen voor de categorische as instellen
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # Opmaak van kleine rasterlijnen voor de categorische as instellen
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # Teksteigenschappen van de categorische as instellen
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # Titel van de categorische as instellen
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # Positie van de labels op de categorische as instellen
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # Rotatie‑hoek van de labels op de categorische as instellen
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # Teksteigenschappen van de legenda’s instellen
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # De legenda’s tonen zonder dat ze het diagram overlappen
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # Secundaire waardenas instellen
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # Numeriek formaat van de secundaire waardenas instellen
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # Maximale en minimale waarden van het diagram instellen
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # Kleur van de achterwand van het diagram instellen
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # Kleur van het plot‑gebied instellen
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # Presentatie opslaan
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Lettertype‑eigenschappen voor een diagram instellen**
-Aspose.Slides for PHP via Java ondersteunt het instellen van lettertype‑gerelateerde eigenschappen voor het diagram. Volg de onderstaande stappen om de lettertype‑eigenschappen voor een diagram in te stellen.
 
-- Maak een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑klasse‑object aan.
-- Voeg een diagram toe op de dia.
-- Stel de letterhoogte in.
-- Sla de aangepaste presentatie op.
-
-Hieronder staat een voorbeeld.
+Stel de standaardlettergrootte voor diagramtekst in via [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/). Het voorbeeld maakt een gegroepeerd kolomdiagram met een 20‑punt lettertype en schakelt waarden‑labels in voor de eerste reeks via [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van het diagram overschrijven.
 
 ```php
-  # Maak een instantie van de Presentation‑klasse
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Numerieke opmaak instellen**
-Aspose.Slides for PHP via Java biedt een eenvoudige API voor het beheren van de opmaak van diagramgegevens:
+## **Numeriek formaat instellen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation)‑klasse.
-1. Haal een referentie naar een dia op via de index.
-1. Voeg een diagram toe met standaardgegevens en een gewenst type (in dit voorbeeld gebruiken we **ChartType::ClusteredColumn**).
-1. Stel de vooraf ingestelde numerieke opmaak in vanuit de mogelijke vooraf ingestelde waarden.
-1. Loop door de diagramdatacel in elke diagramreeks en stel de numerieke opmaak van de diagramgegevens in.
-1. Sla de presentatie op.
-1. Stel de aangepaste numerieke opmaak in.
-1. Loop door de diagramdatacel in elke diagramreeks en stel een andere numerieke opmaak in.
-1. Sla de presentatie op.
+Gebruik [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) om een ingebouwde getalopmaak toe te passen op de werkboekcellen van het diagram. Dit voorbeeld maakt een gegroepeerd kolomdiagram met standaard, cel‑ondersteunde gegevens en past op elke reeks‑waarde‑cel formaat‑index 10 (`0.00%`) toe. Hierdoor verandert de weergave van de waarden in het werkboek zonder de onderliggende getallen te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00 %. Assen‑ en datalabel‑opmaak kunnen afzonderlijk worden geconfigureerd.
 
 ```php
-  # Maak een instantie van de Presentation‑klasse
-  $pres = new Presentation();
-  try {
-    # De eerste dia van de presentatie benaderen
-    $slide = $pres->getSlides()->get_Item(0);
-    # Een standaard gegroepeerde kolomdiagram toevoegen
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # De verzameling van diagramreeksen benaderen
     $series = $chart->getChartData()->getSeries();
-    # Door alle diagramreeksen itereren
-    foreach($series as $ser) {
-      # Door alle datacellen in de reeks itereren
-      foreach($ser->getDataPoints() as $cell) {
-        # Het getalformaat instellen
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
-      }
+
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0,00%
+        }
     }
-    # Presentatie opslaan
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-De mogelijke vooraf ingestelde numerieke opmaakwaarden samen met hun index worden hieronder weergegeven:
+De volgende tabel geeft de ingebouwde getalopmaak‑indices weer met representatieve Excel‑indelingen voor de Engelse (Verenigde Staten) locale. De exacte opmaaktekenreeksen en hun weergave kunnen variëren per toepassing en locale, vooral voor valuta en datums. Sommige Excel‑indelingen wijken ook af van de standaardinstellingen in de OOXML‑norm, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Afgeronde randen van diagramgebied instellen**
-Aspose.Slides for PHP via Java ondersteunt het instellen van het diagramgebied. De methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/hasroundedcorners/) en [**setRoundedCorners**](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/setroundedcorners/) zijn toegevoegd aan de [Chart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Chart)‑klasse.
+## **Afgeronde randen voor diagramgebied instellen**
 
-1. Maak een [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation)‑klasse‑object aan.
-1. Voeg een diagram toe op de dia.
-1. Stel het vultype en de vulkleur van het diagram in.
-1. Zet de eigenschap voor afgeronde hoeken op True.
-1. Sla de aangepaste presentatie op.
-
-Hieronder staat een voorbeeld.
+Roep [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) aan met `true` om de hoeken van het diagramgebied af te ronden. Het voorbeeld maakt een gegroepeerd kolomdiagram en gebruikt [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) om de contour een effen grijze kleur en een enkel‑lijn‑stijl te geven voordat de presentatie wordt opgeslagen.
 
 ```php
-  # Maak een instantie van de Presentation‑klasse
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **Bestaande diagramannotaties bewerken**
+
+Een diagram kan aangepaste vormen bevatten, zoals een tekstanotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/). De collectie die wordt teruggegeven door [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) bevat de diagram‑eigene vormen.
+
+Een gewone tekstvak dat over een diagram staat, behoort tot de dia, zelfs als het eruitziet als een deel van het diagram. Door te itereren met [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) vind je het diagram en de gewone dia‑vormen, maar het wordt niet de individuele vormen binnen het diagram opgesomd. Diagramtitels en datalabels zijn afzonderlijke diagramonderdelen, geen aangepaste annotaties in deze collectie.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een diagram met een ongegroepeerde annotatie met de tekst "Preliminary results", een diagram‑eigen lijn, en een gewoon tekstvak op de dia met de tekst "Slide overlay". Het voorbeeld vindt het eerste diagram op die dia en wijzigt de annotatie naar "Final results" wanneer het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) met een niet‑null tekstframe dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) en de verwachte tekst.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+De lijn en het tekstvak op de dia blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
+
+| Before editing | After editing |
+| --- | --- |
+| ![Diagramannotatie met tekst Preliminary results](chart-annotations-before.png) | ![Diagramannotatie met tekst Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Het voorbeeld inspecteert alleen de diagram‑eigene vormen op het hoogste niveau. Als een annotatie zich binnen een [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, waarbij dezelfde tekstantwoorden op de onderliggende vormen worden toegepast. Een groep op zich is een container; behandel deze niet als een tekstvak.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Kan ik halftransparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halfdoorzichtige vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
 
-Ja. De transparantie van de vulling en de omlijning worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullingsdoorzichtigheid en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
 **Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
 
-Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), stel de offset/positie van het label in, toon labels alleen voor geselecteerde punten indien nodig, of wijzig de opmaak naar "waarde + legenda".
+Verklein de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
 
-**Kan ik een verloop‑ of patroonvulling toepassen op reeksen?**
+**Kan ik verloop‑ of patroonvullingen op reeksen toepassen?**
 
-Ja. Zowel effen als verloop‑/patroonvullingen zijn doorgaans beschikbaar. Gebruik in de praktijk verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Reeksen ondersteunen solide, verloop‑ en patroonvullingen. Gebruik in de praktijk verloopspiegels spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

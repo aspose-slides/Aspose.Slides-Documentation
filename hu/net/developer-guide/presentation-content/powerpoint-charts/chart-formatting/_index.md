@@ -1,13 +1,13 @@
 ---
-title: PowerPoint-diagramok formázása .NET-ben
-linktitle: Diagram formázása
+title: Prezentációs diagramok formázása .NET-ben
+linktitle: Diagramformázás
 type: docs
 weight: 60
 url: /hu/net/chart-formatting/
 keywords:
 - diagram formázása
-- diagram formázás
-- diagram entitás
+- diagramformázás
+- diagram elem
 - diagram tulajdonságok
 - diagram beállítások
 - diagram opciók
@@ -18,63 +18,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ismerje meg a diagramok formázását az Aspose.Slides for .NET-ben, és emelje prezentációját professzionális, figyelemfelkeltő stílusokkal."
+description: "Ismerkedjen meg a diagramok formázásával az Aspose.Slides .NET verzióban, és emelje prezentációját PowerPointban egyedi tengelyekkel, betűtípusokkal, számformátumokkal és lekerekített diagram szegélyekkel."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan formázhatók a diagramok PowerPoint‑prezentációkban az Aspose.Slides segítségével. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, mint például a tengelyek, a rácsvonalak, a címek, a jelmagyarázatok, a diagramterület és a falak kitöltései, a diagram adatainak megjelenését és olvashatóságát javítva.
+Ez a cikk bemutatja, hogyan formázhatók diagramok PowerPoint‑prezentációkban az Aspose.Slides használatával. Megmutatja, hogyan testreszabhatók a diagram kulcsfontosságú elemei, például a tengelyek, a rácsvonalak, a címek, a jelmagyarázatok, a grafikonterület és a fal kitöltései, a diagramadatok megjelenésének és olvashatóságának javítása érdekében.
 
-Emellett bemutatja, hogyan állíthatók be a diagram szövegének betűtípus‑tulajdonságai, hogyan alkalmazhatók előre definiált és egyéni numerikus formátumok a diagram adataira, valamint hogyan engedélyezhetők lekerekített sarkok a diagram területén. Ezek a példák együtt azt mutatják, hogyan szabályozhatók a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
+A cikk továbbá bemutatja, hogyan állíthatók be a betűtípus tulajdonságai a diagram szövegéhez, hogyan alkalmazhatók előre beállított numerikus formátumok a diagram adataihoz, és hogyan engedélyezhetők a lekerekített sarkok a diagramterületen. Ezek a példák együtt megmutatják, hogyan szabályozható a diagramok vizuális stílusa és adatmegjelenítése egy prezentációban.
 
-## **Diagram Entitások Formázása**
-Az Aspose.Slides for .NET lehetővé teszi a fejlesztők számára, hogy saját diagramokat adjanak a diákhoz a semmiből. Ez a cikk elmagyarázza, hogyan formázhatók a különböző diagram entitások, többek között a diagram kategória‑ és értéktengelye.
+## **Diagramelemek formázása**
 
-Az Aspose.Slides for .NET egyszerű API‑t biztosít a különböző diagram entitások kezeléséhez és egyéni értékekkel való formázásukhoz:
+Használja az [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) elemet a diagramcímek, tengelyek, rácsvonalak, jelmagyarázatok és a grafikonterület formázásához. Ez a példa egy jelölőkkel ellátott vonaldiagramot hoz létre alapértelmezett adatokkal, majd külön szöveg‑ és vonalstílusokat alkalmaz az érték‑ és a kategóriatengelyeire. A betűméretet és a vonalszélességet pontban határozzák meg; a kategóriacímkék 45 fokban vannak elfordítva.
 
-1. Hozzon létre egy **Presentation** osztálypéldányt.
-1. Szerezze meg a dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típusú diagrammal (ebben a példában a **ChartType.LineWithMarkers** típust használjuk).
-1. Hozzáférés a diagram **Value Axis**‑hez, és állítsa be a következő tulajdonságokat:
-   1. **Line format** beállítása az Value Axis fő rácslínáihoz
-   1. **Line format** beállítása az Value Axis segéd rácslínáihoz
-   1. **Number Format** beállítása az Value Axis‑hez
-   1. **Min, Max, Major and Minor units** beállítása az Value Axis‑hez
-   1. **Text Properties** beállítása az Value Axis adatainak
-   1. **Title** beállítása az Value Axis‑hez
-   1. **Line Format** beállítása az Value Axis‑hez
-1. Hozzáférés a diagram **Category Axis**‑hez, és állítsa be a következő tulajdonságokat:
-   1. **Line format** beállítása a Category Axis fő rácslínáihoz
-   1. **Line format** beállítása a Category Axis segéd rácslínáihoz
-   1. **Text Properties** beállítása a Category Axis adatainak
-   1. **Title** beállítása a Category Axis‑hez
-   1. **Label Positioning** beállítása a Category Axis‑hez
-   1. **Rotation Angle** beállítása a Category Axis címkéihez
-1. Hozzáférés a diagram **Legend**‑hez, és állítsa be a **Text Properties**‑t számára
-1. Állítsa be a diagram jelmagyarázatok megjelenítését úgy, hogy ne fedjék egymást
-1. Hozzáférés a diagram **Secondary Value Axis**‑hez, és állítsa be a következő tulajdonságokat:
-   1. Engedélyezze a **Secondary Value Axis**‑t
-   1. **Line Format** beállítása a Secondary Value Axis‑hez
-   1. **Number Format** beállítása a Secondary Value Axis‑hez
-   1. **Min, Max, Major and Minor units** beállítása a Secondary Value Axis‑hez
-1. Ábrázolja az első diagram sorozatot a Secondary Value Axis‑en
-1. Állítsa be a diagram hátfal kitöltőszínét
-1. Állítsa be a diagram diagramterület kitöltőszínét
-1. Írja a módosított prezentációt PPTX fájlba
+Az értéktengely a [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) elemet használja a forráscelláktól függetlenül. Skálája -2-től 15-ig terjed, főintervallumok 2‑esek, mellékintervallumok 0,5‑esek. A példa az százalékos formázást is kombinálja a [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) ezrekkel beállítva, ezért igazítsa ezeket a beállításokat adatai jelentéséhez és nagyságához. A jelmagyarázat a grafikonterületen kívül marad, mivel a [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) le van tiltva. A háttérfal és a padló kitöltései a [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) és a [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/) elemekkel vannak beállítva, de ezek a felületek csak 3D diagramokban láthatók.
 
-```c#
-// Prezentáció példányosítása// Prezentáció példányosítása
-Presentation pres = new Presentation();
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Az első dia elérése
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Minta diagram hozzáadása
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Diagram címének beállítása
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -82,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Az értéktengely fő rácsvonalainak formátumának beállítása
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Az értéktengely segéd rácsvonalainak formátumának beállítása
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Az értéktengely számformátumának beállítása
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Diagram maximum és minimum értékeinek beállítása
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -109,239 +76,253 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Az értéktengely szöveg tulajdonságainak beállítása
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Az értéktengely címének beállítása
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Az értéktengely vonalformátum beállítása: már elavult
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// A kategória tengely fő rácsvonalainak formátumának beállítása
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// A kategória tengely segéd rácsvonalainak formátumának beállítása
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// A kategória tengely szöveg tulajdonságainak beállítása
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// A kategória címének beállítása
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// A kategória tengely címke pozíciójának beállítása
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// A kategória tengely címke forgatási szögének beállítása
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// A jelmagyarázat szöveg tulajdonságainak beállítása
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// A diagram jelmagyarázatának megjelenítése átfedés nélkül
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Az első sorozat ábrázolása a másodlagos értéktengelyen
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// A diagram hátfal színének beállítása
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// A diagram ábrázolási terület színének beállítása
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Prezentáció mentése
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
+## **A diagram betűtípus tulajdonságainak beállítása**
 
+Állítsa be a diagram szövegeinek alapértelmezett betűméretét a [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/) segítségével. A példa egy klaszterezett oszlopdiagramot hoz létre 20‑pontos betűmérettel, és a [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/) használatával engedélyezi az értékcímkéket az első sorozatra. A saját explicit betűtípus-beállításokkal rendelkező szövegelemek felülírhatják a diagram alapértelmezett beállítását.
 
-## **Betűtípus‑tulajdonságok Beállítása Diagramhoz**
-Az Aspose.Slides for .NET támogatja a diagram betűtípushoz kapcsolódó tulajdonságok beállítását. Kövesse az alábbi lépéseket a diagram betűtípus‑tulajdonságainak beállításához.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-- Hozzon létre egy **Presentation** osztálypéldányt.
-- Adjon hozzá egy diagramot a diára.
-- Állítsa be a betűméretet.
-- Mentse el a módosított prezentációt.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-Az alábbi példa bemutatja a folyamatot.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
+## **Numerikus formátum beállítása**
 
+Használja az [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) elemet, hogy beépített számformátumot alkalmazzon a diagram munkafüzetcelláira. Ez a példa egy alapértelmezett, cella‑alapú adatokkal rendelkező klaszterezett oszlopdiagramot hoz létre, és az 10‑es formátumindexet (`0.00%`) minden sorozat értékcellájára alkalmazza. Ez megváltoztatja a cellák megjelenítését a munkafüzetben anélkül, hogy az alapértékek módosulnának; például a 0,25 25,00%-ként jelenik meg. A tengely- és adatcímkeformátumok külön-külön konfigurálhatók.
 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-## **Numerikus Formátum Beállítása**
-Az Aspose.Slides for .NET egyszerű API‑t kínál a diagram adatformátum kezelésére:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból.
-1. Szerezze meg a dia hivatkozását az indexe alapján.
-1. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típusú diagrammal (ez a példa a **ChartType.ClusteredColumn** típust használja).
-1. Állítsa be az előre definiált számformátumot a lehetséges előre definiált értékek közül.
-1. Járja be a diagram adatcelláit minden diagram sorozatban, és állítsa be a diagram adat számformátumát.
-1. Mentse el a prezentációt.
-1. Állítsa be az egyéni számformátumot.
-1. Járja be a diagram adatcelláit minden diagram sorozatban, és állítson be különböző diagram adat számformátumot.
-1. Mentse el a prezentációt.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-```c#
-// Prezentáció példányosítása// Prezentáció példányosítása
-Presentation pres = new Presentation();
-
-// Az első prezentációs dia elérése
-ISlide slide = pres.Slides[0];
-
-// Alapértelmezett csoportosított oszlop diagram hozzáadása
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-// A diagram sorozatgyűjteményének elérése
-IChartSeriesCollection series = chart.ChartData.Series;
-
-// Az előre definiált számformátum beállítása
-// Végigjárás minden diagram sorozaton
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Végigjárás minden adatcellán a sorozatban
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // A számformátum beállítása
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Prezentáció mentése
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Az alábbiakban megtalálhatók a lehetséges előre definiált számformátum‑értékek a megfelelő indexszámukkal:
+Az alábbi táblázat felsorolja a beépített számformátum-indexeket a megfelelő Excel-formátumokkal az angol (Egyesült Államok) nyelvterületen. A pontos formátumkarakterláncok és megjelenítésük alkalmazásonként és nyelvterületenként eltérhet, különösen a pénznemek és dátumok esetében. Egyes Excel-formátumok eltérnek az OOXML szabvány alapértelmezett beállításaitól is, amint azt a [Microsoft számformátum-implementációs megjegyzéseiben](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) leírják.
 
-|**0**|Általános|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Formátum |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Diagramterület Lekerekített Szegélyeinek Beállítása**
-Az Aspose.Slides for .NET támogatja a diagramterület beállítását. Az **IChart.HasRoundedCorners** és a **Chart.HasRoundedCorners** tulajdonságok bekerültek az Aspose.Slides‑be.
+## **Grafikonterület lekerekített szegélyeinek beállítása**
 
-1. Hozzon létre egy `Presentation` osztálypéldányt.
-1. Adjon hozzá egy diagramot a diára.
-1. Állítsa be a kitöltés típusát és színét a diagramhoz.
-1. Állítsa a lekerekített sarok tulajdonságot **True**‑ra.
-1. Mentse el a módosított prezentációt.
+Engedélyezze az [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) elemet a grafikonterület sarkainak lekerekítéséhez. A példa egy klaszterezett oszlopdiagramot hoz létre, és a [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) segítségével szilárd szürke színű és egyvonalas körvonalat ad a diagramnak, mielőtt mentené a prezentációt.
 
-Az alábbi példa demonstrálja a folyamatot.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Meglévő diagram annotációk szerkesztése**
+
+Egy diagram egyedi alakzatokat is tartalmazhat, például egy szöveges annotációt, amely a jelentés állapotát magyarázza. Ezekhez az alakzatokhoz az [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/) segítségével férhet hozzá, amely a Chart API Referenciában a [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) alatt is fel van sorolva. Az [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteménye tartalmazza a diagramhoz tartozó alakzatokat.
+
+Egy egyszerű szövegdoboz, amely egy diagram felett helyezkedik el, a diára tartozik, még ha a diagram részének tűnik is. A [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) bejárásával megtalálható a diagram és a szokásos diaelemek, de nem sorolja fel a diagramon belüli egyedi alakzatokat. A diagramcímek és adatcímkék külön diagramelemek, nem egyéni annotációk ebben a gyűjteményben.
+
+Töltse le a [chart-annotations.pptx](chart-annotations.pptx) fájlt, és helyezze el az alkalmazás munkakönyvtárában. Az első diáján egy diagram található egy csoportosítatlan „Preliminary results” (Előzetes eredmények) feliratú annotációval, a diagramhoz tartozó vonallal, valamint egy egyszerű „Slide overlay” (Dia átfedés) feliratú szövegdobozzal. A példa megtalálja az első diagramot a dián, és a jelentés közzétételre kész állapotában az annotációt „Final results” (Végleges eredmények) szövegre módosítja. Ellenőrzi, hogy a gyűjtemény nem üres, és csak egy [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) elemet szerkeszt, amelynek nem null értékű [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) és a várt szövege van.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+Az vonal és a dia szövegdoboz változatlan marad. A következő képek mutatják a bemenetet és a mentett, újranyitott eredményt:
+
+| Szerkesztés előtt | Szerkesztés után |
+| --- | --- |
+| ![Diagram annotáció: Előzetes eredmények](chart-annotations-before.png) | ![Diagram annotáció: Végleges eredmények](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+A példa csak a felső szintű, diagramhoz tartozó alakzatokat vizsgálja. Ha egy annotáció egy [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/) belsejében van, akkor vizsgálja meg ennek a csoportnak a [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) gyűjteményét is. Ezt rekurzívan ismételje a beágyazott csoportoknál, ugyanazokat a szövegellenőrzéseket alkalmazva a gyermekalakzatokra. Egy csoport önmagában egy tároló; ne kezelje szövegdobozként.
+{{% /alert %}}
+
 ## **GYIK**
 
-**Beállíthatok félig átlátszó kitöltést oszlopokhoz/területekhez, miközben a szegély átlátszatlan marad?**
+**Be tudok-e állítani félig átlátszó kitöltéseket az oszlopoknál/területeknél, miközben a szegély átlátszatlan marad?**
 
-Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javítása érdekében sűrű vizualizációk esetén.
+Igen. A kitöltés átlátszósága és a körvonal külön-külön konfigurálható. Ez hasznos a rács és az adatok olvashatóságának javításához sűrű vizualizációkban.
 
-**Hogyan kezeljem a címkéket, ha átfedik egymást?**
+**Hogyan kezeljem az adatcímkéket, ha átfedik egymást?**
 
-Csökkentse a betűméretet, kapcsolja ki a nem lényeges címkeelemeket (például a kategóriákat), állítsa be a címke eltolását/pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltsa a formátumot „érték + jelmagyarázat” módra.
+Csökkentse a betűméretet, tiltsa le a nem lényeges címkeösszetevőket (például a kategóriákat), állítsa be a címke pozícióját, szükség esetén csak a kiválasztott pontok címkéit jelenítse meg, vagy váltson a "value + legend" (érték + jelmagyarázat) formátumra.
 
-**Alkalmazhatok‑e gradient vagy mintázott kitöltést sorozatokra?**
+**Használhatok-e színátmenet vagy minta kitöltéseket a sorozatokhoz?**
 
-Igen. Mind a szilárd, mind a gradient/mintázott kitöltés általában elérhető. Gyakorlatban használjon gradienteket mértékkel, és kerülje az olyan kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.
+Igen. A sorozatok támogatják a szilárd, színátmenetes és mintás kitöltéseket. Gyakorlatban mértékkel használjon színátmeneteket, és kerülje azokat a kombinációkat, amelyek csökkentik a kontrasztot a rács és a szöveg között.

@@ -1,12 +1,12 @@
 ---
-title: Python'da Sunum Grafiklerini Biçimlendirme
+title: Python’da Sunum Grafiklerini Biçimlendirme
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
 url: /tr/python-java/chart-formatting/
 keywords:
+- grafik formatı
 - grafik biçimlendirme
-- grafik formatlama
 - grafik varlığı
 - grafik özellikleri
 - grafik ayarları
@@ -17,47 +17,19 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'da grafik biçimlendirmeyi öğrenin ve PowerPoint sunumunuzu profesyonel, göz alıcı bir stil ile yükseltin."
+description: "Java aracılığıyla Python için Aspose.Slides'de grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlatılmış grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarında grafiklerin nasıl biçimlendirileceğini açıklar. Ekseler, ızgara çizgileri, başlıklar, açıklamalar, çizim alanı ve duvar dolguları gibi temel grafik öğelerinin nasıl özelleştirileceğini göstererek grafik verilerinin görünümünü ve okunabilirliğini artırır.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafikleri nasıl biçimlendireceğinizi açıklar. Ekseni, ızgara çizgileri, başlıklar, gösterge çizelgeleri, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca, grafik metni için yazı tipi özelliklerinin nasıl ayarlanacağını, grafik verilerine önceden tanımlı ve özelleştirilmiş sayısal biçimlerin nasıl uygulanacağını ve grafik alanı için yuvarlatılmış köşelerin nasıl etkinleştirileceğini gösterir. Bu örnekler birlikte, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimlerin nasıl uygulanacağını ve grafik alanının köşelerinin nasıl yuvarlatılacağını gösterir. Bu örnekler, bir sunumdaki grafiklerin hem görsel stilini hem de veri sunumunu nasıl kontrol edeceğinizi ortaya koyar.
 
-## **Grafik Varlıklarını Biçimlendirme**
-Aspose.Slides for Python via Java, geliştiricilerin sıfırdan özel grafikler eklemelerine olanak tanır. Bu makale, kategori ve değer eksenlerini içeren farklı grafik varlıklarının nasıl biçimlendirileceğini açıklar.
+## **Grafik Varlıklarını Biçimlendir**
 
-Aspose.Slides for Python via Java, farklı grafik varlıklarını yönetmek ve bunları özelleştirilmiş değerlerle biçimlendirmek için basit bir API sağlar:
+Use [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta erişin.  
-1. İstenilen tipte bir grafiği varsayılan verilerle ekleyin (bu örnek [ChartType.LineWithMarkers](https://reference.aspose.com/slides/tr/python-java/aspose.slides/charttype/#LineWithMarkers) kullanır).  
-1. Grafik değer eksenine erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. Değer ekseninin ana ızgara çizgileri için **Line format** ayarlayın.  
-   1. Değer ekseninin alt ızgara çizgileri için **Line format** ayarlayın.  
-   1. Değer ekseni için **Number Format** ayarlayın.  
-   1. Değer ekseni için **minimum, maximum, major ve minor birimlerini** ayarlayın.  
-   1. Değer ekseni verileri için **Text Properties** ayarlayın.  
-   1. Değer ekseni için **Title** ayarlayın.  
-1. Grafik kategori eksenine erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. Kategori ekseninin ana ızgara çizgileri için **Line format** ayarlayın.  
-   1. Kategori ekseninin alt ızgara çizgileri için **Line format** ayarlayın.  
-   1. Kategori ekseni verileri için **Text Properties** ayarlayın.  
-   1. Kategori ekseni için **Title** ayarlayın.  
-   1. Kategori ekseni için **Label Positioning** ayarlayın.  
-   1. Kategori ekseni etiketleri için **Rotation Angle** ayarlayın.  
-1. Grafik açıklamasına erişin ve **text properties** özelliğini ayarlayın.  
-1. Grafiği, grafikle çakışmayacak şekilde gösterin.  
-1. Grafik **secondary value axis** öğesine erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. İkincil **value axis** etkinleştirin.  
-   1. İkincil değer ekseni için **Line Format** ayarlayın.  
-   1. İkincil değer ekseni için **Number Format** ayarlayın.  
-   1. İkincil değer ekseni için **minimum, maximum, major ve minor birimlerini** ayarlayın.  
-1. İlk grafik serisini ikincil değer eksenine çizin.  
-1. Grafik arka duvar dolgu rengini ayarlayın.  
-1. Grafik çizim alanı dolgu rengini ayarlayın.  
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) is called with `False`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) and [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), but these surfaces are only visible in 3D charts.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-    # Presentation sınıfının bir örneğini oluştur
 presentation = Presentation()
 try:
-    # İlk slayta eriş
     slide = presentation.getSlides().get_Item(0)
 
-    # Örnek grafiği ekle
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Grafik Başlığını Ayarla
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Değer ekseni için ana ızgara çizgileri biçimini ayarla
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Değer ekseni için alt ızgara çizgileri biçimini ayarla
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Değer ekseni sayı biçimini ayarla
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Grafik maksimum, minimum değerlerini ayarla
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Değer Ekseni Metin Özelliklerini Ayarla
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Değer ekseni başlığını ayarla
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Kategori ekseni için ana ızgara çizgileri biçimini ayarla
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Kategori ekseni için alt ızgara çizgileri biçimini ayarla
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Kategori Ekseni Metin Özelliklerini Ayarla
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Kategori Başlığını Ayarla
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Kategori ekseni etiket konumunu ayarla
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Kategori ekseni etiket dönüş açısını ayarla
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Açıklama Metin Özelliklerini Ayarla
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Grafik açıklamasını grafiğe çakışmayacak şekilde göster
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # İkincil değer eksenini ayarla
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # İkincil değer ekseni sayı biçimini ayarla
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Grafik maksimum, minimum değerlerini ayarla
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Grafiğin arka duvar rengini ayarla
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Çizim alanı rengini ayarla
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Sunumu kaydet
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for Python via Java, grafikler için yazı tipi özelliklerinin ayarlanmasını destekler. Yazı tipi özelliklerini ayarlamak için aşağıdaki adımları izleyin:
+## **Bir Grafik İçin Yazı Tipi Özelliklerini Ayarla**
 
-- Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-- Slayta bir grafik ekleyin.  
-- Yazı tipi yüksekliğini ayarlayın.  
-- Değiştirilmiş sunumu kaydedin.
-
-Aşağıdaki örnek bu adımları göstermektedir.
+Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Text elements with their own explicit font settings can override the chart default.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Presentation sınıfının bir örneğini oluştur
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -260,15 +183,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Sayısal Biçimi Ayarlama**
-Aspose.Slides for Python via Java, grafik veri biçimlerini yönetmek için basit bir API sağlar:
+## **Sayısal Biçimi Ayarla**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir slayta erişin.  
-1. İstenilen tipte bir grafiği varsayılan verilerle ekleyin (bu örnek [ChartType.ClusteredColumn](https://reference.aspose.com/slides/tr/python-java/aspose.slides/charttype/#ClusteredColumn) kullanır).  
-1. Olası önceden tanımlı değerlerden birini seçerek ön ayarlı sayı biçimini ayarlayın.  
-1. Her bir grafik serisindeki veri hücrelerini dolaşarak sayı biçimlerini ayarlayın.  
-1. Sunumu kaydedin.
+Use [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Presentation sınıfının bir örneğini oluştur
 presentation = Presentation()
 try:
-    # İlk sunum slaytına eriş
     slide = presentation.getSlides().get_Item(0)
 
-    # Varsayılan kümelenmiş sütun grafiği ekle
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Grafik serileri koleksiyonuna eriş
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Her bir grafik serisi üzerinde döngü yap
     for chart_series in chart_series_collection:
-        # Serideki her bir veri noktasında döngü yap
         for data_point in chart_series.getDataPoints():
-            # Sayı biçimini ayarla
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # Sunumu kaydet
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Kullanılabilir ön ayarlı sayı biçimleri ve indeksleri aşağıda listelenmiştir:
+The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|Genel|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| İndeks | Biçim |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Grafik Alanı Yuvarlatılmış Kenarlıkları Ayarlama**
-Aspose.Slides for Python via Java, [Chart](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/) sınıfının [hasRoundedCorners](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#hasRoundedCorners) ve [setRoundedCorners](https://reference.aspose.com/slides/tr/python-java/aspose.slides/chart/#setRoundedCorners) yöntemleri aracılığıyla grafik alanı için yuvarlatılmış köşeleri destekler.
+## **Grafik Alanı Yuvarlatılmış Kenarlıklar Ayarla**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. Slayta bir grafik ekleyin.  
-1. Grafik kenar çizgisinin dolgu tipini ve stilini ayarlayın.  
-1. Yuvarlatılmış köşeleri etkinleştirin.  
-1. Değiştirilmiş sunumu kaydedin.
-
-Aşağıdaki örnek bu adımları göstermektedir.
+Call [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) with `True` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Presentation sınıfının bir örneğini oluştur
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Mevcut Grafik Açıklamalarını Düzenle**
+
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). The collection returned by [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) contains the chart-owned shapes.
+
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) with a text frame other than `None` returned by [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) and the expected text.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+
+| Before editing | After editing |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+The example inspects only the top-level chart-owned shapes. If an annotation is inside a [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), inspect that group's [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) collection as well. Repeat this recursively for nested groups, applying the same text checks to their child shapes. A group itself is a container; do not treat it as a text box.
+{{% /alert %}}
+
 ## **SSS**
 
-**Sütunlar/alanlar için yarı saydam dolgular ayarlarken kenarlığı opak tutabilir miyim?**
+**Can I set semi-transparent fills for columns/areas while keeping the border opaque?**
 
-Evet. Dolgu şeffaflığı ve dış hat ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için faydalıdır.
+Yes. Fill transparency and the outline are configured separately. This is useful for improving the readability of the grid and data in dense visualizations.
 
-**Veri etiketleri üst üste bindiğinde nasıl başa çıkabilirim?**
+**How can I deal with data labels when they overlap?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini (örneğin kategorileri) devre dışı bırakın, etiket ofsetini/konumunu ayarlayın, gerekirse yalnızca seçili noktalara etiket gösterin veya formatı “değer + açıklama” şeklinde değiştirin.
+Reduce the font size, disable nonessential label components (for example, categories), adjust the label position, show labels only for selected points if necessary, or switch the format to "value + legend".
 
-**Serilere degrade veya desen dolgular uygulayabilir miyim?**
+**Can I apply gradient or pattern fills to series?**
 
-Evet. Hem katı hem de degrade/desen dolgular genellikle mevcuttur. Pratikte, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrasti azaltan kombinasyonlardan kaçının.
+Yes. Series support solid, gradient, and pattern fills. In practice, use gradients sparingly and avoid combinations that reduce contrast with the grid and text.

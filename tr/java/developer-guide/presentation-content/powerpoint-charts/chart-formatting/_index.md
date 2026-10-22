@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Grafiklerini Biçimlendirme
+title: Java'da Sunum Grafiklerini Biçimlendir
 linktitle: Grafik Biçimlendirme
 type: docs
 weight: 60
@@ -7,7 +7,7 @@ url: /tr/java/chart-formatting/
 keywords:
 - grafik formatı
 - grafik biçimlendirme
-- grafik varlığı
+- grafik nesnesi
 - grafik özellikleri
 - grafik ayarları
 - grafik seçenekleri
@@ -17,61 +17,31 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java'da grafik biçimlendirmeyi öğrenin ve PowerPoint sunumunuzu profesyonel, göz alıcı bir stil ile yükseltin."
+description: "Aspose.Slides for Java ile grafik biçimlendirmeyi öğrenin ve özel eksenler, yazı tipleri, sayı biçimleri ve yuvarlak grafik kenarlarıyla PowerPoint sunumunuzu yükseltin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin biçimlendirilmesini açıklar. Eksenler, ızgara çizgileri, başlıklar, lejandlar, çizim alanı ve duvar dolguları gibi temel grafik bileşenlerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
+Bu makale, Aspose.Slides kullanarak PowerPoint sunumlarındaki grafiklerin nasıl biçimlendirileceğini açıklar. Ekseler, ızgara çizgileri, başlıklar, açıklama kutuları, çizim alanı ve duvar doldurmaları gibi temel grafik öğelerini özelleştirerek grafik verilerinin görünümünü ve okunabilirliğini artırmayı gösterir.
 
-Ayrıca, grafik metni için yazı tipi özelliklerini ayarlama, grafik verilerine önceden tanımlı ve özel sayısal biçimler uygulama ve grafik alanı için yuvarlak köşeleri etkinleştirme konularını da gösterir. Bu örnekler, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edebileceğinizi gösterir.
+Ayrıca grafik metni için yazı tipi özelliklerini nasıl ayarlayacağınızı, grafik verilerine önceden tanımlı sayısal biçimler nasıl uygulayacağınızı ve grafik alanının köşelerini nasıl yuvarlaklaştıracağınızı gösterir. Bu örnekler, bir sunumdaki grafiklerin görsel stilini ve veri sunumunu nasıl kontrol edebileceğinizi bir arada sunar.
 
-## **Grafik Varlıklarını Biçimlendirme**
-Aspose.Slides for Java, geliştiricilerin sıfırdan slaytlarına özel grafikler eklemelerine olanak tanır. Bu makale, grafik kategori ve değer ekseni dahil olmak üzere farklı grafik varlıklarını nasıl biçimlendireceğinizi açıklar.
+## **Grafik Öğelerini Biçimlendir**
 
-Aspose.Slides for Java, farklı grafik varlıklarını yönetmek ve bunları özelleştirilmiş değerlerle biçimlendirmek için basit bir API sağlar:
+Use [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) to format chart titles, axes, grid lines, legends, and the plot area. This example creates a line chart with markers and default data, then applies separate text and line styles to its value and category axes. Font sizes and line widths are specified in points; category labels are rotated by 45 degrees.
 
-1. [**Presentation**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. Bir slaydın referansını indeksine göre alın.  
-1. İstenilen türden (bu örnekte ChartType.LineWithMarkers kullanılacak) bir grafik ekleyin ve varsayılan verileri sağlayın.  
-1. Grafik Değer Ekseni'ni erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. Değer Ekseni Ana Izgara çizgileri için **Çizgi biçimi** ayarlama  
-   1. Değer Ekseni Alt Izgara çizgileri için **Çizgi biçimi** ayarlama  
-   1. Değer Ekseni için **Sayı Biçimi** ayarlama  
-   1. Değer Ekseni için **Min, Max, Ana ve Alt birimler** ayarlama  
-   1. Değer Ekseni verileri için **Metin Özellikleri** ayarlama  
-   1. Değer Ekseni için **Başlık** ayarlama  
-   1. Değer Ekseni için **Çizgi Biçimi** ayarlama  
-1. Grafik Kategori Ekseni'ni erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. Kategori Ekseni Ana Izgara çizgileri için **Çizgi biçimi** ayarlama  
-   1. Kategori Ekseni Alt Izgara çizgileri için **Çizgi biçimi** ayarlama  
-   1. Kategori Ekseni verileri için **Metin Özellikleri** ayarlama  
-   1. Kategori Ekseni için **Başlık** ayarlama  
-   1. Kategori Ekseni için **Etiket Konumlandırma** ayarlama  
-   1. Kategori Ekseni etiketleri için **Döndürme Açısı** ayarlama  
-1. Grafik Lejandını erişin ve **Metin Özellikleri**ni ayarlayın.  
-1. Grafik Lejandlarının grafikle çakışmadan gösterilmesini sağlayın.  
-1. Grafik **İkincil Değer Ekseni**ni erişin ve aşağıdaki özellikleri ayarlayın:  
-   1. İkincil **Değer Ekseni**ni etkinleştirin.  
-   1. İkincil Değer Ekseni için **Çizgi Biçimi** ayarlama  
-   1. İkincil Değer Ekseni için **Sayı Biçimi** ayarlama  
-   1. İkincil Değer Ekseni için **Min, Max, Ana ve Alt birimler** ayarlama  
-1. İlk grafik serisini İkincil Değer Ekseni üzerine çizin.  
-1. Grafiğin arka duvar dolgu rengini ayarlayın.  
-1. Grafiğin çizim alanı dolgu rengini ayarlayın.  
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.
+The value axis uses [setNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) independently of the source cells. Its scale runs from -2 to 15, with major intervals of 2 and minor intervals of 0.5. The example also combines percentage formatting with [setDisplayUnit](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setDisplayUnit-int-) set to thousands, so adapt these settings to the meaning and magnitude of your data. The legend stays outside the plot area because [setOverlay](https://reference.aspose.com/slides/java/com.aspose.slides/ilegend/#setOverlay-boolean-) is called with `false`. Back-wall and floor fills are configured through [getBackWall](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getBackWall--) and [getFloor](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getFloor--), but these surfaces are only visible in 3D charts.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
-try {
-    // İlk slayta erişme
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Örnek grafiği ekleme
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Grafik Başlığını Ayarlama
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -81,289 +51,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Değer ekseni için ana ızgara çizgileri biçimini ayarlama
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Değer ekseni için alt ızgara çizgileri biçimini ayarlama
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Değer ekseni sayı biçimini ayarlama
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Grafik maksimum, minimum değerlerini ayarlama
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Değer Ekseni Metin Özelliklerini Ayarlama
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Değer ekseni başlığını ayarlama
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Kategori ekseni için ana ızgara çizgileri biçimini ayarlama
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(new Color(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Kategori ekseni için alt ızgara çizgileri biçimini ayarlama
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Kategori Ekseni Metin Özelliklerini Ayarlama
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Kategori Başlığını Ayarlama
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Kategori ekseni etiket konumunu ayarlama
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Kategori ekseni etiket döndürme açısını ayarlama
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Lejand Metin Özelliklerini Ayarlama
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Grafik lejandlarını çakışmadan göster
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
+    chart.getLegend().setOverlay(false);
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // İkincil değer eksenini ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // İkincil değer ekseni sayı biçimini ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Grafik maksimum, minimum değerlerini ayarlama
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Grafik arka duvar rengini ayarlama
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(new Color(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Çizim alanı rengini ayarlama
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Sunumu Kaydet
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bir Grafik İçin Yazı Tipi Özelliklerini Ayarlama**
-Aspose.Slides for Java, grafik için yazı tipiyle ilgili özellikleri ayarlamayı destekler. Grafik için yazı tipi özelliklerini ayarlamak üzere aşağıdaki adımları izleyin.
+## **Grafik İçin Yazı Tipi Özelliklerini Ayarla**
 
-- [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı nesnesini başlatın.  
-- Slayta bir grafik ekleyin.  
-- Yazı tipi yüksekliğini ayarlayın.  
-- Değiştirilmiş sunumu kaydedin.
-
-Aşağıda örnek kod verilmiştir.
+Set the default font size for chart text through [Chart.getTextFormat](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getTextFormat--). The example creates a clustered column chart with a 20-point font and enables value labels for the first series through [setShowValue](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Text elements with their own explicit font settings can override the chart default.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Sayısal Biçimi Ayarlama**
-Aspose.Slides for Java, grafik veri biçimini yönetmek için basit bir API sunar:
+## **Sayısal Biçimi Ayarla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Bir slaydın referansını indeksine göre alın.  
-1. İstenilen türden (bu örnek **ChartType.ClusteredColumn** kullanıyor) bir grafik ekleyin ve varsayılan verileri sağlayın.  
-1. Olası önceden tanımlı değerlerden birini seçerek önceden tanımlı sayı biçimini ayarlayın.  
-1. Her grafik serisindeki grafik veri hücresini dolaşın ve veri sayı biçimini ayarlayın.  
-1. Sunumu kaydedin.  
-1. Özel sayı biçimini ayarlayın.  
-1. Her grafik serisi içindeki veri hücresini dolaşarak farklı bir sayı biçimi uygulayın.  
-1. Sunumu kaydedin.
+Use [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) to apply a built-in number format to chart workbook cells. This example creates a clustered column chart with default, cell-backed data and applies format index 10 (`0.00%`) to each series value cell. This changes how the values are displayed in the workbook without changing the underlying numbers; for example, 0.25 is displayed as 25.00%. Axis and data-label formats can be configured separately.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // İlk sunum slaytına eriş
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Varsayılan küme sütun grafiği ekle
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // Grafik serileri koleksiyonuna eriş
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Her grafik serisini dolaş
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Serideki her veri hücresini dolaş
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // Sayı biçimini ayarla
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // Sunumu kaydet
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Aşağıda, kullanılabilecek önceden tanımlı sayı biçimi değerleri, ilgili indeksleriyle birlikte listelenmiştir:
+The following table lists built-in number format indices with representative Excel formats for the English (United States) locale. The exact format strings and their display can vary by application and locale, particularly for currency and dates. Some Excel formats also differ from the defaults in the OOXML standard, as described in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Dizin | Biçim |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Grafik Alanı Yuvarlak Kenarlıkları Ayarlama**
-Aspose.Slides for Java, grafik alanı için yuvarlak köşeleri ayarlamayı destekler. [**hasRoundedCorners**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IChart#hasRoundedCorners--) ve [**setRoundedCorners**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IChart#setRoundedCorners-boolean-) metodları [IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/IChart) arayüzüne ve [Chart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Chart) sınıfına eklenmiştir.
+## **Grafik Alanı Yuvarlak Kenarlar**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfı nesnesini başlatın.  
-1. Slayta bir grafik ekleyin.  
-1. Grafiğin dolgu türünü ve dolgu rengini ayarlayın.  
-1. Yuvarlak köşe özelliğini **True** olarak ayarlayın.  
-1. Değiştirilmiş sunumu kaydedin.
-
-Aşağıda örnek kod verilmiştir.
+Call [IChart.setRoundedCorners](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#setRoundedCorners-boolean-) with `true` to round the corners of the chart area. The example creates a clustered column chart and uses [getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) to give its outline a solid gray color and a single-line style before saving the presentation.
 
 ```java
-// Presentation sınıfının bir örneğini oluştur
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Mevcut Grafik Açıklamalarını Düzenle**
+
+A chart can contain custom shapes, such as a text annotation explaining the status of a report. Access these shapes through [IChart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/#getUserShapes--), also listed under [Chart.getUserShapes](https://reference.aspose.com/slides/java/com.aspose.slides/chart/#getUserShapes--) in the Chart API Reference. The collection returned by [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) contains the chart-owned shapes.
+
+An ordinary text box placed over a chart belongs to the slide, even if it looks like part of the chart. Iterating through [Slide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--) finds the chart and ordinary slide shapes, but does not enumerate the individual shapes inside the chart. Chart titles and data labels are separate chart elements, not custom annotations in this collection.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) and place it in the application's working directory. Its first slide contains a chart with an ungrouped annotation reading "Preliminary results", a chart-owned line, and an ordinary slide text box reading "Slide overlay". The example finds the first chart on that slide and changes the annotation to "Final results" when the report is ready to publish. It checks for an empty collection and only edits an [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) with a non-null text frame returned by [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#getTextFrame--) and the expected text.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The line and the slide text box remain unchanged. The following images show the input and the saved, reopened result:
+
+| Düzenleme öncesi | Düzenleme sonrası |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Örnek yalnızca en üst düzeydeki grafik‑sahibi şekilleri inceler. Bir açıklama bir [IGroupShape](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/) içinde ise, o grubun [getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/igroupshape/#getShapes--) koleksiyonunu da inceleyin. İç içe gruplar için aynı işlemi yineleyin ve alt şekillerde aynı metin kontrollerini uygulayın. Bir grup kendisi bir kapsayıcıdır; onu bir metin kutusu olarak değerlendirmeyin.
+{{% /alert %}}
+
 ## **SSS**
 
-**Sütunlar/alanlar için yarı şeffaf dolgular ayarlarken kenarı opak tutabilir miyim?**
+**Sütunlar/alanlar için kenarı opak tutarak yarı saydam doldurmalar ayarlayabilir miyim?**
 
-Evet. Dolgu şeffaflığı ve kenar ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve verilerin okunabilirliğini artırmak için faydalıdır.
+Evet. Dolgu şeffaflığı ve kenar ayrı ayrı yapılandırılır. Bu, yoğun görselleştirmelerde ızgara ve veri okunabilirliğini artırmak için faydalıdır.
 
 **Etiketler çakıştığında ne yapmalıyım?**
 
-Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini (örneğin kategorileri) devre dışı bırakın, etiket ofseti/konumunu ayarlayın, gerekirse yalnızca seçili noktalara etiket gösterin veya biçimi “değer + lejand” olarak değiştirin.
+Yazı tipi boyutunu küçültün, gereksiz etiket bileşenlerini (örneğin kategorileri) devre dışı bırakın, etiket konumunu ayarlayın, gerekirse sadece seçili noktalara etiket gösterin veya biçimi “değer + açıklama” olarak değiştirin.
 
-**Serilere degrade veya desen dolguları uygulayabilir miyim?**
+**Serilere degrade veya desen doldurması uygulayabilir miyim?**
 
-Evet. Katı ve degrade/desen dolguları genellikle kullanılabilir. Pratikte, degradeleri ölçülü kullanın ve ızgara ve metinle kontrastı azaltan kombinasyonlardan kaçının.
+Evet. Seriler katı, degrade ve desen doldurmaları destekler. Pratikte, degradeleri ölçülü kullanın ve ızgara ile metin arasındaki kontrastı azaltan kombinasyonlardan kaçının.

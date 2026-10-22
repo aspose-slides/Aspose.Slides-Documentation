@@ -1,13 +1,13 @@
 ---
-title: Grafiekopmaak voor presentaties op Android
-linktitle: Grafiekopmaak
+title: "Grafiekopmaak voor presentaties op Android"
+linktitle: "Grafiekopmaak"
 type: docs
 weight: 60
 url: /nl/androidjava/chart-formatting/
 keywords:
 - grafiek opmaken
 - grafiekopmaak
-- grafiekelement
+- grafiekobject
 - grafiekeigenschappen
 - grafiekinstellingen
 - grafiekopties
@@ -18,61 +18,31 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Leer grafiekopmaak in Aspose.Slides voor Android via Java en til uw PowerPoint-presentatie naar een hoger niveau met een professionele, opvallende vormgeving."
+description: "Leer grafiekopmaak in Aspose.Slides voor Android via Java en verbeter uw PowerPoint-presentatie met aangepaste assen, lettertypen, getalformaten en afgeronde grafiekranden."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe grafieken in PowerPoint‑presentaties te formatteren met Aspose.Slides. Het laat zien hoe belangrijke elementen van een grafiek, zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen, aangepast kunnen worden om het uiterlijk en de leesbaarheid van grafiekgegevens te verbeteren.
+Dit artikel legt uit hoe u grafieken in PowerPoint‑presentaties formatteert met behulp van Aspose.Slides. Het laat zien hoe u belangrijke grafiekelementen zoals assen, rasterlijnen, titels, legenda’s, het plotgebied en wandvullingen aanpast om het uiterlijk en de leesbaarheid van grafiekgegevens te verbeteren.
 
-Het laat bovendien zien hoe de tekeneigenschappen van grafiekttekst ingesteld worden, hoe voorgedefinieerde en aangepaste numerieke opmaken op grafiekgegevens toegepast kunnen worden en hoe afgeronde hoeken voor het grafiekgebied ingeschakeld worden. Samen tonen deze voorbeelden hoe zowel de visuele stijl als de gegevenspresentatie van grafieken in een presentatie gecontroleerd kan worden.
+Het laat ook zien hoe u lettertype‑eigenschappen voor grafiektetst instelt, vooraf ingestelde numerieke opmaak op grafiekgegevens toepast en afgeronde hoeken voor het grafiekgebied inschakelt. Samen laten deze voorbeelden zien hoe u zowel de visuele stijl als de gegevenspresentatie van grafieken in een presentatie kunt beheersen.
 
-## **Grafiekelementen opmaken**
-Aspose.Slides voor Android via Java stelt ontwikkelaars in staat om vanaf nul aangepaste grafieken aan hun dia’s toe te voegen. Dit artikel legt uit hoe verschillende grafiekelementen, waaronder de categorie‑ en waarde‑as, opgemaakt kunnen worden.
+## **Formateer grafiekelementen**
 
-Aspose.Slides voor Android via Java biedt een eenvoudige API voor het beheren van verschillende grafiekelementen en het opmaken ervan met aangepaste waarden:
+Gebruik [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) om grafiektitels, assen, rasterlijnen, legenda’s en het plotgebied te formatteren. Dit voorbeeld maakt een lijngrafiek met markers en standaardgegevens, en past vervolgens afzonderlijke tekst‑ en lijnstijlen toe op de waarde‑ en categorie‑assen. Lettergroottes en lijndiktes worden gespecificeerd in punten; categorielabels worden 45 graden geroteerd.
 
-1. Maak een instantie van de [**Presentatie**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) class.
-1. Haal een verwijzing naar een dia op via de index.
-1. Voeg een grafiek toe met standaardgegevens en een gewenst type (in dit voorbeeld gebruiken we ChartType.LineWithMarkers).
-1. Toegang tot de waarde‑as van de grafiek en stel de volgende eigenschappen in:
-   1. Instellen van **Lijnformaat** voor de hoofd‑rasterlijnen van de waarde‑as
-   1. Instellen van **Lijnformaat** voor de sub‑rasterlijnen van de waarde‑as
-   1. Instellen van **Getalopmaak** voor de waarde‑as
-   1. Instellen van **Min‑, Max‑, Hoofd‑ en Sub‑eenheden** voor de waarde‑as
-   1. Instellen van **Teksteigenschappen** voor de waarde‑as‑gegevens
-   1. Instellen van **Titel** voor de waarde‑as
-   1. Instellen van **Lijnformaat** voor de waarde‑as
-1. Toegang tot de categorie‑as van de grafiek en stel de volgende eigenschappen in:
-   1. Instellen van **Lijnformaat** voor de hoofd‑rasterlijnen van de categorie‑as
-   1. Instellen van **Lijnformaat** voor de sub‑rasterlijnen van de categorie‑as
-   1. Instellen van **Teksteigenschappen** voor de categorie‑as‑gegevens
-   1. Instellen van **Titel** voor de categorie‑as
-   1. Instellen van **Labelpositionering** voor de categorie‑as
-   1. Instellen van **Rotatiehoek** voor de labels van de categorie‑as
-1. Toegang tot de legenda van de grafiek en stel de **Teksteigenschappen** ervan in
-1. Zet de weergave van grafieklegenda's zonder overlap met de grafiek
-1. Toegang tot de **Secundaire waarde‑as** van de grafiek en stel de volgende eigenschappen in:
-   1. Schakel de secundaire **Waarde‑as** in
-   1. Instellen van **Lijnformaat** voor de secundaire waarde‑as
-   1. Instellen van **Getalopmaak** voor de secundaire waarde‑as
-   1. Instellen van **Min‑, Max‑, Hoofd‑ en Sub‑eenheden** voor de secundaire waarde‑as
-1. Plot nu de eerste grafiekreeks op de secundaire waarde‑as
-1. Stel de vulkleur van de achterwand van de grafiek in
-1. Stel de vulkleur van het plotgebied van de grafiek in
-1. Schrijf de gewijzigde presentatie naar een PPTX‑bestand
+De waardeas gebruikt [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) onafhankelijk van de broncellen. De schaal loopt van -2 tot 15, met grote intervallen van 2 en kleine intervallen van 0,5. Het voorbeeld combineert ook procentopmaak met [setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) ingesteld op duizenden, dus pas deze instellingen aan de betekenis en omvang van uw gegevens aan. De legenda blijft buiten het plotgebied omdat [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) wordt aangeroepen met `false`. Achterwand‑ en vloervullingen worden geconfigureerd via [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) en [getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--), maar deze oppervlakken zijn alleen zichtbaar in 3D‑grafieken.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
-try {
-    // Toegang tot de eerste dia
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Voeg de voorbeeldgrafiek toe
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // Instellen van de grafiektitel
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -82,288 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Instellen van het formaat van de hoofd‑rasterlijnen voor de waarde‑as
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // Instellen van het formaat van de sub‑rasterlijnen voor de waarde‑as
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Instellen van het getalformaat voor de waarde‑as
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // Instellen van maximale en minimale waarden voor de grafiek
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // Instellen van tekst‑eigenschappen voor de waarde‑as
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // Instellen van de titel van de waarde‑as
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Instellen van het formaat van de hoofd‑rasterlijnen voor de categorie‑as
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // Instellen van het formaat van de sub‑rasterlijnen voor de categorie‑as
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // Instellen van tekst‑eigenschappen voor de categorie‑as
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // Instellen van de categorie‑titel
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // Instellen van labelpositie voor de categorie‑as
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // Instellen van de rotatiehoek van labels voor de categorie‑as
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // Instellen van tekst‑eigenschappen voor de legenda’s
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // Instellen van weergave van legenda’s zonder overlap met de grafiek
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // Instellen van de secundaire waarde‑as
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // Instellen van het getalformaat voor de secundaire waarde‑as
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // Instellen van maximale en minimale waarden voor de grafiek
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // Instellen van de kleur van de achterwand van de grafiek
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // Instellen van de kleur van het plotgebied
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // Sla de presentatie op
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lettertype‑eigenschappen voor een grafiek instellen**
-Aspose.Slides voor Android via Java biedt ondersteuning voor het instellen van lettertypegerelateerde eigenschappen voor de grafiek. Volg de onderstaande stappen om de lettertype‑eigenschappen van de grafiek in te stellen.
+## **Stel lettertype‑eigenschappen in voor een grafiek**
 
-- Instantieer een [Presentatie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse‑object.
-- Voeg een grafiek toe aan de dia.
-- Stel de lettergrootte in.
-- Sla de gewijzigde presentatie op.
-
-Het onderstaande voorbeeld wordt gegeven.
+Stel de standaardlettergrootte voor grafiekttekst in via [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). Het voorbeeld maakt een gegroepeerde kolomgrafiek met een lettertype van 20 punten en schakelt waardelabels in voor de eerste serie via [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). Tekstelementen met hun eigen expliciete lettertype‑instellingen kunnen de standaard van de grafiek overschrijven.
 
 ```java
-// Maak een instantie van de Presentation‑klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nummeropmaak instellen**
-Aspose.Slides voor Android via Java biedt een eenvoudige API voor het beheren van de opmaak van grafiekgegevens:
+## **Stel het numerieke formaat in**
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) class.
-1. Verkrijg een verwijzing naar een dia via de index.
-1. Voeg een grafiek toe met standaardgegevens en een gewenst type (dit voorbeeld gebruikt **ChartType.ClusteredColumn**).
-1. Stel de vooraf ingestelde nummeropmaak in vanuit de mogelijke vooraf ingestelde waarden.
-1. Loop door de gegevenscel van elke grafiekreeks en stel de nummeropmaak van de grafiekgegevens in.
-1. Sla de presentatie op.
-1. Stel de aangepaste nummeropmaak in.
-1. Loop door de gegevenscel in elke grafiekreeks en stel een andere nummeropmaak voor de grafiekgegevens in.
-1. Sla de presentatie op.
+Gebruik [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) om een ingebouwd getalformaat toe te passen op werkboekcellen van de grafiek. Dit voorbeeld maakt een gegroepeerde kolomgrafiek met standaard, cel‑ondersteunde gegevens en past formaatindex 10 (`0.00%`) toe op elke waardecel van de serie. Hierdoor wordt de weergave van de waarden in het werkboek aangepast zonder de onderliggende getallen te wijzigen; bijvoorbeeld, 0,25 wordt weergegeven als 25,00%. As‑ en datalabel‑formaten kunnen afzonderlijk worden geconfigureerd.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // Toegang tot de eerste presentatiedia
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een standaard gegroepeerde kolomgrafiek toe
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // Toegang tot de verzameling van grafiekreeksen
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // Doorloop elke grafiekreeks
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // Doorloop elke gegevenscel in de reeks
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // Instellen van het getalformaat
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0,00%
         }
     }
 
-    // Presentatie opslaan
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-De mogelijke vooraf ingestelde nummeropmaakwaarden met hun bijbehorende index die gebruikt kunnen worden, worden hieronder getoond:
+De volgende tabel geeft de ingebouwde getalformaat‑indices weer met representatieve Excel‑formaten voor de Engelse (Verenigde Staten) locale. De exacte opmaak‑strings en hun weergave kunnen variëren per applicatie en locale, met name voor valuta en datums. Sommige Excel‑formaten wijken ook af van de standaardinstellingen in de OOXML‑standaard, zoals beschreven in [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Afgeronde randen van grafiekgebied instellen**
-Aspose.Slides voor Android via Java biedt ondersteuning voor het instellen van het grafiekgebied. De methoden [**hasRoundedCorners**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) en [**setRoundedCorners**](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) zijn toegevoegd aan de [IChart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IChart)‑interface en de [Chart](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Chart)‑klasse.
+## **Stel afgeronde randen in voor het grafiekgebied**
 
-1. Instantieer een [Presentatie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) class object.
-1. Voeg een grafiek toe aan de dia.
-1. Stel het vultype en de vulkleur van de grafiek in
-1. Stel de eigenschap voor afgeronde hoeken in op True.
-1. Sla de gewijzigde presentatie op.
+Roep [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) aan met `true` om de hoeken van het grafiekgebied af te ronden. Het voorbeeld maakt een gegroepeerde kolomgrafiek en gebruikt [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) om de omtrek een effen grijze kleur en een enkel‑lijn stijl te geven voordat de presentatie wordt opgeslagen.
 
 ```java
-// Maak een instantie van de Presentation-klasse
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Bewerk bestaande grafiekaanmerkingen**
+
+Een grafiek kan aangepaste vormen bevatten, zoals een tekst‑annotatie die de status van een rapport uitlegt. Toegang tot deze vormen krijg je via [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--), ook vermeld onder [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) in de Chart API‑referentie. De collectie die wordt geretourneerd door [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) bevat de grafiek‑eigene vormen.
+
+Een gewone tekstvak die boven een grafiek wordt geplaatst behoort tot de dia, zelfs als het eruitziet als onderdeel van de grafiek. Door te itereren over [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) vind je de grafiek en gewone dia‑vormen, maar worden de individuele vormen binnen de grafiek niet opgesomd. Grafiektitels en datalabels zijn aparte grafiekelementen, geen aangepaste annotaties in deze collectie.
+
+Download [chart-annotations.pptx](chart-annotations.pptx) en plaats het in de werkmap van de applicatie. De eerste dia bevat een grafiek met een niet‑gegroepeerde annotatie met de tekst "Preliminary results", een grafiek‑eigene lijn, en een gewoon dia‑tekstvak met de tekst "Slide overlay". Het voorbeeld vindt de eerste grafiek op die dia en wijzigt de annotatie naar "Final results" wanneer het rapport klaar is om gepubliceerd te worden. Het controleert op een lege collectie en bewerkt alleen een [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) met een niet‑null tekstframe dat wordt geretourneerd door [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) en de verwachte tekst.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De lijn en het dia‑tekstvak blijven ongewijzigd. De volgende afbeeldingen tonen de invoer en het opgeslagen, opnieuw geopende resultaat:
+
+| Before editing | After editing |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Het voorbeeld inspecteert alleen de chart‑eigene vormen op het hoogste niveau. Als een annotatie zich binnen een [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/) bevindt, inspecteer dan ook de [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--)‑collectie van die groep. Herhaal dit recursief voor geneste groepen, en pas dezelfde tekstopdrachten toe op hun onderliggende vormen. Een groep zelf is een container; beschouw het niet als een tekstvak.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Kan ik half-transparante vullingen voor kolommen/gebieden instellen terwijl de rand ondoorzichtig blijft?**
+**Kan ik halfdoorzichtige vullingen instellen voor kolommen/gebieden terwijl de rand ondoorzichtig blijft?**
 
-Ja. De transparantie van de vulling en de omtrek worden afzonderlijk geconfigureerd. Dit is nuttig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
+Ja. Vullings‑transparantie en de omtrek worden afzonderlijk geconfigureerd. Dit is handig om de leesbaarheid van het raster en de gegevens in dichte visualisaties te verbeteren.
 
-**Hoe ga ik om met gegevenslabels wanneer ze overlappen?**
+**Hoe kan ik omgaan met datalabels wanneer ze overlappen?**
 
-Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), stel de label‑offset/‑positie in, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
+Verminder de lettergrootte, schakel niet‑essentiële labelonderdelen uit (bijvoorbeeld categorieën), pas de labelpositie aan, toon labels alleen voor geselecteerde punten indien nodig, of wijzig het formaat naar "waarde + legenda".
 
-**Kan ik verlopen of patroonvullingen op reeksen toepassen?**
+**Kan ik verloop‑ of patroonvullingen toepassen op series?**
 
-Ja. Zowel effen als verloop‑/patroonvullingen zijn doorgaans beschikbaar. Gebruik in de praktijk verlopen spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.
+Ja. Series ondersteunen effen, verloop‑ en patroonvullingen. Gebruik in de praktijk verloopspunten spaarzaam en vermijd combinaties die het contrast met het raster en de tekst verminderen.

@@ -12,69 +12,40 @@ keywords:
 - pengaturan diagram
 - opsi diagram
 - properti font
-- garis tepi bulat
+- batas bulat
 - PowerPoint
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Pelajari pemformatan diagram di Aspose.Slides untuk .NET dan tingkatkan presentasi PowerPoint Anda dengan gaya profesional yang menarik."
+description: "Pelajari pemformatan diagram di Aspose.Slides untuk .NET dan tingkatkan presentasi PowerPoint Anda dengan sumbu khusus, font, format angka, serta batas diagram yang bulat."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint menggunakan Aspose.Slides. Menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
+Artikel ini menjelaskan cara memformat diagram dalam presentasi PowerPoint dengan menggunakan Aspose.Slides. Ini menunjukkan cara menyesuaikan elemen diagram utama seperti sumbu, garis kisi, judul, legenda, area plot, dan isian dinding untuk meningkatkan tampilan dan keterbacaan data diagram.
 
-Artikel ini juga mendemonstrasikan cara mengatur properti font untuk teks diagram, menerapkan format numerik preset dan kustom pada data diagram, serta mengaktifkan sudut bulat untuk area diagram. Bersama-sama, contoh-contoh ini menunjukkan cara mengontrol gaya visual dan presentasi data diagram dalam sebuah presentasi.
+Artikel ini juga memperlihatkan cara mengatur properti font untuk teks diagram, menerapkan format numerik bawaan pada data diagram, dan mengaktifkan sudut bulat untuk area diagram. Bersama-sama, contoh‑contoh ini menunjukkan cara mengontrol gaya visual serta penyajian data diagram dalam sebuah presentasi.
 
-## **Format Entitas Diagram**
-Aspose.Slides untuk .NET memungkinkan pengembang menambahkan diagram kustom ke slide mereka dari awal. Artikel ini menjelaskan cara memformat berbagai entitas diagram termasuk sumbu kategori dan nilai diagram.
+## **Memformat Entitas Diagram**
 
-Aspose.Slides untuk .NET menyediakan API sederhana untuk mengelola berbagai entitas diagram dan memformatnya menggunakan nilai kustom:
+Gunakan [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) untuk memformat judul diagram, sumbu, garis kisi, legenda, dan area plot. Contoh ini membuat diagram garis dengan penanda dan data default, lalu menerapkan gaya teks dan garis terpisah pada sumbu nilai dan kategori. Ukuran font serta lebar garis ditentukan dalam poin; label kategori diputar 45 derajat.
 
-1. Buat instance dari kelas **Presentation** .
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan diagram dengan data default bersama jenis yang diinginkan (pada contoh ini kita akan menggunakan ChartType.LineWithMarkers).
-1. Akses sumbu Nilai diagram dan atur properti berikut:
-   1. Mengatur **Line format** untuk garis Kisi Utama pada Sumbu Nilai
-   1. Mengatur **Line format** untuk garis Kisi Minor pada Sumbu Nilai
-   1. Mengatur **Number Format** untuk Sumbu Nilai
-   1. Mengatur **Min, Max, Major and Minor units** untuk Sumbu Nilai
-   1. Mengatur **Text Properties** untuk data Sumbu Nilai
-   1. Mengatur **Title** untuk Sumbu Nilai
-   1. Mengatur **Line Format** untuk Sumbu Nilai
-1. Akses sumbu Kategori diagram dan atur properti berikut:
-   1. Mengatur **Line format** untuk garis Kisi Utama pada Sumbu Kategori
-   1. Mengatur **Line format** untuk garis Kisi Minor pada Sumbu Kategori
-   1. Mengatur **Text Properties** untuk data Sumbu Kategori
-   1. Mengatur **Title** untuk Sumbu Kategori
-   1. Mengatur **Label Positioning** untuk Sumbu Kategori
-   1. Mengatur **Rotation Angle** untuk label Sumbu Kategori
-1. Akses Legenda diagram dan atur **Text Properties** untuknya
-1. Atur tampilan Legenda diagram tanpa menumpuk diagram
-1. Akses **Secondary Value Axis** diagram dan atur properti berikut:
-   1. Aktifkan **Value Axis** Sekunder
-   1. Mengatur **Line Format** untuk **Value Axis** Sekunder
-   1. Mengatur **Number Format** untuk **Value Axis** Sekunder
-   1. Mengatur **Min, Max, Major and Minor units** untuk **Value Axis** Sekunder
-1. Sekarang plot seri diagram pertama pada **Secondary Value Axis**
-1. Atur warna isian dinding belakang diagram
-1. Atur warna isian area plot diagram
-1. Tuliskan presentasi yang dimodifikasi ke file PPTX
+Sumbu nilai menggunakan [NumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/numberformat/) secara terpisah dari sel sumber. Skala berjalan dari -2 hingga 15, dengan interval utama 2 dan interval minor 0,5. Contoh ini juga menggabungkan pemformatan persentase dengan [DisplayUnit](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/displayunit/) yang disetel ke ribuan, jadi sesuaikan pengaturan ini dengan arti dan besaran data Anda. Legenda tetap berada di luar area plot karena [Overlay](https://reference.aspose.com/slides/net/aspose.slides.charts/ilegend/overlay/) dinonaktifkan. Isian dinding belakang dan lantai dikonfigurasi melalui [BackWall](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/backwall/) dan [Floor](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/floor/), tetapi permukaan ini hanya terlihat pada diagram 3D.
 
-```c#
-// Membuat presentasi// Membuat presentasi
-Presentation pres = new Presentation();
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Accessing the first slide
-ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Adding the sample chart
-IChart chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
+var chart = slide.Shapes.AddChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-// Mengatur Judul Diagram
 chart.HasTitle = true;
 chart.ChartTitle.AddTextFrameForOverriding("");
-IPortion chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
+var chartTitle = chart.ChartTitle.TextFrameForOverriding.Paragraphs[0].Portions[0];
 chartTitle.Text = "Sample Chart";
 chartTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
 chartTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
@@ -82,23 +53,19 @@ chartTitle.PortionFormat.FontHeight = 20;
 chartTitle.PortionFormat.FontBold = NullableBool.True;
 chartTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Mengatur format garis kisi utama untuk sumbu nilai
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Blue;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.Width = 5;
 chart.Axes.VerticalAxis.MajorGridLinesFormat.Line.DashStyle = LineDashStyle.DashDot;
 
-// Mengatur format garis kisi minor untuk sumbu nilai
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Red;
 chart.Axes.VerticalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Mengatur format angka sumbu nilai
 chart.Axes.VerticalAxis.IsNumberFormatLinkedToSource = false;
 chart.Axes.VerticalAxis.DisplayUnit = DisplayUnitType.Thousands;
 chart.Axes.VerticalAxis.NumberFormat = "0.0%";
 
-// Mengatur nilai maksimum, minimum diagram
 chart.Axes.VerticalAxis.IsAutomaticMajorUnit = false;
 chart.Axes.VerticalAxis.IsAutomaticMaxValue = false;
 chart.Axes.VerticalAxis.IsAutomaticMinorUnit = false;
@@ -109,234 +76,254 @@ chart.Axes.VerticalAxis.MinValue = -2f;
 chart.Axes.VerticalAxis.MinorUnit = 0.5f;
 chart.Axes.VerticalAxis.MajorUnit = 2.0f;
 
-// Mengatur Properti Teks Sumbu Nilai
-IChartPortionFormat txtVal = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
-txtVal.FontBold = NullableBool.True;
-txtVal.FontHeight = 16;
-txtVal.FontItalic = NullableBool.True;
-txtVal.FillFormat.FillType = FillType.Solid; ;
-txtVal.FillFormat.SolidFillColor.Color = Color.DarkGreen;
-txtVal.LatinFont = new FontData("Times New Roman");
+var valueAxisText = chart.Axes.VerticalAxis.TextFormat.PortionFormat;
+valueAxisText.FontBold = NullableBool.True;
+valueAxisText.FontHeight = 16;
+valueAxisText.FontItalic = NullableBool.True;
+valueAxisText.FillFormat.FillType = FillType.Solid;
+valueAxisText.FillFormat.SolidFillColor.Color = Color.DarkGreen;
+valueAxisText.LatinFont = new FontData("Times New Roman");
 
-// Mengatur judul sumbu nilai
 chart.Axes.VerticalAxis.HasTitle = true;
 chart.Axes.VerticalAxis.Title.AddTextFrameForOverriding("");
-IPortion valtitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-valtitle.Text = "Primary Axis";
-valtitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-valtitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-valtitle.PortionFormat.FontHeight = 20;
-valtitle.PortionFormat.FontBold = NullableBool.True;
-valtitle.PortionFormat.FontItalic = NullableBool.True;
+var valueAxisTitle = chart.Axes.VerticalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+valueAxisTitle.Text = "Primary Axis";
+valueAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+valueAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+valueAxisTitle.PortionFormat.FontHeight = 20;
+valueAxisTitle.PortionFormat.FontBold = NullableBool.True;
+valueAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Mengatur format garis sumbu nilai : Sekarang Usang
-// chart.Axes.VerticalAxis.aVerticalAxis.l.AxisLine.Width = 10;
-// chart.Axes.VerticalAxis.AxisLine.FillFormat.FillType = FillType.Solid;
-// Chart.Axes.VerticalAxis.AxisLine.FillFormat.SolidFillColor.Color = Color.Red;
-
-// Mengatur format garis kisi utama untuk sumbu Kategori
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Green;
 chart.Axes.HorizontalAxis.MajorGridLinesFormat.Line.Width = 5;
 
-// Mengatur format garis kisi minor untuk sumbu Kategori
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.FillType = FillType.Solid;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.FillFormat.SolidFillColor.Color = Color.Yellow;
 chart.Axes.HorizontalAxis.MinorGridLinesFormat.Line.Width = 3;
 
-// Mengatur Properti Teks Sumbu Kategori
-IChartPortionFormat txtCat = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
-txtCat.FontBold = NullableBool.True;
-txtCat.FontHeight = 16;
-txtCat.FontItalic = NullableBool.True;
-txtCat.FillFormat.FillType = FillType.Solid; ;
-txtCat.FillFormat.SolidFillColor.Color = Color.Blue;
-txtCat.LatinFont = new FontData("Arial");
+var categoryAxisText = chart.Axes.HorizontalAxis.TextFormat.PortionFormat;
+categoryAxisText.FontBold = NullableBool.True;
+categoryAxisText.FontHeight = 16;
+categoryAxisText.FontItalic = NullableBool.True;
+categoryAxisText.FillFormat.FillType = FillType.Solid;
+categoryAxisText.FillFormat.SolidFillColor.Color = Color.Blue;
+categoryAxisText.LatinFont = new FontData("Arial");
 
-// Mengatur Judul Kategori
 chart.Axes.HorizontalAxis.HasTitle = true;
 chart.Axes.HorizontalAxis.Title.AddTextFrameForOverriding("");
 
-IPortion catTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
-catTitle.Text = "Sample Category";
-catTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
-catTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
-catTitle.PortionFormat.FontHeight = 20;
-catTitle.PortionFormat.FontBold = NullableBool.True;
-catTitle.PortionFormat.FontItalic = NullableBool.True;
+var categoryAxisTitle = chart.Axes.HorizontalAxis.Title.TextFrameForOverriding.Paragraphs[0].Portions[0];
+categoryAxisTitle.Text = "Sample Category";
+categoryAxisTitle.PortionFormat.FillFormat.FillType = FillType.Solid;
+categoryAxisTitle.PortionFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+categoryAxisTitle.PortionFormat.FontHeight = 20;
+categoryAxisTitle.PortionFormat.FontBold = NullableBool.True;
+categoryAxisTitle.PortionFormat.FontItalic = NullableBool.True;
 
-// Mengatur posisi label sumbu kategori
 chart.Axes.HorizontalAxis.TickLabelPosition = TickLabelPositionType.Low;
-
-// Mengatur sudut rotasi label sumbu kategori
 chart.Axes.HorizontalAxis.TickLabelRotationAngle = 45;
 
-// Mengatur Properti Teks Legenda
-IChartPortionFormat txtleg = chart.Legend.TextFormat.PortionFormat;
-txtleg.FontBold = NullableBool.True;
-txtleg.FontHeight = 16;
-txtleg.FontItalic = NullableBool.True;
-txtleg.FillFormat.FillType = FillType.Solid; ;
-txtleg.FillFormat.SolidFillColor.Color = Color.DarkRed;
+var legendText = chart.Legend.TextFormat.PortionFormat;
+legendText.FontBold = NullableBool.True;
+legendText.FontHeight = 16;
+legendText.FontItalic = NullableBool.True;
+legendText.FillFormat.FillType = FillType.Solid;
+legendText.FillFormat.SolidFillColor.Color = Color.DarkRed;
 
-// Mengatur tampilan legenda diagram tanpa menumpuk diagram
+chart.Legend.Overlay = false;
 
-chart.Legend.Overlay = true;
-            
-// Mem-plot seri pertama pada sumbu nilai sekunder
-// Chart.ChartData.Series[0].PlotOnSecondAxis = true;
-
-// Mengatur warna dinding belakang diagram
 chart.BackWall.Thickness = 1;
 chart.BackWall.Format.Fill.FillType = FillType.Solid;
 chart.BackWall.Format.Fill.SolidFillColor.Color = Color.Orange;
 
 chart.Floor.Format.Fill.FillType = FillType.Solid;
 chart.Floor.Format.Fill.SolidFillColor.Color = Color.Red;
-// Mengatur warna area plot
+
 chart.PlotArea.Format.Fill.FillType = FillType.Solid;
 chart.PlotArea.Format.Fill.SolidFillColor.Color = Color.LightCyan;
 
-// Menyimpan Presentasi
-pres.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
+presentation.Save("FormattedChart_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Properti Font untuk Diagram**
-Aspose.Slides untuk .NET menyediakan dukungan untuk mengatur properti terkait font untuk diagram. Ikuti langkah-langkah berikut untuk mengatur properti font diagram.
+## **Mengatur Properti Font untuk Diagram**
 
-- Instansiasi objek kelas Presentation.
-- Tambahkan diagram pada slide.
-- Atur tinggi font.
-- Simpan presentasi yang dimodifikasi.
+Atur ukuran font default untuk teks diagram melalui [Chart.TextFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/textformat/). Contoh ini membuat diagram kolom berkelompok dengan font 20 poin dan mengaktifkan label nilai untuk seri pertama melalui [ShowValue](https://reference.aspose.com/slides/net/aspose.slides.charts/idatalabelformat/showvalue/). Elemen teks dengan pengaturan font eksplisit dapat menggantikan nilai default diagram.
 
-Contoh sampel di bawah diberikan.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation())
-{               
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    chart.TextFormat.PortionFormat.FontHeight = 20;
-    chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
-    pres.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
+chart.TextFormat.PortionFormat.FontHeight = 20;
+chart.ChartData.Series[0].Labels.DefaultDataLabelFormat.ShowValue = true;
+
+presentation.Save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Format Numerik**
-Aspose.Slides untuk .NET menyediakan API sederhana untuk mengelola format data diagram:
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
-1. Dapatkan referensi slide berdasarkan indeksnya.
-1. Tambahkan diagram dengan data default bersama jenis yang diinginkan (contoh ini menggunakan **ChartType.ClusteredColumn**).
-1. Atur format angka preset dari nilai preset yang tersedia.
-1. Iterasi sel data diagram pada setiap seri diagram dan atur format angka data diagram.
-1. Simpan presentasi.
-1. Atur format angka kustom.
-1. Iterasi sel data diagram dalam setiap seri diagram dan atur format angka data diagram yang berbeda.
-1. Simpan presentasi.
+## **Mengatur Format Numerik**
 
-```c#
-// Instansiasi presentasi// Instansiasi presentasi
-Presentation pres = new Presentation();
+Gunakan [IChartDataCell.PresetNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/presetnumberformat/) untuk menerapkan format angka bawaan pada sel buku kerja diagram. Contoh ini membuat diagram kolom berkelompok dengan data default yang didukung sel dan menerapkan indeks format 10 (`0.00%`) pada setiap sel nilai seri. Ini mengubah cara nilai ditampilkan di buku kerja tanpa mengubah angka dasarnya; misalnya, 0,25 ditampilkan sebagai 25,00 %. Format sumbu dan label data dapat dikonfigurasi secara terpisah.
 
-// Akses slide presentasi pertama
-ISlide slide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Menambahkan diagram kolom terkelompok default
-IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Mengakses koleksi seri diagram
-IChartSeriesCollection series = chart.ChartData.Series;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
+var series = chart.ChartData.Series;
 
-// Mengatur format nomor preset
-// Menelusuri setiap seri diagram
-foreach (ChartSeries ser in series)
+foreach (var chartSeries in series)
 {
-    // Menelusuri setiap sel data dalam seri
-    foreach (IChartDataPoint cell in ser.DataPoints)
+    foreach (var dataPoint in chartSeries.DataPoints)
     {
-        // Mengatur format nomor
-        cell.Value.AsCell.PresetNumberFormat = 10; //0.00%
+        dataPoint.Value.AsCell.PresetNumberFormat = 10; //0.00%
     }
 }
 
-// Menyimpan presentasi
-pres.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
+presentation.Save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 ```
 
-Nilai format angka preset yang mungkin beserta indeks presetnya dan yang dapat digunakan diberikan di bawah ini:
+Tabel berikut mencantumkan indeks format angka bawaan dengan contoh format Excel untuk locale Inggris (Amerika Serikat). String format tepat dan tampilan mereka dapat bervariasi menurut aplikasi dan locale, terutama untuk mata uang dan tanggal. Beberapa format Excel juga berbeda dari default dalam standar OOXML, sebagaimana dijelaskan dalam [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Indeks | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Atur Sudut Bulat Area Diagram**
-Aspose.Slides untuk .NET menyediakan dukungan untuk mengatur area diagram. Properti **IChart.HasRoundedCorners** dan **Chart.HasRoundedCorners** telah ditambahkan di Aspose.Slides.
+## **Mengatur Sudut Bulat pada Area Diagram**
 
-1. Instansiasi objek kelas `Presentation`.
-1. Tambahkan diagram pada slide.
-1. Atur jenis isian dan warna isian diagram
-1. Atur properti sudut bulat menjadi True.
-1. Simpan presentasi yang dimodifikasi.
+Aktifkan [IChart.HasRoundedCorners](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/hasroundedcorners/) untuk membuat sudut bulat pada area diagram. Contoh ini membuat diagram kolom berkelompok dan menggunakan [LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) untuk memberi garis luar warna abu‑abu solid dengan gaya satu‑garis sebelum menyimpan presentasi.
 
-Contoh sampel di bawah diberikan.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
+chart.LineFormat.FillFormat.FillType = FillType.Solid;
+chart.LineFormat.FillFormat.SolidFillColor.Color = Color.Gray;
+chart.LineFormat.Style = LineStyle.Single;
+chart.HasRoundedCorners = true;
+
+presentation.Save("out.pptx", SaveFormat.Pptx);
+```
+
+## **Mengedit Anotasi Diagram yang Ada**
+
+Diagram dapat berisi bentuk khusus, seperti anotasi teks yang menjelaskan status laporan. Akses bentuk‑bentuk ini melalui [IChart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/usershapes/), yang juga tercantum di bawah [Chart.UserShapes](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/usershapes/) dalam Referensi API Diagram. Koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/)‑nya berisi bentuk‑bentuk yang dimiliki diagram.
+
+Kotak teks biasa yang ditempatkan di atas diagram menjadi milik slide, meskipun terlihat seperti bagian diagram. Mengiterasi melalui [Slide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/baseslide/shapes/) menemukan diagram serta bentuk slide biasa, tetapi tidak menelusuri bentuk individu di dalam diagram. Judul diagram dan label data adalah elemen diagram terpisah, bukan anotasi khusus dalam koleksi ini.
+
+Unduh [chart-annotations.pptx](chart-annotations.pptx) dan letakkan di direktori kerja aplikasi. Slide pertamanya berisi diagram dengan anotasi tidak tergabung yang berisi teks "Preliminary results", sebuah garis milik diagram, dan kotak teks slide biasa berisi teks "Slide overlay". Contoh ini menemukan diagram pertama pada slide tersebut dan mengubah anotasi menjadi "Final results" ketika laporan siap dipublikasikan. Ia memeriksa koleksi kosong dan hanya mengedit sebuah [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) yang memiliki [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) tidak null serta teks yang diharapkan.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("chart-annotations.pptx");
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.OfType<IChart>().FirstOrDefault();
+
+if (chart == null || chart.UserShapes.Shapes.Count == 0)
 {
-	ISlide slide = presentation.Slides[0];
-	IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
-	chart.LineFormat.FillFormat.FillType = FillType.Solid;
-	chart.LineFormat.Style = LineStyle.Single;
-	chart.HasRoundedCorners = true;
+    Console.WriteLine("No chart or chart-owned shapes found.");
+    return;
+}
 
-	presentation.Save("out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+var updated = false;
+foreach (var shape in chart.UserShapes.Shapes)
+{
+    if (shape is IAutoShape annotation && 
+        annotation.TextFrame != null && 
+        annotation.TextFrame.Text == "Preliminary results")
+    {
+        annotation.TextFrame.Text = "Final results";
+        updated = true;
+        break;
+    }
+}
+
+if (updated)
+{
+    presentation.Save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No matching text annotation found.");
 }
 ```
 
+Garis dan kotak teks slide tetap tidak berubah. Gambar berikut menunjukkan input dan hasil yang disimpan serta dibuka kembali:
+
+| Sebelum diedit | Setelah diedit |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Contoh ini memeriksa hanya bentuk‑bentuk tingkat atas yang dimiliki diagram. Jika anotasi berada di dalam sebuah [IGroupShape](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/), periksa juga koleksi [Shapes](https://reference.aspose.com/slides/net/aspose.slides/igroupshape/shapes/) grup tersebut. Ulangi secara rekursif untuk grup bersarang, menerapkan cek teks yang sama pada bentuk anaknya. Sebuah grup sendiri merupakan wadah; jangan perlakukan sebagai kotak teks.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Apakah saya dapat mengatur isian semi-transparan untuk kolom/area sambil mempertahankan batas tidak tembus pandang?**
+**Apakah saya dapat menetapkan isian semi‑transparan untuk kolom/area sambil menjaga batas tetap opak?**
 
-Ya. Transparansi isian dan garis tepi diatur secara terpisah. Hal ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
+Ya. Transparansi isian dan garis luar dikonfigurasi secara terpisah. Ini berguna untuk meningkatkan keterbacaan kisi dan data pada visualisasi yang padat.
 
-**Bagaimana cara menangani label data saat mereka tumpang tindih?**
+**Bagaimana cara menangani label data ketika mereka saling tumpang tindih?**
 
-Kurangi ukuran font, nonaktifkan komponen label yang tidak penting (misalnya, kategori), atur offset/posisi label, tampilkan label hanya untuk titik yang dipilih bila perlu, atau ubah format menjadi "value + legend".
+Kurangi ukuran font, nonaktifkan komponen label yang tidak esensial (misalnya kategori), sesuaikan posisi label, tampilkan label hanya untuk titik terpilih bila perlu, atau ubah format menjadi "nilai + legenda".
 
 **Apakah saya dapat menerapkan isian gradien atau pola pada seri?**
 
-Ya. Baik isian padat maupun gradien/pola biasanya tersedia. Dalam praktik, gunakan gradien secara terbatas dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.
+Ya. Seri mendukung isian padat, gradien, dan pola. Praktiknya, gunakan gradien dengan hemat dan hindari kombinasi yang mengurangi kontras dengan kisi dan teks.

@@ -1,6 +1,6 @@
 ---
-title: تنسيق مخططات العرض التقديمي على Android
-linktitle: تنسيق المخطط
+title: تنسيق مخططات العرض التقديمي على أندرويد
+linktitle: تنسيق المخططات
 type: docs
 weight: 60
 url: /ar/androidjava/chart-formatting/
@@ -14,59 +14,35 @@ keywords:
 - خصائص الخط
 - حدود مستديرة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعرّف على تنسيق المخططات في Aspose.Slides لـ Android عبر Java وارتقِ بعرض PowerPoint التقديمي باستخدام تنسيق احترافي وجذاب."
+description: "تعلم تنسيق المخططات في Aspose.Slides لأندرويد باستخدام Java وارتقِ بعرض PowerPoint التقديمي الخاص بك من خلال محاور مخصصة، خطوط، صيغ رقمية، وحدود مخطط مستديرة."
 ---
+## **نظرة عامة**
 
-## **تنسيق كائنات المخطط**
-تتيح Aspose.Slides for Android عبر Java للمطورين إضافة مخططات مخصصة إلى الشرائح من البداية. توضح هذه المقالة كيفية تنسيق مختلف كائنات المخطط بما في ذلك محور الفئة ومحور القيم.
+يشرح هذا المقال كيفية تنسيق المخططات في عروض PowerPoint باستخدام Aspose.Slides. يُظهر كيفية تخصيص العناصر الأساسية للمخطط مثل المحاور، خطوط الشبكة، العناوين، الأساطير، منطقة الرسم، وتعبئة الجدران لتحسين مظهر البيانات وقابليتها للقراءة.
 
-توفر Aspose.Slides for Android عبر Java واجهة برمجة تطبيقات بسيطة لإدارة مختلف كائنات المخطط وتنسيقها باستخدام قيم مخصصة:
+كما يوضح كيفية ضبط خصائص الخط لنص المخطط، تطبيق صيغ رقمية مُعدة مسبقًا على بيانات المخطط، وتمكين الزوايا المستديرة لمنطقة المخطط. معًا، تُظهر هذه الأمثلة كيفية التحكم في كل من الأسلوب البصري وعرض البيانات للمخططات في العرض التقديمي.
 
-1. إنشاء نسخة من الفئة [**Presentation**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (في هذا المثال سنستخدم ChartType.LineWithMarkers).
-4. الوصول إلى محور القيم في المخطط وتعيين الخصائص التالية:
-   1. ضبط **Line format** لخطوط الشبكة الرئيسية لمحور القيم
-   2. ضبط **Line format** لخطوط الشبكة الثانوية لمحور القيم
-   3. ضبط **Number Format** لمحور القيم
-   4. ضبط **Min, Max, Major and Minor units** لمحور القيم
-   5. ضبط **Text Properties** لبيانات محور القيم
-   6. ضبط **Title** لمحور القيم
-   7. ضبط **Line Format** لمحور القيم
-5. الوصول إلى محور الفئة في المخطط وتعيين الخصائص التالية:
-   1. ضبط **Line format** لخطوط الشبكة الرئيسية لمحور الفئة
-   2. ضبط **Line format** لخطوط الشبكة الثانوية لمحور الفئة
-   3. ضبط **Text Properties** لبيانات محور الفئة
-   4. ضبط **Title** لمحور الفئة
-   5. ضبط **Label Positioning** لمحور الفئة
-   6. ضبط **Rotation Angle** لتسميات محور الفئة
-6. الوصول إلى مفتاح المخطط وتعيين **Text Properties** له
-7. إظهار مفاتيح المخطط دون أن تتداخل مع المخطط
-8. الوصول إلى **Secondary Value Axis** للمخطط وتعيين الخصائص التالية:
-   1. تمكين **Value Axis** الثانوي
-   2. ضبط **Line Format** لمحور القيم الثانوي
-   3. ضبط **Number Format** لمحور القيم الثانوي
-   4. ضبط **Min, Max, Major and Minor units** لمحور القيم الثانوي
-9. الآن رسم السلسلة الأولى للمخطط على محور القيم الثانوي
-10. تعيين لون تعبئة الجدار الخلفي للمخطط
-11. تعيين لون تعبئة منطقة الرسم للمخطط
-12. حفظ العرض التقديمي المعدل إلى ملف PPTX
+## **تنسيق كيانات المخطط**
+
+استخدم [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) لتنسيق عناوين المخطط، والمحاور، وخطوط الشبكة، والأساطير، ومنطقة الرسم. تُنشئ هذه العينة مخطط خط مع علامات وبيانات افتراضية، ثم تُطبق أنماط نص وخط منفصلة على محوري القيمة والفئة. تُحدد أحجام الخطوط وعرض الخطوط بالنقاط؛ يتم تدوير تسميات الفئة بزاوية 45 درجة.
+
+يستخدم محور القيمة [setNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setNumberFormat-java.lang.String-) بشكل مستقل عن خلايا المصدر. يمتد مقياسه من -2 إلى 15، مع فواصل رئيسية بمقدار 2 وفواصل فرعية بـ 0.5. تجمع العينة أيضًا بين تنسيق النسبة المئوية و[setDisplayUnit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaxis/#setDisplayUnit-int-) المعين إلى الآلاف، لذا عدل هذه الإعدادات وفقًا لمعنى وحجم بياناتك. يبقى الأساس خارج منطقة الرسم لأن [setOverlay](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilegend/#setOverlay-boolean-) يُستدعى بـ `false`. يتم تكوين تعبئة الجدار الخلفي والأرضية عبر [getBackWall](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getBackWall--) و[getFloor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getFloor--)، لكن هذه الأسطح لا تظهر إلا في المخططات الثلاثية الأبعاد.
+
 ```java
-// إنشاء نسخة من الفئة Presentation class
-Presentation pres = new Presentation();
-try {
-    // الوصول إلى الشريحة الأولى
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // إضافة المخطط النموذجي
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400);
 
-    // تعيين عنوان المخطط
-    chart.hasTitle();
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
     IPortion chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
@@ -76,289 +52,286 @@ try {
     chartTitle.getPortionFormat().setFontBold(NullableBool.True);
     chartTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // تعيين تنسيق خطوط الشبكة الرئيسية لمحور القيم
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot);
 
-    // تعيين تنسيق خطوط الشبكة الثانوية لمحور القيم
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED);
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // تعيين تنسيق رقم محور القيم
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
 
-    // تعيين قيم الحد الأقصى والحد الأدنى للمخطط
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
 
     chart.getAxes().getVerticalAxis().setMaxValue(15f);
     chart.getAxes().getVerticalAxis().setMinValue(-2f);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5f);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0f);
 
-    // تعيين خصائص نص محور القيم
-    IChartPortionFormat txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(NullableBool.True);
-    txtVal.getFillFormat().setFillType(FillType.Solid);
-    txtVal.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkGreen));
-    txtVal.setLatinFont(new FontData("Times New Roman"));
+    IChartPortionFormat valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(NullableBool.True);
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(NullableBool.True);
+    valueAxisText.getFillFormat().setFillType(FillType.Solid);
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen);
+    valueAxisText.setLatinFont(new FontData("Times New Roman"));
 
-    // تعيين عنوان محور القيم
-    chart.getAxes().getVerticalAxis().hasTitle();
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    IPortion valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    valueAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // تعيين تنسيق خطوط الشبكة الرئيسية لمحور الفئة
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
 
-    // تعيين تنسيق خطوط الشبكة الثانوية لمحور الفئة
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
 
-    // تعيين خصائص نص محور الفئة
-    IChartPortionFormat txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(NullableBool.True);
-    txtCat.getFillFormat().setFillType(FillType.Solid);
-    txtCat.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    txtCat.setLatinFont(new FontData("Arial"));
+    IChartPortionFormat categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(NullableBool.True);
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(NullableBool.True);
+    categoryAxisText.getFillFormat().setFillType(FillType.Solid);
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    categoryAxisText.setLatinFont(new FontData("Arial"));
 
-    // تعيين عنوان الفئة
-    chart.getAxes().getHorizontalAxis().hasTitle();
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
 
-    IPortion catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(NullableBool.True);
+    IPortion categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(NullableBool.True);
+    categoryAxisTitle.getPortionFormat().setFontItalic(NullableBool.True);
 
-    // تعيين موضع تسمية محور الفئة
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low);
-
-    // تعيين زاوية دوران تسمية محور الفئة
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
 
-    // تعيين خصائص نص المفتاح
-    IChartPortionFormat txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(NullableBool.True);
-    txtleg.getFillFormat().setFillType(FillType.Solid);
-    txtleg.getFillFormat().getSolidFillColor().setColor(new Color(PresetColor.DarkRed));
+    IChartPortionFormat legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(NullableBool.True);
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(NullableBool.True);
+    legendText.getFillFormat().setFillType(FillType.Solid);
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed);
 
-    // تعيين إظهار مفاتيح المخطط دون تداخل مع المخطط
+    chart.getLegend().setOverlay(false);
 
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // تعيين محور القيمة الثانوي
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-
-    // تعيين تنسيق رقم محور القيمة الثانوي
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-
-    // تعيين قيم الحد الأقصى والحد الأدنى للمخطط
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5f);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0f);
-
-    // تعيين لون الجدار الخلفي للمخطط
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE);
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid);
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-    // تعيين لون منطقة الرسم
-    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(new Color(PresetColor.LightCyan));
 
-    // حفظ العرض التقديمي
-    pres.save("FormattedChart.pptx", SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan);
+
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **ضبط خصائص الخط للمخطط**
 
-## **تعيين خصائص الخط للمخطط**
-توفر Aspose.Slides for Android عبر Java دعمًا لتعيين خصائص الخط المتعلقة بالمخطط. يرجى اتباع الخطوات أدناه لتعيين خصائص الخط للمخطط.
+اضبط حجم الخط الافتراضي لنص المخطط عبر [Chart.getTextFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getTextFormat--). تُنشئ العينة مخطط أعمدة متجمع بحجم خط 20 نقطة وتُمكّن تسميات القيم للسلسلة الأولى عبر [setShowValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/idatalabelformat/#setShowValue-boolean-). يمكن لعناصر النص التي لها إعدادات خط صريحة أن تتجاوز الإعداد الافتراضي للمخطط.
 
-- إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) class.
-- إضافة مخطط إلى الشريحة.
-- ضبط ارتفاع الخط.
-- حفظ العرض التقديمي المعدل.
-
-مثال عينة مرفق أدناه.
 ```java
-// إنشاء نسخة من الفئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    
-    pres.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **تعيين الصيغة الرقمية**
 
-## **تعيين التنسيق الرقمي**
-توفر Aspose.Slides for Android عبر Java واجهة برمجة تطبيقات بسيطة لإدارة تنسيق بيانات المخطط:
+استخدم [IChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichartdatacell/#setPresetNumberFormat-byte-) لتطبيق صيغة رقمية مدمجة على خلايا مصنف المخطط. تُنشئ العينة مخطط أعمدة متجمع ببيانات افتراضية مدعومة بالخلايا وتطبق فهرس الصيغة 10 (`0.00%`) على كل خلية قيمة سلسلة. يغيّر هذا طريقة عرض القيم في المصنف دون تغيير الأرقام الأساسية؛ على سبيل المثال، يُعرض 0.25 كـ 25.00٪. يمكن تكوين صيغ المحور وتسميات البيانات بشكل منفصل.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط ببيانات افتراضية مع أي نوع مرغوب (هذا المثال يستخدم **ChartType.ClusteredColumn**).
-4. ضبط تنسيق الأرقام المحدد مسبقًا من القيم المتاحة.
-5. التنقل عبر خلايا بيانات المخطط في كل سلسلة وتعيين تنسيق رقم البيانات.
-6. حفظ العرض التقديمي.
-7. ضبط تنسيق رقم مخصص.
-8. التنقل عبر خلايا بيانات المخطط داخل كل سلسلة وتعيين تنسيق رقم مختلف.
-9. حفظ العرض التقديمي.
 ```java
-// إنشاء نسخة من الفئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    // الوصول إلى الشريحة الأولى في العرض التقديمي
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // إضافة مخطط عمودي مجموعتة عمودي افتراضي
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400);
-
-    // الوصول إلى مجموعة سلاسل المخطط
     IChartSeriesCollection series = chart.getChartData().getSeries();
-    
-    // التنقل عبر كل سلسلة مخطط
-    for (IChartSeries ser : series) 
+
+    for (IChartSeries chartSeries : series)
     {
-        // التنقل عبر كل خلية بيانات في السلسلة
-        for (IChartDataPoint cell : ser.getDataPoints()) 
+        for (IChartDataPoint dataPoint : chartSeries.getDataPoints())
         {
-            // تعيين تنسيق الرقم
-            cell.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
+            dataPoint.getValue().getAsCell().setPresetNumberFormat((byte) 10); // 0.00%
         }
     }
 
-    // حفظ العرض التقديمي
-    pres.save("PresetNumberFormat.pptx", SaveFormat.Pptx);
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+القائمة التالية تُظهر فهارس الصيغ الرقمية المدمجة مع صيغ Excel النموذجية للغة الإنجليزية (الولايات المتحدة). قد تختلف سلاسل الصيغ الدقيقة وعرضها حسب التطبيق واللغة، خاصةً بالنسبة للعملات والتواريخ. بعض صيغ Excel تختلف أيضًا عن القيم الافتراضية في معيار OOXML، كما هو موضح في [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| الفهرس | الصيغة |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
 ## **تعيين حدود مستديرة لمنطقة المخطط**
-توفر Aspose.Slides for Android عبر Java دعمًا لتعيين منطقة المخطط. تم إضافة الطريقتين [**hasRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#hasRoundedCorners--) و[**setRoundedCorners**](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart#setRoundedCorners-boolean-) إلى الواجهة [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IChart) والفئة [Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Chart).
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) class.
-2. إضافة مخطط إلى الشريحة.
-3. ضبط نوع التعبئة ولون التعبئة للمخطط
-4. تعيين خاصية الزوايا المستديرة إلى True.
-5. حفظ العرض التقديمي المعدل.
+استدعي [IChart.setRoundedCorners](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#setRoundedCorners-boolean-) مع `true` لجعل زوايا منطقة المخطط مستديرة. تُنشئ العينة مخطط أعمدة متجمع وتستخدم [getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) لمنح حدّه لونًا رماديًا صلبًا ونمط خط أحادي قبل حفظ العرض التقديمي.
 
-مثال عينة مرفق أدناه. 
 ```java
-// إنشاء نسخة من الفئة Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
     chart.getLineFormat().setStyle(LineStyle.Single);
     chart.setRoundedCorners(true);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **تحرير تعليقات المخطط الموجودة**
 
-## **FAQ**
+يمكن للمخطط أن يحتوي على أشكال مخصصة، مثل تعليق نصي يوضح حالة تقرير ما. وصول إلى هذه الأشكال يتم عبر [IChart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/#getUserShapes--)، وهي مُدرجة أيضًا تحت [Chart.getUserShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/#getUserShapes--) في مرجع API للمخطط. المجموعة التي تُرجعها [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) تحتوي على الأشكال المملوكة للمخطط.
 
-**هل يمكنني تعيين تعبئة شبه شفافة للأعمدة/المناطق مع الحفاظ على الحد غير شفاف؟**
+مربع نص عادي موضع فوق المخطط يُنتمي إلى الشريحة، حتى وإن بدا كجزء من المخطط. التجوال عبر [Slide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/baseslide/#getShapes--) يُظهر المخطط والأشكال العادية للشرائح، لكنه لا يُدرج الأشكال الفردية داخل المخطط. عناوين المخطط وتسميات البيانات هي عناصر مخطط منفصلة، ليست تعليقات مخصصة في هذه المجموعة.
 
-نعم. يتم تكوين شفافية الملء والحد الخارجي بشكل منفصل. وهذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
+حمّل [chart-annotations.pptx](chart-annotations.pptx) وضعه في دليل العمل الخاص بالتطبيق. الشريحة الأولى تحتوي على مخطط مع تعليق غير مجمع يقرأ "Preliminary results"، وخط مملوك للمخطط، ومربع نص شريحة عادي يقرأ "Slide overlay". تُحدد العينة المخطط الأول على تلك الشريحة وتغيّر التعليق إلى "Final results" عندما يكون التقرير جاهزًا للنشر. يتم فحص ما إذا كانت المجموعة فارغة وتُعدل فقط إذا كان هناك [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) يحتوي على إطار نص غير فارغ يُرجع بواسطة [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#getTextFrame--) والنص المتوقع.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-annotations.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = null;
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IChart) {
+            chart = (IChart) shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        System.out.println("No chart or chart-owned shapes found.");
+        return;
+    }
+
+    boolean updated = false;
+    for (IShape shape : chart.getUserShapes().getShapes()) {
+        if (shape instanceof IAutoShape) {
+            IAutoShape annotation = (IAutoShape) shape;
+            if (annotation.getTextFrame() != null && "Preliminary results".equals(annotation.getTextFrame().getText())) {
+                annotation.getTextFrame().setText("Final results");
+                updated = true;
+                break;
+            }
+        }
+    }
+
+    if (updated) {
+        presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No matching text annotation found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+يبقى الخط ومربع نص الشريحة بدون تغيير. تُظهر الصور التالية الإدخال والنتيجة المحفوظة والمفتوحة مرة أخرى:
+
+| قبل التحرير | بعد التحرير |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+تُفحص العينة فقط الأشكال المملوكة للمخطط على المستوى الأعلى. إذا كان هناك تعليق داخل [IGroupShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/)، افحص مجموعة [getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igroupshape/#getShapes--) الخاصة بهذه المجموعة أيضًا. كرّر ذلك بصورة متكررة للمجموعات المتداخلة، مطبقًا نفس فحوصات النص على الأشكال الفرعية. المجموعة نفسها حاوية؛ لا تُعاملها كصندوق نص.
+{{% /alert %}}
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تعيين تعبئات نصف شفافة للأعمدة/المناطق مع الحفاظ على حدود غير شفافة؟**
+
+نعم. يتم تكوين شفافية التعبئة والحد الخارجي بشكل منفصل. هذا مفيد لتحسين قابلية قراءة الشبكة والبيانات في التصورات الكثيفة.
 
 **كيف يمكنني التعامل مع تسميات البيانات عندما تتداخل؟**
 
-قم بتقليل حجم الخط، أو إلغاء تشغيل مكونات التسمية غير الضرورية (مثل الفئات)، أو ضبط إزاحة/موضع التسمية، أو إظهار التسميات للنقاط المحددة فقط إذا لزم الأمر، أو تحويل التنسيق إلى "القيمة + المفتاح".
+قلّل حجم الخط، عطل مكونات التسمية غير الضرورية (مثل الفئات)، اضبط موضع التسمية، أظهر التسميات فقط للنقاط المحددة إذا لزم الأمر، أو غيّر الصياغة إلى "القيمة + الأسطورة".
 
-**هل يمكنني تطبيق تعبئة تدرجية أو نمطية على السلاسل؟**
+**هل يمكنني تطبيق تعبئات تدرج أو نمط على السلاسل؟**
 
-نعم. عادةً ما تكون ملء صلبة وتدرجات/أنماط متاحة. في الممارسة، استخدم التدرجات بشكل مقتصد وتجنب الجمع بينها بما يقلل من التباين مع الشبكة والنص.
+نعم. تدعم السلاسل تعبئات صلبة، وتدرجية، ونمطية. عمليًا، استخدم التدرجات باعتدال وتجنب الجمع بينهما إذا كان ذلك يقلل من التباين مع الشبكة والنص.

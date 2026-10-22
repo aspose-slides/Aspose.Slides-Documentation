@@ -6,7 +6,7 @@ weight: 60
 url: /fa/php-java/chart-formatting/
 keywords:
 - قالب‌بندی نمودار
-- قالب‌بندی نمودار
+- قالب‌بندی نمودارها
 - موجودیت نمودار
 - ویژگی‌های نمودار
 - تنظیمات نمودار
@@ -17,59 +17,39 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "قالب‌بندی نمودارها را در Aspose.Slides برای PHP از طریق Java بیاموزید و ارائه PowerPoint خود را با سبک حرفه‌ای و جذاب ارتقا دهید."
+description: "قالب‌بندی نمودارها را در Aspose.Slides برای PHP از طریق Java بیاموزید و ارائه PowerPoint خود را با محورها، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد سفارشی‌سازی شده ارتقا دهید."
 ---
 ## **نمای کلی**
 
-این مقاله نحوه قالب‌بندی نمودارها در ارائه‌های PowerPoint با استفاده از Aspose.Slides را شرح می‌دهد. نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، لگندها، ناحیه‌نقشه و پرکردن دیوارها را سفارشی کنید تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد که چگونه می‌توان نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کرد. این مقاله نشان می‌دهد که چگونه عناصر کلیدی نمودار مانند محورها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه رسم و پر کردن دیوارها را سفارشی کنید تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
 
-همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌تنظیم و سفارشی برای داده‌های نمودار اعمال گردد و لبه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها به شما امکان کنترل هم سبک بصری و هم ارائه داده‌های نمودار در یک ارائه را می‌دهند.
+همچنین نشان می‌دهد که چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌فرض به داده‌های نمودار اعمال گردد و گوشه‌های ناحیه نمودار گرد شود. این مثال‌ها نشان می‌دهند که چگونه سبک بصری و ارائه داده‌های نمودار در یک ارائه را کنترل کنید.
 
 ## **قالب‌بندی موجودیت‌های نمودار**
-Aspose.Slides for PHP via Java به توسعه‌دهندگان اجازه می‌دهد نمودارهای سفارشی را از ابتدا به اسلایدهای خود اضافه کنند. این مقاله نحوه قالب‌بندی موجودیت‌های مختلف نمودار از جمله محور دسته‌بندی و محور مقدار را توضیح می‌دهد.
 
-Aspose.Slides for PHP via Java یک API ساده برای مدیریت موجودیت‌های مختلف نمودار و قالب‌بندی آن‌ها با مقادیر سفارشی ارائه می‌دهد:
+از [نمودار](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محورها، خطوط شبکه، افسانه‌ها و ناحیه رسم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند و سپس سبک‌های متن و خط را به طور جداگانه برای محورهای مقدار و دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب نقطه تعیین شده‌اند؛ برچسب‌های دسته‌بندی با 45 درجه چرخانده می‌شوند.
 
-1. یک نمونه از کلاس [**Presentation**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع اسلاید را بر اساس ایندکس آن دریافت کنید.
-1. یک نمودار با داده‌های پیش‌فرض به همراه هر نوع دلخواه اضافه کنید (در این مثال از ChartType::LineWithMarkers استفاده می‌کنیم).
-1. به محور مقدار نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. تنظیم **Line format** برای خطوط شبکه اصلی محور مقدار
-   1. تنظیم **Line format** برای خطوط شبکه فرعی محور مقدار
-   1. تنظیم **Number Format** برای محور مقدار
-   1. تنظیم **Min, Max, Major and Minor units** برای محور مقدار
-   1. تنظیم **Text Properties** برای داده‌های محور مقدار
-   1. تنظیم **Title** برای محور مقدار
-   1. تنظیم **Line Format** برای محور مقدار
-1. به محور دسته‌بندی نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. تنظیم **Line format** برای خطوط شبکه اصلی محور دسته‌بندی
-   1. تنظیم **Line format** برای خطوط شبکه فرعی محور دسته‌بندی
-   1. تنظیم **Text Properties** برای داده‌های محور دسته‌بندی
-   1. تنظیم **Title** برای محور دسته‌بندی
-   1. تنظیم **Label Positioning** برای محور دسته‌بندی
-   1. تنظیم **Rotation Angle** برای برچسب‌های محور دسته‌بندی
-1. به لگند نمودار دسترسی پیدا کنید و **Text Properties** آن را تنظیم کنید
-1. نمایش لگندهای نمودار بدون پوشش بر روی نمودار را فعال کنید
-1. به **Secondary Value Axis** نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. فعال‌سازی **Value Axis** ثانویه
-   1. تنظیم **Line Format** برای محور مقدار ثانویه
-   1. تنظیم **Number Format** برای محور مقدار ثانویه
-   1. تنظیم **Min, Max, Major and Minor units** برای محور مقدار ثانویه
-1. حال سری اول نمودار را روی محور مقدار ثانویه رسم کنید
-1. رنگ پرکردن دیوار پشت نمودار را تنظیم کنید
-1. رنگ پرکردن ناحیه نمودار را تنظیم کنید
-1. ارائه اصلاح‌شده را در یک فایل PPTX ذخیره کنید
+محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setnumberformat/) مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با فواصل اصلی 2 و فواصل فرعی 0.5. این مثال همچنین قالب‌بندی درصد را با [setDisplayUnit](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setdisplayunit/) که بر روی هزار تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را بر حسب معنای داده‌ها و مقیاس آن تنظیم کنید. افسانه به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/php-java/aspose.slides/legend/setoverlay/) با `false` در خارج از ناحیه رسم می‌ماند. پر کردن دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getbackwall/) و [getFloor](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getfloor/) پیکربندی می‌شود، اما این سطوح فقط در نمودارهای 3‑بعدی قابل مشاهده هستند.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    # دسترسی به اولین اسلاید
-    $slide = $pres->getSlides()->get_Item(0);
-    # افزودن نمودار نمونه
+use aspose\slides\ChartType;
+use aspose\slides\DisplayUnitType;
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\LineDashStyle;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\TickLabelPositionType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::LineWithMarkers, 50, 50, 500, 400);
-    # تنظیم عنوان نمودار
-    $chart->hasTitle();
+
+    $chart->setTitle(true);
     $chart->getChartTitle()->addTextFrameForOverriding("");
     $chartTitle = $chart->getChartTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     $chartTitle->setText("Sample Chart");
@@ -78,265 +58,301 @@ Aspose.Slides for PHP via Java یک API ساده برای مدیریت موجو�
     $chartTitle->getPortionFormat()->setFontHeight(20);
     $chartTitle->getPortionFormat()->setFontBold(NullableBool::True);
     $chartTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تنظیم قالب خطوط شبکه اصلی برای محور مقدار
+
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle->DashDot);
-    # تنظیم قالب خطوط شبکه فرعی برای محور مقدار
+    $chart->getAxes()->getVerticalAxis()->getMajorGridLinesFormat()->getLine()->setDashStyle(LineDashStyle::DashDot);
+
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
     $chart->getAxes()->getVerticalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # تنظیم قالب عددی محور مقدار
-    $chart->getAxes()->getVerticalAxis()->isNumberFormatLinkedToSource();
+
+    $chart->getAxes()->getVerticalAxis()->setNumberFormatLinkedToSource(false);
     $chart->getAxes()->getVerticalAxis()->setDisplayUnit(DisplayUnitType::Thousands);
     $chart->getAxes()->getVerticalAxis()->setNumberFormat("0.0%");
-    # تنظیم حداکثر و حداقل مقادیر نمودار
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getVerticalAxis()->setMaxValue(15.0);
-    $chart->getAxes()->getVerticalAxis()->setMinValue(-2.0);
+
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMajorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMaxValue(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinorUnit(false);
+    $chart->getAxes()->getVerticalAxis()->setAutomaticMinValue(false);
+
+    $chart->getAxes()->getVerticalAxis()->setMaxValue(15);
+    $chart->getAxes()->getVerticalAxis()->setMinValue(-2);
     $chart->getAxes()->getVerticalAxis()->setMinorUnit(0.5);
     $chart->getAxes()->getVerticalAxis()->setMajorUnit(2.0);
-    # تنظیم ویژگی‌های متن محور مقدار
-    $txtVal = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
-    $txtVal->setFontBold(NullableBool::True);
-    $txtVal->setFontHeight(16);
-    $txtVal->setFontItalic(NullableBool::True);
-    $txtVal->getFillFormat()->setFillType(FillType::Solid);
-    $txtVal->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkGreen));
-    $txtVal->setLatinFont(new FontData("Times New Roman"));
-    # تنظیم عنوان محور مقدار
-    $chart->getAxes()->getVerticalAxis()->hasTitle();
+
+    $valueAxisText = $chart->getAxes()->getVerticalAxis()->getTextFormat()->getPortionFormat();
+    $valueAxisText->setFontBold(NullableBool::True);
+    $valueAxisText->setFontHeight(16);
+    $valueAxisText->setFontItalic(NullableBool::True);
+    $valueAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkGreen);
+    $valueAxisText->setLatinFont(new FontData("Times New Roman"));
+
+    $chart->getAxes()->getVerticalAxis()->setTitle(true);
     $chart->getAxes()->getVerticalAxis()->getTitle()->addTextFrameForOverriding("");
-    $valtitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $valtitle->setText("Primary Axis");
-    $valtitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $valtitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $valtitle->getPortionFormat()->setFontHeight(20);
-    $valtitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $valtitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تنظیم قالب خطوط شبکه اصلی برای محور دسته‌بندی
+    $valueAxisTitle = $chart->getAxes()->getVerticalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $valueAxisTitle->setText("Primary Axis");
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $valueAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $valueAxisTitle->getPortionFormat()->setFontHeight(20);
+    $valueAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $valueAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 128, 0));
     $chart->getAxes()->getHorizontalAxis()->getMajorGridLinesFormat()->getLine()->setWidth(5);
-    # تنظیم قالب خطوط شبکه فرعی برای محور دسته‌بندی
+
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->setFillType(FillType::Solid);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
     $chart->getAxes()->getHorizontalAxis()->getMinorGridLinesFormat()->getLine()->setWidth(3);
-    # تنظیم ویژگی‌های متن محور دسته‌بندی
-    $txtCat = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
-    $txtCat->setFontBold(NullableBool::True);
-    $txtCat->setFontHeight(16);
-    $txtCat->setFontItalic(NullableBool::True);
-    $txtCat->getFillFormat()->setFillType(FillType::Solid);
-    $txtCat->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $txtCat->setLatinFont(new FontData("Arial"));
-    # تنظیم عنوان دسته‌بندی
-    $chart->getAxes()->getHorizontalAxis()->hasTitle();
+
+    $categoryAxisText = $chart->getAxes()->getHorizontalAxis()->getTextFormat()->getPortionFormat();
+    $categoryAxisText->setFontBold(NullableBool::True);
+    $categoryAxisText->setFontHeight(16);
+    $categoryAxisText->setFontItalic(NullableBool::True);
+    $categoryAxisText->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisText->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $categoryAxisText->setLatinFont(new FontData("Arial"));
+
+    $chart->getAxes()->getHorizontalAxis()->setTitle(true);
     $chart->getAxes()->getHorizontalAxis()->getTitle()->addTextFrameForOverriding("");
-    $catTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
-    $catTitle->setText("Sample Category");
-    $catTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $catTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
-    $catTitle->getPortionFormat()->setFontHeight(20);
-    $catTitle->getPortionFormat()->setFontBold(NullableBool::True);
-    $catTitle->getPortionFormat()->setFontItalic(NullableBool::True);
-    # تنظیم موقعیت برچسب محور دسته‌بندی
+
+    $categoryAxisTitle = $chart->getAxes()->getHorizontalAxis()->getTitle()->getTextFrameForOverriding()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
+    $categoryAxisTitle->setText("Sample Category");
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $categoryAxisTitle->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $categoryAxisTitle->getPortionFormat()->setFontHeight(20);
+    $categoryAxisTitle->getPortionFormat()->setFontBold(NullableBool::True);
+    $categoryAxisTitle->getPortionFormat()->setFontItalic(NullableBool::True);
+
     $chart->getAxes()->getHorizontalAxis()->setTickLabelPosition(TickLabelPositionType::Low);
-    # تنظیم زاویه چرخش برچسب محور دسته‌بندی
     $chart->getAxes()->getHorizontalAxis()->setTickLabelRotationAngle(45);
-    # تنظیم ویژگی‌های متن لگندها
-    $txtleg = $chart->getLegend()->getTextFormat()->getPortionFormat();
-    $txtleg->setFontBold(NullableBool::True);
-    $txtleg->setFontHeight(16);
-    $txtleg->setFontItalic(NullableBool::True);
-    $txtleg->getFillFormat()->setFillType(FillType::Solid);
-    $txtleg->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->DarkRed));
-    # تنظیم نمایش لگندهای نمودار بدون همپوشانی با نمودار
-    $chart->getLegend()->setOverlay(true);
-    # chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    $chart->getChartData()->getSeries()->get_Item(0)->setPlotOnSecondAxis(true);
-    # تنظیم محور مقدار ثانویه
-    $chart->getAxes()->getSecondaryVerticalAxis()->isVisible();
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setStyle(LineStyle->ThickBetweenThin);
-    $chart->getAxes()->getSecondaryVerticalAxis()->getFormat()->getLine()->setWidth(20);
-    # تنظیم قالب عددی محور مقدار ثانویه
-    $chart->getAxes()->getSecondaryVerticalAxis()->isNumberFormatLinkedToSource();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setDisplayUnit(DisplayUnitType::Hundreds);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setNumberFormat("0.0%");
-    # تنظیم حدمکسیمم و حداقل مقادیر نمودار
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMajorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMaxValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinorUnit();
-    $chart->getAxes()->getSecondaryVerticalAxis()->isAutomaticMinValue();
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMaxValue(20.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinValue(-5.0);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMinorUnit(0.5);
-    $chart->getAxes()->getSecondaryVerticalAxis()->setMajorUnit(2.0);
-    # تنظیم رنگ دیوار پشت نمودار
+
+    $legendText = $chart->getLegend()->getTextFormat()->getPortionFormat();
+    $legendText->setFontBold(NullableBool::True);
+    $legendText->setFontHeight(16);
+    $legendText->setFontItalic(NullableBool::True);
+    $legendText->getFillFormat()->setFillType(FillType::Solid);
+    $legendText->getFillFormat()->getSolidFillColor()->setPresetColor(PresetColor::DarkRed);
+
+    $chart->getLegend()->setOverlay(false);
+
     $chart->getBackWall()->setThickness(1);
     $chart->getBackWall()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $chart->getBackWall()->getFormat()->getFill()->getSolidFillColor()->setColor(new Java("java.awt.Color", 255, 165, 0));
+
     $chart->getFloor()->getFormat()->getFill()->setFillType(FillType::Solid);
     $chart->getFloor()->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    # تنظیم رنگ ناحیه نقشه
+
     $chart->getPlotArea()->getFormat()->getFill()->setFillType(FillType::Solid);
-    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setColor(new java("java.awt.Color", PresetColor->LightCyan));
-    # ذخیره ارائه
-    $pres->save("FormattedChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $chart->getPlotArea()->getFormat()->getFill()->getSolidFillColor()->setPresetColor(PresetColor::LightCyan);
+
+    $presentation->save("FormattedChart_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **تنظیم ویژگی‌های قلم برای یک نمودار**
-Aspose.Slides for PHP via Java پشتیبانی از تنظیم ویژگی‌های مرتبط با قلم برای نمودار را فراهم می‌کند. لطفاً برای تنظیم ویژگی‌های قلم برای نمودار مراحل زیر را دنبال کنید.
+## **تنظیم ویژگی‌های قلم برای نمودار**
 
-- شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) را نمونه‌سازی کنید.
-- نمودار را به اسلاید اضافه کنید.
-- ارتفاع قلم را تنظیم کنید.
-- ارائه اصلاح‌شده را ذخیره کنید.
-
-نمونه مثال زیر ارائه شده است.
+اندازه پیش‌فرض قلم برای متن نمودار را از طریق [Chart::getTextFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chart/gettextformat/) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20‑نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار را برای اولین مجموعه از طریق [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) فعال می‌سازد. عناصر متنی که تنظیمات قلم صریح خود را دارند می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 500, 400);
     $chart->getTextFormat()->getPortionFormat()->setFontHeight(20);
     $chart->getChartData()->getSeries()->get_Item(0)->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
-    $pres->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("FontPropertiesForChart.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **تنظیم قالب عددی**
-Aspose.Slides for PHP via Java یک API ساده برای مدیریت قالب داده‌های نمودار ارائه می‌دهد:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) ایجاد کنید.
-1. مرجع اسلاید را بر اساس ایندکس آن دریافت کنید.
-1. یک نمودار با داده‌های پیش‌فرض به همراه هر نوع دلخواه اضافه کنید (در این مثال از **ChartType::ClusteredColumn** استفاده می‌شود).
-1. قالب عددی پیش‌تنظیم‌شده را از مقادیر پیش‌تنظیم موجود انتخاب کنید.
-1. در هر سری نمودار به سلول داده‌های نمودار مراجعه کنید و قالب عددی آن‌ را تنظیم کنید.
-1. ارائه را ذخیره کنید.
-1. قالب عددی سفارشی را تنظیم کنید.
-1. در هر سری نمودار به سلول داده‌ها مراجعه کنید و قالب عددی متفاوتی را برای آن تنظیم کنید.
-1. ارائه را ذخیره کنید.
+از [ChartDataCell::setPresetNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setpresetnumberformat/) برای اعمال یک قالب عددی پیش‌ساخته به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی‌شده توسط سلول ایجاد می‌کند و ایندکس قالب 10 (`0.00%`) را به هر سلول مقدار مجموعه اعمال می‌نماید. این کار نحوه نمایش مقادیر را در کتاب کار بدون تغییر اعداد پایه تغییر می‌دهد؛ برای مثال 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    # دسترسی به اولین اسلاید ارائه
-    $slide = $pres->getSlides()->get_Item(0);
-    # افزودن نمودار ستونی خوشه‌ای پیش‌فرض
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 400);
-    # دسترسی به مجموعه سری‌های نمودار
     $series = $chart->getChartData()->getSeries();
-    # پیمایش در تمام سری‌های نمودار
-    foreach($series as $ser) {
-      # پیمایش در تمام سلول‌های داده‌ای در سری
-      foreach($ser->getDataPoints() as $cell) {
-        # تنظیم قالب عددی
-        $cell->getValue()->getAsCell()->setPresetNumberFormat(10);// 0.00%
-      }
+
+    for ($i = 0; $i < java_values($series->size()); $i++) {
+        $chartSeries = $series->get_Item($i);
+        $dataPoints = $chartSeries->getDataPoints();
+        for ($j = 0; $j < java_values($dataPoints->size()); $j++) {
+            $dataPoint = $dataPoints->get_Item($j);
+            $dataPoint->getValue()->getAsCell()->setPresetNumberFormat(10); // 0.00%
+        }
     }
-    # ذخیره ارائه
-    $pres->save("PresetNumberFormat.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("PresetNumberFormat_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-مقادیر پیش‌تنظیم قالب عددی به همراه شاخص پیش‌تنظیم آنها که می‌توان استفاده کرد در زیر آمده است:
+در جدول زیر ایندکس‌های قالب عددی پیش‌ساخته به همراه قالب‌های نمایشی Excel برای زبان انگلیسی (ایالات متحده) آورده شده است. رشته‌های قالب دقیق و نمایش آنها می‌تواند بر حسب برنامه و محلی متفاوت باشد، به‌ویژه برای ارز و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML تفاوت دارند، همان‌طور که در [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توصیف شده است.
 
-|**0**|عمومی|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Format |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **تنظیم مرزهای گرد ناحیه نمودار**
-Aspose.Slides for PHP via Java پشتیبانی از تنظیم ناحیه نمودار را فراهم می‌کند. متدهای [**hasRoundedCorners**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/hasroundedcorners/) و [**setRoundedCorners**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/setroundedcorners/) به کلاس [Chart](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Chart) اضافه شده‌اند.
+## **گرد کردن مرزهای ناحیه نمودار**
 
-1. شیء کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/Presentation) را نمونه‌سازی کنید.
-1. نمودار را به اسلاید اضافه کنید.
-1. نوع پرکردن و رنگ پرکردن نمودار را تنظیم کنید.
-1. خصوصیت لبه‌های گرد را بر روی True تنظیم کنید.
-1. ارائه اصلاح‌شده را ذخیره کنید.
-
-نمونه مثال زیر ارائه شده است.
+با فراخوانی [Chart::setRoundedCorners](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setroundedcorners/) با مقدار `true` گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getlineformat/) برای دادن رنگ خاکستری ثابت و سبک خط تک به خطوط بیرونی آن استفاده می‌کند قبل از ذخیره ارائه.
 
 ```php
-  # یک نمونه از کلاس Presentation ایجاد کنید
-  $pres = new Presentation();
-  try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\ChartType;
+use aspose\slides\FillType;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 100, 600, 400);
     $chart->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $chart->getLineFormat()->setStyle(LineStyle->Single);
+    $chart->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $chart->getLineFormat()->setStyle(LineStyle::Single);
     $chart->setRoundedCorners(true);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+## **ویرایش حاشیه‌نویسی‌های موجود در نمودار**
+
+یک نمودار می‌تواند شامل اشکال سفارشی باشد، مانند یک حاشیه‌نویسی متنی که وضعیت یک گزارش را توضیح می‌دهد. این اشکال از طریق [Chart::getUserShapes](https://reference.aspose.com/slides/php-java/aspose.slides/chart/getusershapes/) در دسترس هستند. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) برگردانده می‌شود شامل اشکال متعلق به نمودار است.
+
+یک کادر متن عادی که بر روی نمودار قرار می‌گیرد متعلق به اسلاید است، حتی اگر شبیه بخشی از نمودار به نظر برسد. با پیمایش [Slide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/slide/) می‌توان نمودار و اشکال عادی اسلاید را یافت، اما اشکال فردی داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با یک حاشیه‌نویسی جداشده که متن «Preliminary results» دارد، یک خط متعلق به نمودار و یک کادر متن اسلایدی معمولی با متن «Slide overlay» است. مثال اولین نمودار در آن اسلاید را پیدا می‌کند و حاشیه‌نویسی را به «Final results» تغییر می‌دهد وقتی گزارش آماده انتشار باشد. این مثال بررسی می‌کند که آیا مجموعه خالی است و فقط یک [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) با فریم متنی غیر تهی که توسط [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) برگردانده می‌شود و متن مورد انتظار دارد، ویرایش می‌کند.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("chart-annotations.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chartType = new JavaClass("com.aspose.slides.IChart");
+    $autoShapeType = new JavaClass("com.aspose.slides.IAutoShape");
+    $chart = null;
+    for ($i = 0; $i < java_values($slide->getShapes()->size()); $i++) {
+        $shape = $slide->getShapes()->get_Item($i);
+        if (java_instanceof($shape, $chartType)) {
+            $chart = $shape;
+            break;
+        }
+    }
+
+    if ($chart === null || java_values($chart->getUserShapes()->getShapes()->size()) == 0) {
+        echo "No chart or chart-owned shapes found." . PHP_EOL;
+        return;
+    }
+
+    $updated = false;
+    $userShapes = $chart->getUserShapes()->getShapes();
+    for ($i = 0; $i < java_values($userShapes->size()); $i++) {
+        $shape = $userShapes->get_Item($i);
+        if (java_instanceof($shape, $autoShapeType)) {
+            $annotation = $shape;
+            if (!java_is_null($annotation->getTextFrame()) && java_values($annotation->getTextFrame()->getText()) === "Preliminary results") {
+                $annotation->getTextFrame()->setText("Final results");
+                $updated = true;
+                break;
+            }
+        }
+    }
+
+    if ($updated) {
+        $presentation->save("chart-annotations-updated.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No matching text annotation found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+خط و کادر متن اسلاید همان‌طور که هستند باقی می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده، بازگشایی‌شده را نشان می‌دهند:
+
+| قبل از ویرایش | بعد از ویرایش |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/) باشد، مجموعه [getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/groupshape/getshapes/) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو انجام دهید و همان بررسی‌های متنی را برای اشکال فرزند اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان کادر متن درنظر نگیرید.
+{{% /alert %}}
 
 ## **سؤالات متداول**
 
-**آیا می‌توانم پرکردن نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه مات باقی بماند؟**
+**آیا می‌توان پر کردن‌های نیمه شفاف برای ستون‌ها/ناحیه‌ها تنظیم کرد در حالی که حاشیه به‌صورت مات باقی می‌ماند؟**
 
-بله. شفافیت پرکردن و خطوط حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در تجسم‌های پرتراکم مفید است.
+بله. شفافیت پر کردن و خطوط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در بصری‌سازی‌های فشرده مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده‌ای که هم‌پوشانی دارند برخورد کنم؟**
+**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند مقابله کنم؟**
 
-اندازه قلم را کاهش دهید، اجزای غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت/جای‌گذاری برچسب را تنظیم کنید، در صورت نیاز فقط برای نقاط منتخب برچسب نمایش دهید، یا قالب را به «مقدار + لگند» تغییر دهید.
+اندازه قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (مانند دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت لزوم فقط برچسب‌های نقاط انتخابی را نمایش دهید، یا قالب را به «value + legend» تغییر دهید.
 
-**آیا می‌توانم پرکردن گرادیان یا الگو را به سری‌ها اعمال کنم؟**
+**آیا می‌توان پر کردن گرادیان یا الگو را به مجموعه‌ها اعمال کرد؟**
 
-بله. معمولاً پرکردن‌های ثابت و گرادیان/الگو در دسترس هستند. در عمل، استفاده از گرادیان‌ها را به‌کار ببرید و ترکیب‌هایی که کنتراست را با شبکه و متن کاهش می‌دهند، خودداری کنید.
+بله. مجموعه‌ها از پر کردن‌های ثابت، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصد استفاده کنید و ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، خودداری کنید.

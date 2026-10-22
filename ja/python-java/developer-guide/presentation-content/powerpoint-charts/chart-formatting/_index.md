@@ -1,63 +1,35 @@
 ---
-title: Python でプレゼンテーションのチャートをフォーマット
-linktitle: チャートの書式設定
+title: Python でプレゼンテーション チャートの書式設定
+linktitle: チャート書式設定
 type: docs
 weight: 60
 url: /ja/python-java/chart-formatting/
 keywords:
 - チャートの書式設定
-- チャートフォーマット
-- チャートエンティティ
-- チャートプロパティ
+- チャート書式設定
+- チャート エンティティ
+- チャート プロパティ
 - チャート設定
 - チャートオプション
-- フォントプロパティ
-- 角丸ボーダー
+- フォント プロパティ
+- 丸みのある枠線
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java でチャートの書式設定を学び、プロフェッショナルで目を引くスタイリングで PowerPoint プレゼンテーションを向上させましょう。"
+description: "Java 経由で Python 用 Aspose.Slides のチャート書式設定を学び、カスタム軸、フォント、数値書式、丸みを帯びたチャート枠線で PowerPoint プレゼンテーションを強化しましょう。"
 ---
 ## **概要**
 
-この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーションのチャートを書式設定する方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズして、チャートデータの外観と可読性を向上させる方法を示します。
+この記事では、Aspose.Slides を使用して PowerPoint プレゼンテーション内のチャートをフォーマットする方法を説明します。軸、グリッド線、タイトル、凡例、プロット領域、壁の塗りつぶしなどの主要なチャート要素をカスタマイズし、チャート データの外観と可読性を向上させる方法を示します。
 
-また、チャートテキストのフォントプロパティの設定、チャートデータへのプリセットおよびカスタム数値形式の適用、チャート領域の角を丸める有効化方法も示します。これらの例を通じて、プレゼンテーション内のチャートのビジュアルスタイルとデータ表示の両方を制御する方法が分かります。
+また、チャート テキストのフォント プロパティの設定、チャート データへの事前定義数値形式の適用、およびチャート領域の角を丸める方法も実演します。これらの例を組み合わせることで、プレゼンテーション内のチャートのビジュアル スタイルとデータの提示方法の両方を制御できることが示されています。
 
-## **チャートエンティティの書式設定**
-Aspose.Slides for Python via Java を使用すると、開発者はスライドにカスタムチャートをゼロから追加できます。この記事では、カテゴリ軸と値軸を含むさまざまなチャートエンティティの書式設定方法を説明します。
+## **チャート エンティティの書式設定**
 
-Aspose.Slides for Python via Java は、さまざまなチャートエンティティを管理し、カスタム値を使用して書式設定するためのシンプルな API を提供します：
+[チャート](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) を使用してチャートのタイトル、軸、グリッド線、凡例、プロット領域をフォーマットします。この例はマーカー付きの折れ線グラフをデフォルト データで作成し、値軸とカテゴリ軸に個別のテキストと線のスタイルを適用します。フォント サイズと線幅はポイントで指定され、カテゴリ ラベルは 45 度回転します。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドにアクセスします。
-1. デフォルトデータで目的のタイプのチャートを追加します（この例では [ChartType.LineWithMarkers](https://reference.aspose.com/slides/ja/python-java/aspose.slides/charttype/#LineWithMarkers) を使用）。
-1. チャートの値軸にアクセスし、以下のプロパティを設定します：
-   1. **Line format** を値軸の主グリッド線に設定します。
-   1. **Line format** を値軸の副グリッド線に設定します。
-   1. **Number Format** を値軸に設定します。
-   1. **minimum, maximum, major, and minor units** を値軸に設定します。
-   1. **Text Properties** を値軸データに設定します。
-   1. **Title** を値軸に設定します。
-1. チャートのカテゴリ軸にアクセスし、以下のプロパティを設定します：
-   1. **Line format** をカテゴリ軸の主グリッド線に設定します。
-   1. **Line format** をカテゴリ軸の副グリッド線に設定します。
-   1. **Text Properties** をカテゴリ軸データに設定します。
-   1. **Title** をカテゴリ軸に設定します。
-   1. **Label Positioning** をカテゴリ軸に設定します。
-   1. **Rotation Angle** をカテゴリ軸ラベルに設定します。
-1. チャートの凡例にアクセスし、**text properties** を設定します。
-1. チャートと重ならないように凡例を表示します。
-1. チャートの **secondary value axis** にアクセスし、以下のプロパティを設定します：
-   1. **value axis** の二次軸を有効にします。
-   1. **Line Format** を二次値軸に設定します。
-   1. **Number Format** を二次値軸に設定します。
-   1. **minimum, maximum, major, and minor units** を二次値軸に設定します。
-1. 二次値軸上に最初のチャートシリーズをプロットします。
-1. チャートの背面壁の塗りつぶし色を設定します。
-1. チャートのプロット領域の塗りつぶし色を設定します。
-1. 変更したプレゼンテーションを PPTX ファイルに書き込みます。
+値軸はソース セルとは独立して [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) を使用します。そのスケールは -2 から 15 までで、主間隔が 2、副間隔が 0.5 です。この例ではパーセンテージ書式と [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) を「千」に設定した組み合わせも示しています。データの意味と規模に合わせて設定を調整してください。凡例は [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) が `False` で呼び出されるため、プロット領域の外側に配置されます。背面壁と床の塗りつぶしは [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) と [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) で構成されますが、これらのサーフェスは 3D チャートでのみ表示されます。
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# Presentation クラスのインスタンスを作成します
 presentation = Presentation()
 try:
-    # 最初のスライドにアクセスします
     slide = presentation.getSlides().get_Item(0)
 
-    # サンプルチャートを追加します
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # チャートのタイトルを設定します
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # 値軸の主グリッド線の書式を設定します
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # 値軸の副グリッド線の書式を設定します
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # 値軸の数値形式を設定します
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # チャートの最大値・最小値を設定します
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # 値軸のテキストプロパティを設定します
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # 値軸のタイトルを設定します
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # カテゴリ軸の主グリッド線の書式を設定します
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # カテゴリ軸の副グリッド線の書式を設定します
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # カテゴリ軸のテキストプロパティを設定します
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # カテゴリのタイトルを設定します
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # カテゴリ軸のラベル位置を設定します
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # カテゴリ軸のラベル回転角度を設定します
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # 凡例のテキストプロパティを設定します
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # チャートと重ならないように凡例を表示します
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # 二次値軸を設定します
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # 二次値軸の数値形式を設定します
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # チャートの最大値・最小値を設定します
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # チャートの背面壁の色を設定します
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # プロット領域の色を設定します
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # プレゼンテーションを保存します
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **チャートのフォントプロパティの設定**
-Aspose.Slides for Python via Java は、チャートのフォントプロパティの設定をサポートします。以下の手順に従ってフォントプロパティを設定してください：
+## **チャートのフォント プロパティを設定する**
 
-- [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-- スライドにチャートを追加します。
-- フォントの高さを設定します。
-- 変更したプレゼンテーションを保存します。
-
-以下の例はこれらの手順を示しています。
+[Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) を使用してチャート テキストのデフォルト フォント サイズを設定します。この例は 20 ポイント フォントのクラスター化縦棒グラフを作成し、[setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) によって最初の系列の値ラベルを有効にします。独自の明示的なフォント設定を持つテキスト要素は、チャートのデフォルトを上書きできます。
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Presentation クラスのインスタンスを作成します
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -260,15 +183,9 @@ finally:
     presentation.dispose()
 ```
 
-## **数値形式の設定**
-Aspose.Slides for Python via Java は、チャートデータ形式の管理のためのシンプルな API を提供します：
+## **数値形式を設定する**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. インデックスでスライドにアクセスします。
-1. デフォルトデータで目的のタイプのチャートを追加します（この例では [ChartType.ClusteredColumn](https://reference.aspose.com/slides/ja/python-java/aspose.slides/charttype/#ClusteredColumn) を使用）。
-1. 利用可能なプリセット値から数値形式を設定します。
-1. すべてのチャートシリーズのデータセルを繰り返し処理し、数値形式を設定します。
-1. プレゼンテーションを保存します。
+[ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) を使用して、チャート ワークブックセルに組み込み数値形式を適用します。この例はデフォルトのセルベース データを持つクラスター化縦棒グラフを作成し、各系列の値セルに書式インデックス 10 (`0.00%`) を適用します。これにより、基になる数値は変更せずにワークブック内の表示が変わります。たとえば、0.25 は 25.00% と表示されます。軸とデータ ラベルの書式は別々に構成できます。
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Presentation クラスのインスタンスを作成します
 presentation = Presentation()
 try:
-    # 最初のプレゼンテーション スライドにアクセスします
     slide = presentation.getSlides().get_Item(0)
 
-    # デフォルトのクラスタ化列チャートを追加します
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # チャートのシリーズコレクションにアクセスします
     chart_series_collection = chart.getChartData().getSeries()
 
-    # すべてのチャートシリーズを反復処理します
     for chart_series in chart_series_collection:
-        # シリーズ内のすべてのデータポイントを反復処理します
         for data_point in chart_series.getDataPoints():
-            # 数値形式を設定します
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # プレゼンテーションを保存します
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-利用可能なプリセット数値形式とそのインデックスは以下の通りです：
+以下の表は、英語（米国）ロケール向けの代表的な Excel 書式とともに組み込み数値形式インデックスを一覧にしたものです。正確な書式文字列とその表示は、アプリケーションやロケールにより異なる場合があります。特に通貨や日付の書式は、[Microsoft の数値形式実装ノート](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) に記載されているように、OOXML 標準のデフォルトとは異なることがあります。
 
-|**0**|標準|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| インデックス | 書式 |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **チャート領域の角丸ボーダーの設定**
-Aspose.Slides for Python via Java は、[Chart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/) クラスの [hasRoundedCorners](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/#hasRoundedCorners) と [setRoundedCorners](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/#setRoundedCorners) メソッドを使用して、チャート領域の角丸をサポートします。
+## **チャート領域の角を丸める**
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-1. スライドにチャートを追加します。
-1. チャートの枠線の塗りつぶしタイプとスタイルを設定します。
-1. 角丸を有効にします。
-1. 変更したプレゼンテーションを保存します。
-
-以下の例はこれらの手順を示しています。
+`True` を指定して [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) を呼び出すと、チャート領域の角が丸くなります。この例はクラスター化縦棒グラフを作成し、[getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) を使用して輪郭に単色のグレイと単線スタイルを設定した後、プレゼンテーションを保存します。
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Presentation クラスのインスタンスを作成します
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **よくある質問**
+## **既存のチャート注釈を編集する**
 
-**列や領域の塗りつぶしを半透明にしつつ、枠線は不透明のままにできますか？**
+チャートには、レポートのステータスを説明するテキスト注釈などのカスタム シェイプを含めることができます。これらのシェイプは [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) を介して取得します。[getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) が返すコレクションには、チャートが所有するシェイプが含まれます。
 
-はい。塗りつぶしの透明度とアウトラインは別々に設定できます。これは、密集した可視化においてグリッドとデータの可読性を向上させるのに役立ちます。
+チャート上に配置された通常のテキスト ボックスはスライドに属し、チャートの一部に見えてもスライドのシェイプです。[Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) を反復処理するとチャートと通常のスライド シェイプが見つかりますが、チャート内部の個々のシェイプは列挙されません。チャートのタイトルやデータ ラベルは別個のチャート要素であり、このコレクション内のカスタム 注釈ではありません。
 
-**ラベルが重なった場合、どう対処すればよいですか？**
+[chart-annotations.pptx](chart-annotations.pptx) をダウンロードし、アプリケーションの作業ディレクトリに配置します。最初のスライドには、"Preliminary results" というテキスト 注釈、チャート所有のライン、"Slide overlay" というテキスト ボックスが含まれています。例ではそのスライド上の最初のチャートを取得し、レポートが公開準備できたときに注釈を "Final results" に変更します。コレクションが空でないことを確認し、[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) の [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) が `None` でなく、期待するテキストを持つ場合にのみ編集します。
 
-フォントサイズを小さくする、不要なラベル要素（例：カテゴリ）を非表示にする、ラベルのオフセット/位置を調整する、必要に応じて選択されたポイントのみラベルを表示する、または形式を「値＋凡例」に切り替えるなどの方法があります。
+```python
+import jpype
+import asposeslides
 
-**シリーズにグラデーションやパターン塗りつぶしを適用できますか？**
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-はい。単色塗りつぶしに加えて、グラデーションやパターン塗りつぶしも通常利用可能です。実務ではグラデーションは控えめに使用し、グリッドやテキストとのコントラストが低下しないよう組み合わせを避けてください。
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+ラインとスライドのテキスト ボックスは変更されません。以下の画像は入力と保存後に再度開いた結果を示しています。
+
+| 編集前 | 編集後 |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+例ではトップレベルのチャート所有シェイプのみを調べます。注釈が [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) の内部にある場合は、そのグループの [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) コレクションも調べます。入れ子になったグループに対して同様に再帰的に実行し、子シェイプに対して同じテキストチェックを適用します。グループ自体はコンテナであり、テキスト ボックスとして扱わないでください。
+{{% /alert %}}
+
+## **FAQ**
+
+**列やエリアの塗りつぶしを半透明にし、枠線は不透明のままにできますか？**
+
+はい。塗りつぶしの透明度と輪郭は個別に設定できます。これにより、グリッドやデータが密集した可視化でも可読性が向上します。
+
+**ラベルが重なったときはどう対処すればよいですか？**
+
+フォント サイズを小さくする、重要でないラベル要素（例: カテゴリ）を非表示にする、ラベル位置を調整する、必要に応じて選択したポイントのみラベルを表示する、または書式を「値 + 凡例」に切り替えるなどの方法があります。
+
+**系列にグラデーションやパターンの塗りつぶしを適用できますか？**
+
+はい。系列は単色、グラデーション、パターン塗りつぶしをサポートします。実務ではグラデーションの使用は控えめにし、グリッドやテキストとのコントラストを低下させる組み合わせは避けてください。

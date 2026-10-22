@@ -5,345 +5,336 @@ type: docs
 weight: 60
 url: /th/nodejs-java/chart-formatting/
 keywords:
-- จัดรูปแบบแผนภูมิ
+- รูปแบบแผนภูมิ
 - การจัดรูปแบบแผนภูมิ
-- เอนทิตีแผนภูมิ
-- คุณสมบัติแผนภูมิ
+- ส่วนประกอบแผนภูมิ
+- คุณสมบัติของแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
-- คุณสมบัติตัวอักษร
-- ขอบโค้งมน
+- คุณสมบัติฟอนต์
+- ขอบโค้ง
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Node.js ด้วย JavaScript และยกระดับงานนำเสนอ PowerPoint ของคุณด้วยสไตล์ระดับมืออาชีพที่ดึงดูดสายตา"
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Node.js ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่โค้งมน."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides โดยแสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิเช่น แกน, เส้นตาราง, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต, และการเติมสีผนัง เพื่อปรับปรุงลักษณะและความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint ด้วย Aspose.Slides โดยแสดงให้เห็นการปรับแต่งส่วนสำคัญของแผนภูมิ เช่น แกน เส้นกริด ชื่อเรื่อง คำอธิบาย (legend) พื้นที่แผนภูมิ และการเติมสีผนัง เพื่อปรับปรุงลักษณะและความอ่านเข้าใจของข้อมูลในแผนภูมิ
 
-นอกจากนี้ยังสาธิตวิธีการตั้งค่าคุณสมบัติตัวอักษรสำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าและกำหนดเองกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมโค้งมนสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงให้เห็นวิธีควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+บทความยังสาธิตวิธีตั้งค่าคุณสมบัติฟอนต์สำหรับข้อความในแผนภูมิ การใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าสำหรับข้อมูลแผนภูมิ และการเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้แสดงวิธีควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบเอนทิตีของแผนภูมิ**
+## **จัดรูปแบบส่วนประกอบของแผนภูมิ**
 
-Aspose.Slides for Node.js via Java ช่วยให้นักพัฒนาสร้างแผนภูมิตามต้องการตั้งแต่ต้น บทความนี้อธิบายวิธีการจัดรูปแบบเอนทิตีต่าง ๆ ของแผนภูมิรวมถึงแกนประเภทและค่า
+ใช้ [แผนภูมิ](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่แผนภูมิ ตัวอย่างนี้สร้างแผนภูมิเส้นพร้อมเครื่องหมายและข้อมูลค่าเริ่มต้น แล้วจึงใช้สไตล์ข้อความและเส้นที่แยกต่างหากสำหรับแกนค่าและแกนประเภท ขนาดฟอนต์และความกว้างของเส้นระบุเป็นจุด; ป้ายชื่อประเภทจะหมุน 45 องศา
 
-Aspose.Slides for Node.js via Java มี API ที่ง่ายต่อการจัดการเอนทิตีของแผนภูมิและจัดรูปแบบด้วยค่าที่กำหนดเอง:
-
-1. สร้างอินสแตนส์ของคลาส [**Presentation**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) 
-1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่มแผนภูมิด้วยข้อมูลค่าเริ่มต้นพร้อมกับประเภทที่ต้องการ (ในตัวอย่างนี้จะใช้ ChartType.LineWithMarkers)
-1. เข้าถึง Value Axis ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. ตั้งค่า **Line format** สำหรับ Value Axis Major Grid lines
-   1. ตั้งค่า **Line format** สำหรับ Value Axis Minor Grid lines
-   1. ตั้งค่า **Number Format** สำหรับ Value Axis
-   1. ตั้งค่า **Min, Max, Major and Minor units** สำหรับ Value Axis
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูล Value Axis
-   1. ตั้งค่า **Title** สำหรับ Value Axis
-   1. ตั้งค่า **Line Format** สำหรับ Value Axis
-1. เข้าถึง Category Axis ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. ตั้งค่า **Line format** สำหรับ Category Axis Major Grid lines
-   1. ตั้งค่า **Line format** สำหรับ Category Axis Minor Grid lines
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูล Category Axis
-   1. ตั้งค่า **Title** สำหรับ Category Axis
-   1. ตั้งค่า **Label Positioning** สำหรับ Category Axis
-   1. ตั้งค่า **Rotation Angle** สำหรับป้ายกำกับ Category Axis
-1. เข้าถึง Legend ของแผนภูมิและตั้งค่า **Text Properties** สำหรับพวกมัน
-1. ตั้งค่าให้แสดง Legend ของแผนภูมิโดยไม่ทับซ้อนกับแผนภูมิ
-1. เข้าถึง **Secondary Value Axis** ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:
-   1. เปิดใช้งาน Secondary **Value Axis**
-   1. ตั้งค่า **Line Format** สำหรับ Secondary Value Axis
-   1. ตั้งค่า **Number Format** สำหรับ Secondary Value Axis
-   1. ตั้งค่า **Min, Max, Major and Minor units** สำหรับ Secondary Value Axis
-1. ตอนนี้พล็อตซีรีส์แรกของแผนภูมิบน Secondary Value Axis
-1. ตั้งค่าสีเติมผนังด้านหลังของแผนภูมิ
-1. ตั้งค่าสีเติมพื้นที่พล็อตของแผนภูมิ
-1. เขียนงานนำเสนอที่แก้ไขแล้วลงไฟล์ PPTX
+แกนค่าใช้ [setNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setNumberFormat) อย่างอิสระจากเซลล์ต้นทาง ช่วงค่าของแกนเริ่มจาก -2 ถึง 15, มีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างยังรวมการจัดรูปแบบเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/#setDisplayUnit) ที่ตั้งค่าเป็นพัน ดังนั้นให้ปรับตั้งค่าเหล่านี้ให้สอดคล้องกับความหมายและระดับของข้อมูล คำอธิบายอยู่ด้านนอกพื้นที่แผนภูมิเนื่องจากเรียกใช้ [setOverlay](https://reference.aspose.com/slides/nodejs-java/aspose.slides/legend/#setOverlay) ด้วย `false` การเติมสีผนังหลังและพื้นดูกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เข้าถึงสไลด์แรก
-    var slide = pres.getSlides().get_Item(0);
-    // เพิ่มแผนภูมิตัวอย่าง
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
-    // ตั้งค่าชื่อเรื่องของแผนภูมิ
-    chart.hasTitle();
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.LineWithMarkers, 50, 50, 500, 400);
+
+    chart.setTitle(true);
     chart.getChartTitle().addTextFrameForOverriding("");
-    var chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    let chartTitle = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
     chartTitle.setText("Sample Chart");
     chartTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chartTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
     chartTitle.getPortionFormat().setFontHeight(20);
-    chartTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    chartTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนค่า
+    chartTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    chartTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(aspose.slides.LineDashStyle.DashDot);
-    // ตั้งค่ารูปแบบเส้นกริดรองสำหรับแกนค่า
+    chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(java.newByte(aspose.slides.LineDashStyle.DashDot));
+
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // ตั้งค่ารูปแบบตัวเลขของแกนค่า
-    chart.getAxes().getVerticalAxis().isNumberFormatLinkedToSource();
+
+    chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(false);
     chart.getAxes().getVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Thousands);
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%");
-    // ตั้งค่าค่าสูงสุดและค่าต่ำสุดของแผนภูมิ
-    chart.getAxes().getVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getVerticalAxis().setMaxValue(15.0);
-    chart.getAxes().getVerticalAxis().setMinValue(-2.0);
+
+    chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMaxValue(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(false);
+    chart.getAxes().getVerticalAxis().setAutomaticMinValue(false);
+
+    chart.getAxes().getVerticalAxis().setMaxValue(15);
+    chart.getAxes().getVerticalAxis().setMinValue(-2);
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5);
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0);
-    // ตั้งค่าคุณลักษณะข้อความของแกนค่า
-    var txtVal = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
-    txtVal.setFontBold(aspose.slides.NullableBool.True);
-    txtVal.setFontHeight(16);
-    txtVal.setFontItalic(aspose.slides.NullableBool.True);
-    txtVal.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtVal.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkGreen));
-    txtVal.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    // ตั้งค่าชื่อเรื่องของแกนค่า
-    chart.getAxes().getVerticalAxis().hasTitle();
+
+    let valueAxisText = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat();
+    valueAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.setFontHeight(16);
+    valueAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkGreen));
+    valueAxisText.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+
+    chart.getAxes().getVerticalAxis().setTitle(true);
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("");
-    var valtitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    valtitle.setText("Primary Axis");
-    valtitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    valtitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    valtitle.getPortionFormat().setFontHeight(20);
-    valtitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    valtitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนหมวดหมู่
+    let valueAxisTitle = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    valueAxisTitle.setText("Primary Axis");
+    valueAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    valueAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    valueAxisTitle.getPortionFormat().setFontHeight(20);
+    valueAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    valueAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5);
-    // ตั้งค่ารูปแบบเส้นกริดรองสำหรับแกนหมวดหมู่
+
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3);
-    // ตั้งค่าคุณลักษณะข้อความของแกนหมวดหมู่
-    var txtCat = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
-    txtCat.setFontBold(aspose.slides.NullableBool.True);
-    txtCat.setFontHeight(16);
-    txtCat.setFontItalic(aspose.slides.NullableBool.True);
-    txtCat.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtCat.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    txtCat.setLatinFont(new aspose.slides.FontData("Arial"));
-    // ตั้งค่าชื่อเรื่องของแกนหมวดหมู่
-    chart.getAxes().getHorizontalAxis().hasTitle();
+
+    let categoryAxisText = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat();
+    categoryAxisText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.setFontHeight(16);
+    categoryAxisText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisText.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    categoryAxisText.setLatinFont(new aspose.slides.FontData("Arial"));
+
+    chart.getAxes().getHorizontalAxis().setTitle(true);
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("");
-    var catTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
-    catTitle.setText("Sample Category");
-    catTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    catTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
-    catTitle.getPortionFormat().setFontHeight(20);
-    catTitle.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
-    catTitle.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
-    // ตั้งค่าตำแหน่งป้ายกำกับของแกนหมวดหมู่
+
+    let categoryAxisTitle = chart.getAxes().getHorizontalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    categoryAxisTitle.setText("Sample Category");
+    categoryAxisTitle.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    categoryAxisTitle.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    categoryAxisTitle.getPortionFormat().setFontHeight(20);
+    categoryAxisTitle.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    categoryAxisTitle.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(aspose.slides.TickLabelPositionType.Low);
-    // ตั้งค่ามุมการหมุนของป้ายกำกับแกนหมวดหมู่
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45);
-    // ตั้งค่าคุณลักษณะข้อความของคำอธิบาย
-    var txtleg = chart.getLegend().getTextFormat().getPortionFormat();
-    txtleg.setFontBold(aspose.slides.NullableBool.True);
-    txtleg.setFontHeight(16);
-    txtleg.setFontItalic(aspose.slides.NullableBool.True);
-    txtleg.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    txtleg.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.DarkRed));
-    // ตั้งค่าการแสดงคำอธิบายแผนภูมิโดยไม่ทับซ้อนกับแผนภูมิ
-    chart.getLegend().setOverlay(true);
-    // chart.ChartData.Series[0].PlotOnSecondAxis=true;
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(true);
-    // ตั้งค่าแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().isVisible();
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(aspose.slides.LineStyle.ThickBetweenThin);
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20);
-    // ตั้งค่ารูปแบบตัวเลขของแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().isNumberFormatLinkedToSource();
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(aspose.slides.DisplayUnitType.Hundreds);
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%");
-    // ตั้งค่าค่าสูงสุดและค่าต่ำสุดของแผนภูมิ
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMajorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMaxValue();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinorUnit();
-    chart.getAxes().getSecondaryVerticalAxis().isAutomaticMinValue();
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5.0);
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5);
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0);
-    // ตั้งค่าสีผนังด้านหลังของแผนภูมิ
+
+    let legendText = chart.getLegend().getTextFormat().getPortionFormat();
+    legendText.setFontBold(java.newByte(aspose.slides.NullableBool.True));
+    legendText.setFontHeight(16);
+    legendText.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
+    legendText.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    legendText.getFillFormat().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.DarkRed));
+
+    chart.getLegend().setOverlay(false);
+
     chart.getBackWall().setThickness(1);
     chart.getBackWall().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
     chart.getFloor().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    // ตั้งค่าสีพื้นที่พล็อต
+
     chart.getPlotArea().getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", aspose.slides.PresetColor.LightCyan));
-    // บันทึกงานนำเสนอ
-    pres.save("FormattedChart.pptx", aspose.slides.SaveFormat.Pptx);
+    chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(java.newByte(aspose.slides.PresetColor.LightCyan));
+
+    presentation.save("FormattedChart_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ**
+## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-Aspose.Slides for Node.js via Java รองรับการตั้งค่าคุณสมบัติตัวอักษรสำหรับแผนภูมิ โปรดทำตามขั้นตอนด้านล่างเพื่อกำหนดค่าตัวอักษรสำหรับแผนภูมิ
-
-- สร้างอ็อบเจกต์คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) 
-- เพิ่มแผนภูมิกับสไลด์
-- ตั้งค่าความสูงของฟอนต์
-- บันทึกงานนำเสนอที่แก้ไขแล้ว
-
-ตัวอย่างโค้ดต่อไปนี้เป็นตัวอย่างที่ให้ไว้
+ตั้งค่าขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getTextFormat) ตัวอย่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มพร้อมฟอนต์ขนาด 20 จุดและเปิดใช้งานป้ายค่าสำหรับชุดข้อมูลแรกผ่าน [setShowValue](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabelformat/#setShowValue) องค์ประกอบข้อความที่มีการกำหนดฟอนต์เฉพาะของตนสามารถทับค่าตั้งต้นของแผนภูมิได้
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 500, 400);
     chart.getTextFormat().getPortionFormat().setFontHeight(20);
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(true);
-    pres.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("FontPropertiesForChart.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **ตั้งค่ารูปแบบตัวเลข**
 
-Aspose.Slides for Node.js via Java มี API ที่ง่ายต่อการจัดการรูปแบบข้อมูลของแผนภูมิ:
-
-1. สร้างอินสแตนส์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-1. ดึงอ้างอิงสไลด์โดยใช้ดัชนีของมัน
-1. เพิ่มแผนภูมด้วยข้อมูลค่าเริ่มต้นพร้อมกับประเภทที่ต้องการ (ตัวอย่างนี้ใช้ **ChartType.ClusteredColumn**)
-1. ตั้งค่ารูปแบบตัวเลขจากค่าที่กำหนดไว้ล่วงหน้าที่เป็นไปได้
-1. วนผ่านเซลล์ข้อมูลของแผนภูมิในแต่ละซีรีส์และตั้งค่ารูปแบบตัวเลขของข้อมูลแผนภูมิ
-1. บันทึกงานนำเสนอ
-1. ตั้งค่ารูปแบบตัวเลขที่กำหนดเอง
-1. วนผ่านเซลล์ข้อมูลของแผนภูมิในแต่ละซีรีส์และตั้งค่ารูปแบบตัวเลขของข้อมูลแผนภูมิที่แตกต่างกัน
-1. บันทึกงานนำเสนอ
+ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่มีอยู่ในตัวสำหรับเซลล์ในสมุดงานของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบจัดกลุ่มด้วยข้อมูลค่าเริ่มต้นที่อิงเซลล์ และใช้รูปแบบดัชนี 10 (`0.00%`) กับเซลล์ค่าของแต่ละชุดข้อมูล สิ่งนี้เปลี่ยนวิธีการแสดงค่าที่สมุดงานโดยไม่เปลี่ยนตัวเลขจริง; ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    // เข้าถึงสไลด์แรกของงานนำเสนอ
-    var slide = pres.getSlides().get_Item(0);
-    // เพิ่มแผนภูมิคอลัมน์แบบกลุ่มเริ่มต้น
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
-    // เข้าถึงคอลเลกชันของซีรีส์แผนภูมิ
-    var series = chart.getChartData().getSeries();
-    // วนผ่านทุกซีรีส์ของแผนภูมิ
-    for (var i = 0; i < series.size(); i++) {
-        var ser = series.get_Item(i);
-        // วนผ่านทุกเซลล์ข้อมูลในซีรีส์
-        for (var j = 0; j < ser.getDataPoints().size(); j++) {
-            var cell = ser.getDataPoints().get_Item(j);
-            // ตั้งค่ารูปแบบตัวเลข
-            cell.getValue().getAsCell().setPresetNumberFormat(java.newByte(10));// 0.00%
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 400);
+    let series = chart.getChartData().getSeries();
+
+    for (let i = 0; i < series.size(); i++) {
+        let chartSeries = series.get_Item(i);
+        for (let j = 0; j < chartSeries.getDataPoints().size(); j++) {
+            let dataPoint = chartSeries.getDataPoints().get_Item(j);
+            dataPoint.getValue().getAsCell().setPresetNumberFormat(java.newByte(10)); // 0.00%
         }
     }
-    // บันทึกงานนำเสนอ
-    pres.save("PresetNumberFormat.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("PresetNumberFormat_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-ค่ารูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าที่เป็นไปได้พร้อมกับดัชนีของแต่ละรูปแบบมีดังต่อไปนี้:
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีอยู่ในตัวพร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษาอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภาษาโดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบของ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| ดัชนี | รูปแบบ |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **ตั้งค่าขอบโค้งมนของพื้นที่แผนภูมิ**
+## **ตั้งค่าขอบโค้งของพื้นที่แผนภูมิ**
 
-Aspose.Slides for Node.js via Java รองรับการตั้งค่าพื้นที่แผนภูมิ วิธีการ [**hasRoundedCorners**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Chart#hasRoundedCorners--) และ [**setRoundedCorners**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Chart#setRoundedCorners-boolean-) ได้ถูกเพิ่มเข้าไปในคลาส [Chart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Chart) 
-
-1. สร้างอ็อบเจกต์คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) 
-1. เพิ่มแผนภูมิกับสไลด์
-1. ตั้งค่าประเภทการเติมและสีการเติมของแผนภูมิ
-1. ตั้งค่าคุณสมบัติ round corner เป็น True
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
-
-ตัวอย่างโค้ดต่อไปนี้เป็นตัวอย่างที่ให้ไว้
+เรียกใช้ [Chart.setRoundedCorners](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#setRoundedCorners) ด้วยค่า `true` เพื่อทำมุมของพื้นที่แผนภูมิให้โค้ง ตัวอย่างสร้างแผนภูมิคอลัมน์แบบจัดกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) เพื่อให้โครงร่างของแผนภูมิมีสีเทาเข้มแบบทึบและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
 try {
-    var slide = pres.getSlides().get_Item(0);
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 100, 600, 400);
     chart.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    chart.getLineFormat().setStyle(aspose.slides.LineStyle.Single);
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    chart.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.Single));
     chart.setRoundedCorners(true);
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-**ฉันสามารถตั้งค่าการเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยให้ขอบคงที่เป็นทึบได้หรือไม่?**
+แผนภูมิสามารถประกอบด้วยรูปร่างที่กำหนดเอง เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getUserShapes) คอลเลกชันที่คืนค่ามาจาก [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) จะมีรูปร่างที่เป็นของแผนภูมิ
 
-ได้ การตั้งค่าความโปร่งใสของการเติมและเส้นขอบทำแยกจากกัน ซึ่งเป็นประโยชน์สำหรับการปรับปรุงความอ่านง่ายของตารางและข้อมูลในภาพที่มีความหนาแน่นสูง
+กล่องข้อความธรรมดาที่วางไว้บนแผนภูมิเป็นของสไลด์ แม้ว่ามันดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ การวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) จะพบทั้งแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่แสดงรายชื่อรูปร่างแต่ละชิ้นภายในแผนภูมิ ชื่อเรื่องแผนภูมิและป้ายข้อมูลเป็นส่วนแยกของแผนภูมิ ไม่ใช่คำอธิบายที่กำหนดเองในคอลเลกชันนี้
 
-**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับซ้อนกันอย่างไร?**
+ดาวน์โหลด [chart-annotations.pptx](chart-annotations.pptx) และวางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกมีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มว่า “Preliminary results”, เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ธรรมดาที่แสดงว่า “Slide overlay” ตัวอย่างค้นหาแผนภูมิแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น “Final results” เมื่อรายงานพร้อมเผยแพร่ มันตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เป็นค่าว่างตามที่คืนค่ามาจาก [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) และข้อความที่คาดหวัง
 
-ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น หมวดหมู่), ตั้งค่าการชิด/ตำแหน่งของป้าย, แสดงป้ายเฉพาะจุดที่เลือกเมื่อจำเป็น, หรือเปลี่ยนรูปแบบเป็น “value + legend”
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-**ฉันสามารถใช้การเติมแบบไล่สีหรือรูปแบบกับซีรีส์ได้หรือไม่?**
+let presentation = new aspose.slides.Presentation("chart-annotations.pptx");
+try {
+    let slide = presentation.getSlides().get_Item(0);
 
-ได้ ทั้งการเติมแบบสีเดียวและแบบไล่สี/ลวดลายมักจะพร้อมใช้งาน ในการปฏิบัติ ใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมที่ทำให้ความคอนทราสต์กับตารางและข้อความลดลง
+    let chart = null;
+    for (let i = 0; i < slide.getShapes().size(); i++) {
+        let shape = slide.getShapes().get_Item(i);
+        if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            chart = shape;
+            break;
+        }
+    }
+
+    if (chart == null || chart.getUserShapes().getShapes().size() == 0) {
+        console.log("No chart or chart-owned shapes found.");
+    } else {
+        let updated = false;
+        for (let i = 0; i < chart.getUserShapes().getShapes().size(); i++) {
+            let shape = chart.getUserShapes().getShapes().get_Item(i);
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                let annotation = shape;
+                if (annotation.getTextFrame() != null && annotation.getTextFrame().getText() === "Preliminary results") {
+                    annotation.getTextFrame().setText("Final results");
+                    updated = true;
+                    break;
+                }
+            }
+        }
+
+        if (updated) {
+            presentation.save("chart-annotations-updated.pptx", aspose.slides.SaveFormat.Pptx);
+        } else {
+            console.log("No matching text annotation found.");
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง ภาพต่อไปนี้แสดงผลก่อนและหลังการบันทึกใหม่
+
+| ก่อนแก้ไข | หลังแก้ไข |
+| --- | --- |
+| ![คำอธิบายแผนภูมิอ่านว่า Preliminary results](chart-annotations-before.png) | ![คำอธิบายแผนภูมิอ่านว่า Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มซ้อนกันโดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของมัน กลุ่มเองเป็นคอนเทนเนอร์; ไม่ควรถือว่าเป็นกล่องข้อความ
+{{% /alert %}}
+
+## **คำถามที่พบบ่อย**
+
+**ฉันสามารถตั้งค่าสีเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่ได้โดยยังคงขอบทึบไว้หรือไม่?**
+
+ใช่ การโปร่งใสของสีเติมและโครงร่างตั้งค่าแยกจากกัน ซึ่งเป็นประโยชน์ในการทำให้กริดและข้อมูลในภาพที่ซับซ้อนอ่านง่ายขึ้น
+
+**ฉันจะจัดการกับป้ายข้อมูลเมื่อมันทับกันอย่างไร?**
+
+ลดขนาดฟอนต์ ปิดใช้งานส่วนประกอบของป้ายที่ไม่จำเป็น (เช่น ประเภท) ปรับตำแหน่งป้าย แสดงป้ายเฉพาะจุดที่เลือกเท่านั้นหากจำเป็น หรือเปลี่ยนรูปแบบเป็น “ค่า + คำอธิบาย”
+
+**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลวดลายกับชุดข้อมูลได้หรือไม่?**
+
+ได้ ชุดข้อมูลรองรับการเติมแบบทึบ, ไล่สี, และลวดลาย อย่างไรก็ตามควรใช้ไล่สีอย่างระมัดระวังและหลีกเลี่ยงการผสมผสานที่ทำให้ความคอนทราสต์กับกริดและข้อความลดลง

@@ -1,5 +1,5 @@
 ---
-title: Định dạng biểu đồ trong trình chiếu bằng Python
+title: Định dạng biểu đồ trình chiếu trong Python
 linktitle: Định dạng biểu đồ
 type: docs
 weight: 60
@@ -14,50 +14,22 @@ keywords:
 - thuộc tính phông chữ
 - viền bo tròn
 - PowerPoint
-- trình chiếu
+- bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho Python qua Java và nâng cao bản trình chiếu PowerPoint của bạn với phong cách chuyên nghiệp, bắt mắt."
+description: "Tìm hiểu cách định dạng biểu đồ trong Aspose.Slides cho Python thông qua Java và nâng cao bản trình chiếu PowerPoint của bạn với các trục tùy chỉnh, phông chữ, định dạng số và viền biểu đồ bo tròn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách định dạng biểu đồ trong bản trình chiếu PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, vùng vẽ và màu nền tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
+Bài viết này giải thích cách định dạng biểu đồ trong bản thuyết trình PowerPoint bằng cách sử dụng Aspose.Slides. Nó cho thấy cách tùy chỉnh các thành phần chính của biểu đồ như trục, đường lưới, tiêu đề, chú giải, vùng vẽ và màu nền tường để cải thiện ngoại hình và khả năng đọc dữ liệu biểu đồ.
 
-Nó cũng trình bày cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng định dạng số có sẵn và tùy chỉnh cho dữ liệu biểu đồ, và bật góc bo tròn cho khu vực biểu đồ. Tất cả các ví dụ này cho thấy cách kiểm soát cả phong cách hình ảnh và cách trình bày dữ liệu của biểu đồ trong một bản trình chiếu.
+Nó cũng minh họa cách đặt thuộc tính phông chữ cho văn bản biểu đồ, áp dụng các định dạng số có sẵn cho dữ liệu biểu đồ và bật các góc làm tròn cho vùng biểu đồ. Các ví dụ này cho thấy cách kiểm soát cả kiểu dáng trực quan và cách trình bày dữ liệu của biểu đồ trong bản thuyết trình.
 
-## **Định dạng các thực thể biểu đồ**
-Aspose.Slides for Python via Java cho phép nhà phát triển thêm các biểu đồ tùy chỉnh vào các slide từ đầu. Bài viết này giải thích cách định dạng các thực thể biểu đồ khác nhau bao gồm trục danh mục và trục giá trị.
+## **Định dạng các đối tượng biểu đồ**
 
-Aspose.Slides for Python via Java cung cấp API đơn giản để quản lý các thực thể biểu đồ và định dạng chúng bằng các giá trị tùy chỉnh:
+Sử dụng [Biểu đồ](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) để định dạng tiêu đề biểu đồ, trục, đường lưới, chú giải và vùng vẽ. Ví dụ này tạo một biểu đồ đường có dấu đánh dấu và dữ liệu mặc định, sau đó áp dụng các kiểu văn bản và đường riêng biệt cho trục giá trị và trục danh mục. Kích thước phông chữ và độ rộng đường được chỉ định bằng điểm; nhãn danh mục được xoay 45 độ.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Truy cập slide theo chỉ mục.
-1. Thêm một biểu đồ loại mong muốn với dữ liệu mặc định (ví dụ này sử dụng [ChartType.LineWithMarkers](https://reference.aspose.com/slides/vi/python-java/aspose.slides/charttype/#LineWithMarkers)).
-1. Truy cập trục giá trị của biểu đồ và đặt các thuộc tính sau:
-   1. Đặt **Line format** cho các đường lưới chính của trục giá trị.
-   1. Đặt **Line format** cho các đường lưới phụ của trục giá trị.
-   1. Đặt **Number Format** cho trục giá trị.
-   1. Đặt **minimum, maximum, major, and minor units** cho trục giá trị.
-   1. Đặt **Text Properties** cho dữ liệu trục giá trị.
-   1. Đặt **Title** cho trục giá trị.
-1. Truy cập trục danh mục của biểu đồ và đặt các thuộc tính sau:
-   1. Đặt **Line format** cho các đường lưới chính của trục danh mục.
-   1. Đặt **Line format** cho các đường lưới phụ của trục danh mục.
-   1. Đặt **Text Properties** cho dữ liệu trục danh mục.
-   1. Đặt **Title** cho trục danh mục.
-   1. Đặt **Label Positioning** cho trục danh mục.
-   1. Đặt **Rotation Angle** cho nhãn trục danh mục.
-1. Truy cập chú giải của biểu đồ và đặt **text properties** cho nó.
-1. Hiển thị chú giải biểu đồ mà không làm chồng lên biểu đồ.
-1. Truy cập **secondary value axis** của biểu đồ và đặt các thuộc tính sau:
-   1. Bật **value axis** phụ.
-   1. Đặt **Line Format** cho trục giá trị phụ.
-   1. Đặt **Number Format** cho trục giá trị phụ.
-   1. Đặt **minimum, maximum, major, and minor units** cho trục giá trị phụ.
-1. Vẽ chuỗi biểu đồ đầu tiên trên trục giá trị phụ.
-1. Đặt màu nền tường phía sau của biểu đồ.
-1. Đặt màu nền vùng vẽ của biểu đồ.
-1. Ghi bản trình chiếu đã chỉnh sửa ra tệp PPTX.
+Trục giá trị sử dụng [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) độc lập với các ô nguồn. Thang đo chạy từ -2 đến 15, với khoảng cách lớn là 2 và khoảng cách nhỏ là 0,5. Ví dụ cũng kết hợp định dạng phần trăm với [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) được đặt thành hàng nghìn, vì vậy hãy điều chỉnh các cài đặt này phù hợp với ý nghĩa và quy mô của dữ liệu của bạn. Chú giải được đặt bên ngoài vùng vẽ vì [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) được gọi với `False`. Các màu nền tường sau và sàn được cấu hình thông qua [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) và [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor), nhưng những bề mặt này chỉ hiển thị trong biểu đồ 3D.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-    # Tạo một thể hiện của lớp Presentation
-    presentation = Presentation()
+presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên
     slide = presentation.getSlides().get_Item(0)
 
-    # Thêm biểu đồ mẫu
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # Đặt tiêu đề biểu đồ
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Đặt định dạng đường lưới chính cho trục giá trị
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # Đặt định dạng đường lưới phụ cho trục giá trị
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Đặt định dạng số cho trục giá trị
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # Đặt giá trị tối đa, tối thiểu cho biểu đồ
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # Đặt thuộc tính văn bản cho trục giá trị
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # Đặt tiêu đề cho trục giá trị
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Đặt định dạng đường lưới chính cho trục danh mục
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # Đặt định dạng đường lưới phụ cho trục danh mục
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # Đặt thuộc tính văn bản cho trục danh mục
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # Đặt tiêu đề danh mục
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # Đặt vị trí nhãn trục danh mục
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # Đặt góc quay nhãn trục danh mục
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # Đặt thuộc tính văn bản cho chú giải
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # Hiển thị chú giải biểu đồ mà không chồng lên biểu đồ
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # Đặt trục giá trị phụ
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # Đặt định dạng số cho trục giá trị phụ
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # Đặt giá trị tối đa, tối thiểu cho biểu đồ
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # Đặt màu tường phía sau của biểu đồ
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # Đặt màu vùng vẽ
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # Lưu bản trình chiếu
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Đặt thuộc tính phông chữ cho biểu đồ**
-Aspose.Slides for Python via Java hỗ trợ đặt thuộc tính phông chữ cho các biểu đồ. Thực hiện các bước sau để đặt thuộc tính phông chữ:
 
-- Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-- Thêm một biểu đồ vào slide.
-- Đặt chiều cao phông chữ.
-- Lưu bản trình chiếu đã chỉnh sửa.
-
-Ví dụ sau minh họa các bước này.
+Đặt kích thước phông chữ mặc định cho văn bản biểu đồ thông qua [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat). Ví dụ tạo một biểu đồ cột nhóm với phông chữ 20 điểm và bật nhãn giá trị cho chuỗi đầu tiên thông qua [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue). Các phần tử văn bản có cài đặt phông chữ riêng có thể ghi đè lên mặc định của biểu đồ.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Tạo một thể hiện của lớp Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -261,14 +184,8 @@ finally:
 ```
 
 ## **Đặt định dạng số**
-Aspose.Slides for Python via Java cung cấp API đơn giản để quản lý định dạng dữ liệu biểu đồ:
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Truy cập slide theo chỉ mục.
-1. Thêm một biểu đồ loại mong muốn với dữ liệu mặc định (ví dụ này sử dụng [ChartType.ClusteredColumn](https://reference.aspose.com/slides/vi/python-java/aspose.slides/charttype/#ClusteredColumn)).
-1. Đặt định dạng số có sẵn từ các giá trị có sẵn.
-1. Duyệt qua các ô dữ liệu trong mỗi chuỗi biểu đồ và đặt định dạng số cho chúng.
-1. Lưu bản trình chiếu.
+Sử dụng [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) để áp dụng một định dạng số có sẵn cho các ô workbook của biểu đồ. Ví dụ này tạo một biểu đồ cột nhóm với dữ liệu mặc định, dựa trên ô và áp dụng chỉ mục định dạng 10 (`0.00%`) cho mỗi ô giá trị chuỗi. Điều này thay đổi cách hiển thị các giá trị trong workbook mà không thay đổi các số thực tế; ví dụ, 0.25 được hiển thị là 25.00%. Định dạng cho trục và nhãn dữ liệu có thể được cấu hình riêng biệt.
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# Tạo một thể hiện của lớp Presentation
 presentation = Presentation()
 try:
-    # Truy cập slide đầu tiên của bản trình chiếu
     slide = presentation.getSlides().get_Item(0)
 
-    # Thêm biểu đồ cột nhóm mặc định
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # Truy cập bộ sưu tập chuỗi biểu đồ
     chart_series_collection = chart.getChartData().getSeries()
 
-    # Duyệt qua từng chuỗi biểu đồ
     for chart_series in chart_series_collection:
-        # Duyệt qua từng điểm dữ liệu trong chuỗi
         for data_point in chart_series.getDataPoints():
-            # Đặt định dạng số
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # Lưu bản trình chiếu
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Các định dạng số có sẵn và chỉ mục của chúng được liệt kê dưới đây:
+Bảng sau liệt kê các chỉ mục định dạng số có sẵn cùng với các định dạng Excel đại diện cho ngôn ngữ Anh (Hoa Kỳ). Các chuỗi định dạng và cách hiển thị của chúng có thể khác nhau tùy theo ứng dụng và địa phương, đặc biệt đối với tiền tệ và ngày tháng. Một số định dạng Excel cũng khác với giá trị mặc định trong tiêu chuẩn OOXML, như mô tả trong [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Chỉ mục | Định dạng |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Đặt viền bo tròn cho khu vực biểu đồ**
-Aspose.Slides for Python via Java hỗ trợ góc bo tròn cho khu vực biểu đồ thông qua các phương thức [hasRoundedCorners](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#hasRoundedCorners) và [setRoundedCorners](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/#setRoundedCorners) của lớp [Chart](https://reference.aspose.com/slides/vi/python-java/aspose.slides/chart/).
+## **Đặt viền bo tròn cho vùng biểu đồ**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/).
-1. Thêm một biểu đồ vào slide.
-1. Đặt kiểu và kiểu nền cho đường viền biểu đồ.
-1. Bật góc bo tròn.
-1. Lưu bản trình chiếu đã chỉnh sửa.
-
-Ví dụ sau minh họa các bước này.
+Gọi [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) với `True` để làm tròn các góc của vùng biểu đồ. Ví dụ tạo một biểu đồ cột nhóm và sử dụng [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) để đặt viền ngoài màu xám đặc và kiểu một đường trước khi lưu bản thuyết trình.
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# Tạo một thể hiện của lớp Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **Chỉnh sửa chú thích biểu đồ hiện có**
+
+Một biểu đồ có thể chứa các hình dạng tùy chỉnh, chẳng hạn như chú thích văn bản giải thích trạng thái của báo cáo. Truy cập các hình dạng này thông qua [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes). Bộ sưu tập trả về bởi [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) chứa các hình dạng thuộc sở hữu của biểu đồ.
+
+Một hộp văn bản thông thường được đặt lên trên biểu đồ sẽ thuộc về slide, ngay cả khi nó trông giống như một phần của biểu đồ. Duyệt qua [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) sẽ tìm thấy biểu đồ và các hình dạng slide thông thường, nhưng không liệt kê các hình dạng riêng lẻ bên trong biểu đồ. Tiêu đề biểu đồ và nhãn dữ liệu là các thành phần riêng biệt của biểu đồ, không phải là chú thích tùy chỉnh trong bộ sưu tập này.
+
+Tải xuống [chart-annotations.pptx](chart-annotations.pptx) và đặt nó trong thư mục làm việc của ứng dụng. Slide đầu tiên của tệp chứa một biểu đồ với một chú thích chưa nhóm có nội dung "Preliminary results", một đường thuộc sở hữu của biểu đồ, và một hộp văn bản slide thông thường có nội dung "Slide overlay". Ví dụ tìm biểu đồ đầu tiên trên slide đó và đổi chú thích thành "Final results" khi báo cáo đã sẵn sàng để xuất bản. Nó kiểm tra bộ sưu tập rỗng và chỉ chỉnh sửa một [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) có khung văn bản khác `None` được trả về bởi [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) và nội dung văn bản mong đợi.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+Đường và hộp văn bản slide vẫn không đổi. Các hình ảnh sau cho thấy kết quả đầu vào và kết quả đã lưu, mở lại:
+
+| Trước khi chỉnh sửa | Sau khi chỉnh sửa |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Ví dụ chỉ kiểm tra các hình dạng thuộc sở hữu của biểu đồ ở cấp cao nhất. Nếu một chú thích nằm bên trong một [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/), hãy kiểm tra bộ sưu tập [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) của nhóm đó nữa. Lặp lại đệ quy cho các nhóm lồng nhau, áp dụng cùng các kiểm tra văn bản cho các hình dạng con của chúng. Một nhóm tự nó là một container; không nên coi nó như một hộp văn bản.
+{{% /alert %}}
+
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi vẫn giữ viền không trong suốt không?**
+**Tôi có thể đặt màu nền bán trong suốt cho cột/khu vực trong khi giữ viền không trong suốt không?**
 
-Có. Độ trong suốt của nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc lưới và dữ liệu trong các biểu đồ dày đặc.
+Có. Độ trong suốt của màu nền và viền được cấu hình riêng biệt. Điều này hữu ích để cải thiện khả năng đọc của lưới và dữ liệu trong các hình ảnh trực quan dày đặc.
 
-**Làm sao để xử lý nhãn dữ liệu khi chúng bị chồng lên nhau?**
+**Làm sao tôi xử lý nhãn dữ liệu khi chúng chồng lên nhau?**
 
-Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), đặt độ lệch/vị trí nhãn, chỉ hiển thị nhãn cho các điểm đã chọn nếu cần, hoặc chuyển định dạng thành “giá trị + chú giải”.
+Giảm kích thước phông chữ, tắt các thành phần nhãn không cần thiết (ví dụ, danh mục), điều chỉnh vị trí nhãn, chỉ hiển thị nhãn cho các điểm đã chọn nếu cần, hoặc chuyển định dạng sang "giá trị + chú giải".
 
-**Tôi có thể áp dụng màu nền gradient hoặc hoa văn cho chuỗi không?**
+**Tôi có thể áp dụng màu nền gradient hoặc mẫu cho các chuỗi không?**
 
-Có. Cả màu nền đặc và gradient/hoa văn thường đều khả dụng. Trong thực tế, nên dùng gradient một cách hạn chế và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.
+Có. Các chuỗi hỗ trợ màu nền đặc, gradient và mẫu. Thực tế, nên sử dụng gradient một cách tiết kiệm và tránh các kết hợp làm giảm độ tương phản với lưới và văn bản.

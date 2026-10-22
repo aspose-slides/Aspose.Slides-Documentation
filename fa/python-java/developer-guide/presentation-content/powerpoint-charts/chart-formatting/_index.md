@@ -17,47 +17,19 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "یادگیری قالب‌بندی نمودارها در Aspose.Slides برای Python از طریق Java و ارتقا ارائه PowerPoint شما با استایل حرفه‌ای و چشم‌نوازی."
+description: "یاد بگیرید چگونه در Aspose.Slides برای پایتون از طریق جاوا نمودارها را قالب‌بندی کنید و ارائه PowerPoint خود را با محورهای سفارشی، قلم‌ها، قالب‌های عددی و حاشیه‌های گرد نمودار ارتقا دهید."
 ---
-## **بررسی کلی**
+## **نگاه کلی**
 
-این مقاله توضیح می‌دهد که چگونه می‌توان نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کرد. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محورهای مقدار و دسته، خطوط شبکه، عناوین، راهنمای نمودار، ناحیهٔ ترسیم و پر کردن دیوارها را سفارشی‌سازی کرد تا ظاهر و خوانایی داده‌های نمودار بهبود یابد.
+این مقاله توضیح می‌دهد چگونه نمودارها را در ارائه‌های PowerPoint با استفاده از Aspose.Slides قالب‌بندی کنیم. این مقاله نشان می‌دهد چگونه عناصر کلیدی نمودار مانند محور‌ها، خطوط شبکه، عناوین، افسانه‌ها، ناحیه ترسیم و پر کردن دیواره‌ها را سفارشی کنیم تا ظاهر و قابلیت خواندن داده‌های نمودار بهبود یابد.
 
-همچنین نحوه تنظیم ویژگی‌های قلم برای متن نمودار، اعمال قالب‌های عددی پیش‌فرض و سفارشی به داده‌های نمودار، و فعال‌سازی گوشه‌های گرد برای ناحیهٔ نمودار را نشان می‌دهد. این مثال‌ها نشان می‌دهند چگونه می‌توان هم سبک بصری و هم ارائه داده‌های نمودارها را در یک ارائه کنترل کرد.
+همچنین نشان می‌دهد چگونه ویژگی‌های قلم برای متن نمودار تنظیم شود، قالب‌های عددی پیش‌تنظیم‌شده بر داده‌های نمودار اعمال شود، و گوشه‌های گرد برای ناحیه نمودار فعال شود. این مثال‌ها به‌طور مشترک نشان می‌دهند چگونه هم سبک بصری و هم ارائه داده‌های نمودارها در یک ارائه کنترل شوند.
 
 ## **قالب‌بندی موجودیت‌های نمودار**
-Aspose.Slides for Python via Java به توسعه‌دهندگان امکان می‌دهد از صفر نمودارهای سفارشی را به اسلایدهای خود اضافه کنند. این مقاله توضیح می‌دهد که چگونه موجودیت‌های مختلف نمودار شامل محورهای دسته و مقدار را قالب‌بندی کنیم.
 
-Aspose.Slides for Python via Java یک API ساده برای مدیریت موجودیت‌های مختلف نمودار و قالب‌بندی آن‌ها با استفاده از مقادیر سفارشی ارائه می‌دهد:
+از [نمودار](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) برای قالب‌بندی عناوین نمودار، محور‌ها، خطوط شبکه، افسانه‌ها و ناحیه ترسیم استفاده کنید. این مثال یک نمودار خطی با نشانگرها و داده‌های پیش‌فرض ایجاد می‌کند، سپس سبک‌های متن و خط جداگانه‌ای برای محور مقدار و محور دسته‌بندی اعمال می‌کند. اندازه‌های قلم و عرض خطوط بر حسب نقطه مشخص می‌شوند؛ برچسب‌های دسته‌بندی به اندازه ۴۵ درجه چرخانده می‌شوند.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-1. به یک اسلاید با استفاده از ایندکس آن دسترسی پیدا کنید.
-1. یک نمودار از نوع مطلوب با داده‌های پیش‌فرض اضافه کنید (در این مثال از [ChartType.LineWithMarkers](https://reference.aspose.com/slides/fa/python-java/aspose.slides/charttype/#LineWithMarkers) استفاده می‌شود).
-1. به محور مقدار نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. قالب **خط** را برای خطوط شبکهٔ اصلی محور مقدار تنظیم کنید.
-   1. قالب **خط** را برای خطوط شبکهٔ فرعی محور مقدار تنظیم کنید.
-   1. قالب **عدد** را برای محور مقدار تنظیم کنید.
-   1. **حداقل، حداکثر، واحدهای اصلی و فرعی** را برای محور مقدار تنظیم کنید.
-   1. **ویژگی‌های متن** را برای داده‌های محور مقدار تنظیم کنید.
-   1. **عنوان** را برای محور مقدار تنظیم کنید.
-1. به محور دسته نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. قالب **خط** را برای خطوط شبکهٔ اصلی محور دسته تنظیم کنید.
-   1. قالب **خط** را برای خطوط شبکهٔ فرعی محور دسته تنظیم کنید.
-   1. **ویژگی‌های متن** را برای داده‌های محور دسته تنظیم کنید.
-   1. **عنوان** را برای محور دسته تنظیم کنید.
-   1. **موقعیت‌گذاری برچسب** برای محور دسته تنظیم کنید.
-   1. **زاویهٔ چرخش** برچسب‌های محور دسته تنظیم کنید.
-1. به راهنمای نمودار دسترسی پیدا کنید و **ویژگی‌های متن** آن را تنظیم کنید.
-1. راهنمای نمودار را بدون همپوشانی با نمودار نمایش دهید.
-1. به **محور مقدار ثانویه** نمودار دسترسی پیدا کنید و ویژگی‌های زیر را تنظیم کنید:
-   1. محور مقدار ثانویه را فعال کنید.
-   1. قالب **خط** را برای محور مقدار ثانویه تنظیم کنید.
-   1. قالب **عدد** را برای محور مقدار ثانویه تنظیم کنید.
-   1. **حداقل، حداکثر، واحدهای اصلی و فرعی** را برای محور مقدار ثانویه تنظیم کنید.
-1. سری اول نمودار را روی محور مقدار ثانویه ترسیم کنید.
-1. رنگ پر کردن دیوار پشتی نمودار را تنظیم کنید.
-1. رنگ پر کردن ناحیهٔ ترسیم نمودار را تنظیم کنید.
-1. ارائهٔ تغییر یافته را به فایل PPTX بنویسید.
+محور مقدار از [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) به‌صورت مستقل از سلول‌های منبع استفاده می‌کند. مقیاس آن از -2 تا 15 است، با بازه‌های اصلی 2 و بازه‌های فرعی 0.5. این مثال همچنین قالب‌بندی درصدی را با [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) که به هزارها تنظیم شده ترکیب می‌کند، بنابراین این تنظیمات را مطابق معنای داده‌ها و مقیاس آنها تنظیم کنید. افسانه به دلیل فراخوانی [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) با `False` در خارج ناحیه ترسیم می‌ماند. پرکننده‌های دیوار پشت و کف از طریق [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) و [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) پیکربندی می‌شوند، اما این سطوح فقط در نمودارهای سه‌بعدی قابل مشاهده هستند.
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-# یک نمونه از کلاس Presentation ایجاد کنید
 presentation = Presentation()
 try:
-    # دسترسی به اولین اسلاید
     slide = presentation.getSlides().get_Item(0)
 
-    # افزودن نمودار نمونه
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # تنظیم عنوان نمودار
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # تنظیم قالب خطوط شبکه اصلی برای محور مقدار
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # تنظیم قالب خطوط شبکه فرعی برای محور مقدار
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # تنظیم قالب عددی محور مقدار
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # تنظیم مقادیر حداکثر و حداقل نمودار
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # تنظیم ویژگی‌های متن محور مقدار
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # تنظیم عنوان محور مقدار
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # تنظیم قالب خطوط شبکه اصلی برای محور دسته
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # تنظیم قالب خطوط شبکه فرعی برای محور دسته
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # تنظیم ویژگی‌های متن محور دسته
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # تنظیم عنوان دسته
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # تنظیم موقعیت برچسب محور دسته
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # تنظیم زاویهٔ چرخش برچسب محور دسته
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # تنظیم ویژگی‌های متن راهنما
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # نمایش راهنمای نمودار بدون همپوشانی با نمودار
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # تنظیم محور مقدار ثانویه
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # تنظیم قالب عددی محور مقدار ثانویه
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # تنظیم مقادیر حداکثر و حداقل نمودار
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # تنظیم رنگ دیوار پشت نمودار
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # تنظیم رنگ ناحیهٔ ترسیم
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # ذخیرهٔ ارائه
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **تنظیم ویژگی‌های قلم برای یک نمودار**
-Aspose.Slides for Python via Java از تنظیم ویژگی‌های قلم برای نمودارها پشتیبانی می‌کند. برای تنظیم ویژگی‌های قلم مراحل زیر را دنبال کنید:
 
-- یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-- یک نمودار به اسلاید اضافه کنید.
-- ارتفاع قلم را تنظیم کنید.
-- ارائهٔ تغییر یافته را ذخیره کنید.
-
-مثال زیر این مراحل را نشان می‌دهد.
+اندازه قلم پیش‌فرض برای متن نمودار را از طریق [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) تنظیم کنید. این مثال یک نمودار ستونی خوشه‌ای با قلم 20 نقطه‌ای ایجاد می‌کند و برچسب‌های مقدار برای سری اول را از طریق [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) فعال می‌سازد. عناصر متنی با تنظیمات قلم صریح خود می‌توانند پیش‌فرض نمودار را بازنویسی کنند.
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# یک نمونه از کلاس Presentation ایجاد کنید
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -261,14 +184,8 @@ finally:
 ```
 
 ## **تنظیم قالب عددی**
-Aspose.Slides for Python via Java یک API ساده برای مدیریت قالب‌های دادهٔ نمودار ارائه می‌دهد:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-1. به یک اسلاید با استفاده از ایندکس آن دسترسی پیدا کنید.
-1. یک نمودار از نوع مطلوب با داده‌های پیش‌فرض اضافه کنید (در این مثال از [ChartType.ClusteredColumn](https://reference.aspose.com/slides/fa/python-java/aspose.slides/charttype/#ClusteredColumn) استفاده می‌شود).
-1. قالب عددی پیش‌فرض را از مقادیر پیش‌فرض موجود تنظیم کنید.
-1. در هر سری نمودار به سلول‌های داده دسترسی پیدا کنید و قالب عددی آنها را تنظیم کنید.
-1. ارائه را ذخیره کنید.
+از [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) برای اعمال یک قالب عددی پیش‌ساخته به سلول‌های کتاب کار نمودار استفاده کنید. این مثال یک نمودار ستونی خوشه‌ای با داده‌های پیش‌فرض و پشتیبانی‌شده توسط سلول‌ها ایجاد می‌کند و شاخص قالب 10 (`0.00%`) را بر هر سلول مقدار سری اعمال می‌نماید. این کار نحوه نمایش مقادیر در کتاب کار را بدون تغییر اعداد پایه تغییر می‌دهد؛ به عنوان مثال، 0.25 به صورت 25.00% نمایش داده می‌شود. قالب‌های محور و برچسب‌های داده می‌توانند به‌صورت جداگانه پیکربندی شوند.
 
 ```python
 import jpype
@@ -279,116 +196,160 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# یک نمونه از کلاس Presentation ایجاد کنید
 presentation = Presentation()
 try:
-    # به اولین اسلاید ارائه دسترسی پیدا کنید
     slide = presentation.getSlides().get_Item(0)
 
-    # افزودن یک نمودار ستونی خوشه‌ای پیش‌فرض
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # دسترسی به مجموعهٔ سری‌های نمودار
     chart_series_collection = chart.getChartData().getSeries()
 
-    # تکرار بر روی هر سری نمودار
     for chart_series in chart_series_collection:
-        # تکرار بر روی هر نقطه داده در سری
         for data_point in chart_series.getDataPoints():
-            # تنظیم قالب عددی
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # ذخیرهٔ ارائه
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-قالب‌های عددی پیش‌فرض موجود و ایندکس‌های آن‌ها در زیر فهرست شده‌اند:
+جدول زیر فهرست‌ای از شاخص‌های قالب عددی پیش‌ساخته را همراه با قالب‌های نمایشی Excel برای زبان انگلیسی (ایالات متحده) ارائه می‌دهد. رشته‌های قالب دقیق و نمایش آن‌ها می‌تواند بر حسب برنامه و محل متفاوت باشد، به‌ویژه برای واحد پول و تاریخ‌ها. برخی قالب‌های Excel نیز با پیش‌فرض‌های استاندارد OOXML متفاوت هستند، همان‌طور که در [یادداشت‌های پیاده‌سازی قالب عددی مایکروسافت](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528) توصیف شده است.
 
-|**0**|عمومی|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| نمایه | قالب |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **تنظیم حاشیه‌های گرد ناحیهٔ نمودار**
-Aspose.Slides for Python via Java با استفاده از متدهای [hasRoundedCorners](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#hasRoundedCorners) و [setRoundedCorners](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/#setRoundedCorners) در کلاس [Chart](https://reference.aspose.com/slides/fa/python-java/aspose.slides/chart/) از گوشه‌های گرد برای ناحیهٔ نمودار پشتیبانی می‌کند.
+## **تنظیم گوشه‌های گرد ناحیه نمودار**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-java/aspose.slides/presentation/) ایجاد کنید.
-1. یک نمودار به اسلاید اضافه کنید.
-1. نوع پر کردن و سبک خط حاشیهٔ نمودار را تنظیم کنید.
-1. گوشه‌های گرد را فعال کنید.
-1. ارائهٔ تغییر یافته را ذخیره کنید.
-
-مثال زیر این مراحل را نشان می‌دهد.
+با فراخوانی [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) با `True` گوشه‌های ناحیه نمودار را گرد کنید. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند و از [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) برای دادن رنگ خاکستری ثابت و سبک خطی تک به حاشیه آن استفاده می‌کند، سپس ارائه را ذخیره می‌کند.
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpage.startJVM()
+    jpype.startJVM()
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# یک نمونه از کلاس Presentation ایجاد کنید
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
+## **ویرایش حاشیه‌نویس‌های موجود در نمودار**
+
+یک نمودار می‌تواند اشکال سفارشی شامل حاشیه‌نویسی متنی که وضعیت گزارشی را توضیح می‌دهد، داشته باشد. به این اشکال از طریق [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) دسترسی پیدا کنید. مجموعه‌ای که توسط [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) برگردانده می‌شود، شامل اشکال متعلق به نمودار است.
+
+یک کادر متن معمولی که روی نمودار قرار می‌گیرد، متعلق به اسلاید است، حتی اگر به‌نظر برسد بخشی از نمودار است. پیمایش از طریق [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) نمودار و اشکال عادی اسلاید را پیدا می‌کند، اما اشکال جداگانه داخل نمودار را فهرست نمی‌کند. عناوین نمودار و برچسب‌های داده عناصر جداگانه‌ای از نمودار هستند، نه حاشیه‌نویسی‌های سفارشی در این مجموعه.
+
+فایل [chart-annotations.pptx](chart-annotations.pptx) را دانلود کنید و در پوشه کاری برنامه قرار دهید. اسلاید اول آن شامل یک نمودار با حاشیه‌نویسی جدا نشده "نتایج اولیه"، خطی متعلق به نمودار و یک کادر متن اسلایدی معمولی با متن "Slide overlay" است. مثال اولین نمودار را در آن اسلاید پیدا می‌کند و حاشیه‌نویس را به "نتایج نهایی" تغییر می‌دهد هنگامی که گزارش آماده انتشار باشد. این موارد برای مجموعه خالی بررسی می‌شود و فقط یک [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) با فریم متن غیر `None` برگردانده شده توسط [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) و متن مورد انتظار ویرایش می‌کند.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+خط و کادر متن اسلاید بدون تغییر می‌مانند. تصاویر زیر ورودی و نتیجه ذخیره‌شده و بازگشای‌شده را نشان می‌دهند:
+
+| قبل از ویرایش | بعد از ویرایش |
+| --- | --- |
+| ![حاشیه‌نویس نمودار با متن نتایج اولیه](chart-annotations-before.png) | ![حاشیه‌نویس نمودار با متن نتایج نهایی](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+مثال فقط اشکال سطح بالای متعلق به نمودار را بررسی می‌کند. اگر حاشیه‌نویسی داخل یک [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) باشد، مجموعه‌ی [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) آن گروه را نیز بررسی کنید. این کار را به‌صورت بازگشتی برای گروه‌های تو در تو تکرار کنید و همان بررسی‌های متنی را برای اشکال فرزندشان اعمال کنید. یک گروه خود یک محفظه است؛ آن را به‌عنوان کادر متن در نظر نگیرید.
+{{% /alert %}}
+
 ## **پرسش‌های متداول**
 
-**آیا می‌توانم پر کردن نیمه شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که مرز را مات نگه می‌دارم؟**
+**آیا می‌توانم پرکننده‌های نیمه‌شفاف برای ستون‌ها/ناحیه‌ها تنظیم کنم در حالی که حاشیه آن‌ها مات (opaque) بماند؟**
 
-بله. شفافیت پر کردن و خطوط مرزی به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود خوانایی شبکه و داده‌ها در نمایش‌های متراکم مفید است.
+بله. شفافیت پرکننده و حاشیه به‌صورت جداگانه پیکربندی می‌شوند. این کار برای بهبود قابلیت خواندن شبکه و داده‌ها در تجسم‌های پرتراکم مفید است.
 
-**چگونه می‌توانم با برچسب‌های داده که همپوشانی دارند مقابله کنم؟**
+**چگونه می‌توانم با برچسب‌های داده که هم‌پوشانی دارند، برخورد کنم؟**
 
-اندازهٔ قلم را کاهش دهید، مؤلفه‌های غیرضروری برچسب (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت/انتقال برچسب را تنظیم کنید، در صورت نیاز فقط برای نقاط منتخب برچسب‌ها را نشان دهید، یا قالب را به «مقدار + راهنما» تغییر دهید.
+اندازۀ قلم را کاهش دهید، اجزای غیرضروری برچسب‌ها (مثلاً دسته‌ها) را غیرفعال کنید، موقعیت برچسب را تنظیم کنید، در صورت نیاز تنها برچسب‌های نقاط انتخابی را نشان دهید، یا قالب را به «مقدار + افسانه» تغییر دهید.
 
-**آیا می‌توانم پر کردن گرادیان یا الگو را برای سری‌ها اعمال کنم؟**
+**آیا می‌توانم پرکننده‌های گرادیان یا الگو را بر سری‌ها اعمال کنم؟**
 
-بله. معمولاً پر کردن‌های یکدست و گرادیان/الگو در دسترس هستند. در عمل، از گرادیان‌ها به‌طور مقتصدانه استفاده کنید و ترکیب‌هایی که کنتراست را با شبکه و متن کاهش می‌دهند، اجتناب کنید.
+بله. سری‌ها از پرکننده‌های یکدست، گرادیان و الگو پشتیبانی می‌کنند. در عمل، از گرادیان‌ها به‌صورت مقتصدانه استفاده کنید و از ترکیب‌هایی که کنتراست با شبکه و متن را کاهش می‌دهند، خودداری کنید.

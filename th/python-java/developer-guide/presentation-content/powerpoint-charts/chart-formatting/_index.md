@@ -11,53 +11,25 @@ keywords:
 - คุณสมบัติของแผนภูมิ
 - การตั้งค่าแผนภูมิ
 - ตัวเลือกแผนภูมิ
-- คุณสมบัติแบบอักษร
-- ขอบโค้ง
+- คุณสมบัติฟอนต์
+- ขอบมน
 - PowerPoint
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยสไตล์ที่เป็นมืออาชีพและดึงดูดสายตา."
+description: "เรียนรู้การจัดรูปแบบแผนภูมิใน Aspose.Slides สำหรับ Python ผ่าน Java และยกระดับการนำเสนอ PowerPoint ของคุณด้วยแกนที่กำหนดเอง, ฟอนต์, รูปแบบตัวเลข, และขอบแผนภูมิที่มีมุมโค้ง"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิ เช่น แกน, เส้นกริด, ชื่อ, คำอธิบาย, พื้นที่กราฟ, และการเติมสีกำแพง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
+บทความนี้อธิบายวิธีการจัดรูปแบบแผนภูมิในงานนำเสนอ PowerPoint โดยใช้ Aspose.Slides แสดงวิธีการปรับแต่งองค์ประกอบสำคัญของแผนภูมิเช่น แกน, เส้นกริด, ชื่อเรื่อง, คำอธิบาย, พื้นที่พล็อต และการเติมสีผนัง เพื่อปรับปรุงรูปลักษณ์และความอ่านง่ายของข้อมูลแผนภูมิ
 
-นอกจากนี้ยังแสดงวิธีการตั้งค่าคุณสมบัติของแบบอักษรสำหรับข้อความในแผนภูมิ, การใช้รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าและแบบกำหนดเองกับข้อมูลแผนภูมิ, และการเปิดใช้งานมุมโค้งสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีการควบคุมทั้งสไตล์ภาพและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
+ยังแสดงวิธีการตั้งค่าคุณสมบัติของฟอนต์สำหรับข้อความในแผนภูมิ, ใช้รูปแบบตัวเลขสำเร็จรูปกับข้อมูลแผนภูมิ, และเปิดใช้งานมุมมนสำหรับพื้นที่แผนภูมิ ตัวอย่างเหล่านี้ร่วมกันแสดงวิธีการควบคุมทั้งสไตล์การแสดงผลและการนำเสนอข้อมูลของแผนภูมิในงานนำเสนอ
 
-## **จัดรูปแบบเอนทิตี้ของแผนภูมิ**
-Aspose.Slides for Python via Java ให้ผู้พัฒนาสามารถเพิ่มแผนภูมิที่กำหนดเองลงในสไลด์ตั้งแต่ต้น บทความนี้อธิบายวิธีการจัดรูปแบบเอนทิตี้ของแผนภูมิต่าง ๆ รวมถึงแกนประเภทและค่า
+## **จัดรูปแบบองค์ประกอบแผนภูมิ**
 
-Aspose.Slides for Python via Java มี API อย่างง่ายสำหรับการจัดการเอนทิตี้ของแผนภูมิและจัดรูปแบบโดยใช้ค่าที่กำหนดเอง:
+ใช้ [แผนภูมิ](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) เพื่อจัดรูปแบบชื่อเรื่องของแผนภูมิ, แกน, เส้นกริด, คำอธิบาย, และพื้นที่พล็อต ตัวอย่างนี้สร้างแผนภูมิเส้นที่มีเครื่องหมายและข้อมูลเริ่มต้น จากนั้นจึงใส่รูปแบบข้อความและเส้นแยกต่างหากให้กับแกนค่าและแกนหมวดหมู่ ขนาดฟอนต์และความกว้างของเส้นกำหนดเป็นหน่วยพอยต์; ป้ายชื่อหมวดหมู่วางเป็นแนวเอียง 45 องศา
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)  
-1. เข้าถึงสไลด์โดยใช้ดัชนี  
-1. เพิ่มแผนภูมประเภทที่ต้องการพร้อมข้อมูลเริ่มต้น (ตัวอย่างนี้ใช้ [ChartType.LineWithMarkers](https://reference.aspose.com/slides/th/python-java/aspose.slides/charttype/#LineWithMarkers))  
-1. เข้าถึงแกนค่าของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:  
-   1. ตั้งค่า **Line format** สำหรับเส้นกริดหลักของแกนค่า  
-   1. ตั้งค่า **Line format** สำหรับเส้นกริดย่อยของแกนค่า  
-   1. ตั้งค่า **Number Format** สำหรับแกนค่า  
-   1. ตั้งค่า **minimum, maximum, major, and minor units** สำหรับแกนค่า  
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูลบนแกนค่า  
-   1. ตั้งค่า **Title** สำหรับแกนค่า  
-1. เข้าถึงแกนประเภทของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:  
-   1. ตั้งค่า **Line format** สำหรับเส้นกริดหลักของแกนประเภท  
-   1. ตั้งค่า **Line format** สำหรับเส้นกริดย่อยของแกนประเภท  
-   1. ตั้งค่า **Text Properties** สำหรับข้อมูลบนแกนประเภท  
-   1. ตั้งค่า **Title** สำหรับแกนประเภท  
-   1. ตั้งค่า **Label Positioning** สำหรับแกนประเภท  
-   1. ตั้งค่า **Rotation Angle** สำหรับป้ายชื่อแกนประเภท  
-1. เข้าถึงคำอธิบายแผนภูมิและตั้งค่า **text properties** ของมัน  
-1. แสดงคำอธิบายแผนภูมิโดยไม่ให้ทับซ้อนกับแผนภูมิ  
-1. เข้าถึง **secondary value axis** ของแผนภูมิและตั้งค่าคุณสมบัติดังต่อไปนี้:  
-   1. เปิดใช้งาน **value axis** รอง  
-   1. ตั้งค่า **Line Format** สำหรับแกนค่ารอง  
-   1. ตั้งค่า **Number Format** สำหรับแกนค่ารอง  
-   1. ตั้งค่า **minimum, maximum, major, and minor units** สำหรับแกนค่ารอง  
-1. พล็อตชุดข้อมูลแรกของแผนภูมิบนแกนค่ารอง  
-1. ตั้งค่าสีเติมกำแพงด้านหลังของแผนภูมิ  
-1. ตั้งค่าสีเติมพื้นที่พล็อตของแผนภูมิ  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+แกนค่าจะใช้ [setNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setNumberFormat) อย่างอิสระจากเซลล์ต้นทาง ช่วงค่าของแกนเริ่มตั้งแต่ -2 ถึง 15, โดยมีช่วงหลักที่ 2 และช่วงย่อยที่ 0.5 ตัวอย่างนี้ยังรวมการจัดรูปแบบเป็นเปอร์เซ็นต์กับ [setDisplayUnit](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setDisplayUnit) ตั้งเป็นหน่วยพัน ดังนั้นคุณควรปรับค่าต่าง ๆ ให้สอดคล้องกับความหมายและขนาดของข้อมูลของคุณ คำอธิบายอยู่ด้านนอกพื้นที่พล็อตเนื่องจากมีการเรียก [setOverlay](https://reference.aspose.com/slides/python-java/aspose.slides/legend/#setOverlay) ด้วยค่า `False` การเติมสีผนังด้านหลังและพื้นดินกำหนดผ่าน [getBackWall](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getBackWall) และ [getFloor](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getFloor) แต่พื้นผิวเหล่านี้จะมองเห็นได้เฉพาะในแผนภูมิ 3 มิติ
 
 ```python
 import jpype
@@ -66,21 +38,16 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, LineStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
+from asposeslides.api import ChartType, DisplayUnitType, FillType, FontData, LineDashStyle, NullableBool, Presentation, PresetColor, SaveFormat, TickLabelPositionType
 
 Color = jpype.JClass("java.awt.Color")
-nullable_true = NullableBool.True_
 
-    # สร้างอินสแตนซ์ของคลาส Presentation
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรก
     slide = presentation.getSlides().get_Item(0)
 
-    # เพิ่มแผนภูมิตัวอย่าง
     chart = slide.getShapes().addChart(ChartType.LineWithMarkers, 50, 50, 500, 400)
 
-    # ตั้งค่าชื่อแผนภูมิ
     chart.setTitle(True)
     chart.getChartTitle().addTextFrameForOverriding("")
     chart_title = chart.getChartTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -88,26 +55,22 @@ try:
     chart_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     chart_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart_title.getPortionFormat().setFontHeight(20)
-    chart_title.getPortionFormat().setFontBold(nullable_true)
-    chart_title.getPortionFormat().setFontItalic(nullable_true)
+    chart_title.getPortionFormat().setFontBold(NullableBool.True_)
+    chart_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนค่า
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
     chart.getAxes().getVerticalAxis().getMajorGridLinesFormat().getLine().setDashStyle(LineDashStyle.DashDot)
 
-    # ตั้งค่ารูปแบบเส้นกริดย่อยสำหรับแกนค่า
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.RED)
     chart.getAxes().getVerticalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # ตั้งค่ารูปแบบตัวเลขของแกนค่า
     chart.getAxes().getVerticalAxis().setNumberFormatLinkedToSource(False)
     chart.getAxes().getVerticalAxis().setDisplayUnit(DisplayUnitType.Thousands)
     chart.getAxes().getVerticalAxis().setNumberFormat("0.0%")
 
-    # ตั้งค่าสูงสุดและต่ำสุดของแผนภูมิ
     chart.getAxes().getVerticalAxis().setAutomaticMajorUnit(False)
     chart.getAxes().getVerticalAxis().setAutomaticMaxValue(False)
     chart.getAxes().getVerticalAxis().setAutomaticMinorUnit(False)
@@ -118,17 +81,15 @@ try:
     chart.getAxes().getVerticalAxis().setMinorUnit(0.5)
     chart.getAxes().getVerticalAxis().setMajorUnit(2.0)
 
-    # ตั้งค่าคุณสมบัติข้อความของแกนค่า
     value_axis_text = chart.getAxes().getVerticalAxis().getTextFormat().getPortionFormat()
-    value_axis_text.setFontBold(nullable_true)
+    value_axis_text.setFontBold(NullableBool.True_)
     value_axis_text.setFontHeight(16)
-    value_axis_text.setFontItalic(nullable_true)
+    value_axis_text.setFontItalic(NullableBool.True_)
     value_axis_text.getFillFormat().setFillType(FillType.Solid)
     value_axis_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkGreen)
     value_axis_font = FontData("Times New Roman")
     value_axis_text.setLatinFont(value_axis_font)
 
-    # ตั้งค่าชื่อแกนค่า
     chart.getAxes().getVerticalAxis().setTitle(True)
     chart.getAxes().getVerticalAxis().getTitle().addTextFrameForOverriding("")
     value_axis_title = chart.getAxes().getVerticalAxis().getTitle().getTextFrameForOverriding().getParagraphs().get_Item(0).getPortions().get_Item(0)
@@ -136,30 +97,27 @@ try:
     value_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     value_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     value_axis_title.getPortionFormat().setFontHeight(20)
-    value_axis_title.getPortionFormat().setFontBold(nullable_true)
-    value_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    value_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    value_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # ตั้งค่ารูปแบบเส้นกริดหลักสำหรับแกนประเภท
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
-    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    category_grid_color = Color(0, 128, 0)
+    chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(category_grid_color)
     chart.getAxes().getHorizontalAxis().getMajorGridLinesFormat().getLine().setWidth(5)
 
-    # ตั้งค่ารูปแบบเส้นกริดย่อยสำหรับแกนประเภท
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().setFillType(FillType.Solid)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
     chart.getAxes().getHorizontalAxis().getMinorGridLinesFormat().getLine().setWidth(3)
 
-    # ตั้งค่าคุณสมบัติข้อความของแกนประเภท
     category_axis_text = chart.getAxes().getHorizontalAxis().getTextFormat().getPortionFormat()
-    category_axis_text.setFontBold(nullable_true)
+    category_axis_text.setFontBold(NullableBool.True_)
     category_axis_text.setFontHeight(16)
-    category_axis_text.setFontItalic(nullable_true)
+    category_axis_text.setFontItalic(NullableBool.True_)
     category_axis_text.getFillFormat().setFillType(FillType.Solid)
     category_axis_text.getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     category_axis_font = FontData("Arial")
     category_axis_text.setLatinFont(category_axis_font)
 
-    # ตั้งค่าชื่อประเภท
     chart.getAxes().getHorizontalAxis().setTitle(True)
     chart.getAxes().getHorizontalAxis().getTitle().addTextFrameForOverriding("")
 
@@ -168,75 +126,40 @@ try:
     category_axis_title.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
     category_axis_title.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     category_axis_title.getPortionFormat().setFontHeight(20)
-    category_axis_title.getPortionFormat().setFontBold(nullable_true)
-    category_axis_title.getPortionFormat().setFontItalic(nullable_true)
+    category_axis_title.getPortionFormat().setFontBold(NullableBool.True_)
+    category_axis_title.getPortionFormat().setFontItalic(NullableBool.True_)
 
-    # ตั้งค่าตำแหน่งป้ายกำกับของแกนประเภท
     chart.getAxes().getHorizontalAxis().setTickLabelPosition(TickLabelPositionType.Low)
-
-    # ตั้งค่ามุมการหมุนของป้ายกำกับแกนประเภท
     chart.getAxes().getHorizontalAxis().setTickLabelRotationAngle(45)
 
-    # ตั้งค่าคุณสมบัติข้อความของคำอธิบาย
     legend_text = chart.getLegend().getTextFormat().getPortionFormat()
-    legend_text.setFontBold(nullable_true)
+    legend_text.setFontBold(NullableBool.True_)
     legend_text.setFontHeight(16)
-    legend_text.setFontItalic(nullable_true)
+    legend_text.setFontItalic(NullableBool.True_)
     legend_text.getFillFormat().setFillType(FillType.Solid)
     legend_text.getFillFormat().getSolidFillColor().setPresetColor(PresetColor.DarkRed)
 
-    # แสดงคำอธิบายแผนภูมิโดยไม่ให้ทับซ้อนกับแผนภูมิ
-
     chart.getLegend().setOverlay(False)
 
-    chart.getChartData().getSeries().get_Item(0).setPlotOnSecondAxis(True)
-    # ตั้งค่าแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().setVisible(True)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setStyle(LineStyle.ThickBetweenThin)
-    chart.getAxes().getSecondaryVerticalAxis().getFormat().getLine().setWidth(20)
-
-    # ตั้งค่ารูปแบบตัวเลขของแกนค่ารอง
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormatLinkedToSource(False)
-    chart.getAxes().getSecondaryVerticalAxis().setDisplayUnit(DisplayUnitType.Hundreds)
-    chart.getAxes().getSecondaryVerticalAxis().setNumberFormat("0.0%")
-
-    # ตั้งค่าสูงสุดและต่ำสุดของแผนภูมิ
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMajorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMaxValue(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinorUnit(False)
-    chart.getAxes().getSecondaryVerticalAxis().setAutomaticMinValue(False)
-
-    chart.getAxes().getSecondaryVerticalAxis().setMaxValue(20)
-    chart.getAxes().getSecondaryVerticalAxis().setMinValue(-5)
-    chart.getAxes().getSecondaryVerticalAxis().setMinorUnit(0.5)
-    chart.getAxes().getSecondaryVerticalAxis().setMajorUnit(2.0)
-
-    # ตั้งค่าสีผนังด้านหลังของแผนภูมิ
     chart.getBackWall().setThickness(1)
     chart.getBackWall().getFormat().getFill().setFillType(FillType.Solid)
-    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(Color.ORANGE)
+    back_wall_color = Color(255, 165, 0)
+    chart.getBackWall().getFormat().getFill().getSolidFillColor().setColor(back_wall_color)
 
     chart.getFloor().getFormat().getFill().setFillType(FillType.Solid)
     chart.getFloor().getFormat().getFill().getSolidFillColor().setColor(Color.RED)
-    # ตั้งค่าสีพื้นที่พล็อต
+
     chart.getPlotArea().getFormat().getFill().setFillType(FillType.Solid)
     chart.getPlotArea().getFormat().getFill().getSolidFillColor().setPresetColor(PresetColor.LightCyan)
 
-    # บันทึกงานนำเสนอ
-    presentation.save("FormattedChart.pptx", SaveFormat.Pptx)
+    presentation.save("FormattedChart_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **ตั้งค่าคุณสมบัติแบบอักษรสำหรับแผนภูมิ**
-Aspose.Slides for Python via Java รองรับการตั้งค่าคุณสมบัติแบบอักษรสำหรับแผนภูมิ ทำตามขั้นตอนต่อไปนี้เพื่อกำหนดคุณสมบัติแบบอักษร:
+## **ตั้งค่าคุณสมบัติฟอนต์สำหรับแผนภูมิ**
 
-- สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)  
-- เพิ่มแผนภูมิลงในสไลด์  
-- ตั้งค่าความสูงของแบบอักษร  
-- บันทึกงานนำเสนอที่แก้ไข  
-
-ตัวอย่างต่อไปนี้แสดงขั้นตอนเหล่านั้น  
+ตั้งขนาดฟอนต์เริ่มต้นสำหรับข้อความในแผนภูมิผ่าน [Chart.getTextFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getTextFormat) ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยฟอนต์ขนาด 20 จุดและเปิดใช้งานการแสดงค่าป้ายข้อมูลสำหรับชุดแรกผ่าน [setShowValue](https://reference.aspose.com/slides/python-java/aspose.slides/datalabelformat/#setShowValue) ส่วนประกอบข้อความที่กำหนดฟอนต์อย่างชัดเจนสามารถครอบคลุมค่าเริ่มต้นของแผนภูมิได้
 
 ```python
 import jpype
@@ -247,11 +170,11 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# สร้างอินสแตนซ์ของคลาส Presentation
 presentation = Presentation()
 try:
-    chart = presentation.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
+    slide = presentation.getSlides().get_Item(0)
 
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 500, 400)
     chart.getTextFormat().getPortionFormat().setFontHeight(20)
     chart.getChartData().getSeries().get_Item(0).getLabels().getDefaultDataLabelFormat().setShowValue(True)
 
@@ -261,14 +184,8 @@ finally:
 ```
 
 ## **ตั้งค่ารูปแบบตัวเลข**
-Aspose.Slides for Python via Java มี API อย่างง่ายสำหรับการจัดการรูปแบบข้อมูลของแผนภูมิ:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)  
-1. เข้าถึงสไลด์โดยใช้ดัชนี  
-1. เพิ่มแผนภูมาประเภทที่ต้องการพร้อมข้อมูลเริ่มต้น (ตัวอย่างนี้ใช้ [ChartType.ClusteredColumn](https://reference.aspose.com/slides/th/python-java/aspose.slides/charttype/#ClusteredColumn))  
-1. ตั้งค่ารูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าจากค่าที่เป็นไปได้  
-1. วนลูปผ่านเซลล์ข้อมูลในแต่ละชุดของแผนภูมิและตั้งค่ารูปแบบตัวเลขของแต่ละเซลล์  
-1. บันทึกงานนำเสนอ  
+ใช้ [ChartDataCell.setPresetNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setPresetNumberFormat) เพื่อใช้รูปแบบตัวเลขที่สร้างไว้ล่วงหน้ากับเซลล์ในชุดข้อมูลของแผนภูมิ ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มด้วยข้อมูลที่กำหนดโดยเซลล์และใช้ดัชนีรูปแบบ 10 (`0.00%`) กับเซลล์ค่าของแต่ละชุด การทำเช่นนี้จะเปลี่ยนวิธีการแสดงค่าในเวิร์กบุ๊กโดยไม่กระทบต่อค่าตัวเลขจริง ตัวอย่างเช่น 0.25 จะแสดงเป็น 25.00% รูปแบบของแกนและป้ายข้อมูลสามารถกำหนดแยกกันได้
 
 ```python
 import jpype
@@ -279,81 +196,66 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, Presentation, SaveFormat
 
-# สร้างอินสแตนซ์ของคลาส Presentation
 presentation = Presentation()
 try:
-    # เข้าถึงสไลด์แรกของการนำเสนอ
     slide = presentation.getSlides().get_Item(0)
 
-    # เพิ่มแผนภูมิคอลัมน์แบบคลัสเตอร์เริ่มต้น
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 400)
-
-    # เข้าถึงคอลเลกชันซีรีส์ของแผนภูมิ
     chart_series_collection = chart.getChartData().getSeries()
 
-    # วนลูปผ่านทุกซีรีส์ของแผนภูมิ
     for chart_series in chart_series_collection:
-        # วนลูปผ่านทุกจุดข้อมูลในซีรีส์
         for data_point in chart_series.getDataPoints():
-            # ตั้งค่ารูปแบบตัวเลข
             data_point.getValue().getAsCell().setPresetNumberFormat(jpype.JByte(10))  # 0.00%
 
-    # บันทึกการนำเสนอ
-    presentation.save("PresetNumberFormat.pptx", SaveFormat.Pptx)
+    presentation.save("PresetNumberFormat_out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-รูปแบบตัวเลขที่กำหนดไว้ล่วงหน้าและดัชนีของแต่ละรูปแบบมีดังต่อไปนี้:
+ตารางต่อไปนี้แสดงดัชนีรูปแบบตัวเลขที่มีให้พร้อมรูปแบบ Excel ตัวอย่างสำหรับภาษาภูมิภาคอังกฤษ (สหรัฐอเมริกา) สตริงรูปแบบที่แน่นอนและการแสดงผลอาจแตกต่างกันตามแอปพลิเคชันและภูมิภาค โดยเฉพาะสำหรับสกุลเงินและวันที่ บางรูปแบบของ Excel ยังแตกต่างจากค่าเริ่มต้นในมาตรฐาน OOXML ตามที่อธิบายไว้ใน [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528)
 
-|**0**|ทั่วไป|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| ดัชนี | รูปแบบ |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **ตั้งค่ามุมโค้งของพื้นที่แผนภูมิ**
-Aspose.Slides for Python via Java รองรับมุมโค้งสำหรับพื้นที่แผนภูมิผ่านเมธอด [hasRoundedCorners](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/#hasRoundedCorners) และ [setRoundedCorners](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/#setRoundedCorners) ของคลาส [Chart](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/)
+## **ตั้งค่าขอบมนของพื้นที่แผนภูมิเป็นมุมโค้ง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-java/aspose.slides/presentation/)  
-1. เพิ่มแผนภูมิลงในสไลด์  
-1. ตั้งค่าประเภทและสไตล์ของเส้นขอบแผนภูมิ  
-1. เปิดใช้งานมุมโค้ง  
-1. บันทึกงานนำเสนอที่แก้ไข  
-
-ตัวอย่างต่อไปนี้แสดงขั้นตอนดังกล่าว  
+เรียก [Chart.setRoundedCorners](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#setRoundedCorners) ด้วยค่า `True` เพื่อทำให้มุมของพื้นที่แผนภูมิโค้ง ตัวอย่างนี้สร้างแผนภูมิคอลัมน์แบบกลุ่มและใช้ [getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) เพื่อให้เส้นขอบของแผนภูมิมีสีเทาแน่นและสไตล์เส้นเดียวก่อนบันทึกงานนำเสนอ
 
 ```python
 import jpype
@@ -364,31 +266,90 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import ChartType, FillType, LineStyle, Presentation, SaveFormat
 
-# สร้างอินสแตนซ์ของคลาส Presentation
+Color = jpype.JClass("java.awt.Color")
+
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 100, 600, 400)
     chart.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    chart.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY)
     chart.getLineFormat().setStyle(LineStyle.Single)
     chart.setRoundedCorners(True)
 
-    presentation.save("output.pptx", SaveFormat.Pptx)
+    presentation.save("out.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **แก้ไขคำอธิบายแผนภูมิที่มีอยู่**
 
-**ฉันตั้งค่าสีเติมกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยยังคงให้เส้นขอบทึบได้หรือไม่?**
+แผนภูมิสามารถมีรูปร่างแบบกำหนดเอง เช่น คำอธิบายข้อความที่อธิบายสถานะของรายงาน เข้าถึงรูปร่างเหล่านี้ผ่าน [Chart.getUserShapes](https://reference.aspose.com/slides/python-java/aspose.slides/chart/#getUserShapes) คำสั่งที่คืนค่าจาก [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) จะรวมถึงรูปร่างที่เป็นของแผนภูมิ
 
-ได้ การตั้งค่าความโปร่งใสของการเติมและการกำหนดเส้นขอบทำแยกจากกัน ซึ่งเป็นประโยชน์ในการเพิ่มความอ่านง่ายของกริดและข้อมูลในภาพที่แออัด
+กล่องข้อความธรรมดาที่วางเหนือแผนภูมิจะเป็นของสไลด์ แม้ว่าจะดูเหมือนเป็นส่วนหนึ่งของแผนภูมิ กรณีการวนลูปผ่าน [Slide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) จะพบแผนภูมิและรูปร่างสไลด์ทั่วไป แต่จะไม่แสดงรายการรูปร่างย่อยภายในแผนภูมิ ชื่อเรื่องของแผนภูมิและป้ายข้อมูลถือเป็นส่วนแยกจากแผนภูมิ ไม่ใช่คำอธิบายแบบกำหนดเองในคอลเลกชันนี้
+
+ดาวน์โหลดไฟล์ [chart-annotations.pptx](chart-annotations.pptx) แล้ววางไว้ในไดเรกทอรีทำงานของแอปพลิเคชัน สไลด์แรกของไฟล์มีแผนภูมิพร้อมคำอธิบายที่ไม่ได้จัดกลุ่มข้อความ "Preliminary results", เส้นที่เป็นของแผนภูมิ, และกล่องข้อความสไลด์ทั่วไปที่มีข้อความ "Slide overlay" ตัวอย่างจะค้นหาแผนภูมิลำดับแรกบนสไลด์นั้นและเปลี่ยนคำอธิบายเป็น "Final results" เมื่อรายงานพร้อมเผยแพร่ จะตรวจสอบว่าคอลเลกชันว่างหรือไม่และแก้ไขเฉพาะ [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ที่มีกรอบข้อความไม่เท่ากับ `None` ที่คืนค่าจาก [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) และข้อความที่คาดหวัง
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import AutoShape, Chart, Presentation, SaveFormat
+
+presentation = Presentation("chart-annotations.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = None
+    for shape in slide.getShapes():
+        if isinstance(shape, Chart):
+            chart = shape
+            break
+
+    if chart is None or chart.getUserShapes().getShapes().size() == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.getUserShapes().getShapes():
+            if isinstance(shape, AutoShape):
+                text_frame = shape.getTextFrame()
+                if text_frame is not None and text_frame.getText() == "Preliminary results":
+                    text_frame.setText("Final results")
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", SaveFormat.Pptx)
+        else:
+            print("No matching text annotation found.")
+finally:
+    presentation.dispose()
+```
+
+เส้นและกล่องข้อความสไลด์ยังคงไม่เปลี่ยนแปลง รูปภาพต่อไปนี้แสดงภาพก่อนและผลลัพธ์ที่บันทึกและเปิดใหม่อีกครั้ง:
+
+| ก่อนแก้ไข | หลังแก้ไข |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+ตัวอย่างตรวจสอบเฉพาะรูปร่างระดับบนสุดที่เป็นของแผนภูมิ หากคำอธิบายอยู่ภายใน [GroupShape](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/) ให้ตรวจสอบคอลเลกชัน [getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/groupshape/#getShapes) ของกลุ่มนั้นด้วย ทำซ้ำแบบเรียกซ้ำสำหรับกลุ่มที่ซ้อนกัน โดยใช้การตรวจสอบข้อความเดียวกันกับรูปร่างลูกของพวกมัน กลุ่มเองเป็นคอนเทนเนอร์; อย่าพิจารณาว่าเป็นกล่องข้อความ
+{{% /alert %}}
+
+## **คำถามที่พบบ่อย**
+
+**ฉันสามารถตั้งค่าการเติมสีกึ่งโปร่งใสสำหรับคอลัมน์/พื้นที่โดยยังคงให้เส้นขอบไม่โปร่งใสได้หรือไม่?**
+
+ได้ การตั้งค่าความโปร่งแสงของการเติมสีและเส้นขอบทำแยกกัน นี่เป็นประโยชน์สำหรับการเพิ่มความอ่านง่ายของกริดและข้อมูลในภาพที่มีความหนาแน่นสูง
 
 **ฉันจะจัดการกับป้ายข้อมูลที่ทับซ้อนกันอย่างไร?**
 
-ลดขนาดแบบอักษร, ปิดใช้งานส่วนที่ไม่จำเป็นของป้าย (เช่น หมวดหมู่), ตั้งค่าออฟเซ็ต/ตำแหน่งของป้าย, แสดงป้ายเฉพาะจุดที่เลือกตามต้องการ, หรือเปลี่ยนรูปแบบเป็น “ค่า + คำอธิบาย”
+ลดขนาดฟอนต์, ปิดใช้งานส่วนประกอบของป้ายที่ไม่สำคัญ (เช่น หมวดหมู่), ปรับตำแหน่งป้าย, แสดงป้ายเฉพาะจุดที่เลือกหากจำเป็น, หรือเปลี่ยนรูปแบบเป็น "ค่าบวกคำอธิบาย"
 
-**ฉันสามารถใช้การเติมแบบไล่สีหรือแบบลวดลายกับชุดข้อมูลได้หรือไม่?**
+**ฉันสามารถใช้การเติมสีแบบไล่เฉดหรือแบบลายเส้นกับชุดข้อมูลได้หรือไม่?**
 
-ได้ ทั้งการเติมแบบสีทึบและแบบไล่สี/ลวดลายมักจะมีให้ใช้งาน ในการใช้งานจริง ควรใช้ไล่สีอย่างเหมาะสมและหลีกเลี่ยงการผสมผสานที่ลดความคอนทราสต์กับกริดและข้อความ
+ได้ ชุดข้อมูลรองรับการเติมสีทึบ, ไล่เฉด, และลายเส้น ในการใช้งานจริง ควรใช้ไล่เฉดอย่างประหยัดและหลีกเลี่ยงการผสมที่ทำให้ความคมชัดของกริดและข้อความลดลง

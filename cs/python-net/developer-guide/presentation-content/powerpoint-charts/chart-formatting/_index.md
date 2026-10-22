@@ -14,96 +14,56 @@ keywords:
 - vlastnosti písma
 - zaoblený okraj
 - PowerPoint
-- OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se formátování grafů v Aspose.Slides pro Python pomocí .NET a vylepšete svou prezentaci v PowerPointu nebo OpenDocument profesionálním a poutavým vzhledem."
+description: "Naučte se formátovat grafy v Aspose.Slides pro Python pomocí .NET a vylepšete svou PowerPoint prezentaci pomocí vlastních os, písem, číselných formátů a zaoblených okrajů grafu."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pomocí Aspose.Slides formátovat grafy v prezentacích PowerPoint. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, mřížkové čáry, nadpisy, legendy, oblast vykreslení a výplně stěn, aby se zlepšila vzhled a čitelnost dat v grafu.
+Tento článek vysvětluje, jak formátovat grafy v prezentacích PowerPoint pomocí Aspose.Slides. Ukazuje, jak přizpůsobit klíčové prvky grafu, jako jsou osy, čáry mřížky, nadpisy, legendy, oblast vykreslení a výplně ploch, aby se zlepšil vzhled a čitelnost dat v grafu.
 
-Dále demonstruje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované i vlastní číselné formáty pro data grafu a povolit zaoblené rohy pro oblast grafu. Tyto příklady ukazují, jak řídit jak vizuální styl, tak prezentaci dat v grafu v prezentaci.
+Dále ukazuje, jak nastavit vlastnosti písma pro text v grafu, použít předdefinované číselné formáty na data grafu a povolit zaoblené rohy oblasti grafu. Tyto příklady společně ukazují, jak řídit jak vizuální styl, tak prezentaci dat v grafu v prezentaci.
 
-## **Formátování prvků grafu**
+## **Formátování entit grafu**
 
-Aspose.Slides pro Python umožňuje vývojářům přidávat vlastní grafy do snímků od začátku. Tato sekce popisuje, jak formátovat různé prvky grafu, včetně kategorií a hodnotových os.
+Použijte [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) k formátování nadpisů grafu, os, čar mřížky, legend a oblasti vykreslení. Tento příklad vytvoří čárový graf s značkami a výchozími daty, poté použije samostatné styly textu a čáry na jeho hodnotové a kategoriální osy. Velikosti písma a šířky čar jsou zadány v bodech; štítky kategorií jsou otočeny o 45 stupňů.
 
-Aspose.Slides poskytuje jednoduché API pro správu prvků grafu a aplikaci vlastního formátování:
+Hodnotová osa používá [number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/number_format/) nezávisle na zdrojových buňkách. Její měřítko běží od -2 do 15 s hlavními intervaly 2 a vedlejšími intervaly 0,5. Příklad také kombinuje formátování procent se [display_unit](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/display_unit/) nastaveným na tisíce, takže upravte tato nastavení podle významu a velikosti vašich dat. Legenda zůstává mimo oblast vykreslení, protože [overlay](https://reference.aspose.com/slides/python-net/aspose.slides.charts/legend/overlay/) je zakázáno. Výplně zadní stěny a podlahy jsou konfigurovány pomocí [back_wall](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/back_wall/) a [floor](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/floor/), ale tyto povrchy jsou viditelné pouze ve 3D grafech.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty požadovaného typu (v tomto příkladu `ChartType.LINE_WITH_MARKERS`).
-1. Přistupte k hodnotové ose grafu a nastavte následující:
-   1. Nastavte **formát čáry** pro hlavní mřížkové čáry hodnotové osy.
-   1. Nastavte **formát čáry** pro vedlejší mřížkové čáry hodnotové osy.
-   1. Nastavte **formát čísla** pro hodnotovou osu.
-   1. Nastavte **min, max, hlavní a vedlejší jednotky** pro hodnotovou osu.
-   1. Nastavte **vlastnosti textu** pro popisky hodnotové osy.
-   1. Nastavte **název** pro hodnotovou osu.
-   1. Nastavte **formát čáry** pro hodnotovou osu.
-1. Přistupte k osy kategorií grafu a nastavte následující:
-   1. Nastavte **formát čáry** pro hlavní mřížkové čáry osy kategorií.
-   1. Nastavte **formát čáry** pro vedlejší mřížkové čáry osy kategorií.
-   1. Nastavte **vlastnosti textu** pro popisky osy kategorií.
-   1. Nastavte **název** pro osu kategorií.
-   1. Nastavte **umístění popisků** pro osu kategorií.
-   1. Nastavte **úhel otočení** pro popisky osy kategorií.
-1. Přistupte k legendě grafu a nastavte její **vlastnosti textu**.
-1. Zobrazte legendu grafu tak, aby nepřekrývala graf.
-1. Přistupte k **sekundární hodnotové ose** grafu a nastavte následující:
-   1. Povolit sekundární **hodnotovou osu**.
-   1. Nastavte **formát čáry** pro sekundární hodnotovou osu.
-   1. Nastavte **formát čísla** pro sekundární hodnotovou osu.
-   1. Nastavte **min, max, hlavní a vedlejší jednotky** pro sekundární hodnotovou osu.
-1. Vykreslete první sérii grafu na sekundární hodnotové ose.
-1. Nastavte barvu výplně zadní stěny grafu.
-1. Nastavte barvu výplně oblasti vykreslení grafu.
-1. Zapište upravenou prezentaci do souboru PPTX.
-
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
-# Vytvořte instanci třídy Presentation.
 with slides.Presentation() as presentation:
 
-    # Získejte první snímek.
     slide = presentation.slides[0]
 
-    # Přidejte ukázkový graf.
     chart = slide.shapes.add_chart(charts.ChartType.LINE_WITH_MARKERS, 50, 50, 500, 400)
 
-    # Nastavte název grafu.
     chart.has_title = True
     chart.chart_title.add_text_frame_for_overriding("")
     chart_title = chart.chart_title.text_frame_for_overriding.paragraphs[0].portions[0]
     chart_title.text = "Sample Chart"
     chart_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    chart_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    chart_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     chart_title.portion_format.font_height = 20
-    chart_title.portion_format.font_bold = 1
-    chart_title.portion_format.font_italic = 1
+    chart_title.portion_format.font_bold = slides.NullableBool.TRUE
+    chart_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # Nastavte formát hlavních mřížkových čar pro hodnotovou osu.
     chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.blue
+    chart.axes.vertical_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.blue
     chart.axes.vertical_axis.major_grid_lines_format.line.width = 5
     chart.axes.vertical_axis.major_grid_lines_format.line.dash_style = slides.LineDashStyle.DASH_DOT
 
-    # Nastavte formát vedlejších mřížkových čar pro hodnotovou osu.
     chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.red
+    chart.axes.vertical_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.red
     chart.axes.vertical_axis.minor_grid_lines_format.line.width = 3
 
-    # Nastavte číselný formát hodnotové osy.
     chart.axes.vertical_axis.is_number_format_linked_to_source = False
     chart.axes.vertical_axis.display_unit = charts.DisplayUnitType.THOUSANDS
     chart.axes.vertical_axis.number_format = "0.0%"
 
-    # Nastavte maximum, minimum, hlavní a vedlejší jednotku hodnotové osy.
     chart.axes.vertical_axis.is_automatic_major_unit = False
     chart.axes.vertical_axis.is_automatic_max_value = False
     chart.axes.vertical_axis.is_automatic_minor_unit = False
@@ -114,102 +74,82 @@ with slides.Presentation() as presentation:
     chart.axes.vertical_axis.minor_unit = 0.5
     chart.axes.vertical_axis.major_unit = 2.0
 
-    # Nastavte textové vlastnosti hodnotové osy.
     vertical_axis_portion_format = chart.axes.vertical_axis.text_format.portion_format
-    vertical_axis_portion_format.font_bold = 1
+    vertical_axis_portion_format.font_bold = slides.NullableBool.TRUE
     vertical_axis_portion_format.font_height = 16
-    vertical_axis_portion_format.font_italic = 1
-    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    vertical_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_green
+    vertical_axis_portion_format.font_italic = slides.NullableBool.TRUE
+    vertical_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    vertical_axis_portion_format.fill_format.solid_fill_color.color = slides.Color.dark_green
     vertical_axis_portion_format.latin_font = slides.FontData("Times New Roman")
 
-    # Nastavte název hodnotové osy.
     chart.axes.vertical_axis.has_title = True
     chart.axes.vertical_axis.title.add_text_frame_for_overriding("")
     vertical_axis_title = chart.axes.vertical_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
     vertical_axis_title.text = "Primary Axis"
     vertical_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    vertical_axis_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     vertical_axis_title.portion_format.font_height = 20
-    vertical_axis_title.portion_format.font_bold = 1
-    vertical_axis_title.portion_format.font_italic = 1
+    vertical_axis_title.portion_format.font_bolder = slides.NullableBool.TRUE
+    vertical_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # Nastavte formát hlavních mřížkových čar pro osu kategorií.
     chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.green
+    chart.axes.horizontal_axis.major_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.green
     chart.axes.horizontal_axis.major_grid_lines_format.line.width = 5
 
-    # Nastavte formát vedlejších mřížkových čar pro osu kategorií.
     chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.fill_type = slides.FillType.SOLID
-    chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = draw.Color.yellow
+    chart.axes.horizontal_axis.minor_grid_lines_format.line.fill_format.solid_fill_color.color = slides.Color.yellow
     chart.axes.horizontal_axis.minor_grid_lines_format.line.width = 3
 
-    # Nastavte textové vlastnosti osy kategorií.
     horizontal_axis_portion_format = chart.axes.horizontal_axis.text_format.portion_format
-    horizontal_axis_portion_format.font_bold = 1
+    horizontal_axis_portion_format.font_bold = slides.NullableBool.TRUE
     horizontal_axis_portion_format.font_height = 16
-    horizontal_axis_portion_format.font_italic = 1
-    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    horizontal_axis_portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+    horizontal_axis_portion_format.font_italic = slides.NullableBool.TRUE
+    horizontal_axis_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    horizontal_axis_portion_format.fill_format.solid_fill_color.color = slides.Color.blue
     horizontal_axis_portion_format.latin_font = slides.FontData("Arial")
 
-    # Nastavte název osy kategorií.
     chart.axes.horizontal_axis.has_title = True
     chart.axes.horizontal_axis.title.add_text_frame_for_overriding("")
 
     horizontal_axis_title = chart.axes.horizontal_axis.title.text_frame_for_overriding.paragraphs[0].portions[0]
     horizontal_axis_title.text = "Sample Category"
     horizontal_axis_title.portion_format.fill_format.fill_type = slides.FillType.SOLID
-    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = draw.Color.gray
+    horizontal_axis_title.portion_format.fill_format.solid_fill_color.color = slides.Color.gray
     horizontal_axis_title.portion_format.font_height = 20
-    horizontal_axis_title.portion_format.font_bold = 1
-    horizontal_axis_title.portion_format.font_italic = 1
+    horizontal_axis_title.portion_format.font_bold = slides.NullableBool.TRUE
+    horizontal_axis_title.portion_format.font_italic = slides.NullableBool.TRUE
 
-    # Nastavte umístění popisků osy kategorií.
     chart.axes.horizontal_axis.tick_label_position = charts.TickLabelPositionType.LOW
 
-    # Nastavte úhel otáčení popisků osy kategorií.
     chart.axes.horizontal_axis.tick_label_rotation_angle = 45
 
-    # Nastavte textové vlastnosti legendy.
     legend_portion_format = chart.legend.text_format.portion_format
-    legend_portion_format.font_bold = 1
+    legend_portion_format.font_bold = slides.NullableBool.TRUE
     legend_portion_format.font_height = 16
-    legend_portion_format.font_italic = 1
-    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID 
-    legend_portion_format.fill_format.solid_fill_color.color = draw.Color.dark_red
+    legend_portion_format.font_italic = slides.NullableBool.TRUE
+    legend_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    legend_portion_format.fill_format.solid_fill_color.color = slides.Color.dark_red
 
-    # Zobrazte legendu grafu překrývající graf.
-    chart.legend.overlay = True
-                
-    # Nastavte barvu zadní stěny grafu.
+    chart.legend.overlay = False
+
     chart.back_wall.thickness = 1
     chart.back_wall.format.fill.fill_type = slides.FillType.SOLID
-    chart.back_wall.format.fill.solid_fill_color.color = draw.Color.orange
+    chart.back_wall.format.fill.solid_fill_color.color = slides.Color.orange
 
     chart.floor.format.fill.fill_type = slides.FillType.SOLID
-    chart.floor.format.fill.solid_fill_color.color = draw.Color.red
+    chart.floor.format.fill.solid_fill_color.color = slides.Color.red
 
-    # Nastavte barvu oblasti vykreslení.
     chart.plot_area.format.fill.fill_type = slides.FillType.SOLID
-    chart.plot_area.format.fill.solid_fill_color.color = draw.Color.light_cyan
+    chart.plot_area.format.fill.solid_fill_color.color = slides.Color.light_cyan
 
-    # Uložte prezentaci.
     presentation.save("FormattedChart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Nastavení vlastností písma v grafu**
+## **Nastavení vlastností písma pro graf**
 
-Aspose.Slides pro Python podporuje nastavení vlastností souvisejících s písmem pro grafy. Postupujte podle následujících kroků pro konfiguraci vlastností písma v grafu:
+Nastavte výchozí velikost písma pro text grafu prostřednictvím [Chart.text_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/text_format/). Příklad vytvoří sloupcový graf s seskupením, s 20‑bodovým písmem a povolí hodnotové popisky pro první řadu pomocí [show_value](https://reference.aspose.com/slides/python-net/aspose.slides.charts/datalabelformat/show_value/). Textové prvky s vlastními explicitními nastaveními písma mohou přepsat výchozí nastavení grafu.
 
-1. Vytvořte objekt [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Přidejte graf do snímku.
-1. Nastavte výšku písma.
-1. Uložte upravenou prezentaci.
-
-Níže je uveden ukázkový kód.
-
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
@@ -225,119 +165,138 @@ with slides.Presentation() as presentation:
 
 ## **Nastavení číselného formátu**
 
-Aspose.Slides pro Python poskytuje jednoduché API pro správu formátů dat v grafu:
+Použijte [ChartDataCell.preset_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/preset_number_format/) k aplikaci vestavěného číselného formátu na buňky sešitů grafu. Tento příklad vytvoří sloupcový graf s seskupením, který používá výchozí data uložená v buňkách, a aplikuje index formátu 10 (`0.00%`) na každou buňku hodnot řady. Tím se změní způsob zobrazení hodnot v sešitu, aniž by se změnily podkladové čísla; například 0,25 se zobrazí jako 25,00 %. Formáty os a popisků dat lze konfigurovat samostatně.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte graf s výchozími daty libovolného požadovaného typu.
-1. Nastavte předdefinovaný číselný formát z dostupných předdefinovaných hodnot.
-1. Procházejte buňky dat grafu v každé sérii a nastavte číselný formát.
-1. Uložte prezentaci.
-1. Nastavte vlastní číselný formát.
-1. Procházejte buňky dat grafu v každé sérii a nastavte jiný číselný formát.
-1. Uložte prezentaci.
-
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation.
 with slides.Presentation() as presentation:
-    # Získejte první snímek.
     slide = presentation.slides[0]
 
-    # Přidejte výchozí seskupený sloupcový graf.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 400)
 
-    # Nastavte předdefinovaný číselný formát.
-    # Procházejte každou sérii grafu.
     for series in chart.chart_data.series:
-        # Procházejte každou datovou položku v sérii.
-        for cell in series.data_points:
-            # Nastavte číselný formát.
-            cell.value.as_cell.preset_number_format = 10  # 0.00%
+        for data_point in series.data_points:
+            data_point.value.as_cell.preset_number_format = 10  # 0,00%
 
-    # Uložte prezentaci.
     presentation.save("PresetNumberFormat.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dostupné předdefinované číselné formáty a jejich odpovídající indexy jsou uvedeny níže.
+Následující tabulka uvádí vestavěné indexy číselných formátů s reprezentativními formáty Excelu pro anglickou (Spojené státy) lokalizaci. Přesné řetězce formátů a jejich zobrazení se mohou lišit podle aplikace a lokálního nastavení, zejména u měn a dat. Některé formáty Excelu se také liší od výchozích hodnot v standardu OOXML, jak je popsáno v [Microsoft's number format implementation notes](https://learn.microsoft.com/en-us/openspecs/office_standards/ms-oi29500/17d11129-219b-4e2c-88db-45844d21e528).
 
-|**0**|General|
-| :- | :- |
-|**1**|0|
-|**2**|0.00|
-|**3**|#,##0|
-|**4**|#,##0.00|
-|**5**|$#,##0;$-#,##0|
-|**6**|$#,##0;Red$-#,##0|
-|**7**|$#,##0.00;$-#,##0.00|
-|**8**|$#,##0.00;Red$-#,##0.00|
-|**9**|0%|
-|**10**|0.00%|
-|**11**|0.00E+00|
-|**12**|# ?/?|
-|**13**|# /|
-|**14**|m/d/yy|
-|**15**|d-mmm-yy|
-|**16**|d-mmm|
-|**17**|mmm-yy|
-|**18**|h:mm AM/PM|
-|**19**|h:mm:ss AM/PM|
-|**20**|h:mm|
-|**21**|h:mm:ss|
-|**22**|m/d/yy h:mm|
-|**37**|#,##0;-#,##0|
-|**38**|#,##0;Red-#,##0|
-|**39**|#,##0.00;-#,##0.00|
-|**40**|#,##0.00;Red-#,##0.00|
-|**41**|_ * #,##0_ ;_ * "_ ;_ @_|
-|**42**|_ $* #,##0_ ;_ $* "_ ;_ @_|
-|**43**|_ * #,##0.00_ ;_ * "??_ ;_ @_|
-|**44**|_ $* #,##0.00_ ;_ $* "??_ ;_ @_|
-|**45**|mm:ss|
-|**46**|h:mm:ss|
-|**47**|mm:ss.0|
-|**48**|##0.0E+00|
-|**49**|@|
+| Index | Formát |
+| --- | --- |
+| 0 | `General` |
+| 1 | `0` |
+| 2 | `0.00` |
+| 3 | `#,##0` |
+| 4 | `#,##0.00` |
+| 5 | `"$"#,##0_);("$"#,##0)` |
+| 6 | `"$"#,##0_);[Red]("$"#,##0)` |
+| 7 | `"$"#,##0.00_);("$"#,##0.00)` |
+| 8 | `"$"#,##0.00_);[Red]("$"#,##0.00)` |
+| 9 | `0%` |
+| 10 | `0.00%` |
+| 11 | `0.00E+00` |
+| 12 | `# ?/?` |
+| 13 | `# ??/??` |
+| 14 | `m/d/yyyy` |
+| 15 | `d-mmm-yy` |
+| 16 | `d-mmm` |
+| 17 | `mmm-yy` |
+| 18 | `h:mm AM/PM` |
+| 19 | `h:mm:ss AM/PM` |
+| 20 | `h:mm` |
+| 21 | `h:mm:ss` |
+| 22 | `m/d/yyyy h:mm` |
+| 37 | `#,##0_);(#,##0)` |
+| 38 | `#,##0_);[Red](#,##0)` |
+| 39 | `#,##0.00_);(#,##0.00)` |
+| 40 | `#,##0.00_);[Red](#,##0.00)` |
+| 41 | `_(* #,##0_);_(* (#,##0);_(* "-"_);_(@_)` |
+| 42 | `_("$"* #,##0_);_("$"* (#,##0);_("$"* "-"_);_(@_)` |
+| 43 | `_(* #,##0.00_);_(* (#,##0.00);_(* "-"??_);_(@_)` |
+| 44 | `_("$"* #,##0.00_);_("$"* (#,##0.00);_("$"* "-"??_);_(@_)` |
+| 45 | `mm:ss` |
+| 46 | `[h]:mm:ss` |
+| 47 | `mm:ss.0` |
+| 48 | `##0.0E+0` |
+| 49 | `@` |
 
-## **Nastavení zaoblených hran pro oblast grafu**
+## **Nastavení zaoblených okrajů oblasti grafu**
 
-Aspose.Slides pro Python podporuje konfiguraci oblasti grafu pomocí vlastnosti `Chart.has_rounded_corners`.
+Povolte [Chart.has_rounded_corners](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/has_rounded_corners/) pro zaoblení rohů oblasti grafu. Příklad vytvoří sloupcový graf s seskupením a použije [line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) k nastavení obrysu na plnou šedou barvu a jednočarový styl před uložením prezentace.
 
-1. Vytvořte objekt [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
-2. Přidejte graf do snímku.
-3. Nastavte typ výplně a barvu výplně grafu.
-4. Nastavte vlastnost zaoblených rohů na `True`.
-5. Uložte upravenou prezentaci.
-
-Ukázka je uvedena níže.
-
-```py
+```python
 import aspose.slides.charts as charts
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-	slide = presentation.slides[0]
+    slide = presentation.slides[0]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
-	chart.line_format.fill_format.fill_type = slides.FillType.SOLID
-	chart.line_format.style = slides.LineStyle.SINGLE
-	chart.has_rounded_corners = True
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 100, 600, 400)
+    chart.line_format.fill_format.fill_type = slides.FillType.SOLID
+    chart.line_format.fill_format.solid_fill_color.color = slides.Color.gray
+    chart.line_format.style = slides.LineStyle.SINGLE
+    chart.has_rounded_corners = True
 
-	presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("RoundedBorders.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Úprava existujících anotací grafu**
+
+Graf může obsahovat vlastní tvary, například textovou anotaci vysvětlující stav zprávy. Přístup k těmto tvarům získáte přes [Chart.user_shapes](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/user_shapes/). Jeho kolekce [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) obsahuje tvary vlastněné grafem.
+
+Obyčejná textová pole umístěná nad grafem patří do snímku, i když vypadají jako součást grafu. Procházením [Slide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/) najdete graf i obyčejné tvary snímku, ale ne jednotlivé tvary uvnitř grafu. Nadpisy grafu a popisky dat jsou samostatné prvky grafu, ne vlastní anotace v této kolekci.
+
+Stáhněte [chart-annotations.pptx](chart-annotations.pptx) a umístěte jej do pracovního adresáře aplikace. Jeho první snímek obsahuje graf s ne-skupinovou anotací „Preliminary results“, vlastní linku grafu a obyčejné textové pole snímku s textem „Slide overlay“. Příklad najde první graf na tom snímku a změní anotaci na „Final results“, když je zpráva připravena k publikaci. Zkontroluje, zda je kolekce prázdná, a upraví pouze [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) s [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/), který není `None` a obsahuje očekávaný text.
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation("chart-annotations.pptx") as presentation:
+    slide = presentation.slides[0]
+    chart = next((shape for shape in slide.shapes if isinstance(shape, charts.Chart)), None)
+
+    if chart is None or len(chart.user_shapes.shapes) == 0:
+        print("No chart or chart-owned shapes found.")
+    else:
+        updated = False
+        for shape in chart.user_shapes.shapes:
+            if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+                if shape.text_frame.text == "Preliminary results":
+                    shape.text_frame.text = "Final results"
+                    updated = True
+                    break
+
+        if updated:
+            presentation.save("chart-annotations-updated.pptx", slides.export.SaveFormat.PPTX)
+        else:
+            print("No matching text annotation found.")
+```
+
+Linka a textové pole snímku zůstávají beze změny. Následující obrázky ukazují vstup a uložený, znovu otevřený výsledek:
+
+| Před úpravou | Po úpravě |
+| --- | --- |
+| ![Chart annotation reading Preliminary results](chart-annotations-before.png) | ![Chart annotation reading Final results](chart-annotations-after.png) |
+
+{{% alert color="info" title="Note" %}}
+Příklad kontroluje pouze tvary na nejvyšší úrovni, které vlastní graf. Pokud je anotace uvnitř [GroupShape](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/), zkontrolujte také kolekci [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/groupshape/shapes/) této skupiny. Proveďte to rekurzivně pro vnořené skupiny a aplikujte stejné kontroly textu na jejich podřízené tvary. Skupina samotná je kontejner; nepovažujte ji za textové pole.
+{{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a přitom nechat okraj neprůhledný?**
+**Mohu nastavit poloprůhledné výplně pro sloupce/oblasti a přitom zachovat neprůhledný okraj?**
 
-Ano. Průhlednost výplně a obrysu jsou konfigurovány odděleně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
+Ano. Průhlednost výplně a obrys jsou konfigurovány samostatně. To je užitečné pro zlepšení čitelnosti mřížky a dat v hustých vizualizacích.
 
 **Jak mohu řešit popisky dat, když se překrývají?**
 
-Zmenšte velikost písma, zakažte nepodstatné součásti popisků (například kategorie), nastavte odsazení/umístění popisku, zobrazte popisky jen pro vybrané body, pokud je to nutné, nebo přepněte formát na „hodnota + legenda“.
+Zmenšete velikost písma, zakažte nepodstatné součásti popisků (například kategorie), upravte umístění popisku, zobrazte popisky jen pro vybrané body, nebo přepněte formát na „hodnota + legenda“.
 
-**Mohu aplikovat přechodové nebo vzorové výplně na série?**
+**Mohu použít gradientní nebo vzorové výplně pro řady?**
 
-Ano. Obvykle jsou k dispozici jak plné, tak přechodové/vzorové výplně. V praxi používejte přechody střídmě a vyhněte se kombinacím, které snižují kontrast vůči mřížce a textu.
+Ano. Řady podporují plné, gradientní a vzorové výplně. V praxi používejte gradienty střídmě a vyhýbejte se kombinacím, které snižují kontrast vůči mřížce a textu.
