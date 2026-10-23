@@ -12,80 +12,126 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Learn how to create and customize 3-D charts in Aspose.Slides for Node.js via Java, with support for PPT and PPTX files—boost your presentations today."
+description: "Create 3D charts in PowerPoint presentations with Aspose.Slides for Node.js via Java. Adjust rotation, chart depth, and spacing between series with JavaScript examples."
 ---
 
 ## **Overview**
 
-This article explains how to customize a 3D chart in Aspose.Slides by configuring `Rotation3D` settings such as `RotationX`, `RotationY`, `DepthPercents`, and `RightAngleAxes`. It walks through creating a presentation, adding a 3D chart with default data, applying the required 3D view settings, and saving the modified presentation as a PPTX file.
+Aspose.Slides for Node.js via Java lets you customize the view of a 3D chart through the [Chart.getRotation3D](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/#getRotation3D) method. This article demonstrates how to adjust rotation, depth, right-angle axes, and spacing between series, then save the presentation in PPTX format.
 
-## **Set RotationX, RotationY and DepthPercents properties of 3D Chart**
+## **Set the Rotation and Depth of a 3D Chart**
 
-Aspose.Slides for Node.js via Java provides a simple API for setting these properties. This following article will help you how set different properties like **X,Y Rotation, DepthPercents** etc. The sample code applies setting the above said properties.
+The example below creates a [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) and uses [ShapeCollection.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addChart) to add a stacked 3D column chart to its first slide. It replaces the default series and categories with two series containing three values each. Worksheet index `0` identifies the chart's first data worksheet; row `0` holds series names, and column `0` holds category labels.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Set Rotation3D properties.
-1. Write the modified presentation to a PPTX file.
+The [setRotationX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRotationX) and [setRotationY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRotationY) methods set the chart's rotation to 40 and 270 degrees, respectively. [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) sets its depth to 150% of its width, while [setRightAngleAxes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setRightAngleAxes) enables right-angle axes instead of perspective. The resulting presentation contains the populated chart with these 3D view settings.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 const java = require("java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation();
 try {
-    // Access first slide
-    var slide = pres.getSlides().get_Item(0);
-    // Add chart with default data
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn3D, 0, 0, 500, 500);
-    // Setting the index of chart data sheet
-    var defaultWorksheetIndex = 0;
-    // Getting the chart data worksheet
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Add series
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Add Catrgories
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Set Rotation3D properties
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(slides.ChartType.StackedColumn3D, 0, 0, 500, 500);
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    const values = [[20, 50, 30], [30, 10, 60]];
+
+    for (let categoryIndex = 0; categoryIndex < 3; categoryIndex++) {
+        const categoryCell = workbook.getCell(worksheetIndex, categoryIndex + 1, 0, "Category " + (categoryIndex + 1));
+        chart.getChartData().getCategories().add(categoryCell);
+    }
+
+    for (let seriesIndex = 0; seriesIndex < 2; seriesIndex++) {
+        const seriesCell = workbook.getCell(worksheetIndex, 0, seriesIndex + 1, "Series " + (seriesIndex + 1));
+        const series = chart.getChartData().getSeries().add(seriesCell, chart.getType());
+
+        for (let categoryIndex = 0; categoryIndex < 3; categoryIndex++) {
+            const valueCell = workbook.getCell(worksheetIndex, categoryIndex + 1, seriesIndex + 1, values[seriesIndex][categoryIndex]);
+            series.getDataPoints().addDataPointForBarSeries(valueCell);
+        }
+    }
+
     chart.getRotation3D().setRightAngleAxes(true);
     chart.getRotation3D().setRotationX(java.newByte(40));
     chart.getRotation3D().setRotationY(270);
     chart.getRotation3D().setDepthPercents(150);
-    // Take second chart series
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // Now populating series data
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Set OverLap value
-    series.getParentSeriesGroup().setOverlap(java.newByte(100));
-    // Write presentation to disk
-    pres.save("Rotation3D_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("Rotation3D_out.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Adjust the Gap Between Series**
+
+Use [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) to control the distance between data series along the depth axis of a 3D chart, expressed as a percentage of the marker width. Use values from **0 to 500**, inclusive: `0` removes the gap, while larger values increase the spacing. With a fixed chart depth, increasing the gap makes the markers thinner along the depth axis.
+
+Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup). The setting applies to every series in that group, not just the series used to access it. [ChartSeries.getGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseries/#getGapDepth) returns the depth gap and reflects the parent group's setting.
+
+This setting affects 3D column and bar charts, including their cylinder, cone, and pyramid variants, as well as 3D line and area charts. The appearance depends on whether the series are arranged in depth, clustered, or stacked. For a clear comparison of gaps between separate series, use `ChartType.Column3D` from the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) class.
+
+These methods control different aspects of the chart:
+
+| Method | Effect |
+| --- | --- |
+| [ChartSeriesGroup.setGapDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapDepth) | Spacing between series along the depth axis, as a percentage of the marker width. |
+| [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) | Spacing between adjacent bar or column clusters, as a percentage of the bar or column width. |
+| [setDepthPercents](https://reference.aspose.com/slides/nodejs-java/aspose.slides/rotation3d/#setDepthPercents) | Overall chart depth, as a percentage of the chart width. |
+
+The following self-contained example uses the default chart data, which contains three series and four categories. It saves two presentations with identical data, rotation, gap width, and chart depth; only the gap depth changes.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const chart = slide.getShapes().addChart(slides.ChartType.Column3D, 40, 30, 620, 230);
+
+    chart.getRotation3D().setRotationX(java.newByte(20));
+    chart.getRotation3D().setRotationY(30);
+    chart.getRotation3D().setDepthPercents(100);
+
+    const series = chart.getChartData().getSeries().get_Item(0);
+    const group = series.getParentSeriesGroup();
+    group.setGapWidth(150);
+
+    for (const gapDepth of [0, 500]) {
+        group.setGapDepth(gapDepth);
+
+        const fileName = "series_gap_depth_" + gapDepth + ".pptx";
+        presentation.save(fileName, slides.SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The following images illustrate the same gap depth settings in the equivalent .NET example and were exported using Microsoft PowerPoint.
+
+| Gap depth: 0% | Gap depth: 500% |
+| --- | --- |
+| ![3D column chart with no gap between series along the depth axis](gap_depth_0.png) | ![3D column chart with a 500 percent gap between series along the depth axis](gap_depth_500.png) |
+
 ## **FAQ**
 
-### Which chart types support 3D mode in Aspose.Slides?
+**Which chart types support 3D mode in Aspose.Slides?**
 
-Aspose.Slides supports 3D variants of column charts, including Column 3D, Clustered Column 3D, Stacked Column 3D, and 100% Stacked Column 3D, along with related 3D types exposed through the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) enumeration. For an exact, up-to-date list, check the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) members in the API reference of your installed version.
+Aspose.Slides supports 3D variants of column charts, including Column 3D, Clustered Column 3D, Stacked Column 3D, and 100% Stacked Column 3D, along with related 3D types exposed through the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) class. For an exact, up-to-date list, check the [ChartType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/charttype/) members in the API reference of your installed version.
 
-### Can I get a raster image of a 3D chart for a report or the web?
+**Can I get a raster image of a 3D chart for a report or the web?**
 
-Yes. You can export a chart to an image via the [chart API](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) or [render the entire slide](/slides/nodejs-java/convert-powerpoint-to-png/) to formats like PNG or JPEG. This is useful when you need a pixel-perfect preview or want to embed the chart into documents, dashboards, or web pages without requiring PowerPoint.
+Yes. You can export a chart to an image with [Shape.getImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getImage) or [render the entire slide](/slides/nodejs-java/convert-powerpoint-to-png/) to formats like PNG or JPEG. This is useful when you need a raster preview or want to embed the chart into documents, dashboards, or web pages without requiring PowerPoint.
 
-### How performant is building and rendering large 3D charts?
+**How performant is building and rendering large 3D charts?**
 
 Performance depends on data volume and visual complexity. For best results, keep 3D effects minimal, avoid heavy textures on walls and plot areas, limit the number of data points per series when possible, and render to an appropriately sized output (resolution and dimensions) to match the target display or print needs.
