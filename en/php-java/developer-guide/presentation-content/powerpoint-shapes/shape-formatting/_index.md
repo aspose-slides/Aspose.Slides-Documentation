@@ -26,55 +26,41 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Learn how to format PowerPoint shapes in PHP using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
+description: "Learn how to format PowerPoint shapes in PHP using Aspose.Slides—set fill, line, and effect styles for PPT and PPTX files with precision and full control."
 ---
 
 ## **Introduction**
 
-In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
+Format shapes in PowerPoint by adjusting their outlines, fills, and effects. Aspose.Slides for PHP via Java lets you control these settings programmatically, including transparency, rotation, and 3D formatting.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Shape formatting options in PowerPoint](format-shape-powerpoint.png)
 
 Aspose.Slides for PHP via Java provides classes and methods that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Format Lines**
 
-Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the [line style](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) of the shape.
-1. Set the line width.
-1. Set the [dash style](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) of the line.
-1. Set the line color for the shape.
-1. Save the modified presentation as a PPTX file.
-
-The following PHP code demonstrates how to format a rectangle `AutoShape`:
+Use [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) selects a thick-thin compound line, while [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) sets its width to 7 points and [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) selects the dash pattern.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Rectangle type.
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
-
-    // Set the fill color for the rectangle shape.
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
     $shape->getFillFormat()->setFillType(FillType::NoFill);
-
-    // Apply formatting to the rectangle's lines.
     $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
-
-    // Set the color for the rectangle's line.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Save the PPTX file to disk.
     $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -87,41 +73,41 @@ The result:
 
 ## **Apply Sketch Effects to Shape Lines**
 
-A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) enumeration.
+A sketch effect makes a shape line look hand-drawn. Use [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) class.
 
-The following PHP code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+The following PHP code shows how to apply a [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
 
 ```php
+use aspose\slides\LineSketchType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Access the shape's line format and its sketch format.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
-
-    // Apply a sketch effect.
     $sketchFormat->setSketchType(LineSketchType::Curved);
-
-    // Read the sketch effect assigned directly to the shape.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
-
-    // Remove the sketch effect.
     $sketchFormat->setSketchType(LineSketchType::None);
 } finally {
     $presentation->dispose();
 }
 ```
 
-The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), access the returned object's `getSketchFormat` method, and read its `getSketchType` value. The effective value reflects the formatting that is actually applied after inheritance is resolved:
+The value returned by [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), access the returned object’s `getSketchFormat` method, and read its `getSketchType` value. The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("presentation.pptx");
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lineFormat = $shape->getLineFormat();
 
+    $lineFormat = $shape->getLineFormat();
     $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
     $effectiveLineFormat = $lineFormat->getEffective();
     $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
@@ -141,56 +127,53 @@ Here are the three join type options:
 * Miter
 * Bevel
 
-By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
 ![The join style in the presentation](join-style-powerpoint.png)
 
-The following PHP code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
+This example creates three black rectangles with blue outlines 15 points wide. It sets [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\LineJoinStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add three auto shapes of the Rectangle type.
-    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
-    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
-    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
+    $miterShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
+    $bevelShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
+    $roundShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // Set the fill color for each rectangle shape.
-    $shape1->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shape2->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shape3->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $miterShape->getFillFormat()->setFillType(FillType::Solid);
+    $miterShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $bevelShape->getFillFormat()->setFillType(FillType::Solid);
+    $bevelShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $roundShape->getFillFormat()->setFillType(FillType::Solid);
+    $roundShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // Set the line width.
-    $shape1->getLineFormat()->setWidth(15);
-    $shape2->getLineFormat()->setWidth(15);
-    $shape3->getLineFormat()->setWidth(15);
+    $miterShape->getLineFormat()->setWidth(15);
+    $bevelShape->getLineFormat()->setWidth(15);
+    $roundShape->getLineFormat()->setWidth(15);
 
-    // Set the color for each rectangle's line.
-    $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $miterShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $miterShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $bevelShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $bevelShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $roundShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $roundShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Set the join style.
-    $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
-    $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
-    $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
+    $miterShape->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
+    $bevelShape->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
+    $roundShape->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
 
-    // Add text to each rectangle.
-    $shape1->getTextFrame()->setText("Miter Join Style");
-    $shape2->getTextFrame()->setText("Bevel Join Style");
-    $shape3->getTextFrame()->setText("Round Join Style");
+    $miterShape->getTextFrame()->setText("Miter Join Style");
+    $bevelShape->getTextFrame()->setText("Bevel Join Style");
+    $roundShape->getTextFrame()->setText("Round Join Style");
 
-    // Save the PPTX file to disk.
     $presentation->save("join_styles.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -199,41 +182,28 @@ try {
 
 ## **Gradient Fill**
 
-In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
-
-Here’s how to apply a gradient fill to a shape using Aspose.Slides:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Gradient`.
-1. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/) class.
-1. Save the modified presentation as a PPTX file.
-
-The following PHP code demonstrates how to apply a gradient fill effect to an ellipse:
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). The [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Ellipse type.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
-
-    // Apply gradient formatting to the ellipse.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
-
-    // Set the direction of the gradient.
-    $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
-
-    // Add two gradient stops.
+    $shape->getFillFormat()->getGradientFormat()->setLinearGradientAngle(45);
+    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->clear();
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
-    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
+    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0.0, PresetColor::Red);
 
-    // Save the PPTX file to disk.
     $presentation->save("gradient_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -244,48 +214,29 @@ The result:
 
 ![The ellipse with gradient fill](gradient-fill.png)
 
-If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/php-java/convert-powerpoint-to-png/#choose). You can select a rendering style without changing the gradient fill stored in the presentation.
 
 ## **Pattern Fill**
 
-In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
-
-Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
-
-Here's how to apply a pattern fill to a shape using Aspose.Slides:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Pattern`.
-1. Choose a pattern style from the predefined options.
-1. Set the [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) of the pattern.
-1. Set the [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) of the pattern.
-1. Save the modified presentation as a PPTX file.
-
-The following PHP code demonstrates how to apply a pattern fill to a rectangle:
+A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) to select a trellis pattern. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) supplies the light gray background, and [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) supplies the yellow pattern color.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Rectangle type.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Set the fill type to Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
-
-    // Set the pattern style.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
-
-    // Set the pattern background and foreground colors.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Save the PPTX file to disk.
     $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -298,50 +249,34 @@ The result:
 
 ## **Picture Fill**
 
-In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
-
-Here’s how to use Aspose.Slides to apply a picture fill to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Picture`.
-1. Set the picture fill mode to `Tile` (or another preferred mode).
-1. Create an [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object from the image you want to use.
-1. Pass the image to the `SlidesPicture.setImage` method.
-1. Save the modified presentation as a PPTX file.
-
-Let's say we have a "lotus.png" file with the following picture:
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) to load it into the presentation’s image collection. Setting [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
 ![The lotus picture](lotus.png)
 
-The following PHP code demonstrates how to fill a shape with the picture:
-
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Rectangle type.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
-
-    // Set the fill type to Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
-
-    // Set the picture fill mode.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // Load an image and add it to the presentation resources.
     $image = Images::fromFile("lotus.png");
-    $picture = $presentation->getImages()->addImage($image);
-    $image->dispose();
-
-    // Set the picture.
+    try {
+        $picture = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
-    // Save the PPTX file to disk.
     $presentation->save("picture_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -364,31 +299,34 @@ If you want to set a tiled picture as a texture and customize the tiling behavio
 - [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Defines the horizontal scale of the tile as a percentage.
 - [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Defines the vertical scale of the tile as a percentage.
 
-The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
+This example requires a local image and configures [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TileFlip;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Add a rectangle auto shape.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
-
-    // Set the fill type of the shape to Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Load the image and add it to the presentation resources.
     $sourceImage = Images::fromFile("lotus.png");
-    $presentationImage = $presentation->getImages()->addImage($sourceImage);
-    $sourceImage->dispose();
+    try {
+        $presentationImage = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
 
-    // Assign the image to the shape.
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
-
-    // Configure the picture fill mode and tiling properties.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -397,7 +335,6 @@ try {
     $pictureFillFormat->setTileAlignment(RectangleAlignment::BottomRight);
     $pictureFillFormat->setTileFlip(TileFlip::FlipBoth);
 
-    // Save the PPTX file to disk.
     $presentation->save("tile.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -410,36 +347,22 @@ The result:
 
 ## **Solid Color Fill**
 
-In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
-
-To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Solid`.
-1. Assign your preferred fill color to the shape.
-1. Save the modified presentation as a PPTX file.
-
-The following PHP code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
+A solid fill gives a shape a single, uniform color. This example sets [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) to the solid fill mode and assigns yellow through [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), then saves the rectangle in a presentation.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Rectangle type.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Set the fill type to Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
-
-    // Set the fill color.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Save the PPTX file to disk.
     $presentation->save("solid_color_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -450,37 +373,99 @@ The result:
 
 ![The shape with solid color fill](solid-color-fill.png)
 
-## **Set Transparency**
+## **Use the Slide Background as a Shape Fill**
 
-In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
+Use [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) when a shape should match the slide background, for example in a presentation template. Set [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) to [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
 
-Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
+This differs from [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) to `Solid`.
-1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
-1. Save the presentation.
-
-The following PHP code demonstrates how to apply a transparent fill color to a rectangle:
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
+    $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add a solid rectangle auto shape.
+    // Inherit the gradient from the master.
+    $slide->getBackground()->setType(BackgroundType::NotDefined);
+    $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
+    $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Gradient);
+    $gradient = $background->getFillFormat()->getGradientFormat();
+    $gradient->setGradientShape(GradientShape::Linear);
+    $gradient->setLinearGradientAngle(0);
+    $gradient->getGradientStops()->clear();
+    $startColor = new Java("java.awt.Color", 0, 0, 139);
+    $gradient->getGradientStops()->add(0, $startColor);
+    $endColor = new Java("java.awt.Color", 135, 206, 250);
+    $gradient->getGradientStops()->add(1, $endColor);
+
+    // Add this object first so it appears behind the rectangles.
+    $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $backgroundShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 100, 160, 200);
+    $backgroundShape->getFillFormat()->setFillType(FillType::NotDefined);
+    $backgroundShape->setUseBackgroundFill(true);
+
+    $noFillShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 280, 100, 160, 200);
+    $noFillShape->getFillFormat()->setFillType(FillType::NoFill);
+
+    $explicitShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 510, 100, 160, 200);
+    $explicitShape->getFillFormat()->setFillType(FillType::NotDefined);
+    $explicitShape->setUseBackgroundFill(true);
+
+    // Disable background fill before applying an explicit fill.
+    $explicitShape->setUseBackgroundFill(false);
+    $explicitShape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $explicitShape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+
+    $presentation->save("background_fill.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The result, from left to right: **background fill**, **no fill**, and **explicit fill**. The magenta band is hidden by the left and right rectangles but remains visible through the middle rectangle.
+
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
+
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+
+## **Set Transparency**
+
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Add a transparent rectangle auto shape over the solid shape.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
-    $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
+    $fillColor = new Java("java.awt.Color", 255, 255, 0, 128);
+    $transparentShape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
 
-    // Save the PPTX file to disk.
     $presentation->save("shape_transparency.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -493,32 +478,20 @@ The result:
 
 ## **Rotate Shapes**
 
-Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
-
-To rotate a shape on a slide, follow these steps:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s rotation property to the desired angle.
-1. Save the presentation.
-
-The following PHP code demonstrates how to rotate a shape by 5 degrees:
+Use [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
 ```php
-// Instantiate the Presentation class that represents a presentation file.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Get the first slide.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add an auto shape of the Rectangle type.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Rotate the shape by 5 degrees.
     $shape->setRotation(5);
 
-    // Save the PPTX file to disk.
     $presentation->save("shape_rotation.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -531,33 +504,30 @@ The result:
 
 ## **Add 3D Bevel Effects**
 
-Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) properties.
-
-To add 3D bevel effects to a shape, follow these steps:
-
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) to define bevel settings.
-1. Save the presentation.
-
-The following PHP code shows how to apply 3D bevel effects to a shape:
+Use [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) to 4 points, and applies a circular top bevel with a width and height of 6 points through [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). A front-facing orthographic camera and three-point lighting make the bevel visible.
 
 ```php
-// Create an instance of the Presentation class.
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Add a shape to the slide.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $fillColor = new Java("java.awt.Color", 0, 128, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $lineColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
     $shape->getLineFormat()->setWidth(2.0);
-
-    // Set the shape's ThreeDFormat properties.
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -566,7 +536,6 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Save the presentation as a PPTX file.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -579,33 +548,25 @@ The result:
 
 ## **Add 3D Rotation Effects**
 
-Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) properties.
-
-To apply 3D rotation to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) to the slide.
-1. Use the [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) and [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) to define the 3D rotation.
-1. Save the presentation.
-
-The following PHP code demonstrates how to apply 3D rotation effects to a shape:
+A shape’s 3D view is controlled by its camera settings. This example uses [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) and balanced lighting through [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), then saves the formatted rectangle.
 
 ```php
-// Create an instance of the Presentation class.
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
     $autoShape->getTextFrame()->setText("Hello, Aspose!");
-
-    $autoShape->getThreeDFormat()->setDepth(6);
-    $autoShape->getThreeDFormat()->getCamera()->setRotation(40, 35, 20);
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
+    $autoShape->getThreeDFormat()->getCamera()->setRotation(40, 35, 20);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Save the presentation as a PPTX file.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -622,7 +583,7 @@ The [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspo
 
 Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) class to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-The following PHP code creates a colored shape and makes it appear gray in black-and-white display mode:
+This example creates an orange rectangle and sets [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -637,10 +598,8 @@ try {
 
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
-    $orange = new Java("java.awt.Color", 255, 165, 0);
-    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
-
-    // Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
     $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
 
     $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
@@ -653,16 +612,19 @@ In normal color mode, the rectangle retains its orange fill. In a black-and-whit
 
 ## **Reset Formatting**
 
-The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) to their default settings:
+Use [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Reset each shape on the slide that has a placeholder on the layout.
         $slide->reset();
     }
+
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -673,7 +635,7 @@ try {
 
 **Does shape formatting affect the final presentation file size?**
 
-Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
+Colors, line styles, and effect settings generally add little data compared with embedded images and media. Picture fills can increase the file size because their images are stored in the presentation.
 
 **How can I detect shapes on a slide that share identical formatting so I can group them?**
 
@@ -681,4 +643,4 @@ Compare each shape’s key formatting properties—fill, line, and effect settin
 
 **Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
-Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and reapply their formatting wherever required.

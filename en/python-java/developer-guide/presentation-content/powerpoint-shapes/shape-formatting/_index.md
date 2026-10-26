@@ -27,31 +27,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Learn how to format PowerPoint shapes in Python via Java using Aspose.Slides—set fill, line, and effect styles for PPT, PPTX, and ODP files with precision and full control."
+description: "Learn how to format PowerPoint shapes in Python via Java using Aspose.Slides—set fill, line, and effect styles for PPT and PPTX files with precision and full control."
 ---
 
 ## **Introduction**
 
-In PowerPoint, you can add shapes to slides. Since shapes are made up of lines, you can format them by modifying or applying effects to their outlines. Additionally, you can format shapes by specifying settings that control how their interiors are filled.
+Format shapes in PowerPoint by adjusting their outlines, fills, and effects. Aspose.Slides for Python via Java lets you control these settings programmatically, including transparency, rotation, and 3D formatting.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Shape formatting options in PowerPoint](format-shape-powerpoint.png)
 
 Aspose.Slides for Python via Java provides classes and methods that allow you to format shapes using the same options available in PowerPoint.
 
 ## **Format Lines**
 
-Using Aspose.Slides, you can specify a custom line style for a shape. The following steps outline the procedure:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the [line style](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) of the shape.
-1. Set the line width.
-1. Set the [dash style](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) of the line.
-1. Set the line color for the shape.
-1. Save the modified presentation as a PPTX file.
-
-The following code demonstrates how to format a rectangle [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/):
+Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) selects a thick-thin compound line, while [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) sets its width to 7 points and [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) selects the dash pattern.
 
 ```python
 import jpype
@@ -63,28 +52,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineDashStyle, LineStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Rectangle type.
-    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
-
-    # Set the fill color for the rectangle shape.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Apply formatting to the rectangle's lines.
     shape.getLineFormat().setStyle(LineStyle.ThickThin)
     shape.getLineFormat().setWidth(7)
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash)
-
-    # Set the color for the rectangle's line.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Save the PPTX file to disk.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -96,9 +75,9 @@ The result:
 
 ## **Apply Sketch Effects to Shape Lines**
 
-A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) enumeration.
+A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) class.
 
-The following Python code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None):
+The following Python code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -112,25 +91,19 @@ from asposeslides.api import LineSketchType, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
 
-    # Access the shape's line format and its sketch format.
     sketch_format = shape.getLineFormat().getSketchFormat()
-
-    # Apply a sketch effect.
     sketch_format.setSketchType(LineSketchType.Curved)
-
-    # Read the sketch effect assigned directly to the shape.
     explicit_sketch_type = sketch_format.getSketchType()
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-
-    # Remove the sketch effect.
+    print("Explicit sketch type:", explicit_sketch_type)
     sketch_format.setSketchType(LineSketchType.None_)
 finally:
     presentation.dispose()
 ```
 
-The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective), access `LineFormatEffectiveData.getSketchFormat`, and read `SketchFormatEffectiveData.getSketchType`. The effective value reflects the formatting that is actually applied after inheritance is resolved:
+The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) and read the sketch type from the returned effective line formatting, as shown below. The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
 ```python
 import jpype
@@ -144,14 +117,14 @@ from asposeslides.api import Presentation
 presentation = Presentation("presentation.pptx")
 try:
     shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    line_format = shape.getLineFormat()
 
+    line_format = shape.getLineFormat()
     explicit_sketch_type = line_format.getSketchFormat().getSketchType()
     effective_line_format = line_format.getEffective()
     effective_sketch_type = effective_line_format.getSketchFormat().getSketchType()
 
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-    print(f"Effective sketch type: {effective_sketch_type}")
+    print("Explicit sketch type:", explicit_sketch_type)
+    print("Effective sketch type:", effective_sketch_type)
 finally:
     presentation.dispose()
 ```
@@ -164,11 +137,11 @@ Here are the three join type options:
 * Miter
 * Bevel
 
-By default, when PowerPoint joins two lines at an angle (such as at a shape’s corner), it uses the **Round** setting. However, if you're drawing a shape with sharp angles, you may prefer the **Miter** option.
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
 ![The join style in the presentation](join-style-powerpoint.png)
 
-The following Python code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
+This example creates three black rectangles with blue outlines 15 points wide. It sets [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
 ```python
 import jpype
@@ -180,18 +153,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add three auto shapes of the Rectangle type.
     miter_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75)
     bevel_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75)
     round_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75)
 
-    # Set the fill color for each rectangle shape.
     miter_shape.getFillFormat().setFillType(FillType.Solid)
     miter_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     bevel_shape.getFillFormat().setFillType(FillType.Solid)
@@ -199,12 +168,10 @@ try:
     round_shape.getFillFormat().setFillType(FillType.Solid)
     round_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Set the line width.
     miter_shape.getLineFormat().setWidth(15)
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
 
-    # Set the color for each rectangle's line.
     miter_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     miter_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     bevel_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
@@ -212,17 +179,14 @@ try:
     round_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     round_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Set the join style.
     miter_shape.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
     bevel_shape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel)
     round_shape.getLineFormat().setJoinStyle(LineJoinStyle.Round)
 
-    # Add text to each rectangle.
     miter_shape.getTextFrame().setText("Miter Join Style")
     bevel_shape.getTextFrame().setText("Bevel Join Style")
     round_shape.getTextFrame().setText("Round Join Style")
 
-    # Save the PPTX file to disk.
     presentation.save("join_styles.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -230,18 +194,7 @@ finally:
 
 ## **Gradient Fill**
 
-In PowerPoint, Gradient Fill is a formatting option that allows you to apply a continuous blend of colors to a shape. For example, you can apply two or more colors in a way that one gradually fades into another.
-
-Here’s how to apply a gradient fill to a shape using Aspose.Slides:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) to `Gradient`.
-1. Add your two preferred colors with defined positions using the [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) method of the gradient stop collection exposed by the [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/) class.
-1. Save the modified presentation as a PPTX file.
-
-The following Python code demonstrates how to apply a gradient fill effect to an ellipse:
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). The [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
 
 ```python
 import jpype
@@ -250,30 +203,21 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, GradientDirection, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
+from asposeslides.api import FillType, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Ellipse type.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
-
-    # Apply gradient formatting to the ellipse.
     shape.getFillFormat().setFillType(FillType.Gradient)
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
-
-    # Set the direction of the gradient.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
-
-    # Add two gradient stops.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45)
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear()
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
 
-    # Save the PPTX file to disk.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -287,22 +231,7 @@ If a gradient looks different in an exported image than it does in PowerPoint, s
 
 ## **Pattern Fill**
 
-In PowerPoint, Pattern Fill is a formatting option that lets you apply a two-color design—such as dots, stripes, crosshatches, or checks—to a shape. You can choose custom colors for the pattern’s foreground and background.
-
-Aspose.Slides provides over 45 predefined pattern styles that you can apply to shapes to enhance the visual appeal of your presentations. Even after selecting a predefined pattern, you can still specify the exact colors it should use.
-
-Here's how to apply a pattern fill to a shape using Aspose.Slides:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) to `Pattern`.
-1. Choose a pattern style from the predefined options.
-1. Set the [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) of the pattern.
-1. Set the [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) of the pattern.
-1. Save the modified presentation as a PPTX file.
-
-The following Python code demonstrates how to apply a pattern fill to a rectangle:
+A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) to select a trellis pattern. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) supplies the light gray background, and [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) supplies the yellow pattern color.
 
 ```python
 import jpype
@@ -314,26 +243,16 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PatternStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Rectangle type.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Set the fill type to Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern)
-
-    # Set the pattern style.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
-
-    # Set the pattern background and foreground colors.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
-    # Save the PPTX file to disk.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -345,24 +264,9 @@ The result:
 
 ## **Picture Fill**
 
-In PowerPoint, Picture Fill is a formatting option that allows you to insert an image inside a shape—effectively using the image as the shape's background.
-
-Here’s how to use Aspose.Slides to apply a picture fill to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape's [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) to `Picture`.
-1. Set the picture fill mode to `Tile` (or another preferred mode).
-1. Create an [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) object from the image you want to use.
-1. Pass the image to the `SlidesPicture.setImage` method.
-1. Save the modified presentation as a PPTX file.
-
-Let's say we have a "lotus.png" file with the following picture:
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) to load it into the presentation’s image collection. Setting [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
 ![The lotus picture](lotus.png)
-
-The following Python code demonstrates how to fill a shape with the picture:
 
 ```python
 import jpype
@@ -373,30 +277,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, SaveFormat, ShapeType
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Rectangle type.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130)
-    
-    # Set the fill type to Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
-
-    # Set the picture fill mode.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile)
 
-    # Load an image and add it to the presentation resources.
     image = Images.fromFile("lotus.png")
-    picture = presentation.getImages().addImage(image)
-    image.dispose()
-
-    # Set the picture.
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
 
-    # Save the PPTX file to disk.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -418,7 +313,7 @@ If you want to set a tiled picture as a texture and customize the tiling behavio
 - [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Defines the horizontal scale of the tile as a percentage.
 - [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Defines the vertical scale of the tile as a percentage.
 
-The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
+This example requires a local image and configures [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
 
 ```python
 import jpype
@@ -429,28 +324,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, RectangleAlignment, SaveFormat, ShapeType, TileFlip
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     first_slide = presentation.getSlides().get_Item(0)
 
-    # Add a rectangle auto shape.
     shape = first_slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95)
-
-    # Set the fill type of the shape to Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # Load the image and add it to the presentation resources.
     source_image = Images.fromFile("lotus.png")
-    presentation_image = presentation.getImages().addImage(source_image)
-    source_image.dispose()
+    try:
+        presentation_image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
 
-    # Assign the image to the shape.
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
-
-    # Configure the picture fill mode and tiling properties.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -459,7 +347,6 @@ try:
     picture_fill_format.setTileAlignment(RectangleAlignment.BottomRight)
     picture_fill_format.setTileFlip(TileFlip.FlipBoth)
 
-    # Save the PPTX file to disk.
     presentation.save("tile.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -471,18 +358,7 @@ The result:
 
 ## **Solid Color Fill**
 
-In PowerPoint, Solid Color Fill is a formatting option that fills a shape with a single, uniform color. This plain background color is applied without any gradients, textures, or patterns.
-
-To apply a solid color fill to a shape using Aspose.Slides, follow these steps:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) to `Solid`.
-1. Assign your preferred fill color to the shape.
-1. Save the modified presentation as a PPTX file.
-
-The following Python code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
+A solid fill gives a shape a single, uniform color. This example sets [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) to the solid fill mode and assigns yellow through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), then saves the rectangle in a presentation.
 
 ```python
 import jpype
@@ -494,22 +370,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Rectangle type.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Set the fill type to Solid.
     shape.getFillFormat().setFillType(FillType.Solid)
-
-    # Set the fill color.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Save the PPTX file to disk.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -519,20 +387,81 @@ The result:
 
 ![The shape with solid color fill](solid-color-fill.png)
 
+## **Use the Slide Background as a Shape Fill**
+
+Use [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) when a shape should match the slide background, for example in a presentation template. Set [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) to [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+
+This differs from [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
+
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, GradientShape, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    # Inherit the gradient from the master.
+    slide.getBackground().setType(BackgroundType.NotDefined)
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
+    background = slide.getLayoutSlide().getMasterSlide().getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Gradient)
+    gradient = background.getFillFormat().getGradientFormat()
+    gradient.setGradientShape(GradientShape.Linear)
+    gradient.setLinearGradientAngle(0)
+    gradient.getGradientStops().clear()
+    color = Color(0, 0, 139)
+    gradient.getGradientStops().add(0, color)
+    color = Color(135, 206, 250)
+    gradient.getGradientStops().add(1, color)
+
+    # Add this object first so it appears behind the rectangles.
+    band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    background_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200)
+    background_shape.getFillFormat().setFillType(FillType.NotDefined)
+    background_shape.setUseBackgroundFill(True)
+
+    no_fill_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200)
+    no_fill_shape.getFillFormat().setFillType(FillType.NoFill)
+
+    explicit_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200)
+    explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
+    explicit_shape.setUseBackgroundFill(True)
+
+    # Disable background fill before applying an explicit fill.
+    explicit_shape.setUseBackgroundFill(False)
+    explicit_shape.getFillFormat().setFillType(FillType.Solid)
+    color = Color(255, 165, 0)
+    explicit_shape.getFillFormat().getSolidFillColor().setColor(color)
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The result, from left to right: **background fill**, **no fill**, and **explicit fill**. The magenta band is hidden by the left and right rectangles but remains visible through the middle rectangle.
+
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
+
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+
 ## **Set Transparency**
 
-In PowerPoint, when you apply a solid color, gradient, picture, or texture fill to shapes, you can also set a transparency level to control the opacity of the fill. A higher transparency value makes the shape more see-through, allowing the background or underlying objects to be partially visible.
-
-Aspose.Slides lets you set the transparency level by adjusting the alpha value in the color used for the fill. Here’s how to do it:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) to `Solid`.
-1. Use [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) to define a color with transparency (the `alpha` component controls transparency).
-1. Save the presentation.
-
-The following Python code demonstrates how to apply a transparent fill color to a rectangle:
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -544,22 +473,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add a solid rectangle auto shape.
     solid_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Add a transparent rectangle auto shape over the solid shape.
     transparent_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75)
     transparent_shape.getFillFormat().setFillType(FillType.Solid)
-    transparent_color = Color(255, 255, 0, 204)
-    transparent_shape.getFillFormat().getSolidFillColor().setColor(transparent_color)
+    color = Color(255, 255, 0, 128)
+    transparent_shape.getFillFormat().getSolidFillColor().setColor(color)
 
-    # Save the PPTX file to disk.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -571,17 +495,7 @@ The result:
 
 ## **Rotate Shapes**
 
-Aspose.Slides lets you rotate shapes in PowerPoint presentations. This can be useful when positioning visual elements with specific alignment or design needs.
-
-To rotate a shape on a slide, follow these steps:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Set the shape’s rotation property to the desired angle.
-1. Save the presentation.
-
-The following Python code demonstrates how to rotate a shape by 5 degrees:
+Use [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
 ```python
 import jpype
@@ -592,19 +506,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Instantiate the Presentation class that represents a presentation file.
 presentation = Presentation()
 try:
-    # Get the first slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Add an auto shape of the Rectangle type.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Rotate the shape by 5 degrees.
     shape.setRotation(5)
 
-    # Save the PPTX file to disk.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -616,17 +524,7 @@ The result:
 
 ## **Add 3D Bevel Effects**
 
-Aspose.Slides allows you to apply 3D bevel effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) properties.
-
-To add 3D bevel effects to a shape, follow these steps:
-
-1. Instantiate the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) to define bevel settings.
-1. Save the presentation.
-
-The following Python code shows how to apply 3D bevel effects to a shape:
+Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) to 4 points, and applies a circular top bevel with a width and height of 6 points through [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). A front-facing orthographic camera and three-point lighting make the bevel visible.
 
 ```python
 import jpype
@@ -638,20 +536,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import BevelPresetType, CameraPresetType, FillType, LightRigPresetType, LightingDirection, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Create an instance of the Presentation class.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Add a shape to the slide.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
+    color = Color(255, 165, 0)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().setWidth(2.0)
-
-    # Set the shape's ThreeDFormat properties.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -660,7 +556,6 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # Save the presentation as a PPTX file.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -672,17 +567,7 @@ The result:
 
 ## **Add 3D Rotation Effects**
 
-Aspose.Slides allows you to apply 3D rotation effects to shapes by configuring their [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) properties.
-
-To apply 3D rotation to a shape:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) class.
-1. Get a reference to a slide by its index.
-1. Add an [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) to the slide.
-1. Use the [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) and [setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) methods to define the 3D rotation.
-1. Save the presentation.
-
-The following Python code demonstrates how to apply 3D rotation effects to a shape:
+A shape’s 3D view is controlled by its camera settings. This example uses [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) and balanced lighting through [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), then saves the formatted rectangle.
 
 ```python
 import jpype
@@ -693,20 +578,16 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import CameraPresetType, LightRigPresetType, Presentation, SaveFormat, ShapeType
 
-# Create an instance of the Presentation class.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
-
-    auto_shape.getThreeDFormat().setDepth(6)
-    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp)
+    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
 
-    # Save the presentation as a PPTX file.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -722,7 +603,7 @@ The [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/as
 
 Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) class to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-The following Python code creates a colored shape and makes it appear gray in black-and-white display mode:
+This example creates an orange rectangle and sets [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
 
 ```python
 import jpype
@@ -740,9 +621,8 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
-
-    # Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+    color = Color(255, 165, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -754,7 +634,7 @@ In normal color mode, the rectangle retains its orange fill. In a black-and-whit
 
 ## **Reset Formatting**
 
-The following Python code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) to their default settings:
+Use [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
 ```python
 import jpype
@@ -768,7 +648,6 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     for slide in presentation.getSlides():
-        # Reset each shape on the slide that has a placeholder on the layout.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx)
@@ -780,7 +659,7 @@ finally:
 
 **Does shape formatting affect the final presentation file size?**
 
-Only minimally. Embedded images and media occupy most of the file space, while shape parameters such as colors, effects, and gradients are stored as metadata and add virtually no extra size.
+Colors, line styles, and effect settings generally add little data compared with embedded images and media. Picture fills can increase the file size because their images are stored in the presentation.
 
 **How can I detect shapes on a slide that share identical formatting so I can group them?**
 
@@ -788,4 +667,4 @@ Compare each shape’s key formatting properties—fill, line, and effect settin
 
 **Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
 
-Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and re‑apply their formatting wherever required.
+Yes. Store sample shapes with the desired styles in a template slide deck or a .POTX template file. When creating a new presentation, open the template, clone the styled shapes you need, and reapply their formatting wherever required.
