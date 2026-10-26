@@ -97,6 +97,7 @@ public class ReadShapeAnimations {
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
+
             IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
             targetShape.addTextFrame("Animated shape");
 
@@ -141,7 +142,50 @@ public class ReadShapeAnimations {
 }
 ```
 
-If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [ISequence.getEffectsByShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Do not assume that [IShapeCollection.get_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) at index `0` is always the intended object.
+If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [ISequence.getEffectsByShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Do not assume that [IShapeCollection.get_Item](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#get-Item-int-) at index `0` is always the intended object.
+
+## **Remove All Animations from a Shape**
+
+Use [ISequence.removeByShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/#removeByShape-com.aspose.slides.IShape-) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [IAnimationTimeLine.getMainSequence](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ianimationtimeline/#getMainSequence--) and on every sequence in [IAnimationTimeLine.getInteractiveSequences](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ianimationtimeline/#getInteractiveSequences--).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```java
+import com.aspose.slides.*;
+
+public class RemoveShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("animated-shapes.pptx");
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            IShape targetShape = null;
+            for (IShape shape : slide.getShapes()) {
+                if ("Target".equals(shape.getName())) {
+                    targetShape = shape;
+                    break;
+                }
+            }
+
+            if (targetShape != null) {
+                slide.getTimeline().getMainSequence().removeByShape(targetShape);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    sequence.removeByShape(targetShape);
+                }
+
+                presentation.save("shape-animations-removed.pptx", SaveFormat.Pptx);
+            } else {
+                System.out.println("The target shape was not found.");
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [IEffect.getTargetShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffect/#getTargetShape--) is distinct from a sequence's [ISequence.getTriggerShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/#getTriggerShape--): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
 
 ## **Work with Inherited Placeholder Effects**
 
@@ -255,6 +299,7 @@ public class ChangeAnimationTiming {
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
+
             IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
             shape.addTextFrame("Timed animation");
 
@@ -296,6 +341,7 @@ public class AddAnimationSound {
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
+
             IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
             IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
             firstShape.addTextFrame("Starts sound");
@@ -415,6 +461,7 @@ public class SetAfterAnimationBehavior {
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
+
             IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
             shape.addTextFrame("Dim after animation");
 
@@ -449,6 +496,7 @@ public class AnimateTextByWord {
         Presentation presentation = new Presentation();
         try {
             ISlide slide = presentation.getSlides().get_Item(0);
+
             IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
             textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
 

@@ -121,6 +121,33 @@ with slides.Presentation() as presentation:
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [Sequence.get_effects_by_shape](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/get_effects_by_shape/). Do not assume that the shape at index `0` is always the intended object.
 
+## **Remove All Animations from a Shape**
+
+Use [Sequence.remove_by_shape](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/remove_by_shape/) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [AnimationTimeLine.main_sequence](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animationtimeline/main_sequence/) and on every sequence in [AnimationTimeLine.interactive_sequences](https://reference.aspose.com/slides/python-net/aspose.slides.animation/animationtimeline/interactive_sequences/).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```python
+import aspose.slides as slides
+
+
+with slides.Presentation("animated-shapes.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    target_shape = next((shape for shape in slide.shapes if shape.name == "Target"), None)
+    if target_shape is not None:
+        slide.timeline.main_sequence.remove_by_shape(target_shape)
+
+        for sequence in slide.timeline.interactive_sequences:
+            sequence.remove_by_shape(target_shape)
+
+        presentation.save("shape-animations-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("The target shape was not found.")
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [Effect.target_shape](https://reference.aspose.com/slides/python-net/aspose.slides.animation/effect/target_shape/) is distinct from a sequence's [Sequence.trigger_shape](https://reference.aspose.com/slides/python-net/aspose.slides.animation/sequence/trigger_shape/): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
+
 ## **Work with Inherited Placeholder Effects**
 
 A placeholder on a normal slide can inherit animation behavior from the corresponding placeholder on its layout slide and master slide. [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) returns that parent placeholder, or `None` when no parent exists.
@@ -204,6 +231,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
     shape.text_frame.text = "Timed animation"
 
@@ -235,8 +263,10 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 100, 240, 80)
     second_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 400, 100, 240, 80)
+
     first_shape.text_frame.text = "Starts sound"
     second_shape.text_frame.text = "Stops sound"
 
@@ -328,6 +358,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 120, 100, 320, 80)
     shape.text_frame.text = "Dim after animation"
 
@@ -355,6 +386,7 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    
     text_box = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 560, 100)
     text_box.text_frame.text = "Aspose.Slides animates this sentence word by word."
 

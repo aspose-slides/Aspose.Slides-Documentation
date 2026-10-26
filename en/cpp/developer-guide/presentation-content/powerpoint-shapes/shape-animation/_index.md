@@ -139,6 +139,7 @@ auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequenc
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
 targetShape->get_TextFrame()->set_Text(u"Animated shape");
 
@@ -169,6 +170,61 @@ presentation->Dispose();
 ```
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Do not assume that [IShapeCollection::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/idx_get/) at index `0` is always the intended object.
+
+## **Remove All Animations from a Shape**
+
+Use [ISequence::RemoveByShape](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/removebyshape/) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [IAnimationTimeLine::get_MainSequence](https://reference.aspose.com/slides/cpp/aspose.slides/ianimationtimeline/get_mainsequence/) and on every sequence in [IAnimationTimeLine::get_InteractiveSequences](https://reference.aspose.com/slides/cpp/aspose.slides/ianimationtimeline/get_interactivesequences/).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```cpp
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"animated-shapes.pptx");
+auto slide = presentation->get_Slide(0);
+
+SharedPtr<IShape> targetShape;
+for (const auto& shape : slide->get_Shapes())
+{
+    if (shape->get_Name() == u"Target")
+    {
+        targetShape = shape;
+        break;
+    }
+}
+
+if (targetShape != nullptr)
+{
+    slide->get_Timeline()->get_MainSequence()->RemoveByShape(targetShape);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+    {
+        sequence->RemoveByShape(targetShape);
+    }
+
+    presentation->Save(u"shape-animations-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"The target shape was not found.");
+}
+
+presentation->Dispose();
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [IEffect::get_TargetShape](https://reference.aspose.com/slides/cpp/aspose.slides.animation/ieffect/get_targetshape/) is distinct from a sequence's [ISequence::get_TriggerShape](https://reference.aspose.com/slides/cpp/aspose.slides.animation/isequence/get_triggershape/): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
 
 ## **Work with Inherited Placeholder Effects**
 
@@ -234,6 +290,7 @@ auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>&
 
 auto presentation = MakeObject<Presentation>();
 auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+
 auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
 layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
 
@@ -305,6 +362,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
 shape->get_TextFrame()->set_Text(u"Timed animation");
 
@@ -358,6 +416,7 @@ using namespace System::IO;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
 auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
 firstShape->get_TextFrame()->set_Text(u"Starts sound");
@@ -492,6 +551,7 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
 shape->get_TextFrame()->set_Text(u"Dim after animation");
 
@@ -540,6 +600,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
 textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 

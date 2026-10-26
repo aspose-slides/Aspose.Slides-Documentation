@@ -116,6 +116,7 @@ function printSequence($label, $sequence)
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
     $targetShape->addTextFrame("Animated shape");
 
@@ -148,6 +149,52 @@ try {
 ```
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [Sequence::getEffectsByShape](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/geteffectsbyshape/). Do not assume that [ShapeCollection::get_Item](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/get_item/) at index `0` is always the intended object.
+
+## **Remove All Animations from a Shape**
+
+Use [Sequence::removeByShape](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/removebyshape/) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [AnimationTimeLine::getMainSequence](https://reference.aspose.com/slides/php-java/aspose.slides/animationtimeline/getmainsequence/) and on every sequence in [AnimationTimeLine::getInteractiveSequences](https://reference.aspose.com/slides/php-java/aspose.slides/animationtimeline/getinteractivesequences/).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("animated-shapes.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $targetShape = null;
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (java_values($shape->getName()) === "Target") {
+            $targetShape = $shape;
+            break;
+        }
+    }
+
+    if ($targetShape !== null) {
+        $slide->getTimeline()->getMainSequence()->removeByShape($targetShape);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $sequence->removeByShape($targetShape);
+        }
+
+        $presentation->save("shape-animations-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The target shape was not found." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [Effect::getTargetShape](https://reference.aspose.com/slides/php-java/aspose.slides/effect/gettargetshape/) is distinct from a sequence's [Sequence::getTriggerShape](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/gettriggershape/): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
 
 ## **Work with Inherited Placeholder Effects**
 
@@ -213,6 +260,7 @@ function printEffects($source, $effects)
 $presentation = new Presentation();
 try {
     $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
     $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
 
     if ($layoutPlaceholder === null) {
@@ -274,6 +322,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
     $shape->addTextFrame("Timed animation");
 
@@ -315,6 +364,7 @@ $Files = new JavaClass("java.nio.file.Files");
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
     $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
     $firstShape->addTextFrame("Starts sound");
@@ -447,6 +497,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
     $shape->addTextFrame("Dim after animation");
 
@@ -484,6 +535,7 @@ use aspose\slides\ShapeType;
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
     $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
 

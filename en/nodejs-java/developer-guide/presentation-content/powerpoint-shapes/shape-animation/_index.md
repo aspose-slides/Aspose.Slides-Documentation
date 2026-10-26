@@ -115,6 +115,7 @@ function printSequence(label, sequence) {
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
     targetShape.addTextFrame("Animated shape");
 
@@ -144,6 +145,49 @@ try {
 ```
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [Sequence.getEffectsByShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Do not assume that [ShapeCollection.get_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#get_Item) at index `0` is always the intended object.
+
+## **Remove All Animations from a Shape**
+
+Use [Sequence.removeByShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/#removeByShape) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [AnimationTimeLine.getMainSequence](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animationtimeline/#getMainSequence) and on every sequence in [AnimationTimeLine.getInteractiveSequences](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animationtimeline/#getInteractiveSequences).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const presentation = new aspose.slides.Presentation("animated-shapes.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shapes = slide.getShapes();
+    let targetShape = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (shape.getName() === "Target") {
+            targetShape = shape;
+            break;
+        }
+    }
+
+    if (targetShape != null) {
+        slide.getTimeline().getMainSequence().removeByShape(targetShape);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let i = 0; i < interactiveSequences.getCount(); i++) {
+            interactiveSequences.get_Item(i).removeByShape(targetShape);
+        }
+
+        presentation.save("shape-animations-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("The target shape was not found.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [Effect.getTargetShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#getTargetShape) is distinct from a sequence's [Sequence.getTriggerShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/#getTriggerShape): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
 
 ## **Work with Inherited Placeholder Effects**
 
@@ -262,6 +306,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
     shape.addTextFrame("Timed animation");
 
@@ -298,8 +343,10 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
     const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+
     firstShape.addTextFrame("Starts sound");
     secondShape.addTextFrame("Stops sound");
 
@@ -408,6 +455,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
     shape.addTextFrame("Dim after animation");
 
@@ -439,6 +487,7 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+    
     const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
     textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
 

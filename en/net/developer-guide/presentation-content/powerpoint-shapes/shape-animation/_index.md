@@ -90,6 +90,7 @@ using Aspose.Slides.Animation;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
 targetShape.TextFrame.Text = "Animated shape";
 
@@ -131,6 +132,41 @@ static void PrintSequence(string label, ISequence sequence)
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/geteffectsbyshape/). Do not assume that [IShapeCollection.Item](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/item/) at index `0` is always the intended object.
 
+## **Remove All Animations from a Shape**
+
+Use [ISequence.RemoveByShape](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/removebyshape/) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on [MainSequence](https://reference.aspose.com/slides/net/aspose.slides/ianimationtimeline/mainsequence/) and on every sequence in [InteractiveSequences](https://reference.aspose.com/slides/net/aspose.slides/ianimationtimeline/interactivesequences/).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("animated-shapes.pptx");
+var slide = presentation.Slides[0];
+
+var targetShape = slide.Shapes.FirstOrDefault(shape => shape.Name == "Target");
+if (targetShape != null)
+{
+    slide.Timeline.MainSequence.RemoveByShape(targetShape);
+
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        sequence.RemoveByShape(targetShape);
+    }
+
+    presentation.Save("shape-animations-removed.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("The target shape was not found.");
+}
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [TargetShape](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/targetshape/) is distinct from a sequence's [TriggerShape](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/triggershape/): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
+
 ## **Work with Inherited Placeholder Effects**
 
 A placeholder on a normal slide can inherit animation behavior from the corresponding placeholder on its layout slide and master slide. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/getbaseplaceholder/) returns that parent placeholder, or `null` when no parent exists.
@@ -153,6 +189,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
 var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
 layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
@@ -233,6 +270,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
 shape.TextFrame.Text = "Timed animation";
 
@@ -266,6 +304,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
 var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
 firstShape.TextFrame.Text = "Starts sound";
@@ -367,6 +406,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
 shape.TextFrame.Text = "Dim after animation";
 
@@ -395,6 +435,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
 textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
 

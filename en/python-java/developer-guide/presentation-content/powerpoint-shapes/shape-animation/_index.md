@@ -114,6 +114,7 @@ def print_sequence(label, sequence):
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     target_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80)
     target_shape.addTextFrame("Animated shape")
 
@@ -140,6 +141,41 @@ finally:
 ```
 
 If you only need the effects for one shape, first identify the shape by name, placeholder type, or another stable property; then call [Sequence.getEffectsByShape](https://reference.aspose.com/slides/python-java/aspose.slides/sequence/#getEffectsByShape). Do not assume that [ShapeCollection.get_Item](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#get_Item) at index `0` is always the intended object.
+
+## **Remove All Animations from a Shape**
+
+Use [Sequence.removeByShape](https://reference.aspose.com/slides/python-java/aspose.slides/sequence/#removeByShape) to remove effects targeting a particular shape. Each call affects only the sequence on which it is invoked. To remove the shape's effects throughout a slide's timeline, call it on the sequence returned by [AnimationTimeLine.getMainSequence](https://reference.aspose.com/slides/python-java/aspose.slides/animationtimeline/#getMainSequence) and on every sequence in [AnimationTimeLine.getInteractiveSequences](https://reference.aspose.com/slides/python-java/aspose.slides/animationtimeline/#getInteractiveSequences).
+
+The example expects a presentation file with two shapes named `Target` and `Other` on the first slide. Both shapes have effects in the main sequence and in an interactive sequence triggered by clicking `Target`. It finds the target by name, removes its effects from all these sequences, and saves the presentation.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("animated-shapes.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    target_shape = next((shape for shape in slide.getShapes() if shape.getName() == "Target"), None)
+    if target_shape is not None:
+        slide.getTimeline().getMainSequence().removeByShape(target_shape)
+
+        for sequence in slide.getTimeline().getInteractiveSequences():
+            sequence.removeByShape(target_shape)
+
+        presentation.save("shape-animations-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("The target shape was not found.")
+finally:
+    presentation.dispose()
+```
+
+The `Target` shape remains on the slide, and effects targeting `Other` are preserved in both sequences. An effect's [Effect.getTargetShape](https://reference.aspose.com/slides/python-java/aspose.slides/effect/#getTargetShape) is distinct from a sequence's [Sequence.getTriggerShape](https://reference.aspose.com/slides/python-java/aspose.slides/sequence/#getTriggerShape): removing effects targeting `Target` does not remove every animation triggered by it. In this example, clicking `Target` still starts the interactive effect for `Other`.
 
 ## **Work with Inherited Placeholder Effects**
 
@@ -241,6 +277,7 @@ from asposeslides.api import EffectSubtype, EffectTriggerType, EffectType, Prese
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80)
     shape.addTextFrame("Timed animation")
 
@@ -281,6 +318,7 @@ from pathlib import Path
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     first_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80)
     second_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80)
     first_shape.addTextFrame("Starts sound")
@@ -381,6 +419,7 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80)
     shape.addTextFrame("Dim after animation")
 
@@ -416,6 +455,7 @@ from asposeslides.api import AnimateTextType, BuildType, EffectSubtype, EffectTr
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+    
     text_box = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100)
     text_box.addTextFrame("Aspose.Slides animates this sentence word by word.")
 
