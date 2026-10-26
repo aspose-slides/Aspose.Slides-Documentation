@@ -408,3 +408,5 @@ Yes, Aspose.Slides allows you to export PDFs that comply with [various standards
 - [Aspose.Slides for Java Documentation](/slides/java/)
 - [Aspose.Slides for Java API Reference](https://reference.aspose.com/slides/java/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+
+Related feature: [Export presentations to PDF](/slides/features/pdf-export/).

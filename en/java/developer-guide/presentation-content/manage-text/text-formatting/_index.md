@@ -800,3 +800,5 @@ To modify text in a table on a slide, use [ITable](https://reference.aspose.com/
 **How do I apply a gradient color to text on a PowerPoint slide?**
 
 To apply a gradient color to text, use [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Set [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
+
+Related feature: [Format text within slides](/slides/features/text-formatting/).

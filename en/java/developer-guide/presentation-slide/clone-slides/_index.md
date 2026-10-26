@@ -254,3 +254,5 @@ The chart object, formatting, and embedded data are copied. If the chart was lin
 **Can I control the insertion position and sections for the clone?**
 
 Yes. You can insert the clone at a specific slide index and place it into a chosen [section](/slides/java/slide-section/). If the target section doesn’t exist, create it first and then move the slide into it.
+
+Related feature: [Clone slides between presentations](/slides/features/clone-slides/).

@@ -166,3 +166,5 @@ Yes. You can [create and edit mathematical text](/slides/java/powerpoint-math-eq
 ### How does the library handle encryption and passwords (open, set, remove)?
 
 [It supports](/slides/java/password-protected-presentation/) opening encrypted presentations, setting or removing passwords for opening and modifying, and checking a file’s protection status.
+
+Related feature: [Process presentations without PowerPoint](/slides/features/without-powerpoint/).

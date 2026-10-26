@@ -249,7 +249,7 @@ The caller owns the stream passed to [ISlide.writeAsEmf](https://reference.aspos
 
 ### **Convert an SVG Image to EMF and Add It to a Presentation**
 
-Use [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) to convert SVG content to EMF. The resulting bytes can be added to the presentation through [IImageCollection.addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) and placed on a slide with [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+Use [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) to convert SVG content to EMF. The resulting bytes can be added to the presentation through [IImageCollection.addImage](https://reference.aspose.com/slides/java/com.aspose.slides/iimagecollection/#addImage-byte---) and placed on a slide with [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
 
 The following example creates an [SvgImage](https://reference.aspose.com/slides/java/com.aspose.slides/svgimage/) from SVG markup, converts it to an in-memory EMF, inserts the metafile on the first slide, and saves the presentation:
 
@@ -310,3 +310,5 @@ Yes. Hidden slides can be rendered like regular slides. Include them in the proc
 **Are shadows and other effects preserved in slide images?**
 
 Yes. Aspose.Slides renders shadows, transparency, and other supported graphical effects in slide images.
+
+Related feature: [Render slides as images](/slides/features/slide-images/).

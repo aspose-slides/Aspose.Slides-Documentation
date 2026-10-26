@@ -18,6 +18,9 @@ keywords:
 description: "Review what Aspose.Slides for Java covers before you evaluate it: supported platforms, file formats, slide rendering, and the content you can create and edit."
 ---
 
+Browse the [features and support catalogue](/slides/features/?edition=java) for short feature descriptions, reviewed availability, and links to the relevant guides.
+
+
 ## **Overview**
 
 Aspose.Slides for Java is a class library for creating, reading, editing, converting, and rendering PowerPoint and OpenDocument presentations. It has no user interface of its own and does not require Microsoft PowerPoint or Microsoft Office. This article summarizes what the library covers and links to the articles that describe each area.
