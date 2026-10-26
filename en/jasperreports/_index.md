@@ -26,6 +26,8 @@ It exports a filled report to PPT and PPTX, one slide per report page, and also 
 
 <div style="clear:both"></div>
 
+<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse presentation tasks and open the guide for your edition.</p>
+
 ------
 
 <div class="row">
