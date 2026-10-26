@@ -301,3 +301,5 @@ Use [shape locks](/slides/python-net/applying-protection-to-presentation/) to di
 **Is inserting an image inside a cell as a background supported?**
 
 Yes. You can set a [picture fill](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).
+
+Related feature: [Create tables on slides](/slides/features/create-tables/).

@@ -692,3 +692,5 @@ To modify text in a table on a slide, use [Table](https://reference.aspose.com/s
 **How do I apply a gradient color to text on a PowerPoint slide?**
 
 To apply a gradient color to text, use [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). Set [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) to [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
+
+Related feature: [Format text within slides](/slides/features/text-formatting/).

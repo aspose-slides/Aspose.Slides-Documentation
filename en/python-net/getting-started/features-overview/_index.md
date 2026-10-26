@@ -18,6 +18,9 @@ keywords:
 description: "Discover Aspose.Slides for Python via .NET: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
+Browse the [features and support catalogue](/slides/features/?edition=python-net) for short feature descriptions, reviewed availability, and links to the relevant guides.
+
+
 ## **Supported Platforms**
 The platforms Aspose.Slides for Python via .NET can be used on Windows x64 or x86 and wide range of Linux distributions with Python 3.5 or later installed. There are additional requirements to the target Linux platform:
 - GCC-6 runtime libraries (or later)

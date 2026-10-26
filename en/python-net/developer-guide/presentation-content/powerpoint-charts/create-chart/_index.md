@@ -1292,3 +1292,5 @@ You can update a chart's data by accessing its data workbook ([ChartDataWorkbook
 **Is it possible to customize the appearance of the chart?**
 
 Yes, Aspose.Slides for Python via .NET provides extensive customization options. You can modify colors, fonts, labels, legends, and other formatting elements to tailor the chart's appearance to your specific design requirements.
+
+Related feature: [Create editable charts](/slides/features/create-charts/).

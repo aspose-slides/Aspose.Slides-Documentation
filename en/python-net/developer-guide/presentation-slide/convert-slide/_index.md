@@ -52,7 +52,7 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **Convert Slides to Images with Custom Sizes**
 
-Use the [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) overload that accepts a [Size](https://reference.aspose.com/slides/python-net/aspose.pydrawing/size/) value to render a slide with exact pixel dimensions.
+Use the [Slide.get_image](https://reference.aspose.com/slides/python-net/aspose.slides/slide/get_image/) overload that accepts a Size value to render a slide with exact pixel dimensions.
 
 The following example creates a 1820 × 1040 JPEG image:
 
@@ -215,3 +215,5 @@ Yes. Hidden slides can be rendered like regular slides. Include them in the proc
 **Are shadows and other effects preserved in slide images?**
 
 Yes. Aspose.Slides renders shadows, transparency, and other supported graphical effects in slide images.
+
+Related feature: [Render slides as images](/slides/features/slide-images/).

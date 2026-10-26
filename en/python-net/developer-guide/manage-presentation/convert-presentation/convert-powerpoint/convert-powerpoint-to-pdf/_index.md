@@ -328,3 +328,5 @@ Aspose.Slides detects font substitutions during conversion, and you can handle t
 - [Aspose.Slides for Python via .NET Documentation](/slides/python-net/)
 - [Aspose.Slides API Reference](https://reference.aspose.com/slides/python-net/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+
+Related feature: [Export presentations to PDF](/slides/features/pdf-export/).

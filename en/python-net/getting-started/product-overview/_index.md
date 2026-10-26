@@ -192,3 +192,5 @@ Yes. You can [create and edit mathematical text](/slides/python-net/powerpoint-m
 ### How does the library handle encryption and passwords (open, set, remove)?
 
 [It supports](/slides/python-net/password-protected-presentation/) opening encrypted presentations, setting or removing passwords for opening and modifying, and checking a file’s protection status.
+
+Related feature: [Process presentations without PowerPoint](/slides/features/without-powerpoint/).
