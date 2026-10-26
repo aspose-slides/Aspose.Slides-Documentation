@@ -1,6 +1,6 @@
 ---
 title: Create editable charts
-description: Add native presentation charts with categories and data series.
+description: Add charts that people can edit in PowerPoint.
 type: docs
 url: /features/create-charts/
 weight: 60
@@ -12,34 +12,30 @@ availability:
   verified_version: 26.9.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/net/create-chart/
-  note: Available chart types and data requirements vary; follow the selected edition's chart guide for the chart
-    you need.
+  note: Check the guide for your edition to choose a chart type and set up its data.
 - edition: java
   verified_version: '26.9'
   reviewed_on: '2026-10-26'
   guide_url: /slides/java/create-chart/
-  note: Available chart types and data requirements vary; follow the selected edition's chart guide for the chart
-    you need.
+  note: Check the guide for your edition to choose a chart type and set up its data.
 - edition: cpp
   verified_version: 26.8.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/cpp/create-chart/
-  note: Available chart types and data requirements vary; follow the selected edition's chart guide for the chart
-    you need.
+  note: Check the guide for your edition to choose a chart type and set up its data.
 - edition: python-net
   verified_version: 26.8.1
   reviewed_on: '2026-10-26'
   guide_url: /slides/python-net/create-chart/
-  note: Available chart types and data requirements vary; follow the selected edition's chart guide for the chart
-    you need.
+  note: Check the guide for your edition to choose a chart type and set up its data.
 ---
 
 ## **Overview**
 
-Create charts from application data and place them on a slide. Native charts retain their chart structure in the saved presentation, making them useful when recipients need to work with the chart in PowerPoint. The guide explains how to populate categories and series and configure the chart.
+Turn your data into charts on a slide. Add categories and data series, then adjust how the chart looks. The chart stays editable when you save the presentation.
 
 ## **FAQ**
 
-**Is a chart saved only as a picture?**
+**Is the chart saved as a picture?**
 
-No. This feature creates a native chart in the presentation. Exporting the presentation to a fixed image is a separate operation.
+No. It stays a chart that you can edit in PowerPoint. Saving a slide as an image is a separate step.

@@ -1,6 +1,6 @@
 ---
 title: Features and Support
-description: Find presentation capabilities, their available editions, and the guides that show how to use them.
+description: Find out what you can do with Aspose.Slides and open the guides for your edition.
 type: docs
 url: /features/
 weight: 5
@@ -12,14 +12,14 @@ slides_feature_catalogue: true
 
 ## **Overview**
 
-Explore common presentation tasks in Aspose.Slides for .NET, Java, C++, and Python via .NET. Each feature links to its description, relevant limitations, and edition-specific guides. For other editions, start with the [Slides documentation](/slides/).
+See what you can do with Aspose.Slides for .NET, Java, C++, and Python via .NET. Choose a feature to learn more, or select your edition to open a guide with code examples. For other editions, see the [Slides documentation](/slides/).
 
 ## **FAQ**
 
-**Where can I find working code?**
+**Where can I find code examples?**
 
-Open a feature, then follow the guide for your edition. The existing guides provide examples and detailed options.
+Choose your edition under a feature to open its guide.
 
-**Does this catalogue cover every feature?**
+**Is this the full list of features?**
 
-This is a curated selection of common tasks. Each edition's documentation contains its complete set of guides.
+This page covers common tasks. You'll find more in the documentation for your edition.

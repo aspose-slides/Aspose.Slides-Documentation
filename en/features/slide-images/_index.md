@@ -1,6 +1,6 @@
 ---
 title: Render slides as images
-description: Create PNG or JPEG images from presentation slides.
+description: Save slides as PNG or JPEG images for previews and thumbnails.
 type: docs
 url: /features/slide-images/
 weight: 30
@@ -12,30 +12,30 @@ availability:
   verified_version: 26.9.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/net/convert-slide/
-  note: The rendered image includes the slide background. Image dimensions and installed fonts affect the result.
+  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
 - edition: java
   verified_version: '26.9'
   reviewed_on: '2026-10-26'
   guide_url: /slides/java/convert-slide/
-  note: The rendered image includes the slide background. Image dimensions and installed fonts affect the result.
+  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
 - edition: cpp
   verified_version: 26.8.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/cpp/convert-slide/
-  note: The rendered image includes the slide background. Image dimensions and installed fonts affect the result.
+  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
 - edition: python-net
   verified_version: 26.8.1
   reviewed_on: '2026-10-26'
   guide_url: /slides/python-net/convert-slide/
-  note: The rendered image includes the slide background. Image dimensions and installed fonts affect the result.
+  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
 ---
 
 ## **Overview**
 
-Render slides to images for previews, thumbnails, reports, or an application's presentation browser. Choose image dimensions that suit the display or export task. An image captures a slide's appearance at rendering time and can be used independently of the presentation file.
+Turn slides into images for previews, thumbnails, or reports. Choose the image size you need, then use the images in your app or share them on their own.
 
 ## **FAQ**
 
 **Should I use PNG or JPEG?**
 
-PNG is useful for text, diagrams, and crisp edges. JPEG can be useful for photographic slides when a smaller file is more important than lossless output.
+Use PNG to keep text and diagrams sharp. JPEG works well for slides with photos when file size matters more.

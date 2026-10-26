@@ -1,6 +1,6 @@
 ---
 title: Create tables on slides
-description: Add tables with rows, columns, and editable cell text.
+description: Add tables with rows, columns, and editable text.
 type: docs
 url: /features/create-tables/
 weight: 70
@@ -12,30 +12,30 @@ availability:
   verified_version: 26.9.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/net/manage-table/
-  note: Set row heights and column widths for the slide layout; provide cell values through the API.
+  note: Set the row heights and column widths to fit your slide, then fill in the cells.
 - edition: java
   verified_version: '26.9'
   reviewed_on: '2026-10-26'
   guide_url: /slides/java/manage-table/
-  note: Set row heights and column widths for the slide layout; provide cell values through the API.
+  note: Set the row heights and column widths to fit your slide, then fill in the cells.
 - edition: cpp
   verified_version: 26.8.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/cpp/manage-table/
-  note: Set row heights and column widths for the slide layout; provide cell values through the API.
+  note: Set the row heights and column widths to fit your slide, then fill in the cells.
 - edition: python-net
   verified_version: 26.8.1
   reviewed_on: '2026-10-26'
   guide_url: /slides/python-net/manage-table/
-  note: Set row heights and column widths for the slide layout; provide cell values through the API.
+  note: Set the row heights and column widths to fit your slide, then fill in the cells.
 ---
 
 ## **Overview**
 
-Present structured data in a slide table. Create a grid, populate its cells, and format it to suit the presentation. Tables are useful for comparisons, schedules, prices, and compact reports where the relationship between rows and columns matters.
+Add a table, fill in its cells, and format it to match your slides. Use tables for comparisons, schedules, prices, or reports.
 
 ## **FAQ**
 
 **Can the table be edited in PowerPoint?**
 
-Yes. A table saved in a PPTX presentation remains a native table with editable cells.
+Yes. Tables saved in PPTX files keep their editable cells.

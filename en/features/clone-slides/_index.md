@@ -1,6 +1,6 @@
 ---
 title: Clone slides between presentations
-description: Reuse existing slides when assembling another presentation.
+description: Copy slides from one presentation to another.
 type: docs
 url: /features/clone-slides/
 weight: 40
@@ -12,30 +12,30 @@ availability:
   verified_version: 26.9.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/net/clone-slides/
-  note: Choose the cloning overload that preserves source formatting or applies the intended destination layout.
+  note: Choose whether to keep the original formatting or use the destination presentation's layout.
 - edition: java
   verified_version: '26.9'
   reviewed_on: '2026-10-26'
   guide_url: /slides/java/clone-slides/
-  note: Choose the cloning overload that preserves source formatting or applies the intended destination layout.
+  note: Choose whether to keep the original formatting or use the destination presentation's layout.
 - edition: cpp
   verified_version: 26.8.0
   reviewed_on: '2026-10-26'
   guide_url: /slides/cpp/clone-slides/
-  note: Choose the cloning overload that preserves source formatting or applies the intended destination layout.
+  note: Choose whether to keep the original formatting or use the destination presentation's layout.
 - edition: python-net
   verified_version: 26.8.1
   reviewed_on: '2026-10-26'
   guide_url: /slides/python-net/clone-slides/
-  note: Choose the cloning overload that preserves source formatting or applies the intended destination layout.
+  note: Choose whether to keep the original formatting or use the destination presentation's layout.
 ---
 
 ## **Overview**
 
-Build a presentation from slides in existing decks. Cloning is useful for assembling a report, reusing approved slides, or combining material from several sources. Use the edition-specific guide to choose the destination position and the required layout or master behavior.
+Reuse slides from existing presentations to put together a report or combine several decks. The guides show how to choose where each copy goes and how to handle its layout and formatting.
 
 ## **FAQ**
 
-**Does cloning remove a slide from its source deck?**
+**Does cloning remove the original slide?**
 
-No. Cloning adds a copy to the destination presentation; the source slide remains in its original collection.
+No. It adds a copy to the destination presentation and leaves the original slide in place.
