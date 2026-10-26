@@ -476,3 +476,5 @@ Yes, Aspose.Slides allows you to export PDFs that comply with various standards,
 - [Aspose.Slides for C++ Documentation](/slides/cpp/)
 - [Aspose.Slides for C++ API Reference](https://reference.aspose.com/slides/cpp/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+
+Related feature: [Export presentations to PDF](/slides/features/pdf-export/).

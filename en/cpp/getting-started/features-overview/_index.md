@@ -20,6 +20,9 @@ keywords:
 description: "Discover Aspose.Slides for C++: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
+Browse the [features and support catalogue](/slides/features/?edition=cpp) for short feature descriptions, reviewed availability, and links to the relevant guides.
+
+
 ## **File Formats and Conversions**
 Aspose.Slides forC++ supports most of the PowerPoint document formats and also exports them to popular formats used widely for exchange among organizations. Following table enlists these formats:
 

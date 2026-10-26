@@ -416,3 +416,5 @@ Use [shape locks](/slides/cpp/applying-protection-to-presentation/) to disable m
 **Is inserting an image inside a cell as a background supported?**
 
 Yes. You can set a [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).
+
+Related feature: [Create tables on slides](/slides/features/create-tables/).

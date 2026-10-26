@@ -209,3 +209,5 @@ The presentation can still load, but rendering and export may substitute fonts. 
 **Does loading a presentation also load its embedded media?**
 
 Embedded audio and video become available through the presentation object model. External resources are resolved according to the configured resource-loading behavior and may be unavailable if their locations cannot be accessed.
+
+Related feature: [Read and write PowerPoint files](/slides/features/powerpoint-files/).

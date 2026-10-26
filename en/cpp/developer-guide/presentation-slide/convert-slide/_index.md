@@ -306,3 +306,5 @@ Yes. Hidden slides can be rendered like regular slides. Include them in the proc
 **Are shadows and other effects preserved in slide images?**
 
 Yes. Aspose.Slides renders shadows, transparency, and other supported graphical effects in slide images.
+
+Related feature: [Render slides as images](/slides/features/slide-images/).
