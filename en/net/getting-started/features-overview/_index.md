@@ -19,6 +19,9 @@ keywords:
 description: "Review what Aspose.Slides for .NET covers before you evaluate it: supported platforms, file formats, slide rendering, and the content you can create and edit."
 ---
 
+Browse the [features and support catalogue](/slides/features/?edition=net) for short feature descriptions, reviewed availability, and links to the relevant guides.
+
+
 ## **Overview**
 
 Aspose.Slides for .NET is a class library for creating, reading, editing, converting, and rendering PowerPoint and OpenDocument presentations. It has no user interface of its own and does not require Microsoft PowerPoint or Office, so you can use it in console applications, desktop applications such as Windows Forms, web applications, and web services. This article summarizes what the library covers and links to the articles that describe each area.

@@ -380,3 +380,5 @@ Yes, Aspose.Slides allows you to export PDFs that comply with various standards,
 - [Aspose.Slides for .NET Documentation](/slides/net/)
 - [Aspose.Slides for .NET API Reference](https://reference.aspose.com/slides/net/)
 - [Aspose Free Online Converters](https://products.aspose.app/slides/conversion)
+
+Related feature: [Export presentations to PDF](/slides/features/pdf-export/).
