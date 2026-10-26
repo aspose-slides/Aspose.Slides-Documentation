@@ -21,7 +21,7 @@ description: "Learn how to manage chart series, data points, workbook cells, for
 
 ## **Overview**
 
-A chart can store its plotted values in workbook cells or directly as numeric literals. An [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) represents a point in that series. [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) objects from the chart workbook.
+A chart can store its plotted values in workbook cells or directly as numeric literals. A [ChartSeries](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/) represents a point in that series. [ChartCategory](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. In charts created with default data, series names, categories, and point values use [ChartDataCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/) objects from the chart workbook.
 
 For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/php-java/aspose.slides/chartdataworkbook/getcell/) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
@@ -523,6 +523,44 @@ The result:
 
 ![The gap width](gap_width.png)
 
+## **Show or Hide Series Lines**
+
+Series lines visually connect related parts of a chart. Use [ChartSeriesGroup::setSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setserieslines/) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
+
+Access the group through [ChartSeries::getParentSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/getparentseriesgroup/). The setting applies to every series in that group. [ChartSeries::hasSeriesLines](https://reference.aspose.com/slides/php-java/aspose.slides/chartseries/hasserieslines/) is read-only and reflects the parent group's setting; call the group's setter to update it.
+
+The following example creates one [ChartType::PieOfPie](https://reference.aspose.com/slides/php-java/aspose.slides/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::PieOfPie, 50, 50, 600, 400);
+    $series = $chart->getChartData()->getSeries()->get_Item(0);
+    $seriesGroup = $series->getParentSeriesGroup();
+
+    $seriesGroup->setSeriesLines(true);
+    $presentation->save("series_lines_enabled.pptx", SaveFormat::Pptx);
+
+    $seriesGroup->setSeriesLines(false);
+    $presentation->save("series_lines_disabled.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+| Series lines enabled | Series lines disabled |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
+
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
+
 ## **FAQ**
 
 **Which chart types support data series?**
@@ -535,7 +573,7 @@ A [ChartSeriesGroup](https://reference.aspose.com/slides/php-java/aspose.slides/
 
 **Does a newly created chart contain default data?**
 
-Yes. By default, [ShapeCollection.addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
+Yes. By default, [ShapeCollection::addChart](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addchart/) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
 
 **How are chart objects connected to workbook cells?**
 
@@ -547,7 +585,7 @@ Set the relevant value cell to `null` to retain the point's category position as
 
 **How are empty points displayed?**
 
-The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
+The result depends on the chart type and the value configured through [Chart::setDisplayBlanksAs](https://reference.aspose.com/slides/php-java/aspose.slides/chart/setdisplayblanksas/). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation. See [Control the Display of Empty Cells](#control-the-display-of-empty-cells) for a complete example and visual comparison.
 
 **How are negative values formatted?**
 

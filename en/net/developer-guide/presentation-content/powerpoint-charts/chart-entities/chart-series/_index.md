@@ -485,6 +485,40 @@ The result:
 
 ![The gap width](gap_width.png)
 
+## **Show or Hide Series Lines**
+
+Series lines visually connect related parts of a chart. Use [IChartSeriesGroup.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseriesgroup/hasserieslines/) to show or hide them in supported stacked bar and OfPie charts. In two-dimensional stacked bar and column charts, they connect corresponding stack boundaries across categories. In Pie of Pie and Bar of Pie charts, they connect the main plot to the secondary plot. This setting is not a general-purpose connector for other chart types.
+
+Access the group through [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/parentseriesgroup/). The setting applies to every series in that group. [IChartSeries.HasSeriesLines](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/hasserieslines/) is read-only and reflects the parent group's setting; change the group property to update it.
+
+The following example creates one [PieOfPie](https://reference.aspose.com/slides/net/aspose.slides.charts/charttype/) chart with default data. It saves the same chart with series lines enabled and then disabled, producing two presentations for comparison.
+
+```cs
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.PieOfPie, 50, 50, 600, 400);
+var series = chart.ChartData.Series[0];
+var seriesGroup = series.ParentSeriesGroup;
+
+seriesGroup.HasSeriesLines = true;
+presentation.Save("series_lines_enabled.pptx", SaveFormat.Pptx);
+
+seriesGroup.HasSeriesLines = false;
+presentation.Save("series_lines_disabled.pptx", SaveFormat.Pptx);
+```
+
+| Series lines enabled | Series lines disabled |
+| --- | --- |
+| ![Pie of Pie chart with series lines enabled](series_lines_enabled.png) | ![Pie of Pie chart with series lines disabled](series_lines_disabled.png) |
+| The two lines connect the main pie to the secondary pie. | Both pies remain visible, but the connecting lines are hidden. |
+
+Series lines differ from data label leader lines, which connect labels to their data points; gridlines, which mark intervals along chart axes; and the lines in a line chart, which represent data values. This setting does not control those elements.
+
 ## **FAQ**
 
 **Which chart types support data series?**

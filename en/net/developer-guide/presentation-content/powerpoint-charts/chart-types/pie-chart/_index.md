@@ -52,6 +52,8 @@ seriesGroup.PieSplitPosition = 53;
 presentation.Save("pie_of_pie.pptx", SaveFormat.Pptx);
 ```
 
+To show or hide the lines connecting the main and secondary plots in Pie of Pie and Bar of Pie charts, see [Show or Hide Series Lines](/slides/net/chart-series/#show-or-hide-series-lines). The setting applies to the entire series group.
+
 ### **Select Categories for the Secondary Plot**
 
 Use custom splitting when you want to group specific categories in the secondary plot regardless of their percentage values. For example, a sales report might show Online and Events together so readers can compare these two channels, even though they account for 35% and 10% of total sales.

@@ -28,7 +28,7 @@ The examples focus on chart customization tasks such as adding a chart to a slid
 
 Aspose.Slides for PHP via Java supports secondary plot options for Pie of Pie and Bar of Pie charts. These options control the size of the secondary plot and how data points are split between the two plots.
 
-The following example creates a Pie of Pie chart in a new presentation and displays data point values as labels. The [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setSecondPieSize) method sets the secondary plot size to 149% of the main plot. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) selects percentage-based splitting, and [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitPosition) sets the threshold to 53%.
+The following example creates a Pie of Pie chart in a new presentation and displays data point values as labels. The [setSecondPieSize](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setsecondpiesize/) method sets the secondary plot size to 149% of the main plot. [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setpiesplitby/) selects percentage-based splitting, and [setPieSplitPosition](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setpiesplitposition/) sets the threshold to 53%.
 
 ```php
 use aspose\slides\ChartType;
@@ -56,11 +56,13 @@ try {
 }
 ```
 
+To show or hide the lines connecting the main and secondary plots in Pie of Pie and Bar of Pie charts, see [Show or Hide Series Lines](/slides/php-java/chart-series/#show-or-hide-series-lines). The setting applies to the entire series group.
+
 ### **Select Categories for the Secondary Plot**
 
 Use custom splitting when you want to group specific categories in the secondary plot regardless of their percentage values. For example, a sales report might show Online and Events together so readers can compare these two channels, even though they account for 35% and 10% of total sales.
 
-Call [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setPieSplitBy) with [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) and select the points through [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#getPieSplitCustomPoints). The collection's [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#add) method accepts a zero-based index in the series; use [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#addItem) to add a data point object. In this example, index 1 selects Online, and the point at index 3 selects Events. Partners is also added temporarily, then excluded using [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/#removeItem).
+Call [setPieSplitBy](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setpiesplitby/) with [PieSplitType::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/piesplittype/) and select the points through [getPieSplitCustomPoints](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/getpiesplitcustompoints/). The collection's [add](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/add/) method accepts a zero-based index in the series; use [addItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/additem/) to add a data point object. In this example, index 1 selects Online, and the point at index 3 selects Events. Partners is also added temporarily, then excluded using [removeItem](https://reference.aspose.com/slides/php-java/aspose.slides/piesplitcustompointcollection/removeitem/).
 
 ```php
 use aspose\slides\ChartType;
@@ -118,7 +120,7 @@ The following image shows the saved presentation in PowerPoint:
 
 ## **Set Automatic Pie Chart Slice Colors**
 
-Aspose.Slides for PHP via Java can automatically assign different colors to pie chart slices. The following example creates a pie chart with a centered title and replaces the default data with three quarterly categories and their values. The [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/#setShowValue) method displays the values 20, 50, and 30 as labels, while [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/#setColorVaried) enables a distinct color for each slice.
+Aspose.Slides for PHP via Java can automatically assign different colors to pie chart slices. The following example creates a pie chart with a centered title and replaces the default data with three quarterly categories and their values. The [setShowValue](https://reference.aspose.com/slides/php-java/aspose.slides/datalabelformat/setshowvalue/) method displays the values 20, 50, and 30 as labels, while [setColorVaried](https://reference.aspose.com/slides/php-java/aspose.slides/chartseriesgroup/setcolorvaried/) enables a distinct color for each slice.
 
 ```php
 use aspose\slides\ChartType;
