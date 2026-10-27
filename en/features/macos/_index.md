@@ -16,6 +16,27 @@ feature_guides:
 
 Set up the library and its runtime dependencies on macOS for presentation development or processing. Follow the system requirements for the selected binding and package, including architecture and font requirements. Use the same presentation workflows described in that binding's guides.
 
+## **Usage example**
+
+This C# example requires a supported macOS .NET runtime, the matching macOS cross-platform graphics library and available fonts. It prints the operating system and process architecture, then writes runtime.pptx, runtime.pdf and runtime.png. Select the Intel or Apple-silicon package for the process that runs the application. No input presentation is needed.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using System.Runtime.InteropServices;
+
+Console.WriteLine($"OS: {RuntimeInformation.OSDescription}; process: {RuntimeInformation.ProcessArchitecture}");
+using var presentation = new Presentation();
+var shape = presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 60, 60, 540, 100);
+shape.Name = "Runtime marker";
+shape.TextFrame.Text = "macOS rendering";
+presentation.Save("runtime.pptx", SaveFormat.Pptx);
+presentation.Save("runtime.pdf", SaveFormat.Pdf);
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("runtime.png", ImageFormat.Png);
+```
+
 ## **FAQ**
 
 ### **Should I choose requirements by operating system alone?**
