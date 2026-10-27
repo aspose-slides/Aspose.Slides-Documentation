@@ -7,7 +7,7 @@ weight: 1630
 feature_id: macos
 feature_group: runtime
 translationKey: slides-feature-macos
-feature_catalogue_version: 2
+feature_catalogue_version: 3
 feature_guides:
 - /slides/net/system-requirements/
 ---
@@ -18,9 +18,17 @@ Set up the library and its runtime dependencies on macOS for presentation develo
 
 ## **FAQ**
 
-**Should I choose requirements by operating system alone?**
+### **Should I choose requirements by operating system alone?**
 
 Choose by both the operating system and the library binding. The required runtime and native dependencies depend on the package you use.
+
+### **Should the application and its native libraries use the same processor architecture?**
+
+Yes. Match the process architecture to the native graphics library, including when an application runs through an architecture translation layer. Check the selected package rather than assuming the machine model determines the process architecture.
+
+### **How do I provide additional fonts to a macOS application?**
+
+Install the fonts for the service account or load a local application font folder before opening presentations. Verify the required glyphs and rendered layout in that macOS environment.
 
 ## **Guides**
 
