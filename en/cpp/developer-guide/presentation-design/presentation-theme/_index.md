@@ -30,7 +30,7 @@ description: "Master presentation themes in Aspose.Slides for C++ to create, cus
 
 A presentation theme defines a coordinated set of colors, fonts, background styles, fills, lines, and effects. Theme-aware objects refer to these shared definitions instead of storing every visual property as a fixed value, so a theme change can update many objects at once.
 
-In Aspose.Slides, the presentation-level theme is available through [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_mastertheme/). A presentation can also contain theme overrides at lower levels. A master can override the presentation theme through [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), while a layout or an individual slide can use [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). In practice, the effective theme for a slide is resolved through this inheritance chain: presentation theme, master override, layout override, and slide override.
+In Aspose.Slides, the presentation-level theme is available through [Presentation::get_MasterTheme](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_mastertheme/). A presentation can also contain theme overrides at lower levels. A master can override the presentation theme through [MasterThemeManager::get_OverrideTheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), while a layout or an individual slide can use [IOverrideThemeManager::get_OverrideTheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). In practice, the effective theme for a slide is resolved through this inheritance chain: presentation theme, master override, layout override, and slide override.
 
 ![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
@@ -38,7 +38,7 @@ The sections below show the most common theme workflows: inspect a theme, change
 
 ## **Inspect a Theme**
 
-The [MasterTheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/) object exposes the theme's [get_ColorScheme()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), and [get_FormatScheme()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) methods. Inspecting these collections before changing them is especially useful when a presentation comes from an external source because the number and content of style entries can vary.
+The [MasterTheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/) object exposes the theme's [get_ColorScheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), and [get_FormatScheme](https://reference.aspose.com/slides/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) methods. Inspecting these collections before changing them is especially useful when a presentation comes from an external source because the number and content of style entries can vary.
 
 The following example reads the main theme properties and reports how many background, fill, line, and effect styles are stored in the theme:
 
@@ -59,6 +59,7 @@ using namespace Aspose::Slides;
 using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto theme = presentation->get_MasterTheme();
 auto formatScheme = theme->get_FormatScheme();
 
@@ -104,9 +105,11 @@ using namespace System::Drawing;
 
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+
 presentation->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
 presentation->Save(u"theme-color.pptx", SaveFormat::Pptx);
 
@@ -213,7 +216,7 @@ These are alternate names for the same theme slots; they are not values that are
 
 ## **Change Theme Fonts**
 
-A theme font scheme contains a major font set for headings and a minor font set for body text. The [FontScheme::get_Major()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/fontscheme/get_major/) and [FontScheme::get_Minor()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/fontscheme/get_minor/) methods expose those sets.
+A theme font scheme contains a major font set for headings and a minor font set for body text. The [FontScheme::get_Major](https://reference.aspose.com/slides/cpp/aspose.slides.theme/fontscheme/get_major/) and [FontScheme::get_Minor](https://reference.aspose.com/slides/cpp/aspose.slides.theme/fontscheme/get_minor/) methods expose those sets.
 
 PowerPoint-compatible theme font identifiers can be used in text formatting:
 
@@ -221,6 +224,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -272,6 +277,63 @@ For more information about presentation fonts, see [PowerPoint Fonts](/slides/cp
 
 {{% /alert %}}
 
+### **Resolve Theme Font References**
+
+When inspecting text, [IFontData::get_FontName](https://reference.aspose.com/slides/cpp/aspose.slides/ifontdata/get_fontname/) can contain a theme reference such as `+mn-lt` instead of a font family name. Call [IFontData::GetFontName](https://reference.aspose.com/slides/cpp/aspose.slides/ifontdata/getfontname/) with the appropriate [IThemeEffectiveData](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeeffectivedata/) to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [IThemeable::CreateThemeEffective](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) on the object whose theme applies to the inspected text. For ordinary text on a slide, use `slide->CreateThemeEffective()` so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [IOverrideTheme::InitFontSchemeFromInherited](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ioverridetheme/initfontschemefrominherited/) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFonts.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IOverrideTheme.h>
+#include <DOM/Theme/IOverrideThemeManager.h>
+#include <DOM/Theme/IThemeEffectiveData.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto theme = slide->get_ThemeManager()->get_OverrideTheme();
+theme->InitFontSchemeFromInherited();
+theme->get_FontScheme()->get_Major()->set_LatinFont(MakeObject<FontData>(u"Arial"));
+theme->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Calibri"));
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 400.0f, 60.0f);
+shape->get_TextFrame()->set_Text(u"Text using the minor theme font");
+
+auto portion = shape->get_TextFrame()->get_Paragraph(0)->get_Portion(0);
+portion->get_PortionFormat()->set_LatinFont(MakeObject<FontData>(u"+mn-lt"));
+
+auto font = portion->get_PortionFormat()->get_LatinFont();
+auto effectiveTheme = slide->CreateThemeEffective();
+auto resolvedFontName = font->GetFontName(effectiveTheme);
+Console::WriteLine(u"{0} -> {1}", font->get_FontName(), resolvedFontName);
+
+auto explicitFont = MakeObject<FontData>(u"Verdana");
+auto explicitFontName = explicitFont->GetFontName(effectiveTheme);
+Console::WriteLine(u"{0} -> {1}", explicitFont->get_FontName(), explicitFontName);
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/cpp/font-selection-sequence/) and [Font Substitution](/slides/cpp/font-substitution/) for those separate steps.
+
 ## **Copy or Apply a Theme**
 
 The workflows below solve different theme-related problems.
@@ -301,9 +363,10 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
 auto selectedMaster = presentation->get_Master(0);
-auto themedMaster = selectedMaster->ApplyExternalThemeToDependingSlides(u"corporate-theme.thmx");
 
+auto themedMaster = selectedMaster->ApplyExternalThemeToDependingSlides(u"corporate-theme.thmx");
 Console::WriteLine(u"Created master: {0}", themedMaster->get_Name());
+
 presentation->Save(u"presentation-with-external-theme.pptx", SaveFormat::Pptx);
 ```
 
@@ -354,6 +417,7 @@ else
 
         Console::WriteLine(u"First themed master: {0}", firstThemedMaster->get_Name());
         Console::WriteLine(u"Second themed master: {0}", secondThemedMaster->get_Name());
+
         presentation->Save(u"multi-master-with-external-themes.pptx", SaveFormat::Pptx);
     }
 }
@@ -363,7 +427,7 @@ The first call affects only slides that depended on `firstGroupMaster`, and the 
 
 ### **Preserve a Source Theme When Moving Slides**
 
-If you want to move a slide to another presentation and preserve its original design, clone the source master into the target presentation with [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/addclone/), then clone the slide with [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) and the cloned master. This carries the master, its layouts, and the associated theme together.
+If you want to move a slide to another presentation and preserve its original design, clone the source master into the target presentation with [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/addclone/), then clone the slide with [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/) and the cloned master. This carries the master, its layouts, and the associated theme together.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -380,10 +444,13 @@ using namespace System;
 
 auto source = MakeObject<Presentation>(u"source-theme.pptx");
 auto target = MakeObject<Presentation>(u"target.pptx");
+
 auto sourceSlide = source->get_Slide(0);
+
 auto sourceMaster = sourceSlide->get_LayoutSlide()->get_MasterSlide();
 auto clonedMaster = target->get_Masters()->AddClone(sourceMaster);
 target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
+
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
@@ -391,7 +458,7 @@ This is the preferred workflow when the source slide must look the same in the d
 
 ### **Apply Theme Values to an Existing Slide**
 
-If the target slide must stay on its current master and layout, initialize a slide-level override from the source theme. The [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/), and [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) methods copy the three main theme components into the override.
+If the target slide must stay on its current master and layout, initialize a slide-level override from the source theme. The [OverrideTheme::InitColorSchemeFrom](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/), and [OverrideTheme::InitFormatSchemeFrom](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) methods copy the three main theme components into the override.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -408,14 +475,16 @@ using namespace System;
 auto source = MakeObject<Presentation>(u"source-theme.pptx");
 auto target = MakeObject<Presentation>(u"target.pptx");
 auto targetSlide = target->get_Slide(0);
+
 auto overrideTheme = targetSlide->get_ThemeManager()->get_OverrideTheme();
 overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
 overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
 overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-This changes the theme used by that slide without changing the theme inherited by other slides. To remove the local override and return to inherited values, call [OverrideTheme::Clear()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/clear/).
+This changes the theme used by that slide without changing the theme inherited by other slides. To remove the local override and return to inherited values, call [OverrideTheme::Clear](https://reference.aspose.com/slides/cpp/aspose.slides.theme/overridetheme/clear/).
 
 ### **Apply a Theme Override to a Layout**
 
@@ -437,11 +506,13 @@ using namespace System;
 auto source = MakeObject<Presentation>(u"source-theme.pptx");
 auto target = MakeObject<Presentation>(u"target.pptx");
 auto targetSlide = target->get_Slide(0);
+
 auto targetLayout = targetSlide->get_LayoutSlide();
 auto overrideTheme = targetLayout->get_ThemeManager()->get_OverrideTheme();
 overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
 overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
 overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
@@ -449,11 +520,11 @@ Use a master or presentation-level theme when many layouts and slides should sha
 
 ## **Update Theme Background Styles**
 
-The theme's background fills are stored in [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint can present more background choices in its UI than the number of fill definitions physically stored in this collection because the UI can combine theme fills with theme colors and other style references.
+The theme's background fills are stored in [FormatScheme::get_BackgroundFillStyles](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint can present more background choices in its UI than the number of fill definitions physically stored in this collection because the UI can combine theme fills with theme colors and other style references.
 
 ![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Before using a background style, inspect the stored collection and the current [Background::get_StyleIndex()](https://reference.aspose.com/slides/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` uses `0` for no themed fill; positive values are theme background-style references. This is different from indexing a C++ collection directly with `idx_get(0)`, where `0` means the first stored item. Do not assume that every presentation contains the same number of background fill styles.
+Before using a background style, inspect the stored collection and the current [Background::get_StyleIndex](https://reference.aspose.com/slides/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` uses `0` for no themed fill; positive values are theme background-style references. This is different from indexing a C++ collection directly with `idx_get(0)`, where `0` means the first stored item. Do not assume that every presentation contains the same number of background fill styles.
 
 The following example reports the available background fill count, assigns a themed background reference to the first master, and saves the presentation:
 
@@ -473,6 +544,7 @@ using namespace Aspose::Slides::Export;
 using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto backgroundStyles = presentation->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles();
 Console::WriteLine(u"Background fill styles: {0}", backgroundStyles->get_Count());
 
@@ -481,11 +553,12 @@ if (backgroundStyles->get_Count() > 0)
     auto masterSlide = presentation->get_Master(0);
     masterSlide->get_Background()->set_Type(BackgroundType::Themed);
     masterSlide->get_Background()->set_StyleIndex(1);
+
     presentation->Save(u"theme-background.pptx", SaveFormat::Pptx);
 }
 ```
 
-The visible result depends on the theme entry referenced by the master and on any background overrides at the layout or slide level. If a slide uses its own background, changing only the master background may not change that slide. Use [Background::GetEffective()](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/) when you need to know the final background after inheritance has been applied.
+The visible result depends on the theme entry referenced by the master and on any background overrides at the layout or slide level. If a slide uses its own background, changing only the master background may not change that slide. Use [Background::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/) when you need to know the final background after inheritance has been applied.
 
 {{% alert color="warning" title="Warning" %}}
 
@@ -501,7 +574,7 @@ For direct background formatting and background inheritance, see [Presentation B
 
 ## **Update Theme Effects**
 
-A theme format scheme contains separate [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_linestyles/), and [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) collections. Typical Office themes often contain three principal style entries that correspond visually to subtle, moderate, and intense formatting, but code should inspect each collection instead of assuming a fixed count.
+A theme format scheme contains separate [FormatScheme::get_FillStyles](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_linestyles/), and [FormatScheme::get_EffectStyles](https://reference.aspose.com/slides/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) collections. Typical Office themes often contain three principal style entries that correspond visually to subtle, moderate, and intense formatting, but code should inspect each collection instead of assuming a fixed count.
 
 ![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
@@ -664,7 +737,7 @@ Effective-format objects are snapshots. After changing the presentation theme, a
 
 ## **Read Effective Theme Values**
 
-Raw theme objects tell you what is defined at a particular level. Effective values tell you what a slide or shape actually uses after inheritance and local overrides are resolved. For a slide, call [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). For a background, use [Background::GetEffective()](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/), and for a fill, use [FillFormat::GetEffective()](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/geteffective/).
+Raw theme objects tell you what is defined at a particular level. Effective values tell you what a slide or shape actually uses after inheritance and local overrides are resolved. For a slide, call [IThemeable::CreateThemeEffective](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). For a background, use [Background::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/), and for a fill, use [FillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/geteffective/).
 
 The following example reads the effective theme, background, and first shape fill from a slide:
 
@@ -688,6 +761,7 @@ using namespace System;
 
 auto presentation = MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
+
 auto effectiveTheme = slide->CreateThemeEffective();
 auto effectiveBackground = slide->get_Background()->GetEffective();
 
@@ -706,7 +780,7 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_mastertheme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
+Use effective data for rendering diagnostics, validation, and comparisons. If you inspect only [Presentation::get_MasterTheme](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_mastertheme/), you can miss a master, layout, slide, or shape override that changes the final appearance.
 
 ## **FAQ**
 
@@ -720,8 +794,8 @@ Yes. Use the slide's [IOverrideThemeManager](https://reference.aspose.com/slides
 
 **What is the safest way to carry a theme from one presentation to another?**
 
-When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/addclone/) and [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/). This keeps the master, layouts, and theme together.
+When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [IMasterSlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslidecollection/addclone/) and [ISlideCollection::AddClone](https://reference.aspose.com/slides/cpp/aspose.slides/islidecollection/addclone/). This keeps the master, layouts, and theme together.
 
 **How can I see the effective values after inheritance and overrides?**
 
-Use [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background::GetEffective()](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/) and [FillFormat::GetEffective()](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/geteffective/). These APIs return the resolved values after inheritance and overrides are applied.
+Use [IThemeable::CreateThemeEffective](https://reference.aspose.com/slides/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/background/geteffective/) and [FillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/fillformat/geteffective/). These APIs return the resolved values after inheritance and overrides are applied.

@@ -47,6 +47,7 @@ import aspose.slides as slides
 
 with slides.Presentation("input.pptx") as presentation:
     theme = presentation.master_theme
+
     print(f"Theme name: {theme.name}")
     print(f"Accent 1: {theme.color_scheme.accent1.color}")
     print(f"Major Latin font: {theme.font_scheme.major.latin_font.font_name}")
@@ -71,10 +72,13 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+
     presentation.master_theme.color_scheme.accent4.color = draw.Color.red
+
     presentation.save("theme-color.pptx", slides.export.SaveFormat.PPTX)
 
 with slides.Presentation("theme-color.pptx") as saved_presentation:
@@ -103,32 +107,39 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
     shape1.fill_format.fill_type = slides.FillType.SOLID
     shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+
     shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
     shape2.fill_format.fill_type = slides.FillType.SOLID
     shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
+
     shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
     shape3.fill_format.fill_type = slides.FillType.SOLID
     shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
+
     shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
     shape4.fill_format.fill_type = slides.FillType.SOLID
     shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
+
     shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
     shape5.fill_format.fill_type = slides.FillType.SOLID
     shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
+
     shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
     shape6.fill_format.fill_type = slides.FillType.SOLID
     shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
+
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -155,6 +166,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -163,14 +176,18 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+
     heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 500, 60)
     heading.text_frame.text = "Theme heading"
     heading.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mj-lt")
+
     body = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 120, 500, 60)
     body.text_frame.text = "Theme body text"
     body.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mn-lt")
+
     presentation.master_theme.font_scheme.major.latin_font = slides.FontData("Aptos Display")
     presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
+
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -183,6 +200,43 @@ The major and minor font collections can also contain font mappings for individu
 For more information about presentation fonts, see [PowerPoint Fonts](/slides/python-net/powerpoint-fonts/).
 
 {{% /alert %}}
+
+### **Resolve Theme Font References**
+
+When inspecting text, [FontData.font_name](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/font_name/) can contain a theme reference such as `+mn-lt` instead of a font family name. Call [FontData.get_font_name](https://reference.aspose.com/slides/python-net/aspose.slides/fontdata/get_font_name/) with the appropriate [IThemeEffectiveData](https://reference.aspose.com/slides/python-net/aspose.slides.theme/ithemeeffectivedata/) to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [Slide.create_theme_effective](https://reference.aspose.com/slides/python-net/aspose.slides/slide/create_theme_effective/) on the object whose theme applies to the inspected text. For ordinary text on a slide, use `slide.create_theme_effective` so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [OverrideTheme.init_font_scheme_from_inherited](https://reference.aspose.com/slides/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from_inherited/) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    theme = slide.theme_manager.override_theme
+    theme.init_font_scheme_from_inherited()
+    theme.font_scheme.major.latin_font = slides.FontData("Arial")
+    theme.font_scheme.minor.latin_font = slides.FontData("Calibri")
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 400, 60)
+    shape.text_frame.text = "Text using the minor theme font"
+
+    portion = shape.text_frame.paragraphs[0].portions[0]
+    portion.portion_format.latin_font = slides.FontData("+mn-lt")
+
+    font = portion.portion_format.latin_font
+    effective_theme = slide.create_theme_effective()
+    print(f"{font.font_name} -> {font.get_font_name(effective_theme)}")
+
+    explicit_font = slides.FontData("Verdana")
+    print(f"{explicit_font.font_name} -> {explicit_font.get_font_name(effective_theme)}")
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/python-net/font-selection-sequence/) and [Font Substitution](/slides/python-net/font-substitution/) for those separate steps.
 
 ## **Copy or Apply a Theme**
 
@@ -206,9 +260,10 @@ import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
     selected_master = presentation.masters[0]
-    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
 
+    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
     print(f"Created master: {themed_master.name}")
+
     presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -244,6 +299,7 @@ with slides.Presentation("multi-master-presentation.pptx") as presentation:
 
             print(f"First themed master: {first_themed_master.name}")
             print(f"Second themed master: {second_themed_master.name}")
+
             presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -259,9 +315,11 @@ import aspose.slides as slides
 with slides.Presentation("source-theme.pptx") as source:
     with slides.Presentation("target.pptx") as target:
         source_slide = source.slides[0]
+
         source_master = source_slide.layout_slide.master_slide
         cloned_master = target.masters.add_clone(source_master)
         target.slides.add_clone(source_slide, cloned_master, True)
+
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -277,10 +335,12 @@ import aspose.slides as slides
 with slides.Presentation("source-theme.pptx") as source:
     with slides.Presentation("target.pptx") as target:
         target_slide = target.slides[0]
+
         override_theme = target_slide.theme_manager.override_theme
         override_theme.init_color_scheme_from(source.master_theme.color_scheme)
         override_theme.init_font_scheme_from(source.master_theme.font_scheme)
         override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -296,10 +356,12 @@ import aspose.slides as slides
 with slides.Presentation("source-theme.pptx") as source:
     with slides.Presentation("target.pptx") as target:
         target_slide = target.slides[0]
+        
         override_theme = target_slide.layout_slide.theme_manager.override_theme
         override_theme.init_color_scheme_from(source.master_theme.color_scheme)
         override_theme.init_font_scheme_from(source.master_theme.font_scheme)
         override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -319,13 +381,17 @@ The following example reports the available background fill count, assigns a the
 import aspose.slides as slides
 
 with slides.Presentation("input.pptx") as presentation:
+
     background_styles = presentation.master_theme.format_scheme.background_fill_styles
     print(f"Background fill styles: {len(background_styles)}")
+
     if len(background_styles) == 0:
         raise RuntimeError("The presentation theme does not contain background fill styles.")
+
     master_slide = presentation.masters[0]
     master_slide.background.type = slides.BackgroundType.THEMED
     master_slide.background.style_index = 1
+
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -361,12 +427,14 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     format_scheme = presentation.master_theme.format_scheme
     if len(format_scheme.line_styles) < 1 or len(format_scheme.fill_styles) < 3 or len(format_scheme.effect_styles) < 3:
         raise RuntimeError("The theme does not contain the style entries required by this example.")
+
     format_scheme.line_styles[0].fill_format.fill_type = slides.FillType.SOLID
     format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
     format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
     format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
     format_scheme.effect_styles[2].effect_format.enable_outer_shadow_effect()
     format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -436,11 +504,14 @@ import aspose.slides as slides
 
 with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
+
     effective_theme = slide.theme_manager.create_theme_effective()
     effective_background = slide.background.get_effective()
+
     print(f"Effective major Latin font: {effective_theme.font_scheme.major.latin_font.font_name}")
     print(f"Effective minor Latin font: {effective_theme.font_scheme.minor.latin_font.font_name}")
     print(f"Effective background fill type: {effective_background.fill_format.fill_type}")
+
     if len(slide.shapes) > 0:
         effective_fill = slide.shapes[0].fill_format.get_effective()
         print(f"First shape effective fill type: {effective_fill.fill_type}")
