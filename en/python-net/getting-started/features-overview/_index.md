@@ -18,7 +18,7 @@ keywords:
 description: "Discover Aspose.Slides for Python via .NET: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
-Browse the [features and support catalogue](/slides/features/?edition=python-net) for short feature descriptions, reviewed availability, and links to the relevant guides.
+Browse the [features and support catalogue](/slides/features/) for short descriptions and links to the relevant guides.
 
 
 ## **Supported Platforms**

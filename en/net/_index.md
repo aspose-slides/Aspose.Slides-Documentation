@@ -25,7 +25,7 @@ It loads and saves PPT, PPTX, PPS, POT and ODP, including macro-enabled and temp
 
 <div style="clear:both"></div>
 
-<p><a href="/slides/features/?edition=net"><b>Explore features and support</b></a> — browse presentation tasks and open the guide for your edition.</p>
+<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse the library features and open their guides.</p>
 
 ------
 

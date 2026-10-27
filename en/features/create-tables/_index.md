@@ -1,41 +1,29 @@
 ---
 title: Create tables on slides
-description: Add tables with rows, columns, and editable text.
+description: Add editable tables with defined rows, columns and cell content.
 type: docs
 url: /features/create-tables/
-weight: 70
+weight: 880
 feature_id: create-tables
 feature_group: tables
 translationKey: slides-feature-create-tables
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/manage-table/
-  note: Set the row heights and column widths to fit your slide, then fill in the cells.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/manage-table/
-  note: Set the row heights and column widths to fit your slide, then fill in the cells.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/manage-table/
-  note: Set the row heights and column widths to fit your slide, then fill in the cells.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/manage-table/
-  note: Set the row heights and column widths to fit your slide, then fill in the cells.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/manage-table/
 ---
 
 ## **Overview**
 
-Add a table, fill in its cells, and format it to match your slides. Use tables for comparisons, schedules, prices, or reports.
+Create a table on a slide, choose its column widths and row heights, and fill its cells with text. Tables remain structured slide objects, making them useful for price lists, schedules and reports that readers may need to edit later.
 
 ## **FAQ**
 
-**Can the table be edited in PowerPoint?**
+**Are the cells still editable in the saved presentation?**
 
-Yes. Tables saved in PPTX files keep their editable cells.
+Yes. The table is stored as a presentation table rather than a single image.
+
+## **Guides**
+
+- [Manage Presentation Tables in .NET](/slides/net/manage-table/)
+
+Related feature: [Format table cells](/slides/features/format-table-cells/).

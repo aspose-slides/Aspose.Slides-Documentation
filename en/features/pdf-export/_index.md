@@ -3,39 +3,27 @@ title: Export presentations to PDF
 description: Save presentations as PDF files for sharing or printing.
 type: docs
 url: /features/pdf-export/
-weight: 20
+weight: 80
 feature_id: pdf-export
-feature_group: conversion
+feature_group: formats
 translationKey: slides-feature-pdf-export
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/convert-powerpoint-to-pdf/
-  note: PDF pages show a fixed view of each slide. Install the fonts used in the presentation so the text looks as expected.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/convert-powerpoint-to-pdf/
-  note: PDF pages show a fixed view of each slide. Install the fonts used in the presentation so the text looks as expected.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/convert-powerpoint-to-pdf/
-  note: PDF pages show a fixed view of each slide. Install the fonts used in the presentation so the text looks as expected.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/convert-powerpoint-to-pdf/
-  note: PDF pages show a fixed view of each slide. Install the fonts used in the presentation so the text looks as expected.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/convert-powerpoint-to-pdf/
 ---
 
 ## **Overview**
 
-Save a presentation as a PDF to share, print, or review. Each slide becomes a page in the PDF. The guides show how to choose slides, include notes, and adjust the export settings.
+Export a presentation to PDF when readers need a page-based copy of the slides. The export options let you choose slides, include notes, set image quality and select PDF compliance settings. Keep the presentation file alongside the PDF for later editing.
 
 ## **FAQ**
 
-**Can I keep editing the original presentation?**
+**Does PDF export turn every slide into one bitmap?**
 
-Yes. The PDF is a separate file. Keep the original presentation for later edits.
+No. Text and vector content can remain text and vectors in the PDF. Images are handled through the PDF export settings.
+
+## **Guides**
+
+- [Convert PPT and PPTX to PDF in .NET [Advanced Features Included]](/slides/net/convert-powerpoint-to-pdf/)
+
+Related feature: [Choose PDF compliance settings](/slides/features/pdf-compliance/).

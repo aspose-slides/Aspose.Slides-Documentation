@@ -1,41 +1,29 @@
 ---
 title: Render slides as images
-description: Save slides as PNG or JPEG images for previews and thumbnails.
+description: Save rendered slides as PNG, JPEG and other image formats.
 type: docs
 url: /features/slide-images/
-weight: 30
+weight: 90
 feature_id: slide-images
-feature_group: rendering
+feature_group: formats
 translationKey: slides-feature-slide-images
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/convert-slide/
-  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/convert-slide/
-  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/convert-slide/
-  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/convert-slide/
-  note: The image includes the slide background. Choose the image size and install the fonts used in the presentation.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/convert-powerpoint-to-png/
 ---
 
 ## **Overview**
 
-Turn slides into images for previews, thumbnails, or reports. Choose the image size you need, then use the images in your app or share them on their own.
+Render a slide as an image for a website, report or preview. Choose the slide and output size, then save the rendered result in an image format. You can also export a presentation to a multi-page TIFF when a single image document is more convenient.
 
 ## **FAQ**
 
-**Should I use PNG or JPEG?**
+**Can I create a small preview of a particular slide?**
 
-Use PNG to keep text and diagrams sharp. JPEG works well for slides with photos when file size matters more.
+Yes. Render the selected slide at the dimensions you need. See slide thumbnails for the preview workflow.
+
+## **Guides**
+
+- [Convert PowerPoint Slides to PNG in .NET](/slides/net/convert-powerpoint-to-png/)
+
+Related feature: [Create slide thumbnails](/slides/features/slide-thumbnails/).

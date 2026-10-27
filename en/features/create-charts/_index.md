@@ -1,41 +1,29 @@
 ---
 title: Create editable charts
-description: Add charts that people can edit in PowerPoint.
+description: Add editable charts with series, categories and data.
 type: docs
 url: /features/create-charts/
-weight: 60
+weight: 940
 feature_id: create-charts
 feature_group: charts
 translationKey: slides-feature-create-charts
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/create-chart/
-  note: Check the guide for your edition to choose a chart type and set up its data.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/create-chart/
-  note: Check the guide for your edition to choose a chart type and set up its data.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/create-chart/
-  note: Check the guide for your edition to choose a chart type and set up its data.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/create-chart/
-  note: Check the guide for your edition to choose a chart type and set up its data.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/create-chart/
 ---
 
 ## **Overview**
 
-Turn your data into charts on a slide. Add categories and data series, then adjust how the chart looks. The chart stays editable when you save the presentation.
+Create a chart on a slide and fill it with the data your presentation needs. The saved presentation contains a chart and its data rather than only a rendered picture. You can format the chart as a whole or adjust individual series and points.
 
 ## **FAQ**
 
-**Is the chart saved as a picture?**
+**Can the chart data be edited after saving?**
 
-No. It stays a chart that you can edit in PowerPoint. Saving a slide as an image is a separate step.
+Yes. An embedded chart workbook lets the saved presentation keep the data used by the chart.
+
+## **Guides**
+
+- [Create or Update PowerPoint Presentation Charts in .NET](/slides/net/create-chart/)
+
+Related feature: [Edit a chart's embedded workbook](/slides/features/chart-workbook/).

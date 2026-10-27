@@ -24,7 +24,7 @@ It converts PPT and PPTX files to PDF, TIFF, XPS, HTML, SWF and ODP, and to the 
 
 <div style="clear:both"></div>
 
-<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse presentation tasks and open the guide for your edition.</p>
+<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse the library features and open their guides.</p>
 
 ------
 

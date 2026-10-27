@@ -20,7 +20,7 @@ keywords:
 description: "Discover Aspose.Slides for C++: a powerful API to create, edit, automate, and convert PowerPoint and OpenDocument presentations efficiently."
 ---
 
-Browse the [features and support catalogue](/slides/features/?edition=cpp) for short feature descriptions, reviewed availability, and links to the relevant guides.
+Browse the [features and support catalogue](/slides/features/) for short descriptions and links to the relevant guides.
 
 
 ## **File Formats and Conversions**

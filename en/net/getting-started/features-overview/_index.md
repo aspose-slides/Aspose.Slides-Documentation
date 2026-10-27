@@ -19,7 +19,7 @@ keywords:
 description: "Review what Aspose.Slides for .NET covers before you evaluate it: supported platforms, file formats, slide rendering, and the content you can create and edit."
 ---
 
-Browse the [features and support catalogue](/slides/features/?edition=net) for short feature descriptions, reviewed availability, and links to the relevant guides.
+Browse the [features and support catalogue](/slides/features/) for short descriptions and links to the relevant guides.
 
 
 ## **Overview**

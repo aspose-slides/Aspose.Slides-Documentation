@@ -25,7 +25,7 @@ It exports reports to PPT, PPTX, PPS and PPSX presentations and slide shows, to 
 
 <div style="clear:both"></div>
 
-<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse presentation tasks and open the guide for your edition.</p>
+<p><a href="/slides/features/"><b>Explore features and support</b></a> — browse the library features and open their guides.</p>
 
 ------
 

@@ -1,41 +1,29 @@
 ---
 title: Clone slides between presentations
-description: Copy slides from one presentation to another.
+description: Copy slides between presentations with their content and design.
 type: docs
 url: /features/clone-slides/
-weight: 40
+weight: 430
 feature_id: clone-slides
 feature_group: slides
 translationKey: slides-feature-clone-slides
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/clone-slides/
-  note: Choose whether to keep the original formatting or use the destination presentation's layout.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/clone-slides/
-  note: Choose whether to keep the original formatting or use the destination presentation's layout.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/clone-slides/
-  note: Choose whether to keep the original formatting or use the destination presentation's layout.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/clone-slides/
-  note: Choose whether to keep the original formatting or use the destination presentation's layout.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/clone-slides/
 ---
 
 ## **Overview**
 
-Reuse slides from existing presentations to put together a report or combine several decks. The guides show how to choose where each copy goes and how to handle its layout and formatting.
+Clone slides to reuse content from another presentation. A copied slide can bring its source master, theme and notes into the destination deck. You can also choose a destination layout when the slide should use the target presentation's design.
 
 ## **FAQ**
 
-**Does cloning remove the original slide?**
+**Should I check the destination slide size?**
 
-No. It adds a copy to the destination presentation and leaves the original slide in place.
+Choose the target size deliberately. Cloning carries slide content, but different source and destination dimensions can require layout adjustments.
+
+## **Guides**
+
+- [Clone Presentation Slides in .NET](/slides/net/clone-slides/)
+
+Related feature: [Merge presentations](/slides/features/merge-presentations/).

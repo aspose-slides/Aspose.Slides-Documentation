@@ -1,41 +1,29 @@
 ---
-title: Read and write PowerPoint files
-description: Open, edit, and save PowerPoint presentations in PPTX format.
+title: Read PPTX presentations
+description: Open PPTX files and work with their slides, shapes, text, tables and notes.
 type: docs
 url: /features/powerpoint-files/
 weight: 10
 feature_id: powerpoint-files
 feature_group: formats
 translationKey: slides-feature-powerpoint-files
-availability:
-- edition: net
-  verified_version: 26.9.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/net/open-presentation/
-  note: You'll need the password to open a password-protected presentation.
-- edition: java
-  verified_version: '26.9'
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/java/open-presentation/
-  note: You'll need the password to open a password-protected presentation.
-- edition: cpp
-  verified_version: 26.8.0
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/cpp/open-presentation/
-  note: You'll need the password to open a password-protected presentation.
-- edition: python-net
-  verified_version: 26.8.1
-  reviewed_on: '2026-10-26'
-  guide_url: /slides/python-net/open-presentation/
-  note: You'll need the password to open a password-protected presentation.
+feature_catalogue_version: 2
+feature_guides:
+- /slides/net/open-presentation/
 ---
 
 ## **Overview**
 
-Open a PPTX file, make changes to its slides, and save a copy. Use this to update a template, work with a presentation someone sent you, or create a file that others can keep editing in PowerPoint.
+Load a PowerPoint presentation to inspect its content or make changes. Slides, text, tables and speaker notes are accessible through the presentation model, so you can work with individual items instead of treating each slide as an image.
 
 ## **FAQ**
 
-**What about other PowerPoint formats?**
+**Can I save my changes to another file?**
 
-This page covers PPTX. The Supported File Formats page for your edition lists the other formats you can read and write.
+Yes. Save the edited presentation under a new name to keep the original. Use the separate PPTX saving guide for output options.
+
+## **Guides**
+
+- [Open Presentations in .NET](/slides/net/open-presentation/)
+
+Related feature: [Save presentations as PPTX](/slides/features/write-pptx/).

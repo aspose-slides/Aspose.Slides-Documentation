@@ -193,4 +193,4 @@ The presentation can still load, but rendering and export may substitute fonts. 
 
 Embedded audio and video become available through the presentation object model. External resources are resolved according to the configured resource-loading behavior and may be unavailable if their locations cannot be accessed.
 
-Related feature: [Read and write PowerPoint files](/slides/features/powerpoint-files/).
+Related feature: [Read PPTX presentations](/slides/features/powerpoint-files/).
