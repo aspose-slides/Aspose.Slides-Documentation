@@ -422,6 +422,42 @@ with slides.Presentation() as presentation:
     presentation.save("overbar.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Format Text in an Existing Equation**
+
+To format text throughout an existing equation, traverse each math block's element tree. [IMathElement.get_children](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/imathelement/get_children/) returns only the immediate children, so call it recursively to reach text inside fractions, scripts, radicals, and other nested structures. Check the current element as well as its children to include the starting element when it is [MathematicalText](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/).
+
+This example assumes that `input.pptx` contains an equation such as `z = xᵢ / ∛y`, with a fraction containing a subscript in its numerator and a radical in its denominator. Processing only the block's top-level elements would miss the text inside the fraction. The example finds mathematical portions in slide text frames, accesses their blocks through [MathPortion.math_paragraph](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathportion/math_paragraph/), and sets [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/) to 28 points through each text element's [format](https://reference.aspose.com/slides/python-net/aspose.slides.mathtext/mathematicaltext/format/) property.
+
+```py
+import aspose.slides as slides
+import aspose.slides.mathtext as math
+
+
+def format_math_text(element):
+    if isinstance(element, math.MathematicalText):
+        element.format.font_height = 28
+
+    for child in element.get_children():
+        format_math_text(child)
+
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if not isinstance(shape, slides.AutoShape) or shape.text_frame is None:
+                continue
+
+            for paragraph in shape.text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if isinstance(portion, math.MathPortion):
+                        for block in portion.math_paragraph:
+                            format_math_text(block)
+
+    presentation.save("formatted-equations.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The saved presentation contains the updated text formatting at every level of each processed equation, while preserving its text content and mathematical structure.
+
 ## **Quick Reference**
 
 | Task | Main API |

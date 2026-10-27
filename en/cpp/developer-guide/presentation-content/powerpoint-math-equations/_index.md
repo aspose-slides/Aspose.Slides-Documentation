@@ -61,6 +61,7 @@ This example creates a math shape and adds the Pythagorean theorem:
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -85,7 +86,7 @@ presentation->Save(u"pythagorean-theorem.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 `AddMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
 
@@ -110,6 +111,7 @@ Use `Divide` to create a fraction. You can choose a fraction style with [MathFra
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -158,6 +160,7 @@ Use `Radical` to create a square root, cube root, or other root. The current ele
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -197,6 +200,7 @@ Use `AsArgumentOfFunction` or `Function` for functions such as `sin(x)`, `log(x)
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -247,6 +251,7 @@ Use `Nary` for summations, unions, intersections, and other large operators. Use
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -280,6 +285,7 @@ For an integral, use `Integral`:
 #include <DOM/MathText/IMathElement.h>
 #include <DOM/MathText/MathIntegralTypes.h>
 #include <DOM/MathText/MathematicalText.h>
+
 using namespace Aspose::Slides::MathText;
 
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
@@ -307,6 +313,7 @@ Use [MathMatrix](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -349,6 +356,7 @@ Use `ToMathArray` when you need aligned equations or a vertical stack of express
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -389,6 +397,7 @@ Use `AsArgumentOfFunction` when the argument is the current element and the func
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -427,6 +436,7 @@ Use the subscript and superscript helpers for indexes and powers. When the index
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -465,6 +475,7 @@ Use `Enclose` to put an expression inside delimiters. You can also set a separat
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -506,6 +517,7 @@ Use `ToBorderBox` when the equation itself should be framed.
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -551,6 +563,7 @@ Use `Group` to place a grouping character above or below an expression. Add a li
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -590,6 +603,7 @@ Use formatting helpers only where they clarify the formula. For example, `Overba
 #include <DOM/MathText/MathematicalText.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace Aspose::Slides::MathText;
@@ -608,6 +622,79 @@ mathParagraph->Add(System::MakeObject<MathBlock>(overbar));
 presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+### **Format Text in an Existing Equation**
+
+To format text throughout an existing equation, traverse each math block's element tree. [IMathElement::GetChildren](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathelement/getchildren/) returns only the immediate children, so call it recursively to reach text inside fractions, scripts, radicals, and other nested structures. Check the current element as well as its children to include the starting element when it is [MathematicalText](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/).
+
+This example assumes that a presentation contains an equation such as `z = xᵢ / ∛y`, with a fraction containing a subscript in its numerator and a radical in its denominator. Processing only the block's top-level elements would miss the text inside the fraction. The example finds mathematical portions in slide text frames, accesses their blocks through [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/), and sets the font height to 28 points with [set_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/), accessing the formatting through each text element's [get_Format](https://reference.aspose.com/slides/cpp/aspose.slides.mathtext/mathematicaltext/get_format/) method.
+
+```cpp
+#include <functional>
+#include <system/array.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/MathText/IMathBlock.h>
+#include <DOM/MathText/IMathElement.h>
+#include <DOM/MathText/IMathParagraph.h>
+#include <DOM/MathText/IMathPortion.h>
+#include <DOM/MathText/MathematicalText.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::MathText;
+
+std::function<void(System::SharedPtr<IMathElement>)> formatMathText;
+formatMathText = [&formatMathText](System::SharedPtr<IMathElement> element)
+{
+    auto text = System::DynamicCast<MathematicalText>(element);
+    if (text != nullptr)
+        text->get_Format()->set_FontHeight(28.0f);
+
+    for (auto child : element->GetChildren())
+        formatMathText(child);
+};
+
+auto presentation = System::MakeObject<Presentation>(u"input.pptx");
+
+for (auto slide : presentation->get_Slides())
+{
+    for (auto shape : slide->get_Shapes())
+    {
+        auto autoShape = System::DynamicCast<IAutoShape>(shape);
+        if (autoShape == nullptr || autoShape->get_TextFrame() == nullptr)
+            continue;
+
+        for (auto paragraph : autoShape->get_TextFrame()->get_Paragraphs())
+        {
+            for (auto portion : paragraph->get_Portions())
+            {
+                auto mathPortion = System::DynamicCast<IMathPortion>(portion);
+                if (mathPortion != nullptr)
+                {
+                    for (auto block : mathPortion->get_MathParagraph())
+                        formatMathText(block);
+                }
+            }
+        }
+    }
+}
+
+presentation->Save(u"formatted-equations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The saved presentation contains the updated text formatting at every level of each processed equation, while preserving its text content and mathematical structure.
 
 ## **Quick Reference**
 

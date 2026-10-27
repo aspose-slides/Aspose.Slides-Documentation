@@ -74,7 +74,7 @@ try {
 }
 ```
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 `addMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
 
@@ -82,7 +82,7 @@ try {
 
 ## **Add Fractions**
 
-Use [`divide`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
+Use [divide](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to create a fraction. You can choose a fraction style with [MathFractionTypes](https://reference.aspose.com/slides/php-java/aspose.slides/mathfractiontypes/).
 
 ![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
@@ -116,7 +116,7 @@ $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFraction
 
 ## **Add Radicals**
 
-Use [`radical`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
+Use [radical](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to create a square root, cube root, or other root. The current element becomes the base, and the argument becomes the degree.
 
 ![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
@@ -144,7 +144,7 @@ try {
 
 ## **Add Functions and Limits**
 
-Use [`asArgumentOfFunction`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) or [`function`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) or use [`setLowerLimit`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/).
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) or [function](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for functions such as `sin(x)`, `log(x)`, or custom function names. For limits, put `lim` in a [MathLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathlimit/) or use [setLowerLimit](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/).
 
 ![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
@@ -179,7 +179,7 @@ $customFunction = (new MathematicalText("f"))->function("x + 1");
 
 ## **Add N-ary Operators and Integrals**
 
-Use [`nary`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for summations, unions, intersections, and other large operators. Use [`integral`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for integrals. Both methods let you set lower and upper limits.
+Use [nary](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for summations, unions, intersections, and other large operators. Use [integral](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) for integrals. Both methods let you set lower and upper limits.
 
 ![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
@@ -251,7 +251,7 @@ try {
 
 ## **Add Equation Arrays**
 
-Use [`toMathArray`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when you need aligned equations or a vertical stack of expressions.
+Use [toMathArray](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when you need aligned equations or a vertical stack of expressions.
 
 ![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
@@ -280,7 +280,7 @@ try {
 
 ## **Add Trigonometric Functions**
 
-Use [`asArgumentOfFunction`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when the argument is the current element and the function name is known.
+Use [asArgumentOfFunction](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when the argument is the current element and the function name is known.
 
 ![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
@@ -308,7 +308,7 @@ try {
 
 ## **Add Subscripts and Superscripts**
 
-Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/).
+Use the subscript and superscript helpers for indexes and powers. When the indexes must appear on the left side of the base, use [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/).
 
 ![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
@@ -336,7 +336,7 @@ try {
 
 ## **Add Delimiters**
 
-Use [`enclose`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
+Use [enclose](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to put an expression inside delimiters. You can also set a separator character for delimiter expressions that contain several elements.
 
 ![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
@@ -367,7 +367,7 @@ try {
 
 ## **Add a Border Box**
 
-Use [`toBorderBox`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when the equation itself should be framed.
+Use [toBorderBox](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) when the equation itself should be framed.
 
 ![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
@@ -400,7 +400,7 @@ try {
 
 ## **Group Terms**
 
-Use [`group`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
+Use [group](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) to place a grouping character above or below an expression. Add a limit to label the grouped terms.
 
 ![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
@@ -429,7 +429,7 @@ try {
 
 ## **Format Math Elements**
 
-Use formatting helpers only where they clarify the formula. For example, [`overbar`](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) places a bar above a math element.
+Use formatting helpers only where they clarify the formula. For example, [overbar](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/) places a bar above a math element.
 
 ![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
@@ -453,6 +453,68 @@ try {
     }
 }
 ```
+
+### **Format Text in an Existing Equation**
+
+To format text throughout an existing equation, traverse each math block's element tree. [MathElementBase::getChildren](https://reference.aspose.com/slides/php-java/aspose.slides/mathelementbase/#getChildren) returns only the immediate children, so call it recursively to reach text inside fractions, scripts, radicals, and other nested structures. Check the current element as well as its children to include the starting element when it is [MathematicalText](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/).
+
+This example assumes that `input.pptx` contains an equation such as `z = xᵢ / ∛y`, with a fraction containing a subscript in its numerator and a radical in its denominator. Processing only the block's top-level elements would miss the text inside the fraction. The example finds mathematical portions in slide text frames, accesses their blocks through [MathPortion::getMathParagraph](https://reference.aspose.com/slides/php-java/aspose.slides/mathportion/#getMathParagraph), and uses [setFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setFontHeight) to set the font size to 28 points through each text element's [getFormat](https://reference.aspose.com/slides/php-java/aspose.slides/mathematicaltext/#getFormat) method.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+function formatMathText($element, $mathematicalTextClass) {
+    if (java_instanceof($element, $mathematicalTextClass)) {
+        $element->getFormat()->setFontHeight(28);
+    }
+
+    foreach ($element->getChildren() as $child) {
+        formatMathText($child, $mathematicalTextClass);
+    }
+}
+
+$mathematicalTextClass = new JavaClass("com.aspose.slides.MathematicalText");
+$autoShapeClass = new JavaClass("com.aspose.slides.IAutoShape");
+$mathPortionClass = new JavaClass("com.aspose.slides.IMathPortion");
+
+$presentation = new Presentation("input.pptx");
+try {
+    for ($slideIndex = 0; $slideIndex < java_values($presentation->getSlides()->size()); $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        for ($shapeIndex = 0; $shapeIndex < java_values($slide->getShapes()->size()); $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (!java_instanceof($shape, $autoShapeClass)) {
+                continue;
+            }
+
+            $textFrame = $shape->getTextFrame();
+            if (java_is_null($textFrame)) {
+                continue;
+            }
+
+            for ($paragraphIndex = 0; $paragraphIndex < java_values($textFrame->getParagraphs()->getCount()); $paragraphIndex++) {
+                $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+                for ($portionIndex = 0; $portionIndex < java_values($paragraph->getPortions()->getCount()); $portionIndex++) {
+                    $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                    if (java_instanceof($portion, $mathPortionClass)) {
+                        for ($blockIndex = 0; $blockIndex < java_values($portion->getMathParagraph()->getCount()); $blockIndex++) {
+                            $block = $portion->getMathParagraph()->get_Item($blockIndex);
+                            formatMathText($block, $mathematicalTextClass);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    $presentation->save("formatted-equations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The saved presentation contains the updated text formatting at every level of each processed equation, while preserving its text content and mathematical structure.
 
 ## **Quick Reference**
 
