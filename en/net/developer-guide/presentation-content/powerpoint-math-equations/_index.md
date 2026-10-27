@@ -422,6 +422,54 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
+### **Format Text in an Existing Equation**
+
+To format text throughout an existing equation, traverse each math block's element tree. [IMathElement.GetChildren](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathelement/getchildren/) returns only the immediate children, so call it recursively to reach text inside fractions, scripts, radicals, and other nested structures. Check the current element as well as its children to include the starting element when it is [MathematicalText](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/).
+
+This example assumes that a presentation contains an equation such as `z = xᵢ / ∛y`, with a fraction containing a subscript in its numerator and a radical in its denominator. Processing only the block's top-level elements would miss the text inside the fraction. The example finds mathematical portions in slide text frames, accesses their blocks through [IMathPortion.MathParagraph](https://reference.aspose.com/slides/net/aspose.slides.mathtext/imathportion/mathparagraph/), and sets [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/baseportionformat/fontheight/) to 28 points through each text element's [Format](https://reference.aspose.com/slides/net/aspose.slides.mathtext/mathematicaltext/format/) property.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.MathText;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape || autoShape.TextFrame == null)
+            continue;
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                if (portion is IMathPortion mathPortion)
+                {
+                    foreach (var block in mathPortion.MathParagraph)
+                        FormatMathText(block);
+                }
+            }
+        }
+    }
+}
+
+presentation.Save("formatted-equations.pptx", SaveFormat.Pptx);
+
+void FormatMathText(IMathElement element)
+{
+    if (element is MathematicalText text)
+        text.Format.FontHeight = 28;
+
+    foreach (var child in element.GetChildren())
+        FormatMathText(child);
+}
+```
+
+The saved presentation contains the updated text formatting at every level of each processed equation, while preserving its text content and mathematical structure.
+
 ## **Quick Reference**
 
 | Task | Main API |
