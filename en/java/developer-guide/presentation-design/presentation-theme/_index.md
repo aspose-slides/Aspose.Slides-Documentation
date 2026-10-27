@@ -76,10 +76,13 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4);
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED);
+
     presentation.save("theme-color.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -88,6 +91,7 @@ try {
 Presentation savedPresentation = new Presentation("theme-color.pptx");
 try {
     ISlide savedSlide = savedPresentation.getSlides().get_Item(0);
+
     IShape savedShape = savedSlide.getShapes().get_Item(0);
     IFillFormatEffectiveData effectiveFill = savedShape.getFillFormat().getEffective();
     System.out.println("Effective fill color: " + effectiveFill.getSolidFillColor());
@@ -178,6 +182,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -198,6 +204,7 @@ try {
 
     presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new FontData("Aptos Display"));
     presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new FontData("Arial"));
+
     presentation.save("theme-fonts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -213,6 +220,47 @@ The major and minor font collections can also contain font mappings for individu
 For more information about presentation fonts, see [PowerPoint Fonts](/slides/java/powerpoint-fonts/).
 
 {{% /alert %}}
+
+### **Resolve Theme Font References**
+
+When inspecting text, [IFontData.getFontName](https://reference.aspose.com/slides/java/com.aspose.slides/ifontdata/#getFontName--) can return a theme reference such as `+mn-lt` instead of a font family name. Call [IFontData.getFontName](https://reference.aspose.com/slides/java/com.aspose.slides/ifontdata/#getFontName-com.aspose.slides.IThemeEffectiveData-) with the appropriate [IThemeEffectiveData](https://reference.aspose.com/slides/java/com.aspose.slides/ithemeeffectivedata/) to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [IThemeable.createThemeEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ithemeable/#createThemeEffective--) on the object whose theme applies to the inspected text. For ordinary text on a slide, call this method on the slide so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [IOverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridetheme/#initFontSchemeFromInherited--) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IOverrideTheme theme = slide.getThemeManager().getOverrideTheme();
+    theme.initFontSchemeFromInherited();
+    theme.getFontScheme().getMajor().setLatinFont(new FontData("Arial"));
+    theme.getFontScheme().getMinor().setLatinFont(new FontData("Calibri"));
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Text using the minor theme font");
+
+    IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getPortionFormat().setLatinFont(new FontData("+mn-lt"));
+
+    IFontData font = portion.getPortionFormat().getLatinFont();
+    IThemeEffectiveData effectiveTheme = slide.createThemeEffective();
+    System.out.println(font.getFontName() + " -> " + font.getFontName(effectiveTheme));
+
+    FontData explicitFont = new FontData("Verdana");
+    System.out.println(explicitFont.getFontName() + " -> " + explicitFont.getFontName(effectiveTheme));
+} finally {
+    presentation.dispose();
+}
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/java/font-selection-sequence/) and [Font Substitution](/slides/java/font-substitution/) for those separate steps.
 
 ## **Copy or Apply a Theme**
 
@@ -237,9 +285,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
-    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
     System.out.println("Created master: " + themedMaster.getName());
+
     presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -279,6 +328,7 @@ try {
 
             System.out.println("First themed master: " + firstThemedMaster.getName());
             System.out.println("Second themed master: " + secondThemedMaster.getName());
+
             presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
         }
     }
@@ -301,9 +351,12 @@ try {
     Presentation target = new Presentation("target.pptx");
     try {
         ISlide sourceSlide = source.getSlides().get_Item(0);
+
         IMasterSlide sourceMaster = sourceSlide.getLayoutSlide().getMasterSlide();
         IMasterSlide clonedMaster = target.getMasters().addClone(sourceMaster);
+
         target.getSlides().addClone(sourceSlide, clonedMaster, true);
+
         target.save("theme-preserved.pptx", SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -327,10 +380,12 @@ try {
     Presentation target = new Presentation("target.pptx");
     try {
         ISlide targetSlide = presentation.getSlides().get_Item(0);
+
         IOverrideTheme overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
         overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
         overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+
         target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -354,11 +409,13 @@ try {
     Presentation target = new Presentation("target.pptx");
     try {
         ISlide targetSlide = presentation.getSlides().get_Item(0);
+
         ILayoutSlide targetLayout = targetSlide.getLayoutSlide();
         IOverrideTheme overrideTheme = targetLayout.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(source.getMasterTheme().getColorScheme());
         overrideTheme.initFontSchemeFrom(source.getMasterTheme().getFontScheme());
         overrideTheme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme());
+
         target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -394,6 +451,7 @@ try {
     IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
     masterSlide.getBackground().setType(BackgroundType.Themed);
     masterSlide.getBackground().setStyleIndex(1);
+
     presentation.save("theme-background.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -441,6 +499,7 @@ try {
     IEffectFormat effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
     effectFormat.enableOuterShadowEffect();
     effectFormat.getOuterShadowEffect().setDistance(10f);
+
     presentation.save("theme-effects.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -537,11 +596,14 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IThemeEffectiveData effectiveTheme = slide.getThemeManager().createThemeEffective();
     IBackgroundEffectiveData effectiveBackground = slide.getBackground().getEffective();
+
     System.out.println("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
     System.out.println("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
     System.out.println("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+
     if (slide.getShapes().size() > 0) {
         IFillFormatEffectiveData effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         System.out.println("First shape effective fill type: " + effectiveFill.getFillType());

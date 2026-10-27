@@ -50,6 +50,7 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const theme = presentation.getMasterTheme();
+    
     console.log("Theme name: " + theme.getName());
     console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
     console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
@@ -79,10 +80,13 @@ const java = require("java");
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+
     presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -91,6 +95,7 @@ try {
 const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
 try {
     const savedSlide = savedPresentation.getSlides().get_Item(0);
+
     const savedShape = savedSlide.getShapes().get_Item(0);
     const effectiveFill = savedShape.getFillFormat().getEffective();
     console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
@@ -183,6 +188,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -204,6 +211,7 @@ try {
 
     presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
     presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+
     presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -219,6 +227,48 @@ The major and minor font collections can also contain font mappings for individu
 For more information about presentation fonts, see [PowerPoint Fonts](/slides/nodejs-java/powerpoint-fonts/).
 
 {{% /alert %}}
+
+### **Resolve Theme Font References**
+
+When inspecting text, [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) can return a theme reference such as `+mn-lt` instead of a font family name. Call [FontData.getFontName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontdata/) with the appropriate effective theme to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [Slide.createThemeEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/) on the object whose theme applies to the inspected text. For ordinary text on a slide, call this method on the slide so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/nodejs-java/aspose.slides/overridetheme/) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const theme = slide.getThemeManager().getOverrideTheme();
+    theme.initFontSchemeFromInherited();
+    theme.getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Arial"));
+    theme.getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Calibri"));
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 60);
+    shape.getTextFrame().setText("Text using the minor theme font");
+
+    const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
+    portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    const font = portion.getPortionFormat().getLatinFont();
+    const effectiveTheme = slide.createThemeEffective();
+    console.log(font.getFontName() + " -> " + font.getFontName(effectiveTheme));
+
+    const explicitFont = new aspose.slides.FontData("Verdana");
+    console.log(explicitFont.getFontName() + " -> " + explicitFont.getFontName(effectiveTheme));
+} finally {
+    presentation.dispose();
+}
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/nodejs-java/font-selection-sequence/) and [Font Substitution](/slides/nodejs-java/font-substitution/) for those separate steps.
 
 ## **Copy or Apply a Theme**
 
@@ -247,6 +297,7 @@ try {
     const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
 
     console.log("Created master: " + themedMaster.getName());
+
     presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -287,6 +338,7 @@ try {
 
             console.log("First themed master: " + firstThemedMaster.getName());
             console.log("Second themed master: " + secondThemedMaster.getName());
+
             presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
         }
     }
@@ -310,8 +362,11 @@ try {
     const target = new aspose.slides.Presentation("target.pptx");
     try {
         const sourceSlide = source.getSlides().get_Item(0);
+
         const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+
         target.getSlides().addClone(sourceSlide, clonedMaster, true);
+
         target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -337,10 +392,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -366,10 +423,12 @@ try {
     try {
         const sourceTheme = source.getMasterTheme();
         const targetSlide = target.getSlides().get_Item(0);
+
         const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
         overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
         overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
         overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+
         target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
     } finally {
         target.dispose();
@@ -407,6 +466,7 @@ try {
     const masterSlide = presentation.getMasters().get_Item(0);
     masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
     masterSlide.getBackground().setStyleIndex(1);
+
     presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -448,7 +508,6 @@ try {
     if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
         throw new Error("The theme does not contain the style entries required by this example.");
     }
-
     formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
     formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
@@ -456,6 +515,7 @@ try {
     const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
     effectFormat.enableOuterShadowEffect();
     effectFormat.getOuterShadowEffect().setDistance(10);
+
     presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -559,11 +619,14 @@ aspose.slides = require("aspose.slides.via.java");
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const effectiveTheme = slide.getThemeManager().createThemeEffective();
     const effectiveBackground = slide.getBackground().getEffective();
+
     console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
     console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
     console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+
     if (slide.getShapes().size() > 0) {
         const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         console.log("First shape effective fill type: " + effectiveFill.getFillType());

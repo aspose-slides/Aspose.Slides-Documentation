@@ -30,6 +30,8 @@ You can also add fonts at application runtime, use embedded fonts from a present
 
 ## **Font Selection**
 
+Text can reference a theme font, such as `+mn-lt`, rather than an explicit family name. See [Resolve Theme Font References](/slides/python-java/presentation-theme/#resolve-theme-font-references) to obtain the family specified by the applicable theme. Resolving that reference is separate from checking font availability and applying rendering-time substitution or glyph fallback; it does not identify the font file ultimately used to render the text.
+
 Certain rules apply to fonts in a presentation when the presentation is loaded, rendered, or converted to another format. For example, when you try to convert a presentation (its slides) to images, the presentation's fonts are checked to verify that the chosen fonts are available in the operating system. If the fonts are confirmed to be missing, they are replaced — see [Font Replacement](/slides/python-java/font-replacement/) and [Font Substitution](/slides/python-java/font-substitution/).
 
 This is the process Aspose.Slides follows when dealing with fonts:

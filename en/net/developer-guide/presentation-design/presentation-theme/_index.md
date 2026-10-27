@@ -76,9 +76,11 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.SchemeColor = SchemeColor.Accent4;
+
 presentation.MasterTheme.ColorScheme.Accent4.Color = Color.Red;
 presentation.Save("theme-color.pptx", SaveFormat.Pptx);
 
@@ -168,6 +170,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -202,6 +206,44 @@ For more information about presentation fonts, see [PowerPoint Fonts](/slides/ne
 
 {{% /alert %}}
 
+### **Resolve Theme Font References**
+
+When inspecting text, [IFontData.FontName](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/fontname/) can contain a theme reference such as `+mn-lt` instead of a font family name. Call [IFontData.GetFontName](https://reference.aspose.com/slides/net/aspose.slides/ifontdata/getfontname/) with the appropriate [IThemeEffectiveData](https://reference.aspose.com/slides/net/aspose.slides.theme/ithemeeffectivedata/) to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [IThemeable.CreateThemeEffective](https://reference.aspose.com/slides/net/aspose.slides.theme/ithemeable/createthemeeffective/) on the object whose theme applies to the inspected text. For ordinary text on a slide, use `slide.CreateThemeEffective()` so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [IOverrideTheme.InitFontSchemeFromInherited](https://reference.aspose.com/slides/net/aspose.slides.theme/ioverridetheme/initfontschemefrominherited/) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var theme = slide.ThemeManager.OverrideTheme;
+theme.InitFontSchemeFromInherited();
+theme.FontScheme.Major.LatinFont = new FontData("Arial");
+theme.FontScheme.Minor.LatinFont = new FontData("Calibri");
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 400, 60);
+shape.TextFrame.Text = "Text using the minor theme font";
+
+var portion = shape.TextFrame.Paragraphs[0].Portions[0];
+portion.PortionFormat.LatinFont = new FontData("+mn-lt");
+
+var font = portion.PortionFormat.LatinFont;
+var effectiveTheme = slide.CreateThemeEffective();
+Console.WriteLine($"{font.FontName} -> {font.GetFontName(effectiveTheme)}");
+
+var explicitFont = new FontData("Verdana");
+Console.WriteLine($"{explicitFont.FontName} -> {explicitFont.GetFontName(effectiveTheme)}");
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/net/font-selection-sequence/) and [Font Substitution](/slides/net/font-substitution/) for those separate steps.
+
 ## **Copy or Apply a Theme**
 
 The workflows below solve different theme-related problems.
@@ -226,9 +268,10 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("presentation.pptx");
 var selectedMaster = presentation.Masters[0];
-var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
 
+var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
 Console.WriteLine($"Created master: {themedMaster.Name}");
+
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
@@ -273,6 +316,7 @@ else
 
         Console.WriteLine($"First themed master: {firstThemedMaster.Name}");
         Console.WriteLine($"Second themed master: {secondThemedMaster.Name}");
+
         presentation.Save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
     }
 }
@@ -292,6 +336,7 @@ using var source = new Presentation("source-theme.pptx");
 using var target = new Presentation("target.pptx");
 
 var sourceSlide = source.Slides[0];
+
 var sourceMaster = sourceSlide.LayoutSlide.MasterSlide;
 var clonedMaster = target.Masters.AddClone(sourceMaster);
 target.Slides.AddClone(sourceSlide, clonedMaster, true);
@@ -361,6 +406,7 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("input.pptx");
+
 var backgroundStyles = presentation.MasterTheme.FormatScheme.BackgroundFillStyles;
 Console.WriteLine($"Background fill styles: {backgroundStyles.Count}");
 
@@ -518,6 +564,7 @@ using Aspose.Slides;
 
 using var presentation = new Presentation("input.pptx");
 var slide = presentation.Slides[0];
+
 var effectiveTheme = slide.ThemeManager.CreateThemeEffective();
 var effectiveBackground = slide.Background.GetEffective();
 

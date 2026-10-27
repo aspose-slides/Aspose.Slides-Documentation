@@ -55,6 +55,7 @@ from asposeslides.api import Presentation
 presentation = Presentation("input.pptx")
 try:
     theme = presentation.getMasterTheme()
+
     print("Theme name:", theme.getName())
     print("Accent 1:", theme.getColorScheme().getAccent1().getColor())
     print("Major Latin font:", theme.getFontScheme().getMajor().getLatinFont().getFontName())
@@ -88,10 +89,13 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
     shape.getFillFormat().getSolidFillColor().setSchemeColor(SchemeColor.Accent4)
+
     presentation.getMasterTheme().getColorScheme().getAccent4().setColor(Color.RED)
+
     presentation.save("theme-color.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -193,6 +197,8 @@ PowerPoint-compatible theme font identifiers can be used in text formatting:
 * `+mj-lt` - Heading Font Latin (Major Latin Font)
 * `+mn-ea` - Body Font East Asian (Minor East Asian Font)
 * `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-cs` - Body Font Complex Script (Minor Complex Script Font)
+* `+mj-cs` - Heading Font Complex Script (Major Complex Script Font)
 
 The following example creates one heading that uses the major Latin theme font and one body line that uses the minor Latin theme font. It then changes the theme fonts and saves the result:
 
@@ -238,6 +244,55 @@ For more information about presentation fonts, see [PowerPoint Fonts](/slides/py
 
 {{% /alert %}}
 
+### **Resolve Theme Font References**
+
+When inspecting text, [FontData.getFontName](https://reference.aspose.com/slides/python-java/aspose.slides/fontdata/#getFontName) can return a theme reference such as `+mn-lt` instead of a font family name. Call [FontData.getFontName](https://reference.aspose.com/slides/python-java/aspose.slides/fontdata/#getFontName) with the appropriate effective theme data to resolve that reference. The `+mj` and `+mn` prefixes select the major and minor font sets; the `-lt`, `-ea`, and `-cs` suffixes select their Latin, East Asian, and Complex Script fonts, respectively.
+
+Obtain the effective theme through [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/python-java/aspose.slides/baseoverridethememanager/#createThemeEffective) on the theme manager of the object whose theme applies to the inspected text. For ordinary text on a slide, use the slide's theme manager so the context includes that slide's inherited theme and local overrides. When inspecting a layout or master itself, use its own effective theme. Do not assume that the first master's theme applies to every slide.
+
+The following example creates a text portion that explicitly references the minor Latin font. It initializes a slide font scheme through [OverrideTheme.initFontSchemeFromInherited](https://reference.aspose.com/slides/python-java/aspose.slides/overridetheme/#initFontSchemeFromInherited) and sets the major and minor Latin families to `Arial` and `Calibri`, making the result reproducible without an input file.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FontData, Presentation, ShapeType
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    theme = slide.getThemeManager().getOverrideTheme()
+    theme.initFontSchemeFromInherited()
+    major_font = FontData("Arial")
+    theme.getFontScheme().getMajor().setLatinFont(major_font)
+    minor_font = FontData("Calibri")
+    theme.getFontScheme().getMinor().setLatinFont(minor_font)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 400, 60)
+    shape.getTextFrame().setText("Text using the minor theme font")
+
+    portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0)
+    theme_font = FontData("+mn-lt")
+    portion.getPortionFormat().setLatinFont(theme_font)
+
+    font = portion.getPortionFormat().getLatinFont()
+    effective_theme = slide.getThemeManager().createThemeEffective()
+    print(f"{font.getFontName()} -> {font.getFontName(effective_theme)}")
+
+    explicit_font = FontData("Verdana")
+    print(f"{explicit_font.getFontName()} -> {explicit_font.getFontName(effective_theme)}")
+finally:
+    presentation.dispose()
+```
+
+The output is `+mn-lt -> Calibri` followed by `Verdana -> Verdana`. The stored reference remains unchanged, while an explicit family name is returned as-is. If the portion used `+mj-lt`, it would resolve to `Arial` in this theme.
+
+Resolving a theme reference identifies the font family specified by the theme. It does not check font availability or determine the font file ultimately used after substitution or glyph fallback during rendering. See [Font Selection Sequence](/slides/python-java/font-selection-sequence/) and [Font Substitution](/slides/python-java/font-substitution/) for those separate steps.
+
 ## **Copy or Apply a Theme**
 
 The workflows below solve different theme-related problems.
@@ -268,8 +323,8 @@ presentation = Presentation("presentation.pptx")
 try:
     selected_master = presentation.getMasters().get_Item(0)
     themed_master = selected_master.applyExternalThemeToDependingSlides("corporate-theme.thmx")
-
     print("Created master:", themed_master.getName())
+
     presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -314,6 +369,7 @@ try:
 
             print("First themed master:", first_themed_master.getName())
             print("Second themed master:", second_themed_master.getName())
+
             presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -339,9 +395,11 @@ try:
     target = Presentation("target.pptx")
     try:
         source_slide = source.getSlides().get_Item(0)
+
         source_master = source_slide.getLayoutSlide().getMasterSlide()
         cloned_master = target.getMasters().addClone(source_master)
         target.getSlides().addClone(source_slide, cloned_master, True)
+
         target.save("theme-preserved.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -369,10 +427,12 @@ try:
     target = Presentation("target.pptx")
     try:
         target_slide = target.getSlides().get_Item(0)
+
         override_theme = target_slide.getThemeManager().getOverrideTheme()
         override_theme.initColorSchemeFrom(source.getMasterTheme().getColorScheme())
         override_theme.initFontSchemeFrom(source.getMasterTheme().getFontScheme())
         override_theme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme())
+
         target.save("theme-applied-to-slide.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -400,11 +460,13 @@ try:
     target = Presentation("target.pptx")
     try:
         target_slide = target.getSlides().get_Item(0)
+
         target_layout = target_slide.getLayoutSlide()
         override_theme = target_layout.getThemeManager().getOverrideTheme()
         override_theme.initColorSchemeFrom(source.getMasterTheme().getColorScheme())
         override_theme.initFontSchemeFrom(source.getMasterTheme().getFontScheme())
         override_theme.initFormatSchemeFrom(source.getMasterTheme().getFormatScheme())
+
         target.save("theme-applied-to-layout.pptx", SaveFormat.Pptx)
     finally:
         target.dispose()
@@ -443,6 +505,7 @@ try:
         master_slide = presentation.getMasters().get_Item(0)
         master_slide.getBackground().setType(BackgroundType.Themed)
         master_slide.getBackground().setStyleIndex(1)
+
         presentation.save("theme-background.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -496,6 +559,7 @@ try:
         effect_format = format_scheme.getEffectStyles().get_Item(2).getEffectFormat()
         effect_format.enableOuterShadowEffect()
         effect_format.getOuterShadowEffect().setDistance(10)
+
         presentation.save("theme-effects.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -578,8 +642,10 @@ from asposeslides.api import FillType, Presentation
 presentation = Presentation("input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
+
     effective_theme = slide.getThemeManager().createThemeEffective()
     effective_background = slide.getBackground().getEffective()
+    
     print("Effective major Latin font:", effective_theme.getFontScheme().getMajor().getLatinFont().getFontName())
     print("Effective minor Latin font:", effective_theme.getFontScheme().getMinor().getLatinFont().getFontName())
     print("Effective background fill type:", effective_background.getFillFormat().getFillType())
