@@ -37,13 +37,54 @@ The available placeholders depend on the scope:
 
 A regular presentation slide does not have a header placeholder. Headers are available on notes pages and handouts. For regular slides, use footer, date/time, and slide-number placeholders instead.
 
-The scope of a change depends on the manager you use. The [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideheaderfootermanager/) class controls one regular slide. The [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) class controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) class controls the handout master.
+The scope of a change depends on the manager you use. The [SlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideheaderfootermanager/) class controls one regular slide. The [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) class controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [MasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) class controls the handout master.
+
+## **Update Header, Footer, and Date/Time Text Across a Presentation**
+
+Use the [Presentation.getHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getheaderfootermanager/) method to access [PresentationHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/) and apply consistent text across a presentation without updating each page or master individually.
+
+| Method | Affected objects |
+|---|---|
+| [setAllHeadersText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllHeadersText) | Existing notes pages, notes master, and handout master |
+| [setAllFootersText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllFootersText) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+| [setAllDateTimesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllDateTimesText) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+
+Headers apply only to notes pages and handouts; regular slides do not support header placeholders. Handout settings are updated through the handout master.
+
+Setting text does not make a placeholder visible. First use [setAllHeadersVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllHeadersVisibility), [setAllFootersVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllFootersVisibility), and [setAllDateTimesVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/#setAllDateTimesVisibility) to enable the corresponding placeholders, then set their text. These visibility methods have the same scope as the corresponding text methods.
+
+The following example assumes that a presentation contains regular slides, notes pages, a notes master, and a handout master. It applies corporate text and a fixed date label, then saves the result.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const manager = presentation.getHeaderFooterManager();
+
+    manager.setAllHeadersVisibility(true);
+    manager.setAllFootersVisibility(true);
+    manager.setAllDateTimesVisibility(true);
+
+    manager.setAllHeadersText("Contoso");
+    manager.setAllFootersText("Internal use only");
+    manager.setAllDateTimesText("October 2026");
+
+    presentation.save("updated.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The text methods skip missing placeholders. Enabling visibility first creates the required placeholders on existing pages and masters. Neither the text methods nor the visibility methods create missing notes pages, notes masters, or handout masters. The date/time text is a fixed label, not an automatically updating date/time field.
+
+For narrower changes, see the examples for [regular slides](#set-footer-datetime-and-slide-numbers-on-regular-slides), the [notes master](#set-headers-and-footers-on-the-notes-master), an [individual notes page](#set-headers-and-footers-on-an-individual-notes-slide), and the [handout master](#set-headers-and-footers-on-the-handout-master). See [Presentation Notes](/slides/nodejs-java/presentation-notes/) for creating and managing notes pages.
 
 ## **Set Footer, Date/Time, and Slide Numbers on Regular Slides**
 
 For regular slides, the basic workflow is to access each slide's header/footer manager, set the footer and date/time text, enable the required placeholders, and save the presentation. Slide numbers are generated by the presentation, so you only need to control their visibility.
 
-Use [`setFooterText`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) and [`setDateTimeText`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) to set text, and use [`setFooterVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility), and [`setSlideNumberVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) to show the corresponding placeholders.
+Use [setFooterText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) and [setDateTimeText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) to set text, and use [setFooterVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [setDateTimeVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility), and [setSlideNumberVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) to show the corresponding placeholders.
 
 The following end-to-end example applies the same footer, date/time text, and slide-number visibility to all regular slides:
 
@@ -71,11 +112,11 @@ try {
 }
 ```
 
-If you need to update only one slide, access that slide directly through the [`getSlides`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) method instead of iterating through the entire collection.
+If you need to update only one slide, access that slide directly through the [getSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/getslides/) method instead of iterating through the entire collection.
 
 ## **Set Headers and Footers on the Notes Master**
 
-The notes master defines common formatting and placeholder behavior for notes pages. Use the [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) class when you want to change only the notes master itself.
+The notes master defines common formatting and placeholder behavior for notes pages. Use the [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) class when you want to change only the notes master itself.
 
 The following example sets header, footer, and date/time text on the notes master and makes all supported placeholders visible on that master:
 
@@ -107,13 +148,13 @@ try {
 }
 ```
 
-The [`getMasterNotesSlide`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) method returns `null` when the presentation does not contain a notes master.
+The [getMasterNotesSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) method returns `null` when the presentation does not contain a notes master.
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
-A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
+A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
 
-For example, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) and [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
+For example, [setHeaderAndChildHeadersText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) and [setHeaderAndChildHeadersVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -143,13 +184,13 @@ try {
 }
 ```
 
-The propagation methods used above are [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility), and [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+The propagation methods used above are [setFooterAndChildFootersText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [setFooterAndChildFootersVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [setDateTimeAndChildDateTimesText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [setDateTimeAndChildDateTimesVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility), and [setSlideNumberAndChildSlideNumbersVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
 
 ## **Set Headers and Footers on an Individual Notes Slide**
 
-A notes slide belongs to a specific regular slide. Use its [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) class when you want to customize only that notes page.
+A notes slide belongs to a specific regular slide. Use its [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) class when you want to customize only that notes page.
 
-The [`addNotesSlide`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
+The [addNotesSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -182,7 +223,7 @@ If you first propagate settings from the notes master and then change an individ
 
 Handout pages use the handout master for their header, footer, date/time, and page-number placeholders. Unlike notes pages, handout settings are managed through the handout master rather than through individual handout slides.
 
-Use [`getMasterHandoutSlide`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) to access the handout master. If it is not present, call [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) to create the default handout master.
+Use [getMasterHandoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) to access the handout master. If it is not present, call [setDefaultMasterHandoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) to create the default handout master.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -220,12 +261,13 @@ try {
 
 Choose the header/footer manager that matches the scope you want to change:
 
-- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
-- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
-- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
-- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
-- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
-- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
+- [PresentationHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentationheaderfootermanager/) updates supported placeholders throughout the presentation, as shown in the [presentation-wide example](#update-header-footer-and-datetime-text-across-a-presentation).
+- [SlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
+- [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
+- [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
+- [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
+- [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/notesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
+- [MasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
 
 Use propagation from a master or layout when the same setting should apply throughout its hierarchy. Use an individual slide or notes-slide manager when you need a local setting for one page.
 
@@ -237,11 +279,11 @@ No. PowerPoint does not define a header placeholder for regular slides. On regul
 
 **What if a footer, date/time, or slide-number placeholder is not visible?**
 
-Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [`isFooterVisible`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) reports whether a footer placeholder is present, and [`setFooterVisibility`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) changes its visibility.
+Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [isFooterVisible](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) reports whether a footer placeholder is present, and [setFooterVisibility](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) changes its visibility.
 
 **How do I start slide numbering from a value other than 1?**
 
-Call the presentation's [`setFirstSlideNumber`](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) method. The slide-number placeholders then use the updated numbering sequence.
+Call the presentation's [setFirstSlideNumber](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) method. The slide-number placeholders then use the updated numbering sequence.
 
 **What happens to headers and footers when exporting to PDF, images, or HTML?**
 

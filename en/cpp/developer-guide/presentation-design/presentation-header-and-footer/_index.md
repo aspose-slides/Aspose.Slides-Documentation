@@ -36,13 +36,55 @@ The available placeholders depend on the scope:
 
 A regular presentation slide does not have a header placeholder. Headers are available on notes pages and handouts. For regular slides, use footer, date/time, and slide-number placeholders instead.
 
-The scope of a change depends on the manager you use. The [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/islideheaderfootermanager/) interface controls one regular slide. The [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) interface controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) interface controls the handout master.
+The scope of a change depends on the manager you use. The [ISlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/islideheaderfootermanager/) interface controls one regular slide. The [INotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) interface controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [IMasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) interface controls the handout master.
+
+## **Update Header, Footer, and Date/Time Text Across a Presentation**
+
+Use the manager returned by [Presentation::get_HeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_headerfootermanager/), which implements [IPresentationHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationheaderfootermanager/), to apply consistent text across a presentation without updating each page or master individually.
+
+| Method | Affected objects |
+|---|---|
+| [SetAllHeadersText](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setallheaderstext/) | Existing notes pages, notes master, and handout master |
+| [SetAllFootersText](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setallfooterstext/) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+| [SetAllDateTimesText](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setalldatetimestext/) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+
+Headers apply only to notes pages and handouts; regular slides do not support header placeholders. Handout settings are updated through the handout master.
+
+Setting text does not make a placeholder visible. First use [SetAllHeadersVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setallheadersvisibility/), [SetAllFootersVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setallfootersvisibility/), and [SetAllDateTimesVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/presentationheaderfootermanager/setalldatetimesvisibility/) to enable the corresponding placeholders, then set their text. These visibility methods have the same scope as the corresponding text methods.
+
+The following example assumes that a presentation contains regular slides, notes pages, a notes master, and a handout master. It applies corporate text and a fixed date label, then saves the result.
+
+```cpp
+#include <DOM/IPresentationHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto manager = presentation->get_HeaderFooterManager();
+
+manager->SetAllHeadersVisibility(true);
+manager->SetAllFootersVisibility(true);
+manager->SetAllDateTimesVisibility(true);
+
+manager->SetAllHeadersText(u"Contoso");
+manager->SetAllFootersText(u"Internal use only");
+manager->SetAllDateTimesText(u"October 2026");
+
+presentation->Save(u"updated.pptx", SaveFormat::Pptx);
+```
+
+The text methods skip missing placeholders. Enabling visibility first creates the required placeholders on existing pages and masters. Neither the text methods nor the visibility methods create missing notes pages, notes masters, or handout masters. The date/time text is a fixed label, not an automatically updating date/time field.
+
+For narrower changes, see the examples for [regular slides](#set-footer-datetime-and-slide-numbers-on-regular-slides), the [notes master](#set-headers-and-footers-on-the-notes-master), an [individual notes page](#set-headers-and-footers-on-an-individual-notes-slide), and the [handout master](#set-headers-and-footers-on-the-handout-master). See [Presentation Notes](/slides/cpp/presentation-notes/) for creating and managing notes pages.
 
 ## **Set Footer, Date/Time, and Slide Numbers on Regular Slides**
 
 For regular slides, the basic workflow is to access each slide's header/footer manager, set the footer and date/time text, enable the required placeholders, and save the presentation. Slide numbers are generated by the presentation, so you only need to control their visibility.
 
-Use [`SetFooterText`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) and [`SetDateTimeText`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) to set text, and use [`SetFooterVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/), and [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) to show the corresponding placeholders.
+Use [SetFooterText](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) and [SetDateTimeText](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) to set text, and use [SetFooterVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [SetDateTimeVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/), and [SetSlideNumberVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) to show the corresponding placeholders.
 
 The following end-to-end example applies the same footer, date/time text, and slide-number visibility to all regular slides:
 
@@ -75,11 +117,11 @@ for (const auto& slide : System::IterateOver(presentation->get_Slides()))
 presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
 ```
 
-If you need to update only one slide, access that slide directly through [`Presentation::get_Slide`](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) instead of iterating through the entire slide collection.
+If you need to update only one slide, access that slide directly through [Presentation::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_slide/) instead of iterating through the entire slide collection.
 
 ## **Set Headers and Footers on the Notes Master**
 
-The notes master defines common formatting and placeholder behavior for notes pages. Use the [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) interface when you want to change only the notes master itself.
+The notes master defines common formatting and placeholder behavior for notes pages. Use the [IMasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) interface when you want to change only the notes master itself.
 
 The following example sets header, footer, and date/time text on the notes master and makes all supported placeholders visible on that master:
 
@@ -115,13 +157,13 @@ if (masterNotesSlide != nullptr)
 presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
-The [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) method returns `nullptr` when the presentation does not contain a notes master.
+The [IMasterNotesSlideManager::get_MasterNotesSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) method returns `nullptr` when the presentation does not contain a notes master.
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
-A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
+A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [IMasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
 
-For example, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) and [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
+For example, [SetHeaderAndChildHeadersText](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) and [SetHeaderAndChildHeadersVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
 
 ```cpp
 #include <DOM/IMasterNotesSlide.h>
@@ -155,13 +197,13 @@ if (masterNotesSlide != nullptr)
 presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
 ```
 
-The propagation methods used above are [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), and [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+The propagation methods used above are [SetFooterAndChildFootersText](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [SetFooterAndChildFootersVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [SetDateTimeAndChildDateTimesText](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [SetDateTimeAndChildDateTimesVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), and [SetSlideNumberAndChildSlideNumbersVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
 
 ## **Set Headers and Footers on an Individual Notes Slide**
 
-A notes slide belongs to a specific regular slide. Use its [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) interface when you want to customize only that notes page.
+A notes slide belongs to a specific regular slide. Use its [INotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) interface when you want to customize only that notes page.
 
-The [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslidemanager/addnotesslide/) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
+The [INotesSlideManager::AddNotesSlide](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslidemanager/addnotesslide/) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
 
 ```cpp
 #include <DOM/INotesSlide.h>
@@ -199,7 +241,7 @@ If you first propagate settings from the notes master and then change an individ
 
 Handout pages use the handout master for their header, footer, date/time, and page-number placeholders. Unlike notes pages, handout settings are managed through the handout master rather than through individual handout slides.
 
-Use [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) to access the handout master. If it is not present, call [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) to create the default handout master.
+Use [IMasterHandoutSlideManager::get_MasterHandoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) to access the handout master. If it is not present, call [IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) to create the default handout master.
 
 ```cpp
 #include <DOM/IMasterHandoutSlide.h>
@@ -243,12 +285,13 @@ presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
 
 Choose the header/footer manager that matches the scope you want to change:
 
-- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/islideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
-- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
-- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
-- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
-- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
-- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
+- [IPresentationHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationheaderfootermanager/) updates supported placeholders throughout the presentation, as shown in the [presentation-wide example](#update-header-footer-and-datetime-text-across-a-presentation).
+- [ISlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/islideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
+- [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
+- [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
+- [IMasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
+- [INotesSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/inotesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
+- [IMasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
 
 Use propagation from a master or layout when the same setting should apply throughout its hierarchy. Use an individual slide or notes-slide manager when you need a local setting for one page.
 
@@ -260,11 +303,11 @@ No. PowerPoint does not define a header placeholder for regular slides. On regul
 
 **What if a footer, date/time, or slide-number placeholder is not visible?**
 
-Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [`get_IsFooterVisible`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) reports whether a footer placeholder is present, and [`SetFooterVisibility`](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) changes its visibility.
+Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [get_IsFooterVisible](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) reports whether a footer placeholder is present, and [SetFooterVisibility](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) changes its visibility.
 
 **How do I start slide numbering from a value other than 1?**
 
-Use [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) to set the first slide number. The slide-number placeholders then use the updated numbering sequence.
+Use [Presentation::set_FirstSlideNumber](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/set_firstslidenumber/) to set the first slide number. The slide-number placeholders then use the updated numbering sequence.
 
 **What happens to headers and footers when exporting to PDF, images, or HTML?**
 
