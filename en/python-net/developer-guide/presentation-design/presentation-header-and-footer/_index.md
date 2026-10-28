@@ -36,13 +36,50 @@ The available placeholders depend on the scope:
 
 A regular presentation slide does not have a header placeholder. Headers are available on notes pages and handouts. For regular slides, use footer, date/time, and slide-number placeholders instead.
 
-The scope of a change depends on the manager you use. The [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/slideheaderfootermanager/) class controls one regular slide. The [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) class controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) class controls the handout master.
+The scope of a change depends on the manager you use. The [SlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/slideheaderfootermanager/) class controls one regular slide. The [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) class controls one notes slide. Master and layout managers can also propagate settings to dependent slides, while the [MasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) class controls the handout master.
+
+## **Update Header, Footer, and Date/Time Text Across a Presentation**
+
+Use [Presentation.header_footer_manager](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/header_footer_manager/), which returns a [PresentationHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/) instance, to apply consistent text across a presentation without updating each page or master individually.
+
+| Method | Affected objects |
+|---|---|
+| [set_all_headers_text](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_headers_text/) | Existing notes pages, notes master, and handout master |
+| [set_all_footers_text](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_footers_text/) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+| [set_all_date_times_text](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_date_times_text/) | Regular slides, layouts, slide masters, existing notes pages, notes master, and handout master |
+
+Headers apply only to notes pages and handouts; regular slides do not support header placeholders. Handout settings are updated through the handout master.
+
+Setting text does not make a placeholder visible. First use [set_all_headers_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_headers_visibility/), [set_all_footers_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_footers_visibility/), and [set_all_date_times_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/set_all_date_times_visibility/) to enable the corresponding placeholders, then set their text. These visibility methods have the same scope as the corresponding text methods.
+
+The following example assumes that a presentation contains regular slides, notes pages, a notes master, and a handout master. It applies corporate text and a fixed date label, then saves the result.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    manager = presentation.header_footer_manager
+
+    manager.set_all_headers_visibility(True)
+    manager.set_all_footers_visibility(True)
+    manager.set_all_date_times_visibility(True)
+
+    manager.set_all_headers_text("Contoso")
+    manager.set_all_footers_text("Internal use only")
+    manager.set_all_date_times_text("October 2026")
+
+    presentation.save("updated.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The text methods skip missing placeholders. Enabling visibility first creates the required placeholders on existing pages and masters. Neither the text methods nor the visibility methods create missing notes pages, notes masters, or handout masters. The date/time text is a fixed label, not an automatically updating date/time field.
+
+For narrower changes, see the examples for [regular slides](#set-footer-datetime-and-slide-numbers-on-regular-slides), the [notes master](#set-headers-and-footers-on-the-notes-master), an [individual notes page](#set-headers-and-footers-on-an-individual-notes-slide), and the [handout master](#set-headers-and-footers-on-the-handout-master). See [Presentation Notes](/slides/python-net/presentation-notes/) for creating and managing notes pages.
 
 ## **Set Footer, Date/Time, and Slide Numbers on Regular Slides**
 
 For regular slides, the basic workflow is to access each slide's header/footer manager, set the footer and date/time text, enable the required placeholders, and save the presentation. Slide numbers are generated by the presentation, so you only need to control their visibility.
 
-Use [`set_footer_text`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) and [`set_date_time_text`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/) to set text, and use [`set_footer_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [`set_date_time_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), and [`set_slide_number_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/) to show the corresponding placeholders.
+Use [set_footer_text](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) and [set_date_time_text](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/) to set text, and use [set_footer_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [set_date_time_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), and [set_slide_number_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/) to show the corresponding placeholders.
 
 The following end-to-end example applies the same footer, date/time text, and slide-number visibility to all regular slides:
 
@@ -64,11 +101,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation_with_slide_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-If you need to update only one slide, access that slide directly through the [`slides`](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection instead of iterating through the entire collection.
+If you need to update only one slide, access that slide directly through the [slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/slides/) collection instead of iterating through the entire collection.
 
 ## **Set Headers and Footers on the Notes Master**
 
-The notes master defines common formatting and placeholder behavior for notes pages. Use the [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) class when you want to change only the notes master itself.
+The notes master defines common formatting and placeholder behavior for notes pages. Use the [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) class when you want to change only the notes master itself.
 
 The following example sets header, footer, and date/time text on the notes master and makes all supported placeholders visible on that master:
 
@@ -99,9 +136,9 @@ A presentation may not contain a notes master, so check the returned value for `
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
-A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
+A notes master can apply header and footer settings to itself and to all dependent notes slides. Use the dedicated propagation methods on [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) when the same settings should be applied across the notes hierarchy.
 
-For example, [`set_header_and_child_headers_text`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) and [`set_header_and_child_headers_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
+For example, [set_header_and_child_headers_text](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) and [set_header_and_child_headers_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) update the notes master header and all child headers. Equivalent methods are available for footers, date/time, and slide numbers.
 
 ```python
 import aspose.slides as slides
@@ -126,13 +163,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation_with_child_notes_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-The propagation methods used above are [`set_footer_and_child_footers_text`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [`set_footer_and_child_footers_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [`set_date_time_and_child_date_times_text`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [`set_date_time_and_child_date_times_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), and [`set_slide_number_and_child_slide_numbers_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/).
+The propagation methods used above are [set_footer_and_child_footers_text](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [set_footer_and_child_footers_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [set_date_time_and_child_date_times_text](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [set_date_time_and_child_date_times_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), and [set_slide_number_and_child_slide_numbers_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/).
 
 ## **Set Headers and Footers on an Individual Notes Slide**
 
-A notes slide belongs to a specific regular slide. Use its [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) class when you want to customize only that notes page.
+A notes slide belongs to a specific regular slide. Use its [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) class when you want to customize only that notes page.
 
-The [`add_notes_slide`](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/add_notes_slide/) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
+The [add_notes_slide](https://reference.aspose.com/slides/python-net/aspose.slides/notesslidemanager/add_notes_slide/) method returns the notes slide for the current slide and creates one if it does not already exist. The following example configures the notes page associated with the first presentation slide:
 
 ```python
 import aspose.slides as slides
@@ -161,7 +198,7 @@ If you first propagate settings from the notes master and then change an individ
 
 Handout pages use the handout master for their header, footer, date/time, and page-number placeholders. Unlike notes pages, handout settings are managed through the handout master rather than through individual handout slides.
 
-Use the [`master_handout_slide`](https://reference.aspose.com/slides/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/) property to access the handout master. If it is not present, call [`set_default_master_handout_slide`](https://reference.aspose.com/slides/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) to create the default handout master.
+Use the [master_handout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/) property to access the handout master. If it is not present, call [set_default_master_handout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) to create the default handout master.
 
 ```python
 import aspose.slides as slides
@@ -194,12 +231,13 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 Choose the header/footer manager that matches the scope you want to change:
 
-- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/slideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
-- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
-- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
-- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
-- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
-- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
+- [PresentationHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/presentationheaderfootermanager/) updates supported placeholders throughout the presentation, as shown in the [presentation-wide example](#update-header-footer-and-datetime-text-across-a-presentation).
+- [SlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/slideheaderfootermanager/) changes footer, date/time, and slide-number settings for one regular slide.
+- [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/) controls a layout slide and can propagate supported settings to dependent slides.
+- [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masterslideheaderfootermanager/) controls a regular slide master and can propagate supported settings to dependent slides.
+- [MasterNotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masternotesslideheaderfootermanager/) controls the notes master and can propagate settings to all dependent notes slides.
+- [NotesSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/notesslideheaderfootermanager/) changes one notes slide and supports a header placeholder in addition to footer, date/time, and slide number.
+- [MasterHandoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) changes the handout master and supports all four placeholder types.
 
 Use propagation from a master or layout when the same setting should apply throughout its hierarchy. Use an individual slide or notes-slide manager when you need a local setting for one page.
 
@@ -211,11 +249,11 @@ No. PowerPoint does not define a header placeholder for regular slides. On regul
 
 **What if a footer, date/time, or slide-number placeholder is not visible?**
 
-Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [`is_footer_visible`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) reports whether a footer placeholder is present, and [`set_footer_visibility`](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) changes its visibility.
+Use the corresponding header/footer manager to check its visibility and enable it when needed. For example, [is_footer_visible](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) reports whether a footer placeholder is present, and [set_footer_visibility](https://reference.aspose.com/slides/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) changes its visibility.
 
 **How do I start slide numbering from a value other than 1?**
 
-Set the presentation's [`first_slide_number`](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) property. The slide-number placeholders then use the updated numbering sequence.
+Set the presentation's [first_slide_number](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/first_slide_number/) property. The slide-number placeholders then use the updated numbering sequence.
 
 **What happens to headers and footers when exporting to PDF, images, or HTML?**
 
