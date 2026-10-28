@@ -157,7 +157,7 @@ if (masterNotesSlide != nullptr)
 presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
-The [IMasterNotesSlideManager::get_MasterNotesSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) method returns `nullptr` when the presentation does not contain a notes master.
+The [IMasterNotesSlideManager::get_MasterNotesSlide](https://reference.aspose.com/slides/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) method returns `nullptr` when the presentation does not contain a notes master. To clean up a template without notes pages, see [Remove an Unused Notes Master](/slides/cpp/presentation-notes/#remove-an-unused-notes-master).
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
@@ -280,6 +280,8 @@ if (masterHandoutSlide != nullptr)
 
 presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
 ```
+
+To remove the entire handout master, including its formatting and placeholders, see [Remove a Handout Master](/slides/cpp/presentation-notes/#remove-a-handout-master). If you only need to hide a header or footer, change its visibility instead to preserve the master's other formatting.
 
 ## **Understand Scope and Inheritance**
 
