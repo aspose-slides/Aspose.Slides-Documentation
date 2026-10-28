@@ -132,7 +132,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation_with_notes_master_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A presentation may not contain a notes master, so check the returned value for `None` before changing it.
+The [master_notes_slide](https://reference.aspose.com/slides/python-net/aspose.slides/imasternotesslidemanager/master_notes_slide/) property returns `None` when the presentation does not contain a notes master. Check the returned value before changing it. To clean up a template without notes pages, see [Remove an Unused Notes Master](/slides/python-net/presentation-notes/#remove-an-unused-notes-master).
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
@@ -226,6 +226,8 @@ with slides.Presentation("presentation.pptx") as presentation:
 
     presentation.save("presentation_with_handout_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+To remove the entire handout master, including its formatting and placeholders, see [Remove a Handout Master](/slides/python-net/presentation-notes/#remove-a-handout-master). If you only need to hide a header or footer, change its visibility instead to preserve the master's other formatting.
 
 ## **Understand Scope and Inheritance**
 

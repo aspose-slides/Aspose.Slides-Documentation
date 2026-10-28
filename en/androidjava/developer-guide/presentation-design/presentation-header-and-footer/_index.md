@@ -78,7 +78,7 @@ try {
 
 The text methods skip missing placeholders. Enabling visibility first creates the required placeholders on existing pages and masters. Neither the text methods nor the visibility methods create missing notes pages, notes masters, or handout masters. The date/time text is a fixed label, not an automatically updating date/time field.
 
-For narrower changes, see the examples for [regular slides](#set-footer-datetime-and-slide-numbers-on-regular-slides), the [notes master](#set-headers-and-footers-on-the-notes-master), an [individual notes page](#set-headers-and-footers-on-an-individual-notes-slide), and the [handout master](#set-headers-and-footers-on-the-handout-master). See [Presentation Notes](/slides/androidjava/presentation-notes/) for creating and managing notes pages.
+For narrower changes, see the examples for [regular slides](#set-footer-datetime-and-slide-numbers-on-regular-slides), the [notes master](#set-headers-and-footers-on-the-notes-master), an [individual notes page](#set-headers-and-footers-on-an-individual-notes-slide), and the [handout master](#set-headers-and-footers-on-the-handout-master). See [Presentation Notes](/slides/androidjava/presentation-notes/) for removing notes and managing notes masters.
 
 ## **Set Footer, Date/Time, and Slide Numbers on Regular Slides**
 
@@ -147,7 +147,7 @@ try {
 }
 ```
 
-The [getMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) method returns `null` when the presentation does not contain a notes master.
+The [getMasterNotesSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) method returns `null` when the presentation does not contain a notes master. To clean up a template without notes pages, see [Remove an Unused Notes Master](/slides/androidjava/presentation-notes/#remove-an-unused-notes-master).
 
 ## **Apply Notes Master Settings to Child Notes Slides**
 
@@ -256,6 +256,8 @@ try {
     presentation.dispose();
 }
 ```
+
+To remove the entire handout master, including its formatting and placeholders, see [Remove a Handout Master](/slides/androidjava/presentation-notes/#remove-a-handout-master). If you only need to hide a header or footer, change its visibility instead to preserve the master's other formatting.
 
 ## **Understand Scope and Inheritance**
 

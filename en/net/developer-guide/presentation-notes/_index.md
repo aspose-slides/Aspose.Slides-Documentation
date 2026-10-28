@@ -17,92 +17,130 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Customize presentation notes with Aspose.Slides for .NET. Seamlessly work with PowerPoint and OpenDocument notes to boost your productivity."
+description: "Remove slide notes and customize master notes text styles in PowerPoint and OpenDocument presentations with Aspose.Slides for .NET."
 ---
 
 ## **Overview**
 
-Aspose.Slides supports removing notes slides from a presentation. In this topic, we will introduce this feature, including how to remove notes and how to apply a style to notes slides in a presentation. Aspose.Slides allows you to remove notes from any slide and also apply styling to existing notes. Developers can remove notes in the following ways:
-
-- Remove notes from a specific slide in a presentation.
-- Remove notes from all slides in a presentation.
+Aspose.Slides for .NET lets you remove notes from individual slides or an entire presentation, customize the text style defined in the master notes slide, and remove notes and handout masters. This article shows how to perform these operations and save the updated presentation.
 
 To read or change notes page dimensions, switch orientation, and check export behavior, see [Notes Page Size](/slides/net/notes-size/).
 
 ## **Remove Notes from a Slide**
-Notes of some specific slide could be removed as shown in the example below:
 
-```c#
+To remove notes from a specific slide, use its [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/slide/notesslidemanager/) and call [RemoveNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/removenotesslide/). The example loads a presentation containing at least one slide and removes the notes from the first slide, accessed at index zero. Notes on other slides remain unchanged, and the updated presentation is saved in PPTX format.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate a Presentation object that represents a presentation file
-Presentation presentation = new Presentation("AccessSlides.pptx");
+using var presentation = new Presentation("presentation.pptx");
 
-// Removing notes of first slide
-INotesSlideManager mgr = presentation.Slides[0].NotesSlideManager;
-mgr.RemoveNotesSlide();
+var notesManager = presentation.Slides[0].NotesSlideManager;
+notesManager.RemoveNotesSlide();
 
-// Save presentation to disk
-presentation.Save("RemoveNotesAtSpecificSlide_out.pptx", SaveFormat.Pptx);
+presentation.Save("presentation_without_first_slide_notes.pptx", SaveFormat.Pptx);
 ```
-
 
 ## **Remove Notes from All Slides**
-Notes of all the slides of a presentation could be removed as shown in the example below:
 
-```c#
+To remove all slide notes, iterate through the presentation's [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/slides/) collection and call [RemoveNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/removenotesslide/) for each slide. This example processes every slide in an existing presentation and saves a PPTX copy without slide notes.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiate a Presentation object that represents a presentation file 
-Presentation presentation = new Presentation("AccessSlides.pptx");
+using var presentation = new Presentation("presentation.pptx");
 
-// Removing notes of all slides
-INotesSlideManager mgr = null;
-for (int i = 0; i < presentation.Slides.Count; i++)
+foreach (var slide in presentation.Slides)
 {
-    mgr = presentation.Slides[i].NotesSlideManager;
-    mgr.RemoveNotesSlide();
+    slide.NotesSlideManager.RemoveNotesSlide();
 }
-// Save presentation to disk
-presentation.Save("RemoveNotesFromAllSlides_out.pptx", SaveFormat.Pptx);
+
+presentation.Save("presentation_without_notes.pptx", SaveFormat.Pptx);
 ```
 
+## **Remove Notes and Handout Masters**
+
+Notes and handout masters define shared formatting and placeholders for their respective page types. Removing a master is a separate operation from removing an individual slide's notes with [RemoveNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/removenotesslide/).
+
+### **Remove an Unused Notes Master**
+
+When cleaning up a template that has no notes pages, you can remove its unused notes master. Access [MasterNotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/masternotesslidemanager/), check [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslidemanager/masternotesslide/), and call [RemoveMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslidemanager/removemasternotesslide/).
+
+The following example requires a presentation to contain no notes pages. It removes the notes master if one exists, including its formatting and header/footer placeholders, and saves the template.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template_without_notes.pptx");
+
+var manager = presentation.MasterNotesSlideManager;
+if (manager.MasterNotesSlide != null)
+{
+    manager.RemoveMasterNotesSlide();
+}
+
+presentation.Save("template_without_notes_master.pptx", SaveFormat.Pptx);
+```
+
+After removal, [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslidemanager/masternotesslide/) returns `null`. If the master is already absent, the example skips removal and still saves the presentation.
+
+### **Remove a Handout Master**
+
+To remove a handout master, access [MasterHandoutSlideManager](https://reference.aspose.com/slides/net/aspose.slides/presentation/masterhandoutslidemanager/), check [MasterHandoutSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/), and call [RemoveMasterHandoutSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterhandoutslidemanager/removemasterhandoutslide/).
+
+For this example, use a presentation containing slide notes and customized notes and handout masters. Give the handout master a visible banner and header/footer text so that the effect of removal is easy to compare in handout output.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation_with_custom_masters.pptx");
+
+var manager = presentation.MasterHandoutSlideManager;
+if (manager.MasterHandoutSlide != null)
+{
+    manager.RemoveMasterHandoutSlide();
+}
+
+presentation.Save("presentation_without_handout_master.pptx", SaveFormat.Pptx);
+```
+
+After removal, [MasterHandoutSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) returns `null`. Existing slide notes and the notes master remain unchanged. If the handout master is already absent, the example simply saves the presentation.
+
+In handout output, the removed master's banner, formatting, and header, footer, date/time, and page-number placeholders no longer appear. The presentation slides still appear in the handout layout, including any footer or date text on the slides themselves. Slide numbers added by the handout export settings are separate from the master's page-number placeholder.
+
+If you only want to hide handout headers or footers, change the corresponding placeholder visibility through the [handout master's header/footer manager](/slides/net/presentation-header-and-footer/#set-headers-and-footers-on-the-handout-master) instead. This keeps the master and its other formatting, such as a custom banner.
 
 ## **Add a Notes Style**
-NotesStyle property has been added to [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide) interface and [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide) class respectively. This property specifies the style of a notes text.  The implementation is demonstrated in the example below.
 
-```c#
+The [NotesStyle](https://reference.aspose.com/slides/net/aspose.slides/masternotesslide/notesstyle/) property of [IMasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslide/) defines the master notes text style. The example accesses the existing [MasterNotesSlide](https://reference.aspose.com/slides/net/aspose.slides/imasternotesslidemanager/masternotesslide/) and uses [GetLevel](https://reference.aspose.com/slides/net/aspose.slides/textstyle/getlevel/) with index zero to select the first paragraph level. It sets the bullet type to [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) and saves the presentation in PPTX format. The input must contain a master notes slide for the style change to take effect; otherwise, the presentation is saved without changing the notes style.
+
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instantiate Presentation class that represents the presentation file
-using (Presentation presentation = new Presentation("AccessSlides.pptx"))
+using var presentation = new Presentation("presentation.pptx");
+
+var notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
+if (notesMaster != null)
 {
-    IMasterNotesSlide notesMaster = presentation.MasterNotesSlideManager.MasterNotesSlide;
-
-    if (notesMaster != null)
-    {
-        // Get MasterNotesSlide text style
-        ITextStyle notesStyle = notesMaster.NotesStyle;
-
-        //Set symbol bullet for the first level paragraphs
-        IParagraphFormat paragraphFormat = notesStyle.GetLevel(0);
-        paragraphFormat.Bullet.Type = BulletType.Symbol;
-    }
-
-    // Save the PPTX file to the Disk
-    presentation.Save("AddNotesSlideWithNotesStyle_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-
+    var notesStyle = notesMaster.NotesStyle;
+    var paragraphFormat = notesStyle.GetLevel(0);
+    paragraphFormat.Bullet.Type = BulletType.Symbol;
 }
+
+presentation.Save("presentation_with_notes_style.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-### Which API entity provides access to the notes of a specific slide?
+**Which API provides access to the notes of a specific slide?**
 
-Notes are accessed through the slide’s notes manager: the slide has a [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/) and a [property](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) that returns the notes object, or `null` if there are no notes.
+Use the slide's [NotesSlideManager](https://reference.aspose.com/slides/net/aspose.slides/slide/notesslidemanager/) property. The manager's [NotesSlide](https://reference.aspose.com/slides/net/aspose.slides/notesslidemanager/notesslide/) property returns the notes slide, or `null` if the slide has no notes.
 
-### Are there differences in notes support across the PowerPoint versions the library works with?
+**Does working with notes require Microsoft PowerPoint to be installed?**
 
-The library targets a broad range of Microsoft PowerPoint formats (97–newer) and ODP; notes are supported within these formats without depending on an installed copy of PowerPoint.
+No. Aspose.Slides works with notes in PowerPoint and OpenDocument presentations without requiring Microsoft PowerPoint to be installed.
