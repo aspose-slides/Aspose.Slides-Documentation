@@ -361,6 +361,64 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.SINGLE or DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, assign `TextStrikethroughType.NONE`. This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, `TextStrikethroughType.NOT_DEFINED` leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this property preserves the text and its other formatting, including the bold previous price.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 620, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.text_frame.paragraphs.clear()
+
+    labels = ["None: ", "Single: ", "Double: "]
+
+    for label in labels:
+        paragraph = slides.Paragraph()
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.space_after = 20
+
+        portion_format = paragraph.paragraph_format.default_portion_format
+        portion_format.font_height = 28
+        portion_format.latin_font = slides.FontData("Arial")
+        portion_format.fill_format.fill_type = slides.FillType.SOLID
+        portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+        paragraph.portions.add(slides.Portion(label))
+
+        previous_price = slides.Portion("$100")
+        previous_price.portion_format.font_bold = slides.NullableBool.TRUE
+        paragraph.portions.add(previous_price)
+        paragraph.portions.add(slides.Portion(" → $80"))
+
+        shape.text_frame.paragraphs.add(paragraph)
+
+    paragraphs = shape.text_frame.paragraphs
+
+    # Apply strikethrough, then explicitly remove it from the first previous price.
+    paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
+    paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.NONE
+
+    paragraphs[1].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
+    paragraphs[2].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.DOUBLE
+
+    presentation.save("strikethrough.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
 ## **Set Text Rotation**
 
 Use [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/text_vertical_type/) to set a predefined text orientation within a shape.

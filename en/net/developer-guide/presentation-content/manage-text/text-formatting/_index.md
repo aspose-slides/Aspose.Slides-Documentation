@@ -401,6 +401,67 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, assign `TextStrikethroughType.None`. This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, `TextStrikethroughType.NotDefined` leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this property preserves the text and its other formatting, including the bold previous price.
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 620, 220);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+shape.TextFrame.Paragraphs.Clear();
+
+var labels = new[] { "None: ", "Single: ", "Double: " };
+
+foreach (var label in labels)
+{
+    var paragraph = new Paragraph();
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Left;
+    paragraph.ParagraphFormat.SpaceAfter = 20;
+
+    var format = paragraph.ParagraphFormat.DefaultPortionFormat;
+    format.FontHeight = 28;
+    format.LatinFont = new FontData("Arial");
+    format.FillFormat.FillType = FillType.Solid;
+    format.FillFormat.SolidFillColor.Color = Color.Black;
+
+    paragraph.Portions.Add(new Portion(label));
+
+    var previousPrice = new Portion("$100");
+    previousPrice.PortionFormat.FontBold = NullableBool.True;
+    paragraph.Portions.Add(previousPrice);
+    paragraph.Portions.Add(new Portion(" → $80"));
+    
+    shape.TextFrame.Paragraphs.Add(paragraph);
+}
+
+var paragraphs = shape.TextFrame.Paragraphs;
+
+// Apply strikethrough, then explicitly remove it from the first previous price.
+paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Single;
+paragraphs[0].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.None;
+
+paragraphs[1].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Single;
+paragraphs[2].Portions[1].PortionFormat.StrikethroughType = TextStrikethroughType.Double;
+
+presentation.Save("strikethrough.pptx", SaveFormat.Pptx);
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
 ## **Set Text Rotation**
 
 Use [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/textverticaltype/) to set a predefined text orientation within a shape.
