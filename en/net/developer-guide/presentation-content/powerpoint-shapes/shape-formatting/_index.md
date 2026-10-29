@@ -188,6 +188,148 @@ The result:
 
 If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
+### **Set the Linear Gradient Angle**
+
+Use [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+for (var i = 0; i < angles.Length; i++)
+{
+    var x = 30 + (i % 3) * 230;
+    var y = 30 + (i / 3) * 190;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+    shape.FillFormat.FillType = FillType.Gradient;
+
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.False;
+    gradient.LinearGradientAngle = angles[i];
+}
+
+presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+```
+
+The result in PowerPoint:
+
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
+
+### **Scale a Linear Gradient with the Shape**
+
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 460, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var scalingOptions = new[] { NullableBool.False, NullableBool.True };
+
+for (var column = 0; column < scalingOptions.Length; column++)
+{
+    for (var row = 0; row < 2; row++)
+    {
+        var x = 30 + column * 360;
+        var y = row == 0 ? 30 : 150;
+        
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+        shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+        shape.FillFormat.FillType = FillType.Gradient;
+
+        var gradient = shape.FillFormat.GradientFormat;
+        gradient.GradientShape = GradientShape.Linear;
+        gradient.GradientStops.Clear();
+        gradient.GradientStops.Add(0f, Color.Red);
+        gradient.GradientStops.Add(0.5f, Color.Lime);
+        gradient.GradientStops.Add(1f, Color.Blue);
+        gradient.LinearGradientAngle = 45;
+        gradient.LinearGradientScaled = scalingOptions[column];
+
+        if (row == 1)
+        {
+            shape.Width = 90;
+            shape.Height = 280;
+        }
+    }
+}
+
+presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+```
+
+The result in PowerPoint, with scaling disabled on the left and enabled on the right:
+
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) fills.
+
+### **Combine the Angle with Gradient Direction**
+
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+for (var i = 0; i < 2; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+    shape.FillFormat.FillType = FillType.Gradient;
+
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.True;
+
+    if (i == 0)
+    {
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+        gradient.LinearGradientAngle = 30;
+    }
+    else
+    {
+        gradient.LinearGradientAngle = 30;
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+    }
+}
+
+presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+```
+
 ## **Pattern Fill**
 
 A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) to select a trellis pattern. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) supplies the light gray background, and [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) supplies the yellow pattern color.

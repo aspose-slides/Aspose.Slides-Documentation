@@ -125,7 +125,7 @@ The join style controls how two outline segments meet at a corner. Use **Round**
 
 ![The join style in the presentation](join-style-powerpoint.png)
 
-This example creates three black rectangles with blue outlines 15 points wide. It uses [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
+This example creates three black rectangles with blue outlines 15 points wide. It uses [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) to set the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
 ```java
 import com.aspose.slides.*;
@@ -201,6 +201,149 @@ The result:
 ![The ellipse with gradient fill](gradient-fill.png)
 
 If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+
+### **Set the Linear Gradient Angle**
+
+Use [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[] angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+    for (int i = 0; i < angles.length; i++) {
+        int x = 30 + (i % 3) * 230;
+        int y = 30 + (i / 3) * 190;
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.False);
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result in PowerPoint:
+
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
+
+### **Scale a Linear Gradient with the Shape**
+
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) accepts a [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] scalingOptions = new byte[] { NullableBool.False, NullableBool.True };
+
+    for (int column = 0; column < scalingOptions.length; column++) {
+        for (int row = 0; row < 2; row++) {
+            int x = 30 + column * 360;
+            int y = row == 0 ? 30 : 150;
+
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+            shape.getFillFormat().setFillType(FillType.Gradient);
+
+            IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(GradientShape.Linear);
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0f, Color.RED);
+            gradient.getGradientStops().add(0.5f, Color.GREEN);
+            gradient.getGradientStops().add(1f, Color.BLUE);
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(scalingOptions[column]);
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result in PowerPoint, with scaling disabled on the left and enabled on the right:
+
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) fills.
+
+### **Combine the Angle with Gradient Direction**
+
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/) class; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (int i = 0; i < 2; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.True);
+
+        if (i == 0) {
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Pattern Fill**
 
@@ -320,7 +463,7 @@ The result:
 
 ## **Solid Color Fill**
 
-A solid fill gives a shape a single, uniform color. This example uses [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to the solid fill mode and assigns yellow through [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), then saves the rectangle in a presentation.
+A solid fill gives a shape a single, uniform color. This example uses [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to set the solid fill mode and assigns yellow through [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), then saves the rectangle in a presentation.
 
 ```java
 import com.aspose.slides.*;
@@ -462,7 +605,7 @@ The result:
 
 ## **Add 3D Bevel Effects**
 
-Use [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, uses [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--). A front-facing orthographic camera and three-point lighting make the bevel visible.
+Use [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, uses [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) to set the depth to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--). A front-facing orthographic camera and three-point lighting make the bevel visible.
 
 ```java
 import com.aspose.slides.*;
@@ -529,7 +672,7 @@ The [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspo
 
 Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) class to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-This example creates an orange rectangle and uses [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
+This example creates an orange rectangle and uses [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) to set the mode to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
 
 ```java
 import com.aspose.slides.*;

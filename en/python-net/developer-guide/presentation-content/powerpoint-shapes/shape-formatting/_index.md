@@ -182,6 +182,128 @@ The result:
 
 If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
+### **Set the Linear Gradient Angle**
+
+Use [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) to control the orientation of a [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 400, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    angles = [0, 45, 90, 135, 180, 270]
+
+    for i, angle in enumerate(angles):
+        x = 30 + (i % 3) * 230
+        y = 30 + (i // 3) * 190
+
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 200, 150)
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.fill_format.fill_type = slides.FillType.GRADIENT
+
+        gradient = shape.fill_format.gradient_format
+        gradient.gradient_shape = slides.GradientShape.LINEAR
+        gradient.gradient_stops.clear()
+        gradient.gradient_stops.add(0.0, slides.PresetColor.RED)
+        gradient.gradient_stops.add(0.5, slides.PresetColor.LIME)
+        gradient.gradient_stops.add(1.0, slides.PresetColor.BLUE)
+        gradient.linear_gradient_scaled = slides.NullableBool.FALSE
+        gradient.linear_gradient_angle = angle
+
+    presentation.save("linear_gradient_angles.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result in PowerPoint:
+
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
+
+### **Scale a Linear Gradient with the Shape**
+
+[GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) accepts a [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) value. Set it explicitly to `FALSE` to keep the geometric gradient angle as the shape's proportions change, or to `TRUE` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `FALSE`; the right column uses `TRUE`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(720, 460, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    scaling_options = [slides.NullableBool.FALSE, slides.NullableBool.TRUE]
+
+    for column, scaling in enumerate(scaling_options):
+        for row in range(2):
+            x = 30 + column * 360
+            y = 30 if row == 0 else 150
+
+            shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, x, y, 300, 90)
+            shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+            shape.fill_format.fill_type = slides.FillType.GRADIENT
+
+            gradient = shape.fill_format.gradient_format
+            gradient.gradient_shape = slides.GradientShape.LINEAR
+            gradient.gradient_stops.clear()
+            gradient.gradient_stops.add(0.0, slides.PresetColor.RED)
+            gradient.gradient_stops.add(0.5, slides.PresetColor.LIME)
+            gradient.gradient_stops.add(1.0, slides.PresetColor.BLUE)
+            gradient.linear_gradient_angle = 45
+            gradient.linear_gradient_scaled = scaling
+
+            if row == 1:
+                shape.width = 90
+                shape.height = 280
+
+    presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result in PowerPoint, with scaling disabled on the left and enabled on the right:
+
+![Wide and tall rectangles with a 45-degree gradient, comparing linear_gradient_scaled FALSE on the left with TRUE on the right](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.RADIAL or GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/) fills.
+
+### **Combine the Angle with Gradient Direction**
+
+[GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    for i in range(2):
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 30 + i * 140, 320, 100)
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.fill_format.fill_type = slides.FillType.GRADIENT
+
+        gradient = shape.fill_format.gradient_format
+        gradient.gradient_shape = slides.GradientShape.LINEAR
+        gradient.gradient_stops.clear()
+        gradient.gradient_stops.add(0.0, slides.PresetColor.RED)
+        gradient.gradient_stops.add(0.5, slides.PresetColor.LIME)
+        gradient.gradient_stops.add(1.0, slides.PresetColor.BLUE)
+        gradient.linear_gradient_scaled = slides.NullableBool.TRUE
+
+        if i == 0:
+            gradient.gradient_direction = slides.GradientDirection.FROM_CORNER1
+            gradient.linear_gradient_angle = 30
+        else:
+            gradient.linear_gradient_angle = 30
+            gradient.gradient_direction = slides.GradientDirection.FROM_CORNER1
+
+    presentation.save("linear_gradient_direction.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Pattern Fill**
 
 A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) to select a trellis pattern. [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) supplies the light gray background, and [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) supplies the yellow pattern color.
