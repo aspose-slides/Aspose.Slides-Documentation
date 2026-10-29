@@ -421,6 +421,72 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, pass [TextStrikethroughType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#None). This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#NotDefined) leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this setting preserves the text and its other formatting, including the bold previous price.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 620, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
+
+    String[] labels = { "None: ", "Single: ", "Double: " };
+
+    for (String label : labels) {
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceAfter(20);
+
+        IPortionFormat format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setFontHeight(28);
+        FontData font = new FontData("Arial");
+        format.setLatinFont(font);
+        format.getFillFormat().setFillType(FillType.Solid);
+        format.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        Portion labelPortion = new Portion(label);
+        paragraph.getPortions().add(labelPortion);
+
+        Portion previousPrice = new Portion("$100");
+        previousPrice.getPortionFormat().setFontBold(NullableBool.True);
+        paragraph.getPortions().add(previousPrice);
+        Portion currentPrice = new Portion(" → $80");
+        paragraph.getPortions().add(currentPrice);
+
+        shape.getTextFrame().getParagraphs().add(paragraph);
+    }
+
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+
+    // Apply strikethrough, then explicitly remove it from the first previous price.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Double);
+
+    presentation.save("strikethrough.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
 ## **Set Text Rotation**
 
 Use [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) to set a predefined text orientation within a shape.

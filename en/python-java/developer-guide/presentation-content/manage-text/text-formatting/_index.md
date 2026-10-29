@@ -464,6 +464,76 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, pass [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None). This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this setting preserves the text and its other formatting, including the bold previous price.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Paragraph, Portion, Presentation, SaveFormat, ShapeType, TextAlignment, TextStrikethroughType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 620, 220)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+    shape.getTextFrame().getParagraphs().clear()
+
+    labels = ["None: ", "Single: ", "Double: "]
+
+    for label in labels:
+        paragraph = Paragraph()
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceAfter(20)
+
+        portion_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        portion_format.setFontHeight(28)
+        font = FontData("Arial")
+        portion_format.setLatinFont(font)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        label_portion = Portion(label)
+        paragraph.getPortions().add(label_portion)
+
+        previous_price = Portion("$100")
+        previous_price.getPortionFormat().setFontBold(NullableBool.True_)
+        paragraph.getPortions().add(previous_price)
+        current_price = Portion(" → $80")
+        paragraph.getPortions().add(current_price)
+
+        shape.getTextFrame().getParagraphs().add(paragraph)
+
+    paragraphs = shape.getTextFrame().getParagraphs()
+
+    # Apply strikethrough, then explicitly remove it from the first previous price.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Double)
+
+    presentation.save("strikethrough.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
 ## **Set Text Rotation**
 
 Use [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) to set a predefined text orientation within a shape.

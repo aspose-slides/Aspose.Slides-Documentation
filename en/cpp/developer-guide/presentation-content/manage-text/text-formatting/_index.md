@@ -602,6 +602,98 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, assign `TextStrikethroughType::None`. This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, `TextStrikethroughType::NotDefined` leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this property preserves the text and its other formatting, including the bold previous price.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextStrikethroughType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+String labels[] = { u"None: ", u"Single: ", u"Double: " };
+
+for (auto label : labels)
+{
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(20);
+
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    format->set_FontHeight(28);
+    auto font = MakeObject<FontData>(u"Arial");
+    format->set_LatinFont(font);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto labelPortion = MakeObject<Portion>(label);
+    paragraph->get_Portions()->Add(labelPortion);
+
+    auto previousPrice = MakeObject<Portion>(u"$100");
+    previousPrice->get_PortionFormat()->set_FontBold(NullableBool::True);
+    paragraph->get_Portions()->Add(previousPrice);
+    auto currentPrice = MakeObject<Portion>(u" → $80");
+    paragraph->get_Portions()->Add(currentPrice);
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+// Apply strikethrough, then explicitly remove it from the first previous price.
+auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
+
+textFrame->get_Paragraph(1)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Single);
+textFrame->get_Paragraph(2)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Double);
+
+presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
+
 ## **Set Text Rotation**
 
 Use [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) to set a predefined text orientation within a shape.

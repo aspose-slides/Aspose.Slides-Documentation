@@ -471,6 +471,81 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Apply and Remove Strikethrough**
+
+Use [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
+
+To remove strikethrough, pass [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). This explicitly disables the effect, even if the surrounding formatting specifies strikethrough. By contrast, [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) leaves the local setting undefined, allowing the portion to inherit formatting, for example, from the paragraph. It does not guarantee that strikethrough is removed. Use [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) to read the resulting formatting, including inherited values.
+
+The following self-contained example creates three price comparisons. Each paragraph has separate portions for the label, previous price, and current price, so only the previous price is affected. The first row applies and then removes strikethrough; the other rows retain single and double strikethrough. Changing this setting preserves the text and its other formatting, including the bold previous price.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextStrikethroughType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $labels = [ "None: ", "Single: ", "Double: " ];
+
+    foreach ($labels as $label) {
+        $paragraph = new Paragraph();
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceAfter(20);
+
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $format->setFontHeight(28);
+        $font = new FontData("Arial");
+        $format->setLatinFont($font);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $blackColor = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($blackColor);
+
+        $labelPortion = new Portion($label);
+        $paragraph->getPortions()->add($labelPortion);
+
+        $previousPrice = new Portion("$100");
+        $previousPrice->getPortionFormat()->setFontBold(NullableBool::True);
+        $paragraph->getPortions()->add($previousPrice);
+        $currentPrice = new Portion(" → $80");
+        $paragraph->getPortions()->add($currentPrice);
+
+        $shape->getTextFrame()->getParagraphs()->add($paragraph);
+    }
+
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+
+    // Apply strikethrough, then explicitly remove it from the first previous price.
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
+
+    $paragraphs->get_Item(1)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(2)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Double);
+
+    $presentation->save("strikethrough.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The result, from top to bottom: no strikethrough, single strikethrough, and double strikethrough.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
+
 ## **Set Text Rotation**
 
 Use [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) to set a predefined text orientation within a shape.
