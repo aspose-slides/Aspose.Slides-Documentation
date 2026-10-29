@@ -267,6 +267,212 @@ The result:
 
 If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
+### **Set the Linear Gradient Angle**
+
+Use [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) to control the orientation of a [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+const auto angles = std::array<float, 6>{ 0, 45, 90, 135, 180, 270 };
+
+for (auto i = 0; i < angles.size(); i++)
+{
+    auto x = 30 + (i % 3) * 230;
+    auto y = 30 + (i / 3) * 190;
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, x, y, 200, 150);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_FillFormat()->set_FillType(FillType::Gradient);
+
+    auto gradient = shape->get_FillFormat()->get_GradientFormat();
+    gradient->set_GradientShape(GradientShape::Linear);
+    gradient->get_GradientStops()->Clear();
+    gradient->get_GradientStops()->Add(0.0f, Color::get_Red());
+    gradient->get_GradientStops()->Add(0.5f, Color::get_Lime());
+    gradient->get_GradientStops()->Add(1.0f, Color::get_Blue());
+    gradient->set_LinearGradientScaled(NullableBool::False);
+    gradient->set_LinearGradientAngle(angles[i]);
+}
+
+presentation->Save(u"linear_gradient_angles.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result in PowerPoint:
+
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
+
+### **Scale a Linear Gradient with the Shape**
+
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(720, 460, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+const auto scalingOptions = std::array<NullableBool, 2>{ NullableBool::False, NullableBool::True };
+
+for (auto column = 0; column < scalingOptions.size(); column++)
+{
+    for (auto row = 0; row < 2; row++)
+    {
+        auto x = 30 + column * 360;
+        auto y = row == 0 ? 30 : 150;
+
+        auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, x, y, 300, 90);
+        shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+        shape->get_FillFormat()->set_FillType(FillType::Gradient);
+
+        auto gradient = shape->get_FillFormat()->get_GradientFormat();
+        gradient->set_GradientShape(GradientShape::Linear);
+        gradient->get_GradientStops()->Clear();
+        gradient->get_GradientStops()->Add(0.0f, Color::get_Red());
+        gradient->get_GradientStops()->Add(0.5f, Color::get_Lime());
+        gradient->get_GradientStops()->Add(1.0f, Color::get_Blue());
+        gradient->set_LinearGradientAngle(45);
+        gradient->set_LinearGradientScaled(scalingOptions[column]);
+
+        if (row == 1)
+        {
+            shape->set_Width(90);
+            shape->set_Height(280);
+        }
+    }
+}
+
+presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result in PowerPoint, with scaling disabled on the left and enabled on the right:
+
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fills.
+
+### **Combine the Angle with Gradient Direction**
+
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/GradientDirection.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 30 + i * 140, 320, 100);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_FillFormat()->set_FillType(FillType::Gradient);
+
+    auto gradient = shape->get_FillFormat()->get_GradientFormat();
+    gradient->set_GradientShape(GradientShape::Linear);
+    gradient->get_GradientStops()->Clear();
+    gradient->get_GradientStops()->Add(0.0f, Color::get_Red());
+    gradient->get_GradientStops()->Add(0.5f, Color::get_Lime());
+    gradient->get_GradientStops()->Add(1.0f, Color::get_Blue());
+    gradient->set_LinearGradientScaled(NullableBool::True);
+
+    if (i == 0)
+    {
+        gradient->set_GradientDirection(GradientDirection::FromCorner1);
+        gradient->set_LinearGradientAngle(30);
+    }
+    else
+    {
+        gradient->set_LinearGradientAngle(30);
+        gradient->set_GradientDirection(GradientDirection::FromCorner1);
+    }
+}
+
+presentation->Save(u"linear_gradient_direction.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
 ## **Pattern Fill**
 
 A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) to select a trellis pattern. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) supplies the light gray background, and [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) supplies the yellow pattern color.
