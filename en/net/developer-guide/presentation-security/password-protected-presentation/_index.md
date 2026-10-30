@@ -85,6 +85,8 @@ using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
 // Work with the decrypted presentation.
 ```
 
+> **Note**: When loading a PPTX file that was created with PowerPoint 365, Aspose.Slides for .NET may throw a **"Can't read MSCDFileSystem"** exception if the presentation is password-protected and the password is not supplied. Specify the correct password via `LoadOptions.Password` before constructing the `Presentation` object to avoid this error.
+
 ## **Remove Encryption from a Presentation**
 
 Load the presentation with its opening password, call [IProtectionManager.RemoveEncryption](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/removeencryption/), and save the result. The saved presentation can then be loaded without a password.
