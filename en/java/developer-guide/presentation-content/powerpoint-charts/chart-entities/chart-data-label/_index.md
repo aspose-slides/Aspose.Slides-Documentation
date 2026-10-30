@@ -165,6 +165,27 @@ try {
 }
 ```
 
+## **Avoid Leading Zeros in Locale-Specific Percentages**
+
+When a presentation is viewed with Italian (Italy) regional settings, using the format `0.00\%` can produce leading zeros (e.g., `015%`). To keep decimal precision while avoiding the extra zeros, apply a locale-aware custom number format that includes a thousands separator placeholder.
+
+```java
+// Set number format for each data cell
+IChartDataCell cell = wb.getCell(0, i + 1, 1, values[i]);
+cell.setCustomNumberFormat("#,##0.00\\%");
+
+// Apply the same format to data label defaults
+series.getLabels().getDefaultDataLabelFormat().setNumberFormat("#,##0.00\\%");
+
+// Apply the format to individual point labels (optional)
+series.getDataPoints().get_Item(i).getLabel().getDataLabelFormat().setNumberFormat("#,##0.00\\%");
+
+// Set vertical axis number format to avoid leading zeros on the axis
+chart.getAxes().getVerticalAxis().setNumberFormat("#0\\%");
+```
+
+Using `#,##0.00\%` (or similar) ensures that the percentage values are formatted correctly for locales that use a comma as the decimal separator, eliminating the unwanted leading zeros while preserving the required decimal precision.
+
 ## **Read the Actual Text of Data Labels**
 
 Use [getActualLabelText](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabel/#getActualLabelText--) to retrieve the text produced by a data label's settings. This is useful when extracting labels for reports, searching presentation content, or validating generated charts. In the example below, the default [data label format](https://reference.aspose.com/slides/java/com.aspose.slides/idatalabelformat/) combines each category name, series name, and value. One point formats its value as a percentage, and another uses custom text from [getTextFrameForOverriding](https://reference.aspose.com/slides/java/com.aspose.slides/ioverridabletext/#getTextFrameForOverriding--).
