@@ -63,3 +63,7 @@ Your application supplies the output names. Use a section identifier or a slide 
 - [Clone Presentation Slides in .NET](/slides/net/clone-slides/)
 
 Related feature: [Remove unused masters, layouts and media](/slides/features/remove-unused-content/).
+
+## Runnable .NET examples
+
+- [Split Presentations](/slides/net/examples/presentations/split/)

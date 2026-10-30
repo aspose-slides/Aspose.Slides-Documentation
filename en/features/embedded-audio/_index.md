@@ -79,3 +79,7 @@ Yes. Configure the embedded frame's playback mode and loop option, as in this sa
 ## **Guides**
 
 - [Manage Audio Frames in Presentations in .NET](/slides/net/audio-frame/)
+
+## Runnable .NET examples
+
+- [Extract Media and Embedded Files](/slides/net/examples/content-extraction/media-embedded-files/)

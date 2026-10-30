@@ -1,0 +1,6 @@
+bin/
+obj/
+container-input/
+container-output/
+example.zip
+*.lic

@@ -57,3 +57,7 @@ Media no longer referenced by saved presentation content can be dropped during s
 - [Manage Presentation Slide Masters in .NET](/slides/net/slide-master/)
 
 Related feature: [List embedded fonts](/slides/features/list-embedded-fonts/).
+
+## Runnable .NET examples
+
+- [Remove Unused Presentation Resources](/slides/net/examples/optimization-batch/cleanup/)

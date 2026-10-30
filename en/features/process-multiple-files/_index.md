@@ -72,3 +72,8 @@ Map each input to a unique output path. A basename alone can collide across fold
 - [Low-Code Presentation Operations in .NET](/slides/net/low-code-presentation-operations/)
 
 Related feature: [Process separate presentations in parallel](/slides/features/parallel-processing/).
+
+## Runnable .NET examples
+
+- [Process Presentations in a Background Worker](/slides/net/examples/application-integration/background-worker/)
+- [Convert Multiple Presentations](/slides/net/examples/optimization-batch/batch-conversion/)

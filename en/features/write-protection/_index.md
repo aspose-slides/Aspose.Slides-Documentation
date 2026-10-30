@@ -53,3 +53,7 @@ After checking the password in your application, remove write protection and sav
 - [Write-Protect Presentations in .NET](/slides/net/write-protected-presentation/)
 
 Related feature: [Protect a presentation with a password](/slides/features/presentation-password/).
+
+## Runnable .NET examples
+
+- [Set Editing Protection](/slides/net/examples/protection-signatures/write-protection/)

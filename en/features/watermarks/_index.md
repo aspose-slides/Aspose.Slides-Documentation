@@ -65,3 +65,7 @@ Assign an application-specific shape name when adding it. Find that shape on the
 - [Add Watermarks to Presentations in .NET](/slides/net/watermark/)
 
 Related feature: [Lock shapes against editing](/slides/features/shape-locks/).
+
+## Runnable .NET examples
+
+- [Add Presentation Watermarks](/slides/net/examples/presentations/watermarks/)

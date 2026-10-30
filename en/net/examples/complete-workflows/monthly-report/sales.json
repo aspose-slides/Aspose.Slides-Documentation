@@ -1,0 +1,14 @@
+[
+  {
+    "product": "Pens",
+    "units": 12
+  },
+  {
+    "product": "Notebooks",
+    "units": 8
+  },
+  {
+    "product": "Folders",
+    "units": 5
+  }
+]

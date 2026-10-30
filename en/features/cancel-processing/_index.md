@@ -112,3 +112,7 @@ Use a fresh source for an independent job after interruption. Tokens from an int
 - [Support For Interruptable Library (.NET)](/slides/net/support-for-interruptable-library/)
 
 Related feature: [Track export progress](/slides/features/export-progress/).
+
+## Runnable .NET examples
+
+- [Track Progress and Cancel Processing](/slides/net/examples/optimization-batch/progress-cancellation/)

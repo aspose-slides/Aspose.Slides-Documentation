@@ -55,3 +55,7 @@ Later edits or processing can remove or invalidate a signature. Complete edits f
 - [Add Digital Signatures to Presentations in .NET](/slides/net/digital-signature-in-powerpoint/)
 
 Related feature: [Check presentation signatures](/slides/features/check-signatures/).
+
+## Runnable .NET examples
+
+- [Sign and Verify Presentations](/slides/net/examples/protection-signatures/digital-signatures/)

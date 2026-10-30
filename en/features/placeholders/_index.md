@@ -61,3 +61,7 @@ A placeholder can inherit formatting from its matching layout placeholder and ma
 - [Manage Presentation Placeholders in .NET](/slides/net/manage-placeholder/)
 
 Related feature: [Work with slide layouts](/slides/features/slide-layouts/).
+
+## Runnable .NET examples
+
+- [Fill a Presentation Template](/slides/net/examples/templates-data/fill-placeholders/)

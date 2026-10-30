@@ -52,3 +52,7 @@ Set fields relevant to the document, such as title, subject, author and keywords
 - [Manage Presentation Properties in .NET](/slides/net/presentation-properties/)
 
 Related feature: [Add custom document properties](/slides/features/custom-properties/).
+
+## Runnable .NET examples
+
+- [Read and Update Presentation Properties](/slides/net/examples/presentations/properties/)

@@ -69,3 +69,7 @@ Yes. Pass the appropriate client to the AI agent. Endpoint authentication, model
 - [AI Features in Aspose.Slides (.NET)](/slides/net/ai/)
 
 Related feature: [Connect a self-hosted AI endpoint](/slides/features/ai-local-endpoint/).
+
+## Runnable .NET examples
+
+- [Configure an AI Provider](/slides/net/examples/ai/providers/)

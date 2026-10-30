@@ -61,3 +61,7 @@ Load the destination presentation and import the PDF into its slide collection. 
 - [Import Presentations from PDF or HTML in .NET](/slides/net/import-presentation/)
 
 Related feature: [Create tables on slides](/slides/features/create-tables/).
+
+## Runnable .NET examples
+
+- [Import PDF Pages into Slides](/slides/net/examples/conversion-rendering/pdf-import/)

@@ -68,3 +68,8 @@ Decide whether a missing record means zero, a blank or an excluded category befo
 - [Manage Chart Workbooks in Presentations in .NET](/slides/net/chart-workbook/)
 
 Related feature: [Create editable charts](/slides/features/create-charts/).
+
+## Runnable .NET examples
+
+- [Generate a Monthly Report](/slides/net/examples/complete-workflows/monthly-report/)
+- [Populate Charts from Data](/slides/net/examples/templates-data/populate-charts/)

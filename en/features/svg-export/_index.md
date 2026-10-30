@@ -56,3 +56,7 @@ Yes. Iterate through the slide collection and write each slide to its own SVG fi
 - [Render Presentation Slides as SVG Images in .NET](/slides/net/render-a-slide-as-an-svg-image/)
 
 Related feature: [Load fonts from a folder](/slides/features/custom-fonts/).
+
+## Runnable .NET examples
+
+- [Export Slides to SVG](/slides/net/examples/conversion-rendering/svg/)

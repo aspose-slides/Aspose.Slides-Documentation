@@ -65,3 +65,7 @@ Yes. Set the frame size to the required width and height in pixels. Keep the ori
 - [Convert PowerPoint Presentations to Animated GIFs in .NET](/slides/net/convert-powerpoint-to-animated-gif/)
 
 Related feature: [Render animation frames](/slides/features/animation-frames/).
+
+## Runnable .NET examples
+
+- [Export an Animated GIF](/slides/net/examples/conversion-rendering/animated-gif/)

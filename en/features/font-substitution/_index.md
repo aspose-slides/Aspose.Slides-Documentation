@@ -62,3 +62,7 @@ A substitution rule selects a replacement for a specified font under its configu
 - [Configure Font Substitution in Presentations in .NET](/slides/net/font-substitution/)
 
 Related feature: [Load fonts from a folder](/slides/features/custom-fonts/).
+
+## Runnable .NET examples
+
+- [Replace Presentation Fonts](/slides/net/examples/fonts-text/replace-fonts/)

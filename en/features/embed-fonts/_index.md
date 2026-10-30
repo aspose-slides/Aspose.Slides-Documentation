@@ -74,3 +74,7 @@ Enumerate the presentation’s embedded fonts, select the family to remove and r
 - [Embed Fonts in Presentations in .NET](/slides/net/embedded-font/)
 
 Related feature: [List embedded fonts](/slides/features/list-embedded-fonts/).
+
+## Runnable .NET examples
+
+- [Embed Fonts in a Presentation](/slides/net/examples/fonts-text/embed-fonts/)

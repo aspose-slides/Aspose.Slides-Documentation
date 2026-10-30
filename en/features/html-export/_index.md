@@ -67,3 +67,7 @@ Yes. Use the selected-slides save overload with one-based slide numbers. See the
 - [Convert PowerPoint Presentations to HTML in .NET](/slides/net/convert-powerpoint-to-html/)
 
 Related feature: [Export presentations to HTML5](/slides/features/html5-export/).
+
+## Runnable .NET examples
+
+- [Export Presentations to HTML](/slides/net/examples/conversion-rendering/html/)

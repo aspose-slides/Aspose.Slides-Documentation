@@ -53,3 +53,7 @@ Calculate the frame width and height using the source image’s aspect ratio. If
 - [Manage Picture Frames in Presentations in .NET](/slides/net/picture-frame/)
 
 Related feature: [Crop images](/slides/features/crop-images/).
+
+## Runnable .NET examples
+
+- [Extract Presentation Images](/slides/net/examples/content-extraction/images/)

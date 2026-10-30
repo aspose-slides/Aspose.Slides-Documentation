@@ -68,3 +68,7 @@ Read the notes belonging to each loaded slide, check that a notes slide exists, 
 - [Open Presentations in .NET](/slides/net/open-presentation/)
 
 Related feature: [Save presentations as PPTX](/slides/features/write-pptx/).
+
+## Runnable .NET examples
+
+- [Work with Presentation Streams](/slides/net/examples/presentations/streams/)

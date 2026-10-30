@@ -74,3 +74,7 @@ Write to a separate temporary output path. If the policy aborts, close any strea
 - [Handle Presentation Warnings in .NET](/slides/net/presentation-warnings/)
 
 Related feature: [Handle font substitution warnings while rendering](/slides/features/font-rendering-warnings/).
+
+## Runnable .NET examples
+
+- [Collect Rendering and Export Warnings](/slides/net/examples/optimization-batch/warnings/)

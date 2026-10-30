@@ -54,3 +54,7 @@ Read normal shapes for visible slide text and the notes text frame for the speak
 - [Manage Presentation Notes in .NET](/slides/net/presentation-notes/)
 
 Related feature: [Export slides with speaker notes](/slides/features/export-notes/).
+
+## Runnable .NET examples
+
+- [Prepare a Distribution Copy](/slides/net/examples/complete-workflows/distribution-copy/)

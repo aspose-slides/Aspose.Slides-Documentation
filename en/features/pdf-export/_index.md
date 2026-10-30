@@ -54,3 +54,7 @@ The renderer substitutes an available font when a required font is missing, whic
 - [Convert PPT and PPTX to PDF in .NET [Advanced Features Included]](/slides/net/convert-powerpoint-to-pdf/)
 
 Related feature: [Choose PDF compliance settings](/slides/features/pdf-compliance/).
+
+## Runnable .NET examples
+
+- [Export Presentations to PDF](/slides/net/examples/conversion-rendering/pdf/)

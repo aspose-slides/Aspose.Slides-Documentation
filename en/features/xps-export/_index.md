@@ -56,3 +56,7 @@ Make required fonts available or choose appropriate substitution rules before ex
 - [Convert PowerPoint Presentations to XPS in .NET](/slides/net/convert-powerpoint-to-xps/)
 
 Related feature: [Export presentations to PDF](/slides/features/pdf-export/).
+
+## Runnable .NET examples
+
+- [Export Presentations to XPS](/slides/net/examples/conversion-rendering/xps/)

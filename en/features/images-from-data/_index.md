@@ -62,3 +62,7 @@ Yes. Add the supplied image bytes to the presentation’s image collection and a
 - [Manage Picture Frames in Presentations in .NET](/slides/net/picture-frame/)
 
 Related feature: [Crop images](/slides/features/crop-images/).
+
+## Runnable .NET examples
+
+- [Replace Template Images](/slides/net/examples/templates-data/replace-images/)

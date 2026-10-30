@@ -53,3 +53,7 @@ Yes. Open it with the correct password, remove encryption and save a new copy.
 - [Password-Protect Presentations in .NET](/slides/net/password-protected-presentation/)
 
 Related feature: [Set a password for editing](/slides/features/write-protection/).
+
+## Runnable .NET examples
+
+- [Open and Encrypt Presentations](/slides/net/examples/protection-signatures/passwords/)

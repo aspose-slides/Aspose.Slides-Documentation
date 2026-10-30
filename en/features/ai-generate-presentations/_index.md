@@ -61,3 +61,7 @@ Yes. Select the content amount when generating. This example requests brief cont
 - [AI-Powered Multilingual Slide Generator (.NET)](/slides/net/ai/generator/)
 
 Related feature: [Connect your own AI model provider](/slides/features/ai-model-provider/).
+
+## Runnable .NET examples
+
+- [Generate a Presentation with AI](/slides/net/examples/ai/generate/)

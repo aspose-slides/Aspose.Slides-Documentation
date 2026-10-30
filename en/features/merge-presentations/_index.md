@@ -64,3 +64,8 @@ Remove the initial slide from a new destination before cloning the source slides
 - [Efficiently Merge Presentations in .NET](/slides/net/merge-presentation/)
 
 Related feature: [Clone slides between presentations](/slides/features/clone-slides/).
+
+## Runnable .NET examples
+
+- [Assemble a Customer Proposal](/slides/net/examples/complete-workflows/customer-proposal/)
+- [Merge Presentations](/slides/net/examples/presentations/merge/)

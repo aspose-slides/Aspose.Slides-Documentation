@@ -58,3 +58,7 @@ Load the required fonts before opening or creating presentations that use them. 
 - [Customize PowerPoint Fonts in .NET](/slides/net/custom-font/)
 
 Related feature: [Configure font fallback](/slides/features/font-fallback/).
+
+## Runnable .NET examples
+
+- [Load Fonts and Configure Fallback](/slides/net/examples/fonts-text/custom-fonts/)

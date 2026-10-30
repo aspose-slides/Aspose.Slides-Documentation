@@ -61,3 +61,7 @@ Yes. After loading the PPT, check each slide for a notes slide and read its note
 - [Open Presentations in .NET](/slides/net/open-presentation/)
 
 Related feature: [Save presentations as legacy PPT](/slides/features/write-ppt/).
+
+## Runnable .NET examples
+
+- [Convert Presentation Formats](/slides/net/examples/conversion-rendering/presentation-formats/)

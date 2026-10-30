@@ -73,3 +73,7 @@ No. The template supplies design, while the generation content-amount setting an
 - [AI-Powered Multilingual Slide Generator (.NET)](/slides/net/ai/generator/)
 
 Related feature: [Generate slides using an existing deck's style](/slides/features/ai-match-style/).
+
+## Runnable .NET examples
+
+- [Generate with a Template or Existing Style](/slides/net/examples/ai/templates-style/)

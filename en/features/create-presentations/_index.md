@@ -53,3 +53,7 @@ Choose a layout from the presentation’s masters or layouts and add an empty sl
 - [Create Presentations in .NET](/slides/net/create-presentation/)
 
 Related feature: [Work with slide layouts](/slides/features/slide-layouts/).
+
+## Runnable .NET examples
+
+- [Create, Open, and Save Presentations](/slides/net/examples/presentations/create-open-save/)

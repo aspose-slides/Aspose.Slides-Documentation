@@ -58,3 +58,7 @@ Set the requested image size or use horizontal and vertical scale factors when r
 - [Convert PowerPoint Slides to PNG in .NET](/slides/net/convert-powerpoint-to-png/)
 
 Related feature: [Create slide thumbnails](/slides/features/slide-thumbnails/).
+
+## Runnable .NET examples
+
+- [Render Slides as Images](/slides/net/examples/conversion-rendering/images/)

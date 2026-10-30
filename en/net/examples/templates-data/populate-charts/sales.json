@@ -1,0 +1,20 @@
+{
+  "Categories": [
+    "January",
+    "February"
+  ],
+  "Series": [
+    "North",
+    "South"
+  ],
+  "Values": [
+    [
+      125.5,
+      80.0
+    ],
+    [
+      50.0,
+      75.25
+    ]
+  ]
+}

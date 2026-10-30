@@ -62,3 +62,7 @@ Choose the cloning overload deliberately: retain the source design, supply a des
 - [Clone Presentation Slides in .NET](/slides/net/clone-slides/)
 
 Related feature: [Merge presentations](/slides/features/merge-presentations/).
+
+## Runnable .NET examples
+
+- [Repeat a Template Slide for Each Record](/slides/net/examples/templates-data/repeat-slides/)

@@ -55,3 +55,7 @@ The slide still exports; it has no speaker-note text to display. The chosen layo
 - [Convert PowerPoint Presentations to PDF with Notes in .NET](/slides/net/convert-powerpoint-to-pdf-with-notes/)
 
 Related feature: [Read and edit speaker notes](/slides/features/speaker-notes/).
+
+## Runnable .NET examples
+
+- [Export Notes and Handouts](/slides/net/examples/conversion-rendering/notes-handouts/)

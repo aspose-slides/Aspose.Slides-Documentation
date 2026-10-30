@@ -69,3 +69,7 @@ Yes. The chart-data API can read the embedded workbook as a stream and write a r
 - [Manage Chart Workbooks in Presentations in .NET](/slides/net/chart-workbook/)
 
 Related feature: [Recalculate chart workbook formulas](/slides/features/chart-formulas/).
+
+## Runnable .NET examples
+
+- [Extract Chart Data](/slides/net/examples/content-extraction/chart-data/)

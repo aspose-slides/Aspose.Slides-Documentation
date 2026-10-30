@@ -68,3 +68,7 @@ Yes. Text extraction reads document content without producing slide images. Use 
 - [Advanced Text Extraction from Presentations in .NET](/slides/net/extract-text-from-presentation/)
 
 Related feature: [Export presentations to Markdown](/slides/features/markdown-export/).
+
+## Runnable .NET examples
+
+- [Extract Slide Text and Notes](/slides/net/examples/content-extraction/text-notes/)

@@ -72,3 +72,7 @@ Save the translated result under a new path. Keep the original deck unchanged fo
 - [AI-Powered Presentation Translator (.NET)](/slides/net/ai/translator/)
 
 Related feature: [Connect your own AI model provider](/slides/features/ai-model-provider/).
+
+## Runnable .NET examples
+
+- [Translate Presentation Text with AI](/slides/net/examples/ai/translate/)

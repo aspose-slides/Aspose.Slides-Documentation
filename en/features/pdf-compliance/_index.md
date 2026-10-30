@@ -53,3 +53,7 @@ The output needs suitable embeddable fonts. Check embedding permissions and conf
 - [Convert PPT and PPTX to PDF in .NET [Advanced Features Included]](/slides/net/convert-powerpoint-to-pdf/)
 
 Related feature: [Create tagged PDF files](/slides/features/tagged-pdf/).
+
+## Runnable .NET examples
+
+- [Export PDF/A and Tagged PDF](/slides/net/examples/conversion-rendering/pdf-compliance/)

@@ -45,3 +45,7 @@ Use writable locations for both temporary work and output. A non-root container 
 - [Run Aspose.Slides for .NET in Docker](/slides/net/how-to-run-aspose-slides-in-docker/)
 
 Related feature: [Load fonts from a folder](/slides/features/custom-fonts/).
+
+## Runnable .NET examples
+
+- [Run a Converter in Docker](/slides/net/examples/application-integration/docker/)

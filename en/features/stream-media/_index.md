@@ -95,3 +95,7 @@ Keep it open while the presentation depends on it, especially with locking behav
 - [Manage Presentation BLOBs in .NET for Efficient Memory Use](/slides/net/manage-blob/)
 
 Related feature: [Control memory used by embedded media](/slides/features/memory-management/).
+
+## Runnable .NET examples
+
+- [Process Presentations with Large Media](/slides/net/examples/optimization-batch/large-media/)

@@ -56,3 +56,7 @@ No. This export setting exposes a password and permission flags, not a selectabl
 - [Convert PPT and PPTX to PDF in .NET [Advanced Features Included]](/slides/net/convert-powerpoint-to-pdf/)
 
 Related feature: [Export presentations to PDF](/slides/features/pdf-export/).
+
+## Runnable .NET examples
+
+- [Protect Exported PDF Files](/slides/net/examples/protection-signatures/pdf-security/)

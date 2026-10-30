@@ -52,3 +52,8 @@ Yes. A cell contains a text frame that can hold multiple paragraphs and formatte
 - [Manage Presentation Tables in .NET](/slides/net/manage-table/)
 
 Related feature: [Format table cells](/slides/features/format-table-cells/).
+
+## Runnable .NET examples
+
+- [Extract Table Data](/slides/net/examples/content-extraction/tables/)
+- [Populate Tables from Data](/slides/net/examples/templates-data/populate-tables/)

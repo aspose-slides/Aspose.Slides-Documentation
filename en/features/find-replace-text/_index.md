@@ -68,3 +68,7 @@ Review the match’s text portions and deliberately set the replacement formatti
 - [Search and Replace Text in PowerPoint Presentations in .NET](/slides/net/search-and-replace-text/)
 
 Related feature: [Format text within slides](/slides/features/text-formatting/).
+
+## Runnable .NET examples
+
+- [Find and Replace Text Across a Deck](/slides/net/examples/fonts-text/find-replace/)

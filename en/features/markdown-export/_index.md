@@ -70,3 +70,7 @@ Inherited bullet settings may not export as an explicit Markdown list. Set the p
 - [Convert PowerPoint Presentations to Markdown in .NET](/slides/net/convert-powerpoint-to-markdown/)
 
 Related feature: [Extract text from presentations](/slides/features/extract-text/).
+
+## Runnable .NET examples
+
+- [Export Presentations to Markdown](/slides/net/examples/conversion-rendering/markdown/)

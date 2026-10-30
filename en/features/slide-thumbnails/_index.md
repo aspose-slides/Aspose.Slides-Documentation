@@ -58,3 +58,7 @@ Yes. A shape can be rendered separately from the whole slide. See the [slide ima
 - [Convert Presentation Slides to Images in .NET](/slides/net/convert-slide/)
 
 Related feature: [Render slides as images](/slides/features/slide-images/).
+
+## Runnable .NET examples
+
+- [Build a Presentation Preview Gallery](/slides/net/examples/complete-workflows/thumbnail-gallery/)

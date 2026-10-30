@@ -57,3 +57,7 @@ Install the required fonts in the image or host, or load a controlled applicatio
 - [Installation (.NET)](/slides/net/installation/)
 
 Related feature: [Process presentations without internet access](/slides/features/offline-processing/).
+
+## Runnable .NET examples
+
+- [Build a Presentation Conversion Endpoint](/slides/net/examples/application-integration/web-api/)

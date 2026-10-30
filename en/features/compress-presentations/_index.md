@@ -69,3 +69,7 @@ Choose a target based on the displayed picture size and intended screen or print
 - [Optimize Image Management in Presentations in .NET](/slides/net/image/)
 
 Related feature: [Remove unused masters, layouts and media](/slides/features/remove-unused-content/).
+
+## Runnable .NET examples
+
+- [Reduce Presentation Size](/slides/net/examples/optimization-batch/compression/)

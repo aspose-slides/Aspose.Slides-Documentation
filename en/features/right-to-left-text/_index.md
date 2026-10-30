@@ -60,3 +60,7 @@ Use fonts containing the required script glyphs and shaping support. Make them a
 - [Format Presentation Text in .NET](/slides/net/text-formatting/)
 
 Related feature: [Load fonts from a folder](/slides/features/custom-fonts/).
+
+## Runnable .NET examples
+
+- [Process Multilingual Text](/slides/net/examples/fonts-text/multilingual-text/)
