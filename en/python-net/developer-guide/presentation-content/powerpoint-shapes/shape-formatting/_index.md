@@ -63,6 +63,46 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Line Caps**
+
+Use [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
+
+- `FLAT`: The stroke stops at the endpoint.
+- `ROUND`: A semicircular cap extends beyond the endpoint by half the line width.
+- `SQUARE`: A square cap extends beyond the endpoint by half the line width.
+
+The enumeration also includes `NOT_DEFINED`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) and [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) so that only the cap shapes are compared.
+
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(500, 240, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    cap_styles = [slides.LineCapStyle.FLAT, slides.LineCapStyle.ROUND, slides.LineCapStyle.SQUARE]
+
+    for i, cap_style in enumerate(cap_styles):
+        line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 100, 50 + i * 70, 300, 0)
+        line.line_format.width = 20
+        line.line_format.fill_format.fill_type = slides.FillType.SOLID
+        line.line_format.fill_format.solid_fill_color.preset_color = slides.PresetColor.DARK_BLUE
+        line.line_format.dash_style = slides.LineDashStyle.SOLID
+        line.line_format.cap_style = cap_style
+        line.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.NONE
+        line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
+
+    presentation.save("line_caps.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result in PowerPoint, from top to bottom: **Flat**, **Round**, and **Square**.
+
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
+
 ## **Apply Sketch Effects to Shape Lines**
 
 A sketch effect makes a shape line look hand-drawn. Use [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) to access the line settings, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) to access the sketch settings, and [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) enumeration.
@@ -154,6 +194,39 @@ with slides.Presentation() as presentation:
 
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+### **Limit Miter Joins at Sharp Corners**
+
+Use [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) with [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) set to [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(500, 320, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    miter_limits = [2.0, 8.0]
+
+    for i, miter_limit in enumerate(miter_limits):
+        triangle = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 90 + i * 240, 110, 80, 160)
+        triangle.fill_format.fill_type = slides.FillType.NO_FILL
+        triangle.line_format.width = 20
+        triangle.line_format.fill_format.fill_type = slides.FillType.SOLID
+        triangle.line_format.fill_format.solid_fill_color.preset_color = slides.PresetColor.DARK_BLUE
+        triangle.line_format.join_style = slides.LineJoinStyle.MITER
+        triangle.line_format.miter_limit = miter_limit
+
+    presentation.save("miter_limits.pptx", slides.export.SaveFormat.PPTX)
+```
+
+The result in PowerPoint: **Miter limit 2** on the left and **miter limit 8** on the right.
+
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Gradient Fill**
 
