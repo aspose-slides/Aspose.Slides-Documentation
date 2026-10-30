@@ -105,6 +105,9 @@ using (Presentation presentation = new Presentation("HelloWorld.pptx"))
 }
 ```
 
+### Handling Overflow Text
+When a shape contains text that extends beyond its frame, generating a thumbnail with `ShapeThumbnailBounds.Appearance` can omit the overflow text from the resulting image. To ensure all text is rendered, use `ShapeThumbnailBounds.Shape` as the bounds mode.
+
 ## **Get the Actual Visual Bounds of a Shape**
 
 The frame properties of [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/)—its `X`, `Y`, `Width`, and `Height` properties—describe the rectangle stored in the presentation model. The content that is actually rendered can extend beyond that frame or occupy a different axis-aligned rectangle. Rotation, outlines, arrowheads, text layout and overflow, generated SmartArt geometry, and other rendering effects can all change the occupied area.
