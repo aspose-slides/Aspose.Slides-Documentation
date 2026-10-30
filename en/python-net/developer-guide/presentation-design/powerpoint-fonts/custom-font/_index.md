@@ -153,6 +153,12 @@ Yes. Configure [font substitution](/slides/python-net/font-substitution/), [repl
 
 Yes. Point to your own font folders or load fonts from byte arrays. This removes any dependency on system font directories in the container image.
 
+### Why do I get 'Font ? cannot be found' errors on Debian 12 Docker with Aspose.Slides 25.7.0?
+
+This error occurs due to a known bug in Aspose.Slides for Python versions prior to **26.10.0** when running in a Debian 12 (Bookworm) Docker container. The library fails to locate installed system fonts, resulting in a `RuntimeError: Font '?' cannot be found` during presentation opening (especially with embedded fonts) or when cloning/saving slides.
+
+**Resolution:** Upgrade to Aspose.Slides for Python **26.10.0** or later. After upgrading, opening, cloning, and saving presentations in Debian 12 Docker works correctly and the font-not-found error is eliminated.
+
 ### What about licensing—can I embed any custom font without restrictions?
 
 You are responsible for font licensing compliance. Terms vary; some licenses prohibit embedding or commercial use. Always review the font’s EULA before distributing outputs.
