@@ -200,6 +200,64 @@ try {
 }
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setCategoryAxisTypeAutomatically--) after populating the categories, then read [getCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#getCategoryAxisType--) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `true` when the selected type is `CategoryAxisType.Text`. It then replaces the category cell values with dates and calls the method again, printing `true` when the selected type is `CategoryAxisType.Date`. Dates are stored as numeric OLE Automation values, calculated for these dates as the number of days since December 30, 1899, rather than date strings. [setCustomNumberFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ichartdatacell/#setCustomNumberFormat-java.lang.String-) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/java/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly call [setCategoryAxisType](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setCategoryAxisType-int-) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```java
+import com.aspose.slides.*;
+import java.time.LocalDate;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    IChartDataCell seriesName = workbook.getCell(0, 0, 1, "Sales");
+    IChartSeries series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    String[] labels = { "First", "Second", "Third" };
+
+    for (int i = 0; i < labels.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    IAxis axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    System.out.println(axis.getCategoryAxisType() == CategoryAxisType.Text); // true
+
+    LocalDate baseDate = LocalDate.of(1899, 12, 30);
+    LocalDate[] dates = { LocalDate.of(2026, 1, 1), LocalDate.of(2026, 1, 2), LocalDate.of(2026, 2, 1) };
+
+    for (int i = 0; i < dates.length; i++) {
+        IChartDataCell categoryCell = workbook.getCell(0, i + 1, 0);
+        categoryCell.setValue((double)(dates[i].toEpochDay() - baseDate.toEpochDay()));
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    System.out.println(axis.getCategoryAxisType() == CategoryAxisType.Date); // true
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setAutomaticTickLabelSpacing-boolean-) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/iaxis/#setTickLabelSpacing-long-). For text categories in their normal order, counting starts at the first category:

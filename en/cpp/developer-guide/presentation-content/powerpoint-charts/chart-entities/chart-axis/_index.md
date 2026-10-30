@@ -259,6 +259,84 @@ chart->get_Axes()->get_HorizontalAxis()->set_MajorUnitScale(TimeUnitType::Months
 presentation->Save(u"ChangeChartCategoryAxis_out.pptx", SaveFormat::Pptx);
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [SetCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/setcategoryaxistypeautomatically/) after populating the categories, then call [get_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/get_categoryaxistype/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `Text`. It then replaces the category cell values with dates and calls the method again, which prints `Date`. Dates are stored as numeric OLE Automation values returned by [System::DateTime::ToOADate](https://reference.aspose.com/slides/cpp/system/datetime/tooadate/), rather than date strings. [set_CustomNumberFormat](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichartdatacell/set_customnumberformat/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/cpp/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly call [set_CategoryAxisType](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_categoryaxistype/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <DOM/ISlide.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IAxesManager.h>
+#include <DOM/Chart/IAxis.h>
+#include <DOM/Chart/CategoryAxisType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/date_time.h>
+#include <system/console.h>
+#include <system/enum.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+chart->get_ChartData()->get_Categories()->Clear();
+chart->get_ChartData()->get_Series()->Clear();
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+workbook->Clear(0);
+
+auto seriesName = workbook->GetCell(0, 0, 1, System::ObjectExt::Box(System::String(u"Sales")));
+auto series = chart->get_ChartData()->get_Series()->Add(seriesName, chart->get_Type());
+auto labels = std::array<System::String, 3>{u"First", u"Second", u"Third"};
+
+for (auto i = 0; i < labels.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0, System::ObjectExt::Box(labels[i]));
+    chart->get_ChartData()->get_Categories()->Add(categoryCell);
+
+    auto valueCell = workbook->GetCell(0, i + 1, 1, System::ObjectExt::Box((i + 1) * 10));
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
+
+auto axis = chart->get_Axes()->get_HorizontalAxis();
+axis->SetCategoryAxisTypeAutomatically();
+System::Console::WriteLine(System::Enum<CategoryAxisType>::GetName(axis->get_CategoryAxisType())); // Text
+
+auto dates = std::array<System::DateTime, 3>{System::DateTime(2026, 1, 1), System::DateTime(2026, 1, 2), System::DateTime(2026, 2, 1)};
+
+for (auto i = 0; i < dates.size(); i++)
+{
+    auto categoryCell = workbook->GetCell(0, i + 1, 0);
+    categoryCell->set_Value(System::ObjectExt::Box(dates[i].ToOADate()));
+    categoryCell->set_CustomNumberFormat(u"yyyy-mm-dd");
+}
+
+axis->SetCategoryAxisTypeAutomatically();
+System::Console::WriteLine(System::Enum<CategoryAxisType>::GetName(axis->get_CategoryAxisType())); // Date
+
+presentation->Save(u"AutomaticCategoryAxis.pptx", SaveFormat::Pptx);
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Use [set_IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_isautomaticticklabelspacing/) with `false`, then use [set_TickLabelSpacing](https://reference.aspose.com/slides/cpp/aspose.slides.charts/iaxis/set_ticklabelspacing/) with the desired category interval. For text categories in their normal order, counting starts at the first category:

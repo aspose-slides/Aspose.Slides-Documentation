@@ -183,6 +183,59 @@ with slides.Presentation("ExistingChart.pptx") as presentation:
     presentation.save("ChangeChartCategoryAxis_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [set_category_axis_type_automatically](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/set_category_axis_type_automatically/) after populating the categories, then read [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `TEXT`. It then replaces the category cell values with dates and calls the method again, which prints `DATE`. Dates are stored as numeric OLE Automation values, calculated here as the number of days since December 30, 1899, rather than date strings. [custom_number_format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartdatacell/custom_number_format/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/python-net/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly set [category_axis_type](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/category_axis_type/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```python
+from datetime import date
+
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 30, 40, 660, 320)
+
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(0)
+
+    series_name = workbook.get_cell(0, 0, 1, "Sales")
+    series = chart.chart_data.series.add(series_name, chart.type)
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.get_cell(0, i + 1, 0, label)
+        chart.chart_data.categories.add(category_cell)
+
+        value_cell = workbook.get_cell(0, i + 1, 1, (i + 1) * 10)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    axis = chart.axes.horizontal_axis
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # TEXT
+
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.get_cell(0, i + 1, 0)
+        category_cell.value = float((category_date - date(1899, 12, 30)).days)
+        category_cell.custom_number_format = "yyyy-mm-dd"
+
+    axis.set_category_axis_type_automatically()
+    print(axis.category_axis_type.name)  # DATE
+
+    presentation.save("AutomaticCategoryAxis.pptx", slides.export.SaveFormat.PPTX)
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Set [is_automatic_tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/is_automatic_tick_label_spacing/) to `False`, then set [tick_label_spacing](https://reference.aspose.com/slides/python-net/aspose.slides.charts/axis/tick_label_spacing/) to the desired category interval. For text categories in their normal order, counting starts at the first category:

@@ -207,6 +207,66 @@ try {
 }
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistypeautomatically/) after populating the categories, then read [getCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/getcategoryaxistype/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `true` when the selected type is `CategoryAxisType.Text`. It then replaces the category cell values with dates and calls the method again, printing `true` when the selected type is `CategoryAxisType.Date`. Dates are stored as numeric OLE Automation values, calculated for these dates as the number of days since December 30, 1899, rather than date strings. The JavaScript calculation uses UTC timestamps and divides the difference by 86,400,000 milliseconds per day; month indices are zero-based. Use `java.newDouble` to pass each date value to Java as a double. [setCustomNumberFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatacell/setcustomnumberformat/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/nodejs-java/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly call [setCategoryAxisType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setcategoryaxistype/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+var java = require("java");
+
+var presentation = new aspose.slides.Presentation();
+try {
+    var slide = presentation.getSlides().get_Item(0);
+
+    var chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+    chart.getChartData().getCategories().clear();
+    chart.getChartData().getSeries().clear();
+
+    var workbook = chart.getChartData().getChartDataWorkbook();
+    workbook.clear(0);
+
+    var seriesName = workbook.getCell(0, 0, 1, "Sales");
+    var series = chart.getChartData().getSeries().add(seriesName, chart.getType());
+    var labels = ["First", "Second", "Third"];
+
+    for (var i = 0; i < labels.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0, labels[i]);
+        chart.getChartData().getCategories().add(categoryCell);
+
+        var valueCell = workbook.getCell(0, i + 1, 1, (i + 1) * 10);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    var axis = chart.getAxes().getHorizontalAxis();
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Text); // true
+
+    var baseDate = Date.UTC(1899, 11, 30);
+    var dates = [Date.UTC(2026, 0, 1), Date.UTC(2026, 0, 2), Date.UTC(2026, 1, 1)];
+
+    for (var i = 0; i < dates.length; i++) {
+        var categoryCell = workbook.getCell(0, i + 1, 0);
+        var dateValue = java.newDouble((dates[i] - baseDate) / 86400000);
+        categoryCell.setValue(dateValue);
+        categoryCell.setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    axis.setCategoryAxisTypeAutomatically();
+    console.log(axis.getCategoryAxisType() === aspose.slides.CategoryAxisType.Date); // true
+
+    presentation.save("AutomaticCategoryAxis.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setautomaticticklabelspacing/) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/axis/setticklabelspacing/). For text categories in their normal order, counting starts at the first category:
