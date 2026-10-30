@@ -229,6 +229,68 @@ finally:
     presentation.dispose()
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisTypeAutomatically) after populating the categories, then read [getCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#getCategoryAxisType) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `True` when the selected type is [CategoryAxisType.Text](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Text). It then replaces the category cell values with dates and calls the method again, printing `True` when the selected type is [CategoryAxisType.Date](https://reference.aspose.com/slides/python-java/aspose.slides/categoryaxistype/#Date). Dates are stored as numeric OLE Automation values, calculated for these dates as the number of days since December 30, 1899, rather than date strings. [setCustomNumberFormat](https://reference.aspose.com/slides/python-java/aspose.slides/chartdatacell/#setCustomNumberFormat) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/python-java/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly call [setCategoryAxisType](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setCategoryAxisType) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```python
+from datetime import date
+
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, ChartType, CategoryAxisType, SaveFormat
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 30, 40, 660, 320)
+
+    chart.getChartData().getCategories().clear()
+    chart.getChartData().getSeries().clear()
+
+    workbook = chart.getChartData().getChartDataWorkbook()
+    workbook.clear(0)
+
+    series_name = workbook.getCell(0, 0, 1, "Sales")
+    series = chart.getChartData().getSeries().add(series_name, chart.getType())
+    labels = ["First", "Second", "Third"]
+
+    for i, label in enumerate(labels):
+        category_cell = workbook.getCell(0, i + 1, 0, label)
+        chart.getChartData().getCategories().add(category_cell)
+
+        value_cell = workbook.getCell(0, i + 1, 1, float((i + 1) * 10))
+        series.getDataPoints().addDataPointForBarSeries(value_cell)
+
+    axis = chart.getAxes().getHorizontalAxis()
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Text)  # True
+
+    base_date = date(1899, 12, 30)
+    dates = [date(2026, 1, 1), date(2026, 1, 2), date(2026, 2, 1)]
+
+    for i, category_date in enumerate(dates):
+        category_cell = workbook.getCell(0, i + 1, 0)
+        category_cell.setValue(float((category_date - base_date).days))
+        category_cell.setCustomNumberFormat("yyyy-mm-dd")
+
+    axis.setCategoryAxisTypeAutomatically()
+    print(axis.getCategoryAxisType() == CategoryAxisType.Date)  # True
+
+    presentation.save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setAutomaticTickLabelSpacing) with `False`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/axis/#setTickLabelSpacing). For text categories in their normal order, counting starts at the first category:

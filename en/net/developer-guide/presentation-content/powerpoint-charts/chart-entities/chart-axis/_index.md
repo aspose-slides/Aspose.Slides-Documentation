@@ -192,6 +192,63 @@ chart.Axes.HorizontalAxis.MajorUnitScale = TimeUnitType.Months;
 presentation.Save("ChangeChartCategoryAxis_out.pptx", SaveFormat.Pptx);
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [SetCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/setcategoryaxistypeautomatically/) after populating the categories, then read [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `Text`. It then replaces the category cell values with dates and calls the method again, which prints `Date`. Dates are stored as numeric OLE Automation values returned by [DateTime.ToOADate](https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tooadate), rather than date strings. [CustomNumberFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatacell/customnumberformat/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/net/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly set [CategoryAxisType](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/categoryaxistype/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 30, 40, 660, 320);
+
+chart.ChartData.Categories.Clear();
+chart.ChartData.Series.Clear();
+
+var workbook = chart.ChartData.ChartDataWorkbook;
+workbook.Clear(0);
+
+var seriesName = workbook.GetCell(0, 0, 1, "Sales");
+var series = chart.ChartData.Series.Add(seriesName, chart.Type);
+var labels = new[] { "First", "Second", "Third" };
+
+for (var i = 0; i < labels.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0, labels[i]);
+    chart.ChartData.Categories.Add(categoryCell);
+
+    var valueCell = workbook.GetCell(0, i + 1, 1, (i + 1) * 10);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
+}
+
+var axis = chart.Axes.HorizontalAxis;
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Text
+
+var dates = new[] { new DateTime(2026, 1, 1), new DateTime(2026, 1, 2), new DateTime(2026, 2, 1) };
+
+for (var i = 0; i < dates.Length; i++)
+{
+    var categoryCell = workbook.GetCell(0, i + 1, 0);
+    categoryCell.Value = dates[i].ToOADate();
+    categoryCell.CustomNumberFormat = "yyyy-mm-dd";
+}
+
+axis.SetCategoryAxisTypeAutomatically();
+Console.WriteLine(axis.CategoryAxisType); // Date
+
+presentation.Save("AutomaticCategoryAxis.pptx", SaveFormat.Pptx);
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Set [IsAutomaticTickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/isautomaticticklabelspacing/) to `false`, then set [TickLabelSpacing](https://reference.aspose.com/slides/net/aspose.slides.charts/iaxis/ticklabelspacing/) to the desired category interval. For text categories in their normal order, counting starts at the first category:

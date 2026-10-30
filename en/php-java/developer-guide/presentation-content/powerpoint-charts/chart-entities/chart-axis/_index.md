@@ -214,6 +214,66 @@ try {
 }
 ```
 
+### **Determine the Category Axis Type from Data**
+
+Call [setCategoryAxisTypeAutomatically](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistypeautomatically/) after populating the categories, then read [getCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/getcategoryaxistype/) to inspect the selection. This is useful when the same chart receives either text labels or numeric date values. The method determines the type when called; it does not enable a persistent mode that reevaluates later data changes. Call it again after replacing the categories.
+
+The following example creates a chart with text categories and prints `true` when the selected type is `CategoryAxisType::Text`. It then replaces the category cell values with dates and calls the method again, printing `true` when the selected type is `CategoryAxisType::Date`. Dates are stored as numeric OLE Automation values, calculated for these dates as the number of days since December 30, 1899, rather than date strings. [setCustomNumberFormat](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatacell/setcustomnumberformat/) controls how those values are displayed; it does not convert text into numeric dates. For more on category cells, see [Chart Workbook](/slides/php-java/chart-workbook/).
+
+Use automatic determination when the input is known to contain text categories or numeric dates, as in this example. For ordinary numeric labels, mixed categories, or empty data, explicitly call [setCategoryAxisType](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setcategoryaxistype/) to match the intended meaning. Numeric values alone do not establish that the categories represent dates.
+
+```php
+use aspose\slides\CategoryAxisType;
+use aspose\slides\ChartType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 30, 40, 660, 320);
+
+    $chart->getChartData()->getCategories()->clear();
+    $chart->getChartData()->getSeries()->clear();
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $workbook->clear(0);
+
+    $seriesName = $workbook->getCell(0, 0, 1, "Sales");
+    $series = $chart->getChartData()->getSeries()->add($seriesName, $chart->getType());
+    $labels = ["First", "Second", "Third"];
+
+    for ($i = 0; $i < count($labels); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0, $labels[$i]);
+        $chart->getChartData()->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell(0, $i + 1, 1, ($i + 1) * 10);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $axis = $chart->getAxes()->getHorizontalAxis();
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Text ? "true" : "false") . PHP_EOL;
+
+    $baseDate = gmmktime(0, 0, 0, 12, 30, 1899);
+    $dates = [gmmktime(0, 0, 0, 1, 1, 2026), gmmktime(0, 0, 0, 1, 2, 2026), gmmktime(0, 0, 0, 2, 1, 2026)];
+
+    for ($i = 0; $i < count($dates); $i++) {
+        $categoryCell = $workbook->getCell(0, $i + 1, 0);
+        $categoryCell->setValue((float)(($dates[$i] - $baseDate) / 86400));
+        $categoryCell->setCustomNumberFormat("yyyy-mm-dd");
+    }
+
+    $axis->setCategoryAxisTypeAutomatically();
+    echo (java_values($axis->getCategoryAxisType()) == CategoryAxisType::Date ? "true" : "false") . PHP_EOL;
+
+    $presentation->save("AutomaticCategoryAxis.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Control Category Axis Label Intervals**
 
 When a chart has many categories, reduce the number of visible axis labels without removing categories or data points. Call [setAutomaticTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setautomaticticklabelspacing/) with `false`, then pass the desired category interval to [setTickLabelSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/axis/setticklabelspacing/). For text categories in their normal order, counting starts at the first category:
