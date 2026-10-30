@@ -68,6 +68,52 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Line Caps**
+
+Use [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) class provides three explicit cap styles:
+
+- `Flat`: The stroke stops at the endpoint.
+- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
+- `Square`: A square cap extends beyond the endpoint by half the line width.
+
+The class also includes `NotDefined`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) and [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) so that only the cap shapes are compared.
+
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result in PowerPoint, from top to bottom: **Flat**, **Round**, and **Square**.
+
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
+
 ## **Apply Sketch Effects to Shape Lines**
 
 A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) class.
@@ -171,6 +217,45 @@ try {
     presentation.dispose();
 }
 ```
+
+### **Limit Miter Joins at Sharp Corners**
+
+Use [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) with [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let miterLimits = [2, 8];
+
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The result in PowerPoint: **Miter limit 2** on the left and **miter limit 8** on the right.
+
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Gradient Fill**
 

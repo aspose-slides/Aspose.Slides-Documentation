@@ -65,6 +65,50 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Line Caps**
+
+Use [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
+
+- `Flat`: The stroke stops at the endpoint.
+- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
+- `Square`: A square cap extends beyond the endpoint by half the line width.
+
+The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) and [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) so that only the cap shapes are compared.
+
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 240, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var capStyles = new[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+for (var i = 0; i < capStyles.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+    line.LineFormat.Width = 20;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.DashStyle = LineDashStyle.Solid;
+    line.LineFormat.CapStyle = capStyles[i];
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+}
+
+presentation.Save("line_caps.pptx", SaveFormat.Pptx);
+```
+
+The result in PowerPoint, from top to bottom: **Flat**, **Round**, and **Square**.
+
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
+
 ## **Apply Sketch Effects to Shape Lines**
 
 A sketch effect makes a shape line look hand-drawn. Use [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) to access the line settings, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) to access the sketch settings, and [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) enumeration.
@@ -159,6 +203,43 @@ roundShape.TextFrame.Text = "Round Join Style";
 
 presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
+
+### **Limit Miter Joins at Sharp Corners**
+
+Use [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) with [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 320, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var miterLimits = new[] { 2f, 8f };
+
+for (var i = 0; i < miterLimits.Length; i++)
+{
+    var triangle = slide.Shapes.AddAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+    triangle.FillFormat.FillType = FillType.NoFill;
+    triangle.LineFormat.Width = 20;
+    triangle.LineFormat.FillFormat.FillType = FillType.Solid;
+    triangle.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    triangle.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    triangle.LineFormat.MiterLimit = miterLimits[i];
+}
+
+presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
+```
+
+The result in PowerPoint: **Miter limit 2** on the left and **miter limit 8** on the right.
+
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Gradient Fill**
 

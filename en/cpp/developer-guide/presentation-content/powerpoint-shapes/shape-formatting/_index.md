@@ -82,6 +82,72 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Line Caps**
+
+Use [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
+
+- `Flat`: The stroke stops at the endpoint.
+- `Round`: A semicircular cap extends beyond the endpoint by half the line width.
+- `Square`: A square cap extends beyond the endpoint by half the line width.
+
+The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) and [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) so that only the cap shapes are compared.
+
+The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/LineArrowheadStyle.h>
+#include <DOM/LineCapStyle.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(500, 240, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+const auto capStyles = std::array<LineCapStyle, 3>{ LineCapStyle::Flat, LineCapStyle::Round, LineCapStyle::Square };
+
+for (auto i = 0; i < capStyles.size(); i++)
+{
+    auto line = slide->get_Shapes()->AddAutoShape(ShapeType::Line, 100, 50 + i * 70, 300, 0);
+    line->get_LineFormat()->set_Width(20);
+    line->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    line->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+    line->get_LineFormat()->set_DashStyle(LineDashStyle::Solid);
+    line->get_LineFormat()->set_CapStyle(capStyles[i]);
+    line->get_LineFormat()->set_BeginArrowheadStyle(LineArrowheadStyle::None);
+    line->get_LineFormat()->set_EndArrowheadStyle(LineArrowheadStyle::None);
+}
+
+presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result in PowerPoint, from top to bottom: **Flat**, **Round**, and **Square**.
+
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
+
 ## **Apply Sketch Effects to Shape Lines**
 
 A sketch effect makes a shape line look hand-drawn. Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to access the line settings, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) to access the sketch settings, and [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enumeration.
@@ -219,6 +285,63 @@ roundShape->get_TextFrame()->set_Text(u"Round Join Style");
 presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+### **Limit Miter Joins at Sharp Corners**
+
+Use [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) with [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) set to [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/LineJoinStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <array>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(500, 320, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+const auto miterLimits = std::array<float, 2>{ 2.0f, 8.0f };
+
+for (auto i = 0; i < miterLimits.size(); i++)
+{
+    auto triangle = slide->get_Shapes()->AddAutoShape(ShapeType::Triangle, 90 + i * 240, 110, 80, 160);
+    triangle->get_FillFormat()->set_FillType(FillType::NoFill);
+    triangle->get_LineFormat()->set_Width(20);
+    triangle->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    triangle->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+    triangle->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
+    triangle->get_LineFormat()->set_MiterLimit(miterLimits[i]);
+}
+
+presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The result in PowerPoint: **Miter limit 2** on the left and **miter limit 8** on the right.
+
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Gradient Fill**
 
