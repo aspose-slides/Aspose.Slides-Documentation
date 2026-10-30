@@ -30,6 +30,7 @@ The platforms Aspose.Slides for Python via .NET can be used on Windows x64 or x8
 
 If you need support for more platforms, look for the "twin brother" products Aspose.Slides for .NET or Aspose.Slides for Java.
 
+> **Note:** The Aspose.Slides for Python via .NET package bundles the Microsoft.NETCore.App.Runtime.linux-x64 runtime version **10.0.12**, which has known security vulnerabilities. A newer runtime (version **10.0.14** or later) is scheduled to be included in the upcoming 26.11 release. Until that version is available, you can use an externally installed .NET runtime as a workaround.
 
 ## **File Formats and Conversions**
 Aspose.Slides for Python via .NET supports most PowerPoint document formats. It also lets you export them to the popular formats organizations widely use and exchange among themselves. Go through these details:
