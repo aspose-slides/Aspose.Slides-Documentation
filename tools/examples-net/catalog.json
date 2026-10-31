@@ -12,7 +12,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "ai/providers": {
       "url": "/net/examples/ai/providers/",
@@ -21,7 +22,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "ai/templates-style": {
       "url": "/net/examples/ai/templates-style/",
@@ -30,7 +32,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "ai/translate": {
       "url": "/net/examples/ai/translate/",
@@ -39,7 +42,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "application-integration/background-worker": {
       "url": "/net/examples/application-integration/background-worker/",
@@ -48,7 +52,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "application-integration/docker": {
       "url": "/net/examples/application-integration/docker/",
@@ -57,7 +62,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "application-integration/web-api": {
       "url": "/net/examples/application-integration/web-api/",
@@ -66,7 +72,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "complete-workflows/customer-proposal": {
       "url": "/net/examples/complete-workflows/customer-proposal/",
@@ -75,7 +82,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "complete-workflows/distribution-copy": {
       "url": "/net/examples/complete-workflows/distribution-copy/",
@@ -84,7 +92,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "complete-workflows/monthly-report": {
       "url": "/net/examples/complete-workflows/monthly-report/",
@@ -93,7 +102,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "complete-workflows/thumbnail-gallery": {
       "url": "/net/examples/complete-workflows/thumbnail-gallery/",
@@ -102,7 +112,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "content-extraction/chart-data": {
       "url": "/net/examples/content-extraction/chart-data/",
@@ -111,6 +122,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "content-extraction/images": {
@@ -120,6 +134,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "content-extraction/media-embedded-files": {
@@ -129,6 +146,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "content-extraction/tables": {
@@ -138,6 +158,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "content-extraction/text-notes": {
@@ -147,6 +170,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "conversion-rendering/animated-gif": {
@@ -156,7 +182,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/html": {
       "url": "/net/examples/conversion-rendering/html/",
@@ -165,7 +192,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/images": {
       "url": "/net/examples/conversion-rendering/images/",
@@ -174,7 +202,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/markdown": {
       "url": "/net/examples/conversion-rendering/markdown/",
@@ -183,7 +212,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/notes-handouts": {
       "url": "/net/examples/conversion-rendering/notes-handouts/",
@@ -192,7 +222,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/pdf": {
       "url": "/net/examples/conversion-rendering/pdf/",
@@ -201,7 +232,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/pdf-compliance": {
       "url": "/net/examples/conversion-rendering/pdf-compliance/",
@@ -210,7 +242,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/pdf-import": {
       "url": "/net/examples/conversion-rendering/pdf-import/",
@@ -219,7 +252,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/presentation-formats": {
       "url": "/net/examples/conversion-rendering/presentation-formats/",
@@ -228,7 +262,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/svg": {
       "url": "/net/examples/conversion-rendering/svg/",
@@ -237,7 +272,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "conversion-rendering/xps": {
       "url": "/net/examples/conversion-rendering/xps/",
@@ -246,7 +282,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/activex": {
       "url": "/net/examples/elements/activex/",
@@ -261,7 +298,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/animation": {
       "url": "/net/examples/elements/animation/",
@@ -276,7 +314,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/audio": {
       "url": "/net/examples/elements/audio/",
@@ -291,7 +330,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/chart": {
       "url": "/net/examples/elements/chart/",
@@ -306,7 +346,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/comment": {
       "url": "/net/examples/elements/comment/",
@@ -321,7 +362,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/connector": {
       "url": "/net/examples/elements/connector/",
@@ -336,7 +378,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/group-shape": {
       "url": "/net/examples/elements/group-shape/",
@@ -351,7 +394,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/header-footer": {
       "url": "/net/examples/elements/header-footer/",
@@ -362,7 +406,8 @@
       "sources": [
         "Case01.cs",
         "Case02.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/hyperlink": {
       "url": "/net/examples/elements/hyperlink/",
@@ -377,7 +422,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/ink": {
       "url": "/net/examples/elements/ink/",
@@ -388,7 +434,8 @@
       "sources": [
         "Case01.cs",
         "Case02.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/layout-slide": {
       "url": "/net/examples/elements/layout-slide/",
@@ -405,7 +452,8 @@
         "Case03.cs",
         "Case04.cs",
         "Case05.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/master-slide": {
       "url": "/net/examples/elements/master-slide/",
@@ -420,7 +468,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/math-text": {
       "url": "/net/examples/elements/math-text/",
@@ -435,7 +484,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/note": {
       "url": "/net/examples/elements/note/",
@@ -450,7 +500,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/ole-object": {
       "url": "/net/examples/elements/ole-object/",
@@ -465,7 +516,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/picture": {
       "url": "/net/examples/elements/picture/",
@@ -476,7 +528,8 @@
       "sources": [
         "Case01.cs",
         "Case02.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/section": {
       "url": "/net/examples/elements/section/",
@@ -491,7 +544,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/slide": {
       "url": "/net/examples/elements/slide/",
@@ -508,7 +562,8 @@
         "Case03.cs",
         "Case04.cs",
         "Case05.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/slide-transition": {
       "url": "/net/examples/elements/slide-transition/",
@@ -523,7 +578,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/smart-art": {
       "url": "/net/examples/elements/smart-art/",
@@ -538,7 +594,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/table": {
       "url": "/net/examples/elements/table/",
@@ -553,7 +610,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/text-box": {
       "url": "/net/examples/elements/text-box/",
@@ -566,7 +624,8 @@
         "Case01.cs",
         "Case02.cs",
         "Case03.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/vba-macro": {
       "url": "/net/examples/elements/vba-macro/",
@@ -579,7 +638,8 @@
         "Case01.cs",
         "Case02.cs",
         "Case03.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "elements/video": {
       "url": "/net/examples/elements/video/",
@@ -594,7 +654,8 @@
         "Case02.cs",
         "Case03.cs",
         "Case04.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "fonts-text/custom-fonts": {
       "url": "/net/examples/fonts-text/custom-fonts/",
@@ -603,7 +664,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "fonts-text/embed-fonts": {
       "url": "/net/examples/fonts-text/embed-fonts/",
@@ -612,7 +674,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "fonts-text/find-replace": {
       "url": "/net/examples/fonts-text/find-replace/",
@@ -621,7 +684,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "fonts-text/multilingual-text": {
       "url": "/net/examples/fonts-text/multilingual-text/",
@@ -630,7 +694,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "fonts-text/replace-fonts": {
       "url": "/net/examples/fonts-text/replace-fonts/",
@@ -639,7 +704,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "optimization-batch/batch-conversion": {
       "url": "/net/examples/optimization-batch/batch-conversion/",
@@ -648,6 +714,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "optimization-batch/cleanup": {
@@ -657,6 +726,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "optimization-batch/compression": {
@@ -666,6 +738,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "optimization-batch/large-media": {
@@ -675,6 +750,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "optimization-batch/progress-cancellation": {
@@ -684,6 +762,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "optimization-batch/warnings": {
@@ -693,6 +774,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "presentations/create-open-save": {
@@ -702,7 +786,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "presentations/merge": {
       "url": "/net/examples/presentations/merge/",
@@ -711,7 +796,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "presentations/properties": {
       "url": "/net/examples/presentations/properties/",
@@ -720,7 +806,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "presentations/split": {
       "url": "/net/examples/presentations/split/",
@@ -729,7 +816,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "presentations/streams": {
       "url": "/net/examples/presentations/streams/",
@@ -738,7 +826,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "presentations/watermarks": {
       "url": "/net/examples/presentations/watermarks/",
@@ -747,7 +836,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "protection-signatures/digital-signatures": {
       "url": "/net/examples/protection-signatures/digital-signatures/",
@@ -756,7 +846,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "protection-signatures/passwords": {
       "url": "/net/examples/protection-signatures/passwords/",
@@ -765,7 +856,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "protection-signatures/pdf-security": {
       "url": "/net/examples/protection-signatures/pdf-security/",
@@ -774,7 +866,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "protection-signatures/write-protection": {
       "url": "/net/examples/protection-signatures/write-protection/",
@@ -783,7 +876,8 @@
       ],
       "sources": [
         "Program.cs"
-      ]
+      ],
+      "legacy_downloads": []
     },
     "templates-data/fill-placeholders": {
       "url": "/net/examples/templates-data/fill-placeholders/",
@@ -792,6 +886,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "templates-data/populate-charts": {
@@ -801,6 +898,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "templates-data/populate-tables": {
@@ -810,6 +910,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "templates-data/repeat-slides": {
@@ -819,6 +922,9 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     },
     "templates-data/replace-images": {
@@ -828,7 +934,11 @@
       ],
       "sources": [
         "Program.cs"
+      ],
+      "legacy_downloads": [
+        "sample.zip"
       ]
     }
-  }
+  },
+  "legacy_download_count": 16
 }

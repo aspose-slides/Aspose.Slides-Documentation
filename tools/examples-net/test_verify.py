@@ -1,5 +1,6 @@
 """Archive checks must reject broken consumer downloads before running them."""
 import hashlib
+from copy import deepcopy
 import io
 import json
 from pathlib import Path
@@ -7,7 +8,7 @@ import tempfile
 import unittest
 import zipfile
 
-from verify import inspect_archive, extract_archive, summarize_execution, discover, validate_runtime, clean_build_outputs
+from verify import inspect_archive, extract_archive, summarize_execution, discover, validate_runtime, clean_build_outputs, validate_catalog, CATALOG
 
 
 def archive(files,actions=None):
@@ -28,6 +29,14 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual('demo/sample',meta['article_id'])
         with tempfile.TemporaryDirectory() as directory:
             extract_archive(data,Path(directory));self.assertEqual(self.files['Program.cs'],(Path(directory)/'Program.cs').read_bytes())
+
+    def test_catalog_cannot_silently_shrink_the_collection(self):
+        catalog=deepcopy(CATALOG);catalog['articles'].pop('elements/slide')
+        with self.assertRaisesRegex(ValueError,'denominator'):validate_catalog(catalog)
+
+    def test_catalog_cannot_silently_remove_a_legacy_download(self):
+        catalog=deepcopy(CATALOG);catalog['articles']['content-extraction/chart-data']['legacy_downloads']=[]
+        with self.assertRaisesRegex(ValueError,'Legacy'):validate_catalog(catalog)
 
     def test_traversal_and_secret_are_rejected(self):
         for name in ('../escape.txt','C:/escape.txt','license.lic','key.pfx','obj/project.assets.json'):

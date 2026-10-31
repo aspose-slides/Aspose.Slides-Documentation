@@ -23,6 +23,17 @@ SECRET_EXTENSIONS={'.lic','.pfx','.p12','.pem','.key'}
 CATALOG=json.loads((Path(__file__).with_name('catalog.json')).read_text(encoding='utf-8'))
 
 
+def validate_catalog(catalog):
+    articles=catalog['articles'];elements={name:row for name,row in articles.items() if name.startswith('elements/')}
+    actual={'article_count':len(articles),'original_block_count':sum(len(row['actions']) for row in articles.values()),'elements_article_count':len(elements),'elements_block_count':sum(len(row['actions']) for row in elements.values())}
+    expected={'article_count':77,'original_block_count':143,'elements_article_count':24,'elements_block_count':90}
+    if actual!=expected or any(catalog.get(key)!=value for key,value in expected.items()):raise ValueError('Collection catalog denominator differs')
+    if sum(len(row.get('legacy_downloads',[])) for row in articles.values())!=16 or catalog.get('legacy_download_count')!=16:raise ValueError('Legacy download denominator differs')
+
+
+validate_catalog(CATALOG)
+
+
 def sha(data):return hashlib.sha256(data).hexdigest()
 
 
@@ -122,6 +133,9 @@ def validate_source(folder,data,manifest):
         if not blocks or any(canonical(block) not in code_files for block in blocks):errors.append('Printed C# differs from a compiled source file')
         known=CATALOG['articles'].get(manifest['article_id'])
         if known and (len(blocks)!=len(known['actions']) or any(canonical(block)!=canonical(archive.read(name).decode('utf-8-sig')) for block,name in zip(blocks,known['sources']))):errors.append('Printed C# recipe count or order differs from the collection mapping')
+        for name in known.get('legacy_downloads',[]) if known else []:
+            alias=folder/str(safe_member(name))
+            if not alias.is_file() or alias.read_bytes()!=data:errors.append('Legacy download alias differs from the current archive: '+name)
         for n in archive.namelist():
             if n.endswith('.cs') and re.search(r'new\s+Bitmap\s*\(|Graphics\.FromImage',archive.read(n).decode('utf-8-sig')):errors.append('Windows-only bitmap implementation: '+n)
     if errors:raise ValueError('; '.join(errors))
