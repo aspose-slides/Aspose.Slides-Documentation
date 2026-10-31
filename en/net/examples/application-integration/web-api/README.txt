@@ -32,3 +32,5 @@ means an unmet prerequisite. A prerequisite diagnostic is not a functional pass.
 VS Code needs Microsoft's C# extension for the included coreclr launch profile.
 
 Default Run/F5 starts the real loopback server at http://127.0.0.1:5088; POST raw PPTX bytes to /convert. Stop the host when finished. Add --self-test for finite genuine HTTP upload/error/concurrency/cancellation checks. The startup action is distinct from the complete conversion self-test.
+
+HTTP request processing is bounded to two active requests. Recognition, presentation loading, PDF saving and disposal are serialized in one SDK critical section per process. This is a mitigation for an observed intermittent native fontconfig crash, not a proven vendor fix. For parallel SDK conversions, use separate worker processes; see https://docs.aspose.com/slides/net/multithreading/.

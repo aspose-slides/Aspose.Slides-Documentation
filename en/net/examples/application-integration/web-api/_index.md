@@ -6,7 +6,7 @@ url: /net/examples/application-integration/web-api/
 description: "Complete runnable C# application for build a presentation conversion endpoint, with real host execution and reproducible input."
 ---
 
-The complete ASP.NET Core application accepts a PPTX presentation as the raw POST body at /convert and returns application/pdf. It limits uploads to 8 MiB, bounds processing to two independent presentation instances, uses a unique temporary directory per request, and connects request cancellation to the library interruption token.
+The complete ASP.NET Core application accepts a PPTX presentation as the raw POST body at /convert and returns application/pdf. It limits uploads to 8 MiB, bounds active HTTP processing to two requests and serializes SDK conversion within each process, uses a unique temporary directory per request, and connects request cancellation to the library interruption token.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ internal static class Program
     private static void VerifyResult(string actionId)
     {
         using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
-        using var expected=JsonDocument.Parse("{\"valid_responses\":3,\"invalid_rejected\":true,\"oversized_rejected\":true,\"cancellation_observed\":true,\"temporary_workspaces_cleaned\":true,\"concurrency_bound\":2}");
+        using var expected=JsonDocument.Parse("{\"valid_responses\":3,\"invalid_rejected\":true,\"oversized_rejected\":true,\"cancellation_observed\":true,\"temporary_workspaces_cleaned\":true,\"concurrency_bound\":2,\"sdk_concurrency_bound\":1,\"maximum_sdk_active\":1}");
         var checks=new System.Collections.Generic.Dictionary<string,bool>();
         foreach(var field in expected.RootElement.EnumerateObject())
         {
@@ -67,6 +67,9 @@ internal static class Program
 
     private const int RequestLimit = 8 * 1024 * 1024;
     private static readonly SemaphoreSlim Slots = new(2);
+    private static readonly SemaphoreSlim SdkGate = new(1);
+    private static int nativeActive;
+    private static int maxSdkActive;
     private static readonly ConcurrentDictionary<string, byte> Workspaces = new();
     private static int active;
     private static int maximumActive;
@@ -119,13 +122,25 @@ internal static class Program
         {
             input.Position = 0;
             string output = Path.Combine(workspace, "result.pdf");
-            await Task.Run(() =>
+            await SdkGate.WaitAsync(context.RequestAborted);
+            int sdkCurrent = Interlocked.Increment(ref nativeActive);
+            int sdkPrevious;
+            do { sdkPrevious = maxSdkActive; } while (sdkCurrent > sdkPrevious && Interlocked.CompareExchange(ref maxSdkActive, sdkCurrent, sdkPrevious) != sdkPrevious);
+            try
             {
-                if (PresentationFactory.Instance.GetPresentationInfo(input).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
-                input.Position = 0;
-                using var presentation = new Presentation(input, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interruption.Token });
-                presentation.Save(output, SaveFormat.Pdf);
-            });
+                await Task.Run(() =>
+                {
+                    if (PresentationFactory.Instance.GetPresentationInfo(input).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
+                    input.Position = 0;
+                    using var presentation = new Presentation(input, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interruption.Token });
+                    presentation.Save(output, SaveFormat.Pdf);
+                });
+            }
+            finally
+            {
+                Interlocked.Decrement(ref nativeActive);
+                SdkGate.Release();
+            }
             byte[] pdf = await File.ReadAllBytesAsync(output, context.RequestAborted);
             return Results.File(pdf, "application/pdf", "presentation.pdf");
         }
@@ -188,7 +203,8 @@ internal static class Program
         for (int i = 0; i < 1000 && Volatile.Read(ref active) > 0; i++) await Task.Delay(5);
         Require(cancelled && active == 0 && Workspaces.IsEmpty, "Cancellation must clean its workspace.");
         Require(maximumActive <= 2, "Concurrency bound exceeded.");
-        string json = JsonSerializer.Serialize(new { valid_responses = simultaneous.Length, invalid_rejected = true, oversized_rejected = true, cancellation_observed = true, temporary_workspaces_cleaned = Workspaces.IsEmpty, maximum_active = maximumActive, concurrency_bound = 2 });
+        Require(maxSdkActive == 1 && nativeActive == 0, "The SDK conversion section must finish with maximum concurrency one.");
+        string json = JsonSerializer.Serialize(new { valid_responses = simultaneous.Length, invalid_rejected = true, oversized_rejected = true, cancellation_observed = true, temporary_workspaces_cleaned = Workspaces.IsEmpty, maximum_active = maximumActive, concurrency_bound = 2, sdk_concurrency_bound = 1, maximum_sdk_active = maxSdkActive });
         await File.WriteAllTextAsync("result.json", json);
         Console.WriteLine(json);
     }
@@ -226,3 +242,5 @@ ignores all license settings; `--mode licensed` accepts your authorized license
 through `--license PATH` or ASPOSE_LICENSE_PATH. No license or credential is included.
 
 Default Run/F5 starts the real loopback API. Use `--self-test` for the finite genuine HTTP/cancellation checks; startup alone does not claim those checks passed.
+
+HTTP request processing is bounded to two active requests. Recognition, presentation loading, PDF saving and disposal are serialized in one SDK critical section per process. This is a mitigation for an observed intermittent native fontconfig crash, not a proven vendor fix. For parallel SDK conversions, use separate worker processes; see [the official multithreading guidance](https://docs.aspose.com/slides/net/multithreading/).

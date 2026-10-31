@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "application-integration/web-api",
   "archive": "example.zip",
-  "archive_sha256": "ba0565d6732df9b23d270f623429424829f9e14aab17a32160044470d03719de",
+  "archive_sha256": "59ea4f2a588ac4247d95fec5c92e1d5028bd9f2bc2c04c8ed5aa2f284a3ce5ed",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -51,18 +51,18 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "12c90a65ec8edd62a3493de92153ea06f47926c57bc74bbc7956032885ead9ef",
-      "bytes": 9620
+      "sha256": "c8e25ed52819fae191af213c01128c747bebbb801cf11d6bdc8e7f5b14b414a0",
+      "bytes": 10540
     },
     {
       "path": "README.txt",
-      "sha256": "3de84f2d6c44eab2bf0c66074efdd58725956ef3995c659c8072b29b57ee97c1",
-      "bytes": 2164
+      "sha256": "2ad2ca7cddba4ceaef9a86c57bfaaccf9a10cdd4385ed3cba240d3db62053af0",
+      "bytes": 2556
     },
     {
       "path": "example-manifest.json",
-      "sha256": "dad98d62491510c6f31bb8e9c1f473c40055048773add63008131099e1fdfcf1",
-      "bytes": 2062
+      "sha256": "19e51e6b5ed2da24e914029c093286450ed0797c56f848f420c20114361f89a8",
+      "bytes": 2063
     },
     {
       "path": "global.json",

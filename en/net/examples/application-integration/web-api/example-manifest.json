@@ -59,13 +59,13 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "12c90a65ec8edd62a3493de92153ea06f47926c57bc74bbc7956032885ead9ef",
-      "bytes": 9620
+      "sha256": "c8e25ed52819fae191af213c01128c747bebbb801cf11d6bdc8e7f5b14b414a0",
+      "bytes": 10540
     },
     {
       "path": "README.txt",
-      "sha256": "3de84f2d6c44eab2bf0c66074efdd58725956ef3995c659c8072b29b57ee97c1",
-      "bytes": 2164
+      "sha256": "2ad2ca7cddba4ceaef9a86c57bfaaccf9a10cdd4385ed3cba240d3db62053af0",
+      "bytes": 2556
     }
   ]
 }
