@@ -11,8 +11,8 @@ import zipfile
 from verify import inspect_archive, extract_archive, summarize_execution, discover, validate_runtime, clean_build_outputs, validate_catalog, CATALOG
 
 
-def archive(files,actions=None):
-    manifest={'article_id':'demo/sample','actions':actions or ['demo/sample/block-001'],'files':[{'path':name,'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()]}
+def archive(files,actions=None,article='demo/sample'):
+    manifest={'article_id':article,'actions':actions or [article+'/block-001'],'files':[{'path':name,'sha256':hashlib.sha256(data).hexdigest()} for name,data in files.items()]}
     result=io.BytesIO()
     with zipfile.ZipFile(result,'w') as z:
         for name,data in files.items():z.writestr(name,data)
@@ -29,6 +29,20 @@ class ArchiveTests(unittest.TestCase):
         self.assertEqual('demo/sample',meta['article_id'])
         with tempfile.TemporaryDirectory() as directory:
             extract_archive(data,Path(directory));self.assertEqual(self.files['Program.cs'],(Path(directory)/'Program.cs').read_bytes())
+
+    def test_web_api_launch_profile_matches_the_real_http_listener(self):
+        profile={'profiles':{'Example':{'commandName':'Project','launchBrowser':False,'applicationUrl':'http://127.0.0.1:5088'}}}
+        name='Properties/launchSettings.json'
+        files={**self.files,name:json.dumps(profile).encode()}
+        inspect_archive(archive(files,article='application-integration/web-api'))
+        invalid=[None,{'profiles':{'Example':{'commandName':'Project','launchBrowser':True,'applicationUrl':'https://localhost:61847;http://localhost:61848'}}}]
+        for setting,value in [('commandName','IISExpress'),('launchBrowser',True),('applicationUrl','http://localhost:5089')]:
+            changed=deepcopy(profile);changed['profiles']['Example'][setting]=value;invalid.append(changed)
+        for candidate in invalid:
+            broken=dict(self.files)
+            if candidate is not None:broken[name]=json.dumps(candidate).encode()
+            with self.subTest(profile=candidate),self.assertRaisesRegex(ValueError,'Web API launch profile'):
+                inspect_archive(archive(broken,article='application-integration/web-api'))
 
     def test_catalog_cannot_silently_shrink_the_collection(self):
         catalog=deepcopy(CATALOG);catalog['articles'].pop('elements/slide')

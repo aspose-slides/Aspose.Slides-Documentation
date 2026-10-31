@@ -153,9 +153,9 @@ internal static class Program
                         using var registration = linked.Token.Register(interrupt.Interrupt);
                         try
                         {
+                            if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
                             await Task.Run(() =>
                             {
-                                if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
                                 using var presentation = new Presentation(path, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interrupt.Token });
                                 if (settings.StopDuringActive)
                                 {

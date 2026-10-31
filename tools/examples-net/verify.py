@@ -63,6 +63,12 @@ def inspect_archive(data):
         if not manifest.get('article_id') or not manifest.get('actions'):raise ValueError('Article/action identity missing')
         actions=manifest['actions'];article=manifest['article_id']
         if len(actions)!=len(set(actions)) or any(not isinstance(action,str) or not action.startswith(article+'/') for action in actions):raise ValueError('Duplicate or foreign archive action identity')
+        if article=='application-integration/web-api':
+            name='Properties/launchSettings.json'
+            if name not in names:raise ValueError('Web API launch profile missing')
+            profiles=json.loads(archive.read(name)).get('profiles',{})
+            if not isinstance(profiles,dict) or not profiles or any(not isinstance(profile,dict) or profile.get('commandName')!='Project' or profile.get('launchBrowser') is not False or profile.get('applicationUrl')!='http://127.0.0.1:5088' for profile in profiles.values()):
+                raise ValueError('Web API launch profile must use the real HTTP listener without browser launch')
         return manifest
 
 

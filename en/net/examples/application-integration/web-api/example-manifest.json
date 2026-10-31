@@ -59,8 +59,13 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "c8e25ed52819fae191af213c01128c747bebbb801cf11d6bdc8e7f5b14b414a0",
-      "bytes": 10540
+      "sha256": "c17824c3cf5d1e4954519d22dd80085c10e94ea0bdff399f64e7c9bcc4669cfe",
+      "bytes": 10536
+    },
+    {
+      "path": "Properties/launchSettings.json",
+      "sha256": "b6d0071b30fa49e5393325179179206aeff16a957bbdd13981469a50a5190309",
+      "bytes": 157
     },
     {
       "path": "README.txt",
