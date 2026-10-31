@@ -15,6 +15,7 @@ internal static class Program
 {
     private static ExampleContext Context = null!;
     private static string LaunchDirectory = "";
+    private static readonly SemaphoreSlim SdkGate = new(1);
     private static Task<int> Main(string[] args)
     {
         LaunchDirectory=Environment.CurrentDirectory;
@@ -63,6 +64,17 @@ internal static class Program
             using var metrics = JsonDocument.Parse(await File.ReadAllTextAsync("active-output/metrics.json"));
             Require(activeStopped.Length == 1 && activeStopped[0].State == "cancelled" && !File.Exists("active-output/active.pdf"), "Cancelled active conversion must not be recorded successful or retain an output.");
             Require(metrics.RootElement.GetProperty("active_cancellation_requested").GetBoolean(), "The stop request must reach active conversion.");
+            var sdkObservations = new System.Collections.Generic.List<object>();
+            foreach (string phase in new[] { "normal-output", "shutdown-output", "active-output" })
+            {
+                using var sdkMetrics = JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(phase, "metrics.json")));
+                var observed = sdkMetrics.RootElement;
+                Require(observed.GetProperty("sdk_concurrency_bound").GetInt32() == 1 && observed.GetProperty("maximum_sdk_active").GetInt32() == 1 && observed.GetProperty("sdk_active").GetInt32() == 0, "Every worker phase must finish with SDK concurrency one and no active SDK instance.");
+                sdkObservations.Add(new { phase, metrics = observed.Clone() });
+            }
+            string sdkJson = JsonSerializer.Serialize(new { sdk_concurrency_bound = 1, maximum_sdk_active = 1, sdk_active = 0, runs = sdkObservations });
+            await File.WriteAllTextAsync("sdk-concurrency.json", sdkJson);
+            Console.WriteLine(sdkJson);
             string json = JsonSerializer.Serialize(new { mixed_jobs = complete.Length, successful_jobs = 3, failed_jobs = 1, shutdown_accounted_for_every_job = true, cancellation_recorded = true, active_conversion_cancelled = true, partial_output_removed = true, queue_capacity = 2, concurrency = 2 });
             await File.WriteAllTextAsync("result.json", json);
             Console.WriteLine(json);
@@ -134,6 +146,8 @@ internal static class Program
             var queue = Channel.CreateBounded<string>(new BoundedChannelOptions(2) { FullMode = BoundedChannelFullMode.Wait, SingleWriter = true, SingleReader = false });
             int completed = 0;
             int active = 0;
+            int sdkActive = 0;
+            int maximumSdkActive = 0;
             int maximumActive = 0;
             int activeCancellationRequested = 0;
             using var linked = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
@@ -153,23 +167,35 @@ internal static class Program
                         using var registration = linked.Token.Register(interrupt.Interrupt);
                         try
                         {
-                            if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
-                            await Task.Run(() =>
+                            await SdkGate.WaitAsync(linked.Token);
+                            int sdkRunning = Interlocked.Increment(ref sdkActive);
+                            int previousSdk;
+                            do { previousSdk = maximumSdkActive; } while (sdkRunning > previousSdk && Interlocked.CompareExchange(ref maximumSdkActive, sdkRunning, previousSdk) != previousSdk);
+                            try
                             {
-                                using var presentation = new Presentation(path, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interrupt.Token });
-                                if (settings.StopDuringActive)
+                                if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
+                                await Task.Run(() =>
                                 {
-                                    _ = Task.Run(async () =>
+                                    using var presentation = new Presentation(path, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interrupt.Token });
+                                    if (settings.StopDuringActive)
                                     {
-                                        await Task.Delay(20);
-                                        Interlocked.Exchange(ref activeCancellationRequested, 1);
-                                        linked.Cancel();
-                                        lifetime.StopApplication();
-                                    });
-                                }
-                                presentation.Save(destination, SaveFormat.Pdf);
-                                linked.Token.ThrowIfCancellationRequested();
-                            });
+                                        _ = Task.Run(async () =>
+                                        {
+                                            await Task.Delay(20);
+                                            Interlocked.Exchange(ref activeCancellationRequested, 1);
+                                            linked.Cancel();
+                                            lifetime.StopApplication();
+                                        });
+                                    }
+                                    presentation.Save(destination, SaveFormat.Pdf);
+                                    linked.Token.ThrowIfCancellationRequested();
+                                });
+                            }
+                            finally
+                            {
+                                Interlocked.Decrement(ref sdkActive);
+                                SdkGate.Release();
+                            }
                             linked.Token.ThrowIfCancellationRequested();
                             using (var pdf = File.OpenRead(destination))
                             {
@@ -210,9 +236,10 @@ internal static class Program
             foreach (string path in paths)
                 if (results[path].State == "pending") results[path] = new JobResult(Path.GetFileName(path), "cancelled", "not_started_before_shutdown");
             Require(maximumActive <= 2 && active == 0, "Worker concurrency or disposal failed.");
+            Require(maximumSdkActive <= 1 && sdkActive == 0, "Worker SDK concurrency or disposal failed.");
             string manifest = JsonSerializer.Serialize(results.Values.OrderBy(r => r.Name), new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(Path.Combine(settings.Output, "manifest.json"), manifest, CancellationToken.None);
-            await File.WriteAllTextAsync(Path.Combine(settings.Output, "metrics.json"), JsonSerializer.Serialize(new { queue_capacity = 2, maximum_active = maximumActive, active_cancellation_requested = activeCancellationRequested != 0 }), CancellationToken.None);
+            await File.WriteAllTextAsync(Path.Combine(settings.Output, "metrics.json"), JsonSerializer.Serialize(new { queue_capacity = 2, maximum_active = maximumActive, active_cancellation_requested = activeCancellationRequested != 0, sdk_concurrency_bound = 1, maximum_sdk_active = maximumSdkActive, sdk_active = sdkActive }), CancellationToken.None);
             lifetime.StopApplication();
         }
     }

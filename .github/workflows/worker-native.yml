@@ -1,0 +1,73 @@
+name: .NET worker native comparison
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'en/net/examples/application-integration/background-worker/**'
+      - 'tools/examples-net/stress_worker.py'
+      - 'tools/examples-net/test_worker_native.py'
+      - '.github/workflows/worker-native.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: worker-native-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  comparison:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 35
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+          sparse-checkout: |
+            en/net/examples/application-integration/background-worker
+            tools/examples-net
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Select an isolated SDK directory
+        shell: python
+        env:
+          EXAMPLE_DOTNET_ROOT: ${{ runner.temp }}/dotnet-worker
+        run: |
+          import os
+          with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as output:
+              for key in ('DOTNET_INSTALL_DIR', 'DOTNET_ROOT'):
+                  output.write(key + '=' + os.environ['EXAMPLE_DOTNET_ROOT'] + '\n')
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Install rendering dependencies
+        run: sudo apt-get update && sudo apt-get install -y libfontconfig1 fonts-dejavu-core libicu74
+      - name: Verify comparison accounting
+        run: python -m unittest discover -s tools/examples-net -p test_worker_native.py
+      - name: Compare immutable native worker archives
+        run: >-
+          python tools/examples-net/stress_worker.py
+          --baseline-sha e5714ab58c3aba0491fd6dac65a3f0312b364f0f
+          --baseline-archive-sha256 108d544dc3244628f91c118641d8f82b9f4476cbd3637e93ebbfe6ccdac16de2
+          --candidate-sha "${{ github.sha }}"
+          --iterations 20
+          --require-architecture ARM64
+          --work-root "${{ runner.temp }}/worker comparison fresh Ω (1)"
+          --out artifacts/worker-native-summary.json
+      - name: Preserve every numeric exit and native report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: worker-native-comparison-${{ github.run_id }}
+          path: |
+            artifacts/worker-native-summary.json
+            artifacts/worker-native-runs
+          if-no-files-found: warn
+          retention-days: 14

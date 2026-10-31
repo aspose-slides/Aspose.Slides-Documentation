@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "application-integration/background-worker",
   "archive": "example.zip",
-  "archive_sha256": "108d544dc3244628f91c118641d8f82b9f4476cbd3637e93ebbfe6ccdac16de2",
+  "archive_sha256": "9c8e1b9eb0706dfe5be32746cbcc0acaceda29fe94c2989d12817bcca6c88d44",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -51,8 +51,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "5fc0e5d6a18976ed845d215064788b959b4a8e2e159a178781f8a11645176113",
-      "bytes": 13407
+      "sha256": "2e4f15c18eb9e8271aa52132286f745286a9cec7fe85a6cdf14acef984565505",
+      "bytes": 15529
     },
     {
       "path": "README.txt",
@@ -61,7 +61,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "7a0f6cee7155687238da83c7e25be702c7e3dffbb2bbcfee73bd2a9749a3f345",
+      "sha256": "e659f8056100b04229f1a60cc127c8017223dec43cfaa4ee3cdda84a1f4725fb",
       "bytes": 2106
     },
     {
