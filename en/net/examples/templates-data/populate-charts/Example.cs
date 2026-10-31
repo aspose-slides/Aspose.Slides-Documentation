@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Runtime.Versioning;
 using System.Text;
 using System.Text.Json;
 using Microsoft.VisualBasic.FileIO;
@@ -15,16 +13,28 @@ using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 
-[SupportedOSPlatform("windows")]
 internal static class Example
 {
-    public static void Setup()
+    public static ExampleContext Context = null!;
+    public static void Setup() { Directory.CreateDirectory("output"); }
+    public static string ExpectedText(string value) => Context.IsLicensed || value.Length<=5 ? value : value[..5]+"... text has been truncated due to evaluation version limitation.";
+    public static string Choice(string licensed,string evaluation) => Context.IsLicensed ? licensed : evaluation;
+    public static void VerifySavedText(string path,string shapeName,string expected)
     {
-        string? path=Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) { var license=new License(); license.SetLicense(path); }
-        else Console.WriteLine("Evaluation mode can truncate text; use a valid license for the full data checks.");
-        Directory.CreateDirectory("output");
+        using var zip=System.IO.Compression.ZipFile.OpenRead(path);
+        foreach(var entry in zip.Entries.Where(e=>e.FullName.StartsWith("ppt/slides/slide",StringComparison.Ordinal)&&e.FullName.EndsWith(".xml",StringComparison.Ordinal)))
+        {
+            using var stream=entry.Open();var document=System.Xml.Linq.XDocument.Load(stream);
+            foreach(var shape in document.Descendants().Where(e=>e.Name.LocalName=="sp"))
+            {
+                if(!shape.Descendants().Any(e=>e.Name.LocalName=="cNvPr"&&(string?)e.Attribute("name")==shapeName))continue;
+                string stored=string.Concat(shape.Descendants().Where(e=>e.Name.LocalName=="t").Select(e=>e.Value));
+                Require(stored==expected,"Saved XML text differs from the intended transformation.");return;
+            }
+        }
+        throw new InvalidDataException("Named saved shape is absent.");
     }
+
     public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
     public static string Hash(byte[] data)=>Convert.ToHexString(SHA256.HashData(data)).ToLowerInvariant();
     public static string HashFile(string path)=>Hash(File.ReadAllBytes(path));
@@ -38,7 +48,7 @@ internal static class Example
         shape.Name=name; shape.TextFrame.Text=value;
         shape.FillFormat.FillType=FillType.Solid; shape.FillFormat.SolidFillColor.Color=Color.White;
         foreach(var para in shape.TextFrame.Paragraphs) foreach(var portion in para.Portions)
-        { portion.PortionFormat.LatinFont=new FontData("Arial"); portion.PortionFormat.FontHeight=20; portion.PortionFormat.FillFormat.FillType=FillType.Solid; portion.PortionFormat.FillFormat.SolidFillColor.Color=Color.FromArgb(35,65,100); }
+        { portion.PortionFormat.LatinFont=new FontData("Noto Sans"); portion.PortionFormat.FontHeight=20; portion.PortionFormat.FillFormat.FillType=FillType.Solid; portion.PortionFormat.FillFormat.SolidFillColor.Color=Color.FromArgb(35,65,100); }
         return shape;
     }
     public static IEnumerable<IShape> Walk(IShapeCollection shapes)
@@ -53,12 +63,7 @@ internal static class Example
     { var found=Walk(slide.Shapes).Where(s=>s.Name==name).ToArray(); if(found.Length!=1 || found[0] is not T typed)throw new InvalidDataException("Expected one named shape: "+name);return typed; }
     public static void Render(Presentation p,string path)
     { using var image=p.Slides[0].GetImage(new Size(800,450));image.Save(path,Aspose.Slides.ImageFormat.Png); }
-    public static byte[] Png(int width,int height,Color color)
-    {
-        using var bitmap=new Bitmap(width,height);using var g=Graphics.FromImage(bitmap);g.Clear(color);
-        using var brush=new SolidBrush(Color.White);g.FillEllipse(brush,width/4,height/4,width/2,height/2);
-        using var stream=new MemoryStream();bitmap.Save(stream,System.Drawing.Imaging.ImageFormat.Png);return stream.ToArray();
-    }
+    public static byte[] Png(int width,int height,Color color) => PortableImage.Png(width,height,color);
     public static List<string[]> Csv(string text,int columns)
     {
         using var parser=new TextFieldParser(new StringReader(text));parser.SetDelimiters(",");parser.HasFieldsEnclosedInQuotes=true;parser.TrimWhiteSpace=false;

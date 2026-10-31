@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "Acme Customer",
+    "Amount": 125.5,
+    "Color": "Teal"
+  },
+  {
+    "Name": "東京 Customer",
+    "Amount": 75.25,
+    "Color": "Orange"
+  }
+]

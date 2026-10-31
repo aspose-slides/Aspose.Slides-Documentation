@@ -16,6 +16,8 @@ keywords:
 description: "Explore runnable C# examples for presentation elements, conversion, templates, extraction, fonts, protection, batch processing, AI and application integration."
 ---
 
+Start with [Run the .NET Examples](/slides/net/examples/getting-started/) for SDKs, IDE steps, native dependencies, evaluation mode and troubleshooting. Each article includes a complete project download.
+
 Choose a presentation task and run its C# examples. Start with Elements for individual presentation objects, or use the task sections for complete runnable projects.
 
 | Section | Examples |

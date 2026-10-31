@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "article_id": "ai/templates-style",
+  "archive": "example.zip",
+  "archive_sha256": "6116ec006755e22c49393d858a349e7385d1440da1d1a8482ab4268dd34f361c",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "26f5220785e493633b31bc2d99acb329beca29e57a8eaf1dcb58c998cbe69e56",
+      "bytes": 9910
+    },
+    {
+      "path": "README.txt",
+      "sha256": "9d4d61679c6686f746e7041cc83add5a88dd409dc4fd41c4a8d1393fe885ce89",
+      "bytes": 2267
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "a881ca66cd664a9a787410e6e7128c82020a0171175880cdd88116515c00fe2d",
+      "bytes": 1993
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    }
+  ]
+}

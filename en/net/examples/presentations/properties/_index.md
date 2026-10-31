@@ -13,17 +13,29 @@ keywords:
 
 Read file information, update metadata, and retain the presentation content and unrelated properties.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Input and prerequisites
 
-The code creates its own synthetic input; no presentation or image download is required. Use .NET 8 SDK 8.0.427 and Aspose.Slides for .NET 26.10.0; the supplied project pins these versions and was tested on Windows. Set the **ASPOSE_LICENSE_PATH** environment variable to your own valid license file to run every assertion in this complete example. Evaluation limits can change the saved content, so the program fails clearly when no license has been applied.
+The code creates its own synthetic input. Use a compatible stable SDK with the included Aspose.Slides.NET6.CrossPlatform 26.10.0 project; .NET 10 LTS is recommended. Evaluation mode performs the recipe without a license and retains the SDK watermark and text limits. Licensed mode additionally checks unrestricted content using your authorized license.
 
-[Download the complete project](example.zip), including the pinned project, package lock and the code below. The license file is not included.
+[Download the complete project](example.zip), including the solution, source, configuration and bundled fonts. No license is distributed.
 
 ## Example
 
 GetPresentationInfo reads the file format and encryption state before a full load. The editing block changes selected built-in values and sets custom string, integer, Boolean, date and floating-point values. The final block reads each custom value with its matching typed overload.
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,9 +48,18 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("presentations/properties/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/properties/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         DateTime reviewDate = new DateTime(2026, 10, 1, 12, 0, 0, DateTimeKind.Utc);
         using (var created = new Presentation())
         {
@@ -75,20 +96,12 @@ internal static class Program
             Require(properties.Title == "Reviewed presentation" && properties.Author == "Example author", "Built-in values differ.");
             Require(customer == "Example company" && revision == 7 && approved && actualDate.ToUniversalTime() == reviewDate && total == 123.5, "Typed custom values differ.");
             Require(existing == "keep" && properties.Subject == "Retain this subject", "Unrelated properties changed.");
-            Require(reopened.Slides.Count == 1 && Text(reopened.Slides[0]) == "Metadata example", "Presentation content changed.");
+            Require(reopened.Slides.Count == 1 && Text(reopened.Slides[0]) == Context.ExpectedText("Metadata example"), "Presentation content changed.");
         }
         Require(Hash("input.pptx") == inputHash, "Original metadata file changed.");
         Report(new { built_in_properties = true, string_value = true, integer_value = true, boolean_value = true, date_value = true, numeric_value = true, unrelated_retained = true, content_retained = true, input_format = "Pptx", original_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -104,7 +117,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

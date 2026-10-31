@@ -1,0 +1,39 @@
+{
+  "assets": [
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fixtures/video.mp4",
+      "sha256": "fb1470526c7489e1e8e76e1867280ecf2d64144195eacec140d896862c3b975a",
+      "license": "CC0-1.0",
+      "origin": "Original authored demonstration asset",
+      "generation": {
+        "tool": "FFmpeg bundled by imageio-ffmpeg 0.7.0",
+        "command": "ffmpeg -f lavfi -i color=c=green:s=64x64:d=0.3:r=10 -an -c:v libx264 -pix_fmt yuv420p -movflags +faststart video.mp4",
+        "content": "Three original solid-green frames; H.264 in MP4; no third-party recording or binary executable is redistributed."
+      }
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "9f5acef2887cb6e9cf2d69fa968d32781fc2f39dfceffaaa61feeb451e0096b5",
+      "license": "CC0-1.0",
+      "origin": "Original authored demonstration asset"
+    }
+  ]
+}

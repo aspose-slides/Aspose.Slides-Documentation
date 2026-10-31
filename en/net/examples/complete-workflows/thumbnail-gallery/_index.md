@@ -8,9 +8,20 @@ description: "Complete runnable C# project to build a presentation preview galle
 
 Create a preview gallery and JSON index for a presentation. The example uses duplicate titles and a non-ASCII input filename, generates filenames from slide numbers and escapes titles in HTML. Open gallery.html with its three thumbnail files beside it.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Inputs and execution
 
-[Download the complete project](example.zip), including its original inputs, all source and pinned dependencies. The projects were tested on Windows x64 with Arial and the .NET SDK8.0.427 pinned in global.json. Set `ASPOSE_LICENSE_PATH` to your license file; unrestricted content checks require a valid license. See [licensing](/slides/net/licensing/). No PowerPoint installation is required.
+[Download the complete project](example.zip), including its original inputs, all source and pinned dependencies. The project uses bundled Noto Sans and the flexible SDK policy described in the setup guide. Set `ASPOSE_LICENSE_PATH` to your license file; unrestricted content checks require a valid license. See [licensing](/slides/net/licensing/). No PowerPoint installation is required.
 
 ```text
 dotnet run --project Example.csproj --configuration Release
@@ -21,6 +32,7 @@ The program generates its own original presentation/template fixture. JSON input
 ## Complete project source
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Linq;
@@ -35,10 +47,18 @@ using Aspose.Slides.Vba;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        var path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) new License().SetLicense(path);
+        Context = context;
+        context.BeginAction("complete-workflows/thumbnail-gallery/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("complete-workflows/thumbnail-gallery/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         using (var input = Deck("<Planning & Review>", "<Planning & Review>", "Результаты")) input.Save("презентация.pptx", SaveFormat.Pptx);
         using var source = new Presentation("презентация.pptx");
         var items = new System.Collections.Generic.List<object>();
@@ -52,7 +72,8 @@ internal static class Program
         }
         html.Append("</body></html>"); File.WriteAllText("gallery.html", html.ToString());
         File.WriteAllText("gallery.json", JsonSerializer.Serialize(items, new JsonSerializerOptions { WriteIndented = true }));
-        Require(html.ToString().Contains("&lt;Planning &amp; Review&gt;"), "HTML labels must be escaped.");
+        Require(html.ToString().Contains(WebUtility.HtmlEncode(Context.ExpectedText("<Planning & Review>"))), "HTML labels must be escaped.");
+        Require(!html.ToString().Contains("<Planning", StringComparison.Ordinal), "Raw label HTML remains.");
         Report(new { slides = items.Count, unique_filenames = true, escaped_labels = true });
     }
 
@@ -82,14 +103,14 @@ internal static class Program
         foreach (var portion in paragraph.Portions)
         {
             portion.PortionFormat.FontHeight = 24;
-            portion.PortionFormat.LatinFont = new FontData("Arial");
+            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
         }
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame?.Text));
+    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name is "Title" or "Total" or "Units").Select(s => s.TextFrame?.Text));
     private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path)));
     private static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
     private static void Preview(Presentation deck, string path)

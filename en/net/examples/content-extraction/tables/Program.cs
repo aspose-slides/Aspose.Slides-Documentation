@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,24 +8,54 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("content-extraction/tables/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.tables\":1,\"checks.grid_cells\":9,\"checks.merged_coverage_explicit\":true,\"checks.unicode_and_csv_quoting_checked\":true,\"checks.group_traversal_checked\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("content-extraction/tables/block-001",checks);
+        await Task.CompletedTask;
+    });
+
 
     private sealed record Cell(int Row,int Column,int FirstRow,int FirstColumn,int RowSpan,int ColumnSpan,bool Merged,string? Text);
     private sealed record TableData(int Slide,string Shape,Cell[] Cells);
-    private static void Main()
+    private static void RunExample()
     {
         Example.Setup();using(var p=new Presentation())
         {var group=p.Slides[0].Shapes.AddGroupShape();var table=group.Shapes.AddTable(30,30,new double[]{200,160,200},new double[]{45,45,45});table.Name="Source table";
          table[0,0].TextFrame.Text="Customer";table[1,0].TextFrame.Text="Detail";table.MergeCells(table[1,0],table[2,0],false);
-         table[0,1].TextFrame.Text="Acme, Inc.";table[1,1].TextFrame.Text="東京";table[2,1].TextFrame.Text="\"Quoted\"";table[0,2].TextFrame.Text="Résumé";p.Save("output/input.pptx",SaveFormat.Pptx);}
+         table[0,1].TextFrame.Text=Example.Choice("Acme, Inc.","A,β");table[1,1].TextFrame.Text="東京";table[2,1].TextFrame.Text=Example.Choice("\"Quoted\"","\"Q\"");table[0,2].TextFrame.Text=Example.Choice("Résumé","é");p.Save("output/input.pptx",SaveFormat.Pptx);}
         using var input=new Presentation("output/input.pptx");var tables=new List<TableData>();var csv=new StringBuilder("Slide,Shape,Row,Column,Text\n");
         for(int i=0;i<input.Slides.Count;i++)foreach(var table in Example.Walk(input.Slides[i].Shapes).OfType<ITable>())
         {var cells=new List<Cell>();for(int r=0;r<table.Rows.Count;r++)for(int c=0;c<table.Columns.Count;c++)
@@ -34,9 +65,9 @@ internal static class Program
          tables.Add(new(i+1,table.Name,cells.ToArray()));}
         Example.Json("output/tables.json",tables);File.WriteAllText("output/tables.csv",csv.ToString(),new UTF8Encoding(false));
         var rows=Example.Csv(csv.ToString(),5);var extracted=tables.Single().Cells;
-        Example.Require(extracted.Single(c=>c.Row==1&&c.Column==0).Text=="Acme, Inc."&&extracted.Single(c=>c.Row==1&&c.Column==1).Text=="東京","Values/Unicode lost.");
+        Example.Require(extracted.Single(c=>c.Row==1&&c.Column==0).Text==Example.Choice("Acme, Inc.","A,β")&&extracted.Single(c=>c.Row==1&&c.Column==1).Text=="東京","Values/Unicode lost.");
         Example.Require(extracted.Single(c=>c.Row==0&&c.Column==2).Text==null&&extracted.Single(c=>c.Row==0&&c.Column==1).ColumnSpan==2,"Merged-cell representation differs.");
-        Example.Require(rows.Any(r=>r[4]=="\"Quoted\"")&&rows.Count==10,"CSV quoting or grid size differs.");
+        Example.Require(rows.Any(r=>r[4]==Example.Choice("\"Quoted\"","\"Q\""))&&rows.Count==10,"CSV quoting or grid size differs.");
         Example.Result(new{tables=1,grid_cells=9,merged_coverage_explicit=true,unicode_and_csv_quoting_checked=true,group_traversal_checked=true});
     }
 

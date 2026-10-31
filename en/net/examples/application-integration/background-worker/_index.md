@@ -10,7 +10,7 @@ The .NET Worker Service snapshots an input folder of PPTX files and queues jobs 
 
 ## Prerequisites
 
-[Download the complete project](example.zip). Install the pinned .NET SDK and set `ASPOSE_LICENSE_PATH` to your valid file license for the full-content checks. See [installation](/slides/net/installation/) and [licensing](/slides/net/licensing/). The project generates synthetic inputs in self-test mode; no private input or credential is included.
+Use a current supported .NET10 SDK/runtime and the supplied flexible SDK settings; no exact patch is required.
 
 ## Complete application
 
@@ -30,10 +30,40 @@ using Microsoft.Extensions.Hosting;
 
 internal static class Program
 {
-    private static async Task Main(string[] args)
+    private static ExampleContext Context = null!;
+    private static string LaunchDirectory = "";
+    private static Task<int> Main(string[] args)
     {
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath)) new License().SetLicense(licensePath);
+        LaunchDirectory=Environment.CurrentDirectory;
+        return ExampleBootstrap.RunAsync(args, async context =>
+        {
+            Context=context;
+            string actionId=context.Arguments.Contains("--self-test")?"application-integration/background-worker/block-001":"application-integration/background-worker/process-folder";
+            context.BeginAction(actionId);
+            await RunExample(context.Arguments);
+            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
+        });
+    }
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"mixed_jobs\":4,\"successful_jobs\":3,\"failed_jobs\":1,\"shutdown_accounted_for_every_job\":true,\"cancellation_recorded\":true,\"queue_capacity\":2,\"concurrency\":2,\"active_conversion_cancelled\":true,\"partial_output_removed\":true}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
+    private static async Task RunExample(string[] args)
+    {
         bool selfTest = args.Contains("--self-test");
         if (selfTest)
         {
@@ -55,9 +85,14 @@ internal static class Program
             Console.WriteLine(json);
             return;
         }
-        string input = args.Length > 0 ? args[0] : "input";
-        string output = args.Length > 1 ? args[1] : "output";
+        if(args.Length==0)PrepareInput("input");
+        string input = args.Length > 0 ? Path.GetFullPath(args[0],LaunchDirectory) : "input";
+        Context.Prerequisite(Directory.Exists(input),"The input folder does not exist. Pass a real PPTX input folder, or run without folder arguments for the synthetic local batch.");
+        string output = args.Length > 1 ? Path.GetFullPath(args[1],LaunchDirectory) : "output";
         await Run(input, output, stopAfter: 0);
+        var processed=JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync(Path.Combine(output,"manifest.json")))!;
+        Context.Require(processed.Length>0&&processed.All(j=>j.State is "succeeded" or "failed" or "cancelled"),"Every queued input needs a final outcome.");
+        Context.Pass("application-integration/background-worker/process-folder","real Generic Host batch completed","every input accounted for");
     }
 
     private static async Task Run(string input, string output, int stopAfter, bool stopDuringActive = false)
@@ -212,3 +247,18 @@ Pass input and output folder paths to run your own batch. Add --self-test to gen
 The verification run writes result.json plus "normal-output/manifest.json", "normal-output/metrics.json", "normal-output/1-valid.pdf", "normal-output/2-valid.pdf", "normal-output/3-valid.pdf", "shutdown-output/manifest.json", "shutdown-output/metrics.json". Inspect the returned PDF files and the manifest or image preview. Exit 0 requires the named assertions to pass; an invalid input is reported explicitly.
 
 Read the [detailed Docker guide](/slides/net/how-to-run-aspose-slides-in-docker/) for package and native-library choices when adapting Linux hosting.
+
+
+## Download, prerequisites and run
+
+[Download the complete project](example.zip) and open `Example.sln`. The stable
+net8.0/C#12 project accepts compatible installed release SDKs and explicitly runs
+on the current .NET10 runtime. No exact SDK patch or locked restore is required.
+Bundled Noto Sans fonts include their redistribution notice. See
+[setup and supported environments](/slides/net/examples/getting-started/).
+
+The bootstrap prints the separate output workspace. Explicit `--mode evaluation`
+ignores all license settings; `--mode licensed` accepts your authorized license
+through `--license PATH` or ASPOSE_LICENSE_PATH. No license or credential is included.
+
+Default Run/F5 processes a synthetic local batch through the real host. Use `--self-test` for the full shutdown/cancellation checks, or pass your input/output folders.

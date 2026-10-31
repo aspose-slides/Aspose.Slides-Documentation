@@ -1,0 +1,4 @@
+Authored PNG, PCM WAV, MP4 and PDF fixtures: CC0-1.0.
+Noto Sans: SIL Open Font License 1.1; see Fonts/OFL.txt and Fonts/provenance.json.
+Ink fixture where included: Aspose examples MIT License; see ASPOSE-EXAMPLES-LICENSE.txt and ink-provenance.json.
+See fixture-provenance.json for hashes and generation details.

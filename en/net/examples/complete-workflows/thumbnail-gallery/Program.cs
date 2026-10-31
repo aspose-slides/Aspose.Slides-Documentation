@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Linq;
@@ -12,10 +13,18 @@ using Aspose.Slides.Vba;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        var path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) new License().SetLicense(path);
+        Context = context;
+        context.BeginAction("complete-workflows/thumbnail-gallery/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("complete-workflows/thumbnail-gallery/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         using (var input = Deck("<Planning & Review>", "<Planning & Review>", "Результаты")) input.Save("презентация.pptx", SaveFormat.Pptx);
         using var source = new Presentation("презентация.pptx");
         var items = new System.Collections.Generic.List<object>();
@@ -29,7 +38,8 @@ internal static class Program
         }
         html.Append("</body></html>"); File.WriteAllText("gallery.html", html.ToString());
         File.WriteAllText("gallery.json", JsonSerializer.Serialize(items, new JsonSerializerOptions { WriteIndented = true }));
-        Require(html.ToString().Contains("&lt;Planning &amp; Review&gt;"), "HTML labels must be escaped.");
+        Require(html.ToString().Contains(WebUtility.HtmlEncode(Context.ExpectedText("<Planning & Review>"))), "HTML labels must be escaped.");
+        Require(!html.ToString().Contains("<Planning", StringComparison.Ordinal), "Raw label HTML remains.");
         Report(new { slides = items.Count, unique_filenames = true, escaped_labels = true });
     }
 
@@ -59,14 +69,14 @@ internal static class Program
         foreach (var portion in paragraph.Portions)
         {
             portion.PortionFormat.FontHeight = 24;
-            portion.PortionFormat.LatinFont = new FontData("Arial");
+            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
         }
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame?.Text));
+    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name is "Title" or "Total" or "Units").Select(s => s.TextFrame?.Text));
     private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path)));
     private static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
     private static void Preview(Presentation deck, string path)

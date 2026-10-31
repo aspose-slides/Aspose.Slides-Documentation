@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "article_id": "elements/animation",
+  "archive": "example.zip",
+  "archive_sha256": "8ca90aeaaca2066c3fb73f433e30623c094b3e08e39facfa3debd0ba9083b3e0",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Case01.cs",
+      "sha256": "83ab25ed33ce05020d444ab6fa61358e5409b9dbe505c919b49d98d5f0f50433",
+      "bytes": 970
+    },
+    {
+      "path": "Case02.cs",
+      "sha256": "391187c5ee332c5760d5157db0a1624f251c05366b3035ea4602f9fb6fec65b0",
+      "bytes": 1051
+    },
+    {
+      "path": "Case03.cs",
+      "sha256": "81a8415b6878173ce413fabaf56082125b07fad512ef1fa11b4876d693e35eb3",
+      "bytes": 983
+    },
+    {
+      "path": "Case04.cs",
+      "sha256": "a02b3b82d85fb824559566917224a1a09ac0e43b5cc1cde46ace6471ea9cbc12",
+      "bytes": 1313
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "291a4c46933b9121a503c5586a5634083193d392e088bdf2f12a603b6f86000e",
+      "bytes": 6069
+    },
+    {
+      "path": "README.txt",
+      "sha256": "34d8eb382f22d4e10cd39df203d07d735b95fd3c80637b88fda445e54afadb19",
+      "bytes": 1840
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "9f5acef2887cb6e9cf2d69fa968d32781fc2f39dfceffaaa61feeb451e0096b5",
+      "bytes": 314
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "7257aa92ba1944980622f762927f5f409eb1f450fc0c9ddf18a3026a6a9ea9e5",
+      "bytes": 2956
+    },
+    {
+      "path": "fixture-provenance.json",
+      "sha256": "fe2a9e7be327a23b3760af4deb5378931d560e5070a22096dc465f07210e593b",
+      "bytes": 863
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    }
+  ]
+}

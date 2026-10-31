@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "article_id": "presentations/merge",
+  "archive": "example.zip",
+  "archive_sha256": "064fc6403d7a9010cb30a65063d12294e0098d036bdfdee3e076a0fb1a7d0e46",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "eda50e8f957df161b086efc2929285224834a642b46805bdff89561b3a8c8a59",
+      "bytes": 6367
+    },
+    {
+      "path": "README.txt",
+      "sha256": "4418404ae4affadac171cb593d491fcc41f3c954d326ca90df47e1a1b5609c16",
+      "bytes": 1850
+    },
+    {
+      "path": "destination-design.png",
+      "sha256": "80a94f622912801b28ab3f08329bd084424a206478ea835dca25b940b38c1eee",
+      "bytes": 2664
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "d15e6cc87a2c33c9feeb792f94240c7aa8ce264ee83f1fb79d5805e901fd9741",
+      "bytes": 2444
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    },
+    {
+      "path": "source-design-blue.png",
+      "sha256": "b1fe16ddc5fbaff165dc5e37899733034522f074af7bc547c29e35ad2fabee40",
+      "bytes": 2555
+    },
+    {
+      "path": "source-design-green.png",
+      "sha256": "d44c426ef2537d848a340e7c9fcdfce104a0545c8c2be8eff3641f8d43520e52",
+      "bytes": 2532
+    }
+  ]
+}

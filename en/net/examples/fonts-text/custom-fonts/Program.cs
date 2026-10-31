@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,6 +17,16 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("fonts-text/custom-fonts/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("fonts-text/custom-fonts/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private sealed class WarningLog : IWarningCallback
     {
         public List<string> Messages { get; } = new List<string>();
@@ -26,9 +37,8 @@ internal static class Program
         }
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         PrepareFonts(true);
         try
         {
@@ -75,7 +85,8 @@ internal static class Program
             string path = Path.Combine("fonts", font.Name);
             if (!File.Exists(path) || Hash(path) != font.Hash)
             {
-                byte[] bytes = client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
+                string bundled = Path.Combine(AppContext.BaseDirectory, "Fonts", font.Name);
+                byte[] bytes = File.Exists(bundled) ? File.ReadAllBytes(bundled) : client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
                 Require(Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant() == font.Hash, "Downloaded font hash differs: " + font.Name);
                 File.WriteAllBytes(path, bytes);
             }
@@ -84,13 +95,6 @@ internal static class Program
         FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
     }
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);

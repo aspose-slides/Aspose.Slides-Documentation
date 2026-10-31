@@ -13,19 +13,31 @@ keywords:
 
 Replace literal and regular-expression matches across slides, groups, tables, masters and notes.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Input and prerequisites
 
-Use .NET SDK 8.0.427 and Aspose.Slides for .NET 26.10.0 with the supplied pinned project. Set **ASPOSE_LICENSE_PATH** to your own valid license file; no license file is distributed. This complete fixture stops clearly when no license has been applied.
+Use a supported .NET SDK with the supplied project. Evaluation mode runs without a license; licensed mode requires your own authorized license covering this release. No license is distributed.
 
 All presentation input is created by the code from original synthetic data.
 
-[Download the complete project](example.zip), including code, project and package lock. It was executed on Windows.
+[Download the complete project](example.zip), including code, solution, project and required helpers. Normal package restore is supported.
 
 ## Example
 
 An application-owned traversal selects the text frames to process. Replacement operates on each full frame, so a literal match can span text runs. This fixture includes a run-spanning match, grouped shape, table cell, master text, speaker notes and unrelated styled text. Notes are explicitly included.
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,6 +56,16 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("fonts-text/find-replace/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("fonts-text/find-replace/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private static IEnumerable<ITextFrame> Frames(IShapeCollection shapes)
     {
         foreach (var shape in shapes)
@@ -68,9 +90,8 @@ internal static class Program
             foreach (var frame in Frames(master.Shapes)) yield return frame;
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         using (var source = new Presentation())
         {
             source.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
@@ -103,7 +124,7 @@ internal static class Program
                 frame.ReplaceText("OLD", "NEW", options, null);
                 frame.ReplaceRegex(new Regex(@"\b2025\b"), "2026", null);
             }
-            Require(AllFrames(editable).Count(f => f.Text.Contains("NEW 2026", StringComparison.Ordinal)) == 5, "A target location was missed.");
+            Require(AllFrames(editable).Count(f => f.Text == Context.ExpectedText("NEW 2026")) == 5, "A target location was missed.");
             string beforeNoMatch = string.Join("|", AllFrames(editable).Select(f => f.Text));
             foreach (var frame in AllFrames(editable)) frame.ReplaceText("NO-SUCH-MARKER", "ignored", options, null);
             Require(beforeNoMatch == string.Join("|", AllFrames(editable).Select(f => f.Text)), "No-match replacement changed text.");
@@ -111,23 +132,18 @@ internal static class Program
         }
         using (var result = new Presentation("output.pptx"))
         {
-            Require(AllFrames(result).Count(f => f.Text.Contains("NEW 2026", StringComparison.Ordinal)) == 5, "Changes were not saved.");
+            Require(AllFrames(result).Count(f => f.Text == Context.ExpectedText("NEW 2026")) == 5, "Changes were not saved.");
             var keep = result.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "keep");
-            Require(keep.TextFrame.Text == "Keep this" && keep.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontBold == NullableBool.True, "Unrelated text/format changed.");
+            Require(keep.TextFrame.Text == Context.ExpectedText("Keep this") && keep.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontBold == NullableBool.True, "Unrelated text/format changed.");
             Render(result.Slides[0], "preview.png");
         }
+        Require(SavedText("output.pptx").Count(text => text == "NEW 2026") == 5, "Persisted replacement targets differ.");
+        Require(!SavedText("output.pptx").Any(text => text.Contains("OLD", StringComparison.Ordinal) || text.Contains("2025", StringComparison.Ordinal)), "Persisted original marker remains.");
         Require(Hash("input.pptx") == originalHash, "Original changed.");
         Report(new { target_frames = 5, literal_and_regex = true, run_spanning = true, unrelated_format_retained = true, no_match_unchanged = true, original_unchanged = true });
     }
 
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);
@@ -151,6 +167,16 @@ internal static class Program
         using var image = slide.GetImage(new Size(640, 360));
         image.Save(output, Aspose.Slides.ImageFormat.Png);
     }
+
+    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
+    private static string[] SavedText(string file)
+    {
+        using var archive = ZipFile.OpenRead(file);
+        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
+            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
+    }
+
 }
 ```
 
@@ -159,8 +185,8 @@ internal static class Program
 Extract the download into an empty directory and run:
 
 ```text
-dotnet restore Example.csproj --locked-mode
-dotnet run --project Example.csproj --configuration Release --no-restore
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release --no-restore -- --mode evaluation -- --mode evaluation -- --mode evaluation
 ```
 
 The code writes "input.pptx", "output.pptx", "preview.png", plus "result.json". Checks stop execution on an unexpected result; inspect visual outputs as well as the recorded data.

@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,9 +17,18 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("protection-signatures/digital-signatures/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("protection-signatures/digital-signatures/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         using var rsa = RSA.Create(2048);
         var request = new CertificateRequest("CN=Disposable presentation example", rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
         request.CertificateExtensions.Add(new X509KeyUsageExtension(X509KeyUsageFlags.DigitalSignature, false));
@@ -63,13 +73,6 @@ internal static class Program
     }
 
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);

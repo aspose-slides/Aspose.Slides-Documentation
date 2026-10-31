@@ -10,7 +10,7 @@ The complete ASP.NET Core application accepts a PPTX presentation as the raw POS
 
 ## Prerequisites
 
-[Download the complete project](example.zip). Install the pinned .NET SDK and set `ASPOSE_LICENSE_PATH` to your valid file license for the full-content checks. See [installation](/slides/net/installation/) and [licensing](/slides/net/licensing/). The project generates synthetic inputs in self-test mode; no private input or credential is included.
+Use a current supported .NET10 SDK/runtime and the supplied flexible SDK settings; no exact patch is required.
 
 ## Complete application
 
@@ -33,23 +33,59 @@ using Microsoft.Extensions.Hosting;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static string LaunchDirectory = "";
+    private static Task<int> Main(string[] args)
+    {
+        LaunchDirectory=Environment.CurrentDirectory;
+        return ExampleBootstrap.RunAsync(args, async context =>
+        {
+            Context=context;
+            string actionId=context.Arguments.Contains("--self-test")?"application-integration/web-api/block-001":"application-integration/web-api/serve";
+            context.BeginAction(actionId);
+            await RunExample(context.Arguments);
+            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
+        });
+    }
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"valid_responses\":3,\"invalid_rejected\":true,\"oversized_rejected\":true,\"cancellation_observed\":true,\"temporary_workspaces_cleaned\":true,\"concurrency_bound\":2}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
     private const int RequestLimit = 8 * 1024 * 1024;
     private static readonly SemaphoreSlim Slots = new(2);
     private static readonly ConcurrentDictionary<string, byte> Workspaces = new();
     private static int active;
     private static int maximumActive;
 
-    private static async Task Main(string[] args)
+    private static async Task RunExample(string[] args)
     {
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath)) new License().SetLicense(licensePath);
         bool selfTest = args.Contains("--self-test");
         var builder = WebApplication.CreateBuilder(args.Where(a => a != "--self-test").ToArray());
         builder.WebHost.UseUrls(selfTest ? "http://127.0.0.1:0" : "http://127.0.0.1:5088");
         builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = null);
         await using var app = builder.Build();
         app.MapPost("/convert", (Func<HttpContext, Task<IResult>>)ConvertPresentation);
-        if (!selfTest) { await app.RunAsync(); return; }
+        if (!selfTest)
+        {
+            await app.StartAsync();
+            Context.Pass("application-integration/web-api/serve", "real loopback Kestrel listener started");
+            await app.WaitForShutdownAsync();
+            return;
+        }
         await app.StartAsync();
         try { await Verify(app.Urls.Single()); }
         finally { await app.StopAsync(); }
@@ -175,3 +211,18 @@ Run normally to listen on http://127.0.0.1:5088. POST the file bytes with your H
 The verification run writes result.json plus "input.pptx", "response-0.pdf", "response-1.pdf", "response-2.pdf". Inspect the returned PDF files and the manifest or image preview. Exit 0 requires the named assertions to pass; an invalid input is reported explicitly.
 
 Read the [detailed Docker guide](/slides/net/how-to-run-aspose-slides-in-docker/) for package and native-library choices when adapting Linux hosting.
+
+
+## Download, prerequisites and run
+
+[Download the complete project](example.zip) and open `Example.sln`. The stable
+net8.0/C#12 project accepts compatible installed release SDKs and explicitly runs
+on the current .NET10 runtime. No exact SDK patch or locked restore is required.
+Bundled Noto Sans fonts include their redistribution notice. See
+[setup and supported environments](/slides/net/examples/getting-started/).
+
+The bootstrap prints the separate output workspace. Explicit `--mode evaluation`
+ignores all license settings; `--mode licensed` accepts your authorized license
+through `--license PATH` or ASPOSE_LICENSE_PATH. No license or credential is included.
+
+Default Run/F5 starts the real loopback API. Use `--self-test` for the finite genuine HTTP/cancellation checks; startup alone does not claim those checks passed.

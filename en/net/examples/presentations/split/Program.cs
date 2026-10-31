@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +11,16 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("presentations/split/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/split/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private static string SafeName(string value)
     {
         char[] invalid = Path.GetInvalidFileNameChars();
@@ -30,9 +41,8 @@ internal static class Program
         Require(reopened.Slides.Select(Text).SequenceEqual(indices.Select(i => Text(input.Slides[i]))), "Wrong split content/order.");
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         Directory.CreateDirectory("outputs");
         using (var created = new Presentation())
         {
@@ -68,14 +78,6 @@ internal static class Program
         Report(new { individual_files = 3, range_slides = 2, section_files = 2, first_last_verified = true, duplicate_names_safe = true, invalid_rejected = invalidRejected, empty_rejected = emptyRejected, original_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -91,7 +93,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

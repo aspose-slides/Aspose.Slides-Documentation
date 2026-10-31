@@ -11,7 +11,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
@@ -19,9 +18,40 @@ using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("optimization-batch/batch-conversion/block-001");
+        await RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.successes_per_run\":3,\"checks.failures_per_run\":2,\"checks.unique_outputs\":true,\"checks.worker_limits_observed\":true,\"checks.later_jobs_processed\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("optimization-batch/batch-conversion/block-001",checks);
+        await Task.CompletedTask;
+    });
+
 
     private sealed record JobResult(string Source,string Output,bool Success,string? Error);
     private static async Task<(JobResult[] Results,int Peak)> ConvertAll(string[] files,string directory,int workerLimit)
@@ -40,7 +70,7 @@ internal static class Program
         });
         return(results.OrderBy(r=>r.Source,StringComparer.Ordinal).ToArray(),peak);
     }
-    private static async Task Main()
+    private static async Task RunExample()
     {
         Example.Setup();Directory.CreateDirectory("output/inputs/a");Directory.CreateDirectory("output/inputs/b");
         foreach(var item in new[]{("a/shared.pptx","North"),("b/shared.pptx","South"),("later.pptx","Processed after failures")})

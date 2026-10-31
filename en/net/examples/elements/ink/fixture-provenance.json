@@ -1,0 +1,46 @@
+{
+  "assets": [
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "license": "OFL-1.1",
+      "provenance": "Fonts/provenance.json"
+    },
+    {
+      "path": "Fixtures/ink.pptx",
+      "sha256": "0d5449a7a6b543c66cc3acd664e9899d5c6c594e0ff93539ffc2f1a674c1f725",
+      "license": "MIT",
+      "provenance": "ink-provenance.json"
+    },
+    {
+      "path": "ASPOSE-EXAMPLES-LICENSE.txt",
+      "sha256": "4ef1d74a63fd137de58d3fab280bf29867c0b7e914f98b6c7dc5314ca77d128d",
+      "license": "MIT",
+      "provenance": "ink-provenance.json"
+    },
+    {
+      "path": "ink-provenance.json",
+      "sha256": "0c2fdfd334486a5ac685eb8ca10bb15f6cbdbb102c05b1051b4e6445ee02675b",
+      "license": "MIT",
+      "provenance": "ink-provenance.json"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "9f5acef2887cb6e9cf2d69fa968d32781fc2f39dfceffaaa61feeb451e0096b5",
+      "license": "CC0-1.0",
+      "origin": "Original authored demonstration asset"
+    }
+  ]
+}

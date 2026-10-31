@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,9 +17,18 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("fonts-text/replace-fonts/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("fonts-text/replace-fonts/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         PrepareFonts(false);
         try
         {
@@ -36,6 +46,8 @@ internal static class Program
             string inputHash = Hash("input.pptx");
             using (var editable = new Presentation("input.pptx"))
             {
+                Require(editable.Slides[0].Shapes.OfType<IAutoShape>().Single(shape => shape.Name == "explicit").TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont.FontName == "Arial", "The input must contain the original explicit font reference.");
+                Require(editable.Slides[0].Shapes.OfType<IAutoShape>().Single(shape => shape.Name == "default").TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.LatinFont.FontName == "Arial", "The input must contain the original paragraph font reference.");
                 editable.FontsManager.ReplaceFont(new FontData("Arial"), new FontData("Noto Sans"));
                 editable.Save("output.pptx", SaveFormat.Pptx);
             }
@@ -45,7 +57,7 @@ internal static class Program
                 var b = result.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "default");
                 Require(a.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont.FontName == "Noto Sans", "Explicit reference was not replaced.");
                 Require(b.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.LatinFont.FontName == "Noto Sans", "Paragraph default was not replaced.");
-                Require(a.TextFrame.Text == "Explicit font" && b.TextFrame.Text == "Paragraph default", "Text changed.");
+                Require(a.TextFrame.Text == Context.ExpectedText("Explicit font") && b.TextFrame.Text == Context.ExpectedText("Paragraph default"), "Text changed.");
                 Render(result.Slides[0], "preview.png");
             }
             Require(Hash("input.pptx") == inputHash, "Original changed.");
@@ -69,7 +81,8 @@ internal static class Program
             string path = Path.Combine("fonts", font.Name);
             if (!File.Exists(path) || Hash(path) != font.Hash)
             {
-                byte[] bytes = client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
+                string bundled = Path.Combine(AppContext.BaseDirectory, "Fonts", font.Name);
+                byte[] bytes = File.Exists(bundled) ? File.ReadAllBytes(bundled) : client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
                 Require(Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant() == font.Hash, "Downloaded font hash differs: " + font.Name);
                 File.WriteAllBytes(path, bytes);
             }
@@ -78,13 +91,6 @@ internal static class Program
         FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
     }
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);

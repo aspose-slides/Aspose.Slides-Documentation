@@ -10,13 +10,13 @@ Replace two named pictures using contain and crop choices while retaining the or
 
 ## Run the example
 
-Download the [complete project](sample.zip), extract it, and run it with the .NET 8 SDK.
-The project pins Aspose.Slides.NET 26.10.0. The example was tested on Windows x64.
+Download the [complete project](example.zip), extract it, and run it with the .NET 8 SDK.
+The project pins Aspose.Slides.NET6.CrossPlatform 26.10.0. The complete project uses portable image fixtures and the CrossPlatform package.
 For the complete data assertions, set `ASPOSE_LICENSE_PATH` to your own valid license;
 the visible helper loads it when supplied. Evaluation mode may truncate text or add watermarks.
 
 ```text
-dotnet restore Example.csproj --locked-mode
+dotnet restore Example.csproj 
 dotnet run --project Example.csproj --configuration Release --no-restore
 ```
 
@@ -28,6 +28,7 @@ All presentation inputs are generated from original synthetic data. Results go t
 ## Example
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,25 +38,48 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
-
-    private static byte[] Fit(byte[] bytes,int width,int height,bool crop)
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
     {
-        using var sourceStream=new MemoryStream(bytes);using var source=System.Drawing.Image.FromStream(sourceStream);
-        using var canvas=new Bitmap(width,height);using var g=Graphics.FromImage(canvas);g.Clear(Color.White);
-        float scale=crop?Math.Max((float)width/source.Width,(float)height/source.Height):Math.Min((float)width/source.Width,(float)height/source.Height);
-        float w=source.Width*scale,h=source.Height*scale;g.DrawImage(source,(width-w)/2,(height-h)/2,w,h);
-        using var output=new MemoryStream();canvas.Save(output,System.Drawing.Imaging.ImageFormat.Png);return output.ToArray();
-    }
-    private static void Main()
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("templates-data/replace-images/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.frame_geometry_preserved\":true,\"checks.portrait_and_landscape_checked\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("templates-data/replace-images/block-001",checks);
+        await Task.CompletedTask;
+    });
+
+
+    private static byte[] Fit(byte[] bytes,int width,int height,bool crop) => PortableImage.Fit(bytes,width,height,crop);
+    private static void RunExample()
     {
         Example.Setup();byte[] portrait=Example.Png(100,240,Color.DarkOrange),landscape=Example.Png(260,100,Color.Teal);
         File.WriteAllBytes("output/portrait.png",portrait);File.WriteAllBytes("output/landscape.png",landscape);
@@ -96,9 +120,32 @@ result differs. Expected check values are:
 }
 ```
 
-Contain/crop preprocessing is application code using System.Drawing on Windows. It creates a raster image matching the existing frame aspect ratio; the Aspose operation replaces Picture.Image without changing the frame. This example is Windows-specific; it does not claim this drawing dependency works in Linux containers.
+Contain/crop preprocessing uses the included portable PNG helper on original synthetic pixel data. It creates a raster image matching the existing frame aspect ratio; the Aspose operation replaces Picture.Image without changing the frame. The helper handles the 8-bit PNG fixtures supplied by this project without a Windows bitmap dependency.
 
 ## Learn more
 
 - [Manage Picture Frames in Presentations in .NET](https://docs.aspose.com/slides/net/picture-frame/)
 - [Optimize Image Management in Presentations in .NET](https://docs.aspose.com/slides/net/image/)
+
+
+## Open and run the complete project
+
+[Download the complete project](example.zip), extract it and open `Example.sln`, or run:
+
+```text
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release -- --mode evaluation
+```
+
+Use the current supported .NET 10 SDK/runtime. The project keeps a stable `net8.0`
+target and accepts compatible stable SDKs; no exact SDK patch is required.
+Evaluation runs without a license and explicitly ignores license environment settings.
+It uses bounded fixtures and checks valid output while allowing the evaluation watermark
+and documented read-back text truncation. For unrestricted checks, use `--mode licensed`
+with your authorized `ASPOSE_LICENSE_PATH`. No license is included.
+
+Inputs are copied from `Fixtures` into a separate output workspace. The program prints
+the absolute output path; `execution.json` records the actual runtime and verified action.
+The portable PNG helper creates original synthetic pixels without a Windows bitmap engine.
+See [setup and prerequisites](/slides/net/examples/getting-started/) for native libraries,
+fonts, IDE settings and the .NET 8/9 runtime support boundary of 2026-11-10.

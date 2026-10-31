@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "article_id": "content-extraction/tables",
+  "archive": "example.zip",
+  "archive_sha256": "eee06f403b908629af0ec6e532e73e3d6da11b90666d69cbd707b67e1bec4598",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Example.cs",
+      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
+      "bytes": 6126
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "PortableImage.cs",
+      "sha256": "1ff56269e28daf566e009e41a33cd406ed793745b97ef80bde6313b2c3bbda39",
+      "bytes": 5750
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "3896a2929221e2d552dba1ca3205ec8d7fe079d8c9d05b9a31c20855c0d4446f",
+      "bytes": 5132
+    },
+    {
+      "path": "README.txt",
+      "sha256": "e1a59691510f7b2b9c2a181da84bb1315d09838b7c6780a8b14a3a23fde5211a",
+      "bytes": 1849
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "d6b414de7b6f8a239e8874ca7286cde2ce7365bde6302c4e514d912006bea2d0",
+      "bytes": 2279
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    }
+  ]
+}

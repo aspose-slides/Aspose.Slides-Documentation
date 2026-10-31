@@ -1,9 +1,34 @@
 # Process Presentations in a Background Worker
 
-Pinned .NET SDK 8.0.427/net8.0, Aspose.Slides.NET 26.10.0 and locked dependencies.
-Set ASPOSE_LICENSE_PATH to your file license for unrestricted output. No license is included.
-The .NET Worker Service snapshots an input folder of PPTX files and queues jobs through a bounded channel. Two consumers each own and dispose a presentation. Every input receives a succeeded, failed or cancelled entry in the final manifest; a corrupt file does not stop later jobs. The loader explicitly requires PPTX rather than treating an arbitrary text file as another supported input format.
+Open Example.sln in a compatible .NET IDE, or run these commands here:
 
-Pass input and output folder paths to run your own batch. Add --self-test to generate three valid decks and one corrupt file, process them through a real Generic Host, then start a second host and request graceful shutdown after the first completed item. Inspect normal-output and shutdown-output manifests. This local queue is held in memory; the manifest identifies unstarted/cancelled jobs for an application-managed retry. It is not a durable message broker.
+    dotnet restore Example.sln
+    dotnet build Example.sln -c Release --no-restore
+    dotnet run --project Example.csproj -c Release --no-build -- --mode evaluation
 
-Run: dotnet run --project Example.csproj --configuration Release -- --self-test
+The stable target is .NET 8 / C# 12. A supported .NET 10 SDK and runtime can build
+and run it; Major runtime roll-forward is explicit. The SDK file accepts installed
+release SDKs from 8.0.100 onward and does not require that exact version.
+.NET 8/9 runtime support ends on 2026-11-10; prefer current LTS .NET 10.
+Normal restore may update its dependency graph; no locked restore is required.
+
+CrossPlatform requires fontconfig, fonts and ICU on glibc Linux; glibc>=2.23 on
+x64 or >=2.39 on ARM64. Windows x86/x64 may require the Visual C++ runtime.
+macOS x64/ARM64 is supported by the package; runtime OS support also applies.
+Alpine/musl and native Windows ARM64 need a separately tested package profile.
+
+Evaluation needs no license. Its watermark and truncated read-back text are
+expected; output checks must still pass. For full text/no watermark, set
+ASPOSE_LICENSE_PATH or pass --mode licensed --license PATH with an authorized
+license covering this release. Explicit --mode evaluation ignores license settings.
+Never include your license, certificate private key or API credentials in the project.
+
+Fixtures are copied from the application Fixtures folder into a separate output
+workspace; originals remain unchanged. The absolute output location is printed.
+Use --output DIRECTORY to choose it. execution.json records each action and the
+actual runtime. Exit 0 means verified actions passed; 1 means failed checks; 2
+means an unmet prerequisite. A prerequisite diagnostic is not a functional pass.
+
+VS Code needs Microsoft's C# extension for the included coreclr launch profile.
+
+Default Run/F5 generates and processes a bounded synthetic batch through the real Generic Host. Pass input/output folders to process your own batch. Add --self-test for cancellation/shutdown/error accounting checks; folder processing is a distinct action from the complete self-test.

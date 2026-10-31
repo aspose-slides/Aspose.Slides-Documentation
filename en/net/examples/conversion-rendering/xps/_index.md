@@ -10,9 +10,9 @@ Save the presentation as an XPS document for fixed-layout viewing. Reopen it wit
 
 ## Run the example
 
-[Download the complete project](example.zip). It includes all source, SDK settings and locked NuGet dependencies. The code creates its own four-slide input with a hidden slide, speaker notes, a table, chart and picture.
+[Download the complete project](example.zip). It includes the solution, source, SDK settings, package configuration and required fixtures. The code creates its own four-slide input with a hidden slide, speaker notes, a table, chart and picture.
 
-These projects were tested on Windows x64 with Arial and the .NET SDK 8.0.427 pinned by global.json. Their synthetic picture generator uses System.Drawing on Windows. For a separately tested Linux environment, see [the Docker converter](/slides/net/examples/application-integration/docker/). Restore the pinned Aspose.Slides.NET package and set `ASPOSE_LICENSE_PATH` to your license file for unrestricted results; evaluation mode adds a watermark and limits extracted text. See [installation](/slides/net/installation/) and [licensing](/slides/net/licensing/).
+This download uses Aspose.Slides.NET6.CrossPlatform 26.10.0, bundled Noto Sans fonts and original portable PNG fixtures. Open the supplied solution with a compatible stable SDK; the current .NET 10 LTS is recommended. Evaluation runs without a license; unrestricted assertions use your authorized license. See [setup and prerequisites](/slides/net/examples/getting-started/) for native dependencies and tool selection.
 
 ```text
 dotnet run --project Example.csproj --configuration Release
@@ -21,6 +21,7 @@ dotnet run --project Example.csproj --configuration Release
 ## Complete C# example
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Linq;
@@ -34,10 +35,40 @@ using Aspose.Slides.SlideShow;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
     {
-        var licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath)) new License().SetLicense(licensePath);
+        Context = ctx;
+        
+        ctx.BeginAction("conversion-rendering/xps/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"xps_created\":true,\"expected_visible_pages\":3}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("conversion-rendering/xps/block-001",checks);
+        await Task.CompletedTask;
+    });
+
+    private static void RunExample()
+    {
         using var source = CreateSource();
         source.Save("source.pptx", SaveFormat.Pptx);
         source.Save("slides.xps", SaveFormat.Xps);
@@ -49,15 +80,16 @@ internal static class Program
         var deck = new Presentation();
         deck.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
         var layout = deck.LayoutSlides.GetByType(SlideLayoutType.Blank);
-        string[] labels = { "Alpha", "Bravo", "Charlie", "Hidden" };
+        string[] labels = Context.IsLicensed ? new[] { "Alpha", "Bravo", "Charlie", "Hidden" } : new[] { "Alpha", "Bravo", "C", "Hide" };
         for (int i = 0; i < labels.Length; i++)
         {
             var slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(layout);
             var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20, 580, 55);
+            shape.Name = "RecipeTitle";
             shape.TextFrame.Text = labels[i];
-            shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("Arial");
+            shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("Noto Sans");
             shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 26;
-            slide.NotesSlideManager.AddNotesSlide().NotesTextFrame.Text = "Speaker note " + labels[i];
+            slide.NotesSlideManager.AddNotesSlide().NotesTextFrame.Text = Context.IsLicensed ? "Speaker note " + labels[i] : labels[i];
             slide.Hidden = i == 3;
         }
         var table = deck.Slides[0].Shapes.AddTable(30, 100, new double[] { 140, 100 }, new double[] { 35, 35 });
@@ -66,15 +98,9 @@ internal static class Program
         table[0, 1].TextFrame.Text = "Pens";
         table[1, 1].TextFrame.Text = "12";
         deck.Slides[1].Shapes.AddChart(ChartType.ClusteredColumn, 30, 100, 400, 220);
-        using (var bitmap = new Bitmap(100, 60))
-        {
-            using (var graphics = Graphics.FromImage(bitmap)) graphics.Clear(Color.CornflowerBlue);
-            using var stream = new MemoryStream();
-            bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-            var image = deck.Images.AddImage(stream.ToArray());
-            deck.Slides[2].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 120, 200, 120, image);
-        }
-        deck.Slides[0].Timeline.MainSequence.AddEffect(deck.Slides[0].Shapes[0], EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
+        var image = deck.Images.AddImage(PortableImage.Png(100,60,Color.CornflowerBlue));
+        deck.Slides[2].Shapes.AddPictureFrame(ShapeType.Rectangle,50,120,200,120,image);
+        deck.Slides[0].Timeline.MainSequence.AddEffect(deck.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "RecipeTitle"), EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
         deck.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
         return deck;
     }
@@ -90,6 +116,29 @@ internal static class Program
 
 ## Expected result
 
-The program writes "slides.xps" beside the project, plus the synthetic source.pptx and a result.json summary. Inspect the rendered/exported files with the viewer appropriate to the format. Input generation is visible in CreateSource; replace it with opening your own presentation when adapting the example.
+The program writes "slides.xps" in the printed output directory, plus the synthetic source.pptx and a result.json summary. Inspect the rendered/exported files with the viewer appropriate to the format. Input generation is visible in CreateSource; replace it with opening your own presentation when adapting the example.
 
 Continue with the [detailed guide](/slides/net/convert-powerpoint-to-xps/).
+
+
+## Open and run the complete project
+
+[Download the complete project](example.zip), extract it and open `Example.sln`, or run:
+
+```text
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release -- --mode evaluation
+```
+
+Use the current supported .NET 10 SDK/runtime. The project keeps a stable `net8.0`
+target and accepts compatible stable SDKs; no exact SDK patch is required.
+Evaluation runs without a license and explicitly ignores license environment settings.
+It uses bounded fixtures and checks valid output while allowing the evaluation watermark
+and documented read-back text truncation. For unrestricted checks, use `--mode licensed`
+with your authorized `ASPOSE_LICENSE_PATH`. No license is included.
+
+Inputs are copied from `Fixtures` into a separate output workspace. The program prints
+the absolute output path; `execution.json` records the actual runtime and verified action.
+The portable PNG helper creates original synthetic pixels without a Windows bitmap engine.
+See [setup and prerequisites](/slides/net/examples/getting-started/) for native libraries,
+fonts, IDE settings and the .NET 8/9 runtime support boundary of 2026-11-10.

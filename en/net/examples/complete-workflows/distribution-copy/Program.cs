@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Linq;
@@ -12,10 +13,18 @@ using Aspose.Slides.Vba;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        var path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) new License().SetLicense(path);
+        Context = context;
+        context.BeginAction("complete-workflows/distribution-copy/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("complete-workflows/distribution-copy/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         using (var input = Deck("Quarterly update", "Public summary"))
         {
             input.DocumentProperties.Author = "Example internal author"; input.DocumentProperties.SetCustomPropertyValue("ReviewStatus", "Draft");
@@ -73,7 +82,7 @@ internal static class Program
         foreach (var portion in paragraph.Portions)
         {
             portion.PortionFormat.FontHeight = 24;
-            portion.PortionFormat.LatinFont = new FontData("Arial");
+            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
         }

@@ -1,0 +1,71 @@
+name: .NET example downloads
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'en/net/examples/**'
+      - 'tools/examples-net/**'
+      - '.github/workflows/examples-net.yml'
+  pull_request:
+    paths:
+      - 'en/net/examples/**'
+      - 'tools/examples-net/**'
+      - '.github/workflows/examples-net.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: examples-net-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  downloads:
+    name: ${{ matrix.runner }} / .NET 10
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [windows-2025, ubuntu-24.04, ubuntu-24.04-arm, macos-15, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 90
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: '1'
+      DOTNET_NOLOGO: '1'
+      DOTNET_INSTALL_DIR: ${{ runner.temp }}/dotnet-examples
+      DOTNET_ROOT: ${{ runner.temp }}/dotnet-examples
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            en/net/examples
+            tools/examples-net
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Linux rendering dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libfontconfig1 fonts-dejavu-core libicu74
+      - name: macOS rendering dependencies
+        if: runner.os == 'macOS'
+        run: brew list fontconfig >/dev/null 2>&1 || brew install fontconfig
+      - name: Verify download checker
+        run: python -m unittest discover -s tools/examples-net -p test_verify.py
+      - name: Record isolated SDK and runtimes
+        run: dotnet --info
+      - name: Restore, build and run fresh downloads
+        run: python tools/examples-net/verify.py --out artifacts/examples.json --work-root "${{ runner.temp }}/fresh examples" --require-runtime-major 10 --require-architecture "${{ runner.arch }}" --workers 2
+      - name: Preserve result and diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: examples-net-${{ matrix.runner }}
+          path: |
+            artifacts/examples.json
+            ${{ runner.temp }}/fresh examples/**/*.log
+          if-no-files-found: warn
+          retention-days: 14

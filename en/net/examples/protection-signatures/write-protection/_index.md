@@ -13,19 +13,31 @@ keywords:
 
 Set and remove edit-password protection and read-only recommendations while distinguishing them from encryption.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Input and prerequisites
 
-Use .NET SDK 8.0.427 and Aspose.Slides for .NET 26.10.0 with the supplied pinned project. Set **ASPOSE_LICENSE_PATH** to your own valid license file; no license file is distributed. This complete fixture stops clearly when no license has been applied.
+Use a supported .NET SDK with the supplied project. Evaluation mode runs without a license; licensed mode requires your own authorized license covering this release. No license is distributed.
 
 All presentation input is created by the code from original synthetic data.
 
-[Download the complete project](example.zip), including code, project and package lock. It was executed on Windows.
+[Download the complete project](example.zip), including code, solution, project and required helpers. Normal package restore is supported.
 
 ## Example
 
 The program sets an edit password on one copy and read-only recommendation on another. Both files are opened without an opening password, demonstrating that these controls are different from encryption. It checks the edit password before removing the protection.
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -44,9 +56,18 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("protection-signatures/write-protection/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("protection-signatures/write-protection/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         const string editPassword = "edit-demo";
         using (var original = new Presentation())
         {
@@ -83,13 +104,6 @@ internal static class Program
     }
 
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);
@@ -121,8 +135,8 @@ internal static class Program
 Extract the download into an empty directory and run:
 
 ```text
-dotnet restore Example.csproj --locked-mode
-dotnet run --project Example.csproj --configuration Release --no-restore
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release --no-restore -- --mode evaluation -- --mode evaluation
 ```
 
 The code writes "original.pptx", "edit-protected.pptx", "read-only.pptx", "unprotected.pptx", plus "result.json". Checks stop execution on an unexpected result; inspect visual outputs as well as the recorded data.

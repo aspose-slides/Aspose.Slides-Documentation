@@ -14,15 +14,46 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context=context;
+        string actionId=context.Arguments.Contains("--configured-only")?"ai/providers/configured-only":"ai/providers/block-001";
+        context.BeginAction(actionId);
+
+        context.Prerequisite(context.IsLicensed,"Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
+        context.Prerequisite(context.Arguments.Contains("--allow-network"),"This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
+        foreach(string name in new[]{"SLIDES_AI_BASE_URL","SLIDES_AI_MODEL","SLIDES_AI_API_KEY"})context.Prerequisite(!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(name)),"Set "+name+" for your authorized configured provider. No requests were sent.");
+
+        int code=await RunExample(context.Arguments);
+        context.Require(code==0,"The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
+        VerifyResult(actionId);
+    });
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"providers_checked\":2,\"configured_provider_succeeded\":true,\"reopened_text_matches\":true}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
     private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
     private static readonly ConcurrentBag<RequestResult> Requests = new();
 
-    private static async Task<int> Main(string[] args)
+    private static async Task<int> RunExample(string[] args)
     {
         try
         {
-            string licensePath = Required("ASPOSE_LICENSE_PATH");
-            new License().SetLicense(licensePath);
             string baseUrl = Required("SLIDES_AI_BASE_URL");
             string model = Required("SLIDES_AI_MODEL");
             string key = Required("SLIDES_AI_API_KEY");

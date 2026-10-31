@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,9 +17,18 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("fonts-text/multilingual-text/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("fonts-text/multilingual-text/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         PrepareFonts(true);
         try
         {
@@ -46,15 +56,16 @@ internal static class Program
             }
             using var result = new Presentation("output.pptx");
             var shapes = result.Slides[0].Shapes.OfType<IAutoShape>().ToDictionary(s => s.Name);
-            Require(shapes["arabic"].TextFrame.Text == arabic && shapes["mixed"].TextFrame.Text == mixed && shapes["chinese"].TextFrame.Text == chinese, "Unicode text changed.");
+            Require(shapes["arabic"].TextFrame.Text == Context.ExpectedText(arabic) && shapes["mixed"].TextFrame.Text == Context.ExpectedText(mixed) && shapes["chinese"].TextFrame.Text == Context.ExpectedText(chinese), "Unicode text changed.");
             Require(shapes["arabic"].TextFrame.Paragraphs[0].ParagraphFormat.RightToLeft == NullableBool.True, "RTL setting was lost.");
             Render(result.Slides[0], "preview.png");
             Require(shapes["chinese"].TextFrame.Paragraphs[0].GetLinesCount() > 1, "Chinese text did not wrap.");
-            foreach (var shape in shapes.Values)
+            foreach (var shape in new[] { shapes["arabic"], shapes["mixed"], shapes["chinese"] })
             {
                 RectangleF bounds = shape.TextFrame.Paragraphs[0].GetRect();
                 Require(bounds.Width <= shape.Width + 1 && bounds.Height <= shape.Height + 1, "Text overflows " + shape.Name);
             }
+            Require(new[] { arabic, mixed, chinese }.All(text => SavedText("output.pptx").Contains(text)), "Persisted Unicode text differs.");
             Report(new { unicode_retained = true, rtl_enabled = true, cjk_wrapped = true, bounds_fit = true });
         }
         finally { FontsLoader.ClearCache(); }
@@ -75,7 +86,8 @@ internal static class Program
             string path = Path.Combine("fonts", font.Name);
             if (!File.Exists(path) || Hash(path) != font.Hash)
             {
-                byte[] bytes = client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
+                string bundled = Path.Combine(AppContext.BaseDirectory, "Fonts", font.Name);
+                byte[] bytes = File.Exists(bundled) ? File.ReadAllBytes(bundled) : client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
                 Require(Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant() == font.Hash, "Downloaded font hash differs: " + font.Name);
                 File.WriteAllBytes(path, bytes);
             }
@@ -84,13 +96,6 @@ internal static class Program
         FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
     }
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);
@@ -114,4 +119,14 @@ internal static class Program
         using var image = slide.GetImage(new Size(640, 360));
         image.Save(output, Aspose.Slides.ImageFormat.Png);
     }
+
+    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
+    private static string[] SavedText(string file)
+    {
+        using var archive = ZipFile.OpenRead(file);
+        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
+            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
+    }
+
 }

@@ -13,10 +13,40 @@ using Microsoft.Extensions.Hosting;
 
 internal static class Program
 {
-    private static async Task Main(string[] args)
+    private static ExampleContext Context = null!;
+    private static string LaunchDirectory = "";
+    private static Task<int> Main(string[] args)
     {
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath)) new License().SetLicense(licensePath);
+        LaunchDirectory=Environment.CurrentDirectory;
+        return ExampleBootstrap.RunAsync(args, async context =>
+        {
+            Context=context;
+            string actionId=context.Arguments.Contains("--self-test")?"application-integration/background-worker/block-001":"application-integration/background-worker/process-folder";
+            context.BeginAction(actionId);
+            await RunExample(context.Arguments);
+            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
+        });
+    }
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"mixed_jobs\":4,\"successful_jobs\":3,\"failed_jobs\":1,\"shutdown_accounted_for_every_job\":true,\"cancellation_recorded\":true,\"queue_capacity\":2,\"concurrency\":2,\"active_conversion_cancelled\":true,\"partial_output_removed\":true}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
+    private static async Task RunExample(string[] args)
+    {
         bool selfTest = args.Contains("--self-test");
         if (selfTest)
         {
@@ -38,9 +68,14 @@ internal static class Program
             Console.WriteLine(json);
             return;
         }
-        string input = args.Length > 0 ? args[0] : "input";
-        string output = args.Length > 1 ? args[1] : "output";
+        if(args.Length==0)PrepareInput("input");
+        string input = args.Length > 0 ? Path.GetFullPath(args[0],LaunchDirectory) : "input";
+        Context.Prerequisite(Directory.Exists(input),"The input folder does not exist. Pass a real PPTX input folder, or run without folder arguments for the synthetic local batch.");
+        string output = args.Length > 1 ? Path.GetFullPath(args[1],LaunchDirectory) : "output";
         await Run(input, output, stopAfter: 0);
+        var processed=JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync(Path.Combine(output,"manifest.json")))!;
+        Context.Require(processed.Length>0&&processed.All(j=>j.State is "succeeded" or "failed" or "cancelled"),"Every queued input needs a final outcome.");
+        Context.Pass("application-integration/background-worker/process-folder","real Generic Host batch completed","every input accounted for");
     }
 
     private static async Task Run(string input, string output, int stopAfter, bool stopDuringActive = false)

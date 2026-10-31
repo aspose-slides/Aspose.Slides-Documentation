@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "article_id": "presentations/watermarks",
+  "archive": "example.zip",
+  "archive_sha256": "103e80612bc6ea6f74462ddd03d765c69d1d57db7ba6c9990f72dc1028620078",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "c7ac3ca36d2ccb1078046dd4afdb90d79353929a183ab8cfe5cb67de56ffbee6",
+      "bytes": 7427
+    },
+    {
+      "path": "README.txt",
+      "sha256": "ce9a81b57e3e8af6a0fff794d8742319ccfe4a9140414db68603c3d28d2eaae7",
+      "bytes": 1858
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "aac2e6e17266b21539f8230daaaac1f4d498f215a5e8c59c1de3c403a26079c5",
+      "bytes": 2449
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    },
+    {
+      "path": "preview-image-1.png",
+      "sha256": "90fafa9896ffdcecc1b3ca83bd95767684078bbde2c041b8c8ff153fc4425efd",
+      "bytes": 9398
+    },
+    {
+      "path": "preview-image-2.png",
+      "sha256": "191d02c92c2fe9a4d030cc7dbafe2739be893dc957ba589dc65595047a2118e2",
+      "bytes": 8441
+    },
+    {
+      "path": "preview-text.png",
+      "sha256": "187aef080c43753eb95695b5043e81a91b71c863254bad41baa4863f30442408",
+      "bytes": 7918
+    }
+  ]
+}

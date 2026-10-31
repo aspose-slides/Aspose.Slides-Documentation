@@ -1,0 +1,834 @@
+{
+  "schema_version": 1,
+  "article_count": 77,
+  "original_block_count": 143,
+  "elements_article_count": 24,
+  "elements_block_count": 90,
+  "articles": {
+    "ai/generate": {
+      "url": "/net/examples/ai/generate/",
+      "actions": [
+        "ai/generate/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "ai/providers": {
+      "url": "/net/examples/ai/providers/",
+      "actions": [
+        "ai/providers/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "ai/templates-style": {
+      "url": "/net/examples/ai/templates-style/",
+      "actions": [
+        "ai/templates-style/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "ai/translate": {
+      "url": "/net/examples/ai/translate/",
+      "actions": [
+        "ai/translate/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "application-integration/background-worker": {
+      "url": "/net/examples/application-integration/background-worker/",
+      "actions": [
+        "application-integration/background-worker/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "application-integration/docker": {
+      "url": "/net/examples/application-integration/docker/",
+      "actions": [
+        "application-integration/docker/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "application-integration/web-api": {
+      "url": "/net/examples/application-integration/web-api/",
+      "actions": [
+        "application-integration/web-api/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "complete-workflows/customer-proposal": {
+      "url": "/net/examples/complete-workflows/customer-proposal/",
+      "actions": [
+        "complete-workflows/customer-proposal/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "complete-workflows/distribution-copy": {
+      "url": "/net/examples/complete-workflows/distribution-copy/",
+      "actions": [
+        "complete-workflows/distribution-copy/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "complete-workflows/monthly-report": {
+      "url": "/net/examples/complete-workflows/monthly-report/",
+      "actions": [
+        "complete-workflows/monthly-report/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "complete-workflows/thumbnail-gallery": {
+      "url": "/net/examples/complete-workflows/thumbnail-gallery/",
+      "actions": [
+        "complete-workflows/thumbnail-gallery/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "content-extraction/chart-data": {
+      "url": "/net/examples/content-extraction/chart-data/",
+      "actions": [
+        "content-extraction/chart-data/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "content-extraction/images": {
+      "url": "/net/examples/content-extraction/images/",
+      "actions": [
+        "content-extraction/images/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "content-extraction/media-embedded-files": {
+      "url": "/net/examples/content-extraction/media-embedded-files/",
+      "actions": [
+        "content-extraction/media-embedded-files/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "content-extraction/tables": {
+      "url": "/net/examples/content-extraction/tables/",
+      "actions": [
+        "content-extraction/tables/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "content-extraction/text-notes": {
+      "url": "/net/examples/content-extraction/text-notes/",
+      "actions": [
+        "content-extraction/text-notes/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/animated-gif": {
+      "url": "/net/examples/conversion-rendering/animated-gif/",
+      "actions": [
+        "conversion-rendering/animated-gif/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/html": {
+      "url": "/net/examples/conversion-rendering/html/",
+      "actions": [
+        "conversion-rendering/html/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/images": {
+      "url": "/net/examples/conversion-rendering/images/",
+      "actions": [
+        "conversion-rendering/images/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/markdown": {
+      "url": "/net/examples/conversion-rendering/markdown/",
+      "actions": [
+        "conversion-rendering/markdown/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/notes-handouts": {
+      "url": "/net/examples/conversion-rendering/notes-handouts/",
+      "actions": [
+        "conversion-rendering/notes-handouts/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/pdf": {
+      "url": "/net/examples/conversion-rendering/pdf/",
+      "actions": [
+        "conversion-rendering/pdf/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/pdf-compliance": {
+      "url": "/net/examples/conversion-rendering/pdf-compliance/",
+      "actions": [
+        "conversion-rendering/pdf-compliance/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/pdf-import": {
+      "url": "/net/examples/conversion-rendering/pdf-import/",
+      "actions": [
+        "conversion-rendering/pdf-import/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/presentation-formats": {
+      "url": "/net/examples/conversion-rendering/presentation-formats/",
+      "actions": [
+        "conversion-rendering/presentation-formats/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/svg": {
+      "url": "/net/examples/conversion-rendering/svg/",
+      "actions": [
+        "conversion-rendering/svg/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "conversion-rendering/xps": {
+      "url": "/net/examples/conversion-rendering/xps/",
+      "actions": [
+        "conversion-rendering/xps/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "elements/activex": {
+      "url": "/net/examples/elements/activex/",
+      "actions": [
+        "elements/activex/block-001",
+        "elements/activex/block-002",
+        "elements/activex/block-003",
+        "elements/activex/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/animation": {
+      "url": "/net/examples/elements/animation/",
+      "actions": [
+        "elements/animation/block-001",
+        "elements/animation/block-002",
+        "elements/animation/block-003",
+        "elements/animation/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/audio": {
+      "url": "/net/examples/elements/audio/",
+      "actions": [
+        "elements/audio/block-001",
+        "elements/audio/block-002",
+        "elements/audio/block-003",
+        "elements/audio/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/chart": {
+      "url": "/net/examples/elements/chart/",
+      "actions": [
+        "elements/chart/block-001",
+        "elements/chart/block-002",
+        "elements/chart/block-003",
+        "elements/chart/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/comment": {
+      "url": "/net/examples/elements/comment/",
+      "actions": [
+        "elements/comment/block-001",
+        "elements/comment/block-002",
+        "elements/comment/block-003",
+        "elements/comment/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/connector": {
+      "url": "/net/examples/elements/connector/",
+      "actions": [
+        "elements/connector/block-001",
+        "elements/connector/block-002",
+        "elements/connector/block-003",
+        "elements/connector/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/group-shape": {
+      "url": "/net/examples/elements/group-shape/",
+      "actions": [
+        "elements/group-shape/block-001",
+        "elements/group-shape/block-002",
+        "elements/group-shape/block-003",
+        "elements/group-shape/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/header-footer": {
+      "url": "/net/examples/elements/header-footer/",
+      "actions": [
+        "elements/header-footer/block-001",
+        "elements/header-footer/block-002"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs"
+      ]
+    },
+    "elements/hyperlink": {
+      "url": "/net/examples/elements/hyperlink/",
+      "actions": [
+        "elements/hyperlink/block-001",
+        "elements/hyperlink/block-002",
+        "elements/hyperlink/block-003",
+        "elements/hyperlink/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/ink": {
+      "url": "/net/examples/elements/ink/",
+      "actions": [
+        "elements/ink/block-001",
+        "elements/ink/block-002"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs"
+      ]
+    },
+    "elements/layout-slide": {
+      "url": "/net/examples/elements/layout-slide/",
+      "actions": [
+        "elements/layout-slide/block-001",
+        "elements/layout-slide/block-002",
+        "elements/layout-slide/block-003",
+        "elements/layout-slide/block-004",
+        "elements/layout-slide/block-005"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs",
+        "Case05.cs"
+      ]
+    },
+    "elements/master-slide": {
+      "url": "/net/examples/elements/master-slide/",
+      "actions": [
+        "elements/master-slide/block-001",
+        "elements/master-slide/block-002",
+        "elements/master-slide/block-003",
+        "elements/master-slide/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/math-text": {
+      "url": "/net/examples/elements/math-text/",
+      "actions": [
+        "elements/math-text/block-001",
+        "elements/math-text/block-002",
+        "elements/math-text/block-003",
+        "elements/math-text/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/note": {
+      "url": "/net/examples/elements/note/",
+      "actions": [
+        "elements/note/block-001",
+        "elements/note/block-002",
+        "elements/note/block-003",
+        "elements/note/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/ole-object": {
+      "url": "/net/examples/elements/ole-object/",
+      "actions": [
+        "elements/ole-object/block-001",
+        "elements/ole-object/block-002",
+        "elements/ole-object/block-003",
+        "elements/ole-object/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/picture": {
+      "url": "/net/examples/elements/picture/",
+      "actions": [
+        "elements/picture/block-001",
+        "elements/picture/block-002"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs"
+      ]
+    },
+    "elements/section": {
+      "url": "/net/examples/elements/section/",
+      "actions": [
+        "elements/section/block-001",
+        "elements/section/block-002",
+        "elements/section/block-003",
+        "elements/section/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/slide": {
+      "url": "/net/examples/elements/slide/",
+      "actions": [
+        "elements/slide/block-001",
+        "elements/slide/block-002",
+        "elements/slide/block-003",
+        "elements/slide/block-004",
+        "elements/slide/block-005"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs",
+        "Case05.cs"
+      ]
+    },
+    "elements/slide-transition": {
+      "url": "/net/examples/elements/slide-transition/",
+      "actions": [
+        "elements/slide-transition/block-001",
+        "elements/slide-transition/block-002",
+        "elements/slide-transition/block-003",
+        "elements/slide-transition/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/smart-art": {
+      "url": "/net/examples/elements/smart-art/",
+      "actions": [
+        "elements/smart-art/block-001",
+        "elements/smart-art/block-002",
+        "elements/smart-art/block-003",
+        "elements/smart-art/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/table": {
+      "url": "/net/examples/elements/table/",
+      "actions": [
+        "elements/table/block-001",
+        "elements/table/block-002",
+        "elements/table/block-003",
+        "elements/table/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "elements/text-box": {
+      "url": "/net/examples/elements/text-box/",
+      "actions": [
+        "elements/text-box/block-001",
+        "elements/text-box/block-002",
+        "elements/text-box/block-003"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs"
+      ]
+    },
+    "elements/vba-macro": {
+      "url": "/net/examples/elements/vba-macro/",
+      "actions": [
+        "elements/vba-macro/block-001",
+        "elements/vba-macro/block-002",
+        "elements/vba-macro/block-003"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs"
+      ]
+    },
+    "elements/video": {
+      "url": "/net/examples/elements/video/",
+      "actions": [
+        "elements/video/block-001",
+        "elements/video/block-002",
+        "elements/video/block-003",
+        "elements/video/block-004"
+      ],
+      "sources": [
+        "Case01.cs",
+        "Case02.cs",
+        "Case03.cs",
+        "Case04.cs"
+      ]
+    },
+    "fonts-text/custom-fonts": {
+      "url": "/net/examples/fonts-text/custom-fonts/",
+      "actions": [
+        "fonts-text/custom-fonts/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "fonts-text/embed-fonts": {
+      "url": "/net/examples/fonts-text/embed-fonts/",
+      "actions": [
+        "fonts-text/embed-fonts/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "fonts-text/find-replace": {
+      "url": "/net/examples/fonts-text/find-replace/",
+      "actions": [
+        "fonts-text/find-replace/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "fonts-text/multilingual-text": {
+      "url": "/net/examples/fonts-text/multilingual-text/",
+      "actions": [
+        "fonts-text/multilingual-text/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "fonts-text/replace-fonts": {
+      "url": "/net/examples/fonts-text/replace-fonts/",
+      "actions": [
+        "fonts-text/replace-fonts/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/batch-conversion": {
+      "url": "/net/examples/optimization-batch/batch-conversion/",
+      "actions": [
+        "optimization-batch/batch-conversion/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/cleanup": {
+      "url": "/net/examples/optimization-batch/cleanup/",
+      "actions": [
+        "optimization-batch/cleanup/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/compression": {
+      "url": "/net/examples/optimization-batch/compression/",
+      "actions": [
+        "optimization-batch/compression/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/large-media": {
+      "url": "/net/examples/optimization-batch/large-media/",
+      "actions": [
+        "optimization-batch/large-media/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/progress-cancellation": {
+      "url": "/net/examples/optimization-batch/progress-cancellation/",
+      "actions": [
+        "optimization-batch/progress-cancellation/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "optimization-batch/warnings": {
+      "url": "/net/examples/optimization-batch/warnings/",
+      "actions": [
+        "optimization-batch/warnings/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/create-open-save": {
+      "url": "/net/examples/presentations/create-open-save/",
+      "actions": [
+        "presentations/create-open-save/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/merge": {
+      "url": "/net/examples/presentations/merge/",
+      "actions": [
+        "presentations/merge/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/properties": {
+      "url": "/net/examples/presentations/properties/",
+      "actions": [
+        "presentations/properties/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/split": {
+      "url": "/net/examples/presentations/split/",
+      "actions": [
+        "presentations/split/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/streams": {
+      "url": "/net/examples/presentations/streams/",
+      "actions": [
+        "presentations/streams/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "presentations/watermarks": {
+      "url": "/net/examples/presentations/watermarks/",
+      "actions": [
+        "presentations/watermarks/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "protection-signatures/digital-signatures": {
+      "url": "/net/examples/protection-signatures/digital-signatures/",
+      "actions": [
+        "protection-signatures/digital-signatures/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "protection-signatures/passwords": {
+      "url": "/net/examples/protection-signatures/passwords/",
+      "actions": [
+        "protection-signatures/passwords/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "protection-signatures/pdf-security": {
+      "url": "/net/examples/protection-signatures/pdf-security/",
+      "actions": [
+        "protection-signatures/pdf-security/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "protection-signatures/write-protection": {
+      "url": "/net/examples/protection-signatures/write-protection/",
+      "actions": [
+        "protection-signatures/write-protection/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "templates-data/fill-placeholders": {
+      "url": "/net/examples/templates-data/fill-placeholders/",
+      "actions": [
+        "templates-data/fill-placeholders/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "templates-data/populate-charts": {
+      "url": "/net/examples/templates-data/populate-charts/",
+      "actions": [
+        "templates-data/populate-charts/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "templates-data/populate-tables": {
+      "url": "/net/examples/templates-data/populate-tables/",
+      "actions": [
+        "templates-data/populate-tables/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "templates-data/repeat-slides": {
+      "url": "/net/examples/templates-data/repeat-slides/",
+      "actions": [
+        "templates-data/repeat-slides/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    },
+    "templates-data/replace-images": {
+      "url": "/net/examples/templates-data/replace-images/",
+      "actions": [
+        "templates-data/replace-images/block-001"
+      ],
+      "sources": [
+        "Program.cs"
+      ]
+    }
+  }
+}

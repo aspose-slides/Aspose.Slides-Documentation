@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,6 +11,16 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("presentations/merge/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/merge/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private static void CreateDeck(string path, string prefix, Color color)
     {
         using var deck = new Presentation();
@@ -36,9 +47,8 @@ internal static class Program
         Require(result.Slides.Select(Text).SequenceEqual(expected), "Wrong slide order in " + path);
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         CreateDeck("blue.pptx", "A", Color.LightBlue);
         CreateDeck("green.pptx", "B", Color.LightGreen);
         string blueHash = Hash("blue.pptx"), greenHash = Hash("green.pptx");
@@ -56,7 +66,7 @@ internal static class Program
         {
             Require(merged.Slides[0].LayoutSlide.MasterSlide.Background.FillFormat.SolidFillColor.Color.ToArgb() == Color.LightBlue.ToArgb(), "Blue master was lost.");
             Require(merged.Slides[3].LayoutSlide.MasterSlide.Background.FillFormat.SolidFillColor.Color.ToArgb() == Color.LightGreen.ToArgb(), "Green master was lost.");
-            Require(merged.Slides[3].NotesSlideManager.NotesSlide.NotesTextFrame.Text.Contains("Notes for B1"), "Speaker notes were lost.");
+            Require(merged.Slides[3].NotesSlideManager.NotesSlide.NotesTextFrame.Text.Contains(Context.ExpectedText("Notes for B1")), "Speaker notes were lost.");
             using var first = merged.Slides[0].GetImage(new Size(640, 360));
             first.Save("source-design-blue.png", Aspose.Slides.ImageFormat.Png);
             using var fourth = merged.Slides[3].GetImage(new Size(640, 360));
@@ -90,14 +100,6 @@ internal static class Program
         Report(new { merged_slides = 6, selected_slides = 2, order_verified = true, source_masters_retained = true, destination_layout_applied = true, notes_retained = true, originals_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -113,7 +115,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

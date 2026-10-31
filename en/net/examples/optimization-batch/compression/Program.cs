@@ -11,7 +11,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
@@ -19,18 +18,43 @@ using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
-
-    private static double MeanDifference(string first,string second)
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
     {
-        using var a=new Bitmap(first);using var b=new Bitmap(second);double total=0;
-        Example.Require(a.Size==b.Size,"Render dimensions differ.");
-        for(int y=0;y<a.Height;y+=3)for(int x=0;x<a.Width;x+=3){var c=a.GetPixel(x,y);var d=b.GetPixel(x,y);total+=Math.Abs(c.R-d.R)+Math.Abs(c.G-d.G)+Math.Abs(c.B-d.B);}
-        return total/(Math.Ceiling(a.Width/3.0)*Math.Ceiling(a.Height/3.0)*3);
-    }
-    private static void Main()
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("optimization-batch/compression/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.fixture_shrank\":true,\"checks.geometry_preserved\":true,\"checks.render_difference_within_limit\":true,\"checks.reopened\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("optimization-batch/compression/block-001",checks);
+        await Task.CompletedTask;
+    });
+
+
+    private static double MeanDifference(string first,string second) => PortableImage.Difference(first,second);
+    private static void RunExample()
     {
         Example.Setup();using(var p=new Presentation())
         {Example.Text(p.Slides[0].Shapes,"Title","Reduce an oversized raster image",30,20,620,60);

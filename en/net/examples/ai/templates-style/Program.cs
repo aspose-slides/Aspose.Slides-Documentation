@@ -14,15 +14,45 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context=context;
+        string actionId="ai/templates-style/block-001";
+        context.BeginAction(actionId);
+
+        context.Prerequisite(context.IsLicensed,"Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
+        context.Prerequisite(context.Arguments.Contains("--allow-network"),"This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
+
+        int code=await RunExample(context.Arguments);
+        context.Require(code==0,"The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
+        VerifyResult(actionId);
+    });
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"designs_checked\":2,\"theme_and_font_retained\":true,\"source_files_unchanged\":true}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
     private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
     private static readonly ConcurrentBag<RequestResult> Requests = new();
 
-    private static async Task<int> Main(string[] args)
+    private static async Task<int> RunExample(string[] args)
     {
         try
         {
-            string licensePath = Required("ASPOSE_LICENSE_PATH");
-            new License().SetLicense(licensePath);
             int completed = 0;
             foreach (string kind in new[] { "template", "existing-style" })
             {
@@ -31,8 +61,8 @@ internal static class Program
                 using (var design = new Presentation())
                 {
                     design.MasterTheme.ColorScheme.Accent1.Color = accent;
-                    design.MasterTheme.FontScheme.Major.LatinFont = new FontData("Arial");
-                    design.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
+                    design.MasterTheme.FontScheme.Major.LatinFont = new FontData("Noto Sans");
+                    design.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Noto Sans");
                     design.Masters[0].Background.Type = BackgroundType.OwnBackground;
                     design.Masters[0].Background.FillFormat.FillType = FillType.Solid;
                     design.Masters[0].Background.FillFormat.SolidFillColor.Color = Color.FromArgb(240, 246, 248);
@@ -53,7 +83,7 @@ internal static class Program
                 using IPresentation generated = await new SlidesAIAgent(client).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief, template);
                 VerifyGenerated(generated, kind + "-generated.pptx");
                 Require(generated.MasterTheme.ColorScheme.Accent1.Color.ToArgb() == accent.ToArgb(), "Expected source theme color.");
-                Require(generated.MasterTheme.FontScheme.Major.LatinFont.FontName == "Arial", "Expected source font scheme.");
+                Require(generated.MasterTheme.FontScheme.Major.LatinFont.FontName == "Noto Sans", "Expected source font scheme.");
                 Require(sourceHash.SequenceEqual(System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes(sourcePath))), "Design source changed.");
                 using var retainedSource = new Presentation(sourcePath);
                 Require(retainedSource.Slides.Count == 1, "Stored design source gained generated slides.");

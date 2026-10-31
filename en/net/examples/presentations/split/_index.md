@@ -13,17 +13,29 @@ keywords:
 
 Save individual slides, a selected range, or named sections to separate presentation files.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Input and prerequisites
 
-The code creates its own synthetic input; no presentation or image download is required. Use .NET 8 SDK 8.0.427 and Aspose.Slides for .NET 26.10.0; the supplied project pins these versions and was tested on Windows. Set the **ASPOSE_LICENSE_PATH** environment variable to your own valid license file to run every assertion in this complete example. Evaluation limits can change the saved content, so the program fails clearly when no license has been applied.
+The code creates its own synthetic input. Use a compatible stable SDK with the included Aspose.Slides.NET6.CrossPlatform 26.10.0 project; .NET 10 LTS is recommended. Evaluation mode performs the recipe without a license and retains the SDK watermark and text limits. Licensed mode additionally checks unrestricted content using your authorized license.
 
-[Download the complete project](example.zip), including the pinned project, package lock and the code below. The license file is not included.
+[Download the complete project](example.zip), including the solution, source, configuration and bundled fonts. No license is distributed.
 
 ## Example
 
 The selection helper accepts zero-based slide indices, clones them in the requested order, and reopens each result. The fixture deliberately uses duplicate section names. A numeric section prefix keeps filenames unique after invalid characters have been replaced.
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,6 +48,16 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("presentations/split/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/split/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private static string SafeName(string value)
     {
         char[] invalid = Path.GetInvalidFileNameChars();
@@ -56,9 +78,8 @@ internal static class Program
         Require(reopened.Slides.Select(Text).SequenceEqual(indices.Select(i => Text(input.Slides[i]))), "Wrong split content/order.");
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         Directory.CreateDirectory("outputs");
         using (var created = new Presentation())
         {
@@ -94,14 +115,6 @@ internal static class Program
         Report(new { individual_files = 3, range_slides = 2, section_files = 2, first_last_verified = true, duplicate_names_safe = true, invalid_rejected = invalidRejected, empty_rejected = emptyRejected, original_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -117,7 +130,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

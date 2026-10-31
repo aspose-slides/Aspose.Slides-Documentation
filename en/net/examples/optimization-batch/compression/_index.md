@@ -10,13 +10,13 @@ Compress an intentionally oversized picture at 96 DPI, save a new presentation a
 
 ## Run the example
 
-Download the [complete project](sample.zip), extract it, and run it with the .NET 8 SDK.
-The project pins Aspose.Slides.NET 26.10.0. The example was tested on Windows x64.
+Download the [complete project](example.zip), extract it, and run it with the .NET 8 SDK.
+The project pins Aspose.Slides.NET6.CrossPlatform 26.10.0. The complete project uses portable image fixtures and the CrossPlatform package.
 For the complete data assertions, set `ASPOSE_LICENSE_PATH` to your own valid license;
 the visible helper loads it when supplied. Evaluation mode may truncate text or add watermarks.
 
 ```text
-dotnet restore Example.csproj --locked-mode
+dotnet restore Example.csproj 
 dotnet run --project Example.csproj --configuration Release --no-restore
 ```
 
@@ -41,7 +41,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
@@ -49,18 +48,43 @@ using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
-
-    private static double MeanDifference(string first,string second)
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
     {
-        using var a=new Bitmap(first);using var b=new Bitmap(second);double total=0;
-        Example.Require(a.Size==b.Size,"Render dimensions differ.");
-        for(int y=0;y<a.Height;y+=3)for(int x=0;x<a.Width;x+=3){var c=a.GetPixel(x,y);var d=b.GetPixel(x,y);total+=Math.Abs(c.R-d.R)+Math.Abs(c.G-d.G)+Math.Abs(c.B-d.B);}
-        return total/(Math.Ceiling(a.Width/3.0)*Math.Ceiling(a.Height/3.0)*3);
-    }
-    private static void Main()
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("optimization-batch/compression/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.fixture_shrank\":true,\"checks.geometry_preserved\":true,\"checks.render_difference_within_limit\":true,\"checks.reopened\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("optimization-batch/compression/block-001",checks);
+        await Task.CompletedTask;
+    });
+
+
+    private static double MeanDifference(string first,string second) => PortableImage.Difference(first,second);
+    private static void RunExample()
     {
         Example.Setup();using(var p=new Presentation())
         {Example.Text(p.Slides[0].Shapes,"Title","Reduce an oversized raster image",30,20,620,60);
@@ -103,3 +127,26 @@ Compression is a quality choice: this fixture is deliberately much larger than i
 
 - [Optimize Image Management in Presentations in .NET](https://docs.aspose.com/slides/net/image/)
 - [Save Presentations in .NET](https://docs.aspose.com/slides/net/save-presentation/)
+
+
+## Open and run the complete project
+
+[Download the complete project](example.zip), extract it and open `Example.sln`, or run:
+
+```text
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release -- --mode evaluation
+```
+
+Use the current supported .NET 10 SDK/runtime. The project keeps a stable `net8.0`
+target and accepts compatible stable SDKs; no exact SDK patch is required.
+Evaluation runs without a license and explicitly ignores license environment settings.
+It uses bounded fixtures and checks valid output while allowing the evaluation watermark
+and documented read-back text truncation. For unrestricted checks, use `--mode licensed`
+with your authorized `ASPOSE_LICENSE_PATH`. No license is included.
+
+Inputs are copied from `Fixtures` into a separate output workspace. The program prints
+the absolute output path; `execution.json` records the actual runtime and verified action.
+The portable PNG helper creates original synthetic pixels without a Windows bitmap engine.
+See [setup and prerequisites](/slides/net/examples/getting-started/) for native libraries,
+fonts, IDE settings and the .NET 8/9 runtime support boundary of 2026-11-10.

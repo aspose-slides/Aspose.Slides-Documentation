@@ -1,3 +1,5 @@
+using System.Buffers.Binary;
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -16,9 +18,18 @@ using Aspose.Slides.Warnings;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("fonts-text/embed-fonts/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("fonts-text/embed-fonts/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         PrepareFonts(false);
         try
         {
@@ -28,23 +39,49 @@ internal static class Program
                 using var p = new Presentation();
                 p.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
                 var shape = Label(p.Slides[0], "Embedded Noto Sans");
+                shape.Name = "sample";
                 shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("Noto Sans");
                 p.FontsManager.AddEmbeddedFont(font, full ? EmbedFontCharacters.All : EmbedFontCharacters.OnlyUsed);
                 p.Save(full ? "full.pptx" : "used.pptx", SaveFormat.Pptx);
             }
             FontsLoader.ClearCache();
+            Require(!FontsLoader.GetFontFolders().Any(folder => Path.GetFullPath(folder).StartsWith(AppContext.BaseDirectory, StringComparison.OrdinalIgnoreCase)), "An application font folder remains registered after ClearCache.");
+            ValidateEmbeddedPayload("full.pptx", font, true);
+            ValidateEmbeddedPayload("used.pptx", font, false);
             File.Delete("fonts/NotoSans-Regular.ttf");
             foreach (string file in new[] { "full.pptx", "used.pptx" })
             {
                 using var p = new Presentation(file);
                 Require(p.FontsManager.GetEmbeddedFonts().Any(f => f.FontName == "Noto Sans"), "Embedded family missing in " + file);
-                Require(p.Slides[0].Shapes.OfType<IAutoShape>().Single().TextFrame.Text == "Embedded Noto Sans", "Text changed.");
+                Require(p.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "sample").TextFrame.Text == Context.ExpectedText("Embedded Noto Sans"), "Text changed.");
                 if (file == "full.pptx") Render(p.Slides[0], "preview.png");
             }
             Require(!File.Exists("fonts/NotoSans-Regular.ttf"), "External font file still exists.");
             Report(new { full_embedded = true, used_embedded = true, reopened_without_external_file = true, text_retained = true });
         }
         finally { FontsLoader.ClearCache(); }
+    }
+
+
+    // EOT fields follow https://www.w3.org/submissions/EOT/; this checks actual font bytes, not only a family name.
+    private static void ValidateEmbeddedPayload(string path, byte[] sourceFont, bool full)
+    {
+        using var archive = ZipFile.OpenRead(path);
+        var entries = archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/fonts/", StringComparison.Ordinal) && entry.FullName.EndsWith(".fntdata", StringComparison.Ordinal)).ToArray();
+        Require(entries.Length == 1, "Expected one real embedded font payload.");
+        using var stream = entries[0].Open(); using var memory = new MemoryStream(); stream.CopyTo(memory); byte[] eot = memory.ToArray();
+        Require(eot.Length > 1000 && BinaryPrimitives.ReadUInt32LittleEndian(eot.AsSpan(0, 4)) == eot.Length, "Embedded EOT size is invalid.");
+        uint dataSize = BinaryPrimitives.ReadUInt32LittleEndian(eot.AsSpan(4, 4));
+        Require(dataSize > 1000 && dataSize < eot.Length && BinaryPrimitives.ReadUInt16LittleEndian(eot.AsSpan(34, 2)) == 0x504c, "Embedded EOT payload/header is invalid.");
+        Require(Encoding.Unicode.GetString(eot, 0, (int)(eot.Length - dataSize)).Contains("Noto Sans", StringComparison.Ordinal), "Embedded EOT identifies the wrong family.");
+        if (full)
+        {
+            int tables = BinaryPrimitives.ReadUInt16BigEndian(sourceFont.AsSpan(4, 2));
+            int head = Enumerable.Range(0, tables).Select(i => 12 + i * 16).Single(offset => Encoding.ASCII.GetString(sourceFont, offset, 4) == "head");
+            int headOffset = (int)BinaryPrimitives.ReadUInt32BigEndian(sourceFont.AsSpan(head + 8, 4));
+            uint checksum = BinaryPrimitives.ReadUInt32BigEndian(sourceFont.AsSpan(headOffset + 8, 4));
+            Require(BinaryPrimitives.ReadUInt32LittleEndian(eot.AsSpan(60, 4)) == checksum, "Full embedded font checksum differs from the verified source font.");
+        }
     }
 
     private static void PrepareFonts(bool includeOtherScripts)
@@ -62,7 +99,8 @@ internal static class Program
             string path = Path.Combine("fonts", font.Name);
             if (!File.Exists(path) || Hash(path) != font.Hash)
             {
-                byte[] bytes = client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
+                string bundled = Path.Combine(AppContext.BaseDirectory, "Fonts", font.Name);
+                byte[] bytes = File.Exists(bundled) ? File.ReadAllBytes(bundled) : client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
                 Require(Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant() == font.Hash, "Downloaded font hash differs: " + font.Name);
                 File.WriteAllBytes(path, bytes);
             }
@@ -71,13 +109,6 @@ internal static class Program
         FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
     }
 
-    private static void ApplyLicense()
-    {
-        var license = new Aspose.Slides.License();
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed()) throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file.");
-    }
     private static void Require(bool condition, string message)
     {
         if (!condition) throw new InvalidOperationException(message);

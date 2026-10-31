@@ -1,6 +1,8 @@
-bin/
-obj/
-container-input/
-container-output/
-example.zip
+bin
+obj
+output
+.git
 *.lic
+*.pfx
+*.key
+.env*

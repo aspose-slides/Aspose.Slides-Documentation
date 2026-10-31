@@ -13,17 +13,29 @@ keywords:
 
 Merge complete decks or selected slides and choose between source design and a destination layout.
 
+## Download and run
+
+Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+
+```text
+dotnet run --project Example.csproj -- --mode evaluation
+```
+
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+
+
 ## Input and prerequisites
 
-The code creates its own synthetic input; no presentation or image download is required. Use .NET 8 SDK 8.0.427 and Aspose.Slides for .NET 26.10.0; the supplied project pins these versions and was tested on Windows. Set the **ASPOSE_LICENSE_PATH** environment variable to your own valid license file to run every assertion in this complete example. Evaluation limits can change the saved content, so the program fails clearly when no license has been applied.
+The code creates its own synthetic input. Use a compatible stable SDK with the included Aspose.Slides.NET6.CrossPlatform 26.10.0 project; .NET 10 LTS is recommended. Evaluation mode performs the recipe without a license and retains the SDK watermark and text limits. Licensed mode additionally checks unrestricted content using your authorized license.
 
-[Download the complete project](example.zip), including the pinned project, package lock and the code below. The license file is not included.
+[Download the complete project](example.zip), including the solution, source, configuration and bundled fonts. No license is distributed.
 
 ## Example
 
 The program creates two three-slide presentations with distinct master backgrounds, notes and sections. AddClone(sourceSlide) retains the source design in this fixture. Its layout overload places the green source slide on a blue destination layout. Removing the destination's default slide avoids an unexpected blank first slide.
 
 ```csharp
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,6 +48,16 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context = context;
+        context.BeginAction("presentations/merge/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/merge/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
     private static void CreateDeck(string path, string prefix, Color color)
     {
         using var deck = new Presentation();
@@ -62,9 +84,8 @@ internal static class Program
         Require(result.Slides.Select(Text).SequenceEqual(expected), "Wrong slide order in " + path);
     }
 
-    private static void Main()
+    private static void RunExample()
     {
-        ApplyLicense();
         CreateDeck("blue.pptx", "A", Color.LightBlue);
         CreateDeck("green.pptx", "B", Color.LightGreen);
         string blueHash = Hash("blue.pptx"), greenHash = Hash("green.pptx");
@@ -82,7 +103,7 @@ internal static class Program
         {
             Require(merged.Slides[0].LayoutSlide.MasterSlide.Background.FillFormat.SolidFillColor.Color.ToArgb() == Color.LightBlue.ToArgb(), "Blue master was lost.");
             Require(merged.Slides[3].LayoutSlide.MasterSlide.Background.FillFormat.SolidFillColor.Color.ToArgb() == Color.LightGreen.ToArgb(), "Green master was lost.");
-            Require(merged.Slides[3].NotesSlideManager.NotesSlide.NotesTextFrame.Text.Contains("Notes for B1"), "Speaker notes were lost.");
+            Require(merged.Slides[3].NotesSlideManager.NotesSlide.NotesTextFrame.Text.Contains(Context.ExpectedText("Notes for B1")), "Speaker notes were lost.");
             using var first = merged.Slides[0].GetImage(new Size(640, 360));
             first.Save("source-design-blue.png", Aspose.Slides.ImageFormat.Png);
             using var fourth = merged.Slides[3].GetImage(new Size(640, 360));
@@ -116,14 +137,6 @@ internal static class Program
         Report(new { merged_slides = 6, selected_slides = 2, order_verified = true, source_masters_retained = true, destination_layout_applied = true, notes_retained = true, originals_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -139,7 +152,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

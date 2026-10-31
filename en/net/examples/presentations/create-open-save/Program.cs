@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -10,9 +11,18 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
-    private static void Main()
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        ApplyLicense();
+        Context = context;
+        context.BeginAction("presentations/create-open-save/block-001");
+        RunExample();
+        await Task.CompletedTask;
+        context.Pass("presentations/create-open-save/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
+    });
+
+    private static void RunExample()
+    {
         using (var created = new Presentation())
         {
             created.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
@@ -22,30 +32,22 @@ internal static class Program
         string originalHash = Hash("original.pptx");
         using (var editable = new Presentation("original.pptx"))
         {
-            editable.Slides[0].Shapes.OfType<IAutoShape>().Single().TextFrame.Text = "Updated results";
+            editable.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).TextFrame.Text = "Updated results";
             editable.Save("edited.pptx", SaveFormat.Pptx);
         }
         using (var result = new Presentation("edited.pptx"))
         {
             Require(result.Slides.Count == 1, "Unexpected slide count.");
-            Require(Text(result.Slides[0]) == "Updated results", "Edited text did not survive saving.");
+            Require(Text(result.Slides[0]) == Context.ExpectedText("Updated results"), "Edited text did not survive saving.");
             using var image = result.Slides[0].GetImage(new Size(640, 360));
             image.Save("preview.png", Aspose.Slides.ImageFormat.Png);
         }
         Require(Hash("original.pptx") == originalHash, "The input was overwritten.");
         using (var original = new Presentation("original.pptx"))
-            Require(Text(original.Slides[0]) == "Quarterly results", "Original content changed.");
-        Report(new { slide_count = 1, edited_text = "Updated results", original_unchanged = true });
+            Require(Text(original.Slides[0]) == Context.ExpectedText("Quarterly results"), "Original content changed.");
+        Report(new { slide_count = 1, edited_text = Context.ExpectedText("Updated results"), original_unchanged = true });
     }
 
-    private static void ApplyLicense()
-    {
-        string? path = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        var license = new Aspose.Slides.License();
-        if (!string.IsNullOrWhiteSpace(path)) license.SetLicense(path);
-        if (!license.IsLicensed())
-            throw new InvalidOperationException("Set ASPOSE_LICENSE_PATH to a valid license file for this complete example.");
-    }
 
     private static void Require(bool condition, string message)
     {
@@ -61,7 +63,7 @@ internal static class Program
         return shape;
     }
 
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Select(s => s.TextFrame.Text));
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
     private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
     private static void Report(object checks)
     {

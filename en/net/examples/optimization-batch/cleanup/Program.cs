@@ -11,7 +11,6 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Runtime.Versioning;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
@@ -19,9 +18,40 @@ using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
 
-[SupportedOSPlatform("windows")]
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ctx.BeginAction("optimization-batch/cleanup/block-001");
+        RunExample();
+        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
+        using var result=JsonDocument.Parse(File.ReadAllText(path));
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        if(ctx.IsLicensed)
+        {
+            using var expected=JsonDocument.Parse("{\"checks.unused_structures_removed\":true,\"checks.referenced_content_preserved\":true,\"checks.nominated_unreferenced_image_removed\":true,\"checks.referenced_image_deletion_rejected\":true,\"checks.render_identical\":true}");
+            foreach(var field in expected.RootElement.EnumerateObject())
+            {
+                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
+                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                checks["licensed-"+field.Name.Replace('.','-')]=true;
+            }
+        }
+        else
+        {
+            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
+            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
+            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
+        }
+        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
+        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
+        ctx.Pass("optimization-batch/cleanup/block-001",checks);
+        await Task.CompletedTask;
+    });
+
 
     private static int MediaParts(string path)
     {using var zip=ZipFile.OpenRead(path);return zip.Entries.Count(e=>e.FullName.StartsWith("ppt/media/",StringComparison.Ordinal));}
@@ -44,21 +74,21 @@ internal static class Program
         }
         var entry=zip.GetEntry(part);if(entry==null)throw new InvalidDataException("Nominated image part is absent.");entry.Delete();
     }
-    private static void Main()
+    private static void RunExample()
     {
         Example.Setup();using(var p=new Presentation())using(var unusedMasterSource=new Presentation())
-        {Example.Text(p.Slides[0].Shapes,"Content","Keep referenced content");p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,50,150,150,100,p.Images.AddImage(Example.Png(150,100,Color.Teal))).Name="Required image";
+        {Example.Text(p.Slides[0].Shapes,"Content",Example.Choice("Keep referenced content","Keep"));p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,50,150,150,100,p.Images.AddImage(Example.Png(150,100,Color.Teal))).Name="Required image";
          p.Masters.AddClone(unusedMasterSource.Masters[0]);p.Save("output/input.pptx",SaveFormat.Pptx);Example.Render(p,"output/before.png");}
         // Add an explicitly unreferenced package part to the synthetic fixture.
         using(var zip=ZipFile.Open("output/input.pptx",ZipArchiveMode.Update)){var entry=zip.CreateEntry("ppt/media/orphan.png");using var stream=entry.Open();stream.Write(Example.Png(30,30,Color.Orange));}
         int mastersBefore,layoutsBefore;
         using(var p=new Presentation("output/input.pptx"))
-        {mastersBefore=p.Masters.Count;layoutsBefore=p.LayoutSlides.Count;Compress.RemoveUnusedLayoutSlides(p);Compress.RemoveUnusedMasterSlides(p);
+        {mastersBefore=p.Masters.Count;layoutsBefore=p.LayoutSlides.Count;Example.Render(p,"output/before.png");Compress.RemoveUnusedLayoutSlides(p);Compress.RemoveUnusedMasterSlides(p);
          p.Save("output/cleaned.pptx",SaveFormat.Pptx);Example.Render(p,"output/after.png");}
         RemoveKnownUnreferencedImage("output/cleaned.pptx","ppt/media/orphan.png");
         using var result=new Presentation("output/cleaned.pptx");
         Example.Require(result.Masters.Count<mastersBefore&&result.LayoutSlides.Count<layoutsBefore,"Unused structures were not removed.");
-        Example.Require(Example.Named<IAutoShape>(result.Slides[0],"Content").TextFrame.Text=="Keep referenced content","Referenced text changed.");
+        Example.Require(Example.Named<IAutoShape>(result.Slides[0],"Content").TextFrame.Text==Example.Choice("Keep referenced content","Keep"),"Referenced text changed.");
         Example.Require(Example.Named<IPictureFrame>(result.Slides[0],"Required image").PictureFormat.Picture.Image.BinaryData.Length>0,"Referenced media removed.");
         Example.Require(MediaParts("output/input.pptx")==2&&MediaParts("output/cleaned.pptx")==1,"The nominated unreferenced media part was not removed.");
         string referencedPart;using(var zip=ZipFile.OpenRead("output/cleaned.pptx"))referencedPart=zip.Entries.Single(e=>e.FullName.StartsWith("ppt/media/",StringComparison.Ordinal)).FullName;

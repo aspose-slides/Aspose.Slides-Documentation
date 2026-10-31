@@ -16,23 +16,59 @@ using Microsoft.Extensions.Hosting;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static string LaunchDirectory = "";
+    private static Task<int> Main(string[] args)
+    {
+        LaunchDirectory=Environment.CurrentDirectory;
+        return ExampleBootstrap.RunAsync(args, async context =>
+        {
+            Context=context;
+            string actionId=context.Arguments.Contains("--self-test")?"application-integration/web-api/block-001":"application-integration/web-api/serve";
+            context.BeginAction(actionId);
+            await RunExample(context.Arguments);
+            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
+        });
+    }
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"valid_responses\":3,\"invalid_rejected\":true,\"oversized_rejected\":true,\"cancellation_observed\":true,\"temporary_workspaces_cleaned\":true,\"concurrency_bound\":2}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
     private const int RequestLimit = 8 * 1024 * 1024;
     private static readonly SemaphoreSlim Slots = new(2);
     private static readonly ConcurrentDictionary<string, byte> Workspaces = new();
     private static int active;
     private static int maximumActive;
 
-    private static async Task Main(string[] args)
+    private static async Task RunExample(string[] args)
     {
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath)) new License().SetLicense(licensePath);
         bool selfTest = args.Contains("--self-test");
         var builder = WebApplication.CreateBuilder(args.Where(a => a != "--self-test").ToArray());
         builder.WebHost.UseUrls(selfTest ? "http://127.0.0.1:0" : "http://127.0.0.1:5088");
         builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = null);
         await using var app = builder.Build();
         app.MapPost("/convert", (Func<HttpContext, Task<IResult>>)ConvertPresentation);
-        if (!selfTest) { await app.RunAsync(); return; }
+        if (!selfTest)
+        {
+            await app.StartAsync();
+            Context.Pass("application-integration/web-api/serve", "real loopback Kestrel listener started");
+            await app.WaitForShutdownAsync();
+            return;
+        }
         await app.StartAsync();
         try { await Verify(app.Urls.Single()); }
         finally { await app.StopAsync(); }

@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "article_id": "elements/audio",
+  "archive": "example.zip",
+  "archive_sha256": "59cb95742f1fc21eb3f7a3a484c8400f22e7f28c743ab0cb9c0539c6435e2ad8",
+  "members": [
+    {
+      "path": ".vscode/launch.json",
+      "sha256": "a66602476d824c5403df5e383e9f027ae95814c4a024c6209aec081dbfa8071c",
+      "bytes": 423
+    },
+    {
+      "path": ".vscode/tasks.json",
+      "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
+      "bytes": 340
+    },
+    {
+      "path": "Case01.cs",
+      "sha256": "e8e097724099954776ec465447b2e8aafef51ea03cac8c9627348c04e8057507",
+      "bytes": 943
+    },
+    {
+      "path": "Case02.cs",
+      "sha256": "c885c7c0ebd3458291855a09e7eefd37d52748f954645cc77e96df064dda6d6a",
+      "bytes": 955
+    },
+    {
+      "path": "Case03.cs",
+      "sha256": "6ad41c64c976804259433b97fcb91913bdabf3e036e0868f241a9ac52c31fd22",
+      "bytes": 886
+    },
+    {
+      "path": "Case04.cs",
+      "sha256": "e67a46c4991ae682ee2dfad974a7250b20f2137707b3b57d095e24f90aa6a30f",
+      "bytes": 977
+    },
+    {
+      "path": "Example.csproj",
+      "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
+      "bytes": 868
+    },
+    {
+      "path": "Example.sln",
+      "sha256": "c882595ef7810a250a138d813a5c191ead5d14df88ceaf19c464936fca1e1aa3",
+      "bytes": 917
+    },
+    {
+      "path": "ExampleBootstrap.cs",
+      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
+      "bytes": 11655
+    },
+    {
+      "path": "Fixtures/tone.wav",
+      "sha256": "b0ea94c3b6ce0101a8b06f8bdeb36f9f0cb5a80f45d215aae15f9b71614a3fee",
+      "bytes": 1644
+    },
+    {
+      "path": "Fonts/NotoSans-Regular.ttf",
+      "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
+      "bytes": 569208
+    },
+    {
+      "path": "Fonts/OFL.txt",
+      "sha256": "0dab92d0544f7b233403f14b84a663bdbfa746982eda629e7f4f9ffe1b036feb",
+      "bytes": 4377
+    },
+    {
+      "path": "Fonts/provenance.json",
+      "sha256": "a9ba6efcf9c58afc5136a1ecb0ba4e62a4b080b954e00a987d246d24576d1785",
+      "bytes": 745
+    },
+    {
+      "path": "NuGet.Config",
+      "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
+      "bytes": 217
+    },
+    {
+      "path": "Program.cs",
+      "sha256": "8761cd18262dc7f9f22f9c8173e44672d5b0601b3242d3886592bce190597604",
+      "bytes": 6065
+    },
+    {
+      "path": "README.txt",
+      "sha256": "6a6ec6e18eca3390fcfe6d35975a717412386598bf86045746aef99a27418be3",
+      "bytes": 1836
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "sha256": "9f5acef2887cb6e9cf2d69fa968d32781fc2f39dfceffaaa61feeb451e0096b5",
+      "bytes": 314
+    },
+    {
+      "path": "example-manifest.json",
+      "sha256": "80bfa22c34cede5f0ac69ac69a2dfa8d2ef065f5b13287f013adf1a94b879aab",
+      "bytes": 3083
+    },
+    {
+      "path": "fixture-provenance.json",
+      "sha256": "91c24aa6bdf046ef2c7a7d124c8fccf914fe96fb2eabcaedb555751b3dbb2b46",
+      "bytes": 1079
+    },
+    {
+      "path": "global.json",
+      "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
+      "bytes": 108
+    }
+  ]
+}

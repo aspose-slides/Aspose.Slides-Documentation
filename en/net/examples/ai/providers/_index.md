@@ -10,7 +10,7 @@ Run the same generation request through the default Aspose client and a caller-c
 
 ## Prerequisites and input
 
-[Download the complete project](example.zip). It includes every source file, SDK settings and locked dependencies. Install the pinned .NET SDK and set `ASPOSE_LICENSE_PATH` to your valid license file before running the full-content checks. See [installation](/slides/net/installation/) and [licensing](/slides/net/licensing/).
+Use a current supported .NET10 SDK/runtime and the supplied flexible SDK settings; no exact patch is required.
 
 The example uses only synthetic prompts and creates its input presentation where needed. Generation and translation contact the selected model service. Set `SLIDES_AI_BASE_URL`, `SLIDES_AI_MODEL` and `SLIDES_AI_API_KEY` for your compatible service. Optional `SLIDES_AI_TIMEOUT_SECONDS` controls the HTTP timeout. Use `--configured-only` after `--` when running only that provider.
 
@@ -34,15 +34,46 @@ using Aspose.Slides.Export;
 
 internal static class Program
 {
+    private static ExampleContext Context = null!;
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
+    {
+        Context=context;
+        string actionId=context.Arguments.Contains("--configured-only")?"ai/providers/configured-only":"ai/providers/block-001";
+        context.BeginAction(actionId);
+
+        context.Prerequisite(context.IsLicensed,"Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
+        context.Prerequisite(context.Arguments.Contains("--allow-network"),"This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
+        foreach(string name in new[]{"SLIDES_AI_BASE_URL","SLIDES_AI_MODEL","SLIDES_AI_API_KEY"})context.Prerequisite(!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(name)),"Set "+name+" for your authorized configured provider. No requests were sent.");
+
+        int code=await RunExample(context.Arguments);
+        context.Require(code==0,"The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
+        VerifyResult(actionId);
+    });
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"providers_checked\":2,\"configured_provider_succeeded\":true,\"reopened_text_matches\":true}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+        Context.Pass(actionId,checks);
+    }
+
     private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
     private static readonly ConcurrentBag<RequestResult> Requests = new();
 
-    private static async Task<int> Main(string[] args)
+    private static async Task<int> RunExample(string[] args)
     {
         try
         {
-            string licensePath = Required("ASPOSE_LICENSE_PATH");
-            new License().SetLicense(licensePath);
             string baseUrl = Required("SLIDES_AI_BASE_URL");
             string model = Required("SLIDES_AI_MODEL");
             string key = Required("SLIDES_AI_API_KEY");
@@ -159,3 +190,26 @@ The program writes "default-generated.pptx", "default-generated.png", "configure
 Provide a compatible service you are authorized to use and its real model identifier. The compatible client is an adapter, not a bundled AI model. Service authentication, request limits and model fees belong to the chosen provider. The program reports configuration, HTTP and cancellation failures without printing keys; --configured-only skips the default-service demonstration.
 
 Continue with the [detailed guide](/slides/net/ai/generator/).
+
+
+## Download, prerequisites and run
+
+[Download the complete project](example.zip) and open `Example.sln`. The stable
+net8.0/C#12 project accepts compatible installed release SDKs and explicitly runs
+on the current .NET10 runtime. No exact SDK patch or locked restore is required.
+Bundled Noto Sans fonts include their redistribution notice. See
+[setup and supported environments](/slides/net/examples/getting-started/).
+
+The bootstrap prints the separate output workspace. Explicit `--mode evaluation`
+ignores all license settings; `--mode licensed` accepts your authorized license
+through `--license PATH` or ASPOSE_LICENSE_PATH. No license or credential is included.
+
+Default evaluation performs no model request and reports the missing prerequisite
+with exit2. To execute the real generation/translation, opt in explicitly:
+
+```text
+dotnet run --project Example.csproj -- --mode licensed --allow-network
+```
+
+Configured providers also need their endpoint, real model identifier and API key.
+A prerequisite diagnostic never counts as a generated or translated presentation.
