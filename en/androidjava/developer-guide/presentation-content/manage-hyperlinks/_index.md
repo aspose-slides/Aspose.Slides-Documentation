@@ -45,6 +45,8 @@ You can also edit presentations with the [free online Aspose PowerPoint editor](
 
 You can assign a website URL to text, a shape, or a media frame. The element to which you assign the hyperlink determines the clickable area: a text portion links the selected text, while a shape or frame links the slide object.
 
+For presentations containing relative hyperlinks, see [Manage the Hyperlink Base](/slides/androidjava/presentation-properties/#manage-the-hyperlink-base) to read, change, or clear the document-level base.
+
 ### **Add URL Hyperlinks to Text**
 
 To link text to a website, pass a [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) to the text portion's [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) method, as shown below. Only that portion of text becomes clickable.
