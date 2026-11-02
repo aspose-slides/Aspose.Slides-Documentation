@@ -36,6 +36,7 @@ This article shows how to:
 - create a multilevel list by setting paragraph depth
 - create a numbered list
 - inspect and change list formatting in an existing presentation
+- read actual list markers and numbers alongside paragraph text
 
 ## **Create a Bulleted List**
 
@@ -59,6 +60,7 @@ The following C++ code demonstrates how to create a bulleted list in a slide:
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
 #include <drawing/color.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System::Drawing;
@@ -82,6 +84,7 @@ auto createParagraph = [](System::String text)
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 200, 50);
 
 auto textFrame = autoShape->get_TextFrame();
@@ -120,11 +123,13 @@ The following C++ code shows how to create a numbered list in a slide:
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
 
 auto textFrame = autoShape->get_TextFrame();
@@ -157,7 +162,7 @@ The result:
 
 Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
- {{% alert color="info" %}}
+ {{% alert color="info" title="Note" %}}
 
 Ideally, if you plan to replace the regular bullet symbol with an image, it's best to choose a simple graphic with a transparent background. Such images work well as custom bullet symbols.
 
@@ -190,6 +195,7 @@ The following C++ code shows how to create picture bullets in a slide:
 #include <Export/SaveFormat.h>
 #include <IImage.h>
 #include <Util/Images.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
@@ -210,6 +216,7 @@ auto createParagraph = [](System::String text, System::SharedPtr<IPPImage> image
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 200, 50);
 
 auto textFrame = autoShape->get_TextFrame();
@@ -250,11 +257,13 @@ The following C++ code shows how to create a multilevel bulleted list:
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+
 auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
 
 auto textFrame = autoShape->get_TextFrame();
@@ -305,14 +314,15 @@ The following C++ code changes the first paragraph in a text frame to use a numb
 #include <DOM/NumberedBulletStyle.h>
 #include <DOM/Presentation.h>
 #include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"input.pptx");
 auto slide = presentation->get_Slide(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
+auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto paragraphFormat = paragraph->get_ParagraphFormat();
 auto bulletFormat = paragraphFormat->get_Bullet();
 
@@ -326,16 +336,178 @@ presentation->Save(u"updated_list.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Read Actual Bullet Values**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/) and access [IParagraphFormatEffectiveData::get_Bullet](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformateffectivedata/get_bullet/) to obtain the effective bullet format. Check its [get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_type/) before reading [get_ActualBulletValue](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_actualbulletvalue/).
+
+For numbered lists, distinguish these three values:
+
+- [get_NumberedBulletStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_numberedbulletstyle/) determines the format, such as Arabic numbers followed by a period or lowercase letters followed by a period.
+- [get_NumberedBulletStartWith](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_numberedbulletstartwith/) specifies the starting number for a group of numbered paragraphs.
+- [get_ActualBulletValue](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_actualbulletvalue/) returns the formatted marker for a particular paragraph. For example, the second item in a list starting at 5 returns `6.`.
+
+Preserve [IParagraphFormat::get_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_depth/) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IBulletFormat.h>
+#include <DOM/IBulletFormatEffectiveData.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IParagraphFormatEffectiveData.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/FillType.h>
+#include <DOM/NullableBool.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+{
+    auto presentation = System::MakeObject<Presentation>();
+    presentation->get_SlideSize()->SetSize(720, 440, SlideSizeScaleType::DoNotScale);
+    auto slide = presentation->get_Slide(0);
+
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 20, 660, 400);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->get_Paragraphs()->Clear();
+
+    // Create a picture marker without an external image file.
+    auto svg = System::MakeObject<SvgImage>(u"<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    auto bulletImage = presentation->get_Images()->AddImage(svg);
+
+    auto addParagraph = [&](System::String text, int16_t depth, BulletType type, int16_t start = 1, NumberedBulletStyle style = NumberedBulletStyle::BulletArabicPeriod)
+    {
+        auto paragraph = System::MakeObject<Paragraph>();
+        paragraph->set_Text(text);
+
+        auto format = paragraph->get_ParagraphFormat();
+        format->set_Depth(depth);
+        format->set_MarginLeft(30 + depth * 40);
+        format->set_Indent(-28);
+        format->set_SpaceAfter(8);
+        format->get_DefaultPortionFormat()->set_FontHeight(22);
+        format->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+        format->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+        auto bullet = format->get_Bullet();
+        bullet->set_Type(type);
+        bullet->set_IsBulletHardColor(NullableBool::True);
+        bullet->get_Color()->set_Color(Color::get_Black());
+        if (type == BulletType::Numbered)
+        {
+            bullet->set_NumberedBulletStyle(style);
+            bullet->set_NumberedBulletStartWith(start);
+        }
+        else if (type == BulletType::Symbol)
+        {
+            bullet->set_Char(u'\u2022');
+        }
+        else if (type == BulletType::Picture)
+        {
+            bullet->get_Picture()->set_Image(bulletImage);
+        }
+
+        textFrame->get_Paragraphs()->Add(paragraph);
+    };
+
+    addParagraph(u"First item", 0, BulletType::Numbered, 5);
+    addParagraph(u"Second item", 0, BulletType::Numbered, 5);
+    addParagraph(u"Nested item", 1, BulletType::Numbered, 3, NumberedBulletStyle::BulletAlphaLCPeriod);
+    addParagraph(u"Next nested item", 1, BulletType::Numbered, 3, NumberedBulletStyle::BulletAlphaLCPeriod);
+    addParagraph(u"Deep item", 2, BulletType::Numbered, 4, NumberedBulletStyle::BulletRomanLCPeriod);
+    addParagraph(u"Back to top level", 0, BulletType::Numbered, 5);
+    addParagraph(u"Symbol marker", 0, BulletType::Symbol);
+    addParagraph(u"No bullet", 0, BulletType::None);
+    addParagraph(u"Picture marker", 0, BulletType::Picture);
+    presentation->Save(u"actual_bullet_values.pptx", SaveFormat::Pptx);
+    presentation->Dispose();
+}
+
+auto loadedPresentation = System::MakeObject<Presentation>(u"actual_bullet_values.pptx");
+auto loadedShape = System::ExplicitCast<IAutoShape>(loadedPresentation->get_Slide(0)->get_Shape(0));
+System::Console::WriteLine(u"Text | Depth | Type | Actual value");
+for (auto paragraph : loadedShape->get_TextFrame()->get_Paragraphs())
+{
+    auto bullet = paragraph->get_ParagraphFormat()->GetEffective()->get_Bullet();
+    auto actualValue = bullet->get_ActualBulletValue();
+    System::String marker;
+    switch (bullet->get_Type())
+    {
+        case BulletType::Numbered:
+        case BulletType::Symbol:
+            marker = actualValue;
+            break;
+        case BulletType::None:
+            marker = (actualValue.IsNull() ? System::String(u"null") : actualValue) + u" (no bullet)";
+            break;
+        case BulletType::Picture:
+            marker = (actualValue.IsNull() ? System::String(u"null") : actualValue) + u" (image required)";
+            break;
+        default:
+            marker = u"unsupported bullet type";
+            break;
+    }
+    System::Console::WriteLine(u"{0} | {1} | {2} | {3}", paragraph->get_Text(), paragraph->get_ParagraphFormat()->get_Depth(), bullet->get_Type(), marker);
+}
+loadedPresentation->Dispose();
+```
+
+The source lists are shown below.
+
+![Lists starting at 5, nested letter and Roman-number items, a symbol marker, a paragraph without a bullet, and a blue picture marker](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+For [BulletType::None and BulletType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/bullettype/), [get_ActualBulletValue](https://reference.aspose.com/slides/cpp/aspose.slides/ibulletformateffectivedata/get_actualbulletvalue/) returns a null `System::String`, not an empty string. Use `IsNull` to check for this value. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
+
 ## **FAQ**
 
-### Can bulleted and numbered lists be exported to PDF or images?
+**Can bulleted and numbered lists be exported to PDF or images?**
 
 Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-### Can I edit lists in existing presentations?
+**Can I edit lists in existing presentations?**
 
 Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat::get_Bullet](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_bullet/) settings, and save the presentation.
 
-### Can lists contain non-Latin text?
+**Can lists contain non-Latin text?**
 
 Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.

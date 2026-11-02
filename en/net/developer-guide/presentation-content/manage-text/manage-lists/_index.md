@@ -39,6 +39,7 @@ This article shows how to:
 - create a multilevel list by setting paragraph depth
 - create a numbered list
 - inspect and change list formatting in an existing presentation
+- read actual list markers and numbers alongside paragraph text
 
 ## **Create a Bulleted List**
 
@@ -65,8 +66,8 @@ static Paragraph CreateParagraph(string text)
 }
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
 var textFrame = autoShape.TextFrame;
@@ -96,8 +97,8 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 90, 80);
 
 var textFrame = autoShape.TextFrame;
@@ -129,7 +130,7 @@ The result:
 
 Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
- {{% alert color="info" %}}
+ {{% alert color="info" title="Note" %}}
 
 Ideally, if you plan to replace the regular bullet symbol with an image, it's best to choose a simple graphic with a transparent background. Such images work well as custom bullet symbols.
 
@@ -161,8 +162,8 @@ static Paragraph CreateParagraph(string text, IPPImage image)
 }
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
 var textFrame = autoShape.TextFrame;
@@ -195,8 +196,8 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 260, 110);
 
 var textFrame = autoShape.TextFrame;
@@ -240,11 +241,10 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 
 using var presentation = new Presentation("input.pptx");
-
 var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
-var paragraph = autoShape.TextFrame.Paragraphs[0];
 
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 paragraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
 paragraph.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletRomanUCPeriod;
 paragraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 1;
@@ -254,16 +254,144 @@ paragraph.ParagraphFormat.Indent = -20;
 presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 ```
 
+## **Read Actual Bullet Values**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [IParagraphFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/geteffective/) and access [IParagraphFormatEffectiveData.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformateffectivedata/bullet/) to obtain the effective bullet format. Check its [Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/type/) before reading [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/).
+
+For numbered lists, distinguish these three values:
+
+- [NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/numberedbulletstyle/) determines the format, such as Arabic numbers followed by a period or lowercase letters followed by a period.
+- [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/numberedbulletstartwith/) specifies the starting number for a group of numbered paragraphs.
+- [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/) returns the formatted marker for a particular paragraph. For example, the second item in a list starting at 5 returns `6.`.
+
+Preserve [Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation())
+{
+    presentation.SlideSize.SetSize(720, 440, SlideSizeScaleType.DoNotScale);
+    var slide = presentation.Slides[0];
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20, 660, 400);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.Paragraphs.Clear();
+
+    // Create a picture marker without an external image file.
+    var svg = new SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    var bulletImage = presentation.Images.AddImage(svg);
+
+    void AddParagraph(string text, short depth, BulletType type, short start = 1, NumberedBulletStyle style = NumberedBulletStyle.BulletArabicPeriod)
+    {
+        var paragraph = new Paragraph { Text = text };
+
+        var format = paragraph.ParagraphFormat;
+        format.Depth = depth;
+        format.MarginLeft = 30 + depth * 40;
+        format.Indent = -28;
+        format.SpaceAfter = 8;
+        format.DefaultPortionFormat.FontHeight = 22;
+        format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+        format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+        format.Bullet.Type = type;
+        format.Bullet.IsBulletHardColor = NullableBool.True;
+        format.Bullet.Color.Color = Color.Black;
+        if (type == BulletType.Numbered)
+        {
+            format.Bullet.NumberedBulletStyle = style;
+            format.Bullet.NumberedBulletStartWith = start;
+        }
+        else if (type == BulletType.Symbol)
+        {
+            format.Bullet.Char = '\u2022';
+        }
+        else if (type == BulletType.Picture)
+        {
+            format.Bullet.Picture.Image = bulletImage;
+        }
+
+        textFrame.Paragraphs.Add(paragraph);
+    }
+
+    AddParagraph("First item", 0, BulletType.Numbered, 5);
+    AddParagraph("Second item", 0, BulletType.Numbered, 5);
+    AddParagraph("Nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    AddParagraph("Next nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    AddParagraph("Deep item", 2, BulletType.Numbered, 4, NumberedBulletStyle.BulletRomanLCPeriod);
+    AddParagraph("Back to top level", 0, BulletType.Numbered, 5);
+    AddParagraph("Symbol marker", 0, BulletType.Symbol);
+    AddParagraph("No bullet", 0, BulletType.None);
+    AddParagraph("Picture marker", 0, BulletType.Picture);
+    presentation.Save("actual_bullet_values.pptx", SaveFormat.Pptx);
+}
+
+using var loadedPresentation = new Presentation("actual_bullet_values.pptx");
+var loadedShape = (IAutoShape)loadedPresentation.Slides[0].Shapes[0];
+Console.WriteLine("Text | Depth | Type | Actual value");
+foreach (var paragraph in loadedShape.TextFrame.Paragraphs)
+{
+    var bullet = paragraph.ParagraphFormat.GetEffective().Bullet;
+    string marker;
+    switch (bullet.Type)
+    {
+        case BulletType.Numbered:
+        case BulletType.Symbol:
+            marker = bullet.ActualBulletValue;
+            break;
+        case BulletType.None:
+            marker = $"{bullet.ActualBulletValue ?? "null"} (no bullet)";
+            break;
+        case BulletType.Picture:
+            marker = $"{bullet.ActualBulletValue ?? "null"} (image required)";
+            break;
+        default:
+            marker = "unsupported bullet type";
+            break;
+    }
+    Console.WriteLine($"{paragraph.Text} | {paragraph.ParagraphFormat.Depth} | {bullet.Type} | {marker}");
+}
+```
+
+The source lists are shown below.
+
+![Lists starting at 5, nested letter and Roman-number items, a symbol marker, a paragraph without a bullet, and a blue picture marker](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+For [BulletType.None and BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/), [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/) returns `null`, not an empty string. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
+
 ## **FAQ**
 
-### Can bulleted and numbered lists be exported to PDF or images?
+**Can bulleted and numbered lists be exported to PDF or images?**
 
 Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-### Can I edit lists in existing presentations?
+**Can I edit lists in existing presentations?**
 
 Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/bullet/) settings, and save the presentation.
 
-### Can lists contain non-Latin text?
+**Can lists contain non-Latin text?**
 
 Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.

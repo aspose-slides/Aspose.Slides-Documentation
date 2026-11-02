@@ -37,6 +37,7 @@ This article shows how to:
 - create a multilevel list by setting paragraph depth
 - create a numbered list
 - inspect and change list formatting in an existing presentation
+- read actual list markers and numbers alongside paragraph text
 
 ## **Create a Bulleted List**
 
@@ -57,6 +58,7 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -111,6 +113,7 @@ from asposeslides.api import BulletType, Paragraph, Presentation, SaveFormat, Sh
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 90, 80)
 
     text_frame = auto_shape.getTextFrame()
@@ -172,6 +175,7 @@ from asposeslides.api import BulletType, Images, Paragraph, Presentation, SaveFo
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -226,6 +230,7 @@ from asposeslides.api import Paragraph, Presentation, SaveFormat, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 260, 110)
 
     text_frame = auto_shape.getTextFrame()
@@ -278,9 +283,10 @@ from asposeslides.api import BulletType, NumberedBulletStyle, Presentation, Save
 presentation = Presentation("input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
+
+    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Numbered)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletRomanUCPeriod)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(1)
@@ -291,6 +297,132 @@ try:
 finally:
     presentation.dispose()
 ```
+
+## **Read Actual Bullet Values**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective) and access `getBullet` to obtain the effective bullet format. Check its `getType` before reading `getActualBulletValue`.
+
+For numbered lists, distinguish these three values:
+
+- `getNumberedBulletStyle` determines the format, such as Arabic numbers followed by a period or lowercase letters followed by a period.
+- `getNumberedBulletStartWith` specifies the starting number for a group of numbered paragraphs.
+- `getActualBulletValue` returns the formatted marker for a particular paragraph. For example, the second item in a list starting at 5 returns `6.`.
+
+Preserve [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDepth) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BulletType, FillType, NullableBool, NumberedBulletStyle, Paragraph, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, SvgImage
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 440, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20, 660, 400)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    text_frame = shape.getTextFrame()
+    text_frame.getParagraphs().clear()
+
+    # Create a picture marker without an external image file.
+    svg = SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>")
+    bullet_image = presentation.getImages().addImage(svg)
+
+    def add_paragraph(text, depth, bullet_type, start, style):
+        paragraph = Paragraph()
+        paragraph.setText(text)
+
+        paragraph_format = paragraph.getParagraphFormat()
+        paragraph_format.setDepth(depth)
+        paragraph_format.setMarginLeft(30 + depth * 40)
+        paragraph_format.setIndent(-28)
+        paragraph_format.setSpaceAfter(8)
+        paragraph_format.getDefaultPortionFormat().setFontHeight(22)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        paragraph_format.getBullet().setType(bullet_type)
+        paragraph_format.getBullet().setBulletHardColor(NullableBool.True_)
+        paragraph_format.getBullet().getColor().setColor(Color.BLACK)
+        if bullet_type == BulletType.Numbered:
+            paragraph_format.getBullet().setNumberedBulletStyle(style)
+            paragraph_format.getBullet().setNumberedBulletStartWith(start)
+        elif bullet_type == BulletType.Symbol:
+            paragraph_format.getBullet().setChar('\u2022')
+        elif bullet_type == BulletType.Picture:
+            paragraph_format.getBullet().getPicture().setImage(bullet_image)
+
+        text_frame.getParagraphs().add(paragraph)
+
+    add_paragraph("First item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Second item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Next nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Deep item", 2, BulletType.Numbered, 4, NumberedBulletStyle.BulletRomanLCPeriod)
+    add_paragraph("Back to top level", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Symbol marker", 0, BulletType.Symbol, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("No bullet", 0, BulletType.None_, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Picture marker", 0, BulletType.Picture, 1, NumberedBulletStyle.BulletArabicPeriod)
+    presentation.save("actual_bullet_values.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+loaded_presentation = Presentation("actual_bullet_values.pptx")
+try:
+    loaded_shape = loaded_presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    type_names = {
+        BulletType.Numbered: "Numbered",
+        BulletType.Symbol: "Symbol",
+        BulletType.None_: "None",
+        BulletType.Picture: "Picture",
+    }
+    print("Text | Depth | Type | Actual value")
+    for paragraph in loaded_shape.getTextFrame().getParagraphs():
+        bullet = paragraph.getParagraphFormat().getEffective().getBullet()
+        bullet_type = bullet.getType()
+        if bullet_type in (BulletType.Numbered, BulletType.Symbol):
+            marker = bullet.getActualBulletValue()
+        elif bullet_type == BulletType.None_:
+            marker = f"{bullet.getActualBulletValue()} (no bullet)"
+        elif bullet_type == BulletType.Picture:
+            marker = f"{bullet.getActualBulletValue()} (image required)"
+        else:
+            marker = "unsupported bullet type"
+        type_name = type_names.get(bullet_type, "Unknown")
+        print(f"{paragraph.getText()} | {paragraph.getParagraphFormat().getDepth()} | {type_name} | {marker}")
+finally:
+    loaded_presentation.dispose()
+```
+
+The source lists are shown below.
+
+![Lists starting at 5, nested letter and Roman-number items, a symbol marker, a paragraph without a bullet, and a blue picture marker](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | None (no bullet)
+Picture marker | 0 | Picture | None (image required)
+```
+
+For [BulletType.None_ and BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/), `getActualBulletValue` returns `None` (Java `null`), not an empty string. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
 
 ## **FAQ**
 
