@@ -5,45 +5,47 @@ type: docs
 weight: 20
 url: /it/php-java/manage-hyperlinks/
 keywords:
-- aggiungi URL
-- aggiungi collegamento ipertestuale
-- crea collegamento ipertestuale
-- formatta collegamento ipertestuale
-- rimuovi collegamento ipertestuale
-- aggiorna collegamento ipertestuale
+- aggiungere URL
+- aggiungere collegamento ipertestuale
+- creare collegamento ipertestuale
+- formattare collegamento ipertestuale
+- rimuovere collegamento ipertestuale
+- aggiornare collegamento ipertestuale
 - collegamento ipertestuale di testo
 - collegamento ipertestuale di diapositiva
 - collegamento ipertestuale di forma
 - collegamento ipertestuale di immagine
-- collegamento ipertestuale video
+- collegamento ipertestuale di video
 - collegamento ipertestuale modificabile
 - PowerPoint
 - OpenDocument
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Aggiungi, formatta, aggiorna e rimuovi collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per PHP via Java, utilizzando esempi PHP."
+description: "Aggiungi, formatta, aggiorna e rimuovi i collegamenti ipertestuali in presentazioni PowerPoint e OpenDocument con Aspose.Slides per PHP via Java, utilizzando esempi PHP."
 ---
 ## **Introduzione**
 
-Un collegamento ipertestuale collega il contenuto della presentazione a un sito Web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali servono comunemente a due scopi:
+Un collegamento ipertestuale collega il contenuto della presentazione a un sito Web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali solitamente hanno due scopi:
 
 * Aprire un sito Web da testo, forma o cornice multimediale.
 * Navigare a un'altra diapositiva, ad esempio da un indice.
 
-Aspose.Slides per PHP tramite Java consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti a livello di presentazione, diapositiva o casella di testo. Si assume che PHP/Java Bridge e il wrapper PHP di Aspose.Slides siano inizializzati. I membri dell'API senza una pagina di riferimento PHP puntano all'API Java sottostante.
+Aspose.Slides per PHP via Java consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti ipertestuali a livello di presentazione, diapositiva o riquadro di testo. Si presume che PHP/Java Bridge e il wrapper PHP di Aspose.Slides siano inizializzati. I membri API senza una pagina di riferimento PHP collegano l'API Java sottostante.
 
-{{% alert color="info" title="Nota" %}}
-È inoltre possibile modificare le presentazioni con l'[editor online gratuito di Aspose PowerPoint](https://products.aspose.app/slides/it/editor).
+{{% alert color="info" title="Note" %}}
+È inoltre possibile modificare le presentazioni con il [editor gratuito online di Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Aggiungere collegamenti ipertestuali URL**
+## **Aggiungere collegamenti URL**
 
-È possibile assegnare un URL di sito Web a testo, forma o cornice multimediale. L'elemento a cui si assegna il collegamento determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o una cornice collega l'oggetto della diapositiva.
+È possibile assegnare l'URL di un sito Web a testo, forma o cornice multimediale. L'elemento a cui si assegna il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o cornice collega l'oggetto della diapositiva.
 
-### **Aggiungere collegamenti ipertestuali URL al testo**
+Per le presentazioni contenenti collegamenti ipertestuali relativi, vedere [Gestire la base del collegamento ipertestuale](/slides/it/php-java/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
 
-Per collegare del testo a un sito Web, passare un [Hyperlink](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/portionformat/sethyperlinkclick/) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
+### **Aggiungere collegamenti URL al testo**
+
+Per collegare del testo a un sito Web, passare un [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -66,13 +68,13 @@ try {
 }
 ```
 
-### **Aggiungere collegamenti ipertestuali URL a forme e cornici multimediali**
+### **Aggiungere collegamenti URL a forme e cornici multimediali**
 
-Per rendere cliccabile una forma o una cornice, chiamare il suo metodo [setHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/sethyperlinkclick/). Il collegamento appartiene all'oggetto stesso anziché a una porzione di testo al suo interno.
+Per rendere una forma o una cornice cliccabile, chiamare il suo metodo [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/). Il collegamento ipertestuale appartiene all'oggetto stesso piuttosto che a una porzione di testo al suo interno.
 
-Lo stesso approccio vale per le cornici immagine, audio e video: assegnare il collegamento alla cornice e chiamare [setTooltip](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/settooltip/) se necessario.
+Lo stesso approccio si applica a cornici di immagine, audio e video: assegnare il collegamento ipertestuale alla cornice e chiamare [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) se necessario.
 
-L'esempio seguente rende cliccabile un rettangolo:
+Il seguente esempio rende cliccabile un rettangolo:
 
 ```php
 use aspose\slides\Hyperlink;
@@ -95,7 +97,7 @@ try {
 
 ## **Utilizzare i collegamenti ipertestuali per creare un indice**
 
-I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) per collegare il testo “Pagina 2” nella prima diapositiva alla seconda diapositiva.
+I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. Il seguente esempio utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) per collegare il testo “Page 2” nella prima diapositiva alla seconda diapositiva.
 
 ```php
 use aspose\slides\FillType;
@@ -137,9 +139,9 @@ try {
 
 ### **Colore**
 
-Il metodo [setColorSource](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/setcolorsource/) di [Hyperlink](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/) determina se un collegamento utilizza il colore dei collegamenti della presentazione o la formattazione della porzione di testo. Per applicare un colore di testo personalizzato, selezionare [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkcolorsource/) e impostare il colore di riempimento della porzione. Questa funzione è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
+Il metodo [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) di [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) determina se un collegamento ipertestuale utilizza il colore dei collegamenti ipertestuali della presentazione o la formattazione della porzione di testo. Per applicare un colore del testo personalizzato, selezionare [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) e impostare il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
 
-L'esempio seguente aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo usa un riempimento rosso del testo, mentre il secondo mantiene il colore predefinito del collegamento.
+Il seguente esempio aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo utilizza un riempimento di testo rosso, mentre il secondo mantiene il colore predefinito del collegamento ipertestuale.
 
 ```php
 use aspose\slides\FillType;
@@ -168,16 +170,17 @@ try {
     $presentation->dispose();
 }
 ```
+
 ### **Suono**
 
-Un collegamento ipertestuale può riprodurre un suono quando viene attivato o interrompere un suono già in riproduzione. Utilizzare i seguenti metodi per configurare questi comportamenti:
+Un collegamento ipertestuale può riprodurre un suono quando attivato o fermare un suono già in riproduzione. Utilizzare i seguenti metodi per configurare questi comportamenti:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/setsound/) specifica l'audio associato al collegamento.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/setstopsoundonclick/) controlla se l'attivazione del collegamento interrompe il suono precedente.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) specifica l'audio associato al collegamento ipertestuale.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) controlla se l'attivazione del collegamento ipertestuale ferma il suono precedente.
 
 #### **Aggiungere un suono al collegamento ipertestuale**
 
-L'esempio seguente carica `sampleaudio.wav` e lo associa a un pulsante nella prima diapositiva. Cliccando il pulsante il suono viene riprodotto e la presentazione passa alla diapositiva successiva. Una seconda forma su quella diapositiva interrompe il suono precedente quando viene cliccata, senza eseguire alcuna navigazione.
+Il seguente esempio carica `sampleaudio.wav` e lo associa a un pulsante nella prima diapositiva. Cliccando il pulsante si riproduce il suono e si passa alla diapositiva successiva. Una seconda forma in quella diapositiva ferma il suono precedente quando viene cliccata, senza eseguire un'azione di navigazione.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -219,7 +222,7 @@ try {
 
 #### **Estrarre un suono dal collegamento ipertestuale**
 
-L'esempio seguente apre la presentazione creata sopra e legge l'audio del collegamento della prima forma in memoria tramite [getSound](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/getsound/) e [getBinaryData](https://reference.aspose.com/slides/it/php-java/aspose.slides/audio/getbinarydata/).
+Il seguente esempio apre la presentazione creata in precedenza e legge l'audio del collegamento ipertestuale della prima forma in memoria tramite [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) e [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -243,18 +246,18 @@ try {
 }
 ```
 
-### **Impostazioni di tooltip e interazione**
+### **Tooltip e impostazioni di interazione**
 
-È possibile chiamare i seguenti metodi di [Hyperlink](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/) dopo aver assegnato un collegamento a testo o forma:
+È possibile chiamare i seguenti metodi [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) dopo aver assegnato un collegamento ipertestuale a testo o a una forma:
 
-- [setTooltip](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/settooltip/) imposta il testo che il visualizzatore può mostrare come suggerimento per il collegamento.
-- [setTargetFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/settargetframe/) specifica il frame di destinazione all'interno di un frameset HTML genitore, se applicabile.
-- [setHistory](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/sethistory/) controlla se l'attivazione del collegamento aggiunge la destinazione all'elenco dei collegamenti visualizzati.
-- [setHighlightClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/sethighlightclick/) controlla se il collegamento è evidenziato quando viene cliccato.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) imposta il testo che un visualizzatore può visualizzare come suggerimento per il collegamento.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) specifica il frame di destinazione all'interno di un frameset HTML padre, se applicabile.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) controlla se l'attivazione del collegamento aggiunge la sua destinazione all'elenco dei collegamenti ipertestuali visualizzati.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) controlla se il collegamento ipertestuale viene evidenziato quando cliccato.
 
 ## **Rimuovere i collegamenti ipertestuali dalle presentazioni**
 
-Usare [getAnyHyperlinks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) per raccogliere i contenitori di collegamenti, inclusi i collegamenti alle porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiamare soltanto [removeHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); rimuovere l'azione di click non elimina la controparte mouse‑over.
+Utilizzare [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) per raccogliere i contenitori di collegamenti ipertestuali, inclusi i collegamenti delle porzioni di testo, prima di modificarli. Il seguente esempio rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiamare solo [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); la rimozione di un'azione di click non rimuove la controparte mouse-over.
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +283,23 @@ try {
 }
 ```
 
-Per rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) elimina entrambi i tipi di attivazione nell'ambito selezionato in una sola chiamata. Per una pulizia selettiva che copra master, layout e note, vedere [Segnalare, sanificare e verificare i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).
+Per rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) rimuove entrambi i tipi di attivazione nell'ambito selezionato in una sola chiamata. Per una pulizia selettiva e copertura di master, layout e note, vedere [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
 ## **Creare un inventario completo dei collegamenti ipertestuali**
 
-Prima di distribuire una presentazione, inventariare le azioni interattive così come i collegamenti web. [getAnyHyperlinks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlinkcontainer/), non un elenco piatto di stringhe URL. Ispezionare sia [getHyperlinkClick](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) sia [getHyperlinkMouseOver](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) su ciascun contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un rapporto completo può richiedere fino a due righe per contenitore.
+Prima di distribuire una presentazione, è necessario inventariare le sue azioni interattive così come i suoi collegamenti web. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) restituisce oggetti [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) , non un elenco piatto di stringhe URL. Ispezionare sia [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) sia [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) su ciascun contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un rapporto completo richiede fino a due righe per contenitore.
 
-Scansionare solo i collegamenti a livello di forma può far perdere i collegamenti associati a porzioni di testo. Interrogare l'ambito appropriato e conservare i contenitori restituiti in modo da poter aggiornare o rimuovere le loro azioni in seguito.
+La scansione solo dei collegamenti ipertestuali a livello di forma può perdere i collegamenti allegati a porzioni di testo. Interrogare invece l'ambito appropriato e conservare i contenitori restituiti così da poter successivamente aggiornare o rimuovere le loro azioni.
 
-### **Interrogare gli ambiti presentazione, diapositiva e casella di testo**
+### **Interrogare gli ambiti Presentazione, Diapositiva e Riquadro di testo**
 
-La classe [HyperlinkQueries](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/) è disponibile tramite [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) e [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/it/php-java/aspose.slides/textframe/gethyperlinkqueries/). Ogni ambito supporta le stesse query:
+La classe [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) è disponibile tramite [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) e [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Ogni ambito supporta le stesse query:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) restituisce contenitori con un'azione di click.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) restituisce contenitori con un'azione mouse‑over.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) restituisce contenitori con una o entrambe le azioni.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) restituisce contenitori con un'azione di click.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) restituisce contenitori con un'azione mouse-over.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) restituisce contenitori con una o entrambe le azioni.
 
-L'esempio seguente crea `hyperlink-audit-input.pptx` con un collegamento click esterno, un collegamento mouse‑over a file, navigazione interna a diapositiva, un collegamento mouse‑over al testo e un'azione macro. Non esegue nessuna di queste azioni. Le tre query funzionano in ogni ambito; i conteggi descrivono contenitori, non il numero totale di azioni. L'ambito della casella di testo esclude i collegamenti della forma contenitrice.
+Il seguente esempio crea `hyperlink-audit-input.pptx` con un collegamento click esterno, un collegamento file mouse-over, navigazione interna tra diapositive, un collegamento mouse-over di testo e un'azione macro. Non esegue nessuna di queste azioni. Le stesse tre query funzionano in ogni ambito; i conteggi descrivono i contenitori, non il totale delle azioni. L'ambito del riquadro di testo esclude i collegamenti propri della forma contenente.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +338,37 @@ try {
 }
 ```
 
-Per questo esempio, le query su presentazione e diapositiva riportano tre contenitori click, due contenitori mouse‑over e tre contenitori con una qualsiasi delle azioni. La query sulla casella di testo riporta un contenitore in ciascuna categoria.
+Per questo esempio, le query di presentazione e di diapositiva segnalano ciascuna tre contenitori click, due contenitori mouse-over e tre contenitori con una delle due azioni. La query del riquadro di testo segnala un contenitore in ciascuna categoria.
 
 ### **Classificare azioni e destinazioni**
 
-Usare [Hyperlink::getActionType](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/getactiontype/) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkactiontype/) coprono più della semplice navigazione web:
+Utilizzare [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) coprono più della navigazione web:
 
 | Valori | Significato per un audit |
 | --- | --- |
-| `Hyperlink` | Collegamento ipertestuale esterno; esaminare l'URL e il suo schema. |
+| `Hyperlink` | Collegamento ipertestuale esterno; ispezionare l'URL e il suo schema. |
 | `JumpSpecificSlide` | Navigazione interna a una diapositiva specifica. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione integrata della presentazione, risolta nel contesto dello slideshow. |
-| `JumpEndShow`, `StartCustomSlideShow` | Terminare lo show corrente o avviare uno show personalizzato. |
-| `StartMacro` | Eseguire una macro. |
-| `StartProgram` | Avviare un programma. |
-| `OpenFile`, `OpenPresentation` | Aprire un file o un'altra presentazione; esaminarli separatamente dagli URL web. |
-| `StartStopMedia` | Avviare o arrestare la riproduzione multimediale. |
-| `NoAction`, `Unknown` | Nessuna azione di navigazione, o azione non riconosciuta che richiede revisione. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigazione incorporata della presentazione, risolta nel contesto della presentazione. |
+| `JumpEndShow`, `StartCustomSlideShow` | Termina la presentazione corrente o avvia una presentazione personalizzata. |
+| `StartMacro` | Esegui una macro. |
+| `StartProgram` | Avvia un programma. |
+| `OpenFile`, `OpenPresentation` | Apri un file o un'altra presentazione; esaminarlo separatamente dagli URL web. |
+| `StartStopMedia` | Avvia o ferma la riproduzione multimediale. |
+| `NoAction`, `Unknown` | Nessuna azione di navigazione, o un'azione non riconosciuta che richiede revisione. |
 
-Leggere le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/getexternalurl/) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/gettargetslide/). Le azioni interne e i comandi integrati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia alcuna azione. Conservare il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) quando differisce dall'URL normalizzato e includere il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlink/gettooltip/) se disponibile.
+Leggere le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Le azioni interne e i comandi incorporati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia azioni. Conservare il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) quando differisce dall'URL normalizzato, e includere il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) se disponibile.
 
 ### **Segnalare, sanificare e verificare i collegamenti ipertestuali**
 
-L'esempio PHP seguente legge una presentazione esistente (usare il file creato sopra), scrive `hyperlink-audit.json`, applica una politica, salva `hyperlink-sanitized.pptx` e lo riapre per verificare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'uguaglianza di riferimento per evitare di processare lo stesso contenitore due volte. Le query sulla presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente master, layout, note e i master di note e handout quando presenti.
+L'esempio PHP seguente legge una presentazione esistente (utilizzare il file creato sopra), scrive `hyperlink-audit.json`, applica una politica, salva `hyperlink-sanitized.pptx` e lo riapre per controllare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'uguaglianza di riferimento per evitare di elaborare due volte lo stesso contenitore. Le query di presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente anche master, layout, note e i master di note e dilezioni quando presenti.
 
-Il rapporto registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseslide/#getSlideId--) dove disponibile. [ISlideComponent::getSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidecomponent/#getSlide--) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; altri tipi di contenitore mantengono il nome del tipo di runtime. Ogni contenitore ottiene un ID locale al rapporto in modo che le sue due azioni possano essere correlate. Il rapporto memorizza i tipi di azione come costanti intere definite dall'enumerazione PHP.
+Il report registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) dove disponibile. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per ambito. I contenitori di forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; gli altri tipi di contenitore mantengono il loro nome di tipo a runtime. Ogni contenitore ottiene un ID locale al report così le sue due azioni possono essere correlate. Il report memorizza i tipi di azione come le costanti intere definite dall'enumerazione PHP.
 
-Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e target di diapositiva interni validi. Rifiuta macro, programmi, azioni su file, altre azioni slideshow, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di politica, non un verdetto di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce fiducia: aggiungere whitelist di host e altri controlli per la propria applicazione. Sia gli URL esterni originali che quelli normalizzati sono verificati. L'esempio esegue un audit dei metadati senza seguire i collegamenti o eseguire azioni.
+Questa politica applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e destinazioni di diapositiva interne valide. Rifiuta macro, programmi, azioni su file, altre azioni di presentazione, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di politica, non un verdetto di sicurezza di Aspose.Slides. HTTPS da solo non garantisce fiducia: aggiungere whitelist di host e altri controlli per la tua applicazione. Sia gli URL esterni originali sia quelli normalizzati vengono controllati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
 
-Per la risanamento, il [getHyperlinkManager](https://reference.aspose.com/slides/it/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Qui, i collegamenti click esterni proibiti sono sostituiti da una pagina di atterraggio HTTPS fissa; gli altri click proibiti e le azioni mouse‑over proibite sono rimossi indipendentemente. Impostare `$replaceExternalClicks` a `false` per rimuovere tutte le violazioni di politica. Scegliere una pagina di sostituzione di proprietà dell'applicazione prima del deployment.
+Per la rimessione, il [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Qui, i collegamenti click esterni proibiti vengono sostituiti con una pagina di destinazione HTTPS fissa; gli altri click proibiti e le azioni mouse-over proibite vengono rimossi in modo indipendente. Impostare `$replaceExternalClicks` a `false` per rimuovere tutte le violazioni della politica. Scegliere una pagina di sostituzione gestita dall'applicazione prima del deployment.
 
-Il flag di esportazione del rapporto utilizza una politica conservativa di revisione PDF: segnalare le azioni mouse‑over e tutto ciò che non è un collegamento esterno o un salto a diapositiva specifica come potenzialmente non supportato. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravviveranno all'esportazione. Le esportazioni PDF e HTML supportate ([PDF](/slides/it/php-java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/php-java/convert-powerpoint-to-html/)) possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/php-java/convert-powerpoint-to-png/) raster e i [video](/slides/it/php-java/convert-powerpoint-to-video/) non possono preservare i collegamenti interattivi; segnalare ogni azione quando si effettua un audit per tali output.
+La bandiera di esportazione del report utilizza una politica di revisione PDF conservativa: segnalare le azioni mouse-over e qualsiasi cosa diversa da un collegamento esterno o un salto di diapositiva specifico come potenzialmente non supportata. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravviveranno all'esportazione. Le esportazioni PDF e HTML supportate [PDF](/slides/it/php-java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/php-java/convert-powerpoint-to-html/) possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/php-java/convert-powerpoint-to-png/) raster e i [video](/slides/it/php-java/convert-powerpoint-to-video/) non possono conservare i collegamenti ipertestuali interattivi; segnalare ogni azione quando si effettua l'audit per tali output.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +525,20 @@ try {
 }
 ```
 
-Con l'input creato sopra, il rapporto contiene cinque righe di azioni. Il collegamento mouse‑over al file e la macro click sono rimossi, mentre i collegamenti HTTPS e la navigazione interna alla diapositiva rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un mouse‑over proibito conserva la sua azione click.
+Con l'input creato sopra, il report contiene cinque righe di azioni. Il collegamento file mouse-over e il click macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna delle diapositive rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un mouse-over proibito mantiene la sua azione click.
 
-Questo tipo di pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/it/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), che rimuove entrambi i tipi di attivazione in tutto l'ambito selezionato indipendentemente dalla politica. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove progetti VBA incorporati, oggetti OLE o altri contenuti attivi, né valida un file PDF o HTML esportato.
+Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), che rimuove entrambi i tipi di attivazione nell'intero ambito selezionato indipendentemente dalla politica. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove i progetti VBA incorporati, gli oggetti OLE o altri contenuti attivi, e non convalida un file PDF o HTML esportato.
 
 ## **FAQ**
 
 **Come posso collegare a una sezione o alla sua prima diapositiva?**
 
-Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento ipertestuale interno punta a una singola diapositiva. Per creare una navigazione a una sezione, collegare alla prima diapositiva di quella sezione.
+Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento ipertestuale interno mira a una singola diapositiva. Per creare una navigazione verso una sezione, collegare alla prima diapositiva di quella sezione.
 
 **Posso allegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?**
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che utilizzano il master o il layout corrispondente.
+Sì. Gli elementi del master slide e dei layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che utilizzano il master o il layout corrispondente.
 
-**I collegamenti ipertestuali saranno preservati durante l'esportazione in PDF, HTML, immagini o video?**
+**I collegamenti ipertestuali saranno conservati durante l'esportazione in PDF, HTML, immagini o video?**
 
-Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedi le considerazioni sull'esportazione in [Segnalare, sanificare e verificare i collegamenti ipertestuali](#report-sanitize-and-verify-hyperlinks).
+Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedi le considerazioni sull'esportazione in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

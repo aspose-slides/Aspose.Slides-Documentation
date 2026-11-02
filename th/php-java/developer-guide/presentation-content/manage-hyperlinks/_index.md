@@ -13,8 +13,8 @@ keywords:
 - อัปเดตไฮเปอร์ลิงก์
 - ไฮเปอร์ลิงก์ข้อความ
 - ไฮเปอร์ลิงก์สไลด์
-- ไฮเปอร์ลิงก์รูปทรง
-- ไฮเปอร์ลิงก์ภาพ
+- ไฮเปอร์ลิงก์รูปร่าง
+- ไฮเปอร์ลิงก์รูปภาพ
 - ไฮเปอร์ลิงก์วิดีโอ
 - ไฮเปอร์ลิงก์ที่เปลี่ยนแปลงได้
 - PowerPoint
@@ -22,28 +22,32 @@ keywords:
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "เพิ่ม, จัดรูปแบบ, อัปเดต และลบไฮเปอร์ลิงก์ในการนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java โดยใช้ตัวอย่าง PHP."
+description: "เพิ่ม, จัดรูปแบบ, อัปเดต และลบไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ PHP ผ่าน Java โดยใช้ตัวอย่าง PHP."
 ---
 ## **บทนำ**
 
-ไฮเปอร์ลิงก์เชื่อมต่อเนื้อหาการนำเสนอไปยังเว็บไซต์หรือสถานที่ภายในการนำเสนอ ใน PowerPoint ไฮเปอร์ลิงก์มักใช้เพื่อวัตถุประสงค์สองประการ:
+ไฮเปอร์ลิงก์เชื่อมต่อเนื้อหาการนำเสนอไปยังเว็บไซต์หรือที่ตั้งภายในงานนำเสนอ ใน PowerPoint ไฮเปอร์ลิงก์มักใช้เพื่อสองวัตถุประสงค์:
 
-* เปิดเว็บไซต์จากข้อความ, รูปร่าง หรือกรอบสื่อ
+* เปิดเว็บไซต์จากข้อความ, รูปร่าง, หรือกรอบสื่อ
 * นำทางไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ
 
-Aspose.Slides for PHP via Java ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมลักษณะและเสียง, อัปเดตคุณสมบัติ, และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับไฮเปอร์ลิงก์บนองค์ประกอบแต่ละอันและวิธีเข้าถึงไฮเปอร์ลิงก์ระดับการนำเสนอ, สไลด์, หรือกรอบข้อความ พวกมันสมมติว่า PHP/Java Bridge และ Aspose.Slides PHP wrapper ถูกเริ่มต้นแล้ว สมาชิก API ที่ไม่มีหน้าอ้างอิง PHP จะเชื่อมโยงไปยัง Java API ดั้งเดิม
+Aspose.Slides for PHP via Java ให้คุณเพิ่มลิงก์เหล่านี้ ควบคุมลักษณะและเสียงของมัน ปรับปรุงคุณสมบัติและลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับไฮเปอร์ลิงก์บนองค์ประกอบเดี่ยวและวิธีเข้าถึงไฮเปอร์ลิงก์ระดับงานนำเสนอ, สไลด์ หรือ Text‑Frame พวกเขาอ้างอิงว่ามีการเริ่มต้น PHP/Java Bridge และ Aspose.Slides PHP wrapper แล้ว สมาชิก API ที่ไม่มีหน้าวิจารณ์ PHP จะลิงก์ไปยัง API Java ที่เกี่ยวข้อง
 
 {{% alert color="info" title="Note" %}}
-คุณยังสามารถแก้ไขการนำเสนอด้วย [free online Aspose PowerPoint editor](https://products.aspose.app/slides/th/editor).
+
+You can also edit presentations with the [ฟรีออนไลน์ Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
+
 {{% /alert %}} 
 
 ## **เพิ่มไฮเปอร์ลิงก์ URL**
 
-คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง, หรือกรอบสื่อ ส่วนที่คุณกำหนดไฮเปอร์ลิงก์จะเป็นพื้นที่ที่คลิกได้: ส่วนของข้อความจะเชื่อมต่อเฉพาะข้อความที่เลือก, ส่วนของรูปร่างหรือกรอบจะเชื่อมต่อกับอ็อบเจ็กต์สไลด์
+คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง หรือกรอบสื่อได้ พื้นที่ที่สามารถคลิกได้กำหนดโดยองค์ประกอบที่คุณกำหนดไฮเปอร์ลิงก์: ส่วนของข้อความจะลิงก์ข้อความที่เลือก, ส่วนของรูปหรือกรอบจะลิงก์อ็อบเจกต์สไลด์
+
+สำหรับงานนำเสนอที่มีไฮเปอร์ลิงก์แบบ relative, ดูที่ [จัดการฐานไฮเปอร์ลิงก์](/slides/th/php-java/presentation-properties/#manage-the-hyperlink-base) เพื่ออ่าน, เปลี่ยนหรือเคลียร์ฐานระดับเอกสาร
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับข้อความ**
 
-เพื่อเชื่อมข้อความกับเว็บไซต์, ส่ง [Hyperlink](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/portionformat/sethyperlinkclick/) ของส่วนข้อความ, ตามตัวอย่างด้านล่าง เพียงส่วนของข้อความนั้นจะกลายเป็นคลิกได้
+เพื่อเชื่อมข้อความกับเว็บไซต์, ให้ส่ง [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) ของส่วนข้อความตามตัวอย่างด้านล่าง ส่วนของข้อความที่ระบุเท่านั้นจะกลายเป็นคลิกได้
 
 ```php
 use aspose\slides\Hyperlink;
@@ -68,11 +72,11 @@ try {
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับรูปร่างและกรอบสื่อ**
 
-เพื่อทำให้รูปร่างหรือกรอบคลิกได้, เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/shape/sethyperlinkclick/) ของมัน ไฮเปอร์ลิงก์เป็นของอ็อบเจ็กต์เอง ไม่ได้เป็นของส่วนข้อความภายใน
+เพื่อทำให้รูปร่างหรือกรอบสามารถคลิกได้, เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) ของมัน ไฮเปอร์ลิงก์จะเป็นของอ็อบเจกต์เอง ไม่ใช่ของส่วนข้อความภายใน
 
-วิธีเดียวกันใช้ได้กับรูปภาพ, เสียง, และวิดีโอกรอบ: กำหนดไฮเปอร์ลิงก์ให้กับกรอบและเรียก [setTooltip](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/settooltip/) หากต้องการ
+วิธีเดียวกันใช้กับภาพ, ไฟล์เสียง, และวิดีโอ: กำหนดไฮเปอร์ลิงก์ให้กับกรอบและเรียก [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) หากต้องการ
 
-ตัวอย่างต่อไปทำให้สี่เหลี่ยมคลิกได้:
+ตัวอย่างต่อไปนี้ทำให้สี่เหลี่ยมคลิกได้:
 
 ```php
 use aspose\slides\Hyperlink;
@@ -93,9 +97,9 @@ try {
 }
 ```
 
-## **ใช้ไฮเปอร์ลิงก์สร้างสารบัญ**
+## **ใช้ไฮเปอร์ลิงก์เพื่อสร้างสารบัญ**
 
-ไฮเปอร์ลิงก์ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) เพื่อเชื่อมข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
+ไฮเปอร์ลิงก์ภายในช่วยให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปนี้ใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) เพื่อเชื่อมข้อความ “หน้าที่ 2” บนสไลด์แรกไปยังสไลด์ที่สอง
 
 ```php
 use aspose\slides\FillType;
@@ -133,13 +137,13 @@ try {
 }
 ```
 
-## **รูปแบบไฮเปอร์ลิงก์**
+## **จัดรูปแบบไฮเปอร์ลิงก์**
 
 ### **สี**
 
-เมธอด [setColorSource](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/setcolorsource/) ของ [Hyperlink](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของการนำเสนอหรือการจัดรูปแบบของส่วนข้อความหรือไม่ เพื่อนำสีข้อความที่กำหนดเองมาใช้, เลือก [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkcolorsource/) และตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เริ่มต้นจาก PowerPoint 2019; เวอร์ชันเก่าไม่รองรับการตั้งค่านี้
+เมธอด [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) ของ [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของงานนำเสนอหรือรูปแบบของส่วนข้อความหรือไม่ เพื่อกำหนดสีข้อความแบบกำหนดเอง, เลือก [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เปิดตัวใน PowerPoint 2019; เวอร์ชันเก่าจะไม่ใช้การตั้งค่านี้
 
-ตัวอย่างต่อไปเพิ่มไฮเปอร์ลิงก์ข้อความสองอันในสไลด์เดียว อันแรกใช้สีเติมข้อความสีแดง, ส่วนอันที่สองใช้สีไฮเปอร์ลิงก์เริ่มต้น
+ตัวอย่างต่อไปนี้เพิ่มไฮเปอร์ลิงก์ข้อความสองอันลงบนสไลด์เดียว อันแรกใช้สีเติมข้อความเป็นสีแดง, ส่วนที่สองใช้สีไฮเปอร์ลิงก์เริ่มต้น
 
 ```php
 use aspose\slides\FillType;
@@ -170,14 +174,14 @@ try {
 ```
 ### **เสียง**
 
-ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้เมธอดต่อไปนี้เพื่อกำหนดพฤติกรรมเหล่านั้น:
+ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อถูกใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้เมธอดต่อไปนี้เพื่อกำหนดพฤติกรรมเหล่านั้น:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/setsound/) ระบุไฟล์เสียงที่สัมพันธ์กับไฮเปอร์ลิงก์
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/setstopsoundonclick/) ควบคุมว่าการคลิกไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) ระบุไฟล์เสียงที่เชื่อมกับไฮเปอร์ลิงก์
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) ควบคุมว่าการคลิกไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
 
-#### **เพิ่มเสียงไฮเปอร์ลิงก์**
+#### **เพิ่มเสียงให้กับไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปโหลด `sampleaudio.wav` และเชื่อมโยงกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและนำทางไปยังสไลด์ถัดไป รูปแบบที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิก โดยไม่มีการนำทาง
+ตัวอย่างต่อไปนี้โหลด `sampleaudio.wav` แล้วเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและนำไปสไลด์ต่อไป รูปร่างที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่ทำการนำทางใด ๆ
 
 ```php
 use aspose\slides\Hyperlink;
@@ -217,9 +221,9 @@ try {
 }
 ```
 
-#### **ดึงเสียงไฮเปอร์ลิงก์ออก**
+#### **ดึงเสียงจากไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปเปิดการนำเสนอที่สร้างไว้ด้านบนและอ่านข้อมูลเสียงของไฮเปอร์ลิงก์จากรูปแบบแรกโดยใช้ [getSound](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/getsound/) และ [getBinaryData](https://reference.aspose.com/slides/th/php-java/aspose.slides/audio/getbinarydata/)
+ตัวอย่างต่อไปนี้เปิดงานนำเสนอที่สร้างขึ้นข้างต้นและอ่านเสียงของไฮเปอร์ลิงก์จากรูปแรกโดยใช้เมธอด [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) และ [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/)
 
 ```php
 use aspose\slides\Presentation;
@@ -243,18 +247,18 @@ try {
 }
 ```
 
-### **Tooltip และการตั้งค่าปฏิสัมพันธ์**
+### **การตั้งค่า Tooltip และการโต้ตอบ**
 
-หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง คุณสามารถเรียกเมธอดของ [Hyperlink](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/) ต่อไปนี้ได้:
+หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง คุณสามารถเรียกเมธอดของ [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) ดังต่อไปนี้:
 
-- [setTooltip](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/settooltip/) ตั้งข้อความที่ผู้ชมสามารถแสดงเป็นคำแนะนำสำหรับลิงก์
-- [setTargetFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/settargetframe/) ระบุกรอบเป้าหมายภายในชุดกรอบ HTML ของแม่แบบ, หากมี
-- [setHistory](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/sethistory/) ควบคุมว่าการเปิดลิงก์จะเพิ่มปลายทางเข้าไปในรายการไฮเปอร์ลิงก์ที่ดูแล้วหรือไม่
-- [setHighlightClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/sethighlightclick/) ควบคุมว่าไฮเปอร์ลิงก์จะถูกเน้นเมื่อคลิกหรือไม่
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) ตั้งข้อความที่ผู้ชมอาจเห็นเป็นคำแนะนำสำหรับลิงก์
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) ระบุกรอบเป้าหมายภายใน HTML frameset ของพาเรนต์เมื่อมีการใช้
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) ควบคุมว่าการคลิกลิงก์จะเพิ่มปลายทางไปยังรายการไฮเปอร์ลิงก์ที่เคยดูหรือไม่
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) ควบคุมว่าฮายเปอร์ลิงก์จะถูกเน้นเมื่อคลิกหรือไม่
 
-## **ลบไฮเปอร์ลิงก์จากการนำเสนอ**
+## **ลบไฮเปอร์ลิงก์ออกจากงานนำเสนอ**
 
-ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) เพื่อรวบรวมคอนเทนเนอร์ของไฮเปอร์ลิงก์, รวมถึงลิงก์ส่วนข้อความ, ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบประเภทการเปิดใช้งานทั้งสองจากสไลด์แรก หากต้องการลบเฉพาะประเภทหนึ่งให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) การลบการคลิกจะไม่ลบการเมาน์โอเวอร์ที่สอดคล้องกัน
+ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) เพื่อรวบรวมคอนเทนเนอร์ของไฮเปอร์ลิงก์, รวมถึงลิงก์ของส่วนข้อความ, ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปนี้ลบประเภทการเปิดใช้งานทั้งสองจากสไลด์แรก หากต้องการลบเฉพาะประเภทหนึ่งให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); การลบการคลิกจะไม่ลบการเมาส์โอเวอร์ที่สอดคล้องกัน
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +284,23 @@ try {
 }
 ```
 
-สำหรับการลบโดยไม่มีเงื่อนไข, [removeAllHyperlinks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) จะลบการเปิดใช้งานทั้งสองประเภทในขอบเขตที่เลือกในครั้งเดียว สำหรับการทำความสะอาดแบบเลือกและคลอบคลุมมาสเตอร์, เลย์เอาต์, และโน้ต, ดูหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+สำหรับการลบโดยไม่มีเงื่อนไข, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) จะลบประเภทการเปิดใช้งานทั้งสองในขอบเขตที่เลือกในหนึ่งคำสั่ง สำหรับการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลย์เอาต์, โน้ต, ดูที่ [รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks)
 
-## **สร้างรายการตรวจสอบไฮเปอร์ลิงก์ครบถ้วน**
+## **สร้างรายการไฮเปอร์ลิงก์ที่ครบถ้วน**
 
-ก่อนแจกจ่ายการนำเสนอ, ควรตรวจสอบการกระทำเชิงโต้ตอบและลิงก์เว็บของมัน [getAnyHyperlinks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) จะคืนค่าอ็อบเจ็กต์ [IHyperlinkContainer](https://reference.aspose.com/slides/th/java/com.aspose.slides/ihyperlinkcontainer/), ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/th/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/th/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) บนแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันอาจเปิดเผยการกระทำทั้งสอง, ดังนั้นรายงานเต็มต้องมีแถวสูงสุดสองแถวต่อคอนเทนเนอร์
+ก่อนที่จะแจกจ่ายงานนำเสนอ, ควรทำรายการการกระทำเชิงโต้ตอบและลิงก์เว็บของมัน [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) จะคืนค่าอ็อบเจกต์ [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) บนแต่ละคอนเทนเนอร์ พวกมันทำงานแยกกัน: คอนเทนเนอร์เดียวกันอาจเปิดใช้งานทั้งสอง, ดังนั้นรายงานที่ครบถ้วนอาจต้องมีสองแถวต่อคอนเทนเนอร์
 
-การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สืบค้นขอบเขตที่เหมาะสมแทน และเก็บคอนเทนเนอร์ที่คืนค่าไว้เพื่อให้คุณสามารถอัปเดตหรือกำจัดการกระทำของมันในภายหลังได้
+การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สืบค้นขอบเขตที่เหมาะสมแทนและเก็บคอนเทนเนอร์ที่คืนค่าไว้เพื่อที่คุณจะได้อัปเดตหรือเอาการกระทำของมันออกในภายหลัง
 
-### **สืบค้นขอบเขตการนำเสนอ, สไลด์, และกรอบข้อความ**
+### **ค้นหาขอบเขตของงานนำเสนอ สไลด์ และ Text‑Frame**
 
-คลาส [HyperlinkQueries](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/) มีให้ผ่าน [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), และ [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/th/php-java/aspose.slides/textframe/gethyperlinkqueries/). แต่ละขอบเขตสนับสนุนการสืบค้นเดียวกัน:
+คลาส [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) สามารถเข้าถึงได้ผ่าน [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), และ [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). แต่ละขอบเขตสนับสนุนการสืบค้นเดียวกัน:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) คืนคอนเทนเนอร์ที่มีการกระทำคลิก
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) คืนคอนเทนเนอร์ที่มีการกระทำเมาน์โอเวอร์
-- [getAnyHyperlinks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) คืนคอนเทนเนอร์ที่มีการกระทำใด ๆ หรือทั้งสองอย่าง
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) คืนคอนเทนเนอร์ที่มีการคลิก
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) คืนคอนเทนเนอร์ที่มีการเมาส์โอเวอร์
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) คืนคอนเทนเนอร์ที่มีหนึ่งหรือทั้งสองการกระทำ
 
-ตัวอย่างต่อไปสร้างไฟล์ `hyperlink-audit-input.pptx` ที่มีลิงก์คลิกภายนอก, ลิงก์เมาน์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เมาน์โอเวอร์ข้อความ, และการกระทำมาโคร ซึ่งไม่ได้เรียกใช้การกระทำใด ๆ การสืบค้นสามแบบทำงานในทุกขอบเขต; จำนวนที่แสดงคือคอนเทนเนอร์, ไม่ใช่จำนวนการกระทำทั้งหมด ขอบเขตกรอบข้อความจะไม่รวมลิงก์ของรูปร่างที่ห่อหุ้มมัน
+ตัวอย่างต่อไปนี้สร้างไฟล์ `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์เมาส์โอเวอร์ไฟล์, การนำทางภายในสไลด์, ลิงก์เมาส์โอเวอร์ข้อความ, และการดำเนินการแมโคร ตัวอย่างไม่ได้ทำการเรียกใช้การกระทำใด ๆ คำสั่งสืบค้นสามคำสั่งทำงานที่ทุกขอบเขต; จำนวนที่แสดงอ้างอิงถึงคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำทั้งหมด ขอบเขต Text‑Frame จะยกเว้นลิงก์ของรูปร่างที่ห่อหุ้ม
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +339,37 @@ try {
 }
 ```
 
-สำหรับตัวอย่างนี้, การสืบค้นระดับการนำเสนอและสไลด์แต่ละรายการแสดงคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เมาน์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีการกระทำใด ๆ สองรายการ ขอบเขตกรอบข้อความแสดงคอนเทนเนอร์หนึ่งรายการในแต่ละประเภท
+สำหรับตัวอย่างนี้, การสืบค้นระดับงานนำเสนอและสไลด์แต่ละรายการรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เมาส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีหนึ่งในสองการกระทำสามรายการ ขอบเขต Text‑Frame รายงานคอนเทนเนอร์หนึ่งรายการในแต่ละประเภท
 
-### **จัดประเภทการกระทำและปลายทาง**
+### **จำแนกการกระทำและปลายทาง**
 
-ใช้ [Hyperlink::getActionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/getactiontype/) เพื่อแยกประเภทการกระทำก่อนแยกปลายทาง [HyperlinkActionType](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
+ใช้ [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทาง [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) มีค่ามากกว่าการนำทางเว็บเท่านั้น
 
 | Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสคีมของมัน |
+| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสกีมของมัน |
 | `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางอีกรอบในโหมดสไลด์โชว์, แก้ไขตามบริบทของสไลด์โชว์ |
-| `JumpEndShow`, `StartCustomSlideShow` | สิ้นสุดการแสดงปัจจุบันหรือเริ่มการแสดงที่กำหนดเอง |
-| `StartMacro` | เรียกใช้มาโคร |
-| `StartProgram` | เปิดโปรแกรม |
-| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; ตรวจสอบแยกจาก URL เว็บ |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ในตัว, แก้ไขในบริบทของสไลด์โชว์ |
+| `JumpEndShow`, `StartCustomSlideShow` | สิ้นสุดการแสดงปัจจุบันหรือเริ่มการแสดงแบบกำหนดเอง |
+| `StartMacro` | เรียกใช้แมโคร |
+| `StartProgram` | เรียกโปรแกรม |
+| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; แยกตรวจสอบจาก URL เว็บ |
 | `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ |
-| `NoAction`, `Unknown` | ไม่มีการนำทางหรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
+| `NoAction`, `Unknown` | ไม่มีการนำทางหรือเป็นการกระทำที่ไม่ระบุซึ่งต้องตรวจสอบ |
 
-อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/getexternalurl/) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/gettargetslide/) การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ จัดเก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/th/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐาน, และรวม tooltip ที่คืนจาก [getTooltip](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlink/gettooltip/) เมื่อมีให้
+อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้แปลว่าคอนเทนเนอร์ไม่มีการกระทำ ให้เก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) เมื่อแตกต่างจาก URL ปกติ, และรวม Tooltip ที่คืนจาก [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) หากมี
 
 ### **รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์**
 
-ตัวอย่าง PHP ด้านล่างอ่านการนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างขึ้นข้างบน), เขียนไฟล์ `hyperlink-audit.json`, ประยุกต์นโยบาย, บันทึกเป็น `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อตรวจสอบการกระทำทั้งสองประเภทอีกครั้ง มันรวบรวมคอนเทนเนอร์ก่อนเปลี่ยนแปลงและใช้การเทียบเท่าการอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันสองครั้ง การสืบค้นระดับการนำเสนอครอบคลุมสไลด์ปกติ; สำหรับรายการระดับแพ็คเกจ, มันยังสืบค้นมาสเตอร์, เลย์เอาต์, โน้ต, และมาสเตอร์ของโน้ตและแจกจ่ายเมื่อมี
+ตัวอย่าง PHP ด้านล่างอ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างด้านบน), เขียนไฟล์ `hyperlink-audit.json`, ใช้นโยบาย, บันทึกเป็น `hyperlink-sanitized.pptx`, และเปิดใหม่เพื่อตรวจสอบประเภทการเปิดใช้งานอีกครั้ง มันรวบรวมคอนเทนเนอร์ก่อนทำการเปลี่ยนแปลงและใช้การเปรียบเทียบอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันสองครั้ง การสืบค้นงานนำเสนอครอบคลุมสไลด์ธรรมดา; สำหรับการสำรวจระดับแพ็กเกจ, ยังทำการสืบค้นมาสเตอร์, เลย์เอาต์, โน้ต, และมาสเตอร์โน้ตและมือแจกเมื่อปรากฏ
 
-รายงานบันทึกดัชนีสไลด์แบบหนึ่ง‑ฐานและ [getSlideId](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseslide/#getSlideId--) เมื่อมี [ISlideComponent::getSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidecomponent/#getSlide--) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่รองรับ มาสเตอร์, เลย์เอาต์, และโน้ตไม่มีดัชนีสไลด์ปกติและจะระบุด้วยขอบเขตของมันเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์การจัดรูปแบบส่วนข้อความจะมีป้ายแยกต่างหาก; ประเภทคอนเทนเนอร์อื่น ๆ จะคงชื่อประเภทขณะรันแต่ละคอนเทนเนอร์จะมี ID ระดับรายงานเพื่อให้การกระทำสองอย่างสามารถเชื่อมโยงกัน รายงานเก็บประเภทการกระทำเป็นค่าคงที่จำนวนเต็มที่กำหนดโดย enumeration ของ PHP
+รายงานบันทึกดัชนีสไลด์เริ่มต้นจาก 1 และ [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) หากมี [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลย์เอาต์และโน้ตไม่มีดัชนีสไลด์ธรรมดาและจะแยกตามขอบเขต รูปคอนเทนเนอร์และคอนเทนเนอร์รูปแบบส่วนข้อความจะมีป้ายกำกับแยกกัน; ชนิดคอนเทนเนอร์อื่นจะคงชื่อประเภทรันไทม์ของมัน แต่ละคอนเทนเนอร์จะได้รับ ID รายงานท้องถิ่นเพื่อให้เชื่อมโยงการกระทำสองอย่างของมัน รายงานบันทึกชนิดการกระทำเป็นค่าคงที่จำนวนเต็มที่กำหนดโดย enum PHP
 
-นโยบายแอปพลิเคชันที่เข้มงวดนี้ยอมรับเฉพาะ URL HTTPS แบบสัมบูรณ์และเป้าหมายสไลด์ภายในที่ถูกต้อง จะปฏิเสธมาโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น ๆ, การกระทำที่ไม่รู้จัก, และสคีม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจของนโยบาย, ไม่ใช่ข้อสรุปด้านความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่ได้สร้างความเชื่อถือ: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปพลิเคชันของคุณ ทั้ง URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างทำการตรวจสอบเมตาดาทาโดยไม่ติดตามลิงก์หรือเรียกการกระทำ
+นโยบายแอปพลิเคชันนี้จำกัดให้ใช้ได้เฉพาะ URL HTTPS แบบ absolute และเป้าหมายสไลด์ภายในที่ถูกต้อง มันจะปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น ๆ, การกระทำที่ไม่ทราบ, และสคีม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจเชิงนโยบาย ไม่ใช่การตัดสินความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่รับประกันความเชื่อถือได้: เพิ่มรายชื่ออนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกดั้งเดิมและที่ปรับรูปแบบแล้วจะถูกตรวจสอบ ตัวอย่างตรวจสอบเมตาดาต้าโดยไม่ตามลิงก์หรือเรียกการกระทำ
 
-สำหรับการแก้ไข, [getHyperlinkManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) ของคอนเทนเนอร์สนับสนุน [setExternalHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/), และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) ที่นี่, ลิงก์คลิกภายนอกที่ห้ามใช้จะถูกแทนที่ด้วยหน้า Landing Page HTTPS คงที่; การคลิกที่ห้ามใช้และการเมาน์โอเวอร์ที่ห้ามใช้จะถูกลบแยกกัน ตั้งค่าตัวแปร `$replaceExternalClicks` เป็น `false` เพื่อทำการลบการละเมิดนโยบายทั้งหมด เลือกหน้าแทนที่ที่เป็นของแอปพลิเคชันก่อนการปรับใช้
+สำหรับการแก้ไข, [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) ของคอนเทนเนอร์สนับสนุน [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/), และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) ที่นี่ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้า Landing Page HTTPS คงที่; คลิกและเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `$replaceExternalClicks` เป็น `false` เพื่อเอาการละเมิดนโยบายทั้งหมดออก เลือกหน้าทดแทนที่เป็นของแอปก่อนทำการเผยแพร่
 
-แฟล็กการส่งออกของรายงานใช้แนวนโยบายรีวิว PDF อย่างระมัดระวัง: ทำแฟล็กการกระทำเมาน์โอเวอร์และทุกอย่างที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ นี่เป็นคำแนะนำสำหรับรีวิว, ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ทำแฟล็กจะคงอยู่ในการส่งออก การส่งออก PDF และ HTML ที่รองรับอาจเก็บไฮเปอร์ลิงก์ไว้ ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และผู้ชม รูปภาพ raster และวิดีโอไม่สามารถเก็บไฮเปอร์ลิงก์เชิงโต้ตอบ; ทำแฟล็กทุกการกระทำเมื่อทำการตรวจสอบสำหรับเอาต์พุตเหล่านั้น
+ค่าสถานะการส่งออกของรายงานใช้แนวทางการตรวจทาน PDF อย่างระมัดระวัง: กำหนดค่าสถานะเมาส์โอเวอร์และการกระทำใด ๆ ที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดไปยังสไลด์เฉพาะว่าอาจไม่รองรับ เป็นเพียงเคล็ดลับการตรวจสอบ ไม่ได้เป็นการทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ตั้งค่าสถานะจะคงอยู่ในการส่งออก PDF และ HTML ที่รองรับอาจคงไว้ซึ่งไฮเปอร์ลิงก์ ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และโปรแกรมอ่านภาพ [PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/php-java/convert-powerpoint-to-html/) ไม่สามารถคงไว้ในรูปภาพ [images](/slides/th/php-java/convert-powerpoint-to-png/) และ [video](/slides/th/php-java/convert-powerpoint-to-video/) ได้
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +526,20 @@ try {
 }
 ```
 
-ด้วยอินพุตที่สร้างข้างบน, รายงานมีแถวการกระทำห้าแถว ลิงก์เมาน์โอเวอร์ไฟล์และคลิกมาโครถูกลบ, ส่วนลิงก์ HTTPS และการนำทางสไลด์ภายในคงอยู่ การตรวจสอบพิมพ์จำนวนการกระทำที่ห้ามเป็นศูนย์ อินพุตที่มี URL คลิกภายนอกที่ห้ามจะทดสอบสาขาการแทนที่ คอนเทนเนอร์ที่มีคลิกที่อนุญาตและเมาน์โอเวอร์ที่ห้ามจะคงคลิกไว้
+ด้วยอินพุตที่สร้างไว้ข้างต้น, รายงานมีแถวการกระทำห้าแถว ลิงก์เมาส์โอเวอร์ไฟล์และแมโครคลิกถูกลบ, ในขณะที่ลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบแสดงศูนย์การกระทำที่ไม่ได้รับอนุญาต อินพุตที่มี URL คลิกภายนอกที่ไม่ได้รับอนุญาตก็จะทำให้สาขาการแทนที่ทำงาน คอนเทนเนอร์ที่มีคลิกที่ได้รับอนุญาตและเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตจะคงคลิกไว้
 
-การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/th/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) ซึ่งลบการกระทำทั้งสองประเภทในขอบเขตที่เลือกโดยไม่สนใจนโยบาย การตรวจสอบที่นี่ตรวจสอบเฉพาะการกระทำของไฮเปอร์ลิงก์; ไม่ลบ VBA ฝัง, วัตถุ OLE, หรือเนื้อหาเชิงโต้ตอบอื่น ๆ, และไม่ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
+การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) ที่ลบการกระทำทั้งสองในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบเฉพาะการกระทำของไฮเปอร์ลิงก์; ไม่ได้ลบโครงการ VBA ฝัง, วัตถุ OLE, หรือเนื้อหาแอคทีฟอื่น ๆ, และไม่ได้ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะลิงก์ไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
+**ฉันจะเชื่อมโยงไปยังส่วนหรือสไลด์แรกของมันได้อย่างไร?**
 
-ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ไฮเปอร์ลิงก์ภายในจะชี้ไปยังสไลด์เดี่ยว เพื่อสร้างการนำทางไปยังส่วน, ให้ลิงก์ไปยังสไลด์แรกของส่วนนั้น
+ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ไฮเปอร์ลิงก์ภายในจะชี้ไปยังสไลด์เดี่ยว เพื่อสร้างการนำทางไปยังส่วน, ให้เชื่อมไปยังสไลด์แรกของส่วนนั้น
 
-**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
+**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบของมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
 
-ได้. องค์ประกอบมาสเตอร์สไลด์และเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์ที่สอดคล้อง
+ได้ มาสเตอร์สไลด์และองค์ประกอบของเลย์เอาต์สนับสนุนไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะใช้งานได้ระหว่างการนำเสนอบนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์ที่สอดคล้องกัน
 
-**ไฮเปอร์ลิงก์จะคงอยู่เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
+**ไฮเปอร์ลิงก์จะคงอยู่เมื่อตีออกเป็น PDF, HTML, ภาพ หรือวิดีโอหรือไม่?**
 
-การส่งออก PDF และ HTML ที่รองรับอาจเก็บไฮเปอร์ลิงก์ไว้; รูปภาพ raster และวิดีโอไม่สามารถทำได้ ดูข้อพิจารณาการส่งออกในหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+การส่งออก PDF และ HTML ที่รองรับอาจคงไว้ซึ่งไฮเปอร์ลิงก์; ภาพเรสเตอร์และวิดีโอไม่สามารถคงไว้ได้ ดูข้อพิจารณาการส่งออกใน [รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks)

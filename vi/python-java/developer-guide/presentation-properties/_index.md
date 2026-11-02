@@ -1,14 +1,14 @@
 ---
-title: Quản lý thuộc tính bản trình chiếu trong Python
-linktitle: Thuộc tính Bản trình chiếu
+title: Quản lý Thuộc tính Bản trình bày trong Python
+linktitle: Thuộc tính Bản trình bày
 type: docs
 weight: 70
 url: /vi/python-java/presentation-properties/
 keywords:
 - Thuộc tính PowerPoint
-- Thuộc tính bản trình chiếu
+- Thuộc tính bản trình bày
 - Thuộc tính tài liệu
-- Thuộc tính tích hợp
+- Thuộc tính có sẵn
 - Thuộc tính tùy chỉnh
 - Thuộc tính nâng cao
 - Quản lý thuộc tính
@@ -19,50 +19,37 @@ keywords:
 - Ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - Python
 - Aspose.Slides
-description: "Quản lý các thuộc tính bản trình chiếu trong Aspose.Slides cho Python qua Java và tối ưu hoá việc tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
+description: "Quản lý các thuộc tính của bản trình bày trong Aspose.Slides cho Python thông qua Java và tối ưu hóa tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides hỗ trợ hai loại thuộc tính tài liệu: **Built-in** và **Custom**. Cả hai loại thuộc tính này đều có thể được truy cập và quản lý dễ dàng bằng API của Aspose.Slides.
+Aspose.Slides cho Python thông qua Java hỗ trợ các thuộc tính tài liệu **có sẵn** và **tùy chỉnh**. Sử dụng các thuộc tính này để đọc và cập nhật siêu dữ liệu bản trình bày, chẳng hạn như tác giả, tiêu đề và các giá trị do người dùng định nghĩa.
 
-Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu của bản trình chiếu thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/documentproperties/) . Một thể hiện của lớp này được trả về bởi [Presentation.getDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getDocumentProperties) . Các ví dụ sau cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
+Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu bản trình bày thông qua lớp [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) . Một thể hiện của lớp này được trả về bởi [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) . Các ví dụ sau đây minh họa cách đọc, sửa đổi và quản lý các thuộc tính này.
 
-{{% alert color="info" title="Lưu ý" %}}
-Xin lưu ý rằng các trường **Application** và **AppVersion** không thể được sửa đổi. Aspose.Slides ghi lại chúng mỗi khi lưu, vì vậy một bản trình chiếu đã lưu luôn báo cáo "Aspose.Slides for Java" và phiên bản của thư viện đã tạo ra nó. Bất kỳ giá trị nào được truyền vào [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/vi/python-java/aspose.slides/documentproperties/#setNameOfApplication) đều bị bỏ qua khi bản trình chiếu được ghi.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides quản lý siêu dữ liệu ứng dụng và nhà sản xuất khi lưu bản trình bày; các trường này xác định phần mềm đã tạo ra tệp đầu ra.
 {{% /alert %}}
 
-## **Thuộc tính tài liệu trong PowerPoint**
+## **Quản lý Thuộc tính Bản trình bày**
 
-Microsoft PowerPoint 2007 cho phép bạn quản lý các thuộc tính tài liệu của tệp bản trình chiếu. Nhấp vào biểu tượng Office và chọn **Prepare | Properties | Advanced Properties**, như hình dưới:
+Các thuộc tính tài liệu lưu trữ thông tin mô tả cùng với nội dung bản trình bày. Chúng chia thành hai loại:
 
-|**Chọn mục menu Advanced Properties**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/ZrmuCD6.jpg)|
+- **Thuộc tính có sẵn** chứa siêu dữ liệu tiêu chuẩn, chẳng hạn như tiêu đề, tác giả và thống kê tài liệu.
+- **Thuộc tính tùy chỉnh** lưu trữ các cặp tên/giá trị do người dùng định nghĩa.
 
-Sau khi bạn chọn **Advanced Properties**, một hộp thoại xuất hiện, cho phép bạn quản lý các thuộc tính tài liệu của tệp PowerPoint:
+Aspose.Slides cho Python thông qua Java cung cấp quyền truy cập vào cả hai loại. Trong PowerPoint, chọn **File → Info → Properties → Advanced Properties** để kiểm tra siêu dữ liệu tài liệu. Hộp thoại nhóm thông tin thành các tab như **Summary**, **Statistics**, **Contents**, và **Custom**. Sử dụng tab **Custom** để quản lý các thuộc tính do người dùng định nghĩa.
 
-|**Hộp thoại Thuộc tính**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/LibmdQd.jpg)|
+## **Đọc Thuộc tính Công khai từ Bản trình bày Được Mã hóa**
 
-Hộp thoại **Properties Dialog** chứa các tab như **General**, **Summary**, **Statistics**, **Contents**, và **Custom**. Các tab này cho phép bạn cấu hình các loại thông tin khác nhau về tệp PowerPoint. Sử dụng tab **Custom** để quản lý các thuộc tính tùy chỉnh.
+Mật khẩu mở thường bảo vệ cả nội dung bản trình bày và các thuộc tính tài liệu. Khi một bản trình bày được mã hóa sau khi gọi [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) với `False`, các thuộc tính tài liệu của nó vẫn công khai. Ứng dụng sau đó có thể gọi [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `True` và đọc siêu dữ liệu công khai mà không cần cung cấp mật khẩu mở.
 
-## **Làm việc với Thuộc tính Tài liệu bằng Aspose.Slides cho Python qua Java**
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) điều khiển những gì Aspose.Slides tải; nó không giải mã bất kỳ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hóa, việc tải chúng mà không có mật khẩu sẽ thất bại. Nếu bản trình bày không được mã hóa, tùy chọn sẽ bị bỏ qua và toàn bộ bản trình bày sẽ được tải.
 
-Như đã mô tả ở trên, Aspose.Slides cho Python qua Java hỗ trợ cả các thuộc tính **Built-in** và **Custom**. Lớp [DocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/documentproperties/) đại diện cho các thuộc tính tài liệu liên kết với một tệp bản trình chiếu.
-
-Sử dụng [Presentation.getDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getDocumentProperties) để truy cập các thuộc tính này như mô tả bên dưới.
-
-## **Đọc các thuộc tính công khai từ một bản trình chiếu đã mã hoá**
-
-Một mật khẩu mở thường bảo vệ cả nội dung bản trình chiếu và các thuộc tính tài liệu. Khi bản trình chiếu được mã hoá bằng cách truyền `false` vào [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) , các thuộc tính tài liệu vẫn công khai. Ứng dụng sau đó có thể truyền `true` vào [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) và đọc siêu dữ liệu công khai mà không cần cung cấp mật khẩu mở.
-
-Tùy chọn chỉ tải tài liệu‑properties kiểm soát những gì Aspose.Slides tải; nó không giải mã bất kỳ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hoá, việc tải chúng mà không có mật khẩu sẽ thất bại. Nếu bản trình chiếu không được mã hoá, tùy chọn này sẽ bị bỏ qua và toàn bộ bản trình chiếu sẽ được tải.
-
-Ví dụ sau xác minh chế độ tải qua [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/vi/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) và sau đó đọc các thuộc tính tích hợp qua [Presentation.getDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/#getDocumentProperties) :
+Ví dụ yêu cầu một bản trình bày được mã hóa mà các thuộc tính tài liệu của nó được để công khai. Nó xác minh chế độ tải thông qua [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) và sau đó đọc các thuộc tính có sẵn qua [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```python
 import jpype
@@ -91,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-Trong chế độ này, nội dung slide không được tải. Các slide, master, layout, shape, media và các đối tượng trình chiếu khác sẽ không khả dụng. Ứng dụng nên luôn kiểm tra [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/vi/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) trước khi thực hiện thao tác yêu cầu mô hình đối tượng bản trình chiếu đầy đủ.
+Trong chế độ này, nội dung slide không được tải. Các slide, master, layout, shape, media và các đối tượng khác của bản trình bày không khả dụng. Ứng dụng nên luôn kiểm tra [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) trước khi thực hiện thao tác đòi hỏi mô hình đối tượng bản trình bày đầy đủ.
 
-{{% alert color="warning" title="Cảnh báo" %}}
-Siêu dữ liệu công khai có thể tiết lộ tên tác giả, tiêu đề, chủ đề, từ khóa, thông tin công ty, chú thích và các giá trị tùy chỉnh. Hãy mã hoá các thuộc tính nhạy cảm cùng với bản trình chiếu. Chỉ để chúng công khai khi hệ thống lập chỉ mục, phân lớp, tìm kiếm hoặc quản lý tài liệu có yêu cầu cụ thể truy cập mà không cần mật khẩu.
+{{% alert color="warning" title="Warning" %}}
+Siêu dữ liệu công khai có thể lộ tên tác giả, tiêu đề, đề mục, từ khóa, thông tin công ty, bình luận và các giá trị tùy chỉnh. Hãy mã hóa các thuộc tính nhạy cảm cùng với bản trình bày. Chỉ để chúng công khai khi việc lập chỉ mục, phân loại, tìm kiếm hoặc hệ thống quản lý tài liệu có yêu cầu cụ thể để truy cập mà không cần mật khẩu.
 {{% /alert %}}
 
-## **Cập nhật thuộc tính của một bản trình chiếu đã mã hoá**
+## **Cập nhật Thuộc tính của Bản trình bày Được Mã hóa**
 
-Đối với tệp PPTX đã mã hoá, một bản trình chiếu được tải ở chế độ chỉ‑tài‑liệu‑công‑khai nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ‑có‑siêu‑dữ‑liệu vì các thuộc tính công khai phải đồng nhất với dữ liệu tương ứng bên trong bản trình chiếu đã mã hoá. Do đó, việc cập nhật chúng đòi hỏi mật khẩu mở chính xác và một lần tải đầy đủ.
+Đối với tệp PPTX được mã hóa, một bản trình bày được tải sau khi gọi [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `True` nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ chứa siêu dữ liệu này vì các thuộc tính công khai phải nhất quán với dữ liệu tương ứng trong bản trình bày đã mã hóa. Do đó, việc cập nhật chúng yêu cầu mật khẩu mở đúng và một lần tải đầy đủ.
 
-Ví dụ sau mở bản trình chiếu bằng [LoadOptions.setPassword](https://reference.aspose.com/slides/vi/python-java/aspose.slides/loadoptions/#setPassword) , cập nhật các thuộc tính tích hợp công khai, và lưu kết quả. Sau đó sử dụng [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#isEncrypted) để xác minh rằng việc mã hoá vẫn được giữ và mở lại siêu dữ liệu công khai mà không cần mật khẩu để kiểm tra các giá trị mới:
+Ví dụ yêu cầu một bản trình bày PPTX được mã hóa với các thuộc tính tài liệu công khai và một mật khẩu mở đã biết. Nó mở toàn bộ bản trình bày bằng [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword), cập nhật các thuộc tính có sẵn công khai, và lưu kết quả. Sau đó nó sử dụng [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) để xác minh rằng việc mã hóa vẫn được duy trì và mở lại siêu dữ liệu công khai mà không cần mật khẩu để xác nhận các giá trị mới:
 
 ```python
 import jpype
@@ -122,6 +109,7 @@ presentation = Presentation(input_path, load_options)
 try:
     presentation.getDocumentProperties().setTitle("Updated Product Roadmap")
     presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed")
+    
     presentation.save(output_path, SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -144,11 +132,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình chiếu, nó phải xem các thuộc tính công khai của tệp PPTX đã mã hoá như là chỉ‑đọc.
+Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình bày, nó phải coi các thuộc tính công khai của tệp PPTX được mã hóa là chỉ đọc.
 
-## **Truy cập các thuộc tính tích hợp**
+## **Truy cập Thuộc tính Có sẵn**
 
-Các thuộc tính tích hợp được [DocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/documentproperties/) cung cấp bao gồm: **Creator** (Author), **Description**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **Keywords**, **SharedDoc** (Is shared between different producers?), **PresentationFormat**, **Subject**, và **Title**.
+Lớp [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) cung cấp siêu dữ liệu có sẵn thông qua các phương thức getter, bao gồm [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) và [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime). Ví dụ này mở một bản trình bày hiện có và in siêu dữ liệu đã lưu ra console. Giá trị phụ thuộc vào bản trình bày đầu vào; một số trường có thể để trống.
 
 ```python
 import jpype
@@ -157,73 +145,106 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, DocumentProperties
+from asposeslides.api import Presentation
 
-# Khởi tạo lớp Presentation đại diện cho bản trình chiếu
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessBuiltInProperties.pptx")
 try:
-    # Tạo tham chiếu tới đối tượng DocumentProperties liên kết với Presentation
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Hiển thị các thuộc tính tích hợp
-    print("Category : ", properties.getCategory())
-    print("Current Status : ", properties.getContentStatus())
-    print("Creation Date : ", properties.getCreatedTime())
-    print("Author : ", properties.getAuthor())
-    print("Description : ", properties.getComments())
-    print("KeyWords : ", properties.getKeywords())
-    print("Last Modified By : ", properties.getLastSavedBy())
-    print("Supervisor : ", properties.getManager())
-    print("Modified Date : ", properties.getLastSavedTime())
-    print("Presentation Format : ", properties.getPresentationFormat())
-    print("Last Print Date : ", properties.getLastPrinted())
-    print("Is Shared between producers : ", properties.getSharedDoc())
-    print("Subject : ", properties.getSubject())
-    print("Title : ", properties.getTitle())
+    print("Category:", document_properties.getCategory())
+    print("Content status:", document_properties.getContentStatus())
+    print("Creation date:", document_properties.getCreatedTime())
+    print("Author:", document_properties.getAuthor())
+    print("Comments:", document_properties.getComments())
+    print("Keywords:", document_properties.getKeywords())
+    print("Last modified by:", document_properties.getLastSavedBy())
+    print("Manager:", document_properties.getManager())
+    print("Modified date:", document_properties.getLastSavedTime())
+    print("Presentation format:", document_properties.getPresentationFormat())
+    print("Last print date:", document_properties.getLastPrinted())
+    print("Is shared between producers:", document_properties.getSharedDoc())
+    print("Subject:", document_properties.getSubject())
+    print("Title:", document_properties.getTitle())
 finally:
     presentation.dispose()
 ```
 
-## **Sửa đổi các thuộc tính tích hợp**
+## **Sửa đổi Thuộc tính Có sẵn**
 
-Việc sửa đổi các thuộc tính tích hợp đơn giản như việc truy cập chúng. Sử dụng setter tương ứng để gán giá trị mới. Ví dụ sau sửa đổi các thuộc tính tài liệu tích hợp bằng Aspose.Slides cho Python qua Java.
+Để cập nhật siêu dữ liệu có sẵn, sử dụng các phương thức setter trên đối tượng trả về bởi [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). Ví dụ này mở một bản trình bày hiện có, gọi [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) và [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager), sau đó lưu bản trình bày đã cập nhật bằng [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Tệp PPTX đã lưu chứa siêu dữ liệu mới.
 
 ```python
 import jpype
 import asposeslides
 
-if not jpase.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("ModifyBuiltInProperties.pptx")
 try:
-    # Tạo tham chiếu tới đối tượng DocumentProperties liên kết với Presentation
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Đặt các thuộc tính tích hợp
-    properties.setAuthor("Aspose.Slides for Python via Java")
-    properties.setTitle("Modifying Presentation Properties")
-    properties.setSubject("Aspose Subject")
-    properties.setComments("Aspose Description")
-    properties.setManager("Aspose Manager")
+    document_properties.setAuthor("Aspose.Slides for Python via Java")
+    document_properties.setTitle("Manage PowerPoint Presentation Properties")
+    document_properties.setSubject("Modify Built-in Properties")
+    document_properties.setComments("Aspose description")
+    document_properties.setManager("Aspose manager")
 
-    # Lưu bản trình chiếu của bạn vào một tệp
-    presentation.save("DocProps.pptx", SaveFormat.Pptx)
+    presentation.save("DocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Ví dụ này sửa đổi các thuộc tính tích hợp của bản trình chiếu và có thể xem như hình dưới:
+## **Quản lý Cơ sở Siêu liên kết**
 
-|**Thuộc tính tài liệu tích hợp sau khi sửa đổi**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/zz1N9de.jpg)|
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) trả về cơ sở cấp độ tài liệu cho các siêu liên kết tương đối. Sử dụng [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) để thay đổi hoặc xóa nó. Điều này hữu ích khi di chuyển một bản trình bày và các tệp liên kết sang vị trí khác. Nó riêng biệt với [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) của một siêu liên kết cá nhân: việc thay đổi cơ sở không ghi lại lại các địa chỉ liên kết đã lưu hoặc thay đổi đích tuyệt đối.
 
-## **Thêm các Thuộc tính Tài liệu Tùy chỉnh**
+Ví dụ yêu cầu một bản trình bày chứa cả liên kết tương đối, chẳng hạn `target.html`, và liên kết tuyệt đối, chẳng hạn `https://example.org/absolute.html`. Nó đọc cơ sở hiện có, gán một địa chỉ cơ sở mới, và lưu rồi mở lại bản trình bày để kiểm tra giá trị. Sau đó nó xóa cơ sở bằng một chuỗi trống và xác minh giá trị trống trong một tệp đã lưu riêng. Thay địa chỉ cơ sở mẫu bằng vị trí của các tệp liên kết của bạn.
 
-Aspose.Slides cho Python qua Java cũng cho phép các nhà phát triển thêm các thuộc tính tài liệu tùy chỉnh vào bản trình chiếu. Ví dụ dưới đây thêm ba thuộc tính tùy chỉnh, sau đó tra cứu tên lưu tại chỉ mục 2 và xóa thuộc tính đó, vì vậy bản trình chiếu đã lưu giữ lại hai thuộc tính. Các thuộc tính tùy chỉnh được sắp xếp theo thứ tự chữ cái, không phải theo thứ tự thêm vào.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("hyperlinks.pptx")
+try:
+    print("Original base:", presentation.getDocumentProperties().getHyperlinkBase())
+
+    new_base = "https://example.com/new/"
+    presentation.getDocumentProperties().setHyperlinkBase(new_base)
+    presentation.save("hyperlinks-updated.pptx", SaveFormat.Pptx)
+
+    updated_presentation = Presentation("hyperlinks-updated.pptx")
+    try:
+        print("Base preserved:", new_base == updated_presentation.getDocumentProperties().getHyperlinkBase())
+
+        updated_presentation.getDocumentProperties().setHyperlinkBase("")
+        updated_presentation.save("hyperlinks-cleared.pptx", SaveFormat.Pptx)
+
+        cleared_presentation = Presentation("hyperlinks-cleared.pptx")
+        try:
+            print("Base cleared:", "" == cleared_presentation.getDocumentProperties().getHyperlinkBase())
+        finally:
+            cleared_presentation.dispose()
+    finally:
+        updated_presentation.dispose()
+finally:
+    presentation.dispose()
+```
+
+Hai thông báo xác minh nên in ra `True`. Xóa cơ sở vẫn giữ nguyên các địa chỉ siêu liên kết cá nhân.
+
+Một liên kết tương đối tới `target.pptx` mở `old/target.pptx` khi cơ sở chỉ tới thư mục `old`. Sau khi thay đổi cơ sở thành thư mục `new`, lưu và mở lại bản trình bày, cùng một liên kết sẽ mở `new/target.pptx`. Một liên kết tuyệt đối vẫn mở cùng tệp. Hãy thử các liên kết tương đối trong PowerPoint trước và sau khi di chuyển bản trình bày hoặc thay đổi cơ sở của nó.
+
+## **Thêm Thuộc tính Tùy chỉnh cho Bản trình bày**
+
+Các thuộc tính tùy chỉnh lưu trữ siêu dữ liệu không có trường có sẵn tương ứng. Phương thức [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) cho phép bạn gán giá trị theo tên thuộc tính. Ví dụ này tạo một bản trình bày, thêm hai giá trị văn bản và một giá trị phiên bản nguyên (sử dụng `jpype.JInt` để truyền một số nguyên Java), và lưu bản trình bày bằng [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Gán giá trị cho một tên đã tồn tại sẽ thay thế giá trị của thuộc tính đó.
 
 ```python
 import jpype
@@ -236,33 +257,20 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Lấy các Thuộc tính Tài liệu
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Thêm các thuộc tính Tùy chỉnh
-    properties.set_Item("New Custom", jpype.JInt(12))
-    properties.set_Item("My Name", "Mudassir")
-    properties.set_Item("Custom", jpype.JInt(124))
+    document_properties.set_Item("Reviewed by", "John Smith")
+    document_properties.set_Item("Confidentiality level", "Internal")
+    document_properties.set_Item("Document version", jpype.JInt(2))
 
-    # Lấy tên thuộc tính tại chỉ mục nhất định
-    property_name = properties.getCustomPropertyName(2)
-
-    # Xóa thuộc tính đã chọn
-    properties.removeCustomProperty(property_name)
-
-    # Lưu bản trình chiếu
-    presentation.save("CustomDemo.pptx", SaveFormat.Pptx)
+    presentation.save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-|**Thuộc tính Tài liệu Tùy chỉnh Đã Thêm**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/HdKcxI9.png)|
+## **Truy cập và Sửa đổi Thuộc tính Tùy chỉnh**
 
-## **Truy cập và Sửa đổi Các Thuộc tính Tùy chỉnh**
-
-Aspose.Slides cho Python qua Java cũng cho phép các nhà phát triển truy cập các giá trị của thuộc tính tùy chỉnh. Ví dụ dưới đây cho thấy cách truy cập và sửa đổi tất cả các thuộc tính tùy chỉnh trong một bản trình chiếu.
+Ví dụ này mở một bản trình bày chứa các thuộc tính tùy chỉnh và sử dụng [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) để lặp qua chúng. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) nhận một chỉ số bắt đầu từ 0 và trả về tên được sử dụng bởi [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item). Ví dụ in mỗi tên và giá trị gốc, thay thế mọi giá trị bằng một chuỗi có số thứ tự bất kể kiểu dữ liệu gốc, và lưu các thay đổi. Nếu không có thuộc tính tùy chỉnh nào, vòng lặp sẽ không thực hiện thay đổi nào.
 
 ```python
 import jpype
@@ -271,237 +279,50 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessAndModifyProperties.pptx")
 try:
-    # Tạo tham chiếu tới đối tượng DocumentProperties liên kết với Presentation
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Truy cập và sửa đổi các thuộc tính tùy chỉnh
-    for i in range(properties.getCountOfCustomProperties()):
-        property_name = properties.getCustomPropertyName(i)
-        # Hiển thị tên và giá trị của các thuộc tính tùy chỉnh
-        print("Custom Property Name : ", property_name)
-        print("Custom Property Value : ", properties.get_Item(property_name))
+    for i in range(document_properties.getCountOfCustomProperties()):
+        property_name = document_properties.getCustomPropertyName(i)
+        property_value = document_properties.get_Item(property_name)
 
-        # Sửa đổi giá trị của các thuộc tính tùy chỉnh
-        properties.set_Item(property_name, f"New Value {i + 1}")
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value)
 
-    # Lưu bản trình chiếu của bạn vào một tệp
-    presentation.save("CustomDemoModified.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+        document_properties.set_Item(property_name, f"New Value {i + 1}")
 
-Ví dụ này sửa đổi các thuộc tính tùy chỉnh của bản trình chiếu [PPTX](https://docs.fileformat.com/presentation/pptx/). Các hình dưới đây hiển thị các thuộc tính tùy chỉnh của bản trình chiếu trước và sau khi sửa đổi:
-
-|**Thuộc tính tùy chỉnh trước khi sửa đổi**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/Ze7YHvi.jpg)|
-
-|**Thuộc tính tùy chỉnh sau khi sửa đổi**|
-| :- |
-|![Thuộc tính tài liệu PowerPoint](https://i.imgur.com/Tofu0CL.jpg)|
-
-## **Thuộc tính Tài liệu Nâng cao**
-
-{{% alert color="info" title="Lưu ý" %}}
-Các phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#updateDocumentProperties), và [writeBindedPresentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#writeBindedPresentation) đã được thêm vào [PresentationInfo](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/) , và hành vi của phương thức [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/vi/python-java/aspose.slides/documentproperties/#setLastSavedTime) đã thay đổi.
-{{% /alert %}}
-
-Hai phương thức mới [readDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#readDocumentProperties) và [updateDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) đã được thêm vào lớp [PresentationInfo](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/) . Chúng cung cấp cách truy cập nhanh vào các thuộc tính tài liệu và cho phép bạn thay đổi và cập nhật các thuộc tính mà không cần tải toàn bộ bản trình chiếu.
-
-Quy trình thường gặp của việc tải các thuộc tính, thay đổi giá trị và cập nhật tài liệu có thể được thực hiện như sau:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-# Đọc thông tin bản trình chiếu
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx")
-
-# Lấy các thuộc tính hiện tại
-properties = presentation_info.readDocumentProperties()
-
-# Đặt giá trị mới cho các trường Tác giả và Tiêu đề
-properties.setAuthor("New Author")
-properties.setTitle("New Title")
-
-# Cập nhật bản trình chiếu với các giá trị mới
-presentation_info.updateDocumentProperties(properties)
-presentation_info.writeBindedPresentation("presentation.pptx")
-```
-
-Có một cách khác để sử dụng các thuộc tính của một bản trình chiếu cụ thể làm mẫu để cập nhật thuộc tính trong các bản trình chiếu khác:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("template.pptx")
-template = presentation_info.readDocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-def update_by_template(path, template):
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-Một mẫu mới có thể được tạo từ đầu và sau đó dùng để cập nhật nhiều bản trình chiếu:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory, DocumentProperties
-
-template = DocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-## **Đặt Ngôn ngữ Kiểm tra Chính tả**
-
-Aspose.Slides cung cấp phương thức [PortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/python-java/aspose.slides/portionformat/#setLanguageId) để cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho tài liệu PowerPoint. Ngôn ngữ kiểm tra chính tả là ngôn ngữ mà trình kiểm tra chính tả và ngữ pháp của bản trình chiếu sẽ sử dụng.
-
-Mã Python này cho thấy cách đặt ngôn ngữ kiểm tra chính tả cho một bản PowerPoint:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, Portion, FontData
-
-pptx_file_name = "presentation.pptx"
-
-presentation = Presentation(pptx_file_name)
-try:
-    auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
-    paragraph.getPortions().clear()
-
-    new_portion = Portion()
-
-    font = FontData("SimSun")
-    portion_format = new_portion.getPortionFormat()
-    portion_format.setComplexScriptFont(font)
-    portion_format.setEastAsianFont(font)
-    portion_format.setLatinFont(font)
-
-    portion_format.setLanguageId("zh-CN") # đặt Id của ngôn ngữ kiểm tra chính tả
-
-    new_portion.setText("1。")
-    paragraph.getPortions().add(new_portion)
-finally:
-    presentation.dispose()
-```
-
-## **Đặt Ngôn ngữ Mặc định**
-
-Mã Python này cho thấy cách đặt ngôn ngữ mặc định cho toàn bộ bản trình chiếu PowerPoint:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, LoadOptions, ShapeType
-
-load_options = LoadOptions()
-load_options.setDefaultTextLanguage("en-US")
-
-presentation = Presentation(load_options)
-try:
-    # Thêm một hình chữ nhật có văn bản
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50)
-    shape.getTextFrame().setText("New Text")
-
-    # Kiểm tra ngôn ngữ của phần đầu tiên
-    print(shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId())
+    presentation.save("CustomProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Ví dụ Trực tiếp**
 
-Hãy thử ứng dụng trực tuyến [**Aspose.Slides Metadata**](https://products.aspose.app/slides/vi/metadata) để xem cách làm việc với các thuộc tính tài liệu qua API của Aspose.Slides:
+Thử ứng dụng trực tuyến [**Xem & Chỉnh sửa Siêu dữ liệu PowerPoint**](https://products.aspose.app/slides/metadata) để xem cách làm việc với thuộc tính tài liệu bằng API Aspose.Slides:
 
-[![Xem & Chỉnh sửa siêu dữ liệu PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
+[![Xem & Chỉnh sửa Siêu dữ liệu PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để xóa một thuộc tính tích hợp khỏi bản trình chiếu?**
+**Làm thế nào để tôi xoá một thuộc tính có sẵn khỏi bản trình bày?**
 
-Các thuộc tính tích hợp là một phần không thể tách rời của bản trình chiếu và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
+Các thuộc tính có sẵn là một phần không thể thiếu của bản trình bày và không thể bị xoá hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
 
-**Điều gì sẽ xảy ra nếu tôi thêm một thuộc tính tùy chỉnh đã tồn tại?**
+**Điều gì xảy ra nếu tôi thêm một thuộc tính tùy chỉnh đã tồn tại?**
 
-Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện tại của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
+Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện có sẽ bị ghi đè bởi giá trị mới. Bạn không cần phải xoá hoặc kiểm tra thuộc tính trước, vì Aspose.Slides tự động cập nhật giá trị của thuộc tính.
 
-**Tôi có thể truy cập các thuộc tính bản trình chiếu mà không tải toàn bộ bản trình chiếu không?**
+**Tôi có thể truy cập các thuộc tính bản trình bày mà không tải toàn bộ bản trình bày không?**
 
-Có. Sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationfactory/#getPresentationInfo) và sau đó [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentationinfo/#readDocumentProperties) để đọc siêu dữ liệu tài liệu được lưu mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/python-java/aspose.slides/presentation/) . Xem [Build a Lightweight Presentation Inventory](/slides/vi/python-java/examine-presentation/) để biết ví dụ báo cáo đầy đủ và các hạn chế theo định dạng.
+Có. Sử dụng [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) sau đó [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) để đọc siêu dữ liệu tài liệu đã lưu mà không cần tạo một thể hiện [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) . Xem [Xây dựng Kiểm kê Bản trình bày Nhẹ](/slides/vi/python-java/examine-presentation/) để có ví dụ báo cáo đầy đủ và các hạn chế theo định dạng.
 
-**Tôi có thể đọc các thuộc tính công khai của một bản trình chiếu đã mã hoá mà không có mật khẩu mở không?**
+**Tôi có thể đọc các thuộc tính công khai của bản trình bày đã mã hóa mà không có mật khẩu mở không?**
 
-Có. Việc mã hoá thuộc tính tài liệu phải đã bị tắt trước khi bản trình chiếu được mã hoá, và bản trình chiếu phải được tải ở chế độ chỉ‑tài‑liệu‑công‑khai.
+Có. Bản trình bày phải đã được mã hóa sau khi gọi [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) với `False`, và phải được tải sau khi gọi [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) với `True`.
 
-**Tôi có thể cập nhật một tệp PPTX đã mã hoá ở chế độ chỉ‑tài‑liệu‑công‑khai không?**
+**Tôi có thể cập nhật một tệp PPTX đã mã hóa ở chế độ chỉ tải thuộc tính tài liệu không?**
 
-Không. Dữ liệu thuộc tính công khai và đã mã hoá phải đồng nhất, do đó việc cập nhật tệp PPTX đã mã hoá yêu cầu tải đầy đủ bản trình chiếu với mật khẩu mở đúng.
+Không. Dữ liệu thuộc tính công khai và đã mã hóa phải duy trì tính nhất quán, do đó việc cập nhật một tệp PPTX đã mã hóa yêu cầu tải toàn bộ bản trình bày với mật khẩu mở đúng.

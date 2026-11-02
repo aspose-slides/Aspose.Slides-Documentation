@@ -22,56 +22,34 @@ keywords:
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java에서 프레젠테이션 속성을 완벽히 관리하고 PowerPoint 및 OpenDocument 파일에서 검색, 브랜딩 및 워크플로를 효율화합니다."
+description: "Aspose.Slides for PHP via Java에서 프레젠테이션 속성을 마스터하고 PowerPoint 및 OpenDocument 파일에서 검색, 브랜딩 및 워크플로를 효율화합니다."
 ---
 ## **소개**
 
-Aspose.Slides는 두 가지 유형의 문서 속성을 지원합니다: **Built-in** 및 **Custom**. 이 두 속성 유형은 Aspose.Slides API를 사용하여 쉽게 접근하고 관리할 수 있습니다.
+Aspose.Slides for PHP via Java는 **내장** 및 **사용자 정의** 문서 속성을 지원합니다. 이러한 속성을 사용하여 작성자, 제목 및 사용자 정의 값과 같은 프레젠테이션 메타데이터를 읽고 업데이트할 수 있습니다.
 
-Aspose.Slides는 [DocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/documentproperties/) 클래스를 통해 프레젠테이션 문서 속성을 다룰 수 있습니다. 이 클래스의 인스턴스는 [Presentation::getDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/#getDocumentProperties) 메서드가 반환합니다. 다음 예제에서는 이러한 속성을 읽고, 수정하고, 관리하는 방법을 보여줍니다.
+Aspose.Slides를 사용하면 [DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) 클래스를 통해 프레젠테이션 문서 속성을 작업할 수 있습니다. 이 클래스의 인스턴스는 [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/)에서 반환됩니다. 다음 예제에서는 이러한 속성을 읽고, 수정하고, 관리하는 방법을 보여줍니다. 이 예제들은 PHP/Java Bridge와 Aspose.Slides PHP 래퍼가 초기화되어 있다고 가정합니다.
 
 {{% alert color="info" title="Note" %}}
-주의하십시오: **Application** 및 **AppVersion** 필드는 수정할 수 없습니다. Aspose.Slides는 저장할 때마다 이 필드를 다시 씁니다. 따라서 저장된 프레젠테이션은 항상 "Aspose.Slides for PHP via Java"와 해당 라이브러리 버전을 보고합니다. `setNameOfApplication`에 전달된 값은 프레젠테이션이 기록될 때 무시됩니다.
-{{% /alert %}} 
+Aspose.Slides는 프레젠테이션을 저장할 때 애플리케이션 및 제작자 메타데이터를 관리합니다; 이 필드들은 출력물을 만든 소프트웨어를 식별합니다.
+{{% /alert %}}
 
 ## **프레젠테이션 속성 관리**
 
-Microsoft PowerPoint는 프레젠테이션 파일에 몇 가지 속성을 추가하는 기능을 제공합니다. 이러한 문서 속성을 통해 문서(프레젠테이션 파일)와 함께 유용한 정보를 저장할 수 있습니다. 문서 속성은 다음과 같이 두 종류가 있습니다.
+문서 속성은 프레젠테이션 콘텐츠와 함께 설명 정보를 저장합니다. 두 가지 범주로 구분됩니다:
 
-- 시스템 정의 (Built-in) 속성
-- 사용자 정의 (Custom) 속성
+- **내장 속성** 표준 메타데이터를 포함하며, 제목, 작성자 및 문서 통계와 같은 정보를 포함합니다.
+- **사용자 정의 속성** 사용자 정의 이름/값 쌍을 저장합니다.
 
-**Built-in** 속성은 문서 제목, 작성자 이름, 문서 통계 등 일반적인 정보를 포함합니다. **Custom** 속성은 사용자가 **이름/값** 쌍으로 정의한 것으로, 이름과 값 모두 사용자가 정의합니다. Aspose.Slides for PHP via Java를 사용하면 Built-in 속성과 Custom 속성의 값을 모두 접근하고 수정할 수 있습니다.
-
-## **PowerPoint의 문서 속성**
-
-Microsoft PowerPoint 2007은 프레젠테이션 파일의 문서 속성을 관리할 수 있게 해 줍니다. 아래와 같이 Office 아이콘을 클릭하고 **Prepare | Properties | Advanced Properties** 메뉴 항목을 선택하면 됩니다.
-
-|**Advanced Properties 메뉴 항목 선택**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-
-**Advanced Properties** 메뉴 항목을 선택하면 아래 그림과 같이 PowerPoint 파일의 문서 속성을 관리할 수 있는 대화 상자가 나타납니다.
-
-|**속성 대화 상자**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-
-위 **속성 대화 상자**에서는 **General**, **Summary**, **Statistics**, **Contents**, **Custom** 등 여러 탭 페이지가 있는 것을 확인할 수 있습니다. 이러한 탭 페이지들은 PowerPoint 파일과 관련된 다양한 정보를 설정하도록 해 줍니다. **Custom** 탭은 PowerPoint 파일의 사용자 정의 속성을 관리하는 데 사용됩니다.
-
-### Aspose.Slides for PHP via Java를 사용한 문서 속성 작업
-
-앞서 설명했듯이 Aspose.Slides for PHP via Java는 **Built-in** 및 **Custom** 두 종류의 문서 속성을 지원합니다. 따라서 개발자는 Aspose.Slides for PHP via Java API를 사용하여 두 종류의 속성에 모두 접근할 수 있습니다. Aspose.Slides for PHP via Java는 **Presentation.DocumentProperties** 속성을 통해 프레젠테이션 파일에 연결된 문서 속성을 나타내는 [DocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/documentproperties) 클래스를 제공합니다.
-
-개발자는 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation) 객체가 제공하는 **DocumentProperties** 속성을 사용하여 프레젠테이션 파일의 문서 속성에 아래와 같이 접근할 수 있습니다.
+Aspose.Slides for PHP via Java는 두 범주 모두에 대한 액세스를 제공합니다. PowerPoint에서 **File → Info → Properties → Advanced Properties**를 선택하면 문서 메타데이터를 검사할 수 있습니다. 대화 상자는 정보를 **Summary**, **Statistics**, **Contents**, **Custom**과 같은 탭으로 구분합니다. **Custom** 탭을 사용하여 사용자 정의 속성을 관리합니다.
 
 ## **암호화된 프레젠테이션에서 공개 속성 읽기**
 
-열기 암호는 일반적으로 프레젠테이션 내용과 문서 속성을 모두 보호합니다. `[ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties)`에 `false`를 전달하여 프레젠테이션을 암호화하면 문서 속성은 공개된 상태로 유지됩니다. 그런 다음 애플리케이션은 `[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties)`에 `true`를 전달하여 열기 암호를 제공하지 않고도 공개 메타데이터를 읽을 수 있습니다.
+열기 비밀번호는 일반적으로 프레젠테이션 콘텐츠와 문서 속성을 모두 보호합니다. [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/)를 `false`와 함께 호출한 후 프레젠테이션을 암호화하면, 해당 문서 속성은 공개 상태로 남습니다. 그런 다음 애플리케이션은 [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/)를 `true`와 함께 호출하여 열기 비밀번호 없이 공개 메타데이터를 읽을 수 있습니다.
 
-문서‑속성‑전용 옵션은 Aspose.Slides가 로드하는 내용을 제어할 뿐이며, 실제로 암호를 해제하지는 않습니다. 속성이 암호화에 포함되어 있으면 암호 없이 로드할 경우 실패합니다. 프레젠테이션이 암호화되지 않은 경우 이 옵션은 무시되고 전체 프레젠테이션이 로드됩니다.
+[LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/)는 Aspose.Slides가 로드하는 항목을 제어하며, 암호를 해제하지는 않습니다. 속성이 암호화에 포함된 경우 비밀번호 없이 로드하면 실패합니다. 프레젠테이션이 암호화되지 않은 경우 이 옵션은 무시되고 전체 프레젠테이션이 로드됩니다.
 
-다음 예제는 `[ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/ko/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)`를 통해 로드 모드를 확인한 다음 `[Presentation::getDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/#getDocumentProperties)`를 사용해 Built-in 속성을 읽습니다:
+이 예제는 문서 속성이 공개된 상태로 남은 암호화된 프레젠테이션이 필요합니다. [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/)를 통해 로드 모드를 확인한 다음 [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/)를 사용하여 내장 속성을 읽습니다:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -83,30 +61,30 @@ $loadOptions->setOnlyLoadDocumentProperties(true);
 $presentation = new Presentation("public-properties-encrypted.pptx", $loadOptions);
 try {
     if (java_values($presentation->getProtectionManager()->isOnlyDocumentPropertiesLoaded())) {
-        $properties = $presentation->getDocumentProperties();
+        $documentProperties = $presentation->getDocumentProperties();
 
-        echo("Author: " . $properties->getAuthor() . "\n");
-        echo("Title: " . $properties->getTitle() . "\n");
-        echo("Keywords: " . $properties->getKeywords() . "\n");
+        echo("Author: " . $documentProperties->getAuthor() . "\n");
+        echo("Title: " . $documentProperties->getTitle() . "\n");
+        echo("Keywords: " . $documentProperties->getKeywords() . "\n");
     } else {
-        echo("The presentation was not loaded in document-properties-only mode.\n");
+        echo("The presentation was not loaded in document-properties-only mode." . "\n");
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-이 모드에서는 슬라이드 내용이 로드되지 않습니다. 슬라이드, 마스터, 레이아웃, 도형, 미디어 및 기타 프레젠테이션 객체를 사용할 수 없습니다. 애플리케이션은 전체 프레젠테이션 객체 모델이 필요한 작업을 수행하기 전에 항상 `[ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/ko/php-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)`를 확인해야 합니다.
+이 모드에서는 슬라이드 콘텐츠가 로드되지 않습니다. 슬라이드, 마스터, 레이아웃, 도형, 미디어 및 기타 프레젠테이션 객체를 사용할 수 없습니다. 전체 프레젠테이션 객체 모델이 필요한 작업을 수행하기 전에 항상 [ProtectionManager::isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/isonlydocumentpropertiesloaded/)를 확인해야 합니다.
 
 {{% alert color="warning" title="Warning" %}}
-공개 메타데이터에는 작성자 이름, 제목, 주제, 키워드, 회사 정보, 주석 및 사용자 정의 값이 포함될 수 있습니다. 민감한 속성은 프레젠테이션과 함께 암호화하십시오. 인덱싱, 분류, 검색 또는 문서 관리 시스템에서 암호 없이 접근해야 할 특별한 요구가 있는 경우에만 공개 상태로 두세요.
+공개 메타데이터는 작성자 이름, 제목, 주제, 키워드, 회사 정보, 댓글 및 사용자 정의 값을 노출할 수 있습니다. 민감한 속성은 프레젠테이션과 함께 암호화하십시오. 인덱싱, 분류, 검색 또는 문서 관리 시스템이 비밀번호 없이 액세스해야 하는 특정 요구가 있을 경우에만 공개 상태로 두십시오.
 {{% /alert %}}
 
 ## **암호화된 프레젠테이션 속성 업데이트**
 
-암호화된 PPTX 파일의 경우, 문서‑속성‑전용 모드로 로드된 프레젠테이션은 공개 메타데이터를 읽기 위한 용도입니다. Aspose.Slides는 해당 메타데이터‑전용 객체에서 변경된 속성을 저장할 수 없습니다. 공개 속성은 암호화된 프레젠테이션 내부 데이터와 일치해야 하므로, 속성을 업데이트하려면 올바른 열기 암호와 전체 로드가 필요합니다.
+암호화된 PPTX 파일의 경우, [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/)를 `true`와 함께 호출한 후 로드된 프레젠테이션은 공개 메타데이터를 읽기 위한 용도입니다. Aspose.Slides는 해당 메타데이터 전용 객체에서 변경된 속성을 저장할 수 없으며, 공개 속성은 암호화된 프레젠테이션 내부의 해당 데이터와 일관되어야 합니다. 따라서 속성을 업데이트하려면 올바른 열기 비밀번호와 전체 로드가 필요합니다.
 
-다음 예제는 `[LoadOptions::setPassword](https://reference.aspose.com/slides/ko/php-java/aspose.slides/loadoptions/#setPassword)`를 사용해 프레젠테이션을 열고, 공개 Built-in 속성을 업데이트한 뒤 결과를 저장합니다. 이후 `[PresentationInfo::isEncrypted](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentationinfo/#isEncrypted)`를 사용해 암호화가 유지되는지 확인하고, 암호 없이 공개 메타데이터를 다시 열어 새 값을 검증합니다:
+이 예제는 공개 문서 속성이 있는 암호화된 PPTX 프레젠테이션과 알려진 열기 비밀번호가 필요합니다. [LoadOptions::setPassword](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setpassword/)를 사용하여 전체 프레젠테이션을 열고, 공개 내장 속성을 업데이트한 뒤 결과를 저장합니다. 그런 다음 [PresentationInfo::isEncrypted](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/isencrypted/)를 사용하여 암호화가 유지되는지 확인하고, 비밀번호 없이 공개 메타데이터를 다시 열어 새 값을 검증합니다:
 
 ```php
 use aspose\slides\LoadOptions;
@@ -122,8 +100,10 @@ $loadOptions->setPassword("open_password");
 
 $presentation = new Presentation($inputPath, $loadOptions);
 try {
-    $presentation->getDocumentProperties()->setTitle("Updated Product Roadmap");
-    $presentation->getDocumentProperties()->setKeywords("roadmap, planning, indexed");
+    $documentProperties = $presentation->getDocumentProperties();
+    $documentProperties->setTitle("Updated Product Roadmap");
+    $documentProperties->setKeywords("roadmap, planning, indexed");
+    
     $presentation->save($outputPath, SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -141,279 +121,186 @@ try {
         echo("Title: " . $metadataPresentation->getDocumentProperties()->getTitle() . "\n");
         echo("Keywords: " . $metadataPresentation->getDocumentProperties()->getKeywords() . "\n");
     } else {
-        echo("The presentation was not loaded in document-properties-only mode.\n");
+        echo("The presentation was not loaded in document-properties-only mode." . "\n");
     }
 } finally {
     $metadataPresentation->dispose();
 }
 ```
 
-애플리케이션이 프레젠테이션 내용을 복호화하거나 로드할 수 없는 경우, 암호화된 PPTX 파일의 공개 속성은 읽기 전용으로 취급해야 합니다.
+애플리케이션이 프레젠테이션 콘텐츠를 복호화하거나 로드할 수 없는 경우, 암호화된 PPTX 파일의 공개 속성을 읽기 전용으로 취급해야 합니다.
 
-## **Built-in 속성 접근**
+## **내장 속성 액세스**
 
-[DocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/documentproperties) 객체가 제공하는 이러한 속성에는 **Creator** (작성자), **Description** (설명), **Keywords** (키워드), **Created** (작성 날짜), **Modified** (수정 날짜), **Printed** (마지막 인쇄 날짜), **LastModifiedBy**, **Keywords**, **SharedDoc** (다른 제작자와 공유 여부?), **PresentationFormat**, **Subject**, **Title** 등이 포함됩니다.
+[DocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/) 클래스는 [getAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getauthor/), [getTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gettitle/), [getCreatedTime](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcreatedtime/) 등 getter 메서드를 통해 내장 메타데이터를 노출합니다. 이 예제는 기존 프레젠테이션을 열고 저장된 메타데이터를 콘솔에 출력합니다. 값은 입력 프레젠테이션에 따라 다르며, 일부 필드는 비어 있을 수 있습니다.
 
 ```php
-  # 프레젠테이션을 나타내는 Presentation 클래스를 인스턴스화합니다
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Presentation와 연결된 IDocumentProperties 객체에 대한 참조를 생성합니다
-    $dp = $pres->getDocumentProperties();
-    # 내장 속성을 표시합니다
-    echo("Category : " . $dp->getCategory());
-    echo("Current Status : " . $dp->getContentStatus());
-    echo("Creation Date : " . $dp->getCreatedTime());
-    echo("Author : " . $dp->getAuthor());
-    echo("Description : " . $dp->getComments());
-    echo("KeyWords : " . $dp->getKeywords());
-    echo("Last Modified By : " . $dp->getLastSavedBy());
-    echo("Supervisor : " . $dp->getManager());
-    echo("Modified Date : " . $dp->getLastSavedTime());
-    echo("Presentation Format : " . $dp->getPresentationFormat());
-    echo("Last Print Date : " . $dp->getLastPrinted());
-    echo("Is Shared between producers : " . $dp->getSharedDoc());
-    echo("Subject : " . $dp->getSubject());
-    echo("Title : " . $dp->getTitle());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("AccessBuiltInProperties.pptx");
+try {
+    $documentProperties = $presentation->getDocumentProperties();
+
+    echo("Category: " . $documentProperties->getCategory() . "\n");
+    echo("Content status: " . $documentProperties->getContentStatus() . "\n");
+    echo("Creation date: " . $documentProperties->getCreatedTime() . "\n");
+    echo("Author: " . $documentProperties->getAuthor() . "\n");
+    echo("Comments: " . $documentProperties->getComments() . "\n");
+    echo("Keywords: " . $documentProperties->getKeywords() . "\n");
+    echo("Last modified by: " . $documentProperties->getLastSavedBy() . "\n");
+    echo("Manager: " . $documentProperties->getManager() . "\n");
+    echo("Modified date: " . $documentProperties->getLastSavedTime() . "\n");
+    echo("Presentation format: " . $documentProperties->getPresentationFormat() . "\n");
+    echo("Last print date: " . $documentProperties->getLastPrinted() . "\n");
+    echo("Is shared between producers: " . (java_values($documentProperties->getSharedDoc()) ? "true" : "false") . "\n");
+    echo("Subject: " . $documentProperties->getSubject() . "\n");
+    echo("Title: " . $documentProperties->getTitle() . "\n");
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **내장 속성 수정**
+
+내장 메타데이터를 업데이트하려면 [Presentation::getDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/getdocumentproperties/)에서 반환된 객체의 setter 메서드를 사용합니다. 이 예제는 기존 프레젠테이션을 열고 [setAuthor](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setauthor/), [setTitle](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/settitle/), [setSubject](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setsubject/), [setComments](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setcomments/), [setManager](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/setmanager/)를 호출한 뒤, [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)으로 업데이트된 프레젠테이션을 저장합니다. 저장된 PPTX에는 새로운 메타데이터가 포함됩니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("ModifyBuiltInProperties.pptx");
+try {
+    $documentProperties = $presentation->getDocumentProperties();
+
+    $documentProperties->setAuthor("Aspose.Slides for PHP via Java");
+    $documentProperties->setTitle("Manage PowerPoint Presentation Properties");
+    $documentProperties->setSubject("Modify Built-in Properties");
+    $documentProperties->setComments("Aspose description");
+    $documentProperties->setManager("Aspose manager");
+
+    $presentation->save("DocumentProperties_output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **하이퍼링크 기본값 관리**
+
+[DocumentProperties::getHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/gethyperlinkbase/)은 상대 하이퍼링크에 대한 문서 수준의 기본값을 반환합니다. [DocumentProperties::setHyperlinkBase](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/sethyperlinkbase/)를 사용하여 변경하거나 지울 수 있습니다. 이는 프레젠테이션과 연결된 파일을 다른 위치로 이동할 때 유용합니다. 이것은 개별 하이퍼링크의 [Hyperlink::getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/)와는 별개이며, 기본값을 변경해도 저장된 링크 주소가 다시 쓰이거나 절대 경로가 변경되지 않습니다.
+
+이 예제는 `target.html`과 같은 상대 링크와 `https://example.org/absolute.html`과 같은 절대 링크를 모두 포함한 프레젠테이션이 필요합니다. 기존 기본값을 읽고 새 기본 주소를 할당한 뒤 프레젠테이션을 저장하고 다시 열어 값을 확인합니다. 그런 다음 빈 문자열로 기본값을 지우고 별도의 저장 파일에서 빈 값을 검증합니다. 예제 기본 주소를 연결된 파일이 위치한 곳으로 교체하십시오.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("hyperlinks.pptx");
+try {
+    echo("Original base: " . $presentation->getDocumentProperties()->getHyperlinkBase() . "\n");
+
+    $newBase = "https://example.com/new/";
+    $presentation->getDocumentProperties()->setHyperlinkBase($newBase);
+    $presentation->save("hyperlinks-updated.pptx", SaveFormat::Pptx);
+
+    $updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+    try {
+        echo("Base preserved: " . ((string) $updatedPresentation->getDocumentProperties()->getHyperlinkBase() === $newBase ? "true" : "false") . "\n");
+
+        $updatedPresentation->getDocumentProperties()->setHyperlinkBase("");
+        $updatedPresentation->save("hyperlinks-cleared.pptx", SaveFormat::Pptx);
+
+        $clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+        try {
+            echo("Base cleared: " . ((string) $clearedPresentation->getDocumentProperties()->getHyperlinkBase() === "" ? "true" : "false") . "\n");
+        } finally {
+            $clearedPresentation->dispose();
+        }
+    } finally {
+        $updatedPresentation->dispose();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Built-in 속성 수정**
+두 확인 메시지는 `true`를 출력해야 합니다. 기본값을 지워도 개별 하이퍼링크 주소는 그대로 유지됩니다.
 
-프레젠테이션 파일의 Built-in 속성을 수정하는 것은 접근하는 것만큼 쉽습니다. 원하는 속성에 문자열 값을 할당하면 해당 속성 값이 변경됩니다. 아래 예제에서는 Aspose.Slides for PHP via Java를 사용해 프레젠테이션 파일의 Built-in 문서 속성을 어떻게 수정할 수 있는지 보여줍니다.
+`target.pptx`에 대한 상대 링크는 기본값이 `old` 폴더를 가리킬 때 `old/target.pptx`를 열었습니다. 기본값을 `new` 폴더로 변경하고 저장 및 프레젠테이션을 다시 열면 같은 링크가 `new/target.pptx`를 엽니다. 절대 링크는 동일한 파일을 계속 엽니다. 프레젠테이션을 이동하거나 기본값을 변경하기 전후에 PowerPoint에서 상대 링크를 테스트하십시오.
+
+## **사용자 정의 프레젠테이션 속성 추가**
+
+사용자 정의 속성은 해당하는 내장 필드가 없는 메타데이터를 저장합니다. [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/) 메서드를 사용하면 속성 이름으로 값을 할당할 수 있습니다. 이 예제는 프레젠테이션을 생성하고 두 개의 텍스트 값 및 정수 버전 값을 추가한 뒤 [Presentation::save](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/save/)으로 저장합니다. 기존 이름에 값을 할당하면 해당 속성의 값이 대체됩니다.
 
 ```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Presentation와 연결된 IDocumentProperties 객체에 대한 참조를 생성합니다
-    $dp = $pres->getDocumentProperties();
-    # 내장 속성을 설정합니다
-    $dp->setAuthor("Aspose.Slides for PHP via Java");
-    $dp->setTitle("Modifying Presentation Properties");
-    $dp->setSubject("Aspose Subject");
-    $dp->setComments("Aspose Description");
-    $dp->setManager("Aspose Manager");
-    # 프레젠테이션을 파일에 저장합니다
-    $pres->save("DocProps.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $documentProperties = $presentation->getDocumentProperties();
+
+    $documentProperties->set_Item("Reviewed by", "John Smith");
+    $documentProperties->set_Item("Confidentiality level", "Internal");
+    $documentProperties->set_Item("Document version", 2);
+
+    $presentation->save("CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **사용자 정의 속성 액세스 및 수정**
+
+이 예제는 사용자 정의 속성을 포함하는 프레젠테이션을 열고 [getCountOfCustomProperties](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcountofcustomproperties/)를 사용하여 반복합니다. [getCustomPropertyName](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/getcustompropertyname/)는 0부터 시작하는 인덱스를 받아 [DocumentProperties::set_Item](https://reference.aspose.com/slides/php-java/aspose.slides/documentproperties/set_item/)에서 사용된 이름을 반환합니다. 예제는 각 원래 이름과 값을 출력하고, 모든 값을 원래 유형에 관계없이 번호가 매겨진 문자열로 교체한 뒤 변경 사항을 저장합니다. 사용자 정의 속성이 없으면 루프는 아무 변경도 하지 않습니다.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("AccessAndModifyProperties.pptx");
+try {
+    $documentProperties = $presentation->getDocumentProperties();
+
+    for ($i = 0; $i < java_values($documentProperties->getCountOfCustomProperties()); $i++) {
+        $propertyName = $documentProperties->getCustomPropertyName($i);
+        $propertyValue = $documentProperties->get_Item($propertyName);
+
+        echo("Custom property name: " . $propertyName . "\n");
+        echo("Custom property value: " . $propertyValue . "\n");
+
+        $documentProperties->set_Item($propertyName, "New Value " . ($i + 1));
     }
-  }
-```
 
-이 예제는 아래와 같이 수정된 Built-in 속성을 확인할 수 있습니다:
-
-|**수정 후 Built-in 문서 속성**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
-
-## **Custom 문서 속성 추가**
-
-Aspose.Slides for PHP via Java를 사용하면 개발자가 프레젠테이션 문서 속성에 Custom 값을 추가할 수 있습니다. 아래 예제는 프레젠테이션에 Custom 속성을 설정하는 방법을 보여 줍니다.
-
-```php
-  $pres = new Presentation();
-  try {
-    # 문서 속성 가져오기
-    $dProps = $pres->getDocumentProperties();
-    # 사용자 정의 속성 추가
-    $dProps->set_Item("New Custom", 12);
-    $dProps->set_Item("My Name", "Mudassir");
-    $dProps->set_Item("Custom", 124);
-    # 특정 인덱스의 속성 이름 가져오기
-    $getPropertyName = $dProps->getCustomPropertyName(2);
-    # 선택된 속성 제거
-    $dProps->removeCustomProperty($getPropertyName);
-    # 프레젠테이션 저장
-    $pres->save("CustomDemo.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-|**추가된 Custom 문서 속성**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
-
-## **Custom 속성 접근 및 수정**
-
-Aspose.Slides for PHP via Java는 개발자가 Custom 속성 값을 접근하는 것도 지원합니다. 아래 예제는 프레젠테이션에 대해 모든 Custom 속성을 어떻게 접근하고 수정할 수 있는지 보여 줍니다.
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    # Presentation와 연결된 DocumentProperties 객체에 대한 참조를 생성합니다
-    $dp = $pres->getDocumentProperties();
-    # 사용자 정의 속성에 접근하고 수정합니다
-    for($i = 0; $i < java_values($dp->getCountOfCustomProperties()) ; $i++) {
-      # 사용자 정의 속성의 이름과 값을 표시합니다
-      echo("Custom Property Name : " . $dp->getCustomPropertyName($i));
-      echo("Custom Property Value : " . $dp->get_Item($dp->getCustomPropertyName($i)));
-      # 사용자 정의 속성의 값을 수정합니다
-      $dp->set_Item($dp->getCustomPropertyName($i), "New Value " . $i + 1);
-    }
-    # 프레젠테이션을 파일에 저장합니다
-    $pres->save("CustomDemoModified.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-이 예제는 [PPTX](https://docs.fileformat.com/presentation/pptx/) 프레젠테이션의 Custom 속성을 수정합니다. 다음 그림은 수정 전과 후의 프레젠테이션 Custom 속성을 보여 줍니다:
-
-|**수정 전 Custom 속성**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
-|**수정 후 Custom 속성**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
-
-## **고급 문서 속성**
-
-{{% alert color="info" title="Note" %}}
-새로운 메서드 [readDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties), 그리고 [writeBindedPresentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo/#writeBindedPresentation)가 [PresentationInfo](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo)에 추가되었습니다. 또한 [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/ko/php-java/aspose.slides/documentproperties/#setLastSavedTime) 속성 설정자의 로직이 변경되었습니다.
-{{% /alert %}} 
-
-두 새로운 메서드 [readDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo/#readDocumentProperties)와 [updateDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo/#updateDocumentProperties)는 [PresentationInfo](https://reference.aspose.com/slides/ko/php-java/aspose.slides/PresentationInfo) 클래스에 추가되었습니다. 이 메서드들은 문서 속성에 빠르게 접근하고 전체 프레젠테이션을 로드하지 않고도 속성을 변경·업데이트할 수 있게 해 줍니다.
-
-일반적인 시나리오는 속성을 로드하고, 값을 변경한 뒤 문서를 업데이트하는 것으로, 다음과 같이 구현할 수 있습니다:
-
-```php
-  # 프레젠테이션 정보를 읽습니다
-  $info = PresentationFactory->getInstance()->getPresentationInfo("presentation.pptx");
-  # 현재 속성을 가져옵니다
-  $props = $info->readDocumentProperties();
-  # Author 및 Title 필드의 새 값을 설정합니다
-  $props->setAuthor("New Author");
-  $props->setTitle("New Title");
-  # 새로운 값으로 프레젠테이션을 업데이트합니다
-  $info->updateDocumentProperties($props);
-  $info->writeBindedPresentation("presentation.pptx");
-```
-
-특정 프레젠테이션의 속성을 템플릿으로 사용해 다른 프레젠테이션의 속성을 업데이트하는 다른 방법도 있습니다:
-
-```php
-  $info = PresentationFactory->getInstance()->getPresentationInfo("template.pptx");
-  $template = $info->readDocumentProperties();
-  $template->setAuthor("Template Author");
-  $template->setTitle("Template Title");
-  $template->setCategory("Template Category");
-  $template->setKeywords("Keyword1, Keyword2, Keyword3");
-  $template->setCompany("Our Company");
-  $template->setComments("Created from template");
-  $template->setContentType("Template Content");
-  $template->setSubject("Template Subject");
-  updateByTemplate("doc1.pptx", $template);
-  updateByTemplate("doc2.odp", $template);
-  updateByTemplate("doc3.ppt", $template);
-```
-
-```php
-
-```
-
-새 템플릿을 처음부터 만들고 이를 사용해 여러 프레젠테이션을 업데이트할 수도 있습니다:
-
-```php
-  $template = new DocumentProperties();
-  $template->setAuthor("Template Author");
-  $template->setTitle("Template Title");
-  $template->setCategory("Template Category");
-  $template->setKeywords("Keyword1, Keyword2, Keyword3");
-  $template->setCompany("Our Company");
-  $template->setComments("Created from template");
-  $template->setContentType("Template Content");
-  $template->setSubject("Template Subject");
-  updateByTemplate("doc1.pptx", $template);
-  updateByTemplate("doc2.odp", $template);
-  updateByTemplate("doc3.ppt", $template);
-```
-
-## **교정 언어 설정**
-
-Aspose.Slides는 PortionFormat 클래스가 노출하는 LanguageId 속성을 제공하여 PowerPoint 문서의 교정 언어를 설정할 수 있게 합니다. 교정 언어는 PowerPoint에서 맞춤법 및 문법 검사가 수행되는 언어를 의미합니다.
-
-다음 PHP 코드는 PowerPoint의 교정 언어를 설정하는 방법을 보여 줍니다: xxx 왜 Java PortionFormat 클래스에 LanguageId가 없나요?
-
-```php
-  $pres = new Presentation("Presentation.pptx");
-  try {
-    $autoShape = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
-    $newPortion = new Portion();
-    $font = new FontData("SimSun");
-    $portionFormat = $newPortion->getPortionFormat();
-    $portionFormat->setComplexScriptFont($font);
-    $portionFormat->setEastAsianFont($font);
-    $portionFormat->setLatinFont($font);
-    $portionFormat->setLanguageId("zh-CN");// 교정 언어의 ID를 설정합니다
-
-    $newPortion->setText("1。");
-    $paragraph->getPortions()->add($newPortion);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **기본 언어 설정**
-
-다음 PHP 코드는 전체 PowerPoint 프레젠테이션에 대한 기본 언어를 설정하는 방법을 보여 줍니다:
-
-```php
-  $loadOptions = new LoadOptions();
-  $loadOptions->setDefaultTextLanguage("en-US");
-  $pres = new Presentation($loadOptions);
-  try {
-    # 새 사각형 도형을 텍스트와 함께 추가합니다
-    $shp = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 50);
-    $shp->getTextFrame()->setText("New Text");
-    # 첫 번째 구절의 언어를 확인합니다
-    echo($shp->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getLanguageId());
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $presentation->save("CustomProperties_output.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **실시간 예제**
 
-[**Aspose.Slides Metadata**](https://products.aspose.app/slides/ko/metadata) 온라인 앱을 사용해 Aspose.Slides API를 통해 문서 속성을 어떻게 다루는지 직접 확인해 보세요:
+[**PowerPoint 메타데이터 보기 및 편집**](https://products.aspose.app/slides/metadata) 온라인 앱을 사용해 Aspose.Slides API로 문서 속성을 다루는 방법을 확인하십시오:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ko/metadata)
+[![PowerPoint 메타데이터 보기 및 편집](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**프레젠테이션에서 Built-in 속성을 제거할 수 있나요?**
+**프레젠테이션에서 내장 속성을 제거하려면 어떻게 해야 하나요?**
 
-Built-in 속성은 프레젠테이션의 핵심 부분이며 완전히 제거할 수 없습니다. 다만, 허용되는 경우 값을 변경하거나 빈 문자열로 설정할 수 있습니다.
+내장 속성은 프레젠테이션의 필수 구성 요소이며 완전히 제거할 수 없습니다. 그러나 해당 값을 변경하거나 특정 속성이 허용하는 경우 빈 값으로 설정할 수 있습니다.
 
-**이미 존재하는 Custom 속성을 추가하면 어떻게 되나요?**
+**이미 존재하는 사용자 정의 속성을 추가하면 어떻게 되나요?**
 
-이미 존재하는 Custom 속성을 추가하면 기존 값이 새로운 값으로 덮어써집니다. 속성을 미리 삭제하거나 확인할 필요 없이 Aspose.Slides가 자동으로 값을 업데이트합니다.
+이미 존재하는 사용자 정의 속성을 추가하면 기존 값이 새 값으로 덮어쓰여집니다. 속성을 미리 제거하거나 확인할 필요가 없으며, Aspose.Slides가 자동으로 속성 값을 업데이트합니다.
 
-**프레젠테이션을 완전히 로드하지 않고 속성에 접근할 수 있나요?**
+**프레젠테이션을 완전히 로드하지 않고도 속성에 액세스할 수 있나요?**
 
-예. [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentationfactory/)를 사용한 뒤 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentationinfo/#readDocumentProperties)로 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 인스턴스를 만들지 않고도 저장된 문서 메타데이터를 읽을 수 있습니다. 전체 보고 예제와 포맷별 제한 사항은 [Build a Lightweight Presentation Inventory](/slides/ko/php-java/examine-presentation/)를 참고하세요.
+예. [PresentationFactory::getPresentationInfo](https://reference.aspose.com/slides/php-java/aspose.slides/presentationfactory/getpresentationinfo/)를 사용한 다음 [PresentationInfo::readDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/presentationinfo/readdocumentproperties/)를 호출하면 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 인스턴스를 만들지 않고도 저장된 문서 메타데이터를 읽을 수 있습니다. 전체 보고 예제 및 형식별 제한 사항은 [경량 프레젠테이션 인벤토리 구축](/slides/ko/php-java/examine-presentation/)을 참조하십시오.
 
-**암호화된 프레젠테이션의 공개 속성을 열기 암호 없이 읽을 수 있나요?**
+**암호화된 프레젠테이션의 공개 속성을 열기 비밀번호 없이 읽할 수 있나요?**
 
-예. 문서‑속성 암호화가 프레젠테이션이 암호화되기 전에 비활성화되었고, 프레젠테이션이 문서‑속성‑전용 모드로 로드된 경우 가능합니다.
+예. 프레젠테이션은 [ProtectionManager::setEncryptDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/protectionmanager/setencryptdocumentproperties/)를 `false`와 함께 호출한 후 암호화되어야 하며, [LoadOptions::setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/setonlyloaddocumentproperties/)를 `true`와 함께 호출한 후 로드되어야 합니다.
 
-**암호화된 PPTX 파일을 문서‑속성‑전용 모드에서 업데이트할 수 있나요?**
+**문서 속성 전용 모드에서 암호화된 PPTX 파일을 업데이트할 수 있나요?**
 
-아니요. 공개 속성과 암호화된 속성 데이터는 일관성을 유지해야 하므로, 암호화된 PPTX 파일을 업데이트하려면 올바른 열기 암호와 함께 전체 프레젠테이션을 로드해야 합니다.
+아니오. 공개 속성과 암호화된 속성 데이터는 일관성을 유지해야 하므로, 암호화된 PPTX 파일을 업데이트하려면 올바른 열기 비밀번호로 전체 프레젠테이션을 로드해야 합니다.

@@ -1,56 +1,55 @@
 ---
-title: Python के साथ प्रेजेंटेशन गुण प्रबंधित करें
-linktitle: प्रेजेंटेशन गुण
+title: "Python के साथ प्रस्तुति गुण प्रबंधित करें"
+linktitle: "प्रस्तुति गुण"
 type: docs
 weight: 70
 url: /hi/python-net/presentation-properties/
 keywords:
-- PowerPoint गुण
-- प्रेजेंटेशन गुण
-- दस्तावेज़ गुण
-- निर्मित गुण
-- कस्टम गुण
-- उन्नत गुण
-- गुण प्रबंधित करें
-- गुण संशोधित करें
-- दस्तावेज़ मेटाडेटा
-- मेटाडेटा संपादित करें
-- प्रूफ़िंग भाषा
-- डिफ़ॉल्ट भाषा
-- PowerPoint
-- OpenDocument
-- प्रेजेंटेशन
-- Python
-- Aspose.Slides
-description: "Aspose.Slides for Python via .NET में प्रेजेंटेशन गुणों को मास्टर करें और अपने PowerPoint फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सुव्यवस्थित करें।"
+- "PowerPoint गुण"
+- "प्रस्तुति गुण"
+- "दस्तावेज़ गुण"
+- "बिल्ट-इन गुण"
+- "कस्टम गुण"
+- "उन्नत गुण"
+- "गुण प्रबंधित करें"
+- "गुण संशोधित करें"
+- "दस्तावेज़ मेटाडाटा"
+- "मेटाडाटा संपादित करें"
+- "प्रूफ़िंग भाषा"
+- "डिफ़ॉल्ट भाषा"
+- "PowerPoint"
+- "OpenDocument"
+- "प्रस्तुति"
+- "Python"
+- "Aspose.Slides"
+description: "Aspose.Slides for Python via .NET में प्रस्तुति गुणों पर पूर्ण नियंत्रण प्राप्त करें और अपने PowerPoint फ़ाइलों में खोज, ब्रांडिंग और कार्यप्रवाह को सहज बनाएं।"
 ---
 ## **परिचय**
 
-Aspose.Slides दो प्रकार के दस्तावेज़ गुणों को समर्थन देता है: **Built-in** और **Custom**। इन दोनों प्रकार के गुणों को Aspose.Slides API का उपयोग करके आसानी से पहुंचा और प्रबंधित किया जा सकता है।
+Aspose.Slides for Python via .NET **built-in** और **custom** दस्तावेज़ गुणों को समर्थन देता है। इन गुणों का उपयोग प्रस्तुति मेटाडाटा को पढ़ने और अपडेट करने के लिए करें, जैसे लेखक, शीर्षक, और उपयोगकर्ता-परिभाषित मान।
 
-Aspose.Slides आपको प्रेजेंटेशन दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है **[DocumentProperties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/documentproperties/)** क्लास के माध्यम से। इस क्लास का एक इंस्टेंस **[Presentation.document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/document_properties/)** प्रॉपर्टी द्वारा वापस किया जाता है। निम्नलिखित उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ा, संशोधित और प्रबंधित किया जाए।
+Aspose.Slides आपको प्रस्तुति दस्तावेज़ गुणों के साथ काम करने की अनुमति देता है [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) क्लास के माध्यम से। इस क्लास का एक उदाहरण [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) द्वारा लौटाया जाता है। निम्नलिखित उदाहरण दिखाते हैं कि इन गुणों को कैसे पढ़ें, संशोधित करें और प्रबंधित करें।
 
 {{% alert color="info" title="Note" %}}
-कृपया ध्यान दें कि आप **Application** और **Producer** फ़ील्ड्स के मान सेट नहीं कर सकते, क्योंकि Aspose Ltd. और Aspose.Slides for Python via .NET x.x.x इन फ़ील्ड्स में प्रदर्शित होंगे।
-{{% /alert %}} 
+Aspose.Slides प्रस्तुतियों को सेव करते समय एप्लिकेशन और प्रोड्यूसर मेटाडाटा को प्रबंधित करता है; ये फ़ील्ड आउटपुट बनाने वाले सॉफ़्टवेयर की पहचान करती हैं।
+{{% /alert %}}
 
-## **प्रेजेंटेशन गुणों का प्रबंधन**
+## **प्रस्तुति गुण प्रबंधन**
 
-Microsoft PowerPoint प्रेजेंटेशन फ़ाइलों में कुछ गुण जोड़ने की सुविधा प्रदान करता है। ये दस्तावेज़ गुण उपयोगी जानकारी को दस्तावेज़ (प्रेजेंटेशन फ़ाइलों) के साथ संग्रहीत करने की अनुमति देते हैं। दो प्रकार के दस्तावेज़ गुण हैं:
+दस्तावेज़ गुण प्रस्तुति सामग्री के साथ वर्णनात्मक जानकारी संग्रहीत करते हैं। वे दो श्रेणियों में आते हैं:
 
-- सिस्टम द्वारा निर्धारित (Built-in) गुण
-- उपयोगकर्ता द्वारा निर्धारित (Custom) गुण
+- **Built-in properties** मानक मेटाडाटा रखते हैं, जैसे शीर्षक, लेखक, और दस्तावेज़ आँकड़े।
+- **Custom properties** उपयोगकर्ता-परिभाषित नाम/मान युग्म संग्रहीत करते हैं।
 
-**Built-in** गुण दस्तावेज़ के बारे में सामान्य जानकारी रखते हैं जैसे कि दस्तावेज़ शीर्षक, लेखक का नाम, दस्तावेज़ सांख्यिकी आदि। **Custom** गुण वे होते हैं जो उपयोगकर्ता द्वारा **नाम/मान** जोड़े के रूप में परिभाषित किए जाते हैं, जहाँ दोनों नाम और मान उपयोगकर्ता द्वारा निर्धारित होते हैं। Aspose.Slides for Python via .NET का उपयोग करके, डेवलपर Built-in गुणों के साथ-साथ Custom गुणों के मानों को एक्सेस और संशोधित कर सकते हैं। Microsoft PowerPoint 2007 प्रेजेंटेशन फ़ाइलों के दस्तावेज़ गुणों का प्रबंधन करने की अनुमति देता है। आपको केवल Office आइकन पर क्लिक करके आगे **Prepare | Properties | Advanced Properties** मेनू आइटम चुनना है। **Advanced Properties** आइटम चुनने पर एक डायलॉग प्रदर्शित होगा जो PowerPoint फ़ाइल के दस्तावेज़ गुणों को प्रबंधित करने की सुविधा देता है। **Properties Dialog** में आप देखेंगे कि कई टैब पेज हैं जैसे **General, Summary, Statistics, Contents और Custom**। सभी ये टैब पेज PowerPoint फ़ाइलों से संबंधित विभिन्न प्रकार की जानकारी को कॉन्फ़िगर करने की अनुमति देते हैं। **Custom** टैब का उपयोग PowerPoint फ़ाइलों के कस्टम गुणों को प्रबंधित करने के लिए किया जाता है।
+Aspose.Slides for Python via .NET दोनों श्रेणियों तक पहुँच प्रदान करता है। PowerPoint में, दस्तावेज़ मेटाडाटा की जांच के लिए **File → Info → Properties → Advanced Properties** चुनें। डायलॉग जानकारी को **Summary**, **Statistics**, **Contents**, और **Custom** जैसे टैब में समूहित करता है। उपयोगकर्ता-परिभाषित गुणों को प्रबंधित करने के लिए **Custom** टैब का उपयोग करें।
 
-## **एन्क्रिप्टेड प्रेजेंटेशन से सार्वजनिक गुण पढ़ें**
+## **एन्क्रिप्टेड प्रस्तुति से सार्वजनिक गुण पढ़ें**
 
-एक ओपनिंग पासवर्ड आमतौर पर प्रेजेंटेशन की सामग्री और दस्तावेज़ गुणों दोनों की रक्षा करता है। जब प्रेजेंटेशन को **[ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/protectionmanager/encrypt_document_properties/)** को `False` पर सेट करके एन्क्रिप्ट किया जाता है, तब इसके दस्तावेज़ गुण सार्वजनिक रहते हैं। फिर कोई एप्लिकेशन **[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/only_load_document_properties/)** को `True` पर सेट करके ओपनिंग पासवर्ड प्रदान किए बिना सार्वजनिक मेटाडेटा पढ़ सकता है।
+एक ओपनिंग पासवर्ड सामान्यतः प्रस्तुति सामग्री और दस्तावेज़ गुणों दोनों की रक्षा करता है। जब किसी प्रस्तुति को [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) को `False` पर सेट करके एन्क्रिप्ट किया जाता है, तो उसके दस्तावेज़ गुण सार्वजनिक रहते हैं। तब कोई एप्लिकेशन [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) को `True` पर सेट कर सकता है और ओपनिंग पासवर्ड प्रदान किए बिना सार्वजनिक मेटाडाटा पढ़ सकता है।
 
-`only_load_document_properties` यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना उन्हें लोड करना विफल होगा। यदि प्रेजेंटेशन एन्क्रिप्टेड नहीं है, तो इस विकल्प को नजरअंदाज़ किया जाता है और पूरी प्रेजेंटेशन लोड हो जाती है।
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) यह नियंत्रित करता है कि Aspose.Slides क्या लोड करता है; यह कुछ भी डिक्रिप्ट नहीं करता। यदि गुण एन्क्रिप्शन में शामिल थे, तो पासवर्ड के बिना लोड करना विफल होता है। यदि प्रस्तुति एन्क्रिप्ट नहीं है, तो विकल्प को नजरअंदाज किया जाता है और पूरी प्रस्तुति लोड हो जाती है।
 
-निम्नलिखित उदाहरण **[ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/hi/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/)** के माध्यम से लोडिंग मोड की जाँच करता है और फिर **[Presentation.document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/document_properties/)** के माध्यम से Built-in गुणों को पढ़ता है:
-
+उदाहरण के लिए एक एन्क्रिप्टेड प्रस्तुति आवश्यक है जिसके दस्तावेज़ गुण सार्वजनिक छोड़ दिए गए हों। यह लोडिंग मोड को [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) के माध्यम से सत्यापित करता है और फिर [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) के माध्यम से बिल्ट-इन गुण पढ़ता है:
 ```python
 import aspose.slides as slides
 
@@ -59,27 +58,26 @@ load_options.only_load_document_properties = True
 
 with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
     if presentation.protection_manager.is_only_document_properties_loaded:
-        properties = presentation.document_properties
+        document_properties = presentation.document_properties
 
-        print("Author: " + properties.author)
-        print("Title: " + properties.title)
-        print("Keywords: " + properties.keywords)
+        print("Author: " + document_properties.author)
+        print("Title: " + document_properties.title)
+        print("Keywords: " + document_properties.keywords)
     else:
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-इस मोड में स्लाइड सामग्री लोड नहीं होती। स्लाइड्स, मास्टर्स, लेआउट्स, शैप्स, मीडिया, और अन्य प्रेजेंटेशन ऑब्जेक्ट्स उपलब्ध नहीं होते। एप्लिकेशन को हमेशा `is_only_document_properties_loaded` की जाँच करनी चाहिए इससे पहले कि वह ऐसी ऑपरेशन करे जिसके लिए पूर्ण प्रेजेंटेशन ऑब्जेक्ट मॉडल आवश्यक हो।
+इस मोड में, स्लाइड सामग्री लोड नहीं होती है। स्लाइड्स, मास्टर्स, लेआउट्स, शैप्स, मीडिया और अन्य प्रस्तुति वस्तुएँ अनुपलब्ध रहती हैं। एप्लिकेशन को हमेशा [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) जाँचनी चाहिए इससे पहले कि वह ऐसी क्रिया करे जिसे पूर्ण प्रस्तुति ऑब्जेक्ट मॉडल की आवश्यकता हो।
 
 {{% alert color="warning" title="Security" %}}
-सार्वजनिक मेटाडेटा में लेखक के नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणी और कस्टम मान शामिल हो सकते हैं। संवेदनशील गुणों को प्रेजेंटेशन के साथ एन्क्रिप्ट करें। उन्हें केवल तब सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़-प्रबंधन प्रणाली को पासवर्ड के बिना पहुंच की विशिष्ट आवश्यकता हो।
+सार्वजनिक मेटाडाटा में लेखक के नाम, शीर्षक, विषय, कीवर्ड, कंपनी जानकारी, टिप्पणियाँ, और कस्टम मान उजागर हो सकते हैं। संवेदनशील गुणों को प्रस्तुति के साथ एन्क्रिप्ट करें। उन्हें केवल तब सार्वजनिक रखें जब इंडेक्सिंग, वर्गीकरण, खोज, या दस्तावेज़-मैनेजमेंट सिस्टम को पासवर्ड के बिना पहुँच की विशिष्ट आवश्यकता हो।
 {{% /alert %}}
 
-## **एन्क्रिप्टेड प्रेजेंटेशन के गुण अपडेट करें**
+## **एन्क्रिप्टेड प्रस्तुति के गुण अपडेट करें**
 
-एन्क्रिप्टेड PPTX फ़ाइल के लिए, `only_load_document_properties` के साथ लोड किया गया प्रेजेंटेशन केवल सार्वजनिक मेटाडेटा पढ़ने के लिए माना जाता है। Aspose.Slides उस मेटाडेटा‑ओनली ऑब्जेक्ट से बदलें हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रेजेंटेशन के भीतर संबंधित डेटा के साथ संगत रहना चाहिए। इसलिए उन्हें अपडेट करने के लिए सही ओपनिंग पासवर्ड और पूर्ण लोड आवश्यक है।
+एन्क्रिप्टेड PPTX फ़ाइल के लिए, [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) के साथ लोड की गई प्रस्तुति सार्वजनिक मेटाडाटा पढ़ने के लिए होती है। Aspose.Slides उस केवल-मेटाडाटा ऑब्जेक्ट से बदले हुए गुणों को सहेज नहीं सकता क्योंकि सार्वजनिक गुणों को एन्क्रिप्टेड प्रस्तुति के भीतर के संबंधित डेटा के साथ संगत रहना आवश्यक है। इसलिए उन्हें अपडेट करने के लिए सही ओपनिंग पासवर्ड और पूर्ण लोड आवश्यक है।
 
-निम्नलिखित उदाहरण **[LoadOptions.password](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/password/)** के साथ प्रेजेंटेशन खोलता है, सार्वजनिक Built-in गुणों को अपडेट करता है, और परिणाम सहेजता है। फिर यह **[PresentationInfo.is_encrypted](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/is_encrypted/)** का उपयोग करके एन्क्रिप्शन बरकरार है यह सत्यापित करता है और पासवर्ड के बिना सार्वजनिक मेटाडेटा को फिर से खोलकर नए मानों की जाँच करता है:
-
+उदाहरण के लिए एक एन्क्रिप्टेड PPTX प्रस्तुति आवश्यक है जिसमें सार्वजनिक दस्तावेज़ गुण और ज्ञात ओपनिंग पासवर्ड हो। यह [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/) के साथ पूरी प्रस्तुति खोलता है, सार्वजनिक बिल्ट-इन गुण अपडेट करता है, और परिणाम सहेजता है। फिर यह [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/) का उपयोग करके एन्क्रिप्शन के बनाए रखने की पुष्टि करता है और पासवर्ड के बिना सार्वजनिक मेटाडाटा को पुनः खोलकर नए मानों की जाँच करता है:
 ```python
 import aspose.slides as slides
 
@@ -90,8 +88,10 @@ load_options = slides.LoadOptions()
 load_options.password = "open_password"
 
 with slides.Presentation(input_path, load_options) as presentation:
-    presentation.document_properties.title = "Updated Product Roadmap"
-    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    document_properties = presentation.document_properties
+    document_properties.title = "Updated Product Roadmap"
+    document_properties.keywords = "roadmap, planning, indexed"
+    
     presentation.save(output_path, slides.export.SaveFormat.PPTX)
 
 presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
@@ -108,185 +108,143 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-यदि किसी एप्लिकेशन को प्रेजेंटेशन सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं है, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल‑पढ़ने योग्य मानना चाहिए।
+यदि किसी एप्लिकेशन को प्रस्तुति सामग्री को डिक्रिप्ट या लोड करने की अनुमति नहीं है, तो उसे एन्क्रिप्टेड PPTX फ़ाइल के सार्वजनिक गुणों को केवल-पढ़ने योग्य मानना चाहिए।
 
-## **Built-in गुणों तक पहुँचें**
-इन गुणों को **IDocumentProperties** ऑब्जेक्ट द्वारा प्रदर्शित किया गया है, जिसमें शामिल हैं: **Creator(Author)**, **Description**, **Keywords**, **Created** (सृजन तिथि), **Modified** (संशोधन तिथि), **Printed** (अंतिम मुद्रण तिथि), **LastModifiedBy**, **Keywords**, **SharedDoc** (क्या विभिन्न निर्माताओं के बीच साझा किया गया है?), **PresentationFormat**, **Subject** और **Title**  
-```py
+## **बिल्ट-इन गुणों तक पहुँच**
+
+[DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) क्लास टाइप्ड प्रॉपर्टीज़ के माध्यम से बिल्ट-इन मेटाडाटा को उजागर करती है, जिसमें [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), और [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/) शामिल हैं। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है और उसके संग्रहित मेटाडाटा को कंसोल पर प्रिंट करता है। मान इनपुट प्रस्तुति पर निर्भर करते हैं; कुछ फ़ील्ड खाली हो सकते हैं।
+```python
 import aspose.slides as slides
 
-# प्रेजेंटेशन का प्रतिनिधित्व करने वाली Presentation क्लास का उदाहरण बनायें
-with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
-    # Presentation से संबंधित ऑब्जेक्ट का रेफ़रेंस बनायें
-    documentProperties = pres.document_properties
+with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # बिल्ट‑इन गुण प्रदर्शित करें
-    print("category : " + documentProperties.category)
-    print("Current Status : " + documentProperties.content_status)
-    print("Creation Date : " + str(documentProperties.created_time))
-    print("Author : " + documentProperties.author)
-    print("Description : " + documentProperties.comments)
-    print("KeyWords : " + documentProperties.keywords)
-    print("Last Modified By : " + documentProperties.last_saved_by)
-    print("Supervisor : " + documentProperties.manager)
-    print("Modified Date : " + str(documentProperties.last_saved_time))
-    print("Presentation Format : " + documentProperties.presentation_format)
-    print("Last Print Date : " + str(documentProperties.last_printed))
-    print("Is Shared between producers : " + str(documentProperties.shared_doc))
-    print("Subject : " + documentProperties.subject)
-    print("Title : " + documentProperties.title)
+    print("Category:", document_properties.category)
+    print("Content status:", document_properties.content_status)
+    print("Creation date:", document_properties.created_time)
+    print("Author:", document_properties.author)
+    print("Comments:", document_properties.comments)
+    print("Keywords:", document_properties.keywords)
+    print("Last modified by:", document_properties.last_saved_by)
+    print("Manager:", document_properties.manager)
+    print("Modified date:", document_properties.last_saved_time)
+    print("Presentation format:", document_properties.presentation_format)
+    print("Last print date:", document_properties.last_printed)
+    print("Is shared between producers:", document_properties.shared_doc)
+    print("Subject:", document_properties.subject)
+    print("Title:", document_properties.title)
 ```
 
-## **Built-in गुणों का संशोधन**
+## **बिल्ट-इन गुणों को संशोधित करें**
 
-प्रेजेंटेशन फ़ाइलों के Built-in गुणों को संशोधित करना उतना ही आसान है जितना कि उन्हें एक्सेस करना। आप बस किसी भी इच्छित गुण को स्ट्रिंग मान असाइन कर सकते हैं और वह गुण मान संशोधित हो जाएगा। नीचे दिए गए उदाहरण में हमने दिखाया है कि कैसे प्रेजेंटेशन फ़ाइल के Built-in दस्तावेज़ गुणों को संशोधित किया जा सकता है।
-
-```py
+बिल्ट-इन मेटाडाटा को अपडेट करने के लिए, [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/) द्वारा उजागर लिखने योग्य प्रॉपर्टीज़ को मान प्रदान करें। यह उदाहरण एक मौजूदा प्रस्तुति खोलता है, [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/), और [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/) सेट करता है, फिर अपडेट की गई प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) से सहेजता है। सहेजे गए PPTX में नया मेटाडाटा होता है।
+```python
 import aspose.slides as slides
 
-# प्रस्तुति को दर्शाने वाली Presentation क्लास का उदाहरण बनायें
-with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
-    # Presentation से संबंधित ऑब्जेक्ट का रेफ़रेंस बनायें
-    documentProperties = presentation.document_properties
+with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # बिल्ट‑इन गुण सेट करें
-    documentProperties.author = "Aspose.Slides for .NET"
-    documentProperties.title = "Modifying Presentation Properties"
-    documentProperties.subject = "Aspose Subject"
-    documentProperties.comments = "Aspose Description"
-    documentProperties.manager = "Aspose Manager"
+    document_properties.author = "Aspose.Slides for Python via .NET"
+    document_properties.title = "Manage PowerPoint Presentation Properties"
+    document_properties.subject = "Modify Built-in Properties"
+    document_properties.comments = "Aspose description"
+    document_properties.manager = "Aspose manager"
 
-    # अपनी प्रस्तुति को फ़ाइल में सहेजें
-    presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("DocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **कस्टम प्रेजेंटेशन गुण जोड़ें**
+## **हायपरलिंक बेस का प्रबंधन**
 
-Aspose.Slides for Python via .NET डेवलपर्स को प्रेजेंटेशन Document गुणों के लिए कस्टम मान जोड़ने की अनुमति भी देता है। नीचे एक उदाहरण दिया गया है जो दिखाता है कि कैसे प्रेजेंटेशन के लिए कस्टम गुण सेट किए जाएँ।
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) सापेक्ष हायपरलिंक के लिए दस्तावेज़-स्तर बेस को संग्रहीत करता है। यह तब उपयोगी होता है जब आप प्रस्तुति और उसकी लिंक वाली फ़ाइलों को किसी अन्य स्थान पर ले जाते हैं। यह व्यक्तिगत हायपरलिंक के [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) से अलग है: बेस बदलने से संग्रहीत लिंक पते नहीं बदलते और न ही निरपेक्ष गंतव्य बदलते हैं।
 
-```py
+उदाहरण के लिए एक ऐसी प्रस्तुति आवश्यक है जिसमें एक सापेक्ष लिंक, जैसे `target.html`, और एक निरपेक्ष लिंक फ़ाइल या वेबसाइट के लिए हो। यह मौजूदा बेस पढ़ता है, नया बेस पता असाइन करता है, और मान की जाँच के लिए प्रस्तुति को सहेज कर पुनः खोलता है। फिर यह बेस को `""` से साफ़ करता है और अलग सहेजी फ़ाइल में खाली मान की पुष्टि करता है। उदाहरण बेस पते को अपने लिंक फ़ाइलों के स्थान से बदलें।
+```python
 import aspose.slides as slides
 
-# Presentation क्लास का उदाहरण बनायें
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    print("Original base:", presentation.document_properties.hyperlink_base)
+
+    new_base = "https://example.com/new/"
+    presentation.document_properties.hyperlink_base = new_base
+    presentation.save("hyperlinks-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("hyperlinks-updated.pptx") as updated_presentation:
+    print("Base preserved:", updated_presentation.document_properties.hyperlink_base == new_base)
+
+    updated_presentation.document_properties.hyperlink_base = ""
+    updated_presentation.save("hyperlinks-cleared.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
+    print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
+```
+
+दो सत्यापन संदेशों को `True` प्रिंट करना चाहिए। बेस को साफ़ करने से व्यक्तिगत हायपरलिंक पते अपरिवर्तित रहते हैं।
+
+`target.pptx` के सापेक्ष लिंक ने `old/target.pptx` खोल रखा जब बेस `old` फ़ोल्डर की ओर इशारा करता था। बेस को `new` फ़ोल्डर में बदलने, सहेजने और प्रस्तुति को पुनः खोलने के बाद वही लिंक `new/target.pptx` खोलता है। निरपेक्ष लिंक वही फ़ाइल खोलते रहता है। प्रस्तुति को स्थानांतरित करने या इसका बेस बदलने से पहले और बाद में PowerPoint में अपने सापेक्ष लिंक का परीक्षण करें।
+
+## **कस्टम प्रस्तुति गुण जोड़ें**
+
+कस्टम गुण उन मेटाडाटा को संग्रहीत करते हैं जिनका कोई संबंधित बिल्ट-इन फ़ील्ड नहीं होता। [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) मेथड आपको प्रॉपर्टी नाम द्वारा मान असाइन करने देता है। यह उदाहरण एक प्रस्तुति बनाता है, दो टेक्स्ट मान और एक इंटीजर वर्शन मान जोड़ता है, और प्रस्तुति को [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/) से सहेजता है। मौजूदा नाम को मान असाइन करने से उस गुण का मान बदल जाता है।
+```python
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
-    # दस्तावेज़ गुण प्राप्त करना
-    documentProperties = presentation.document_properties
+    document_properties = presentation.document_properties
 
-    # कस्टम गुण जोड़ना
-    documentProperties.set_custom_property_value("New Custom", 12)
-    documentProperties.set_custom_property_value("My Nam", "Mudassir")
-    documentProperties.set_custom_property_value("Custom", 124)
+    document_properties.set_custom_property_value("Reviewed by", "John Smith")
+    document_properties.set_custom_property_value("Confidentiality level", "Internal")
+    document_properties.set_custom_property_value("Document version", 2)
 
-    # विशेष इंडेक्स पर गुण का नाम प्राप्त करना
-    getPropertyName = documentProperties.get_custom_property_name(2)
-
-    # चयनित गुण हटाना
-    documentProperties.remove_custom_property(getPropertyName)
-
-    # प्रस्तुति सहेजना
-    presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("CustomDocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **कस्टम गुणों तक पहुँच और संशोधन**
 
-Aspose.Slides for Python via .NET डेवलपर्स को कस्टम गुणों के मानों तक पहुँचने की भी अनुमति देता है। नीचे एक उदाहरण दिया गया है जो दिखाता है कि आप प्रेजेंटेशन के सभी कस्टम गुणों तक कैसे पहुँच और संशोधन कर सकते हैं।
-
-```py
+यह उदाहरण कस्टम गुणों वाली प्रस्तुति खोलता है और उन पर इटररेट करने के लिए [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) का उपयोग करता है। [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) शून्य-आधारित इंडेक्स लेता है और वह नाम लौटाता है जो [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) द्वारा उपयोग किया गया था। उदाहरण के लिए ऐसी प्रस्तुति चाहिए जहाँ सभी कस्टम गुण स्ट्रिंग हों। यह प्रत्येक मूल नाम और मान को प्रिंट करता है, हर मान को एक क्रमांकित स्ट्रिंग से बदलता है, और परिवर्तन सहेजता है। यदि कोई कस्टम गुण नहीं है, तो लूप कोई बदलाव नहीं करता।
+```python
 import aspose.slides as slides
 
-# PPTX को दर्शाने वाली Presentation क्लास का उदाहरण बनाएं
-with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
-    # Presentation से जुड़ी document_properties ऑब्जेक्ट का रेफ़रेंस बनाएं
-    documentProperties = presentation.document_properties
+with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # कस्टम गुणों तक पहुँचें और उन्हें संशोधित करें
-    for i in range(documentProperties.count_of_custom_properties):
-        property_name = documentProperties.get_custom_property_name(i)
-
-        # कस्टम गुणों के नाम और मान प्रदर्शित करें
+    for i in range(document_properties.count_of_custom_properties):
+        property_name = document_properties.get_custom_property_name(i)
         property_value = [""]
-        documentProperties.get_custom_property_value(property_name, property_value)
-        print("Custom Property Name : " + property_name)
-        print("Custom Property Value : " + property_value[0])
+        document_properties.get_custom_property_value(property_name, property_value)
 
-        # कस्टम गुणों के मान संशोधित करें
-        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
-    # अपनी प्रस्तुति को फ़ाइल में सहेजें
-    presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value[0])
+
+        document_properties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+
+    presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` दूसरे तर्क के रूप में पास की गई एक‑तत्वीय सूची के माध्यम से मान लौटाता है, और संग्रहीत मान को उस सूची में पहले से मौजूद तत्व के प्रकार में कास्ट किया जाता है। ऊपर का उदाहरण `[""]` का उपयोग करता है, इसलिए यह स्ट्रिंग गुण पढ़ता है; किसी संख्या के रूप में संग्रहीत गुण को पढ़ने के लिए, एक संख्यात्मक प्लेसहोल्डर जैसे `[0]` पास करें—अन्यथा कॉल `InvalidCastException` उठाता है।
-
-## **प्रूफिंग भाषा निर्धारित करें**
-
-Aspose.Slides **Language_Id** प्रॉपर्टी (जो **[PortionFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/)** क्लास द्वारा उजागर की गई है) प्रदान करता है जिससे आप PowerPoint दस्तावेज़ के लिए प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा वह भाषा है जिसके लिए PowerPoint में स्पेलिंग और व्याकरण जाँच की जाती है।
-
-यह Python कोड आपको दिखाता है कि PowerPoint के लिए प्रूफिंग भाषा कैसे सेट की जाए:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation("SetProofingLanguage.pptx") as pres:
-    auto_shape = pres.slides[0].shapes[0]
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
-
-    new_portion = slides.Portion()
-    font = slides.FontData("SimSun")
-    portion_format = new_portion.portion_format
-    portion_format.complex_script_font = font
-    portion_format.east_asian_font = font
-    portion_format.latin_font = font
-
-    # प्रूफिंग भाषा का Id सेट करें
-    portion_format.language_id = "zh-CN"
-    new_portion.text = "1。"
-
-    paragraph.portions.add(new_portion)
-```
-
-## **डिफ़ॉल्ट भाषा निर्धारित करें**
-
-यह Python कोड आपको दिखाता है कि संपूर्ण PowerPoint प्रेजेंटेशन के लिए डिफ़ॉल्ट भाषा कैसे सेट की जाए:
-
-```python
-import aspose.slides as slides
-
-load_options = slides.LoadOptions()
-load_options.default_text_language = "en_US"
-
-with slides.Presentation(load_options) as pres:
-    shp = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 150)
-    text_frame = shp.text_frame
-    text_frame.text = "New Text"
-
-    print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
-```
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) दूसरा तर्क के रूप में पास की गई एक-तत्वीय सूची के माध्यम से मान लौटाता है। प्लेसहोल्डर को संग्रहित गुण के प्रकार से मेल खाना चाहिए: स्ट्रिंग के लिए `[""]` या इंटीजर के लिए `[0]` उपयोग करें। प्रकार में असंगति `InvalidCastException` उत्पन्न करती है; अपने कस्टम-प्रॉपर्टी स्कीमा के अनुसार प्लेसहोल्डर चुनें।
 
 ## **लाइव उदाहरण**
 
-[**Aspose.Slides Metadata**](https://products.aspose.app/slides/hi/metadata) ऑनलाइन एप्लिकेशन को आज़माएँ ताकि आप Aspose.Slides API के माध्यम से दस्तावेज़ गुणों के साथ कैसे काम किया जाता है, देख सकें:
+Aspose.Slides API का उपयोग करके दस्तावेज़ गुणों के साथ काम करने के लिए ऑनलाइन एप्लिकेशन [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) को आज़माएँ:
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/hi/metadata)
+## **FAQ**
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+**मैं प्रस्तुति से बिल्ट-इन प्रॉपर्टी कैसे हटा सकता हूँ?**
 
-**प्रेजेंटेशन से Built-in गुण को कैसे हटाया जा सकता है?**
+बिल्ट-इन प्रॉपर्टी प्रस्तुति का अभिन्न भाग हैं और उन्हें पूरी तरह हटाया नहीं जा सकता। हालांकि, आप उनके मान बदल सकते हैं या यदि विशिष्ट प्रॉपर्टी अनुमति देती है तो उन्हें खाली सेट कर सकते हैं।
 
-Built-in गुण प्रेजेंटेशन का अभिन्न भाग होते हैं और उन्हें पूरी तरह से हटाया नहीं जा सकता। हालांकि, आप उनके मान को बदल सकते हैं या यदि विशिष्ट गुण अनुमति देता है तो उन्हें खाली सेट कर सकते हैं।
+**यदि मैं एक मौजूदा कस्टम प्रॉपर्टी जोड़ूँ तो क्या होगा?**
 
-**यदि मैं ऐसा कस्टम गुण जोड़ूँ जो पहले से मौजूद है तो क्या होता है?**
+यदि आप एक मौजूदा कस्टम प्रॉपर्टी जोड़ते हैं, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले उस प्रॉपर्टी को हटाने या जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वचालित रूप से प्रॉपर्टी का मान अपडेट करता है।
 
-यदि आप ऐसा कस्टम गुण जोड़ते हैं जो पहले से मौजूद है, तो उसका मौजूदा मान नए मान से ओवरराइट हो जाएगा। आपको पहले से गुण को हटाने या जाँचने की आवश्यकता नहीं है, क्योंकि Aspose.Slides स्वतः ही गुण के मान को अपडेट कर देता है।
+**क्या मैं पूरी प्रस्तुति लोड किए बिना प्रस्तुति गुणों तक पहुँच सकता हूँ?**
 
-**क्या मैं प्रेजेंटेशन को पूरी तरह लोड किए बिना गुणों तक पहुँच सकता हूँ?**
+हाँ। [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) का उपयोग करें और फिर [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/) से बिना [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) इंस्टेंस बनाए संग्रहीत दस्तावेज़ मेटाडाटा पढ़ें। पूर्ण रिपोर्टिंग उदाहरण और फ़ॉर्मेट-विशिष्ट सीमाओं के लिए देखें [Build a Lightweight Presentation Inventory](/slides/hi/python-net/examine-presentation/)।
 
-हाँ। **[PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationfactory/get_presentation_info/)** का उपयोग करें और फिर **[PresentationInfo.read_document_properties](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentationinfo/read_document_properties/)** से बिना **[Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/)** इंस्टेंस बनाए दस्तावेज़ मेटाडेटा पढ़ें। पूर्ण रिपोर्टिंग उदाहरण और फ़ॉर्मेट‑विशिष्ट प्रतिबंधों के लिए **[Build a Lightweight Presentation Inventory](/slides/hi/python-net/examine-presentation/)** देखें।
+**क्या मैं एन्क्रिप्टेड प्रस्तुति के सार्वजनिक गुणों को ओपनिंग पासवर्ड के बिना पढ़ सकता हूँ?**
 
-**क्या मैं एन्क्रिप्टेड प्रेजेंटेशन के सार्वजनिक गुणों को उसके ओपनिंग पासवर्ड के बिना पढ़ सकता हूँ?**
+हाँ। प्रस्तुति को [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) को `False` पर सेट करके एन्क्रिप्ट किया होना चाहिए, और इसे [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) को `True` पर सेट करके लोड किया जाना चाहिए।
 
-हाँ। प्रेजेंटेशन को `encrypt_document_properties` को `False` पर सेट करके एन्क्रिप्ट किया गया होना चाहिए, और उसे `only_load_document_properties` को `True` पर सेट करके लोड किया जाना चाहिए।
+**क्या मैं डाक्यूमेंट-प्रॉपर्टीज़-केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
 
-**क्या मैं दस्तावेज़‑गुण‑केवल मोड में एन्क्रिप्टेड PPTX फ़ाइल को अपडेट कर सकता हूँ?**
-
-नहीं। सार्वजनिक और एन्क्रिप्टेड गुण डेटा को संगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही ओपनिंग पासवर्ड के साथ पूर्ण प्रेजेंटेशन लोड करना आवश्यक है।
+नहीं। सार्वजनिक और एन्क्रिप्टेड प्रॉपर्टी डेटा को संगत रहना चाहिए, इसलिए एन्क्रिप्टेड PPTX फ़ाइल को अपडेट करने के लिए सही ओपनिंग पासवर्ड के साथ पूरी प्रस्तुति को लोड करना आवश्यक है।

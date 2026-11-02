@@ -1,78 +1,56 @@
 ---
-title: จัดการคุณสมบัติการพรีเซนเทชันใน JavaScript
-linktitle: คุณสมบัติการพรีเซนเทชัน
+title: จัดการคุณสมบัติการนำเสนอใน JavaScript
+linktitle: คุณสมบัติการนำเสนอ
 type: docs
 weight: 70
 url: /th/nodejs-java/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติการพรีเซนเทชัน
+- คุณสมบัติการนำเสนอ
 - คุณสมบัติเอกสาร
-- คุณสมบัติในตัว
-- คุณสมบัติกำหนดเอง
-- คุณสมบัติเพิ่มเติม
+- คุณสมบัติ built-in
+- คุณสมบัติ custom
+- คุณสมบัติขั้นสูง
 - จัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
 - เมตาดาต้าเอกสาร
 - แก้ไขเมตาดาต้า
-- ภาษาตรวจสอบ
-- ภาษาตั้งต้น
+- ภาษาการตรวจสอบ
+- ภาษาดีฟอลต์
 - PowerPoint
 - OpenDocument
-- พรีเซนเทชัน
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติการพรีเซนเทชันใน Aspose.Slides for Node.js via Java อย่างเต็มที่และเพิ่มประสิทธิภาพการค้นหา การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณ."
+description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides สำหรับ Node.js ผ่าน Java และปรับปรุงการค้นหา, การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณ."
 ---
 ## **บทนำ**
 
-Aspose.Slides รองรับคุณสมบัติของเอกสารสองประเภท: **Built-in** และ **Custom**. ทั้งสองประเภทนี้สามารถเข้าถึงและจัดการได้อย่างง่ายดายโดยใช้ API ของ Aspose.Slides.
+Aspose.Slides สำหรับ Node.js ผ่าน Java รองรับคุณสมบัติเอกสาร **built-in** และ **custom**. ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตเมตาดาตาการนำเสนอ เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่กำหนดโดยผู้ใช้.
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติของเอกสารการพรีเซนเทชันผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/documentproperties/) อินสแตนซ์ของคลาสนี้จะถูกส่งคืนโดยเมธอด [Presentation.getDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getDocumentProperties) ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้
+Aspose.Slides ช่วยให้คุณทำงานกับคุณสมบัติเอกสารการนำเสนอผ่านคลาส [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) . ตัวอย่างของคลาสนี้จะถูกส่งคืนโดย [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้.
 
 {{% alert color="info" title="Note" %}}
-โปรดทราบว่า ฟิลด์ **Application** และ **AppVersion** ไม่สามารถแก้ไขได้ Aspose.Slides จะเขียนทับฟิลด์เหล่านี้ทุกครั้งที่บันทึก ดังนั้นการพรีเซนเทชันที่บันทึกจะรายงานว่า "Aspose.Slides for Node.js via Java" และเวอร์ชันของไลบรารีที่สร้างมัน ค่าที่ส่งไปยัง `setNameOfApplication` จะถูกละทิ้งเมื่อพรีเซนเทชันถูกเขียน
-{{% /alert %}} 
+Aspose.Slides จัดการเมตาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกการนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์.
+{{% /alert %}}
 
-## **จัดการคุณสมบัติของพรีเซนเทชัน**
+## **จัดการคุณสมบัติการนำเสนอ**
 
-Microsoft PowerPoint มีฟีเจอร์ให้เพิ่มคุณสมบัติบางอย่างลงในไฟล์พรีเซนเทชัน คุณสมบัติของเอกสารเหล่านี้ทำให้สามารถเก็บข้อมูลที่เป็นประโยชน์ร่วมกับเอกสาร (ไฟล์พรีเซนเทชัน) ได้ มีคุณสมบัติของเอกสารสองประเภทดังต่อไปนี้
+คุณสมบัติเอกสารเก็บข้อมูลเชิงบรรยายพร้อมกับเนื้อหาการนำเสนอ. พวกมันแบ่งเป็นสองประเภท:
 
-- System Defined (Built-in) Properties
-- User-Defined (Custom) Properties
+- **Built-in properties** มีเมตาดาต้ามาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติเอกสาร.
+- **Custom properties** เก็บคู่ชื่อ/ค่า ที่ผู้ใช้กำหนดเอง.
 
-**Built-in** มีข้อมูลทั่วไปเกี่ยวกับเอกสาร เช่น ชื่อเอกสาร, ชื่อผู้เขียน, สถิติของเอกสาร ฯลฯ **Custom** คือคุณสมบัติที่ผู้ใช้กำหนดเป็นคู่ **Name/Value** ซึ่งทั้งชื่อและค่าโดยผู้ใช้กำหนดเอง การใช้ Aspose.Slides for Node.js via Java นักพัฒนาสามารถเข้าถึงและแก้ไขค่าของคุณสมบัติ built-in และ custom ได้
+Aspose.Slides สำหรับ Node.js ผ่าน Java ให้เข้าถึงทั้งสองประเภท. ใน PowerPoint, เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมตาดาต้าเอกสาร. กล่องโต้ตอบจัดข้อมูลเป็นแท็บเช่น **Summary**, **Statistics**, **Contents**, และ **Custom**. ใช้แท็บ **Custom** เพื่อจัดการคุณสมบัติที่ผู้ใช้กำหนด.
 
-## **คุณสมบัติของเอกสารใน PowerPoint**
+## **อ่านคุณสมบัติสาธารณะจากการนำเสนอที่เข้ารหัส**
 
-Microsoft PowerPoint 2007 ให้คุณจัดการคุณสมบัติของเอกสารในไฟล์พรีเซนเทชัน เพียงคลิกไอคอน Office แล้วเลือกเมนู **Prepare | Properties | Advanced Properties** ตามที่แสดงด้านล่าง:
+รหัสผ่านสำหรับเปิดปกติจะแปลงทั้งเนื้อหาการนำเสนอและคุณสมบัติเอกสาร. เมื่อการนำเสนอถูกเข้ารหัสหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) ด้วยค่า `false`, คุณสมบัติเอกสารจะยังคงเป็นสาธารณะ. แอปพลิเคชันสามารถเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ด้วยค่า `true` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องระบุรหัสผ่านเปิด.
 
-|**เลือกเมนู Advanced Properties**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ควบคุมสิ่งที่ Aspose.Slides โหลด; ไม่ทำการถอดรหัสใดๆ. หากคุณสมบัติติดอยู่ในการเข้ารหัส, การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว. หากการนำเสนอไม่ได้เข้ารหัส, ตัวเลือกนี้จะถูกละเลยและการนำเสนอทั้งหมดจะถูกโหลด.
 
-หลังจากคุณเลือกเมนู **Advanced Properties** หน้าต่างจะปรากฏขึ้นเพื่อให้คุณจัดการคุณสมบัติของไฟล์ PowerPoint ดังที่แสดงในรูปด้านล่าง:
-
-|**กล่องโต้ตอบคุณสมบัติ**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-
-ใน **Properties Dialog** ข้างต้น คุณจะเห็นว่ามีหลายแท็บเช่น **General**, **Summary**, **Statistics**, **Contents** และ **Custom** แท็บเหล่านี้ให้คุณกำหนดค่าข้อมูลต่าง ๆ ที่เกี่ยวข้องกับไฟล์ PowerPoint ได้ แท็บ **Custom** ใช้สำหรับจัดการคุณสมบัติแบบกำหนดเองของไฟล์ PowerPoint.
-
-## **ทำงานกับคุณสมบัติของเอกสารโดยใช้ Aspose.Slides for Node.js via Java**
-
-ตามที่ได้อธิบายไว้ข้างต้นว่า Aspose.Slides for Node.js via Java รองรับคุณสมบัติของเอกสารสองประเภทคือ **Built-in** และ **Custom** ดังนั้นนักพัฒนาสามารถเข้าถึงทั้งสองประเภทนี้ได้ด้วย API ของ Aspose.Slides for Node.js via Java Aspose.Slides for Node.js via Java มีคลาส [DocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/documentproperties) ที่แสดงถึงคุณสมบัติของเอกสารที่เชื่อมโยงกับไฟล์พรีเซนเทชันผ่านคุณสมบัติ **Presentation.DocumentProperties**
-
-นักพัฒนาสามารถใช้คุณสมบัติ **DocumentProperties** ที่เปิดเผยโดยอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation) เพื่อเข้าถึงคุณสมบัติของไฟล์พรีเซนเทชันตามที่อธิบายด้านล่าง
-
-## **อ่านคุณสมบัติสาธารณะจากพรีเซนเทชันที่ถูกเข้ารหัส**
-
-รหัสผ่านเปิดไฟล์โดยปกติจะปกป้องเนื้อหาพรีเซนเทชันและคุณสมบัติของเอกสารด้วย เมื่อพรีเซนเทชันถูกเข้ารหัสโดยส่งค่า `false` ไปยัง [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) คุณสมบัติของเอกสารจะยังคงเป็นสาธารณะ แอปพลิเคชันสามารถส่งค่า `true` ไปยัง [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องใส่รหัสผ่านเปิดไฟล์
-
-ตัวเลือกการโหลดเฉพาะคุณสมบัติของเอกสารควบคุมสิ่งที่ Aspose.Slides โหลด; ไม่ได้ถอดรหัสอะไรเลย หากคุณสมบัตินั้นถูกเข้ารหัสรวมอยู่ การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว หากพรีเซนเทชันไม่ได้ถูกเข้ารหัส ตัวเลือกนี้จะถูกละเลยและพรีเซนเทชันทั้งหมดจะถูกโหลด
-
-ตัวอย่างต่อไปนี้ตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) แล้วอ่านคุณสมบัติ built‑in ผ่าน [Presentation.getDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#getDocumentProperties):
+ตัวอย่างนี้ต้องการการนำเสนอที่เข้ารหัสซึ่งคุณสมบัติเอกสารถูกปล่อยเป็นสาธารณะ. มันตรวจสอบโหมดการโหลดผ่าน [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) และจากนั้นอ่านคุณสมบัติ built-in ผ่าน [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,11 +61,11 @@ loadOptions.setOnlyLoadDocumentProperties(true);
 const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
 try {
     if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
-        const properties = presentation.getDocumentProperties();
+        const documentProperties = presentation.getDocumentProperties();
 
-        console.log("Author: " + properties.getAuthor());
-        console.log("Title: " + properties.getTitle());
-        console.log("Keywords: " + properties.getKeywords());
+        console.log("Author: " + documentProperties.getAuthor());
+        console.log("Title: " + documentProperties.getTitle());
+        console.log("Keywords: " + documentProperties.getKeywords());
     } else {
         console.log("The presentation was not loaded in document-properties-only mode.");
     }
@@ -96,17 +74,17 @@ try {
 }
 ```
 
-ในโหมดนี้ เนื้อหาสไลด์จะไม่ถูกโหลด สไลด์, มาสเตอร์, เลเอาต์, รูปร่าง, สื่อ, และอ็อบเจกต์อื่น ๆ ของพรีเซนเทชันจะไม่พร้อมใช้งาน แอปพลิเคชันควรตรวจสอบ [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) ก่อนดำเนินการใด ๆ ที่ต้องการโมเดลอ็อบเจกต์พรีเซนเทชันแบบเต็ม
+ในโหมดนี้, เนื้อหาสไลด์จะไม่ถูกโหลด. สไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, สื่อ, และออบเจ็กต์การนำเสนออื่นๆ จะไม่พร้อมใช้งาน. แอปพลิเคชันควรตรวจสอบ [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) เสมอก่อนดำเนินการที่ต้องการโมเดลออบเจ็กต์การนำเสนอแบบเต็ม.
 
 {{% alert color="warning" title="Warning" %}}
-เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวเรื่อง, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง ให้เข้ารหัสคุณสมบัติที่เป็นความลับพร้อมกับพรีเซนเทชัน ปล่อยให้เป็นสาธารณะเฉพาะเมื่อระบบจัดทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบจัดการเอกสารต้องการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน
+เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คีย์เวิร์ด, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง. ให้เข้ารหัสคุณสมบัติที่เป็นความลับพร้อมกับการนำเสนอ. ทำให้เป็นสาธารณะเฉพาะเมื่อระบบการจัดทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบการจัดการเอกสารมีความต้องการเฉพาะในการเข้าถึงโดยไม่มีรหัสผ่าน.
 {{% /alert %}}
 
-## **อัปเดตคุณสมบัติของพรีเซนเทชันที่ถูกเข้ารหัส**
+## **อัปเดตคุณสมบัติของการนำเสนอที่เข้ารหัส**
 
-สำหรับไฟล์ PPTX ที่เข้ารหัส พรีเซนเทชันที่โหลดในโหมดเอกสาร‑properties‑only มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงคุณสมบัติจากอ็อบเจกต์เมตาดาต้า‑only ได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในพรีเซนเทชันที่เข้ารหัส การอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดเต็ม
+สำหรับไฟล์ PPTX ที่เข้ารหัส, การนำเสนอที่โหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ด้วยค่า `true` มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ. Aspose.Slides ไม่สามารถบันทึกคุณสมบัติที่เปลี่ยนจากออบเจ็กต์ที่มีเมตาดาต้าเท่านั้นได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในการนำเสนอที่เข้ารหัส. การอัปเดตจึงต้องใช้รหัสผ่านเปิดที่ถูกต้องและการโหลดเต็ม.
 
-ตัวอย่างต่อไปนี้เปิดพรีเซนเทชันด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setPassword) อัปเดตคุณสมบัติ built‑in สาธารณะ และบันทึกผลลัพธ์ จากนั้นใช้ [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) ตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะโดยไม่ใช้รหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+ตัวอย่างนี้ต้องการการนำเสนอ PPTX ที่เข้ารหัสพร้อมคุณสมบัติเอกสารสาธารณะและรหัสเปิดที่ทราบ. มันเปิดการนำเสนอเต็มด้วย [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), อัปเดตคุณสมบัติ built-in สาธารณะ, แล้วบันทึกผลลัพธ์. จากนั้นใช้ [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) เพื่อยืนยันว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะโดยไม่มีรหัสผ่านเพื่อยืนยันค่าที่ใหม่:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -119,8 +97,10 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation(inputPath, loadOptions);
 try {
-    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
-    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    const documentProperties = presentation.getDocumentProperties();
+    documentProperties.setTitle("Updated Product Roadmap");
+    documentProperties.setKeywords("roadmap, planning, indexed");
+    
     presentation.save(outputPath, slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -145,330 +125,175 @@ try {
 }
 ```
 
-หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาพรีเซนเทชัน จะต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
+หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาการนำเสนอ, จะต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่านอย่างเดียว.
 
 ## **เข้าถึงคุณสมบัติ Built-in**
 
-คุณสมบัติเหล่านี้ที่เปิดเผยโดยอ็อบเจกต์ [DocumentProperties] รวมถึง: **Creator** (ผู้สร้าง), **Description**, **Keywords**, **Created** (วันที่สร้าง), **Modified** (วันที่แก้ไข), **Printed** (วันที่พิมพ์ล่าสุด), **LastModifiedBy**, **Keywords**, **SharedDoc** (แชร์ระหว่างผู้ผลิตต่าง ๆ?), **PresentationFormat**, **Subject** และ **Title**
+คลาส [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) เปิดเผยเมตาดาต้า built-in ผ่านเมธอด getter, รวมถึง [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle), และ [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). ตัวอย่างนี้เปิดการนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่เก็บไว้ไปยังคอนโซล. ค่าเหล่านี้ขึ้นอยู่กับการนำเข้าการนำเสนอ; บางฟิลด์อาจว่าง.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของพรีเซนเทชัน
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessBuiltInProperties.pptx");
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจกต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
-    var dp = pres.getDocumentProperties();
-    // แสดงคุณสมบัติ built-in
-    console.log("Category : " + dp.getCategory());
-    console.log("Current Status : " + dp.getContentStatus());
-    console.log("Creation Date : " + dp.getCreatedTime());
-    console.log("Author : " + dp.getAuthor());
-    console.log("Description : " + dp.getComments());
-    console.log("KeyWords : " + dp.getKeywords());
-    console.log("Last Modified By : " + dp.getLastSavedBy());
-    console.log("Supervisor : " + dp.getManager());
-    console.log("Modified Date : " + dp.getLastSavedTime());
-    console.log("Presentation Format : " + dp.getPresentationFormat());
-    console.log("Last Print Date : " + dp.getLastPrinted());
-    console.log("Is Shared between producers : " + dp.getSharedDoc());
-    console.log("Subject : " + dp.getSubject());
-    console.log("Title : " + dp.getTitle());
+    const documentProperties = presentation.getDocumentProperties();
+
+    console.log("Category: " + documentProperties.getCategory());
+    console.log("Content status: " + documentProperties.getContentStatus());
+    console.log("Creation date: " + documentProperties.getCreatedTime());
+    console.log("Author: " + documentProperties.getAuthor());
+    console.log("Comments: " + documentProperties.getComments());
+    console.log("Keywords: " + documentProperties.getKeywords());
+    console.log("Last modified by: " + documentProperties.getLastSavedBy());
+    console.log("Manager: " + documentProperties.getManager());
+    console.log("Modified date: " + documentProperties.getLastSavedTime());
+    console.log("Presentation format: " + documentProperties.getPresentationFormat());
+    console.log("Last print date: " + documentProperties.getLastPrinted());
+    console.log("Is shared between producers: " + documentProperties.getSharedDoc());
+    console.log("Subject: " + documentProperties.getSubject());
+    console.log("Title: " + documentProperties.getTitle());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **แก้ไขคุณสมบัติ Built-in**
 
-การแก้ไขคุณสมบัติ built‑in ของไฟล์พรีเซนเทชันทำได้ง่ายเช่นการเข้าถึงเพียงแค่กำหนดค่าเป็นสตริงให้กับคุณสมบัติที่ต้องการและค่าจะถูกแก้ไข ในตัวอย่างด้านล่าง เราได้แสดงวิธีการแก้ไขคุณสมบัติเอกสาร built‑in ของไฟล์พรีเซนเทชันโดยใช้ Aspose.Slides for Node.js via Java
+เพื่ออัปเดตเมตาดาต้า built-in, ใช้เมธอด setter บนวัตถุที่ได้จาก [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). ตัวอย่างนี้เปิดการนำเสนอที่มีอยู่, เรียก [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments), และ [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), จากนั้นบันทึกการนำเสนอที่อัปเดตด้วย [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). PPTX ที่บันทึกจะมีเมตาดาต้าใหม่.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("ModifyBuiltInProperties.pptx");
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจกต์ IDocumentProperties ที่เชื่อมโยงกับ Presentation
-    var dp = pres.getDocumentProperties();
-    // ตั้งค่าคุณสมบัติในตัว
-    dp.setAuthor("Aspose.Slides for Node.js via Java");
-    dp.setTitle("Modifying Presentation Properties");
-    dp.setSubject("Aspose Subject");
-    dp.setComments("Aspose Description");
-    dp.setManager("Aspose Manager");
-    // บันทึกพรีเซนเทชันของคุณลงไฟล์
-    pres.save("DocProps.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.setAuthor("Aspose.Slides for Node.js via Java");
+    documentProperties.setTitle("Manage PowerPoint Presentation Properties");
+    documentProperties.setSubject("Modify Built-in Properties");
+    documentProperties.setComments("Aspose description");
+    documentProperties.setManager("Aspose manager");
+
+    presentation.save("DocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติ built‑in ของพรีเซนเทชันที่สามารถดูได้ดังภาพด้านล่าง:
+## **จัดการฐาน Hyperlink**
 
-|**คุณสมบัติเอกสาร Built-in หลังการแก้ไข**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) ส่งคืนฐานระดับเอกสารสำหรับลิงก์เชิงสัมพันธ์. ใช้ [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) เพื่อเปลี่ยนหรือเคลียร์มัน. นี้มีประโยชน์เมื่อย้ายการนำเสนอและไฟล์ที่เชื่อมโยงไปยังตำแหน่งอื่น. มันแยกจาก [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) ของลิงก์แต่ละอัน: การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่เก็บไว้หรือเปลี่ยนจุดหมายแบบ absolute.
 
-## **เพิ่มคุณสมบัติเอกสารแบบกำหนดเอง**
-
-Aspose.Slides for Node.js via Java ยังอนุญาตให้นักพัฒนาตั้งค่าคุณสมบัติแบบกำหนดเองสำหรับพรีเซนเทชัน ตัวอย่างด้านล่างแสดงวิธีการตั้งค่าคุณสมบัติแบบกำหนดเองสำหรับพรีเซนเทชัน
+ตัวอย่างนี้ต้องการการนำเสนอที่มีลิงก์เชิงสัมพันธ์ เช่น `target.html` และลิงก์แบบ absolute เช่น `https://example.org/absolute.html`. มันอ่านฐานที่มีอยู่, กำหนดฐานใหม่, แล้วบันทึกและเปิดการนำเสนอใหม่เพื่อเช็คค่า. จากนั้นเคลียร์ฐานด้วยสตริงว่างและตรวจสอบค่าที่ว่างในไฟล์บันทึกแยกต่างหาก. แทนที่ฐานตัวอย่างด้วยตำแหน่งของไฟล์ที่เชื่อมโยงของคุณ.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("hyperlinks.pptx");
 try {
-    // ดึงคุณสมบัติเอกสาร
-    var dProps = pres.getDocumentProperties();
-    // เพิ่มคุณสมบัติแบบกำหนดเอง
-    dProps.set_Item("New Custom", 12);
-    dProps.set_Item("My Name", "Mudassir");
-    dProps.set_Item("Custom", 124);
-    // ดึงชื่อคุณสมบัติที่ตำแหน่งดัชนีเฉพาะ
-    var getPropertyName = dProps.getCustomPropertyName(2);
-    // ลบคุณสมบัติที่เลือก
-    dProps.removeCustomProperty(getPropertyName);
-    // บันทึกพรีเซนเทชัน
-    pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    console.log("Original base: " + presentation.getDocumentProperties().getHyperlinkBase());
+
+    const newBase = "https://example.com/new/";
+    presentation.getDocumentProperties().setHyperlinkBase(newBase);
+    presentation.save("hyperlinks-updated.pptx", slides.SaveFormat.Pptx);
+
+    const updatedPresentation = new slides.Presentation("hyperlinks-updated.pptx");
+    try {
+        console.log("Base preserved: " + (newBase === updatedPresentation.getDocumentProperties().getHyperlinkBase()));
+
+        updatedPresentation.getDocumentProperties().setHyperlinkBase("");
+        updatedPresentation.save("hyperlinks-cleared.pptx", slides.SaveFormat.Pptx);
+
+        const clearedPresentation = new slides.Presentation("hyperlinks-cleared.pptx");
+        try {
+            console.log("Base cleared: " + ("" === clearedPresentation.getDocumentProperties().getHyperlinkBase()));
+        } finally {
+            clearedPresentation.dispose();
+        }
+    } finally {
+        updatedPresentation.dispose();
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-|**เพิ่มคุณสมบัติเอกสารแบบกำหนดเอง**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+สองข้อความตรวจสอบควรพิมพ์ `true`. การเคลียร์ฐานจะทำให้ที่อยู่ลิงก์แต่ละอันยังคงอยู่.
 
-## **เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง**
+ลิงก์เชิงสัมพันธ์ไปยัง `target.pptx` เปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old`. หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new`, บันทึกและเปิดการนำเสนอใหม่, ลิงก์เดียวกันเปิด `new/target.pptx`. ลิงก์แบบ absolute ยังคงเปิดไฟล์เดิม. ทดสอบลิงก์เชิงสัมพันธ์ของคุณใน PowerPoint ก่อนและหลังย้ายการนำเสนอหรือเปลี่ยนฐาน.
 
-Aspose.Slides for Node.js via Java ยังอนุญาตให้นักพัฒนาสามารถเข้าถึงค่าของคุณสมบัติแบบกำหนดเอง ตัวอย่างด้านล่างแสดงวิธีการเข้าถึงและแก้ไขคุณสมบัติทั้งหมดเหล่านี้สำหรับพรีเซนเทชัน
+## **เพิ่มคุณสมบัติการนำเสนอแบบกำหนดเอง**
+
+คุณสมบัติที่กำหนดเองเก็บเมตาดาต้าที่ไม่มีฟิลด์ built-in ที่สอดคล้อง. เมธอด [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ. ตัวอย่างนี้สร้างการนำเสนอ, เพิ่มค่าข้อความสองค่าและค่าเวอร์ชันเป็นจำนวนเต็ม, แล้วบันทึกการนำเสนอด้วย [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). การกำหนดค่าที่ชื่อที่มีอยู่แล้วจะแทนที่ค่าของคุณสมบัตินั้น.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation();
 try {
-    // สร้างอ้างอิงไปยังอ็อบเจกต์ DocumentProperties ที่เชื่อมโยงกับ Presentation
-    var dp = pres.getDocumentProperties();
-    // เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง
-    for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // แสดงชื่อและค่าของคุณสมบัติแบบกำหนดเอง
-        console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
-        console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-        // แก้ไขค่าของคุณสมบัติแบบกำหนดเอง
-        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
-    }
-    // บันทึกพรีเซนเทชันของคุณลงไฟล์
-    pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.set_Item("Reviewed by", "John Smith");
+    documentProperties.set_Item("Confidentiality level", "Internal");
+    documentProperties.set_Item("Document version", 2);
+
+    presentation.save("CustomDocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-ตัวอย่างนี้แก้ไขคุณสมบัติแบบกำหนดเองของ [PPTX](https://docs.fileformat.com/presentation/pptx/) พรีเซนเทชัน รูปภาพต่อไปนี้แสดงคุณสมบัติแบบกำหนดเองก่อนและหลังการแก้ไข:
+## **เข้าถึงและแก้ไขคุณสมบัติที่กำหนดเอง**
 
-|**คุณสมบัติแบบกำหนดเองก่อนการแก้ไข**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
-|**คุณสมบัติแบบกำหนดเองหลังการแก้ไข**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
-
-## **คุณสมบัติเอกสารขั้นสูง**
-
-{{% alert color="info" title="Note" %}}
-เมธอดใหม่ [ReadDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) , [UpdateDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) และ [WriteBindedPresentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) ได้ถูกเพิ่มเข้าไปในคลาส [PresentationInfo](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo) การตั้งค่าเซ็ตเตอร์ของคุณสมบัติ [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) ได้รับการเปลี่ยนแปลง
-{{% /alert %}} 
-
-เมธอดใหม่สองตัว [ReadDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) และ [UpdateDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) ได้ถูกเพิ่มเข้าไปในคลาส [PresentationInfo](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PresentationInfo) พวกมันให้การเข้าถึงคุณสมบัติของเอกสารอย่างรวดเร็วและอำนวยความสะดวกในการเปลี่ยนและอัปเดตคุณสมบัติโดยไม่ต้องโหลดพรีเซนเทชันทั้งหมด
-
-สถานการณ์ทั่วไปคือโหลดคุณสมบัติ, เปลี่ยนค่าและอัปเดตเอกสารสามารถทำได้ตามวิธีต่อไปนี้:
+ตัวอย่างนี้เปิดการนำเสนอที่มีคุณสมบัติกำหนดเองและใช้ [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) เพื่อวนลูปผ่านพวกมัน. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) รับดัชนีตั้งแต่ศูนย์และส่งคืนชื่อที่ใช้โดย [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทั้งหมดด้วยสตริงเลขลำดับโดยไม่คำนึงถึงประเภทเดิม, แล้วบันทึกการเปลี่ยนแปลง. หากไม่มีคุณสมบัติกำหนดเอง, ลูปจะไม่ทำการเปลี่ยนแปลงใดๆ.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// อ่านข้อมูลของพรีเซนเทชัน
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-// ดึงคุณสมบัติปัจจุบัน
-var props = info.readDocumentProperties();
-// ตั้งค่าค่ใหม่ของฟิลด์ Author และ Title
-props.setAuthor("New Author");
-props.setTitle("New Title");
-// อัปเดตพรีเซนเทชันด้วยค่าที่ใหม่
-info.updateDocumentProperties(props);
-info.writeBindedPresentation("presentation.pptx");
-```
-
-มีอีกวิธีหนึ่งคือใช้คุณสมบัติของพรีเซนเทชันใด ๆ เป็นแม่แบบเพื่ออัปเดตคุณสมบัติในพรีเซนเทชันอื่น ๆ:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-var template = info.readDocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-เทมเพลตใหม่สามารถสร้างจากศูนย์แล้วใช้เพื่ออัปเดตหลายพรีเซนเทชัน:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var template = new aspose.slides.DocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-## **ตั้งค่าภาษา Proofing**
-
-Aspose.Slides มีคุณสมบัติ LanguageId (เปิดโดยคลาส PortionFormat) เพื่อให้คุณตั้งค่าภาษา proofing สำหรับเอกสาร PowerPoint ภาษา proofing คือภาษาที่ใช้ตรวจสอบการสะกดและไวยากรณ์ใน PowerPoint
-
-โค้ด JavaScript นี้แสดงวิธีการตั้งค่าภาษา proofing สำหรับ PowerPoint: xxx Why is LanguageId missing from JavaScript PortionFormat class?
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessAndModifyProperties.pptx");
 try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
-    var newPortion = new aspose.slides.Portion();
-    var font = new aspose.slides.FontData("SimSun");
-    var portionFormat = newPortion.getPortionFormat();
-    portionFormat.setComplexScriptFont(font);
-    portionFormat.setEastAsianFont(font);
-    portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// ตั้งค่า Id ของภาษาตรวจสอบ
-    newPortion.setText("1。");
-    paragraph.getPortions().add(newPortion);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const documentProperties = presentation.getDocumentProperties();
+
+    for (let i = 0; i < documentProperties.getCountOfCustomProperties(); i++) {
+        const propertyName = documentProperties.getCustomPropertyName(i);
+        const propertyValue = documentProperties.get_Item(propertyName);
+
+        console.log("Custom property name: " + propertyName);
+        console.log("Custom property value: " + propertyValue);
+
+        documentProperties.set_Item(propertyName, "New Value " + (i + 1));
     }
-}
-```
 
-## **ตั้งค่าภาษาเริ่มต้น**
-
-โค้ด JavaScript นี้แสดงวิธีการตั้งค่าภาษาเริ่มต้นสำหรับพรีเซนเทชัน PowerPoint ทั้งหมด:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDefaultTextLanguage("en-US");
-var pres = new aspose.slides.Presentation(loadOptions);
-try {
-    // เพิ่มรูปร่างสี่เหลี่ยมใหม่พร้อมข้อความ
-    var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("New Text");
-    // ตรวจสอบภาษาของส่วนแรก
-    console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+    presentation.save("CustomProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **ตัวอย่างสด**
 
-ลอง[**Aspose.Slides Metadata**](https://products.aspose.app/slides/th/metadata)ออนไลน์แอปเพื่อดูวิธีทำงานกับคุณสมบัติของเอกสารผ่าน Aspose.Slides API:
+ลองแอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
+[![ดูและแก้ไขเมตาดาต้า PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **คำถามที่พบบ่อย**
 
-**How can I remove a built-in property from a presentation?**
+**ฉันจะลบคุณสมบัติ built-in ออกจากการนำเสนอได้อย่างไร?**
 
-คุณสมบัติ Built-in เป็นส่วนสำคัญของพรีเซนเทชันและไม่สามารถลบได้ทั้งหมด อย่างไรก็ตาม คุณสามารถเปลี่ยนค่า หรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต
+คุณสมบัติ built-in เป็นส่วนสำคัญของการนำเสนอและไม่สามารถลบออกได้ทั้งหมด. อย่างไรก็ตามคุณสามารถเปลี่ยนค่าเหล่านั้นหรือตั้งค่าเป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต.
 
-**What happens if I add a custom property that already exists?**
+**เกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติกำหนดเองที่มีอยู่แล้ว?**
 
-หากคุณเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว ค่าเดิมจะถูกเขียนทับด้วยค่าที่ใหม่ Aspose.Slides จะอัปเดตค่าอัตโนมัติ ไม่จำเป็นต้องลบหรือเช็คล่วงหน้า
+หากคุณเพิ่มคุณสมบัติกำหนดเองที่มีอยู่แล้ว, ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่. คุณไม่จำเป็นต้องลบหรือเช็กคุณสมบัติก่อนหน้า, เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ.
 
-**Can I access presentation properties without fully loading the presentation?**
+**ฉันสามารถเข้าถึงคุณสมบัติการนำเสนอโดยไม่ต้องโหลดการนำเสนอเต็มได้หรือไม่?**
 
-ได้ ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) แล้วตามด้วย [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) เพื่ออ่านเมตาดาต้าโดยไม่ต้องสร้างอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ดูตัวอย่างการรายงานเต็มใน [Build a Lightweight Presentation Inventory](/slides/th/nodejs-java/examine-presentation/)
+ได้. ใช้ [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) แล้วตามด้วย [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) เพื่ออ่านเมตาดาต้าเอกสารที่จัดเก็บไว้โดยไม่ต้องสร้างออบเจ็กต์ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). ดู [Build a Lightweight Presentation Inventory](/slides/th/nodejs-java/examine-presentation/) สำหรับตัวอย่างการรายงานอย่างสมบูรณ์และข้อจำกัดตามรูปแบบ.
 
-**Can I read public properties of an encrypted presentation without its opening password?**
+**ฉันสามารถอ่านคุณสมบัติสาธารณะของการนำเสนอที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดได้หรือไม่?**
 
-ได้ เมริดคุณสมบัติของเอกสารต้องถูกปิดการเข้ารหัสก่อนที่พรีเซนเทชันจะถูกเข้ารหัส และพรีเซนเทชันต้องถูกโหลดในโหมด document‑properties‑only
+ได้. การนำเสนอจะต้องถูกเข้ารหัสหลังจากเรียก [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) ด้วย `false`, และต้องโหลดหลังจากเรียก [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) ด้วย `true`.
 
-**Can I update an encrypted PPTX file in document-properties-only mode?**
+**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมด document-properties-only ได้หรือไม่?**
 
-ไม่ได้ ข้อมูลคุณสมบัติสาธารณะและเข้ารหัสต้องสอดคล้องกัน การอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดพรีเซนเทชันทั้งหมดด้วยรหัสผ่านเปิดที่ถูกต้อง
+ไม่ได้. ข้อมูลคุณสมบัติสาธารณะและที่เข้ารหัสต้องสอดคล้องกัน, ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดการนำเสนอเต็มด้วยรหัสผ่านเปิดที่ถูกต้อง.

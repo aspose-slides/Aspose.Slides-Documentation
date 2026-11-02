@@ -1,5 +1,5 @@
 ---
-title: C++ prezentációs hiperhivatkozások kezelése
+title: Prezentációs hiperhivatkozások kezelése C++-ban
 linktitle: Hiperhivatkozások kezelése
 type: docs
 weight: 20
@@ -13,10 +13,10 @@ keywords:
 - hiperhivatkozás frissítése
 - szöveges hiperhivatkozás
 - dia hiperhivatkozás
-- alakzati hiperhivatkozás
+- alakzat hiperhivatkozás
 - kép hiperhivatkozás
 - videó hiperhivatkozás
-- módosítható hiperhivatkozás
+- változtatható hiperhivatkozás
 - PowerPoint
 - OpenDocument
 - prezentáció
@@ -26,24 +26,26 @@ description: "Hiperhivatkozások hozzáadása, formázása, frissítése és elt
 ---
 ## **Bevezetés**
 
-A hiperhivatkozás a bemutató tartalmát kapcsolja össze egy weboldallal vagy a bemutatón belüli helyre. A PowerPoint-ban a hiperhivatkozások általában két célra szolgálnak:
+A hiperhivatkozás összekapcsolja a bemutató tartalmát egy weboldallal vagy a bemutatón belüli helyszínnel. PowerPointban a hiperhivatkozások általában két célt szolgálnak:
 
-* Weboldal megnyitása szövegből, alakzatból vagy média keretből.
+* Weboldal megnyitása szövegből, alakzatból vagy médiakeretből.
 * Navigálás egy másik diára, például egy tartalomjegyzékből.
 
-Az Aspose.Slides for C++ lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk szabályozását, beállításaik frissítését és eltávolítását. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetjük el a hiperhivatkozásokat a bemutató, dia vagy szövegkeret szintjén.
+Az Aspose.Slides for C++ lehetővé teszi ezeknek a hivatkozásoknak a hozzáadását, megjelenésük és hangjuk vezérlését, beállításaik frissítését, valamint eltávolításukat. Az alábbi példák bemutatják, hogyan dolgozhat a hiperhivatkozásokkal egyedi elemek szintjén, valamint hogyan érheti el a hiperhivatkozásokat a bemutató, dia vagy szövegkeret szintjén.
 
 {{% alert color="info" title="Note" %}}
-A bemutatókat a [ingyenes online Aspose PowerPoint szerkesztő](https://products.aspose.app/slides/hu/editor) segítségével is szerkesztheti.
+You can also edit presentations with the [ingyenes online Aspose PowerPoint szerkesztő](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
 ## **URL hiperhivatkozások hozzáadása**
 
-Weboldal URL-t adhat szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrész a kiválasztott szöveget kapcsolja, míg egy alakzat vagy keret a dia objektumát kapcsolja.
+Weboldal URL-t adhat meg szövegnek, alakzatnak vagy médiakeretnek. Az a elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrészlet a kiválasztott szövegre hivatkozik, míg egy alakzat vagy keret a dia objektumára.
+
+A dokumentumszintű alap beolvasásához, módosításához vagy törléséhez lásd a [A hiperhivatkozás alapjának kezelése](/slides/hu/cpp/presentation-properties/#manage-the-hyperlink-base) oldalt.
 
 ### **URL hiperhivatkozások hozzáadása szöveghez**
 
-A szöveg weboldalra való hivatkozásához hozzon létre egy [Hyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlink/) objektumot, és rendelje azt a szövegrész [set_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/portionformat/set_hyperlinkclick/) metódusával, az alábbiakban látható módon. Csak az adott szövegrész lesz kattintható.
+A szöveget weboldalhoz kapcsolni egy [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) létrehozásával és a szövegrészlet [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) metódusával történik, ahogy az alább látható. Csak ez a szövegrészlet lesz kattintható.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -76,13 +78,13 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **URL hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
+### **URL hiperhivatkozások hozzáadása alakzatokhoz és médiakeretekhez**
 
-Az alakzat vagy keret kattinthatóvá tételéhez használja annak [set_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/shape/set_hyperlinkclick/) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem a benne lévő szövegrészhez.
+Ahhoz, hogy egy alakzat vagy keret kattintható legyen, használja a [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) metódust. A hiperhivatkozás az objektumhoz tartozik, nem a benne lévő szövegrészlethez.
 
-Ez a megközelítés a kép-, audio- és videókeretekre is vonatkozik: rendelje a hiperhivatkozást a kerethez, és ha szükséges, használja a [set_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_tooltip/) metódust a tipp hozzáadásához.
+Ugyanez a megközelítés érvényes kép-, audio- és videókeretekre is: a hiperhivatkozást a kerethez rendeli, és ha szükséges, a [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) metódussal ad hozzá egy tippet.
 
-A következő példa egy téglalapot tesz kattinthatóvá:
+Az alábbi példa egy téglalapot tesz kattinthatóvá:
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -109,7 +111,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [SetInternalHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) metódust használja, hogy az első dián lévő „Page 2” szöveget a második diára linkelje.
+A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) használatával összekapcsolja az első dián található “Page 2” szöveget a második diával.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,9 +170,9 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ### **Szín**
 
-A [set_ColorSource](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_colorsource/) metódus a [IHyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/) esetén határozza meg, hogy a hiperhivatkozás a bemutató hiperhivatkozás színét vagy a szövegrész formázását használja-e. Egy egyéni szövegszín alkalmazásához válassza a [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlinkcolorsource/) lehetőséget, és állítsa be a rész kitöltőszínét. Ez a funkció a PowerPoint 2019-ben került bevezetésre; a régebbi verziók nem alkalmazzák ezt a beállítást.
+Az [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) metódus az [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) esetében meghatározza, hogy a hiperhivatkozás a bemutató hiperhivatkozás színét vagy a szövegrészlet formázását használja-e. Egy egyéni szövegszín alkalmazásához válassza a [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) lehetőséget, és állítsa be a rész kitöltő színét. Ez a funkció a PowerPoint 2019-ben került bevezetésre; a korábbi verziók nem alkalmazzák ezt a beállítást.
 
-A következő példa két szöveges hiperhivatkozást ad ugyanahhoz a diához. Az első piros szövegtöltést használ, míg a második megtartja az alapértelmezett hiperhivatkozás színét.
+Az alábbi példa két szöveges hiperhivatkozást ad ugyanarra a diára. Az első piros szövegszínt használ, míg a második az alapértelmezett hiperhivatkozás színt tartja meg.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,14 +216,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 ### **Hang**
 
-Hiperhivatkozás aktiváláskor lejátszhat hangot, vagy leállíthat egy már lejátszódó hangot. Az alábbi módszerekkel állíthatja be ezeket a viselkedéseket:
+A hiperhivatkozás hangot játszhat le aktiváláskor, vagy leállíthat egy már játszó hangot. Az alábbi módszerekkel állíthatja be ezeket a viselkedéseket:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_sound/) határozza meg a hiperhivatkozáshoz társított hangot.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) szabályozza, hogy a hiperhivatkozás aktiválása leállítsa-e az előző hangot.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) megadja a hiperhivatkozáshoz társított audiót.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) szabályozza, hogy a hiperhivatkozás aktiválása leállítja-e az előző hangot.
 
-#### **Hiperhivatkozási hang hozzáadása**
+#### **Hiperhivatkozás hangjának hozzáadása**
 
-A következő példa betölti a `sampleaudio.wav` fájlt, és egy első dián lévő gombhoz rendeli. A gombra kattintva lejátszódik a hang és a következő diára navigál. A dián lévő második alakzat kattintásra leállítja az előző hangot, anélkül, hogy navigációs műveletet végezne.
+Az alábbi példa betölti a `sampleaudio.wav` fájlt, és a első dián lévő gombhoz rendeli. A gomb megnyomásakor a hang lejátszásra kerül és a következő diára navigál. Egy második alakzat ugyanazon a dián a kattintáskor leállítja az előző hangot, anélkül hogy navigációs műveletet végezne.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -265,9 +267,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Hiperhivatkozási hang kinyerése**
+#### **Hiperhivatkozás hangjának kinyerése**
 
-A következő példa megnyitja a fent létrehozott bemutatót, és a [get_Sound](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_sound/) és a [get_BinaryData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iaudio/get_binarydata/) segítségével beolvassa az első alakzat hiperhivatkozás hangját a memóriába.
+Az alábbi példa megnyitja a fent létrehozott bemutatót, és a [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) valamint a [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/) segítségével beolvassa az első alakzat hiperhivatkozás hangját a memóriába.
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -303,18 +305,18 @@ else
 }
 ```
 
-### **Buborékablak és interakciós beállítások**
+### **Buboréksúgó és interakcióbeállítások**
 
-Miután hiperhivatkozást rendelt szöveghez vagy alakzathoz, a következő [IHyperlink](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/) beállításokat módosíthatja ezekkel a módszerekkel:
+Miután egy hiperhivatkozást szöveghez vagy alakzathoz rendelt, a következő [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) beállításokat frissítheti ezekkel a módszerekkel:
 
-- [set_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_tooltip/) beállítja a szöveget, amelyet a néző a hivatkozás tippjeként jeleníthet meg.
-- [set_TargetFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_targetframe/) meghatározza a célkeretet a szülő HTML keretcsoportban, ha alkalmazható.
-- [set_History](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_history/) szabályozza, hogy a hivatkozás aktiválása felveszi-e a célját a megtekintett hiperhivatkozások listájába.
-- [set_HighlightClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/set_highlightclick/) szabályozza, hogy a hiperhivatkozás ki legyen-e emelve kattintáskor.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) beállítja azt a szöveget, amelyet a megjelenítő a hivatkozás tippjeként jeleníthet meg.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) megadja a célt keretet egy szülő HTML keretcsoporton belül, ha releváns.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) szabályozza, hogy a hivatkozás aktiválása hozzáadja-e a célját a megtekintett hiperhivatkozások listájához.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) szabályozza, hogy a hiperhivatkozás ki legyen-e emelve kattintáskor.
 
 ## **Hiperhivatkozások eltávolítása a bemutatókból**
 
-A [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) használatával gyűjtheti össze a hiperhivatkozás konténereket, beleértve a szövegrész hivatkozásokat is, a módosításuk előtt. Az alábbi példa eltávolítja mindkét aktiválási típust az első diáról. Ha csak egy típust szeretne eltávolítani, hívja csak a [RemoveHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) vagy a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódust; a kattintási művelet eltávolítása nem távolítja el az egér‑felül eseményt.
+Használja a [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) metódust a hiperhivatkozás tárolók, köztük a szövegrészlet hivatkozások összegyűjtéséhez, mielőtt módosítaná őket. Az alábbi példa eltávolítja mindkét aktiválási típust az első diáról. Ha csak egy típust szeretne eltávolítani, hívja az [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) vagy a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódust; a kattintási művelet eltávolítása nem távolítja el az egér fölé húzás változatát.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -348,23 +350,23 @@ else
 }
 ```
 
-Feltétlen eltávolításhoz a [RemoveAllHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) mindkét aktiválási típust eltávolítja a kiválasztott körben egy hívással. Szelektív tisztításhoz és a mester‑, elrendezés‑ és jegyzet‑diák lefedéséhez lásd a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) részt.
+Feltétel nélküli eltávolításhoz a [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) eltávolítja mindkét aktiválási típust a kiválasztott körben egy hívással. A szelektív takarításhoz és a mester, elrendezés és jegyzetek lefedéséhez lásd a [Jelentés, tisztítás és ellenőrzés](#report-sanitize-and-verify-hyperlinks) részt.
 
-## **Teljes hiperhivatkozás leltár felépítése**
+## **Teljes hiperhivatkozás-nyilvántartás létrehozása**
 
-A bemutató közzététele előtt készítsen leltárt az interaktív műveleteiről és webes hivatkozásairól. A [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/) objektumokat ad vissza, nem egy egyszerű URL karakterláncok listáját. Minden konténeren ellenőrizze mind a [get_HyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) , mind a [get_HyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) metódust. Függetlenek: ugyanaz a konténer is tartalmazhatja mindkét műveletet, ezért egy teljes jelentéshez egy konténerre akár két sor is szükséges.
+Mielőtt egy bemutatót terjesztene, készítsen nyilvántartást az interaktív műveleteiről és a webes hivatkozásairól. A [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/) objektumokat ad vissza, nem egy egyszerű URL karakterlánc-listát. Vizsgálja meg mind a [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) ..., mind a [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) minden tárolón. Ezek függetlenek: ugyanaz a tároló mindkét műveletet kiterjesztheti, ezért egy teljes jelentéshez legfeljebb két sorra van szükség tárolónként.
 
-Csak az alakzatszintű hiperhivatkozások beolvasása kihagyhatja a szövegrészekhez csatolt hivatkozásokat. Inkább a megfelelő körben kérdezze le, és őrizze meg a visszakapott konténereket, hogy később frissíthesse vagy eltávolíthassa azok műveleteit.
+Csak alakzatszintű hiperhivatkozások beolvasása kihagyhatja a szövegrészletekhez csatolt hivatkozásokat. Inkább a megfelelő hatókört kérdezze le, és őrizze meg a visszaadott tárolókat, hogy később frissíthesse vagy eltávolíthassa azok műveleteit.
 
-### **Bemutató, dia és szövegkeret körök lekérdezése**
+### **Bemutató, dia és szövegkeret hatókörök lekérdezése**
 
-Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/) felület elérhető az [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) és [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) metódusokon keresztül. Minden kör ugyanazokat a lekérdezéseket támogatja:
+Az [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) interfész elérhető az [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), az [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), és az [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) segítségével. Minden hatókör támogatja ugyanazokat a lekérdezéseket:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) konténereket ad vissza kattintásos művelettel.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) konténereket ad vissza egér‑felül művelettel.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) konténereket ad vissza, amelyek bármelyik vagy mindkét műveletet tartalmazzák.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) konténereket ad vissza kattintási művelettel.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) konténereket ad vissza egér fölé húzási művelettel.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) konténereket ad vissza egyik vagy mindkét művelettel.
 
-A következő példa létrehozza a `hyperlink-audit-input.pptx` fájlt, amely egy külső kattintási hivatkozást, egy fájl egér‑felül hivatkozást, belső dia navigációt, egy szöveg egér‑felül hivatkozást és egy makró műveletet tartalmaz. Ezek egyikét sem hajtja végre. Ugyanaz a három lekérdezés minden körben működik; a számlálók konténereket írnak le, nem a műveletek összegét. A szövegkeret kör kizárja a körülvevő alakzat saját hivatkozásait.
+Az alábbi példa létrehozza a `hyperlink-audit-input.pptx` fájlt egy külső kattintási hivatkozással, egy fájl egér fölé húzási hivatkozással, belső dia navigációval, egy szöveg egér fölé húzási hivatkozással és egy makró művelettel. Ezeket a műveleteket nem hajtja végre. Ugyanez a három lekérdezés minden hatókörben működik; a számok a tárolókat írják le, nem a műveletek összegét. A szövegkeret hatókör kizárja a körülvevő alakzat saját hivatkozásait.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -419,37 +421,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Ebben a példában a bemutató és a dia lekérdezések három kattintási konténert, két egér‑felül konténert, és három konténert jelentettek, amelyek bármelyik művelettel rendelkeznek. A szövegkeret lekérdezés egy konténert jelent mindhárom kategóriában.
+Ebben a példában a bemutató és dia lekérdezések három kattintási tárolót, két egér fölé húzási tárolót és három tárolót jelentenek, amelyek bármelyik művelettel rendelkeznek. A szövegkeret lekérdezés minden kategóriában egy tárolót jelent.
 
 ### **Műveletek és célok osztályozása**
 
-A [IHyperlink::get_ActionType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_actiontype/) használatával értelmezze a műveletet, mielőtt a célját vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/hyperlinkactiontype/) értékek a webes navigáción túl is kiterjednek:
+Használja a [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) metódust a művelet értelmezéséhez, mielőtt annak célját vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) értékek többek, mint csak a webnavigáció:
 
-| Értékek | Jelentés az auditban |
+| Értékek | Jelentés audit során |
 | --- | --- |
-| `Hyperlink` | Külső hiperhivatkozás; vizsgálja meg az URL-t és annak sémáját. |
+| `Hyperlink` | Külső hiperhivatkozás; ellenőrizze az URL-t és annak sémaát. |
 | `JumpSpecificSlide` | Belső navigáció egy adott diára. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés navigáció, a diavetítés kontextusában értelmezve. |
-| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyéni bemutató indítása. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés-navigáció, a diavetítés kontextusában értelmezve. |
+| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyedi bemutató indítása. |
 | `StartMacro` | Makró végrehajtása. |
 | `StartProgram` | Program indítása. |
-| `OpenFile`, `OpenPresentation` | Fájl vagy másik bemutató megnyitása; külön kell vizsgálni a webes URL-eket. |
+| `OpenFile`, `OpenPresentation` | Fájl vagy egy másik bemutató megnyitása; külön kell vizsgálni a webes URL-ektől. |
 | `StartStopMedia` | Média lejátszás indítása vagy leállítása. |
 | `NoAction`, `Unknown` | Nincs navigációs művelet, vagy egy ismeretlen művelet, amely felülvizsgálatot igényel. |
 
-Az external célpontokat a [get_ExternalUrl](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_externalurl/) segítségével, a konkrét belső célpontokat pedig a [get_TargetSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_targetslide/) metódussal olvassa ki. Belső műveletek és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti azt, hogy a konténernek nincs művelete. Tartsa meg a [get_ExternalUrlOriginal](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) értékét, ha az eltér a normalizált URL-től, és vegye fel a [get_Tooltip](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlink/get_tooltip/) által visszaadott buborékablakot, ha elérhető.
+Külső célokat a [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) metódussal, a belső célokat pedig a [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/) metódussal olvassa. Belső műveletek és beépített parancsok esetén lehet, hogy nincs külső URL; egy üres URL nem jelenti, hogy a tárolónak nincs művelete. Őrizze meg a [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) értéket, ha eltér a normalizált URL-től, és adja hozzá a [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) által visszaadott buboréksúgót, ha elérhető.
 
-### **Hiperhivatkozások jelentése, tisztítása és ellenőrzése**
+### **Jelentés, tisztítás és ellenőrzés**
 
-A következő C++ példa beolvas egy meglévő bemutatót (használja a fent létrehozott fájlt), kiírja a `hyperlink-audit.json`-t, egy szabályzatot alkalmaz, elmenti a `hyperlink-sanitized.pptx`-t, majd újra megnyitja, hogy újra ellenőrizze mindkét aktiválási típust. A módosítás előtt összegyűjti a konténereket, és pointer‑identitást használ, hogy elkerülje ugyanazon konténer kétszeri feldolgozását. A bemutató lekérdezések a szokásos diákra vonatkoznak; csomagszintű leltár esetén kifejezetten lekérdezi a mestereket, elrendezéseket, jegyzeteket, valamint a jegyzet‑ és szórólap‑mestereket, ha jelen vannak.
+Az alábbi C++ példa beolvas egy meglévő bemutatót (használja a fent létrehozott fájlt), kiírja a `hyperlink-audit.json` fájlt, alkalmaz egy szabályt, elmenti a `hyperlink-sanitized.pptx` fájlt, és újra megnyitja, hogy újból ellenőrizze mindkét aktiválási típust. A módosítás előtt összegyűjti a tárolókat, és mutatóazonosságot használ, hogy ne dolgozza fel ugyanazt a tárolót kétszer. A bemutató lekérdezések a szokásos diákat fedik le; egy csomag-szintű nyilvántartáshoz kifejezetten lekérdezi a mestereket, elrendezéseket, jegyzeteket, valamint a jegyzet- és kézjegyzet-mestereket, ha jelen vannak.
 
-A jelentés egy egytől kezdődő dia indexet és a [get_SlideId](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_slideid/) értéket rögzíti, ha elérhető. Az [ISlideComponent::get_Slide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecomponent/get_slide/) a támogatott konténerekhez a tulajdonos diát adja meg. A mesterek, elrendezések és jegyzetek nem rendelkeznek hagyományos dia indexszel, és a körük alapján azonosíthatók. Az alakzat konténereket és a szövegrész formázási konténereket külön jelölik; más konténer típusok megtartják a futási időbeli típusnevüket. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két művelete összekapcsolható legyen.
+A jelentés rögzíti a 1‑től induló diak indexet és a [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) értékét, ha elérhető. Az [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) biztosítja a tulajdonos diát a támogatott tárolókhoz. A mesterek, elrendezések és jegyzetek nem rendelkeznek hagyományos diak indexszel, és hatókörük alapján azonosíthatók. Az alakzat tárolók és a szövegrészlet formázási tárolók külön címkézettek; a többi tárolótípus megtartja a futásidejű típus nevét. Minden tároló kap egy jelentésbeli helyi azonosítót, hogy a két művelet összekapcsolható legyen.
 
-Ez a szándékosan szigorú alkalmazási szabályzat csak abszolút HTTPS URL-eket és érvényes belső dia célpontokat engedélyez. Elutasítja a makrókat, programokat, fájl műveleteket, egyéb diavetítési műveleteket, ismeretlen műveleteket és más URL sémákat. Ezek az elutasítások szabályzat döntések, nem az Aspose.Slides biztonsági ítélete. A HTTPS önmagában nem teremt bizalmat: adjon hozzá host engedélylistákat és egyéb ellenőrzéseket az alkalmazásához. Mind az eredeti, mind a normalizált külső URL-ek ellenőrzésre kerülnek. A példa metaadatokat auditál anélkül, hogy linkeket követne vagy műveleteket hajtana végre.
+Ez a szándékosan szigorú alkalmazási szabály csak abszolút HTTPS URL-eket és érvényes belső diaszállítási célokat engedélyez. Elutasítja a makrókat, programokat, fájl műveleteket, egyéb diavetítés-műveleteket, ismeretlen műveleteket és egyéb URL sémákat. Ezek az elutasítások szabályozási döntések, nem az Aspose.Slides biztonsági megállapítása. Az HTTPS önmagában nem teremt bizalmat: adjon hozzá host engedélylistákat és egyéb ellenőrzéseket az alkalmazásához. Mind az eredeti, mind a normalizált külső URL-ek ellenőrzésre kerülnek. A példa a metaadatokat auditálja anélkül, hogy a hivatkozásokat követné vagy a műveleteket végrehajtaná.
 
-A javításhoz a konténer [get_HyperlinkManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) és [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódusokat támogatja. Itt a tiltott külső kattintási hivatkozásokat egy rögzített HTTPS kezdőoldallal helyettesítik; a többi tiltott kattintást és egér‑felül műveletet külön-külön eltávolítják. Állítsa a `replaceExternalClicks` értékét `false`‑ra, ha az összes szabályzat‑sértést el akarja távolítani. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a telepítés előtt.
+Megoldáshoz a tároló [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) támogatja a [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), a [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) és a [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) metódusokat. Itt a tiltott külső kattintási hivatkozásokat egy rögzített HTTPS céloldallal helyettesítik; a többi tiltott kattintás és a tiltott egér fölé húzási művelet önállóan eltávolításra kerül. Állítsa a `replaceExternalClicks` értékét `false`‑ra, ha minden szabálysértést el szeretne távolítani. Válasszon egy alkalmazásegységű helyettesítő oldalt a bevezetés előtt.
 
-A jelentés exportálási jelzője egy konzervatív PDF felülvizsgálati szabályzatot használ: egér‑felül műveleteket és mindent, ami nem külső hivatkozás vagy konkrét dia ugrás, potenciálisan nem támogatottként jelöl. Ez egy felülvizsgálati tipp, nem képességteszt vagy garancia arra, hogy a jelöletlen hivatkozások megmaradnak az exportálás során. A támogatott [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/cpp/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, a művelettől, export beállításoktól és a megjelenítőtől függően. A raszteres [képek](/slides/hu/cpp/convert-powerpoint-to-png/) és [videók](/slides/hu/cpp/convert-powerpoint-to-video/) nem tudják megőrizni az interaktív hiperhivatkozásokat; az ilyen kimenetek auditálásakor minden műveletet jelöljön.
+A jelentés export zászlója konzervatív PDF ellenőrzési szabályt használ: jelöli az egér fölé húzási műveleteket és minden mást, ami nem külső hivatkozás vagy specifikus diaszállít, potenciálisan nem támogatottként. Ez egy ellenőrzési jelzés, nem képességet tesztelő vagy garancia arra, hogy a jelöletlen hivatkozások megmaradnak az exportálás során. A támogatott [PDF](/slides/hu/cpp/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/cpp/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, az adott művelettől, export beállításoktól és a megjelenítőtől függően. A raszteres [images](/slides/hu/cpp/convert-powerpoint-to-png/) és [video](/slides/hu/cpp/convert-powerpoint-to-video/) nem tudják megőrizni az interaktív hiperhivatkozásokat; jelölje meg minden műveletet, ha ezekhez a kimenetekhez auditál.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -650,20 +652,20 @@ if (violations != 0)
 }
 ```
 
-A fent létrehozott bemenettel a jelentés öt műveleti sort tartalmaz. A fájl egér‑felül hivatkozás és a makró kattintás eltávolításra kerül, míg a HTTPS hivatkozások és a belső dia navigáció megmarad. Az ellenőrzés nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL-t tartalmazó bemenet a helyettesítő ágat is végrehajtja. Egy olyan konténer, amelynek engedélyezett a kattintás, de tiltott az egér‑felül, megtartja a kattintási műveletét.
+A fent létrehozott bemenet esetén a jelentés öt műveleti sort tartalmaz. A fájl egér fölé húzási hivatkozás és a makró kattintás eltávolításra kerül, míg a HTTPS hivatkozások és a belső dia navigáció megmarad. Az ellenőrzés nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL-t tartalmazó bemenet is kipróbálja a helyettesítő ágat. Egy tároló, amelynek engedélyezett a kattintás és tiltott az egér fölé húzása, megtartja a kattintási műveletet.
 
-Ez a szelektív tisztítás különbözik a [RemoveAllHyperlinks](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) módszertől, amely a kiválasztott körben mindkét aktiválási típust eltávolítja a szabályzattól függetlenül. Az itt végzett ellenőrzés csak a hiperhivatkozás műveleteket vizsgálja; nem távolítja el a beágyazott VBA projekteket, OLE objektumokat vagy egyéb aktív tartalmakat, és nem validálja az exportált PDF vagy HTML fájlt.
+Ez a szelektív takarítás eltér a [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) módszertől, amely a kiválasztott hatókörben minden aktiválási típust eltávolít szabálytól függetlenül. Itt az ellenőrzés csak a hiperhivatkozás műveleteket vizsgálja; nem távolítja el a beágyazott VBA projekteket, OLE objektumokat vagy egyéb aktív tartalmakat, és nem ellenőrzi az exportált PDF vagy HTML fájlt.
 
 ## **GYIK**
 
-**Hogyan linkelhetek egy szakaszra vagy annak első diájára?**
+**Hogyan linkelhetek egy szekcióra vagy annak első diájára?**
 
-A PowerPoint szakaszok a diákat csoportosítják, de egy belső hiperhivatkozás egyetlen diát céloz meg. Egy szakasz navigációjának létrehozásához a szakasz első diájára kell hivatkozni.
+A PowerPoint szekciók a diákat csoportosítják, de egy belső hiperhivatkozás egy egyedi diát céloz. Ahhoz, hogy egy szekcióra navigáljon, linkelje a szekció első diáját.
 
-**Csatolhatok hiperhivatkozást a mester dia elemeihez, hogy minden dián működjön?**
+**Csatolhatok hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
 
-Igen. A mester diák és elrendezés elemei támogatják a hiperhivatkozásokat. Ezeken az elemeken lévő hivatkozások a diavetítés során elérhetők azokon a diákon, amelyek a megfelelő mestert vagy elrendezést használják.
+Igen. A mesterdia és elrendezés elemei támogatják a hiperhivatkozásokat. Ezeken az elemeken lévő hivatkozások a diavetítés alatt elérhetők azoknál a diáknál, amelyek a megfelelő mestert vagy elrendezést használják.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó formátumba exportáláskor?**
+**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
 
-A támogatott PDF és HTML exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és videók nem. Tekintse meg az exportálási szempontokat a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) részben.
+A támogatott PDF és HTML exportok esetleg megőrzik a hiperhivatkozásokat; a raszteres képek és a videó nem. Lásd az exportálási szempontokat a [Jelentés, tisztítás és ellenőrzés](#report-sanitize-and-verify-hyperlinks) részben.

@@ -5,17 +5,17 @@ type: docs
 weight: 20
 url: /ja/nodejs-java/manage-hyperlinks/
 keywords:
-- URL を追加
-- ハイパーリンクを追加
-- ハイパーリンクを作成
+- URL の追加
+- ハイパーリンクの追加
+- ハイパーリンクの作成
 - ハイパーリンクの書式設定
-- ハイパーリンクを削除
-- ハイパーリンクを更新
+- ハイパーリンクの削除
+- ハイパーリンクの更新
 - テキストハイパーリンク
 - スライドハイパーリンク
 - 図形ハイパーリンク
 - 画像ハイパーリンク
-- 動画ハイパーリンク
+- ビデオハイパーリンク
 - 可変ハイパーリンク
 - PowerPoint
 - OpenDocument
@@ -23,28 +23,32 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Node.js 用 Aspose.Slides for Java を使用し、JavaScript の例で PowerPoint および OpenDocument プレゼンテーションのハイパーリンクを追加、書式設定、更新、削除します。"
+description: "Aspose.Slides for Node.js via Java を使用し、JavaScript の例で PowerPoint と OpenDocument のプレゼンテーションにハイパーリンクを追加、書式設定、更新、削除します。"
 ---
-## **概要**
+## **Introduction**
 
-ハイパーリンクはプレゼンテーションのコンテンツを Web サイトやプレゼンテーション内の特定の場所に接続します。PowerPoint ではハイパーリンクは主に以下の 2 つの目的で使用されます。
+ハイパーリンクはプレゼンテーションのコンテンツをウェブサイトやプレゼンテーション内の場所に接続します。PowerPoint では、ハイパーリンクは主に次の 2 つの目的で使用されます。
 
-* テキスト、図形、またはメディア フレームから Web サイトを開く。
+* テキスト、図形、またはメディアフレームからウェブサイトを開く。
 * 目次などから別のスライドへ移動する。
 
-Aspose.Slides for Node.js via Java を使用すると、これらのリンクを追加したり、外観やサウンドを制御したり、プロパティを更新したり、削除したりできます。以下の例では、個々の要素に対するハイパーリンクの操作方法と、プレゼンテーション、スライド、テキスト フレームレベルでハイパーリンクにアクセスする方法を示します。
+Aspose.Slides for Node.js via Java を使用すると、これらのリンクを追加、外観やサウンドの制御、プロパティの更新、削除ができます。以下の例では、個々の要素に対するハイパーリンクの操作方法と、プレゼンテーション、スライド、テキストフレームレベルでハイパーリンクにアクセスする方法を示します。
 
 {{% alert color="info" title="Note" %}}
-[無料のオンライン Aspose PowerPoint エディタ](https://products.aspose.app/slides/ja/editor)でもプレゼンテーションを編集できます。
+
+[無料のオンライン Aspose PowerPoint エディター](https://products.aspose.app/slides/editor)でもプレゼンテーションを編集できます。
+
 {{% /alert %}} 
 
-## **URL ハイパーリンクの追加**
+## **Add URL Hyperlinks**
 
-テキスト、図形、またはメディア フレームに Web サイトの URL を割り当てることができます。ハイパーリンクを割り当てる要素によってクリック領域が決まります。テキストの一部に割り当てると選択したテキストだけがクリック可能になり、図形やフレームに割り当てるとスライド オブジェクト全体がクリック可能になります。
+テキスト、図形、またはメディアフレームにウェブサイトの URL を割り当てられます。ハイパーリンクを割り当てる要素に応じてクリック可能領域が決まります。テキストの一部に割り当てた場合は選択したテキストがリンクとなり、図形やフレームに割り当てた場合はスライドオブジェクト全体がリンクになります。
 
-### **テキストへの URL ハイパーリンクの追加**
+相対ハイパーリンクを含むプレゼンテーションについては、[Manage the Hyperlink Base](/slides/ja/nodejs-java/presentation-properties/#manage-the-hyperlink-base) を参照し、ドキュメントレベルのベースを読み取り、変更、またはクリアしてください。
 
-テキストを Web サイトにリンクするには、以下のようにテキスト部分の [setHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) メソッドに [Hyperlink](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink) を渡します。指定したテキスト部分だけがクリック可能になります。
+### **Add URL Hyperlinks to Text**
+
+テキストをウェブサイトにリンクさせるには、テキスト部分の [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) メソッドに [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) を渡します。下記の例のように、対象となるテキスト部分だけがクリック可能になります。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -64,11 +68,11 @@ try {
 }
 ```
 
-### **図形およびメディア フレームへの URL ハイパーリンクの追加**
+### **Add URL Hyperlinks to Shapes and Media Frames**
 
-図形またはフレームをクリック可能にするには、そのオブジェクトの [setHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape#setHyperlinkClick) メソッドを呼び出します。ハイパーリンクはテキスト部品ではなくオブジェクト自体に属します。
+図形やフレームをクリック可能にするには、そのオブジェクトの [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) メソッドを呼び出します。ハイパーリンクはオブジェクト自体に所属し、内部のテキスト部分には属しません。
 
-画像、音声、動画フレームにも同様のアプローチが適用されます。フレームにハイパーリンクを割り当て、必要に応じて [setTooltip](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setTooltip) を呼び出します。
+画像、音声、動画フレームでも同様に、フレームにハイパーリンクを割り当て、必要に応じて [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) を呼び出します。
 
 次の例は矩形をクリック可能にします。
 
@@ -88,9 +92,9 @@ try {
 }
 ```
 
-## **目次作成のためのハイパーリンクの使用**
+## **Use Hyperlinks to Create a Table of Contents**
 
-内部ハイパーリンクを使用すると、目次から特定のスライドへジャンプできます。以下の例は、最初のスライド上の「Page 2」テキストを 2 番目のスライドにリンクするために [setInternalHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) を使用しています。
+内部ハイパーリンクを使用すると、目次から特定のスライドへジャンプできます。以下の例では、最初のスライドの「Page 2」テキストを [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) で 2 番目のスライドにリンクさせています。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -124,13 +128,13 @@ try {
 }
 ```
 
-## **ハイパーリンクの書式設定**
+## **Format Hyperlinks**
 
-### **色**
+### **Color**
 
-[Hyperlink](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink) の [setColorSource](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setColorSource) メソッドは、ハイパーリンクがプレゼンテーションのハイパーリンク色を使用するか、テキスト部品の書式設定を使用するかを決定します。カスタム テキスト色を適用するには、[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkColorSource) を選択し、部品の塗りつぶし色を設定します。この機能は PowerPoint 2019 で導入され、旧バージョンでは設定が適用されません。
+[Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) の [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) メソッドは、ハイパーリンクがプレゼンテーションのハイパーリンク色を使用するか、テキスト部分の書式設定を使用するかを決定します。カスタム文字色を適用するには、[HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) を選択し、部分の塗りつぶし色を設定します。この機能は PowerPoint 2019 で導入され、旧バージョンでは設定が適用されません。
 
-次の例は同じスライドに 2 つのテキストハイパーリンクを追加します。1 つ目は赤いテキスト塗りつぶし、2 つ目はデフォルトのハイパーリンク色を使用します。
+次の例は同一スライドに 2 つのテキストハイパーリンクを追加します。1 つ目は赤い文字塗りつぶしを使用し、2 つ目はデフォルトのハイパーリンク色を保持します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -155,16 +159,16 @@ try {
     presentation.dispose();
 }
 ```
-### **サウンド**
+### **Sound**
 
-ハイパーリンクはアクティブ時にサウンドを再生したり、再生中のサウンドを停止したりできます。以下のメソッドでこれらの動作を設定します。
+ハイパーリンクは、アクティブ化時にサウンドを再生したり、既に再生中のサウンドを停止したりできます。以下のメソッドで動作を設定します。
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setSound) はハイパーリンクに関連付ける音声を指定します。
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) はハイパーリンクをアクティブ化したときに前のサウンドを停止するかどうかを制御します。
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) はハイパーリンクに関連付けるオーディオを指定します。
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) はハイパーリンクを有効化したときに前のサウンドを停止するかどうかを制御します。
 
-#### **ハイパーリンクサウンドの追加**
+#### **Add a Hyperlink Sound**
 
-次の例は `sampleaudio.wav` を読み込み、最初のスライド上のボタンに関連付けます。ボタンをクリックするとサウンドが再生され、次のスライドへ移動します。同じスライド上の別の図形はクリック時に前のサウンドを停止し、ナビゲーションは行いません。
+次の例は `sampleaudio.wav` を読み込み、最初のスライドのボタンに関連付けます。ボタンをクリックするとサウンドが再生され、次のスライドへ移動します。同じスライド上の別の図形はクリック時に前のサウンドを停止し、ナビゲーションは行いません。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -203,9 +207,9 @@ try {
 }
 ```
 
-#### **ハイパーリンクサウンドの抽出**
+#### **Extract a Hyperlink Sound**
 
-次の例は上記で作成したプレゼンテーションを開き、最初の図形のハイパーリンク音声を [getSound](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getSound) と [getBinaryData](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Audio#getBinaryData) を使用してメモリに読み取ります。
+次の例は前節で作成したプレゼンテーションを開き、最初の図形のハイパーリンク音声を [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) と [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) を使用してメモリに読み込みます。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -229,18 +233,18 @@ try {
 }
 ```
 
-### **ツールチップとインタラクション設定**
+### **Tooltip and Interaction Settings**
 
-テキストまたは図形にハイパーリンクを割り当てた後、次の [Hyperlink](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink) メソッドを呼び出すことができます。
+テキストまたは図形にハイパーリンクを割り当てた後、次の [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) メソッドを呼び出せます。
 
-- [setTooltip](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setTooltip) は閲覧者がリンクのヒントとして表示できるテキストを設定します。
-- [setTargetFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) は該当する場合、親 HTML フレームセット内のターゲットフレームを指定します。
-- [setHistory](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setHistory) はリンクをアクティブ化したときにその宛先を閲覧済みハイパーリンクの一覧に追加するかどうかを制御します。
-- [setHighlightClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) はクリック時にハイパーリンクをハイライト表示するかどうかを制御します。
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) はリンクのヒントとして表示できるテキストを設定します。
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) は必要に応じて親 HTML フレームセット内のターゲットフレームを指定します。
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) はリンクを有効化したときに目的地を閲覧履歴に追加するかどうかを制御します。
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) はクリック時にハイパーリンクをハイライト表示するかどうかを制御します。
 
-## **プレゼンテーションからハイパーリンクを削除する**
+## **Remove Hyperlinks from Presentations**
 
-ハイパーリンク コンテナ（テキスト部品リンクを含む）を変更する前に収集するには、[getAnyHyperlinks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) を使用します。次の例は最初のスライドから両方のアクティベーション タイプ（クリックとマウスオーバー）を削除します。片方だけを削除したい場合は、[removeHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) または [removeHyperlinkMouseOver](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) を単独で呼び出してください。クリック アクションを削除してもマウスオーバーは残ります。
+[getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) を使用して、テキスト部分リンクを含むハイパーリンクコンテナを取得し、変更前に収集します。下の例は最初のスライドから両方のアクティベーションタイプを削除します。1 つだけ削除したい場合は、[removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) または [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) のみを呼び出してください。クリックアクションを削除してもマウスオーバー側は削除されません。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,23 +270,23 @@ try {
 }
 ```
 
-条件なしで削除する場合、[removeAllHyperlinks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) を使用すると、選択したスコープ内の両方のアクティベーション タイプが一度に削除されます。マスタ、レイアウト、ノートまで含めた選択的クリーンアップについては、[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) を参照してください。
+無条件に削除する場合は、[removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) が選択したスコープ内の両方のアクティベーションタイプを一括で削除します。マスター、レイアウト、ノートを対象にした選択的クリーンアップについては、[Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) を参照してください。
 
-## **完全なハイパーリンク インベントリの作成**
+## **Build a Complete Hyperlink Inventory**
 
-プレゼンテーションを配布する前に、インタラクティブ アクションと Web リンクの両方をインベントリ化します。[getAnyHyperlinks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) はハイパーリンク コンテナの集合を返し、単純な URL 文字列のリストは返しません。各コンテナで [getHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape#getHyperlinkClick) と [getHyperlinkMouseOver](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) を調べます。これらは独立しており、同じコンテナが両方のアクションを持つことがあるため、完全なレポートではコンテナあたり最大 2 行が必要です。
+プレゼンテーションを配布する前に、インタラクティブアクションとウェブリンクのインベントリを作成します。[getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) はハイパーリンクコンテナを返し、URL 文字列のフラットリストは返しません。各コンテナで [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) と [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) を確認してください。これらは独立しており、同一コンテナが両方のアクションを持つことがあります。そのため、完全なレポートではコンテナごとに最大 2 行が必要です。
 
-テキスト部品に付随したリンクはシェイプ レベルのハイパーリンクだけをスキャンすると見逃す可能性があります。適切なスコープでクエリを実行し、返されたコンテナを保持して後でアクションの更新や削除に利用してください。
+テキスト部分に付随したリンクを見落とさないよう、形状レベルだけでなく適切なスコープでクエリを実行し、取得したコンテナを保持して後で更新または削除できるようにします。
 
-### **プレゼンテーション、スライド、テキスト フレーム スコープのクエリ**
+### **Query Presentation, Slide, and Text-Frame Scopes**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries) クラスは [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)、[BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) および [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) から取得できます。各スコープは同じクエリをサポートします。
+[HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) クラスは [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)、[BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries)、[TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) から取得できます。各スコープは同一のクエリをサポートします。
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) はクリック アクションを持つコンテナを返します。
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) はマウスオーバー アクションを持つコンテナを返します。
-- [getAnyHyperlinks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) はいずれか、または両方のアクションを持つコンテナを返します。
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) はクリックアクションを持つコンテナを返します。
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) はマウスオーバーアクションを持つコンテナを返します。
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) はいずれか、または両方のアクションを持つコンテナを返します。
 
-次の例は外部クリックリンク、ファイルマウスオーバーリンク、内部スライド ナビゲーション、テキストマウスオーバーリンク、マクロ アクションを含む `hyperlink-audit-input.pptx` を作成します。これらのアクションは実行されません。同じ 3 つのクエリはすべてのスコープで機能し、カウントはコンテナ数を示します。テキスト フレーム スコープは囲むシェイプ自身のリンクを除外します。
+次の例は外部クリックリンク、ファイルマウスオーバーリンク、内部スライドナビゲーション、テキストマウスオーバーリンク、マクロアクションを持つ `hyperlink-audit-input.pptx` を作成します。これらのアクションは実行されません。同じ 3 つのクエリがすべてのスコープで機能し、カウントはコンテナ数を示します。テキストフレームスコープは囲む図形自身のリンクを除外します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,37 +323,37 @@ try {
 }
 ```
 
-この例では、プレゼンテーションとスライドのクエリはそれぞれクリック コンテナが 3 件、マウスオーバー コンテナが 2 件、いずれかのアクションを持つコンテナが 3 件と報告します。テキスト フレームのクエリは各カテゴリで 1 件ずつ報告します。
+この例では、プレゼンテーションとスライドのクエリはそれぞれクリックコンテナが 3 件、マウスオーバーコンテナが 2 件、いずれかのアクションを持つコンテナが 3 件と報告します。テキストフレームクエリは各カテゴリで 1 件ずつ報告します。
 
-### **アクションと宛先の分類**
+### **Classify Actions and Destinations**
 
-[Hyperlink.getActionType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getActionType) を使用してアクションの種類を判別し、その後で宛先を解釈します。[HyperlinkActionType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkActionType) の値は Web ナビゲーション以外もカバーします。
+[Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) を使用してアクションを判別し、続いて目的地を解釈します。[HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) の値はウェブナビゲーション以外もカバーします。
 
-| 値 | 監査時の意味 |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | 外部ハイパーリンク；URL とスキームを確認 |
+| `Hyperlink` | 外部ハイパーリンク; URL とスキームを確認 |
 | `JumpSpecificSlide` | 特定スライドへの内部ナビゲーション |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | スライドショー内の組み込みナビゲーション |
-| `JumpEndShow`, `StartCustomSlideShow` | 現在のショーを終了、またはカスタムショーを開始 |
+| `JumpEndShow`, `StartCustomSlideShow` | 現在のショーを終了 または カスタムショーを開始 |
 | `StartMacro` | マクロを実行 |
 | `StartProgram` | プログラムを起動 |
-| `OpenFile`, `OpenPresentation` | ファイルまたは別プレゼンテーションを開く；Web URL とは別に確認 |
-| `StartStopMedia` | メディアの再生/停止 |
-| `NoAction`, `Unknown` | ナビゲーションがなし、または未確認のアクションでレビューが必要 |
+| `OpenFile`, `OpenPresentation` | ファイルまたは別プレゼンテーションを開く; ウェブ URL とは別にレビュー |
+| `StartStopMedia` | メディア再生を開始または停止 |
+| `NoAction`, `Unknown` | ナビゲーションなし、または未確認アクションでレビューが必要 |
 
-外部宛先は [getExternalUrl](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) で取得し、内部の特定スライドは [getTargetSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) で取得します。内部アクションや組み込みコマンドは外部 URL を持たないことがあります。空の URL がコンテナにアクションがないことを意味するわけではありません。[getExternalUrlOriginal](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) が正規化された URL と異なる場合はその値を保持し、利用可能な場合は [getTooltip](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Hyperlink#getTooltip) が返すツールチップも含めます。
+外部目的地は [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) で取得し、内部目的地は [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) で取得します。内部アクションや組み込みコマンドは外部 URL を持たないことがあります。空の URL がコンテナにアクションがないことを意味するわけではありません。正規化された URL と異なる場合は [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) の値を保持し、利用可能な場合は [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) で取得したツールチップも含めます。
 
-### **ハイパーリンクのレポート、サニタイズ、検証**
+### **Report, Sanitize, and Verify Hyperlinks**
 
-以下の JavaScript例は既存のプレゼンテーション（前述のファイル）を読み込み、`hyperlink-audit.json` に書き出し、ポリシーを適用して `hyperlink-sanitized.pptx` を保存し、再度開いて両方のアクティベーション タイプをチェックします。変更前にコンテナを収集し、同一コンテナを二度処理しないよう参照等価で管理します。プレゼンテーション クエリは通常スライドを対象とし、パッケージ全体のインベントリが必要な場合はマスタ、レイアウト、ノート、ノートおよびハンドアウト マスタも明示的にクエリします。
+以下の JavaScript 例は、既存のプレゼンテーション（前節で作成したファイル）を読み取り、`hyperlink-audit.json` を書き出し、ポリシーを適用して `hyperlink-sanitized.pptx` を保存し、再度開いて両方のアクティベーションタイプをチェックします。変更前にコンテナを収集し、参照等価性で同一コンテナの二重処理を防ぎます。プレゼンテーションクエリは通常スライドを対象とし、パッケージ全体のインベントリが必要な場合はマスター、レイアウト、ノート、ノート・ハンドアウトマスターも明示的にクエリします。
 
-レポートは 1 ベースのスライドインデックスと、利用可能な場合は [getSlideId](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/BaseSlide#getSlideId) を記録します。サポート対象のコンテナは [getSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape#getSlide) で所有スライドを取得できます。マスタ、レイアウト、ノートは通常スライドインデックスを持たず、スコープで識別されます。シェイプ コンテナとテキスト部品フォーマット コンテナは別々にラベル付けされ、他のコンテナ種別は実行時の型名を保持します。各コンテナにはレポート内ローカル ID が付与され、2 つのアクションを相関付けられます。アクション種別は HyperlinkActionType 列挙体の整数定数として保存されます。
+レポートは 1 基準のスライドインデックスと、利用可能な場合は [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) を記録します。[getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) はサポート対象コンテナの所有スライドを提供します。マスター、レイアウト、ノートは通常スライドインデックスを持たず、スコープで識別されます。形状コンテナとテキスト部分書式コンテナは別々にラベル付けされ、他のコンテナタイプは実行時の型名を保持します。各コンテナにはレポート内でローカル ID が付与され、2 つのアクションを相関付けられます。アクションタイプは HyperlinkActionType 列挙体の整数定数として保存されます。
 
-このポリシーは絶対 HTTPS URL と有効な内部スライドターゲットのみを許可し、マクロ、プログラム、ファイル アクション、その他のスライドショー アクション、未知のアクション、その他の URL スキームは拒否します。これらの拒否はポリシー判断であり、Aspose.Slides の安全性判定ではありません。HTTPS だけでは信頼を確立できないため、ホスト許可リストや追加チェックを実装してください。オリジナルと正規化された外部 URL の両方がチェック対象です。例はリンクをたどったりアクションを実行したりせず、メタデータのみを監査します。
+この制限的なポリシーは、絶対 HTTPS URL と有効な内部スライドターゲットのみを許可します。マクロ、プログラム、ファイルアクション、その他のスライドショーアクション、未知のアクション、その他の URL スキームは除外されます。これらの除外はポリシー上の決定であり、Aspose.Slides の安全性判定ではありません。HTTPS だけでは信頼が確立できないため、ホスト許可リストやその他のチェックを追加してください。元の URL と正規化された外部 URL の両方が検査対象です。この例はリンク先にアクセスしたりアクションを実行したりせず、メタデータのみを監査します。
 
-修正時はコンテナの [getHyperlinkManager](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/Shape#getHyperlinkManager) を使用し、[setExternalHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick)、[removeHyperlinkClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick)、[removeHyperlinkMouseOver](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) を呼び出します。禁止された外部クリックリンクは固定の HTTPS ランディングページに置き換え、禁止されたクリックやマウスオーバーは個別に削除します。ポリシー違反をすべて削除したい場合は `replaceExternalClicks` を `false` に設定してください。デプロイ前にアプリケーション所有の置換ページを用意してください。
+修正には、コンテナの [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) が [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick)、[removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick)、[removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) をサポートします。ここでは、禁止された外部クリックリンクを固定の HTTPS ランディングページに置き換え、その他の禁止クリックと禁止マウスオーバーは個別に削除します。`replaceExternalClicks` を `false` に設定すると、すべてのポリシー違反を削除します。デプロイ前にアプリケーション所有の代替ページを用意してください。
 
-レポートのエクスポートフラグは保守的な PDF レビュー ポリシーを使用します。マウスオーバー アクションや外部リンク以外、特定スライドジャンプ以外のものは「サポート外」としてフラグ付けします。これはレビューのヒントであり、機能テストやフラグ付けされていないリンクがエクスポートで必ず残る保証ではありません。サポート対象の [PDF](/slides/ja/nodejs-java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/nodejs-java/convert-powerpoint-to-html/) エクスポートはアクションやオプション、ビューアによりハイパーリンクを保持する場合があります。ラスタ画像 [images](/slides/ja/nodejs-java/convert-powerpoint-to-png/) と [video](/slides/ja/nodejs-java/convert-powerpoint-to-video/) はインタラクティブ ハイパーリンクを保持できないため、これらの出力を監査する際はすべてのアクションにフラグを付けてください。
+レポートのエクスポートフラグは保守的な PDF レビュー ポリシーを使用し、マウスオーバーアクションや外部リンク以外・特定スライドジャンプ以外を潜在的に未サポートとしてフラグ付けします。これは機能テストではなく、フラグが付いていないリンクが必ずエクスポートに残る保証でもありません。サポート対象の [PDF](/slides/ja/nodejs-java/convert-powerpoint-to-pdf/) と [HTML](/slides/ja/nodejs-java/convert-powerpoint-to-html/) エクスポートはアクション、エクスポートオプション、ビューアによりハイパーリンクを保持できる場合があります。ラスタ画像 [images](/slides/ja/nodejs-java/convert-powerpoint-to-png/) と [video](/slides/ja/nodejs-java/convert-powerpoint-to-video/) はインタラクティブハイパーリンクを保持できないため、これらの出力向けに監査する際はすべてのアクションにフラグを付けてください。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -497,20 +501,20 @@ try {
 }
 ```
 
-上記の入力で作成したレポートは 5 行のアクションを含みます。ファイルマウスオーバーリンクとマクロクリックは削除され、HTTPS リンクと内部スライド ナビゲーションは保持されます。検証は禁止アクションが 0 件であることを出力します。禁止された外部クリック URL を含む入力は置換ロジックも実行します。許可されたクリックと禁止されたマウスオーバーを持つコンテナはクリック アクションを保持します。
+上記の入力で作成したレポートは 5 行のアクションを含みます。ファイルマウスオーバーリンクとマクロクリックは削除され、HTTPS リンクと内部スライドナビゲーションは残ります。検証は禁止アクションを 0 件と出力します。禁止された外部クリック URL を含む入力は置換ブランチも実行します。許可されたクリックと禁止されたマウスオーバーを持つコンテナはクリックアクションを保持します。
 
-この選択的クリーンアップは、ポリシーに関係なく両方のアクティベーション タイプを削除する [removeAllHyperlinks](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) とは異なります。ここでの検証はハイパーリンク アクションのみをチェックし、埋め込み VBA プロジェクト、OLE オブジェクト、その他のアクティブ コンテンツの削除や、エクスポートされた PDF/HTML の有効性は検証しません。
+この選択的クリーンアップは、ポリシーに関係なく選択したスコープ内の両方のアクティベーションタイプを削除する [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) とは異なります。ここでの検証はハイパーリンクアクションのみをチェックし、埋め込み VBA プロジェクト、OLE オブジェクト、その他のアクティブコンテンツは削除せず、エクスポートされた PDF や HTML の検証も行いません。
 
 ## **FAQ**
 
-**セクションまたはその最初のスライドにリンクするにはどうすればよいですか？**
+**How can I link to a section or its first slide?**
 
-PowerPoint のセクションはスライドをグループ化しますが、内部ハイパーリンクは個々のスライドを対象にします。セクションへのナビゲーションを作成する場合は、そのセクションの最初のスライドにリンクしてください。
+PowerPoint のセクションはスライドをグループ化しますが、内部ハイパーリンクは個々のスライドを対象にします。セクションへの移動を作成するには、そのセクションの最初のスライドにリンクしてください。
 
-**マスタースライドの要素にハイパーリンクを付けて、すべてのスライドで機能させることはできますか？**
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
 
-はい。マスタースライドとレイアウトの要素はハイパーリンクをサポートします。これらの要素に付いたリンクは、対応するマスターまたはレイアウトを使用しているスライドのスライドショー中に利用可能です。
+はい。マスタースライドやレイアウト要素はハイパーリンクをサポートします。これらの要素に設定したリンクは、対応するマスターやレイアウトを使用しているスライドのスライドショー中に利用可能です。
 
-**PDF、HTML、画像、動画へエクスポートするときにハイパーリンクは保持されますか？**
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
 
-サポート対象の PDF と HTML エクスポートはハイパーリンクを保持する可能性がありますが、ラスタ画像や動画は保持できません。詳細は [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) のエクスポートに関する考慮事項をご覧ください。
+サポートされている PDF と HTML のエクスポートはハイパーリンクを保持できる場合がありますが、ラスタ画像やビデオは保持できません。詳細は [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) のエクスポート考慮事項をご参照ください。

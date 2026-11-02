@@ -6,9 +6,9 @@ weight: 20
 url: /fr/python-java/manage-hyperlinks/
 keywords:
 - ajouter URL
-- ajouter un hyperlien
-- créer un hyperlien
-- formater l'hyperlien
+- ajouter hyperlien
+- créer hyperlien
+- formater hyperlien
 - supprimer hyperlien
 - mettre à jour hyperlien
 - hyperlien texte
@@ -32,19 +32,21 @@ Un hyperlien relie le contenu d'une présentation à un site Web ou à un emplac
 * Ouvrir un site Web à partir d'un texte, d'une forme ou d'un cadre multimédia.
 * Naviguer vers une autre diapositive, par exemple depuis une table des matières.
 
-Aspose.Slides for Python via Java vous permet d'ajouter ces liens, de contrôler leur apparence et leur son, de mettre à jour leurs propriétés et de les supprimer. Les exemples ci‑dessous montrent comment travailler avec les hyperliens sur des éléments individuels et comment accéder aux hyperliens au niveau de la présentation, de la diapositive ou du cadre de texte.
+Aspose.Slides pour Python via Java vous permet d’ajouter ces liens, de contrôler leur apparence et leur son, de mettre à jour leurs propriétés et de les supprimer. Les exemples ci-dessous montrent comment travailler avec les hyperliens sur des éléments individuels et comment accéder aux hyperliens au niveau de la présentation, de la diapositive ou du cadre de texte.
 
 {{% alert color="info" title="Note" %}}
-Vous pouvez également modifier des présentations avec le [éditeur PowerPoint en ligne gratuit d'Aspose](https://products.aspose.app/slides/fr/editor).
+Vous pouvez également modifier les présentations avec l'[éditeur PowerPoint en ligne gratuit Aspose](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
 ## **Ajouter des hyperliens URL**
 
-Vous pouvez affecter une URL de site Web à du texte, une forme ou un cadre multimédia. L'élément auquel vous attribuez l'hyperlien détermine la zone cliquable : une portion de texte lie le texte sélectionné, tandis qu'une forme ou un cadre lie l'objet de la diapositive.
+Vous pouvez attribuer une URL de site Web à un texte, une forme ou un cadre multimédia. L'élément auquel vous affectez l'hyperlien détermine la zone cliquable : une portion de texte lie le texte sélectionné, tandis qu'une forme ou un cadre lie l'objet de la diapositive.
+
+Pour les présentations contenant des hyperliens relatifs, consultez [Gérer la base des hyperliens](/slides/fr/python-java/presentation-properties/#manage-the-hyperlink-base) pour lire, modifier ou effacer la base au niveau du document.
 
 ### **Ajouter des hyperliens URL au texte**
 
-Pour lier du texte à un site Web, transmettez un [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/) à la méthode [setHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portionformat/#setHyperlinkClick) de la portion de texte, comme illustré ci‑dessous. Seule cette portion de texte devient cliquable.
+Pour lier du texte à un site Web, transmettez un [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) à la méthode [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) de la portion de texte, comme indiqué ci-dessous. Seule cette portion de texte devient cliquable.
 
 ```python
 import jpype
@@ -72,9 +74,9 @@ finally:
 
 ### **Ajouter des hyperliens URL aux formes et aux cadres multimédia**
 
-Pour rendre une forme ou un cadre cliquable, appelez sa méthode [setHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#setHyperlinkClick). L'hyperlien appartient à l'objet lui‑même plutôt qu'à une portion de texte qu'il contient.
+Pour rendre une forme ou un cadre cliquable, appelez sa méthode [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick). L'hyperlien appartient à l'objet lui‑même plutôt qu'à une portion de texte à l'intérieur.
 
-La même approche s'applique aux cadres d'image, audio et vidéo : attribuez l'hyperlien au cadre et appelez [setTooltip](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setTooltip) si nécessaire.
+La même approche s'applique aux cadres d'image, d'audio et de vidéo : attribuez l'hyperlien au cadre et appelez [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) si nécessaire.
 
 L'exemple suivant rend un rectangle cliquable :
 
@@ -101,7 +103,7 @@ finally:
 
 ## **Utiliser les hyperliens pour créer une table des matières**
 
-Les hyperliens internes permettent aux lecteurs de passer d'une table des matières à une diapositive spécifique. L'exemple suivant utilise [setInternalHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) pour lier le texte « Page 2 » de la première diapositive à la deuxième diapositive.
+Les hyperliens internes permettent aux lecteurs de passer d'une table des matières à une diapositive spécifique. L'exemple suivant utilise [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) pour lier le texte « Page 2 » de la première diapositive à la deuxième diapositive.
 
 ```python
 import jpype
@@ -141,13 +143,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formatage des hyperliens**
+## **Formater les hyperliens**
 
 ### **Couleur**
 
-La méthode [setColorSource](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setColorSource) de [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/) détermine si un hyperlien utilise la couleur d'hyperlien de la présentation ou le formatage de la portion de texte. Pour appliquer une couleur de texte personnalisée, sélectionnez [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkcolorsource/) et définissez la couleur de remplissage de la portion. Cette fonctionnalité a été introduite dans PowerPoint 2019 ; les versions antérieures n'appliquent pas ce paramètre.
+La méthode [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) de [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) détermine si un hyperlien utilise la couleur d'hyperlien de la présentation ou le formatage de la portion de texte. Pour appliquer une couleur de texte personnalisée, sélectionnez [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) et définissez la couleur de remplissage de la portion. Cette fonctionnalité a été introduite dans PowerPoint 2019 ; les versions antérieures n'appliquent pas ce paramètre.
 
-L'exemple suivant ajoute deux hyperliens texte à la même diapositive. Le premier utilise un remplissage de texte rouge, tandis que le second conserve la couleur d'hyperlien par défaut.
+L'exemple suivant ajoute deux hyperliens texte à la même diapositive. Le premier utilise un remplissage texte rouge, tandis que le second conserve la couleur d'hyperlien par défaut.
 
 ```python
 import jpype
@@ -182,12 +184,12 @@ finally:
 
 Un hyperlien peut jouer un son lorsqu'il est activé ou arrêter un son déjà en cours de lecture. Utilisez les méthodes suivantes pour configurer ces comportements :
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setSound) spécifie l'audio associé à l'hyperlien.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) contrôle si l'activation de l'hyperlien arrête le son précédent.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) spécifie l’audio associé à l’hyperlien.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) contrôle si l'activation de l'hyperlien arrête le son précédent.
 
-#### **Ajouter un son d'hyperlien**
+#### **Ajouter un son d’hyperlien**
 
-L'exemple suivant charge `sampleaudio.wav` et l'associe à un bouton sur la première diapositive. Cliquer sur le bouton joue le son et navigue vers la diapositive suivante. Une deuxième forme sur cette diapositive arrête le son précédent lorsqu'elle est cliquée, sans effectuer d'action de navigation.
+L'exemple suivant charge `sampleaudio.wav` et l'associe à un bouton sur la première diapositive. Cliquer sur le bouton joue le son et navigue vers la diapositive suivante. Une seconde forme sur cette diapositive arrête le son précédent lorsqu'elle est cliquée, sans effectuer d'action de navigation.
 
 ```python
 from pathlib import Path
@@ -221,9 +223,9 @@ finally:
     presentation.dispose()
 ```
 
-#### **Extraire le son d'un hyperlien**
+#### **Extraire le son d’un hyperlien**
 
-L'exemple suivant ouvre la présentation créée ci‑dessus et lit l'audio d'hyperlien de la première forme en mémoire via [getSound](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getSound) et [getBinaryData](https://reference.aspose.com/slides/fr/python-java/aspose.slides/audio/#getBinaryData).
+L'exemple suivant ouvre la présentation créée ci‑dessus et lit l'audio de l'hyperlien de la première forme en mémoire via [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) et [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
 
 ```python
 import jpype
@@ -250,18 +252,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Infobulle et paramètres d'interaction**
+### **Info-bulle et paramètres d’interaction**
 
-Vous pouvez appeler les méthodes [Hyperlink](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/) suivantes après avoir attribué un hyperlien à du texte ou à une forme :
+Vous pouvez appeler les méthodes [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) suivantes après avoir attribué un hyperlien à du texte ou à une forme :
 
-- [setTooltip](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setTooltip) définit le texte qu'un utilisateur peut afficher comme indication pour le lien.
-- [setTargetFrame](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setTargetFrame) spécifie le cadre cible au sein d'un frameset HTML parent, le cas échéant.
-- [setHistory](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setHistory) contrôle si l'activation du lien ajoute sa destination à la liste des hyperliens consultés.
-- [setHighlightClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#setHighlightClick) contrôle si l'hyperlien est mis en surbrillance lorsqu'il est cliqué.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) définit le texte qu'un lecteur peut afficher comme indice pour le lien.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) spécifie le cadre cible au sein d'un ensemble de cadres HTML parent, le cas échéant.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) contrôle si l'activation du lien ajoute sa destination à la liste des hyperliens consultés.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) contrôle si l'hyperlien est mis en évidence lorsqu'il est cliqué.
 
 ## **Supprimer les hyperliens des présentations**
 
-Utilisez [getAnyHyperlinks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) pour collecter les conteneurs d'hyperliens, y compris les liens de portions de texte, avant de les modifier. L'exemple suivant supprime les deux types d'activation de la première diapositive. Pour supprimer uniquement un type, appelez uniquement [removeHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ou [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) ; la suppression d'une action de clic ne supprime pas son équivalent au survol.
+Utilisez [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) pour collecter les conteneurs d'hyperliens, y compris les liens de portions de texte, avant de les modifier. L'exemple suivant supprime les deux types d'activation de la première diapositive. Pour supprimer uniquement un type, appelez seulement [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ou [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); la suppression d'une action de clic ne supprime pas son équivalent au survol.
 
 ```python
 import jpype
@@ -286,23 +288,23 @@ finally:
     presentation.dispose()
 ```
 
-Pour une suppression inconditionnelle, [removeAllHyperlinks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) supprime les deux types d'activation dans la portée sélectionnée en un seul appel. Pour un nettoyage sélectif et la couverture des masques, des dispositions et des notes, voir [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Pour une suppression inconditionnelle, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) supprime les deux types d'activation dans la portée sélectionnée en un appel. Pour un nettoyage sélectif et la couverture des maîtres, des dispositions et des notes, consultez [Rapporter, nettoyer et vérifier les hyperliens](#report-sanitize-and-verify-hyperlinks).
 
 ## **Construire un inventaire complet des hyperliens**
 
-Avant de distribuer une présentation, répertoriez ses actions interactives ainsi que ses liens Web. [getAnyHyperlinks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) renvoie des conteneurs d'hyperliens, tels que des objets [Shape](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/) et [PortionFormat](https://reference.aspose.com/slides/fr/python-java/aspose.slides/portionformat/), et non une liste aplatie de chaînes URL. Inspectez à la fois [getHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getHyperlinkClick) et [getHyperlinkMouseOver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getHyperlinkMouseOver) sur chaque conteneur. Ils sont indépendants : le même conteneur peut exposer les deux actions, ainsi un rapport complet nécessite jusqu'à deux lignes par conteneur.
+Avant de distribuer une présentation, inventoriez ses actions interactives ainsi que ses liens Web. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) renvoie des conteneurs d'hyperliens, tels que les objets [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) et [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/), et non une liste plate de chaînes URL. Inspectez à la fois [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) et [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) sur chaque conteneur. Ils sont indépendants : le même conteneur peut exposer les deux actions, ainsi un rapport complet nécessite jusqu'à deux lignes par conteneur.
 
 Analyser uniquement les hyperliens au niveau des formes peut manquer les liens attachés aux portions de texte. Interrogez plutôt la portée appropriée et conservez les conteneurs retournés afin de pouvoir mettre à jour ou supprimer leurs actions ultérieurement.
 
 ### **Interroger les portées de présentation, de diapositive et de cadre de texte**
 
-La classe [HyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/) est disponible via [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getHyperlinkQueries) et [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/fr/python-java/aspose.slides/textframe/#getHyperlinkQueries). Chaque portée prend en charge les mêmes requêtes :
+La classe [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) est disponible via [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries), et [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Chaque portée prend en charge les mêmes requêtes :
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) renvoie les conteneurs avec une action de clic.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) renvoie les conteneurs avec une action de survol.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) renvoie les conteneurs avec l'une ou les deux actions.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) renvoie les conteneurs avec une action de clic.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) renvoie les conteneurs avec une action de survol.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) renvoie les conteneurs avec l'une ou les deux actions.
 
-L'exemple suivant crée `hyperlink-audit-input.pptx` avec un lien de clic externe, un lien de survol de fichier, une navigation interne de diapositive, un lien de survol de texte et une action macro. Il n'exécute aucune de ces actions. Les mêmes trois requêtes fonctionnent à chaque portée ; les décomptes décrivent les conteneurs, pas le total des actions. La portée du cadre de texte exclut les propres liens de la forme enveloppante.
+L'exemple suivant crée `hyperlink-audit-input.pptx` avec un lien de clic externe, un lien de survol de fichier, une navigation interne de diapositive, un lien de survol de texte et une action macro. Il n'exécute aucune de ces actions. Les mêmes trois requêtes fonctionnent à chaque portée ; les comptes décrivent les conteneurs, pas le total des actions. La portée du cadre de texte exclut les propres liens de la forme englobante.
 
 ```python
 import jpype
@@ -347,33 +349,33 @@ Pour cet exemple, les requêtes de présentation et de diapositive rapportent ch
 
 ### **Classer les actions et les destinations**
 
-Utilisez [Hyperlink.getActionType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getActionType) pour interpréter une action avant d'interpréter sa destination. Les valeurs de [HyperlinkActionType](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkactiontype/) couvrent plus que la navigation Web :
+Utilisez [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) pour interpréter une action avant d'interpréter sa destination. Les valeurs [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) couvrent plus que la navigation Web :
 
 | Valeurs | Signification pour un audit |
 | --- | --- |
 | `Hyperlink` | Hyperlien externe ; inspectez l'URL et son schéma. |
 | `JumpSpecificSlide` | Navigation interne vers une diapositive particulière. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigation de diaporama intégrée, résolue dans le contexte du diaporama. |
-| `JumpEndShow`, `StartCustomSlideShow` | Met fin au diaporama actuel ou démarre un diaporama personnalisé. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigation intégrée du diaporama, résolue dans le contexte du diaporama. |
+| `JumpEndShow`, `StartCustomSlideShow` | Terminer le diaporama actuel ou démarrer un diaporama personnalisé. |
 | `StartMacro` | Exécuter une macro. |
 | `StartProgram` | Lancer un programme. |
-| `OpenFile`, `OpenPresentation` | Ouvrir un fichier ou une autre présentation ; examiner séparément des URLs Web. |
-| `StartStopMedia` | Démarrer ou arrêter la lecture d’un média. |
+| `OpenFile`, `OpenPresentation` | Ouvrir un fichier ou une autre présentation ; examiner séparément des URL Web. |
+| `StartStopMedia` | Démarrer ou arrêter la lecture d'un média. |
 | `NoAction`, `Unknown` | Aucune action de navigation, ou une action non reconnue nécessitant un examen. |
 
-Lisez les destinations externes avec [getExternalUrl](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getExternalUrl) et les destinations internes spécifiques avec [getTargetSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getTargetSlide). Les actions internes et les commandes intégrées peuvent ne pas avoir d'URL externe ; une URL vide ne signifie pas que le conteneur n'a aucune action. Conservez la valeur renvoyée par [getExternalUrlOriginal](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) lorsqu'elle diffère de l'URL normalisée, et incluez l'infobulle renvoyée par [getTooltip](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlink/#getTooltip) lorsqu'elle est disponible.
+Lisez les destinations externes via [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) et les destinations internes spécifiques via [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Les actions internes et les commandes intégrées peuvent ne pas avoir d'URL externe ; une URL vide ne signifie pas que le conteneur n'a aucune action. Conservez la valeur renvoyée par [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) lorsqu'elle diffère de l'URL normalisée, et incluez l'info-bulle renvoyée par [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) lorsqu'elle est disponible.
 
-### **Rapporter, assainir et vérifier les hyperliens**
+### **Rapporter, nettoyer et vérifier les hyperliens**
 
-L'exemple Python suivant lit une présentation existante (utilisez le fichier créé ci‑dessus), écrit `hyperlink-audit.json`, applique une politique, enregistre `hyperlink-sanitized.pptx` et la rouvre pour vérifier à nouveau les deux types d'activation. Il collecte les conteneurs avant de les modifier et utilise l'égalité de référence pour éviter de traiter deux fois le même conteneur. Les requêtes de présentation couvrent les diapositives ordinaires ; pour un inventaire à l'échelle du package, il interroge également explicitement les masques, les dispositions, les notes et les masques de notes et de fascicules lorsqu'ils sont présents.
+L'exemple Python suivant lit une présentation existante (utilisez le fichier créé ci‑dessus), écrit `hyperlink-audit.json`, applique une politique, enregistre `hyperlink-sanitized.pptx` et le rouvre pour vérifier à nouveau les deux types d'activation. Il collecte les conteneurs avant de les modifier et utilise l'égalité de référence pour éviter de traiter le même conteneur deux fois. Les requêtes de présentation couvrent les diapositives ordinaires ; pour un inventaire à l’échelle du paquet, il interroge également explicitement les maîtres, les dispositions, les notes et les maîtres de notes et de supports lorsqu'ils sont présents.
 
-Le rapport enregistre un indice de diapositive basé à 1 et [getSlideId](https://reference.aspose.com/slides/fr/python-java/aspose.slides/baseslide/#getSlideId) lorsque disponible. [getSlide](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getSlide) fournit la diapositive propriétaire pour les conteneurs pris en charge. Les masques, les dispositions et les notes n'ont pas d'indice de diapositive ordinaire et sont identifiés par leur portée. Les conteneurs de forme et les conteneurs de format de portion de texte sont étiquetés séparément ; les autres types de conteneurs conservent leur nom de type d'exécution. Chaque conteneur reçoit un ID local au rapport afin que ses deux actions puissent être corrélées. Le rapport stocke les types d'action sous forme de constantes entières définies par l'énumération Java.
+Le rapport enregistre un index de diapositive à base 1 et [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) lorsqu'il est disponible. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) fournit la diapositive propriétaire pour les conteneurs pris en charge. Les maîtres, les dispositions et les notes n'ont pas d'index de diapositive ordinaire et sont identifiés par leur portée. Les conteneurs de forme et les conteneurs de formatage de portions de texte sont étiquetés séparément ; les autres types de conteneurs conservent leur nom de type d'exécution. Chaque conteneur reçoit un ID local au rapport afin que ses deux actions puissent être corrélées. Le rapport stocke les types d'actions sous forme de constantes entières définies par l'énumération Java.
 
-Cette politique d'application délibérément restrictive n'autorise que les URLs HTTPS absolues et les cibles de diapositive internes valides. Elle rejette les macros, programmes, actions de fichiers, autres actions de diaporama, actions inconnues et d'autres schémas d'URL. Ces rejets sont des décisions de politique, et non un verdict de sécurité d'Aspose.Slides. HTTPS seul n'établit pas la confiance : ajoutez des listes d'hôtes autorisés et d'autres vérifications pour votre application. Les URLs externes originales et normalisées sont toutes deux vérifiées. L'exemple audite les métadonnées sans suivre les liens ni exécuter d'actions.
+Cette politique d'application délibérément restrictive autorise uniquement les URL HTTPS absolues et les cibles de diapositive internes valides. Elle rejette les macros, les programmes, les actions de fichiers, les autres actions de diaporama, les actions inconnues et les autres schémas d'URL. Ces rejets sont des décisions de politique, pas un verdict de sécurité d'Aspose.Slides. HTTPS seul n'établit pas la confiance : ajoutez des listes d'autorisation d'hôtes et d'autres vérifications pour votre application. Les URL externes originales et normalisées sont toutes deux vérifiées. L'exemple vérifie les métadonnées sans suivre les liens ni exécuter les actions.
 
-Pour la remédiation, le [getHyperlinkManager](https://reference.aspose.com/slides/fr/python-java/aspose.slides/shape/#getHyperlinkManager) du conteneur prend en charge [setExternalHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) et [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Ici, les liens de clic externes interdits sont remplacés par une page d'atterrissage HTTPS fixe ; les autres clics interdits et les actions de survol interdites sont supprimés indépendamment. Définissez `replace_external_clicks` sur `False` pour supprimer toutes les violations de politique à la place. Choisissez une page de remplacement appartenant à l'application avant le déploiement.
+Pour la remédiation, le [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) du conteneur prend en charge [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) et [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Ici, les liens de clic externes interdits sont remplacés par une page d'atterrissage HTTPS fixe ; les autres clics interdits et les actions de survol interdites sont supprimés de façon indépendante. Définissez `replace_external_clicks` sur `False` pour supprimer toutes les violations de politique à la place. Choisissez une page de remplacement appartenant à l'application avant le déploiement.
 
-Le drapeau d'exportation du rapport utilise une politique de révision PDF conservatrice : signalez les actions de survol et tout ce qui n'est pas un lien externe ou un saut de diapositive spécifique comme potentiellement non pris en charge. Il s'agit d'une indication de révision, pas d'un test de capacité ou d'une garantie que les liens non signalés survivront à l'exportation. Les exportations PDF et HTML prises en charge [/slides/fr/python-java/convert-powerpoint-to-pdf/](/slides/fr/python-java/convert-powerpoint-to-pdf/) et [/slides/fr/python-java/convert-powerpoint-to-html/](/slides/fr/python-java/convert-powerpoint-to-html/) peuvent préserver les hyperliens, selon l'action, les options d'exportation et le visualiseur. Les [images](/slides/fr/python-java/convert-powerpoint-to-png/) et [vidéos](/slides/fr/python-java/convert-powerpoint-to-video/) raster ne peuvent pas préserver les hyperliens interactifs ; signalez chaque action lors de l'audit pour ces sorties.
+Le drapeau d'exportation du rapport utilise une politique de révision PDF prudente : signalez les actions de survol et tout ce qui n'est pas un lien externe ou un saut de diapositive spécifique comme potentiellement non pris en charge. Il s'agit d'un indice de révision, pas d'un test de capacité ou d'une garantie que les liens non signalés survivront à l'exportation. Les exportations PDF et HTML prises en charge [PDF](/slides/fr/python-java/convert-powerpoint-to-pdf/) et [HTML](/slides/fr/python-java/convert-powerpoint-to-html/) peuvent conserver les hyperliens, selon l'action, les options d'exportation et le lecteur. Les [images](/slides/fr/python-java/convert-powerpoint-to-png/) et les [vidéos](/slides/fr/python-java/convert-powerpoint-to-video/) raster ne peuvent pas conserver les hyperliens interactifs ; signalez chaque action lors d'un audit pour ces sorties.
 
 ```python
 import json
@@ -526,20 +528,20 @@ finally:
     presentation.dispose()
 ```
 
-Avec l'entrée créée ci‑dessus, le rapport contient cinq lignes d'action. Le lien de survol de fichier et le clic macro sont supprimés, tandis que les liens HTTPS et la navigation interne de diapositive restent. La vérification affiche zéro action interdite. Une entrée contenant une URL de clic externe interdite teste également la branche de remplacement. Un conteneur avec un clic autorisé et un survol interdit conserve son action de clic.
+Avec l'entrée créée ci‑dessus, le rapport contient cinq lignes d'action. Le lien de survol de fichier et le clic macro sont supprimés, tandis que les liens HTTPS et la navigation interne de diapositive restent. La vérification indique zéro action prohibée. Une entrée contenant une URL de clic externe interdite exerce également la branche de remplacement. Un conteneur avec un clic autorisé et un survol interdit conserve son action de clic.
 
-Ce nettoyage sélectif diffère de [removeAllHyperlinks](https://reference.aspose.com/slides/fr/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), qui supprime les deux types d'activation dans toute la portée sélectionnée, quelle que soit la politique. La vérification ici ne contrôle que les actions d'hyperlien ; elle ne supprime pas les projets VBA embarqués, les objets OLE ou autre contenu actif, et elle ne valide pas un fichier PDF ou HTML exporté.
+Ce nettoyage sélectif diffère de [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), qui supprime les deux types d'activation dans toute la portée sélectionnée, indépendamment de la politique. La vérification ici ne contrôle que les actions d'hyperlien ; elle ne supprime pas les projets VBA incorporés, les objets OLE ou d'autres contenus actifs, et elle ne valide pas un fichier PDF ou HTML exporté.
 
 ## **FAQ**
 
-**Comment puis-je créer un lien vers une section ou sa première diapositive ?**
+**Comment puis‑je créer un lien vers une section ou sa première diapositive ?**
 
-Les sections dans PowerPoint regroupent les diapositives, mais un hyperlien interne cible une diapositive individuelle. Pour créer une navigation vers une section, liez à la première diapositive de cette section.
+Les sections dans PowerPoint regroupent les diapositives, mais un hyperlien interne cible une diapositive individuelle. Pour créer une navigation vers une section, liez‑vous à la première diapositive de cette section.
 
-**Puis-je attacher un hyperlien aux éléments du masque de diapositive afin qu'il fonctionne sur toutes les diapositives ?**
+**Puis‑je attacher un hyperlien aux éléments de la diapositive maîtresse afin qu'il fonctionne sur toutes les diapositives ?**
 
-Oui. Les éléments du masque de diapositive et des dispositions prennent en charge les hyperliens. Les liens sur ces éléments sont disponibles pendant le diaporama sur les diapositives qui utilisent le masque ou la disposition correspondante.
+Oui. Les éléments de diapositive maîtresse et de mise en page prennent en charge les hyperliens. Les liens sur ces éléments sont disponibles pendant le diaporama sur les diapositives qui utilisent la maîtresse ou la mise en page correspondante.
 
-**Les hyperliens seront-ils conservés lors de l'exportation vers PDF, HTML, images ou vidéo ?**
+**Les hyperliens seront‑ils conservés lors de l'exportation vers PDF, HTML, images ou vidéo ?**
 
-Les exportations PDF et HTML prises en charge peuvent conserver les hyperliens ; les images raster et la vidéo ne le peuvent pas. Voir les considérations d'exportation dans [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Les exportations PDF et HTML prises en charge peuvent conserver les hyperliens ; les images raster et les vidéos ne le peuvent pas. Voir les considérations d'exportation dans [Rapporter, nettoyer et vérifier les hyperliens](#report-sanitize-and-verify-hyperlinks).

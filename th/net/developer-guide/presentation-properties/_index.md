@@ -1,64 +1,56 @@
 ---
-title: จัดการคุณสมบัติการนำเสนอใน .NET
-linktitle: คุณสมบัติการนำเสนอ
+title: จัดการคุณสมบัติงานนำเสนอใน .NET
+linktitle: คุณสมบัติงานนำเสนอ
 type: docs
 weight: 70
 url: /th/net/presentation-properties/
 keywords:
 - คุณสมบัติ PowerPoint
-- คุณสมบัติการนำเสนอ
+- คุณสมบัติงานนำเสนอ
 - คุณสมบัติเอกสาร
 - คุณสมบัติมาตรฐาน
-- คุณสมบัติกำหนดเอง
+- คุณสมบัติที่กำหนดเอง
 - คุณสมบัติขั้นสูง
 - จัดการคุณสมบัติ
 - แก้ไขคุณสมบัติ
 - เมตาดาต้าเอกสาร
 - แก้ไขเมตาดาต้า
-- ภาษาการตรวจสอบ
-- ภาษาตั้งต้น
+- ภาษาการตรวจทาน
+- ภาษามาตรฐาน
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ควบคุมคุณสมบัติการนำเสนอใน Aspose.Slides for .NET และปรับปรุงการค้นหา, การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณให้เป็นระบบระเบียบ"
+description: "ควบคุมคุณสมบัติงานนำเสนอหลักใน Aspose.Slides สำหรับ .NET และทำให้การค้นหา, การสร้างแบรนด์และกระบวนการทำงานในไฟล์ PowerPoint และ OpenDocument ของคุณเป็นเรื่องง่ายขึ้น."
 ---
-## **บทนำ**
+## **Introduction**
 
-Aspose.Slides for .NET รองรับสองประเภทของคุณสมบัติเอกสาร: **Built-in** และ **Custom**. ทั้งสองประเภทนี้สามารถเข้าถึงและจัดการได้ง่ายโดยใช้ Aspose.Slides for .NET API.
+Aspose.Slides สำหรับ .NET รองรับคุณสมบัติเอกสาร **built-in** และ **custom**. ใช้คุณสมบัติเหล่านี้เพื่ออ่านและอัปเดตเมตาดาต้าของงานนำเสนอ เช่น ผู้เขียน, ชื่อเรื่อง, และค่าที่กำหนดโดยผู้ใช้.
 
-Aspose.Slides ให้คุณทำงานกับคุณสมบัติเอกสารของงานนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/idocumentproperties/) อินสแตนซ์ของอินเทอร์เฟซนี้จะถูกส่งคืนโดย [IPresentation.DocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/documentproperties/). ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้.
+Aspose.Slides ให้คุณทำงานกับคุณสมบัติเอกสารของการนำเสนอผ่านอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) อินเทอร์เฟซนี้จะถูกคืนค่าโดย [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). ตัวอย่างต่อไปนี้แสดงวิธีการอ่าน, แก้ไข, และจัดการคุณสมบัติเหล่านี้.
 
 {{% alert color="info" title="Note" %}}
-โปรดทราบว่า ฟิลด์ **Application** และ **Producer** ไม่สามารถแก้ไขได้ เนื่องจากฟิลด์เหล่านี้จะแสดงเสมอว่า "Aspose Ltd." และ "Aspose.Slides for .NET x.x.x".
-{{% /alert %}} 
+Aspose.Slides จัดการเมตาดาต้าแอปพลิเคชันและผู้ผลิตเมื่อบันทึกงานนำเสนอ; ฟิลด์เหล่านี้ระบุซอฟต์แวร์ที่สร้างผลลัพธ์.
+{{% /alert %}}
 
-## **จัดการคุณสมบัติการนำเสนอ**
+## **จัดการคุณสมบัติงานนำเสนอ**
 
-Microsoft PowerPoint มีฟีเจอร์ในการเพิ่มคุณสมบัติให้กับไฟล์งานนำเสนอ. คุณสมบัติเอกสารเหล่านี้ทำให้สามารถเก็บข้อมูลที่เป็นประโยชน์อยู่ร่วมกับไฟล์ได้. มีสองประเภทของคุณสมบัติเอกสาร:
+คุณสมบัติเข้าเอกสารเก็บข้อมูลเชิงพรรณนาควบคู่กับเนื้อหาของงานนำเสนอ. พวกมันแบ่งออกเป็นสองประเภท:
 
-- System-defined (built-in) properties
-- User-defined (custom) properties
+- **Built-in properties** มีเมตาดาต้ามาตรฐาน เช่น ชื่อเรื่อง, ผู้เขียน, และสถิติของเอกสาร.
+- **Custom properties** เก็บคู่ชื่อ/ค่า ที่กำหนดโดยผู้ใช้.
 
-**Built-in** properties ประกอบด้วยข้อมูลทั่วไปเกี่ยวกับเอกสาร เช่น ชื่อเรื่องของเอกสาร, ชื่อผู้เขียน, สถิติเอกสาร, และอื่นๆ
+Aspose.Slides สำหรับ .NET ให้การเข้าถึงทั้งสองประเภท. ใน PowerPoint, เลือก **File → Info → Properties → Advanced Properties** เพื่อดูเมตาดาต้าเอกสาร. กล่องโต้ตอบจัดข้อมูลเป็นแถบต่างๆ เช่น **Summary**, **Statistics**, **Contents**, และ **Custom**. ใช้แถบ **Custom** เพื่อจัดการคุณสมบัติที่กำหนดโดยผู้ใช้.
 
-**Custom** properties ถูกกำหนดโดยผู้ใช้เป็นคู่ **Name/Value** ที่ชื่อและค่าทั้งสองถูกระบุโดยผู้ใช้เอง
+## **อ่านคุณสมบัติสาธารณะจากงานนำเสนอที่เข้ารหัส**
 
-โดยใช้ Aspose.Slides for .NET นักพัฒนาสามารถเข้าถึงและแก้ไขทั้งคุณสมบัติ built‑in และ custom ได้
+รหัสผ่านเปิดปกติจะปกป้องทั้งเนื้อหาของงานนำเสนอและคุณสมบัติเข้าเอกสาร. เมื่อการนำเสนอถูกเข้ารหัสด้วย [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ตั้งค่าเป็น `false`, คุณสมบัติเข้าเอกสารของมันจะยังคงเป็นสาธารณะ. แอปพลิเคชันสามารถตั้งค่า [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) เป็น `true` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องระบุรหัสผ่านเปิด.
 
-Microsoft PowerPoint ให้ผู้ใช้จัดการคุณสมบัติเอกสารได้โดยคลิกไอคอน Office แล้วเลือก **File → Info → Properties**. หลังจากเลือก **Advanced Properties** จะปรากฏหน้าต่างที่คุณสามารถจัดการคุณสมบัติเอกสารทั้งหมดของไฟล์งานนำเสนอได้
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ได้ถอดรหัสอะไรเลย. หากคุณสมบัติเบอร์มอยู่ในกระบวนการเข้ารหัส, การโหลดโดยไม่ใช้รหัสผ่านจะล้มเหลว. หากงานนำเสนอไม่ได้เข้ารหัส, ตัวเลือกจะถูกละเลยและงานนำเสนอทั้งหมดจะถูกโหลด.
 
-ในหน้าต่าง **Properties** มีหลายแท็บ เช่น **General**, **Summary**, **Statistics**, **Contents**, และ **Custom**. แต่ละแท็บให้ตัวเลือกสำหรับกำหนดค่าประเภทข้อมูลที่เกี่ยวข้องกับไฟล์ PowerPoint. แท็บ **Custom** ใช้สำหรับจัดการคุณสมบัติที่ผู้ใช้กำหนดเอง
-
-## **อ่านคุณสมบัติสาธารณะจากการนำเสนอที่เข้ารหัส**
-
-รหัสผ่านเปิดไฟล์โดยปกติจะปกป้องทั้งเนื้อหาการนำเสนอและคุณสมบัติเอกสาร. เมื่อการนำเสนอถูกเข้ารหัสด้วย [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ตั้งค่าเป็น `false`, คุณสมบัติเอกสารจะคงเป็นสาธารณะ. แอปพลิเคชันจึงสามารถตั้งค่า [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) เป็น `true` และอ่านเมตาดาต้าสาธารณะโดยไม่ต้องให้รหัสผ่านเปิดไฟล์ได้
-
-`OnlyLoadDocumentProperties` ควบคุมสิ่งที่ Aspose.Slides โหลด; มันไม่ได้ทำการถอดรหัสใดๆ. หากคุณสมบัตินั้นรวมอยู่ในการเข้ารหัส การโหลดโดยไม่มีรหัสผ่านจะล้มเหลว. หากการนำเสนอไม่ได้เข้ารหัส ตัวเลือกจะถูกละเว้นและการนำเสนอทั้งหมดจะถูกโหลด
-
-ตัวอย่างต่อไปนี้ตรวจสอบโหมดการโหลดผ่าน [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/th/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) แล้วอ่านคุณสมบัติ built‑in ผ่าน [IPresentation.DocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/documentproperties/):
+ตัวอย่างนี้ต้องการงานนำเสนอที่เข้ารหัสซึ่งคุณสมบัติเข้าเอกสารถูกตั้งให้เป็นสาธารณะ. มันตรวจสอบโหมดการโหลดผ่าน [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) แล้วอ่านคุณสมบัติ built-in ผ่าน [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -69,11 +61,11 @@ using var presentation = new Presentation("public-properties-encrypted.pptx", lo
 
 if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
 {
-    var properties = presentation.DocumentProperties;
+    var documentProperties = presentation.DocumentProperties;
 
-    Console.WriteLine("Author: " + properties.Author);
-    Console.WriteLine("Title: " + properties.Title);
-    Console.WriteLine("Keywords: " + properties.Keywords);
+    Console.WriteLine("Author: " + documentProperties.Author);
+    Console.WriteLine("Title: " + documentProperties.Title);
+    Console.WriteLine("Keywords: " + documentProperties.Keywords);
 }
 else
 {
@@ -81,17 +73,17 @@ else
 }
 ```
 
-ในโหมดนี้เนื้อหาสไลด์จะไม่ถูกโหลด. สไลด์, มาสเตอร์, เลย์เอาต์, รูปทรง, สื่อ, และอ็อบเจ็กต์การนำเสนออื่นๆ จะไม่พร้อมใช้งาน. แอปพลิเคชันควรตรวจสอบ `IsOnlyDocumentPropertiesLoaded` ก่อนทำการดำเนินการที่ต้องการโมเดลอ็อบเจ็กต์การนำเสนอเต็มรูปแบบเสมอ
+ในโหมดนี้ เนื้อหาสไลด์จะไม่ถูกโหลด. สไลด์, มาสเตอร์, เลเอาท์, รูปร่าง, สื่อ, และวัตถุอื่นๆ ของงานนำเสนอจะไม่พร้อมใช้งาน. แอปพลิเคชันควรตรวจสอบ [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) เสมอ ก่อนทำการดำเนินการที่ต้องใช้โมเดลวัตถุของงานนำเสนอทั้งหมด.
 
 {{% alert color="warning" title="Security" %}}
-เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, เรื่อง, คำสำคัญ, ข้อมูลบริษัท, ความคิดเห็น, และค่าที่กำหนดเอง. ให้เข้ารหัสคุณสมบัติที่สำคัญร่วมกับการนำเสนอ. ปล่อยให้เป็นสาธารณะเฉพาะเมื่อระบบการทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบจัดการเอกสารมีความต้องการเฉพาะเพื่อเข้าถึงโดยไม่มีรหัสผ่าน
+เมตาดาต้าสาธารณะอาจเปิดเผยชื่อผู้เขียน, ชื่อเรื่อง, หัวข้อ, คำสำคัญ, ข้อมูลบริษัท, คำอธิบาย, และค่ากำหนดเอง. ควรเข้ารหัสคุณสมบัติเชิงลึกพร้อมกับงานนำเสนอ. ให้เปิดเผยเป็นสาธารณะเฉพาะเมื่อระบบการทำดัชนี, การจัดประเภท, การค้นหา, หรือระบบการจัดการเอกสารมีความต้องการเฉพาะในการเข้าถึงโดยไม่ต้องใช้รหัสผ่าน.
 {{% /alert %}}
 
-## **อัปเดตคุณสมบัติของการนำเสนอที่เข้ารหัส**
+## **อัปเดตคุณสมบัติของงานนำเสนอที่เข้ารหัส**
 
-สำหรับไฟล์ PPTX ที่เข้ารหัส การนำเสนอที่โหลดด้วย `OnlyLoadDocumentProperties` มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ. Aspose.Slides ไม่สามารถบันทึกการเปลี่ยนแปลงคุณสมบัติจากอ็อบเจ็กต์ที่โหลดเฉพาะเมตาดาต้าได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในการนำเสนอที่เข้ารหัส. ดังนั้นการอัปเดตจึงต้องใช้รหัสผ่านเปิดไฟล์ที่ถูกต้องและการโหลดแบบเต็ม
+สำหรับไฟล์ PPTX ที่เข้ารหัส, งานนำเสนอที่โหลดด้วย [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) มีจุดประสงค์เพื่ออ่านเมตาดาต้าสาธารณะ. Aspose.Slides ไม่สามารถบันทึกคุณสมบัติที่เปลี่ยนแปลงจากวัตถุที่มีเฉพาะเมตาดาต้านี้ได้ เนื่องจากคุณสมบัติสาธารณะต้องสอดคล้องกับข้อมูลที่อยู่ภายในงานนำเสนอที่เข้ารหัส. การอัปเดตจึงต้องใช้รหัสผ่านเปิดที่ถูกต้องและการโหลดเต็มรูปแบบ.
 
-ตัวอย่างต่อไปนี้เปิดการนำเสนอด้วย [LoadOptions.Password](https://reference.aspose.com/slides/th/net/aspose.slides/loadoptions/password/), อัปเดตคุณสมบัติ built‑in สาธารณะ, แล้วบันทึกผลลัพธ์. จากนั้นใช้ [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/isencrypted/) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะอีกครั้งโดยไม่มีรหัสผ่านเพื่อยืนยันค่าที่ใหม่:
+ตัวอย่างนี้ต้องการงานนำเสนอ PPTX ที่เข้ารหัสซึ่งมีคุณสมบัติเข้าเอกสารเป็นสาธารณะและรหัสผ่านเปิดที่ทราบ. มันเปิดงานนำเสนอเต็มรูปแบบด้วย [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), อัปเดตคุณสมบัติ built-in สาธารณะ, และบันทึกผลลัพธ์. จากนั้นใช้ [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) เพื่อตรวจสอบว่าการเข้ารหัสยังคงอยู่และเปิดเมตาดาต้าสาธารณะโดยไม่ใช้รหัสผ่านเพื่อยืนยันค่าที่ใหม่:
 
 ```csharp
 using System;
@@ -101,14 +93,14 @@ using Aspose.Slides.Export;
 const string inputPath = "public-properties-encrypted.pptx";
 const string outputPath = "updated-public-properties-encrypted.pptx";
 
-{
-    var loadOptions = new LoadOptions { Password = "open_password" };
-    using var presentation = new Presentation(inputPath, loadOptions);
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation(inputPath, loadOptions);
 
-    presentation.DocumentProperties.Title = "Updated Product Roadmap";
-    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
-    presentation.Save(outputPath, SaveFormat.Pptx);
-}
+var documentProperties = presentation.DocumentProperties;
+documentProperties.Title = "Updated Product Roadmap";
+documentProperties.Keywords = "roadmap, planning, indexed";
+
+presentation.Save(outputPath, SaveFormat.Pptx);
 
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
 Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
@@ -127,142 +119,159 @@ else
 }
 ```
 
-หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาการนำเสนอ จะต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสเป็นแบบอ่าน‑อย่างเดียว
+หากแอปพลิเคชันไม่ได้รับอนุญาตให้ถอดรหัสหรือโหลดเนื้อหาของงานนำเสนอ, จะต้องถือคุณสมบัติสาธารณะของไฟล์ PPTX ที่เข้ารหัสว่าเป็นอ่านอย่างเดียว.
 
 ## **เข้าถึงคุณสมบัติ Built-in**
 
-คุณสมบัติเหล่านี้ที่เปิดเผยโดยอินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/idocumentproperties/) รวมถึง: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (ระบุว่าตัวเอกสารถูกแชร์ระหว่างผู้ผลิตต่างๆ), **PresentationFormat**, **Subject**, **Title**, และอื่นๆ
+อินเทอร์เฟซ [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) เปิดเผยเมตาดาต้า built-in ผ่านคุณสมบัติที่มีประเภท, รวมถึง [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), และ [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่และพิมพ์เมตาดาต้าที่จัดเก็บไว้ไปยังคอนโซล. ค่าต่างๆ ขึ้นอยู่กับงานนำเข้าที่ให้; บางฟิลด์อาจว่าง.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ.
-using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
+using var presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// รับการอ้างอิงถึงออบเจกต์ประเภท IDocumentProperties ที่เกี่ยวข้องกับการนำเสนอ.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// แสดงคุณสมบัติ Built-in.
-Console.WriteLine("Category : " + documentProperties.Category);
-Console.WriteLine("Content status : " + documentProperties.ContentStatus);
-Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
-Console.WriteLine("Author : " + documentProperties.Author);
-Console.WriteLine("Comments : " + documentProperties.Comments);
-Console.WriteLine("Key words : " + documentProperties.Keywords);
-Console.WriteLine("Last modified by : " + documentProperties.LastSavedBy);
-Console.WriteLine("Manager : " + documentProperties.Manager);
-Console.WriteLine("Modified date : " + documentProperties.LastSavedTime);
-Console.WriteLine("Presentation format : " + documentProperties.PresentationFormat);
-Console.WriteLine("Last print date : " + documentProperties.LastPrinted);
-Console.WriteLine("Is shared between producers : " + documentProperties.SharedDoc);
-Console.WriteLine("Subject : " + documentProperties.Subject);
-Console.WriteLine("Title : " + documentProperties.Title);
+Console.WriteLine("Category: " + documentProperties.Category);
+Console.WriteLine("Content status: " + documentProperties.ContentStatus);
+Console.WriteLine("Creation date: " + documentProperties.CreatedTime);
+Console.WriteLine("Author: " + documentProperties.Author);
+Console.WriteLine("Comments: " + documentProperties.Comments);
+Console.WriteLine("Keywords: " + documentProperties.Keywords);
+Console.WriteLine("Last modified by: " + documentProperties.LastSavedBy);
+Console.WriteLine("Manager: " + documentProperties.Manager);
+Console.WriteLine("Modified date: " + documentProperties.LastSavedTime);
+Console.WriteLine("Presentation format: " + documentProperties.PresentationFormat);
+Console.WriteLine("Last print date: " + documentProperties.LastPrinted);
+Console.WriteLine("Is shared between producers: " + documentProperties.SharedDoc);
+Console.WriteLine("Subject: " + documentProperties.Subject);
+Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
 ## **แก้ไขคุณสมบัติ Built-in**
 
-การแก้ไขคุณสมบัติ built‑in ของไฟล์งานนำเสนอทำได้ง่ายเท่ากับการเข้าถึง. คุณสามารถกำหนดค่าข้อความให้กับคุณสมบัติใดก็ได้ที่ต้องการและค่าของคุณสมบัติก็จะถูกอัปเดต. ตัวอย่างด้านล่างแสดงวิธีการแก้ไขคุณสมบัติเอกสาร built‑in ของไฟล์การนำเสนอ
+เพื่ออัปเดตเมตาดาต้า built-in, กำหนดค่าให้กับคุณสมบัติที่เขียนได้ที่เปิดเผยโดย [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). ตัวอย่างนี้เปิดงานนำเสนอที่มีอยู่, ตั้งค่า [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), และ [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), จากนั้นบันทึกงานนำเสนอที่อัปเดตด้วย [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). PPTX ที่บันทึกจะมีเมตาดาต้าใหม่.
 
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์การนำเสนอ.
-using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
+using var presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// รับการอ้างอิงถึงอ็อบเจ็กต์ประเภท IDocumentProperties ที่เชื่อมโยงกับการนำเสนอ.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// ตั้งค่าคุณสมบัติ Built-in.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// บันทึกการนำเสนอลงไฟล์.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มคุณสมบัติการนำเสนอแบบกำหนดเอง**
+## **จัดการฐาน Hyperlink**
 
-คุณสมบัติการนำเสนอแบบกำหนดเองช่วยให้นักพัฒนาสามารถเก็บเมตาดาต้าเพิ่มเติมหรือข้อมูลเฉพาะภายในไฟล์การนำเสนอได้. Aspose.Slides ทำให้การสร้างและจัดการคุณสมบัติแบบกำหนดเองเหล่านี้โดยโปรแกรมทำได้ง่าย. ตัวอย่างต่อไปนี้สาธิตวิธีการเพิ่มคุณสมบัติแบบกำหนดเองให้กับงานนำเสนอของคุณ
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) เก็บฐานระดับเอกสารสำหรับลิงก์สัมพันธ์. สิ่งนี้มีประโยชน์เมื่อย้ายงานนำเสนอและไฟล์ที่เชื่อมโยงไปยังตำแหน่งอื่น. มันแยกจาก [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) ของลิงก์แต่ละอัน: การเปลี่ยนฐานจะไม่เขียนทับที่อยู่ลิงก์ที่เก็บไว้หรือเปลี่ยนปลายทางแบบสัมบูรณ์.
 
-```cs
+ตัวอย่างนี้ต้องการงานนำเสนอที่มีลิงก์สัมพันธ์, เช่น `target.html`, และลิงก์สัมบูรณ์, เช่น `https://example.org/absolute.html`. มันอ่านฐานที่มีอยู่, กำหนดฐานใหม่, แล้วบันทึกและเปิดงานนำเสนอใหม่เพื่อเช็คค่าดังกล่าว. จากนั้นล้างฐานด้วย `string.Empty` และตรวจสอบค่าที่ว่างในไฟล์ที่บันทึกแยกต่างหาก. แทนที่ที่อยู่ฐานของตัวอย่างด้วยตำแหน่งของไฟล์ที่เชื่อมโยงของคุณ.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation.
-using Presentation presentation = new Presentation();
+using var presentation = new Presentation("hyperlinks.pptx");
+Console.WriteLine("Original base: " + presentation.DocumentProperties.HyperlinkBase);
 
-// รับการอ้างอิงถึงอ็อบเจ็กต์ประเภท IDocumentProperties ที่เชื่อมโยงกับการนำเสนอ.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+const string newBase = "https://example.com/new/";
+presentation.DocumentProperties.HyperlinkBase = newBase;
+presentation.Save("hyperlinks-updated.pptx", SaveFormat.Pptx);
 
-// เพิ่มคุณสมบัติกำหนดเอง.
+using var updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+Console.WriteLine("Base preserved: " + (updatedPresentation.DocumentProperties.HyperlinkBase == newBase));
+
+updatedPresentation.DocumentProperties.HyperlinkBase = string.Empty;
+updatedPresentation.Save("hyperlinks-cleared.pptx", SaveFormat.Pptx);
+
+using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
+```
+
+สองข้อความยืนยันควรพิมพ์ `True`. การล้างฐานจะทำให้ที่อยู่ลิงก์แต่ละอันยังคงอยู่โดยไม่เปลี่ยน.
+
+ลิงก์สัมพันธ์ไปยัง `target.pptx` เปิด `old/target.pptx` เมื่อฐานชี้ไปที่โฟลเดอร์ `old`. หลังจากเปลี่ยนฐานเป็นโฟลเดอร์ `new`, บันทึกและเปิดงานนำเสนอใหม่, ลิงก์เดียวกันเปิด `new/target.pptx`. ลิงก์สัมบูรณ์ยังคงเปิดไฟล์เดียวกัน. ทดสอบลิงก์สัมพันธ์ของคุณใน PowerPoint ก่อนและหลังย้ายงานนำเสนอหรือเปลี่ยนฐาน.
+
+## **เพิ่มคุณสมบัติงานนำเสนอแบบกำหนดเอง**
+
+คุณสมบัติกำหนดเองเก็บเมตาดาต้าที่ไม่มีฟิลด์ built-in ที่สอดคล้อง. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) ให้คุณกำหนดค่าโดยใช้ชื่อคุณสมบัติ. ตัวอย่างนี้สร้างงานนำเสนอ, เพิ่มค่าข้อความสองค่าและค่าตัวเลขเวอร์ชัน, และบันทึกงานนำเสนอด้วย [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). การกำหนดค่าที่ชื่อที่มีอยู่แล้วจะแทนที่ค่าของคุณสมบัตินั้น.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var documentProperties = presentation.DocumentProperties;
+
 documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// บันทึกการนำเสนอลงไฟล์.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **เข้าถึงและแก้ไขคุณสมบัติแบบกำหนดเอง**
+## **เข้าถึงและแก้ไขคุณสมบัติกำหนดเอง**
 
-Aspose.Slides ยังอนุญาตให้นักพัฒนาสามารถเข้าถึงคุณสมบัติแบบกำหนดเองที่มีอยู่และแก้ไขค่าได้ง่าย. ความสามารถนี้ช่วยให้รักษาเมตาดาต้าที่แม่นยำและสนับสนุนการอัปเดตแบบไดนามิกตามข้อมูลป้อนจากผู้ใช้หรือตรรกะทางธุรกิจ. ตัวอย่างด้านล่างแสดงวิธีการดึงค่าและอัปเดตคุณสมบัติแบบกำหนดเองภายในงานนำเสนอ
+ตัวอย่างนี้เปิดงานนำเสนอที่มีคุณสมบัติกำหนดเองและใช้ [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) เพื่อวนลูปผ่านมัน. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) รับดัชนีเริ่มจากศูนย์และคืนชื่อที่ใช้โดย [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). ตัวอย่างพิมพ์ชื่อและค่าต้นฉบับแต่ละรายการ, แทนที่ค่าทุกค่าเป็นสตริงลำดับที่โดยไม่คำนึงถึงประเภทเดิม, และบันทึกการเปลี่ยนแปลง. หากไม่มีคุณสมบัติกำหนดเอง, ลูปจะไม่ทำการเปลี่ยนแปลงใดๆ.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PPTX.
-using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
+using var presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// รับการอ้างอิงถึงอ็อบเจ็กต์ประเภท IDocumentProperties ที่เชื่อมโยงกับการนำเสนอ.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// เข้าถึงและแก้ไขคุณสมบัติกำหนดเอง.
-for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
+for (var i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
-    string propertyName = documentProperties.GetCustomPropertyName(i);
-    object propertyValue = documentProperties[propertyName];
+    var propertyName = documentProperties.GetCustomPropertyName(i);
+    var propertyValue = documentProperties[propertyName];
 
-    // แสดงชื่อและค่าของคุณสมบัติกำหนดเอง.
-    Console.WriteLine("Custom property name : " + propertyName);
-    Console.WriteLine("Custom property value : " + propertyValue);
+    Console.WriteLine("Custom property name: " + propertyName);
+    Console.WriteLine("Custom property value: " + propertyValue);
 
-    // แก้ไขค่าของคุณสมบัติกำหนดเอง.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// บันทึกการนำเสนอลงไฟล์.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **ตัวอย่างสด**
 
-ลองใช้แอปออนไลน์ [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/th/metadata) เพื่อดูวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ Aspose.Slides API:
+ลองแอปออนไลน์ [**ดูและแก้ไขเมตาดาต้า PowerPoint**](https://products.aspose.app/slides/metadata) เพื่อชมวิธีทำงานกับคุณสมบัติเอกสารโดยใช้ Aspose.Slides API:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/th/metadata)
+[![ดูและแก้ไขเมตาดาต้า PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะลบคุณสมบัติ Built-in จากการนำเสนอได้อย่างไร?**
+**ฉันจะลบคุณสมบัติ built-in ออกจากงานนำเสนอได้อย่างไร?**
 
-คุณสมบัติ Built-in เป็นส่วนสำคัญของการนำเสนอและไม่สามารถลบออกได้ทั้งหมด. อย่างไรก็ตามคุณสามารถเปลี่ยนค่าเป็นค่าว่างหรือปรับเปลี่ยนให้เป็นค่าอื่นได้หากคุณสมบัตินั้นอนุญาตให้เป็นค่าว่าง
+คุณสมบัติ built-in เป็นส่วนสำคัญของงานนำเสนอและไม่สามารถลบออกได้ทั้งหมด. อย่างไรก็ตาม, คุณสามารถเปลี่ยนค่าเหล่านั้นหรือกำหนดให้เป็นค่าว่างได้หากคุณสมบัตินั้นอนุญาต.
 
-**จะเกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว?**
+**จะเกิดอะไรขึ้นหากฉันเพิ่มคุณสมบัติกำหนดเองที่มีอยู่แล้ว?**
 
-หากคุณเพิ่มคุณสมบัติแบบกำหนดเองที่มีอยู่แล้ว ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่. คุณไม่จำเป็นต้องลบหรือเช็คคุณสมบัติก่อน, เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ
+หากคุณเพิ่มคุณสมบัติกำหนดเองที่มีอยู่แล้ว, ค่าที่มีอยู่จะถูกเขียนทับด้วยค่าที่ใหม่. คุณไม่จำเป็นต้องลบหรือเช็กคุณสมบัติก่อน, เนื่องจาก Aspose.Slides จะอัปเดตค่าของคุณสมบัติโดยอัตโนมัติ.
 
-**ฉันสามารถเข้าถึงคุณสมบัติการนำเสนอได้โดยไม่ต้องโหลดการนำเสนอเต็มรูปแบบหรือไม่?**
+**ฉันสามารถเข้าถึงคุณสมบัติงานนำเสนอโดยไม่ต้องโหลดงานนำเสนอเต็มรูปแบบได้หรือไม่?**
 
-ได้. ใช้ [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/th/net/aspose.slides/presentationfactory/getpresentationinfo/) แล้วตามด้วย [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentationinfo/readdocumentproperties/) เพื่ออ่านเมตาดาต้าเอกสารที่จัดเก็บโดยไม่ต้องสร้างอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/). ดูตัวอย่างการสร้างรายงานแบบเบาใน [Build a Lightweight Presentation Inventory](/slides/th/net/examine-presentation/) สำหรับตัวอย่างเต็มและข้อจำกัดตามฟอร์แมต
+ใช่. ใช้ [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) แล้วตามด้วย [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) เพื่ออ่านเมตาดาต้าเอกสารที่เก็บไว้โดยไม่ต้องสร้างอินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). ดู [Build a Lightweight Presentation Inventory](/slides/th/net/examine-presentation/) สำหรับตัวอย่างการรายงานแบบครบถ้วนและข้อจำกัดตามรูปแบบ.
 
-**ฉันสามารถอ่านคุณสมบัติสาธารณะของการนำเสนอที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดไฟล์ได้หรือไม่?**
+**ฉันสามารถอ่านคุณสมบัติสาธารณะของงานนำเสนอที่เข้ารหัสโดยไม่ต้องใช้รหัสผ่านเปิดได้หรือไม่?**
 
-ได้. การนำเสนอจะต้องถูกเข้ารหัสด้วย `EncryptDocumentProperties` ตั้งค่าเป็น `false` และต้องโหลดด้วย `OnlyLoadDocumentProperties` ตั้งค่าเป็น `true`
+ใช่. งานนำเสนอจะต้องถูกเข้ารหัสด้วย [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) ตั้งเป็น `false`, และต้องโหลดด้วย [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) ตั้งเป็น `true`.
 
-**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสได้ในโหมด document‑properties‑only หรือไม่?**
+**ฉันสามารถอัปเดตไฟล์ PPTX ที่เข้ารหัสในโหมดเอกสารคุณสมบัติเพียงอย่างเดียวได้หรือไม่?**
 
-ไม่ได้. ข้อมูลคุณสมบัติสาธารณะและข้อมูลที่เข้ารหัสต้องสอดคล้องกัน, ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดการนำเสนอทั้งหมดพร้อมรหัสผ่านเปิดไฟล์ที่ถูกต้อง
+ไม่. ข้อมูลคุณสมบัติสาธารณะและที่เข้ารหัสต้องสอดคล้องกัน, ดังนั้นการอัปเดตไฟล์ PPTX ที่เข้ารหัสต้องโหลดงานนำเสนอเต็มรูปแบบด้วยรหัสผ่านเปิดที่ถูกต้อง.

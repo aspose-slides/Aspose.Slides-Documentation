@@ -1,301 +1,319 @@
 ---
-title: Kelola Properti Presentasi dalam C++
+title: Kelola Properti Presentasi di C++
 linktitle: Properti Presentasi
 type: docs
 weight: 70
 url: /id/cpp/presentation-properties/
 keywords:
 - Properti PowerPoint
-- properti presentasi
-- properti dokumen
-- properti bawaan
-- properti kustom
-- properti lanjutan
-- kelola properti
-- modifikasi properti
-- metadata dokumen
-- edit metadata
-- bahasa proofing
-- bahasa default
+- Properti presentasi
+- Properti dokumen
+- Properti bawaan
+- Properti kustom
+- Properti lanjutan
+- Kelola properti
+- Ubah properti
+- Metadata dokumen
+- Sunting metadata
+- Bahasa pemeriksaan
+- Bahasa default
 - PowerPoint
 - OpenDocument
 - presentasi
 - C++
 - Aspose.Slides
-description: "Kuasi properti presentasi di Aspose.Slides untuk C++ dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
+description: "Kuasai properti presentasi di Aspose.Slides untuk C++ dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides mendukung dua jenis properti dokumen: **Built-in** dan **Custom**. Kedua tipe properti ini dapat dengan mudah diakses dan dikelola menggunakan API Aspose.Slides.
+Aspose.Slides untuk C++ mendukung properti dokumen **bawaan** dan **kustom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/idocumentproperties/) . Sebuah instance dari antarmuka ini dikembalikan oleh [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_documentproperties/). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti tersebut.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui antarmuka [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) . Sebuah instance dari antarmuka ini dikembalikan oleh [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Contoh-contoh berikut menunjukkan cara membaca, mengubah, dan mengelola properti ini.
 
 {{% alert color="info" title="Note" %}}
-Harap perhatikan bahwa Anda tidak dapat menetapkan nilai pada bidang **Application** dan **Producer**, karena Aspose Ltd. dan Aspose.Slides for C++ x.x.x akan ditampilkan pada bidang tersebut.
-{{% /alert %}} 
+Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang-bidang ini mengidentifikasi perangkat lunak yang membuat output.
+{{% /alert %}}
 
 ## **Kelola Properti Presentasi**
 
-Microsoft PowerPoint menyediakan fitur untuk menambahkan beberapa properti ke file presentasi. Properti dokumen ini memungkinkan informasi berguna disimpan bersama dokumen (file presentasi). Ada dua jenis properti dokumen sebagai berikut
+Properti dokumen menyimpan informasi deskriptif bersama konten presentasi. Mereka terbagi menjadi dua kategori:
 
-- Properti yang Ditetapkan Sistem (Built-in) 
-- Properti yang Ditetapkan Pengguna (Custom) 
+- **Properti bawaan** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
+- **Properti kustom** menyimpan pasangan nama/nilai yang ditentukan pengguna.
 
-Properti **Built-in** berisi informasi umum tentang dokumen seperti judul dokumen, nama penulis, statistik dokumen, dan sebagainya. Properti **Custom** adalah yang didefinisikan pengguna sebagai pasangan **Name/Value**, di mana baik nama maupun nilai ditentukan oleh pengguna. Dengan menggunakan Aspose.Slides for C++, pengembang dapat mengakses dan memodifikasi nilai properti built-in maupun properti custom. Microsoft PowerPoint 2007 memungkinkan mengelola properti dokumen file presentasi. Yang perlu Anda lakukan adalah mengklik ikon Office dan kemudian menu **Prepare | Properties | Advanced Properties** pada Microsoft PowerPoint 2007. Setelah Anda memilih item menu **Advanced Properties**, sebuah dialog muncul yang memungkinkan Anda mengelola properti dokumen file PowerPoint. Pada **Properties Dialog**, Anda dapat melihat banyak halaman tab seperti **General, Summary, Statistics, Contents, dan Custom**. Semua halaman tab ini memungkinkan konfigurasi berbagai jenis informasi terkait file PowerPoint. Tab **Custom** digunakan untuk mengelola properti custom file PowerPoint.
+Aspose.Slides untuk C++ menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
 
 ## **Baca Properti Publik dari Presentasi yang Dienkripsi**
 
-Password pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi dengan mengirim `false` ke [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), properti dokumennya tetap publik. Aplikasi kemudian dapat mengirim `true` ke [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) , dan membaca metadata publik tanpa memberikan password pembuka.
+Kata sandi pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi dengan memberikan `false` ke [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), properti dokumennya tetap publik. Aplikasi kemudian dapat memberikan `true` ke [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) dan membaca metadata publik tanpa menyediakan kata sandi pembuka.
 
-`set_OnlyLoadDocumentProperties` mengontrol apa yang dimuat oleh Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) mengontrol apa yang dimuat Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa kata sandi gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
 
-Contoh berikut memverifikasi mode pemuatan melalui [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) , dan kemudian membaca properti built-in melalui [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_documentproperties/) :
+Contoh ini memerlukan presentasi yang dienkripsi dimana properti dokumennya dibiarkan publik. Ia memverifikasi mode pemuatan melalui [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/), dan kemudian membaca properti bawaan melalui [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
 
 using namespace Aspose::Slides;
-using namespace System;
 
-auto loadOptions = MakeObject<LoadOptions>();
+auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
 
 if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    auto properties = presentation->get_DocumentProperties();
+    auto documentProperties = presentation->get_DocumentProperties();
 
-    Console::WriteLine(u"Author: " + properties->get_Author());
-    Console::WriteLine(u"Title: " + properties->get_Title());
-    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+    System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+    System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-presentation->Dispose();
 ```
 
-Dalam mode ini, konten slide tidak dimuat. Slide, master, layout, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa `get_IsOnlyDocumentPropertiesLoaded` sebelum melakukan operasi yang membutuhkan model objek presentasi lengkap.
+Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, bentuk, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
 
-{{% alert color="warning" title="Warning" %}}
-Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai custom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan publik hanya ketika sistem indeksasi, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
+{{% alert color="warning" title="Security" %}}
+Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan mereka publik hanya ketika proses pengindeksan, klasifikasi, pencarian, atau sistem manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa kata sandi.
 {{% /alert %}}
 
 ## **Perbarui Properti Presentasi yang Dienkripsi**
 
-Untuk file PPTX yang dienkripsi, presentasi yang dimuat setelah memanggil `set_OnlyLoadDocumentProperties(true)` dimaksudkan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang berubah dari objek yang hanya berisi metadata tersebut karena properti publik harus tetap konsisten dengan data yang bersesuaian di dalam presentasi yang dienkripsi. Oleh karena itu, memperbaruinya memerlukan password pembuka yang tepat dan pemuatan lengkap.
+Untuk file PPTX yang dienkripsi, presentasi yang dimuat dengan memberikan `true` ke [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek hanya-metadata tersebut karena properti publik harus tetap konsisten dengan data yang bersesuaian di dalam presentasi yang dienkripsi. Oleh karena itu memperbarui mereka memerlukan kata sandi pembuka yang benar dan pemuatan lengkap.
 
-Contoh berikut membuka presentasi dengan [LoadOptions::set_Password](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_password/), memperbarui properti built-in publik, dan menyimpan hasilnya. Kemudian menggunakan [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
+Contoh ini memerlukan presentasi PPTX yang dienkripsi dengan properti dokumen publik dan kata sandi pembuka yang diketahui. Ia membuka presentasi lengkap dengan [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian menggunakan [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa kata sandi untuk memverifikasi nilai baru:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IPresentationInfo.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
-#include <DOM/PresentationFactory.h>
-#include <Export/SaveFormat.h>
 #include <system/console.h>
-#include <system/string.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/PresentationFactory.h>
+#include <DOM/IPresentationInfo.h>
+#include <Export/SaveFormat.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-const String inputPath = u"public-properties-encrypted.pptx";
-const String outputPath = u"updated-public-properties-encrypted.pptx";
+const System::String inputPath = u"public-properties-encrypted.pptx";
+const System::String outputPath = u"updated-public-properties-encrypted.pptx";
 
-{
-    auto loadOptions = MakeObject<LoadOptions>();
-    loadOptions->set_Password(u"open_password");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
-    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
-    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
-    presentation->Save(outputPath, SaveFormat::Pptx);
-    presentation->Dispose();
-}
+auto presentation = System::MakeObject<Presentation>(inputPath, loadOptions);
+
+auto documentProperties = presentation->get_DocumentProperties();
+documentProperties->set_Title(u"Updated Product Roadmap");
+documentProperties->set_Keywords(u"roadmap, planning, indexed");
+
+presentation->Save(outputPath, SaveFormat::Pptx);
 
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
-Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+System::Console::WriteLine(u"The presentation is encrypted: {0}", presentationInfo->get_IsEncrypted());
 
-auto metadataLoadOptions = MakeObject<LoadOptions>();
+auto metadataLoadOptions = System::MakeObject<LoadOptions>();
 metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+auto metadataPresentation = System::MakeObject<Presentation>(outputPath, metadataLoadOptions);
 
 if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
-    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+    System::Console::WriteLine(u"Title: {0}", metadataPresentation->get_DocumentProperties()->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", metadataPresentation->get_DocumentProperties()->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-metadataPresentation->Dispose();
 ```
 
-Jika sebuah aplikasi tidak diizinkan untuk mendekripsi atau memuat konten presentasi, maka harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai read-only.
+Jika sebuah aplikasi tidak diizinkan untuk mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai read-only.
 
-## **Akses Properti Built-in**
+## **Akses Properti Bawaan**
 
-Properti-properti yang ditampilkan oleh objek **IDocumentProperties** meliputi: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Tanggal Pembuatan), **Modified** (Tanggal Modifikasi), **Printed** (Tanggal Cetak Terakhir), **LastModifiedBy**, **Keywords**, **SharedDoc** (Apakah dibagikan antar produsen?), **PresentationFormat**, **Subject**, dan **Title**
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
-
-## **Modifikasi Properti Built-in**
-
-Memodifikasi properti built-in dari file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti tersebut akan diubah. Pada contoh di bawah, kami menunjukkan cara memodifikasi properti dokumen built-in dari file presentasi.
-
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
-
-## **Tambahkan Properti Presentasi Custom**
-
-Aspose.Slides for C++ juga memungkinkan pengembang menambahkan nilai custom untuk properti Dokumen presentasi. Contoh di bawah menunjukkan cara mengatur properti custom untuk sebuah presentasi.
+Antarmuka [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) menampilkan metadata bawaan melalui getter yang bertipe, termasuk [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/), dan [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai tergantung pada presentasi masukan; beberapa bidang mungkin kosong.
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <system/object_ext.h>
-#include <system/string.h>
+#include <system/console.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System;
 
-// Membuat instance kelas Presentation
-auto presentation = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>(u"AccessBuiltInProperties.pptx");
 
-// Mendapatkan Properti Dokumen
 auto documentProperties = presentation->get_DocumentProperties();
 
-// Menambahkan properti Kustom
-documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
-documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
-documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
-
-// Mendapatkan nama properti pada indeks tertentu
-String getPropertyName = documentProperties->GetCustomPropertyName(2);
-
-// Menghapus properti yang dipilih
-documentProperties->RemoveCustomProperty(getPropertyName);
-
-// Menyimpan presentasi
-presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
+System::Console::WriteLine(u"Category: {0}", documentProperties->get_Category());
+System::Console::WriteLine(u"Content status: {0}", documentProperties->get_ContentStatus());
+System::Console::WriteLine(u"Creation date: {0}", documentProperties->get_CreatedTime());
+System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+System::Console::WriteLine(u"Comments: {0}", documentProperties->get_Comments());
+System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
+System::Console::WriteLine(u"Last modified by: {0}", documentProperties->get_LastSavedBy());
+System::Console::WriteLine(u"Manager: {0}", documentProperties->get_Manager());
+System::Console::WriteLine(u"Modified date: {0}", documentProperties->get_LastSavedTime());
+System::Console::WriteLine(u"Presentation format: {0}", documentProperties->get_PresentationFormat());
+System::Console::WriteLine(u"Last print date: {0}", documentProperties->get_LastPrinted());
+System::Console::WriteLine(u"Is shared between producers: {0}", documentProperties->get_SharedDoc());
+System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
+System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
 ```
 
-## **Akses dan Modifikasi Properti Custom**
+## **Ubah Properti Bawaan**
 
-Aspose.Slides for C++ juga memungkinkan pengembang mengakses nilai properti custom. Contoh di bawah menunjukkan cara Anda dapat mengakses dan memodifikasi semua properti custom untuk sebuah presentasi.
+Untuk memperbarui metadata bawaan, gunakan setter pada objek yang dikembalikan oleh [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Contoh ini membuka presentasi yang ada, memanggil [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/), dan [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/), lalu menyimpan presentasi yang diperbarui dengan [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). PPTX yang disimpan berisi metadata baru.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
-
-## **Atur Bahasa Proofing**
-
-Aspose.Slides menyediakan properti [LanguageId](https://reference.aspose.com/slides/id/cpp/aspose.slides/baseportionformat/set_languageid/) (ditampilkan oleh kelas [PortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/portionformat/) ) untuk memungkinkan Anda mengatur bahasa proofing untuk dokumen PowerPoint. Bahasa proofing adalah bahasa yang digunakan untuk memeriksa ejaan dan tata bahasa di PowerPoint.
-
-Kode C++ berikut menunjukkan cara mengatur bahasa proofing untuk PowerPoint:
-
-```c++
-#include <DOM/AutoShape.h>
-#include <DOM/Fonts/FontData.h>
-#include <DOM/IFontData.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortionCollection.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Portion.h>
+```cpp
+#include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
-using namespace Aspose::Slides;
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
-System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
-
-System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
-portions->Clear();
-
-System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
-
-System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
-System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
-portionFormat->set_ComplexScriptFont(font);
-portionFormat->set_EastAsianFont(font);
-portionFormat->set_LatinFont(font);
-
-portionFormat->set_LanguageId(u"zh-CN");
-// tetapkan Id bahasa proofing
-
-newPortion->set_Text(u"1。");
-portions->Add(newPortion);
-```
-
-## **Atur Bahasa Default**
-
-Kode C++ berikut menunjukkan cara mengatur bahasa default untuk seluruh presentasi PowerPoint:
-
-```c++
-#include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/LoadOptions.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <system/console.h>
+#include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_DefaultTextLanguage(u"en-US");
+auto presentation = System::MakeObject<Presentation>(u"ModifyBuiltInProperties.pptx");
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
 
-// Menambahkan bentuk persegi panjang baru dengan teks
-System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
-System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"New Text");
+documentProperties->set_Author(u"Aspose.Slides for C++");
+documentProperties->set_Title(u"Manage PowerPoint Presentation Properties");
+documentProperties->set_Subject(u"Modify Built-in Properties");
+documentProperties->set_Comments(u"Aspose description");
+documentProperties->set_Manager(u"Aspose manager");
 
-// Memeriksa bahasa bagian pertama
-System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
+presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
+```
+
+## **Kelola Basis Hyperlink**
+
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) membaca basis level dokumen untuk hyperlink relatif. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Itu terpisah dari [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/ ) pada hyperlink individual: mengubah basis tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
+
+Contoh ini memerlukan presentasi yang berisi baik tautan relatif, seperti `target.html`, maupun tautan absolut, seperti `https://example.org/absolute.html`. Ia membaca basis yang ada, menetapkan alamat basis baru dengan [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), dan menyimpan serta membuka kembali presentasi untuk memeriksa nilai tersebut. Kemudian ia mengosongkan basis dengan `u""` dan memverifikasi nilai kosong dalam file tersimpan terpisah. Ganti alamat basis contoh dengan lokasi file yang Anda tautkan.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+
+System::Console::WriteLine(u"Original base: {0}", presentation->get_DocumentProperties()->get_HyperlinkBase());
+
+const System::String newBase = u"https://example.com/new/";
+presentation->get_DocumentProperties()->set_HyperlinkBase(newBase);
+presentation->Save(u"hyperlinks-updated.pptx", SaveFormat::Pptx);
+
+auto updatedPresentation = System::MakeObject<Presentation>(u"hyperlinks-updated.pptx");
+System::Console::WriteLine(u"Base preserved: {0}", (updatedPresentation->get_DocumentProperties()->get_HyperlinkBase() == newBase));
+
+updatedPresentation->get_DocumentProperties()->set_HyperlinkBase(u"");
+updatedPresentation->Save(u"hyperlinks-cleared.pptx", SaveFormat::Pptx);
+
+auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared.pptx");
+System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
+```
+
+Dua pesan verifikasi harus mencetak `True`. Mengosongkan basis meninggalkan alamat hyperlink individual tetap utuh.
+
+Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika basis mengarah ke folder `old`. Setelah mengubah basis ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut terus membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan setelah memindahkan presentasi atau mengubah basenya.
+
+## **Tambahkan Properti Presentasi Kustom**
+
+Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang sesuai. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat sebuah presentasi, menambahkan dua nilai teks dan sebuah nilai versi integer, dan menyimpan presentasi dengan [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>();
+
+auto documentProperties = presentation->get_DocumentProperties();
+
+documentProperties->idx_set(u"Reviewed by", System::ObjectExt::Box<System::String>(u"John Smith"));
+documentProperties->idx_set(u"Confidentiality level", System::ObjectExt::Box<System::String>(u"Internal"));
+documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
+
+presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
+```
+
+## **Akses dan Ubah Properti Kustom**
+
+Contoh ini membuka presentasi yang berisi properti kustom dan menggunakan [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) untuk mengiterasi mereka. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) dan [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). Contoh mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan perubahan.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"AccessAndModifyProperties.pptx");
+
+auto documentProperties = presentation->get_DocumentProperties();
+
+for (auto i = 0; i < documentProperties->get_CountOfCustomProperties(); i++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(i);
+    auto propertyValue = documentProperties->idx_get(propertyName);
+
+    System::Console::WriteLine(u"Custom property name: {0}", propertyName);
+    System::Console::WriteLine(u"Custom property value: {0}", propertyValue);
+
+    documentProperties->idx_set(propertyName, System::ObjectExt::Box(System::String::Format(u"New Value {0}", i + 1)));
+}
+
+presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 ```
 
 ## **Contoh Langsung**
 
-Coba aplikasi online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/id/metadata) untuk melihat cara bekerja dengan properti dokumen melalui API Aspose.Slides:
+Coba aplikasi daring [**Lihat & Edit Metadata PowerPoint**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/id/metadata)
+[![Lihat & Edit Metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Bagaimana saya dapat menghapus properti built-in dari sebuah presentasi?**
+**Bagaimana cara menghapus properti bawaan dari sebuah presentasi?**
 
-Properti built-in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika diperbolehkan oleh properti tersebut.
+Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tertentu mengizinkannya.
 
-**Apa yang terjadi jika saya menambahkan properti custom yang sudah ada?**
+**Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
 
-Jika Anda menambahkan properti custom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
+Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
-**Apakah saya dapat mengakses properti presentasi tanpa memuat seluruh presentasi?**
+**Bisakah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya. Gunakan [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) dan kemudian [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/cpp/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
+Ya. Gunakan [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) dan kemudian [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Lihat [Build a Lightweight Presentation Inventory](/slides/id/cpp/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
 
-**Apakah saya dapat membaca properti publik dari presentasi yang dienkripsi tanpa password pembukanya?**
+**Bisakah saya membaca properti publik dari presentasi yang dienkripsi tanpa kata sandi pembukanya?**
 
-Ya. Presentasi harus telah dienkripsi dengan mengirim `false` ke `set_EncryptDocumentProperties`, dan harus dimuat dengan mengirim `true` ke `set_OnlyLoadDocumentProperties`.
+Ya. Presentasi harus dienkripsi dengan memberikan `false` ke [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), dan harus dimuat dengan memberikan `true` ke [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
 
-**Apakah saya dapat memperbarui file PPTX yang dienkripsi dalam mode hanya properti dokumen?**
+**Bisakah saya memperbarui file PPTX yang dienkripsi dalam mode hanya-properti-dokumen?**
 
-Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan lengkap presentasi dengan password pembuka yang benar.
+Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan seluruh presentasi dengan kata sandi pembuka yang tepat.

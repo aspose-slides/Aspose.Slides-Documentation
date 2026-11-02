@@ -1,50 +1,52 @@
 ---
-title: จัดการ Hyperlink ของงานนำเสนอใน .NET
-linktitle: จัดการ Hyperlink
+title: จัดการไฮเปอร์ลิงก์ในการนำเสนอใน .NET
+linktitle: จัดการไฮเปอร์ลิงก์
 type: docs
 weight: 20
 url: /th/net/manage-hyperlinks/
 keywords:
 - เพิ่ม URL
-- เพิ่ม Hyperlink
-- สร้าง Hyperlink
-- รูปแบบ Hyperlink
-- ลบ Hyperlink
-- ปรับปรุง Hyperlink
-- Hyperlink ข้อความ
-- Hyperlink สไลด์
-- Hyperlink รูปร่าง
-- Hyperlink รูปภาพ
-- Hyperlink วิดีโอ
-- Hyperlink ที่ปรับเปลี่ยนได้
+- เพิ่มไฮเปอร์ลิงก์
+- สร้างไฮเปอร์ลิงก์
+- จัดรูปแบบไฮเปอร์ลิงก์
+- ลบไฮเปอร์ลิงก์
+- อัปเดตไฮเปอร์ลิงก์
+- ไฮเปอร์ลิงก์ข้อความ
+- ไฮเปอร์ลิงก์สไลด์
+- ไฮเปอร์ลิงก์รูปร่าง
+- ไฮเปอร์ลิงก์รูปภาพ
+- ไฮเปอร์ลิงก์วิดีโอ
+- ไฮเปอร์ลิงก์ที่เปลี่ยนแปลงได้
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เพิ่ม, กำหนดรูปแบบ, ปรับปรุง, และลบ Hyperlink ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET, ใช้ตัวอย่าง C#."
+description: "เพิ่ม, จัดรูปแบบ, อัปเดต และลบไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET โดยใช้ตัวอย่าง C#."
 ---
-## **บทนำ**
+## **คำนำ**
 
-Hyperlink เชื่อมต่อเนื้อหาในงานนำเสนอไปยังเว็บไซต์หรือสถานที่ภายในงานนำเสนอเอง ใน PowerPoint Hyperlink มักใช้เพื่อสองวัตถุประสงค์หลัก:
+ไฮเปอร์ลิงก์เชื่อมโยงเนื้อหาการนำเสนอไปยังเว็บไซต์หรือตำแหน่งภายในงานนำเสนอ ใน PowerPoint ไฮเปอร์ลิงก์มักทำหน้าที่สองอย่าง:
 
-* เปิดเว็บไซต์จากข้อความ, รูปร่าง, หรือกรอบสื่อ
-* นำทางไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ
+* เปิดเว็บไซต์จากข้อความ, รูปร่าง, หรือเฟรมสื่อ
+* ไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ
 
-Aspose.Slides for .NET ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมลักษณะและเสียง, ปรับปรุงคุณสมบัติ, และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับ Hyperlink บนองค์ประกอบแต่ละตัวและวิธีเข้าถึง Hyperlink ระดับงานนำเสนอ, สไลด์, หรือกรอบข้อความ
+Aspose.Slides for .NET ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมลักษณะและเสียง, อัปเดตคุณสมบัติ, และลบออก ตัวอย่างด้านล่างแสดงวิธีการทำงานกับไฮเปอร์ลิงก์บนองค์ประกอบแต่ละอันและวิธีเข้าถึงไฮเปอร์ลิงก์ในระดับงานนำเสนอ, สไลด์, หรือ Text-Frame
 
-{{% alert color="info" title="หมายเหตุ" %}}
-คุณสามารถแก้ไขงานนำเสนอได้ด้วย [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/th/editor)
+{{% alert color="info" title="Note" %}}
+คุณยังสามารถแก้ไขงานนำเสนอด้วย [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/editor) .
 {{% /alert %}} 
 
-## **เพิ่ม Hyperlink URL**
+## **เพิ่มไฮเปอร์ลิงก์ URL**
 
-คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง, หรือกรอบสื่อได้ พื้นที่ที่คลิกได้จะถูกกำหนดโดยองค์ประกอบที่คุณกำหนด Hyperlink: ส่วนของข้อความเชื่อมต่อกับข้อความที่เลือก, ขณะที่รูปร่างหรือกรอบเชื่อมต่อกับออบเจ็กต์สไลด์
+คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง, หรือเฟรมสื่อ องค์ประกอบที่คุณกำหนดไฮเปอร์ลิงก์จะเป็นตัวกำหนดพื้นที่ที่คลิกได้: ส่วนของข้อความลิงก์กับข้อความที่เลือก, ส่วนของรูปร่างหรือเฟรมลิงกกับวัตถุสไลด์
 
-### **เพิ่ม Hyperlink URL ให้กับข้อความ**
+สำหรับงานนำเสนอที่มีไฮเปอร์ลิงก์แบบ relative, ดูที่ [จัดการฐานของไฮเปอร์ลิงก์](/slides/th/net/presentation-properties/#manage-the-hyperlink-base) เพื่ออ่าน, เปลี่ยน, หรือเคลียร์ฐานระดับเอกสาร
 
-เพื่อเชื่อมข้อความกับเว็บไซต์, ให้กำหนด [Hyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlink/) ให้กับคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/portionformat/hyperlinkclick/) ของส่วนข้อความ, ตามตัวอย่างด้านล่าง ส่วนข้อความนั้นจะกลายเป็นคลิกได้เท่านั้น
+### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับข้อความ**
+
+เพื่อเชื่อมข้อความไปยังเว็บไซต์, กำหนด [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) ให้กับคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) ของส่วนข้อความ ตามตัวอย่างด้านล่าง ส่วนของข้อความนั้นจะกลายเป็นคลิกได้เท่านั้น
 
 ```csharp
 using Aspose.Slides;
@@ -62,13 +64,13 @@ portionFormat.FontHeight = 32;
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **เพิ่ม Hyperlink URL ให้กับรูปร่างและกรอบสื่อ**
+### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับรูปร่างและเฟรมสื่อ**
 
-เพื่อทำให้รูปร่างหรือกรอบคลิกได้, ให้ตั้งค่าคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/shape/hyperlinkclick/) ของมัน Hyperlink จะเป็นของออบเจ็กต์เอง ไม่ใช่ของส่วนข้อความภายใน
+เพื่อทำให้รูปร่างหรือเฟรมคลิกได้, ตั้งค่าคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/) ของมัน ไฮเปอร์ลิงก์จะเป็นของวัตถุเอง ไม่ใช่ของส่วนข้อความภายใน
 
-แนวทางเดียวกันใช้กับกรอบรูป, เสียง, และวิดีโอ: กำหนด Hyperlink ให้กับกรอบและตั้งค่า [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) ของลิงก์หากต้องการ
+วิธีเดียวกันใช้กับเฟรมรูปภาพ, เสียง, และวิดีโอ: กำหนดไฮเปอร์ลิงก์ให้กับเฟรมและตั้งค่า [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) หากต้องการ
 
-ตัวอย่างต่อไปทำให้สี่เหลี่ยมคลิกได้:
+ตัวอย่างต่อไปนี้ทำให้สี่เหลี่ยมคลิกได้:
 
 ```csharp
 using Aspose.Slides;
@@ -84,9 +86,9 @@ shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-## **ใช้ Hyperlink สร้างสารบัญ**
+## **ใช้ไฮเปอร์ลิงก์เพื่อสร้างสารบัญ**
 
-Hyperlink ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปใช้ [SetInternalHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) เพื่อเชื่อมข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
+ไฮเปอร์ลิงก์ภายในช่วยให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปนี้ใช้ [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) เพื่อลิงก์ข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
 
 ```csharp
 using System.Drawing;
@@ -118,13 +120,13 @@ tableOfContents.TextFrame.Paragraphs.Add(paragraph);
 presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 ```
 
-## **จัดรูปแบบ Hyperlink**
+## **รูปแบบไฮเปอร์ลิงก์**
 
 ### **สี**
 
-คุณสมบัติ [ColorSource](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/colorsource/) ของ [IHyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/) กำหนดว่า Hyperlink จะใช้สี Hyperlink ของงานนำเสนอหรือการจัดรูปแบบของส่วนข้อความหรือไม่ เพื่อกำหนดสีข้อความแบบกำหนดเอง, เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เริ่มต้นใน PowerPoint 2019; เวอร์ชันก่อนหน้าจะไม่ใช้การตั้งค่านี้
+คุณสมบัติ [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) ของ [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของงานนำเสนอหรือการจัดรูปแบบของส่วนข้อความหรือไม่ เพื่อใช้สีข้อความที่กำหนดเองให้เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เริ่มต้นตั้งแต่ PowerPoint 2019; รุ่นเก่าจะไม่ใช้การตั้งค่านี้
 
-ตัวอย่างต่อไปเพิ่ม Hyperlink ข้อความสองลิงก์ในสไลด์เดียว ลิงก์แรกใช้สีเติมข้อความสีแดง, ส่วนลิงก์ที่สองใช้สี Hyperlink เริ่มต้น
+ตัวอย่างต่อไปนี้เพิ่มไฮเปอร์ลิงก์ข้อความสองอันลงบนสไลด์เดียว อันแรกใช้สีเติมข้อความสีแดง, ส่วนอันที่สองใช้สีไฮเปอร์ลิงก์เริ่มต้น
 
 ```csharp
 using System.Drawing;
@@ -149,14 +151,14 @@ presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 ```
 ### **เสียง**
 
-Hyperlink สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้คุณสมบัติดังต่อไปนี้เพื่อกำหนดพฤติกรรม:
+ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้คุณสมบัติดังต่อไปนี้เพื่อกำหนดพฤติกรรมเหล่านั้น:
 
-- [IHyperlink.Sound](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/sound/) ระบุไฟล์เสียงที่เชื่อมกับ Hyperlink
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/stopsoundonclick/) ควบคุมว่าการคลิก Hyperlink จะหยุดเสียงก่อนหน้าหรือไม่
+- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) ระบุไฟล์เสียงที่เชื่อมกับไฮเปอร์ลิงก์
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) ควบคุมว่าการเปิดใช้งานไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
 
-#### **เพิ่มเสียงให้ Hyperlink**
+#### **เพิ่มเสียงไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปโหลด `sampleaudio.wav` และเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและนำทางไปยังสไลด์ถัดไป รูปแบบที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่ทำการนำทาง
+ตัวอย่างต่อไปนี้โหลด `sampleaudio.wav` และเชื่อมโยงกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและไปยังสไลด์ถัดไป รูปร่างที่สองบนสไลด์นั้นจะหยุดเสียงก่อนหน้าเมื่อคลิก, โดยไม่ทำการนำทางใดๆ
 
 ```csharp
 using System.IO;
@@ -188,9 +190,9 @@ stopButton.HyperlinkClick.StopSoundOnClick = true;
 presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 ```
 
-#### **ดึงข้อความเสียงจาก Hyperlink**
+#### **ดึงเสียงไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปเปิดงานนำเสนอที่สร้างไว้ข้างต้นและอ่านเสียง Hyperlink ของรูปร่างแรกเข้าสู่หน่วยความจำโดยใช้ [Sound](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/sound/) และ [BinaryData](https://reference.aspose.com/slides/th/net/aspose.slides/iaudio/binarydata/)
+ตัวอย่างต่อไปนี้เปิดงานนำเสนอที่สร้างไว้ข้างต้นและอ่านเสียงไฮเปอร์ลิงก์ของรูปร่างแรกเข้าสู่หน่วยความจำผ่าน [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) และ [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/)
 
 ```csharp
 using System;
@@ -218,18 +220,18 @@ else
 }
 ```
 
-### **Tooltip และการตั้งค่าการโต้ตอบ**
+### **การตั้งค่า Tooltip และการโต้ตอบ**
 
-คุณสามารถอัปเดตคุณสมบัติเบื้องต้นของ [IHyperlink](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/) หลังจากกำหนด Hyperlink ให้กับข้อความหรือรูปร่าง:
+คุณสามารถอัปเดตคุณสมบัติของ [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) ต่อไปนี้หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง:
 
-- [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) ตั้งข้อความที่ผู้ดูสามารถแสดงเป็นคำแนะนำสำหรับลิงก์
-- [TargetFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/targetframe/) ระบุเฟรมเป้าหมายภายในชุดเฟรม HTML ของพาเรนต์ (หากมี)
-- [History](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/history/) ควบคุมว่าการเปิดลิงก์จะเพิ่มเป้าหมายลงในรายการ Hyperlink ที่ดูแล้วหรือไม่
-- [HighlightClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/highlightclick/) ควบคุมว่าลิงก์จะไฮไลต์เมื่อคลิกหรือไม่
+- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) กำหนดข้อความที่ผู้ชมสามารถแสดงเป็นคำแนะนำสำหรับลิงก์
+- [TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetframe/) ระบุเฟรมเป้าหมายภายในชุดเฟรม HTML ของพาเรนต์ เมื่อมีการใช้งาน
+- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) ควบคุมว่าการเปิดใช้งานลิงก์จะเพิ่มปลายทางลงในรายการไฮเปอร์ลิงก์ที่เคยดูหรือไม่
+- [HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/highlightclick/) ควบคุมว่าฮไฮเปอร์ลิงก์จะถูกไฮไลท์เมื่อคลิกหรือไม่
 
-## **ลบ Hyperlink ออกจากงานนำเสนอ**
+## **ลบไฮเปอร์ลิงก์จากงานนำเสนอ**
 
-ใช้ [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) เพื่อรวบรวมคอนเทนเนอร์ของ Hyperlink, รวมถึงลิงก์ส่วนข้อความ, ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบประเภทการเปิดใช้งานทั้งสองจากสไลด์แรก หากต้องการลบประเภทเดียวให้เรียกเฉพาะ [RemoveHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) หรือ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); การลบการคลิกจะไม่ลบการเม้าส์โอเวอร์ที่สอดคล้อง
+ใช้ [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) เพื่อรวบรวมคอนเทนเนอร์ของไฮเปอร์ลิงก์, รวมถึงลิงก์ส่วนข้อความ, ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปนี้ลบทั้งสองประเภทการเปิดใช้งานจากสไลด์แรก หากต้องการลบเพียงประเภทเดียวให้เรียกใช้เฉพาะ [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) หรือ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) ; การลบการคลิกจะไม่ลบการเลื่อนเมาส์ที่สอดคล้องกัน
 
 ```csharp
 using System;
@@ -255,23 +257,23 @@ else
 }
 ```
 
-สำหรับการลบแบบไม่มีเงื่อนไข, [RemoveAllHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) จะลบทั้งสองประเภทในขอบเขตที่เลือกในครั้งเดียว สำหรับการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลย์เอาต์, และโน๊ต, ดูหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+สำหรับการลบโดยไม่มีเงื่อนไข, [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) จะลบทั้งสองประเภทการเปิดใช้งานในสโคปที่เลือกพร้อมกัน ในการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลย์เอาต์, และโน๊ต, ดูที่ [รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks)
 
-## **สร้างรายการตรวจสอบ Hyperlink อย่างสมบูรณ์**
+## **สร้างรายการไฮเปอร์ลิงก์ที่ครบถ้วน**
 
-ก่อนแจกจ่ายงานนำเสนอ, ควรทำรายการตรวจสอบการกระทำเชิงโต้ตอบและลิงก์เว็บของมัน [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) คืนค่าอ็อบเจ็กต์ [IHyperlinkContainer](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/) ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [HyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) และ [HyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) ในแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันอาจเปิดเผยการกระทำทั้งสอง, ดังนั้นรายงานที่สมบูรณ์อาจต้องมีสองแถวต่อคอนเทนเนอร์
+ก่อนจัดจำหน่ายงานนำเสนอ ให้ทำรายการการกระทำแบบโต้ตอบและลิงก์เว็บของมัน [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) จะคืนอ็อบเจ็กต์ [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/) ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) และ [HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) ในแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันสามารถเปิดเผยทั้งสองการกระทำได้, ดังนั้นรายงานที่ครบถ้วนจึงอาจต้องมีสองแถวต่อคอนเทนเนอร์
 
-การตรวจสอบเฉพาะระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สอบถามในขอบเขตที่เหมาะสมแทนและเก็บคอนเทนเนอร์ที่ได้เพื่อให้สามารถอัปเดตหรือถอนการกระทำในภายหลังได้
+การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สอบถามสโคปที่เหมาะสมแทน, และเก็บคอนเทนเนอร์ที่คืนค่ามาเพื่อให้คุณสามารถอัปเดตหรือลบการกระทำของมันในภายหลังได้
 
-### **สอบถามขอบเขต Presentation, Slide, และ Text‑Frame**
+### **สอบถามสโคปของการนำเสนอ, สไลด์, และ Text-Frame**
 
-อินเทอร์เฟซ [IHyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/) มีให้ผ่าน [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/hyperlinkqueries/), และ [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/hyperlinkqueries/). แต่ละขอบเขตสนับสนุนคำถามเดียวกัน:
+อินเทอร์เฟซ [IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) สามารถเข้าถึงได้ผ่าน [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/), และ [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/). แต่ละสโคปสนับสนุนการสอบถามเดียวกัน:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) คืนคอนเทนเนอร์ที่มีการกระทำคลิก
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) คืนคอนเทนเนอร์ที่มีการกระทำเม้าส์โอเวอร์
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) คืนคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งหรือทั้งสอง
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) คืนคอนเทนเนอร์ที่มีการกระทำคลิก
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) คืนคอนเทนเนอร์ที่มีการกระทำเลื่อนเมาส์
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) คืนคอนเทนเนอร์ที่มีหนึ่งหรือทั้งสองการกระทำ
 
-ตัวอย่างต่อไปสร้าง `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์เม้าส์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เม้าส์โอเวอร์ข้อความ, และการกระทำแมโคร ตัวอย่างนี้ไม่ได้เรียกใช้การกระทำใดๆ คำถามสามประเภททำงานที่ทุกขอบเขต; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำรวม ขอบเขต Text‑Frame จะละเว้นลิงก์ของรูปร่างที่หุ้มเอง
+ตัวอย่างต่อไปนี้สร้าง `hyperlink-audit-input.pptx` ด้วยลิงก์คลิกภายนอก, ลิงก์เลื่อนเมาส์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เลื่อนเมาส์ข้อความ, และการกระทำมาร์โคร ซึ่งไม่ทำการเรียกใช้การกระทำใดเลย การสอบถามทั้งสามทำงานที่ทุกสโคป; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์, ไม่ใช่จำนวนการกระทำ การสอบถาม Text-Frame จะยกเว้นลิงก์ของรูปร่างที่บรรจุอยู่
 
 ```csharp
 using System;
@@ -307,37 +309,37 @@ static void PrintCounts(string scope, IHyperlinkQueries queries)
 }
 ```
 
-ในตัวอย่างนี้, คำถามระดับ Presentation และ Slide แต่ละอันรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เม้าส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งสามรายการ ขอบเขต Text‑Frame รายงานคอนเทนเนอร์หนึ่งรายการในแต่ละหมวด
+สำหรับตัวอย่างนี้, การสอบถามการนำเสนอและสไลด์แต่ละอันรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เลื่อนเมาส์สองรายการ, และคอนเทนเนอร์ที่มีหนึ่งหรือทั้งสองการกระทำสามรายการ. การสอบถาม Text-Frame รายงานคอนเทนเนอร์หนึ่งรายการในแต่ละหมวด
 
-### **จำแนกการกระทำและปลายทาง**
+### **จำแนกการทำงานและปลายทาง**
 
-ใช้ [IHyperlink.ActionType](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/actiontype/) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทาง ค่า [HyperlinkActionType](https://reference.aspose.com/slides/th/net/aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
+ใช้ [IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทางค่าของ [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
 
-| Values | ความหมายสำหรับการตรวจสอบ |
+| ค่า | ความหมายสำหรับการตรวจสอบ |
 | --- | --- |
-| `Hyperlink` | Hyperlink ภายนอก; ตรวจสอบ URL และ scheme |
+| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสคีมของมัน |
 | `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ที่มีมาในตัว, แก้ไขตามบริบทของการแสดง |
-| `JumpEndShow`, `StartCustomSlideShow` | จบการแสดงปัจจุบันหรือเริ่มการแสดงที่กำหนดเอง |
-| `StartMacro` | เรียกใช้งานแมโคร |
-| `StartProgram` | เริ่มโปรแกรม |
-| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; แยกตรวจสอบจาก URL เว็บ |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ในตัว, แก้ไขในบริบทของสไลด์โชว์ |
+| `JumpEndShow`, `StartCustomSlideShow` | จบการแสดงปัจจุบันหรือเริ่มการแสดงแบบกำหนดเอง |
+| `StartMacro` | เรียกใช้มาร์โคร |
+| `StartProgram` | เปิดโปรแกรม |
+| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; ตรวจสอบแยกจาก URL เว็บ |
 | `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ |
-| `NoAction`, `Unknown` | ไม่มีการนำทางหรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
+| `NoAction`, `Unknown` | ไม่มีการนำทาง, หรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
 
-อ่านปลายทางภายนอกจาก [ExternalUrl](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/externalurl/) และปลายทางภายในเฉพาะจาก [TargetSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/targetslide/). การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ เก็บ [ExternalUrlOriginal](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/externalurloriginal/) ไว้เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐาน และรวม [Tooltip](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlink/tooltip/) เมื่อมี
+อ่านปลายทางภายนอกจาก [ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) และปลายทางภายในเฉพาะจาก [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/). การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ ให้เก็บ [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) เมื่อต่างจาก URL ที่ทำให้เป็นมาตรฐาน, และรวม [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) เมือมี
 
-### **รายงาน, ทำความสะอาด, และตรวจสอบ Hyperlink**
+### **รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์**
 
-ตัวอย่าง .NET 6+ ต่อไปนี้อ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างข้างต้น), เขียนไฟล์ `hyperlink-audit.json`, ใช้นโยบาย, บันทึกเป็น `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อเช็กการกระทำทั้งสองประเภทอีกครั้ง มันรวบรวมคอนเทนเนอร์ก่อนเปลี่ยนและใช้การเปรียบเทียบอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันซ้ำ คำถาม Presentation ครอบคลุมสไลด์ทั่วไป; สำหรับรายการตรวจสอบทั่วแพ็กเกจ จะสอบถามมาสเตอร์, เลย์เอาต์, โน๊ต, และมาสเตอร์โน๊ตและใบแจกเมื่อมี
+ตัวอย่าง .NET 6+ ต่อไปนี้อ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างข้างต้น), เขียน `hyperlink-audit.json`, ใช้นโยบาย, บันทึก `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อตรวจสอบทั้งสองประเภทการเปิดใช้งานอีกครั้ง จะรวบรวมคอนเทนเนอร์ก่อนทำการเปลี่ยนแปลงและใช้การเทียบอัตลักษณ์เพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวซ้ำซ้อน การสอบถามงานนำเสนอครอบคลุมสไลด์ปกติ; สำหรับรายการระดับแพ็คเกจจะสอบถามมาสเตอร์, เลย์เอาต์, โน๊ต, และมาสเตอร์โน๊ตและแฮนด์เอาต์เมื่อตัวมี
 
-รายงานบันทึกดัชนีสไลด์ที่เริ่มจาก 1 และ [SlideId](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/slideid/) เมื่อมีให้ [ISlideComponent.Slide](https://reference.aspose.com/slides/th/net/aspose.slides/islidecomponent/slide/) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลย์เอาต์, และโน๊ตไม่มีดัชนีสไลด์ปกติและจะระบุด้วยขอบเขตของตนเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์การจัดรูปแบบส่วนข้อความจะมีป้ายชื่อแยกกัน; ประเภทคอนเทนเนอร์อื่นจะคงชื่อชนิดรันไทม์ของตน แต่ละคอนเทนเนอร์จะได้รับ ID ในรายงานเพื่อให้การกระทำสองอย่างสามารถเชื่อมโยงกันได้
+รายงานบันทึกดัชนีสไลด์โดยเริ่มจาก 1 และ [SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) เมื่อมีอยู่ [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลย์เอาต์, และโน๊ตไม่มีดัชนีสไลด์ปกติและจะระบุด้วยสโคปของตนเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์การจัดรูปแบบส่วนข้อความจะถูกตั้งชื่อแยกกัน; ประเภทคอนเทนเนอร์อื่นจะคงชื่อประเภทรันไทม์ของมัน แต่ละคอนเทนเนอร์จะได้รับ ID รายงานภายในเพื่อให้สามารถเชื่อมโยงการกระทำสองอย่างได้
 
-นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบเต็มและเป้าหมายสไลด์ภายในที่ถูกต้อง มันปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น ๆ, การกระทำที่ไม่รู้จัก, และสกีม URL อื่น การปฏิเสธเหล่านี้เป็นการตัดสินใจของนโยบาย ไม่ใช่ข้อสรุปด้านความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่รับประกันความน่าเชื่อถือ: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างนี้ตรวจสอบเมตาดาต้าโดยไม่ตามลิงก์หรือเรียกการกระทำ
+นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบ absolute และเป้าหมายสไลด์ภายในที่ถูกต้อง มันจะปฏิเสธมาร์โคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น, การกระทำที่ไม่รู้จัก, และสคีม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจตามนโยบาย, ไม่ใช่ข้อสรุปด้านความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่ได้สร้างความเชื่อถือ: เพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างตรวจสอบเมทาดาต้าโดยไม่ตามลิงก์หรือเรียกการกระทำ
 
-สำหรับการแก้ไข, [HyperlinkManager](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) ของคอนเทนเนอร์สนับสนุน [SetExternalHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), และ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). ที่นี่ ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้าแลนดิ้ง HTTPS คงที่; การคลิกที่ไม่ได้รับอนุญาตและการเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อเอาออกทั้งหมดแทนเลือกหน้าที่แทนที่ที่เป็นของแอปก่อนปรับใช้
+สำหรับการแก้ไข, [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) ของคอนเทนเนอร์รองรับ [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), และ [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). ที่นี่, ลิงก์คลิกภายนอกที่ห้ามจะถูกแทนที่ด้วยหน้า Landing Page HTTPS คงที่; คลิกห้ามอื่นและการกระทำเมื่อนำเมาส์ที่ห้ามจะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อเพิ่มการลบการละเมิดทั้งหมด เลือกหน้าทดแทนที่เป็นของแอปก่อนการเผยแพร่
 
-ค่าสถานะส่งออกของรายงานใช้แนวนโยบายการตรวจสอบ PDF อย่างระมัดระวัง: ทำเครื่องหมายการกระทำเม้าส์โอเวอร์และสิ่งใดที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ เป็นเพียงคำแนะนำการตรวจสอบ ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ทำเครื่องหมายจะคงอยู่ในการส่งออก การส่งออก PDF และ HTML ที่รองรับอาจคง Hyperlink ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และโปรแกรมดูภาพ Raster เช่น [images](/slides/th/net/convert-powerpoint-to-png/) และ [video](/slides/th/net/convert-powerpoint-to-video/) ไม่สามารถคง Hyperlink เชิงโต้ตอบได้; ทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบสำหรับเอาต์พุตเหล่านั้น
+แฟล็กการส่งออกของรายงานใช้แนวนโยบายการตรวจสอบ PDF ที่ระมัดระวัง: ทำแฟล็กการกระทำเมื่อนำเมาส์และสิ่งอื่นใดที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะเป็นการอาจไม่สนับสนุน นี่เป็นคำแนะนำการตรวจสอบ, ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้แฟล็กจะยังคงอยู่ในการส่งออก การส่งออก PDF [PDF](/slides/th/net/convert-powerpoint-to-pdf/) และ HTML [HTML](/slides/th/net/convert-powerpoint-to-html/) ที่สนับสนุนอาจรักษาไฮเปอร์ลิงก์ไว้, ขึ้นกับการกระทำ, ตัวเลือกการส่งออก, และผู้ดูภาพ Raster [images](/slides/th/net/convert-powerpoint-to-png/) และ [video](/slides/th/net/convert-powerpoint-to-video/) ไม่สามารถรักษาไฮเปอร์ลิงก์แบบโต้ตอบ; ควรทำแฟล็กทุกการกระทำเมื่อตรวจสอบสำหรับเอาต์พุตเหล่านั้น
 
 ```csharp
 using System;
@@ -476,20 +478,20 @@ static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
 }
 ```
 
-ด้วยอินพุตที่สร้างไว้ข้างต้น รายงานประกอบด้วยแถวการกระทำห้าแถว ลิงก์เม้าส์โอเวอร์ไฟล์และแมโครคลิกจะถูกลบ, ในขณะที่ลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบพิมพ์จำนวนการกระทำที่ผิดกฎเป็นศูนย์ อินพุตที่มี URL คลิกภายนอกที่ผิดกฎยังแสดงสาขาการแทนที่ คอนเทนเนอร์ที่มีคลิกที่อนุญาตและเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตจะคงคลิกไว้
+ด้วยอินพุตที่สร้างข้างต้น, รายงานมีห้าแถวการกระทำ ลิงก์เมื่อนำเมาส์ไฟล์และคลิกมาร์โครถูกลบ, ส่วนลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบพิมพ์การกระทำห้ามเป็นศูนย์ อินพุตที่มี URL คลิกภายนอกห้ามก็จะทดสอบเส้นทางการแทนที่ คอนเทนเนอร์ที่มีคลิกที่อนุญาตและเมื่อนำเมาส์ที่ห้ามจะเก็บคลิกไว้
 
-การทำความสะอาดแบบเลือกนี้แตกต่างจาก [RemoveAllHyperlinks](https://reference.aspose.com/slides/th/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) ซึ่งลบการกระทำทั้งสองประเภทในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบเพียงการกระทำของ Hyperlink; ไม่ได้ลบ VBA ฝัง, OLE object, หรือเนื้อหาเชิงโต้ตอบอื่น ๆ, และไม่ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
+การทำความสะอาดแบบเลือกนี้แตกต่างจาก [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) ที่ลบทั้งสองประเภทการเปิดใช้งานในสโคปที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบเฉพาะการกระทำของไฮเปอร์ลิงก์; ไม่ได้ลบโครงการ VBA ที่ฝังอยู่, วัตถุ OLE, หรือเนื้อหาแอ็คทีฟอื่น ๆ, และไม่ได้ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
 **ฉันจะลิงก์ไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
 
-ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ Hyperlink ภายในจะชี้ไปยังสไลด์เดียว การสร้างการนำทางไปยังส่วนให้ลิงก์ไปยังสไลด์แรกของส่วนนั้น
+ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ไฮเปอร์ลิงก์ภายในจะชี้ไปยังสไลด์แต่ละรายการ เพื่อสร้างการนำทางไปยังส่วน, ให้ลิงก์ไปยังสไลด์แรกของส่วนนั้น
 
-**ฉันสามารถแนบ Hyperlink ให้กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้ไหม?**
+**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบของสไลด์แม่เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
 
-ได้ ด้านมาสเตอร์สไลด์และเลย์เอาต์รองรับ Hyperlink ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานในระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์นั้น
+ได้. องค์ประกอบของสไลด์แม่และเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์ที่สอดคล้องกัน
 
-**Hyperlink จะคงอยู่หรือไม่เมื่อส่งออกเป็น PDF, HTML, ภาพ หรือวิดีโอ?**
+**ไฮเปอร์ลิงก์จะถูกเก็บไว้เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
 
-การส่งออก PDF และ HTML ที่รองรับอาจคง Hyperlink ไว้; ภาพเรสเตอร์และวิดีโอไม่สามารถคง Hyperlink เชิงโต้ตอบได้ ดูข้อพิจารณาการส่งออกในหัวข้อ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+การส่งออก PDF และ HTML ที่สนับสนุนอาจรักษาไฮเปอร์ลิงก์ไว้; รูปภาพแรสเตอร์และวิดีโอไม่สามารถทำเช่นนั้นได้ ดูคำแนะนำการส่งออกใน [รายงาน, ทำความสะอาด, และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks) .

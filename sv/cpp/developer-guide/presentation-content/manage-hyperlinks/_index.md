@@ -12,11 +12,11 @@ keywords:
 - ta bort hyperlänk
 - uppdatera hyperlänk
 - texthyperlänk
-- bildspelshyperlänk
+- bildhyperlänk
 - formhyperlänk
 - bildhyperlänk
 - videohyperlänk
-- modifierbar hyperlänk
+- föränderlig hyperlänk
 - PowerPoint
 - OpenDocument
 - presentation
@@ -28,22 +28,24 @@ description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerP
 
 En hyperlänk kopplar presentationsinnehåll till en webbplats eller en plats inom presentationen. I PowerPoint används hyperlänkar vanligtvis för två ändamål:
 
-* Öppna en webbplats från text, en form eller en mediaruta.
-* Navigera till en annan bild, till exempel från ett innehållsförteckning.
+* Öppna en webbplats från text, en form eller en mediaram.
+* Navigera till en annan bild, till exempel från en innehållsförteckning.
 
-Aspose.Slides för C++ låter dig lägga till dessa länkar, styra deras utseende och ljud, uppdatera deras inställningar och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller textrutornivå.
+Aspose.Slides för C++ låter dig lägga till dessa länkar, kontrollera deras utseende och ljud, uppdatera deras inställningar och ta bort dem. Exemplen nedan visar hur man arbetar med hyperlänkar på enskilda element och hur man får åtkomst till hyperlänkar på presentations-, bild- eller textram‑nivå.
 
-{{% alert color="info" title="Obs" %}}
-Du kan även redigera presentationer med den [gratis online Aspose PowerPoint‑redigeraren](https://products.aspose.app/slides/sv/editor).
+{{% alert color="info" title="Note" %}}
+Du kan också redigera presentationer med den [gratis online Aspose PowerPoint‑redigeraren](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
 ## **Lägg till URL‑hyperlänkar**
 
-Du kan tilldela en webb‑URL till text, en form eller en mediaruta. Det element du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ruta länkar bildobjektet.
+Du kan tilldela en webbplats‑URL till text, en form eller en mediaram. Det element som du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ram länkar bildobjektet.
+
+För presentationer som innehåller relativa hyperlänkar, se [Hantera hyperlänkbasen](/slides/sv/cpp/presentation-properties/#manage-the-hyperlink-base) för att läsa, ändra eller rensa dokumentnivåbasen.
 
 ### **Lägg till URL‑hyperlänkar till text**
 
-För att länka text till en webbplats, skapa en [Hyperlink](https://reference.aspose.com/slides/sv/cpp/aspose.slides/hyperlink/) och tilldela den med textdelens [set_HyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/portionformat/set_hyperlinkclick/)‑metod, som visas nedan. Endast den delen av texten blir klickbar.
+För att länka text till en webbplats, skapa en [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) och tilldela den med textdelens [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/)‑metod, som visas nedan. Endast den delen av texten blir klickbar.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -76,11 +78,11 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Lägg till URL‑hyperlänkar till former och mediarutor**
+### **Lägg till URL‑hyperlänkar till former och mediaramar**
 
-För att göra en form eller ruta klickbar, använd dess [set_HyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/shape/set_hyperlinkclick/)‑metod. Hyperlänken tillhör själva objektet snarare än en textdel inuti det.
+För att göra en form eller ram klickbar, använd dess [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/)‑metod. Hyperlänken tillhör själva objektet snarare än en textdel i det.
 
-Samma tillvägagångssätt gäller för bild-, audio‑ och videorutor: tilldela hyperlänken till rutan och använd [set_Tooltip](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_tooltip/) för att lägga till en tipsruta om så önskas.
+Samma tillvägagångssätt gäller för bild-, ljud- och videoramar: tilldela hyperlänken till ramen och använd [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) för att lägga till en verktygstips om så behövs.
 
 Följande exempel gör en rektangel klickbar:
 
@@ -109,7 +111,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Använd hyperlänkar för att skapa en innehållsförteckning**
 
-Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [SetInternalHyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) för att länka texten ”Page 2” på den första bilden till den andra bilden.
+Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) för att länka texten “Page 2” på den första bilden till den andra bilden.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,9 +170,9 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ### **Färg**
 
-Metoden [set_ColorSource](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_colorsource/) för [IHyperlink](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänksfärg eller textdelens formatering. För att tillämpa en anpassad textfärg, välj [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/hyperlinkcolorsource/) och sätt delens ifyllningsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner använder inte denna inställning.
+Metoden [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) för [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänkfärg eller textdelens formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) och ange delens fyllnadsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner använder inte den här inställningen.
 
-Följande exempel lägger till två text‑hyperlänkar på samma bild. Den första använder en röd textfyllning, medan den andra behåller standardhyperlänksfärgen.
+Följande exempel lägger till två texthyperlänkar på samma bild. Den första använder en röd textfyllning, medan den andra behåller standardhyperlänkfärgen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,14 +216,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 ### **Ljud**
 
-En hyperlänk kan spela upp ett ljud vid aktivering eller stoppa ett ljud som redan spelas. Använd följande metoder för att konfigurera dessa beteenden:
+En hyperlänk kan spela ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande metoder för att konfigurera dessa beteenden:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_sound/) specificerar ljudet som är associerat med hyperlänken.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) styr om aktivering av hyperlänken stoppar föregående ljud.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) anger det ljud som är associerat med hyperlänken.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) styr om aktivering av hyperlänken stoppar det tidigare ljudet.
 
-#### **Lägg till ett hyperlänksljud**
+#### **Lägg till ett hyperlänkljud**
 
-Följande exempel laddar `sampleaudio.wav` och associerar det med en knapp på den första bilden. När knappen klickas spelas ljudet och presentationen går till nästa bild. En annan form på samma bild stoppar föregående ljud vid klick utan att navigera någonstans.
+Följande exempel laddar `sampleaudio.wav` och associerar den med en knapp på den första bilden. När knappen klickas spelas ljudet och navigerar till nästa bild. En andra form på samma bild stoppar det föregående ljudet när den klickas, utan att utföra någon navigationsåtgärd.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -265,9 +267,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Extrahera ett hyperlänksljud**
+#### **Extrahera ett hyperlänkljud**
 
-Följande exempel öppnar presentationen som skapades ovan och läser ljudet för den första formens hyperlänk till minnet via [get_Sound](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_sound/) och [get_BinaryData](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iaudio/get_binarydata/).
+Följande exempel öppnar presentationen som skapades ovan och läser den första formens hyperlänksljud till minnet via [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) och [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -303,18 +305,18 @@ else
 }
 ```
 
-### **Tipsruta och interaktionsinställningar**
+### **Verktygstips och interaktionsinställningar**
 
-Du kan uppdatera följande [IHyperlink](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/)‑inställningar via dessa metoder efter att du tilldelat en hyperlänk till text eller en form:
+Du kan uppdatera följande [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)‑inställningar via dessa metoder efter att ha tilldelat en hyperlänk till text eller en form:
 
-- [set_Tooltip](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_tooltip/) anger den text som en betraktare kan visa som en tipsruta för länken.
-- [set_TargetFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_targetframe/) specificerar mål‑ramen inom ett föräldra‑HTML‑frameset, när tillämpligt.
-- [set_History](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_history/) styr om aktivering av länken lägger till dess destination i listan över visade hyperlänkar.
-- [set_HighlightClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/set_highlightclick/) styr om hyperlänken markeras när den klickas.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) anger den text som en betraktare kan visa som ett verktygstips för länken.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) specificerar målramen inom ett föräldra‑HTML‑ramverk, när tillämpligt.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) styr om aktivering av länken lägger till dess destination i listan över visade hyperlänkar.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) styr om hyperlänken markeras när den klickas.
 
 ## **Ta bort hyperlänkar från presentationer**
 
-Använd [GetAnyHyperlinks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) för att samla hyperlänkbehållare, inklusive länkar på textdelar, innan de ändras. Följande exempel tar bort båda aktiveringstyperna från den första bilden. För att bara ta bort en typ, anropa endast [RemoveHyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) eller [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); att ta bort en klickåtgärd tar inte bort dess mus‑över‑motsvarighet.
+Använd [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) för att samla hyperlänksbehållare, inklusive länkar för textdelar, innan du ändrar dem. Följande exempel tar bort båda aktiverings typerna från den första bilden. För att bara ta bort en typ, anropa endast [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) eller [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); att ta bort en klickåtgärd tar inte bort motsvarande mus‑över‑åtgärd.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -348,23 +350,23 @@ else
 }
 ```
 
-För villkorslös borttagning tar [RemoveAllHyperlinks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) bort båda aktiveringstyperna i det valda omfånget i ett anrop. För selektiv rensning och täckning av masters, layouter och anteckningar, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+För villkorslös borttagning tar [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) bort båda aktiverings typerna i det valda området i ett anrop. För selektiv rensning och täckning av master, layouter och anteckningar, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Bygg ett komplett hyperlänkinventarium**
+## **Bygg ett komplett hyperlänksinventarium**
 
-Innan en presentation distribueras bör du inventera dess interaktiva åtgärder samt dess webb­länkar. [GetAnyHyperlinks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkcontainer/)‑objekt, inte en platt lista med URL‑strängar. Inspektera både [get_HyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) och [get_HyperlinkMouseOver](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) på varje behållare. De är oberoende: samma behållare kan exponera båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
+Innan en presentation distribueras, inventera dess interaktiva åtgärder samt dess webblänkar. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)‑objekt, inte en platt lista med URL‑strängar. Inspektera både [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) och [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) på varje behållare. De är oberoende: samma behållare kan ha båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
 
-Att bara skanna hyperlänkar på form‑nivå kan missa länkar som är knutna till textdelar. Gör en sökfråga på lämpligt omfång istället och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
+Att bara skanna hyperlänkar på formnivå kan missa länkar som är fästa vid textdelar. Fråga istället rätt område, och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
 
-### **Fråga presentations‑, bild‑ och textrutrums‑omfång**
+### **Fråga presentation-, bild- och textramområden**
 
-Gränssnittet [IHyperlinkQueries](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/) är tillgängligt via [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) och [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/sv/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Varje omfång stödjer samma frågor:
+[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/)‑gränssnittet är tillgängligt via [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) och [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Varje område stöder samma frågor:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) returnerar behållare med en klickåtgärd.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) returnerar behållare med en mus‑över‑åtgärd.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returnerar behållare med någon av eller båda åtgärderna.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) returnerar behållare med en klickåtgärd.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) returnerar behållare med en mus‑över‑åtgärd.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) returnerar behållare med antingen eller båda åtgärderna.
 
-Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klick‑länk, en fil‑mus‑över‑länk, intern bildnavigering, en text‑mus‑över‑länk och en makro‑åtgärd. Det kör inte någon av dessa åtgärder. Samma tre frågor fungerar i varje omfång; räkningarna beskriver behållare, inte totala antalet åtgärder. Textrutrum‑omfånget exkluderar de egna länkarna på den omgivande formen.
+Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klicklänk, en fil‑mus‑över‑länk, intern bildnavigering, en text‑mus‑över‑länk och en makro‑åtgärd. Det kör inte någon av dessa åtgärder. Samma tre frågor fungerar i alla områden; räkningarna beskriver behållare, inte totala åtgärder. Textram‑området exkluderar den omgivande formens egna länkar.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -419,37 +421,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-För detta exempel rapporterar presentations‑ och bild‑frågor tre klick‑behållare, två mus‑över‑behållare och tre behållare med någon av åtgärderna. Textrutrum‑frågan rapporterar en behållare i varje kategori.
+För detta exempel rapporterar presentation‑ och bild‑frågor vardera tre klickbehållare, två mus‑över‑behållare och tre behållare med antingen åtgärd. Textram‑frågan rapporterar en behållare i varje kategori.
 
 ### **Klassificera åtgärder och destinationer**
 
-Använd [IHyperlink::get_ActionType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_actiontype/) för att tolka en åtgärd innan du tolkar dess destination. Värdena i [HyperlinkActionType](https://reference.aspose.com/slides/sv/cpp/aspose.slides/hyperlinkactiontype/) täcker mer än webbnavigation:
+Använd [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) för att tolka en åtgärd innan du tolkar dess destination. [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/)‑värdena omfattar mer än webbnavigering:
 
-| Värden | Betydelse för en revision |
+| Värden | Betydelse för en granskning |
 | --- | --- |
-| `Hyperlink` | Extern hyperlänk; inspektera URL och dess schema. |
-| `JumpSpecificSlide` | Intern navigering till en viss bild. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Inbyggd presentatiosnavigering, löst i bildspels‑sammanhang. |
-| `JumpEndShow`, `StartCustomSlideShow` | Avsluta aktuellt bildspel eller starta ett anpassat bildspel. |
-| `StartMacro` | Utför ett makro. |
+| `Hyperlink` | Extern hyperlänk; inspektera URL:en och dess schema. |
+| `JumpSpecificSlide` | Intern navigering till en specifik bild. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Inbyggd bildspelsnavigering, löst i bildspelskontext. |
+| `JumpEndShow`, `StartCustomSlideShow` | Avsluta det aktuella bildspelet eller starta ett eget bildspel. |
+| `StartMacro` | Kör ett makro. |
 | `StartProgram` | Starta ett program. |
 | `OpenFile`, `OpenPresentation` | Öppna en fil eller en annan presentation; granska separat från webbadresser. |
-| `StartStopMedia` | Starta eller stoppa mediuppspelning. |
-| `NoAction`, `Unknown` | Ingen navigeringsåtgärd, eller en okänd åtgärd som kräver granskning. |
+| `StartStopMedia` | Starta eller stoppa medieuppspelning. |
+| `NoAction`, `Unknown` | Ingen navigeringsåtgärd, eller en oidentifierad åtgärd som kräver granskning. |
 
-Läs externa destinationer via [get_ExternalUrl](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_externalurl/) och specifika interna destinationer via [get_TargetSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_targetslide/). Interna åtgärder och inbyggda kommandon kan sakna extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara [get_ExternalUrlOriginal](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) när den skiljer sig från den normaliserade URL:en, och inkludera tipsrutan som returneras av [get_Tooltip](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlink/get_tooltip/) när den finns.
+Läs externa destinationer från [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) och specifika interna destinationer från [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interna åtgärder och inbyggda kommandon kan sakna extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) när den skiljer sig från den normaliserade URL:en, och inkludera verktygstipset som returneras av [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) när det är tillgängligt.
 
 ### **Rapportera, sanera och verifiera hyperlänkar**
 
-Följande C++‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiveringstyperna igen. Det samlar behållare innan de ändras och använder pekaridentitet för att undvika att bearbeta samma behållare två gånger. Presentationsfrågor täcker vanliga bilder; för ett paket‑omfattande inventarium frågar den också explicit masters, layouter, anteckningar samt antecknings‑ och handout‑masters när de finns.
+Följande C++‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiveringstyperna på nytt. Det samlar behållare innan de ändras och använder pekaridentitet för att undvika att bearbeta samma behållare två gånger. Presentationsfrågor täcker vanliga bilder; för ett paketomfattande inventarium frågar den också explicit efter master, layouter, anteckningar samt antecknings‑ och handout‑master när de finns.
 
-Rapporten registrerar ett ett‑baserat bildindex och [get_SlideId](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ibaseslide/get_slideid/) där det är tillgängligt. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidecomponent/get_slide/) levererar den ägande bilden för stödjade behållare. Masters, layouter och anteckningar har inget vanligt bildindex och identifieras av sitt omfång. Form‑behållare och text‑del‑formateringsbehållare märks separat; andra behållartyper behåller sitt kör‑tids‑typnamn. Varje behållare får ett rapport‑lokalt ID så att dess två åtgärder kan korreleras.
+Rapporten registrerar ett 1‑baserat bildindex och [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) där det finns. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) tillhandahåller den ägande bilden för stödda behållare. Master, layouter och anteckningar har inget vanligt bildindex och identifieras efter sitt område. Formbehållare och textdel‑formateringsbehållare märks separat; andra behållartyper behåller sitt körningstypnamn. Varje behållare får ett rapport‑lokalt ID så att dess två åtgärder kan korreleras.
 
-Denna avsiktligt restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den avvisar makron, program, fil‑åtgärder, andra bildspels‑åtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policy‑beslut, inte ett säkerhets­betyg från Aspose.Slides. HTTPS ensam ger ingen förtroende: lägg till värd‑tillåtelselistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
+Denna medvetet restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den avvisar makron, program, filåtgärder, andra bildspelsåtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policybeslut, inte ett Aspose.Slides‑säkerhetsbeslut. HTTPS ensamt etablerar inte förtroende: lägg till värd‑allowlistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
 
-För korrigering stöder behållarens [get_HyperlinkManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) och [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Här ersätts förbjudna externa klick‑länkar med en fast HTTPS‑landningssida; andra förbjudna klick‑ och mus‑över‑åtgärder tas bort oberoende. Sätt `replaceExternalClicks` till `false` för att ta bort alla policy‑överträdelser istället. Välj en applikationsägad ersättningssida innan distribution.
+För åtgärd stödjer behållarens [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) och [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Här ersätts förbjudna externa klicklänkar med en fast HTTPS‑landningssida; andra förbjudna klick och förbjudna mus‑över‑åtgärder tas bort oberoende. Sätt `replaceExternalClicks` till `false` för att ta bort alla policy‑överträdelser istället. Välj en applikationsägd ersättningssida innan distribution.
 
-Exportflaggan i rapporten använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifik bildhopp som potentiellt otillåtet. Det är en gransknings‑hint, inte ett funktions‑test eller en garanti för att o‑flagade länkar överlever export. Stödda [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/)‑ och [HTML](/slides/sv/cpp/convert-powerpoint-to-html/)‑exporter kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och läsare. Raster‑[images](/slides/sv/cpp/convert-powerpoint-to-png/) och [video](/slides/sv/cpp/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid granskning för dessa utdata.
+Rapportens exportflagg använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifikt bildhopp som potentiellt osupporterat. Det är en granskningshint, inte ett kapacitetstest eller en garanti för att oflaggade länkar överlever export. Stödda [PDF](/slides/sv/cpp/convert-powerpoint-to-pdf/)‑ och [HTML](/slides/sv/cpp/convert-powerpoint-to-html/)‑exporter kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och visare. Raster‑[bilder](/slides/sv/cpp/convert-powerpoint-to-png/) och [video](/slides/sv/cpp/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid granskning för dessa utdata.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -650,20 +652,20 @@ if (violations != 0)
 }
 ```
 
-Med den indata som skapades ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makro‑klick‑åtgärden tas bort, medan HTTPS‑länkarna och den interna bildnavigeringen kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En indata som innehåller en förbjuden extern klick‑URL demonstrerar också ersättnings‑grenen. En behållare med en tillåten klick‑åtgärd och en förbjuden mus‑över‑åtgärd behåller sin klick‑åtgärd.
+Med den indata som skapades ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makroklicken tas bort, medan HTTPS‑länkarna och intern bildnavigering kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En indata som innehåller en förbjuden extern klick‑URL testar också ersättningsgrenen. En behållare med ett tillåtet klick och ett förbjudet mus‑över‑åtgärd behåller sin klickåtgärd.
 
-Denna selektiva rensning skiljer sig från [RemoveAllHyperlinks](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), som tar bort båda aktiveringstyperna i hela det valda omfånget oavsett policy. Verifieringen här kontrollerar bara hyperlänksåtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
+Denna selektiva rensning skiljer sig från [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), som tar bort båda aktiverings typerna i hela det valda området oavsett policy. Verifieringen här kontrollerar endast hyperlänksåtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
 
 ## **Vanliga frågor**
 
 **Hur kan jag länka till ett avsnitt eller dess första bild?**
 
-Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig till en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i avsnittet.
+Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig mot en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i det avsnittet.
 
-**Kan jag fästa en hyperlänk på element i en master‑bild så att den fungerar på alla bilder?**
+**Kan jag fästa en hyperlänk på master‑bild‑element så att den fungerar på alla bilder?**
 
-Ja. Element i master‑bild och layout stödjer hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder motsvarande master eller layout.
+Ja. Master‑bild‑ och layout‑element stöder hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder motsvarande master eller layout.
 
-**Behålls hyperlänkar när man exporterar till PDF, HTML, bilder eller video?**
+**Kommer hyperlänkar att bevaras vid export till PDF, HTML, bilder eller video?**
 
-Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; raster‑bilder och video kan inte. Se export‑överväganden i [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; rasterbilder och video kan inte. Se exportöverväganden i [Rapportera, sanera och verifiera hyperlänkar](#report-sanitize-and-verify-hyperlinks).

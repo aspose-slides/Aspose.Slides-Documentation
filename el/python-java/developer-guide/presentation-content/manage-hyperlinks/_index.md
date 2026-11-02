@@ -27,24 +27,26 @@ description: "Προσθήκη, μορφοποίηση, ενημέρωση κα�
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος συνδέει το περιεχόμενο της παρουσίασης με έναν ιστότοπο ή μια θέση εντός της παρουσίασης. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δύο σκοπούς:
+Ένας υπερσύνδεσμος συνδέει το περιεχόμενο μιας παρουσίασης με μια ιστοσελίδα ή με μια θέση εντός της παρουσίασης. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δύο σκοπούς:
 
-* Άνοιγμα ιστότοπου από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
-* Πλοήγηση σε άλλη διαφάντα, για παράδειγμα από έναν πίνακα περιεχομένων.
+* Άνοιγμα ιστοσελίδας από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
+* Πλοήγηση σε άλλη διαφάνεια, για παράδειγμα από έναν πίνακα περιεχομένων.
 
-Aspose.Slides for Python via Java σας επιτρέπει να προσθέσετε αυτούς τους συνδέσμους, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ιδιότητές τους και να τους αφαιρέσετε. Τα παρακάτω παραδείγματα δείχνουν πώς να δουλέψετε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να έχετε πρόσβαση σε υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
+Το Aspose.Slides for Python via Java σας επιτρέπει να προσθέσετε αυτούς τους συνδέσμους, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ιδιότητές τους και να τους αφαιρέσετε. Τα παραδείγματα παρακάτω δείχνουν πώς να εργαστείτε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να έχετε πρόσβαση στους υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
 
 {{% alert color="info" title="Note" %}}
-Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [δωρεάν online επεξεργαστή Aspose PowerPoint](https://products.aspose.app/slides/el/editor).
+Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [δωρεάν διαδικτυακό επεξεργαστή Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Προσθήκη URL Υπερσυνδέσμων**
+## **Προσθήκη Υπερσυνδέσμων URL**
 
-Μπορείτε να εκχωρήσετε ένα URL ιστότοπου σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο εκχωρείτε τον υπερσύνδεσμο καθορίζει την περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
+Μπορείτε να αναθέσετε ένα URL ιστοσελίδας σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αναθέτετε τον υπερσύνδεσμο καθορίζει την περιορισμένη περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Κείμενο**
+Για παρουσιάσεις που περιέχουν σχετικούς υπερσυνδέσμους, δείτε τη σελίδα [Διαχείριση Βάσης Υπερσυνδέσμου](/slides/el/python-java/presentation-properties/#manage-the-hyperlink-base) για να διαβάσετε, να αλλάξετε ή να διαγράψετε τη βάση επιπέδου εγγράφου.
 
-Για να συνδέσετε κείμενο με έναν ιστότοπο, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/portionformat/#setHyperlinkClick) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ-ενεργό.
+### **Προσθήκη Υπερσυνδέσμων URL σε Κείμενο**
+
+Για σύνδεση κειμένου με μια ιστοσελίδα, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα του κειμένου γίνεται κλικ‑ενεργό.
 
 ```python
 import jpype
@@ -70,13 +72,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Προσθήκη URL Υπερσυνδέσμων σε Σχήματα και Πλαίσια Πολυμέσων**
+### **Προσθήκη Υπερσυνδέσμων URL σε Σχήματα και Πλαίσια Πολυμέσων**
 
-Για να κάνετε ένα σχήμα ή πλαίσιο κλικ-ενεργό, καλέστε τη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#setHyperlinkClick) του. Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε τμήμα κειμένου μέσα σε αυτό.
+Για να κάνετε ένα σχήμα ή ένα πλαίσιο κλικ‑ενεργό, καλέστε τη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) του. Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε κάποιο τμήμα κειμένου μέσα σε αυτό.
 
-Η ίδια προσέγγιση ισχύει για πλαίσια εικόνας, ήχου και βίντεο: εκχωρήστε τον υπερσύνδεσμο στο πλαίσιο και, αν χρειάζεται, καλέστε τη [setTooltip](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setTooltip).
+Η ίδια προσέγγιση ισχύει για πλαίσια εικόνας, ήχου και βίντεο: αναθέστε τον υπερσύνδεσμο στο πλαίσιο και καλέστε τη [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) εφόσον χρειάζεται.
 
-Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικ-ενεργό:
+Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικ‑ενεργό:
 
 ```python
 import jpype
@@ -101,7 +103,7 @@ finally:
 
 ## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάντα. Το παρακάτω παράδειγμα χρησιμοποιεί τη [setInternalHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάντα με τη δεύτερη διαφάντα.
+Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί τη μέθοδο [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
 
 ```python
 import jpype
@@ -145,9 +147,9 @@ finally:
 
 ### **Χρώμα**
 
-Η μέθοδος [setColorSource](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setColorSource) του [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) καθορίζει αν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkcolorsource/) και ορίστε το χρώμα γεμίσματος του τμήματος. Η δυνατότητα αυτή εισήχθη στο PowerPoint 2019· οι παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
+Η μέθοδος [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) του [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) καθορίζει εάν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε το [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) και ορίστε το χρώμα γεμίσματος του τμήματος. Αυτή η δυνατότητα εισήχθη στο PowerPoint 2019· οι παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
 
-Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάντα. Ο πρώτος χρησιμοποιεί γεμίσμα κειμένου κόκκινο, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
+Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο γέμισμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσύνδεσμου.
 
 ```python
 import jpype
@@ -178,16 +180,17 @@ try:
 finally:
     presentation.dispose()
 ```
+
 ### **Ήχος**
 
-Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιείται ή να σταματήσει έναν ήχο που ήδη παίζει. Χρησιμοποιήστε τις παρακάτω μεθόδους για να ρυθμίσετε αυτές τις συμπεριφορές:
+Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιείται ή να σταματήσει έναν ήχο που ήδη αναπαράγεται. Χρησιμοποιήστε τις παρακάτω μεθόδους για να διαμορφώσετε αυτές τις συμπεριφορές:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setSound) ορίζει τον ήχο που συνδέεται με τον υπερσύνδεσμο.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) ελέγχει αν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) καθορίζει το ήχο που συνδέεται με τον υπερσύνδεσμο.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) ελέγχει εάν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
 
-#### **Προσθήκη Ήχου σε Υπερσύνδεσμο**
+#### **Προσθήκη Ήχου Υπερσυνδέσμου**
 
-Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάντα. Η κλικ στο κουμπί αναπαράγει τον ήχο και μεταβαίνει στην επόμενη διαφάντα. Ένα δεύτερο σχήμα στην ίδια διαφάντα σταματά τον προηγούμενο ήχο όταν κλικάρεται, χωρίς να εκτελεί ενέργεια πλοήγησης.
+Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί αναπαράγεται ο ήχος και γίνεται πλοήγηση στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα σε αυτή τη διαφάνεια σταματά τον προηγούμενο ήχο όταν κλικάρεται, χωρίς να εκτελεί ενέργεια πλοήγησης.
 
 ```python
 from pathlib import Path
@@ -221,12 +224,12 @@ finally:
     presentation.dispose()
 ```
 
-#### **Εξαγωγή Ήχου από Υπερσύνδεσμο**
+#### **Απόσπαση Ήχου Υπερσυνδέσμου**
 
-Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο του πρώτου σχήματος σε μνήμη μέσω των [getSound](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getSound) και [getBinaryData](https://reference.aspose.com/slides/el/python-java/aspose.slides/audio/#getBinaryData).
+Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο υπερσυνδέσμου του πρώτου σχήματος στη μνήμη μέσω των μεθόδων [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) και [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
 
 ```python
-import jpype
+import jpime
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -250,18 +253,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Tooltip και Ρυθμίσεις Αλληλεπίδρασης**
+### **Ρυθμίσεις Tooltip και Αλληλεπίδρασης**
 
-Μπορείτε να καλέσετε τις παρακάτω μεθόδους του [Hyperlink](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/) μετά την εκχώρηση ενός υπερσυνδέσμου σε κείμενο ή σχήμα:
+Μπορείτε να καλέσετε τις παρακάτω μεθόδους του [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) μετά την ανάθεση ενός υπερσυνδέσμου σε κείμενο ή σχήμα:
 
-- [setTooltip](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setTooltip) ορίζει το κείμενο που μπορεί να εμφανίσει ο θεατής ως υπόδειξη για τον σύνδεσμο.
-- [setTargetFrame](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setTargetFrame) καθορίζει το πλαίσιο προορισμού μέσα σε ένα γονικό HTML frameset, όταν εφαρμόζεται.
-- [setHistory](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setHistory) ελέγχει αν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα προβληθέντων υπερσυνδέσμων.
-- [setHighlightClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#setHighlightClick) ελέγχει αν ο υπερσύνδεσμος επισημαίνεται όταν κλικάρεται.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) ορίζει το κείμενο που μπορεί να εμφανίσει ένας θεατής ως υπόδειξη για τον σύνδεσμο.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) καθορίζει το πλαίσιο‑στόχο μέσα σε ένα γονικό HTML frameset, όταν ισχύει.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) ελέγχει εάν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των προβληθέντων υπερσυνδέσμων.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) ελέγχει εάν ο υπερσύνδεσμος επισημαίνεται όταν κλικάρεται.
 
 ## **Αφαίρεση Υπερσυνδέσμων από Παρουσιάσεις**
 
-Χρησιμοποιήστε το [getAnyHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) για να συλλέξετε κοντέινερ υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα τροποποιήσετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάντα. Για αφαίρεση μόνο ενός τύπου, καλέστε μόνο το [removeHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ή το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί το αντίστοιχο mouse‑over.
+Χρησιμοποιήστε τη μέθοδο [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) για να συγκεντρώσετε τα κοντέινερ υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα τροποποιήσετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο τη μέθοδο [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) ή [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί το αντίστοιχο mouse‑over.
 
 ```python
 import jpype
@@ -286,23 +289,23 @@ finally:
     presentation.dispose()
 ```
 
-Για μη υπconditionalα αφαίρεση, το [removeAllHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) αφαιρεί και τους δύο τύπους ενεργοποίησης στο επιλεγμένο εύρος με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των master, layout και σημειώσεων, δείτε το [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Για αδιαγράμμητη αφαίρεση, η μέθοδος [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) αφαιρεί και τους δύο τύπους ενεργοποίησης στην επιλεγμένη περιοχή με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των master, layouts και σημειώσεων, δείτε το κεφάλαιο [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Δημιουργία Πλήρους Αποθέματος Υπερσυνδέσμων**
+## **Δημιουργία Πλήρους Αποθετικού Υπερσυνδέσμων**
 
-Πριν διανείμετε μια παρουσίαση, καταγράψτε τις διαδραστικές ενέργειές της καθώς και τους διαδικτυακούς συνδέσμους. Το [getAnyHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) επιστρέφει κοντέινερ υπερσυνδέσμων, όπως αντικείμενα [Shape](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/) και [PortionFormat](https://reference.aspose.com/slides/el/python-java/aspose.slides/portionformat/), όχι μια επίπεδη λίστα URL. Εξετάστε τόσο το [getHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getHyperlinkClick) όσο και το [getHyperlinkMouseOver](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getHyperlinkMouseOver) σε κάθε κοντέινερ. Είναι ανεξάρτητα: το ίδιο κοντέινερ μπορεί να εκθέτει και τις δύο ενέργειες, οπότε μια πλήρης αναφορά χρειάζεται έως και δύο γραμμές ανά κοντέινερ.
+Πριν διανείμετε μια παρουσίαση, πραγματοποιήστε απογραφή των διαδραστικών της ενεργειών καθώς και των διαδικτυακών της συνδέσμων. Η μέθοδος [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) επιστρέφει κοντέινερ υπερσυνδέσμων, όπως αντικείμενα [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) και [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/), όχι μια επίπεδη λίστα αλφαριθμητικών URL. Ελέγξτε τόσο τις μεθόδους [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) όσο και [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) σε κάθε κοντέινερ. Είναι ανεξάρτητες: το ίδιο κοντέινερ μπορεί να εκθέτει και τις δύο ενέργειες, έτσι μια πλήρης αναφορά χρειάζεται έως δύο γραμμές ανά κοντέινερ.
 
-Η σάρωση μόνο σε επίπεδο σχήματος μπορεί να χάσει συνδέσμους που είναι προσκολλημένοι σε τμήματα κειμένου. Ερωτήστε το κατάλληλο εύρος αντί αυτού και διατηρήστε τα επιστρεφόμενα κοντέινερ ώστε να μπορείτε να τα ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους αργότερα.
+Η σάρωση μόνο των υπερσυνδέσμων σε επίπεδο σχήματος μπορεί να παραλείψει συνδέσμους που είναι προσαρτημένοι σε τμήματα κειμένου. Αντ' αυτού ερωτήστε την κατάλληλη περιοχή και διατηρήστε τα επιστρεφόμενα κοντέινερ ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
 
-### **Ερώτηση Ευρών Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
+### **Ερώτημα Περιοχών Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
 
-Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/) είναι διαθέσιμη μέσω των [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseslide/#getHyperlinkQueries) και [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/el/python-java/aspose.slides/textframe/#getHyperlinkQueries). Κάθε ευρύς υποστηρίζει τις ίδιες ερωτήσεις:
+Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) είναι διαθέσιμη μέσω των μεθόδων [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries), και [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Κάθε περιοχή υποστηρίζει τις ίδιες ερωτήματα:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) επιστρέφει κοντέινερ με ενέργεια κλικ.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) επιστρέφει κοντέινερ με ενέργεια mouse‑over.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) επιστρέφει κοντέινερ με μία ή και τις δύο ενέργειες.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) επιστρέφει κοντέινερ με ενέργεια κλικ.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) επιστρέφει κοντέινερ με ενέργεια mouse‑over.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) επιστρέφει κοντέινερ με μία ή και τις δύο ενέργειες.
 
-Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με έναν εξωτερικό σύνδεσμο κλικ, έναν σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, έναν σύνδεσμο κειμένου mouse‑over και μια ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ερωτήσεις λειτουργούν σε κάθε ευρύς· οι μετρήσεις περιγράφουν κοντέινερ, όχι συνολικές ενέργειες. Το ευρύ πλαισίου κειμένου εξαιρεί τους συνδέσμους του περιβάλλοντος σχήματος.
+Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με έναν εξωτερικό σύνδεσμο κλικ, έναν σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, έναν σύνδεσμο κειμένου mouse‑over και μια δράση μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ίδιες ερωτήσεις λειτουργούν σε κάθε περιοχή· οι μετρήσεις περιγράφουν κοντέινερ, όχι συνολικές ενέργειες. Η περιοχή πλαισίου κειμένου εξαιρεί τους δικούς σύνδεσμους του περιβάλλοντος σχήματος.
 
 ```python
 import jpype
@@ -343,37 +346,37 @@ finally:
     presentation.dispose()
 ```
 
-Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία κοντέινερ κλικ, δύο κοντέινερ mouse‑over και τρία κοντέινερ με μία από τις δύο ενέργειες. Η ερώτηση πλαισίου κειμένου αναφέρει ένα κοντέινερ σε κάθε κατηγορία.
+Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία κοντέινερ κλικ, δύο κοντέινερ mouse‑over και τρία κοντέινερ με μία ή άλλη ενέργεια. Η ερώτηση πλαισίου κειμένου αναφέρει ένα κοντέινερ σε κάθε κατηγορία.
 
-### **Κατηγοριοποίηση Ενεργειών και Προορισμών**
+### **Κατάταξη Ενεργειών και Προορισμών**
 
-Χρησιμοποιήστε το [Hyperlink.getActionType](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getActionType) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερο από πλοήγηση ιστού:
+Χρησιμοποιήστε τη μέθοδο [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερα από την πλοήγηση στο web:
 
-| Τιμή | Σημασία για έλεγχο |
+| Τιμές | Σημασία για έλεγχο |
 | --- | --- |
-| `Hyperlink` | Εξωτερικός υπερσύνδεσμος· ελέγξτε το URL και το σχήμα του. |
-| `JumpSpecificSlide` | Εσωτερική πλοήγηση σε συγκεκριμένη διαφάντα. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται στο πλαίσιο παρουσίασης. |
-| `JumpEndShow`, `StartCustomSlideShow` | Λήξη τρέχουσας εκδήλωσης ή εκκίνηση προσαρμοσμένης εκδήλωσης. |
+| `Hyperlink` | Εξωτερικός υπερσύνδεσμος· επιθεώρηση του URL και του σχηματισμού του. |
+| `JumpSpecificSlide` | Εσωτερική πλοήγηση σε συγκεκριμένη διαφάνεια. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται στο πλαίσιο της παρουσίασης. |
+| `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός της τρέχουσας παρουσίασης ή έναρξη προσαρμοσμένης παρουσίασης. |
 | `StartMacro` | Εκτέλεση μακροεντολής. |
 | `StartProgram` | Εκκίνηση προγράμματος. |
-| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ελέγξτε ξεχωριστά από URL ιστού. |
+| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ανασκόπηση ξεχωριστά από τα web URLs. |
 | `StartStopMedia` | Έναρξη ή διακοπή αναπαραγωγής πολυμέσων. |
-| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης ή άγνωστη ενέργεια που απαιτεί έλεγχο. |
+| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης, ή άγνωστη ενέργεια που απαιτεί ανασκόπηση. |
 
-Διαβάστε εξωτερικούς προορισμούς από το [getExternalUrl](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getExternalUrl) και συγκεκριμένους εσωτερικούς προορισμούς από το [getTargetSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getTargetSlide). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το κοντέινερ δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφει το [getExternalUrlOriginal](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlink/#getTooltip) όταν είναι διαθέσιμο.
+Διαβάστε τους εξωτερικούς προορισμούς από το [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) και τους συγκεκριμένους εσωτερικούς προορισμούς από το [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το κοντέινερ δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφει το [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) όταν είναι διαθέσιμο.
 
 ### **Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων**
 
-Το παρακάτω παράδειγμα Python διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιεί το αρχείο που δημιουργήθηκε προηγουμένως), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για επανέλεγχο και των δύο τύπων ενεργοποίησης. Συλλέγει κοντέινερ πριν τις αλλαγές και χρησιμοποιεί ισότητα αναφοράς για να αποφύγει διπλή επεξεργασία του ίδιου αντικειμένου. Οι ερωτήσεις παρουσίασης καλύπτουν τις κανονικές διαφάνειες· για απογραφή σε όλο το πακέτο, ερωτούν ρητά και τα master, layout, notes και τα master σημειώσεων/εκτυπώσεων όταν υπάρχουν.
+Το παρακάτω παράδειγμα σε Python διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει και τις δύο τύπους ενεργοποίησης. Συλλέγει τα κοντέινερ πριν τα τροποποιήσει και χρησιμοποιεί ισότητα αναφοράς για να αποφύγει την επεξεργασία του ίδιου κοντέινερ δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις συνηθισμένες διαφάνειες· για απογραφή σε ολόκληρο το πακέτο, ερωτά επίσης ρητά τα masters, τα layouts, τις σημειώσεις και τα masters σημειώσεων και φυλλαδίου όταν υπάρχουν.
 
-Η αναφορά καταγράφει ένα δείκτη διαφάνειας που ξεκινά από το 1 και το [getSlideId](https://reference.aspose.com/slides/el/python-java/aspose.slides/baseslide/#getSlideId) όπου είναι διαθέσιμο. Το [getSlide](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getSlide) παρέχει τη διαφάντα ιδιοκτήτη για υποστηριζόμενα κοντέινερ. Τα master, layout και notes δεν έχουν κανονικό δείκτη διαφάνειας και τα προσδιορίζουμε με το ευρύ τους. Τα κοντέινερ σχήματος και μορφοποίησης τμημάτων κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε κοντέινερ παίρνει ένα αναγνωριστικό τοπικής αναφοράς ώστε οι δύο του δράσεις να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους ενεργειών ως ακέραιες σταθερές του Java enum.
+Η αναφορά καταγράφει έναν δείκτη διαφάνειας που αρχίζει από το 1 και το [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) όπου είναι διαθέσιμο. Η μέθοδος [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) παρέχει τη διαφάνεια‑ιδιοκτήτη για τα υποστηριζόμενα κοντέινερ. Τα masters, τα layouts και οι σημειώσεις δεν έχουν συνηθισμένο δείκτη διαφάνειας και ταυτοποιούνται με την περιοχή τους. Τα κοντέινερ σχήματος και τα κοντέινερ μορφοποίησης τμημάτων κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι κοντέινερ διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε κοντέινερ λαμβάνει ένα τοπικό αναγνωριστικό στην αναφορά ώστε οι δύο του ενέργειες να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους ενεργειών ως τις ακέραιες σταθερές που ορίζονται από την Java enum.
 
-Αυτή η σκόπιμα περιοριστική πολιτική επιτρέπει μόνο απόλυτα HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείου, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Οι απορρίψεις είναι αποφάσεις πολιτικής, όχι ασφαλιστική απόφαση του Aspose.Slides. Το HTTPS από μόνο του δεν εγγυάται εμπιστοσύνη· προσθέστε λίστες επιτρεπόμενων hosts και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URLs. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί δράσεις.
+Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι απόφαση ασφαλείας του Aspose.Slides. Το HTTPS από μόνο του δεν εγγυάται εμπιστοσύνη: προσθέστε λιστές επιτρεπόμενων κεντρικών και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URLs. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
 
-Για αποκατάσταση, ο [getHyperlinkManager](https://reference.aspose.com/slides/el/python-java/aspose.slides/shape/#getHyperlinkManager) του κοντέινερ υποστηρίζει το [setExternalHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), το [removeHyperlinkClick](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) και το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή HTTPS σελίδα προορισμού· οι άλλοι απαγορευμένοι κλικ και mouse‑over αφαιρούνται αυτόνομα. Ορίστε `replace_external_clicks` σε `False` για να αφαιρέσετε όλες τις παραβιάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή πριν την ανάπτυξη.
+Για διόρθωση, ο [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) του κοντέινερ υποστηρίζει τις [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) και [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή HTTPS σελίδα προσγείωσης· οι άλλοι απαγορευμένοι κλικ και οι απαγορευμένες ενέργειες mouse‑over αφαιρούνται ανεξάρτητα. Ορίστε το `replace_external_clicks` σε `False` για να αφαιρεθούν όλες οι παραβιάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή πριν από την εισαγωγή.
 
-Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ελέγχου PDF: σημαδάνει ενέργειες mouse‑over και οτιδήποτε εκτός από εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα σε διαφάντα ως ενδεχόμενα μη υποστηριζόμενα. Είναι μια υπόδειξη ελέγχου, όχι δοκιμή ικανότητας ή εγγύηση ότι οι μη σημειωμένοι σύνδεσμοι θα παραμείνουν μετά την εξαγωγή. Οι υποστηριζόμενες εξαγωγές σε [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/python-java/convert-powerpoint-to-html/) ενδέχεται να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προβολέα. Raster [images](/slides/el/python-java/convert-powerpoint-to-png/) και [video](/slides/el/python-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαδάνετε κάθε ενέργεια όταν ελέγχετε για αυτές τις εξόδους.
+Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συγκρατημένη πολιτική ελέγχου PDF: σημαδεύει τις ενέργειες mouse‑over και οτιδήποτε διαφορετικό από έναν εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως πιθανόν μη υποστηριζόμενο. Είναι υπόδειξη ελέγχου, όχι δοκιμή δυνατότητας ή εγγύηση ότι οι μη σηματοδοτημένοι σύνδεσμοι θα παραμείνουν στην εξαγωγή. Οι υποστηριζόμενες [PDF](/slides/el/python-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/python-java/convert-powerpoint-to-html/) εξαγωγές μπορεί να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προβολέα. Τα raster [images](/slides/el/python-java/convert-powerpoint-to-png/) και [video](/slides/el/python-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαδέψτε κάθε ενέργεια όταν ελέγχετε για αυτές τις εξόδους.
 
 ```python
 import json
@@ -526,20 +529,20 @@ finally:
     presentation.dispose()
 ```
 
-Με το παραπάνω αρχείο εισόδου, η αναφορά περιέχει πέντε γραμμές ενεργειών. Ο σύνδεσμος αρχείου mouse‑over και το κλικ μακροεντολής αφαιρούνται, ενώ τα HTTPS links και η εσωτερική πλοήγηση διαφάνειας παραμένουν. Η επαλήθευση εκτυπώνει μηδέν απαγορευμένες ενέργειες. Ένα αρχείο εισόδου με απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλαδί αντικατάστασης. Ένα κοντέινερ με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί το κλικ του.
+Με το παραπάνω αρχείο εισόδου, η αναφορά περιέχει πέντε σειρές ενεργειών. Ο σύνδεσμος αρχείου mouse‑over και ο κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφάνειας παραμένουν. Η επαλήθευση εμφανίζει μηδενικές απαγορευμένες ενέργειες. Ένα αρχείο εισόδου που περιέχει απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλάδο αντικατάστασης. Ένα κοντέινερ με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί το κλικ του.
 
-Αυτή η επιλεκτική καθαριότητα διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/el/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), το οποίο αφαιρεί και τους δύο τύπους ενεργοποίησης σε όλο το επιλεγμένο εύρος ανεξάρτητα από πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες των υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα VBA projects, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο, και δεν επικυρώνει εξαγόμενο PDF ή HTML αρχείο.
+Αυτή η επιλεκτική καθαριότητα διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), το οποίο αφαιρεί και τους δύο τύπους ενεργοποίησης σε όλη την επιλεγμένη περιοχή ανεξαρτήτως πολιτικής. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα VBA projects, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο, και δεν επικυρώνει ένα εξαγόμενο αρχείο PDF ή HTML.
 
-## **FAQ**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Πώς μπορώ να συνδέσω σε μια ενότητα ή στην πρώτη της διαφάντα;**
+**How can I link to a section or its first slide?**
 
-Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάντα. Για πλοήγηση σε ενότητα, συνδέστε στην πρώτη διαφάντα της ενότητας.
+Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε μια ενότητα, συνδέστε με την πρώτη διαφάνεια της ενότητας.
 
-**Μπορώ να προσθέσω υπερσύνδεσμο σε στοιχεία master διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
 
-Ναι. Τα στοιχεία master διαφάνειας και layout υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά την παρουσίαση στις διαφάνειες που χρησιμοποιούν το αντίστοιχο master ή layout.
+Ναι. Τα στοιχεία του master slide και του layout υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά τη διάρκεια της παρουσίασης στις διαφάνειες που χρησιμοποιούν το αντίστοιχο master ή layout.
 
-**Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
 
-Οι υποστηριζόμενες εξαγωγές PDF και HTML μπορεί να διατηρήσουν τους υπερσυνδέσμους· raster εικόνες και βίντεο όχι. Δείτε τις παρατηρήσεις εξαγωγής στο [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Οι υποστηριζόμενες εξαγωγές PDF και HTML ενδέχεται να διατηρήσουν τους υπερσυνδέσμους· οι ραστερ εικόνες και τα βίντεο δεν μπορούν. Δείτε τις παραμέτρους εξαγωγής στο [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων](#report-sanitize-and-verify-hyperlinks).

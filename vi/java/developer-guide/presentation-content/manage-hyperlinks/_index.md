@@ -1,49 +1,51 @@
 ---
-title: Quản lý hyperlink trong bài thuyết trình Java
-linktitle: Quản lý hyperlink
+title: Quản lý Siêu liên kết Bản trình bày trong Java
+linktitle: Quản lý Siêu liên kết
 type: docs
 weight: 20
 url: /vi/java/manage-hyperlinks/
 keywords:
 - thêm URL
-- thêm hyperlink
-- tạo hyperlink
-- định dạng hyperlink
-- xóa hyperlink
-- cập nhật hyperlink
-- hyperlink văn bản
-- hyperlink slide
-- hyperlink hình dạng
-- hyperlink hình ảnh
-- hyperlink video
-- hyperlink có thể thay đổi
+- thêm siêu liên kết
+- tạo siêu liên kết
+- định dạng siêu liên kết
+- xóa siêu liên kết
+- cập nhật siêu liên kết
+- siêu liên kết văn bản
+- siêu liên kết slide
+- siêu liên kết hình dạng
+- siêu liên kết hình ảnh
+- siêu liên kết video
+- siêu liên kết có thể sửa đổi
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Thêm, định dạng, cập nhật và xóa hyperlink trong các bài thuyết trình PowerPoint và OpenDocument với Aspose.Slides cho Java, sử dụng các ví dụ Java."
+description: "Thêm, định dạng, cập nhật và xóa siêu liên kết trong bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho Java, sử dụng các ví dụ Java."
 ---
 ## **Giới thiệu**
 
-Liên kết siêu văn bản (hyperlink) kết nối nội dung bài thuyết trình với một trang web hoặc một vị trí trong bản trình chiếu. Trong PowerPoint, hyperlink thường thực hiện hai mục đích:
+Siêu liên kết kết nối nội dung bản trình bày với một trang web hoặc một vị trí trong bản trình bày. Trong PowerPoint, siêu liên kết thường phục vụ hai mục đích:
 
-* Mở một trang web từ văn bản, hình dạng hoặc khung đa phương tiện.
-* Điều hướng đến một slide khác, ví dụ, từ mục lục.
+* Mở một trang web từ văn bản, hình dạng hoặc khung phương tiện.  
+* Điều hướng đến một slide khác, ví dụ, từ mục lục.  
 
-Aspose.Slides for Java cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh, cập nhật thuộc tính và xóa chúng. Các ví dụ bên dưới cho thấy cách làm việc với hyperlink trên các yếu tố riêng lẻ và cách truy cập hyperlink ở mức bản trình chiếu, slide hoặc khung văn bản.
+Aspose.Slides for Java cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh của chúng, cập nhật các thuộc tính và xóa chúng. Các ví dụ bên dưới cho thấy cách làm việc với siêu liên kết trên các phần tử riêng lẻ và cách truy cập siêu liên kết ở mức bản trình bày, slide hoặc khung văn bản.  
 
-{{% alert color="info" title="Lưu ý" %}}
-Bạn cũng có thể chỉnh sửa bản trình chiếu bằng [trình chỉnh sửa Aspose PowerPoint trực tuyến miễn phí](https://products.aspose.app/slides/vi/editor).
+{{% alert color="info" title="Note" %}}
+Bạn cũng có thể chỉnh sửa bản trình bày bằng [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Thêm Hyperlink URL**
+## **Thêm Siêu liên kết URL**
 
-Bạn có thể gán một URL trang web cho văn bản, hình dạng hoặc khung đa phương tiện. Yếu tố mà bạn gán hyperlink quyết định khu vực có thể nhấp: một phần văn bản liên kết chính xác văn bản đã chọn, trong khi một hình dạng hoặc khung liên kết đối tượng slide.
+Bạn có thể gán URL của một trang web cho văn bản, hình dạng hoặc khung phương tiện. Phần tử mà bạn gán siêu liên kết sẽ xác định khu vực có thể nhấp: một đoạn văn bản sẽ liên kết tới văn bản đã chọn, trong khi một hình dạng hoặc khung sẽ liên kết tới đối tượng slide.  
 
-### **Thêm Hyperlink URL vào Văn bản**
+Đối với các bản trình bày chứa siêu liên kết tương đối, xem [Quản lý Cơ sở Siêu liên kết](/slides/vi/java/presentation-properties/#manage-the-hyperlink-base) để đọc, thay đổi hoặc xóa cơ sở ở mức tài liệu.  
 
-Để liên kết văn bản với một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/vi/java/com.aspose.slides/hyperlink/) vào phương thức [setHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) của phần văn bản, như dưới đây. Chỉ phần văn bản đó sẽ trở nên có thể nhấp.
+### **Thêm Siêu liên kết URL vào Văn bản**
+
+Để liên kết văn bản tới một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) vào phương pháp [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) của phần đoạn văn bản, như được hiển thị bên dưới. Chỉ đoạn văn bản đó sẽ trở thành có thể nhấp.  
 
 ```java
 import com.aspose.slides.*;
@@ -63,13 +65,13 @@ try {
 }
 ```
 
-### **Thêm Hyperlink URL vào Hình dạng và Khung Đa phương tiện**
+### **Thêm Siêu liên kết URL vào Hình dạng và Khung Phương tiện**
 
-Để làm cho một hình dạng hoặc khung có thể nhấp, gọi phương thức [setHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) của nó. Hyperlink thuộc về đối tượng đó chứ không phải một phần văn bản bên trong.
+Để làm cho một hình dạng hoặc khung có thể nhấp, gọi phương pháp [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) của nó. Siêu liên kết thuộc về đối tượng tự nó chứ không phải một phần đoạn văn bản bên trong.  
 
-Cách tiếp cận tương tự áp dụng cho khung ảnh, âm thanh và video: gán hyperlink cho khung và gọi [setTooltip](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nếu cần.
+Cùng cách tiếp cận này áp dụng cho khung ảnh, âm thanh và video: gán siêu liên kết cho khung và gọi [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) nếu cần.  
 
-Ví dụ dưới đây tạo một hình chữ nhật có thể nhấp:
+Ví dụ sau sẽ làm cho một hình chữ nhật có thể nhấp:  
 
 ```java
 import com.aspose.slides.*;
@@ -87,9 +89,9 @@ try {
 }
 ```
 
-## **Sử dụng Hyperlink để Tạo Mục Lục**
+## **Sử dụng Siêu liên kết để Tạo Mục lục**
 
-Hyperlink nội bộ cho phép người đọc nhảy từ mục lục tới một slide cụ thể. Ví dụ sau sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
+Siêu liên kết nội bộ cho phép người đọc chuyển từ mục lục sang một slide cụ thể. Ví dụ sau sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.  
 
 ```java
 import com.aspose.slides.*;
@@ -123,13 +125,13 @@ try {
 }
 ```
 
-## **Định dạng Hyperlink**
+## **Định dạng Siêu liên kết**
 
 ### **Màu**
 
-Phương thức [setColorSource](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setColorSource-int-) của [IHyperlink](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/) quyết định liệu hyperlink có sử dụng màu hyperlink của bản trình chiếu hay định dạng của phần văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/hyperlinkcolorsource/) và đặt màu nền cho phần đó. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.
+Phương pháp [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) của [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) xác định liệu siêu liên kết có sử dụng màu siêu liên kết của bản trình bày hay định dạng của phần đoạn văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) và đặt màu tô đầy cho phần đó. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.  
 
-Ví dụ sau thêm hai hyperlink văn bản vào cùng một slide. Đầu tiên sử dụng màu nền đỏ, trong khi thứ hai giữ màu hyperlink mặc định.
+Ví dụ sau thêm hai siêu liên kết văn bản vào cùng một slide. Siêu liên kết đầu tiên sử dụng màu đỏ cho văn bản, trong khi siêu liên kết thứ hai giữ màu siêu liên kết mặc định.  
 
 ```java
 import com.aspose.slides.*;
@@ -157,14 +159,14 @@ try {
 
 ### **Âm thanh**
 
-Hyperlink có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình các hành vi này:
+Siêu liên kết có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương pháp sau để cấu hình các hành vi này:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) chỉ định âm thanh liên quan tới hyperlink.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) kiểm soát việc kích hoạt hyperlink có dừng âm thanh trước đó hay không.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) chỉ định âm thanh liên quan tới siêu liên kết.  
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) kiểm soát liệu việc kích hoạt siêu liên kết có dừng âm thanh trước đó hay không.  
 
-#### **Thêm Âm thanh cho Hyperlink**
+#### **Thêm Âm thanh cho Siêu liên kết**
 
-Ví dụ dưới đây tải `sampleaudio.wav` và liên kết nó với một nút trên slide đầu tiên. Nhấp vào nút sẽ phát âm thanh và chuyển tới slide tiếp theo. Một hình dạng thứ hai trên cùng slide sẽ dừng âm thanh trước đó khi nhấp, mà không thực hiện hành động chuyển slide.
+Ví dụ sau tải `sampleaudio.wav` và liên kết nó với một nút trên slide đầu tiên. Nhấn nút sẽ phát âm thanh và chuyển đến slide tiếp theo. Một hình dạng thứ hai trên slide đó sẽ dừng âm thanh trước khi nhấn, mà không thực hiện hành động chuyển trang.  
 
 ```java
 import com.aspose.slides.*;
@@ -202,9 +204,9 @@ try {
 }
 ```
 
-#### **Trích xuất Âm thanh Hyperlink**
+#### **Trích xuất Âm thanh Siêu liên kết**
 
-Ví dụ dưới đây mở bản trình chiếu đã tạo ở trên và đọc âm thanh hyperlink của hình dạng đầu tiên vào bộ nhớ thông qua [getSound](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getSound--) và [getBinaryData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iaudio/#getBinaryData--).
+Ví dụ sau mở bản trình bày đã tạo ở trên và đọc âm thanh siêu liên kết của hình dạng đầu tiên vào bộ nhớ thông qua [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) và [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--).  
 
 ```java
 import com.aspose.slides.*;
@@ -230,16 +232,16 @@ try {
 
 ### **Cài đặt Tooltip và Tương tác**
 
-Bạn có thể gọi các phương thức [IHyperlink](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/) sau khi gán hyperlink cho văn bản hoặc hình dạng:
+Bạn có thể gọi các phương pháp [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) sau đây sau khi đã gán siêu liên kết cho văn bản hoặc hình dạng:
 
-- [setTooltip](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) thiết lập văn bản mà người xem có thể hiển thị như gợi ý cho liên kết.
-- [setTargetFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) chỉ định khung mục tiêu trong một frameset HTML cha, nếu áp dụng.
-- [setHistory](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) kiểm soát việc kích hoạt liên kết có thêm đích đến của nó vào danh sách các hyperlink đã xem hay không.
-- [setHighlightClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) kiểm soát việc hyperlink có được làm nổi bật khi được nhấp hay không.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) đặt văn bản mà người xem có thể hiển thị như một gợi ý cho liên kết.  
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) chỉ định khung đích trong một khung HTML cha, nếu áp dụng.  
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) kiểm soát liệu việc kích hoạt liên kết có đưa đích đến danh sách các siêu liên kết đã xem không.  
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) kiểm soát liệu siêu liên kết có được làm nổi bật khi nhấp không.  
 
-## **Xóa Hyperlink khỏi Bản Trình Chiếu**
+## **Xóa Siêu liên kết khỏi Bản trình bày**
 
-Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) để thu thập các container hyperlink, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ dưới đây xóa cả hai loại kích hoạt khỏi slide đầu tiên. Để xóa chỉ một loại, chỉ gọi [removeHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); xóa hành động click không xóa hành động mouse‑over tương ứng.
+Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) để thu thập các container siêu liên kết, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ sau loại bỏ cả hai loại kích hoạt khỏi slide đầu tiên. Để chỉ xóa một loại, chỉ gọi [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--); việc xóa hành động nhấp không xóa hành động trỏ chuột.  
 
 ```java
 import com.aspose.slides.*;
@@ -266,23 +268,23 @@ try {
 }
 ```
 
-Đối với việc xóa không điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) xóa cả hai loại kích hoạt trong phạm vi đã chọn bằng một lần gọi. Đối với việc dọn dẹp có chọn lọc và bao phủ các master, layout và notes, xem [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Đối với việc xóa không điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) sẽ xóa cả hai loại kích hoạt trong phạm vi đã chọn trong một lần gọi. Để dọn dẹp có chọn lọc và bao phủ các master, layout và ghi chú, xem [Báo cáo, Làm sạch và Xác minh Siêu liên kết](#report-sanitize-and-verify-hyperlinks).  
 
-## **Xây dựng Kiểm kê Hyperlink Đầy đủ**
+## **Xây dựng Kiểm kê Siêu liên kết Đầy đủ**
 
-Trước khi phân phối bản trình chiếu, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) trả về các đối tượng [IHyperlinkContainer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/), không phải danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) trên mỗi container. Chúng độc lập: cùng một container có thể hiển thị cả hai hành động, vì vậy một báo cáo đầy đủ có thể cần tới hai dòng cho mỗi container.
+Trước khi phân phối một bản trình bày, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) trả về các đối tượng [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), không phải danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) trên mỗi container. Chúng độc lập: cùng một container có thể cung cấp cả hai hành động, do đó một báo cáo đầy đủ có thể cần tới hai hàng cho mỗi container.  
 
-Quét chỉ các hyperlink ở mức hình dạng có thể bỏ qua các liên kết gắn vào phần văn bản. Thay vào đó, truy vấn phạm vi thích hợp và giữ lại các container đã trả về để bạn có thể cập nhật hoặc xóa hành động sau này.
+Quét chỉ các siêu liên kết cấp hình dạng có thể bỏ qua các liên kết gắn vào các phần văn bản. Thay vào đó, truy vấn phạm vi thích hợp và giữ lại các container đã trả về để bạn có thể cập nhật hoặc xóa các hành động sau này.  
 
-### **Truy vấn phạm vi Bản Trình Chiếu, Slide và Khung Văn bản**
+### **Truy vấn Phạm vi Bản trình bày, Slide và Khung Văn bản**
 
-Giao diện [IHyperlinkQueries](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/) có sẵn qua [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), và [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Mỗi phạm vi hỗ trợ cùng các truy vấn:
+Giao diện [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) có sẵn qua [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) và [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--). Mỗi phạm vi hỗ trợ cùng các truy vấn:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) trả về các container có hành động click.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) trả về các container có hành động mouse‑over.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) trả về các container có một hoặc cả hai hành động.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) trả về các container có hành động nhấp.  
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) trả về các container có hành động trỏ chuột.  
+- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) trả về các container có một hoặc cả hai hành động.  
 
-Ví dụ dưới đây tạo `hyperlink-audit-input.pptx` với một liên kết click ngoài, một liên kết mouse‑over file, điều hướng slide nội bộ, một liên kết mouse‑over văn bản và một hành động macro. Nó không thực thi bất kỳ hành động nào trong số này. Ba truy vấn cùng hoạt động ở mọi phạm vi; các đếm mô tả số container, không phải tổng hành động. Phạm vi khung văn bản loại bỏ các liên kết của hình dạng bao quanh.
+Ví dụ sau tạo file `hyperlink-audit-input.pptx` với một liên kết nhấp ngoài, một liên kết trỏ chuột tệp, điều hướng slide nội bộ, một liên kết trỏ chuột văn bản và một hành động macro. Nó không thực thi bất kỳ hành động nào trong số này. Cả ba truy vấn đều hoạt động ở mọi phạm vi; số lượng mô tả các container, không phải tổng số hành động. Phạm vi khung văn bản loại trừ các liên kết của hình dạng bao quanh.  
 
 ```java
 import com.aspose.slides.*;
@@ -322,37 +324,37 @@ try {
 }
 ```
 
-Đối với ví dụ này, các truy vấn bản trình chiếu và slide đều báo cáo ba container click, hai container mouse‑over và ba container có bất kỳ hành động nào. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.
+Đối với ví dụ này, truy vấn bản trình bày và slide mỗi báo cáo ba container nhấp, hai container trỏ chuột, và ba container có một trong hai hành động. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.  
 
-### **Phân loại Hành động và Đích đến**
+### **Phân loại Hành động và Đích**
 
-Sử dụng [IHyperlink.getActionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getActionType--) để giải thích một hành động trước khi giải thích đích đến của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/hyperlinkactiontype/) bao gồm hơn việc điều hướng web:
+Sử dụng [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) để giải thích một hành động trước khi giải thích đích của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) bao phủ hơn chỉ điều hướng web:
 
-| Values | Ý nghĩa cho việc kiểm toán |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | Liên kết ngoài; kiểm tra URL và giao thức của nó. |
+| `Hyperlink` | Siêu liên kết ngoại; kiểm tra URL và giao thức của nó. |
 | `JumpSpecificSlide` | Điều hướng nội bộ tới một slide cụ thể. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp, được giải quyết trong ngữ cảnh trình chiếu. |
-| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc buổi chiếu hiện tại hoặc bắt đầu buổi chiếu tùy chỉnh. |
-| `StartMacro` | Thực thi macro. |
+| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc buổi chiếu hiện tại hoặc bắt đầu một buổi chiếu tùy chỉnh. |
+| `StartMacro` | Thực thi một macro. |
 | `StartProgram` | Khởi chạy một chương trình. |
-| `OpenFile`, `OpenPresentation` | Mở tệp hoặc một bản trình chiếu khác; xem xét riêng biệt so với URL web. |
-| `StartStopMedia` | Bắt đầu hoặc dừng phát đa phương tiện. |
-| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc một hành động không xác định cần xem xét. |
+| `OpenFile`, `OpenPresentation` | Mở một tệp hoặc một bản trình bày khác; xem xét riêng biệt so với URL web. |
+| `StartStopMedia` | Bắt đầu hoặc dừng phát phương tiện. |
+| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc một hành động không xác định cần kiểm tra. |
 
-Đọc các đích đến bên ngoài từ [getExternalUrl](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getExternalUrl--) và các đích đến nội bộ cụ thể từ [getTargetSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Các hành động nội bộ và lệnh tích hợp có thể không có URL bên ngoài; URL rỗng không có nghĩa là container không có hành động. Bảo lưu giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) khi nó khác với URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getTooltip--) nếu có.
+Đọc các đích ngoại từ [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) và các đích nội bộ cụ thể từ [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--). Các hành động nội bộ và lệnh tích hợp có thể không có URL ngoại; một URL trống không có nghĩa là container không có hành động. Giữ lại giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) khi nó khác với URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) khi có.  
 
-### **Báo cáo, Làm sạch và Xác minh Hyperlink**
+### **Báo cáo, Làm sạch và Xác minh Siêu liên kết**
 
-Ví dụ Java sau đọc một bản trình chiếu hiện có (sử dụng tệp đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng một chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại để kiểm tra cả hai loại kích hoạt một lần nữa. Nó thu thập các container trước khi thay đổi chúng và sử dụng so sánh tham chiếu để tránh xử lý cùng một container hai lần. Các truy vấn bản trình chiếu bao phủ các slide thường; để có kiểm kê toàn gói, nó cũng truy vấn một cách rõ ràng các master, layout, notes và các master notes và handout khi có.
+Ví dụ Java dưới đây đọc một bản trình bày đã tồn tại (sử dụng file đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng một chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại nó để kiểm tra cả hai loại kích hoạt một lần nữa. Nó thu thập các container trước khi thay đổi chúng và sử dụng so sánh tham chiếu để tránh xử lý cùng một container hai lần. Các truy vấn bản trình bày bao phủ các slide thông thường; để có kiểm kê toàn bộ gói, nó cũng truy vấn một cách rõ ràng các master, layout, ghi chú, và các master ghi chú và handout khi có.  
 
-Báo cáo ghi lại chỉ số slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getSlideId--) khi có. [ISlideComponent.getSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecomponent/#getSlide--) cung cấp slide chủ sở hữu cho các container được hỗ trợ. Các master, layout và notes không có chỉ số slide bình thường và được xác định bằng phạm vi của chúng. Các container hình dạng và container định dạng phần văn bản được gán nhãn riêng; các loại container khác giữ nguyên tên kiểu runtime. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu trữ các loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enum Java.
+Báo cáo ghi lại chỉ mục slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) khi có. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) cung cấp slide sở hữu cho các container được hỗ trợ. Các master, layout và ghi chú không có chỉ mục slide thông thường và được xác định bằng phạm vi của chúng. Các container hình dạng và container định dạng phần văn bản được dán nhãn riêng; các loại container khác giữ tên kiểu thời gian chạy của chúng. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu các loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enum Java.  
 
-Chính sách ứng dụng có tính hạn chế này chỉ cho phép các URL HTTPS tuyệt đối và các đích slide nội bộ hợp lệ. Nó từ chối macro, chương trình, hành động file, các hành động trình chiếu khác, hành động không xác định và các scheme URL khác. Những từ chối này là quyết định chính sách, không phải phán quyết an toàn của Aspose.Slides. HTTPS một mình không tạo ra niềm tin: hãy thêm danh sách cho phép host và các kiểm tra khác cho ứng dụng của bạn. Cả URL bên ngoài gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ kiểm toán siêu dữ liệu mà không theo dõi liên kết hay chạy hành động.
+Chính sách ứng dụng có chủ đích này chỉ cho phép các URL HTTPS tuyệt đối và các đích slide nội bộ hợp lệ. Nó từ chối macro, chương trình, hành động tệp, các hành động trình chiếu khác, các hành động không xác định, và các giao thức URL khác. Các từ chối này là quyết định chính sách, không phải phán quyết về độ an toàn của Aspose.Slides. HTTPS một mình không tạo nên sự tin cậy: hãy thêm danh sách cho phép máy chủ và các kiểm tra khác cho ứng dụng của bạn. Cả URL ngoại gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ này kiểm toán siêu dữ liệu mà không theo dõi liên kết hay thực thi hành động.  
 
-Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Ở đây, các liên kết click bên ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các click và mouse‑over bị cấm khác được xóa độc lập. Đặt `replaceExternalClicks` thành `false` để xóa tất cả vi phạm chính sách. Chọn một trang thay thế thuộc sở hữu ứng dụng trước khi triển khai.
+Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Ở đây, các liên kết nhấp ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp bị cấm khác và các hành động trỏ chuột bị cấm được xóa riêng biệt. Đặt `replaceExternalClicks` thành `false` để xóa tất cả vi phạm chính sách. Chọn một trang thay thế do ứng dụng sở hữu trước khi triển khai.  
 
-Cờ xuất khẩu của báo cáo sử dụng một chính sách xem xét PDF bảo thủ: đánh dấu các hành động mouse‑over và bất kỳ thứ gì khác ngoài liên kết ngoài hoặc nhảy slide cụ thể là có khả năng không được hỗ trợ. Đây là gợi ý kiểm tra, không phải kiểm tra khả năng hay bảo đảm các liên kết không được đánh dấu sẽ tồn tại sau xuất khẩu. Các xuất khẩu PDF và HTML được hỗ trợ có thể giữ lại hyperlink, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các hình ảnh raster và video không thể giữ lại hyperlink tương tác; đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.
+Cờ xuất khẩu của báo cáo sử dụng một chính sách xem xét PDF thận trọng: đánh dấu các hành động trỏ chuột và bất kỳ thứ gì không phải là liên kết ngoại hoặc chuyển đổi slide cụ thể là có khả năng không được hỗ trợ. Đây là một gợi ý xem xét, không phải là kiểm tra khả năng hay bảo đảm các liên kết không được đánh dấu sẽ tồn tại sau khi xuất. Các xuất khẩu PDF [PDF](/slides/vi/java/convert-powerpoint-to-pdf/) và HTML [HTML](/slides/vi/java/convert-powerpoint-to-html/) được hỗ trợ có thể giữ lại siêu liên kết, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Hình ảnh raster [images](/slides/vi/java/convert-powerpoint-to-png/) và video [video](/slides/vi/java/convert-powerpoint-to-video/) không thể giữ lại siêu liên kết tương tác; đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.  
 
 ```java
 import com.aspose.slides.*;
@@ -454,7 +456,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // Chuẩn bị các dòng phẳng của báo cáo này dưới dạng JSON mà không cần phụ thuộc JSON bổ sung.
+    // Chuyển đổi các hàng phẳng của báo cáo này mà không cần phụ thuộc JSON bổ sung.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -537,20 +539,20 @@ try {
 }
 ```
 
-Với dữ liệu đầu vào được tạo ở trên, báo cáo chứa năm dòng hành động. Liên kết mouse‑over file và click macro bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Kiểm tra xác minh in ra không có hành động bị cấm. Dữ liệu đầu vào chứa một URL click bên ngoài bị cấm cũng sẽ kích hoạt nhánh thay thế. Một container có click cho phép và mouse‑over bị cấm vẫn giữ lại hành động click của nó.
+Với đầu vào được tạo ở trên, báo cáo chứa năm hàng hành động. Liên kết trỏ chuột tệp và nhấp macro được xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Kiểm tra in ra không có hành động bị cấm. Một đầu vào chứa URL nhấp ngoài bị cấm cũng sẽ thực hiện nhánh thay thế. Một container có nhấp cho phép và trỏ chuột bị cấm sẽ giữ lại hành động nhấp.  
 
-Việc dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) – phương pháp này xóa cả hai loại kích hoạt trong toàn bộ phạm vi đã chọn bất kể chính sách. Kiểm tra ở đây chỉ kiểm tra các hành động hyperlink; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung hoạt động khác, và không xác thực một tệp PDF hoặc HTML đã xuất.
+Quá trình dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) , vốn xóa cả hai loại kích hoạt trong toàn bộ phạm vi đã chọn bất kể chính sách. Kiểm tra ở đây chỉ kiểm tra các hành động siêu liên kết; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung hoạt động khác, và không xác thực tệp PDF hoặc HTML đã xuất.  
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể liên kết tới một phần hoặc slide đầu tiên của nó?**
+**Làm sao tôi có thể liên kết tới một phần hoặc slide đầu tiên của nó?**  
 
-Các phần trong PowerPoint nhóm các slide, nhưng một hyperlink nội bộ chỉ mục tiêu một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
+Các phần trong PowerPoint nhóm các slide lại với nhau, nhưng một siêu liên kết nội bộ nhắm tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.  
 
-**Tôi có thể đính kèm hyperlink vào các thành phần slide mẫu để nó hoạt động trên tất cả các slide không?**
+**Tôi có thể gắn siêu liên kết vào các thành phần slide master để nó hoạt động trên mọi slide không?**  
 
-Có. Các thành phần slide mẫu và layout hỗ trợ hyperlink. Các liên kết trên những thành phần này khả dụng trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
+Có. Các thành phần slide master và layout hỗ trợ siêu liên kết. Các liên kết trên những thành phần này sẽ có sẵn trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.  
 
-**Liên kết sẽ được giữ lại khi xuất ra PDF, HTML, hình ảnh hay video không?**
+**Siêu liên kết có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?**  
 
-Các xuất khẩu PDF và HTML được hỗ trợ có thể giữ lại hyperlink; hình ảnh raster và video không thể. Xem các lưu ý xuất khẩu trong [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Xuất khẩu PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết; hình ảnh raster và video không thể. Xem các lưu ý xuất khẩu trong [Báo cáo, Làm sạch và Xác minh Siêu liên kết](#report-sanitize-and-verify-hyperlinks).

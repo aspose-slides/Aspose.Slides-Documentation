@@ -1,5 +1,5 @@
 ---
-title: Prezentációs hiperhivatkozások kezelése Pythonon keresztül Java-val
+title: Prezentációs hiperhivatkozások kezelése Pythonban Java segítségével
 linktitle: Hiperhivatkozások kezelése
 type: docs
 weight: 20
@@ -23,30 +23,30 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Hiperhivatkozások hozzáadása, formázása, frissítése és eltávolítása PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via Java segítségével, Python példákkal."
+description: "Hiperhivatkozások hozzáadása, formázása, frissítése és eltávolítása PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Python via Java használatával, Python példákkal."
 ---
 ## **Bevezetés**
 
 A hiperhivatkozás összekapcsolja a bemutató tartalmát egy weboldallal vagy a bemutatón belüli helyszínnel. A PowerPointban a hiperhivatkozások általában két célra szolgálnak:
 
-* Weboldal megnyitása szövegből, alakzatból vagy médiakeretből.
-* Másik dia megnyitása, például a tartalomjegyzékből.
+* Weboldal megnyitása szövegből, alakzatból vagy média keretből.
+* Navigálás egy másik diára, például egy tartalomjegyzékből.
 
-Az Aspose.Slides for Python via Java lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk vezérlését, tulajdonságaik frissítését és eltávolítását. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetjük el a hiperhivatkozásokat a bemutató, dia vagy szövegkeret szintjén.
+Az Aspose.Slides for Python via Java lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk szabályozását, tulajdonságaik frissítését, valamint eltávolítását. Az alábbi példák bemutatják, hogyan kell a hiperhivatkozásokkal dolgozni egyedi elemeknél, illetve hogyan lehet a hiperhivatkozásokhoz hozzáférni a bemutató, dia vagy szövegkeret szintjén.
 
 {{% alert color="info" title="Megjegyzés" %}}
-
-A bemutatókat a [ingyenes online Aspose PowerPoint szerkesztővel](https://products.aspose.app/slides/hu/editor) is szerkesztheti.
-
+A bemutatókat a [ingyenes online Aspose PowerPoint szerkesztővel](https://products.aspose.app/slides/editor) is szerkesztheti.
 {{% /alert %}} 
 
 ## **URL hiperhivatkozások hozzáadása**
 
-Webcím (URL) hozzárendelhető szöveghez, alakzathoz vagy médiakerethez. Az elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrészlet a kijelölt szöveget, míg egy alakzat vagy keret a dia objektumát teszi kattinthatóvá.
+Weboldal URL-t rendelhet szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeli, határozza meg a kattintható területet: egy szövegrész a kiválasztott szöveget linkeli, míg egy alakzat vagy keret a diaobjektumot linkeli.
+
+Relatív hiperhivatkozásokat tartalmazó bemutatók esetén tekintse meg a [Manage the Hyperlink Base](/slides/hu/python-java/presentation-properties/#manage-the-hyperlink-base) cikket a dokumentumszintű alap olvasásához, módosításához vagy törléséhez.
 
 ### **URL hiperhivatkozások hozzáadása szöveghez**
 
-A szöveg weboldalra való hivatkozásához egy [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) objektumot adjon át a szövegrészlet [setHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/portionformat/#setHyperlinkClick) metódusának, ahogy az alább látható. Csak ez a szövegrészlet lesz kattintható.
+A szöveget egy weboldalra linkelheti, ha egy [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) objektumot ad át a szövegrész [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) metódusának, ahogy az alább látható. csak az adott szövegrész lesz kattintható.
 
 ```python
 import jpype
@@ -72,20 +72,20 @@ finally:
     presentation.dispose()
 ```
 
-### **URL hiperhivatkozások hozzáadása alakzatokhoz és médiakeretekhez**
+### **URL hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
 
-Az alakzat vagy keret kattinthatóvá tételéhez hívja meg annak [setHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#setHyperlinkClick) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem egy benne lévő szövegrészlethez.
+Az alakzat vagy keret kattinthatóvá tételéhez hívja meg a [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem egy benne lévő szövegrészhez.
 
-Ugyanez a megközelítés érvényes kép-, hang- és videókeretekre is: rendelje hozzá a hiperhivatkozást a kerethez, és szükség esetén hívja meg a [setTooltip](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setTooltip) metódust.
+Ugyanaz a megközelítés érvényes kép, audio és video keretekre: a hiperhivatkozást a keretre kell rendelni, és szükség esetén meghívni a [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) metódust.
 
 Az alábbi példa egy téglalapot tesz kattinthatóvá:
 
 ```python
-import jpide
+import jpype
 import asposeslides
 
-if not jpide.isJVMStarted():
-    jpide.startJVM()
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
 from asposeslides.api import Hyperlink, Presentation, SaveFormat, ShapeType
 
@@ -103,7 +103,7 @@ finally:
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) metódust használja, hogy a „2. oldal” szöveget az első diárról a második diára mutassa.
+A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy egy tartalomjegyzékből egy adott diára ugorjanak. A következő példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) metódust használja, hogy az első dián lévő „Page 2” szöveget a második diára linkelje.
 
 ```python
 import jpype
@@ -147,9 +147,9 @@ finally:
 
 ### **Szín**
 
-A [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) [setColorSource](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setColorSource) metódusa határozza meg, hogy a hiperhivatkozás a bemutató hiperhivatkozás‑színét vagy a szövegrészlet formázását használja-e. Egy egyéni szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkcolorsource/) értéket, és állítsa be a részlet kitöltőszínét. Ez a funkció a PowerPoint 2019‑ben került bevezetésre; a régebbi verziók nem alkalmazzák ezt a beállítást.
+A [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) metódus a [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) osztályában határozza meg, hogy a hiperhivatkozás a bemutató hiperhivatkozás színét vagy a szövegrész formázását használja-e. Egy egyedi szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) értéket, és állítsa be a rész kitöltő színét. Ez a funkció a PowerPoint 2019‑ben került bevezetésre; a régebbi verziók nem alkalmazzák ezt a beállítást.
 
-Az alábbi példa két szöveges hiperhivatkozást ad ugyanarra a diára. Az első piros szövegszínnel jelenik meg, míg a másik a alapértelmezett hiperhivatkozás‑színt használja.
+Az alábbi példa két szöveges hiperhivatkozást ad ugyanarra a diára. Az első piros szövegtöltést használ, míg a második az alapértelmezett hiperhivatkozás színt tartja meg.
 
 ```python
 import jpype
@@ -182,14 +182,14 @@ finally:
 ```
 ### **Hang**
 
-A hiperhivatkozás aktiváláskor lejátszhat egy hangot, vagy leállíthat egy már futó hangot. Az alábbi metódusokkal konfigurálhatja ezeket a viselkedéseket:
+A hiperhivatkozás lejátszhat egy hangot aktiváláskor, vagy leállíthat egy már lejátszott hangot. A következő metódusokkal állíthatja be ezeket a viselkedéseket:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setSound) a hiperhivatkozáshoz társított audiót adja meg.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) szabályozza, hogy a hiperhivatkozás aktiválása leállítsa‑e az előző hangot.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) meghatározza a hiperhivatkozáshoz társított hangot.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) szabályozza, hogy a hiperhivatkozás aktiválása leállítsa-e az előző hangot.
 
 #### **Hiperhivatkozás hangjának hozzáadása**
 
-Az alábbi példa betölti a `sampleaudio.wav` fájlt, és egy gombhoz rendeli az első dián. A gomb megnyomásakor a hang lejátszásra kerül, és a következő diára navigál. Egy másik alakzat ugyanazon a dián a hang leállítását végzi kattintáskor, anélkül hogy navigációt indítana.
+Az alábbi példa betölti a `sampleaudio.wav` fájlt, és hozzárendeli egy gombhoz az első dián. A gomb megnyomása lejátsza a hangot és a következő diára navigál. Egy második alakzat ugyanazon a dián leállítja az előző hangot kattintáskor, anélkül, hogy navigációt végezne.
 
 ```python
 from pathlib import Path
@@ -225,7 +225,7 @@ finally:
 
 #### **Hiperhivatkozás hangjának kinyerése**
 
-Az alábbi példa megnyitja a fent létrehozott bemutatót, és a [getSound](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getSound) és [getBinaryData](https://reference.aspose.com/slides/hu/python-java/aspose.slides/audio/#getBinaryData) metódusok segítségével a memóriába olvassa az első alakzat hiperhivatkozás‑audióját.
+Az alábbi példa megnyitja a fent létrehozott bemutatót, és a [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) és a [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) metódusok segítségével memóriába olvassa az első alakzat hiperhivatkozás hangját.
 
 ```python
 import jpype
@@ -252,18 +252,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Buborék és interakciós beállítások**
+### **Buboréksúgó és interakció beállítások**
 
-A szöveghez vagy alakzathoz hiperhivatkozás hozzárendelése után a következő [Hyperlink](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/) metódusok hívhatók meg:
+A hiperhivatkozás szöveghez vagy alakzathoz való hozzárendelése után a következő [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) metódusok hívhatók meg:
 
-- [setTooltip](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setTooltip) a linkhez megjelenő tipp szövegének beállításához.
-- [setTargetFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setTargetFrame) a célkeret meghatározásához egy szülő HTML‑keretcsoportban, ha releváns.
-- [setHistory](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setHistory) szabályozza, hogy a link aktiválása felvegye‑e a célját a megtekintett hiperhivatkozások listájába.
-- [setHighlightClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#setHighlightClick) azt határozza meg, hogy a hiperhivatkozás kattintáskor ki legyen‑e emelve.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) beállítja a szöveget, amelyet a néző a hivatkozás tippjeként megjeleníthet.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) meghatározza a célkeretet egy szülő HTML keretcsoportban, ha alkalmazható.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) szabályozza, hogy a hivatkozás aktiválása hozzáadja-e a célpontot a megtekintett hiperhivatkozások listájához.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) szabályozza, hogy a hiperhivatkozás ki legyen-e emelve kattintáskor.
 
-## **Hiperhivatkozások eltávolítása a bemutatókból**
+## **Hiperhivatkozások eltávolítása bemutatókból**
 
-A [getAnyHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) metódus segítségével gyűjthetőek a hiperhivatkozás‑konténerek (beleértve a szövegrészlet‑hivatkozásokat) a módosítás előtt. Az alábbi példa eltávolítja mindkét aktiválási típust az első diáról. Ha csak az egyiket szeretné eltávolítani, hívja meg kizárólag a [removeHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metódust; egy kattintási művelet eltávolítása nem távolítja el az egér‑túlfuttatás szerinti változatot.
+A [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) használatával összegyűjtheti a hiperhivatkozás konténereket, beleértve a szövegrész hivatkozásait is, mielőtt módosítaná őket. Az alábbi példa eltávolítja mindkét aktivációs típust az első diáról. Ha csak az egyiket szeretné eltávolítani, hívja csak a [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metódust; a kattintási művelet eltávolítása nem távolítja el az egér‑fölé‑húzás párját.
 
 ```python
 import jpype
@@ -288,23 +288,23 @@ finally:
     presentation.dispose()
 ```
 
-Feltétel nélküli eltávolítás esetén a [removeAllHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) egy hívással mindkét aktiválási típust eltávolítja a kiválasztott körben. A mester, elrendezés és jegyzetek szelektív tisztításáról és átfedéséről lásd a **[Jelentés, tisztítás és hiperhivatkozások ellenőrzése](#report-sanitize-and-verify-hyperlinks)** részt.
+Feltétel nélküli eltávolításhoz a [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) egy hívásban eltávolítja mindkét aktivációs típust a kiválasztott hatókörben. Szelektív tisztításhoz és a master‑ek, elrendezések és jegyzetek lefedéséhez lásd a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) szakaszt.
 
-## **Teljes hiperhivatkozás‑leltár készítése**
+## **Teljes hiperhivatkozás leltár összeállítása**
 
-A bemutató terjesztése előtt vegye fel az interaktív műveleteket és a webes hivatkozásokat. A [getAnyHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) konténereket ad vissza, mint például a [Shape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/) és a [PortionFormat](https://reference.aspose.com/slides/hu/python-java/aspose.slides/portionformat/) objektumokat, nem egyszerű URL‑listát. Vizsgálja meg mind a [getHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getHyperlinkClick), mind a [getHyperlinkMouseOver](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getHyperlinkMouseOver) metódusokat minden konténeren. Ezek függetlenek: egy konténer mindkét műveletet tartalmazhatja, ezért egy teljes jelentés akár két sorra is kiterjedhet egy konténerhez.
+Mielőtt terjesztené a bemutatót, készítsen leltárt az interaktív műveleteiről és webes hivatkozásairól. A [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) hiperhivatkozás‑konténereket ad vissza, például [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) és [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) objektumokat, nem egy egyszerű URL‑lista. Vizsgálja meg minden konténeren a [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) és a [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) metódusokat. Ezek függetlenek: ugyanaz a konténer is rendelkezhet mindkét művelettel, ezért egy teljes jelentés akár két sort is igényelhet konténerenként.
 
-Csak alakzat‑szintű hiperhivatkozások vizsgálata kihagyhat szövegrészlet‑hivatkozásokat. Kérdezze le a megfelelő környezetet, és tartsa meg a visszakapott konténereket, hogy később frissíthesse vagy eltávolíthassa azok műveleteit.
+Csak alakzati szintű hiperhivatkozások beolvasása lemaradhat a szövegrészekhez csatolt hivatkozásokról. Kérdezze le a megfelelő hatókört, és tartsa meg a visszakapott konténereket, hogy később frissíthesse vagy eltávolíthassa azok műveleteit.
 
-### **Bemutató, dia és szövegkeret körök lekérdezése**
+### **Prezentáció, dia és szövegkeret hatókörök lekérdezése**
 
-A [HyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/) osztály a következőkkel érhető el: [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getHyperlinkQueries) és [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/hu/python-java/aspose.slides/textframe/#getHyperlinkQueries). Minden kör ugyanazokat a lekérdezéseket támogatja:
+A [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) osztály a [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), a [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) és a [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries) metódusokon keresztül érhető el. Minden hatókör ugyanazokat a lekérdezéseket támogatja:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) a kattintási művelettel rendelkező konténereket adja vissza.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) a egér‑túlfuttatás művelettel rendelkezőket.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) mindkét vagy bármelyik művelettel rendelkezőket.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) konténereket ad vissza kattintási művelettel.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) konténereket ad vissza egér‑fölé‑húzási művelettel.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) konténereket ad vissza bármelyik vagy mindkét művelettel.
 
-Az alábbi példa létrehoz egy `hyperlink-audit-input.pptx` fájlt, amely külső kattintási linket, fájl egér‑túlfuttatás linket, belső dia‑navigációt, szöveg egér‑túlfuttatás linket és makró‑műveletet tartalmaz. A példában egyetlen művelet sem hajtódik végre. A három lekérdezés minden körben működik; a számlálók konténereket, nem műveleteket adnak vissza. A szövegkeret kör kizárja a befoglaló alakzat saját linkjeit.
+Az alábbi példa létrehozza a `hyperlink-audit-input.pptx` fájlt egy külső kattintási linkkel, egy fájl egér‑fölé‑húzási linkkel, belső dia‑navigációval, egy szöveg egér‑fölé‑húzási linkkel és egy makró‑művelettel. A példában egyik művelet sem kerül végrehajtásra. Ugyanaz a három lekérdezés minden hatókörben működik; a számlálók konténereket írnak le, nem a műveletek összegét. A szövegkeret hatókör kizárja a körülötte lévő alakzat saját linkjeit.
 
 ```python
 import jpype
@@ -345,37 +345,37 @@ finally:
     presentation.dispose()
 ```
 
-Ebben a példában a bemutató- és dia‑lekérdezések három kattintási, két egér‑túlfuttatás és három vegyes konténert jelentettek. A szövegkeret lekérdezése egy‑egy konténert adott minden kategóriában.
+Ebben a példában a prezentáció‑ és dia‑lekérdezések három kattintási, két egér‑fölé‑húzási, valamint három olyan konténert jelentenek, amely valamelyik vagy mindkét műveletet tartalmaz. A szövegkeret lekérdezés egy konténert jelent minden kategóriában.
 
 ### **Műveletek és célpontok osztályozása**
 
-Használja a [Hyperlink.getActionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getActionType) metódust a művelet értelmezéséhez, mielőtt a célpontot vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkactiontype/) értékek a web‑navigáción túl is terjednek:
+A [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) segítségével értelmezhet egy műveletet, mielőtt a célpontját vizsgálná. A [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) értékek a webes navigáción túl is terjednek:
 
-| Értékek | Jelentés auditáláskor |
+| Értékek | Jelentés ellenőrzéskor |
 | --- | --- |
-| `Hyperlink` | Külső hiperhivatkozás; ellenőrizze az URL‑t és séma‑t. |
+| `Hyperlink` | Külső hiperhivatkozás; ellenőrizze az URL‑t és annak sémáját. |
 | `JumpSpecificSlide` | Belső navigáció egy adott diára. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés‑navigáció, a diavetítés kontextusában értelmezve. |
-| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyéni bemutató indítása. |
+| `JumpEndShow`, `StartCustomSlideShow` | A jelenlegi előadás befejezése vagy egy egyéni előadás indítása. |
 | `StartMacro` | Makró végrehajtása. |
 | `StartProgram` | Program indítása. |
-| `OpenFile`, `OpenPresentation` | Fájl vagy másik bemutató megnyitása; külön kell vizsgálni a web‑URL‑ktől. |
+| `OpenFile`, `OpenPresentation` | Fájl vagy másik prezentáció megnyitása; külön kell ellenőrizni a webes URL‑ektől. |
 | `StartStopMedia` | Média lejátszás indítása vagy leállítása. |
 | `NoAction`, `Unknown` | Nincs navigációs művelet, vagy ismeretlen művelet, amely felülvizsgálatot igényel. |
 
-Külső célpontok olvashatók a [getExternalUrl](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getExternalUrl) metódussal, a belső célpontok pedig a [getTargetSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getTargetSlide) segítségével. Belső műveletek és beépített parancsok esetén előfordulhat, hogy nincs külső URL; az üres URL nem jelenti, hogy a konténernek nincs művelete. Amikor a [getExternalUrlOriginal](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) más, mint a normalizált URL, őrizze meg az eredetit, és ha rendelkezésre áll, adja hozzá a [getTooltip](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlink/#getTooltip) által visszaadott tippet is.
+Külső célpontokat a [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) metódussal, a konkrét belső célpontokat a [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide) metódussal olvashatja. Belső műveletek és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti azt, hogy a konténernek nincs művelete. Ha a [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) más értéket ad, mint a normalizált URL, azt meg kell őrizni, és ha elérhető, a [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) által visszaadott buboréksúgót is tartalmazni kell.
 
 ### **Jelentés, tisztítás és hiperhivatkozások ellenőrzése**
 
-Az alábbi Python‑példa beolvassa a meglévő bemutatót (használja a fent létrehozott fájlt), létrehozza a `hyperlink-audit.json` fájlt, alkalmaz egy szabályzatot, elmenti a `hyperlink-sanitized.pptx`‑t, majd újra megnyitja, hogy újra ellenőrizze mindkét aktiválási típust. A módosítás előtt gyűjti a konténereket, és referenciabeli egyenlőséggel kerül a duplikált feldolgozás. A bemutató‑lekérdezések szokásos diákra vonatkoznak; a csomag‑szintű leltárhoz kifejezetten lekérdezésre kerülnek a mesterek, elrendezések, jegyzetek és a jegyzet‑‑ és szórólap‑mesterek is, ha jelen vannak.
+Az alábbi Python‑példa egy meglévő bemutatót (használja a fent létrehozott fájlt) beolvas, kiírja a `hyperlink-audit.json` fájlt, alkalmaz egy szabályzatot, elmenti a `hyperlink-sanitized.pptx` fájlt, majd újra megnyitja, hogy újra ellenőrizze mindkét aktivációs típust. A példában a konténereket a módosítás előtt gyűjti, és referencia‑egyenlőséget használ, hogy ugyanazt a konténert ne dolgozza fel kétszer. A prezentáció‑lekérdezések a szokásos diákra vonatkoznak; egy csomag‑szintű leltárhoz expliciten lekérdezi a master‑eket, elrendezéseket, jegyzeteket, valamint a jegyzet‑ és füzet‑master‑eket, ha jelen vannak.
 
-A jelentés egy‑alapú dia‑indexet és a [getSlideId](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getSlideId) értéket (ha elérhető) rögzíti. A [getSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getSlide) biztosítja a tulajdonos diát a támogatott konténerekhez. A mestereket, elrendezéseket és jegyzeteket nincs rendes dia‑indexük, ezért a környezetük alapján azonosítja őket. Az alakzat‑konténerek és a szövegrészlet‑formázási konténerek külön vannak címkézve; egyéb konténer‑típusok megtartják futási típusuk nevét. Minden konténer kap egy jelentés‑belső azonosítót, hogy a két művelet összekapcsolható legyen. A jelentés a művelettípusokat a Java‑enumeráció egész‑konstansaként tárolja.
+A jelentés rögzít egy egy‑alapú dia‑indexet és a [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) értéket, ahol elérhető. A [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) a támogatott konténerekhez a szülő diát szolgáltatja. A master‑ek, elrendezések és jegyzetek nem rendelkeznek szokásos dia‑indexszel, ezért a hatókör alapján azonosítjuk őket. Az alakzat‑konténereket és a szövegrész‑formázási konténereket külön címkézzük; a többi konténer típusa megtartja a futásidejű típusnevét. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két művelet összekapcsolható legyen. A jelentés a művelettípusokat a Java‑enumeráció által definiált egész‑konstansokként tárolja.
 
-Ez a szándékosan szigorú alkalmazási szabályzat csak abszolút HTTPS URL‑eket és érvényes belső dia‑célpontokat engedélyezi. Elutasítja a makrókat, programokat, fájl‑műveleteket, egyéb diavetítés‑műveleteket, ismeretlen műveleteket és egyéb URL‑sémákat. Ezek a visszautasítások szabályzat‑döntések, nem az Aspose.Slides biztonsági megítélése. Az HTTPS önmagában nem jelenti a megbízhatóságot: vegyen fel host‑engedélylistákat és egyéb ellenőrzéseket a saját alkalmazásához. Mind az eredeti, mind a normalizált külső URL‑ket ellenőrzi a rendszer. A példa metaadat‑auditot végez anélkül, hogy a linkekre kattintana vagy a műveleteket végrehajtaná.
+Ez a szándékosan szigorú alkalmazási szabályzat csak abszolút HTTPS‑URL‑eket és érvényes belső dia‑célpontokat engedélyez. Elutasítja a makrókat, programokat, fájl‑műveleteket, egyéb diavetítés‑műveleteket, ismeretlen műveleteket és egyéb URL‑sémákat. Ezek az elutasítások szabályzati döntések, nem egy Aspose.Slides biztonsági ítélet. Az HTTPS önmagában nem jelent megbízhatást: adjon hozzá host‑engedélylistákat és egyéb ellenőrzéseket az alkalmazásához. Mind az eredeti, mind a normalizált külső URL‑ek ellenőrzésre kerülnek. A példa a metaadatokat ellenőrzi anélkül, hogy a linkeket követné vagy a műveleteket végrehajtaná.
 
-Javítás céljából a konténer [getHyperlinkManager](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getHyperlinkManager) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), a [removeHyperlinkClick](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) és a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metódusokat. Itt a tiltott külső kattintási hivatkozásokat egy rögzített HTTPS céloldallal helyettesítjük; a további tiltott kattintásokat és egér‑túlfuttatás‑műveleteket külön-külön eltávolítjuk. Állítsa a `replace_external_clicks` értékét `False`‑ra, ha az összes szabályszegést el akarja távolítani. Válasszon egy alkalmazás‑saját helyettesítő oldalt a kiadás előtt.
+Javításhoz a konténer [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), a [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) és a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) metódusokat. Itt a tiltott külső kattintási linkek egy fix HTTPS‑belépő oldalra cserélődnek; a többi tiltott kattintás és tiltott egér‑fölé‑húzás művelet külön-külön eltávolításra kerül. A `replace_external_clicks` értékének `False`‑ra állítása minden szabálysértést eltávolít. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a kiélesítés előtt.
 
-A jelentés export‑jelzője konzervatív PDF‑ellenőrzési szabályt alkalmaz: jelöli az egér‑túlfuttatás‑műveleteket, illetve minden olyan elemet, amely nem külső link vagy konkrét dia‑ugrás, potenciálisan nem támogatottként. Ez egy ellenőrzési útmutató, nem képesség‑teszt vagy garancia arra, hogy a megjelöletlen linkek exportáláskor megmaradnak. A támogatott [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/python-java/convert-powerpoint-to-html/) exportálások megőrizhetik a hiperhivatkozásokat, a művelet, export‑opciók és a nézőtől függően. A raszter [images](/slides/hu/python-java/convert-powerpoint-to-png/) és [video](/slides/hu/python-java/convert-powerpoint-to-video/) nem képesek megtartani az interaktív hiperhivatkozásokat; az ilyen kimenetek auditálásakor jelölje meg minden műveletet.
+A jelentés export‑jelzője egy konzervatív PDF‑ellenőrzési szabályzatot használ: jelöli az egér‑fölé‑húzás műveleteket és minden mást, ami nem külső link vagy konkrét dia‑ugrás, potenciálisan nem támogatottként. Ez egy felülvizsgálati jelzés, nem egy képesség‑teszt vagy garancia arra, hogy a jelöletlen linkek megmaradnak az export során. A támogatott [PDF](/slides/hu/python-java/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/python-java/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, a művelettől, az export‑beállításoktól és a megjelenítőtől függően. A raszteres [images](/slides/hu/python-java/convert-powerpoint-to-png/) és [video](/slides/hu/python-java/convert-powerpoint-to-video/) nem őrizhetik meg az interaktív hiperhivatkozásokat; audit során ezen kimenetekhez minden műveletet jelölni kell.
 
 ```python
 import json
@@ -528,20 +528,20 @@ finally:
     presentation.dispose()
 ```
 
-A fent létrehozott bemenet alapján a jelentés öt műveleti sort tartalmaz. A fájl‑egér‑túlfuttatás link és a makró‑kattintás eltávolításra kerül, míg a HTTPS‑linkek és a belső dia‑navigáció megmarad. A verifikáció nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a helyettesítési ágat is végrehajtja. Egy engedélyezett kattintású, de tiltott egér‑túlfuttatású konténer megtartja a kattintási műveletét.
+A fent létrehozott bemenettel a jelentés öt műveleti sort tartalmaz. A fájl egér‑fölé‑húzás link és a makró‑kattintás eltávolításra kerül, míg a HTTPS‑linkek és a belső dia‑navigáció megmarad. Az ellenőrzés nulla tiltott műveletet ír ki. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a helyettesítő ágat is végrehajtja. Egy engedélyezett kattintással és tiltott egér‑fölé‑húzással rendelkező konténer megtartja a kattintási műveletét.
 
-Ez a szelektív tisztítás különbözik a [removeAllHyperlinks](https://reference.aspose.com/slides/hu/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) módszertől, amely a kiválasztott körben mindkét aktiválási típust eltávolítja szabályzat nélkül. Az ellenőrzés itt csak a hiperhivatkozás‑műveleteket vizsgálja; nem távolítja el a beágyazott VBA‑projket, OLE‑objektumokat vagy egyéb aktív tartalmakat, és nem ellenőrzi a kiexportált PDF‑ vagy HTML‑fájlokat.
+Ez a szelektív tisztítás különbözik a [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) működésétől, amely a kiválasztott hatókörben mindkét aktivációs típust eltávolítja szabályzattól függetlenül. Itt az ellenőrzés csak a hiperhivatkozás‑műveleteket vizsgálja; nem távolítja el a beágyazott VBA‑projektet, OLE‑objektumokat vagy más aktív tartalmakat, és nem validálja az exportált PDF‑ vagy HTML‑fájlt.
 
 ## **GYIK**
 
-**Hogyan tudok egy szakaszra vagy annak első diájára hivatkozni?**
+**Hogyan linkelhetek egy szekcióra vagy annak első diájára?**
 
-A PowerPoint szakaszok diákat csoportosítanak, de egy belső hiperhivatkozás egyetlen diát célba vesz. A szakaszra való navigáció létrehozásához hivatkozzon a szakasz első diájára.
+A PowerPointban a szekciók csoportosítják a diákat, de egy belső hiperhivatkozás egyetlen diára mutat. Navigáció létrehozásához a szekció első diájára hivatkozzon.
 
-**Csatolhatok hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
+**Csatolhatok‑e hiperhivatkozást a mester diák elemeihez, hogy minden diáron működjön?**
 
-Igen. A mesterdia és az elrendezés elemei támogatják a hiperhivatkozásokat. Ezek a linkek a diavetítés során elérhetők azon diákon, amelyek a megfelelő mestert vagy elrendezést használják.
+Igen. A master‑dia és elrendezés elemei támogatják a hiperhivatkozásokat. Ezeken az elemeken lévő linkek a diavetítés során elérhetők azon diákon, amelyek a megfelelő master‑t vagy elrendezést használják.
 
-**Megmaradnak a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
+**Megmaradnak‑e a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
 
-A támogatott PDF és HTML exportálások megőrizhetik a hiperhivatkozásokat; a raszter képek és a videó nem. Lásd a **[Jelentés, tisztítás és hiperhivatkozások ellenőrzése](#report-sanitize-and-verify-hyperlinks)** részt az export‑szempontokért.
+A támogatott PDF‑ és HTML‑exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és videó nem. Tekintse meg az exportálási megfontolásokat a [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) szakaszban.

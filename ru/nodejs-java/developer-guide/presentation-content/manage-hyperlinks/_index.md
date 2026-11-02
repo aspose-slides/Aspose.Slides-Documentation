@@ -13,7 +13,7 @@ keywords:
 - обновить гиперссылку
 - текстовая гиперссылка
 - гиперссылка слайда
-- гиперссылка фигуры
+- гиперссылка формы
 - гиперссылка изображения
 - гиперссылка видео
 - изменяемая гиперссылка
@@ -27,24 +27,26 @@ description: "Добавляйте, форматируйте, обновляйт
 ---
 ## **Введение**
 
-Гиперссылка соединяет содержимое презентации с веб‑сайтом или расположением внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
+Гиперссылка соединяет содержимое презентации с веб‑сайтом или местом внутри презентации. В PowerPoint гиперссылки обычно служат двум целям:
 
-* Открыть веб‑сайт из текста, фигуры или медиа‑кадра.
+* Открыть веб‑сайт из текста, формы или медиа‑кадра.
 * Перейти к другому слайду, например, из оглавления.
 
 Aspose.Slides for Node.js via Java позволяет добавлять такие ссылки, управлять их внешним видом и звуком, обновлять их свойства и удалять их. Приведённые ниже примеры показывают, как работать с гиперссылками на отдельных элементах и как получать доступ к гиперссылкам на уровне презентации, слайда или текстового кадра.
 
-{{% alert color="info" title="Примечание" %}}
-Вы также можете редактировать презентации с помощью [бесплатного онлайн‑редактора Aspose PowerPoint](https://products.aspose.app/slides/ru/editor).
+{{% alert color="info" title="Note" %}}
+Вы также можете редактировать презентации с помощью [бесплатного онлайн‑редактора Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Добавление URL‑гиперссылок**
+## **Добавить URL‑гиперссылки**
 
-Вы можете назначить URL веб‑сайта тексту, фигуре или медиа‑кадру. Элемент, к которому вы привязываете гиперссылку, определяет область клика: часть текста связывает выбранный текст, а фигура или кадр — объект слайда.
+Вы можете присвоить URL‑адрес веб‑сайта тексту, форме или медиа‑кадру. Элемент, к которому вы присваиваете гиперссылку, определяет область клика: текстовая часть связывает выбранный текст, тогда как форма или кадр связывают объект слайда.
 
-### **Добавление URL‑гиперссылок к тексту**
+Для презентаций, содержащих относительные гиперссылки, см. [Управление базой гиперссылок](/slides/ru/nodejs-java/presentation-properties/#manage-the-hyperlink-base), чтобы прочитать, изменить или очистить базовый уровень документа.
 
-Чтобы связать текст с веб‑сайтом, передайте [Hyperlink](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink) в метод [setHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) части текста, как показано ниже. Только эта часть текста становится кликабельной.
+### **Добавить URL‑гиперссылки к тексту**
+
+Чтобы привязать текст к веб‑сайту, передайте объект [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) в метод [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) текстовой части, как показано ниже. Только эта часть текста станет кликабельной.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -64,11 +66,11 @@ try {
 }
 ```
 
-### **Добавление URL‑гиперссылок к фигурам и медиа‑кадрам**
+### **Добавить URL‑гиперссылки к формам и медиа‑кадрам**
 
-Чтобы сделать фигуру или кадр кликабельным, вызовите её метод [setHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Гиперссылка принадлежит самому объекту, а не части текста внутри него.
+Чтобы сделать форму или кадр кликабельным, вызовите его метод [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Гиперссылка принадлежит самому объекту, а не текстовой части внутри него.
 
-То же самое применяется к кадрам изображений, аудио и видео: назначьте гиперссылку кадру и при необходимости вызовите [setTooltip](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setTooltip).
+Та же методика применяется к изображениями, аудио‑ и видеокадрам: присвойте гиперссылку кадру и при необходимости вызовите [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip).
 
 Следующий пример делает прямоугольник кликабельным:
 
@@ -88,9 +90,9 @@ try {
 }
 ```
 
-## **Использование гиперссылок для создания оглавления**
+## **Использовать гиперссылки для создания оглавления**
 
-Внутренние гиперссылки позволяют читателям переходить из оглавления к конкретному слайду. В следующем примере используется [setInternalHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick), чтобы связать текст “Page 2” на первом слайде со вторым слайдом.
+Внутренние гиперссылки позволяют читателям переходить из оглавления к конкретному слайду. В следующем примере используется [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) для связывания текста «Page 2» на первом слайде со вторым слайдом.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -124,13 +126,13 @@ try {
 }
 ```
 
-## **Форматирование гиперссылок**
+## **Форматировать гиперссылки**
 
 ### **Цвет**
 
-Метод [setColorSource](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setColorSource) класса [Hyperlink](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink) определяет, использует ли гиперссылка цвет гиперссылки презентации или форматирование части текста. Чтобы задать собственный цвет текста, выберите [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkColorSource) и задайте цвет заливки части. Эта возможность была добавлена в PowerPoint 2019; более старые версии эту настройку не применяют.
+Метод [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) класса [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) определяет, использует ли гиперссылка цвет гиперссылки презентации или форматирование текстовой части. Чтобы применить пользовательский цвет текста, выберите [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) и установите цвет заливки части. Эта возможность была введена в PowerPoint 2019; в более ранних версиях настройка не применяется.
 
-Следующий пример добавляет две текстовые гиперссылки на один слайд. Первая использует красный цвет текста, вторая сохраняет стандартный цвет гиперссылки.
+Следующий пример добавляет две текстовые гиперссылки на один слайд. Первая использует красный цвет текста, а вторая сохраняет стандартный цвет гиперссылки.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -155,17 +157,16 @@ try {
     presentation.dispose();
 }
 ```
-
 ### **Звук**
 
-Гиперссылка может воспроизводить звук при активации или останавливать уже воспроизводящийся звук. Для настройки этих поведений используйте следующие методы:
+Гиперссылка может воспроизводить звук при активации или останавливать уже проигрывающий звук. Используйте следующие методы для настройки этих поведений:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setSound) — указывает аудио, связанное с гиперссылкой.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) — управляет тем, будет ли при активации гиперссылки остановлен предыдущий звук.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) указывает аудио, связанное с гиперссылкой.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) управляет тем, останавливает ли активация гиперссылки предыдущий звук.
 
-#### **Добавление звука к гиперссылке**
+#### **Добавить звук к гиперссылке**
 
-Следующий пример загружает `sampleaudio.wav` и связывает его с кнопкой на первом слайде. При нажатии кнопка воспроизводит звук и переходит к следующему слайду. Вторая фигура на том же слайде останавливает предыдущий звук при клике, не выполняя перехода.
+Следующий пример загружает `sampleaudio.wav` и привязывает его к кнопке на первом слайде. Нажатие кнопки воспроизводит звук и переходит к следующему слайду. Вторая форма на этом слайде останавливает предыдущий звук при нажатии, не выполняя перехода.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -204,9 +205,9 @@ try {
 }
 ```
 
-#### **Извлечение звука из гиперссылки**
+#### **Извлечь звук из гиперссылки**
 
-Следующий пример открывает ранее созданную презентацию и считывает аудио гиперссылки первой фигуры в память с помощью [getSound](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getSound) и [getBinaryData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Audio#getBinaryData).
+Следующий пример открывает созданную выше презентацию и считывает аудио гиперссылки первой формы в память с помощью [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) и [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,18 +231,18 @@ try {
 }
 ```
 
-### **Подсказка и параметры взаимодействия**
+### **Подсказка и настройки взаимодействия**
 
-После назначения гиперссылки тексту или фигуре вы можете вызвать следующие методы класса [Hyperlink](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink):
+После присвоения гиперссылки тексту или форме вы можете вызвать следующие методы класса [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink):
 
-- [setTooltip](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setTooltip) — задаёт текст, который пользователь видит как подсказку к ссылке.
-- [setTargetFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) — указывает целевой фрейм внутри родительского HTML‑фреймсета, если применимо.
-- [setHistory](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setHistory) — контролирует, будет ли активация ссылки добавлять её назначение в список просмотренных гиперссылок.
-- [setHighlightClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) — управляет тем, будет ли гиперссылка подсвечиваться при клике.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) задаёт текст, который просмотрщик может отобразить в виде подсказки для ссылки.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) указывает целевой кадр внутри родительского HTML‑фреймсета, если применимо.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) контролирует, будет ли активация ссылки добавлять её пункт назначения в список просмотренных гиперссылок.
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) контролирует, будет ли гиперссылка выделяться при щелчке.
 
-## **Удаление гиперссылок из презентаций**
+## **Удалить гиперсылки из презентаций**
 
-Для сбора контейнеров гиперссылок, включая ссылки в частях текста, перед их изменением используйте [getAnyHyperlinks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks). Следующий пример удаляет оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [removeHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) или [removeHyperlinkMouseOver](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); удаление действия клика не удаляет связанное действие при наведении.
+Используйте [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) для сбора контейнеров гиперссылок, включая ссылки текстовых частей, перед их изменением. Следующий пример удаляет оба типа активации с первого слайда. Чтобы удалить только один тип, вызовите только [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) или [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); удаление действия щелчка не удаляет его аналог при наведении.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -267,23 +268,23 @@ try {
 }
 ```
 
-Для безусловного удаления [removeAllHyperlinks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) удаляет оба типа активации в выбранной области одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. раздел [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Для безусловного удаления [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) удаляет оба типа активации в выбранном диапазоне одним вызовом. Для выборочной очистки и охвата мастеров, макетов и заметок см. [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).
 
-## **Создание полного списка гиперссылок**
+## **Создать полный инвентарь гиперссылок**
 
-Перед распространением презентации составьте инвентарь её интерактивных действий и веб‑ссылок. [getAnyHyperlinks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) возвращает контейнеры гиперссылок, а не простой список URL‑строк. Проверьте как [getHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape#getHyperlinkClick), так и [getHyperlinkMouseOver](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) у каждого контейнера. Они независимы: один и тот же контейнер может содержать оба действия, поэтому полноценный отчёт может требовать до двух строк на контейнер.
+Перед распространением презентации зафиксируйте её интерактивные действия, а также веб‑ссылки. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) возвращает контейнеры гиперссылок, а не простой список строк URL. Проверяйте как [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick), так и [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) для каждого контейнера. Они независимы: один контейнер может иметь оба действия, поэтому полный отчёт требует до двух строк на контейнер.
 
-Проверка только гиперссылок уровня фигур может пропустить ссылки, привязанные к частям текста. Запрашивайте соответствующую область вместо этого и сохраняйте возвращённые контейнеры, чтобы позже обновить или удалить их действия.
+Сканирование только гиперссылок уровня формы может пропустить ссылки, привязанные к текстовым частям. Запрашивайте соответствующий диапазон и сохраняйте полученные контейнеры, чтобы позже обновить или удалить их действия.
 
-### **Запрос областей презентации, слайда и текстового кадра**
+### **Запрос презентации, слайда и областей текстового кадра**
 
-Класс [HyperlinkQueries](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries) доступен через [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) и [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Каждая область поддерживает те же запросы:
+Класс [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) доступен через [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) и [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Каждый диапазон поддерживает одинаковые запросы:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) — возвращает контейнеры с действием клика.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) — возвращает контейнеры с действием при наведении.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) — возвращает контейнеры с любым из действий или с обоими.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) возвращает контейнеры с действием щелчка.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) возвращает контейнеры с действием наведения.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) возвращает контейнеры с одним или обоими действиями.
 
-Следующий пример создаёт `hyperlink-audit-input.pptx` с внешней ссылкой‑кликом, ссылкой‑наведение на файл, внутренней навигацией по слайдам, ссылкой‑наведение на текст и действием макроса. Ни одно из этих действий не выполняется. Одни и те же три запроса работают во всех областях; подсчёты описывают количество контейнеров, а не количество действий. Область текстового кадра исключает ссылки самой охватывающей фигуры.
+Следующий пример создаёт `hyperlink-audit-input.pptx` с внешней ссылкой‑щелчком, файлом‑наведением, внутренней навигацией по слайдам, текстовым наведением и макрос‑действием. Он не выполняет эти действия. Три запроса работают на каждом диапазоне; их подсчёты отражают количество контейнеров, а не суммарное число действий. Диапазон текстового кадра исключает ссылки самой окружающей формы.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -320,37 +321,37 @@ try {
 }
 ```
 
-Для этого примера запросы презентации и слайда возвращают по три контейнера клика, два контейнера наведения и три контейнера с любым из действий. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
+Для этого примера запросы презентации и слайда каждый возвращают три контейнера‑щелчка, два контейнера‑наведения и три контейнера с любым действием. Запрос текстового кадра возвращает по одному контейнеру в каждой категории.
 
-### **Классификация действий и назначений**
+### **Классифицировать действия и назначения**
 
-Для определения действия перед определением назначения используйте [Hyperlink.getActionType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getActionType). Значения перечисления [HyperlinkActionType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkActionType) охватывают больше, чем навигацию по вебу:
+Используйте [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) для интерпретации действия перед определением его назначения. Значения [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) охватывают больше, чем веб‑навигацию:
 
-| Значения | Смысл для аудита |
+| Values | Meaning for an audit |
 | --- | --- |
 | `Hyperlink` | Внешняя гиперссылка; проверьте URL и его схему. |
 | `JumpSpecificSlide` | Внутренняя навигация к конкретному слайду. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенная навигация презентации, определяется в контексте показа слайдов. |
-| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущий показ или запустить пользовательский показ. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Встроенная навигация по слайд‑шоу, определяемая в контексте слайд‑шоу. |
+| `JumpEndShow`, `StartCustomSlideShow` | Завершить текущее шоу или запустить пользовательское шоу. |
 | `StartMacro` | Выполнить макрос. |
 | `StartProgram` | Запустить программу. |
 | `OpenFile`, `OpenPresentation` | Открыть файл или другую презентацию; рассматривать отдельно от веб‑URL. |
 | `StartStopMedia` | Запустить или остановить воспроизведение медиа. |
-| `NoAction`, `Unknown` | Нет действия навигации, либо нераспознанное действие, требующее проверки. |
+| `NoAction`, `Unknown` | Нет действия навигации, или неизвестное действие, требующее проверки. |
 
-Чтение внешних назначений производится через [getExternalUrl](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getExternalUrl), а конкретных внутренних — через [getTargetSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL — это не значит, что у контейнера нет действия. Сохраняйте значение, возвращаемое [getExternalUrlOriginal](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal), если оно отличается от нормализованного URL, и включайте подсказку, возвращаемую [getTooltip](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Hyperlink#getTooltip), когда она доступна.
+Читайте внешние назначения через [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) и конкретные внутренние назначения через [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Внутренние действия и встроенные команды могут не иметь внешнего URL; пустой URL не означает отсутствие действия у контейнера. Сохраняйте значение, полученное от [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal), если оно отличается от нормализованного URL, и включайте подсказку из [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip), когда она доступна.
 
 ### **Отчёт, очистка и проверка гиперссылок**
 
-Следующий пример JavaScript читает существующую презентацию (используйте файл, созданный выше), записывает `hyperlink-audit.json`, применяет политику, сохраняет `hyperlink-sanitized.pptx` и повторно открывает её, чтобы снова проверить оба типа активации. Он собирает контейнеры прежде, чем изменять их, и использует сравнение по ссылке, чтобы не обрабатывать один и тот же контейнер дважды. Запросы презентации охватывают обычные слайды; для инвентаризации всего пакета он также явно запрашивает мастера, макеты, заметки и мастера заметок/раздаточных листов, если они присутствуют.
+Следующий пример JavaScript читает существующую презентацию (используйте файл, созданный выше), записывает `hyperlink-audit.json`, применяет политику, сохраняет `hyperlink-sanitized.pptx` и снова открывает её для повторной проверки обоих типов активации. Он собирает контейнеры до их изменения и использует сравнение по ссылке, чтобы не обрабатывать один и тот же контейнер дважды. Запросы презентации охватывают обычные слайды; для инвентаризации всего пакета они также явно запрашивают мастера, макеты, заметки и мастера заметок/раздаточных материалов, если они присутствуют.
 
-Отчёт фиксирует индекс слайда, начиная с 1, и [getSlideId](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/BaseSlide#getSlideId), если он доступен. [getSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape#getSlide) предоставляет родительский слайд для поддерживаемых контейнеров. У мастеров, макетов и заметок нет обычного индекса слайда и они идентифицируются по своей области. Контейнеры фигур и контейнеры форматирования частей текста помечаются отдельно; другие типы сохраняют своё имя типа во время выполнения. Каждому контейнеру присваивается локальный идентификатор отчёта, чтобы его два действия можно было сопоставить. В отчёте типы действий сохраняются как целочисленные константы, определённые перечислением HyperlinkActionType.
+Отчёт фиксирует индекс слайда, начинающийся с единицы, и [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId), когда он доступен. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) предоставляет слайд‑владельца для поддерживаемых контейнеров. У мастеров, макетов и заметок нет обычного индекса слайда и они идентифицируются по своему диапазону. Контейнеры формы и контейнеры форматирования текстовых частей помечаются отдельно; другие типы контейнеров сохраняют своё имя типа во время выполнения. Каждый контейнер получает локальный идентификатор отчёта, чтобы можно было сопоставить его два действия. В отчёте типы действий сохраняются как целочисленные константы, определённые перечислением HyperlinkActionType.
 
-Эта преднамеренно строгая политика приложения допускает только абсолютные HTTPS‑URL и корректные внутренние цели слайдов. Она отклоняет макросы, программы, действия с файлами, другие действия слайд‑шоу, неизвестные действия и прочие схемы URL. Такие отклонения — решения политики, а не оценка безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки в своё приложение. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет только метаданные без переходов по ссылкам и без выполнения действий.
+Эта преднамеренно строгая политика приложения разрешает только абсолютные HTTPS‑URL и действительные внутренние цели слайдов. Она отклоняет макросы, программы, действия с файлами, другие действия слайд‑шоу, неизвестные действия и другие схемы URL. Эти отклонения — решения политики, а не вывод о безопасности Aspose.Slides. Один лишь HTTPS не гарантирует доверие: добавьте списки разрешённых хостов и другие проверки для вашего приложения. Проверяются как оригинальные, так и нормализованные внешние URL. Пример проверяет метаданные без переходов по ссылкам или выполнения действий.
 
-Для исправления контейнер поддерживает [getHyperlinkManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Shape#getHyperlinkManager), который позволяет использовать [setExternalHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) и [removeHyperlinkMouseOver](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Здесь запрещённые внешние ссылки‑клики заменяются фиксированной HTTPS‑страницей‑заглушкой; остальные запрещённые клики и действия при наведении удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы удалить все нарушения политики. Выберите страницу‑заменитель, принадлежащую вашему приложению, перед развёртыванием.
+Для исправления контейнерный метод [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) поддерживает [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) и [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Здесь запрещённые внешние ссылки‑щелчки заменяются фиксированной HTTPS‑страницей‑приёмником; остальные запрещённые щелчки и действия наведения удаляются независимо. Установите `replaceExternalClicks` в `false`, чтобы полностью удалить все нарушения политики. Выберите страницу‑замену, управляемую приложением, перед развертыванием.
 
-Флаг экспорта в отчёте использует консервативную политику проверки PDF: помечать действия при наведении и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это лишь рекомендация для проверки, а не тест возможностей или гарантия, что не помеченные ссылки сохранятся при экспорте. Поддерживаемый экспорт в [PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/nodejs-java/convert-powerpoint-to-html/) может сохранять гиперссылки в зависимости от действия, параметров экспорта и средства просмотра. Растровые [изображения](/slides/ru/nodejs-java/convert-powerpoint-to-png/) и [видео](/slides/ru/nodejs-java/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; при аудите для этих форматов помечайте каждое действие.
+Флаг экспорта отчёта использует консервативную политику проверки PDF: помечайте действия наведения и всё, что не является внешней ссылкой или переходом к конкретному слайду, как потенциально неподдерживаемое. Это подсказка для проверки, а не тест возможностей или гарантия, что непомеченные ссылки сохранятся при экспорте. Поддерживаемый [PDF](/slides/ru/nodejs-java/convert-powerpoint-to-pdf/) и [HTML](/slides/ru/nodejs-java/convert-powerpoint-to-html/) экспорты могут сохранять гиперссылки, в зависимости от действия, параметров экспорта и среды просмотра. Растровые [изображения](/slides/ru/nodejs-java/convert-powerpoint-to-png/) и [видео](/slides/ru/nodejs-java/convert-powerpoint-to-video/) не могут сохранять интерактивные гиперссылки; помечайте каждое действие при аудите для этих форматов вывода.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -498,20 +499,20 @@ try {
 }
 ```
 
-С входными данными, созданными выше, отчёт содержит пять строк действий. Ссылка‑наведение на файл и макрос‑клик удалены, тогда как HTTPS‑ссылки и внутренняя навигация по слайдам остаются. Проверка выводит ноль запрещённых действий. Ввод, содержащий запрещённый внешний URL‑клик, также демонстрирует ветку замены. Контейнер с разрешённым кликом и запрещённым наведением сохраняет своё действие‑клик.
+С созданным выше вводом отчёт содержит пять строк действий. Ссылка‑наведение к файлу и макрос‑щелчок удалены, тогда как HTTPS‑ссылки и внутренняя навигация по слайдам остались. Проверка выводит ноль запрещённых действий. Ввод, содержащий запрещённый внешний URL‑щелчок, также демонстрирует ветку замены. Контейнер с разрешённым щелчком и запрещённым наведением сохраняет своё действие‑щелчок.
 
-Эта выборочная очистка отличается от [removeAllHyperlinks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), который удаляет оба типа активации во всей выбранной области независимо от политики. Проверка здесь проверяет только действия гиперссылок; она не удаляет встроенные проекты VBA, OLE‑объекты или другое активное содержимое и не проверяет экспортированный PDF или HTML файл.
+Эта выборочная очистка отличается от [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), который удаляет оба типа активации во всём выбранном диапазоне независимо от политики. Проверка здесь проверяет только действия гиперссылок; она не удаляет встроенные VBA‑проекты, OLE‑объекты или другой активный контент и не проверяет экспортированный PDF или HTML файл.
 
-## **Вопросы и ответы**
+## **Часто задаваемые вопросы**
 
 **Как я могу создать ссылку на раздел или его первый слайд?**
 
-Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка указывает отдельный слайд. Чтобы создать навигацию к разделу, привяжите ссылку к первому слайду этого раздела.
+Разделы в PowerPoint группируют слайды, но внутренняя гиперссылка направлена на отдельный слайд. Чтобы реализовать навигацию к разделу, привяжите ссылку к первому слайду этого раздела.
 
-**Могу ли я привязать гиперссылку к элементам макета слайда, чтобы она работала на всех слайдах?**
+**Могу ли я прикрепить гиперссылку к элементам макетного слайда, чтобы она работала на всех слайдах?**
 
-Да. Элементы мастера слайда и макета поддерживают гиперссылки. Ссылки на этих элементах доступны во время показа на слайдах, использующих соответствующий мастер или макет.
+Да. Элементы мастера и макета поддерживают гиперссылки. Ссылки на этих элементах доступны во время показа слайдов на всех слайдах, использующих соответствующий мастер или макет.
 
-**Будут ли гиперссылки сохраняться при экспорте в PDF, HTML, изображения или видео?**
+**Сохранятся ли гиперссылки при экспорте в PDF, HTML, изображения или видео?**
 
-Экспорт в поддерживаемый PDF и HTML может сохранять гиперссылки; растровые изображения и видео — нет. См. замечания по экспорту в разделе [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Поддерживаемый PDF и HTML экспорт могут сохранять гиперссылки; растровые изображения и видео этого не делают. См. особенности экспорта в разделе [Отчёт, очистка и проверка гиперссылок](#report-sanitize-and-verify-hyperlinks).

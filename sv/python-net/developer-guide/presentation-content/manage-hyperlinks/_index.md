@@ -14,8 +14,9 @@ keywords:
 - texthyperlänk
 - bildhyperlänk
 - formhyperlänk
+- bildhyperlänk
 - videohyperlänk
-- justerbar hyperlänk
+- muterbar hyperlänk
 - PowerPoint
 - OpenDocument
 - presentation
@@ -25,26 +26,26 @@ description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerP
 ---
 ## **Introduktion**
 
-En hyperlänk kopplar presentationsinnehåll till en webbplats eller en plats inom presentationen. I PowerPoint används hyperlänkar oftast för två ändamål:
+En hyperlänk kopplar presentationsinnehåll till en webbplats eller en plats inom presentationen. I PowerPoint används hyperlänkar vanligtvis för två syften:
 
-* Öppna en webbplats från text, en form eller en mediaram.
+* Öppna en webbplats från text, en form eller ett mediaram.
 * Navigera till en annan bild, till exempel från en innehållsförteckning.
 
-Aspose.Slides for Python via .NET låter dig lägga till dessa länkar, styra deras utseende och ljud, uppdatera deras egenskaper och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller textramnivå.
+Aspose.Slides for Python via .NET låter dig lägga till dessa länkar, styra deras utseende och ljud, uppdatera deras egenskaper och ta bort dem. Exemplen nedan visar hur du arbetar med hyperlänkar på enskilda element och hur du får åtkomst till hyperlänkar på presentations-, bild- eller textram‑nivå.
 
 {{% alert color="info" title="Note" %}}
-
-Du kan också redigera presentationer med den [gratis online Aspose PowerPoint‑editorn](https://products.aspose.app/slides/sv/editor).
-
+Du kan också redigera presentationer med den [gratis online Aspose PowerPoint‑redigeraren](https://products.aspose.app/slides/editor).
 {{% /alert %}}
 
 ## **Lägg till URL‑hyperlänkar**
 
-Du kan tilldela en webbplats‑URL till text, en form eller en mediaram. Det element som du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ram länkar bildobjektet.
+Du kan tilldela en webbplats‑URL till text, en form eller ett mediaram. Det element du tilldelar hyperlänken bestämmer det klickbara området: en textdel länkar den markerade texten, medan en form eller ett ram länkar bildobjektet.
+
+För presentationer som innehåller relativa hyperlänkar, se [Hantera hyperlänkbasen](/slides/sv/python-net/presentation-properties/#manage-the-hyperlink-base) för att läsa, ändra eller rensa dokument‑nivåbasen.
 
 ### **Lägg till URL‑hyperlänkar till text**
 
-För att länka text till en webbplats, tilldela ett [Hyperlink](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/) till textdelens [hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/hyperlink_click/)‑egenskap, som visas nedan. Endast den delen av texten blir klickbar.
+För att länka text till en webbplats, tilldela en [Hyperlänk](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) till textdelens [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) egenskap, som visas nedan. Endast den textdelen blir klickbar.
 
 ```python
 import aspose.slides as slides
@@ -61,9 +62,9 @@ with slides.Presentation() as presentation:
 
 ### **Lägg till URL‑hyperlänkar till former och mediaramar**
 
-För att göra en form eller ram klickbar, ange dess [hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/hyperlink_click/)‑egenskap. Hyperlänken tillhör själva objektet snarare än en textdel i det.
+För att göra en form eller ett ram klickbart, ange dess [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) egenskap. Hyperlänken tillhör själva objektet snarare än en textdel i det.
 
-Samma tillvägagångssätt gäller för bild-, ljud- och videoram: tilldela hyperlänken till ramen och ange länkens [tooltip](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/tooltip/) om så önskas.
+Samma metod gäller för bild-, ljud‑ och videoram: tilldela hyperlänken till ramen och ange ramens [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) om det behövs.
 
 Följande exempel gör en rektangel klickbar:
 
@@ -79,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ## **Använd hyperlänkar för att skapa en innehållsförteckning**
 
-Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Följande exempel använder [set_internal_hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) för att länka texten “Page 2” på den första bilden till den andra bilden.
+Interna hyperlänkar låter läsare hoppa från en innehållsförteckning till en specifik bild. Det följande exemplet använder [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) för att länka texten “Page 2” på den första bilden till den andra bilden.
 
 ```python
 import aspose.pydrawing as draw
@@ -108,9 +109,9 @@ with slides.Presentation() as presentation:
 
 ### **Färg**
 
-[color_source](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/color_source/)‑egenskapen för [Hyperlink](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänkfärg eller textdelens formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkcolorsource/) och ange delens fyllnadsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner tillämpar inte denna inställning.
+Egenskapen [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) för [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) bestämmer om en hyperlänk använder presentationens hyperlänksfärg eller textdelens formatering. För att använda en anpassad textfärg, välj [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) och ange textdelens fyllningsfärg. Denna funktion introducerades i PowerPoint 2019; äldre versioner tillämpar inte den här inställningen.
 
-Följande exempel lägger till två texthyperlänkar på samma bild. Den första använder en röd textfyllning, medan den andra behåller standard‑hyperlänkfärgen.
+Följande exempel lägger till två texthyperlänkar på samma bild. Den första använder röd textfyllning, medan den andra behåller standardfärgen för hyperlänkar.
 
 ```python
 import aspose.pydrawing as draw
@@ -132,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **Ljud**
 
-En hyperlänk kan spela upp ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande egenskaper för att konfigurera dessa beteenden:
+En hyperlänk kan spela ett ljud när den aktiveras eller stoppa ett ljud som redan spelas. Använd följande egenskaper för att konfigurera dessa beteenden:
 
-- [Hyperlink.sound](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/sound/) specificerar ljudet som är associerat med hyperlänken.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/stop_sound_on_click/) styr om aktivering av hyperlänken stoppar det föregående ljudet.
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) anger ljudet som är associerat med hyperlänken.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) kontrollerar om aktiveringen av hyperlänken stoppar det tidigare ljudet.
 
 #### **Lägg till ett hyperlänksljud**
 
-Följande exempel laddar `sampleaudio.wav` och kopplar det till en knapp på den första bilden. Klick på knappen spelar upp ljudet och navigerar till nästa bild. En andra form på samma bild stoppar det föregående ljudet när den klickas, utan att utföra någon navigationsåtgärd.
+Följande exempel laddar `sampleaudio.wav` och associerar den med en knapp på den första bilden. När knappen klickas spelas ljudet och navigerar till nästa bild. En andra form på samma bild stoppar det föregående ljudet vid klick, utan att utföra en navigationsåtgärd.
 
 ```python
 import aspose.slides as slides
@@ -163,7 +164,7 @@ with slides.Presentation() as presentation:
 
 #### **Extrahera ett hyperlänksljud**
 
-Följande exempel öppnar presentationen som skapades ovan och läser hyperlänkens ljud för den första formen till minnet via [sound](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/sound/) och [binary_data](https://reference.aspose.com/slides/sv/python-net/aspose.slides/audio/binary_data/).
+Följande exempel öppnar presentationen som skapades ovan och läser den första formens hyperlänks‑ljud till minnet via [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) och [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -181,18 +182,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **Verktygstips och interaktionsinställningar**
+### **Tooltip‑ och interaktionsinställningar**
 
-Du kan uppdatera följande [Hyperlink](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/)‑egenskaper efter att ha tilldelat en hyperlänk till text eller en form:
+Du kan uppdatera följande [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) egenskaper efter att du har tilldelat en hyperlänk till text eller en form:
 
-- [tooltip](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/tooltip/) anger den text som en tittare kan visa som ett tips för länken.
-- [target_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/target_frame/) specificerar mål‑ramen inom en förälder‑HTML‑frameset, när det är tillämpligt.
-- [history](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/history/) kontrollerar om aktivering av länken lägger till dess destination i listan över visade hyperlänkar.
-- [highlight_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/highlight_click/) styr om hyperlänken markeras när den klickas.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) anger texten som en betraktare kan visa som ett tip för länken.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) anger mål‑ramen inom ett överordnat HTML‑ramverk, när det är tillämpligt.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) styr om aktiveringen av länken lägger till dess destination i listan över visade hyperlänkar.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) styr om hyperlänken markeras när den klickas.
 
 ## **Ta bort hyperlänkar från presentationer**
 
-Använd [get_any_hyperlinks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) för att samla in hyperlänkbehållare, inklusive länkar i textdelar, innan du ändrar dem. Följande exempel tar bort båda aktiverings typerna från den första bilden. För att bara ta bort en typ, anropa endast [remove_hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) eller [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); att ta bort en klick‑åtgärd tar inte bort dess mus‑över‑motsvarighet.
+Använd [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) för att samla in hyperlänks‑behållare, inklusive länkar för textdelar, innan du ändrar dem. Följande exempel tar bort båda aktiveringstyperna från den första bilden. För att bara ta bort en typ, anropa bara [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) eller [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/); att ta bort en klick‑åtgärd tar inte bort motsvarande mus‑över‑åtgärd.
 
 ```python
 import aspose.slides as slides
@@ -208,23 +209,21 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-För ovillkorlig borttagning tar [remove_all_hyperlinks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) bort båda aktiverings typerna i det valda omfånget i ett anrop. För selektiv rensning och täckning av master‑, layout‑ och not‑bilder, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+För villkorslös borttagning tar [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) bort båda aktiveringstyperna i det valda omfånget i ett anrop. För selektiv rensning och täckning av master‑bilder, layouter och kommentarer, se [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Bygg ett komplett hyperlänkinventarium**
+## **Bygg ett komplett hyperlänksinventarium**
 
-Innan du distribuerar en presentation, inventera dess interaktiva åtgärder samt dess webb‑länkar. [get_any_hyperlinks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ihyperlinkcontainer/)‑objekt, inte en platt lista med URL‑strängar. Inspektera både [hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) och [hyperlink_mouse_over](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) på varje behållare. De är oberoende: samma behållare kan exponera båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
+Innan du distribuerar en presentation, inventera dess interaktiva åtgärder samt dess webb‑länkar. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returnerar [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) objekt, inte en plan lista med URL‑strängar. Inspektera både [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) och [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) för varje behållare. De är oberoende: samma behållare kan ha båda åtgärderna, så en komplett rapport kan behöva upp till två rader per behållare.
 
-Att bara skanna hyperlänkar på form‑nivå kan missa länkar som är bifogade till textdelar. Fråga rätt omfång istället, och behåll de returnerade behållarna så att du senare kan uppdatera eller ta bort deras åtgärder.
+### **Fråga presentations-, bild‑ och textram‑omfång**
 
-### **Fråga presentation, bild och textram‑omfång**
+Klassen [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) finns tillgänglig via [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) och [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Varje omfång stöder samma frågor:
 
-Klassen [HyperlinkQueries](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/) är tillgänglig via [Presentation.hyperlink_queries](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/hyperlink_queries/) och [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/hyperlink_queries/). Varje omfång stöder samma frågor:
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) returnerar behållare med en klick‑åtgärd.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) returnerar behållare med en mus‑över‑åtgärd.
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returnerar behållare med någon av eller båda åtgärderna.
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) returnerar behållare med en klick‑åtgärd.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) returnerar behållare med en mus‑över‑åtgärd.
-- [get_any_hyperlinks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) returnerar behållare med någon eller båda åtgärderna.
-
-Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klick‑länk, en fil‑mus‑över‑länk, intern bild‑navigering, en text‑mus‑över‑länk och en makro‑åtgärd. Det utför inte någon av dessa åtgärder. Samma tre frågor fungerar i varje omfång; räkningarna beskriver behållare, inte totala åtgärder. Textram‑omfånget utesluter den omgivande formens egna länkar.
+Följande exempel skapar `hyperlink-audit-input.pptx` med en extern klick‑länk, en fil‑mus‑över‑länk, intern bild‑navigering, en text‑mus‑över‑länk och en makro‑åtgärd. Det kör inte någon av dessa åtgärder. Samma tre frågor fungerar i varje omfång; räknarna beskriver behållare, inte totala åtgärder. Textram‑omfånget exkluderar den omgivande formens egna länkar.
 
 ```python
 import aspose.slides as slides
@@ -258,37 +257,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-I detta exempel rapporterar presentation‑ och bild‑frågor vardera tre klick‑behållare, två mus‑över‑behållare och tre behållare med någon av åtgärderna. Textram‑frågan rapporterar en behållare i varje kategori.
+För detta exempel rapporterar presentations‑ och bild‑frågor vardera tre klick‑behållare, två mus‑över‑behållare och tre behållare med någon av åtgärderna. Textram‑frågan rapporterar en behållare i varje kategori.
 
 ### **Klassificera åtgärder och destinationer**
 
-Använd [Hyperlink.action_type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/action_type/) för att tolka en åtgärd innan du tolkar dess destination. Värdena i [HyperlinkActionType](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkactiontype/) omfattar mer än webb‑navigering:
+Använd [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) för att tolka en åtgärd innan du tolkar dess destination. [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/)‑värdena täcker mer än webbnavigering:
 
 | Värden | Betydelse för en revision |
 | --- | --- |
-| `HYPERLINK` | Extern hyperlänk; inspektera URL:n och dess schema. |
+| `HYPERLINK` | Extern hyperlänk; inspektera URL:en och dess schema. |
 | `JUMP_SPECIFIC_SLIDE` | Intern navigering till en specifik bild. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Inbyggd bildspels‑navigering, löst i bildspels‑sammanhang. |
-| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Avsluta det aktuella show‑et eller starta ett anpassat show. |
-| `START_MACRO` | Exekvera ett makro. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Inbyggd bildspels‑navigering, löst i bildspelskontekst. |
+| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Avsluta den aktuella föreställningen eller starta en anpassad föreställning. |
+| `START_MACRO` | Kör ett makro. |
 | `START_PROGRAM` | Starta ett program. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Öppna en fil eller en annan presentation; granska separat från webb‑URL:er. |
-| `START_STOP_MEDIA` | Starta eller stoppa mediaplayback. |
-| `NO_ACTION`, `UNKNOWN` | Ingen navigerings‑åtgärd, eller en okänd åtgärd som kräver granskning. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Öppna en fil eller en annan presentation; granska separat från web‑URL:er. |
+| `START_STOP_MEDIA` | Starta eller stoppa medieuppspelning. |
+| `NO_ACTION`, `UNKNOWN` | Ingen navigeringsåtgärd, eller en okänd åtgärd som kräver granskning. |
 
-Läs externa destinationer från [external_url](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/external_url/) och specifika interna destinationer från [target_slide](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/target_slide/). Interna åtgärder och inbyggda kommandon kan sakna extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara [external_url_original](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/external_url_original/) när den skiljer sig från den normaliserade URL:n, och inkludera [tooltip](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlink/tooltip/) när den är tillgänglig.
+Läs externa destinationer från [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) och specifika interna destinationer från [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Interna åtgärder och inbyggda kommandon kan ha ingen extern URL; en tom URL betyder inte att behållaren saknar åtgärd. Bevara [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) när den skiljer sig från den normaliserade URL:en, och inkludera [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) när den är tillgänglig.
 
 ### **Rapportera, sanera och verifiera hyperlänkar**
 
-Följande Python‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiverings typerna igen. Det samlar behållare innan de ändras och frågar varje bild‑omfång en gång för att undvika dubbletter. Presentations‑frågor täcker vanliga bilder; för ett paket‑omfattande inventarium frågar exemplet vanliga bilder, master‑bilder, layouter, noter samt not‑ och handout‑master när de finns.
+Följande Python‑exempel läser en befintlig presentation (använd filen som skapades ovan), skriver `hyperlink-audit.json`, tillämpar en policy, sparar `hyperlink-sanitized.pptx` och öppnar den igen för att kontrollera båda aktiveringstyperna på nytt. Det samlar behållare innan de ändras och frågar varje bild‑omfång en gång för att undvika dubbelbehandling. Presentations‑frågor täcker vanliga bilder; för ett paket‑omfattande inventarium frågar exemplet vanliga bilder, master‑bilder, layouter, kommentarer samt kommentarer‑ och utdelnings‑master när de finns.
 
-Rapporten registrerar ett index som börjar på 1 samt [slide_id](https://reference.aspose.com/slides/sv/python-net/aspose.slides/baseslide/slide_id/) där det finns. Samlaren behåller den ägande bilden och omfånget tillsammans med varje returnerad behållare. Master‑, layout‑ och not‑bilder har inget vanligt bild‑index och identifieras av sitt omfång. Form‑behållare och text‑del‑formateringsbehållare märks separat; andra behållartyper behåller sitt kör‑tids‑typsnamn. Varje behållare får ett lokalt rapport‑ID så att dess två åtgärder kan koreleras.
+Rapporten registrerar ett bildindex med bas 1 och [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) där det finns. Samlaren behåller den ägande bilden och omfånget tillsammans med varje returnerad behållare. Master‑bilder, layouter och kommentarer har inget vanligt bildindex och identifieras av sitt omfång. Form‑behållare och formaterings‑behållare för textdelar märks separat; andra behållartyper behåller sitt kör‑tidsnamn. Varje behållare får ett rapport‑lokalt ID så att dess två åtgärder kan korreleras.
 
-Denna avsiktligt restriktiva applikations‑policy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bild‑mål. Den avvisar makron, program, fil‑åtgärder, andra bildspels‑åtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policy‑beslut, inte ett säkerhets‑betyg från Aspose.Slides. HTTPS ensam etablerar inte förtroende: lägg till host‑allowlists och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller köra åtgärder.
+Denna medvetet restriktiva applikationspolicy tillåter endast absoluta HTTPS‑URL:er och giltiga interna bildmål. Den avvisar makron, program, fil‑åtgärder, andra bildspels‑åtgärder, okända åtgärder och andra URL‑scheman. Dessa avslag är policybeslut, inte ett säkerhetsbeslut från Aspose.Slides. HTTPS ensamt ger ingen förtroende: lägg till värd‑tillåtelselistor och andra kontroller för din applikation. Både original‑ och normaliserade externa URL:er kontrolleras. Exemplet granskar metadata utan att följa länkar eller utföra åtgärder.
 
-För korrigering stöder behållarens [hyperlink_manager](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) [set_external_hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) och [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Här ersätts förbjudna externa klick‑länkar med en fast HTTPS‑landningssida; andra förbjudna klick‑ och mus‑över‑åtgärder tas bort oberoende. Ställ in `replace_external_clicks` till `False` för att ta bort alla policy‑överträdelser istället. Välj en applikations‑ägd ersättningssida innan distribution.
+För korrigering stödjer behållarens [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) och [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Här ersätts förbjudna externa klick‑länkar med en fast HTTPS‑landningssida; andra förbjudna klick‑ och mus‑över‑åtgärder tas bort oberoende. Sätt `replace_external_clicks` till `False` för att ta bort alla policy‑överträdelser istället. Välj en applikationsägd ersättningssida innan distribution.
 
-Rapportens export‑flagga använder en konservativ PDF‑gransknings‑policy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifikt bild‑hopp som potentiellt ej stödjda. Det är en gransknings‑hint, inte ett kapacitets‑test eller en garanti för att o‑flagade länkar överlever export. Stödd [PDF](/slides/sv/python-net/convert-powerpoint-to-pdf/) och [HTML](/slides/sv/python-net/convert-powerpoint-to-html/)‑export kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och visare. Raster‑[images](/slides/sv/python-net/convert-powerpoint-to-png/) och [video](/slides/sv/python-net/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid revision för dessa utdata.
+Rapportens export‑flagga använder en konservativ PDF‑granskningspolicy: flagga mus‑över‑åtgärder och allt annat än en extern länk eller specifikt bildhopps som potentiellt ej stödjan. Det är en granskningshint, inte ett kapacitetstest eller en garanti för att oflagade länkar överlever export. Stödda [PDF](/slides/sv/python-net/convert-powerpoint-to-pdf/) och [HTML](/slides/sv/python-net/convert-powerpoint-to-html/) export kan bevara hyperlänkar, beroende på åtgärd, exportalternativ och visare. Raster-[bilder](/slides/sv/python-net/convert-powerpoint-to-png/) och -[video](/slides/sv/python-net/convert-powerpoint-to-video/) kan inte bevara interaktiva hyperlänkar; flagga varje åtgärd vid revision för dessa resultat.
 
 ```python
 import json
@@ -331,7 +330,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Fråga varje bildomfång en gång och behåll dess ägare för varje behållare.
+    # Fråga varje bildomfång en gång, behåll ägaren för varje behållare.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -418,46 +417,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-Med den input som skapades ovan innehåller rapporten fem åtgärds‑rader. Fil‑mus‑över‑länken och makro‑klick‑åtgärden tas bort, medan HTTPS‑länkarna och intern bild‑navigering kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En input som innehåller en förbjuden extern klick‑URL demonstrerar också ersättnings­grenen. En behållare med ett tillåtet klick och ett förbjudet mus‑över‑värde behåller sin klick‑åtgärd.
+Med den indata som skapats ovan innehåller rapporten fem åtgärdsrader. Fil‑mus‑över‑länken och makro‑klicken tas bort, medan HTTPS‑länkarna och intern bild‑navigering kvarstår. Verifieringen skriver ut noll förbjudna åtgärder. En indata som innehåller en förbjuden extern klick‑URL testar även ersättningsgrenen. En behållare med ett tillåtet klick och en förbjuden mus‑över behåller sin klick‑åtgärd.
 
-Denna selektiva rensning skiljer sig från [remove_all_hyperlinks](https://reference.aspose.com/slides/sv/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), som tar bort båda aktiverings typerna i det valda omfånget oavsett policy. Verifieringen här kontrollerar bara hyperlänk‑åtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
+Denna selektiva rensning skiljer sig från [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), som tar bort båda aktiveringstyperna i hela det valda omfånget oavsett policy. Verifieringen här kontrollerar endast hyperlänk‑åtgärder; den tar inte bort inbäddade VBA‑projekt, OLE‑objekt eller annat aktivt innehåll, och den validerar inte en exporterad PDF‑ eller HTML‑fil.
 
 ## **FAQ**
 
-**Hur kan jag länka till ett avsnitt eller dess första bild?**
+**How can I link to a section or its first slide?**
 
-Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig mot en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i avsnittet.
+Avsnitt i PowerPoint grupperar bilder, men en intern hyperlänk riktar sig mot en enskild bild. För att skapa navigering till ett avsnitt, länka till den första bilden i det avsnittet.
 
-**Kan jag bifoga en hyperlänk till master‑bild‑element så att den fungerar på alla bilder?**
+**Can I attach a hyperlink to master slide elements so it works on all slides?**
 
-Ja. Element i master‑bilder och layouter stödjer hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på de bilder som använder motsvarande master eller layout.
+Ja. Master‑bilder och layout‑element stödjer hyperlänkar. Länkar på dessa element är tillgängliga under bildspelet på bilder som använder motsvarande master eller layout.
 
-**Kommer hyperlänkar bevaras vid export till PDF, HTML, bilder eller video?**
+**Will hyperlinks be preserved when exporting to PDF, HTML, images, or video?**
 
-Stödd PDF‑ och HTML‑export kan bevara hyperlänkar; rasterbilder och video kan inte. Se export‑överväganden i [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
-
----
-title: Hantera presentationshyperlänkar i Python
-linktitle: Hantera hyperlänkar
-type: docs
-weight: 20
-url: /sv/python-net/manage-hyperlinks/
-keywords:
-- lägg till URL
-- lägg till hyperlänk
-- skapa hyperlänk
-- formatera hyperlänk
-- ta bort hyperlänk
-- uppdatera hyperlänk
-- texthyperlänk
-- bildhyperlänk
-- formhyperlänk
-- videohyperlänk
-- justerbar hyperlänk
-- PowerPoint
-- OpenDocument
-- presentation
-- Python
-- Aspose.Slides
-description: "Lägg till, formatera, uppdatera och ta bort hyperlänkar i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Python via .NET, med Python-exempel."
----
+Stödda PDF‑ och HTML‑exporter kan bevara hyperlänkar; raster‑bilder och video kan inte. Se export‑överväganden i [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

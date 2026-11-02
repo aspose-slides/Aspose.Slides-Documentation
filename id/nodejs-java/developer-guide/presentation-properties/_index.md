@@ -6,75 +6,51 @@ weight: 70
 url: /id/nodejs-java/presentation-properties/
 keywords:
 - Properti PowerPoint
-- Properti presentasi
-- Properti dokumen
-- Properti bawaan
-- Properti khusus
-- Properti lanjutan
-- Kelola properti
-- Modifikasi properti
-- Metadata dokumen
-- Edit metadata
-- Bahasa pemeriksaan ejaan
-- Bahasa default
+- properti presentasi
+- properti dokumen
+- properti bawaan
+- properti kustom
+- properti lanjutan
+- kelola properti
+- modifikasi properti
+- metadata dokumen
+- sunting metadata
+- bahasa pemeriksaan
+- bahasa default
 - PowerPoint
 - OpenDocument
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kuasi properti presentasi di Aspose.Slides untuk Node.js via Java dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
+description: "Kuasai properti presentasi dalam Aspose.Slides untuk Node.js via Java dan permudah pencarian, branding, serta alur kerja dalam file PowerPoint dan OpenDocument Anda."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides mendukung dua jenis properti dokumen: **Built-in** dan **Custom**. Kedua jenis properti ini dapat dengan mudah diakses dan dikelola menggunakan API Aspose.Slides.
+Aspose.Slides untuk Node.js via Java mendukung properti dokumen **bawaan** dan **kustom**. Gunakan properti ini untuk membaca dan memperbarui metadata presentasi, seperti penulis, judul, dan nilai yang ditentukan pengguna.
 
-Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties/) . Sebuah instance kelas ini dikembalikan oleh metode [Presentation.getDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDocumentProperties) . Contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti-properti tersebut.
+Aspose.Slides memungkinkan Anda bekerja dengan properti dokumen presentasi melalui kelas [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties). Sebuah instance kelas ini dikembalikan oleh [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Contoh-contoh berikut menunjukkan cara membaca, memodifikasi, dan mengelola properti tersebut.
 
-{{% alert color="info" title="Catatan" %}}
-
-Harap perhatikan bahwa bidang **Application** dan **AppVersion** tidak dapat diubah. Aspose.Slides menimpa bidang tersebut setiap kali disimpan, sehingga presentasi yang disimpan selalu melaporkan "Aspose.Slides for Node.js via Java" dan versi perpustakaan yang menghasilkan file tersebut. Nilai apa pun yang diberikan ke `setNameOfApplication` akan diabaikan ketika presentasi ditulis.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides mengelola metadata aplikasi dan produsen saat menyimpan presentasi; bidang-bidang ini mengidentifikasi perangkat lunak yang membuat output.
+{{% /alert %}}
 
 ## **Kelola Properti Presentasi**
 
-Microsoft PowerPoint menyediakan fitur untuk menambahkan beberapa properti ke file presentasi. Properti dokumen ini memungkinkan informasi berguna disimpan bersama dokumen (file presentasi). Ada dua jenis properti dokumen sebagai berikut
+Properti dokumen menyimpan informasi deskriptif bersama konten presentasi. Mereka terbagi menjadi dua kategori:
 
-- System Defined (Built-in) Properties
-- User-Defined (Custom) Properties
+- **Properti bawaan** berisi metadata standar, seperti judul, penulis, dan statistik dokumen.
+- **Properti kustom** menyimpan pasangan nama/nilai yang ditentukan pengguna.
 
-Properti **Built-in** berisi informasi umum tentang dokumen seperti judul dokumen, nama penulis, statistik dokumen, dan sebagainya. Properti **Custom** adalah properti yang didefinisikan oleh pengguna sebagai pasangan **Name/Value**, di mana baik nama maupun nilai ditentukan oleh pengguna. Menggunakan Aspose.Slides for Node.js via Java, pengembang dapat mengakses dan memodifikasi nilai properti built‑in maupun custom.
+Aspose.Slides untuk Node.js via Java menyediakan akses ke kedua kategori. Di PowerPoint, pilih **File → Info → Properties → Advanced Properties** untuk memeriksa metadata dokumen. Dialog mengelompokkan informasi ke dalam tab seperti **Summary**, **Statistics**, **Contents**, dan **Custom**. Gunakan tab **Custom** untuk mengelola properti yang ditentukan pengguna.
 
-## **Properti Dokumen di PowerPoint**
+## **Baca Properti Publik dari Presentasi yang Dienkripsi**
 
-Microsoft PowerPoint 2007 memungkinkan pengelolaan properti dokumen file presentasi. Yang perlu Anda lakukan hanyalah mengklik ikon Office dan kemudian menu **Prepare | Properties | Advanced Properties** pada Microsoft PowerPoint 2007 seperti yang ditunjukkan di bawah ini:
+Kata sandi pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi setelah memanggil [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) dengan `false`, properti dokumennya tetap publik. Aplikasi kemudian dapat memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) dengan `true` dan membaca metadata publik tanpa menyediakan kata sandi pembuka.
 
-|**Memilih Item Menu Properti Lanjutan**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) mengontrol apa yang dimuat oleh Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti tersebut termasuk dalam enkripsi, memuatnya tanpa kata sandi akan gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
 
-Setelah Anda memilih item menu **Advanced Properties**, sebuah dialog akan muncul yang memungkinkan Anda mengelola properti dokumen file PowerPoint seperti yang ditunjukkan pada gambar berikut:
-
-|**Dialog Properti**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-
-Pada **Dialog Properti** di atas, Anda dapat melihat banyak tab seperti **General**, **Summary**, **Statistics**, **Contents**, dan **Custom**. Semua tab ini memungkinkan konfigurasi berbagai jenis informasi terkait file PowerPoint. Tab **Custom** digunakan untuk mengelola properti custom file PowerPoint.
-
-### Bekerja dengan Properti Dokumen Menggunakan Aspose.Slides for Node.js via Java
-
-Seperti yang dijelaskan sebelumnya, Aspose.Slides for Node.js via Java mendukung dua jenis properti dokumen, yaitu **Built-in** dan **Custom**. Jadi, pengembang dapat mengakses kedua jenis properti tersebut dengan menggunakan API Aspose.Slides for Node.js via Java. Aspose.Slides for Node.js via Java menyediakan kelas [DocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties) yang mewakili properti dokumen yang terkait dengan file presentasi melalui properti **Presentation.DocumentProperties**.
-
-Pengembang dapat menggunakan properti **DocumentProperties** yang diekspos oleh objek [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation) untuk mengakses properti dokumen file presentasi seperti yang dijelaskan di bawah ini:
-
-## **Baca Properti Publik dari Presentasi yang Dikenkripsi**
-
-Password pembuka biasanya melindungi baik konten presentasi maupun properti dokumen. Ketika sebuah presentasi dienkripsi dengan memberikan `false` ke [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties), properti dokumennya tetap publik. Aplikasi kemudian dapat memberikan `true` ke [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) dan membaca metadata publik tanpa menyediakan password pembuka.
-
-Opsi “document‑properties‑only” mengontrol apa yang dimuat oleh Aspose.Slides; ia tidak mendekripsi apa pun. Jika properti termasuk dalam enkripsi, memuatnya tanpa password akan gagal. Jika presentasi tidak dienkripsi, opsi ini diabaikan dan seluruh presentasi dimuat.
-
-Contoh berikut memverifikasi mode pemuatan melalui [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) dan kemudian membaca properti built‑in melalui [Presentation.getDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#getDocumentProperties):
+Contoh ini membutuhkan sebuah presentasi yang dienkripsi dimana properti dokumennya dibiarkan publik. Ia memverifikasi mode pemuatan melalui [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) dan kemudian membaca properti bawaan melalui [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties):
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,11 +61,11 @@ loadOptions.setOnlyLoadDocumentProperties(true);
 const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
 try {
     if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
-        const properties = presentation.getDocumentProperties();
+        const documentProperties = presentation.getDocumentProperties();
 
-        console.log("Author: " + properties.getAuthor());
-        console.log("Title: " + properties.getTitle());
-        console.log("Keywords: " + properties.getKeywords());
+        console.log("Author: " + documentProperties.getAuthor());
+        console.log("Title: " + documentProperties.getTitle());
+        console.log("Keywords: " + documentProperties.getKeywords());
     } else {
         console.log("The presentation was not loaded in document-properties-only mode.");
     }
@@ -98,17 +74,17 @@ try {
 }
 ```
 
-Dalam mode ini, konten slide tidak dimuat. Slide, master, layout, shape, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
+Dalam mode ini, konten slide tidak dimuat. Slide, master, tata letak, bentuk, media, dan objek presentasi lainnya tidak tersedia. Aplikasi harus selalu memeriksa [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) sebelum melakukan operasi yang memerlukan model objek presentasi lengkap.
 
-{{% alert color="warning" title="Peringatan" %}}
-Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai custom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan mereka publik hanya ketika sistem pengindeksan, klasifikasi, pencarian, atau manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa password.
+{{% alert color="warning" title="Warning" %}}
+Metadata publik dapat mengungkapkan nama penulis, judul, subjek, kata kunci, informasi perusahaan, komentar, dan nilai kustom. Enkripsi properti sensitif bersama dengan presentasi. Biarkan publik hanya ketika proses pengindeksan, klasifikasi, pencarian, atau sistem manajemen dokumen memiliki kebutuhan khusus untuk mengaksesnya tanpa kata sandi.
 {{% /alert %}}
 
-## **Perbarui Properti Presentasi yang Dikenkripsi**
+## **Perbarui Properti Presentasi yang Dienkripsi**
 
-Untuk file PPTX yang dienkripsi, presentasi yang dimuat dalam mode “document‑properties‑only” ditujukan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan perubahan properti dari objek “metadata‑only” tersebut karena properti publik harus tetap konsisten dengan data yang bersesuaian di dalam presentasi yang dienkripsi. Oleh karena itu, memperbarui properti memerlukan password pembuka yang benar dan pemuatan lengkap.
+Untuk file PPTX yang dienkripsi, sebuah presentasi yang dimuat setelah memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) dengan `true` dimaksudkan untuk membaca metadata publik. Aspose.Slides tidak dapat menyimpan properti yang diubah dari objek yang hanya berisi metadata karena properti publik harus tetap konsisten dengan data yang sesuai di dalam presentasi yang dienkripsi. Oleh karena itu, memperbarui mereka memerlukan kata sandi pembuka yang benar dan pemuatan lengkap.
 
-Contoh berikut membuka presentasi dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setPassword), memperbarui properti built‑in publik, dan menyimpan hasilnya. Kemudian menggunakan [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa password untuk memverifikasi nilai baru:
+Contoh ini membutuhkan sebuah presentasi PPTX yang dienkripsi dengan properti dokumen publik dan kata sandi pembuka yang diketahui. Ia membuka seluruh presentasi dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword), memperbarui properti bawaan publik, dan menyimpan hasilnya. Kemudian menggunakan [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) untuk memverifikasi bahwa enkripsi tetap terjaga dan membuka kembali metadata publik tanpa kata sandi untuk memverifikasi nilai baru:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -121,8 +97,10 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation(inputPath, loadOptions);
 try {
-    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
-    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    const documentProperties = presentation.getDocumentProperties();
+    documentProperties.setTitle("Updated Product Roadmap");
+    documentProperties.setKeywords("roadmap, planning, indexed");
+    
     presentation.save(outputPath, slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -147,332 +125,175 @@ try {
 }
 ```
 
-Jika sebuah aplikasi tidak diizinkan mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai **read‑only**.
+Jika sebuah aplikasi tidak diizinkan untuk mendekripsi atau memuat konten presentasi, ia harus memperlakukan properti publik dari file PPTX yang dienkripsi sebagai hanya‑baca.
 
-## **Akses Properti Built‑in**
+## **Akses Properti Bawaan**
 
-Properti yang diekspos oleh objek [DocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties) meliputi: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (Apakah dibagikan antar pembuat?), **PresentationFormat**, **Subject**, dan **Title**.
+Kelas [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) menampilkan metadata bawaan melalui metode getter, termasuk [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle), dan [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime). Contoh ini membuka presentasi yang ada dan mencetak metadata yang disimpan ke konsol. Nilai tergantung pada presentasi input; beberapa bidang mungkin kosong.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// Membuat instance kelas Presentation yang mewakili presentasi
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessBuiltInProperties.pptx");
 try {
-    // Membuat referensi ke objek IDocumentProperties yang terkait dengan Presentation
-    var dp = pres.getDocumentProperties();
-    // Tampilkan properti built-in
-    console.log("Category : " + dp.getCategory());
-    console.log("Current Status : " + dp.getContentStatus());
-    console.log("Creation Date : " + dp.getCreatedTime());
-    console.log("Author : " + dp.getAuthor());
-    console.log("Description : " + dp.getComments());
-    console.log("KeyWords : " + dp.getKeywords());
-    console.log("Last Modified By : " + dp.getLastSavedBy());
-    console.log("Supervisor : " + dp.getManager());
-    console.log("Modified Date : " + dp.getLastSavedTime());
-    console.log("Presentation Format : " + dp.getPresentationFormat());
-    console.log("Last Print Date : " + dp.getLastPrinted());
-    console.log("Is Shared between producers : " + dp.getSharedDoc());
-    console.log("Subject : " + dp.getSubject());
-    console.log("Title : " + dp.getTitle());
+    const documentProperties = presentation.getDocumentProperties();
+
+    console.log("Category: " + documentProperties.getCategory());
+    console.log("Content status: " + documentProperties.getContentStatus());
+    console.log("Creation date: " + documentProperties.getCreatedTime());
+    console.log("Author: " + documentProperties.getAuthor());
+    console.log("Comments: " + documentProperties.getComments());
+    console.log("Keywords: " + documentProperties.getKeywords());
+    console.log("Last modified by: " + documentProperties.getLastSavedBy());
+    console.log("Manager: " + documentProperties.getManager());
+    console.log("Modified date: " + documentProperties.getLastSavedTime());
+    console.log("Presentation format: " + documentProperties.getPresentationFormat());
+    console.log("Last print date: " + documentProperties.getLastPrinted());
+    console.log("Is shared between producers: " + documentProperties.getSharedDoc());
+    console.log("Subject: " + documentProperties.getSubject());
+    console.log("Title: " + documentProperties.getTitle());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Modifikasi Properti Built‑in**
+## **Modifikasi Properti Bawaan**
 
-Memodifikasi properti built‑in file presentasi semudah mengaksesnya. Anda cukup menetapkan nilai string ke properti yang diinginkan dan nilai properti tersebut akan berubah. Pada contoh di bawah, kami menunjukkan cara memodifikasi properti dokumen built‑in presentasi menggunakan Aspose.Slides for Node.js via Java.
+Untuk memperbarui metadata bawaan, gunakan metode setter pada objek yang dikembalikan oleh [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties). Contoh ini membuka presentasi yang ada, memanggil [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments), dan [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager), kemudian menyimpan presentasi yang diperbarui dengan [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). PPTX yang disimpan berisi metadata baru.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("ModifyBuiltInProperties.pptx");
 try {
-    // Buat referensi ke objek IDocumentProperties yang terkait dengan Presentation
-    var dp = pres.getDocumentProperties();
-    // Setel properti built-in
-    dp.setAuthor("Aspose.Slides for Node.js via Java");
-    dp.setTitle("Modifying Presentation Properties");
-    dp.setSubject("Aspose Subject");
-    dp.setComments("Aspose Description");
-    dp.setManager("Aspose Manager");
-    // Simpan presentasi Anda ke file
-    pres.save("DocProps.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.setAuthor("Aspose.Slides for Node.js via Java");
+    documentProperties.setTitle("Manage PowerPoint Presentation Properties");
+    documentProperties.setSubject("Modify Built-in Properties");
+    documentProperties.setComments("Aspose description");
+    documentProperties.setManager("Aspose manager");
+
+    presentation.save("DocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Contoh ini memodifikasi properti built‑in presentasi yang dapat dilihat seperti berikut:
+## **Kelola Hyperlink Base**
 
-|**Properti dokumen built‑in setelah modifikasi**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) mengembalikan dasar tingkat dokumen untuk hyperlink relatif. Gunakan [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) untuk mengubah atau mengosongkannya. Ini berguna saat memindahkan presentasi dan file terkait ke lokasi lain. Ini terpisah dari [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) pada hyperlink individual: mengubah dasar tidak menulis ulang alamat tautan yang disimpan atau mengubah tujuan absolut.
 
-## **Menambahkan Properti Dokumen Custom**
-
-Aspose.Slides for Node.js via Java juga memungkinkan pengembang menambahkan nilai custom untuk properti dokumen presentasi. Contoh di bawah menunjukkan cara menetapkan properti custom untuk sebuah presentasi.
+Contoh ini membutuhkan sebuah presentasi yang berisi tautan relatif, seperti `target.html`, dan tautan absolut, seperti `https://example.org/absolute.html`. Ia membaca dasar yang ada, menetapkan alamat dasar baru, dan menyimpan serta membuka kembali presentasi untuk memeriksa nilai tersebut. Kemudian mengosongkan dasar dengan string kosong dan memverifikasi nilai kosong dalam file tersimpan terpisah. Ganti alamat dasar contoh dengan lokasi file terhubung Anda.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("hyperlinks.pptx");
 try {
-    // Mendapatkan Properti Dokumen
-    var dProps = pres.getDocumentProperties();
-    // Menambahkan Properti Custom
-    dProps.set_Item("New Custom", 12);
-    dProps.set_Item("My Name", "Mudassir");
-    dProps.set_Item("Custom", 124);
-    // Mendapatkan Nama Properti pada Indeks Tertentu
-    var getPropertyName = dProps.getCustomPropertyName(2);
-    // Menghapus Properti Terpilih
-    dProps.removeCustomProperty(getPropertyName);
-    // Menyimpan Presentasi
-    pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    console.log("Original base: " + presentation.getDocumentProperties().getHyperlinkBase());
+
+    const newBase = "https://example.com/new/";
+    presentation.getDocumentProperties().setHyperlinkBase(newBase);
+    presentation.save("hyperlinks-updated.pptx", slides.SaveFormat.Pptx);
+
+    const updatedPresentation = new slides.Presentation("hyperlinks-updated.pptx");
+    try {
+        console.log("Base preserved: " + (newBase === updatedPresentation.getDocumentProperties().getHyperlinkBase()));
+
+        updatedPresentation.getDocumentProperties().setHyperlinkBase("");
+        updatedPresentation.save("hyperlinks-cleared.pptx", slides.SaveFormat.Pptx);
+
+        const clearedPresentation = new slides.Presentation("hyperlinks-cleared.pptx");
+        try {
+            console.log("Base cleared: " + ("" === clearedPresentation.getDocumentProperties().getHyperlinkBase()));
+        } finally {
+            clearedPresentation.dispose();
+        }
+    } finally {
+        updatedPresentation.dispose();
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-|**Properti Dokumen Custom Ditambahkan**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+Dua pesan verifikasi harus mencetak `true`. Mengosongkan dasar meninggalkan alamat hyperlink individual tetap utuh.
 
-## **Akses dan Modifikasi Properti Custom**
+Tautan relatif ke `target.pptx` membuka `old/target.pptx` ketika dasar mengarah ke folder `old`. Setelah mengubah dasar ke folder `new`, menyimpan, dan membuka kembali presentasi, tautan yang sama membuka `new/target.pptx`. Tautan absolut terus membuka file yang sama. Uji tautan relatif Anda di PowerPoint sebelum dan setelah memindahkan presentasi atau mengubah dasarnya.
 
-Aspose.Slides for Node.js via Java juga memungkinkan pengembang mengakses nilai properti custom. Contoh di bawah menunjukkan cara mengakses dan memodifikasi semua properti custom untuk sebuah presentasi.
+## **Tambahkan Properti Presentasi Kustom**
+
+Properti kustom menyimpan metadata yang tidak memiliki bidang bawaan yang sesuai. Metode [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) memungkinkan Anda menetapkan nilai berdasarkan nama properti. Contoh ini membuat sebuah presentasi, menambahkan dua nilai teks dan satu nilai versi integer, dan menyimpan presentasi dengan [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save). Menetapkan nilai ke nama yang sudah ada menggantikan nilai properti tersebut.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation();
 try {
-    // Buat referensi ke objek DocumentProperties yang terkait dengan Presentation
-    var dp = pres.getDocumentProperties();
-    // Akses dan modifikasi properti custom
-    for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Tampilkan nama dan nilai properti custom
-        console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
-        console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-        // Modifikasi nilai properti custom
-        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
-    }
-    // Simpan presentasi Anda ke file
-    pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.set_Item("Reviewed by", "John Smith");
+    documentProperties.set_Item("Confidentiality level", "Internal");
+    documentProperties.set_Item("Document version", 2);
+
+    presentation.save("CustomDocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Contoh ini memodifikasi properti custom dari [PPTX ](https://docs.fileformat.com/presentation/pptx/)presentation. Gambar berikut menampilkan properti custom presentasi sebelum dan sesudah modifikasi:
+## **Akses dan Modifikasi Properti Kustom**
 
-|**Properti Custom Sebelum Modifikasi**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
-|**Properti Custom Setelah Modifikasi**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
-
-## **Properti Dokumen Lanjutan**
-
-{{% alert color="info" title="Catatan" %}}
-
-Metode baru [ReadDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--), [UpdateDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-), dan [WriteBindedPresentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) telah ditambahkan ke [PresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo), logika setter properti [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) telah diubah.
-
-{{% /alert %}} 
-
-Dua metode baru [ReadDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) dan [UpdateDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) telah ditambahkan ke kelas [PresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/PresentationInfo). Mereka menyediakan akses cepat ke properti dokumen dan memungkinkan perubahan serta pembaruan properti tanpa memuat seluruh presentasi.
-
-Skenario tipikal: memuat properti, mengubah beberapa nilai, dan memperbarui dokumen dapat diimplementasikan sebagai berikut:
+Contoh ini membuka presentasi yang berisi properti kustom dan menggunakan [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) untuk mengiterasi mereka. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) menerima indeks berbasis nol dan mengembalikan nama yang digunakan oleh [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item). Contoh ini mencetak setiap nama dan nilai asli, mengganti setiap nilai dengan string bernomor terlepas dari tipe aslinya, dan menyimpan perubahan. Jika tidak ada properti kustom, loop tidak melakukan perubahan.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// baca informasi presentasi
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-// dapatkan properti saat ini
-var props = info.readDocumentProperties();
-// setel nilai baru untuk bidang Author dan Title
-props.setAuthor("New Author");
-props.setTitle("New Title");
-// perbarui presentasi dengan nilai baru
-info.updateDocumentProperties(props);
-info.writeBindedPresentation("presentation.pptx");
-```
-
-Ada cara lain untuk menggunakan properti sebuah presentasi tertentu sebagai templat untuk memperbarui properti pada presentasi lain:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-var template = info.readDocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-Template baru dapat dibuat dari awal dan kemudian digunakan untuk memperbarui banyak presentasi:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var template = new aspose.slides.DocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-## **Set Proofing Language**
-
-Aspose.Slides menyediakan properti LanguageId (diekspor oleh kelas PortionFormat) untuk memungkinkan Anda mengatur bahasa pemeriksaan ejaan untuk dokumen PowerPoint. Bahasa pemeriksaan ejaan adalah bahasa yang akan digunakan untuk memeriksa ejaan dan tata bahasa dalam PowerPoint.
-
-Kode JavaScript ini menunjukkan cara mengatur bahasa pemeriksaan ejaan untuk PowerPoint: xxx Why is LanguageId missing from JavaScript PortionFormat class?
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessAndModifyProperties.pptx");
 try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
-    var newPortion = new aspose.slides.Portion();
-    var font = new aspose.slides.FontData("SimSun");
-    var portionFormat = newPortion.getPortionFormat();
-    portionFormat.setComplexScriptFont(font);
-    portionFormat.setEastAsianFont(font);
-    portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// set the Id of a proofing language
-    newPortion.setText("1。");
-    paragraph.getPortions().add(newPortion);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const documentProperties = presentation.getDocumentProperties();
+
+    for (let i = 0; i < documentProperties.getCountOfCustomProperties(); i++) {
+        const propertyName = documentProperties.getCustomPropertyName(i);
+        const propertyValue = documentProperties.get_Item(propertyName);
+
+        console.log("Custom property name: " + propertyName);
+        console.log("Custom property value: " + propertyValue);
+
+        documentProperties.set_Item(propertyName, "New Value " + (i + 1));
     }
-}
-```
 
-## **Set Default Language**
-
-Kode JavaScript ini menunjukkan cara mengatur bahasa default untuk seluruh presentasi PowerPoint:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDefaultTextLanguage("en-US");
-var pres = new aspose.slides.Presentation(loadOptions);
-try {
-    // Menambahkan bentuk persegi panjang baru dengan teks
-    var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("New Text");
-    // Memeriksa bahasa bagian pertama
-    console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+    presentation.save("CustomProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Contoh Langsung**
 
-Coba aplikasi online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/id/metadata) untuk melihat cara bekerja dengan properti dokumen melalui API Aspose.Slides:
+Coba aplikasi daring [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) untuk melihat cara bekerja dengan properti dokumen menggunakan API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/id/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
-**Bagaimana cara menghapus properti built‑in dari sebuah presentasi?**
+**Bagaimana saya dapat menghapus properti bawaan dari sebuah presentasi?**
 
-Properti built‑in merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika properti tersebut mengizinkan.
+Properti bawaan merupakan bagian integral dari presentasi dan tidak dapat dihapus sepenuhnya. Namun, Anda dapat mengubah nilainya atau mengosongkannya jika diperbolehkan oleh properti tersebut.
 
-**Apa yang terjadi jika saya menambahkan properti custom yang sudah ada?**
+**Apa yang terjadi jika saya menambahkan properti kustom yang sudah ada?**
 
-Jika Anda menambahkan properti custom yang sudah ada, nilai yang ada akan ditimpa dengan nilai baru. Anda tidak perlu menghapus atau memeriksa properti tersebut terlebih dahulu, karena Aspose.Slides secara otomatis memperbarui nilai properti.
+Jika Anda menambahkan properti kustom yang sudah ada, nilai yang ada akan ditimpa dengan yang baru. Anda tidak perlu menghapus atau memeriksa properti tersebut sebelumnya, karena Aspose.Slides secara otomatis memperbarui nilai properti.
 
-**Dapatkah saya mengakses properti presentasi tanpa memuat seluruh presentasi?**
+**Apakah saya dapat mengakses properti presentasi tanpa memuat seluruh presentasi?**
 
-Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) dan kemudian [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) . Lihat [Build a Lightweight Presentation Inventory](/slides/id/nodejs-java/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
+Ya. Gunakan [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) dan kemudian [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) untuk membaca metadata dokumen yang disimpan tanpa membuat instance [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation). Lihat [Build a Lightweight Presentation Inventory](/slides/id/nodejs-java/examine-presentation/) untuk contoh pelaporan lengkap dan batasan spesifik format.
 
-**Dapatkah saya membaca properti publik dari presentasi yang dienkripsi tanpa password pembukanya?**
+**Bisakah saya membaca properti publik dari presentasi yang dienkripsi tanpa kata sandi pembukanya?**
 
-Ya. Enkripsi properti dokumen harus dinonaktifkan sebelum presentasi dienkripsi, dan presentasi harus dimuat dalam mode “document‑properties‑only”.
+Ya. Presentasi harus dienkripsi setelah memanggil [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) dengan `false`, dan harus dimuat setelah memanggil [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) dengan `true`.
 
-**Dapatkah saya memperbarui file PPTX yang dienkripsi dalam mode “document‑properties‑only”?**
+**Bisakah saya memperbarui file PPTX yang dienkripsi dalam mode hanya properti dokumen?**
 
-Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan lengkap presentasi dengan password pembuka yang tepat.
+Tidak. Data properti publik dan terenkripsi harus tetap konsisten, sehingga memperbarui file PPTX yang dienkripsi memerlukan pemuatan seluruh presentasi dengan kata sandi pembuka yang benar.

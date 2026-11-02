@@ -15,7 +15,7 @@ keywords:
 - hipervínculo de diapositiva
 - hipervínculo de forma
 - hipervínculo de imagen
-- hipervínculo de vídeo
+- hipervínculo de video
 - hipervínculo mutable
 - PowerPoint
 - OpenDocument
@@ -23,28 +23,30 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Añada, formatee, actualice y elimine hipervínculos en presentaciones PowerPoint y OpenDocument con Aspose.Slides para .NET, usando ejemplos en C#."
+description: "Añadir, formatear, actualizar y eliminar hipervínculos en presentaciones PowerPoint y OpenDocument con Aspose.Slides para .NET, usando ejemplos en C#."
 ---
 ## **Introducción**
 
-Un hipervínculo conecta el contenido de la presentación con un sitio web o una ubicación dentro de la presentación. En PowerPoint, los hipervínculos suelen servir dos propósitos:
+Un hipervínculo conecta el contenido de la presentación con un sitio web o una ubicación dentro de la presentación. En PowerPoint, los hipervínculos suelen cumplir dos propósitos:
 
 * Abrir un sitio web desde texto, una forma o un marco multimedia.
 * Navegar a otra diapositiva, por ejemplo, desde una tabla de contenidos.
 
-Aspose.Slides para .NET le permite añadir estos enlaces, controlar su apariencia y sonido, actualizar sus propiedades y eliminarlos. Los ejemplos a continuación muestran cómo trabajar con hipervínculos en elementos individuales y cómo acceder a hipervínculos a nivel de presentación, diapositiva o marco de texto.
+Aspose.Slides for .NET le permite añadir estos enlaces, controlar su apariencia y sonido, actualizar sus propiedades y eliminarlos. Los ejemplos a continuación muestran cómo trabajar con hipervínculos en elementos individuales y cómo acceder a los hipervínculos a nivel de presentación, diapositiva o marco de texto.
 
-{{% alert color="info" title="Nota" %}}
-También puede editar presentaciones con el [editor gratuito en línea de Aspose PowerPoint](https://products.aspose.app/slides/es/editor).
+{{% alert color="info" title="Note" %}}
+Puede también editar presentaciones con el [editor gratuito en línea de Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Añadir hipervínculos URL**
+## **Agregar hipervínculos URL**
 
-Puede asignar una URL de sitio web a texto, una forma o un marco multimedia. El elemento al que asigna el hipervínculo determina el área clicable: una porción de texto enlaza el texto seleccionado, mientras que una forma o un marco enlaza el objeto de la diapositiva.
+Puede asignar una URL de sitio web a texto, una forma o un marco multimedia. El elemento al que asigne el hipervínculo determina el área clicable: una porción de texto enlaza el texto seleccionado, mientras que una forma o marco enlaza el objeto de la diapositiva.
 
-### **Añadir hipervínculos URL a texto**
+Para presentaciones que contengan hipervínculos relativos, consulte [Administrar la base de hipervínculos](/slides/es/net/presentation-properties/#manage-the-hyperlink-base) para leer, cambiar o borrar la base a nivel de documento.
 
-Para enlazar texto a un sitio web, asigne un [Hyperlink](https://reference.aspose.com/slides/es/net/aspose.slides/hyperlink/) a la propiedad [HyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/portionformat/hyperlinkclick/) de la porción de texto, como se muestra a continuación. Sólo esa porción de texto se vuelve clicable.
+### **Agregar hipervínculos URL a texto**
+
+Para enlazar texto a un sitio web, asigne un [Hyperlink](https://reference.aspose.com/slides/net/aspose.slides/hyperlink/) a la propiedad [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/portionformat/hyperlinkclick/) de la porción de texto, como se muestra a continuación. Sólo esa porción de texto se vuelve clicable.
 
 ```csharp
 using Aspose.Slides;
@@ -62,11 +64,11 @@ portionFormat.FontHeight = 32;
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-### **Añadir hipervínculos URL a formas y marcos multimedia**
+### **Agregar hipervínculos URL a formas y marcos multimedia**
 
-Para que una forma o un marco sea clicable, establezca su propiedad [HyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/shape/hyperlinkclick/). El hipervínculo pertenece al propio objeto y no a una porción de texto dentro de él.
+Para que una forma o marco sea clicable, establezca su propiedad [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/hyperlinkclick/). El hipervínculo pertenece al propio objeto y no a una porción de texto dentro de él.
 
-El mismo enfoque se aplica a marcos de imagen, audio y video: asigne el hipervínculo al marco y, si es necesario, establezca el [Tooltip](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/tooltip/) del enlace.
+El mismo enfoque se aplica a marcos de imagen, audio y video: asigne el hipervínculo al marco y configure el [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) del enlace si es necesario.
 
 El siguiente ejemplo hace que un rectángulo sea clicable:
 
@@ -84,9 +86,9 @@ shape.HyperlinkClick.Tooltip = "Explore Aspose file format APIs";
 presentation.Save("presentation-out.pptx", SaveFormat.Pptx);
 ```
 
-## **Usar hipervínculos para crear una tabla de contenidos**
+## **Utilizar hipervínculos para crear una tabla de contenidos**
 
-Los hipervínculos internos permiten a los lectores saltar de una tabla de contenidos a una diapositiva específica. El siguiente ejemplo utiliza [SetInternalHyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) para enlazar el texto “Página 2” de la primera diapositiva a la segunda diapositiva.
+Los hipervínculos internos permiten a los lectores saltar de una tabla de contenidos a una diapositiva específica. El siguiente ejemplo usa [SetInternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) para enlazar el texto “Page 2” de la primera diapositiva a la segunda diapositiva.
 
 ```csharp
 using System.Drawing;
@@ -122,9 +124,9 @@ presentation.Save("link_to_slide.pptx", SaveFormat.Pptx);
 
 ### **Color**
 
-La propiedad [ColorSource](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/colorsource/) de [IHyperlink](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/) determina si un hipervínculo usa el color de hipervínculo de la presentación o el formato de la porción de texto. Para aplicar un color de texto personalizado, seleccione [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/es/net/aspose.slides/hyperlinkcolorsource/) y establezca el color de relleno de la porción. Esta función se introdujo en PowerPoint 2019; versiones anteriores no aplican esta configuración.
+La propiedad [ColorSource](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/colorsource/) de [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) determina si un hipervínculo usa el color de hipervínculo de la presentación o el formato de la porción de texto. Para aplicar un color de texto personalizado, seleccione [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkcolorsource/) y establezca el color de relleno de la porción. Esta característica se introdujo en PowerPoint 2019; versiones anteriores no aplican esta configuración.
 
-El siguiente ejemplo añade dos hipervínculos de texto a la misma diapositiva. El primero usa un relleno de texto rojo, mientras que el segundo mantiene el color de hipervínculo predeterminado.
+El siguiente ejemplo agrega dos hipervínculos de texto a la misma diapositiva. El primero usa un relleno de texto rojo, mientras que el segundo mantiene el color de hipervínculo predeterminado.
 
 ```csharp
 using System.Drawing;
@@ -150,14 +152,14 @@ presentation.Save("presentation-out-hyperlink.pptx", SaveFormat.Pptx);
 
 ### **Sonido**
 
-Un hipervínculo puede reproducir un sonido al activarse o detener un sonido que ya se está reproduciendo. Utilice las siguientes propiedades para configurar estos comportamientos:
+Un hipervínculo puede reproducir un sonido al activarse o detener un sonido que ya se está reproduciendo. Use las siguientes propiedades para configurar estos comportamientos:
 
-- [IHyperlink.Sound](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/sound/) especifica el audio asociado al hipervínculo.
-- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/stopsoundonclick/) controla si al activar el hipervínculo se detiene el sonido anterior.
+- [IHyperlink.Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) especifica el audio asociado al hipervínculo.
+- [IHyperlink.StopSoundOnClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/stopsoundonclick/) controla si al activar el hipervínculo se detiene el sonido anterior.
 
-#### **Añadir un sonido a un hipervínculo**
+#### **Agregar un sonido a un hipervínculo**
 
-El siguiente ejemplo carga `sampleaudio.wav` y lo asocia a un botón en la primera diapositiva. Al pulsar el botón se reproduce el sonido y se navega a la siguiente diapositiva. Una segunda forma en esa diapositiva detiene el sonido anterior al pulsarse, sin realizar ninguna acción de navegación.
+El siguiente ejemplo carga `sampleaudio.wav` y lo asocia a un botón en la primera diapositiva. Al hacer clic en el botón se reproduce el sonido y se avanza a la siguiente diapositiva. Una segunda forma en esa diapositiva detiene el sonido anterior al hacer clic, sin ejecutar una acción de navegación.
 
 ```csharp
 using System.IO;
@@ -189,9 +191,9 @@ stopButton.HyperlinkClick.StopSoundOnClick = true;
 presentation.Save("hyperlink-sound.pptx", SaveFormat.Pptx);
 ```
 
-#### **Extraer un sonido de hipervínculo**
+#### **Extraer el sonido de un hipervínculo**
 
-El siguiente ejemplo abre la presentación creada arriba y lee el audio del hipervínculo de la primera forma en memoria mediante [Sound](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/sound/) y [BinaryData](https://reference.aspose.com/slides/es/net/aspose.slides/iaudio/binarydata/).
+El siguiente ejemplo abre la presentación creada arriba y lee el audio del hipervínculo de la primera forma en memoria mediante [Sound](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/sound/) y [BinaryData](https://reference.aspose.com/slides/net/aspose.slides/iaudio/binarydata/).
 
 ```csharp
 using System;
@@ -219,18 +221,18 @@ else
 }
 ```
 
-### **Tooltip y ajustes de interacción**
+### **Texto emergente y configuraciones de interacción**
 
-Puede actualizar las siguientes propiedades de [IHyperlink](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/) después de asignar un hipervínculo a texto o a una forma:
+Puede actualizar las siguientes propiedades de [IHyperlink](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/) después de asignar un hipervínculo a texto o a una forma:
 
-- [Tooltip](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/tooltip/) define el texto que el visor puede mostrar como pista para el enlace.
-- [TargetFrame](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/targetframe/) especifica el marco de destino dentro de un conjunto de marcos HTML padre, cuando sea aplicable.
-- [History](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/history/) controla si al activar el enlace se añade su destino a la lista de hipervínculos vistos.
-- [HighlightClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/highlightclick/) controla si el hipervínculo se resalta al pulsarse.
+- [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) establece el texto que el visor puede mostrar como pista para el enlace.
+- [TargetFrame](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetframe/) especifica el marco de destino dentro de un conjunto de marcos HTML padre, cuando sea aplicable.
+- [History](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/history/) controla si al activar el enlace se añade su destino a la lista de hipervínculos vistos.
+- [HighlightClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/highlightclick/) controla si el hipervínculo se resalta al hacer clic.
 
 ## **Eliminar hipervínculos de presentaciones**
 
-Utilice [GetAnyHyperlinks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para recopilar contenedores de hipervínculo, incluidos los enlaces de porciones de texto, antes de modificarlos. El siguiente ejemplo elimina ambos tipos de activación de la primera diapositiva. Para eliminar sólo un tipo, invoque únicamente [RemoveHyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) o [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); eliminar una acción de clic no elimina su contraparte de paso del ratón.
+Use [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) para recopilar contenedores de hipervínculos, incluidos los enlaces de porciones de texto, antes de modificarlos. El siguiente ejemplo elimina ambos tipos de activación de la primera diapositiva. Para eliminar solo un tipo, invoque únicamente [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) o [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); eliminar la acción de clic no elimina su contraparte de pasar el ratón.
 
 ```csharp
 using System;
@@ -256,23 +258,23 @@ else
 }
 ```
 
-Para una eliminación incondicional, [RemoveAllHyperlinks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) elimina ambos tipos de activación en el ámbito seleccionado en una sola llamada. Para una depuración selectiva y cobertura de maestros, diseños y notas, consulte [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Para una eliminación incondicional, [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) elimina ambos tipos de activación en el ámbito seleccionado con una sola llamada. Para una limpieza selectiva que cubra maestros, diseños y notas, consulte [Informar, sanear y verificar hipervínculos](#report-sanitize-and-verify-hyperlinks).
 
 ## **Crear un inventario completo de hipervínculos**
 
-Antes de distribuir una presentación, inventarie sus acciones interactivas así como sus enlaces web. [GetAnyHyperlinks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) devuelve objetos [IHyperlinkContainer](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkcontainer/), no una lista plana de cadenas URL. Inspeccione tanto [HyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) como [HyperlinkMouseOver](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) en cada contenedor. Son independientes: el mismo contenedor puede exponer ambas acciones, por lo que un informe completo necesita hasta dos filas por contenedor.
+Antes de distribuir una presentación, inventaríe sus acciones interactivas así como sus enlaces web. [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) devuelve objetos [IHyperlinkContainer](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/), no una lista plana de cadenas URL. Examine tanto [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkclick/) como [HyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmouseover/) en cada contenedor. Son independientes: el mismo contenedor puede exponer ambas acciones, por lo que un informe completo necesita hasta dos filas por contenedor.
 
-Escanear sólo hipervínculos a nivel de forma puede pasar por alto enlaces adjuntos a porciones de texto. Consulte el ámbito apropiado y conserve los contenedores devueltos para poder actualizarlos o eliminarlos después.
+Escanear sólo los hipervínculos a nivel de forma puede pasar por alto enlaces adjuntos a porciones de texto. Consulte el ámbito adecuado y retenga los contenedores devueltos para poder actualizarlos o eliminarlos posteriormente.
 
 ### **Consultar ámbitos de presentación, diapositiva y marco de texto**
 
-La interfaz [IHyperlinkQueries](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/) está disponible a través de [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/es/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/es/net/aspose.slides/ibaseslide/hyperlinkqueries/) y [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/es/net/aspose.slides/itextframe/hyperlinkqueries/). Cada ámbito soporta las mismas consultas:
+La interfaz [IHyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/) está disponible a través de [IPresentation.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/hyperlinkqueries/), [IBaseSlide.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/hyperlinkqueries/) y [ITextFrame.HyperlinkQueries](https://reference.aspose.com/slides/net/aspose.slides/itextframe/hyperlinkqueries/). Cada ámbito admite las mismas consultas:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) devuelve contenedores con una acción de clic.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) devuelve contenedores con una acción de paso del ratón.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) devuelve contenedores con cualquiera de las dos acciones o con ambas.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) devuelve contenedores con una acción de clic.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) devuelve contenedores con una acción al pasar el ratón.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) devuelve contenedores con cualquiera de las dos acciones o con ambas.
 
-El siguiente ejemplo crea `hyperlink-audit-input.pptx` con un enlace de clic externo, un enlace de paso del ratón a archivo, navegación interna de diapositiva, un enlace de paso del ratón en texto y una acción de macro. No ejecuta ninguna de estas acciones. Las tres consultas funcionan en cada ámbito; los recuentos describen contenedores, no totales de acciones. El ámbito del marco de texto excluye los enlaces propios de la forma que lo contiene.
+El siguiente ejemplo crea `hyperlink-audit-input.pptx` con un enlace externo de clic, un enlace de pasar el ratón a un archivo, una navegación interna de diapositiva, un enlace de pasar el ratón en texto y una acción de macro. No ejecuta ninguna de estas acciones. Las mismas tres consultas funcionan en cada ámbito; los recuentos describen contenedores, no totales de acciones. El ámbito de marco de texto excluye los enlaces propios de la forma contenedora.
 
 ```csharp
 using System;
@@ -308,37 +310,37 @@ static void PrintCounts(string scope, IHyperlinkQueries queries)
 }
 ```
 
-Para este ejemplo, las consultas de presentación y de diapositiva informan tres contenedores de clic, dos de paso del ratón y tres contenedores con cualquiera de las dos acciones. La consulta de marco de texto informa un contenedor en cada categoría.
+En este ejemplo, las consultas de presentación y de diapositiva informan tres contenedores de clic, dos de pasar el ratón y tres contenedores con cualquiera de las acciones. La consulta de marco de texto informa un contenedor en cada categoría.
 
 ### **Clasificar acciones y destinos**
 
-Use [IHyperlink.ActionType](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/actiontype/) para interpretar una acción antes de interpretar su destino. Los valores de [HyperlinkActionType](https://reference.aspose.com/slides/es/net/aspose.slides/hyperlinkactiontype/) cubren más que la navegación web:
+Use [IHyperlink.ActionType](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/actiontype/) para interpretar una acción antes de interpretar su destino. Los valores de [HyperlinkActionType](https://reference.aspose.com/slides/net/aspose.slides/hyperlinkactiontype/) cubren más que la navegación web:
 
 | Valores | Significado para una auditoría |
 | --- | --- |
 | `Hyperlink` | Hipervínculo externo; inspeccione la URL y su esquema. |
 | `JumpSpecificSlide` | Navegación interna a una diapositiva concreta. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navegación incorporada de la presentación, resuelta en contexto de presentación. |
-| `JumpEndShow`, `StartCustomSlideShow` | Finaliza la presentación actual o inicia una presentación personalizada. |
-| `StartMacro` | Ejecuta una macro. |
-| `StartProgram` | Inicia un programa. |
-| `OpenFile`, `OpenPresentation` | Abre un archivo u otra presentación; revíselo por separado de las URLs web. |
-| `StartStopMedia` | Inicia o detiene la reproducción de medios. |
-| `NoAction`, `Unknown` | No hay acción de navegación, o una acción no reconocida que requiere revisión. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navegación incorporada de presentación, resuelta en el contexto de la presentación. |
+| `JumpEndShow`, `StartCustomSlideShow` | Finalizar la presentación actual o iniciar una presentación personalizada. |
+| `StartMacro` | Ejecutar una macro. |
+| `StartProgram` | Iniciar un programa. |
+| `OpenFile`, `OpenPresentation` | Abrir un archivo o otra presentación; revisar por separado de las URLs web. |
+| `StartStopMedia` | Iniciar o detener la reproducción de medios. |
+| `NoAction`, `Unknown` | Sin acción de navegación, o acción no reconocida que requiere revisión. |
 
-Lea destinos externos desde [ExternalUrl](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/externalurl/) y destinos internos específicos desde [TargetSlide](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/targetslide/). Las acciones internas y los comandos incorporados pueden no tener URL externa; una URL vacía no significa que el contenedor carezca de acción. Preserve [ExternalUrlOriginal](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/externalurloriginal/) cuando difiera de la URL normalizada e incluya el [Tooltip](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlink/tooltip/) cuando esté disponible.
+Lea destinos externos mediante [ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) y destinos internos específicos mediante [TargetSlide](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/targetslide/). Las acciones internas y los comandos incorporados pueden no tener URL externa; una URL vacía no significa que el contenedor carezca de acción. Preserve [ExternalUrlOriginal](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurloriginal/) cuando difiera de la URL normalizada, e incluya el [Tooltip](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/tooltip/) cuando esté disponible.
 
-### **Informar, sanitizar y verificar hipervínculos**
+### **Informar, sanear y verificar hipervínculos**
 
-El siguiente ejemplo .NET 6+ lee una presentación existente (utilice el archivo creado arriba), escribe `hyperlink-audit.json`, aplica una política, guarda `hyperlink-sanitized.pptx` y la vuelve a abrir para comprobar nuevamente ambos tipos de activación. Recopila contenedores antes de modificarlos y usa igualdad de referencia para evitar procesar el mismo contenedor dos veces. Las consultas de presentación cubren diapositivas ordinarias; para un inventario a nivel de paquete también consulta explícitamente maestros, diseños, notas y los maestros de notas y folletos cuando estén presentes.
+El siguiente ejemplo .NET 6+ lee una presentación existente (use el archivo creado arriba), escribe `hyperlink-audit.json`, aplica una política, guarda `hyperlink-sanitized.pptx` y lo vuelve a abrir para comprobar nuevamente ambos tipos de activación. Recopila contenedores antes de modificarlos y usa igualdad de referencia para evitar procesar el mismo contenedor dos veces. Las consultas de presentación cubren diapositivas ordinarias; para un inventario a nivel de paquete, también consulta explícitamente maestros, diseños, notas y los maestros de notas y folletos cuando existan.
 
-El informe registra un índice de diapositiva basado en 1 y [SlideId](https://reference.aspose.com/slides/es/net/aspose.slides/ibaseslide/slideid/) cuando está disponible. [ISlideComponent.Slide](https://reference.aspose.com/slides/es/net/aspose.slides/islidecomponent/slide/) proporciona la diapositiva propietaria para los contenedores compatibles. Los maestros, diseños y notas no tienen índice de diapositiva ordinario y se identifican por su ámbito. Los contenedores de forma y los de formato de porción de texto se etiquetan por separado; otros tipos de contenedor conservan su nombre de tipo en tiempo de ejecución. Cada contenedor recibe un ID local al informe para que sus dos acciones puedan correlacionarse.
+El informe registra un índice de diapositiva basado en uno y [SlideId](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/slideid/) cuando está disponible. [ISlideComponent.Slide](https://reference.aspose.com/slides/net/aspose.slides/islidecomponent/slide/) proporciona la diapositiva propietaria para los contenedores compatibles. Los maestros, diseños y notas no tienen un índice de diapositiva ordinario y se identifican por su ámbito. Los contenedores de forma y los de formato de porción de texto se etiquetan por separado; otros tipos de contenedor conservan su nombre de tipo en tiempo de ejecución. Cada contenedor recibe un ID local de informe para que sus dos acciones puedan correlacionarse.
 
-Esta política de aplicación deliberadamente restrictiva permite sólo URLs HTTPS absolutas y destinos internos de diapositiva válidos. Rechaza macros, programas, acciones de archivo, otras acciones de presentación, acciones desconocidas y otros esquemas de URL. Estos rechazos son decisiones de política, no un veredicto de seguridad de Aspose.Slides. HTTPS solo no establece confianza: añada listas blancas de hosts y otras comprobaciones para su aplicación. Tanto las URLs externas originales como las normalizadas se comprueban. El ejemplo audita metadatos sin seguir enlaces ni ejecutar acciones.
+Esta política de aplicación deliberadamente restrictiva permite sólo URLs HTTPS absolutas y destinos internos de diapositiva válidos. Rechaza macros, programas, acciones de archivo, otras acciones de presentación, acciones desconocidas y otros esquemas de URL. Estos rechazos son decisiones de política, no un veredicto de seguridad de Aspose.Slides. HTTPS solo no establece confianza: añada listas de permitidos de host y otras comprobaciones para su aplicación. Tanto las URL externas originales como las normalizadas se verifican. El ejemplo audita metadatos sin seguir enlaces ni ejecutar acciones.
 
-Para la remediación, el [HyperlinkManager](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) del contenedor soporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) y [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Aquí, los enlaces de clic externos prohibidos se sustituyen por una página de destino HTTPS fija; los demás clics y acciones de paso del ratón prohibidos se eliminan de forma independiente. Establezca `replaceExternalClicks` a `false` para eliminar todas las violaciones de política. Elija una página de sustitución propia de la aplicación antes del despliegue.
+Para la remediación, el [HyperlinkManager](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkcontainer/hyperlinkmanager/) del contenedor soporta [SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) y [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Aquí, los enlaces externos de clic prohibidos se sustituyen por una página de aterrizaje HTTPS fija; los demás clics y acciones de pasar el ratón prohibidos se eliminan de forma independiente. Establezca `replaceExternalClicks` en `false` para eliminar todas las violaciones de política. Elija una página de sustitución propia de la aplicación antes de su despliegue.
 
-La bandera de exportación del informe usa una política conservadora de revisión PDF: marca acciones de paso del ratón y cualquier cosa que no sea un enlace externo o un salto a diapositiva específica como potencialmente no soportada. Es una pista de revisión, no una prueba de capacidad o una garantía de que los enlaces no marcados sobrevivirán a la exportación. Las exportaciones compatibles a [PDF](/slides/es/net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/net/convert-powerpoint-to-html/) pueden preservar hipervínculos, según la acción, las opciones de exportación y el visor. Las [imágenes](/slides/es/net/convert-powerpoint-to-png/) y los [videos](/slides/es/net/convert-powerpoint-to-video/) rasterizados no pueden preservar hipervínculos interactivos; marque cada acción al auditar para esas salidas.
+El indicador de exportación del informe usa una política conservadora de revisión PDF: marca acciones de pasar el ratón y cualquier cosa que no sea un enlace externo o un salto a diapositiva específico como potencialmente no compatible. Es una pista de revisión, no una prueba de capacidad ni una garantía de que los enlaces no marcados sobrevivirán a la exportación. Las exportaciones compatibles a [PDF](/slides/es/net/convert-powerpoint-to-pdf/) y [HTML](/slides/es/net/convert-powerpoint-to-html/) pueden conservar los hipervínculos, según la acción, las opciones de exportación y el visor. Las [imágenes](/slides/es/net/convert-powerpoint-to-png/) y los [videos](/slides/es/net/convert-powerpoint-to-video/) rasterizados no pueden conservar hipervínculos interactivos; marque todas las acciones al auditar para esos resultados.
 
 ```csharp
 using System;
@@ -477,20 +479,20 @@ static List<IHyperlinkContainer> CollectContainers(IPresentation presentation)
 }
 ```
 
-Con la entrada creada arriba, el informe contiene cinco filas de acción. El enlace de paso del ratón a archivo y la macro de clic se eliminan, mientras que los enlaces HTTPS y la navegación interna de diapositiva permanecen. La verificación muestra cero acciones prohibidas. Una entrada que contiene una URL de clic externo prohibida también ejerce la rama de sustitución. Un contenedor con un clic permitido y un paso del ratón prohibido conserva su acción de clic.
+Con la entrada creada arriba, el informe contiene cinco filas de acción. El enlace de pasar el ratón a un archivo y la macro de clic se eliminan, mientras que los enlaces HTTPS y la navegación interna de diapositiva permanecen. La verificación muestra cero acciones prohibidas. Una entrada que contiene una URL externa de clic prohibida también ejerce la rama de sustitución. Un contenedor con un clic permitido y un pasar el ratón prohibido conserva su acción de clic.
 
-Esta limpieza selectiva difiere de [RemoveAllHyperlinks](https://reference.aspose.com/slides/es/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), que elimina ambos tipos de activación en todo el ámbito seleccionado sin importar la política. La verificación aquí solo revisa acciones de hipervínculo; no elimina proyectos VBA incrustados, objetos OLE u otro contenido activo, y no valida un archivo PDF o HTML exportado.
+Esta limpieza selectiva difiere de [RemoveAllHyperlinks](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), que elimina ambos tipos de activación en el ámbito seleccionado sin considerar la política. La verificación aquí comprueba sólo las acciones de hipervínculo; no elimina proyectos VBA incrustados, objetos OLE u otro contenido activo, ni valida un archivo PDF o HTML exportado.
 
 ## **FAQ**
 
 **¿Cómo puedo enlazar a una sección o a su primera diapositiva?**
 
-Las secciones en PowerPoint agrupan diapositivas, pero un hipervínculo interno apunta a una diapositiva individual. Para crear navegación a una sección, enlace a la primera diapositiva de esa sección.
+Las secciones en PowerPoint agrupan diapositivas, pero un hipervínculo interno apunta a una diapositiva individual. Para crear una navegación a una sección, enlace a la primera diapositiva de esa sección.
 
 **¿Puedo adjuntar un hipervínculo a elementos de la diapositiva maestra para que funcione en todas las diapositivas?**
 
 Sí. Los elementos de la diapositiva maestra y de los diseños admiten hipervínculos. Los enlaces en estos elementos están disponibles durante la presentación en las diapositivas que usan la maestra o el diseño correspondiente.
 
-**¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o vídeo?**
+**¿Se conservarán los hipervínculos al exportar a PDF, HTML, imágenes o video?**
 
-Las exportaciones soportadas a PDF y HTML pueden conservar hipervínculos; las imágenes raster y el vídeo no pueden. Consulte las consideraciones de exportación en [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Las exportaciones compatibles a PDF y HTML pueden conservar los hipervínculos; las imágenes rasterizadas y el video no pueden. Consulte las consideraciones de exportación en [Informar, sanear y verificar hipervínculos](#report-sanitize-and-verify-hyperlinks).

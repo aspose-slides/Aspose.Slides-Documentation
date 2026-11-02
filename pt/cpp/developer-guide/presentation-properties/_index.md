@@ -6,298 +6,314 @@ weight: 70
 url: /pt/cpp/presentation-properties/
 keywords:
 - Propriedades do PowerPoint
-- Propriedades da apresentação
-- Propriedades do documento
-- Propriedades integradas
-- Propriedades personalizadas
-- Propriedades avançadas
-- Gerenciar propriedades
-- Modificar propriedades
-- Metadados do documento
-- Editar metadados
-- Idioma de revisão
-- Idioma padrão
+- propriedades da apresentação
+- propriedades do documento
+- propriedades integradas
+- propriedades personalizadas
+- propriedades avançadas
+- gerenciar propriedades
+- modificar propriedades
+- metadados do documento
+- editar metadados
+- idioma de revisão
+- idioma padrão
 - PowerPoint
 - OpenDocument
 - apresentação
 - C++
 - Aspose.Slides
-description: "Domine as propriedades de apresentação no Aspose.Slides para C++ e simplifique a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
+description: "Domine as propriedades da apresentação no Aspose.Slides para C++ e simplifique a pesquisa, a identidade visual e o fluxo de trabalho em seus arquivos PowerPoint e OpenDocument."
 ---
 ## **Introdução**
 
-Aspose.Slides oferece suporte a dois tipos de propriedades de documento: **Integradas** e **Personalizadas**. Ambos os tipos de propriedades podem ser facilmente acessados e gerenciados usando a API Aspose.Slides.
+Aspose.Slides for C++ oferece suporte a propriedades de documento **integradas** e **personalizadas**. Use essas propriedades para ler e atualizar os metadados da apresentação, como autor, título e valores definidos pelo usuário.
 
-Aspose.Slides permite que você trabalhe com as propriedades de documentos de apresentação por meio da interface [IDocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/idocumentproperties/). Uma instância dessa interface é retornada por [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentation/get_documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
+Aspose.Slides permite trabalhar com as propriedades de documento da apresentação através da interface [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/). Uma instância dessa interface é retornada por [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Os exemplos a seguir mostram como ler, modificar e gerenciar essas propriedades.
 
 {{% alert color="info" title="Nota" %}}
-
-Observe que não é possível definir valores nos campos **Application** e **Producer**, pois Aspose Ltd. e Aspose.Slides for C++ x.x.x serão exibidos nesses campos.
-
-{{% /alert %}} 
+Aspose.Slides gerencia os metadados de aplicação e produtor ao salvar apresentações; esses campos identificam o software que criou o resultado.
+{{% /alert %}}
 
 ## **Gerenciar Propriedades da Apresentação**
 
-O Microsoft PowerPoint fornece um recurso para adicionar algumas propriedades aos arquivos de apresentação. Essas propriedades de documento permitem que informações úteis sejam armazenadas junto aos documentos (arquivos de apresentação). Existem dois tipos de propriedades de documento conforme a seguir:
+Propriedades de documento armazenam informações descritivas juntamente com o conteúdo da apresentação. Elas se dividem em duas categorias:
 
-- Propriedades Definidas pelo Sistema (Integradas)
-- Propriedades Definidas pelo Usuário (Personalizadas)
+- **Propriedades integradas** contêm metadados padrão, como título, autor e estatísticas do documento.
+- **Propriedades personalizadas** armazenam pares nome/valor definidos pelo usuário.
 
-As propriedades **Integradas** contêm informações gerais sobre o documento, como título, nome do autor, estatísticas do documento etc. As propriedades **Personalizadas** são aquelas definidas pelos usuários como pares **Nome/Valor**, onde tanto o nome quanto o valor são definidos pelo usuário. Usando Aspose.Slides for C++, os desenvolvedores podem acessar e modificar os valores de propriedades integradas assim como de propriedades personalizadas. O Microsoft PowerPoint 2007 permite o gerenciamento das propriedades de documento dos arquivos de apresentação. Tudo o que você precisa fazer é clicar no ícone Office e, em seguida, no item de menu **Prepare | Properties | Advanced Properties** do Microsoft PowerPoint 2007. Ao selecionar o item de menu **Advanced Properties**, aparecerá uma caixa de diálogo que permite gerenciar as propriedades de documento do arquivo PowerPoint. Na **Caixa de Diálogo Propriedades**, você pode observar várias guias como **General**, **Summary**, **Statistics**, **Contents** e **Custom**. Todas essas guias permitem configurar diferentes tipos de informações relacionadas aos arquivos PowerPoint. A guia **Custom** é usada para gerenciar propriedades personalizadas dos arquivos PowerPoint.
+Aspose.Slides for C++ fornece acesso a ambas as categorias. No PowerPoint, selecione **File → Info → Properties → Advanced Properties** para inspecionar os metadados do documento. A caixa de diálogo agrupa as informações em guias como **Summary**, **Statistics**, **Contents** e **Custom**. Use a guia **Custom** para gerenciar propriedades definidas pelo usuário.
 
 ## **Ler Propriedades Públicas de uma Apresentação Criptografada**
 
-Uma senha de abertura normalmente protege tanto o conteúdo da apresentação quanto as propriedades do documento. Quando uma apresentação é criptografada passando `false` para [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), suas propriedades de documento permanecem públicas. Uma aplicação pode então passar `true` para [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) e ler os metadados públicos sem fornecer a senha de abertura.
+Uma senha de abertura normalmente protege tanto o conteúdo da apresentação quanto as propriedades do documento. Quando uma apresentação é criptografada passando `false` para [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), suas propriedades de documento permanecem públicas. Uma aplicação pode então passar `true` para [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) e ler os metadados públicos sem fornecer a senha de abertura.
 
-`set_OnlyLoadDocumentProperties` controla o que Aspose.Slides carrega; ele não descriptografa nada. Se as propriedades foram incluídas na criptografia, carregá‑las sem a senha falha. Se a apresentação não estiver criptografada, a opção é ignorada e a apresentação completa é carregada.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) controla o que o Aspose.Slides carrega; não descriptografa nada. Se as propriedades foram incluídas na criptografia, carregá‑las sem a senha falha. Se a apresentação não estiver criptografada, a opção é ignorada e a apresentação completa é carregada.
 
-O exemplo a seguir verifica o modo de carregamento por meio de [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/pt/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) e, em seguida, lê as propriedades integradas por meio de [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentation/get_documentproperties/):
+O exemplo requer uma apresentação criptografada cujas propriedades de documento foram deixadas públicas. Ele verifica o modo de carregamento através de [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/), e então lê as propriedades integradas através de [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/):
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
 
 using namespace Aspose::Slides;
-using namespace System;
 
-auto loadOptions = MakeObject<LoadOptions>();
+auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
 
 if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    auto properties = presentation->get_DocumentProperties();
+    auto documentProperties = presentation->get_DocumentProperties();
 
-    Console::WriteLine(u"Author: " + properties->get_Author());
-    Console::WriteLine(u"Title: " + properties->get_Title());
-    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+    System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+    System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-presentation->Dispose();
 ```
 
-Nesse modo, o conteúdo dos slides não é carregado. Slides, masters, layouts, shapes, mídia e outros objetos da apresentação ficam indisponíveis. As aplicações devem sempre verificar `get_IsOnlyDocumentPropertiesLoaded` antes de executar uma operação que exija o modelo completo de objetos da apresentação.
+Nesse modo, o conteúdo dos slides não é carregado. Slides, mestres, layouts, formas, mídias e outros objetos da apresentação ficam indisponíveis. As aplicações devem sempre verificar [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) antes de executar uma operação que requer o modelo de objeto completo da apresentação.
 
-{{% alert color="warning" title="Aviso" %}}
-Metadados públicos podem expor nomes de autores, títulos, assuntos, palavras‑chave, informações da empresa, comentários e valores personalizados. Criptografe propriedades sensíveis juntamente com a apresentação. Deixe‑as públicas apenas quando sistemas de indexação, classificação, pesquisa ou gerenciamento de documentos tiverem um requisito específico para acessá‑las sem senha.
+{{% alert color="warning" title="Segurança" %}}
+Metadados públicos podem expor nomes de autores, títulos, assuntos, palavras‑chave, informações da empresa, comentários e valores personalizados. Criptografe propriedades sensíveis juntamente com a apresentação. Deixe‑as públicas apenas quando indexação, classificação, busca ou sistemas de gerenciamento de documentos tiverem um requisito específico para acessá‑las sem senha.
 {{% /alert %}}
 
 ## **Atualizar Propriedades de uma Apresentação Criptografada**
 
-Para um arquivo PPTX criptografado, uma apresentação carregada após chamar `set_OnlyLoadDocumentProperties(true)` destina‑se à leitura de metadados públicos. Aspose.Slides não pode salvar as propriedades alteradas desse objeto somente‑metadados porque as propriedades públicas devem permanecer consistentes com os dados correspondentes dentro da apresentação criptografada. Atualizá‑las, portanto, requer a senha de abertura correta e um carregamento completo.
+Para um arquivo PPTX criptografado, uma apresentação carregada passando `true` para [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) destina‑se a ler metadados públicos. O Aspose.Slides não pode salvar propriedades alteradas desse objeto somente‑metadados porque as propriedades públicas devem permanecer consistentes com os dados correspondentes dentro da apresentação criptografada. Atualizá‑las, portanto, requer a senha de abertura correta e um carregamento completo.
 
-O exemplo a seguir abre a apresentação com [LoadOptions::set_Password](https://reference.aspose.com/slides/pt/cpp/aspose.slides/loadoptions/set_password/), atualiza as propriedades integradas públicas e salva o resultado. Em seguida, usa [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) para verificar se a criptografia foi preservada e reabre os metadados públicos sem senha para confirmar os novos valores:
+O exemplo requer uma apresentação PPTX criptografada com propriedades de documento públicas e uma senha de abertura conhecida. Ele abre a apresentação completa com [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/), atualiza as propriedades integradas públicas e salva o resultado. Em seguida, usa [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) para verificar que a criptografia foi preservada e reabre os metadados públicos sem senha para conferir os novos valores:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IPresentationInfo.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
-#include <DOM/PresentationFactory.h>
-#include <Export/SaveFormat.h>
 #include <system/console.h>
-#include <system/string.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/PresentationFactory.h>
+#include <DOM/IPresentationInfo.h>
+#include <Export/SaveFormat.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-const String inputPath = u"public-properties-encrypted.pptx";
-const String outputPath = u"updated-public-properties-encrypted.pptx";
+const System::String inputPath = u"public-properties-encrypted.pptx";
+const System::String outputPath = u"updated-public-properties-encrypted.pptx";
 
-{
-    auto loadOptions = MakeObject<LoadOptions>();
-    loadOptions->set_Password(u"open_password");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
-    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
-    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
-    presentation->Save(outputPath, SaveFormat::Pptx);
-    presentation->Dispose();
-}
+auto presentation = System::MakeObject<Presentation>(inputPath, loadOptions);
+
+auto documentProperties = presentation->get_DocumentProperties();
+documentProperties->set_Title(u"Updated Product Roadmap");
+documentProperties->set_Keywords(u"roadmap, planning, indexed");
+
+presentation->Save(outputPath, SaveFormat::Pptx);
 
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
-Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+System::Console::WriteLine(u"The presentation is encrypted: {0}", presentationInfo->get_IsEncrypted());
 
-auto metadataLoadOptions = MakeObject<LoadOptions>();
+auto metadataLoadOptions = System::MakeObject<LoadOptions>();
 metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+auto metadataPresentation = System::MakeObject<Presentation>(outputPath, metadataLoadOptions);
 
 if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
-    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+    System::Console::WriteLine(u"Title: {0}", metadataPresentation->get_DocumentProperties()->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", metadataPresentation->get_DocumentProperties()->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-metadataPresentation->Dispose();
 ```
 
-Se uma aplicação não estiver autorizada a descriptografar ou carregar o conteúdo da apresentação, ela deve tratar as propriedades públicas de um arquivo PPTX criptografado como somente‑leitura.
+Se uma aplicação não tem permissão para descriptografar ou carregar o conteúdo da apresentação, ela deve tratar as propriedades públicas de um arquivo PPTX criptografado como somente leitura.
 
 ## **Acessar Propriedades Integradas**
 
-Essas propriedades expostas pelo objeto **IDocumentProperties** incluem: **Creator(Author)**, **Description**, **KeyWords**, **Created** (Data de Criação), **Modified** (Data de Modificação), **Printed** (Data da Última Impressão), **LastModifiedBy**, **Keywords**, **SharedDoc** (É compartilhado entre diferentes produtores?), **PresentationFormat**, **Subject** e **Title**
+A interface [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) expõe metadados integrados por meio de getters tipados, incluindo [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/), [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) e [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/). Este exemplo abre uma apresentação existente e imprime seus metadados armazenados no console. Os valores dependem da apresentação de entrada; alguns campos podem estar vazios.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>(u"AccessBuiltInProperties.pptx");
+
+auto documentProperties = presentation->get_DocumentProperties();
+
+System::Console::WriteLine(u"Category: {0}", documentProperties->get_Category());
+System::Console::WriteLine(u"Content status: {0}", documentProperties->get_ContentStatus());
+System::Console::WriteLine(u"Creation date: {0}", documentProperties->get_CreatedTime());
+System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+System::Console::WriteLine(u"Comments: {0}", documentProperties->get_Comments());
+System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
+System::Console::WriteLine(u"Last modified by: {0}", documentProperties->get_LastSavedBy());
+System::Console::WriteLine(u"Manager: {0}", documentProperties->get_Manager());
+System::Console::WriteLine(u"Modified date: {0}", documentProperties->get_LastSavedTime());
+System::Console::WriteLine(u"Presentation format: {0}", documentProperties->get_PresentationFormat());
+System::Console::WriteLine(u"Last print date: {0}", documentProperties->get_LastPrinted());
+System::Console::WriteLine(u"Is shared between producers: {0}", documentProperties->get_SharedDoc());
+System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
+System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
+```
 
 ## **Modificar Propriedades Integradas**
 
-Modificar as propriedades integradas de arquivos de apresentação é tão simples quanto acessá‑las. Você pode simplesmente atribuir um valor string a qualquer propriedade desejada e o valor será alterado. No exemplo abaixo, demonstramos como modificar as propriedades de documento integradas do arquivo de apresentação.
+Para atualizar metadados integrados, use os setters no objeto retornado por [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/). Este exemplo abre uma apresentação existente, chama [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/), [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/), [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/), [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) e [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/), então salva a apresentação atualizada com [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). O PPTX salvo contém os novos metadados.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"ModifyBuiltInProperties.pptx");
+
+auto documentProperties = presentation->get_DocumentProperties();
+
+documentProperties->set_Author(u"Aspose.Slides for C++");
+documentProperties->set_Title(u"Manage PowerPoint Presentation Properties");
+documentProperties->set_Subject(u"Modify Built-in Properties");
+documentProperties->set_Comments(u"Aspose description");
+documentProperties->set_Manager(u"Aspose manager");
+
+presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
+```
+
+## **Gerenciar a Base de Hiperlink**
+
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) lê a base ao nível do documento para hiperlinks relativos. Isso é útil ao mover uma apresentação e seus arquivos vinculados para outro local. É independente do [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) de um hiperlink individual: alterar a base não reescreve os endereços de link armazenados nem altera destinos absolutos.
+
+O exemplo requer uma apresentação que contenha tanto um link relativo, como `target.html`, quanto um link absoluto, como `https://example.org/absolute.html`. Ele lê a base existente, atribui um novo endereço base com [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/), salva e reabre a apresentação para verificar o valor. Em seguida, limpa a base com `u""` e verifica o valor vazio em um arquivo salvo separado. Substitua o endereço base do exemplo pela localização dos seus arquivos vinculados.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+
+System::Console::WriteLine(u"Original base: {0}", presentation->get_DocumentProperties()->get_HyperlinkBase());
+
+const System::String newBase = u"https://example.com/new/";
+presentation->get_DocumentProperties()->set_HyperlinkBase(newBase);
+presentation->Save(u"hyperlinks-updated.pptx", SaveFormat::Pptx);
+
+auto updatedPresentation = System::MakeObject<Presentation>(u"hyperlinks-updated.pptx");
+System::Console::WriteLine(u"Base preserved: {0}", (updatedPresentation->get_DocumentProperties()->get_HyperlinkBase() == newBase));
+
+updatedPresentation->get_DocumentProperties()->set_HyperlinkBase(u"");
+updatedPresentation->Save(u"hyperlinks-cleared.pptx", SaveFormat::Pptx);
+
+auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared.pptx");
+System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
+```
+
+As duas mensagens de verificação devem imprimir `True`. Limpar a base deixa os endereços de hiperlink individuais intactos.
+
+Um link relativo para `target.pptx` abriu `old/target.pptx` quando a base apontava para a pasta `old`. Após mudar a base para a pasta `new`, salvar e reabrir a apresentação, o mesmo link abriu `new/target.pptx`. Um link absoluto continuou a abrir o mesmo arquivo. Teste seus links relativos no PowerPoint antes e depois de mover a apresentação ou mudar sua base.
 
 ## **Adicionar Propriedades Personalizadas à Apresentação**
 
-Aspose.Slides for C++ também permite que os desenvolvedores adicionem valores personalizados às propriedades de documento da apresentação. O exemplo a seguir mostra como definir propriedades personalizadas para uma apresentação.
+As propriedades personalizadas armazenam metadados que não têm um campo integrado correspondente. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) permite atribuir um valor pelo nome da propriedade. Este exemplo cria uma apresentação, adiciona dois valores de texto e um valor inteiro de versão, e salva a apresentação com [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/). Atribuir um valor a um nome existente substitui o valor daquela propriedade.
 
-``` cpp
+```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
+#include <system/console.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
-#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-// Instanciar a classe Presentation
 auto presentation = System::MakeObject<Presentation>();
 
-// Obtendo propriedades do documento
 auto documentProperties = presentation->get_DocumentProperties();
 
-// Adicionando propriedades personalizadas
-documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
-documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
-documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
+documentProperties->idx_set(u"Reviewed by", System::ObjectExt::Box<System::String>(u"John Smith"));
+documentProperties->idx_set(u"Confidentiality level", System::ObjectExt::Box<System::String>(u"Internal"));
+documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 
-// Obtendo o nome da propriedade em um índice específico
-String getPropertyName = documentProperties->GetCustomPropertyName(2);
-
-// Removendo a propriedade selecionada
-documentProperties->RemoveCustomProperty(getPropertyName);
-
-// Salvando a apresentação
-presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
 ## **Acessar e Modificar Propriedades Personalizadas**
 
-Aspose.Slides for C++ também permite que os desenvolvedores acessem os valores das propriedades personalizadas. O exemplo a seguir mostra como você pode acessar e modificar todas essas propriedades personalizadas de uma apresentação.
+Este exemplo abre uma apresentação contendo propriedades personalizadas e usa [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) para iterar sobre elas. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) aceita um índice baseado em zero e retorna o nome usado por [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) e [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/). O exemplo imprime cada nome e valor original, substitui cada valor por uma string numerada independentemente do tipo original, e salva as alterações. Se não houver propriedades personalizadas, o loop não faz alterações.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
-
-## **Definir Idioma de Revisão**
-
-Aspose.Slides fornece a propriedade [LanguageId](https://reference.aspose.com/slides/pt/cpp/aspose.slides/baseportionformat/set_languageid/) (exposta pela classe [PortionFormat](https://reference.aspose.com/slides/pt/cpp/aspose.slides/portionformat/)) para permitir que você defina o idioma de revisão para um documento PowerPoint. O idioma de revisão é o idioma para o qual a ortografia e a gramática no PowerPoint são verificadas.
-
-Este código C++ mostra como definir o idioma de revisão para um PowerPoint:
-
-```c++
-#include <DOM/AutoShape.h>
-#include <DOM/Fonts/FontData.h>
-#include <DOM/IFontData.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortionCollection.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Portion.h>
+```cpp
+#include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
-using namespace Aspose::Slides;
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
-System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
-
-System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
-portions->Clear();
-
-System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
-
-System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
-System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
-portionFormat->set_ComplexScriptFont(font);
-portionFormat->set_EastAsianFont(font);
-portionFormat->set_LatinFont(font);
-
-portionFormat->set_LanguageId(u"zh-CN");
-// definir o Id de um idioma de revisão
-
-newPortion->set_Text(u"1。");
-portions->Add(newPortion);
-```
-
-## **Definir Idioma Padrão**
-
-Este código C++ mostra como definir o idioma padrão para toda a apresentação PowerPoint:
-
-```c++
-#include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/LoadOptions.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <system/console.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_DefaultTextLanguage(u"en-US");
+auto presentation = System::MakeObject<Presentation>(u"AccessAndModifyProperties.pptx");
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
 
-// Adiciona uma nova forma retangular com texto
-System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
-System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"New Text");
+for (auto i = 0; i < documentProperties->get_CountOfCustomProperties(); i++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(i);
+    auto propertyValue = documentProperties->idx_get(propertyName);
 
-// Verifica o idioma da primeira porção
-System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
+    System::Console::WriteLine(u"Custom property name: {0}", propertyName);
+    System::Console::WriteLine(u"Custom property value: {0}", propertyValue);
+
+    documentProperties->idx_set(propertyName, System::ObjectExt::Box(System::String::Format(u"New Value {0}", i + 1)));
+}
+
+presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **Exemplo Interativo**
+## **Exemplo ao Vivo**
 
-Experimente o aplicativo online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pt/metadata) para ver como trabalhar com propriedades de documento via API Aspose.Slides:
+Tente o aplicativo online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) para ver como trabalhar com propriedades de documento usando a API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/pt/metadata)
+[![Visualizar & Editar Metadados do PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Perguntas Frequentes**
 
 **Como posso remover uma propriedade integrada de uma apresentação?**
 
-Propriedades integradas são parte integrante da apresentação e não podem ser removidas completamente. No entanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade específica permitir.
+As propriedades integradas são parte integrante da apresentação e não podem ser removidas totalmente. No entanto, você pode alterar seus valores ou defini‑las como vazias, se a propriedade específica permitir.
 
 **O que acontece se eu adicionar uma propriedade personalizada que já existe?**
 
-Se você adicionar uma propriedade personalizada que já existe, o valor existente será sobrescrito pelo novo valor. Não é necessário remover ou verificar a propriedade antes, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
+Se você adicionar uma propriedade personalizada que já existe, seu valor existente será sobrescrito pelo novo. Não é necessário remover ou verificar a propriedade antecipadamente, pois o Aspose.Slides atualiza automaticamente o valor da propriedade.
 
-**Posso acessar propriedades da apresentação sem carregar a apresentação completa?**
+**Posso acessar as propriedades da apresentação sem carregar totalmente a apresentação?**
 
-Sim. Use [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) e depois [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) para ler os metadados armazenados do documento sem criar uma instância [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/). Consulte [Build a Lightweight Presentation Inventory](/slides/pt/cpp/examine-presentation/) para um exemplo completo de relatório e limitações específicas de formato.
+Sim. Use [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) e então [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) para ler os metadados do documento armazenados sem criar uma instância de [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/). Consulte [Build a Lightweight Presentation Inventory](/slides/pt/cpp/examine-presentation/) para um exemplo completo de relatório e limitações específicas de formato.
 
 **Posso ler propriedades públicas de uma apresentação criptografada sem sua senha de abertura?**
 
-Sim. A apresentação deve ter sido criptografada passando `false` para `set_EncryptDocumentProperties` e deve ser carregada passando `true` para `set_OnlyLoadDocumentProperties`.
+Sim. A apresentação deve ter sido criptografada passando `false` para [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/), e deve ser carregada passando `true` para [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/).
 
 **Posso atualizar um arquivo PPTX criptografado no modo somente‑propriedades‑de‑documento?**
 
-Não. Dados de propriedades públicas e criptografadas devem permanecer consistentes, portanto, atualizar um arquivo PPTX criptografado requer o carregamento completo da apresentação com a senha de abertura correta.
+Não. Os dados de propriedades públicas e criptografadas devem permanecer consistentes, portanto, atualizar um arquivo PPTX criptografado requer carregar a apresentação completa com a senha de abertura correta.

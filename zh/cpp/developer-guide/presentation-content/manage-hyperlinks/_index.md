@@ -9,12 +9,12 @@ keywords:
 - 添加超链接
 - 创建超链接
 - 格式化超链接
-- 移除超链接
+- 删除超链接
 - 更新超链接
 - 文本超链接
 - 幻灯片超链接
 - 形状超链接
-- 图片超链接
+- 图像超链接
 - 视频超链接
 - 可变超链接
 - PowerPoint
@@ -22,30 +22,28 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 C++ 示例，利用 Aspose.Slides for C++ 在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和移除超链接。"
+description: "使用 Aspose.Slides for C++ 的 C++ 示例，在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和删除超链接。"
 ---
 ## **介绍**
 
-超链接将演示文稿内容连接到网站或演示文稿内部的某个位置。在 PowerPoint 中，超链接通常有两个用途：
+超链接将演示文稿内容连接到网站或演示文稿内部的位置。在 PowerPoint 中，超链接通常有两个用途：
 
-* 从文本、形状或多媒体框架打开网站。
-* 从目录等跳转到另一张幻灯片。
+* 从文本、形状或媒体框打开网站。
+* 导航到其他幻灯片，例如从目录。
 
-Aspose.Slides for C++ 允许您添加这些链接、控制其外观和声音、更新其设置以及删除它们。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文本框层级访问超链接。
+Aspose.Slides for C++ 允许您添加这些链接、控制它们的外观和声音、更新设置以及删除它们。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文本框级别访问超链接。
 
-{{% alert color="info" title="注意" %}}
-
-您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/zh/editor)编辑演示文稿。
-
+{{% alert color="info" title="Note" %}}
+您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/editor)编辑演示文稿。
 {{% /alert %}} 
 
 ## **添加 URL 超链接**
 
-您可以将网站 URL 分配给文本、形状或多媒体框架。所分配超链接的元素决定了可点击区域：文本部分只会链接所选文本，而形状或框架则链接整个幻灯片对象。
+您可以将网站 URL 分配给文本、形状或媒体框。分配超链接的元素决定可点击范围：文本部分链接所选文本，而形状或框架链接幻灯片对象。对于包含相对超链接的演示文稿，请参阅[管理超链接基准](/slides/zh/cpp/presentation-properties/#manage-the-hyperlink-base)以读取、修改或清除文档级别的基准。
 
-### **为文本添加 URL 超链接**
+### **向文本添加 URL 超链接**
 
-要将文本链接到网站，请创建一个[Hyperlink](https://reference.aspose.com/slides/zh/cpp/aspose.slides/hyperlink/)并使用文本部分的[set_HyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/portionformat/set_hyperlinkclick/)方法进行分配，如下所示。只有该文本部分会变为可点击。
+要将文本链接到网站，请创建一个[Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/)并使用文本部分的[set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/)方法进行分配，如下所示。只有该文本部分会变为可点击。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +76,13 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **为形状和多媒体框架添加 URL 超链接**
+### **向形状和媒体框添加 URL 超链接**
 
-要使形状或框架可点击，使用其[set_HyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/shape/set_hyperlinkclick/)方法。超链接属于对象本身，而不是其中的文本部分。
+要使形状或框架可点击，请使用其[set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/)方法。超链接属于该对象本身，而不是其中的文本部分。
 
-相同的做法同样适用于图片、音频和视频框架：将超链接分配给框架，并使用[set_Tooltip](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_tooltip/)在需要时添加提示。
+相同的方法适用于图片、音频和视频框：将超链接分配给框架，并在需要时使用[set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)添加提示。
 
-下面的示例将一个矩形设为可点击：
+以下示例使矩形可点击：
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -111,7 +109,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **使用超链接创建目录**
 
-内部超链接让读者可以从目录跳转到指定幻灯片。以下示例使用[SetInternalHyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/)将第一张幻灯片上的“第 2 页”文本链接到第二张幻灯片。
+内部超链接允许读者从目录跳转到特定幻灯片。以下示例使用[SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/)将第一页上的“Page 2”文本链接到第二页。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -170,9 +168,9 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ### **颜色**
 
-[IHyperlink](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/)的[set_ColorSource](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_colorsource/)方法决定超链接是使用演示文稿的超链接颜色还是文本部分的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/zh/cpp/aspose.slides/hyperlinkcolorsource/)并设置该部分的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不支持此设置。
+[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) 的[set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/)方法决定超链接是使用演示文稿的超链接颜色还是文本部分的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/)并设置该部分的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不适用此设置。
 
-下面的示例在同一张幻灯片上添加了两个文本超链接。第一个使用红色文本填充，第二个保留默认超链接颜色。
+以下示例向同一幻灯片添加两个文本超链接。第一个使用红色文本填充，第二个保留默认的超链接颜色。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -216,14 +214,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 ### **声音**
 
-激活超链接时可以播放声音，或停止已在播放的声音。使用以下方法配置这些行为：
+超链接在激活时可以播放声音，或停止已经播放的声音。使用以下方法配置这些行为：
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_sound/)指定与超链接关联的音频。
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/)控制激活超链接时是否停止先前的声音。
+- `[IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/)` 指定与超链接关联的音频。
+- `[IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/)` 控制激活超链接时是否停止先前的声音。
 
 #### **添加超链接声音**
 
-下面的示例加载 `sampleaudio.wav` 并将其关联到第一张幻灯片上的一个按钮。单击按钮会播放声音并跳转到下一张幻灯片。该幻灯片上的第二个形状在单击时会停止先前的声音，但不执行跳转操作。
+以下示例加载 `sampleaudio.wav` 并将其关联到第一页上的按钮。单击按钮会播放声音并导航到下一页。该页上的第二个形状在单击时停止先前的声音，但不执行导航操作。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -269,7 +267,7 @@ presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 
 #### **提取超链接声音**
 
-下面的示例打开上述创建的演示文稿，并通过[get_Sound](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_sound/)和[get_BinaryData](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iaudio/get_binarydata/)将第一个形状的超链接音频读取到内存。
+以下示例打开上述创建的演示文稿，并通过[get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/)和[get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/)将第一个形状的超链接音频读取到内存中。
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -307,16 +305,16 @@ else
 
 ### **提示和交互设置**
 
-在将超链接分配给文本或形状后，您可以使用以下方法更新[IHyperlink](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/)的设置：
+在将超链接分配给文本或形状后，您可以通过以下方法更新 [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) 的设置：
 
-- [set_Tooltip](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_tooltip/)设置查看者可显示的提示文字。
-- [set_TargetFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_targetframe/)在适用时指定父 HTML frameset 中的目标框架。
-- [set_History](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_history/)控制激活链接后是否将其目的地加入已查看超链接列表。
-- [set_HighlightClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/set_highlightclick/)控制点击时是否高亮显示超链接。
+- `[set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)` 设置查看者可以显示为链接提示的文本。
+- `[set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/)` 在适用时指定父 HTML frameset 中的目标框架。
+- `[set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/)` 控制激活链接时是否将其目标添加到已查看超链接的列表中。
+- `[set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/)` 控制单击时是否突出显示超链接。
 
-## **从演示文稿中移除超链接**
+## **从演示文稿中删除超链接**
 
-使用[GetAnyHyperlinks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)在更改之前收集包括文本部分链接在内的超链接容器。下面的示例从第一张幻灯片移除两种激活类型。若只想移除一种类型，只调用[RemoveHyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)或[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)；移除点击操作并不会同时移除鼠标悬停对应的操作。
+使用[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)收集超链接容器（包括文本部分链接），然后再进行更改。以下示例从第一页中删除两种激活类型。若只删除一种类型，请仅调用[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)或[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)；删除点击操作并不会删除其鼠标悬停对应操作。
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +348,23 @@ else
 }
 ```
 
-如需无条件移除，[RemoveAllHyperlinks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)会在一次调用中删除所选范围内的两种激活类型。有关选择性清理以及覆盖母版、布局和备注的说明，请参阅[报告、清理与验证超链接](#report-sanitize-and-verify-hyperlinks)。
+对于无条件的删除，[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)在一次调用中删除选定范围内的两种激活类型。有关有选择的清理以及母版、布局和备注的覆盖，请参阅[报告、清理并验证超链接](#report-sanitize-and-verify-hyperlinks)。
 
 ## **构建完整的超链接清单**
 
-在分发演示文稿之前，需要对交互动作以及网络链接进行清点。[GetAnyHyperlinks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)返回[IHyperlinkContainer](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkcontainer/)对象，而不是 URL 字符串的扁平列表。检查每个容器的[get_HyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/)和[get_HyperlinkMouseOver](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/)。它们是独立的：同一个容器可以同时暴露两种动作，因此完整报告可能需要每个容器最多两行。
+在分发演示文稿之前，需清点其交互动作以及网页链接。[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)返回[IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)对象，而不是 URL 字符串的平面列表。检查每个容器的[get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/)和[get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/)。它们相互独立：同一容器可能同时暴露两种操作，因此完整报告可能需要每个容器最多两行。
 
-仅在形状层级扫描超链接可能会遗漏附加在文本部分的链接。请改为查询适当的范围，并保留返回的容器，以便以后更新或删除其动作。
+仅扫描形状级别的超链接可能会遗漏附加在文本部分的链接。应查询相应的范围，并保留返回的容器，以便随后更新或删除其操作。
 
 ### **查询演示文稿、幻灯片和文本框范围**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/) 接口可通过[IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)、[IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/)和[ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)获取。每个范围支持相同的查询：
+[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) 接口可通过[IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)、[IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/)和[ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)获取。每个范围支持相同的查询：
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/)返回具有点击动作的容器。
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/)返回具有鼠标悬停动作的容器。
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)返回包含任一或两种动作的容器。
+- `[GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/)` 返回包含点击操作的容器。
+- `[GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/)` 返回包含鼠标悬停操作的容器。
+- `[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)` 返回包含任一或两种操作的容器。
 
-下面的示例创建 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文本鼠标悬停链接以及宏动作。示例本身并不执行这些动作。相同的三个查询在每个范围内均可使用；计数描述的是容器数，而非动作总数。文本框范围不包括其所在形状的链接。
+以下示例创建 `hyperlink-audit-input.pptx`，其中包含一个外部点击链接、一个文件鼠标悬停链接、内部幻灯片导航、一个文本鼠标悬停链接以及一个宏操作。它不会执行任何这些操作。相同的三个查询在每个范围均可使用；计数描述的是容器数量，而非操作总数。文本框范围排除包含其自身的形状链接。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +419,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-在本示例中，演示文稿和幻灯片查询各报告三个点击容器、两个鼠标悬停容器以及三个任一动作的容器。文本框查询在每个分类中各报告一个容器。
+在此示例中，演示文稿和幻灯片查询各报告三个点击容器、两个鼠标悬停容器和三个任一操作的容器。文本框查询在每个类别中报告一个容器。
 
-### **对动作和目标进行分类**
+### **分类操作和目标**
 
-使用[IHyperlink::get_ActionType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_actiontype/)在解释目标之前先判断动作类型。[HyperlinkActionType](https://reference.aspose.com/slides/zh/cpp/aspose.slides/hyperlinkactiontype/)的取值涵盖了除网页导航之外的多种情形：
+使用[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/)在解释目标之前先解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/)的取值范围超过网页导航：
 
-| 值 | 审计时的含义 |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | 外部超链接；检查 URL 及其方案。 |
-| `JumpSpecificSlide` | 跳转到特定幻灯片的内部导航。 |
-| `JumpFirstSlide`、`JumpPreviousSlide`、`JumpNextSlide`、`JumpLastSlide`、`JumpLastViewedSlide` | 内置幻灯片放映导航，在放映上下文中解析。 |
-| `JumpEndShow`、`StartCustomSlideShow` | 结束当前放映或启动自定义放映。 |
+| `Hyperlink` | 外部超链接；检查 URL 及其协议。 |
+| `JumpSpecificSlide` | 内部导航到特定幻灯片。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 内置幻灯片放映导航，在放映上下文中解析。 |
+| `JumpEndShow`, `StartCustomSlideShow` | 结束当前放映或启动自定义放映。 |
 | `StartMacro` | 执行宏。 |
 | `StartProgram` | 启动程序。 |
-| `OpenFile`、`OpenPresentation` | 打开文件或其他演示文稿；需单独与网页 URL 区分审查。 |
+| `OpenFile`, `OpenPresentation` | 打开文件或其他演示文稿；需与网页 URL 分别审查。 |
 | `StartStopMedia` | 开始或停止媒体播放。 |
-| `NoAction`、`Unknown` | 无导航动作，或未识别的动作，需要审查。 |
+| `NoAction`, `Unknown` | 无导航操作，或需要审查的未知操作。 |
 
-通过[get_ExternalUrl](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_externalurl/)读取外部目标，通过[get_TargetSlide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_targetslide/)读取具体内部目标。内部动作和内置命令可能没有外部 URL；空 URL 并不表示容器没有动作。若[get_ExternalUrlOriginal](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_externalurloriginal/)与规范化 URL 不同，请保留原始值；若可用，还应包含[get_Tooltip](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlink/get_tooltip/)返回的提示文字。
+从[get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/)读取外部目标，从[get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/)读取特定内部目标。内部操作和内置命令可能没有外部 URL；空 URL 并不意味着该容器没有操作。当[get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/)与标准化 URL 不同时，应保留它，并在可用时包含由[get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/)返回的提示。
 
-### **报告、清理与验证超链接**
+### **报告、清理并验证超链接**
 
-下面的 C++ 示例读取已有演示文稿（使用上述创建的文件），写入 `hyperlink-audit.json`，应用策略后保存为 `hyperlink-sanitized.pptx`，并再次打开以重新检查两种激活类型。示例在更改前收集容器，并使用指针标识避免对同一容器进行多次处理。演示文稿查询覆盖普通幻灯片；若需对整个包进行清点，还会显式查询母版、布局、备注以及出现时的备注和讲义母版。
+以下 C++ 示例读取现有演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，并再次打开以检查两种激活类型。它在更改之前收集容器，并使用指针标识避免对同一容器进行两次处理。演示文稿查询涵盖普通幻灯片；若需全包清单，还会显式查询母版、布局、备注以及存在时的备注和讲义母版。
 
-报告记录基于 1 的幻灯片索引以及在可能的情况下的[get_SlideId](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ibaseslide/get_slideid/)。[ISlideComponent::get_Slide](https://reference.aspose.com/slides/zh/cpp/aspose.slides/islidecomponent/get_slide/)提供支持容器的所属幻灯片。母版、布局和备注没有普通幻灯片索引，使用其范围标识。形状容器和文本段落格式容器分别标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便将其两种动作关联起来。
+报告记录基于 1 的幻灯片索引和可用的[get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/)。[ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/)提供受支持容器的所属幻灯片。母版、布局和备注没有普通幻灯片索引，以其范围标识。形状容器和文本部分格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获取报告本地 ID，以便关联其两个操作。
 
-此限制性策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件动作、其他幻灯片动作、未知动作以及其他 URL 方案。这些拒绝是策略决策，而非 Aspose.Slides 安全性的判断。仅 HTTPS 并不等同于信任：请为您的应用添加主机白名单等检查。原始和规范化的外部 URL 都会被检查。示例仅审计元数据，不会跟随链接或执行动作。
+此有意严格的应用策略仅允许绝对的 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他幻灯片操作、未知操作以及其他 URL 方案。这些拒绝属于策略决定，而非 Aspose.Slides 的安全判定。仅有 HTTPS 并不足以建立信任：请为您的应用程序添加主机白名单和其他检查。原始和标准化的外部 URL 都会被检查。示例在不跟随链接或执行操作的情况下审计元数据。
 
-如需修复，容器的[get_HyperlinkManager](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/)支持[SetExternalHyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)、[RemoveHyperlinkClick](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)和[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)。本例中，将被禁止的外部点击链接替换为固定的 HTTPS 登陆页面；其他被禁止的点击和鼠标悬停动作分别被移除。将 `replaceExternalClicks` 设置为 `false` 可删除所有策略违规项。请在部署前准备好由应用拥有的替换页面。
+为进行修复，容器的[get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/)支持[SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)、[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)和[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)。此处，将被禁止的外部点击链接替换为固定的 HTTPS 着陆页；其他被禁止的点击和被禁止的鼠标悬停操作则分别移除。将 `replaceExternalClicks` 设置为 `false` 可改为删除所有策略违规。请在部署前选择由应用拥有的替换页面。
 
-报告的导出标记采用保守的 PDF 审核策略：对鼠标悬停动作以及除外部链接或特定幻灯片跳转之外的任何动作进行标记，视为可能不受支持。这仅是审查提示，并非功能测试或对未标记链接在导出后仍能保存的保证。受支持的[PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/cpp/convert-powerpoint-to-html/)导出可能会保留超链接，具体取决于动作、导出选项和查看器。栅格[图片](/slides/zh/cpp/convert-powerpoint-to-png/)和[视频](/slides/zh/cpp/convert-powerpoint-to-video/)无法保留交互式超链接；在针对这些输出进行审计时请对每个动作进行标记。
+报告的导出标志使用保守的 PDF 审核策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的任何操作标记为可能不受支持。这只是审核提示，而非功能测试，也不保证未标记的链接在导出后仍然有效。受支持的[PDF](/slides/zh/cpp/convert-powerpoint-to-pdf/)和[HTML](/slides/zh/cpp/convert-powerpoint-to-html/)导出可能保留超链接，具体取决于操作、导出选项和查看器。栅格[images](/slides/zh/cpp/convert-powerpoint-to-png/)和[video](/slides/zh/cpp/convert-powerpoint-to-video/)无法保留交互式超链接；在对这些输出进行审计时应对每个操作进行标记。
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +650,20 @@ if (violations != 0)
 }
 ```
 
-使用上述输入创建的报告包含五行动作。文件鼠标悬停链接和宏点击被移除，而 HTTPS 链接和内部幻灯片导航保留。验证阶段打印出零个违规动作。包含违规外部点击 URL 的输入也会触发替换分支。一个容器既有允许的点击又有被禁止的鼠标悬停时，仅保留点击动作。
+使用上述创建的输入，报告包含五行操作。文件鼠标悬停链接和宏点击被删除，而 HTTPS 链接和内部幻灯片导航保留。验证结果显示零个违规操作。包含被禁止外部点击 URL 的输入还会触发替换分支。具有允许的点击且被禁止的鼠标悬停的容器保留其点击操作。
 
-此选择性清理不同于[RemoveAllHyperlinks](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)，后者会在所选范围内不论策略全部移除两种激活类型。这里的验证仅检查超链接动作；它不删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不验证导出的 PDF 或 HTML 文件。
+此有选择的清理方式不同于[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)，后者会在选定范围内无论策略如何都删除两种激活类型。此处的验证仅检查超链接操作；它不删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不验证导出的 PDF 或 HTML 文件。
 
-## **常见问题解答**
+## **常见问题**
 
-**如何链接到某个章节或其第一张幻灯片？**
+**如何链接到章节或其第一张幻灯片？**
 
-PowerPoint 中的章节用于组织幻灯片，但内部超链接只能定位到单张幻灯片。若要实现章节跳转，请链接到该章节的第一张幻灯片。
+PowerPoint 中的章节用于对幻灯片进行分组，但内部超链接只能定位到单个幻灯片。若要实现跳转到章节，需链接该章节的第一张幻灯片。
 
-**我能将超链接附加到母版幻灯片元素上，使其在所有幻灯片上生效吗？**
+**我可以将超链接附加到母版幻灯片元素上，以便在所有幻灯片上工作吗？**
 
-可以。母版幻灯片和布局元素支持超链接。在使用相应母版或布局的幻灯片放映时，这些链接会可用。
+可以。母版幻灯片和布局元素支持超链接。这些元素上的链接在使用相应母版或布局的幻灯片放映时可用。
 
-**超链接在导出为 PDF、HTML、图片或视频时会被保留吗？**
+**导出为 PDF、HTML、图片或视频时，超链接会被保留吗？**
 
-支持的 PDF 和 HTML 导出可能会保留超链接；栅格图片和视频则不能。请参阅[报告、清理与验证超链接](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。
+受支持的 PDF 和 HTML 导出可能会保留超链接；栅格图像和视频则无法。请参阅[报告、清理并验证超链接](#report-sanitize-and-verify-hyperlinks)中的导出注意事项。

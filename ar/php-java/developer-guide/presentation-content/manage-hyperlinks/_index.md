@@ -11,39 +11,41 @@ keywords:
 - تنسيق رابط تشعبي
 - إزالة رابط تشعبي
 - تحديث رابط تشعبي
-- رابط تشعبي للنص
-- رابط تشعبي للشريحة
-- رابط تشعبي للشكل
+- رابط تشعبي نصي
+- رابط تشعبي للشرائح
+- رابط تشعبي لل形
 - رابط تشعبي للصورة
 - رابط تشعبي للفيديو
-- رابط تشعبي قابل للتغيير
+- رابط تشعبي قابل للتعديل
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "أضف، نمّق، حدّث، وأزل الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides for PHP عبر Java، مع أمثلة PHP."
+description: "إضافة وتنسيق وتحديث وإزالة الروابط التشعبية في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides لـ PHP عبر Java، باستخدام أمثلة PHP."
 ---
 ## **مقدمة**
 
-يُربط الارتباط التشعبي محتوى العرض التقديمي بموقع ويب أو بموقع داخل العرض التقديمي نفسه. في PowerPoint، يخدم الارتباط التشعبي غرضين شائعين:
+يوفر الرابط التشعبي اتصالًا بين محتوى العرض التقديمي وموقع ويب أو موقع داخل العرض التقديمي. في PowerPoint، تُستخدم الروابط التشعبية عادةً لغرضين:
 
-* فتح موقع ويب من النص أو الشكل أو إطار الوسائط.
+* فتح موقع ويب من نص أو شكل أو إطار وسائط.
 * الانتقال إلى شريحة أخرى، على سبيل المثال من جدول المحتويات.
 
-يتيح Aspose.Slides for PHP via Java إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. توضح الأمثلة أدناه كيفية العمل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط على مستوى العرض أو الشريحة أو إطار النص. تفترض أن جسر PHP/Java ومغلف Aspose.Slides PHP تم تهيئتهما. الأعضاء في API الذين لا يملكون صفحة مرجع PHP يربطون إلى API Java الأساسي.
+يتيح لك Aspose.Slides for PHP عبر Java إضافة هذه الروابط، والتحكم في مظهرها وصوتها، وتحديث خصائصها، وإزالتها. توضح الأمثلة أدناه كيفية العمل مع الروابط التشعبية على العناصر الفردية وكيفية الوصول إلى الروابط التشعبية على مستوى العرض التقديمي أو الشريحة أو إطار النص. تفترض أن جسر PHP/Java ومغلف Aspose.Slides PHP مُهيّئان. تُربط أعضاء API الذين لا يمتلكون صفحة مرجعية PHP بواجهة برمجة التطبيقات الأساسية في Java.
 
-{{% alert color="info" title="ملاحظة" %}}
-يمكنك أيضًا تعديل العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني عبر الإنترنت](https://products.aspose.app/slides/ar/editor).
+{{% alert color="info" title="Note" %}}
+يمكنك أيضًا تعديل العروض التقديمية باستخدام [محرر Aspose PowerPoint المجاني على الإنترنت](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **إضافة روابط URL تشعبية**
+## **إضافة روابط URL**
 
-يمكنك تعيين عنوان موقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الارتباط التشعبي يحدد مساحة النقر: جزء النص يربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+يمكنك تعيين عنوان URL لموقع ويب إلى نص أو شكل أو إطار وسائط. العنصر الذي تُعيّن إليه الرابط التشعبي يحدد مساحة النقر: فقرة النص تربط النص المحدد، بينما الشكل أو الإطار يربط كائن الشريحة.
+
+للعروض التي تحتوي على روابط تشعبية نسبية، راجع [إدارة قاعدة الرابط التشعبي](/slides/ar/php-java/presentation-properties/#manage-the-hyperlink-base) لقراءة القاعدة، تعديلها أو مسحها على مستوى المستند.
 
 ### **إضافة روابط URL إلى النص**
 
-لربط نص بموقع ويب، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/portionformat/sethyperlinkclick/) لجزء النص، كما هو موضح أدناه. يصبح ذلك الجزء من النص قابلًا للنقر فقط.
+لربط النص بموقع ويب، مرّر كائن [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) إلى طريقة [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) الخاصة بفقرة النص، كما هو موضح أدناه. يصبح فقط ذلك الجزء من النص قابلًا للنقر.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -68,9 +70,9 @@ try {
 
 ### **إضافة روابط URL إلى الأشكال وإطارات الوسائط**
 
-لجعل الشكل أو الإطار قابلًا للنقر، نادِ طريقة [setHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/sethyperlinkclick/) الخاصة به. ينتمي الارتباط التشعبي إلى الكائن نفسه وليس إلى جزء نص داخله.
+لجعل شكل أو إطار قابل للنقر، استدعِ طريقته [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/). ينتمي الرابط التشعبي إلى الكائن نفسه وليس إلى فقرة نص داخلها.
 
-ينطبق نفس النهج على إطارات الصورة والصوت والفيديو: عيّن الارتباط التشعبي إلى الإطار ونادِ [setTooltip](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/settooltip/) إذا لزم الأمر.
+ينطبق النهج نفسه على إطارات الصور والصوت والفيديو: عيّن الرابط التشعبي للإطار واستدعِ [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) إذا لزم الأمر.
 
 المثال التالي يجعل مستطيلًا قابلًا للنقر:
 
@@ -95,7 +97,7 @@ try {
 
 ## **استخدام الروابط التشعبية لإنشاء جدول محتويات**
 
-تتيح الروابط التشعبية الداخلية للقارئ القفز من جدول المحتويات إلى شريحة محددة. يستخدم المثال التالي طريقة [setInternalHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) لربط نص “Page 2” في الشريحة الأولى بالشريحة الثانية.
+تتيح الروابط التشعبية الداخلية للقراء الانتقال من جدول المحتويات إلى شريحة محددة. يستخدم المثال التالي [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) لربط نص "Page 2" في الشريحة الأولى بالشريحة الثانية.
 
 ```php
 use aspose\slides\FillType;
@@ -137,9 +139,9 @@ try {
 
 ### **اللون**
 
-تحدّد طريقة [setColorSource](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/setcolorsource/) لكائن [Hyperlink](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/) ما إذا كان الارتباط التشعبي يستخدم لون الارتباط التشعبي للعرض التقديمي أو تنسيق جزء النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkcolorsource/) واضبط لون تعبئة الجزء. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
+تحدّد طريقة [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) في كائن [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) ما إذا كان الرابط التشعبي سيستخدم لون الروابط التشعبية في العرض التقديمي أو تنسيق فقرة النص. لتطبيق لون نص مخصص، اختر [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) واضبط لون تعبئة الفقرة. تم تقديم هذه الميزة في PowerPoint 2019؛ الإصدارات الأقدم لا تطبق هذا الإعداد.
 
-المثال التالي يضيف رابطين نصيين إلى نفس الشريحة. الأول يستخدم تعبئة نص حمراء، بينما الثاني يحتفظ باللون الافتراضي للارتباط التشعبي.
+المثال التالي يضيف رابطين تشعبيين نصيين إلى نفس الشريحة. يستخدم الأول تعبئة نص حمراء، بينما يحتفظ الثاني باللون الافتراضي للرابط التشعبي.
 
 ```php
 use aspose\slides\FillType;
@@ -170,14 +172,14 @@ try {
 ```
 ### **الصوت**
 
-يمكن للارتباط التشعبي تشغيل صوت عند تفعيلها أو إيقاف صوت قيد التشغيل بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
+يمكن للرابط التشعبي تشغيل صوت عند التنشيط أو إيقاف صوت يُشغل بالفعل. استخدم الطرق التالية لتكوين هذه السلوكيات:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/setsound/) يحدد الصوت المرتبط بالارتباط التشعبي.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/setstopsoundonclick/) يتحكم فيما إذا كان تفعيل الارتباط التشعبي يوقف الصوت السابق.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) يحدد الصوت المرتبط بالرابط التشعبي.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) يتحكم فيما إذا كان تنشيط الرابط التشعبي يوقف الصوت السابق.
 
-#### **إضافة صوت للارتباط التشعبي**
+#### **إضافة صوت للرابط التشعبي**
 
-المثال التالي يحمل الملف `sampleaudio.wav` ويربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت وينتقل إلى الشريحة التالية. الشكل الثاني في تلك الشريحة يوقف الصوت السابق عند النقر، دون تنفيذ عملية انتقال.
+المثال التالي يحمل الملف `sampleaudio.wav` ويربطه بزر في الشريحة الأولى. النقر على الزر يشغل الصوت وينتقل إلى الشريحة التالية. الشكل الثاني في تلك الشريحة يوقف الصوت السابق عند النقر، دون تنفيذ إجراء تنقل.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-#### **استخراج صوت الارتباط التشعبي**
+#### **استخراج صوت للرابط التشعبي**
 
-المثال التالي يفتح العرض التقديمي المُنشأ أعلاه ويقرأ صوت الارتباط التشعبي للشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/getsound/) و[getBinaryData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/audio/getbinarydata/).
+المثال التالي يفتح العرض التقديمي الذي تم إنشاؤه أعلاه ويقرأ صوت الرابط التشعبي للشكل الأول إلى الذاكرة عبر [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) و [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -243,18 +245,18 @@ try {
 }
 ```
 
-### **التلميح وإعدادات التفاعل**
+### **تلميحات الأدوات وإعدادات التفاعل**
 
-يمكنك نداء طرق [Hyperlink](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/) التالية بعد تعيين رابط تشعبي إلى نص أو شكل:
+يمكنك استدعاء طرق [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) التالية بعد تعيين رابط تشعبي إلى نص أو شكل:
 
-- [setTooltip](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/settooltip/) يحدد النص الذي يمكن للمستعرض عرضه كتلميح للارتباط.
-- [setTargetFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/settargetframe/) يحدد إطار الهدف داخل مجموعة إطارات HTML الأم، إذا كان ذلك مناسبًا.
-- [setHistory](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/sethistory/) يتحكم فيما إذا كان تفعيل الارتباط يضيف هدفه إلى قائمة الروابط المشاهدة.
-- [setHighlightClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/sethighlightclick/) يتحكم فيما إذا كان يتم تمييز الارتباط التشعبي عند النقر.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) يحدد النص الذي يمكن للمشاهد عرضه كتلميح للرابط.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) يحدد إطار الهدف داخل مجموعة إطارات HTML الأصلية، إن كان ذلك مناسبًا.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) يتحكم فيما إذا كان تنشيط الرابط يضيف وجهته إلى قائمة الروابط المشاهدة.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) يتحكم فيما إذا كان يتم تمييز الرابط عند النقر.
 
 ## **إزالة الروابط التشعبية من العروض التقديمية**
 
-استخدم [getAnyHyperlinks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) لجمع حاويات الروابط، بما في ذلك روابط أجزاء النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التفعيل من الشريحة الأولى. لإزالة نوع واحد فقط، نادِ فقط [removeHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/)؛ إزالة إجراء النقر لا يزيل نظيره عند مرور الفأرة.
+استخدم [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) لجمع حاويات الروابط التشعبية، بما في ذلك روابط فقرات النص، قبل تعديلها. يزيل المثال التالي كلا نوعي التنشيط من الشريحة الأولى. لإزالة نوع واحد فقط، استدعِ فقط [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) أو [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); إزالة إجراء النقر لا يزيل نظيره عند تمرير الفأرة.
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +282,23 @@ try {
 }
 ```
 
-للإزالة غير المشروطة، تقوم الطريقة [removeAllHyperlinks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) بحذف كلا نوعي التفعيل في النطاق المحدد في نداء واحد. للتنظيف الانتقائي وتغطية الماسترز والتصميمات والملاحظات، راجع القسم [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+لإزالة غير مشروطة، يزيل [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) كلا نوعي التنشيط في النطاق المحدد في استدعاء واحد. للتنظيف الانتقائي وتغطية الماسترز، التخطيطات، والملاحظات، راجع [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **بناء جرد كامل للروابط التشعبية**
+## **إنشاء جرد شامل للروابط التشعبية**
 
-قبل توزيع العرض التقديمي، قم بجرد الإجراءات التفاعلية بالإضافة إلى الروابط الويب. تُعيد طريقة [getAnyHyperlinks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ihyperlinkcontainer/)، وليس قائمة مسطحة من سلاسل URL. افحص كل من [getHyperlinkClick](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و[getHyperlinkMouseOver](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تكشف عن كلا الإجراءين، لذا يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
+قبل توزيع عرض تقديمي، قم بجرد إجراءات التفاعل الخاصة به بالإضافة إلى روابط الويب. تُعيد [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) كائنات [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/)، وليس قائمة مسطحة من سلاسل URL. افحص كلًا من [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) على كل حاوية. هما مستقلان: يمكن لنفس الحاوية أن تعرض كلا الإجراءين، لذلك يحتاج التقرير الكامل إلى صفين كحد أقصى لكل حاوية.
 
-قد يفتقد الفحص على مستوى الشكل الروابط المرفقة بأجزاء النص. استعلم النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات المعادة لتتمكن لاحقًا من تحديثها أو إزالتها.
+قد يؤدي فحص الروابط التشعبية على مستوى الشكل فقط إلى فقدان الروابط المرتبطة بفقرات النص. استعلم عن النطاق المناسب بدلاً من ذلك، واحتفظ بالحاويات العائدة حتى تتمكن لاحقًا من تحديث أو إزالة إجراءاتها.
 
-### **استعلام نطاقات العرض، الشريحة، وإطار النص**
+### **الاستعلام عن نطاقات العرض، الشريحة، وإطار النص**
 
-تتوفر الفئة [HyperlinkQueries](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/) من خلال [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/gethyperlinkqueries/)، [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)، و[TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/gethyperlinkqueries/). يدعم كل نطاق نفس الاستعلامات:
+تتوفر فئة [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) عبر [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)، [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--)، و[TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). يدعم كل نطاق نفس الاستعلامات:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) يعيد الحاويات ذات إجراء النقر.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) يعيد الحاويات ذات إجراء مرور الفأرة.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) يعيد الحاويات التي تمتلك أحد الإجراءين أو كليهما.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) يُعيد الحاويات التي تحتوي على إجراء نقرة.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) يُعيد الحاويات التي تحتوي على إجراء تمرير الفأرة.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) يُعيد الحاويات التي تحتوي على أي من الإجراءين أو كلاهما.
 
-المثال التالي ينشئ الملف `hyperlink-audit-input.pptx` بوجود رابط خارجي للنقر، ورابط ملف عند مرور الفأرة، وتنقل داخلي إلى شريحة، ورابط نص عند مرور الفأرة، وإجراء ماكرو. لا يُنفّذ أيًا من هذه الإجراءات. تعمل الاستعلامات الثلاثة نفسها في كل نطاق؛ الأعداد تشير إلى الحاويات، وليس إلى مجموع الإجراءات. يستثني نطاق إطار النص الروابط الخاصة بالشكل المُحاط.
+المثال التالي يُنشئ الملف `hyperlink-audit-input.pptx` مع رابط نقر خارجي، رابط تمرير ملف، تنقل داخلي بين الشرائح، رابط تمرير نص، وإجراء ماكرو. لا ينفّذ أيًا من هذه الإجراءات. تعمل الاستعلامات الثلاثة نفسها في كل نطاق؛ الأعداد تصف الحاويات، وليس مجموعات الإجراءات. يستبعد نطاق إطار النص الروابط الخاصة بالشكل المحيط.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +337,37 @@ try {
 }
 ```
 
-في هذا المثال، تُبلغ استعلامات العرض والشريحة عن ثلاث حاويات للنقر، وحاويتين لمرور الفأرة، وثلاث حاويات إما من هذين الإجراءين. يُبلغ استعلام إطار النص عن حاوية واحدة في كل فئة.
+في هذا المثال، تُبلغ استعلامات العرض والشريحة عن ثلاث حاويات نقر، حاويتين لتمرير الفأرة، وثلاث حاويات مع أيٍ من الإجراءين. يُبلغ استعلام إطار النص عن حاوية واحدة في كل فئة.
 
 ### **تصنيف الإجراءات والوجهات**
 
-استخدم [Hyperlink::getActionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/getactiontype/) لتفسير الإجراء قبل تفسير وجهته. تغطي قيم [HyperlinkActionType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkactiontype/) أكثر من مجرد تنقل ويب:
+استخدم [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) لتفسير إجراء قبل تفسير جهته. تغطي قيم [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) أكثر من مجرد تنقل ويب:
 
-| القيم | المعنى للتدقيق |
+| Values | معنى للتدقيق |
 | --- | --- |
-| `Hyperlink` | ارتباط تشعبي خارجي؛ افحص URL ومخططه. |
+| `Hyperlink` | رابط تشعبي خارجي؛ افحص عنوان URL ومخططه. |
 | `JumpSpecificSlide` | تنقل داخلي إلى شريحة معينة. |
-| `JumpFirstSlide` | `JumpPreviousSlide` | `JumpNextSlide` | `JumpLastSlide` | `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُفسّر في سياق عرض الشرائح. |
-| `JumpEndShow` | `StartCustomSlideShow` | إنهاء العرض الحالي أو بدء عرض مخصص. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | تنقل مدمج في عرض الشرائح، يُحل في سياق عرض الشرائح. |
+| `JumpEndShow`, `StartCustomSlideShow` | إنهاء العرض الحالي أو بدء عرض مخصص. |
 | `StartMacro` | تنفيذ ماكرو. |
 | `StartProgram` | تشغيل برنامج. |
-| `OpenFile` | `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ راجعه منفصلًا عن عناوين URL الويب. |
-| `StartStopMedia` | بدء أو إيقاف تشغيل وسائط. |
-| `NoAction` | `Unknown` | لا توجد إجراءات تنقل، أو إجراء غير معروف يتطلب مراجعة. |
+| `OpenFile`, `OpenPresentation` | فتح ملف أو عرض تقديمي آخر؛ راجع ذلك بشكل منفصل عن عناوين URL للويب. |
+| `StartStopMedia` | بدء أو إيقاف تشغيل الوسائط. |
+| `NoAction`, `Unknown` | لا يوجد إجراء تنقل، أو إجراء غير معروف يتطلب مراجعة. |
 
-اقرأ الوجهات الخارجية من خلال [getExternalUrl](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/getexternalurl/) والوجهات الداخلية المحددة من خلال [getTargetSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/gettargetslide/). قد لا تحتوي الإجراءات الداخلية والأوامر المدمجة على URL خارجي؛ URL الفارغ لا يعني أن الحاوية لا تمتلك إجراءً. احتفظ بالقيمة التي تُعيدها [getExternalUrlOriginal](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) عندما تختلف عن URL المُحدث، وأدرج التلميح التي تُعيده [getTooltip](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlink/gettooltip/) إذا توفّر.
+اقرأ الوجهات الخارجية من [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) والوجهات الداخلية المحددة من [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). قد لا تحتوي الإجراءات الداخلية والأوامر المدمجة على URL خارجي؛ عدم وجود URL لا يعني أن الحاوية لا تحتوي على إجراء. احتفظ بالقيمة التي تُعيدها [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) عندما تختلف عن URL المُطبع، وضمن تلميح الأدوات المسترجع من [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) إذا كان متوفرًا.
 
-### **إعداد تقرير، تنظيف، والتحقق من الروابط التشعبية**
+### **تقرير، تنقية، والتحقق من الروابط التشعبية**
 
-الكود PHP التالي يقرأ عرضًا تقديميًا موجودًا (استخدم الملف المُنشأ أعلاه)، يكتب `hyperlink-audit.json`، يطبق سياسة، يحفظ `hyperlink-sanitized.pptx`، ثم يفتحه مرة أخرى للتحقق من كلا نوعي التفعيل مرة أخرى. يجمع الحاويات قبل تعديلها ويستخدم مساواة المرجع لتجنب معالجة الحاوية نفسها مرتين. تغطي استعلامات العرض الشرائح العادية؛ لجرد شامل على مستوى الحزمة، يستعلم أيضًا صراحةً عن الماسترز، التصميمات، الملاحظات، والماستر الخاص بالملاحظات والملصقات إذا وجدت.
+المثال التالي بلغة PHP يقرأ عرضًا تقديميًا موجودًا (استخدم الملف الذي تم إنشاؤه أعلاه)، يكتب `hyperlink-audit.json`, يطبق سياسة, يحفظ `hyperlink-sanitized.pptx`, ثم يفتحها مرة أخرى للتحقق من كلا نوعي التنشيط مرة أخرى. يجمع الحاويات قبل تعديلها ويستخدم مساواة المراجع لتجنب معالجة نفس الحاوية مرتين. تغطي استعلامات العرض الشرائح العادية؛ لإنشاء جرد على مستوى الحزمة، يستعلم أيضًا صراحةً عن الماسترز, التخطيطات, الملاحظات, وماستر الملاحظات وكتيب التوزيع عندما تكون موجودة.
 
-يسجل التقرير فهرس الشرائح بدءًا من الواحد و[ getSlideId](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ibaseslide/#getSlideId--) حيثما كان متوفرًا. يوفّر [ISlideComponent::getSlide](https://reference.aspose.com/slides/ar/java/com.aspose.slides/islidecomponent/#getSlide--) الشريحة المالكة للحاويات المدعومة. لا تمتلك الماسترز، التصميمات، والملاحظات فهرس شريحة عادي وتُحدّد بنطاقها. تُصنّف حاويات الشكل وحاويات تنسيق جزء النص بشكل منفصل؛ الأنواع الأخرى تحتفظ باسم نوعها في وقت التشغيل. يحصل كل حاوية على معرف محلي في التقرير لربط إجراءيها. يُخزّن التقرير أنواع الإجراءات كالقيم العددية المعرفة في تعداد PHP.
+يقوم التقرير بتسجيل فهرس شريحة يبدأ من واحد و[getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) حيثما يتوفر. توفر [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) الشريحة المالكة للحاويات المدعومة. لا تحتوي الماسترز, التخطيطات, والملاحظات على فهرس شريحة عادي ويتم تحديدها وفق نطاقها. تُوسم حاويات الشكل وحاويات تنسيق فقرات النص بشكل منفصل؛ تحتفظ الأنواع الأخرى من الحاويات باسم نوعها في وقت التشغيل. يحصل كل حاوية على معرف محلي في التقرير لتتمكن من ربط الإجراءين. يخزن التقرير أنواع الإجراءات كقواعد عددية معرفة في تعداد PHP.
 
-تسمح هذه السياسة التطبيقية الصارمة فقط بعناوين HTTPS المطلقة والهدف الداخلي للشرائح الصالحة. تُرفض الماكروهات، البرامج، إجراءات الملفات، الإجراءات المدمجة في عرض الشرائح، الإجراءات غير المعروفة، ومخططات URL الأخرى. هذه الرفضات هي قرارات سياسة، وليس حكم أمان من Aspose.Slides. HTTPS وحده لا يضمن الثقة: أضف قوائم بيضاء للمضيف وفحوصات أخرى لتطبيقك. يتم فحص كل من URL الأصلية والـ URL المُحدّثة. يجرى التدقيق على البيانات الوصفية دون اتباع الروابط أو تشغيل الإجراءات.
+تسمح هذه السياسة التطبيقية المقيدة عمداً فقط بعناوين URL مطلقة عبر HTTPS وأهداف شرائح داخلية صالحة. ترفض الماكروهات, البرامج, إجراءات الملفات, إجراءات عرض الشرائح الأخرى, الإجراءات غير المعروفة, وأنواع عناوين URL الأخرى. هذه الرفض هي قرارات سياسة, وليس حكم أمان من Aspose.Slides. لا يضمن HTTPS وحده الثقة: أضف قوائم السماح للمضيف وفحوصات أخرى لتطبيقك. تُفحص كل من عناوين URL الخارجية الأصلية والمُطبعّة. يجرى المثال تدقيق البيانات الوصفية دون اتباع الروابط أو تشغيل الإجراءات.
 
-للإصلاح، تدعم طريقة حاوية [getHyperlinkManager](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) [setExternalHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/)، [removeHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/)، و[removeHyperlinkMouseOver](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). هنا، تُستبدل الروابط الخارجية غير المسموح بها بصفحة هبوط HTTPS ثابتة؛ تُزال باقي الروابط غير المسموح بها بشكل مستقل. اضبط المتغيّر `$replaceExternalClicks` إلى `false` لإزالة جميع الانتهاكات بدلاً من الاستبدال. اختر صفحة استبدال تملكها تطبيقك قبل النشر.
+للتصحيح, يدعم [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) الحاوية [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/), و[removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). هنا, تُستبدل روابط النقر الخارجية المحظورة بصفحة هبوط HTTPS ثابتة; تُزال النقرات الأخرى المحظورة وإجراءات تمرير الفأرة المحظورة بشكل مستقل. اضبط `$replaceExternalClicks` على `false` لإزالة جميع انتهاكات السياسة بدلاً من ذلك. اختر صفحة بديلة مملوكة للتطبيق قبل النشر.
 
-يستخدم علم تصدير التقرير سياسة مراجعة PDF متحفظة: يُعلّق إجراءات مرور الفأرة وأي شيء غير الرابط الخارجي أو الانتقال إلى شريحة معينة كغير مدعوم محتمل. هذا مجرد تلميح مراجعة، وليس اختبار قدرة أو ضمان بقاء الروابط غير المعلمة في عملية التصدير. قد تحتفظ تصديرات PDF وHTML المدعومة بالروابط حسب الإجراء، خيارات التصدير، والمستعرض. لا يمكن للصور النقطية والفيديو الاحتفاظ بالروابط التفاعلية؛ علّق كل إجراء عند التدقيق لتلك المخرجات.
+تستخدم علامة تصدير التقرير سياسة مراجعة PDF محافظة: تُعلّم إجراءات تمرير الفأرة وأي شيء بخلاف رابط خارجي أو قفزة شريحة محددة على أنه محتمل أن لا يُدعم. هي تلميح مراجعة, ليست اختبار قدرة أو ضمان أن الروابط غير المُعلّمة ستبقى بعد التصدير. قد تحافظ تصديرات PDF وHTML المدعومة ([PDF](/slides/ar/php-java/convert-powerpoint-to-pdf/) و[HTML](/slides/ar/php-java/convert-powerpoint-to-html/)) على الروابط التشعبية, اعتمادًا على الإجراء, خيارات التصدير, والمستعرض. لا يمكن للصور النقطية ([images](/slides/ar/php-java/convert-powerpoint-to-png/)) والفيديو ([video](/slides/ar/php-java/convert-powerpoint-to-video/)) الحفاظ على الروابط التفاعلية; علّم كل إجراء عند التدقيق لتلك المخرجات.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +524,20 @@ try {
 }
 ```
 
-مع الإدخال المُنشأ أعلاه، يحتوي التقرير على خمس صفوف إجراءات. يُزال رابط ملف مرور الفأرة والماكرو عند النقر، بينما تبقى الروابط HTTPS والتنقل الداخلي إلى الشرائح. تُظهر عملية التحقق عدم وجود إجراءات محظورة. يُظهر إدخال يحتوي على رابط خارجي غير مسموح به أيضًا فرع الاستبدال. يظل حاوية بضغط مسموح ومرور فأرة غير مسموح به مع فعل النقر الخاص به.
+مع الإدخال الذي تم إنشاؤه أعلاه, يحتوي التقرير على خمس صفوف إجراءات. تُزيل روابط تمرير الفأرة للملف وإجراء النقر للماكرو, بينما تبقى روابط HTTPS وتنقل الشرائح الداخلية. تُظهر عملية التحقق صفر إجراءات محظورة. يُظهر الإدخال الذي يحتوي على رابط نقر خارجي محظور فرع الاستبدال. تحتفظ الحاوية التي لديها نقر مسموح وتمريرة فأرة محظورة بإجراء النقر.
 
-هذا التنظيف الانتقائي يختلف عن [removeAllHyperlinks](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)، الذي يزيل كلا النوعين من التفعيل في النطاق المختار بغض النظر عن السياسة. تتحقق عملية التحقق هنا من إجراءات الروابط التشعبية فقط؛ لا تُزيل مشاريع VBA المدمجة، كائنات OLE، أو أي محتوى نشط آخر، ولا تتحقق من ملف PDF أو HTML المصدر.
+يختلف هذا التنظيف الانتقائي عن [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), الذي يزيل كلا نوعي التنشيط في النطاق المحدد بغض النظر عن السياسة. تتحقق عملية التحقق هنا من إجراءات الروابط التشعبية فقط; لا تُزيل مشاريع VBA المضمنة, كائنات OLE, أو محتوى نشط آخر, ولا تُصادق على ملف PDF أو HTML مُصدّر.
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني الربط إلى قسم أو شريحته الأولى؟**
+**كيف يمكنني الربط بقسم أو شريحته الأولى؟**
 
-تقسم الأقسام في PowerPoint الشرائح إلى مجموعات، لكن الارتباط التشعبي الداخلي يستهدف شريحة واحدة. لإنشاء تنقل إلى قسم، اربط إلى الشريحة الأولى في ذلك القسم.
+تُجمع الأقسام في PowerPoint الشرائح, لكن الرابط التشعبي الداخلي يستهدف شريحة فردية. لإنشاء تنقل إلى قسم, اربط بالشريحة الأولى في ذلك القسم.
 
-**هل يمكنني إرفاق رابط تشعبي لعناصر الشريحة الرئيسية بحيث يعمل على جميع الشرائح؟**
+**هل يمكنني إرفاق رابط تشعبي بعناصر الشريحة الرئيسية ليعمل على جميع الشرائح؟**
 
-نعم. تدعم عناصر الشريحة الرئيسية وتخطيطاتها الروابط التشعبية. تكون الروابط على هذه العناصر متاحة خلال عرض الشرائح على الشرائح التي تستخدم الماستر أو التخطيط المقابل.
+نعم. تدعم عناصر الشريحة الرئيسية وتخطيطها الروابط التشعبية. تكون الروابط على هذه العناصر متاحة أثناء عرض الشرائح على الشرائح التي تستخدم الشريحة الرئيسية أو التخطيط المقابل.
 
 **هل سيتم الحفاظ على الروابط التشعبية عند التصدير إلى PDF أو HTML أو الصور أو الفيديو؟**
 
-قد تحتفظ تصديرات PDF وHTML المدعومة بالروابط؛ لا يمكن للصور النقطية والفيديو ذلك. راجع اعتبارات التصدير في القسم [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+قد تحافظ تصديرات PDF وHTML المدعومة على الروابط التشعبية; لا يمكن للصور النقطية والفيديو ذلك. راجع اعتبارات التصدير في [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

@@ -5,45 +5,47 @@ type: docs
 weight: 20
 url: /el/php-java/manage-hyperlinks/
 keywords:
-- Προσθήκη URL
-- Προσθήκη Υπερσυνδέσμου
-- Δημιουργία Υπερσυνδέσμου
-- Μορφοποίηση Υπερσυνδέσμου
-- Αφαίρεση Υπερσυνδέσμου
-- Ενημέρωση Υπερσυνδέσμου
-- Υπερσύνδεσμος Κειμένου
-- Υπερσύνδεσμος Διαφάνειας
-- Υπερσύνδεσμος Σχήματος
-- Υπερσύνδεσμος Εικόνας
-- Υπερσύνδεσμος Βίντεο
-- Μεταβλητός Υπερσύνδεσμος
+- προσθήκη URL
+- προσθήκη υπερσυνδέσμου
+- δημιουργία υπερσυνδέσμου
+- μορφοποίηση υπερσυνδέσμου
+- αφαίρεση υπερσυνδέσμου
+- ενημέρωση υπερσυνδέσμου
+- υπερσύνδεσμος κειμένου
+- υπερσύνδεσμος διαφάνειας
+- υπερσύνδεσμος σχήματος
+- υπερσύνδεσμος εικόνας
+- υπερσύνδεσμος βίντεο
+- μεταβλητός υπερσύνδεσμος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Προσθήκη, μορφοποίηση, ενημέρωση και αφαίρεση υπερσυνδέσμων σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για PHP μέσω Java, χρησιμοποιώντας παραδείγματα PHP."
+description: "Προσθέστε, μορφοποιήστε, ενημερώστε και αφαιρέστε υπερσυνδέσμους σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για PHP μέσω Java, χρησιμοποιώντας παραδείγματα PHP."
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος συνδέει το περιεχόμενο της παρουσίασης με έναν ιστότοπο ή μια θέση μέσα στην παρουσίαση. Στο PowerPoint, οι υπερσύνδεσμοι συχνά εξυπηρετούν δύο σκοπούς:
+Ένας υπερσύνδεσμος συνδέει το περιεχόμενο της παρουσίασης με έναν ιστότοπο ή μια θέση εντός της παρουσίασης. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δύο σκοπούς:
 
-* Άνοιγμα ιστοσελίδας από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
-* Περιήγηση σε άλλη διαφάνεια, π.χ. από πίνακα περιεχομένων.
+* Ανοίγει έναν ιστότοπο από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
+* Προβαίνει σε άλλον διαφάνειας, για παράδειγμα από έναν πίνακα περιεχομένων.
 
-Aspose.Slides for PHP via Java σας επιτρέπει να προσθέσετε αυτούς τους συνδέσμους, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ιδιότητές τους και να τους αφαιρέσετε. Τα παραδείγματα παρακάτω δείχνουν πώς να εργαστείτε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να έχετε πρόσβαση σε υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου. Υποθέτουν ότι το PHP/Java Bridge και το wrapper Aspose.Slides PHP είναι αρχικοποιημένα. Τα μέλη API χωρίς σελίδα αναφοράς PHP συνδέονται με το υποκείμενο Java API.
+Το Aspose.Slides for PHP μέσω Java σάς επιτρέπει να προσθέσετε αυτούς τους συνδέσμους, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ιδιότητές τους και να τους καταργήσετε. Τα παρακάτω παραδείγματα δείχνουν πώς να εργάζεστε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να προσπελάζετε τους υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου. Υποθέτουν ότι η γέφυρα PHP/Java και η περιέκτη Aspose.Slides PHP έχουν αρχικοποιηθεί. Τα μέλη του API χωρίς σελίδα αναφοράς PHP συνδέονται με το υποκείμενο Java API.
 
 {{% alert color="info" title="Note" %}}
-Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [free online Aspose PowerPoint editor](https://products.aspose.app/slides/el/editor).
+Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [δωρεάν διαδικτυακό επεξεργαστή Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Προσθήκη Υπερσυνδέσμων URL**
+## **Προσθήκη URL Υπερσυνδέσμων**
 
-Μπορείτε να αντιστοιχίσετε μια διεύθυνση URL ιστοσελίδας σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αναθέτετε τον υπερσύνδεσμο καθορίζει την περιοχή που μπορεί να γίνει κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
+Μπορείτε να αναθέσετε έναν URL ιστότοπου σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αναθέτετε τον υπερσύνδεσμο καθορίζει την περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
 
-### **Προσθήκη Υπερσυνδέσμων URL σε Κείμενο**
+Για παρουσιάσεις που περιέχουν σχετικούς υπερσυνδέσμους, δείτε το [Διαχείριση της Βάσης Υπερσυνδέσμων](/slides/el/php-java/presentation-properties/#manage-the-hyperlink-base) για ανάγνωση, αλλαγή ή εκκαθάριση της βάσης σε επίπεδο εγγράφου.
 
-Για να συνδέσετε κείμενο με έναν ιστότοπο, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/portionformat/sethyperlinkclick/) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ.
+### **Προσθήκη URL Υπερσυνδέσμων σε Κείμενο**
+
+Για να συνδέσετε κείμενο με έναν ιστότοπο, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο το συγκεκριμένο τμήμα του κειμένου γίνεται κλικαρίσιμο.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -66,13 +68,13 @@ try {
 }
 ```
 
-### **Προσθήκη Υπερσυνδέσμων URL σε Σχήματα και Πλαίσια Πολυμέσων**
+### **Προσθήκη URL Υπερσυνδέσμων σε Σχήματα και Πλαίσια Πολυμέσων**
 
-Για να κάνετε ένα σχήμα ή πλαίσιο κλικατο, καλέστε τη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/sethyperlinkclick/) του. Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε κάποιο τμήμα κειμένου εντός αυτού.
+Για να κάνετε ένα σχήμα ή πλαίσιο κλικαρίσιμο, καλέστε τη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) του. Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε τμήμα κειμένου μέσα σε αυτό.
 
-Η ίδια προσέγγιση ισχύει για εικόνες, ήχη και βίντεο: αντιστοιχίστε τον υπερσύνδεσμο στο πλαίσιο και, αν χρειαστεί, καλέστε τη [setTooltip](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/settooltip/).
+Η ίδια προσέγγιση ισχύει για πλαίσια εικόνας, ήχου και βίντεο: αναθέστε τον υπερσύνδεσμο στο πλαίσιο και καλέστε το [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) εάν χρειάζεται.
 
-Το παρακάτω παράδειγμα κάνει ένα παραλληλόγραμμο κλικατό:
+Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικαρίσιμο:
 
 ```php
 use aspose\slides\Hyperlink;
@@ -93,9 +95,9 @@ try {
 }
 ```
 
-## **Χρήση Υπερσυνδέσεων για Δημιουργία Πίνακα Περιεχομένων**
+## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί τη [setInternalHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
+Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί το [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
 
 ```php
 use aspose\slides\FillType;
@@ -133,13 +135,13 @@ try {
 }
 ```
 
-## **Μορφοποίηση Υπερσυνδέσεων**
+## **Μορφοποίηση Υπερσυνδέσμων**
 
 ### **Χρώμα**
 
-Η μέθοδος [setColorSource](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/setcolorsource/) του [Hyperlink](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/) καθορίζει αν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη διαμόρφωση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkcolorsource/) και ορίστε το χρώμα γεμίσματος του τμήματος. Η δυνατότητα αυτή εισήχθη στο PowerPoint 2019· οι παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
+Η μέθοδος [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) του [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) καθορίζει αν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε το [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) και ορίστε το χρώμα γεμίσματος του τμήματος. Η δυνατότητα αυτή εισήχθη στο PowerPoint 2019· παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
 
-Το επόμενο παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο γέμισμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
+Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο γέμισμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
 
 ```php
 use aspose\slides\FillType;
@@ -170,14 +172,14 @@ try {
 ```
 ### **Ήχος**
 
-Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιείται ή να σταματήσει ήχο που ήδη παίζει. Χρησιμοποιήστε τις παρακάτω μεθόδους για να ρυθμίσετε αυτές τις συμπεριφορές:
+Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιηθεί ή να σταματήσει ήχο που ήδη αναπαράγεται. Χρησιμοποιήστε τις παρακάτω μεθόδους για να διαμορφώσετε αυτές τις συμπεριφορές:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/setsound/) καθορίζει το ήχο που σχετίζεται με τον υπερσύνδεσμο.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/setstopsoundonclick/) ελέγχει αν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) καθορίζει το ήχο που συνδέεται με τον υπερσύνδεσμο.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) ελέγχει αν η ενεργοποίηση του υπερσυνδέσμου σταματά το προηγούμενο ήχο.
 
-#### **Προσθήκη Ήχου Υπερσύνδεσης**
+#### **Προσθήκη Ήχου σε Υπερσύνδεσμο**
 
-Το επόμενο παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί παίζει ο ήχος και μεταβαίνει στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα σε αυτή τη διαφάνεια σταματά τον προηγούμενο ήχο όταν κάνει κλικ, χωρίς να εκτελεί ενέργεια πλοήγησης.
+Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συνδέει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί αναπαράγεται ο ήχος και πηγαίνει στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα σε εκείνη τη διαφάνεια σταματά τον προηγούμενο ήχο όταν κλικάρεται, χωρίς καμία ενέργεια πλοήγησης.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-#### **Εξαγωγή Ήχου Υπερσύνδεσης**
+#### **Εξαγωγή Ήχου από Υπερσύνδεσμο**
 
-Το επόμενο παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο υπερσύνδεσμου του πρώτου σχήματος στη μνήμη μέσω των [getSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/getsound/) και [getBinaryData](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getbinarydata/).
+Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο του πρώτου σχήματος σε μνήμη μέσω των [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) και [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -245,16 +247,16 @@ try {
 
 ### **Ρυθμίσεις Tooltip και Αλληλεπίδρασης**
 
-Μπορείτε να καλέσετε τις παρακάτω μεθόδους του [Hyperlink](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/) μετά την ανάθεση υπερσύνδεσμου σε κείμενο ή σχήμα:
+Μπορείτε να καλέσετε τις παρακάτω μεθόδους του [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) αφού αναθέσετε έναν υπερσύνδεσμο σε κείμενο ή σχήμα:
 
-- [setTooltip](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/settooltip/) ορίζει το κείμενο που μπορεί να εμφανίσει ο θεατής ως υπόδειξη για τον σύνδεσμο.
-- [setTargetFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/settargetframe/) καθορίζει το πλαίσιο προορισμού μέσα σε ένα γονικό HTML frameset, όταν ισχύει.
-- [setHistory](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/sethistory/) ελέγχει αν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των προβαλλόμενων υπερσυνδέσμων.
-- [setHighlightClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/sethighlightclick/) ελέγχει αν ο υπερσύνδεσμος επισημαίνεται όταν γίνεται κλικ.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) ορίζει το κείμενο που μπορεί να εμφανίσει ο θεατής ως υπόδειξη για τον σύνδεσμο.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) καθορίζει το πλαίσιο-στόχο μέσα σε ένα γονικό HTML frameset, όταν ισχύει.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) ελέγχει αν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των εμφανισμένων υπερσυνδέσμων.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) ελέγχει αν ο υπερσύνδεσμος επισημαίνεται όταν κλικάρεται.
 
-## **Αφαίρεση Υπερσυνδέσεων από Παρουσιάσεις**
+## **Κατάργηση Υπερσυνδέσμων από Παρουσιάσεις**
 
-Χρησιμοποιήστε το [getAnyHyperlinks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) για να συλλέξετε τα containers υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα αλλάξετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [removeHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) ή το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί το αντίστοιχο mouse‑over.
+Χρησιμοποιήστε το [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) για να συγκεντρώσετε κοντέινερ υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα τροποποιήσετε. Το παρακάτω παράδειγμα αφαιρεί και τις δύο μορφές ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) ή το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); η κατάργηση μιας ενέργειας κλικ δεν αφαιρεί την αντίστοιχη ενέργεια ποντικιού.
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +282,23 @@ try {
 }
 ```
 
-Για αφαίρεση χωρίς προϋποθέσεις, το [removeAllHyperlinks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) αφαιρεί και τους δύο τύπους ενεργοποίησης στο επιλεγμένο πεδίο με μία κλήση. Για επιλεκικό καθαρισμό και κάλυψη των master, layout και σημειώσεων, δείτε το [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Για απόλυτη κατάργηση, το [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) αφαιρεί και τις δύο μορφές ενεργοποίησης στο επιλεγμένο εύρος με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη κύριων διαφανειών, διατάξεων και σημειώσεων, δείτε το [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων](#report-sanitize-and-verify-hyperlinks).
 
-## **Δημιουργία Πλήρους Καταλόγου Υπερσυνδέσεων**
+## **Δημιουργία Πλήρους Καταγραφής Υπερσυνδέσμων**
 
-Πριν διανείμετε μια παρουσίαση, καταγράψτε τις διαδραστικές της ενέργειες καθώς και τους σύνδεσμούς ιστού. Το [getAnyHyperlinks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) επιστρέφει αντικείμενα [IHyperlinkContainer](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihyperlinkcontainer/), όχι μια επίπεδη λίστα συμβολοσειρών URL. Εξετάστε τόσο το [getHyperlinkClick](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) όσο και το [getHyperlinkMouseOver](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) σε κάθε container. Είναι ανεξάρτητα: το ίδιο container μπορεί να εκθέτει και τις δύο ενέργειες, έτσι ένας πλήρης αναφοράς χρειάζεται έως δύο γραμμές ανά container.
+Πριν διανείμετε μια παρουσίαση, καταγράψτε τις διαδραστικές ενέργειές της καθώς και τους διαδικτυακούς συνδέσμους της. Το [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) επιστρέφει αντικείμενα [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), όχι μια επίπεδη λίστα συμβολοσειρών URL. Εξετάστε τόσο το [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) όσο και το [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) σε κάθε κοντέινερ. Είναι ανεξάρτητα: το ίδιο κοντέινερ μπορεί να εκθέτει και τις δύο ενέργειες, γι' αυτό μια πλήρης αναφορά χρειάζεται έως δύο γραμμές ανά κοντέινερ.
 
-Η σάρωση μόνο σε επίπεδο σχήματος μπορεί να παραβλέψει συνδέσμους που είναι ενσωματωμένοι σε τμήματα κειμένου. Κάντε ερώτημα στο κατάλληλο πεδίο και διατηρήστε τα containers που επιστρέφονται ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
+Η σάρωση μόνο σε επίπεδο σχήματος μπορεί να παραλείψει συνδέσμους που είναι προσαρτημένοι σε τμήματα κειμένου. Ερωτήστε το κατάλληλο εύρος αντί αυτού και διατηρήστε τα επιστρεφόμενα κοντέινερ ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
 
-### **Ερώτημα Πεδίου Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
+### **Ερώτηση Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
 
-Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/) είναι διαθέσιμη μέσω των [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), και [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/gethyperlinkqueries/). Κάθε πεδίο υποστηρίζει τις ίδιες ερωτήσεις:
+Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) είναι διαθέσιμη μέσω των [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) και [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Κάθε εύρος υποστηρίζει τις ίδιες ερωτήσεις:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) επιστρέφει containers με ενέργεια κλικ.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) επιστρέφει containers με ενέργεια mouse‑over.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) επιστρέφει containers με μία ή και τις δύο ενέργειες.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) επιστρέφει κοντέινερ με ενέργεια κλικ.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) επιστρέφει κοντέινερ με ενέργεια ποντικιού.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) επιστρέφει κοντέινερ με είτε ή και τις δύο ενέργειες.
 
-Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με εξωτερικό κλικ‑σύνδεσμο, σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, σύνδεσμο κειμένου mouse‑over και ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ερωτήσεις λειτουργούν σε κάθε πεδίο· οι μετρήσεις περιγράφουν containers, όχι το σύνολο των ενεργειών. Το πεδίο text‑frame εξαιρεί τους δικούς του συνδέσμους του περιβάλλοντος σχήματος.
+Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με εξωτερικό σύνδεσμο κλικ, σύνδεσμο ποντικιού αρχείου, εσωτερική πλοήγηση διαφάνειας, σύνδεσμο κειμένου ποντικιού και ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ερωτήσεις λειτουργούν σε κάθε εύρος· οι μετρήσεις περιγράφουν κοντέινερ, όχι συνολικές ενέργειες. Το εύρος πλαισίου κειμένου εξαιρεί τους δικούς του συνδέσμους του περιβάλλοντας σχήματος.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +337,37 @@ try {
 }
 ```
 
-Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία containers κλικ, δύο containers mouse‑over και τρία containers με κάποια ενέργεια. Η ερώτηση text‑frame αναφέρει ένα container σε κάθε κατηγορία.
+Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας καταγράφουν τρία κοντέινερ κλικ, δύο κοντέινερ ποντικιού και τρία κοντέινερ με κάποια από τις ενέργειες. Η ερώτηση πλαισίου κειμένου καταγράφει ένα κοντέινερ σε κάθε κατηγορία.
 
 ### **Κατηγοριοποίηση Ενεργειών και Προορισμών**
 
-Χρησιμοποιήστε το [Hyperlink::getActionType](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/getactiontype/) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερα από πλοήγηση στο web:
+Χρησιμοποιήστε το [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερο από πλοήγηση στο web:
 
-| Τιμές | Νόημα για έλεγχο |
+| Τιμές | Σημασία για έλεγχο |
 | --- | --- |
-| `Hyperlink` | Εξωτερικός υπερσύνδεσμος· επιθεώρηση του URL και του σχήματός του. |
+| `Hyperlink` | Εξωτερικός υπερσύνδεσμος· εξετάστε το URL και το σχήμα του. |
 | `JumpSpecificSlide` | Εσωτερική πλοήγηση σε συγκεκριμένη διαφάνεια. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται στο πλαίσιο παρουσίασης. |
 | `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός της τρέχουσας παρουσίασης ή έναρξη προσαρμοσμένης παρουσίασης. |
 | `StartMacro` | Εκτέλεση μακροεντολής. |
 | `StartProgram` | Έναρξη προγράμματος. |
-| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ελέγξτε ξεχωριστά από τις διευθύνσεις ιστού. |
+| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ελέγξτε ξεχωριστά από web URLs. |
 | `StartStopMedia` | Έναρξη ή διακοπή αναπαραγωγής πολυμέσων. |
-| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης ή μη αναγνωρισμένη ενέργεια που απαιτεί επανεξέταση. |
+| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης ή άγνωστη ενέργεια που απαιτεί έλεγχο. |
 
-Διαβάστε εξωτερικούς προορισμούς από το [getExternalUrl](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/getexternalurl/) και συγκεκριμένους εσωτερικούς προορισμούς από το [getTargetSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/gettargetslide/). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το container δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφει το [getExternalUrlOriginal](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlink/gettooltip/) όταν είναι διαθέσιμο.
+Διαβάστε εξωτερικούς προορισμούς από το [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) και συγκεκριμένους εσωτερικούς προορισμούς από το [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το κοντέινερ δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφει το [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) όταν διατίθεται.
 
-### **Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσεων**
+### **Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων**
 
-Το παρακάτω παράδειγμα PHP διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει και πάλι και τις δύο ενεργοποιήσεις. Συλλέγει containers πριν τα αλλάξει και χρησιμοποιεί ισοδυναμία αναφοράς για να αποφύγει την επεξεργασία του ίδιου container δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις κοινές διαφάνειες· για έναν κατάλογο ολόκληρης της συσκευής, ερωτά επίσης ρητά master, layout, σημειώσεις και τους master σημειώσεων και φυλλαδίου όταν υπάρχουν.
+Το παρακάτω παράδειγμα PHP διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει και πάλι και τις δύο μορφές ενεργοποίησης. Συλλέγει κοντέινερ πριν τα τροποποιήσει και χρησιμοποιεί ισότητα αναφοράς για να αποφύγει την επεξεργασία του ίδιου κοντέινερ δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν κανονικές διαφάνειες· για κατάλογο σε ολόκληρο το πακέτο, ερωτά επίσης ρητά κύριες διαφάνειες, διατάξεις, σημειώσεις και τους κύριους σημειώσεων/εξαγωγής όταν υπάρχουν.
 
-Η αναφορά καταγράφει έναν δείκτη διαφάνειας με βάση το ένα και το [getSlideId](https://reference.aspose.com/slides/el/java/com.aspose.slides/ibaseslide/#getSlideId--) όταν είναι διαθέσιμο. Το [ISlideComponent::getSlide](https://reference.aspose.com/slides/el/java/com.aspose.slides/islidecomponent/#getSlide--) παρέχει τη διαφάνεια ιδιοκτήτη για υποστηριζόμενα containers. Τα master, layout και σημειώσεις δεν έχουν κανονικό δείκτη διαφάνειας και προσδιορίζονται από το πεδίο τους. Τα containers σχήματος και τα containers διαμόρφωσης τμημάτων κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι containers διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε container λαμβάνει ένα τοπικό ID αναφοράς ώστε οι δύο του δράσεις να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους δράσης ως ακέραιους σταθερούς που ορίζονται από την παρτίδα PHP.
+Η αναφορά καταγράφει έναν δείκτη διαφάνειας με αρίθμηση που ξεκινά από το 1 και το [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) όπου είναι διαθέσιμο. Το [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) παρέχει τη διαφάνεια-ιδιοκτήτη για τα υποστηριζόμενα κοντέινερ. Οι κύριες, οι διατάξεις και οι σημειώσεις δεν έχουν κανονικό δείκτη διαφάνειας και ταυτοποιούνται με το εύρος τους. Τα κοντέινερ σχήματος και μορφοποίησης τμημάτων κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι κοντέινερ διατηρούν το όνομα τύπου τους στην ώρα εκτέλεσης. Κάθε κοντέινερ λαμβάνει ένα τοπικό αναγνωριστικό στην αναφορά ώστε οι δύο ενέργειές του να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους ενεργειών ως ακέραιες σταθερές που ορίζονται από την PHP αρίθμηση.
 
-Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλες σχήματα URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι απόφαση ασφαλείας του Aspose.Slides. Το HTTPS μόνο δεν εγγυάται εμπιστοσύνη: προσθέστε λιστες επιτρεπόμενων υποδοχέων και άλλους ελέγχους για την εφαρμογή σας. Και τα αρχικά και τα κανονικοποιημένα εξωτερικά URLs ελέγχονται. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
+Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφανειών. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλες σχήμες URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι δικαίωση ασφαλείας του Aspose.Slides. Το HTTPS μόνο δεν εγγυάται εμπιστοσύνη: προσθέστε λιστές επιτρεπόμενων κεντρικών υπολογιστών και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URLs. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενεργές ενέργειες.
 
-Για αποκατάσταση, το [getHyperlinkManager](https://reference.aspose.com/slides/el/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) του container υποστηρίζει τις [setExternalHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) και [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Εδώ, οι απαγορευμένοι εξωτερικοί κλικ‑σύνδεσμοι αντικαθίστανται με μια σταθερή HTTPS σελίδα προορισμού· άλλοι απαγορευμένοι κλικ και απαγορευμένες ενέργειες mouse‑over αφαιρούνται ανεξάρτητα. Ορίστε το `$replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβιάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή πριν από την ανάπτυξη.
+Για διόρθωση, ο [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) του κοντέινερ υποστηρίζει τα [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) και [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή σελίδα προορισμού HTTPS· άλλες απαγορευμένες ενέργειες κλικ και ποντικιού αφαιρούνται ανεξάρτητα. Ορίστε το `$replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβιάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή σας πριν την ανάπτυξη.
 
-Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ανασκόπησης PDF: επισημαίνει ενέργειες mouse‑over και οτιδήποτε εκτός από εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως πιθανώς μη υποστηριζόμενο. Είναι μια υπόδειξη ανασκόπησης, όχι δοκιμή ικανότητας ή εγγύηση ότι οι μη επισημασμένοι σύνδεσμοι θα παραμείνουν στην εξαγωγή. Οι υποστηριζόμενες εξαγωγές [PDF](/slides/el/php-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/php-java/convert-powerpoint-to-html/) μπορεί να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και το πρόγραμμα προβολής. Τα raster [images](/slides/el/php-java/convert-powerpoint-to-png/) και [video](/slides/el/php-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημειώστε κάθε ενέργεια όταν ελέγχετε για αυτές τις εξόδους.
+Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ελέγχου PDF: σημαδέψτε τις ενέργειες ποντικιού και οτιδήποτε εκτός από εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως δυνητικά μη υποστηριζόμενο. Είναι υπόδειξη ελέγχου, όχι δοκιμή δυνατότητας ή εγγύηση ότι οι μη σημειωμένοι σύνδεσμοι θα παραμείνουν στην εξαγωγή. Οι υποστηριζόμενες [PDF](/slides/el/php-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/php-java/convert-powerpoint-to-html/) εξαγωγές ενδέχεται να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προβολέα. Τα raster [εικόνες](/slides/el/php-java/convert-powerpoint-to-png/) και [βίντεο](/slides/el/php-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαδέψτε κάθε ενέργεια κατά τον έλεγχο για αυτές τις εξόδους.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +524,20 @@ try {
 }
 ```
 
-Με το παραπάνω εισαγόμενο αρχείο, η αναφορά περιέχει πέντε γραμμές δράσεων. Ο σύνδεσμος αρχείου mouse‑over και η μακροεντολή κλικ αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφάνειας παραμένουν. Η επαλήθευση εκτυπώνει μηδενικές απαγορευμένες ενέργειες. Μια είσοδος που περιέχει απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλάδο αντικατάστασης. Ένα container με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί την ενέργεια κλικ του.
+Με το παραπάνω εισαγόμενο αρχείο, η αναφορά περιέχει πέντε γραμμές ενεργειών. Ο σύνδεσμος ποντικιού αρχείου και το κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφανειών παραμένουν. Η επαλήθευση εκτυπώνει μηδενικές απαγορευμένες ενέργειες. Ένα είσοδος με απαγορευμένο εξωτερικό URL κλικ επίσης εκτελεί το κλάδο αντικατάστασης. Ένα κοντέινερ με επιτρεπόμενο κλικ και απαγορευμένο ποντικό διατηρεί την ενέργεια κλικ.
 
-Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/el/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), το οποίο αφαιρεί και τις δύο ενεργοποιήσεις σε όλο το επιλεγμένο πεδίο ανεξάρτητα από την πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα VBA projects, OLE objects ή άλλο ενεργό περιεχόμενο, και δεν επικυρώνει ένα εξαχθέν PDF ή HTML αρχείο.
+Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), το οποίο αφαιρεί και τις δύο μορφές ενεργοποίησης σε όλο το επιλεγμένο εύρος ανεξάρτητα από την πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες των υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα έργα VBA, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο και δεν επικυρώνει ένα εξαγόμενο αρχείο PDF ή HTML.
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να συνδέσω με μια ενότητα ή την πρώτη της διαφάνεια;**
+**Πώς μπορώ να συνδέσω σε μια ενότητα ή στην πρώτη της διαφάνεια;**
 
-Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια συγκεκριμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε ενότητα, συνδέστε στην πρώτη διαφάνεια της ενότητας.
+Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε ενότητα, συνδέστε την πρώτη διαφάνεια της ενότητας.
 
-**Μπορώ να προσθέσω υπερσύνδεσμο σε στοιχεία κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+**Μπορώ να συνδέσω υπερσύνδεσμο σε στοιχεία κύριας διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
 
-Ναι. Τα στοιχεία της κύριας διαφάνειας και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά τη διάρκεια της παρουσίασης στις διαφάνειες που χρησιμοποιούν την αντίστοιχη κύρια ή διάταξη.
+Ναι. Τα στοιχεία της κύριας διαφάνειας και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά τη προβολή διαφανειών που χρησιμοποιούν την αντίστοιχη κύρια ή διάταξη.
 
 **Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
 
-Οι υποστηριζόμενες εξαγωγές PDF και HTML μπορεί να διατηρήσουν τους υπερσυνδέσμους· οι ραϊχισμένες εικόνες και τα βίντεο δεν μπορούν. Δείτε τις σκέψεις εξαγωγής στο [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσεων](#report-sanitize-and-verify-hyperlinks).
+Οι υποστηριζόμενες εξαγωγές PDF και HTML ενδέχεται να διατηρήσουν υπερσυνδέσμους· οι raster εικόνες και τα βίντεο δεν μπορούν. Δείτε τις παρατηρήσεις εξαγωγής στο [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων](#report-sanitize-and-verify-hyperlinks).

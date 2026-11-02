@@ -1,49 +1,51 @@
 ---
-title: مدیریت پیوندهای ابرمتن ارائه در پایتون
-linktitle: مدیریت پیوندهای ابرمتن
+title: مدیریت پیوندهای ارائه در پایتون
+linktitle: مدیریت پیوندها
 type: docs
 weight: 20
 url: /fa/python-net/manage-hyperlinks/
 keywords:
 - افزودن URL
-- افزودن پیوند ابرمتن
-- ایجاد پیوند ابرمتن
-- قالب‌بندی پیوند ابرمتن
-- حذف پیوند ابرمتن
-- به‌روزرسانی پیوند ابرمتن
-- پیوند ابرمتن متن
-- پیوند ابرمتن اسلاید
-- پیوند ابرمتن شکل
-- پیوند ابرمتن تصویر
-- پیوند ابرمتن ویدئو
-- پیوند ابرمتن قابل تغییر
+- افزودن پیوند
+- ایجاد پیوند
+- قالب‌بندی پیوند
+- حذف پیوند
+- به‌روزرسانی پیوند
+- پیوند متن
+- پیوند اسلاید
+- پیوند شکل
+- پیوند تصویر
+- پیوند ویدیو
+- پیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Aspose.Slides
-description: "افزودن، قالب‌بندی، به‌روزرسانی و حذف پیوندهای ابرمتن در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای پایتون از طریق .NET، با استفاده از مثال‌های پایتون."
+description: "پیوندها را در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای پایتون از طریق .NET اضافه، قالب‌بندی، به‌روزرسانی و حذف کنید، با استفاده از مثال‌های پایتون."
 ---
 ## **مقدمه**
 
-یک پیوند ابرمتن محتویات ارائه را به یک وب‌سایت یا یک مکان درون ارائه متصل می‌کند. در PowerPoint، پیوندهای ابرمتن معمولاً دو هدف دارند:
+یک پیوند (hyperlink) محتوای ارائه را به یک وب‌سایت یا مکان داخل ارائه متصل می‌کند. در PowerPoint، پیوندها معمولاً دو هدف را دنبال می‌کنند:
 
-* باز کردن یک وب‌سایت از طریق متن، یک شکل یا یک فریم رسانه‌ای.
+* باز کردن یک وب‌سایت از متن، شکل یا قاب رسانه‌ای.
 * ناوبری به اسلاید دیگری، برای مثال از فهرست مطالب.
 
-Aspose.Slides for Python via .NET به شما امکان می‌دهد این پیوندها را اضافه، ظاهر و صدای آن‌ها را کنترل، ویژگی‌هایشان را به‌روز کنید و حذف نمایید. مثال‌های زیر نشان می‌دهند چگونه با پیوندهای ابرمتن در عناصر فردی کار کنید و چگونه به پیوندهای ابرمتن در سطح ارائه، اسلاید یا فریم‑متن دسترسی داشته باشید.
+Aspose.Slides for Python via .NET به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صدای آنها را کنترل کنید، ویژگی‌هایشان را به‌روزرسانی کنید و حذف نمایید. مثال‌های زیر نشان می‌دهند چگونه با پیوندها بر روی عناصر منفرد کار کنید و چگونه به پیوندها در سطح ارائه، اسلاید یا فریم متن دسترسی پیدا کنید.
 
 {{% alert color="info" title="Note" %}}
-شما می‌توانید ارائه‌ها را با [ویرایشگر رایگان آنلاین Aspose PowerPoint](https://products.aspose.app/slides/fa/editor) ویرایش کنید.
+می‌توانید همچنین ارائه‌ها را با [ویرایشگر آنلاین رایگان Aspose PowerPoint](https://products.aspose.app/slides/editor) ویرایش کنید.
 {{% /alert %}}
 
-## **افزودن پیوندهای ابرمتن URL**
+## **افزودن پیوندهای URL**
 
-شما می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک فریم رسانه‌ای اختصاص دهید. عنصری که به آن پیوند ابرمتن اختصاص می‌دهید، ناحیه کلیک‌پذیر را تعیین می‌کند: بخش متنی پیوند را به متن انتخابی متصل می‌کند، در حالی که یک شکل یا فریم پیوند را به شیء اسلاید متصل می‌کند.
+می‌توانید یک URL وب‌سایت را به متن، شکل یا قاب رسانه‌ای اختصاص دهید. عنصری که پیوند به آن اختصاص می‌یابد، ناحیه قابل کلیک را تعیین می‌کند: بخشی از متن، متن انتخاب شده را لینک می‌کند، در حالی که یک شکل یا قاب، شیء اسلاید را لینک می‌کند.
 
-### **افزودن پیوندهای ابرمتن URL به متن**
+برای ارائه‌هایی که حاوی پیوندهای نسبی هستند، به [مدیریت پایه پیوند](/slides/fa/python-net/presentation-properties/#manage-the-hyperlink-base) مراجعه کنید تا پایه سطح سند را بخوانید، تغییر دهید یا پاک کنید.
 
-برای پیوند دادن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/) به ویژگی [hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/portionformat/hyperlink_click/) بخش متن اختصاص دهید، همان‌طور که در زیر نشان داده شده است. فقط همان بخش متن کلیک‌پذیر می‌شود.
+### **افزودن پیوندهای URL به متن**
+
+برای لینک کردن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) را به ویژگی [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) بخش متن اختصاص دهید، همان‌طور که در زیر نشان داده شده است. فقط همان بخش متن قابل کلیک می‌شود.
 
 ```python
 import aspose.slides as slides
@@ -58,13 +60,13 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **افزودن پیوندهای ابرمتن URL به اشکال و فریم‌های رسانه‌ای**
+### **افزودن پیوندهای URL به اشکال و قاب‌های رسانه‌ای**
 
-برای قابل کلیک کردن کردن یک شکل یا فریم، ویژگی [hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shape/hyperlink_click/) آن را تنظیم کنید. پیوند ابرمتن به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
+برای قابل کلیک کردن یک شکل یا قاب، ویژگی [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) آن را تنظیم کنید. پیوند به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
 
-رویکرد مشابه برای فریم‌های تصویر، صدا و ویدئو نیز صادق است: پیوند را به فریم اختصاص دهید و در صورت نیاز ویژگی [tooltip](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/tooltip/) پیوند را تنظیم کنید.
+این رویکرد برای قاب‌های تصویر، صدا و ویدیو نیز صدق می‌کند: پیوند را به قاب اختصاص دهید و در صورت نیاز [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) لینک را تنظیم کنید.
 
-مثال زیر یک مستطیل را کلیک‌پذیر می‌کند:
+مثال زیر یک مستطیل را قابل کلیک می‌کند:
 
 ```python
 import aspose.slides as slides
@@ -76,9 +78,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **استفاده از پیوندهای ابرمتن برای ایجاد فهرست مطالب**
+## **استفاده از پیوندها برای ایجاد فهرست مطالب**
 
-پیوندهای ابرمتن داخلی به خوانندگان امکان می‌دهد از فهرست مطالب به اسلاید خاصی بپرند. مثال زیر از متد [set_internal_hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) برای پیوند دادن متن «صفحه ۲» در اسلاید اول به اسلاید دوم استفاده می‌کند.
+پیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید خاصی پرش کنند. مثال زیر از [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) برای لینک کردن متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
 
 ```python
 import aspose.pydrawing as draw
@@ -103,13 +105,13 @@ with slides.Presentation() as presentation:
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **قالب‌بندی پیوندهای ابرمتن**
+## **قالب‌بندی پیوندها**
 
 ### **رنگ**
 
-ویژگی [color_source](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/color_source/) از [Hyperlink](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/) تعیین می‌کند که آیا پیوند ابرمتن از رنگ پیوند ابرمتن ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال یک رنگ متن سفارشی، مقدار [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شده است؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
+ویژگی [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) از [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) تعیین می‌کند که آیا پیوند از رنگ پیوند ارائه یا قالب‌بندی بخشی از متن استفاده کند. برای اعمال رنگ متن سفارشی، [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
 
-مثال زیر دو پیوند ابرمتن متنی را به همان اسلاید اضافه می‌کند. اولین پیوند از پر رنگ قرمز استفاده می‌کند، در حالی که دومین پیوند رنگ پیش‌فرض پیوند ابرمتن را حفظ می‌کند.
+مثال زیر دو پیوند متن به همان اسلاید اضافه می‌کند. اولین پیوند از پر کردن متن قرمز استفاده می‌کند، در حالی که دومین پیوند رنگ پیش‌فرض پیوند را حفظ می‌کند.
 
 ```python
 import aspose.pydrawing as draw
@@ -131,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **صدا**
 
-یک پیوند ابرمتن می‌تواند هنگام فعال‌سازی صدایی پخش کند یا صدایی که قبلاً در حال پخش است متوقف نماید. از ویژگی‌های زیر برای پیکربندی این رفتارها استفاده کنید:
+یک پیوند می‌تواند هنگام فعال شدن صدا پخش کند یا صدای در حال پخش را متوقف کند. برای پیکربندی این رفتارها از ویژگی‌های زیر استفاده کنید:
 
-- [Hyperlink.sound](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/sound/) صدای مرتبط با پیوند ابرمتن را مشخص می‌کند.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/stop_sound_on_click/) کنترل می‌کند که آیا فعال‌سازی پیوند، صدای قبلی را متوقف می‌کند یا نه.
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) صدا را که با پیوند مرتبط است مشخص می‌کند.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) کنترل می‌کند که آیا فعال‌سازی پیوند صدای قبلی را متوقف می‌کند یا خیر.
 
-#### **افزودن صدا به پیوند ابرمتن**
+#### **افزودن صدای پیوند**
 
-مثال زیر فایل `sampleaudio.wav` را بارگذاری می‌کند و آن را به یک دکمه در اسلاید اول نسبت می‌دهد. کلیک روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌برد. یک شکل دوم در همان اسلاید، هنگام کلیک صدای قبلی را متوقف می‌کند بدون اینکه عمل ناوبری انجام دهد.
+مثال زیر فایل `sampleaudio.wav` را بارگذاری می‌کند و آن را به دکمه‌ای در اسلاید اول مرتبط می‌سازد. کلیک روی دکمه صدای موردنظر را پخش می‌کند و به اسلاید بعدی می‌رود. شکل دوم در همان اسلاید هنگام کلیک، صدای قبلی را متوقف می‌کند بدون اینکه عمل ناوبری انجام دهد.
 
 ```python
 import aspose.slides as slides
@@ -160,9 +162,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **استخراج صدا از پیوند ابرمتن**
+#### **استخراج صدای پیوند**
 
-مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صدای پیوند ابرمتن اولین شکل را از طریق ویژگی‌های [sound](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/sound/) و [binary_data](https://reference.aspose.com/slides/fa/python-net/aspose.slides/audio/binary_data/) به حافظه می‌خواند.
+مثال زیر ارائه‌ای که در بالا ساخته شد را باز می‌کند و صدای پیوند اولین شکل را از طریق [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) و [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/) به حافظه می‌خواند.
 
 ```python
 import aspose.slides as slides
@@ -180,18 +182,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **راهنما (Tooltip) و تنظیمات تعامل**
+### **نکات راهنما و تنظیمات تعامل**
 
-پس از اختصاص پیوند ابرمتن به متن یا شکل، می‌توانید ویژگی‌های زیر را به‌روزرسانی کنید:
+پس از اختصاص پیوند به متن یا یک شکل، می‌توانید ویژگی‌های زیر را در [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) به‌روز کنید:
 
-- [tooltip](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/tooltip/) متنی که بیننده می‌تواند به عنوان راهنمایی برای لینک نمایش دهد.
-- [target_frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/target_frame/) چارچوب هدف را در یک فریم‌ست HTML والد، در صورت اعمال، مشخص می‌کند.
-- [history](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/history/) تعیین می‌کند که آیا فعال‌سازی لینک مقصد را به فهرست پیوندهای بازدیدشده اضافه کند یا نه.
-- [highlight_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/highlight_click/) کنترل می‌کند که آیا پیوند ابرمتن هنگام کلیک برجسته شود یا نه.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) متن راهنمایی را که بیننده می‌تواند به‌عنوان نکته برای لینک نشان دهد تنظیم می‌کند.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) قاب هدف را درون یک چارچوب HTML والد، در صورت امکان، مشخص می‌کند.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) کنترل می‌کند که آیا فعال‌سازی لینک مقصد را به لیست پیوندهای مشاهده‌شده اضافه می‌کند یا خیر.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) کنترل می‌کند که آیا پس از کلیک پیوند برجسته می‌شود یا نه.
 
-## **حذف پیوندهای ابرمتن از ارائه‌ها**
+## **حذف پیوندها از ارائه‌ها**
 
-از متد [get_any_hyperlinks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) برای جمع‌آوری مخازن پیوند، از جمله پیوندهای بخش متن، پیش از تغییر آن‌ها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط متد [remove_hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) یا [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) را فراخوانی کنید؛ حذف عمل کلیک، عمل موس‑اور مربوطه را حذف نمی‌کند.
+از [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) برای جمع‌آوری کانتینرهای پیوند، شامل پیوندهای بخش متن، قبل از تغییر آنها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف فقط یک نوع، تنها [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) یا [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) را فراخوانی کنید؛ حذف عمل کلیک، معادل حذف عمل موس‌اور نیست.
 
 ```python
 import aspose.slides as slides
@@ -207,23 +209,23 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-برای حذف بدون شرط، متد [remove_all_hyperlinks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش دادن به مسترها، طرح‌بندی‌ها و یادداشت‌ها، به بخش [گزارش، پالایش و تأیید پیوندهای ابرمتن](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+برای حذف بدون شرط، [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) هر دو نوع فعال‌سازی را در حوزه انتخابی در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، لایه‌ها و یادداشت‌ها، به [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
 
-## **ساخت موجودی کامل پیوندهای ابرمتن**
+## **ساخت فهرست کامل پیوندها**
 
-پیش از توزیع یک ارائه، اقدامات تعاملی و وب‌لینک‌های آن را فهرست کنید. متد [get_any_hyperlinks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) اشیای [IHyperlinkContainer](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ihyperlinkcontainer/) را برمی‌گرداند، نه یک لیست تخت از رشته‌های URL. هر مخزن را هم برای [hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) و هم برای [hyperlink_mouse_over](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) بررسی کنید. این دو مستقل‌اند: یک مخزن می‌تواند هر دو عمل را ارائه دهد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر مخزن نیاز داشته باشد.
+قبل از توزیع یک ارائه، اقدامات تعاملی و وب‌لینک‌های آن را فهرست کنید. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) اشیای [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) را برمی‌گرداند، نه فهرست ساده‌ای از رشته‌های URL. هر دو [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) و [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) را در هر کانتینر بررسی کنید. آنها مستقل هستند: همان کانتینر می‌تواند هر دو عمل را نشان دهد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر کانتینر نیاز داشته باشد.
 
-اسکن تنها پیوندهای سطح شکل می‌تواند لینک‌های پیوست به بخش‌های متنی را از دست بدهد. به جای آن، محدوده مناسب را پرس‌وجو کنید و مخازن بازگشتی را نگه دارید تا بعدها بتوانید اقداماتشان را به‌روزرسانی یا حذف کنید.
+اسکن تنها پیوندهای سطح شکل ممکن است پیوندهای پیوست‌شده به بخش‌های متن را از دست بدهد. به جای آن، دامنه مناسب را پرس و جو کنید و کانتینرهای برگردانده‌شده را نگه دارید تا بعداً بتوانید اعمال آنها را به‌روزرسانی یا حذف کنید.
 
-### **پرس‌وجوی محدوده‌های ارائه، اسلاید و فریم‑متن**
+### **پرس‌وجوی دامنه‌های ارائه، اسلاید و فریم متن**
 
-کلاس [HyperlinkQueries](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/) از طریق [Presentation.hyperlink_queries](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/hyperlink_queries/)، [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/fa/python-net/aspose.slides/baseslide/hyperlink_queries/) و [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/fa/python-net/aspose.slides/textframe/hyperlink_queries/) در دسترس است. هر محدوده همان پرس‌وجوها را پشتیبانی می‌کند:
+کلاس [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) از طریق [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)، [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) و [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) در دسترس است. هر دامنه همان پرس‌وجوها را پشتیبانی می‌کند:
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) مخازن با عمل کلیک را برمی‌گرداند.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) مخازن با عمل موس‑اور را برمی‌گرداند.
-- [get_any_hyperlinks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) مخازن با هر یک یا هر دو عمل را برمی‌گرداند.
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) کانتینرهایی که دارای عمل کلیک هستند برمی‌گرداند.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) کانتینرهایی که دارای عمل موس‌اور هستند برمی‌گرداند.
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) کانتینرهایی که یکی یا هر دو عمل را دارند برمی‌گرداند.
 
-مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک موس‑اور فایل، ناوبری داخلی اسلاید، یک لینک موس‑اور متنی و یک عمل ماکرو است. هیچ‌کدام از این اعمال اجرا نمی‌شوند. همان سه پرس‌وجو در هر محدوده کار می‌کند؛ شمارش‌ها تعداد مخازن را نشان می‌دهند، نه مجموع اعمال. محدوده فریم‑متن پیوندهای خود شکل محاط‌کننده را مستثنی می‌کند.
+مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک موس‌اور فایل، ناوبری اسلاید داخلی، یک لینک موس‌اور متن و یک عمل ماکرو است. این عمل‌ها اجرا نمی‌شوند. همان سه پرس‌وجو در هر دامنه کار می‌کند؛ شمارش‌ها توصیف‌کننده کانتینرها است نه مجموع اعمال. دامنه فریم متن لینک‌های خود شکل محصور کننده را مستثنی می‌کند.
 
 ```python
 import aspose.slides as slides
@@ -257,37 +259,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-در این مثال، پرس‌وجوهای ارائه و اسلاید هر کدام سه مخزن کلیک، دو مخزن موس‑اور و سه مخزن دارای هر یک از اعمال را گزارش می‌کنند. پرس‌وجو فریم‑متن در هر دسته یک مخزن را نشان می‌دهد.
+در این مثال، پرس‌وجوهای ارائه و اسلاید هریک سه کانتینر کلیک، دو کانتینر موس‌اور و سه کانتینر با هر یک از اعمال را گزارش می‌کنند. پرس‌وجوی فریم متن یک کانتینر در هر دسته گزارش می‌دهد.
 
-### **دسته‌بندی اعمال و مقاصد**
+### **دسته‌بندی اقدامات و مقصدها**
 
-از ویژگی [Hyperlink.action_type](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/action_type/) برای تفسیر یک عمل پیش از بررسی مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب شامل می‌شوند:
+از [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) برای تفسیر یک اقدام قبل از تفسیر مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب را شامل می‌شوند:
 
-| مقادیر | معنی برای ممیزی |
+| مقدارها | معنی برای حسابرسی |
 | --- | --- |
-| `HYPERLINK` | پیوند ابرمتن خارجی؛ URL و طرح‌واره آن را بررسی کنید. |
+| `HYPERLINK` | پیوند خارجی؛ URL و طرح آن را بررسی کنید. |
 | `JUMP_SPECIFIC_SLIDE` | ناوبری داخلی به اسلاید خاص. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | ناوبری داخلی پیش‌ساخته اسلایدشوی، در زمینه اسلایدشو مفهومی می‌شود. |
-| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | پایان نمایش جاری یا آغاز یک نمایش سفارشی. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | ناوبری داخلی پیش‌فرض نمایش اسلاید، در بافت نمایش حل می‌شود. |
+| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | پایان نمایش جاری یا شروع یک نمایش سفارشی. |
 | `START_MACRO` | اجرای یک ماکرو. |
 | `START_PROGRAM` | راه‌اندازی یک برنامه. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | باز کردن فایل یا ارائه دیگر؛ جداگانه از URLهای وب بررسی کنید. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | باز کردن یک فایل یا ارائه دیگر؛ به‌صورت جداگانه از URLهای وب بررسی کنید. |
 | `START_STOP_MEDIA` | شروع یا توقف پخش رسانه. |
-| `NO_ACTION`, `UNKNOWN` | بدون عمل ناوبری، یا عملی ناشناخته که نیاز به بررسی دارد. |
+| `NO_ACTION`, `UNKNOWN` | بدون اقدام ناوبری، یا اقدام نامشخص که نیاز به بازبینی دارد. |
 
-مقاصد خارجی را از طریق [external_url](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/external_url/) و مقاصد داخلی خاص را از طریق [target_slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/target_slide/) بخوانید. اعمال داخلی و دستورات پیش‌ساخته ممکن است URL خارجی نداشته باشند؛ URL خالی به این معنی نیست که مخزن هیچ عملی ندارد. هنگامی که [external_url_original](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/external_url_original/) با URL نرمال‌شده متفاوت است، آن را حفظ کنید و در صورت موجود بودن [tooltip](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlink/tooltip/) را نیز درج کنید.
+مقاصد خارجی را از [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) و مقاصد داخلی خاص را از [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/) بخوانید. اقدامات داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ یک URL خالی به این معنا نیست که کانتینر اقدام ندارد. وقتی [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) با URL نرمال‌شده متفاوت است، آن را حفظ کنید و هنگام موجود بودن، [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) را نیز شامل شوید.
 
-### **گزارش، پالایش و تأیید پیوندهای ابرمتن**
+### **گزارش، پاک‌سازی و تأیید پیوندها**
 
-مثال زیر به زبان Python یک ارائه موجود (فایل ایجادشده در بالا) را می‌خواند، `hyperlink-audit.json` می‌نویسد، سیاستی اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را دوباره بررسی کند. قبل از تغییر مخازن، آن‌ها را جمع‌آوری می‌کند و هر بار یک بار محدوده اسلاید را پرس‌وجو می‌کند تا از پردازش تکراری جلوگیری شود. پرس‌وجوهای ارائه اسلایدهای معمولی را پوشش می‌دهند؛ برای موجودی سراسری بسته، مثال اسلایدهای معمولی، مسترها، طرح‌بندی‌ها، یادداشت‌ها و مسترهای یادداشت و برگه‌برداری را (در صورت وجود) نیز پرس‌وجو می‌کند.
+مثال زیر پایتون یک ارائه موجود را می‌خواند (از فایلی که در بالا ایجاد شد استفاده کنید)، `hyperlink-audit.json` را می‌نویسد، سیاستی را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را بررسی کند. قبل از تغییر، کانتینرها را جمع‌آوری می‌کند و هر دامنه اسلاید را یک بار پرس‌وجو می‌کند تا پردازش تکثیر نشود. پرس‌وجوهای ارائه اسلایدهای عادی را پوشش می‌دهد؛ برای فهرست‌گیری در سرتاسر بسته، مثال اسلایدهای عادی، مسترها، لایه‌ها، یادداشت‌ها و مسترهای یادداشت و توزیع‌کننده را زمانی که موجود باشند، پرس‌وجو می‌کند.
 
-گزارش، اندیس اسلاید مبتنی بر یک‑پایه و [slide_id](https://reference.aspose.com/slides/fa/python-net/aspose.slides/baseslide/slide_id/) را که در دسترس باشد، ثبت می‌کند. جمع‌کننده اسلاید مالک و محدوده را همراه هر مخزن بازگردانده نگه می‌دارد. مسترها، طرح‌بندی‌ها و یادداشت‌ها اندیس اسلاید معمولی ندارند و با محدوده‌شان شناسایی می‌شوند. مخازن شکل و مخازن قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع مخازن نام نوع زمان اجرا خود را حفظ می‌کنند. هر مخزن یک شناسه گزارش‑محلی دریافت می‌کند تا دو عمل آن بتوانند هم‌پوشانی داشته باشند.
+گزارش ایندکس اسلایدی یک‌پایه و [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) (در صورت وجود) را ثبت می‌کند. جمع‌کننده اسلاید مالک و دامنه را همراه هر کانتینر برگردانده نگه می‌دارد. مسترها، لایه‌ها و یادداشت‌ها ایندکس اسلاید عادی ندارند و بر اساس دامنه‌شان شناسایی می‌شوند. کانتینرهای شکل و کانتینرهای قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع کانتینر نام نوع زمان اجرا خود را حفظ می‌کنند. هر کانتینر یک شناسه محلی گزارش دریافت می‌کند تا دو عمل آن هم‌راستا شوند.
 
-این سیاست کاربردی محدودکننده فقط URLهای HTTPS مطلق و هدف‌های داخلی معتبر اسلاید را می‌پذیرد. ماکروها، برنامه‌ها، عمل‌های فایلی، سایر اعمال اسلایدشو، اعمال ناشناخته و سایر طرح‌واره‌های URL رد می‌شوند. این ردها تصمیمات سیاستی هستند، نه قضاوت ایمنی Aspose.Slides. HTTPS به‌تنهایی اعتماد را تضمین نمی‌کند: برای برنامه خود لیست‌های سفید میزبان و بررسی‌های دیگر اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال، متادیتا را بدون دنبال کردن لینک‌ها یا اجرای اعمال ممیزی می‌کند.
+این سیاست برنامه‌نویسی عمدتاً محدود، تنها URLهای مطلق HTTPS و هدف‌های داخلی اسلاید معتبر را اجازه می‌دهد. ماکروها، برنامه‌ها، اقدامات فایلی، سایر اقدامات اسلایدشو، اقدامات ناشناخته و سایر طرح‌های URL را رد می‌کند. این ردها تصمیمات سیاستی هستند، نه قضاوت ایمنی Aspose.Slides. فقط HTTPS به‌تنهایی اعتبار ایجاد نمی‌کند: فهرست‌های مجاز میزبان و سایر بررسی‌ها را برای برنامه‌تان اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال بدون دنبال کردن لینک‌ها یا اجرای اقدامات، متادیتا را حسابرسی می‌کند.
 
-برای رفع نقص، [hyperlink_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) مخزن، متدهای [set_external_hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)، [remove_hyperlink_click](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) و [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) را پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع به یک صفحه لندینگ HTTPS ثابت تبدیل می‌شوند؛ سایر کلیک‌های ممنوع و عمل‌های موس‑اور ممنوع به‌ صورت مستقل حذف می‌شوند. برای حذف تمام تخلفات سیاست، مقدار `replace_external_clicks` را روی `False` بگذارید. پیش از انتشار، صفحه جایگزین متعلق به برنامه را انتخاب کنید.
+برای رفع مشکل، [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) کانتینر از [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)، [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) و [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحه فرود ثابت HTTPS جایگزین می‌شوند؛ کلیک‌ها و اقدامات موس‌اور ممنوع دیگر به‌طور مستقل حذف می‌شوند. برای حذف تمام تخلفات سیاست، `replace_external_clicks` را به `False` تنظیم کنید. قبل از استقرار، صفحه جایگزین دارایی برنامه را انتخاب کنید.
 
-پرچم خروجی گزارش یک سیاست بررسی PDF محتاطانه را استفاده می‌کند: عمل‌های موس‑اور و هر چیزی غیر از یک لینک خارجی یا پرش اسلاید خاص را به‌عنوان احتمالا ناهمگام پرچم می‌گذارد. این یک نکته بازبینی است، نه تست قابلیت یا تضمین این‌که لینک‌های بدون پرچم در خروجی باقی می‌مانند. خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندهای ابرمتن را حفظ کنند، بسته به عمل، گزینه‌های خروجی و مرورگر. تصویرهای رستری و ویدئوهای رستری نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ هنگام ممیزی برای این خروجی‌ها هر عمل را پرچم بزنید.
+پرچم صادراتی گزارش از یک سیاست مرور PDF محتاطانه استفاده می‌کند: اعمال موس‌اور و هر چیز غیر از یک لینک خارجی یا پرش اسلاید خاص به‌عنوان ممکن است پشتیبانی نشود پرچم‌گذاری می‌شوند. این یک نکته مرور است، نه آزمون قابلیت یا تضمین اینکه لینک‌های بدون پرچم در صادرات باقی بمانند. صادرات‌های پشتیبانی‌شده [PDF](/slides/fa/python-net/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/python-net/convert-powerpoint-to-html/) ممکن است پیوندها را حفظ کنند، بسته به عمل، گزینه‌های صادرات و مرورگر. [تصاویر](/slides/fa/python-net/convert-powerpoint-to-png/) و [ویدیو](/slides/fa/python-net/convert-powerpoint-to-video/) رستری نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ هنگام حسابرسی برای این خروجی‌ها، هر عمل را پرچم‌گذاری کنید.
 
 ```python
 import json
@@ -330,7 +332,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # هر محدوده اسلاید را یک بار جست‌وجو کنید و مالک آن را همراه هر مخزن حفظ کنید.
+    # هر دامنه اسلاید را یک‌بار پرس‌وجو کنید و مالک آن را برای هر کانتینر حفظ کنید.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -417,20 +419,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-با ورودی ایجادشده در بالا، گزارش شامل پنج ردیف عمل می‌شود. لینک موس‑اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری داخلی اسلاید باقی می‌مانند. تأیید نشان می‌دهد صفر عمل ممنوع وجود دارد. ورودی شامل یک URL کلیک خارجی ممنوع نیز مسیر جایگزینی را اجرا می‌کند. مخزنی با کلیک مجاز و موس‑اور ممنوع کلیک خود را حفظ می‌کند.
+با ورودی که در بالا ایجاد شد، گزارش شامل پنج ردیف اقدام است. لینک موس‌اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری داخلی اسلاید باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. ورودی حاوی یک URL کلیک خارجی ممنوع نیز شاخه جایگزینی را اجرا می‌کند. یک کانتینر با کلیک مجاز و موس‌اور ممنوع عمل کلیک خود را حفظ می‌کند.
 
-این پاک‌سازی انتخابی متفاوت از [remove_all_hyperlinks](https://reference.aspose.com/slides/fa/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) است که هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده بدون توجه به سیاست حذف می‌کند. تأیید اینجا فقط اعمال پیوند ابرمتن را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و هیچ‌گونه اعتبارسنجی برای فایل PDF یا HTML خروجی انجام نمی‌دهد.
+این پاک‌سازی انتخابی با [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) متفاوت است که هر دو نوع فعال‌سازی را در تمام حوزه انتخابی صرف‌نظر از سیاست حذف می‌کند. تأیید در اینجا تنها اقدامات پیوند را بررسی می‌کند؛ پروژه‌های VBA تعبیه‌شده، اشیاء OLE یا سایر محتوای فعال را حذف نمی‌کند و یک فایل PDF یا HTML صادرات‌شده را نیز اعتبارسنجی نمی‌کند.
 
-## **سوالات متداول**
+## **سؤال‌های متداول**
 
-**چگونه می‌توانم به یک بخش یا اولین اسلاید آن لینک دهم؟**
+**چگونه می‌توانم به یک بخش یا اولین اسلاید آن پیوند دهم؟**
 
-بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند ابرمتن داخلی به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک دهید.
+بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند داخلی به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش پیوند بدهید.
 
-**آیا می‌توانم پیوند ابرمتن را به عناصر مستر اسلاید اضافه کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توانم یک پیوند را به عناصر اسلاید مستر وصل کنم تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر مستر اسلاید و طرح‌بندی از پیوندهای ابرمتن پشتیبانی می‌کنند. این لینک‌ها در طول نمایش اسلاید برای اسلایدهایی که از مستر یا طرح‌بندی مربوطه استفاده می‌کنند، در دسترس هستند.
+بله. عناصر اسلاید مستر و لایه‌ها از پیوندها پشتیبانی می‌کنند. پیوندهای روی این عناصر در حین اجرا روی اسلایدهایی که از مستر یا لایه مربوطه استفاده می‌کنند، در دسترس هستند.
 
-**آیا پیوندهای ابرمتن هنگام خروجی به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
+**آیا پیوندها هنگام صادرات به PDF، HTML، تصاویر یا ویدیو حفظ می‌شوند؟**
 
-خروجی‌های PDF و HTML که پشتیبانی می‌شوند ممکن است پیوندهای ابرمتن را حفظ کنند؛ تصاویر رستری و ویدئوها نمی‌توانند این پیوندها را نگه دارند. برای جزئیات بیشتر به بخش [گزارش، پالایش و تأیید پیوندهای ابرمتن](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+صادرات‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندها را حفظ کنند؛ تصاویر رستری و ویدیو نمی‌توانند. به ملاحظات صادرات در [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.

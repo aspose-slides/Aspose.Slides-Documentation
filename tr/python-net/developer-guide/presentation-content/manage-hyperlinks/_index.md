@@ -1,49 +1,51 @@
 ---
-title: Python'da Sunum Köprülerini Yönetme
-linktitle: Köprüleri Yönet
+title: Python'da Sunum Hiperlinklerini Yönetme
+linktitle: Hiperlinkleri Yönet
 type: docs
 weight: 20
 url: /tr/python-net/manage-hyperlinks/
 keywords:
 - URL ekle
-- köprü ekle
-- köprü oluştur
-- köprüyü biçimlendir
-- köprüyü kaldır
-- köprüyü güncelle
-- metin köprüsü
-- slayt köprüsü
-- şekil köprüsü
-- resim köprüsü
-- video köprüsü
-- değiştirilebilir köprü
+- hiperlink ekle
+- hiperlink oluştur
+- hiperlink biçimlendir
+- hiperlink kaldır
+- hiperlink güncelle
+- metin hiperlinki
+- slayt hiperlinki
+- şekil hiperlinki
+- görsel hiperlinki
+- video hiperlinki
+- değiştirilebilir hiperlink
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak, Python örnekleriyle PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın."
+description: "Aspose.Slides for Python via .NET kullanarak, Python örnekleriyle PowerPoint ve OpenDocument sunumlarında hiperlink ekleme, biçimlendirme, güncelleme ve kaldırma."
 ---
 ## **Giriş**
 
-Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaçla kullanılır:
+Bir köprü (hiperlink), sunum içeriğini bir web sitesine veya sunum içindeki bir konuma bağlar. PowerPoint'te hiperlinkler genellikle iki amaç için kullanılır:
 
-* Metin, şekil veya medya çerçevesinden bir web sitesini açmak.
-* Örneğin, bir içerik tablosundan başka bir slayta geçiş yapmak.
+- Metinden, şekilden veya bir medya çerçevesinden bir web sitesini açmak.
+- Başka bir slayta gitmek, örneğin bir içindekiler tablosundan.
 
-Aspose.Slides for Python via .NET, bu bağlantıları eklemenize, görünümünü ve sesini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak sağlar. Aşağıdaki örnekler, tek tek öğeler üzerindeki köprülerle nasıl çalışılacağını ve sunum, slayt veya metin‑çerçevesi düzeyinde köprülere nasıl erişileceğini gösterir.
+Aspose.Slides for Python via .NET, bu bağlantıları eklemenize, görünüm ve seslerini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, hiperlinklerle bireysel öğeler üzerinde nasıl çalışılacağını ve hiperlinklere sunum, slayt veya metin çerçevesi düzeyinde nasıl erişileceğini gösterir.
 
-{{% alert color="info" title="Not" %}}
-Ayrıca sunumları [ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/tr/editor) ile düzenleyebilirsiniz.
+{{% alert color="info" title="Note" %}}
+Sunumları ayrıca [ücretsiz çevrimiçi Aspose PowerPoint editörü](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
 {{% /alert %}}
 
-## **URL Köprüleri Ekleme**
+## **URL Hiperlinkleri Ekle**
 
-Bir web sitesi URL'sini metne, şekle veya medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni, bir şekil veya çerçeve ise slayt nesnesini bağlar.
+Web sitesi URL'sini metne, şekle veya bir medya çerçevesine atayabilirsiniz. Hiperlinki atadığınız öğe tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil ya da çerçeve slayt nesnesini bağlar.
 
-### **Metne URL Köprüsü Ekleme**
+Sunumlarda göreli hiperlinkler varsa, belge‑düzeyindeki temel URL'yi okumak, değiştirmek veya temizlemek için [Manage the Hyperlink Base](/slides/tr/python-net/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-Metni bir web sitesine bağlamak için, metin bölümünün [hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/portionformat/hyperlink_click/) özelliğine bir [Köprü](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/) atayın. Aşağıda gösterildiği gibi yalnızca o metin bölümü tıklanabilir olur.
+### **Metne URL Hiperlinkleri Ekle**
+
+Metni bir web sitesine bağlamak için, metin bölümünün [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) özelliğine bir [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) atayın. Aşağıda gösterildiği gibi. Yalnızca o metin bölümü tıklanabilir olur.
 
 ```python
 import aspose.slides as slides
@@ -58,11 +60,11 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekleme**
+### **Şekillere ve Medya Çerçevelerine URL Hiperlinkleri Ekle**
 
-Bir şekil veya çerçeveyi tıklanabilir yapmak için, onun [hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/hyperlink_click/) özelliğini ayarlayın. Köprü, nesnenin kendisine aittir; içinde bulunan bir metin bölümüne değil.
+Bir şekli ya da çerçeveyi tıklanabilir hâle getirmek için, onun [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) özelliğini ayarlayın. Hiperlink, içinde metin bulunduran bir nesne yerine nesnenin kendisine aittir.
 
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: köprüyü çerçeveye atayın ve gerekirse bağlantının [tooltip](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/tooltip/) özelliğini ayarlayın.
+Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: hiperlinki çerçeveye atayın ve gerekirse linkin [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) özelliğini ayarlayın.
 
 Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
 
@@ -76,9 +78,9 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
+## **Hiperlinkleri Kullanarak İçindekiler Tablosu Oluşturma**
 
-Dahili köprüler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slaydın “Sayfa 2” metnini ikinci slayta bağlamak için [set_internal_hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) metodunu kullanır.
+İç içe hiperlinkler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slayttaki “Page 2” metnini ikinci slayta bağlamak için [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) yöntemini kullanır.
 
 ```python
 import aspose.pydrawing as draw
@@ -103,13 +105,13 @@ with slides.Presentation() as presentation:
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Köprüleri Biçimlendirme**
+## **Hiperlinkleri Biçimlendirme**
 
 ### **Renk**
 
-[Hyperlink](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/) nesnesinin [color_source](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/color_source/) özelliği, köprünün sunumun köprü rengine mi yoksa metin bölümünün biçimlendirmesine mi göre renginin belirleneceğini tanımlar. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkcolorsource/) seçilir ve bölümün dolgu rengi ayarlanır. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) sınıfının [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) özelliği, bir hiperlinkin sunumun genel hiperlink rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanılacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) seçin ve bölümün doldurma rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; daha eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlkinde kırmızı bir metin dolgusu kullanılır, ikincisi ise varsayılan köprü rengini korur.
+Aşağıdaki örnek aynı slayta iki metin hiperlinki ekler. İlki kırmızı bir metin doldurması kullanırken, ikincisi varsayılan hiperlink rengini korur.
 
 ```python
 import aspose.pydrawing as draw
@@ -131,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **Ses**
 
-Bir köprü, etkinleştirildiğinde bir ses çalabilir veya hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki özellikleri kullanın:
+Bir hiperlink, etkinleştirildiğinde ses çalabilir veya hâlihazırda çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki özellikleri kullanın:
 
-- [Hyperlink.sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/sound/) köprüye ilişkilendirilen ses dosyasını belirtir.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/stop_sound_on_click/) köprünün etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) hiperlinke ilişkilendirilen ses dosyasını belirler.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) tıklama ile önceki sesin durdurulup durdurulmayacağını denetler.
 
-#### **Köprülü Ses Ekleme**
+#### **Bir Hiperlink Ses'i Ekle**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slayttaki bir düğmeye ilişkilendirir. Düğmeye tıklandığında ses çalar ve bir sonraki slayta geçiş yapılır. Aynı slayttaki ikinci bir şekil, tıklandığında önceki sesi durdurur; bir geçiş eylemi gerçekleştirmez.
+Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slayttaki bir düğmeye bağlar. Düğmeye tıklamak sesi çalar ve bir sonraki slayta gider. Aynı slayttaki ikinci şekil, tıklamayla bir gezinme işlemi yapmadan önceki sesi durdurur.
 
 ```python
 import aspose.slides as slides
@@ -160,9 +162,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **Köprü Sesini Çıkarma**
+#### **Bir Hiperlink Sesini Çıkar**
 
-Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [sound](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/sound/) ve [binary_data](https://reference.aspose.com/slides/tr/python-net/aspose.slides/audio/binary_data/) aracılığıyla belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin hiperlink sesini [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) ve [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/) aracılığıyla belleğe okur.
 
 ```python
 import aspose.slides as slides
@@ -182,16 +184,16 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
 
 ### **İpucu ve Etkileşim Ayarları**
 
-Bir köprüyü metne veya şekle atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/) özelliklerini güncelleyebilirsiniz:
+Metne ya da şekle bir hiperlink atadıktan sonra aşağıdaki [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) özelliklerini güncelleyebilirsiniz:
 
-- [tooltip](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/tooltip/) izleyicinin bağlantı için ipucu olarak gösterebileceği metni belirler.
-- [target_frame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/target_frame/) geçerli olduğunda, bir üst HTML çerçeve kümesindeki hedef çerçeveyi belirtir.
-- [history](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/history/) bağlantının etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
-- [highlight_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/highlight_click/) bağlantının tıklandığında vurgulanıp vurgulanmayacağını belirler.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) izleyicinin bağ için bir ipucu olarak gösterebileceği metni ayarlar.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) uygulanabilir olduğunda, üst HTML çerçeve setindeki hedef çerçeveyi belirtir.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) bağın etkinleştirilmesinin, hedefini görüntülenmiş hiperlinkler listesine ekleyip eklemeyeceğini denetler.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) tıklandığında hiperlinkin vurgulanıp vurgulanmayacağını kontrol eder.
 
-## **Sunumlardan Köprüleri Kaldırma**
+## **Sunumlardan Hiperlinkleri Kaldırma**
 
-Köprü kapsayıcılarını (metin‑parça bağlantıları dahil) toplamak için [get_any_hyperlinks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) yöntemini kullanın; ardından bunları değiştirin. Aşağıdaki örnek, ilk slayttan her iki etkinleştirme türünü de kaldırır. Yalnızca bir türü kaldırmak isterseniz, yalnızca [remove_hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) veya [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) yöntemini çağırın; bir tıklama eylemini kaldırmak, fare‑üzerinde eylemi kaldırmaz.
+[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) kullanarak, değiştirmeden önce metin‑bölümü bağlantıları da dahil olmak üzere hiperlink kapsayıcılarını toplayın. Aşağıdaki örnek, ilk slayttaki iki etkinleştirme tipini (tıklama ve fare‑üzerine) kaldırır. Yalnızca bir tip kaldırmak isterseniz, sadece [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) ya da [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) çağırın; bir tıklama eylemini kaldırmak, fare‑üzerine karşılığını kaldırmaz.
 
 ```python
 import aspose.slides as slides
@@ -207,23 +209,23 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-Koşulsuz kaldırma için, [remove_all_hyperlinks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) seçilen kapsam içinde her iki etkinleştirme türünü tek bir çağrıyla siler. Ustalar, düzenler ve notlar dahil olmak üzere seçici temizlik ve kapsamlı kapsama için **[Raporla, Temizle ve Köprüleri Doğrula](#report-sanitize-and-verify-hyperlinks)** bölümüne bakın.
+Koşulsuz kaldırma için, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) seçilen kapsamda iki etkinleştirme tipini tek bir çağrıyla siler. Ustalar, yerleşimler ve notlar dahil olmak üzere seçici temizlik ve kapsamlı kapsama için, [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
-## **Tam Bir Köprü Envanteri Oluşturma**
+## **Tam Bir Hiperlink Envanteri Oluşturma**
 
-Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [get_any_hyperlinks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) yöntemi, URL dizesi listesi yerine [IHyperlinkContainer](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür. Her kapsayıcıda hem [hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) hem de [hyperlink_mouse_over](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) incelenmelidir. Bunlar bağımsızdır; aynı kapsayıcı iki eylemi de sunabilir, bu yüzden tam bir rapor her kapsayıcı için iki satır gerektirebilir.
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) nesnelerini döndürür, düz bir URL listesi değil. Her kapsayıcıdaki [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) ve [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) öğelerini inceleyin. Bağımsızdırlar: aynı kapsayıcı iki eylemi de sunabilir, bu yüzden tam bir rapor her kapsayıcı için iki satıra kadar ihtiyaç duyabilir.
 
-Yalnızca şekil‑seviyesindeki köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve döndürülen kapsayıcıları saklayarak daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+Sadece şekil‑düzeyindeki hiperlinkleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve döndürülen kapsayıcıları saklayın; böylece daha sonra eylemlerini güncelleyebilir ya da kaldırabilirsiniz.
 
-### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgulama**
+### **Sunum, Slayt ve Metin-Çerçeve Kapsamlarını Sorgulama**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/) sınıfına, [Presentation.hyperlink_queries](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/hyperlink_queries/) ve [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/hyperlink_queries/) üzerinden erişilir. Her kapsam aynı sorguları destekler:
+[HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) sınıfı, [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) ve [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/) üzerinden erişilebilir. Her kapsam aynı sorguları destekler:
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) tıklama eylemi içeren kapsayıcıları döndürür.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) fare‑üzerinde eylemi olan kapsayıcıları döndürür.
-- [get_any_hyperlinks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) bir veya iki eylemi içeren kapsayıcıları döndürür.
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) tıklama eylemi içeren kapsayıcıları döndürür.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) fare‑üzerine eylemi içeren kapsayıcıları döndürür.
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) bir veya iki eylemi olan kapsayıcıları döndürür.
 
-Aşağıdaki örnek, dış bağlantılı bir tıklama, dosya fare‑üzerinde bağlantısı, dahili slayt navigasyonu, metin fare‑üzerinde bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemler hiçbir zaman çalıştırılmaz. Aynı üç sorgu her kapsamda çalışır; sayımlar eylem toplamı değil, kapsayıcı sayısını verir. Metin‑çerçeve kapsamı, içinde bulunduğu şeklin kendi bağlantılarını dışarıda bırakır.
+Aşağıdaki örnek, dış tıklama bağlantısı, dosya fare‑üzerine bağlantısı, iç slayt navigasyonu, metin fare‑üzerine bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemlerden hiçbiri yürütülmez. Aynı üç sorgu her kapsamda çalışır; sayılar kapsayıcı sayısını, eylem toplamını değil, gösterir. Metin‑çerçeve kapsamı, içindeki şeklin kendi bağlantılarını dışarıda bırakır.
 
 ```python
 import aspose.slides as slides
@@ -257,38 +259,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Bu örnek için, sunum ve slayt sorguları üç tıklama kapsayıcısı, iki fare‑üzerinde kapsayıcısı ve her iki eylemden birini içeren üç kapsayıcı raporlar. Metin‑çerçeve sorgusu ise her kategori için bir kapsayıcı raporlar.
+Bu örnek için, sunum ve slayt sorguları üç tıklama kapsayıcısı, iki fare‑üzerine kapsayıcısı ve her iki eylemi de içeren üç kapsayıcı rapor eder. Metin‑çerçeve sorgusu her kategori için bir kapsayıcı raporlar.
 
 ### **Eylemleri ve Hedefleri Sınıflandırma**
 
-Bir eylemi yorumlamadan önce, hedefini yorumlamak için [Hyperlink.action_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/action_type/) özelliğini kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkactiontype/) değerleri sadece web navigasyonundan daha fazlasını kapsar:
+[Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) kullanarak bir eylemi yorumlamadan önce hedefini yorumlayın. [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) değerleri yalnızca web gezinmesini değil, aşağıdaki gibi daha fazlasını kapsar:
 
-| Değerler | Denetim için anlamı |
+| Değerler | Denetim İçin Anlamı |
 | --- | --- |
-| `HYPERLINK` | Dış köprü; URL ve şemasını inceleyin. |
-| `JUMP_SPECIFIC_SLIDE` | Belirli bir slayta dahili geçiş. |
+| `HYPERLINK` | Harici hiperlink; URL ve şemasını inceleyin. |
+| `JUMP_SPECIFIC_SLIDE` | Belirli bir slayta iç navigasyon. |
 | `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Slayt gösterisi içinde yerleşik gezinme, slayt gösterisi bağlamında çözülür. |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
 | `START_MACRO` | Bir makro çalıştır. |
 | `START_PROGRAM` | Bir program başlat. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Bir dosya veya başka bir sunum aç; web URL'lerinden ayrı değerlendir. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Bir dosya ya da başka bir sunum aç; web URL'lerinden ayrı olarak incelenir. |
 | `START_STOP_MEDIA` | Medya oynatımını başlat veya durdur. |
-| `NO_ACTION`, `UNKNOWN` | Navigasyon eylemi yok veya tanınmayan eylem; inceleme gerektirir. |
+| `NO_ACTION`, `UNKNOWN` | Navigasyon eylemi yok veya tanınmayan bir eylem; gözden geçirilmesi gerekir. |
 
-Dış hedefleri [external_url](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/external_url/) üzerinden, belirli dahili hedefleri ise [target_slide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/target_slide/) üzerinden okuyun. Dahili eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [external_url_original](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/external_url_original/) değerini koruyun ve mevcutsa [tooltip](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlink/tooltip/) ekleyin.
+Harici hedefleri [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) özelliğinden, belirli iç hedefleri ise [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/) özelliğinden okuyun. İç eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) değerini koruyun ve mevcutsa [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) ekleyin.
 
-### **Köprüleri Raporla, Temizle ve Doğrula**
+### **Hiperlinkleri Raporla, Temizle ve Doğrula**
 
-Aşağıdaki Python örneği, mevcut bir sunumu (yukarıda oluşturulan dosyayı) okur, `hyperlink-audit.json` dosyasına yazar, bir politika uygular, `hyperlink-sanitized.pptx` olarak kaydeder ve ardından hem tıklama hem de fare‑üzerinde eylemlerini tekrar kontrol eder. Değiştirmeden önce kapsayıcıları toplar ve her slayt kapsamını yalnızca bir kez sorgular; böylece tekrarlı işleme engel olur. Sunum sorguları normal slaytları kapsar; paket‑geneli envanter için örnek, normal slaytların yanı sıra ustaları, düzenleri, notları ve mevcutsa not ve el ilanı ustalarını da sorgular.
+Aşağıdaki Python örneği, mevcut bir sunumu (yukarıda oluşturulan dosyayı) okur, `hyperlink-audit.json` yazar, bir politika uygular, `hyperlink-sanitized.pptx` kaydeder ve ardından her iki etkinleştirme tipini tekrar kontrol eder. Değişiklikten önce kapsayıcıları toplar ve her slayt kapsamında tek bir sorgu yapar; böylece yinelenen işleme girmez. Sunum sorguları normal slaytları kapsar; paket‑geneli envanter için örnek, normal slaytlar, ustalar, yerleşimler, notlar ve varsa not ve el ilanı ustalarını da sorgular.
 
-Rapor, bir‑tabanlı slayt indeksini ve mevcutsa [slide_id](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/slide_id/) değerini kaydeder. Toplayıcı, her döndürülen kapsayıcı için sahip slaytı ve kapsamı tutar. Ustalar, düzenler ve notlar normal slayt indeksi taşımadığından kapsamlarıyla tanımlanır. Şekil kapsayıcıları ve metin‑parça biçimlendirme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı türleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemin ilişkilendirilebilmesi için rapor‑yerel bir ID alır.
+Rapor bir‑bazlı slayt indeksini ve mümkünse [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) bilgisini kaydeder. Toplayıcı, her döndürülen kapsayıcıyla birlikte sahip slaytı ve kapsamı tutar. Ustalar, yerleşimler ve notlar normal slayt indeksi taşımaz; kapsamlarıyla tanımlanırlar. Şekil kapsayıcıları ve metin‑bölümü biçimleme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı tipleri çalışma zamanı tip adını korur. Her kapsayıcı, iki eylemini birbirine bağlamak için rapor‑yerel bir kimlik alır.
 
-Bu kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerini ve geçerli dahili slayt hedeflerini kabul eder. Makrolar, programlar, dosya eylemleri, diğer slayt gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güvenilirlik sağlamaz; uygulamanıza host izin listeleri ve ek kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler kontrol edilir. Örnek, bağları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
+Bu kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL'leri ve geçerli iç slayt hedeflerine izin verir. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven sağlar diyemezsiniz: uygulamanız için host beyaz listeleri ve ek denetimler ekleyin. Hem orijinal hem de normalleştirilmiş dış URL'ler denetlenir. Örnek, bağlantıları takip etmeden ya da eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, kapsayıcının [hyperlink_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) aşağıdaki yöntemleri destekler: [set_external_hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) ve [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Burada, izin
-verilmeyen dış tıklama bağlantıları sabit bir HTTPS açılış sayfası ile değiştirilir; diğer yasaklı tıklama ve fare‑üzerinde eylemler bağımsız olarak kaldırılır. Tüm politika ihlallerini kaldırmak için `replace_external_clicks` değerini `False` yapın. Dağıtıma almadan önce uygulama‑sahibi bir değiştirme sayfası seçin.
+Düzeltme için, kapsayıcının [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) ve [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) yöntemlerini destekler. Burada, yasak dış tıklama linkleri sabit bir HTTPS landing sayfası ile değiştirilir; diğer yasak tıklamalar ve yasak fare‑üzerine eylemler bağımsız olarak kaldırılır. `replace_external_clicks` değerini `False` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtıma hazırlık sırasında uygulamanızın sahip olduğu bir değiştirme sayfası seçin.
 
-Raporun dışa aktarma işareti, temkinli bir PDF inceleme politikası kullanır: fare‑üzerinde eylemler ve dış bağlantı olmayan veya belirli slayt atlaması olmayan her şey potansiyel olarak desteklenmez olarak işaretlenir. Bu bir inceleme ipucu olup, işaretlenmemiş bağlantıların dışa aktarımda hayatta kalacağını garanti etmez. Desteklenen [PDF](/slides/tr/python-net/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-net/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarım seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir; raster [görseller](/slides/tr/python-net/convert-powerpoint-to-png/) ve [videolar](/slides/tr/python-net/convert-powerpoint-to-video/) etkileşimli köprüleri saklayamaz; bu çıktılar için denetim sırasında her eylemi işaretleyin.
+Raporun dışa aktarma bayrağı, tutumlu bir PDF inceleme politikası kullanır: fare‑üzerine eylemleri ve dış link olmayan ya da belirli slayt atlaması olmayan her şeyi potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucudur, yetenek testi ya da işaretlenmemiş linklerin dışa aktarımda hayatta kalacağı garantisi değildir. Desteklenen [PDF](/slides/tr/python-net/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/python-net/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarma seçeneklerine ve görüntüleyiciye bağlı olarak hiperlinkleri koruyabilir. Raster [images](/slides/tr/python-net/convert-powerpoint-to-png/) ve [video](/slides/tr/python-net/convert-powerpoint-to-video/) interaktif hiperlinkleri koruyamaz; bu çıktılar için denetim yaparken her eylemi işaretleyin.
 
 ```python
 import json
@@ -331,7 +332,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Her slayt kapsamını bir kez sorgula, her kapsayıcıyla birlikte sahibini tut.
+    # Her slayt kapsamını bir kez sorgulayın, her kapsayıcının sahibini koruyarak.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -418,20 +419,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-Yukarıda oluşturulan giriş ile rapor beş eylem satırı içerir. Dosya fare‑üzerinde bağlantısı ve makro tıklaması kaldırılır, HTTPS bağlantıları ve dahili slayt navigasyonu kalır. Doğrulama, sıfır yasaklı eylem gösterir. Yasaklı bir dış tıklama URL'si içeren bir giriş, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasaklı bir fare‑üzerinde eylemi olan bir kapsayıcı, tıklama eylemini tutar.
+Yukarıda oluşturulan girdiyle rapor beş eylem satırı içerir. Dosya fare‑üzerine linki ve makro tıklaması kaldırılırken, HTTPS linkleri ve iç slayt navigasyonu kalır. Doğrulama, sıfır yasak eylem çıktılar. Yasak bir dış tıklama URL'si içeren bir girdi, değiştirme dalını da çalıştırır. İzinli bir tıklama ve yasak bir fare‑üzerine eylemi olan bir kapsayıcı, tıklama eylemini tutar.
 
-Bu seçici temizlik, **[remove_all_hyperlinks](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)** yönteminden farklıdır; bu yöntem, politika göz önüne alınmaksızın seçilen kapsam içindeki her iki etkinleştirme türünü de kaldırır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış bir PDF veya HTML dosyasını doğrulamaz.
+Bu seçici temizlik, [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) yönteminin aksine, politika göz önüne alınmadan seçilen kapsamda her iki etkinleştirme tipini de kaldırmaz. Buradaki doğrulama yalnızca hiperlink eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini ya da diğer aktif içeriği kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme ya da onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölüme veya o bölümün ilk slaytına nasıl bağlanabilirim?**
 
-PowerPoint’te bölümler slaytları gruplar, ancak dahili bir köprü sadece tek bir slaytı hedef alır. Bir bölüme geçiş oluşturmak için, o bölümün ilk slaytına bağlanın.
+PowerPoint’te bölümler slaytları gruplar, ancak bir iç hiperlink bireysel bir slaytı hedef alır. Bir bölüme navigasyon oluşturmak için, o bölümün ilk slaytına bağlayın.
 
-**Usta slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Usta slayt (master slide) öğelerine hiperlink ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
 
-Evet. Usta slayt ve düzen öğeleri köprüleri destekler. Bu öğelere eklenen bağlantılar, ilgili ustayı veya düzeni kullanan slayt gösterisi sırasında erişilebilir olur.
+Evet. Usta slayt ve yerleşim öğeleri hiperlinkleri destekler. Bu öğelere eklenen linkler, ilgili usta ya da yerleşimi kullanan slayt gösterisi sırasında erişilebilir olur.
 
-**Köprüler PDF, HTML, görseller veya video olarak dışa aktarılırken korunur mu?**
+**Hiperlinkler PDF, HTML, görüntüler veya video dışa aktarılırken korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarmaları köprüleri koruyabilir; raster görseller ve videolar koruyamaz. Detaylı dışa aktarım bilgileri için **[Raporla, Temizle ve Köprüleri Doğrula](#report-sanitize-and-verify-hyperlinks)** bölümüne bakın.
+Desteklenen PDF ve HTML dışa aktarımları hiperlinkleri koruyabilir; raster görüntüler ve video bunları koruyamaz. Ayrıntılar için [Hiperlinkleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümündeki dışa aktarma değerlendirmelerine bakın.

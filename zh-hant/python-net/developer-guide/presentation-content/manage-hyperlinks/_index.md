@@ -6,44 +6,46 @@ weight: 20
 url: /zh-hant/python-net/manage-hyperlinks/
 keywords:
 - 新增 URL
-- 新增 超連結
-- 建立 超連結
-- 格式化 超連結
-- 移除 超連結
-- 更新 超連結
-- 文字 超連結
-- 投影片 超連結
-- 形狀 超連結
-- 圖片 超連結
-- 影片 超連結
-- 可變更 超連結
+- 新增超連結
+- 建立超連結
+- 格式化超連結
+- 移除超連結
+- 更新超連結
+- 文字超連結
+- 投影片超連結
+- 圖形超連結
+- 影像超連結
+- 影片超連結
+- 可變更超連結
 - PowerPoint
 - OpenDocument
 - 簡報
 - Python
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET，搭配 Python 範例，在 PowerPoint 與 OpenDocument 簡報中新增、格式化、更新與移除超連結。"
+description: "使用 Aspose.Slides for Python via .NET，透過 Python 範例在 PowerPoint 與 OpenDocument 簡報中新增、格式化、更新與移除超連結。"
 ---
 ## **簡介**
 
-超連結將簡報內容連結至網站或簡報內的某個位置。在 PowerPoint 中，超連結通常具備兩個用途：
+超連結將簡報內容連結至網站或簡報內的某個位置。在 PowerPoint 中，超連結通常有兩個用途：
 
-* 從文字、形狀或媒體框架開啟網站。
-* 從目錄等位置導覽至另一張投影片。
+* 從文字、圖形或媒體框架打開網站。
+* 導覽至其他投影片，例如從目錄。
 
-Aspose.Slides for Python via .NET 讓您可以新增這些連結、控制其外觀與聲音、更新屬性以及移除連結。以下範例示範如何在單一元素上操作超連結，以及如何在簡報、投影片或文字框層級存取超連結。
+Aspose.Slides for Python via .NET 讓您可以新增這些連結、控制其外觀與音效、更新其屬性，並將其移除。以下範例示範如何在個別元素上使用超連結，以及如何在簡報、投影片或文字框層級存取超連結。
 
 {{% alert color="info" title="Note" %}}
-您也可以使用[免費線上 Aspose PowerPoint 編輯器](https://products.aspose.app/slides/zh-hant/editor)編輯簡報。
+您也可以使用[免費線上 Aspose PowerPoint 編輯器](https://products.aspose.app/slides/editor)編輯簡報。
 {{% /alert %}}
 
 ## **新增 URL 超連結**
 
-您可以將網站 URL 指派給文字、形狀或媒體框架。指派超連結的元素決定了可點擊的區域：文字部份只會讓所選文字變為可點擊；而形狀或框架則會讓整個投影片物件可點擊。
+您可以將網站 URL 指派給文字、圖形或媒體框架。指派超連結的元素決定可點擊的範圍：文字片段會連結所選文字，而圖形或框架則連結整個投影片物件。
+
+對於包含相對超連結的簡報，請參閱[管理超連結基底](/slides/zh-hant/python-net/presentation-properties/#manage-the-hyperlink-base)以讀取、變更或清除文件層級的基底。
 
 ### **將 URL 超連結新增至文字**
 
-若要將文字連結至網站，請將 [Hyperlink](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/) 指派給文字部份的 [hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/portionformat/hyperlink_click/) 屬性，如下所示。只有該文字部份會變為可點擊。
+若要將文字連結至網站，請將[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)指派給文字片段的[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/)屬性，如下所示。僅該文字片段會變為可點擊。
 
 ```python
 import aspose.slides as slides
@@ -58,13 +60,13 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **將 URL 超連結新增至形狀和媒體框架**
+### **將 URL 超連結新增至圖形和媒體框架**
 
-若要讓形狀或框架可點擊，請設定其 [hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/shape/hyperlink_click/) 屬性。此超連結屬於物件本身，而不是內部的文字部份。
+若要使圖形或框架可點擊，請設定其[hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/)屬性。超連結屬於該物件本身，而非其中的文字片段。
 
-相同的做法適用於圖片、音訊與影片框架：將超連結指派給框架，並在需要時設定連結的 [tooltip](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/tooltip/)。
+相同的方法可套用於圖片、音訊和影片框架：將超連結指派給框架，必要時設定連結的[tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)。
 
-以下範例讓矩形可被點擊：
+以下範例會使矩形可點擊：
 
 ```python
 import aspose.slides as slides
@@ -78,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ## **使用超連結建立目錄**
 
-內部超連結讓讀者可從目錄跳至特定投影片。以下範例使用 [set_internal_hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/)，將第一張投影片上的「第 2 頁」文字連結至第二張投影片。
+內部超連結允許讀者從目錄跳至特定投影片。以下範例使用[set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/)將第一張投影片上的「Page 2」文字連結至第二張投影片。
 
 ```python
 import aspose.pydrawing as draw
@@ -103,11 +105,11 @@ with slides.Presentation() as presentation:
     presentation.save("link_to_slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **設定超連結格式**
+## **格式化超連結**
 
 ### **顏色**
 
-[Hyperlink](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/) 的 [color_source](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/color_source/) 屬性決定超連結是使用簡報的超連結顏色，還是文字部份的格式。若要套用自訂文字顏色，請選擇 [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkcolorsource/) 並設定部份的填充顏色。此功能於 PowerPoint 2019 引入；較舊版本不會套用此設定。
+[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)的[color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/)屬性決定超連結是使用簡報的超連結顏色還是文字片段的格式。若要套用自訂文字顏色，請選取[HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/)並設定片段的填充顏色。此功能於 PowerPoint 2019 中加入；較舊版本不會套用此設定。
 
 以下範例在同一張投影片上新增兩個文字超連結。第一個使用紅色文字填充，第二個保留預設的超連結顏色。
 
@@ -129,16 +131,16 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out-hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **聲音**
+### **音效**
 
-超連結在被啟動時可以播放聲音，或停止已在播放的聲音。使用以下屬性可配置這些行為：
+超連結在被觸發時可以播放音效，或停止已在播放的音效。使用以下屬性來設定這些行為：
 
-- [Hyperlink.sound](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/sound/) 指定與超連結關聯的音訊。
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/stop_sound_on_click/) 控制在啟動超連結時是否停止先前的聲音。
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) 指定與超連結關聯的音訊。
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) 控制在啟動超連結時是否停止先前的音效。
 
-#### **新增超連結聲音**
+#### **新增超連結音效**
 
-以下範例載入 `sampleaudio.wav`，並將其與第一張投影片上的按鈕關聯。點擊按鈕會播放聲音並導覽至下一張投影片。該投影片上的第二個形狀在點擊時會停止先前的聲音，且不執行導覽動作。
+以下範例載入 `sampleaudio.wav` 並將其與第一張投影片上的按鈕關聯。點擊按鈕會播放音效並導覽至下一張投影片。該投影片上的第二個圖形在點擊時會停止先前的音效，且不執行導覽動作。
 
 ```python
 import aspose.slides as slides
@@ -160,9 +162,9 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-sound.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-#### **擷取超連結聲音**
+#### **擷取超連結音效**
 
-以下範例開啟先前建立的簡報，並透過 [sound](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/sound/) 與 [binary_data](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/audio/binary_data/) 讀取第一個形狀的超連結音訊至記憶體。
+以下範例開啟上述建立的簡報，並透過[sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/)與[binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/)將第一個圖形的超連結音訊讀取到記憶體中。
 
 ```python
 import aspose.slides as slides
@@ -180,18 +182,18 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
         print("The presentation has no first slide or shape to inspect.")
 ```
 
-### **工具提示和互動設定**
+### **提示文字與互動設定**
 
-將超連結指派給文字或形狀後，您可以更新以下 [Hyperlink](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/) 屬性：
+在將超連結指派給文字或圖形後，您可以更新以下[Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/)屬性：
 
-- [tooltip](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/tooltip/) 設定觀者可顯示的連結提示文字。
-- [target_frame](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/target_frame/) 在有父 HTML frameset 時指定目標框架。
-- [history](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/history/) 控制啟動連結時是否將目的地加入已檢視超連結清單。
-- [highlight_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/highlight_click/) 控制點擊時是否以高亮方式顯示超連結。
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) 設定觀者可顯示的連結提示文字。
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) 指定父 HTML 框架集中的目標框架（適用時）。
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) 控制在啟動連結時是否將其目的地加入已瀏覽超連結的清單。
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) 控制點擊時是否突顯超連結。
 
 ## **從簡報中移除超連結**
 
-使用 [get_any_hyperlinks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 先收集包括文字部份連結在內的超連結容器，之後再進行變更。以下範例移除第一張投影片的兩種啟動方式。若只想移除單一類型，僅呼叫 [remove_hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) 或 [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) 即可；移除點擊動作不會同時移除滑鼠懸停對應動作。
+在變更超連結之前，使用[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/)收集超連結容器（包括文字片段連結）。以下範例會從第一張投影片移除兩種觸發類型。若只想移除單一類型，僅呼叫[remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)或[remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)；移除點擊動作不會移除其滑鼠移過對應動作。
 
 ```python
 import aspose.slides as slides
@@ -207,23 +209,23 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-若要無條件移除，使用 [remove_all_hyperlinks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) 可在一次呼叫中於所選範圍內同時移除兩種啟動方式。若需在包括母片、版面配置與備註的情況下進行選擇性清理，請參閱【[報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks)】。
+若要無條件移除，[remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)會在一次呼叫中移除所選範圍內的兩種觸發類型。欲進行選擇性清理並涵蓋母片、版面配置與備註，請參閱[報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks)。
 
 ## **建立完整的超連結清單**
 
-在發佈簡報前，請先盤點其互動動作與網路連結。[get_any_hyperlinks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 會回傳 [IHyperlinkContainer](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ihyperlinkcontainer/) 物件，而非單純的 URL 字串列表。請同時檢查每個容器的 [hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) 與 [hyperlink_mouse_over](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/)。它們是獨立的：同一容器可以同時暴露兩種動作，因此完整報告每個容器可能需要兩列資料。
+在發佈簡報之前，先清點其互動動作與網頁連結。[get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 回傳 [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) 物件，而非 URL 字串的平面清單。檢查每個容器的 [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) 與 [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/)。它們是獨立的：同一個容器可能同時提供兩種動作，因此完整的報告可能需要每個容器最多兩列。
 
-僅掃描形狀層級的超連結可能會遺漏附加於文字部份的連結。請改為查詢適當的範圍，並保留回傳的容器，以便稍後更新或移除其動作。
+僅掃描圖形層級的超連結可能會遺漏附加於文字片段的連結。請改為查詢適當的範圍，並保留回傳的容器，以便之後更新或移除其動作。
 
-### **查詢簡報、投影片和文字框範圍**
+### **查詢簡報、投影片與文字框範圍**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/) 類別可透過 [Presentation.hyperlink_queries](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/presentation/hyperlink_queries/)、[BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/baseslide/hyperlink_queries/) 與 [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/textframe/hyperlink_queries/) 取得。每個範圍支援相同的查詢：
+[HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) 類別可透過[Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/)、[BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/)與[TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/)取得。每個範圍皆支援相同的查詢：
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) 回傳具有點擊動作的容器。
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) 回傳具有滑鼠懸停動作的容器。
-- [get_any_hyperlinks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 回傳具有任一或兩種動作的容器。
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) 回傳具有點擊動作的容器。
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) 回傳具有滑鼠移過動作的容器。
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) 回傳具有任一或兩種動作的容器。
 
-以下範例建立 `hyperlink-audit-input.pptx`，其中包含外部點擊連結、檔案滑鼠懸停連結、內部投影片導覽、文字滑鼠懸停連結與巨集動作。它不會執行任何動作。相同的三個查詢於每個範圍皆可使用；計數描述的是容器數量，而非動作總數。文字框範圍會排除其外圍形狀本身的連結。
+以下範例建立 `hyperlink-audit-input.pptx`，其中包含外部點擊連結、檔案滑鼠移過連結、內部投影片導覽、文字滑鼠移過連結，以及巨集動作。它不會執行任何這些動作。相同的三個查詢在每個範圍皆適用；計數描述的是容器數量，而非動作總數。文字框範圍會排除其所屬圖形的連結。
 
 ```python
 import aspose.slides as slides
@@ -257,37 +259,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-在此範例中，簡報與投影片查詢各回報三個點擊容器、兩個滑鼠懸停容器，以及三個包含任一動作的容器。文字框查詢則在每個類別中各回報一個容器。
+在此範例中，簡報與投影片的查詢各報告三個點擊容器、兩個滑鼠移過容器，以及三個任一動作的容器。文字框的查詢則在每個類別各報告一個容器。
 
 ### **分類動作與目的地**
 
-使用 [Hyperlink.action_type](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/action_type/) 先判斷動作類型，再解析其目的地。[HyperlinkActionType](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkactiontype/) 的值涵蓋超出網站導覽的情況：
+使用[Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) 先解析動作，再解析其目的地。[HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) 的值涵蓋了超出網頁導覽的情況：
 
-| 值 | 審核說明 |
+| 值 | 審核意義 |
 | --- | --- |
-| `HYPERLINK` | 外部超連結；檢查 URL 與其協議。 |
+| `HYPERLINK` | 外部超連結；檢查 URL 與其協定。 |
 | `JUMP_SPECIFIC_SLIDE` | 內部導覽至特定投影片。 |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | 內建投影片放映導覽，於放映情境中解析。 |
-| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | 結束目前的放映或啟動自訂放映。 |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | 內建投影片放映導覽，於投放情境中解析。 |
+| `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | 結束目前的放映或開始自訂放映。 |
 | `START_MACRO` | 執行巨集。 |
-| `START_PROGRAM` | 啟動程式。 |
+| `START_PROGRAM` | 執行程式。 |
 | `OPEN_FILE`, `OPEN_PRESENTATION` | 開啟檔案或其他簡報；需與網路 URL 分開審查。 |
 | `START_STOP_MEDIA` | 開始或停止媒體播放。 |
-| `NO_ACTION`, `UNKNOWN` | 無導覽動作，或未識別的動作，需要進一步檢查。 |
+| `NO_ACTION`, `UNKNOWN` | 無導覽動作，或未辨識的動作須審查。 |
 
-從 [external_url](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/external_url/) 讀取外部目的地，從 [target_slide](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/target_slide/) 讀取特定的內部目的地。內部動作與內建指令可能沒有外部 URL；空的 URL 不代表容器沒有動作。若 [external_url_original](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/external_url_original/) 與正規化後的 URL 不同，請保留原始值，並在可用時加入 [tooltip](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlink/tooltip/)。
+從[external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/)讀取外部目的地，從[target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/)讀取特定內部目的地。內部動作與內建指令可能沒有外部 URL；空的 URL 不代表容器沒有動作。當[external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/)與正規化 URL 不同時，請保留它，並於可用時包含[tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/)。
 
 ### **報告、清理與驗證超連結**
 
-以下 Python 範例讀取先前建立的簡報，寫入 `hyperlink-audit.json`，套用政策後儲存為 `hyperlink-sanitized.pptx`，再重新開啟以再次檢查兩種啟動方式。它在變更前先收集容器，並於每張投影片範圍僅查詢一次，以避免重複處理。簡報查詢涵蓋普通投影片；若需全套件盤點，範例亦會查詢普通投影片、母片、版面配置、備註，以及備註與講義母片（若存在）。
+以下 Python 範例讀取現有的簡報（使用上述建立的檔案），寫入 `hyperlink-audit.json`，套用政策，儲存為 `hyperlink-sanitized.pptx`，並再次開啟檢查兩種觸發類型。它在變更前收集容器，並對每個投影片範圍僅查詢一次，以避免重複處理。簡報查詢涵蓋普通投影片；若要進行套件層級的清點，範例會查詢普通投影片、母片、版面配置、備註，及存在時的備註與講義母片。
 
-報告會記錄以 1 為起點的投影片索引與（若可用）[slide_id](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/baseslide/slide_id/)。收集器會保留擁有投影片與範圍的參考。母片、版面配置與備註沒有普通投影片索引，會以其範圍識別。形狀容器與文字部份格式容器會分別標記；其他容器類型保留其執行時類型名稱。每個容器會取得報告本地 ID，以便關聯其兩個動作。
+報告會記錄以 1 為起始的投影片索引與[slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/)（若有）。收集器會保留擁有投影片與範圍資訊於每個回傳的容器。母片、版面配置與備註沒有普通投影片索引，會以其範圍辨識。圖形容器與文字片段格式容器會分別標記；其他容器類型保留其執行時類型名稱。每個容器會取得報告本地 ID，以便關聯其兩個動作。
 
-此政策僅允許絕對的 HTTPS URL 與有效的內部投影片目標。它會拒絕巨集、程式、檔案動作、其他投影片放映動作、未知動作以及其他 URL 協議。這些拒絕屬於政策決策，而非 Aspose.Slides 安全性的判斷。僅允許 HTTPS 並不代表可信任：請為您的應用程式加入主機白名單與其他檢查。原始與正規化的外部 URL 皆會被檢查。範例僅審核中繼資料，不會跟隨連結或執行動作。
+此刻意嚴格的應用政策僅允許絕對 HTTPS URL 與有效的內部投影片目標。它會拒絕巨集、程式、檔案動作、其他投影片放映動作、未知動作以及其他 URL 方案。這些拒絕屬於政策決策，而非 Aspose.Slides 安全性的判斷。僅有 HTTPS 並不足以建立信任：請為您的應用程式加入主機白名單與其他檢查。會同時檢查原始與正規化的外部 URL。範例僅審計中繼資料，未追蹤連結或執行動作。
 
-若需修正，容器的 [hyperlink_manager](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) 支援 [set_external_hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)、[remove_hyperlink_click](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) 與 [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)。此處會將被禁止的外部點擊連結取代為固定的 HTTPS 登陸頁面；其他被禁止的點擊與滑鼠懸停動作則分別移除。將 `replace_external_clicks` 設為 `False` 可直接移除所有政策違規項目。請於部署前預先決定應用程式擁有的取代頁面。
+若要修復，容器的[hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/)支援[set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/)、[remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/)與[remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/)。此處，會將被禁止的外部點擊連結取代為固定的 HTTPS 登陸頁面；其他被禁止的點擊與滑鼠移過動作則獨立移除。將 `replace_external_clicks` 設為 `False` 可改為移除所有政策違規。請於部署前選擇由應用程式擁有的替代頁面。
 
-報告的匯出旗標使用保守的 PDF 審查政策：將滑鼠懸停動作與除外部連結或特定投影片跳轉外的任何動作標記為可能不支援。這僅是審查提示，非功能測試，也不保證未被標記的連結在匯出時一定能保存。支援的 [PDF](/slides/zh-hant/python-net/convert-powerpoint-to-pdf/) 與 [HTML](/slides/zh-hant/python-net/convert-powerpoint-to-html/) 匯出可能會根據動作、匯出選項與檢視器保留超連結；光柵 [images](/slides/zh-hant/python-net/convert-powerpoint-to-png/) 與 [video](/slides/zh-hant/python-net/convert-powerpoint-to-video/) 無法保留互動超連結；在針對這些輸出作審核時請將每個動作都標記。
+報告的匯出標記使用保守的 PDF 審查政策：將滑鼠移過動作以及除外部連結或特定投影片跳轉之外的任何內容標記為可能不支援。這僅是審查提示，並非功能測試或保證未標記的連結在匯出時會保留。支援的[PDF](/slides/zh-hant/python-net/convert-powerpoint-to-pdf/)與[HTML](/slides/zh-hant/python-net/convert-powerpoint-to-html/)匯出可能會保留超連結，取決於動作、匯出選項與檢視器。點陣[圖像](/slides/zh-hant/python-net/convert-powerpoint-to-png/)與[影片](/slides/zh-hant/python-net/convert-powerpoint-to-video/)無法保留互動超連結；在針對這些輸出進行稽核時，請標記所有動作。
 
 ```python
 import json
@@ -330,7 +332,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # 查詢每個投影片範圍一次，並保留每個容器的擁有者。
+    # 只查詢每個投影片範圍一次，並保留每個容器的擁有者。
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -417,20 +419,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-以先前建立的輸入為例，報告包含五筆動作列。檔案滑鼠懸停連結與巨集點擊被移除，而 HTTPS 連結與內部投影片導覽保留下來。驗證階段列印出零項違規動作。若輸入包含被禁止的外部點擊 URL，亦會走取代分支。容器若同時有允許的點擊與被禁止的滑鼠懸停，將保留點擊動作。
+使用上述建立的輸入檔，報告包含五列動作。檔案滑鼠移過連結與巨集點擊被移除，HTTPS 連結與內部投影片導覽則保留。驗證結果顯示零個違規動作。若輸入包含被禁止的外部點擊 URL，亦會觸發替換分支。具有允許點擊且被禁止滑鼠移過的容器會保留其點擊動作。
 
-此選擇性清理與 [remove_all_hyperlinks](https://reference.aspose.com/slides/zh-hant/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) 的行為不同，後者會在所選範圍內無條件移除兩種啟動方式。此處的驗證僅檢查超連結動作，不會移除嵌入的 VBA 專案、OLE 物件或其他主動內容，也不會驗證匯出的 PDF 或 HTML 檔案。
+此選擇性清理與[remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/)不同，後者會在所選範圍內不顧政策地移除兩種觸發類型。此處的驗證僅檢查超連結動作；不會移除嵌入的 VBA 專案、OLE 物件或其他活躍內容，亦不會驗證匯出的 PDF 或 HTML 檔案。
 
 ## **常見問題**
 
-**如何將連結指向某個分節或其第一張投影片？**
+**如何將連結指向章節或其第一張投影片？**
 
-PowerPoint 中的分節是投影片的分組，但內部超連結只能指向單一投影片。若要導向分節，請將連結指向該分節的第一張投影片。
+PowerPoint 中的章節會將投影片分組，但內部超連結只能指向單一投影片。若要導覽至章節，請將連結指向該章節的第一張投影片。
 
 **我可以將超連結附加到母片元素，使其在所有投影片上都有效嗎？**
 
-可以。母片與版面配置的元素支援超連結。在投影片放映時，使用相應母片或版面配置的投影片皆會保有這些連結。
+可以。母片和版面配置元素支援超連結。這些元素上的連結會在使用相應母片或版面配置的投影片放映時可用。
 
-**匯出為 PDF、HTML、圖片或影片時，超連結會被保留嗎？**
+**在匯出為 PDF、HTML、圖像或影片時，超連結會被保留嗎？**
 
-支援的 PDF 與 HTML 匯出可能會保留超連結；光柵圖片與影片則不會保留。請參閱【[報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks)】中的匯出注意事項。
+支援的 PDF 與 HTML 匯出可能會保留超連結；點陣圖像與影片則無法。請參閱[報告、清理與驗證超連結](#report-sanitize-and-verify-hyperlinks)中的匯出注意事項。
