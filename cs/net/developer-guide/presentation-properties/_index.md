@@ -10,7 +10,7 @@ keywords:
 - Vlastnosti dokumentu
 - Vestavěné vlastnosti
 - Vlastní vlastnosti
-- Rozšířené vlastnosti
+- Pokročilé vlastnosti
 - Správa vlastností
 - Úprava vlastností
 - Metadata dokumentu
@@ -19,46 +19,38 @@ keywords:
 - Výchozí jazyk
 - PowerPoint
 - OpenDocument
-- prezentace
+- Prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Ovládejte vlastnosti prezentace v Aspose.Slides pro .NET a zjednodušte vyhledávání, branding a workflow ve svých souborech PowerPoint a OpenDocument."
+description: "Ovládněte vlastnosti prezentace v Aspose.Slides pro .NET a zjednodušte vyhledávání, značkování a workflow ve vašich souborech PowerPoint a OpenDocument."
 ---
 ## **Úvod**
 
-Aspose.Slides for .NET podporuje dva typy vlastností dokumentu: **Vestavěné** a **Vlastní**. Oba tyto typy vlastností lze snadno získat a spravovat pomocí API Aspose.Slides for .NET.
+Aspose.Slides pro .NET podporuje **vestavěné** a **vlastní** vlastnosti dokumentu. Použijte tyto vlastnosti k načtení a aktualizaci metadat prezentace, jako je autor, název a uživatelem definované hodnoty.
 
-Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím rozhraní [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/). Instanci tohoto rozhraní vrací [IPresentation.DocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/documentproperties/). Následující příklady ukazují, jak tyto vlastnosti číst, upravovat a spravovat.
+Aspose.Slides vám umožňuje pracovat s vlastnostmi dokumentu prezentace prostřednictvím rozhraní [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . Instance tohoto rozhraní je vrácena pomocí [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Následující příklady ukazují, jak tyto vlastnosti číst, upravovat a spravovat.
 
-{{% alert color="info" title="Poznámka" %}}
-Všimněte si, že pole **Application** a **Producer** nelze upravit, protože tato pole vždy zobrazí „Aspose Ltd.“ a „Aspose.Slides for .NET x.x.x“.
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides spravuje metadata aplikace a výrobce při ukládání prezentací; tato pole identifikují software, který výstup vytvořil.
+{{% /alert %}}
 
 ## **Správa vlastností prezentace**
 
-Microsoft PowerPoint poskytuje funkci pro přidávání vlastností do souborů prezentací. Tyto vlastnosti dokumentu umožňují ukládat užitečné informace spolu se soubory. Existují dva typy vlastností dokumentu:
+Vlastnosti dokumentu ukládají popisné informace vedle obsahu prezentace. Rozdělují se do dvou kategorií:
 
-- Systémově definované (vestavěné) vlastnosti
-- Uživatelem definované (vlastní) vlastnosti
+- **Vestavěné vlastnosti** obsahují standardní metadata, jako je název, autor a statistiky dokumentu.
+- **Vlastní vlastnosti** ukládají páry název/hodnota definované uživatelem.
 
-**Vestavěné** vlastnosti obsahují obecné informace o dokumentu, jako je název dokumentu, jméno autora, statistiky dokumentu a další.
-
-**Vlastní** vlastnosti jsou definovány uživateli jako páry **Název/Hodnota**, kde jak název, tak hodnota jsou zadány uživatelem.
-
-Pomocí Aspose.Slides pro .NET mohou vývojáři získávat a upravovat jak vestavěné, tak vlastní vlastnosti.
-
-Microsoft PowerPoint umožňuje uživatelům spravovat vlastnosti dokumentu kliknutím na ikonu Office a následným výběrem **Soubor → Informace → Vlastnosti**. Po zvolení **Rozšířené vlastnosti** se zobrazí dialogové okno, kde můžete spravovat všechny vlastnosti dokumentu souboru prezentace.
-
-V dialogovém okně **Vlastnosti** je několik záložek, jako jsou **Obecné**, **Shrnutí**, **Statistiky**, **Obsah** a **Vlastní**. Každá záložka poskytuje možnosti pro konfiguraci konkrétních typů informací souvisejících se souborem PowerPoint. Záložka **Vlastní** slouží ke správě uživatelem definovaných vlastností.
+Aspose.Slides pro .NET poskytuje přístup k oběma kategoriím. V PowerPointu vyberte **File → Info → Properties → Advanced Properties** pro prohlédnutí metadat dokumentu. Dialog seskupuje informace do záložek jako **Summary**, **Statistics**, **Contents** a **Custom**. Použijte záložku **Custom** pro správu uživatelem definovaných vlastností.
 
 ## **Čtení veřejných vlastností z šifrované prezentace**
 
-Otevírací heslo obvykle chrání jak obsah prezentace, tak vlastnosti dokumentu. Když je prezentace šifrována s nastavením [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) na `false`, její vlastnosti dokumentu zůstávají veřejné. Aplikace pak může nastavit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) na `true` a číst veřejná metadata bez zadání otevíracího hesla.
+Cílové heslo obvykle chrání jak obsah prezentace, tak vlastnosti dokumentu. Když je prezentace šifrována pomocí [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) nastaveného na `false`, zůstávají její vlastnosti dokumentu veřejné. Aplikace pak může nastavit [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) na `true` a číst veřejná metadata bez zadání otevíracího hesla.
 
-`OnlyLoadDocumentProperties` určuje, co Aspose.Slides načte; neprovádí žádné dešifrování. Pokud byly vlastnosti zahrnuty do šifrování, jejich načtení bez hesla selže. Pokud prezentace není šifrována, volba je ignorována a načte se celá prezentace.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) řídí, co Aspose.Slides načítá; neprovádí žádné dešifrování. Pokud byly vlastnosti zahrnuty do šifrování, načtení bez hesla selže. Pokud prezentace není šifrována, volba se ignoruje a načte se celá prezentace.
 
-Následující příklad ověřuje režim načítání pomocí [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cs/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) a poté čte vestavěné vlastnosti pomocí [IPresentation.DocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/documentproperties/):
+Příklad vyžaduje šifrovanou prezentaci, jejíž vlastnosti dokumentu byly ponechány veřejné. Ověřuje režim načítání pomocí [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) a poté čte vestavěné vlastnosti pomocí [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -69,11 +61,11 @@ using var presentation = new Presentation("public-properties-encrypted.pptx", lo
 
 if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
 {
-    var properties = presentation.DocumentProperties;
+    var documentProperties = presentation.DocumentProperties;
 
-    Console.WriteLine("Author: " + properties.Author);
-    Console.WriteLine("Title: " + properties.Title);
-    Console.WriteLine("Keywords: " + properties.Keywords);
+    Console.WriteLine("Author: " + documentProperties.Author);
+    Console.WriteLine("Title: " + documentProperties.Title);
+    Console.WriteLine("Keywords: " + documentProperties.Keywords);
 }
 else
 {
@@ -81,17 +73,17 @@ else
 }
 ```
 
-V tomto režimu není načten obsah snímků. Snímky, předlohy, rozvržení, tvary, média a další objekty prezentace nejsou k dispozici. Aplikace by měly vždy zkontrolovat `IsOnlyDocumentPropertiesLoaded` před provedením operace, která vyžaduje kompletní objektový model prezentace.
+V tomto režimu se nenačítá obsah snímků. Snímky, předlohy, rozvržení, tvary, média a další objekty prezentace nejsou k dispozici. Aplikace by měly vždy zkontrolovat [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/), než provádějí operaci vyžadující kompletní model objektů prezentace.
 
-{{% alert color="warning" title="Bezpečnost" %}}
-Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti společně s prezentací. Udržujte je veřejné pouze tehdy, když indexování, klasifikace, vyhledávání nebo systémy pro správu dokumentů vyžadují specifický přístup k nim bez hesla.
+{{% alert color="warning" title="Security" %}}
+Veřejná metadata mohou odhalit jména autorů, názvy, předměty, klíčová slova, informace o společnosti, komentáře a vlastní hodnoty. Šifrujte citlivé vlastnosti spolu s prezentací. Nechte je veřejné pouze tehdy, když indexování, klasifikace, vyhledávání nebo systémy pro správu dokumentů mají konkrétní požadavek na přístup k nim bez hesla.
 {{% /alert %}}
 
 ## **Aktualizace vlastností šifrované prezentace**
 
-Pro šifrovaný soubor PPTX je prezentace načtená s `OnlyLoadDocumentProperties` určena pouze pro čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu jen s metadaty, protože veřejné vlastnosti musí zůstat konzistentní s odpovídajícími daty uvnitř šifrované prezentace. Proto jejich aktualizace vyžaduje správné otevírací heslo a úplné načtení.
+Pro šifrovaný soubor PPTX je prezentace načtená pomocí [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) určena pro čtení veřejných metadat. Aspose.Slides nemůže uložit změněné vlastnosti z tohoto objektu obsahujícího pouze metadata, protože veřejné vlastnosti musí zůstat v souladu s odpovídajícími daty uvnitř šifrované prezentace. Aktualizace tedy vyžaduje správné otevírací heslo a úplné načtení.
 
-Následující příklad otevře prezentaci pomocí [LoadOptions.Password](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/password/), aktualizuje veřejné vestavěné vlastnosti a výsledek uloží. Poté použije [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentationinfo/isencrypted/) k ověření, že šifrování je zachováno, a znovu otevře veřejná metadata bez hesla pro ověření nových hodnot:
+Příklad vyžaduje šifrovanou PPTX prezentaci s veřejnými vlastnostmi dokumentu a známým otevíracím heslem. Otevře kompletní prezentaci pomocí [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), aktualizuje veřejné vestavěné vlastnosti a uloží výsledek. Poté použije [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) , aby ověřil, že šifrování bylo zachováno, a znovu otevře veřejná metadata bez hesla pro ověření nových hodnot:
 
 ```csharp
 using System;
@@ -101,14 +93,14 @@ using Aspose.Slides.Export;
 const string inputPath = "public-properties-encrypted.pptx";
 const string outputPath = "updated-public-properties-encrypted.pptx";
 
-{
-    var loadOptions = new LoadOptions { Password = "open_password" };
-    using var presentation = new Presentation(inputPath, loadOptions);
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation(inputPath, loadOptions);
 
-    presentation.DocumentProperties.Title = "Updated Product Roadmap";
-    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
-    presentation.Save(outputPath, SaveFormat.Pptx);
-}
+var documentProperties = presentation.DocumentProperties;
+documentProperties.Title = "Updated Product Roadmap";
+documentProperties.Keywords = "roadmap, planning, indexed";
+
+presentation.Save(outputPath, SaveFormat.Pptx);
 
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
 Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
@@ -127,142 +119,159 @@ else
 }
 ```
 
-Pokud aplikace nemá povoleno dešifrovat nebo načíst obsah prezentace, musí veřejné vlastnosti šifrovaného souboru PPTX považovat za pouze ke čtení.
+Pokud aplikace není oprávněna dešifrovat nebo načíst obsah prezentace, musí veřejné vlastnosti šifrovaného souboru PPTX považovat za pouze ke čtení.
 
 ## **Přístup k vestavěným vlastnostem**
 
-Tyto vlastnosti, které jsou zpřístupněny rozhraním [IDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/idocumentproperties/), zahrnují: **Creator** (Autor), **Description**, **Keywords**, **Created** (Datum vytvoření), **Modified** (Datum úpravy), **Printed** (Datum posledního tisku), **LastModifiedBy**, **SharedDoc** (indikátor, zda je dokument sdílen mezi různými producenty), **PresentationFormat**, **Subject**, **Title** a další.
+Rozhraní [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) poskytuje vestavěná metadata prostřednictvím typovaných vlastností, včetně [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), a [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Tento příklad otevře existující prezentaci a vypíše její uložená metadata do konzole. Hodnoty závisí na vstupní prezentaci; některá pole mohou být prázdná.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
+using var presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// Get a reference to the object of type IDocumentProperties associated with the presentation.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Display the Built-in properties.
-Console.WriteLine("Category : " + documentProperties.Category);
-Console.WriteLine("Content status : " + documentProperties.ContentStatus);
-Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
-Console.WriteLine("Author : " + documentProperties.Author);
-Console.WriteLine("Comments : " + documentProperties.Comments);
-Console.WriteLine("Key words : " + documentProperties.Keywords);
-Console.WriteLine("Last modified by : " + documentProperties.LastSavedBy);
-Console.WriteLine("Manager : " + documentProperties.Manager);
-Console.WriteLine("Modified date : " + documentProperties.LastSavedTime);
-Console.WriteLine("Presentation format : " + documentProperties.PresentationFormat);
-Console.WriteLine("Last print date : " + documentProperties.LastPrinted);
-Console.WriteLine("Is shared between producers : " + documentProperties.SharedDoc);
-Console.WriteLine("Subject : " + documentProperties.Subject);
-Console.WriteLine("Title : " + documentProperties.Title);
+Console.WriteLine("Category: " + documentProperties.Category);
+Console.WriteLine("Content status: " + documentProperties.ContentStatus);
+Console.WriteLine("Creation date: " + documentProperties.CreatedTime);
+Console.WriteLine("Author: " + documentProperties.Author);
+Console.WriteLine("Comments: " + documentProperties.Comments);
+Console.WriteLine("Keywords: " + documentProperties.Keywords);
+Console.WriteLine("Last modified by: " + documentProperties.LastSavedBy);
+Console.WriteLine("Manager: " + documentProperties.Manager);
+Console.WriteLine("Modified date: " + documentProperties.LastSavedTime);
+Console.WriteLine("Presentation format: " + documentProperties.PresentationFormat);
+Console.WriteLine("Last print date: " + documentProperties.LastPrinted);
+Console.WriteLine("Is shared between producers: " + documentProperties.SharedDoc);
+Console.WriteLine("Subject: " + documentProperties.Subject);
+Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
 ## **Úprava vestavěných vlastností**
 
-Úprava vestavěných vlastností souborů prezentace je stejně snadná jako jejich získávání. Jednoduše přiřadíte řetězcovou hodnotu libovolné požadované vlastnosti a hodnota vlastnosti bude aktualizována. V níže uvedeném příkladu ukazujeme, jak upravit vestavěné vlastnosti dokumentu prezentace.
+Pro aktualizaci vestavěných metadat přiřaďte hodnoty zapisovatelným vlastnostem poskytovaným prostřednictvím [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Tento příklad otevře existující prezentaci, nastaví [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), a [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), poté uloží aktualizovanou prezentaci pomocí [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Uložený PPTX obsahuje nová metadata.
 
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
+using var presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// Získejte odkaz na objekt typu IDocumentProperties spojený s prezentací.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Nastavte vestavěné vlastnosti.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Uložte prezentaci do souboru.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Přidání vlastních vlastností prezentace**
+## **Správa základní adresy hypertextových odkazů**
 
-Vlastní vlastnosti prezentace umožňují vývojářům ukládat další metadata nebo konkrétní informace do souboru prezentace. Aspose.Slides usnadňuje vytváření a správu těchto vlastních vlastností programově. Následující příklady ukazují, jak přidat vlastní vlastnosti do vašich prezentací.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) ukládá úroveň dokumentu jako základ pro relativní hypertextové odkazy. To je užitečné při přesunu prezentace a souvisejících souborů na jiné místo. Je oddělený od individuálního odkazu [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/): změna základu nepřepíše uložené adresy odkazů ani nezmění absolutní cíle.
 
-```cs
+Příklad vyžaduje prezentaci obsahující jak relativní odkaz, například `target.html`, tak absolutní odkaz, například `https://example.org/absolute.html`. Načte existující základ, přiřadí novou základní adresu a uloží a znovu otevře prezentaci pro kontrolu hodnoty. Poté vymaže základ pomocí `string.Empty` a ověří prázdnou hodnotu v samostatném uloženém souboru. Nahraďte ukázkovou základní adresu umístěním vašich odkazovaných souborů.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvořte instanci třídy Presentation.
-using Presentation presentation = new Presentation();
+using var presentation = new Presentation("hyperlinks.pptx");
+Console.WriteLine("Original base: " + presentation.DocumentProperties.HyperlinkBase);
 
-// Získejte odkaz na objekt typu IDocumentProperties spojený s prezentací.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+const string newBase = "https://example.com/new/";
+presentation.DocumentProperties.HyperlinkBase = newBase;
+presentation.Save("hyperlinks-updated.pptx", SaveFormat.Pptx);
 
-// Přidejte vlastní vlastnosti.
+using var updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+Console.WriteLine("Base preserved: " + (updatedPresentation.DocumentProperties.HyperlinkBase == newBase));
+
+updatedPresentation.DocumentProperties.HyperlinkBase = string.Empty;
+updatedPresentation.Save("hyperlinks-cleared.pptx", SaveFormat.Pptx);
+
+using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
+```
+
+Dvě ověřovací zprávy by měly vypsat `True`. Vymazání základu ponechá jednotlivé adresy hypertextových odkazů nedotčeny.
+
+Relativní odkaz na `target.pptx` otevřel `old/target.pptx`, když základ ukazoval na složku `old`. Po změně základu na složku `new`, uložení a znovu otevření prezentace otevřel stejný odkaz `new/target.pptx`. Absolutní odkaz nadále otevíral stejný soubor. Otestujte své relativní odkazy v PowerPointu před a po přesunu prezentace nebo změně jejího základu.
+
+## **Přidání vlastních vlastností prezentace**
+
+Vlastní vlastnosti ukládají metadata, která nemají odpovídající vestavěné pole. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) vám umožňuje přiřadit hodnotu podle názvu vlastnosti. Tento příklad vytvoří prezentaci, přidá dva textové hodnoty a celočíselnou verzi a uloží prezentaci pomocí [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Přiřazení hodnoty k existujícímu názvu nahradí hodnotu této vlastnosti.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var documentProperties = presentation.DocumentProperties;
+
 documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// Uložte prezentaci do souboru.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Přístup a úprava vlastních vlastností**
 
-Aspose.Slides také umožňuje vývojářům snadno získat existující vlastní vlastnosti a upravit jejich hodnoty. Tato funkce pomáhá udržovat přesná metadata a podporuje dynamické aktualizace na základě vstupu uživatele nebo obchodní logiky. Níže uvedené příklady ilustrují, jak získat a aktualizovat hodnoty vlastních vlastností v prezentaci.
+Tento příklad otevře prezentaci obsahující vlastní vlastnosti a použije [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) , aby je iteroval. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) přijímá index od nuly a vrací název použitý [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). Příklad vytiskne každý původní název a hodnotu, nahradí každou hodnotu číslovaným řetězcem bez ohledu na původní typ a uloží změny. Pokud neexistují žádné vlastní vlastnosti, smyčka neprovede žádné změny.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX.
-using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
+using var presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Získejte odkaz na objekt typu IDocumentProperties spojený s prezentací.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Získejte a upravte vlastní vlastnosti.
-for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
+for (var i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
-    string propertyName = documentProperties.GetCustomPropertyName(i);
-    object propertyValue = documentProperties[propertyName];
+    var propertyName = documentProperties.GetCustomPropertyName(i);
+    var propertyValue = documentProperties[propertyName];
 
-    // Zobrazte název a hodnotu vlastní vlastnosti.
-    Console.WriteLine("Custom property name : " + propertyName);
-    Console.WriteLine("Custom property value : " + propertyValue);
+    Console.WriteLine("Custom property name: " + propertyName);
+    Console.WriteLine("Custom property value: " + propertyValue);
 
-    // Upravte hodnotu vlastní vlastnosti.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// Uložte prezentaci do souboru.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Živý příklad**
+## **Ukázkový příklad**
 
-Vyzkoušejte online aplikaci [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/cs/metadata) a zjistěte, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
+Vyzkoušejte online aplikaci [**Zobrazit a upravit metadata PowerPoint**](https://products.aspose.app/slides/metadata), abyste viděli, jak pracovat s vlastnostmi dokumentu pomocí API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/cs/metadata)
+[![Zobrazit a upravit metadata PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Často kladené otázky**
 
-**Jak mohu odebrat vestavěnou vlastnost z prezentace?**
+**Jak mohu odstranit vestavěnou vlastnost z prezentace?**
 
-Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je zcela odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
+Vestavěné vlastnosti jsou nedílnou součástí prezentace a nelze je úplně odstranit. Můžete však změnit jejich hodnoty nebo je nastavit na prázdné, pokud to konkrétní vlastnost umožňuje.
 
 **Co se stane, když přidám vlastní vlastnost, která již existuje?**
 
-Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte předtím vlastnost odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje hodnotu vlastnosti.
+Pokud přidáte vlastní vlastnost, která již existuje, její stávající hodnota bude přepsána novou. Nemusíte vlastnost předtím odstraňovat nebo kontrolovat, protože Aspose.Slides automaticky aktualizuje její hodnotu.
 
-**Mohu přistupovat k vlastnostem prezentace bez kompletního načtení prezentace?**
+**Mohu získat přístup k vlastnostem prezentace bez úplného načtení prezentace?**
 
-Ano. Použijte [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/presentationfactory/getpresentationinfo/) a poté [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentationinfo/readdocumentproperties/) k načtení uložených metadat dokumentu bez vytvoření instance [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/net/examine-presentation/) pro kompletní příklad reportování a omezení specifická pro formát.
+Ano. Použijte [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) a poté [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/), abyste načetli uložená metadata dokumentu, aniž byste vytvářeli instanci [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Viz [Build a Lightweight Presentation Inventory](/slides/cs/net/examine-presentation/) pro kompletní ukázku reportování a omezení specifická pro formát.
 
-**Mohu číst veřejné vlastnosti šifrované prezentace bez jejího otevíracího hesla?**
+**Mohu číst veřejné vlastnosti šifrované prezentace bez otevíracího hesla?**
 
-Ano. Prezentace musí být šifrována s nastavením `EncryptDocumentProperties` na `false` a musí být načtena s nastavením `OnlyLoadDocumentProperties` na `true`.
+Ano. Prezentace musí být šifrována pomocí [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) nastaveného na `false` a musí být načtena s [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) nastaveným na `true`.
 
 **Mohu aktualizovat šifrovaný soubor PPTX v režimu pouze vlastnosti dokumentu?**
 
-Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, proto aktualizace šifrovaného souboru PPTX vyžaduje načtení celé prezentace se správným otevíracím heslem.
+Ne. Veřejná a šifrovaná data vlastností musí zůstat konzistentní, takže aktualizace šifrovaného souboru PPTX vyžaduje načtení kompletní prezentace se správným otevíracím heslem.

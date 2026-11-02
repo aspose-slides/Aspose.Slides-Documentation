@@ -1,49 +1,53 @@
 ---
-title: مدیریت هایپرلینک‌های ارائه در جاوا
-linktitle: مدیریت هایپرلینک‌ها
+title: مدیریت ابرپیوندهای ارائه در جاوا
+linktitle: مدیریت ابرپیوندها
 type: docs
 weight: 20
 url: /fa/java/manage-hyperlinks/
 keywords:
 - افزودن URL
-- افزودن هایپرلینک
-- ایجاد هایپرلینک
-- قالب‌بندی هایپرلینک
-- حذف هایپرلینک
-- به‌روزرسانی هایپرلینک
-- هایپرلینک متن
-- هایپرلینک اسلاید
-- هایپرلینک شکل
-- هایپرلینک تصویر
-- هایپرلینک ویدئو
-- هایپرلینک قابل تغییر
+- افزودن ابرپیوند
+- ایجاد ابرپیوند
+- قالب‌بندی ابرپیوند
+- حذف ابرپیوند
+- به‌روزرسانی ابرپیوند
+- ابرپیوند متن
+- ابرپیوند اسلاید
+- ابرپیوند شکل
+- ابرپیوند تصویر
+- ابرپیوند ویدئو
+- ابرپیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
 - Java
 - Aspose.Slides
-description: "افزودن، قالب‌بندی، به‌روزرسانی و حذف هایپرلینک‌ها در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای جاوا، با استفاده از مثال‌های جاوا."
+description: "اضافه‌کردن، قالب‌بندی، به‌روزرسانی و حذف ابرپیوندها در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای جاوا، با استفاده از نمونه‌های جاوا."
 ---
 ## **معرفی**
 
-یک پیوند اینترنتی محتویات ارائه را به یک وب‌سایت یا موقعیتی درون ارائه متصل می‌کند. در پاورپوینت، هایپرلینک‌ها معمولاً دو هدف دارند:
+یک ابرپیوند محتویات ارائه را به یک وب‌سایت یا به موقعیتی داخل ارائه متصل می‌کند. در PowerPoint، ابرپیوندها معمولاً دو هدف را دنبال می‌کنند:
 
 * باز کردن یک وب‌سایت از متن، یک شکل یا یک قاب رسانه‌ای.
-* جابجایی به اسلاید دیگری، برای مثال از فهرست مطالب.
+* رفتن به اسلاید دیگری، برای مثال، از فهرست مطالب.
 
-Aspose.Slides for Java به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صدای آنها را کنترل کنید، ویژگی‌هایشان را به‌روز کنید و حذف کنید. مثال‌های زیر نشان می‌دهند چگونه با هایپرلینک‌ها روی عناصر جداگانه کار کنید و چگونه به هایپرلینک‌ها در سطح ارائه، اسلاید یا قاب متن دسترسی پیدا کنید.
+Aspose.Slides for Java به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صدای آن‌ها را کنترل کنید، ویژگی‌هایشان را به‌روزرسانی کنید و حذف کنید. مثال‌های زیر نشان می‌دهند چگونه با ابرپیوندها بر روی عناصر منفرد کار کنید و چگونه به ابرپیوندها در سطح ارائه، اسلاید یا قاب متن دسترسی داشته باشید.
 
 {{% alert color="info" title="Note" %}}
-شما می‌توانید ارائه‌ها را با [free online Aspose PowerPoint editor](https://products.aspose.app/slides/fa/editor) ویرایش کنید.
+
+شما همچنین می‌توانید ارائه‌ها را با [ویرایشگر رایگان آنلاین Aspose PowerPoint](https://products.aspose.app/slides/editor) ویرایش کنید.
+
 {{% /alert %}} 
 
-## **افزودن پیوندهای URL**
+## **افزودن ابرپیوندهای URL**
 
-می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک قاب رسانه‌ای اختصاص دهید. عنصری که پیوند را به آن اختصاص می‌دهید، ناحیه قابل کلیک را تعیین می‌کند: بخشی از متن تنها متن انتخاب‌شده را لینک می‌کند، در حالی که یک شکل یا قاب کل شی اسلاید را لینک می‌کند.
+شما می‌توانید URL یک وب‌سایت را به متن، یک شکل یا یک قاب رسانه‌ای اختصاص دهید. عنصری که به آن ابرپیوند اختصاص می‌دهید، ناحیه قابل‌کلیک را تعیین می‌کند: یک بخش متن لینک متن انتخاب‌شده را می‌سازد، در حالی که یک شکل یا قاب، شی اسلاید را لینک می‌کند.
 
-### **افزودن پیوندهای URL به متن**
+برای ارائه‌های حاوی ابرپیوندهای نسبی، به [مدیریت پایه ابرپیوند](/slides/fa/java/presentation-properties/#manage-the-hyperlink-base) مراجعه کنید تا پایه سطح سند را بخوانید، تغییر دهید یا پاک کنید.
 
-برای اتصال متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/hyperlink/) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) بخشی از متن پاس دهید، همان‌طور که در زیر نشان داده شده است. تنها همان بخش متن قابل کلیک می‌شود.
+### **افزودن ابرپیوندهای URL به متن**
+
+برای لینک کردن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) بخش متن پاس کنید، همان‌طور که در زیر نشان داده شده است. تنها آن بخش از متن قابل کلیک می‌شود.
 
 ```java
 import com.aspose.slides.*;
@@ -63,11 +67,11 @@ try {
 }
 ```
 
-### **افزودن پیوندهای URL به اشکال و قاب‌های رسانه‌ای**
+### **افزودن ابرپیوندهای URL به شکل‌ها و قاب‌های رسانه‌ای**
 
-برای قابل کلیک کردن یک شکل یا قاب، متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) آن را فراخوانی کنید. پیوند به خود شی تعلق دارد نه به بخشی از متن داخل آن.
+برای قابل کلیک کردن یک شکل یا قاب، متد [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) آن را صدا بزنید. ابرپیوند به خود شی مربوط است نه به بخش متنی داخل آن.
 
-همین روش برای قاب‌های تصویر، صدا و ویدیو اعمال می‌شود: پیوند را به قاب اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) را فراخوانی کنید.
+رویکرد مشابه برای قاب‌های تصویر، صدا و ویدئو اعمال می‌شود: ابرپیوند را به قاب اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) را فراخوانی کنید.
 
 مثال زیر یک مستطیل را قابل کلیک می‌کند:
 
@@ -87,9 +91,9 @@ try {
 }
 ```
 
-## **استفاده از هایپرلینک‌ها برای ایجاد فهرست مطالب**
+## **استفاده از ابرپیوندها برای ایجاد فهرست مطالب**
 
-هایپرلینک‌های داخلی به خوانندگان امکان می‌دهند از فهرست مطالب به اسلاید خاصی بپرند. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) برای لینک کردن متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
+ابرفیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید خاصی پرش کنند. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) برای لینک کردن متن «صفحه ۲» در اسلاید اول به اسلاید دوم استفاده می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -123,13 +127,13 @@ try {
 }
 ```
 
-## **قالب‌بندی هایپرلینک‌ها**
+## **قالب‌بندی ابرپیوندها**
 
 ### **رنگ**
 
-متد [setColorSource](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setColorSource-int-) از رابط [IHyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/) تعیین می‌کند که آیا یک هایپرلینک از رنگ هایپرلینک ارائه یا از قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ متن سفارشی، [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/hyperlinkcolorsource/) را انتخاب کرده و رنگ پر شدن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
+متد [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) از [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) تعیین می‌کند که آیا یک ابرپیوند از رنگ ابرپیوند ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ متن سفارشی، گزینه [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
 
-مثال زیر دو هایپرلینک متنی را به همان اسلاید اضافه می‌کند. اولین آن با پر شدن متن قرمز است، در حالی که دومین از رنگ پیش‌فرض هایپرلینک استفاده می‌کند.
+مثال زیر دو ابرپیوند متنی به همان اسلاید اضافه می‌کند. اولین ابرپیوند از پر رنگ قرمز متن استفاده می‌کند، در حالی که دومین ابرپیوند رنگ پیش‌فرض ابرپیوند را حفظ می‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -157,14 +161,14 @@ try {
 
 ### **صدا**
 
-یک هایپرلینک می‌تواند هنگام فعال شدن صدا پخش کند یا صدایی که قبلاً پخش می‌شود متوقف کند. از متدهای زیر برای پیکربندی این رفتارها استفاده کنید:
+یک ابرپیوند می‌تواند هنگام فعال‌شدن صدا پخش کند یا صدایی که در حال پخش است متوقف کند. از روش‌های زیر برای پیکربندی این رفتارها استفاده کنید:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) صدای مرتبط با هایپرلینک را مشخص می‌کند.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) کنترل می‌کند که آیا فعال‌سازی هایپرلینک صدا را متوقف می‌کند یا نه.
+- متد [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) صدای مرتبط با ابرپیوند را تعیین می‌کند.
+- متد [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) کنترل می‌کند که آیا فعال‌سازی ابرپیوند صدای قبلی را متوقف می‌کند یا نه.
 
-#### **افزودن صدای هایپرلینک**
+#### **افزودن صدای ابرپیوند**
 
-مثال زیر فایل `sampleaudio.wav` را بارگذاری کرده و به دکمه‌ای در اسلاید اول پیوند می‌دهد. کلیک بر دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌برد. یک شکل دوم در همان اسلاید هنگام کلیک صدای قبلی را متوقف می‌کند، بدون انجام هیچ عمل ناوبری.
+مثال زیر فایل `sampleaudio.wav` را بارگذاری کرده و آن را به یک دکمه در اسلاید اول نسبت می‌دهد. کلیک بر روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌رود. یک شکل دوم در همان اسلاید با کلیک، صدای قبلی را متوقف می‌کند، بدون اینکه عمل ناوبری انجام دهد.
 
 ```java
 import com.aspose.slides.*;
@@ -202,9 +206,9 @@ try {
 }
 ```
 
-#### **استخراج صدای هایپرلینک**
+#### **استخراج صدای ابرپیوند**
 
-مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صداى هایپرلینک اولین شکل را از طریق متدهای [getSound](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getSound--) و [getBinaryData](https://reference.aspose.com/slides/fa/java/com.aspose.slides/iaudio/#getBinaryData--) به حافظه می‌خواند.
+مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صدای ابرپیوند اولین شکل را از طریق متدهای [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) و [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--) به حافظه می‌خواند.
 
 ```java
 import com.aspose.slides.*;
@@ -228,18 +232,18 @@ try {
 }
 ```
 
-### **نکته‌ابری و تنظیمات تعامل**
+### **راهنما و تنظیمات تعامل**
 
-پس از اختصاص یک هایپرلینک به متن یا شکل می‌توانید متدهای زیر از رابط [IHyperlink](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/) را فراخوانی کنید:
+پس از اختصاص ابرپیوند به متن یا شکل، می‌توانید متدهای زیر از [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) را فراخوانی کنید:
 
-- [setTooltip](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) متنی را تنظیم می‌کند که نمایشگر می‌تواند به‌عنوان راهنمای پیوند نشان دهد.
-- [setTargetFrame](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) قاب هدف را درون یک فریم‌ست HTML والد، در صورت امکان، مشخص می‌کند.
-- [setHistory](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) کنترل می‌کند که آیا فعال‌سازی پیوند مقصد آن را به فهرست پیوندهای بازدید شده اضافه می‌کند یا نه.
-- [setHighlightClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) تعیین می‌کند که آیا هایپرلینک هنگام کلیک برجسته شود یا خیر.
+- متد [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) متنی را تنظیم می‌کند که بیننده می‌تواند به عنوان راهنمایی برای لینک نمایش دهد.
+- متد [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) فریم هدف را در داخل یک فریم‌ست HTML والد، در صورت امکان، مشخص می‌کند.
+- متد [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) کنترل می‌کند که آیا فعال‌سازی لینک مقصد آن را به فهرست ابرپیوندهای مشاهده‌شده اضافه می‌کند یا نه.
+- متد [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) کنترل می‌کند که آیا ابرپیوند هنگام کلیک برجسته شود یا نه.
 
-## **حذف هایپرلینک‌ها از ارائه‌ها**
+## **حذف ابرپیوندها از ارائه‌ها**
 
-از متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) برای جمع‌آوری مخازن هایپرلینک، از جمله پیوندهای بخش متن، قبل از تغییر آنها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط [removeHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) را فراخوانی کنید؛ حذف عمل کلیک هم‌زمان عمل ماوس‌اور را حذف نمی‌کند.
+از متد [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) برای جمع‌آوری کانتینرهای ابرپیوند، از جمله لینک‌های بخش متن، پیش از تغییر آن‌ها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف فقط یک نوع، فقط متد [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) را صدا بزنید؛ حذف عمل کلیک، معادل بازدارنده ماوس را حذف نمی‌کند.
 
 ```java
 import com.aspose.slides.*;
@@ -266,23 +270,23 @@ try {
 }
 ```
 
-برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) هر دو نوع فعال‌سازی را در محدودهٔ انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، لایه‌ها و یادداشت‌ها، به بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، طرح‌ها و یادداشت‌ها، به [گزارش، تصفیه و تأیید ابرپیوندها](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
 
-## **ساخت یک موجودی کامل از هایپرلینک‌ها**
+## **ساخت موجودی کامل ابرپیوندها**
 
-قبل از توزیع یک ارائه، اقدامات تعاملی و لینک‌های وب آن را فهرست کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) اشیای [IHyperlinkContainer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/) را برمی‌گرداند، نه یک لیست ساده از رشته‌های URL. هر مخزن را با [getHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) بررسی کنید. آنها مستقل هستند: یک مخزن می‌تواند هر دو عمل را دربرگیرد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر مخزن نیاز داشته باشد.
+قبل از توزیع یک ارائه، موجودی اقدامات تعاملی و وب‌لینک‌های آن را تهیه کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) اشیاء [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) را بر می‌گرداند، نه فهرست ساده‌ای از رشته‌های URL. هر دو متد [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) را برای هر کانتینر بررسی کنید. این‌ها مستقل هستند: همان کانتینر می‌تواند هر دو عمل را نشان دهد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر کانتینر نیاز داشته باشد.
 
-فقط جستجو در سطح شکل می‌تواند پیوندهای متصل به بخش‌های متن را از دست بدهد. به‌جای آن دامنهٔ مناسب را جستجو کنید و مخازن بازگردانده‌شده را نگه دارید تا بعدها بتوانید اعمال آنها را به‑روز یا حذف کنید.
+اسکن فقط ابرپیوندهای سطح شکل می‌تواند لینک‌های متصل به بخش‌های متنی را از دست بدهد. به‌جای آن، محدوده مناسب را پرس و جو کنید و کانتینرهای برگردانده‌شده را حفظ کنید تا بعدها بتوانید اقدامات آن‌ها را به‌روزرسانی یا حذف کنید.
 
-### **پرس‌و‌جوی دامنه‌های ارائه، اسلاید و قاب متن**
+### **پرس و جو محدوده‌های ارائه، اسلاید و قاب‑متن**
 
-رابط [IHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/) از طریق متدهای [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--)، [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) و [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) در دسترس است. هر دامنه همان پرس‌و‌جوها را پشتیبانی می‌کند:
+رابطه [IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) از طریق متدهای [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), و [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) در دسترس است. هر محدوده همان پرس‌وجوها را پشتیبانی می‌کند:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) مخازن حاوی عمل کلیک را برمی‌گرداند.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) مخازن حاوی عمل ماوس‌اور را برمی‌گرداند.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) مخازن حاوی یکی یا هر دو عمل را برمی‌گرداند.
+- متد [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) کانتینرهای دارای عمل کلیک را بر می‌گرداند.
+- متد [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) کانتینرهای دارای عمل ماوس‑اور را بر می‌گرداند.
+- متد [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) کانتینرهایی که یکی یا هر دو عمل را دارند بر می‌گرداند.
 
-مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک ماوس‌اور فایل، ناوبری اسلاید داخلی، یک لینک ماوس‌اور متن و یک عمل ماکرو است. این مثال هیچ‌یک از این اعمال را اجرا نمی‌کند. همان سه پرس‌و‌جو در هر دامنه کار می‌کند؛ شمارش‌ها نشان‌دهندهٔ تعداد مخازن هستند، نه مجموع اعمال. دامنهٔ قاب متن لینک‌های خود شکل محاط‌کننده را شامل نمی‌شود.
+مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک ماوس‑اور بر روی فایل، ناوبری داخلی اسلاید، یک لینک ماوس‑اور متنی و یک عمل ماکرو است. این مثال هیچ‌یک از این اعمال را اجرا نمی‌کند. همان سه پرس‌وجو در هر محدوده کار می‌کند؛ شمارش‌ها نشان‌دهنده تعداد کانتینرها هستند، نه مجموع اعمال. محدودهٔ قاب‑متن لینک‌های خود شکل حاکم را نادیده می‌گیرد.
 
 ```java
 import com.aspose.slides.*;
@@ -322,37 +326,37 @@ try {
 }
 ```
 
-در این مثال، پرس‌و‌جوهای ارائه و اسلاید هر کدام سه مخزن کلیک، دو مخزن ماوس‌اور و سه مخزن حاوی هر یک از این اعمال را گزارش می‌دهند. پرس‌و‌جوی قاب متن یک مخزن در هر دسته‌بندی گزارش می‌کند.
+در این مثال، پرس‌وجوهای ارائه و اسلاید هر کدام سه کانتینر کلیک، دو کانتینر ماوس‑اور و سه کانتینر با هر یک از این اعمال را گزارش می‌دهند. پرس‌وجوی قاب‑متن یک کانتینر در هر دسته را گزارش می‌کند.
 
-### **طبقه‌بندی اعمال و مقاصد**
+### **دسته‌بندی اعمال و مقصدها**
 
-از متد [IHyperlink.getActionType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getActionType--) برای تفسیر یک عمل قبل از تفسیر مقصد آن استفاده کنید. مقدارهای [HyperlinkActionType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب را پوشش می‌دهند:
+از متد [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) برای تفسیر یک عمل قبل از تفسیر مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب را شامل می‌شوند:
 
-| مقادیر | معنی برای یک ممیزی |
+| مقادیر | معنی برای بررسی |
 | --- | --- |
-| `Hyperlink` | هایپرلینک خارجی؛ URL و طرح‌ esquema آن را بررسی کنید. |
+| `Hyperlink` | ابرپیوند خارجی؛ URL و طرح‌گر آن را بررسی کنید. |
 | `JumpSpecificSlide` | ناوبری داخلی به اسلاید خاصی. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری پیش‌فرض اسلایدشو، که در زمینهٔ اسلایدشو حل می‌شود. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری پیش‌ساخته اسلایدشو، در زمینه اسلایدشو حل می‌شود. |
 | `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش جاری یا شروع یک نمایش سفارشی. |
 | `StartMacro` | اجرای یک ماکرو. |
 | `StartProgram` | راه‌اندازی یک برنامه. |
-| `OpenFile`, `OpenPresentation` | باز کردن یک فایل یا ارائهٔ دیگر؛ جدا از URLهای وب بررسی کنید. |
+| `OpenFile`, `OpenPresentation` | باز کردن یک فایل یا ارائه دیگر؛ به‌صورت جداگانه از URLهای وب بررسی شود. |
 | `StartStopMedia` | شروع یا توقف پخش رسانه. |
-| `NoAction`, `Unknown` | بدون عمل ناوبری، یا عمل نامشخص که نیاز به بررسی دارد. |
+| `NoAction`, `Unknown` | بدون عمل ناوبری، یا عملی ناشناخته که نیاز به بررسی دارد. |
 
-مقاصد خارجی را از متد [getExternalUrl](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getExternalUrl--) و مقاصد داخلی خاص را از متد [getTargetSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getTargetSlide--) بخوانید. اعمال داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ URL خالی به این معنا نیست که مخزن عمل ندارد. مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) را زمانی که با URL نرمال‌شده متفاوت باشد، حفظ کنید و نکته‌ابری بازگردانده‌شده توسط [getTooltip](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getTooltip--) را در صورت موجود بودن شامل کنید.
+مقاصد خارجی را از طریق متد [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) و مقاصد داخلی خاص را از طریق متد [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--) بخوانید. اعمال داخلی و دستورات پیش‌ساخته ممکن است URL خارجی نداشته باشند؛ یک URL خالی به این معنا نیست که کانتینر عمل ندارد. مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) را در صورتی که با URL نرمال شده متفاوت باشد حفظ کنید و راهنمای (tooltip) بازگردانده‌شده توسط [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) را در صورت موجود بودن شامل کنید.
 
-### **گزارش، پاک‌سازی و تأیید هایپرلینک‌ها**
+### **گزارش، تصفیه و تأیید ابرپیوندها**
 
-مثال زیر به زبان Java یک ارائه موجود (فایل ایجادشده در بالا) را می‌خواند، `hyperlink-audit.json` می‌نویسد، یک سیاست را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره آن را باز می‌کند تا هر دو نوع فعال‌سازی را بررسی کند. قبل از تغییر، مخازن را جمع‌آوری می‌کند و برای جلوگیری از پردازش دوبارهٔ همان مخزن از برابری مراجع استفاده می‌کند. پرس‌و‌جوهای ارائه اسلایدهای معمولی را پوشش می‌دهند؛ برای یک موجودی سراسری بسته، به طور صریح مسترها، لایه‌ها، یادداشت‌ها و مسترهای یادداشت و توزیع را نیز پرس‌و‌جو می‌کند.
+مثال زیر جاوا یک ارائه موجود را می‌خواند (از فایلی که در بالا ایجاد شد استفاده کنید)، `hyperlink-audit.json` را می‌نویسد، سیاستی را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌نماید و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را مجدداً بررسی کند. قبل از تغییر، کانتینرها را جمع‌آوری کرده و با استفاده از برابری مراجع از پردازش دو بار همان کانتینر جلوگیری می‌کند. پرس‌وجوهای ارائه اسلایدهای عادی را پوشش می‌دهند؛ برای موجودی در سطح بسته، مسترها، طرح‌ها، یادداشت‌ها و مسترهای یادداشت و برگه‌اطلاعات را نیز به‌صورت صریح پرس و جو می‌کند.
 
-گزارش، اندیس اسلاید بر پایهٔ یک‌برگی و [getSlideId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getSlideId--) را (در صورت موجود بودن) ثبت می‌کند. [ISlideComponent.getSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidecomponent/#getSlide--) مخزن متعلق به اسلاید را برای مخازن پشتیبانی‌شده فراهم می‌آورد. مسترها، لایه‌ها و یادداشت‌ها اندیس اسلاید معمولی ندارند و بر پایهٔ دامنهٔ خود شناخته می‌شوند. مخازن شکل و مخازن قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ انواع دیگر مخازن نام نوع زمان اجرا خود را حفظ می‌کنند. هر مخزن یک شناسهٔ محلی در گزارش دریافت می‌کند تا دو عمل آن مرتبط شوند. گزارش انواع عمل را به عنوان ثابت‌های عددی تعریف‌شده توسط شمارش‌گر Java ذخیره می‌کند.
+گزارش یک ایندکس اسلاید مبتنی بر یک (یک‌مبتنی) و [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) را در صورت موجود بودن ثبت می‌کند. متد [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) اسلاید مالک را برای کانتینرهای پشتیبانی‌شده فراهم می‌کند. مسترها، طرح‌ها و یادداشت‌ها ایندکس اسلاید عادی ندارند و با محدودهٔ خود شناسایی می‌شوند. کانتینرهای شکل و کانتینرهای قالب‌بندی بخش متن به‌طور جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع کانتینر نام نوع زمان اجرا را حفظ می‌کنند. هر کانتینر یک شناسه محلی در گزارش دریافت می‌کند تا دو عمل آن مرتبط شوند. گزارش انواع اعمال را به‌عنوان ثابت‌های عددی تعریف‌شده توسط شمارندهٔ جاوا ذخیره می‌کند.
 
-این سیاست کاربردی به‌صورت عمدی فقط URLهای HTTPS مطلق و هدف‌های اسلاید داخلی معتبر را می‌پذیرد. ماکروها، برنامه‌ها، اعمال فایل، سایر اعمال اسلایدشو، اعمال ناشناخته و سایر طرح‌های URL رد می‌شوند. این ردها تصمیمات سیاستی هستند، نه یک قضاوت امنیتی Aspose.Slides. فقط HTTPS اعتماد را تأمین نمی‌کند: لیست‌های سفید میزبان و سایر بررسی‌ها را برای برنامهٔ خود اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شود. مثال متادیتا را بدون دنبال‌کردن لینک‌ها یا اجرای اعمال ممیزی می‌کند.
+این سیاست کاربردی عمدتاً محدود، فقط URLهای HTTPS مطلق و اهداف داخلی اسلاید معتبر را می‌پذیرد. ماکروها، برنامه‌ها، اعمال فایل، سایر اعمال اسلایدشو، اعمال ناشناخته و سایر طرح‌بندهای URL را رد می‌کند. این ردها تصمیمات سیاستی هستند، نه حکم ایمنی Aspose.Slides. HTTPS به تنهایی اعتماد را تضمین نمی‌کند: لیست‌های سفید میزبان و سایر بررسی‌ها را برای برنامه خود اضافه کنید. هم URLهای خارجی اصلی و هم نرمال‌شده بررسی می‌شوند. مثال متادیتا را بدون دنبال کردن لینک‌ها یا اجرای اعمال بررسی می‌کند.
 
-برای رفع، مخزن با استفاده از [getHyperlinkManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-)، [removeHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) را پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحهٔ فرود ثابت HTTPS جایگزین می‌شوند؛ سایر کلیک‌ها و اعمال ماوس‌اور ممنوع به‌صورت مستقل حذف می‌شوند. مقدار `replaceExternalClicks` را به `false` تنظیم کنید تا تمام نقض‌های سیاست حذف شوند. قبل از استقرار یک صفحهٔ جایگزین متعلق به برنامه انتخاب کنید.
+برای اصلاح، [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) کانتینر از متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحه فرود ثابت HTTPS جایگزین می‌شوند؛ کلیک‌ها و اقدامات ماوس‑اور ممنوع دیگر به‌صورت مستقل حذف می‌شوند. برای حذف تمام تخلفات سیاست، مقدار `replaceExternalClicks` را به `false` تنظیم کنید. یک صفحه جایگزین متعلق به برنامه را پیش از استقرار انتخاب کنید.
 
-پرچم خروجی گزارش از یک سیاست محافظه‌کارانهٔ بازبینی PDF استفاده می‌کند: اعمال ماوس‌اور و هر چیزی به‌جز لینک خارجی یا پرش اسلاید خاص به‌عنوان ممکناً پشتیبانی‌نشده پرچم‌گذاری می‌شود. این یک راهنمای بازبینی است، نه آزمون قابلیت یا ضمانت اینکه لینک‌های بدون پرچم در خروجی بقا خواهند یافت. خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است بسته به عمل، گزینه‌های خروجی و نمایشگر، هایپرلینک‌ها را حفظ کنند. تصاویر رستر و ویدیو نمی‌توانند هایپرلینک‌های تعاملی را حفظ کنند؛ هنگام ممیزی برای این خروجی‌ها هر عمل را پرچم کنید.
+پرچم صادرات گزارش از یک سیاست بازبینی PDF محتاطانه استفاده می‌کند: اقدامات ماوس‑اور و هر چیزی به‌جز لینک خارجی یا پرش اسلاید خاص به‌عنوان احتمالی عدم پشتیبانی علامت‌گذاری می‌شود. این یک نکته بازبینی است، نه آزمون قابلیت یا تضمین این‌که لینک‌های بدون پرچم پس از صادرات باقی می‌مانند. صادرات‌های پشتیبانی‌شدهٔ [PDF](/slides/fa/java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/java/convert-powerpoint-to-html/) ممکن است ابرپیوندها را حفظ کنند، بسته به عمل، گزینه‌های صادرات و نمایشگر. [تصاویر](/slides/fa/java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/java/convert-powerpoint-to-video/) رستری نمی‌توانند ابرپیوندهای تعاملی را حفظ کنند؛ هنگام حسابرسی برای این خروجی‌ها هر عمل را علامت‌گذاری کنید.
 
 ```java
 import com.aspose.slides.*;
@@ -454,7 +458,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // سریال‌سازی ردیف‌های صاف این گزارش بدون وابستگی JSON اضافه.
+    // سریال‌سازی ردیف‌های مسطح این گزارش بدون وابستگی JSON اضافی.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -537,20 +541,20 @@ try {
 }
 ```
 
-با ورودی ایجادشده در بالا، گزارش شامل پنج ردیف عمل است. لینک ماوس‌اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری اسلاید داخلی باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. ورودی حاوی URL کلیک خارجی ممنوع نیز مسیر جایگزینی را اجرا می‌کند. یک مخزن با کلیک مجاز و ماوس‌اور ممنوع کلیک خود را حفظ می‌کند.
+با ورودی ایجاد‌شده در بالا، گزارش حاوی پنج ردیف عمل است. لینک ماوس‑اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری داخلی اسلاید باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. ورودی حاوی یک URL کلیک خارجی ممنوع نیز شاخهٔ جایگزینی را اجرا می‌کند. یک کانتینر با کلیک مجاز و ماوس‑اور ممنوع عمل کلیک خود را حفظ می‌کند.
 
-این پاک‌سازی انتخابی متفاوت از [removeAllHyperlinks](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) است که هر دو نوع فعال‌سازی را در تمام دامنهٔ انتخاب‌شده صرف‌نظر از سیاست حذف می‌کند. تأیید در اینجا تنها اعمال هایپرلینک را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و فایل PDF یا HTML خروجی را اعتبارسنجی نمی‌کند.
+این پاک‌سازی انتخابی با [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) تفاوت دارد، که هر دو نوع فعال‌سازی را در تمام محدودهٔ انتخاب‌شده بدون توجه به سیاست حذف می‌کند. تأیید در اینجا فقط اعمال ابرپیوندها را بررسی می‌کند؛ پروژه‌های VBA جاسازی‌شده، اشیای OLE یا سایر محتویات فعال را حذف نمی‌کند و فایل PDF یا HTML صادرشده را اعتبارسنجی نمی‌کند.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
 **چگونه می‌توانم به یک بخش یا اولین اسلاید آن لینک کنم؟**
 
-بخش‌ها در پاورپوینت اسلایدها را گروه‌بندی می‌کنند، اما یک هایپرلینک داخلی به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
+بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک ابرپیوند داخلی هدفش یک اسلاید منفرد است. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
 
-**آیا می‌توانم یک هایپرلینک را به عناصر مستر اسلاید پیوست کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توانم ابرپیوندی را به عناصر اسلاید مستر الصاق کنم تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر مستر اسلاید و لایه‌ها از هایپرلینک پشتیبانی می‌کنند. این لینک‌ها در حین پخش اسلاید در اسلایدهایی که از مستر یا لایه مربوطه استفاده می‌کنند، در دسترس هستند.
+بله. عناصر اسلاید مستر و طرح از ابرپیوندها پشتیبانی می‌کنند. لینک‌های روی این عناصر در حین نمایش اسلاید در اسلایدهایی که از مستر یا طرح مربوطه استفاده می‌کنند، در دسترس هستند.
 
-**آیا هایپرلینک‌ها هنگام خروجی به PDF، HTML، تصاویر یا ویدیو حفظ می‌شوند؟**
+**آیا ابرپیوندها هنگام صادرات به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
 
-خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است هایپرلینک‌ها را حفظ کنند؛ تصاویر رستر و ویدیو نمی‌توانند. برای جزئیات بیشتر به ملاحظات خروجی در بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+صادرات‌های PDF و HTML پشتیبانی‌شده ممکن است ابرپیوندها را حفظ کنند؛ تصاویر رستری و ویدئو نمی‌توانند. به ملاحظات صادرات در [گزارش، تصفیه و تأیید ابرپیوندها](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.

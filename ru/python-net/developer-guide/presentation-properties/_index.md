@@ -1,5 +1,5 @@
 ---
-title: Управление свойствами презентации с Python
+title: Управление свойствами презентации с помощью Python
 linktitle: Свойства презентации
 type: docs
 weight: 70
@@ -15,43 +15,41 @@ keywords:
 - Изменение свойств
 - Метаданные документа
 - Редактирование метаданных
-- Язык проверки правописания
+- Язык проверки
 - Язык по умолчанию
 - PowerPoint
 - OpenDocument
-- Презентация
+- презентация
 - Python
 - Aspose.Slides
-description: "Освойте свойства презентаций в Aspose.Slides for Python via .NET и оптимизируйте поиск, брендинг и рабочий процесс в ваших файлах PowerPoint."
+description: "Освойте управление свойствами презентации в Aspose.Slides for Python via .NET и оптимизируйте поиск, брендинг и рабочий процесс в ваших файлах PowerPoint."
 ---
 ## **Введение**
 
-Aspose.Slides поддерживает два типа свойств документа: **Встроенные** и **Пользовательские**. Оба этих типа свойств легко доступны и управляются с помощью API Aspose.Slides.
+Aspose.Slides for Python via .NET поддерживает **встроенные** и **пользовательские** свойства документа. Используйте эти свойства для чтения и обновления метаданных презентации, таких как автор, заголовок и пользовательские значения.
 
-Aspose.Slides позволяет работать со свойствами презентации через класс [DocumentProperties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/documentproperties/). Экземпляр этого класса возвращается свойством [Presentation.document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/document_properties/). Ниже приведены примеры чтения, изменения и управления этими свойствами.
+Aspose.Slides позволяет работать со свойствами документа презентации через класс [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/). Экземпляр этого класса возвращается методом [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Ниже приведены примеры чтения, изменения и управления этими свойствами.
 
-{{% alert color="info" title="Примечание" %}}
-
-Обратите внимание, что значения полей **Application** и **Producer** установить нельзя, потому что в этих полях будет отображаться Aspose Ltd. и Aspose.Slides for Python via .NET x.x.x.
-
-{{% /alert %}} 
+{{% alert color="info" title="Note" %}}
+Aspose.Slides управляет метаданными приложения и производителя при сохранении презентаций; эти поля идентифицируют программное обеспечение, создавшее вывод.
+{{% /alert %}}
 
 ## **Управление свойствами презентации**
 
-Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства документа позволяют хранить полезную информацию вместе с документами (файлами презентаций). Существует два вида свойств документа:
+Свойства документа хранят описательную информацию вместе с содержимым презентации. Они делятся на две категории:
 
-- Системные (встроенные) свойства
-- Пользовательские свойства
+- **Встроенные свойства** содержат стандартные метаданные, такие как заголовок, автор и статистика документа.
+- **Пользовательские свойства** хранят определяемые пользователем пары имя/значение.
 
-**Встроенные** свойства содержат общую информацию о документе, такую как заголовок, имя автора, статистика документа и т.д. **Пользовательские** свойства определяются пользователем как пары **Имя/Значение**, где и имя, и значение задаются пользователем. С помощью Aspose.Slides for Python via .NET разработчики могут получать доступ к значениям как встроенных, так и пользовательских свойств и изменять их. Microsoft PowerPoint 2007 позволяет управлять свойствами документов файлов презентаций. Достаточно нажать значок Office и выбрать пункт меню **Prepare | Properties | Advanced Properties** в Microsoft PowerPoint 2007. После выбора пункта **Advanced Properties** откроется диалоговое окно, позволяющее управлять свойствами файла PowerPoint. В **Properties Dialog** вы увидите несколько вкладок: **General, Summary, Statistics, Contents и Custom**. Все эти вкладки позволяют настраивать различную информацию, связанную с файлами PowerPoint. Вкладка **Custom** используется для управления пользовательскими свойствами файлов PowerPoint.
+Aspose.Slides for Python via .NET предоставляет доступ к обеим категориям. В PowerPoint выберите **File → Info → Properties → Advanced Properties**, чтобы просмотреть метаданные документа. Диалог группирует информацию по вкладкам, таким как **Summary**, **Statistics**, **Contents** и **Custom**. Используйте вкладку **Custom** для управления пользовательскими свойствами.
 
 ## **Чтение публичных свойств из зашифрованной презентации**
 
-Пароль открытия обычно защищает как содержимое презентации, так и свойства документа. Когда презентация зашифрована с помощью [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) со значением `False`, её свойства документа остаются публичными. Приложение может установить [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/loadoptions/only_load_document_properties/) в `True` и прочитать публичные метаданные без указания пароля открытия.
+Обычный пароль открывает как содержимое презентации, так и свойства документа. Когда презентация зашифрована с помощью [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) со значением `False`, её свойства документа остаются публичными. Приложение может установить [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) в `True` и прочитать публичные метаданные без указания пароля открытия.
 
-`only_load_document_properties` управляет тем, что загружает Aspose.Slides; он ничего не расшифровывает. Если свойства включены в шифрование, их загрузка без пароля завершится неудачей. Если презентация не зашифрована, опция игнорируется и загружается вся презентация.
+[LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) контролирует, что загружает Aspose.Slides; он ничего не расшифровывает. Если свойства включены в шифрование, загрузка без пароля завершится ошибкой. Если презентация не зашифрована, параметр игнорируется и загружается полностью.
 
-Следующий пример проверяет режим загрузки через [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/ru/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) и затем читает встроенные свойства через [Presentation.document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/document_properties/):
+Пример требует зашифрованную презентацию, у которой свойства документа оставлены публичными. Он проверяет режим загрузки через [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) и затем читает встроенные свойства через [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/):
 
 ```python
 import aspose.slides as slides
@@ -61,26 +59,26 @@ load_options.only_load_document_properties = True
 
 with slides.Presentation("public-properties-encrypted.pptx", load_options) as presentation:
     if presentation.protection_manager.is_only_document_properties_loaded:
-        properties = presentation.document_properties
+        document_properties = presentation.document_properties
 
-        print("Author: " + properties.author)
-        print("Title: " + properties.title)
-        print("Keywords: " + properties.keywords)
+        print("Author: " + document_properties.author)
+        print("Title: " + document_properties.title)
+        print("Keywords: " + document_properties.keywords)
     else:
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, медиа и другие объекты презентации недоступны. Приложения всегда должны проверять `is_only_document_properties_loaded` перед выполнением операций, требующих полной модели объектов презентации.
+В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, медиа и другие объекты презентации недоступны. Приложения всегда должны проверять [ProtectionManager.is_only_document_properties_loaded](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/is_only_document_properties_loaded/) перед выполнением операций, требующих полной модели объектов презентации.
 
-{{% alert color="warning" title="Безопасность" %}}
-Публичные метаданные могут раскрывать имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Шифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только в случае, если системы индексации, классификации, поиска или управления документами требуют доступа к ним без пароля.
+{{% alert color="warning" title="Security" %}}
+Публичные метаданные могут раскрывать имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Зашифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только тогда, когда системы индексации, классификации, поиска или управления документами имеют конкретную потребность доступа к ним без пароля.
 {{% /alert %}}
 
 ## **Обновление свойств зашифрованной презентации**
 
-Для зашифрованного файла PPTX презентация, загруженная с `only_load_document_properties`, предназначена для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из такого объекта только с метаданными, потому что публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
+Для зашифрованного файла PPTX презентация, загруженная с помощью [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/), предназначена для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из этого объекта только с метаданными, потому что публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
 
-Следующий пример открывает презентацию с помощью [LoadOptions.password](https://reference.aspose.com/slides/ru/python-net/aspose.slides/loadoptions/password/), обновляет публичные встроенные свойства и сохраняет результат. Затем он использует [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/is_encrypted/) для проверки сохранения шифрования и снова открывает публичные метаданные без пароля, чтобы проверить новые значения:
+Пример требует зашифрованную презентацию PPTX с публичными свойствами документа и известным паролем открытия. Он открывает полную презентацию с помощью [LoadOptions.password](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/password/), обновляет публичные встроенные свойства и сохраняет результат. Затем он использует [PresentationInfo.is_encrypted](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/is_encrypted/), чтобы убедиться, что шифрование сохранено, и вновь открывает публичные метаданные без пароля для проверки новых значений:
 
 ```python
 import aspose.slides as slides
@@ -92,8 +90,10 @@ load_options = slides.LoadOptions()
 load_options.password = "open_password"
 
 with slides.Presentation(input_path, load_options) as presentation:
-    presentation.document_properties.title = "Updated Product Roadmap"
-    presentation.document_properties.keywords = "roadmap, planning, indexed"
+    document_properties = presentation.document_properties
+    document_properties.title = "Updated Product Roadmap"
+    document_properties.keywords = "roadmap, planning, indexed"
+    
     presentation.save(output_path, slides.export.SaveFormat.PPTX)
 
 presentation_info = slides.PresentationFactory.instance.get_presentation_info(output_path)
@@ -110,185 +110,149 @@ with slides.Presentation(output_path, metadata_load_options) as metadata_present
         print("The presentation was not loaded in document-properties-only mode.")
 ```
 
-Если приложению не разрешено расшифровывать или загружать содержимое презентации, оно должно рассматривать публичные свойства зашифрованного файла PPTX как только для чтения.
+Если приложению не разрешено расшифровывать или загружать содержимое презентации, оно должно рассматривать публичные свойства зашифрованного файла PPTX как доступные только для чтения.
 
 ## **Доступ к встроенным свойствам**
-Эти свойства, представленные объектом **IDocumentProperties**, включают: **Creator(Author)**, **Description**, **Keywords**, **Created** (дата создания), **Modified** (дата изменения), **Printed** (дата последней печати), **LastModifiedBy**, **SharedDoc** (общий документ?), **PresentationFormat**, **Subject** и **Title**
-```py
+
+Класс [DocumentProperties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/) предоставляет встроенные метаданные через типизированные свойства, включая [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/) и [DocumentProperties.created_time](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/created_time/). Этот пример открывает существующую презентацию и выводит её сохранённые метаданные в консоль. Значения зависят от входной презентации; некоторые поля могут быть пустыми.
+
+```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего презентацию
-with slides.Presentation("AccessBuiltin Properties.pptx") as pres:
-    # Создать ссылку на объект, связанный с Presentation
-    documentProperties = pres.document_properties
+with slides.Presentation("AccessBuiltInProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # Отобразить встроенные свойства
-    print("category : " + documentProperties.category)
-    print("Current Status : " + documentProperties.content_status)
-    print("Creation Date : " + str(documentProperties.created_time))
-    print("Author : " + documentProperties.author)
-    print("Description : " + documentProperties.comments)
-    print("KeyWords : " + documentProperties.keywords)
-    print("Last Modified By : " + documentProperties.last_saved_by)
-    print("Supervisor : " + documentProperties.manager)
-    print("Modified Date : " + str(documentProperties.last_saved_time))
-    print("Presentation Format : " + documentProperties.presentation_format)
-    print("Last Print Date : " + str(documentProperties.last_printed))
-    print("Is Shared between producers : " + str(documentProperties.shared_doc))
-    print("Subject : " + documentProperties.subject)
-    print("Title : " + documentProperties.title)
+    print("Category:", document_properties.category)
+    print("Content status:", document_properties.content_status)
+    print("Creation date:", document_properties.created_time)
+    print("Author:", document_properties.author)
+    print("Comments:", document_properties.comments)
+    print("Keywords:", document_properties.keywords)
+    print("Last modified by:", document_properties.last_saved_by)
+    print("Manager:", document_properties.manager)
+    print("Modified date:", document_properties.last_saved_time)
+    print("Presentation format:", document_properties.presentation_format)
+    print("Last print date:", document_properties.last_printed)
+    print("Is shared between producers:", document_properties.shared_doc)
+    print("Subject:", document_properties.subject)
+    print("Title:", document_properties.title)
 ```
 
 ## **Изменение встроенных свойств**
 
-Изменять встроенные свойства файлов презентаций так же просто, как получать к ним доступ. Достаточно присвоить строковое значение желаемому свойству, и значение будет изменено. В примере ниже показано, как можно изменить встроенные свойства документа презентации.
+Чтобы обновить встроенные метаданные, присвойте значения записываемым свойствам, доступным через [Presentation.document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/document_properties/). Этот пример открывает существующую презентацию, устанавливает [DocumentProperties.author](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/author/), [DocumentProperties.title](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/title/), [DocumentProperties.subject](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/subject/), [DocumentProperties.comments](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/comments/) и [DocumentProperties.manager](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/manager/), затем сохраняет обновлённую презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Сохранённый PPTX содержит новые метаданные.
 
-```py
+```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего презентацию
-with slides.Presentation("ModifyBuiltinProperties.pptx") as presentation:
-    # Создать ссылку на объект, связанный с Presentation
-    documentProperties = presentation.document_properties
+with slides.Presentation("ModifyBuiltInProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # Установить встроенные свойства
-    documentProperties.author = "Aspose.Slides for .NET"
-    documentProperties.title = "Modifying Presentation Properties"
-    documentProperties.subject = "Aspose Subject"
-    documentProperties.comments = "Aspose Description"
-    documentProperties.manager = "Aspose Manager"
+    document_properties.author = "Aspose.Slides for Python via .NET"
+    document_properties.title = "Manage PowerPoint Presentation Properties"
+    document_properties.subject = "Modify Built-in Properties"
+    document_properties.comments = "Aspose description"
+    document_properties.manager = "Aspose manager"
 
-    # Сохранить презентацию в файл
-    presentation.save("DocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("DocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+## **Управление базой гиперссылок**
+
+[DocumentProperties.hyperlink_base](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/hyperlink_base/) хранит базовый URL уровня документа для относительных гиперссылок. Это полезно при перемещении презентации и связанных файлов в другое место. Он отделён от отдельного свойства гиперссылки [Hyperlink.external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/): изменение базы не пере‑записывает сохранённые адреса ссылок и не меняет абсолютные назначения.
+
+Пример требует презентацию, содержащую как относительную ссылку, например `target.html`, так и абсолютную ссылку на файл или веб‑сайт. Он считывает текущую базу, задаёт новый базовый адрес, сохраняет и вновь открывает презентацию для проверки значения. Затем он очищает базу, задав `""`, и проверяет пустое значение в отдельном сохранённом файле. Замените пример базового адреса на расположение ваших связанных файлов.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("hyperlinks.pptx") as presentation:
+    print("Original base:", presentation.document_properties.hyperlink_base)
+
+    new_base = "https://example.com/new/"
+    presentation.document_properties.hyperlink_base = new_base
+    presentation.save("hyperlinks-updated.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("hyperlinks-updated.pptx") as updated_presentation:
+    print("Base preserved:", updated_presentation.document_properties.hyperlink_base == new_base)
+
+    updated_presentation.document_properties.hyperlink_base = ""
+    updated_presentation.save("hyperlinks-cleared.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("hyperlinks-cleared.pptx") as cleared_presentation:
+    print("Base cleared:", cleared_presentation.document_properties.hyperlink_base == "")
+```
+
+Два сообщения проверки должны вывести `True`. Очистка базы оставляет отдельные адреса гиперссылок неизменными.
+
+Относительная ссылка на `target.pptx` открывала `old/target.pptx`, когда база указывала на папку `old`. После изменения базы на папку `new`, сохранения и повторного открытия презентации та же ссылка открывала `new/target.pptx`. Абсолютная ссылка продолжала открываться к тому же файлу. Проверьте свои относительные ссылки в PowerPoint до и после перемещения презентации или изменения её базы.
 
 ## **Добавление пользовательских свойств презентации**
 
-Aspose.Slides for Python via .NET также позволяет разработчикам добавлять пользовательские значения для свойств документа презентации. Ниже приведён пример, показывающий, как установить пользовательские свойства для презентации.
+Пользовательские свойства хранят метаданные, не имеющие соответствующего встроенного поля. Метод [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/) позволяет задать значение по имени свойства. Этот пример создаёт презентацию, добавляет два текстовых значения и целочисленное значение версии, и сохраняет презентацию с помощью [Presentation.save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/save/). Присвоение значения существующему имени заменяет значение свойства.
 
-```py
+```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation
 with slides.Presentation() as presentation:
-    # Получение свойств документа
-    documentProperties = presentation.document_properties
+    document_properties = presentation.document_properties
 
-    # Добавление пользовательских свойств
-    documentProperties.set_custom_property_value("New Custom", 12)
-    documentProperties.set_custom_property_value("My Nam", "Mudassir")
-    documentProperties.set_custom_property_value("Custom", 124)
+    document_properties.set_custom_property_value("Reviewed by", "John Smith")
+    document_properties.set_custom_property_value("Confidentiality level", "Internal")
+    document_properties.set_custom_property_value("Document version", 2)
 
-    # Получение имени свойства по индексу
-    getPropertyName = documentProperties.get_custom_property_name(2)
-
-    # Удаление выбранного свойства
-    documentProperties.remove_custom_property(getPropertyName)
-
-    # Сохранение презентации
-    presentation.save("CustomDocumentProperties_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("CustomDocumentProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Доступ и изменение пользовательских свойств**
 
-Aspose.Slides for Python via .NET также позволяет разработчикам получать значения пользовательских свойств. Ниже приведён пример, показывающий, как получить доступ и изменить все эти пользовательские свойства презентации.
+Этот пример открывает презентацию, содержащую пользовательские свойства, и использует [DocumentProperties.count_of_custom_properties](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/count_of_custom_properties/) для перебора их. [DocumentProperties.get_custom_property_name](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_name/) принимает нулевой индекс и возвращает имя, используемое в [DocumentProperties.set_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/set_custom_property_value/). Пример требует презентацию, у которой все пользовательские свойства представлены строками. Он выводит каждое оригинальное имя и значение, заменяет каждое значение на нумерованную строку и сохраняет изменения. Если пользовательских свойств нет, цикл не вносит изменений.
 
-```py
+```python
 import aspose.slides as slides
 
-# Создать экземпляр класса Presentation, представляющего PPTX
-with slides.Presentation("AccessModifyingProperties.pptx") as presentation:
-    # Создать ссылку на объект document_properties, связанный с Presentation
-    documentProperties = presentation.document_properties
+with slides.Presentation("AccessAndModifyProperties.pptx") as presentation:
+    document_properties = presentation.document_properties
 
-    # Доступ и изменение пользовательских свойств
-    for i in range(documentProperties.count_of_custom_properties):
-        property_name = documentProperties.get_custom_property_name(i)
-
-        # Отобразить имена и значения пользовательских свойств
+    for i in range(document_properties.count_of_custom_properties):
+        property_name = document_properties.get_custom_property_name(i)
         property_value = [""]
-        documentProperties.get_custom_property_value(property_name, property_value)
-        print("Custom Property Name : " + property_name)
-        print("Custom Property Value : " + property_value[0])
+        document_properties.get_custom_property_value(property_name, property_value)
 
-        # Изменить значения пользовательских свойств
-        documentProperties.set_custom_property_value(property_name, "New Value " + str(i + 1))
-    # Сохранить презентацию в файл
-    presentation.save("CustomDemoModified_out.pptx", slides.export.SaveFormat.PPTX)
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value[0])
+
+        document_properties.set_custom_property_value(property_name, "New Value " + str(i + 1))
+
+    presentation.save("CustomProperties_output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-`get_custom_property_value` возвращает значение через одноэлементный список, переданный вторым аргументом, и сохранённое значение приводится к типу элемента, уже находящегося в этом списке. В примере выше используется `[""]`, поэтому читаются строковые свойства; чтобы прочитать свойство, хранящееся как число, передайте числовой заполнитель, например `[0]` — в противном случае вызов бросит `InvalidCastException`.
+[DocumentProperties.get_custom_property_value](https://reference.aspose.com/slides/python-net/aspose.slides/documentproperties/get_custom_property_value/) возвращает значение через одноэлементный список, переданный вторым аргументом. Заполнитель должен соответствовать типу сохраняемого свойства: используйте `[""]` для строки или `[0]` для целого числа. Несоответствие типов вызывает `InvalidCastException`; выбирайте заполнитель согласно схеме ваших пользовательских свойств.
 
-## **Установка языка проверки правописания**
+## **Живой пример**
 
-Aspose.Slides предоставляет свойство `Language_Id` (доступное через класс [PortionFormat](https://reference.aspose.com/slides/ru/python-net/aspose.slides/portionformat/)) для установки языка проверки правописания в документе PowerPoint. Язык проверки правописания — это язык, для которого проверяется орфография и грамматика в PowerPoint.
+Попробуйте онлайн‑приложение [**Просмотр и редактирование метаданных PowerPoint**](https://products.aspose.app/slides/metadata), чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
 
-Этот Python‑код показывает, как установить язык проверки правописания для PowerPoint:
+[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-```python
-import aspose.slides as slides
-
-with slides.Presentation("SetProofingLanguage.pptx") as pres:
-    auto_shape = pres.slides[0].shapes[0]
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
-
-    new_portion = slides.Portion()
-    font = slides.FontData("SimSun")
-    portion_format = new_portion.portion_format
-    portion_format.complex_script_font = font
-    portion_format.east_asian_font = font
-    portion_format.latin_font = font
-
-    # установить Id языка проверки правописания
-    portion_format.language_id = "zh-CN"
-    new_portion.text = "1。"
-
-    paragraph.portions.add(new_portion)
-```
-
-## **Установка языка по умолчанию**
-
-Этот Python‑код показывает, как установить язык по умолчанию для всей презентации PowerPoint:
-
-```python
-import aspose.slides as slides
-
-load_options = slides.LoadOptions()
-load_options.default_text_language = "en_US"
-
-with slides.Presentation(load_options) as pres:
-    shp = pres.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 150)
-    text_frame = shp.text_frame
-    text_frame.text = "New Text"
-
-    print(text_frame.paragraphs[0].portions[0].portion_format.language_id)
-```
-
-## **Онлайн‑пример**
-
-Попробуйте онлайн‑приложение [**Aspose.Slides Metadata**](https://products.aspose.app/slides/ru/metadata), чтобы увидеть, как работать со свойствами документа через API Aspose.Slides:
-
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ru/metadata)
-
-## **FAQ**
+## **Вопросы и ответы**
 
 **Как удалить встроенное свойство из презентации?**
 
-Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако вы можете изменить их значения или установить их пустыми, если это допускает конкретное свойство.
+Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако вы можете изменить их значения или задать им пустое значение, если это допускает конкретное свойство.
 
 **Что происходит, если я добавляю пользовательское свойство, которое уже существует?**
 
-Если добавить пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Нет необходимости удалять или проверять свойство заранее, так как Aspose.Slides автоматически обновляет его значение.
+Если вы добавляете пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Не требуется удалять или проверять свойство заранее, так как Aspose.Slides автоматически обновит значение свойства.
 
 **Могу ли я получить доступ к свойствам презентации без полной загрузки презентации?**
 
-Да. Используйте [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationfactory/get_presentation_info/) и затем [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentationinfo/read_document_properties/) для чтения сохранённых метаданных документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/). См. [Build a Lightweight Presentation Inventory](/slides/ru/python-net/examine-presentation/) для полного примера отчёта и ограничений, зависящих от формата.
+Да. Используйте [PresentationFactory.get_presentation_info](https://reference.aspose.com/slides/python-net/aspose.slides/presentationfactory/get_presentation_info/) и затем [PresentationInfo.read_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/presentationinfo/read_document_properties/), чтобы прочитать сохранённые метаданные документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). См. [Build a Lightweight Presentation Inventory](/slides/ru/python-net/examine-presentation/) для полного примера отчёта и ограничений, зависящих от формата.
 
-**Могу ли я читать публичные свойства зашифрованной презентации без её пароля открытия?**
+**Могу ли я прочитать публичные свойства зашифрованной презентации без пароля открытия?**
 
-Да. Презентация должна быть зашифрована с параметром `encrypt_document_properties`, установленным в `False`, и должна быть загружена с `only_load_document_properties`, установленным в `True`.
+Да. Презентация должна быть зашифрована с параметром [ProtectionManager.encrypt_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/protectionmanager/encrypt_document_properties/) = `False`, и должна быть загружена с [LoadOptions.only_load_document_properties](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/only_load_document_properties/) = `True`.
 
-**Можно ли обновить зашифрованный файл PPTX в режиме только‑свойств‑документа?**
+**Могу ли я обновить зашифрованный файл PPTX в режиме только свойств документа?**
 
 Нет. Публичные и зашифрованные данные свойств должны оставаться согласованными, поэтому обновление зашифрованного файла PPTX требует полной загрузки презентации с правильным паролем открытия.

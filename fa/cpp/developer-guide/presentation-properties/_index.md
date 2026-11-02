@@ -1,301 +1,319 @@
 ---
-title: "مدیریت ویژگی‌های ارائه در C++"
-linktitle: "ویژگی‌های ارائه"
+title: مدیریت ویژگی‌های ارائه در C++
+linktitle: ویژگی‌های ارائه
 type: docs
 weight: 70
 url: /fa/cpp/presentation-properties/
 keywords:
-- "ویژگی‌های پاورپوینت"
-- "ویژگی‌های ارائه"
-- "ویژگی‌های سند"
-- "ویژگی‌های داخلی"
-- "ویژگی‌های سفارشی"
-- "ویژگی‌های پیشرفته"
-- "مدیریت ویژگی‌ها"
-- "تغییر ویژگی‌ها"
-- "متادیتای سند"
-- "ویرایش متادیتا"
-- "زبان اصلاح‌گری"
-- "زبان پیش‌فرض"
-- "پاورپوینت"
-- "OpenDocument"
-- "ارائه"
-- "C++"
-- "Aspose.Slides"
-description: "ویژگی‌های ارائه را در Aspose.Slides برای C++ به‌صورت جامع مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های پاورپوینت و OpenDocument خود بهینه‌سازی کنید."
+- ویژگی‌های PowerPoint
+- ویژگی‌های ارائه
+- ویژگی‌های سند
+- ویژگی‌های پیش‌فرض
+- ویژگی‌های سفارشی
+- ویژگی‌های پیشرفته
+- مدیریت ویژگی‌ها
+- تغییر ویژگی‌ها
+- ابرداده سند
+- ویرایش ابرداده
+- زبان تصحیح
+- زبان پیش‌فرض
+- PowerPoint
+- OpenDocument
+- ارائه
+- C++
+- Aspose.Slides
+description: "ویژگی‌های اصلی ارائه را در Aspose.Slides برای C++ مدیریت کنید و جستجو، برندینگ و جریان کار را در فایل‌های PowerPoint و OpenDocument خود بهینه‌سازی کنید."
 ---
 ## **معرفی**
 
-Aspose.Slides دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو این نوع ویژگی‌ها به راحتی می‌توانند با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
+Aspose.Slides for C++ پشتیبانی می‌کند از ویژگی‌های سند **درونی** و **سفارشی**. از این ویژگی‌ها برای خواندن و به‌روزرسانی فراداده ارائه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما اجازه می‌دهد با ویژگی‌های سند ارائه از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/idocumentproperties/) کار کنید. یک نمونه از این رابط توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_documentproperties/) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
+Aspose.Slides به شما امکان کار با ویژگی‌های سند ارائه را از طریق رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) می‌دهد. یک نمونه از این رابط توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، تغییر دهید و مدیریت کنید.
 
 {{% alert color="info" title="Note" %}}
-لطفاً توجه داشته باشید که شما نمی‌توانید مقادیر را برای فیلدهای **Application** و **Producer** تنظیم کنید، زیرا Aspose Ltd. و Aspose.Slides for C++ x.x.x در این فیلدها نمایش داده خواهند شد.
+Aspose.Slides هنگام ذخیره ارائه‌ها، متادیتای برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری را که خروجی را ایجاد کرده شناسایی می‌کنند.
 {{% /alert %}}
 
 ## **مدیریت ویژگی‌های ارائه**
 
-Microsoft PowerPoint ویژگی‌ای را برای افزودن برخی ویژگی‌ها به فایل‌های ارائه فراهم می‌کند. این ویژگی‌های سند اجازه می‌دهند اطلاعات مفیدی همراه با اسناد (فایل‌های ارائه) ذخیره شود. دو نوع ویژگی سند به شرح زیر وجود دارد
+ویژگی‌های سند اطلاعات توصیفی را در کنار محتوای ارائه ذخیره می‌کنند. آنها به دو دسته تقسیم می‌شوند:
 
-- ویژگی‌های تعریف‌شده توسط سیستم (Built-in)
-- ویژگی‌های تعریف‌شده توسط کاربر (Custom)
+- **Built-in properties** شامل متادیتای استانداردی مانند عنوان، نویسنده و آمار سند هستند.
+- **Custom properties** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-**Built-in** ویژگی‌ها شامل اطلاعات کلی درباره سند مانند عنوان سند، نام نویسنده، آمار سند و غیره هستند. **Custom** ویژگی‌ها مواردی هستند که توسط کاربران به صورت جفت **Name/Value** تعریف می‌شوند، جایی که هم نام و هم مقدار توسط کاربر تعریف می‌شود. با استفاده از Aspose.Slides برای C++، توسعه‌دهندگان می‌توانند مقادیر ویژگی‌های Built-in و همچنین ویژگی‌های Custom را دسترسی و تغییر دهند. Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند فایل‌های ارائه را فراهم می‌کند. تنها کافی است بر روی نماد Office کلیک کنید و سپس گزینه **Prepare | Properties | Advanced Properties** را در Microsoft PowerPoint 2007 انتخاب کنید. پس از انتخاب گزینه **Advanced Properties**، دیالوگی ظاهر می‌شود که به شما اجازه می‌دهد ویژگی‌های سند فایل PowerPoint را مدیریت کنید. در **Properties Dialog**، می‌توانید ببینید که چندین برگه مانند **General, Summary, Statistics, Contents and Custom** وجود دارد. تمام این برگه‌ها امکان پیکربندی انواع مختلف اطلاعات مرتبط با فایل‌های PowerPoint را فراهم می‌آورند. برگه **Custom** برای مدیریت ویژگی‌های سفارشی فایل‌های PowerPoint استفاده می‌شود.
+Aspose.Slides for C++ دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، **File → Info → Properties → Advanced Properties** را انتخاب کنید تا متادیتای سند را بررسی کنید. این دیالوگ اطلاعات را در تب‌هایی مثل **Summary**، **Statistics**، **Contents** و **Custom** گروه‌بندی می‌کند. از تب **Custom** برای مدیریت ویژگی‌های تعریف‌شده توسط کاربر استفاده کنید.
 
-## **خواندن ویژگی‌های عمومی از ارائه رمزگذاری‌شده**
+## **خواندن ویژگی‌های عمومی از یک ارائه رمزگذاری شده**
 
-یک رمز عبور باز کردن معمولاً محتوای ارائه و ویژگی‌های سند را محافظت می‌کند. هنگامی که یک ارائه با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزگذاری می‌شود، ویژگی‌های سند آن همچنان عمومی باقی می‌مانند. سپس یک برنامه می‌تواند با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) متادیتای عمومی را بدون ارائه رمز عبور باز کردن بخواند.
+یک رمز عبور باز کردن معمولاً هم محتوای ارائه و هم ویژگی‌های سند را محافظت می‌کند. وقتی یک ارائه با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزگذاری شود، ویژگی‌های سند آن عمومی می‌مانند. سپس برنامه می‌تواند `true` را به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) پاس داده و متادیتای عمومی را بدون ارائه رمز عبور باز کردن بخواند.
 
-`set_OnlyLoadDocumentProperties` تعیین می‌کند Aspose.Slides چه چیزی را بارگذاری کند؛ هیچ چیزی را رمزگشائی نمی‌کند. اگر ویژگی‌ها در رمزگذاری گنجانده شده باشند، بارگذاری آن‌ها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و ارائه کامل بارگذاری می‌شود.
+[LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) تعیین می‌کند که Aspose.Slides چه چیزی را بارگذاری کند؛ این کار رمز‌گشایی نمی‌کند. اگر ویژگی‌ها در رمزگذاری گنجانده شده باشند، بارگذاری آنها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
 
-مثال زیر حالت بارگذاری را از طریق [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) بررسی می‌کند و سپس ویژگی‌های Built-in را از طریق [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_documentproperties/) می‌خواند:
+مثال به یک ارائه رمزگذاری شده‌ای نیاز دارد که ویژگی‌های سند آن عمومی باقی مانده باشد. حالت بارگذاری با استفاده از [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) تأیید می‌شود و سپس ویژگی‌های درونی با استفاده از [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) خوانده می‌شوند:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
 #include <system/console.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
 
 using namespace Aspose::Slides;
-using namespace System;
 
-auto loadOptions = MakeObject<LoadOptions>();
+auto loadOptions = System::MakeObject<LoadOptions>();
 loadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto presentation = MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
+auto presentation = System::MakeObject<Presentation>(u"public-properties-encrypted.pptx", loadOptions);
 
 if (presentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    auto properties = presentation->get_DocumentProperties();
+    auto documentProperties = presentation->get_DocumentProperties();
 
-    Console::WriteLine(u"Author: " + properties->get_Author());
-    Console::WriteLine(u"Title: " + properties->get_Title());
-    Console::WriteLine(u"Keywords: " + properties->get_Keywords());
+    System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+    System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-presentation->Dispose();
 ```
 
-در این حالت، محتوای اسلایدها بارگذاری نمی‌شود. اسلایدها، ماسترها، چیدمان‌ها، شکل‌ها، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که به مدل کامل شیء ارائه نیاز دارد، `get_IsOnlyDocumentPropertiesLoaded` را بررسی کنند.
+در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، استادها، طرح‌بندی‌ها، اشکال، رسانه‌ها و سایر اشیاء ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که نیاز به مدل کامل شیء ارائه دارد، [IProtectionManager::get_IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/get_isonlydocumentpropertiesloaded/) را بررسی کنند.
 
-{{% alert color="warning" title="Warning" %}}
-متادیتای عمومی ممکن است نام‌های نویسندگان، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزگذاری کنید. تنها زمانی که سیستم‌های ایندکس‌سازی، طبقه‌بندی، جستجو یا مدیریت اسناد نیاز خاصی به دسترسی بدون رمز عبور دارند، آن‌ها را عمومی بگذارید.
+{{% alert color="warning" title="Security" %}}
+متادیتای عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را همراه با ارائه رمزگذاری کنید. آنها را فقط در زمانی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی برای دسترسی بدون رمز عبور دارند، عمومی بگذارید.
 {{% /alert %}}
 
-## **به‌روزرسانی ویژگی‌های یک ارائه رمزگذاری‌شده**
+## **به‌روزرسانی ویژگی‌های یک ارائه رمزگذاری شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی `set_OnlyLoadDocumentProperties(true)` بارگذاری می‌شود، برای خواندن متادیتای عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از آن شیء فقط‑متادیتایی ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های مرتبط درون ارائه رمزگذاری‌شده سازگار باقی بمانند. بنابراین به‌روزرسانی آن‌ها نیاز به رمز عبور صحیح باز کردن و یک بارگذاری کامل دارد.
+برای یک فایل PPTX رمزگذاری‌شده، ارائه‌ای که با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری می‌شود، برای خواندن متادیتای عمومی طراحی شده است. Aspose.Slides نمی‌تواند تغییرات ویژگی‌ها را از آن شیء فقط‑متادیتا ذخیره کند زیرا ویژگی‌های عمومی باید با داده‌های متناظر داخل ارائه رمزگذاری‌شده همگام بمانند. به‌روزرسانی آنها بنابراین به رمز عبور باز کردن صحیح و بارگذاری کامل نیاز دارد.
 
-مثال زیر ارائه را با استفاده از [LoadOptions::set_Password](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_password/) باز می‌کند، ویژگی‌های Built-in عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) بررسی می‌کند که رمزگذاری حفظ شده است و متادیتای عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را تأیید کند:
+مثال به یک ارائه PPTX رمزگذاری‌شده با ویژگی‌های سند عمومی و یک رمز عبور باز کردن شناخته‌شده نیاز دارد. با استفاده از [LoadOptions::set_Password](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_password/) ارائه کامل باز می‌شود، ویژگی‌های درونی عمومی به‌روزرسانی می‌شوند و نتیجه ذخیره می‌شود. سپس با استفاده از [IPresentationInfo::get_IsEncrypted](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/get_isencrypted/) صحت حفظ رمزگذاری تأیید می‌شود و متادیتای عمومی بدون رمز عبور بازخوانی می‌شود تا مقادیر جدید را بررسی کند:
 
 ```cpp
 #include <DOM/IDocumentProperties.h>
-#include <DOM/IPresentationInfo.h>
-#include <DOM/IProtectionManager.h>
-#include <DOM/LoadOptions.h>
 #include <DOM/Presentation.h>
-#include <DOM/PresentationFactory.h>
-#include <Export/SaveFormat.h>
 #include <system/console.h>
-#include <system/string.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/IProtectionManager.h>
+#include <DOM/PresentationFactory.h>
+#include <DOM/IPresentationInfo.h>
+#include <Export/SaveFormat.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-const String inputPath = u"public-properties-encrypted.pptx";
-const String outputPath = u"updated-public-properties-encrypted.pptx";
+const System::String inputPath = u"public-properties-encrypted.pptx";
+const System::String outputPath = u"updated-public-properties-encrypted.pptx";
 
-{
-    auto loadOptions = MakeObject<LoadOptions>();
-    loadOptions->set_Password(u"open_password");
+auto loadOptions = System::MakeObject<LoadOptions>();
+loadOptions->set_Password(u"open_password");
 
-    auto presentation = MakeObject<Presentation>(inputPath, loadOptions);
-    presentation->get_DocumentProperties()->set_Title(u"Updated Product Roadmap");
-    presentation->get_DocumentProperties()->set_Keywords(u"roadmap, planning, indexed");
-    presentation->Save(outputPath, SaveFormat::Pptx);
-    presentation->Dispose();
-}
+auto presentation = System::MakeObject<Presentation>(inputPath, loadOptions);
+
+auto documentProperties = presentation->get_DocumentProperties();
+documentProperties->set_Title(u"Updated Product Roadmap");
+documentProperties->set_Keywords(u"roadmap, planning, indexed");
+
+presentation->Save(outputPath, SaveFormat::Pptx);
 
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(outputPath);
-Console::WriteLine(presentationInfo->get_IsEncrypted() ? u"The presentation is encrypted." : u"The presentation is not encrypted.");
+System::Console::WriteLine(u"The presentation is encrypted: {0}", presentationInfo->get_IsEncrypted());
 
-auto metadataLoadOptions = MakeObject<LoadOptions>();
+auto metadataLoadOptions = System::MakeObject<LoadOptions>();
 metadataLoadOptions->set_OnlyLoadDocumentProperties(true);
 
-auto metadataPresentation = MakeObject<Presentation>(outputPath, metadataLoadOptions);
+auto metadataPresentation = System::MakeObject<Presentation>(outputPath, metadataLoadOptions);
 
 if (metadataPresentation->get_ProtectionManager()->get_IsOnlyDocumentPropertiesLoaded())
 {
-    Console::WriteLine(u"Title: " + metadataPresentation->get_DocumentProperties()->get_Title());
-    Console::WriteLine(u"Keywords: " + metadataPresentation->get_DocumentProperties()->get_Keywords());
+    System::Console::WriteLine(u"Title: {0}", metadataPresentation->get_DocumentProperties()->get_Title());
+    System::Console::WriteLine(u"Keywords: {0}", metadataPresentation->get_DocumentProperties()->get_Keywords());
 }
 else
 {
-    Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
+    System::Console::WriteLine(u"The presentation was not loaded in document-properties-only mode.");
 }
-
-metadataPresentation->Dispose();
 ```
 
-اگر یک برنامه اجازه‌ی رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر برنامه‌ای اجازهٔ رمز‑گشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
 
-## **دسترسی به ویژگی‌های Built-in**
+## **دسترسی به ویژگی‌های درونی**
 
-این ویژگی‌ها که توسط شیء **IDocumentProperties** افشا می‌شوند شامل: **Creator(Author)**، **Description**، **KeyWords**، **Created** (تاریخ ایجاد)، **Modified** (تاریخ تغییر)، **Printed** (آخرین تاریخ چاپ)، **LastModifiedBy**، **Keywords**، **SharedDoc** (آیا بین تولیدکنندگان مختلف به اشتراک گذاشته شده است؟)، **PresentationFormat**، **Subject** و **Title** می‌باشند.
+رابط [IDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/) متادیتای درونی را از طریق متدهای getter تایپ‌شده مانند [get_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_author/)، [get_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_title/) و [get_CreatedTime](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_createdtime/) در دسترس می‌گذارد. این مثال یک ارائه موجود را باز می‌کند و متادیتای ذخیره‌شدهٔ آن را در کنسول چاپ می‌کند. مقادیر بسته به ارائه ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessBuiltinProperties-AccessBuiltinProperties.cpp" >}}
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-## **تغییر ویژگی‌های Built-in**
+using namespace Aspose::Slides;
 
-تغییر ویژگی‌های Built-in فایل‌های ارائه به آسانی دسترسی به آن‌هاست. می‌توانید به سادگی یک مقدار رشته‌ای به هر ویژگی موردنظر اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر نشان دادیم که چگونه می‌توانیم ویژگی‌های سند Built-in ارائه را تغییر دهیم.
+auto presentation = System::MakeObject<Presentation>(u"AccessBuiltInProperties.pptx");
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-UpdatePresentationProperties-UpdatePresentationProperties.cpp" >}}
+auto documentProperties = presentation->get_DocumentProperties();
+
+System::Console::WriteLine(u"Category: {0}", documentProperties->get_Category());
+System::Console::WriteLine(u"Content status: {0}", documentProperties->get_ContentStatus());
+System::Console::WriteLine(u"Creation date: {0}", documentProperties->get_CreatedTime());
+System::Console::WriteLine(u"Author: {0}", documentProperties->get_Author());
+System::Console::WriteLine(u"Comments: {0}", documentProperties->get_Comments());
+System::Console::WriteLine(u"Keywords: {0}", documentProperties->get_Keywords());
+System::Console::WriteLine(u"Last modified by: {0}", documentProperties->get_LastSavedBy());
+System::Console::WriteLine(u"Manager: {0}", documentProperties->get_Manager());
+System::Console::WriteLine(u"Modified date: {0}", documentProperties->get_LastSavedTime());
+System::Console::WriteLine(u"Presentation format: {0}", documentProperties->get_PresentationFormat());
+System::Console::WriteLine(u"Last print date: {0}", documentProperties->get_LastPrinted());
+System::Console::WriteLine(u"Is shared between producers: {0}", documentProperties->get_SharedDoc());
+System::Console::WriteLine(u"Subject: {0}", documentProperties->get_Subject());
+System::Console::WriteLine(u"Title: {0}", documentProperties->get_Title());
+```
+
+## **تغییر ویژگی‌های درونی**
+
+برای به‌روزرسانی متادیتای درونی، از setter‑های شیء بازگردانده‌شده توسط [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_documentproperties/) استفاده کنید. این مثال یک ارائه موجود را باز می‌کند، [set_Author](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_author/)، [set_Title](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_title/)، [set_Subject](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_subject/)، [set_Comments](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_comments/) و [set_Manager](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_manager/) را فراخوانی می‌کند، سپس ارائه بروز‌شده را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌کند. PPTX ذخیره‌شده شامل متادیتای جدید خواهد بود.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"ModifyBuiltInProperties.pptx");
+
+auto documentProperties = presentation->get_DocumentProperties();
+
+documentProperties->set_Author(u"Aspose.Slides for C++");
+documentProperties->set_Title(u"Manage PowerPoint Presentation Properties");
+documentProperties->set_Subject(u"Modify Built-in Properties");
+documentProperties->set_Comments(u"Aspose description");
+documentProperties->set_Manager(u"Aspose manager");
+
+presentation->Save(u"DocumentProperties_output.pptx", SaveFormat::Pptx);
+```
+
+## **مدیریت پایهٔ پیوندهای هیپرلینک**
+
+[IDocumentProperties::get_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_hyperlinkbase/) پایهٔ سطح سند برای پیوندهای نسبی را می‌خواند. این ویژگی زمانی مفید است که یک ارائه و فایل‌های پیوست آن را به مکان دیگری منتقل می‌کنید. این پایه مستقل از [IHyperlink::get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) یک پیوند منفرد است: تغییر پایه آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
+
+مثال به یک ارائه‌ای نیاز دارد که هم یک پیوند نسبی مانند `target.html` و هم یک پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. پایهٔ موجود خوانده می‌شود، آدرس پایهٔ جدید با استفاده از [IDocumentProperties::set_HyperlinkBase](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/set_hyperlinkbase/) اختصاص می‌یابد و برای بررسی مقدار، ارائه ذخیره و مجدداً باز می‌شود. سپس پایه با `u""` پاک می‌شود و مقدار خالی در فایلی ذخیره‌شدهٔ جداگانه تأیید می‌شود. آدرس پایهٔ مثال را با مکان فایل‌های پیوست خود جایگزین کنید.
+
+```cpp
+#include <DOM/IDocumentProperties.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"hyperlinks.pptx");
+
+System::Console::WriteLine(u"Original base: {0}", presentation->get_DocumentProperties()->get_HyperlinkBase());
+
+const System::String newBase = u"https://example.com/new/";
+presentation->get_DocumentProperties()->set_HyperlinkBase(newBase);
+presentation->Save(u"hyperlinks-updated.pptx", SaveFormat::Pptx);
+
+auto updatedPresentation = System::MakeObject<Presentation>(u"hyperlinks-updated.pptx");
+System::Console::WriteLine(u"Base preserved: {0}", (updatedPresentation->get_DocumentProperties()->get_HyperlinkBase() == newBase));
+
+updatedPresentation->get_DocumentProperties()->set_HyperlinkBase(u"");
+updatedPresentation->Save(u"hyperlinks-cleared.pptx", SaveFormat::Pptx);
+
+auto clearedPresentation = System::MakeObject<Presentation>(u"hyperlinks-cleared.pptx");
+System::Console::WriteLine(u"Base cleared: {0}", (clearedPresentation->get_DocumentProperties()->get_HyperlinkBase() == u""));
+```
+
+دو پیام تأیید باید `True` چاپ کنند. پاک کردن پایه، آدرس‌های پیوندهای منفرد را دست‌نخورده می‌گذارد.
+
+یک پیوند نسبی به `target.pptx` هنگامیکه پایه به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر پایه به پوشهٔ `new`، ذخیره و بازگشایی ارائه، همان پیوند `new/target.pptx` را باز می‌کند. یک پیوند مطلق همان فایل را باز نگه می‌دارد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابه‌جایی ارائه یا تغییر پایه تست کنید.
 
 ## **افزودن ویژگی‌های سفارشی به ارائه**
 
-Aspose.Slides برای C++ همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر سفارشی برای ویژگی‌های سند ارائه اضافه کنند. مثالی در زیر نشان می‌دهد چگونه ویژگی‌های سفارشی برای یک ارائه تنظیم شوند.
+ویژگی‌های سفارشی متادیتایی را ذخیره می‌کنند که فیلد درونی معادلی برای آن وجود ندارد. [IDocumentProperties::idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) به شما امکان می‌دهد مقدار را بر اساس نام ویژگی تعیین کنید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation::Save](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/save/) ذخیره می‌کند. اختصاص مقدار به یک نام موجود، مقدار آن ویژگی را جایگزین می‌کند.
 
-``` cpp
+```cpp
 #include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
+#include <system/console.h>
 #include <Export/SaveFormat.h>
 #include <system/object_ext.h>
-#include <system/string.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
-using namespace System;
 
-// ایجاد یک نمونه از کلاس Presentation
 auto presentation = System::MakeObject<Presentation>();
 
-// دریافت ویژگی‌های سند
 auto documentProperties = presentation->get_DocumentProperties();
 
-// افزودن ویژگی‌های سفارشی
-documentProperties->idx_set(u"New Custom", ObjectExt::Box<int32_t>(12));
-documentProperties->idx_set(u"My Name", ObjectExt::Box<String>(u"Mudassir"));
-documentProperties->idx_set(u"Custom", ObjectExt::Box<int32_t>(124));
+documentProperties->idx_set(u"Reviewed by", System::ObjectExt::Box<System::String>(u"John Smith"));
+documentProperties->idx_set(u"Confidentiality level", System::ObjectExt::Box<System::String>(u"Internal"));
+documentProperties->idx_set(u"Document version", System::ObjectExt::Box(2));
 
-// دریافت نام ویژگی در اندیس مشخص
-String getPropertyName = documentProperties->GetCustomPropertyName(2);
-
-// حذف ویژگی انتخاب‌شده
-documentProperties->RemoveCustomProperty(getPropertyName);
-
-// ذخیره ارائه
-presentation->Save(u"CustomDocumentProperties_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"CustomDocumentProperties_output.pptx", SaveFormat::Pptx);
 ```
 
-## **دسترسی و تغییر ویژگی‌های سفارشی**
+## **دسترسی و اصلاح ویژگی‌های سفارشی**
 
-Aspose.Slides برای C++ همچنین به توسعه‌دهندگان امکان دسترسی به مقادیر ویژگی‌های سفارشی را می‌دهد. مثالی در زیر نشان می‌دهد چگونه می‌توانید به تمام این ویژگی‌های سفارشی برای یک ارائه دسترسی داشته باشید و آن‌ها را تغییر دهید.
+این مثال یک ارائه حاوی ویژگی‌های سفارشی را باز می‌کند و با استفاده از [get_CountOfCustomProperties](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/get_countofcustomproperties/) روی آنها تکرار می‌نماید. [GetCustomPropertyName](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/getcustompropertyname/) یک شاخص صفر‑مبنا می‌پذیرد و نامی را برمی‌گرداند که توسط [IDocumentProperties::idx_get](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_get/) و [idx_set](https://reference.aspose.com/slides/cpp/aspose.slides/idocumentproperties/idx_set/) استفاده می‌شود. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را به یک رشته شماره‌دار (بدون در نظر گرفتن نوع اصلی) تبدیل می‌کند و تغییرات را ذخیره می‌کند. اگر ویژگی سفارشی وجود نداشته باشد، حلقه هیچ تغییری ایجاد نمی‌کند.
 
-{{< gist "aspose-slides" "a690df625dc0b1fff869ab198affe7a4" "Examples-SlidesCPP-AccessModifyingProperties-AccessModifyingProperties.cpp" >}}
-
-## **تنظیم زبان اصلاح‌گری**
-
-Aspose.Slides خصوصیت [LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/baseportionformat/set_languageid/) (که توسط کلاس [PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portionformat/) افشا می‌شود) را فراهم می‌کند تا به شما امکان تنظیم زبان اصلاح‌گری برای یک سند PowerPoint را بدهد. زبان اصلاح‌گری زبانی است که املا و گرامر در PowerPoint برای آن بررسی می‌شود.
-
-این کد C++ نشان می‌دهد چگونه زبان اصلاح‌گری را برای یک PowerPoint تنظیم کنید:
-
-```c++
-#include <DOM/AutoShape.h>
-#include <DOM/Fonts/FontData.h>
-#include <DOM/IFontData.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortionCollection.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/Portion.h>
+```cpp
+#include <DOM/IDocumentProperties.h>
 #include <DOM/Presentation.h>
-using namespace Aspose::Slides;
-
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"sample.pptx");
-System::SharedPtr<AutoShape> autoShape = System::ExplicitCast<AutoShape>(pres->get_Slide(0)->get_Shape(0));
-
-System::SharedPtr<IParagraph> paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-System::SharedPtr<IPortionCollection> portions = paragraph->get_Portions();
-portions->Clear();
-
-System::SharedPtr<Portion> newPortion = System::MakeObject<Portion>();
-
-System::SharedPtr<IFontData> font = System::MakeObject<FontData>(u"SimSun");
-System::SharedPtr<IPortionFormat> portionFormat = newPortion->get_PortionFormat();
-portionFormat->set_ComplexScriptFont(font);
-portionFormat->set_EastAsianFont(font);
-portionFormat->set_LatinFont(font);
-
-portionFormat->set_LanguageId(u"zh-CN");
-// تنظیم شناسه زبان اصلاح‌گری
-
-newPortion->set_Text(u"1。");
-portions->Add(newPortion);
-```
-
-## **تنظیم زبان پیش‌فرض**
-
-این کد C++ نشان می‌دهد چگونه زبان پیش‌فرض را برای کل یک ارائه PowerPoint تنظیم کنید:
-
-```c++
-#include <DOM/IAutoShape.h>
-#include <DOM/IParagraph.h>
-#include <DOM/IPortion.h>
-#include <DOM/IPortionFormat.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/LoadOptions.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <system/console.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+
 using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-System::SharedPtr<LoadOptions> loadOptions = System::MakeObject<LoadOptions>();
-loadOptions->set_DefaultTextLanguage(u"en-US");
+auto presentation = System::MakeObject<Presentation>(u"AccessAndModifyProperties.pptx");
 
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
 
-// یک شکل مستطیل جدید با متن اضافه می‌کند
-System::SharedPtr<IAutoShape> shp = pres->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 150.0f, 50.0f);
-System::SharedPtr<ITextFrame> textFrame = shp->get_TextFrame();
-textFrame->set_Text(u"New Text");
+for (auto i = 0; i < documentProperties->get_CountOfCustomProperties(); i++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(i);
+    auto propertyValue = documentProperties->idx_get(propertyName);
 
-// زبان اولین بخش را بررسی می‌کند
-System::Console::WriteLine(textFrame->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->get_LanguageId());
+    System::Console::WriteLine(u"Custom property name: {0}", propertyName);
+    System::Console::WriteLine(u"Custom property value: {0}", propertyValue);
+
+    documentProperties->idx_set(propertyName, System::ObjectExt::Box(System::String::Format(u"New Value {0}", i + 1)));
+}
+
+presentation->Save(u"CustomProperties_output.pptx", SaveFormat::Pptx);
 ```
 
 ## **مثال زنده**
 
-سعی کنید برنامه آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید تا ببینید چگونه با ویژگی‌های سند از طریق API Aspose.Slides کار می‌کند:
+سعی کنید برنامهٔ آنلاین [**مشاهده و ویرایش فراداده پاورپوینت**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides ویژگی‌های سند را مدیریت می‌کنید:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
+[![مشاهده و ویرایش فراداده پاورپوینت](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم یک ویژگی Built-in را از یک ارائه حذف کنم؟**
+**چگونه می‌توان یک ویژگی درونی را از یک ارائه حذف کرد؟**
 
-ویژگی‌های Built-in جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آن‌ها را به‌طور کامل حذف کرد. با این حال، می‌توانید مقادیر آن‌ها را تغییر دهید یا در صورت امکان ویژگی را به مقدار خالی تنظیم کنید.
+ویژگی‌های درونی جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به‌طور کامل حذف کرد. با این حال می‌توانید مقدار آنها را تغییر داده یا (در صورت امکان) به مقدار خالی تنظیم کنید.
 
-**چه اتفاقی می‌افتد اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنم؟**
+**اگر ویژگی سفارشی‌ای اضافه کنم که قبلاً وجود داشته باشد، چه می‌شود؟**
 
-اگر یک ویژگی سفارشی که از قبل وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی پیش‌ازبه ویژگی نیست، زیرا Aspose.Slides به‌صورت خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
+در صورتی که ویژگی سفارشی‌ای اضافه کنید که از قبل وجود داشته باشد، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی پیش‑از‑این ویژگی نیست، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روزرسانی می‌کند.
 
-**آیا می‌توانم بدون بارگذاری کامل ارائه به ویژگی‌های ارائه دسترسی پیدا کنم؟**
+**آیا می‌توانم بدون بارگذاری کامل ارائه، به ویژگی‌های ارائه دسترسی پیدا کنم؟**
 
-بله. از [IPresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationfactory/getpresentationinfo/) و سپس [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) استفاده کنید تا متادیتای ذخیره‌شده سند را بدون ایجاد یک نمونه [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) بخوانید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص قالب، به [Build a Lightweight Presentation Inventory](/slides/fa/cpp/examine-presentation/) مراجعه کنید.
+بله. می‌توانید از [PresentationFactory::GetPresentationInfo](https://reference.aspose.com/slides/cpp/aspose.slides/presentationfactory/getpresentationinfo/) سپس [IPresentationInfo::ReadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentationinfo/readdocumentproperties/) استفاده کنید تا متادیتای ذخیره‌شدهٔ سند را بدون ایجاد نمونهٔ [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) بخوانید. برای یک مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/cpp/examine-presentation/) مراجعه کنید.
 
-**آیا می‌توانم ویژگی‌های عمومی یک ارائه رمزگذاری‌شده را بدون رمز عبور باز کردن آن بخوانم؟**
+**آیا می‌توانم ویژگی‌های عمومی یک ارائه رمزگذاری شده را بدون رمز عبور باز کردن آن بخوانم؟**
 
-بله. ارائه باید با عبور `false` به `set_EncryptDocumentProperties` رمزگذاری شده باشد و با عبور `true` به `set_OnlyLoadDocumentProperties` بارگذاری شده باشد.
+بله. ارائه باید با عبور `false` به [IProtectionManager::set_EncryptDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/iprotectionmanager/set_encryptdocumentproperties/) رمزگذاری شده باشد و باید با عبور `true` به [LoadOptions::set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑ویژگی‌های‑سند به‌روزرسانی کنم؟**
+**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑ویژگی‑سند به‌روزرسانی کنم؟**
 
-خیر. داده‌های ویژگی عمومی و رمزگذاری‌شده باید سازگار باقی بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیازمند بارگذاری کامل ارائه با رمز عبور صحیح است.
+نه. داده‌های عمومی و رمزگذاری‌شده باید همگام باشند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیاز به بارگذاری کامل ارائه با رمز عبور صحیح دارد.

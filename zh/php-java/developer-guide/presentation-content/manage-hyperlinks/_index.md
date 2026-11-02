@@ -9,7 +9,7 @@ keywords:
 - 添加超链接
 - 创建超链接
 - 格式化超链接
-- 移除超链接
+- 删除超链接
 - 更新超链接
 - 文本超链接
 - 幻灯片超链接
@@ -22,28 +22,28 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "使用 Aspose.Slides for PHP via Java，通过 PHP 示例在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和移除超链接。"
+description: "使用 Aspose.Slides for PHP via Java，通过 PHP 示例在 PowerPoint 和 OpenDocument 演示文稿中添加、格式化、更新和删除超链接。"
 ---
 ## **介绍**
 
-超链接将演示文稿内容连接到网站或演示文稿内部的位置。在 PowerPoint 中，超链接通常有两个用途：
+超链接将演示文稿内容连接到网站或演示文稿中的位置。在 PowerPoint 中，超链接通常有两种用途：
 
-* 从文本、形状或媒体框架打开网站。
-* 导航到另一张幻灯片，例如从目录页。
+* 从文本、形状或媒体框打开网站。
+* 导航到另一张幻灯片，例如，从目录中跳转。
 
-Aspose.Slides for PHP via Java 允许您添加这些链接、控制其外观和声音、更新其属性并删除它们。下面的示例展示了如何在单个元素上使用超链接，以及如何在演示文稿、幻灯片或文本框层级访问超链接。示例假设已初始化 PHP/Java Bridge 和 Aspose.Slides PHP 包装器。没有 PHP 参考页面的 API 成员链接到底层 Java API。
+Aspose.Slides for PHP via Java 允许您添加这些链接，控制其外观和声音，更新其属性并将其删除。下面的示例展示了如何在单个元素上使用超链接以及如何在演示文稿、幻灯片或文本框级别访问超链接。示例假设已初始化 PHP/Java Bridge 和 Aspose.Slides PHP 包装器。没有 PHP 参考页面链接的 API 成员将链接到底层的 Java API。
 
 {{% alert color="info" title="Note" %}}
-您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/zh/editor)编辑演示文稿。
+您还可以使用[免费在线 Aspose PowerPoint 编辑器](https://products.aspose.app/slides/editor)编辑演示文稿。
 {{% /alert %}} 
 
 ## **添加 URL 超链接**
 
-您可以将网站 URL 分配给文本、形状或媒体框架。分配超链接的元素决定可点击区域：文本部分链接所选文本，而形状或框架则链接整个幻灯片对象。
+您可以将网站 URL 分配给文本、形状或媒体框。分配超链接的元素决定了可点击的区域：文本段落链接所选文本，而形状或框则链接整个幻灯片对象。对于包含相对超链接的演示文稿，请参阅[管理超链接基址](/slides/zh/php-java/presentation-properties/#manage-the-hyperlink-base)以读取、更改或清除文档级别的基址。
 
 ### **向文本添加 URL 超链接**
 
-要将文本链接到网站，请将一个 [Hyperlink](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/) 传递给文本部分的 [setHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/portionformat/sethyperlinkclick/) 方法，如下所示。仅该文本部分可被点击。
+要将文本链接到网站，请将[Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/)传递给文本段落的[setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/)方法，如下所示。只有该段文本会变为可点击。
 
 ```php
 use aspose\slides\Hyperlink;
@@ -66,13 +66,9 @@ try {
 }
 ```
 
-### **向形状和媒体框架添加 URL 超链接**
+### **向形状和媒体框添加 URL 超链接**
 
-要使形状或框架可点击，请调用其 [setHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/sethyperlinkclick/) 方法。超链接属于对象本身，而不是其中的文本部分。
-
-相同方法同样适用于图片、音频和视频框架：将超链接分配给框架，并在需要时调用 [setTooltip](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/settooltip/)。
-
-下面的示例使一个矩形可点击：
+要使形状或框可点击，请调用其[setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/)方法。超链接属于对象本身，而不是其内部的文本段落。相同的方法适用于图片、音频和视频框：将超链接分配给框并在需要时调用[setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/)。下面的示例使一个矩形可点击：
 
 ```php
 use aspose\slides\Hyperlink;
@@ -95,7 +91,7 @@ try {
 
 ## **使用超链接创建目录**
 
-内部超链接允许读者从目录跳转到特定幻灯片。下面的示例使用 [setInternalHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) 将第一页上的 “Page 2” 文本链接到第二页。
+内部超链接允许读者从目录跳转到特定幻灯片。下面的示例使用[setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/)将第一张幻灯片上的“Page 2”文本链接到第二张幻灯片。
 
 ```php
 use aspose\slides\FillType;
@@ -137,9 +133,7 @@ try {
 
 ### **颜色**
 
-[Hyperlink](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/) 的 [setColorSource](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/setcolorsource/) 方法决定超链接是使用演示文稿的超链接颜色还是文本部分的格式。要应用自定义文本颜色，请选择 [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkcolorsource/) 并设置该部分的填充颜色。此功能在 PowerPoint 2019 中引入；旧版本不支持此设置。
-
-下面的示例在同一幻灯片上添加两个文本超链接。第一个使用红色填充，第二个保留默认超链接颜色。
+[setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) 方法用于 [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) 来确定超链接是使用演示文稿的超链接颜色还是文本段的格式。要应用自定义文本颜色，请选择[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/)并设置段的填充颜色。此功能在 PowerPoint 2019 中引入；较早的版本不支持此设置。下面的示例向同一张幻灯片添加两个文本超链接。第一个使用红色文本填充，而第二个保留默认的超链接颜色。
 
 ```php
 use aspose\slides\FillType;
@@ -168,17 +162,16 @@ try {
     $presentation->dispose();
 }
 ```
-
 ### **声音**
 
-超链接可以在激活时播放声音或停止已经在播放的声音。使用以下方法配置这些行为：
+超链接在激活时可以播放声音，或停止已经播放的声音。使用以下方法来配置这些行为：
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/setsound/) 指定与超链接关联的音频。
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/setstopsoundonclick/) 控制激活超链接时是否停止之前的声音。
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) 指定与超链接关联的音频。
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) 控制激活超链接时是否停止先前的声音。
 
 #### **添加超链接声音**
 
-下面的示例加载 `sampleaudio.wav` 并将其关联到第一页上的按钮。单击按钮会播放声音并跳转到下一页。该页上的第二个形状在单击时停止先前的声音，但不执行导航操作。
+下面的示例加载 `sampleaudio.wav` 并将其关联到第一张幻灯片上的按钮。单击按钮会播放声音并跳转到下一张幻灯片。该幻灯片上的第二个形状在单击时会停止先前的声音，但不执行导航操作。
 
 ```php
 use aspose\slides\Hyperlink;
@@ -220,7 +213,7 @@ try {
 
 #### **提取超链接声音**
 
-下面的示例打开上面创建的演示文稿，并通过 [getSound](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/getsound/) 和 [getBinaryData](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audio/getbinarydata/) 将第一个形状的超链接音频读取到内存中。
+下面的示例打开上述创建的演示文稿，并通过 [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) 和 [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) 将第一个形状的超链接音频读取到内存中。
 
 ```php
 use aspose\slides\Presentation;
@@ -246,16 +239,16 @@ try {
 
 ### **工具提示和交互设置**
 
-在为文本或形状分配超链接后，您可以调用以下 [Hyperlink](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/) 方法：
+在为文本或形状分配超链接后，您可以调用以下 [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) 方法：
 
-- [setTooltip](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/settooltip/) 设置查看者可显示的提示文本。
-- [setTargetFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/settargetframe/) 指定在父 HTML frameset 中的目标框架（如适用）。
-- [setHistory](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/sethistory/) 控制激活链接时是否将其目标添加到已查看超链接列表中。
-- [setHighlightClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/sethighlightclick/) 控制点击时是否突出显示超链接。
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) 设置观众可以显示为链接提示的文本。
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) 指定父 HTML 框架集中（如适用）的目标框架。
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) 控制激活链接时是否将其目标添加到已查看超链接列表中。
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) 控制点击时是否突出显示超链接。
 
-## **从演示文稿中移除超链接**
+## **从演示文稿中删除超链接**
 
-使用 [getAnyHyperlinks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 在更改之前收集包括文本部分链接在内的超链接容器。下面的示例从第一页同时移除两种激活方式。若仅想移除一种，只调用 [removeHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) 或 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/)；移除点击动作并不会移除其鼠标悬停对应动作。
+使用 [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 在更改之前收集超链接容器，包括文本段链接。下面的示例从第一张幻灯片中删除两种激活类型。若只想删除一种类型，只调用 [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) 或 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/)；删除点击操作并不会删除其鼠标悬停对应操作。
 
 ```php
 use aspose\slides\Presentation;
@@ -281,23 +274,21 @@ try {
 }
 ```
 
-若要无条件移除，[removeAllHyperlinks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) 在一次调用中删除所选范围内的两种激活方式。有关在母版、布局和备注中进行选择性清理的详情，请参阅 [报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
+若要无条件删除，使用 [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) 可在一次调用中删除选定范围内的两种激活类型。有关选择性清理以及对母版、布局和备注的覆盖，请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
 
 ## **构建完整的超链接清单**
 
-在分发演示文稿之前，清点其交互操作以及网页链接。 [getAnyHyperlinks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 返回 [IHyperlinkContainer](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/) 对象，而不是扁平的 URL 字符串列表。检查每个容器上的 [getHyperlinkClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) 和 [getHyperlinkMouseOver](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它们是独立的：同一容器可以同时暴露两种操作，因此完整报告每个容器可能需要两行。
-
-仅扫描形状层级的超链接可能会遗漏附加在文本部分上的链接。请改为查询合适的范围，并保留返回的容器，以便稍后更新或移除其操作。
+在分发演示文稿之前，需清点其中的交互操作及网络链接。[getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 返回 [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) 对象，而不是 URL 字符串的平面列表。检查每个容器的 [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) 和 [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--)。它们相互独立：同一容器可以同时暴露两种操作，因此完整报告每个容器可能需要最多两行。仅扫描形状级别的超链接可能会漏掉附加在文本段的链接。应查询相应的范围，并保留返回的容器，以便稍后更新或删除其操作。
 
 ### **查询演示文稿、幻灯片和文本框范围**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/) 类可通过 [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/gethyperlinkqueries/)、[IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) 和 [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/gethyperlinkqueries/) 访问。每个范围支持相同的查询：
+[HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) 类可通过 [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)、[IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) 和 [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) 使用。每个范围支持相同的查询：
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) 返回带有点击操作的容器。
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) 返回带有鼠标悬停操作的容器。
-- [getAnyHyperlinks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 返回带有任意或两种操作的容器。
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) 返回具有点击操作的容器。
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) 返回具有鼠标悬停操作的容器。
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) 返回包含任一或两种操作的容器。
 
-下面的示例创建 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文本鼠标悬停链接以及宏操作。示例本身不执行这些操作。相同的三个查询在每个范围均可使用；计数描述的是容器数量，而非操作总数。文本框范围不包括其外部形状的链接。
+下面的示例创建了 `hyperlink-audit-input.pptx`，其中包含外部点击链接、文件鼠标悬停链接、内部幻灯片导航、文本鼠标悬停链接以及宏操作。它不会执行这些操作。相同的三个查询在每个范围内都可使用；计数描述的是容器数量，而非操作总数。文本框范围排除包含形状本身的链接。
 
 ```php
 use aspose\slides\Presentation;
@@ -336,37 +327,29 @@ try {
 }
 ```
 
-在本例中，演示文稿和幻灯片查询各报告 3 个点击容器、2 个鼠标悬停容器以及 3 个任意操作容器。文本框查询在每个类别中各报告 1 个容器。
+在本例中，演示文稿和幻灯片查询各报告三个点击容器、两个鼠标悬停容器以及三个任一操作的容器。文本框查询在每个类别中报告一个容器。
 
-### **对操作和目标进行分类**
+### **分类操作和目标**
 
-使用 [Hyperlink::getActionType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/getactiontype/) 在解释目标之前先识别操作。[HyperlinkActionType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkactiontype/) 的取值覆盖了除网页导航之外的多种情形：
+使用 [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) 在解释目标之前解释操作。[HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) 的值涵盖了不仅仅是网页导航的情况：
 
-| 值 | 审计时的含义 |
+| 值 | 审计意义 |
 | --- | --- |
 | `Hyperlink` | 外部超链接；检查 URL 及其协议。 |
-| `JumpSpecificSlide` | 跳转到特定幻灯片的内部导航。 |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 内置的放映导航，在放映上下文中解析。 |
+| `JumpSpecificSlide` | 内部导航至特定幻灯片。 |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | 内建幻灯片放映导航，在放映上下文中解析。 |
 | `JumpEndShow`, `StartCustomSlideShow` | 结束当前放映或启动自定义放映。 |
 | `StartMacro` | 执行宏。 |
 | `StartProgram` | 启动程序。 |
-| `OpenFile`, `OpenPresentation` | 打开文件或其他演示文稿；需与网页 URL 区分审查。 |
+| `OpenFile`, `OpenPresentation` | 打开文件或另一个演示文稿；需单独于网页 URL 审核。 |
 | `StartStopMedia` | 开始或停止媒体播放。 |
-| `NoAction`, `Unknown` | 无导航操作或未识别的操作，需要审查。 |
+| `NoAction`, `Unknown` | 无导航操作，或需审核的未识别操作。 |
 
-通过 [getExternalUrl](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/getexternalurl/) 读取外部目标，通过 [getTargetSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/gettargetslide/) 读取具体内部目标。内部操作和内置命令可能没有外部 URL；空 URL 并不意味着容器没有操作。若 [getExternalUrlOriginal](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) 返回的值与规范化 URL 不同，请保留原始值，并在可用时包含由 [getTooltip](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlink/gettooltip/) 返回的工具提示。
+从 [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) 读取外部目标，从 [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) 读取特定内部目标。内部操作和内建命令可能没有外部 URL；空 URL 并不表示容器没有操作。当返回的值与归一化 URL 不同时，请保留 [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) 的返回值，并在可用时包含 [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) 返回的工具提示。
 
 ### **报告、清理和验证超链接**
 
-下面的 PHP 示例读取已有演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，并重新打开以再次检查两种激活方式。示例在更改前收集容器，并使用引用相等性避免对同一容器进行二次处理。演示文稿查询覆盖普通幻灯片；若需对整个包进行清点，还显式查询母版、布局、备注以及可能存在的备注和讲义母版。
-
-报告记录 1 基的幻灯片索引和可用时的 [getSlideId](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ibaseslide/#getSlideId--)。[ISlideComponent::getSlide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/islidecomponent/#getSlide--) 提供受支持容器的所属幻灯片。母版、布局和备注没有普通幻灯片索引，使用其范围标识。形状容器和文本段落格式容器单独标记；其他容器类型保留其运行时类型名称。每个容器获取报告本地 ID，以便关联其两种操作。报告将操作类型存为 PHP 枚举中定义的整数常量。
-
-此限制性应用策略仅允许绝对的 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他放映操作、未知操作以及其他 URL 方案。这些拒绝是策略决定，而非 Aspose.Slides 的安全判定。单纯的 HTTPS 并不等同于信任：请为您的应用添加主机白名单等检查。原始和规范化的外部 URL 均会被检查。示例仅审计元数据，不会跟随链接或执行操作。
-
-若需修复，容器的 [getHyperlinkManager](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) 支持 [setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/)、[removeHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) 和 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/)。这里，将被禁止的外部点击链接替换为固定的 HTTPS 落地页；其他被禁止的点击和鼠标悬停操作则独立移除。将 `$replaceExternalClicks` 设置为 `false` 可删除所有违规项。请在部署前准备好应用拥有的替换页面。
-
-报告的导出标记采用保守的 PDF 审核策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的任何操作标记为可能不受支持。这仅是审查提示，而非功能测试或保证未标记链接在导出后仍然有效。受支持的 [PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/php-java/convert-powerpoint-to-html/) 导出可能保留超链接，具体取决于操作、导出选项和查看器。栅格 [图片](/slides/zh/php-java/convert-powerpoint-to-png/) 和 [视频](/slides/zh/php-java/convert-powerpoint-to-video/) 无法保留交互超链接；在针对这些输出进行审计时请标记每个操作。
+下面的 PHP 示例读取现有演示文稿（使用上面创建的文件），写入 `hyperlink-audit.json`，应用策略，保存为 `hyperlink-sanitized.pptx`，并重新打开以再次检查两种激活类型。它在更改前收集容器，并使用引用相等性避免对同一容器进行两次处理。演示文稿查询覆盖普通幻灯片；若要进行全包清点，还会显式查询母版、布局、备注以及存在的备注和讲义母版。报告记录基于 1 的幻灯片索引和 [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--)（如可用）。[ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) 为支持的容器提供所属幻灯片。母版、布局和备注没有普通幻灯片索引，使用其范围进行标识。形状容器和文本段格式容器分别标记；其他容器类型保留其运行时类型名称。每个容器获得报告本地 ID，以便关联其两个操作。报告将操作类型存储为 PHP 枚举定义的整数常量。此有意严格的应用策略仅允许绝对 HTTPS URL 和有效的内部幻灯片目标。它会拒绝宏、程序、文件操作、其他幻灯片操作、未知操作以及其他 URL 方案。此类拒绝是策略决定，而非 Aspose.Slides 的安全判定。仅有 HTTPS 并不能建立信任：请为您的应用添加主机白名单和其他检查。会检查原始和归一化的外部 URL。示例仅审计元数据，不会跟随链接或执行操作。若需修复，容器的 [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) 支持 [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/)、[removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) 和 [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) 。在此示例中，受禁止的外部点击链接被替换为固定的 HTTPS 登陆页面；其他受禁止的点击和受禁止的鼠标悬停操作则分别被删除。将 `$replaceExternalClicks` 设置为 `false` 可改为删除所有策略违规。请在部署前选择应用拥有的替代页面。报告的导出标记使用保守的 PDF 审核策略：将鼠标悬停操作以及除外部链接或特定幻灯片跳转之外的所有内容标记为可能不受支持。这仅是审查提示，而非功能测试，也不保证未标记的链接在导出后仍然有效。受支持的[PDF](/slides/zh/php-java/convert-powerpoint-to-pdf/) 和 [HTML](/slides/zh/php-java/convert-powerpoint-to-html/) 导出可能保留超链接，具体取决于操作、导出选项和查看器。光栅[图像](/slides/zh/php-java/convert-powerpoint-to-png/) 和 [视频](/slides/zh/php-java/convert-powerpoint-to-video/) 无法保留交互式超链接；在针对这些输出进行审计时请标记每个操作。
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -523,20 +506,18 @@ try {
 }
 ```
 
-使用上面创建的输入，报告包含五行操作。文件鼠标悬停链接和宏点击被移除，HTTPS 链接及内部幻灯片导航保留。验证阶段输出零个违规操作。包含违规外部点击 URL 的输入还演示了替换分支。一个容器若同时拥有允许的点击和被禁止的鼠标悬停，则保留其点击操作。
+使用上述创建的输入，报告包含五行操作。文件鼠标悬停链接和宏点击被删除，而 HTTPS 链接和内部幻灯片导航保留。验证结果显示零个受禁止的操作。包含受禁止外部点击 URL 的输入也会触发替换分支。具有允许的点击和受禁止的鼠标悬停的容器保留其点击操作。此选择性清理不同于 [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)，后者会在选定范围内无论策略如何都删除两种激活类型。此处的验证仅检查超链接操作；不会删除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不会校验导出的 PDF 或 HTML 文件。
 
-此选择性清理不同于 [removeAllHyperlinks](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/)，后者会在所选范围内无视策略统一移除两种激活方式。此处的验证仅检查超链接操作，不会移除嵌入的 VBA 项目、OLE 对象或其他活动内容，也不对导出的 PDF 或 HTML 文件进行有效性验证。
+## **常见问题**
 
-## **FAQ**
+**如何链接到章节或其第一张幻灯片？**
 
-**如何链接到某个章节或其首张幻灯片？**
+PowerPoint 中的章节用于对幻灯片进行分组，但内部超链接针对的是单个幻灯片。若要实现对章节的导航，请链接到该章节的第一张幻灯片。
 
-PowerPoint 中的章节是对幻灯片的分组，但内部超链接只能定位到单个幻灯片。若要实现章节导航，请链接到该章节的第一张幻灯片。
+**是否可以将超链接附加到母版幻灯片元素，以便在所有幻灯片上生效？**
 
-**能否将超链接附加到母版幻灯片元素上，使其在所有幻灯片上生效？**
+可以。母版幻灯片和布局元素支持超链接。使用相应母版或布局的幻灯片在放映时可以使用这些元素上的链接。
 
-可以。母版幻灯片和布局元素支持超链接。在使用相应母版或布局的幻灯片放映期间，这些链接均可使用。
+**导出为 PDF、HTML、图像或视频时，超链接会被保留吗？**
 
-**导出为 PDF、HTML、图片或视频时，超链接会被保留吗？**
-
-受支持的 PDF 与 HTML 导出可能保留超链接；栅格图像和视频则不能。详情请参阅 [报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks)。
+受支持的 PDF 和 HTML 导出可能保留超链接；光栅图像和视频则无法保留。请参阅[报告、清理和验证超链接](#report-sanitize-and-verify-hyperlinks) 中的导出注意事项。

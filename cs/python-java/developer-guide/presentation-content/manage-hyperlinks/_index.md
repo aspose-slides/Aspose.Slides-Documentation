@@ -1,5 +1,5 @@
 ---
-title: Správa hypertextových odkazů v prezentacích v Pythonu prostřednictvím Javy
+title: Správa hypertextových odkazů v prezentaci v Pythonu prostřednictvím Java
 linktitle: Správa hypertextových odkazů
 type: docs
 weight: 20
@@ -11,40 +11,42 @@ keywords:
 - formátovat hypertextový odkaz
 - odstranit hypertextový odkaz
 - aktualizovat hypertextový odkaz
-- hypertextový odkaz v textu
+- textový hypertextový odkaz
 - hypertextový odkaz na snímek
 - hypertextový odkaz na tvar
 - hypertextový odkaz na obrázek
 - hypertextový odkaz na video
-- měnitelný hypertextový odkaz
+- proměnný hypertextový odkaz
 - PowerPoint
 - OpenDocument
 - prezentace
 - Python
 - Java
 - Aspose.Slides
-description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python prostřednictvím Javy, s ukázkami v Pythonu."
+description: "Přidávejte, formátujte, aktualizujte a odstraňujte hypertextové odkazy v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Python prostřednictvím Java s ukázkami v Pythonu."
 ---
 ## **Úvod**
 
-Hypertextový odkaz spojuje obsah prezentace s webovou stránkou nebo umístěním v rámci prezentace. V PowerPointu hypertextové odkazy obvykle slouží ke dvěma účelům:
+Hyperlink spojuje obsah prezentace s webovou stránkou nebo místem v rámci prezentace. V PowerPointu hypertextové odkazy běžně slouží ke dvěma účelům:
 
 * Otevřít webovou stránku z textu, tvaru nebo mediálního rámečku.
-* Přejít na jiný snímek, například z obsahu.
+* Přesunout se na jiný snímek, například z obsahu.
 
-Aspose.Slides for Python via Java vám umožňuje tyto odkazy přidávat, řídit jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak přistupovat k hypertextovým odkazům na úrovni prezentace, snímku nebo textového rámce.
+Aspose.Slides for Python via Java vám umožňuje tyto odkazy přidávat, ovládat jejich vzhled a zvuk, aktualizovat jejich vlastnosti a odstraňovat je. Níže uvedené příklady ukazují, jak pracovat s hypertextovými odkazy na jednotlivých prvcích a jak získat přístup k hypertextovým odkazům na úrovni prezentace, snímku nebo textového rámce.
 
-{{% alert color="info" title="Poznámka" %}}
-Také můžete upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/cs/editor).
+{{% alert color="info" title="Note" %}}
+Můžete také upravovat prezentace pomocí [bezplatného online editoru Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Přidání URL hypertextových odkazů**
+## **Přidat URL odkazy**
 
-Můžete přiřadit URL webové stránky k textu, tvaru nebo mediálnímu rámečku. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje klikací oblast: část textu odkazuje vybraný text, zatímco tvar nebo rámeček odkazuje objekt snímku.
+Webovou adresu můžete přiřadit k textu, tvaru nebo mediálnímu rámečku. Prvek, ke kterému hypertextový odkaz přiřadíte, určuje klikací oblast: část textu odkazuje vybraný text, zatímco tvar nebo rámeček odkazuje na objekt snímku.
 
-### **Přidání URL hypertextových odkazů k textu**
+U prezentací obsahujících relativní hypertextové odkazy viz [Manage the Hyperlink Base](/slides/cs/python-java/presentation-properties/#manage-the-hyperlink-base) pro čtení, změnu nebo vymazání dokumentové základny.
 
-Pro propojení textu s webovou stránkou předáte [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/#setHyperlinkClick) textové části, jak je ukázáno níže. Pouze tato část textu se stane kliknutelnou.
+### **Přidat URL odkazy do textu**
+
+Pro propojení textu s webovou stránkou předáte [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) metodě [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) části textu, jak je ukázáno níže. Pouze tato část textu se stane klikací.
 
 ```python
 import jpype
@@ -70,13 +72,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Přidání URL hypertextových odkazů k tvarům a mediálním rámečkům**
+### **Přidat URL odkazy do tvarů a mediálních rámečků**
 
-Pro zpřístupnění tvaru nebo rámečku kliknutím zavolejte jeho metodu [setHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#setHyperlinkClick). Hypertextový odkaz patří samotnému objektu, nikoli textové části uvnitř něj.
+Aby byl tvar nebo rámeček klikací, zavolejte jeho metodu [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick). Hypertextový odkaz patří samotnému objektu, nikoli části textu uvnitř něj.
 
-Stejný přístup platí pro obrázkové, audio a video rámečky: přiřaďte hypertextový odkaz rámečku a v případě potřeby zavolejte [setTooltip](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setTooltip).
+Stejný přístup platí pro rámečky s obrázkem, zvukem i videem: přiřaďte hypertextový odkaz rámečku a případně zavolejte [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip).
 
-Následující příklad vytvoří klikací obdélník:
+Následující příklad činí obdélník klikacím:
 
 ```python
 import jpype
@@ -99,9 +101,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Použití hypertextových odkazů pro vytvoření obsahu**
+## **Použít hypertextové odkazy k vytvoření obsahu**
 
-Interní hypertextové odkazy umožňují čtenářům přeskakovat z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) pro propojení textu “Page 2” na první snímku s druhým snímkem.
+Interní hypertextové odkazy umožňují čtenářům přejít z obsahu na konkrétní snímek. Následující příklad používá [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) k propojení textu „Page 2“ na prvním snímku se druhým snímkem.
 
 ```python
 import jpype
@@ -141,13 +143,13 @@ finally:
     presentation.dispose()
 ```
 
-## **Formátování hypertextových odkazů**
+## **Formátovat hypertextové odkazy**
 
 ### **Barva**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setColorSource) třídy [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu prezentace nebo formátování textové části. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkcolorsource/) a nastavte výplň barvu části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužívají.
+Metoda [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) třídy [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) určuje, zda hypertextový odkaz používá barvu odkazu prezentace nebo formátování části textu. Pro použití vlastní barvy textu vyberte [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) a nastavte barvu výplně části. Tato funkce byla zavedena v PowerPointu 2019; starší verze toto nastavení nepoužijí.
 
-Následující příklad přidá dva textové hypertextové odkazy na stejný snímek. První používá červenou výplň textu, druhý zachovává výchozí barvu odkazu.
+Následující příklad přidává dva textové hypertextové odkazy na stejný snímek. První používá červenou výplň textu, druhý zachovává výchozí barvu odkazu.
 
 ```python
 import jpype
@@ -180,14 +182,14 @@ finally:
 ```
 ### **Zvuk**
 
-Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit zvuk, který již přehrává. K nastavení těchto chování použijte následující metody:
+Hypertextový odkaz může při aktivaci přehrát zvuk nebo zastavit již přehrávaný zvuk. K nastavení těchto chování použijte následující metody:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setSound) specifikuje audio přiřazené hypertextovému odkazu.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) ovládá, zda aktivace hypertextového odkazu zastaví předchozí zvuk.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) určuje zvuk spojený s hypertextovým odkazem.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) řídí, zda aktivace odkazu zastaví předchozí zvuk.
 
-#### **Přidání zvuku k hypertextovému odkazu**
+#### **Přidat zvuk k hypertextovému odkazu**
 
-Následující příklad načte `sampleaudio.wav` a přiřadí jej tlačítku na první snímku. Kliknutím na tlačítko se přehraje zvuk a přejde na další snímek. Druhý tvar na tomto snímku při kliknutí zastaví předchozí zvuk, aniž by provedl navigační akci.
+Následující příklad načte `sampleaudio.wav` a přiřadí jej tlačítku na prvním snímku. Kliknutím na tlačítko se přehraje zvuk a převede na další snímek. Druhý tvar na tom snímku při kliknutí zastaví předchozí zvuk, aniž by provedl navigaci.
 
 ```python
 from pathlib import Path
@@ -221,9 +223,9 @@ finally:
     presentation.dispose()
 ```
 
-#### **Extrahování zvuku z hypertextového odkazu**
+#### **Extrahovat zvuk z hypertextového odkazu**
 
-Následující příklad otevře výše vytvořenou prezentaci a načte audio hypertextového odkazu první tvary do paměti pomocí [getSound](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getSound) a [getBinaryData](https://reference.aspose.com/slides/cs/python-java/aspose.slides/audio/#getBinaryData).
+Následující příklad otevře výše vytvořenou prezentaci a načte zvuk hypertextového odkazu první tvaru do paměti pomocí [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) a [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
 
 ```python
 import jpype
@@ -250,18 +252,18 @@ finally:
     presentation.dispose()
 ```
 
-### **Nastavení tooltipu a interakce**
+### **Nástrojový tip a nastavení interakce**
 
-Po přiřazení hypertextového odkazu k textu nebo tvaru můžete zavolat následující metody třídy [Hyperlink](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/):
+Po přiřazení hypertextového odkazu k textu nebo tvaru můžete zavolat následující metody třídy [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/):
 
-- [setTooltip](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setTooltip) nastavuje text, který může divák zobrazit jako nápovědu pro odkaz.
-- [setTargetFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setTargetFrame) určuje cílový rámec v rámci nadřazené sady HTML rámců, pokud je to relevantní.
-- [setHistory](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setHistory) určuje, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených hypertextových odkazů.
-- [setHighlightClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#setHighlightClick) určuje, zda je hypertextový odkaz zvýrazněn po kliknutí.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) nastaví text, který může prohlížeč zobrazit jako nápovědu pro odkaz.
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) určuje cílový rámec v rámci rodičovské sady HTML rámců, pokud je to relevantní.
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) určuje, zda aktivace odkazu přidá jeho cíl do seznamu zobrazených hypertextových odkazů.
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) určuje, zda je hypertextový odkaz po kliknutí zvýrazněn.
 
-## **Odstranění hypertextových odkazů z prezentací**
+## **Odstranit hypertextové odkazy z prezentací**
 
-Použijte [getAnyHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) k sesbírání kontejnerů hypertextových odkazů, včetně odkazů na textové části, před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. K odstranění jen jednoho typu zavolejte jen [removeHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); odstranění akce kliknutí neodstraňuje odpovídající akci při najetí myší.
+Pro sběr kontejnerů hypertextových odkazů, včetně odkazů na části textu, použijte [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) před jejich změnou. Následující příklad odstraňuje oba typy aktivace z prvního snímku. Pro odstranění jen jednoho typu zavolejte jen [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) nebo [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); odstranění akce kliknutí neodstraní odpovídající akci při přejetí myší.
 
 ```python
 import jpype
@@ -286,23 +288,23 @@ finally:
     presentation.dispose()
 ```
 
-Pro neomezené odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) odstraňuje oba typy aktivace v zvoleném rozsahu jedním voláním. Pro selektivní čištění a pokrytí mistrů, rozvržení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Pro nepodmíněné odstranění [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) odstraňuje oba typy aktivace ve vybraném rozsahu jedním voláním. Pro selektivní úklid a pokrytí hlavních snímků, rozvržení a poznámek viz [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Vytvoření kompletní inventury hypertextových odkazů**
+## **Vytvořit kompletní inventář hypertextových odkazů**
 
-Před distribucí prezentace inventarizujte její interaktivní akce i webové odkazy. [getAnyHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) vrací kontejnery hypertextových odkazů, jako jsou objekty [Shape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/) a [PortionFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/portionformat/), nikoli plochý seznam řetězců URL. Prozkoumejte jak [getHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getHyperlinkClick), tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getHyperlinkMouseOver) na každém kontejneru. Jsou nezávislé: stejný kontejner může vystavit obě akce, takže úplná zpráva může vyžadovat až dva řádky na kontejner.
+Před distribucí prezentace inventarizujte její interaktivní akce i webové odkazy. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) vrací kontejnery hypertextových odkazů, jako jsou objekty [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) a [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/), nikoli plochý seznam řetězců URL. Prohlédněte si jak [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick), tak [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) na každém kontejneru. Jsou nezávislé: stejný kontejner může vystavovat obě akce, takže úplná zpráva potřebuje až dva řádky na kontejner.
 
-Prohledávání jen na úrovni tvarů může minout odkazy připojené k textovým částem. Místo toho dotazujte příslušný rozsah a uchovávejte vrácené kontejnery, aby je bylo možné později aktualizovat nebo odstranit jejich akce.
+Prohledávání jen hypertextových odkazů na úrovni tvaru může opomenout odkazy připojené k částem textu. dotazujte místo toho příslušný rozsah a uchovávejte vrácené kontejnery, abyste je mohli později aktualizovat nebo odstranit jejich akce.
 
-### **Dotazování na úrovni prezentace, snímku a textového rámce**
+### **Dotazovat prezentaci, snímek a rozsahy textových rámců**
 
-Třída [HyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/) je dostupná přes [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getHyperlinkQueries) a [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/#getHyperlinkQueries). Každý rozsah podporuje stejné dotazy:
+Třída [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) je dostupná přes [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) a [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Každý rozsah podporuje stejné dotazy:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) vrací kontejnery s akcí kliknutí.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) vrací kontejnery s akcí při najetí myší.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) vrací kontejnery s jednou nebo oběma akcemi.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) vrací kontejnery s akcí kliknutí.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) vrací kontejnery s akcí při přejetí myší.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) vrací kontejnery s jednou nebo oběma akcemi.
 
-Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím klikacím odkazem, souborovým odkazem při najetí myší, interní navigací mezi snímky, textovým odkazem při najetí myší a akcí makra. Neprovádí žádnou z těchto akcí. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, nikoli celkový počet akcí. Rozsah textového rámce vylučuje vlastní odkazy obklopujícího tvaru.
+Následující příklad vytvoří `hyperlink-audit-input.pptx` s externím odkazem kliknutí, odkazem na soubor při přejetí myší, interní navigací snímku, odkazem na text při přejetí myší a akcí makra. Neprovádí žádnou z těchto akcí. Stejné tři dotazy fungují v každém rozsahu; počty popisují kontejnery, nikoli celkový počet akcí. Rozsah textového rámce vylučuje odkazy vlastního tvaru.
 
 ```python
 import jpype
@@ -343,37 +345,37 @@ finally:
     presentation.dispose()
 ```
 
-Pro tento příklad dotazy na prezentaci a snímek uvádějí po třech kontejnerech s kliknutím, dvou s najetím myší a tři kontejnery s libovolnou akcí. Dotaz na textový rámec uvádí po jednom kontejneru v každé kategorii.
+Pro tento příklad dotazy na prezentaci i snímek každé hlásí tři kontejnery kliknutí, dva kontejnery při přejetí myší a tři kontejnery s jednou či druhou akcí. Dotaz textového rámce hlásí po jednom kontejneru v každé kategorii.
 
-### **Klasifikace akcí a cílů**
+### **Klasifikovat akce a cíle**
 
-Použijte [Hyperlink.getActionType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getActionType) k interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkactiontype/) zahrnují více než jen webovou navigaci:
+Použijte [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) k interpretaci akce před interpretací jejího cíle. Hodnoty [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) pokrývají více než webovou navigaci:
 
 | Hodnoty | Význam pro audit |
 | --- | --- |
-| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a její schéma. |
+| `Hyperlink` | Externí hypertextový odkaz; zkontrolujte URL a jeho schéma. |
 | `JumpSpecificSlide` | Interní navigace na konkrétní snímek. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace v prezentaci, řeší se v kontextu prezentace. |
-| `JumpEndShow`, `StartCustomSlideShow` | Ukončení aktuálního představení nebo spuštění vlastního představení. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Vestavěná navigace prezentací, vyhodnocována v kontextu prezentace. |
+| `JumpEndShow`, `StartCustomSlideShow` | Ukončit aktuální prezentaci nebo spustit vlastní prezentaci. |
 | `StartMacro` | Spustit makro. |
 | `StartProgram` | Spustit program. |
 | `OpenFile`, `OpenPresentation` | Otevřít soubor nebo jinou prezentaci; posuzovat odděleně od webových URL. |
 | `StartStopMedia` | Spustit nebo zastavit přehrávání média. |
-| `NoAction`, `Unknown` | Žádná navigační akce, nebo nerozpoznaná akce vyžadující revizi. |
+| `NoAction`, `Unknown` | Žádná navigační akce, nebo nerozpoznaná akce vyžadující kontrolu. |
 
-Čtěte externí cíle z [getExternalUrl](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getExternalUrl) a konkrétní interní cíle z [getTargetSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getTargetSlide). Interní akce a vestavěné příkazy mohou nemít externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal), pokud se liší od normalizované URL, a zahrňte tooltip vrácený metodou [getTooltip](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlink/#getTooltip), pokud je k dispozici.
+Externí cíle čtěte z [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) a konkrétní interní cíle z [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Interní akce a vestavěné příkazy nemusí mít externí URL; prázdná URL neznamená, že kontejner nemá žádnou akci. Zachovejte hodnotu vrácenou metodou [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal), pokud se liší od normalizované URL, a zahrňte nástrojový tip vrácený metodou [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip), pokud je k dispozici.
 
-### **Zpráva, sanitizace a ověření hypertextových odkazů**
+### **Nahlásit, sanitizovat a ověřit hypertextové odkazy**
 
-Následující příklad v Pythonu načte existující prezentaci (použijte soubor vytvořený výše), zapíše `hyperlink-audit.json`, aplikuje politiku, uloží `hyperlink-sanitized.pptx` a znovu ji otevře, aby zkontroloval oba typy aktivace. Před změnou sbírá kontejnery a používá referenční rovnost, aby se zabránilo dvojitému zpracování stejného kontejneru. Dotazy na prezentaci zahrnují běžné snímky; pro inventuru napříč celým balíčkem také explicitně dotazují mistry, rozvržení, poznámky a mistry poznámek a handoutů, pokud jsou přítomny.
+Následující příklad v Pythonu načte existující prezentaci (použijte výše vytvořený soubor), zapíše `hyperlink-audit.json`, aplikuje politiku, uloží `hyperlink-sanitized.pptx` a znovu ji otevře k ověření obou typů aktivace. Před jejich změnou sesbírá kontejnery a používá referenční rovnost, aby se stejný kontejner nezpracoval dvakrát. Dotazy na prezentaci pokrývají běžné snímky; pro inventář na úrovni balíčku také explicitně dotazuje hlavní snímky, rozvržení, poznámky a hlavní snímky poznámek a podkladových listů, jsou‑li přítomny.
 
-Zpráva zaznamenává jednorozměrný index snímku (číslo od 1) a [getSlideId](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getSlideId), pokud je k dispozici. [getSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getSlide) poskytuje vlastnický snímek pro podporované kontejnery. Mistři, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány svým rozsahem. Kontejnery tvarů a kontejnery formátování textových částí jsou označeny samostatně; jiné typy kontejnerů zachovávají svůj název typu v runtime. Každý kontejner dostane lokální ID zprávy, aby bylo možné korelovat jeho dvě akce. Zpráva ukládá typy akcí jako celočíselné konstanty definované v java enumeraci.
+Zpráva zaznamenává jednorozměrný index snímku a [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId), pokud je dostupný. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) poskytuje vlastní snímek pro podporované kontejnery. Hlavní snímky, rozvržení a poznámky nemají běžný index snímku a jsou identifikovány svým rozsahem. Kontenery tvarů a kontejnery formátování částí textu jsou označeny odděleně; jiné typy kontejnerů si zachovávají svůj runtime typový název. Každý kontejner získá lokální ID zprávy, aby jeho dvě akce bylo možné vzájemně propojit. Zpráva ukládá typy akcí jako celočíselné konstanty definované Java výčtem.
 
-Tato úmyslně restriktivní aplikační politika povoluje pouze absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, jiné akce prezentace, neznámé akce a jiné schémata URL. Tato odmítnutí jsou rozhodnutí politiky, nikoli bezpečnostní verdikt Aspose.Slides. Pouze HTTPS nebuduje důvěru: přidejte seznamy povolených hostitelů a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad audituje metadata, aniž by následoval odkazy nebo spouštěl akce.
+Tato záměrně restriktivní aplikační politika povoluje jen absolutní HTTPS URL a platné interní cíle snímků. Odmítá makra, programy, souborové akce, další akce prezentace, neznámé akce a další schémata URL. Tyto odmítnutí jsou rozhodnutími politiky, nikoli bezpečnostním verdiktem Aspose.Slides. HTTPS samo o sobě nestanoví důvěru: přidejte hostitelské seznamy povolení a další kontroly pro vaši aplikaci. Kontrolují se jak původní, tak normalizované externí URL. Příklad audituje metadata bez následujících odkazů nebo spouštění akcí.
 
-Pro nápravu kontejnerů podporuje [getHyperlinkManager](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getHyperlinkManager) metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Zde jsou zakázané externí klikací odkazy nahrazeny pevnou HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při najetí myší jsou odstraněny nezávisle. Nastavte `replace_external_clicks` na `False` pro odstranění všech porušení politiky. Před nasazením vyberte náhradní stránku vlastněnou aplikací.
+Pro opravu podporuje [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) kontejnery metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Zde jsou zakázané externí odkazy kliknutí nahrazeny fixní HTTPS vstupní stránkou; ostatní zakázané kliknutí a zakázané akce při přejetí myší jsou odstraněny nezávisle. Nastavte `replace_external_clicks` na `False` pro odstranění všech porušení politiky. Vyberte stránku náhradního obsahu vlastněnou aplikací před nasazením.
 
-Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce při najetí myší a vše, co není externí odkaz nebo konkrétní skok na snímek, jako potenciálně nepodporované. Je to jen vodítko pro revizi, ne test schopností ani záruka, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/python-java/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy, v závislosti na akci, nastavení exportu a prohlížeči. Rastrové [images](/slides/cs/python-java/convert-powerpoint-to-png/) a [video](/slides/cs/python-java/convert-powerpoint-to-video/) nemohou zachovat interaktivní odkazy; při auditu pro tyto výstupy označte každou akci.
+Exportní příznak zprávy používá konzervativní politiku revize PDF: označuje akce při přejetí myší a vše kromě externího odkazu nebo specifického skoku na snímek jako potenciálně nepodporované. Je to jen vodítko pro revizi, ne test schopností ani záruka, že neoznačené odkazy přežijí export. Podporované exporty do [PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/) a [HTML](/slides/cs/python-java/convert-powerpoint-to-html/) mohou zachovat hypertextové odkazy, v závislosti na akci, nastavení exportu a prohlížeči. Rasterové [images](/slides/cs/python-java/convert-powerpoint-to-png/) a [video](/slides/cs/python-java/convert-powerpoint-to-video/) nemohou zachovat interaktivní hypertextové odkazy; při auditu pro tyto výstupy označte každou akci.
 
 ```python
 import json
@@ -526,20 +528,20 @@ finally:
     presentation.dispose()
 ```
 
-S vstupem vytvořeným výše obsahuje zpráva pět řádků akcí. Odkaz při najetí myší na soubor a kliknutí makra jsou odstraněny, zatímco HTTPS odkazy a interní navigace mezi snímky zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázanou externí klikací URL také využívá větev nahrazení. Kontejner s povoleným kliknutím a zakázaným najetím myší zachovává svou klikací akci.
+S výše vytvořeným vstupem obsahuje zpráva pět řádků akcí. Odkaz na soubor při přejetí myší a kliknutí na makro jsou odstraněny, zatímco HTTPS odkazy a interní navigace snímků zůstávají. Ověření vypíše nula zakázaných akcí. Vstup obsahující zakázané externí URL pro kliknutí také otestuje větev nahrazení. Kontejner s povoleným kliknutím a zakázaným přejetím myší si zachová akci kliknutí.
 
-Toto selektivní čištění se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/cs/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), který odstraňuje oba typy aktivace v zvoleném rozsahu bez ohledu na politiku. Ověření zde kontroluje pouze hypertextové akce; neodstraňuje vložené VBA projekty, OLE objekty ani jiný aktivní obsah a neověřuje exportovaný PDF ani HTML soubor.
+Tento selektivní úklid se liší od [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), který odstraňuje oba typy aktivace v celém vybraném rozsahu bez ohledu na politiku. Ověření zde kontroluje jen akce hypertextových odkazů; neodstraňuje vložené VBA projekty, OLE objekty ani jiný aktivní obsah a nekontroluje exportovaný PDF ani HTML soubor.
 
 ## **Často kladené otázky**
 
 **Jak mohu odkazovat na sekci nebo její první snímek?**
 
-Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cílí na konkrétní snímek. Pro vytvoření navigace do sekce odkažte na první snímek v této sekci.
+Sekce v PowerPointu seskupují snímky, ale interní hypertextový odkaz cíluje na konkrétní snímek. Pro vytvoření navigace na sekci odkažte na první snímek v dané sekci.
 
-**Mohu přiřadit hypertextový odkaz k prvkům hlavního snímku, aby fungoval na všech snímcích?**
+**Mohu připojit hypertextový odkaz k prvkům hlavního (master) snímku, aby fungoval na všech snímcích?**
 
-Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou dostupné během prezentace na snímcích, které používají odpovídající hlavní snímek nebo rozvržení.
+Ano. Prvky hlavního snímku a rozvržení podporují hypertextové odkazy. Odkazy na těchto prvcích jsou k dispozici během prezentace na snímcích, které používají odpovídající hlavní nebo rozvržení.
 
 **Zůstanou hypertextové odkazy zachovány při exportu do PDF, HTML, obrázků nebo videa?**
 
-Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rastrové obrázky a video nemohou. Viz úvahy o exportu v [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Podporované exporty do PDF a HTML mohou zachovat hypertextové odkazy; rasterové obrázky a video ne. Viz úvahy o exportu v [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

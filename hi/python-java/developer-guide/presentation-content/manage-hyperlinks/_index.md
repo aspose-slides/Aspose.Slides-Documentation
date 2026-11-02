@@ -1,5 +1,5 @@
 ---
-title: Python के जरिए Java में प्रस्तुति हाइपरलिंक का प्रबंधन
+title: Python के माध्यम से Java में प्रस्तुति हाइपरलिंक प्रबंधित करें
 linktitle: हाइपरलिंक प्रबंधित करें
 type: docs
 weight: 20
@@ -8,42 +8,45 @@ keywords:
 - URL जोड़ें
 - हाइपरलिंक जोड़ें
 - हाइपरलिंक बनाएं
-- हाइपरलिंक फ़ॉर्मेट करें
-- हाइپرलिंक हटाएँ
+- हाइपरलिंक स्वरूपित करें
+- हाइपरलिंक हटाएं
 - हाइपरलिंक अपडेट करें
 - पाठ हाइपरलिंक
 - स्लाइड हाइपरलिंक
-- आकार हाइपरलिंक
+- आकृति हाइपरलिंक
 - छवि हाइपरलिंक
 - वीडियो हाइपरलिंक
-- परिवर्तनीय हाइपरलिंक
+- 변이 가능한 हाइपरलिंक
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Java
 - Aspose.Slides
-description: "Python के लिए Aspose.Slides (Java द्वारा) के साथ PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक जोड़ें, फ़ॉर्मेट करें, अपडेट करें और हटाएँ, Python उदाहरणों का उपयोग करते हुए।"
+description: "Python के माध्यम से Java के लिए Aspose.Slides का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में हाइपरलिंक जोड़ें, स्वरूपित करें, अपडेट करें और हटाएँ, Python उदाहरणों के साथ।"
 ---
 ## **परिचय**
 
-हाइपरलिंक प्रस्तुति सामग्री को एक वेबसाइट या प्रस्तुति के भीतर किसी स्थान से जोड़ता है। PowerPoint में, हाइपरलिंक आमतौर पर दो उद्देश्यों की पूर्ति करता है:
-* पाठ, आकार, या मीडिया फ्रेम से वेबसाइट खोलें।
-* किसी अन्य स्लाइड पर नेविगेट करें, उदाहरण के लिए, सामग्री सूची से।
+एक हाइपरलिंक प्रस्तुति सामग्री को वेबसाइट या प्रस्तुति के भीतर किसी स्थान से जोड़ता है। PowerPoint में, हाइपरलिंक आमतौर पर दो उद्देश्यों की पूर्ति करते हैं:
 
-Aspose.Slides for Python via Java आपको इन लिंक को जोड़ने, उनकी उपस्थिति और ध्वनि को नियंत्रित करने, उनकी गुणों को अपडेट करने और उन्हें हटाने की अनुमति देता है। नीचे दिए गए उदाहरण दिखाते हैं कि व्यक्तिगत तत्वों पर हाइपरलिंक के साथ कैसे काम किया जाए और प्रस्तुति, स्लाइड या टेक्स्ट-फ़्रेम स्तर पर हाइपरलिंक तक कैसे पहुंचा जाए।
+* टेक्स्ट, आकृति, या मीडिया फ्रेम से एक वेबसाइट खोलें।
+* किसी अन्य स्लाइड पर नेविगेट करें, उदाहरण के लिए, सामग्री तालिका से।
+
+Aspose.Slides for Python via Java आपको ये लिंक जोड़ने, उनका स्वरूप और ध्वनि नियंत्रित करने, उनकी गुणधर्म अपडेट करने और उन्हें हटाने की सुविधा देता है। नीचे दिए गए उदाहरण दिखाते हैं कि व्यक्तिगत तत्वों पर हाइपरलिंक के साथ कैसे काम करें और प्रस्तुति, स्लाइड, या टेक्स्ट‑फ़्रेम स्तर पर हाइपरलिंक तक कैसे पहुंचें।
 
 {{% alert color="info" title="Note" %}}
-आप प्रस्तुति को [नि:शुल्क ऑनलाइन Aspose PowerPoint संपादक](https://products.aspose.app/slides/hi/editor) के साथ भी संपादित कर सकते हैं।
+आप मुफ्त ऑनलाइन [Aspose PowerPoint संपादक](https://products.aspose.app/slides/editor) का उपयोग करके प्रस्तुतियों को भी संपादित कर सकते हैं।
 {{% /alert %}} 
 
 ## **URL हाइपरलिंक जोड़ें**
 
-आप वेबसाइट URL को पाठ, आकार या मीडिया फ्रेम को असाइन कर सकते हैं। हाइपरलिंक को जिस तत्व पर असाइन किया जाता है, वह क्लिकेबल क्षेत्र निर्धारित करता है: पाठ का हिस्सा चयनित पाठ से लिंक करता है, जबकि आकार या फ्रेम स्लाइड वस्तु से लिंक करता है।
+आप टेक्स्ट, आकृति, या मीडिया फ्रेम को वेबसाइट URL असाइन कर सकते हैं। जिस तत्व को आप हाइपरलिंक असाइन करते हैं, वह क्लिक योग्य क्षेत्र निर्धारित करता है: टेक्स्ट भाग चयनित टेक्स्ट को लिंक करता है, जबकि आकृति या फ्रेम स्लाइड ऑब्जेक्ट को लिंक करता है।
+
+सापेक्ष हाइपरलिंक वाली प्रस्तुतियों के लिए, दस्तावेज़‑स्तर के बेस को पढ़ने, बदलने या साफ़ करने हेतु [Manage the Hyperlink Base](/slides/hi/python-java/presentation-properties/#manage-the-hyperlink-base) देखें।
 
 ### **पाठ में URL हाइपरलिंक जोड़ें**
 
-पाठ को वेबसाइट से लिंक करने के लिए, नीचे दिखाए अनुसार टेक्स्ट हिस्से की [setHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/portionformat/#setHyperlinkClick) मेथड में एक [Hyperlink](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/) पास करें। केवल वही पाठ भाग क्लिकेबल हो जाएगा।
+पाठ को वेबसाइट से लिंक करने के लिए, टेक्स्ट भाग की [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) विधि को एक [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) पास करें, जैसा कि नीचे दिखाया गया है। केवल वही भाग क्लिक योग्य बन जाएगा।
 
 ```python
 import jpype
@@ -69,13 +72,13 @@ finally:
     presentation.dispose()
 ```
 
-### **आकार और मीडिया फ्रेम में URL हाइपरलिंक जोड़ें**
+### **आकृतियों और मीडिया फ्रेम में URL हाइपरलिंक जोड़ें**
 
-एक आकार या फ्रेम को क्लिकेबल बनाने के लिए, उसकी [setHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#setHyperlinkClick) मेथड को कॉल करें। हाइपरलिंक वस्तु स्वयं से जुड़ा होता है, न कि उसके भीतर के किसी पाठ भाग से।
+एक आकृति या फ्रेम को क्लिक योग्य बनाने के लिए, उसकी [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick) विधि को कॉल करें। हाइपरलिंक स्वयं ऑब्जेक्ट से जुड़ा होता है, न कि उसमें मौजूद टेक्स्ट भाग से।
 
-इसी दृष्टिकोण को चित्र, ऑडियो और वीडियो फ्रेम पर भी लागू किया जा सकता है: हाइपरलिंक को फ्रेम को असाइन करें और आवश्यकता पड़ने पर [setTooltip](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setTooltip) को कॉल करें।
+इसी विधि को चित्र, ऑडियो, और वीडियो फ्रेम पर भी लागू किया जाता है: फ्रेम को हाइपरलिंक असाइन करें और आवश्यक होने पर [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) को कॉल करें।
 
-निम्नलिखित उदाहरण एक आयत को क्लिकेबल बनाता है:
+निम्न उदाहरण एक आयत को क्लिक योग्य बनाता है:
 
 ```python
 import jpype
@@ -100,7 +103,7 @@ finally:
 
 ## **हाइपरलिंक का उपयोग करके सामग्री तालिका बनाएं**
 
-आंतरिक हाइपरलिंक पाठकों को सामग्री तालिका से किसी विशिष्ट स्लाइड पर कूदने की अनुमति देते हैं। निम्न उदाहरण [setInternalHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) का उपयोग करके पहली स्लाइड पर “Page 2” पाठ को दूसरी स्लाइड से जोड़ता है।
+आंतरिक हाइपरलिंक पाठकों को सामग्री तालिका से किसी विशिष्ट स्लाइड पर कूदने की अनुमति देते हैं। निम्न उदाहरण पहली स्लाइड पर “Page 2” टेक्स्ट को दूसरी स्लाइड से जोड़ने के लिए [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) का उपयोग करता है।
 
 ```python
 import jpype
@@ -140,13 +143,13 @@ finally:
     presentation.dispose()
 ```
 
-## **हाइपरलिंक स्वरूपित करें**
+## **हाइपरलिंक को स्वरूपित करें**
 
 ### **रंग**
 
-हाइपरलिंक का [setColorSource](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setColorSource) मेथड यह निर्धारित करता है कि हाइपरलिंक प्रस्तुति के हाइपरलिंक रंग को उपयोग करता है या पाठ भाग के फ़ॉर्मेट को। कस्टम टेक्स्ट रंग लागू करने के लिए, [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkcolorsource/) चुनें और भाग की फ़िल रंग सेट करें। यह सुविधा PowerPoint 2019 में पेश की गई थी; पुराने संस्करण इस सेटिंग को लागू नहीं करते।
+[Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) की [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) विधि निर्धारित करती है कि हाइपरलिंक प्रस्तुति के हाइपरलिंक रंग का उपयोग करता है या टेक्स्ट भाग के फ़ॉर्मेट का। कस्टम टेक्स्ट रंग लागू करने के लिए, [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) चुनें और भाग का भराव रंग सेट करें। यह सुविधा PowerPoint 2019 में पेश की गई थी; पुराने संस्करण इस सेटिंग को लागू नहीं करते।
 
-निम्न उदाहरण एक ही स्लाइड में दो टेक्स्ट हाइपरलिंक जोड़ता है। पहला लाल टेक्स्ट फ़िल का उपयोग करता है, जबकि दूसरा डिफ़ॉल्ट हाइपरलिंक रंग को बरकरार रखता है।
+निम्न उदाहरण समान स्लाइड पर दो टेक्स्ट हाइपरलिंक जोड़ता है। पहला लाल टेक्स्ट भराव के साथ है, जबकि दूसरा डिफ़ॉल्ट हाइपरलिंक रंग रखता है।
 
 ```python
 import jpype
@@ -179,13 +182,14 @@ finally:
 ```
 ### **ध्वनि**
 
-हाइपरलिंक सक्रिय होने पर ध्वनि बजा सकता है या पहले से चल रही ध्वनि को रोक सकता है। इन व्यवहारों को कॉन्फ़िगर करने के लिए निम्न मेथड्स का उपयोग करें:
-- [Hyperlink.setSound](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setSound) हाइपरलिंक से जुड़ी ऑडियो निर्दिष्ट करता है।
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) नियंत्रित करता है कि हाइपरलिंक सक्रिय करने पर पिछली ध्वनि रोकें या नहीं।
+हाइपरलिंक सक्रिय होने पर ध्वनि बजा सकता है या पहले से चल रही ध्वनि को रोक सकता है। इन व्यवहारों को कॉन्फ़िगर करने के लिए निम्न विधियों का उपयोग करें:
+
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) हाइपरलिंक से संबंधित ऑडियो निर्दिष्ट करता है।
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) नियंत्रित करता है कि हाइपरलिंक सक्रिय होने पर पिछली ध्वनि बंद हो जाए।
 
 #### **हाइपरलिंक ध्वनि जोड़ें**
 
-निम्न उदाहरण `sampleaudio.wav` को लोड करता है और इसे पहली स्लाइड पर एक बटन के साथ जोड़ता है। बटन पर क्लिक करने से ध्वनि बजती है और अगली स्लाइड पर नेविगेट किया जाता है। उसी स्लाइड पर दूसरा आकार क्लिक करने पर पिछली ध्वनि को रोकता है, बिना नेविगेशन कार्रवाई किए।
+निम्न उदाहरण `sampleaudio.wav` को लोड करता है और पहले स्लाइड पर एक बटन से जोड़ता है। बटन पर क्लिक करने से ध्वनि बजती है और अगली स्लाइड पर जाता है। उसी स्लाइड पर दूसरा आकार क्लिक करने पर पूर्व ध्वनि रोकता है, बिना नेविगेशन कार्रवाई के।
 
 ```python
 from pathlib import Path
@@ -221,7 +225,7 @@ finally:
 
 #### **हाइपरलिंक ध्वनि निकालें**
 
-निम्न उदाहरण ऊपर बनाई गई प्रस्तुति को खोलता है और पहले आकार की हाइपरलिंक ऑडियो को [getSound](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getSound) और [getBinaryData](https://reference.aspose.com/slides/hi/python-java/aspose.slides/audio/#getBinaryData) के माध्यम से मेमोरी में पढ़ता है।
+निम्न उदाहरण ऊपर बनाए गए प्रस्तुति को खोलता है और पहले आकार के हाइपरलिंक ऑडियो को [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) और [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData) के माध्यम से मेमोरी में पढ़ता है।
 
 ```python
 import jpype
@@ -250,15 +254,16 @@ finally:
 
 ### **टूलटिप और इंटरैक्शन सेटिंग्स**
 
-आप टेक्स्ट या आकार को हाइपरलिंक असाइन करने के बाद निम्न [Hyperlink](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/) मेथड्स को कॉल कर सकते हैं:
-- [setTooltip](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setTooltip) वह टेक्स्ट सेट करता है जिसे दर्शक लिंक के संकेत के रूप में दिखा सकता है।
-- [setTargetFrame](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setTargetFrame) लागू होने पर पैरेंट HTML फ्रेमसेट के भीतर लक्ष्य फ्रेम निर्धारित करता है।
-- [setHistory](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setHistory) नियंत्रित करता है कि लिंक सक्रिय करने पर उसका गंतव्य देखे गए हाइपरलिंक की सूची में जोड़ा जाए या नहीं।
-- [setHighlightClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#setHighlightClick) निर्धारित करता है कि क्लिक करने पर हाइपरलिंक हाइलाइट हो या नहीं।
+टेक्स्ट या आकृति को हाइपरलिंक असाइन करने के बाद आप निम्न [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) विधियों को कॉल कर सकते हैं:
 
-## **प्रस्तुति से हाइपरलिंक हटाएं**
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) लिंक के लिए दर्शक को संकेत के रूप में दिखाने वाला टेक्स्ट सेट करता है।
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) लागू होने पर पैरेंट HTML फ्रेमसेट के भीतर लक्ष्य फ्रेम निर्दिष्ट करता है।
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) नियंत्रित करता है कि लिंक को सक्रिय करने पर उसका लक्ष्य देखी गई हाइपरलिंक सूची में जोड़ा जाए या नहीं।
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) नियंत्रित करता है कि क्लिक करने पर हाइपरलिंक हाइलाइट हो या नहीं।
 
-परिवर्तनों से पहले हाइपरलिंक कंटेनर, जिसमें टेक्स्ट-भाग लिंक भी शामिल हैं, एकत्र करने के लिए [getAnyHyperlinks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) का उपयोग करें। नीचे दिया गया उदाहरण पहली स्लाइड से दोनों सक्रियता प्रकार हटाता है। केवल एक प्रकार हटाने के लिए, केवल [removeHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) या [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) को कॉल करें; क्लिक कार्रवाई हटाने से उसकी माउस-ओवर समकक्ष नहीं हटेगी।
+## **प्रेज़ेंटेशन से हाइपरलिंक हटाएँ**
+
+हाइपरलिंक कंटेनरों, जिसमें टेक्स्ट‑पोर्टियन लिंक भी शामिल हैं, को बदलने से पहले एकत्र करने के लिए [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) का उपयोग करें। निम्न उदाहरण पहली स्लाइड से दोनों सक्रियता प्रकारों को हटाता है। केवल एक प्रकार हटाने के लिए, केवल [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) या [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) को कॉल करें; क्लिक कार्रवाई को हटाने से उसका माउस‑ओवर समकक्ष हटता नहीं है।
 
 ```python
 import jpype
@@ -283,22 +288,23 @@ finally:
     presentation.dispose()
 ```
 
-निर्विवाद हटाने के लिए, [removeAllHyperlinks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) चयनित स्कोप में एक कॉल में दोनों सक्रियता प्रकार हटा देता है। चयनात्मक सफ़ाई और मास्टर, लेआउट और नोट्स को कवर करने के लिए, देखें [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)।
+बिना शर्त हटाने के लिए, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) चयनित सीमा में दोनों सक्रियता प्रकारों को एक कॉल में हटाता है। चयनात्मक सफ़ाई और मास्टर, लेआउट, नोट्स तथा नोट्स‑और‑हैंडआउट मास्टर की कवरेज के लिए देखें [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)।
 
-## **एक पूर्ण हाइपरलिंक इन्वेंटरी बनाएं**
+## **पूरी हाइपरलिंक इन्वेंट्री बनाएं**
 
-एक प्रस्तुति वितरित करने से पहले, उसकी इंटरैक्टिव कार्रवाइयों और वेब लिंक का इन्वेंटरी बनाएं। [getAnyHyperlinks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) हाइपरलिंक कंटेनर लौटाता है, जैसे कि [Shape](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/) और [PortionFormat](https://reference.aspose.com/slides/hi/python-java/aspose.slides/portionformat/) ऑब्जेक्ट, न कि URL स्ट्रिंग की फ्लैट लिस्ट। प्रत्येक कंटेनर पर दोनों [getHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getHyperlinkClick) और [getHyperlinkMouseOver](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getHyperlinkMouseOver) को निरीक्षण करें। वे स्वतंत्र हैं: समान कंटेनर दोनों कार्रवाइयाँ दिखा सकता है, इसलिए एक पूर्ण रिपोर्ट को प्रति कंटेनर दो पंक्तियों तक की आवश्यकता हो सकती है।
+प्रेज़ेंटेशन वितरित करने से पहले, उसकी इंटरैक्टिव कार्रवाइयों और वेब लिंक की इन्वेंट्री बनाएं। [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) हाइपरलिंक कंटेनर लौटाता है, जैसे [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) और [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/) ऑब्जेक्ट, न कि URL स्ट्रिंग की सपाट सूची। प्रत्येक कंटेनर पर [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick) और [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) दोनों का निरीक्षण करें। वे स्वतंत्र हैं: समान कंटेनर दोनों कार्रवाइयों को उजागर कर सकता है, इसलिए पूर्ण रिपोर्ट में प्रत्येक कंटेनर के लिए दो पंक्तियों की आवश्यकता हो सकती है।
 
-केवल आकार-स्तर के हाइपरलिंक स्कैन करने से टेक्स्ट भाग से जुड़े लिंक मिस हो सकते हैं। इसके बजाय उपयुक्त स्कोप को क्वेरी करें, और लौटाए गए कंटेनरों को रखें ताकि बाद में आप उनकी कार्रवाइयों को अपडेट या हटाने के लिए उपयोग कर सकें।
+केवल आकृति‑स्तर के हाइपरलिंक स्कैन करने से टेक्स्ट पोर्शन से जुड़े लिंक छूट सकते हैं। उचित स्कोप पर क्वेरी करें, और लौटाए गए कंटेनर को रखें ताकि बाद में आप उनके कार्यों को अपडेट या हटाने सकें।
 
-### **प्रस्तुति, स्लाइड और टेक्स्ट-फ़्रेम स्कोप क्वेरी करें**
+### **प्रेज़ेंटेशन, स्लाइड, और टेक्स्ट‑फ़्रेम स्कोप्स की क्वेरी**
 
-[HyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/) क्लास निम्न के माध्यम से उपलब्ध है: [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/baseslide/#getHyperlinkQueries), और [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/hi/python-java/aspose.slides/textframe/#getHyperlinkQueries)। प्रत्येक स्कोप समान क्वेरीज़ का समर्थन करता है:
-- [getHyperlinkClicks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) क्लिक कार्रवाई वाले कंटेनर लौटाता है।
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) माउस-ओवर कार्रवाई वाले कंटेनर लौटाता है।
-- [getAnyHyperlinks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) एक या दोनों कार्रवाई वाले कंटेनर लौटाता है।
+[HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) क्लास निम्न माध्यमों से उपलब्ध है: [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries), और [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries)। प्रत्येक स्कोप समान क्वेरी को समर्थन देता है:
 
-निम्न उदाहरण `hyperlink-audit-input.pptx` बनाता है जिसमें एक बाहरी क्लिक लिंक, एक फ़ाइल माउस-ओवर लिंक, आंतरिक स्लाइड नेविगेशन, एक टेक्स्ट माउस-ओवर लिंक, और एक मैक्रो कार्रवाई शामिल है। यह इन में से कोई भी कार्रवाई निष्पादित नहीं करता। वही तीन क्वेरीज़ प्रत्येक स्कोप पर काम करती हैं; गणनाएँ कंटेनरों को दर्शाती हैं, न कि कार्रवाई कुल। टेक्स्ट-फ़्रेम स्कोप में घेरने वाले आकार के अपने लिंक को बाहर रखा जाता है।
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) क्लिक कार्रवाई वाले कंटेनर लौटाता है।
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) माउस‑ओवर कार्रवाई वाले कंटेनर लौटाता है।
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) किसी भी या दोनों कार्रवाई वाले कंटेनर लौटाता है।
+
+निम्न उदाहरण `hyperlink-audit-input.pptx` को एक बाहरी क्लिक लिंक, एक फ़ाइल माउस‑ओवर लिंक, आंतरिक स्लाइड नेविगेशन, एक टेक्स्ट माउस‑ओवर लिंक, और एक मैक्रो कार्रवाई के साथ बनाता है। यह इनमें से किसी भी कार्रवाई को निष्पादित नहीं करता। तीनों क्वेरी हर स्कोप में समान रूप से कार्य करती हैं; गणना कंटेनर की संख्या दर्शाती है, कार्रवाई की कुल संख्या नहीं। टेक्स्ट‑फ़्रेम स्कोप enclosing आकृति के अपने लिंक को बाहर रखता है।
 
 ```python
 import jpype
@@ -339,37 +345,37 @@ finally:
     presentation.dispose()
 ```
 
-इस उदाहरण के लिए, प्रस्तुति और स्लाइड क्वेरीज़ क्रमशः तीन क्लिक कंटेनर, दो माउस-ओवर कंटेनर, और एक या दोनों कार्रवाई वाले तीन कंटेनर रिपोर्ट करती हैं। टेक्स्ट-फ़्रेम क्वेरी प्रत्येक श्रेणी में एक कंटेनर रिपोर्ट करती है।
+इस उदाहरण में, प्रेज़ेंटेशन और स्लाइड क्वेरी क्रमशः तीन क्लिक कंटेनर, दो माउस‑ओवर कंटेनर, और तीन दोनों प्रकार की कार्रवाइयों वाले कंटेनर रिपोर्ट करती हैं। टेक्स्ट‑फ़्रेम क्वेरी प्रत्येक श्रेणी में एक कंटेनर रिपोर्ट करती है।
 
-### **कार्रवाई और गंतव्य वर्गीकृत करें**
+### **कार्रवाइयों और गंतव्यों को वर्गीकृत करें**
 
-[Hyperlink.getActionType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getActionType) का उपयोग करके एक कार्रवाई को उसके गंतव्य को समझने से पहले व्याख्या करें। [HyperlinkActionType](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkactiontype/) मान वेब नेविगेशन से अधिक को कवर करते हैं:
+किसी कार्रवाई को उसकी गंतव्य से पहले समझने के लिए [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType) का उपयोग करें। [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) के मान वेब नेविगेशन से अधिक कवरेज देते हैं:
 
 | मान | ऑडिट के लिए अर्थ |
 | --- | --- |
-| `Hyperlink` | बाहरी हाइपरलिंक; URL और उसके स्कीम की जाँच करें। |
-| `JumpSpecificSlide` | किसी विशेष स्लाइड पर आंतरिक नेविगेशन। |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | निर्मित स्लाइडशो नेविगेशन, स्लाइडशो संदर्भ में हल किया जाता है। |
-| `JumpEndShow`, `StartCustomSlideShow` | वर्तमान शो को समाप्त करें या एक कस्टम शो शुरू करें। |
-| `StartMacro` | एक मैक्रो निष्पादित करें। |
-| `StartProgram` | एक प्रोग्राम लॉन्च करें। |
+| `Hyperlink` | बाहरी हाइपरलिंक; URL और उसके स्कीम की जांच करें। |
+| `JumpSpecificSlide` | विशिष्ट स्लाइड पर आंतरिक नेविगेशन। |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | अंतर्निहित स्लाइडशो नेविगेशन, स्लाइडशो संदर्भ में हल किया जाता है। |
+| `JumpEndShow`, `StartCustomSlideShow` | वर्तमान शो समाप्त करें या कस्टम शो शुरू करें। |
+| `StartMacro` | मैक्रो निष्पादित करें। |
+| `StartProgram` | प्रोग्राम लॉन्च करें। |
 | `OpenFile`, `OpenPresentation` | फ़ाइल या अन्य प्रस्तुति खोलें; वेब URL से अलग समीक्षा करें। |
 | `StartStopMedia` | मीडिया प्लेबैक शुरू या रोकें। |
-| `NoAction`, `Unknown` | कोई नेविगेशन कार्रवाई नहीं, या अज्ञात कार्रवाई जो समीक्षा की आवश्यकता रखती है। |
+| `NoAction`, `Unknown` | कोई नेविगेशन कार्रवाई नहीं, या अज्ञात कार्रवाई जिसके लिए समीक्षा की आवश्यकता है। |
 
-बाहरी गंतव्य को [getExternalUrl](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getExternalUrl) से पढ़ें और विशिष्ट आंतरिक गंतव्य को [getTargetSlide](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getTargetSlide) से पढ़ें। आंतरिक कार्रवाइयों और निर्मित कमांड में बाहरी URL नहीं हो सकता; खाली URL यह नहीं दर्शाता कि कंटेनर में कोई कार्रवाई नहीं है। जब [getExternalUrlOriginal](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) द्वारा लौटाई गई मान सामान्यीकृत URL से भिन्न हो, तो उसे संरक्षित रखें, और उपलब्ध होने पर [getTooltip](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlink/#getTooltip) द्वारा लौटाया गया टूलटिप शामिल करें।
+बाहरी गंतव्यों को [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) से पढ़ें और विशिष्ट आंतरिक गंतव्यों को [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide) से। आंतरिक कार्रवाइयों और अंतर्निहित कमांड में बाहरी URL नहीं हो सकता; खाली URL का अर्थ यह नहीं है कि कंटेनर में कोई कार्रवाई नहीं है। जब [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal) सामान्यीकृत URL से अलग हो, तो उसका मान संरक्षित रखें, और उपलब्ध होने पर [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip) द्वारा लौटाए गए टूलटिप को भी शामिल करें।
 
-### **हाइपरलिंक की रिपोर्ट, सफ़ाई, और सत्यापन**
+### **हाइपरलिंक की रिपोर्ट, सफ़ाई, और सत्यापन करें**
 
-निम्न Python उदाहरण एक मौजूदा प्रस्तुति पढ़ता है (ऊपर बनाई गई फ़ाइल का उपयोग करें), `hyperlink-audit.json` लिखता है, एक नीति लागू करता है, `hyperlink-sanitized.pptx` को सहेजता है, और दोनों सक्रियता प्रकारों को फिर से जांचने के लिए उसे पुनः खोलता है। यह परिवर्तनों से पहले कंटेनर एकत्र करता है और संदर्भ समानता का उपयोग करके एक ही कंटेनर को दो बार प्रोसेस होने से बचाता है। प्रस्तुति क्वेरीज़ सामान्य स्लाइडों को कवर करती हैं; पैकेज-व्यापी इन्वेंटरी के लिए, यह स्पष्ट रूप से मास्टर, लेआउट, नोट्स, तथा नोट्स और हैंडआउट मास्टर को भी क्वेरी करता है जब वे मौजूद हों।
+निम्न Python उदाहरण मौजूदा प्रस्तुति को पढ़ता है (ऊपर बनाई गई फ़ाइल का उपयोग करें), `hyperlink-audit.json` लिखता है, एक नीति लागू करता है, `hyperlink-sanitized.pptx` सहेजता है, और फिर दोनों सक्रियता प्रकारों को फिर से जाँचने के लिए इसे खोलता है। यह बदलने से पहले कंटेनर एकत्र करता है और समान कंटेनर को दो बार प्रोसेस करने से बचने के लिए रेफ़रेंस समानता का उपयोग करता है। प्रेज़ेंटेशन क्वेरी सामान्य स्लाइड को कवर करती है; पैकेज‑व्यापी इन्वेंट्री के लिए यह स्पष्ट रूप से मास्टर, लेआउट, नोट्स, तथा नोट्स और हैंडआउट मास्टर को भी क्वेरी करती है जब उपलब्ध हों।
 
-रिपोर्ट एक-आधारित स्लाइड इंडेक्स और जहाँ उपलब्ध हो [getSlideId](https://reference.aspose.com/slides/hi/python-java/aspose.slides/baseslide/#getSlideId) को रिकॉर्ड करती है। [getSlide](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getSlide) समर्थित कंटेनरों के लिए मालिक स्लाइड प्रदान करता है। मास्टर, लेआउट और नोट्स का कोई सामान्य स्लाइड इंडेक्स नहीं होता और उन्हें उनके स्कोप से पहचाना जाता है। आकार कंटेनर और टेक्स्ट-भाग फ़ॉर्मेटिंग कंटेनर अलग से लेबल किए जाते हैं; अन्य कंटेनर प्रकार अपना रनटाइम टाइप नाम बनाए रखते हैं। प्रत्येक कंटेनर को रिपोर्ट-लोकल ID मिलती है जिससे उसकी दो कार्रवाइयों को संबंधित किया जा सके। रिपोर्ट कार्रवाई प्रकारों को जावा एन्यूमेरेशन द्वारा परिभाषित पूर्णांक स्थिरांक के रूप में संग्रहीत करती है।
+रिपोर्ट एक‑आधारित स्लाइड इंडेक्स और उपलब्ध होने पर [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId) को रिकॉर्ड करती है। [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) समर्थित कंटेनर के लिए स्वामित्व स्लाइड प्रदान करता है। मास्टर, लेआउट और नोट्स के पास सामान्य स्लाइड इंडेक्स नहीं होता और उन्हें उनके स्कोप द्वारा पहचाना जाता है। आकृति कंटेनर और टेक्स्ट‑पोर्टियन फ़ॉर्मेट कंटेनर को अलग‑अलग लेबल किया जाता है; अन्य कंटेनर प्रकार अपने रन‑टाइम टाइप नाम को बनाए रखते हैं। प्रत्येक कंटेनर को रिपोर्ट‑स्थानीय ID दी जाती है ताकि उसकी दो कार्रवाइयों को जोड़ा जा सके। रिपोर्ट कार्रवाई प्रकार को Java एन्यूमरेशन द्वारा परिभाषित पूर्णांक स्थिरांक के रूप में संग्रहीत करती है।
 
-यह जानबूझकर प्रतिबंधात्मक अनुप्रयोग नीति केवल पूर्ण HTTPS URL और वैध आंतरिक स्लाइड लक्ष्य की अनुमति देती है। यह मैक्रो, प्रोग्राम, फ़ाइल कार्रवाइयों, अन्य स्लाइडशो कार्रवाइयों, अज्ञात कार्रवाइयों और अन्य URL स्कीम को अस्वीकार करता है। ये अस्वीकृतियां नीति निर्णय हैं, न कि Aspose.Slides सुरक्षा निर्णय। केवल HTTPS भरोसा स्थापित नहीं करता: अपने अनुप्रयोग के लिए होस्ट अनुमति सूचियों और अन्य जांचें जोड़ें। मूल और सामान्यीकृत दोनों बाहरी URL जांचे जाते हैं। उदाहरण लिंक का अनुसरण किए बिना या कार्रवाइयों को चलाए बिना मेटाडेटा का ऑडिट करता है।
+यह प्रतिबंधात्मक अनुप्रयोग नीति केवल पूर्ण HTTPS URL और मान्य आंतरिक स्लाइड लक्ष्य की अनुमति देती है। यह मैक्रो, प्रोग्राम, फ़ाइल कार्रवाइयों, अन्य स्लाइडशो कार्रवाइयों, अज्ञात कार्रवाइयों, और अन्य URL स्कीम को अस्वीकार करता है। ये अस्वीकृतियां नीति‑निर्णय हैं, Aspose.Slides सुरक्षा निर्णय नहीं। केवल HTTPS भरोसा स्थापित नहीं करता: अपने अनुप्रयोग के लिए होस्ट अलाउलिस्ट और अन्य जाँचें जोड़ें। मूल और सामान्यीकृत बाहरी URL दोनों जाँचे जाते हैं। उदाहरण लिंक का अनुसरण या कार्रवाई चलाए बिना मेटाडेटा का ऑडिट करता है।
 
-सुधार के लिए, कंटेनर का [getHyperlinkManager](https://reference.aspose.com/slides/hi/python-java/aspose.slides/shape/#getHyperlinkManager) [setExternalHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick), और [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) को सपोर्ट करता है। यहाँ, प्रतिबंधित बाहरी क्लिक लिंक को एक निश्चित HTTPS लैंडिंग पेज से बदला जाता है; अन्य प्रतिबंधित क्लिक और माउस-ओवर कार्रवाइयों को स्वतंत्र रूप से हटाया जाता है। सभी नीति उल्लंघनों को हटाने के लिए `replace_external_clicks` को `False` सेट करें। परिनियोजन से पहले एक एप्लिकेशन-स्वामित्व वाला प्रतिस्थापन पेज चुनें।
+सुधार के लिए, कंटेनर की [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick), और [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver) का समर्थन करता है। यहाँ, प्रतिबंधित बाहरी क्लिक लिंक को एक निश्चित HTTPS लैंडिंग पेज से बदल दिया जाता है; अन्य प्रतिबंधित क्लिक और प्रतिबंधित माउस‑ओवर कार्रवाइयों को स्वतंत्र रूप से हटाया जाता है। सभी नीति उल्लंघनों को हटाने के लिए `replace_external_clicks` को `False` सेट करें। तैनाती से पहले अनुप्रयोग‑स्वामित्व पेज तय करें।
 
-रिपोर्ट का एक्सपोर्ट फ़्लैग एक रूढ़िवादी PDF समीक्षा नीति का उपयोग करता है: माउस-ओवर कार्रवाइयों और बाहरी लिंक या विशिष्ट स्लाइड कूद के अलावा किसी भी चीज़ को संभावित रूप से असमर्थित के रूप में चिन्हित करें। यह एक समीक्षा संकेत है, न कि क्षमता परीक्षण या यह गारंटी कि बिना चिन्हित लिंक निर्यात में टिकेंगे। समर्थित [PDF](/slides/hi/python-java/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/python-java/convert-powerpoint-to-html/) निर्यात हाइपरलिंक को संरक्षित कर सकते हैं, कार्रवाई, निर्यात विकल्प और दर्शक पर निर्भर करता है। रास्टर [images](/slides/hi/python-java/convert-powerpoint-to-png/) और [video](/slides/hi/python-java/convert-powerpoint-to-video/) इंटरैक्टिव हाइपरलिंक को संरक्षित नहीं कर सकते; उन आउटपुट के लिए ऑडिट करते समय हर कार्रवाई को चिन्हित करें।
+रिपोर्ट का निर्यात फ़्लैग एक रूढ़िवादी PDF समीक्षा नीति उपयोग करता है: माउस‑ओवर कार्रवाई और बाहरी लिंक या विशिष्ट स्लाइड कूद के अलावा सभी को संभावित असमर्थित के रूप में चिह्नित किया जाता है। यह एक समीक्षा संकेत है, न कि क्षमता परीक्षण या यह गारंटी कि अनफ़्लैग्ड लिंक निर्यात में टिके रहेंगे। समर्थित [PDF](/slides/hi/python-java/convert-powerpoint-to-pdf/) और [HTML](/slides/hi/python-java/convert-powerpoint-to-html/) निर्यात कार्रवाई, निर्यात विकल्प, और दर्शक के आधार पर हाइपरलिंक बरकरार रख सकते हैं; रास्टर [images](/slides/hi/python-java/convert-powerpoint-to-png/) और [video](/slides/hi/python-java/convert-powerpoint-to-video/) इंटरैक्टिव हाइपरलिंक नहीं रख सकते; ऑडिट करते समय सभी कार्रवाइयों को फ्लैग करें।
 
 ```python
 import json
@@ -522,20 +528,20 @@ finally:
     presentation.dispose()
 ```
 
-ऊपर बनाए गए इनपुट के साथ, रिपोर्ट में पाँच कार्रवाई पंक्तियाँ हैं। फ़ाइल माउस-ओवर लिंक और मैक्रो क्लिक हटाए गए हैं, जबकि HTTPS लिंक और आंतरिक स्लाइड नेविगेशन बना रहता है। सत्यापन शून्य प्रतिबंधित कार्रवाइयाँ प्रिंट करता है। प्रतिबंधित बाहरी क्लिक URL वाला इनपुट भी प्रतिस्थापन शाखा को सक्रिय करता है। अनुमति दिए गए क्लिक और प्रतिबंधित माउस-ओवर वाला कंटेनर अपना क्लिक कार्य रखता है।
+उपर्युक्त इनपुट के साथ, रिपोर्ट में पाँच कार्रवाई पंक्तियाँ होती हैं। फ़ाइल माउस‑ओवर लिंक और मैक्रो क्लिक हटाए जाते हैं, जबकि HTTPS लिंक और आंतरिक स्लाइड नेविगेशन बना रहता है। सत्यापन शून्य प्रतिबंधित कार्रवाई प्रिंट करता है। प्रतिबंधित बाहरी क्लिक URL वाला इनपुट प्रतिस्थापन शाखा को भी सक्रिय करता है। अनुमत क्लिक और प्रतिबंधित माउस‑ओवर वाले कंटेनर अपनी क्लिक कार्रवाई बनाये रखते हैं।
 
-यह चयनात्मक सफ़ाई [removeAllHyperlinks](https://reference.aspose.com/slides/hi/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) से भिन्न है, जो नीति की परवाह किए बिना चयनित स्कोप में दोनों सक्रियता प्रकारों को हटाता है। यहाँ सत्यापन केवल हाइपरलिंक कार्रवाइयों की जाँच करता है; यह एम्बेडेड VBA प्रोजेक्ट, OLE ऑब्जेक्ट या अन्य सक्रिय सामग्री को नहीं हटाता, और न ही निर्यातित PDF या HTML फ़ाइल की वैधता जाँचता है।
+यह चयनात्मक सफ़ाई [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) से अलग है, जो नीति की परवाह किए बिना चयनित स्कोप में दोनों सक्रियता प्रकारों को हटाता है। यहाँ सत्यापन केवल हाइपरलिंक कार्रवाइयों की जाँच करता है; यह एम्बेडेड VBA प्रोजेक्ट, OLE ऑब्जेक्ट, या अन्य सक्रिय सामग्री को नहीं हटाता, और न ही निर्यातित PDF या HTML फ़ाइल की वैधता की जाँच करता है।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**सेक्शन या उसकी पहली स्लाइड से कैसे लिंक करूँ?**
+**मैं किसी सेक्शन या उसकी पहली स्लाइड से कैसे लिंक कर सकता हूँ?**
 
-PowerPoint में सेक्शन स्लाइडों को समूहित करते हैं, लेकिन एक आंतरिक हाइपरलिंक व्यक्तिगत स्लाइड को लक्षित करता है। सेक्शन में नेविगेशन बनाने के लिए, उस सेक्शन की पहली स्लाइड से लिंक करें।
+PowerPoint में सेक्शन स्लाइड को समूहित करते हैं, लेकिन आंतरिक हाइपरलिंक एक व्यक्तिगत स्लाइड को लक्षित करता है। सेक्शन पर नेविगेशन बनाने के लिए, उस सेक्शन की पहली स्लाइड से लिंक करें।
 
-**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक संलग्न कर सकता हूँ ताकि यह सभी स्लाइडों पर काम करे?**
+**क्या मैं मास्टर स्लाइड तत्वों पर हाइपरलिंक संलग्न कर सकता हूँ ताकि वह सभी स्लाइड पर काम करे?**
 
-हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक को सपोर्ट करते हैं। इन तत्वों पर लिंक उस स्लाइड शो में उपलब्ध होते हैं जहाँ संबंधित मास्टर या लेआउट का उपयोग किया गया हो।
+हाँ। मास्टर स्लाइड और लेआउट तत्व हाइपरलिंक का समर्थन करते हैं। इन तत्वों पर लिंक स्लाइड शो के दौरान उन स्लाइडों पर उपलब्ध होते हैं जो संबंधित मास्टर या लेआउट का उपयोग करती हैं।
 
-**क्या PDF, HTML, इमेज या वीडियो में निर्यात करते समय हाइपरलिंक संरक्षित रहेंगे?**
+**PDF, HTML, इमेज या वीडियो में निर्यात करते समय हाइपरलिंक बरकरार रहेंगे?**
 
-समर्थित PDF और HTML निर्यात हाइपरलिंक को रख सकते हैं; रास्टर इमेज और वीडियो नहीं रख सकते। निर्यात संबंधी विचारों के लिए देखें [हाइपरलिंक की रिपोर्ट, सफ़ाई, और सत्यापन](#report-sanitize-and-verify-hyperlinks)।
+समर्थित PDF और HTML निर्यात हाइपरलिंक को बरकरार रख सकते हैं; रास्टर इमेज और वीडियो इंटरैक्टिव हाइपरलिंक नहीं रख सकते।詳細 के लिए देखें [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)।

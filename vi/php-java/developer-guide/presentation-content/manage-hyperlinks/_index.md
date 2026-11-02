@@ -1,49 +1,51 @@
 ---
-title: Quản lý Siêu liên kết Bản trình chiếu trong PHP
-linktitle: Quản lý Siêu liên kết
+title: Quản lý Liên kết Siêu Văn Bản Bản Trình Bày trong PHP
+linktitle: Quản lý Liên kết
 type: docs
 weight: 20
 url: /vi/php-java/manage-hyperlinks/
 keywords:
 - thêm URL
-- thêm siêu liên kết
-- tạo siêu liên kết
-- định dạng siêu liên kết
-- xóa siêu liên kết
-- cập nhật siêu liên kết
-- siêu liên kết văn bản
-- siêu liên kết slide
-- siêu liên kết hình dạng
-- siêu liên kết hình ảnh
-- siêu liên kết video
-- siêu liên kết có thể thay đổi
+- thêm liên kết siêu văn bản
+- tạo liên kết siêu văn bản
+- định dạng liên kết siêu văn bản
+- xóa liên kết siêu văn bản
+- cập nhật liên kết siêu văn bản
+- liên kết siêu văn bản văn bản
+- liên kết siêu văn bản slide
+- liên kết siêu văn bản hình dạng
+- liên kết siêu văn bản hình ảnh
+- liên kết siêu văn bản video
+- liên kết siêu văn bản có thể thay đổi
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - PHP
 - Aspose.Slides
-description: "Thêm, định dạng, cập nhật và xóa siêu liên kết trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho PHP qua Java, sử dụng các ví dụ PHP."
+description: "Thêm, định dạng, cập nhật và xóa liên kết siêu văn bản trong các bản trình bày PowerPoint và OpenDocument bằng Aspose.Slides cho PHP qua Java, sử dụng các ví dụ PHP."
 ---
 ## **Giới thiệu**
 
-Một siêu liên kết kết nối nội dung bản trình chiếu với một trang web hoặc một vị trí trong bản trình chiếu. Trong PowerPoint, siêu liên kết thường thực hiện hai mục đích:
+Liên kết siêu văn bản kết nối nội dung bản trình bày với một trang web hoặc một vị trí trong bản trình bày. Trong PowerPoint, liên kết siêu văn bản thường phục vụ hai mục đích:
 
 * Mở một trang web từ văn bản, hình dạng hoặc khung phương tiện.
-* Điều hướng tới một slide khác, ví dụ, từ mục lục.
+* Điều hướng đến một slide khác, ví dụ, từ mục lục.
 
-Aspose.Slides for PHP qua Java cho phép bạn thêm các liên kết này, điều khiển giao diện và âm thanh của chúng, cập nhật thuộc tính và xóa chúng. Các ví dụ dưới đây cho thấy cách làm việc với siêu liên kết trên các phần tử riêng lẻ và cách truy cập siêu liên kết ở mức bản trình chiếu, slide hoặc khung văn bản. Chúng giả định rằng PHP/Java Bridge và wrapper Aspose.Slides PHP đã được khởi tạo. Các thành viên API không có trang tham chiếu PHP sẽ liên kết tới API Java nền tảng.
+Aspose.Slides for PHP via Java cho phép bạn thêm các liên kết này, kiểm soát giao diện và âm thanh của chúng, cập nhật các thuộc tính và xóa chúng. Các ví dụ dưới đây cho thấy cách làm việc với liên kết siêu văn bản trên các yếu tố riêng lẻ và cách truy cập liên kết siêu văn bản ở mức bản trình bày, slide hoặc khung văn bản. Chúng giả định rằng PHP/Java Bridge và wrapper Aspose.Slides cho PHP đã được khởi tạo. Các thành viên API không có trang tham chiếu PHP sẽ liên kết đến API Java nền.
 
 {{% alert color="info" title="Note" %}}
-Bạn cũng có thể chỉnh sửa bản trình chiếu bằng [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/vi/editor).
+Bạn cũng có thể chỉnh sửa bản trình bày với [trình chỉnh sửa PowerPoint trực tuyến miễn phí của Aspose](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Thêm Siêu liên kết URL**
+## **Thêm Liên Kết URL**
 
-Bạn có thể gán một URL trang web cho văn bản, hình dạng hoặc khung phương tiện. Thành phần mà bạn gán siêu liên kết sẽ xác định khu vực có thể nhấp: một phần văn bản liên kết tới văn bản đã chọn, trong khi một hình dạng hoặc khung liên kết tới đối tượng slide.
+Bạn có thể gán một URL website cho văn bản, hình dạng hoặc khung phương tiện. Phần tử mà bạn gán liên kết siêu văn bản quyết định khu vực có thể nhấp: một phần văn bản sẽ liên kết văn bản đã chọn, trong khi một hình dạng hoặc khung sẽ liên kết đối tượng slide.
 
-### **Thêm Siêu liên kết URL cho Văn bản**
+Đối với các bản trình bày chứa liên kết siêu văn bản tương đối, xem [Quản lý Cơ Sở Liên Kết Siêu Văn Bản](/slides/vi/php-java/presentation-properties/#manage-the-hyperlink-base) để đọc, thay đổi hoặc xóa cơ sở cấp tài liệu.
 
-Để liên kết văn bản tới một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/) vào phương thức [setHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/portionformat/sethyperlinkclick/) của phần văn bản, như dưới đây. Chỉ phần văn bản đó trở nên có thể nhấp.
+### **Thêm Liên Kết URL vào Văn Bản**
+
+Để liên kết văn bản với một trang web, truyền một [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) vào phương thức [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) của phần văn bản, như được minh họa bên dưới. Chỉ phần văn bản đó sẽ trở nên có thể nhấp.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -66,11 +68,11 @@ try {
 }
 ```
 
-### **Thêm Siêu liên kết URL cho Hình dạng và Khung Phương tiện**
+### **Thêm Liên Kết URL vào Hình Dạng và Khung Phương Tiện**
 
-Để làm cho một hình dạng hoặc khung có thể nhấp, gọi phương thức [setHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/sethyperlinkclick/) của nó. Siêu liên kết thuộc về đối tượng đó chứ không phải một phần văn bản bên trong.
+Để làm cho một hình dạng hoặc khung có thể nhấp, gọi phương thức [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) của nó. Liên kết siêu văn bản thuộc về đối tượng đó chứ không phải một phần văn bản bên trong.
 
-Cách tiếp cận tương tự áp dụng cho khung ảnh, âm thanh và video: gán siêu liên kết cho khung và gọi [setTooltip](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/settooltip/) nếu cần.
+Cùng một cách tiếp cận áp dụng cho khung ảnh, âm thanh và video: gán liên kết siêu văn bản vào khung và gọi [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) nếu cần.
 
 Ví dụ sau làm cho một hình chữ nhật có thể nhấp:
 
@@ -93,9 +95,9 @@ try {
 }
 ```
 
-## **Sử dụng Siêu liên kết để Tạo Mục lục**
+## **Sử Dụng Liên Kết Siêu Văn Bản Để Tạo Mục Lục**
 
-Siêu liên kết nội bộ cho phép người đọc nhảy từ mục lục tới một slide cụ thể. Ví dụ dưới đây sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
+Liên kết nội bộ cho phép độc giả nhảy từ mục lục đến một slide cụ thể. Ví dụ sau sử dụng [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) để liên kết văn bản “Page 2” trên slide đầu tiên tới slide thứ hai.
 
 ```php
 use aspose\slides\FillType;
@@ -133,13 +135,13 @@ try {
 }
 ```
 
-## **Định dạng Siêu liên kết**
+## **Định Dạng Liên Kết Siêu Văn Bản**
 
-### **Màu sắc**
+### **Màu**
 
-Phương thức [setColorSource](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/setcolorsource/) của [Hyperlink](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/) quyết định liệu siêu liên kết có sử dụng màu siêu liên kết của bản trình chiếu hay định dạng của phần văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkcolorsource/) và đặt màu tô đầy cho phần. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.
+Phương thức [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) của [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) xác định liệu liên kết siêu văn bản có sử dụng màu liên kết của bản trình bày hay định dạng của phần văn bản. Để áp dụng màu văn bản tùy chỉnh, chọn [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) và đặt màu nền cho phần. Tính năng này được giới thiệu trong PowerPoint 2019; các phiên bản cũ hơn không áp dụng cài đặt này.
 
-Ví dụ dưới đây thêm hai siêu liên kết văn bản vào cùng một slide. Siêu liên kết đầu tiên sử dụng màu đỏ, trong khi siêu liên kết thứ hai giữ màu mặc định của siêu liên kết.
+Ví dụ sau thêm hai liên kết siêu văn bản vào cùng một slide. Liên kết đầu tiên sử dụng màu nền văn bản đỏ, trong khi liên kết thứ hai giữ màu liên kết mặc định.
 
 ```php
 use aspose\slides\FillType;
@@ -168,16 +170,16 @@ try {
     $presentation->dispose();
 }
 ```
-### **Âm thanh**
+### **Âm Thanh**
 
-Một siêu liên kết có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình hành vi này:
+Một liên kết siêu văn bản có thể phát âm thanh khi được kích hoạt hoặc dừng âm thanh đang phát. Sử dụng các phương thức sau để cấu hình các hành vi này:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/setsound/) chỉ định âm thanh liên quan tới siêu liên kết.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/setstopsoundonclick/) kiểm soát việc kích hoạt siêu liên kết có dừng âm thanh trước đó hay không.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) chỉ định âm thanh liên quan đến liên kết siêu văn bản.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) kiểm soát việc kích hoạt liên kết siêu văn bản có dừng âm thanh trước đó hay không.
 
-#### **Thêm Âm thanh cho Siêu liên kết**
+#### **Thêm Âm Thanh cho Liên Kết Siêu Văn Bản**
 
-Ví dụ sau tải `sampleaudio.wav` và gán nó vào một nút trên slide đầu tiên. Nhấp nút sẽ phát âm thanh và chuyển sang slide tiếp theo. Một hình dạng thứ hai trên slide đó sẽ dừng âm thanh trước khi nhấp, mà không thực hiện hành động chuyển hướng.
+Ví dụ sau tải `sampleaudio.wav` và gán nó với một nút trên slide đầu tiên. Nhấp vào nút sẽ phát âm thanh và chuyển sang slide tiếp theo. Một hình dạng thứ hai trên slide đó sẽ dừng âm thanh trước khi nhấp, mà không thực hiện hành động điều hướng.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -217,9 +219,9 @@ try {
 }
 ```
 
-#### **Trích xuất Âm thanh từ Siêu liên kết**
+#### **Trích Xuất Âm Thanh từ Liên Kết Siêu Văn Bản**
 
-Ví dụ sau mở bản trình chiếu đã tạo ở trên và đọc âm thanh siêu liên kết của hình dạng đầu tiên vào bộ nhớ thông qua [getSound](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/getsound/) và [getBinaryData](https://reference.aspose.com/slides/vi/php-java/aspose.slides/audio/getbinarydata/).
+Ví dụ sau mở bản trình bày đã tạo ở trên và đọc âm thanh liên kết siêu văn bản của hình dạng đầu tiên vào bộ nhớ thông qua [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) và [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/).
 
 ```php
 use aspose\slides\Presentation;
@@ -243,18 +245,18 @@ try {
 }
 ```
 
-### **Công cụ chú giải (Tooltip) và Cài đặt Tương tác**
+### **Cài Đặt Tooltip và Tương Tác**
 
-Bạn có thể gọi các phương thức [Hyperlink](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/) sau khi đã gán siêu liên kết cho văn bản hoặc hình dạng:
+Bạn có thể gọi các phương thức [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) sau khi đã gán một liên kết siêu văn bản cho văn bản hoặc hình dạng:
 
-- [setTooltip](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/settooltip/) đặt văn bản mà người xem có thể hiển thị dưới dạng gợi ý cho liên kết.
-- [setTargetFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/settargetframe/) chỉ định khung mục tiêu trong một tập khung HTML cha, khi có.
-- [setHistory](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/sethistory/) kiểm soát việc kích hoạt liên kết có thêm đích đến vào danh sách siêu liên kết đã xem hay không.
-- [setHighlightClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/sethighlightclick/) kiểm soát việc siêu liên kết có được làm nổi bật khi nhấp hay không.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) thiết lập văn bản mà người xem có thể hiển thị như một gợi ý cho liên kết.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) chỉ định khung đích trong một frameset HTML cha, nếu áp dụng.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) kiểm soát việc kích hoạt liên kết có thêm đích đến của nó vào danh sách các liên kết đã xem hay không.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) kiểm soát việc liên kết có được làm nổi bật khi nhấp hay không.
 
-## **Xóa Siêu liên kết khỏi Bản trình chiếu**
+## **Xóa Liên Kết Siêu Văn Bản khỏi Bản Trình Bày**
 
-Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) để thu thập các container siêu liên kết, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ dưới đây xóa cả hai kiểu kích hoạt khỏi slide đầu tiên. Để xóa chỉ một kiểu, gọi chỉ [removeHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); việc xóa hành động nhấp không xóa hành động rê chuột tương ứng.
+Sử dụng [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) để thu thập các container liên kết siêu văn bản, bao gồm các liên kết phần văn bản, trước khi thay đổi chúng. Ví dụ sau xóa cả hai loại kích hoạt khỏi slide đầu tiên. Để xóa chỉ một loại, gọi chỉ [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) hoặc [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/); việc xóa hành động nhấp không xóa phần đối ứng khi di chuột qua.
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +282,23 @@ try {
 }
 ```
 
-Đối với việc xóa vô điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) xóa cả hai kiểu kích hoạt trong phạm vi đã chọn bằng một lần gọi. Đối với việc dọn dẹp có chọn lọc và bao phủ các master, layout và notes, xem phần [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Đối với việc xóa vô điều kiện, [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) sẽ xóa cả hai loại kích hoạt trong phạm vi đã chọn chỉ bằng một lần gọi. Đối với việc dọn dẹp có chọn lọc và bao phủ các master, layout và ghi chú, xem [Báo Cáo, Làm Sạch và Xác Minh Liên Kết Siêu Văn Bản](#report-sanitize-and-verify-hyperlinks).
 
-## **Xây dựng một Kho lưu trữ Siêu liên kết hoàn chỉnh**
+## **Xây Dựng Danh Mục Liên Kết Siêu Văn Bản Đầy Đủ**
 
-Trước khi phân phối bản trình chiếu, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) trả về các đối tượng [IHyperlinkContainer](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/), không phải danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) trên mỗi container. Chúng độc lập: cùng một container có thể hiển thị cả hai hành động, vì vậy một báo cáo đầy đủ có thể cần tới hai dòng cho mỗi container.
+Trước khi phân phối một bản trình bày, hãy kiểm kê các hành động tương tác cũng như các liên kết web của nó. [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) trả về các đối tượng [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/), không phải một danh sách phẳng các chuỗi URL. Kiểm tra cả [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) và [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) trên mỗi container. Chúng độc lập: cùng một container có thể bật cả hai hành động, vì vậy một báo cáo đầy đủ có thể cần tới hai hàng cho mỗi container.
 
-Việc quét chỉ các siêu liên kết mức hình dạng có thể bỏ sót các liên kết gắn vào phần văn bản. Hãy truy vấn phạm vi thích hợp thay thế, và giữ lại các container trả về để sau này bạn có thể cập nhật hoặc xóa các hành động của chúng.
+Việc quét chỉ các liên kết siêu văn bản ở mức hình dạng có thể bỏ sót các liên kết gắn vào phần văn bản. Thay vào đó, truy vấn phạm vi thích hợp và giữ lại các container trả về để bạn có thể cập nhật hoặc xóa các hành động của chúng sau này.
 
-### **Truy vấn Phạm vi Bản trình chiếu, Slide và Khung Văn bản**
+### **Truy Vấn Các Phạm Vi Bản Trình Bày, Slide và Khung Văn Bản**
 
-Lớp [HyperlinkQueries](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/) có sẵn qua [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) và [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/gethyperlinkqueries/). Mỗi phạm vi hỗ trợ cùng các truy vấn:
+Lớp [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) có sẵn thông qua [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/), [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) và [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/). Mỗi phạm vi hỗ trợ cùng các truy vấn:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) trả về các container có hành động nhấp.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) trả về các container có hành động rê chuột.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) trả về các container có một hoặc cả hai hành động.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) trả về các container có hành động nhấp.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) trả về các container có hành động di chuột qua.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) trả về các container có một hoặc cả hai hành động.
 
-Ví dụ dưới tạo file `hyperlink-audit-input.pptx` với một liên kết nhấp bên ngoài, một liên kết rê chuột file, điều hướng slide nội bộ, một liên kết rê chuột văn bản và một hành động macro. Nó không thực thi bất kỳ hành động nào. Ba truy vấn giống nhau hoạt động ở mọi phạm vi; số lượng mô tả các container, không phải tổng số hành động. Phạm vi khung văn bản loại trừ các liên kết của chính hình dạng bao quanh.
+Ví dụ sau tạo tệp `hyperlink-audit-input.pptx` với một liên kết nhấp ngoài, một liên kết di chuột qua tệp, điều hướng slide nội bộ, một liên kết di chuột qua văn bản và một hành động macro. Nó không thực hiện bất kỳ hành động nào trong số này. Cùng ba truy vấn hoạt động ở mọi phạm vi; số lượng mô tả các container, không phải tổng hành động. Phạm vi khung văn bản loại trừ các liên kết của hình dạng bao quanh.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +337,37 @@ try {
 }
 ```
 
-Trong ví dụ này, truy vấn bản trình chiếu và slide mỗi đều báo cáo ba container nhấp, hai container rê chuột và ba container có một trong hai hành động. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.
+Đối với ví dụ này, các truy vấn bản trình bày và slide mỗi báo cáo ba container nhấp, hai container di chuột qua và ba container có một trong các hành động. Truy vấn khung văn bản báo cáo một container trong mỗi danh mục.
 
-### **Phân loại Hành động và Đích đến**
+### **Phân Loại Hành Động và Đích Đến**
 
-Sử dụng [Hyperlink::getActionType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/getactiontype/) để giải thích một hành động trước khi diễn giải đích đến của nó. Các giá trị của [HyperlinkActionType](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkactiontype/) bao gồm nhiều hơn việc điều hướng web:
+Sử dụng [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) để giải thích một hành động trước khi giải thích đích đến của nó. Các giá trị [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) bao gồm hơn chỉ điều hướng web:
 
-| Values | Meaning for an audit |
+| Giá trị | Ý nghĩa cho kiểm toán |
 | --- | --- |
-| `Hyperlink` | Siêu liên kết bên ngoài; kiểm tra URL và giao thức của nó. |
+| `Hyperlink` | Liên kết siêu văn bản bên ngoài; kiểm tra URL và sơ đồ của nó. |
 | `JumpSpecificSlide` | Điều hướng nội bộ tới một slide cụ thể. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp, được giải quyết trong ngữ cảnh trình chiếu. |
-| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc buổi chiếu hiện tại hoặc bắt đầu một buổi chiếu tùy chỉnh. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Điều hướng trình chiếu tích hợp sẵn, được giải quyết trong ngữ cảnh trình chiếu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Kết thúc buổi trình chiếu hiện tại hoặc bắt đầu một buổi trình chiếu tùy chỉnh. |
 | `StartMacro` | Thực thi macro. |
-| `StartProgram` | Khởi chạy chương trình. |
-| `OpenFile`, `OpenPresentation` | Mở tệp hoặc một bản trình chiếu khác; xem xét riêng biệt so với URL web. |
+| `StartProgram` | Khởi chạy một chương trình. |
+| `OpenFile`, `OpenPresentation` | Mở một tệp hoặc một bản trình bày khác; xem xét riêng biệt so với URL web. |
 | `StartStopMedia` | Bắt đầu hoặc dừng phát phương tiện. |
-| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc hành động không xác định cần xem xét. |
+| `NoAction`, `Unknown` | Không có hành động điều hướng, hoặc một hành động không xác định cần được xem xét. |
 
-Đọc đích đến bên ngoài từ [getExternalUrl](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/getexternalurl/) và các đích đến nội bộ cụ thể từ [getTargetSlide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/gettargetslide/). Các hành động nội bộ và lệnh tích hợp có thể không có URL bên ngoài; một URL rỗng không có nghĩa là container không có hành động. Giữ nguyên giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) khi nó khác URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlink/gettooltip/) nếu có.
+Đọc các đích đến bên ngoài từ [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) và các đích đến nội bộ cụ thể từ [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/). Các hành động nội bộ và lệnh tích hợp sẵn có thể không có URL bên ngoài; một URL trống không có nghĩa là container không có hành động. Giữ lại giá trị trả về bởi [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) khi nó khác với URL đã chuẩn hoá, và bao gồm tooltip trả về bởi [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) nếu có.
 
-### **Báo cáo, Làm sạch và Xác minh Siêu liên kết**
+### **Báo Cáo, Làm Sạch và Xác Minh Liên Kết Siêu Văn Bản**
 
-Ví dụ PHP dưới đây đọc một bản trình chiếu hiện có (sử dụng file đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại để kiểm tra lại cả hai kiểu kích hoạt. Nó thu thập các container trước khi thay đổi và sử dụng so sánh tham chiếu để tránh xử lý cùng một container hai lần. Các truy vấn bản trình chiếu bao phủ các slide thường; để kiểm kê toàn gói, nó cũng truy vấn một cách rõ ràng các master, layout, notes và các master notes và handout khi có.
+Ví dụ PHP sau đọc một bản trình bày hiện có (sử dụng tệp đã tạo ở trên), ghi `hyperlink-audit.json`, áp dụng một chính sách, lưu `hyperlink-sanitized.pptx`, và mở lại nó để kiểm tra lại cả hai loại kích hoạt. Nó thu thập các container trước khi thay đổi chúng và sử dụng so sánh tham chiếu để tránh xử lý cùng một container hai lần. Các truy vấn bản trình bày bao phủ các slide thông thường; để có một kiểm kê toàn bộ gói, nó cũng truy vấn rõ ràng các master, layout, ghi chú và các master ghi chú và handout khi có.
 
-Báo cáo ghi lại chỉ mục slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseslide/#getSlideId--) nếu có. [ISlideComponent::getSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecomponent/#getSlide--) cung cấp slide sở hữu cho các container được hỗ trợ. Các master, layout và notes không có chỉ mục slide thường và được xác định bằng phạm vi của chúng. Các container hình dạng và container định dạng phần văn bản được gắn nhãn riêng; các loại container khác giữ tên kiểu thời gian chạy. Mỗi container nhận một ID nội bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enumeration PHP.
+Báo cáo ghi lại chỉ mục slide bắt đầu từ 1 và [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) nếu có. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) cung cấp slide sở hữu cho các container được hỗ trợ. Các master, layout và ghi chú không có chỉ mục slide thông thường và được xác định bằng phạm vi của chúng. Các container hình dạng và các container định dạng phần văn bản được gắn nhãn riêng; các loại container khác giữ tên kiểu thời gian chạy của chúng. Mỗi container nhận một ID cục bộ trong báo cáo để hai hành động của nó có thể được liên kết. Báo cáo lưu trữ các loại hành động dưới dạng các hằng số nguyên được định nghĩa bởi enum PHP.
 
-Chính sách ứng dụng có chọn lọc này chỉ cho phép các URL HTTPS tuyệt đối và các đích đến slide nội bộ hợp lệ. Nó từ chối macro, chương trình, hành động file, các hành động trình chiếu khác, hành động không xác định và các giao thức URL khác. Những từ chối này là quyết định chính sách, không phải phán đoán an toàn của Aspose.Slides. HTTPS một mình không tạo niềm tin: hãy thêm danh sách cho phép host và các kiểm tra khác cho ứng dụng của bạn. Cả URL bên ngoài gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ này kiểm toán siêu dữ liệu mà không theo dõi liên kết hay chạy hành động.
+Chính sách ứng dụng có mục đích hạn chế này chỉ cho phép các URL HTTPS tuyệt đối và các đích slide nội bộ hợp lệ. Nó từ chối macro, chương trình, hành động tệp, các hành động trình chiếu khác, hành động không xác định và các scheme URL khác. Những từ chối này là quyết định chính sách, không phải một phán quyết an toàn của Aspose.Slides. Chỉ có HTTPS không đủ để thiết lập niềm tin: hãy thêm danh sách cho phép máy chủ và các kiểm tra khác cho ứng dụng của bạn. Cả URL bên ngoài gốc và đã chuẩn hoá đều được kiểm tra. Ví dụ này kiểm toán siêu dữ liệu mà không theo dõi các liên kết hay thực thi hành động.
 
-Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Ở đây, các liên kết nhấp bên ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp và rê chuột bị cấm khác được xóa một cách độc lập. Đặt `$replaceExternalClicks` thành `false` để xóa tất cả vi phạm chính sách. Chọn một trang thay thế thuộc sở hữu ứng dụng trước khi triển khai.
+Để khắc phục, [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) của container hỗ trợ [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/), [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) và [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/). Ở đây, các liên kết nhấp ngoài bị cấm được thay thế bằng một trang đích HTTPS cố định; các nhấp bị cấm khác và các hành động di chuột qua bị cấm được xóa độc lập. Đặt `$replaceExternalClicks` thành `false` để xóa tất cả các vi phạm chính sách. Chọn một trang thay thế do ứng dụng sở hữu trước khi triển khai.
 
-Cờ xuất báo cáo sử dụng chính sách xem xét PDF bảo thủ: đánh dấu các hành động rê chuột và bất kỳ thứ gì không phải là liên kết bên ngoài hoặc bước nhảy slide cụ thể là có khả năng không được hỗ trợ. Đây là gợi ý xem xét, không phải thử nghiệm khả năng hoặc bảo đảm các liên kết không được đánh dấu sẽ tồn tại khi xuất. Các xuất PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các hình ảnh raster và video không thể giữ lại siêu liên kết tương tác; hãy đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.
+Cờ xuất khẩu của báo cáo sử dụng một chính sách kiểm tra PDF thận trọng: đánh dấu các hành động di chuột qua và bất kỳ thứ gì khác ngoài một liên kết ngoài hoặc chuyển slide cụ thể là có khả năng không được hỗ trợ. Đây là một gợi ý kiểm tra, không phải một thử nghiệm khả năng hay bảo đảm rằng các liên kết không được đánh dấu sẽ tồn tại sau khi xuất. Các xuất khẩu PDF [PDF](/slides/vi/php-java/convert-powerpoint-to-pdf/) và HTML [HTML](/slides/vi/php-java/convert-powerpoint-to-html/) được hỗ trợ có thể giữ lại các liên kết siêu văn bản, tùy thuộc vào hành động, tùy chọn xuất và trình xem. Các [hình ảnh](/slides/vi/php-java/convert-powerpoint-to-png/) và [video](/slides/vi/php-java/convert-powerpoint-to-video/) dạng raster không thể giữ lại các liên kết siêu văn bản tương tác; hãy đánh dấu mọi hành động khi kiểm toán cho các đầu ra đó.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +524,20 @@ try {
 }
 ```
 
-Với đầu vào đã tạo ở trên, báo cáo chứa năm dòng hành động. Liên kết rê chuột file và nhấp macro bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Kiểm tra xác minh không có hành động bị cấm. Một đầu vào chứa URL nhấp bên ngoài bị cấm cũng kích hoạt nhánh thay thế. Một container có nhấp được cho phép và rê chuột bị cấm vẫn giữ hành động nhấp.
+Với đầu vào được tạo ở trên, báo cáo chứa năm hàng hành động. Liên kết di chuột qua tệp và nhấp macro bị xóa, trong khi các liên kết HTTPS và điều hướng slide nội bộ vẫn còn. Việc xác minh in ra không có hành động bị cấm. Một đầu vào chứa URL nhấp ngoài bị cấm cũng sẽ thực thi nhánh thay thế. Một container có nhấp cho phép và di chuột qua bị cấm sẽ giữ lại hành động nhấp.
 
-Sự dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/vi/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), cái mà xóa cả hai kiểu kích hoạt trong toàn bộ phạm vi đã chọn bất kể chính sách. Kiểm tra ở đây chỉ kiểm tra các hành động siêu liên kết; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung hoạt động khác, và không xác thực file PDF hoặc HTML đã xuất.
+Việc dọn dẹp có chọn lọc này khác với [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/), vốn xóa cả hai loại kích hoạt trong toàn bộ phạm vi đã chọn bất kể chính sách. Việc xác minh ở đây chỉ kiểm tra các hành động liên kết siêu văn bản; nó không xóa các dự án VBA nhúng, đối tượng OLE hoặc nội dung hoạt động khác, và không xác thực tệp PDF hoặc HTML đã xuất.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Làm sao tôi có thể liên kết tới một phần hoặc slide đầu tiên của phần đó?**
+**Làm thế nào tôi có thể liên kết tới một phần hoặc slide đầu tiên của nó?**
 
-Các phần trong PowerPoint nhóm các slide, nhưng một siêu liên kết nội bộ chỉ hướng tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
+Các phần trong PowerPoint nhóm các slide, nhưng một liên kết nội bộ nhắm tới một slide riêng lẻ. Để tạo điều hướng tới một phần, hãy liên kết tới slide đầu tiên trong phần đó.
 
-**Tôi có thể gắn siêu liên kết vào các yếu tố slide master để nó hoạt động trên mọi slide không?**
+**Tôi có thể gắn liên kết siêu văn bản vào các yếu tố của slide master để nó hoạt động trên tất cả các slide không?**
 
-Có. Các yếu tố slide master và layout hỗ trợ siêu liên kết. Các liên kết trên các yếu tố này sẽ khả dụng trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
+Có. Các yếu tố slide master và layout hỗ trợ liên kết siêu văn bản. Các liên kết trên những yếu tố này khả dụng trong chế độ trình chiếu trên các slide sử dụng master hoặc layout tương ứng.
 
-**Siêu liên kết có được giữ lại khi xuất sang PDF, HTML, hình ảnh hoặc video không?**
+**Liên kết siêu văn bản có được giữ lại khi xuất ra PDF, HTML, hình ảnh hoặc video không?**
 
-Các xuất PDF và HTML được hỗ trợ có thể giữ lại siêu liên kết; các hình ảnh raster và video không thể. Xem các lưu ý xuất trong phần [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Các xuất khẩu PDF và HTML được hỗ trợ có thể giữ lại các liên kết siêu văn bản; hình ảnh raster và video không thể. Xem các lưu ý xuất khẩu trong [Báo Cáo, Làm Sạch và Xác Minh Liên Kết Siêu Văn Bản](#report-sanitize-and-verify-hyperlinks).

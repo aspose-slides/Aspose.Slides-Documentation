@@ -5,14 +5,14 @@ type: docs
 weight: 20
 url: /it/nodejs-java/manage-hyperlinks/
 keywords:
-- aggiungere URL
-- aggiungere collegamento ipertestuale
-- creare collegamento ipertestuale
-- formattare collegamento ipertestuale
-- rimuovere collegamento ipertestuale
-- aggiornare collegamento ipertestuale
+- aggiungi URL
+- aggiungi collegamento ipertestuale
+- crea collegamento ipertestuale
+- formatta collegamento ipertestuale
+- rimuovi collegamento ipertestuale
+- aggiorna collegamento ipertestuale
 - collegamento ipertestuale di testo
-- collegamento ipertestuale della diapositiva
+- collegamento ipertestuale di diapositiva
 - collegamento ipertestuale di forma
 - collegamento ipertestuale di immagine
 - collegamento ipertestuale video
@@ -23,28 +23,30 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aggiungi, formatta, aggiorna e rimuovi collegamenti ipertestuali in presentazioni PowerPoint e OpenDocument con Aspose.Slides per Node.js tramite Java, usando esempi JavaScript."
+description: "Aggiungi, formatta, aggiorna e rimuovi collegamenti ipertestuali nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Node.js via Java, utilizzando esempi JavaScript."
 ---
 ## **Introduzione**
 
-Un collegamento ipertestuale connette il contenuto della presentazione a un sito Web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali servono comunemente a due scopi:
+Un collegamento ipertestuale collega il contenuto della presentazione a un sito web o a una posizione all'interno della presentazione. In PowerPoint, i collegamenti ipertestuali servono comunemente a due scopi:
 
-* Aprire un sito web da testo, forma o cornice multimediale.  
-* Passare a un'altra diapositiva, ad esempio da un indice.
+* Aprire un sito web da testo, forma o fotogramma multimediale.
+* Navigare a un'altra diapositiva, ad esempio da un indice.
 
-Aspose.Slides per Node.js tramite Java consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti ipertestuali a livello di presentazione, diapositiva o cornice di testo.
+Aspose.Slides for Node.js via Java ti consente di aggiungere questi collegamenti, controllarne l'aspetto e il suono, aggiornare le proprietà e rimuoverli. Gli esempi seguenti mostrano come lavorare con i collegamenti ipertestuali su singoli elementi e come accedere ai collegamenti a livello di presentazione, diapositiva o riquadro di testo.
 
 {{% alert color="info" title="Note" %}}
-Puoi anche modificare le presentazioni con il [gratuito editor online Aspose PowerPoint](https://products.aspose.app/slides/it/editor).
+Puoi anche modificare le presentazioni con il [gratuito editor online di Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Aggiungere collegamenti ipertestuali URL**
+## **Aggiungere collegamenti URL**
 
-Puoi assegnare un URL di sito web a testo, forma o cornice multimediale. L'elemento a cui assegni il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o una cornice collega l'oggetto della diapositiva.
+Puoi assegnare un URL di sito web a testo, forma o fotogramma multimediale. L'elemento a cui assegni il collegamento ipertestuale determina l'area cliccabile: una porzione di testo collega il testo selezionato, mentre una forma o un fotogramma collega l'oggetto della diapositiva.
 
-### **Aggiungere collegamenti ipertestuali URL a testo**
+Per presentazioni contenenti collegamenti ipertestuali relativi, consulta [Gestisci la base del collegamento ipertestuale](/slides/it/nodejs-java/presentation-properties/#manage-the-hyperlink-base) per leggere, modificare o cancellare la base a livello di documento.
 
-Per collegare del testo a un sito web, passa un [Hyperlink](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) della porzione di testo, come mostrato sotto. Solo quella porzione di testo diventa cliccabile.
+### **Aggiungere collegamenti URL a testo**
+
+Per collegare il testo a un sito web, passa un [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) al metodo [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) della porzione di testo, come mostrato di seguito. Solo quella porzione di testo diventa cliccabile.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -64,13 +66,13 @@ try {
 }
 ```
 
-### **Aggiungere collegamenti ipertestuali URL a forme e cornici multimediali**
+### **Aggiungere collegamenti URL a forme e fotogrammi multimediali**
 
-Per rendere una forma o una cornice cliccabile, chiama il suo metodo [setHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Il collegamento ipertestuale appartiene all'oggetto stesso piuttosto che a una porzione di testo al suo interno.
+Per rendere una forma o un fotogramma cliccabile, chiama il suo metodo [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Il collegamento ipertestuale appartiene all'oggetto stesso piuttosto che a una porzione di testo al suo interno.
 
-L'approccio è lo stesso per cornici di immagine, audio e video: assegna il collegamento ipertestuale alla cornice e chiama [setTooltip](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setTooltip) se necessario.
+Lo stesso approccio si applica a fotogrammi di immagini, audio e video: assegna il collegamento ipertestuale al fotogramma e chiama [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) se necessario.
 
-L'esempio seguente rende cliccabile un rettangolo:
+L'esempio seguente rende un rettangolo cliccabile:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -88,9 +90,9 @@ try {
 }
 ```
 
-## **Usare i collegamenti ipertestuali per creare un indice**
+## **Utilizzare i collegamenti per creare un indice**
 
-I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) per collegare il testo “Page 2” sulla prima diapositiva alla seconda diapositiva.
+I collegamenti ipertestuali interni consentono ai lettori di passare da un indice a una diapositiva specifica. L'esempio seguente utilizza [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) per collegare il testo “Page 2” nella prima diapositiva alla seconda diapositiva.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -128,9 +130,9 @@ try {
 
 ### **Colore**
 
-Il metodo [setColorSource](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setColorSource) di [Hyperlink](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink) determina se un collegamento ipertestuale utilizza il colore dei collegamenti della presentazione o la formattazione della porzione di testo. Per applicare un colore di testo personalizzato, seleziona [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkColorSource) e imposta il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
+Il metodo [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) di [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) determina se un collegamento ipertestuale utilizza il colore dei collegamenti della presentazione o la formattazione della porzione di testo. Per applicare un colore del testo personalizzato, seleziona [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) e imposta il colore di riempimento della porzione. Questa funzionalità è stata introdotta in PowerPoint 2019; le versioni precedenti non applicano questa impostazione.
 
-L'esempio seguente aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo utilizza un riempimento di testo rosso, mentre il secondo mantiene il colore predefinito del collegamento ipertestuale.
+L'esempio seguente aggiunge due collegamenti ipertestuali di testo alla stessa diapositiva. Il primo utilizza un riempimento di testo rosso, mentre il secondo mantiene il colore predefinito del collegamento.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -157,14 +159,14 @@ try {
 ```
 ### **Suono**
 
-Un collegamento ipertestuale può riprodurre un suono quando attivato o fermare un suono già in riproduzione. Usa i seguenti metodi per configurare questi comportamenti:
+Un collegamento ipertestuale può riprodurre un suono quando viene attivato o fermare un suono già in riproduzione. Usa i seguenti metodi per configurare questi comportamenti:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setSound) specifica l'audio associato al collegamento ipertestuale.  
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) controlla se l'attivazione del collegamento ipertestuale interrompe il suono precedente.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) specifica l’audio associato al collegamento ipertestuale.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) controlla se l’attivazione del collegamento ipertestuale interrompe il suono precedente.
 
 #### **Aggiungere un suono al collegamento ipertestuale**
 
-L'esempio seguente carica `sampleaudio.wav` e lo associa a un pulsante sulla prima diapositiva. Cliccando il pulsante riproduce il suono e passa alla diapositiva successiva. Una seconda forma su quella diapositiva interrompe il suono precedente quando viene cliccata, senza eseguire alcuna azione di navigazione.
+L'esempio seguente carica `sampleaudio.wav` e lo associa a un pulsante nella prima diapositiva. Cliccando il pulsante si riproduce il suono e si passa alla diapositiva successiva. Una seconda forma su quella diapositiva interrompe il suono precedente quando viene cliccata, senza eseguire alcuna azione di navigazione.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,7 +207,7 @@ try {
 
 #### **Estrarre un suono dal collegamento ipertestuale**
 
-L'esempio seguente apre la presentazione creata sopra e legge l'audio del collegamento ipertestuale della prima forma in memoria tramite [getSound](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getSound) e [getBinaryData](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Audio#getBinaryData).
+L'esempio seguente apre la presentazione creata sopra e legge l’audio del collegamento ipertestuale della prima forma in memoria tramite [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) e [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,16 +233,16 @@ try {
 
 ### **Impostazioni di tooltip e interazione**
 
-Puoi chiamare i seguenti metodi di [Hyperlink](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink) dopo aver assegnato un collegamento ipertestuale a testo o a una forma:
+Puoi chiamare i seguenti metodi di [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) dopo aver assegnato un collegamento ipertestuale a testo o a una forma:
 
-- [setTooltip](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setTooltip) imposta il testo che un visualizzatore può mostrare come suggerimento per il collegamento.  
-- [setTargetFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) specifica il frame di destinazione all'interno di un frameset HTML genitore, quando applicabile.  
-- [setHistory](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setHistory) controlla se l'attivazione del collegamento aggiunge la sua destinazione all'elenco dei collegamenti ipertestuali visualizzati.  
-- [setHighlightClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) controlla se il collegamento ipertestuale viene evidenziato quando cliccato.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) imposta il testo che un visualizzatore può mostrare come suggerimento per il collegamento.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) specifica il fotogramma di destinazione all'interno di un frameset HTML padre, quando applicabile.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) controlla se l’attivazione del collegamento aggiunge la destinazione all'elenco dei collegamenti ipertestuali visualizzati.
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) controlla se il collegamento ipertestuale è evidenziato quando cliccato.
 
 ## **Rimuovere i collegamenti ipertestuali dalle presentazioni**
 
-Usa [getAnyHyperlinks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) per raccogliere i contenitori di collegamenti ipertestuali, inclusi i collegamenti di porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiama solo [removeHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); rimuovere un'azione click non rimuove la sua controparte mouse-over.
+Usa [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) per raccogliere i contenitori di collegamenti ipertestuali, inclusi i collegamenti delle porzioni di testo, prima di modificarli. L'esempio seguente rimuove entrambi i tipi di attivazione dalla prima diapositiva. Per rimuovere solo un tipo, chiama solo [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) o [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); rimuovere un'azione di click non rimuove la sua controparte al passaggio del mouse.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,23 +268,23 @@ try {
 }
 ```
 
-Per rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) rimuove entrambi i tipi di attivazione nell'ambito selezionato con una sola chiamata. Per una pulizia selettiva e la copertura di master, layout e note, vedi [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Per rimozione incondizionata, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) rimuove entrambi i tipi di attivazione nell'ambito selezionato con una sola chiamata. Per una pulizia selettiva e copertura di master, layout e note, vedi [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
 ## **Creare un inventario completo dei collegamenti ipertestuali**
 
-Prima di distribuire una presentazione, fai l'inventario delle sue azioni interattive così come dei suoi collegamenti Web. [getAnyHyperlinks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) restituisce contenitori di collegamenti ipertestuali, non un elenco piatto di stringhe URL. Ispeziona sia [getHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getHyperlinkClick) sia [getHyperlinkMouseOver](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) su ogni contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un rapporto completo richiede fino a due righe per contenitore.
+Prima di distribuire una presentazione, crea un inventario delle sue azioni interattive così come dei suoi collegamenti web. [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) restituisce contenitori di collegamenti ipertestuali, non una semplice lista di stringhe URL. Ispeziona sia [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) che [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) su ciascun contenitore. Sono indipendenti: lo stesso contenitore può esporre entrambe le azioni, quindi un report completo richiede fino a due righe per contenitore.
 
-Scansionare solo i collegamenti ipertestuali a livello di forma può far perdere i collegamenti attaccati a porzioni di testo. Interroga invece l'ambito appropriato e conserva i contenitori restituiti così da poter aggiornare o rimuovere in seguito le loro azioni.
+Scansionare solo i collegamenti a livello di forma può perdere i collegamenti allegati a porzioni di testo. Interroga invece l'ambito appropriato e conserva i contenitori restituiti in modo da poter successivamente aggiornare o rimuovere le loro azioni.
 
-### **Interrogare gli ambiti di Presentazione, Diapositiva e Cornice di Testo**
+### **Interrogare gli ambiti di presentazione, diapositiva e riquadro di testo**
 
-La classe [HyperlinkQueries](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries) è disponibile tramite [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) e [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Ogni ambito supporta le stesse query:
+La classe [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) è disponibile tramite [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) e [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Ogni ambito supporta le stesse query:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) restituisce contenitori con un'azione click.  
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) restituisce contenitori con un'azione mouse-over.  
-- [getAnyHyperlinks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) restituisce contenitori con una o entrambe le azioni.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) restituisce contenitori con un'azione di click.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) restituisce contenitori con un'azione al passaggio del mouse.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) restituisce contenitori con una o entrambe le azioni.
 
-L'esempio seguente crea `hyperlink-audit-input.pptx` con un collegamento click esterno, un collegamento mouse-over a file, una navigazione interna della diapositiva, un collegamento mouse-over su testo e un'azione macro. Non esegue nessuna di queste azioni. Le stesse tre query funzionano in ogni ambito; i conteggi descrivono i contenitori, non il totale delle azioni. L'ambito della cornice di testo esclude i collegamenti della forma contenente.
+L'esempio seguente crea `hyperlink-audit-input.pptx` con un collegamento click esterno, un collegamento mouse-over a file, navigazione interna della diapositiva, un collegamento mouse-over di testo e un'azione macro. Non esegue nessuna di queste azioni. Le stesse tre query funzionano in ogni ambito; i conteggi descrivono i contenitori, non il totale delle azioni. L'ambito del riquadro di testo esclude i collegamenti propri della forma contenente.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,13 +321,13 @@ try {
 }
 ```
 
-Per questo esempio, le query di presentazione e diapositiva riportano ciascuna tre contenitori click, due contenitori mouse-over e tre contenitori con una delle due azioni. La query della cornice di testo riporta un contenitore in ciascuna categoria.
+Per questo esempio, le query di presentazione e di diapositiva riportano ciascuna tre contenitori di click, due contenitori di mouse-over e tre contenitori con una delle due azioni. La query del riquadro di testo riporta un contenitore in ogni categoria.
 
 ### **Classificare azioni e destinazioni**
 
-Usa [Hyperlink.getActionType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getActionType) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkActionType) coprono più della navigazione web:
+Usa [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) per interpretare un'azione prima di interpretare la sua destinazione. I valori di [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) coprono più della navigazione web:
 
-| Values | Significato per un audit |
+| Valori | Significato per un audit |
 | --- | --- |
 | `Hyperlink` | Collegamento ipertestuale esterno; ispeziona l'URL e il suo schema. |
 | `JumpSpecificSlide` | Navigazione interna a una diapositiva specifica. |
@@ -333,23 +335,23 @@ Usa [Hyperlink.getActionType](https://reference.aspose.com/slides/it/nodejs-java
 | `JumpEndShow`, `StartCustomSlideShow` | Termina lo spettacolo corrente o avvia uno spettacolo personalizzato. |
 | `StartMacro` | Esegue una macro. |
 | `StartProgram` | Avvia un programma. |
-| `OpenFile`, `OpenPresentation` | Apre un file o un'altra presentazione; da revisionare separatamente dagli URL web. |
-| `StartStopMedia` | Avvia o ferma la riproduzione multimediale. |
+| `OpenFile`, `OpenPresentation` | Apri un file o un'altra presentazione; rivedi separatamente dagli URL web. |
+| `StartStopMedia` | Avvia o interrompe la riproduzione multimediale. |
 | `NoAction`, `Unknown` | Nessuna azione di navigazione, o un'azione non riconosciuta che richiede revisione. |
 
-Leggi le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Le azioni interne e i comandi incorporati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia azioni. Conserva il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) quando differisce dall'URL normalizzato, e includi il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Hyperlink#getTooltip) quando disponibile.
+Leggi le destinazioni esterne da [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) e le destinazioni interne specifiche da [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Le azioni interne e i comandi incorporati possono non avere un URL esterno; un URL vuoto non significa che il contenitore non abbia azioni. Conserva il valore restituito da [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) quando differisce dall'URL normalizzato, e includi il tooltip restituito da [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) quando disponibile.
 
-### **Segnalare, Sanificare e Verificare i collegamenti ipertestuali**
+### **Segnalare, sanificare e verificare i collegamenti ipertestuali**
 
-L'esempio JavaScript seguente legge una presentazione esistente (usa il file creato sopra), scrive `hyperlink-audit.json`, applica una policy, salva `hyperlink-sanitized.pptx` e lo riapre per controllare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'uguaglianza di riferimento per evitare di elaborare lo stesso contenitore due volte. Le query della presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente anche master, layout, note e i master di note e di dispense quando presenti.
+L'esempio JavaScript seguente legge una presentazione esistente (usa il file creato sopra), scrive `hyperlink-audit.json`, applica una policy, salva `hyperlink-sanitized.pptx` e lo riapre per verificare nuovamente entrambi i tipi di attivazione. Raccoglie i contenitori prima di modificarli e utilizza l'uguaglianza di riferimento per evitare di elaborare lo stesso contenitore due volte. Le query di presentazione coprono le diapositive ordinarie; per un inventario a livello di pacchetto, interroga esplicitamente anche master, layout, note e i master di note e handout quando presenti.
 
-Il report registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/BaseSlide#getSlideId) dove disponibile. [getSlide](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getSlide) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati per il loro ambito. I contenitori di forme e i contenitori di formattazione di porzioni di testo sono etichettati separatamente; gli altri tipi di contenitore mantengono il loro nome di tipo a runtime. Ogni contenitore ottiene un ID locale al report così le sue due azioni possono essere correlate. Il report memorizza i tipi di azione come le costanti intere definite dall'enumerazione HyperlinkActionType.
+Il report registra un indice di diapositiva basato su 1 e [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) dove disponibile. [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) fornisce la diapositiva proprietaria per i contenitori supportati. I master, i layout e le note non hanno un indice di diapositiva ordinario e sono identificati dal loro ambito. I contenitori di forma e i contenitori di formattazione delle porzioni di testo sono etichettati separatamente; altri tipi di contenitore mantengono il loro nome di tipo runtime. Ogni contenitore riceve un ID locale al report in modo che le sue due azioni possano essere correlate. Il report memorizza i tipi di azione come le costanti intere definite dall'enumerazione HyperlinkActionType.
 
-Questa policy applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e target di diapositive interni validi. Rifiuta macro, programmi, azioni su file, altre azioni di presentazione, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di policy, non un giudizio di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce fiducia: aggiungi liste di host consentiti e altri controlli per la tua applicazione. Vengono controllati sia gli URL esterni originali sia quelli normalizzati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
+Questa policy applicativa deliberatamente restrittiva consente solo URL HTTPS assoluti e destinazioni di diapositive interne valide. Rifiuta macro, programmi, azioni su file, altre azioni della presentazione, azioni sconosciute e altri schemi URL. Questi rifiuti sono decisioni di policy, non un giudizio di sicurezza di Aspose.Slides. HTTPS da solo non stabilisce la fiducia: aggiungi whitelist di host e altri controlli per la tua applicazione. Sia gli URL esterni originali che quelli normalizzati sono controllati. L'esempio verifica i metadati senza seguire i collegamenti o eseguire azioni.
 
-Per la rimessione, il [getHyperlinkManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/Shape#getHyperlinkManager) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Qui, i collegamenti click esterni proibiti sono sostituiti con una pagina di destinazione HTTPS fissa; altri click proibiti e azioni mouse-over proibite sono rimossi in modo indipendente. Imposta `replaceExternalClicks` su `false` per rimuovere tutte le violazioni della policy. Scegli una pagina di sostituzione gestita dall'applicazione prima della distribuzione.
+Per la rimedio, il [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) del contenitore supporta [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) e [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Qui, i collegamenti click esterni proibiti sono sostituiti con una pagina di destinazione HTTPS fissa; gli altri click proibiti e le azioni mouse-over proibite sono rimossi in modo indipendente. Imposta `replaceExternalClicks` su `false` per rimuovere tutte le violazioni di policy. Scegli una pagina di sostituzione di proprietà dell'applicazione prima del deployment.
 
-La bandiera di esportazione del report utilizza una policy di revisione PDF conservativa: segnala le azioni mouse-over e qualsiasi cosa diversa da un collegamento esterno o da un salto a diapositiva specifica come potenzialmente non supportata. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravviveranno all'esportazione. Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/nodejs-java/convert-powerpoint-to-png/) raster e i [video](/slides/it/nodejs-java/convert-powerpoint-to-video/) non possono preservare i collegamenti ipertestuali interattivi; segnala ogni azione quando effettui un audit per quei risultati.
+La bandiera di esportazione del report utilizza una policy di revisione PDF conservativa: segnala le azioni mouse-over e tutto ciò che non sia un collegamento esterno o un salto a diapositiva specifica come potenzialmente non supportato. È un suggerimento di revisione, non un test di capacità o una garanzia che i collegamenti non segnalati sopravvivano all'esportazione. Le esportazioni supportate di [PDF](/slides/it/nodejs-java/convert-powerpoint-to-pdf/) e [HTML](/slides/it/nodejs-java/convert-powerpoint-to-html/) possono preservare i collegamenti ipertestuali, a seconda dell'azione, delle opzioni di esportazione e del visualizzatore. Le [immagini](/slides/it/nodejs-java/convert-powerpoint-to-png/) raster e i [video](/slides/it/nodejs-java/convert-powerpoint-to-video/) non possono preservare collegamenti ipertestuali interattivi; segnala ogni azione quando esegui audit per tali output.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -497,9 +499,9 @@ try {
 }
 ```
 
-Con l'input creato sopra, il report contiene cinque righe di azioni. Il collegamento mouse-over al file e il click della macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna della diapositiva rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un mouse-over proibito mantiene la sua azione click.
+Con l'input creato sopra, il report contiene cinque righe di azione. Il collegamento mouse-over al file e il click macro sono rimossi, mentre i collegamenti HTTPS e la navigazione interna della diapositiva rimangono. La verifica stampa zero azioni proibite. Un input contenente un URL click esterno proibito esercita anche il ramo di sostituzione. Un contenitore con un click consentito e un mouse-over proibito mantiene la sua azione di click.
 
-Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), che rimuove entrambi i tipi di attivazione nell'intero ambito selezionato indipendentemente dalla policy. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove i progetti VBA incorporati, gli oggetti OLE o altri contenuti attivi, e non valida un file PDF o HTML esportato.
+Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), che rimuove entrambi i tipi di attivazione in tutto l'ambito selezionato indipendentemente dalla policy. La verifica qui controlla solo le azioni dei collegamenti ipertestuali; non rimuove progetti VBA incorporati, oggetti OLE o altro contenuto attivo, e non valida un file PDF o HTML esportato.
 
 ## **FAQ**
 
@@ -507,10 +509,10 @@ Questa pulizia selettiva differisce da [removeAllHyperlinks](https://reference.a
 
 Le sezioni in PowerPoint raggruppano le diapositive, ma un collegamento ipertestuale interno punta a una singola diapositiva. Per creare una navigazione verso una sezione, collega alla prima diapositiva di quella sezione.
 
-**Posso allegare un collegamento ipertestuale agli elementi del master slide in modo che funzioni su tutte le diapositive?**
+**Posso allegare un collegamento ipertestuale agli elementi di master slide in modo che funzioni su tutte le diapositive?**
 
-Sì. Gli elementi del master slide e del layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che utilizzano il master o il layout corrispondente.
+Sì. Gli elementi di master slide e layout supportano i collegamenti ipertestuali. I collegamenti su questi elementi sono disponibili durante la presentazione sulle diapositive che utilizzano il master o il layout corrispondente.
 
-**I collegamenti ipertestuali verranno preservati quando si esporta in PDF, HTML, immagini o video?**
+**I collegamenti ipertestuali verranno preservati durante l'esportazione in PDF, HTML, immagini o video?**
 
 Le esportazioni PDF e HTML supportate possono preservare i collegamenti ipertestuali; le immagini raster e i video non possono. Vedi le considerazioni sull'esportazione in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

@@ -1,51 +1,51 @@
 ---
-title: مدیریت پیوندهای ارائه در C++
-linktitle: مدیریت پیوندها
+title: مدیریت ابرپیوندهای ارائه در C++
+linktitle: مدیریت ابرپیوندها
 type: docs
 weight: 20
 url: /fa/cpp/manage-hyperlinks/
 keywords:
-- اضافه کردن URL
-- اضافه کردن پیوند
-- ایجاد پیوند
-- قالب بندی پیوند
-- حذف پیوند
-- به روزرسانی پیوند
-- پیوند متن
-- پیوند اسلاید
-- پیوند شکل
-- پیوند تصویر
-- پیوند ویدئو
-- پیوند قابل تغییر
+- افزودن URL
+- افزودن ابرپیوند
+- ایجاد ابرپیوند
+- قالب‌بندی ابرپیوند
+- حذف ابرپیوند
+- به‌روزرسانی ابرپیوند
+- ابرپیوند متن
+- ابرپیوند اسلاید
+- ابرپیوند شکل
+- ابرپیوند تصویر
+- ابرپیوند ویدئو
+- ابرپیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "پیوندها را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای C++ اضافه، قالب بندی، به روزرسانی و حذف کنید، با استفاده از مثال‌های C++."
+description: "افزودن، قالب‌بندی، به‌روزرسانی و حذف ابرپیوندها در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای C++، با استفاده از مثال‌های C++."
 ---
-## **مقدمه**
+## **معرفی**
 
-یک پیوند (hyperlink) محتوای ارائه را به یک وب‌سایت یا موقعیتی درون ارائه وصل می‌کند. در PowerPoint، پیوندها معمولاً دو هدف دارند:
+یک ابرپیوند محتویات ارائه را به یک وب‌سایت یا مکان دیگری درون ارائه متصل می‌کند. در PowerPoint، ابرپیوندها معمولاً دو هدف دارند:
 
-* باز کردن یک وب‌سایت از طریق متن، شکل یا چارچوب رسانه‌ای.
-* رفتن به اسلاید دیگری، برای مثال از جدول محتوا.
+* باز کردن یک وب‌سایت از متن، شکل یا قاب رسانه‌ای.
+* هدایت به اسلاید دیگر، مثلا از فهرست مطالب.
 
-Aspose.Slides for C++ امکان افزودن این پیوندها، کنترل ظاهر و صدا، به‌روزرسانی تنظیمات و حذف آنها را فراهم می‌کند. مثال‌های زیر نشان می‌دهند چطور با پیوندهای هشتگی بر روی عناصر منفرد کار کنیم و چگونه به پیوندها در سطح ارائه، اسلاید یا فریم‑متن دسترسی پیدا کنیم.
+Aspose.Slides for C++ به شما امکان افزودن این پیوندها، کنترل ظاهر و صدا، به‌روزرسانی تنظیمات و حذف آن‌ها را می‌دهد. مثال‌های زیر نشان می‌دهند چگونه با ابرپیوندها در عناصر منفرد کار کنید و چگونه به ابرپیوندها در سطح ارائه، اسلاید یا قاب‑متن دسترسی پیدا کنید.
 
-{{% alert color="info" title="توجه" %}}
-
-می‌توانید همچنین ارائه‌ها را با [ویرایشگر آنلاین رایگان Aspose PowerPoint](https://products.aspose.app/slides/fa/editor) ویرایش کنید.
-
+{{% alert color="info" title="Note" %}}
+شما می‌توانید ارائه‌ها را با **[ویرایشگر آنلاین رایگان Aspose PowerPoint](https://products.aspose.app/slides/editor)** ویرایش کنید.
 {{% /alert %}} 
 
-## **افزودن پیوند URL**
+## **افزودن ابرپیوندهای URL**
 
-می‌توانید یک URL وب‌سایت را به متن، شکل یا چارچوب رسانه‌ای اختصاص دهید. عنصری که به آن پیوند اختصاص می‌دهید، ناحیه کلیک‌شدنی را تعیین می‌کند: بخشی از متن، متن انتخاب‌شده را لینک می‌کند، در حالی که یک شکل یا چارچوب، شیء اسلاید را لینک می‌کند.
+شما می‌توانید یک URL وب‌سایت را به متن، شکل یا قاب رسانه‌ای اختصاص دهید. عنصری که ابرپیوند به آن اختصاص می‌یابد، ناحیه قابل کلیک را تعیین می‌کند: بخشی از متن، متن انتخاب‌شده را لینک می‌کند، در حالی که یک شکل یا قاب، شیء اسلاید را لینک می‌کند.
 
-### **افزودن پیوند URL به متن**
+برای ارائه‌های حاوی ابرپیوندهای نسبی، به **[مدیریت پایه ابرپیوند](/slides/fa/cpp/presentation-properties/#manage-the-hyperlink-base)** مراجعه کنید تا پایه سطوح سند را بخوانید، تغییر دهید یا پاک کنید.
 
-برای لینک کردن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/fa/cpp/aspose.slides/hyperlink/) ایجاد کنید و با استفاده از متد [set_HyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portionformat/set_hyperlinkclick/) بخشی از متن را به آن اختصاص دهید، همان‌گونه که در زیر نشان داده شده است. تنها همان بخش متن کلیک‌شدنی می‌شود.
+### **افزودن ابرپیوندهای URL به متن**
+
+برای لینک‌کردن متن به یک وب‌سایت، یک **[Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/)** ایجاد کنید و با متد **[set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/)** بخشی از متن را اختصاص دهید، همان‌طور که در زیر نشان داده شد. تنها همان بخش متن قابل کلیک می‌شود.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -78,13 +78,13 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **افزودن پیوند URL به اشکال و چارچوب‌های رسانه‌ای**
+### **افزودن ابرپیوندهای URL به شکل‌ها و قاب‌های رسانه‌ای**
 
-برای قابل کلیک کردن کردن یک شکل یا چارچوب، از متد [set_HyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/shape/set_hyperlinkclick/) آن استفاده کنید. پیوند به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
+برای قابل کلیک کردن یک شکل یا قاب، از متد **[set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/)** آن استفاده کنید. ابرپیوند به خود شیء تعلق دارد، نه به بخشی از متن داخل آن.
 
-همان روش برای چارچوب‌های تصویر، صدا و ویدئو نیز اعمال می‌شود: پیوند را به چارچوب اختصاص دهید و برای افزودن راهنمایی (tooltip) در صورت نیاز از [set_Tooltip](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_tooltip/) استفاده کنید.
+همین روش برای قاب‌های تصویر، صوت و ویدئو نیز صدق می‌کند: ابرپیوند را به قاب اختصاص دهید و در صورت نیاز از **[set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)** برای افزودن نکتهٔ راهنمایی استفاده کنید.
 
-مثال زیر یک مستطیل را قابل کلیک می‌سازد:
+مثال زیر یک مستطیل را قابل کلیک می‌کند:
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -109,9 +109,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **استفاده از پیوندها برای ساختن فهرست مطالب**
+## **استفاده از ابرپیوندها برای ایجاد فهرست مطالب**
 
-پیوندهای داخلی به خوانندگان امکان می‌دهند از فهرست مطالب به اسلاید خاصی بپرند. مثال زیر از [SetInternalHyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) برای لینک کردن متن «صفحه ۲» در اسلاید اول به اسلاید دوم استفاده می‌کند.
+ابیرپیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید مشخصی بروید. مثال زیر از **[SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/)** برای لینک‌کردن متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -166,13 +166,13 @@ tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
-## **قالب‌بندی پیوندها**
+## **قالب‌بندی ابرپیوندها**
 
 ### **رنگ**
 
-متد [set_ColorSource](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_colorsource/) از [IHyperlink](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/) تعیین می‌کند که آیا پیوند از رنگ پیوند ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال یک رنگ متن دلخواه، [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر شدگی بخش را تنظیم کنید. این امکان در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
+متد **[set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/)** از **[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)** تعیین می‌کند که آیا یک ابرپیوند از رنگ ابرپیوند ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ متن سفارشی، **[HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/)** را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این قابلیت در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
 
-مثال زیر دو پیوند متنی به همان اسلاید اضافه می‌کند. اولین پیوند از رنگ پر شدگی متنی قرمز استفاده می‌کند، در حالی که دومین پیوند رنگ پیش‌فرض پیوند را حفظ می‌کند.
+مثال زیر دو ابرپیوند متنی را به همان اسلاید اضافه می‌کند. اولی با پر شدن متن قرمز، دومین رنگ پیش‌فرض ابرپیوند را حفظ می‌کند.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,16 +214,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **صدا**
 
-یک پیوند می‌تواند هنگام فعال‌سازی صدا پخش کند یا صدایی که در حال پخش است را متوقف کند. از متدهای زیر برای پیکربندی این رفتارها استفاده کنید:
+یک ابرپیوند می‌تواند هنگام فعال‌سازی صدا پخش کند یا صدایی که در حال پخش است متوقف کند. از روش‌های زیر برای پیکربندی این رفتارها استفاده کنید:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_sound/) صدای مرتبط با پیوند را مشخص می‌کند.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) کنترل می‌کند که آیا فعال‌سازی پیوند صدای قبلی را متوقف می‌کند یا نه.
+- **[IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/)** صدا مربوط به ابرپیوند را مشخص می‌کند.
+- **[IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/)** کنترل می‌کند که آیا فعال‌سازی ابرپیوند صدا را متوقف می‌کند یا خیر.
 
-#### **افزودن صدای پیوند**
+#### **افزودن صدای ابرپیوند**
 
-مثال زیر `sampleaudio.wav` را بارگیری کرده و به یک دکمه در اسلاید اول متصل می‌کند. کلیک روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌رود. یک شکل دوم در همان اسلاید هنگام کلیک صدا را متوقف می‌کند، بدون انجام عمل ناوبری.
+مثال زیر فایل `sampleaudio.wav` را بارگذاری کرده و به دکمه‌ای در اسلاید اول اختصاص می‌دهد. کلیک بر روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌برد. یک شکل دوم در همان اسلاید هنگام کلیک صدا را متوقف می‌کند، بدون انجام عمل ناوبری.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -267,9 +268,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **استخراج صدای پیوند**
+#### **استخراج صدای ابرپیوند**
 
-مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صدای پیوند شکل اول را از طریق [get_Sound](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_sound/) و [get_BinaryData](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iaudio/get_binarydata/) به حافظه می‌خواند.
+مثال زیر ارائهٔ ساخته‌شده در بالا را باز می‌کند و صداهای ابرپیوند اولین شکل را از طریق **[get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/)** و **[get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/)** در حافظه می‌خواند.
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,18 +306,18 @@ else
 }
 ```
 
-### **راهنما (Tooltip) و تنظیمات تعامل**
+### **نکتهٔ راهنما و تنظیمات تعامل**
 
-پس از اختصاص پیوند به متن یا شکل، می‌توانید تنظیمات زیر را از طریق این متدها به‌روزرسانی کنید:
+بعد از اختصاص ابرپیوند به متن یا شکل، می‌توانید تنظیمات زیر **[IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)** را با این متدها به‌روز کنید:
 
-- [set_Tooltip](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_tooltip/) متنی را که بیننده می‌تواند به عنوان راهنمایی برای لینک مشاهده کند، تعیین می‌کند.
-- [set_TargetFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_targetframe/) فریم هدف را درون یک frameset HTML والد (در صورت امکان) مشخص می‌کند.
-- [set_History](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_history/) کنترل می‌کند که آیا فعال‌سازی لینک مقصد آن را به فهرست پیوندهای مشاهده‌شده اضافه می‌کند یا نه.
-- [set_HighlightClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/set_highlightclick/) کنترل می‌کند که آیا پیوند هنگام کلیک برجسته می‌شود یا نه.
+- **[set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/)** متنی را که بیننده می‌تواند به‌عنوان راهنما نمایش دهد تنظیم می‌کند.
+- **[set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/)** چارچوب هدف را در یک فریم‌ست HTML والد مشخص می‌کند، در صورت امکان.
+- **[set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/)** تعیین می‌کند که آیا فعال‌سازی لینک به فهرست ابرپیوندهای مشاهده‌شده افزوده می‌شود یا نه.
+- **[set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/)** کنترل می‌کند که آیا ابرپیوند هنگام کلیک برجسته می‌شود یا خیر.
 
-## **حذف پیوندها از ارائه‌ها**
+## **حذف ابرپیوندها از ارائه‌ها**
 
-با استفاده از [GetAnyHyperlinks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) می‌توانید قبل از تغییر آنها، تمام کانتینرهای پیوند شامل پیوندهای بخش متن را جمع‌آوری کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط [RemoveHyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) یا [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) را فراخوانی کنید؛ حذف عمل کلیک باعث حذف عمل mouse‑over نمی‌شود.
+از **[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)** برای جمع‌آوری کانتینرهای ابرپیوند، شامل پیوندهای بخش‑متن، پیش از تغییر آن‌ها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط **[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)** یا **[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)** را فراخوانی کنید؛ حذف عمل کلیک، عمل ماوس‑اور را حذف نمی‌کند.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -350,23 +351,23 @@ else
 }
 ```
 
-برای حذف بدون قید، [RemoveAllHyperlinks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، لایه‌ها و یادداشت‌ها، بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) را ببینید.
+برای حذف بدون شرط، **[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)** هر دو نوع فعال‌سازی را در محدودهٔ انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، لایه‌ها و نکات، به **[گزارش، تصفیه و تأیید ابرپیوندها](#report-sanitize-and-verify-hyperlinks)** مراجعه کنید.
 
-## **ساخت فهرست کامل پیوندها**
+## **ساخت فهرست کامل ابرپیوندها**
 
-قبل از توزیع یک ارائه، اقدامات تعاملی و وب‌لینک‌های آن را موجودی کنید. [GetAnyHyperlinks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) اشیای [IHyperlinkContainer](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkcontainer/) را بر می‌گرداند، نه یک فهرست صاف از رشته‌های URL. برای هر کانتینر هم [get_HyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) و هم [get_HyperlinkMouseOver](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) را بررسی کنید. این دو مستقل هستند: یک کانتینر می‌تواند هر دو اقدام را افشا کند، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر کانتینر نیاز داشته باشد.
+قبل از توزیع یک ارائه، اقدامات تعاملی و پیوندهای وب آن را فهرست کنید. **[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)** اشیای **[IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)** را برمی‌گرداند، نه لیستی تخت از رشته‌های URL. برای هر کانتینر هر دو **[get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/)** و **[get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/)** را بررسی کنید. این‌ها مستقل هستند: همان کانتینر می‌تواند هر دو عمل را داشته باشد، بنابراین یک گزارش کامل می‌تواند تا دو ردیف برای هر کانتینر داشته باشد.
 
-اسکن تنها پیوندهای سطح شکل می‌تواند پیوندهای پیوست شده به بخش‌های متن را از دست بدهد. به جای آن، حوزه مناسب را پرس‌وجو کنید و کانتینرهای برگردانده‌شده را نگه دارید تا بعدها بتوانید اقداماتشان را به‌روزرسانی یا حذف کنید.
+فقط اسکن ابرپیوندهای سطح شکل ممکن است پیوندهای متصل به بخش‌های متن را از دست بدهد. به جای آن دامنهٔ مناسب را پرس‌و‌جو کنید و کانتینرهای بازگشتی را نگه دارید تا بعداً بتوانید اقداماتشان را به‌روزرسانی یا حذف کنید.
 
-### **پرس‌وجو در حوزه‌های ارائه، اسلاید و فریم‑متن**
+### **پرس‌و‌جوی دامنه‌های ارائه، اسلاید و قاب‑متن**
 
-واسطه [IHyperlinkQueries](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/) از طریق [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)، [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) و [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) در دسترس است. هر حوزه همان پرس‌وجوها را پشتیبانی می‌کند:
+رابط **[IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/)** از طریق **[IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/)**، **[IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/)** و **[ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/)** در دسترس است. هر دامنه همان پرس‌و‌جوها را پشتیبانی می‌کند:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) کانتینرهای دارای عمل کلیک را بر می‌گرداند.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) کانتینرهای دارای عمل mouse‑over را بر می‌گرداند.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) کانتینرهایی که هر یک یا هر دو عمل را دارند بر می‌گرداند.
+- **[GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/)** کانتینرهای دارای عمل کلیک را برمی‌گرداند.
+- **[GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/)** کانتینرهای دارای عمل ماوس‑اور را برمی‌گرداند.
+- **[GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/)** کانتینرهای دارای هر دو یا یکی از این اعمال را برمی‌گرداند.
 
-مثال زیر فایلی به نام `hyperlink-audit-input.pptx` با یک لینک کلیک خارجی، یک لینک فایل mouse‑over، ناوبری اسلاید داخلی، یک لینک متن mouse‑over و یک عمل ماکرو ایجاد می‌کند. هیچ‌یک از این اعمال اجرا نمی‌شود. همان سه پرس‌وجو در هر حوزه کار می‌کند؛ شمارش‌ها تعداد کانتینرها را نشان می‌دهند، نه مجموع اقدامات. حوزه فریم‑متن لینک‌های خود شکل دربر نمی‌گیرد.
+مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک ماوس‑اور فایل، ناوبری اسلاید داخلی، یک لینک ماوس‑اور متن و یک عمل ماکرو است. هیچ‌یک از این اعمال اجرا نمی‌شوند. همان سه پرس‌و‌جو در هر دامنه کار می‌کند؛ شمارش‌ها نشانگر تعداد کانتینرها، نه مجموع اعمال هستند. دامنهٔ قاب‑متن پیوندهای خود شکل محدودکننده را شامل نمی‌شود.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -421,37 +422,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-در این مثال، پرس‌وجوهای ارائه و اسلاید هرکدام سه کانتینر کلیک، دو کانتینر mouse‑over و سه کانتینر با هر یک از این اقدامات را گزارش می‌دهند. پرس‌وجوی فریم‑متن یک کانتینر در هر دسته گزارش می‌کند.
+در این مثال، پرس‌و‌جوهای ارائه و اسلاید هر کدام سه کانتینر کلیک، دو کانتینر ماوس‑اور و سه کانتینر دارای هر یک از اعمال را گزارش می‌کنند. پرس‌و‌جوی قاب‑متن یک کانتینر در هر دسته گزارش می‌دهد.
 
-### **دسته‌بندی اقدامات و مقصدها**
+### **دسته‌بندی اعمال و مقصدها**
 
-برای تفسیر یک عمل پیش از تفسیر مقصد آن، از [IHyperlink::get_ActionType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_actiontype/) استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/fa/cpp/aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب را شامل می‌شوند:
+از **[IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/)** برای تفسیر عمل قبل از تفسیر مقصد استفاده کنید. مقادیر **[HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/)** بیش از ناوبری وب شامل می‌شوند:
 
-| Values | Meaning for an audit |
+| مقادیر | معنای ممیزی |
 | --- | --- |
-| `Hyperlink` | پیوند خارجی؛ URL و طرح آن را بررسی کنید. |
-| `JumpSpecificSlide` | ناوبری داخلی به یک اسلاید مشخص. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری‌های پیش‌فرض نمایش اسلاید، در زمینه نمایش اسلاید حل می‌شوند. |
-| `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش جاری یا شروع نمایش سفارشی. |
-| `StartMacro` | اجرا کردن یک ماکرو. |
-| `StartProgram` | راه‌اندازی یک برنامه. |
-| `OpenFile`, `OpenPresentation` | باز کردن یک فایل یا ارائه دیگر؛ جداگانه از URLهای وب بررسی شود. |
+| `Hyperlink` | ابرپیوند خارجی؛ URL و طرح آن را بررسی کنید. |
+| `JumpSpecificSlide` | ناوبری داخلی به اسلاید خاص. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری داخلی پیش‌فرض اسلایدشو. |
+| `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش فعلی یا شروع نمایش سفارشی. |
+| `StartMacro` | اجرای ماکرو. |
+| `StartProgram` | راه‌اندازی برنامه. |
+| `OpenFile`, `OpenPresentation` | باز کردن فایل یا ارائه دیگر؛ جداگانه از URLهای وب بررسی شود. |
 | `StartStopMedia` | شروع یا توقف پخش رسانه. |
-| `NoAction`, `Unknown` | بدون عمل ناوبری، یا عملی نامشخص که نیاز به بررسی دارد. |
+| `NoAction`, `Unknown` | بدون عمل ناوبری یا عمل ناشناخته که نیاز به بررسی دارد. |
 
-مقاصد خارجی را از طریق [get_ExternalUrl](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_externalurl/) و مقاصد داخلی خاص را از طریق [get_TargetSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_targetslide/) بخوانید. اقدامات داخلی و فرمان‌های پیش‌ساخته ممکن است URL خارجی نداشته باشند؛ یک URL خالی به این معنی نیست که کانتینر هیچ عملی ندارد. هنگام اختلاف بین URL اصلی و نرمال‌شده، [get_ExternalUrlOriginal](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) را حفظ کنید و راهنمایی (tooltip) بازگردانده‌شده توسط [get_Tooltip](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlink/get_tooltip/) را در صورت موجود بودن وارد کنید.
+مقصدهای خارجی را از **[get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/)** و مقصدهای داخلی خاص را از **[get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/)** بخوانید. اعمال داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ URL خالی به این معنی نیست که کانتینر بدون عمل باشد. هنگام متفاوت بودن **[get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/)** از URL نرمال‌شده، آن را حفظ کنید و نکتهٔ راهنمایی برگشتی توسط **[get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/)** را در صورت موجود بودن اضافه کنید.
 
-### **گزارش، پاک‌سازی و تأیید پیوندها**
+### **گزارش، تصفیه و تأیید ابرپیوندها**
 
-مثال C++ زیر یک ارائه موجود (فایلی که در بالا ایجاد شده) را می‌خواند، `hyperlink-audit.json` می‌نویسد، یک سیاست را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را دوباره بررسی کند. قبل از تغییر، کانتینرها را جمع‌آوری می‌کند و از هویت اشاره‌گر برای جلوگیری از پردازش دوباره همان کانتینر استفاده می‌کند. پرس‌وجوهای ارائه اسلایدهای عادی را پوشش می‌دهند؛ برای موجودی سرتاسری بسته، به‌صراحت مسترها، لایه‌ها، یادداشت‌ها و مسترهای یادداشت و توزیع‌کننده را نیز پرس‌وجو می‌کند.
+مثال زیر در C++ یک ارائهٔ موجود (فایل ساخته‌شده در بالا) را می‌خواند، `hyperlink-audit.json` می‌نویسد، سیاستی را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را مجدداً بررسی کند. قبل از تغییر کانتینرها را جمع‌آوری می‌کند و برای جلوگیری از پردازش دوباره از هویت اشاره‌گر استفاده می‌کند. پرس‌و‌جوهای ارائه اسلایدهای معمولی را پوشش می‌دهد؛ برای موجودی سراسری بسته، مسترها، لایه‌ها، نکات و مسترهای نکات و برگه‌ها را نیز به‌صورت صریح پرس‌و‌جو می‌کند.
 
-گزارش یک ایندکس اسلاید مبتنی بر یک‑پایه و [get_SlideId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/get_slideid/) را (در صورت موجود بودن) ثبت می‌کند. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecomponent/get_slide/) اسلاید مالک را برای کانتینرهای پشتیبانی‌شده فراهم می‌کند. مسترها، لایه‌ها و یادداشت‌ها ایندکس اسلاید عادی ندارند و توسط حوزه‌شان شناسایی می‌شوند. کانتینرهای شکل و قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع کانتینر نام نوع زمان‌اجرای خود را حفظ می‌کنند. هر کانتینر یک شناسه محلی گزارش دریافت می‌کند تا دو عمل آن بتوانند با هم مرتبط شوند.
+گزارش شاخص اسلاید به‌صورت یک‌پایه و **[get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/)** (در صورت موجود بودن) را ثبت می‌کند. **[ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/)** اسلاید مالک را برای کانتینرهای پشتیبانی‌شده فراهم می‌کند. مسترها، لایه‌ها و نکات شاخص اسلاید معمولی ندارند و با دامنهٔ خود شناسایی می‌شوند. کانتینرهای شکل و فرمت‌بندی بخش‑متن به‌طور جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع کانتینر نام نوع زمان اجرا را حفظ می‌کنند. هر کانتینر یک شناسهٔ گزارش‑محلی می‌گیرد تا دو عمل آن بتوانند به‌هم مرتبط شوند.
 
-این سیاست کاربردی به‌صورت عمدی تنها URLهای HTTPS مطلق و هدف‌های داخلی اسلاید معتبر را می‌پذیرد. ماکروها، برنامه‌ها، اعمال فایل، سایر اعمال اسلایدشو، اقدامات ناشناخته و سایر طرح‌های URL رد می‌شوند. این ردها تصمیمات سیاستی هستند، نه حکم ایمنی Aspose.Slides. فقط داشتن HTTPS اعتماد برقرار نمی‌کند: لیست‌های سفید میزبان و بررسی‌های دیگر را برای برنامه خود اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال متادیتا را بدون دنبال کردن لینک‌ها یا اجرای اقدامات ممیزی می‌کند.
+این سیاست کاربردی محدودکننده فقط URLهای مطلق HTTPS و اهداف اسلاید داخلی معتبر را می‌پذیرد. ماکروها، برنامه‌ها، اعمال فایل، سایر اعمال اسلایدشو، اعمال ناشناخته و سایر طرح URL‌ها رد می‌شوند. این ردها تصمیمات سیاستی هستند، نه قضاوت ایمنی Aspose.Slides. تنها HTTPS اعتماد ایجاد نمی‌کند: لیست سفید میزبان‌ها و سایر بررسی‌ها را به برنامهٔ خود اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال متادیتاها را بدون دنبال‌کردن لینک‌ها یا اجرا کردن اعمال ممیزی می‌کند.
 
-برای بهبود، [get_HyperlinkManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) کانتینر‌ها از [SetExternalHyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)، [RemoveHyperlinkClick](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) و [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحه ثابت HTTPS جایگزین می‌شوند؛ سایر کلیک‌های ممنوع و اعمال mouse‑over ممنوع به‌صورت مستقل حذف می‌شوند. مقدار `replaceExternalClicks` را به `false` تنظیم کنید تا تمام تخلفات سیاست حذف شوند. پیش از استقرار، صفحه جایگزین متعلق به برنامه خود را انتخاب کنید.
+برای اصلاح، **[get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/)** کانتینر پشتیبانی می‌کند **[SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/)**، **[RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/)** و **[RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/)**. در اینجا، پیوندهای کلیک خارجی ممنوع با یک صفحهٔ فرودی HTTPS ثابت جایگزین می‌شوند؛ سایر کلیک‌ها و ماوس‑اورهای ممنوع به‌صورت جداگانه حذف می‌شوند. مقدار `replaceExternalClicks` را به `false` تنظیم کنید تا تمام نقض‌های سیاست حذف شوند. قبل از استقرار، صفحهٔ جایگزین متعلق به برنامه را انتخاب کنید.
 
-پرچم خروجی گزارش از یک سیاست بازبینی PDF محتاطانه استفاده می‌کند: اعمال mouse‑over و هر چیزی به جز یک لینک خارجی یا جهش اسلاید خاص را به‌عنوان احتمال عدم پشتیبانی پرچم می‌زند. این یک راهنمای بازبینی است، نه تست توانایی یا ضمانتی که لینک‌های بدون پرچم در خروجی بمانند. خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندها را حفظ کنند، بسته به عمل، گزینه‌های خروجی و نمایشگر. [تصاویر](/slides/fa/cpp/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/cpp/convert-powerpoint-to-video/) رستر نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ هنگام ممیزی برای این خروجی‌ها، هر عمل را پرچم کنید.
+پرچم صادراتی گزارش از سیاست بازنگری PDF محافظه‌کارانه استفاده می‌کند: اعمال ماوس‑اور و هر چیزی جز لینک خارجی یا پرش اسلاید خاص را به‌عنوان «احتمالاً پشتیبانی نمی‌شود» علامت‌گذاری می‌کند. این یک نکتهٔ راهنمایی بازنگری است، نه آزمون قابلیت یا تضمینی برای بقا پس از صادرات. صادرات‌های **[PDF](/slides/fa/cpp/convert-powerpoint-to-pdf/)** و **[HTML](/slides/fa/cpp/convert-powerpoint-to-html/)** ممکن است بسته به عمل، گزینه‌های صادرات و نمایشگر، ابرپیوندها را حفظ کنند. **[تصاویر](/slides/fa/cpp/convert-powerpoint-to-png/)** رستر و **[ویدئو](/slides/fa/cpp/convert-powerpoint-to-video/)** نمی‌توانند ابرپیوندهای تعاملی را حفظ کنند؛ هنگام ممیزی برای این خروجی‌ها هر عمل را پرچم بزنید.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -652,20 +653,20 @@ if (violations != 0)
 }
 ```
 
-با ورودی ایجاد‌شده در بالا، گزارش پنج ردیف عمل دارد. لینک فایل mouse‑over و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری اسلاید داخلی باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. یک ورودی شامل یک URL کلیک خارجی ممنوع نیز شاخه جایگزینی را اجرا می‌کند. یک کانتینر با کلیک مجاز و mouse‑over ممنوع کلیک خود را حفظ می‌کند.
+با ورودی ساخته‌شده در بالا، گزارش شامل پنج ردیف عمل می‌شود. پیوند ماوس‑اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری اسلاید داخلی باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. ورودی شامل یک URL کلیک خارجی ممنوع نیز شاخهٔ جایگزینی را اجرا می‌کند. یک کانتینر با کلیک مجاز و ماوس‑اور ممنوع کلیک خود را حفظ می‌کند.
 
-این پاک‌سازی انتخابی با [RemoveAllHyperlinks](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) متفاوت است که هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده صرف‌نظر از سیاست حذف می‌کند. تأیید در اینجا تنها اقدامات پیوند را بررسی می‌کند؛ پروژه‌های VBA جاسازی‌شده، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و فایل‌های PDF یا HTML خروجی را اعتبارسنجی نمی‌کند.
+این پاک‌سازی انتخابی با **[RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/)** تفاوت دارد که هر دو نوع فعال‌سازی را در تمام دامنهٔ انتخاب‌شده صرف نظر از سیاست حذف می‌کند. تأیید در اینجا فقط اعمال ابرپیوندها را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و فایل‌های PDF یا HTML صادرشده را ارزیابی نمی‌کند.
 
 ## **سوالات متداول**
 
 **چگونه می‌توانم به یک بخش یا اولین اسلاید آن لینک کنم؟**
 
-بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند داخلی به یک اسلاید فردی هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
+بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک ابرپیوند داخلی به یک اسلاید فردی هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
 
-**آیا می‌توانم پیوندی را به عناصر مستر اسلاید الصاق کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توانم ابرپیوند را به عناصر مستر اسلاید متصل کنم تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر مستر اسلاید و لایه‌ها از پیوندها پشتیبانی می‌کنند. لینک‌های این عناصر در زمان نمایش اسلاید در اسلایدهایی که از مستر یا لایه مربوطه استفاده می‌کنند، در دسترس هستند.
+بله. عناصر مستر اسلاید و لایه‌ها از ابرپیوندها پشتیبانی می‌کنند. این پیوندها در حالت نمایش اسلاید روی اسلایدهایی که از مستر یا لایهٔ مربوطه استفاده می‌کنند، در دسترس هستند.
 
-**آیا پیوندها هنگام خروجی به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
+**آیا ابرپیوندها هنگام خروجی به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
 
-خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندها را حفظ کنند؛ تصاویر رستر و ویدئو نمی‌توانند. برای جزئیات به ملاحظات خروجی در بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+صدورهای PDF و HTML پشتیبانی‌شده ممکن است ابرپیوندها را حفظ کنند؛ تصاویر رستر و ویدئو نمی‌توانند. برای جزئیات بیشتر به **[گزارش، تصفیه و تأیید ابرپیوندها](#report-sanitize-and-verify-hyperlinks)** مراجعه کنید.

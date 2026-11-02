@@ -1,5 +1,5 @@
 ---
-title: Zarządzaj hiperłączami prezentacji w Pythonie przy użyciu Java
+title: Zarządzanie hiperłączami prezentacji w Pythonie przy użyciu Java
 linktitle: Zarządzaj hiperłączami
 type: docs
 weight: 20
@@ -16,35 +16,39 @@ keywords:
 - hiperłącze kształtu
 - hiperłącze obrazu
 - hiperłącze wideo
-- modyfikowalne hiperłącze
+- hiperłącze modyfikowalne
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona via Java, używając przykładów w Pythonie."
+description: "Dodawaj, formatuj, aktualizuj i usuwaj hiperłącza w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona za pośrednictwem Java, korzystając z przykładów w Pythonie."
 ---
 ## **Wprowadzenie**
 
-Hiperłącze łączy zawartość prezentacji z witryną internetową lub miejscem w obrębie prezentacji. W programie PowerPoint hiperłącza zwykle służą dwóm celom:
+Hiperłącze łączy zawartość prezentacji z witryną internetową lub miejscem w obrębie prezentacji. W programie PowerPoint hiperłącza zazwyczaj służą dwóm celom:
 
-* Otwórz witrynę internetową z tekstu, kształtu lub ramki multimedialnej.
-* Przejdź do innego slajdu, na przykład z tabeli treści.
+* Otworzyć witrynę z tekstu, kształtu lub ramki multimedialnej.  
+* Przejść do innego slajdu, na przykład z tabeli treści.
 
 Aspose.Slides for Python via Java umożliwia dodawanie tych łączy, kontrolowanie ich wyglądu i dźwięku, aktualizowanie ich właściwości oraz usuwanie ich. Poniższe przykłady pokazują, jak pracować z hiperłączami na poszczególnych elementach oraz jak uzyskać dostęp do hiperłączy na poziomie prezentacji, slajdu lub ramki tekstowej.
 
 {{% alert color="info" title="Note" %}}
-Możesz również edytować prezentacje za pomocą [bezpłatnego internetowego edytora Aspose PowerPoint](https://products.aspose.app/slides/pl/editor).
+
+Możesz także edytować prezentacje przy użyciu [darmowego edytora Aspose PowerPoint online](https://products.aspose.app/slides/editor).
+
 {{% /alert %}} 
 
 ## **Dodaj hiperłącza URL**
 
-Możesz przypisać adres URL witryny do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypiszesz hiperłącze, określa obszar klikalny: fragment tekstu łączy wybrany tekst, natomiast kształt lub ramka łączy obiekt slajdu.
+Możesz przypisać adres URL witryny do tekstu, kształtu lub ramki multimedialnej. Element, któremu przypisujesz hiperłącze, określa obszar klikalny: fragment tekstu łączy wybrany tekst, a kształt lub ramka łączy obiekt slajdu.
+
+W prezentacjach zawierających względne hiperłącza zobacz [Zarządzanie bazą hiperłączy](/slides/pl/python-java/presentation-properties/#manage-the-hyperlink-base), aby odczytać, zmienić lub wyczyścić bazę na poziomie dokumentu.
 
 ### **Dodaj hiperłącza URL do tekstu**
 
-Aby połączyć tekst z witryną, przekaż [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) do metody [setHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/portionformat/#setHyperlinkClick) fragmentu tekstu, jak pokazano poniżej. Tylko ten fragment tekstu stanie się klikalny.
+Aby połączyć tekst z witryną, przekaż [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) do metody [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#setHyperlinkClick) fragmentu tekstu, jak pokazano poniżej. Klikalny stanie się tylko ten fragment tekstu.
 
 ```python
 import jpype
@@ -72,9 +76,9 @@ finally:
 
 ### **Dodaj hiperłącza URL do kształtów i ramek multimedialnych**
 
-Aby uczynić kształt lub ramkę klikalną, wywołaj jej metodę [setHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#setHyperlinkClick). Hiperłącze należy do samego obiektu, a nie do fragmentu tekstu wewnątrz niego.
+Aby uczynić kształt lub ramkę klikalną, wywołaj jej metodę [setHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setHyperlinkClick). Hiperłącze należy do samego obiektu, a nie do fragmentu tekstu wewnątrz niego.
 
-To samo podejście dotyczy ramek obrazów, dźwięku i wideo: przypisz hiperłącze do ramki i wywołaj [setTooltip](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setTooltip), jeśli jest to potrzebne.
+Takie samo podejście stosuje się do ramek obrazu, audio i wideo: przypisz hiperłącze do ramki i wywołaj [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip), jeśli jest to potrzebne.
 
 Poniższy przykład sprawia, że prostokąt jest klikalny:
 
@@ -101,7 +105,7 @@ finally:
 
 ## **Użyj hiperłączy do utworzenia spisu treści**
 
-Wewnętrzne hiperłącza pozwalają czytelnikom przechodzić ze spisu treści do konkretnego slajdu. Poniższy przykład używa [setInternalHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick) do połączenia tekstu „Page 2” na pierwszym slajdzie z drugim slajdem.
+Hiperłącza wewnętrzne pozwalają czytelnikom przejść z tabeli treści do konkretnego slajdu. Poniższy przykład używa [setInternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setInternalHyperlinkClick), aby połączyć tekst „Page 2” na pierwszym slajdzie z drugim slajdem.
 
 ```python
 import jpype
@@ -145,9 +149,9 @@ finally:
 
 ### **Kolor**
 
-Metoda [setColorSource](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setColorSource) klasy [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) określa, czy hiperłącze używa koloru hiperłącza prezentacji czy formatowania fragmentu tekstu. Aby zastosować niestandardowy kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia fragmentu. Funkcja ta została wprowadzona w programie PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
+Metoda [setColorSource](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setColorSource) klasy [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/) określa, czy hiperłącze używa koloru hiperłącza prezentacji czy formatowania fragmentu tekstu. Aby zastosować własny kolor tekstu, wybierz [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkcolorsource/) i ustaw kolor wypełnienia fragmentu. Funkcja ta została wprowadzona w PowerPoint 2019; starsze wersje nie stosują tego ustawienia.
 
-Poniższy przykład dodaje dwa hiperłącza tekstowe do tego samego slajdu. Pierwszy używa czerwonego wypełnienia tekstu, natomiast drugi zachowuje domyślny kolor hiperłącza.
+Poniższy przykład dodaje dwa hiperłącza tekstowe do tego samego slajdu. Pierwsze używa czerwonego wypełnienia tekstu, a drugie zachowuje domyślny kolor hiperłącza.
 
 ```python
 import jpype
@@ -182,12 +186,12 @@ finally:
 
 Hiperłącze może odtwarzać dźwięk po aktywacji lub zatrzymać dźwięk już odtwarzany. Użyj następujących metod, aby skonfigurować te zachowania:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setSound) określa dźwięk powiązany z hiperłączem.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setSound) określa dźwięk powiązany z hiperłączem.  
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setStopSoundOnClick) kontroluje, czy aktywacja hiperłącza zatrzymuje poprzedni dźwięk.
 
 #### **Dodaj dźwięk do hiperłącza**
 
-Poniższy przykład ładuje `sampleaudio.wav` i powiązuje go z przyciskiem na pierwszym slajdzie. Kliknięcie przycisku odtwarza dźwięk i przechodzi do następnego slajdu. Drugi kształt na tym slajdzie zatrzymuje poprzedni dźwięk po kliknięciu, nie wykonując akcji nawigacji.
+Poniższy przykład wczytuje `sampleaudio.wav` i powiązuje go z przyciskiem na pierwszym slajdzie. Kliknięcie przycisku odtwarza dźwięk i przechodzi do następnego slajdu. Drugi kształt na tym samym slajdzie zatrzymuje poprzedni dźwięk po kliknięciu, nie wykonując akcji nawigacji.
 
 ```python
 from pathlib import Path
@@ -223,7 +227,7 @@ finally:
 
 #### **Wyodrębnij dźwięk z hiperłącza**
 
-Poniższy przykład otwiera prezentację utworzoną powyżej i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci za pomocą [getSound](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getSound) i [getBinaryData](https://reference.aspose.com/slides/pl/python-java/aspose.slides/audio/#getBinaryData).
+Poniższy przykład otwiera prezentację utworzoną powyżej i odczytuje dźwięk hiperłącza pierwszego kształtu do pamięci przy użyciu [getSound](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getSound) oraz [getBinaryData](https://reference.aspose.com/slides/python-java/aspose.slides/audio/#getBinaryData).
 
 ```python
 import jpype
@@ -252,16 +256,16 @@ finally:
 
 ### **Podpowiedź i ustawienia interakcji**
 
-Możesz wywołać następujące metody [Hyperlink](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/) po przypisaniu hiperłącza do tekstu lub kształtu:
+Po przypisaniu hiperłącza do tekstu lub kształtu możesz wywołać następujące metody klasy [Hyperlink](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/):
 
-- [setTooltip](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setTooltip) ustawia tekst, który widz może wyświetlić jako podpowiedź dla łącza.
-- [setTargetFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setTargetFrame) określa docelową ramkę w ramach nadrzędnego zestawu ramek HTML, gdy ma to zastosowanie.
-- [setHistory](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setHistory) kontroluje, czy aktywacja łącza dodaje jego cel do listy przeglądanych hiperłączy.
-- [setHighlightClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#setHighlightClick) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.
+- [setTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTooltip) ustawia tekst, który podglądający może wyświetlić jako wskazówkę do łącza.  
+- [setTargetFrame](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setTargetFrame) określa docelową ramkę w ramach nadrzędnego zestawu ramek HTML, gdy ma to zastosowanie.  
+- [setHistory](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHistory) kontroluje, czy aktywacja łącza dodaje jego docelowy adres do listy przeglądanych hiperłączy.  
+- [setHighlightClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#setHighlightClick) kontroluje, czy hiperłącze jest podświetlane po kliknięciu.
 
 ## **Usuń hiperłącza z prezentacji**
 
-Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks), aby zebrać kontenery hiperłączy, w tym linki do fragmentów tekstu, przed ich zmianą. Poniższy przykład usuwa oba typy aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj wyłącznie [removeHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); usunięcie akcji kliknięcia nie usuwa jej odpowiednika przy najechaniu myszą.
+Użyj [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks), aby zebrać kontenery hiperłączy, w tym linki fragmentów tekstu, przed ich zmianą. Poniższy przykład usuwa oba rodzaje aktywacji z pierwszego slajdu. Aby usunąć tylko jeden typ, wywołaj wyłącznie [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) lub [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver); usunięcie akcji kliknięcia nie usuwa jej odpowiednika przy najechaniu myszą.
 
 ```python
 import jpype
@@ -286,23 +290,23 @@ finally:
     presentation.dispose()
 ```
 
-Dla bezwarunkowego usunięcia, [removeAllHyperlinks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) usuwa oba typy aktywacji w wybranym zakresie jednym wywołaniem. Dla selektywnego czyszczenia i objęcia slajdów-mistrzów, układów i notatek, zobacz [Raport, Sanityzacja i weryfikacja hiperłączy](#report-sanitize-and-verify-hyperlinks).
+Dla bezwarunkowego usunięcia, [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks) usuwa oba rodzaje aktywacji w wybranym zakresie w jednym wywołaniu. Dla selektywnego czyszczenia i obejmowania masterów, układów i notatek, zobacz [Raport, oczyszczenie i weryfikacja hiperłączy](#report-sanitize-and-verify-hyperlinks).
 
-## **Zbuduj kompletny spis hiperłączy**
+## **Zbuduj pełny inwentarz hiperłącz**
 
-Przed dystrybucją prezentacji, sporządź inwentaryzację jej interaktywnych akcji oraz linków internetowych. [getAnyHyperlinks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) zwraca kontenery hiperłączy, takie jak obiekty [Shape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/) i [PortionFormat](https://reference.aspose.com/slides/pl/python-java/aspose.slides/portionformat/), a nie płaską listę ciągów URL. Sprawdź zarówno [getHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getHyperlinkClick), jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getHyperlinkMouseOver) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać obie akcje, więc kompletny raport wymaga do dwóch wierszy na kontener.
+Przed rozpowszechnieniem prezentacji zinwentaryzuj jej interaktywne akcje oraz linki internetowe. [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) zwraca kontenery hiperłączy, takie jak obiekty [Shape](https://reference.aspose.com/slides/python-java/aspose.slides/shape/) i [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/), a nie płaską listę ciągów URL. Sprawdź zarówno [getHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkClick), jak i [getHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkMouseOver) w każdym kontenerze. Są one niezależne: ten sam kontener może udostępniać oba działania, więc pełny raport wymaga do dwóch wierszy na kontener.
 
-Skanowanie wyłącznie hiperłączy na poziomie kształtu może pominąć linki do fragmentów tekstu. Zapytaj odpowiedni zakres zamiast tego i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
+Skanowanie tylko hiperłącz na poziomie kształtu może pominąć linki dołączone do fragmentów tekstu. Zapytaj odpowiedni zakres i zachowaj zwrócone kontenery, aby później móc zaktualizować lub usunąć ich akcje.
 
 ### **Zapytaj zakresy prezentacji, slajdu i ramki tekstowej**
 
-Klasa [HyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/) jest dostępna przez [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getHyperlinkQueries) i [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/pl/python-java/aspose.slides/textframe/#getHyperlinkQueries). Każdy zakres obsługuje te same zapytania:
+Klasa [HyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/) jest dostępna poprzez [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getHyperlinkQueries) oraz [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/#getHyperlinkQueries). Każdy zakres obsługuje te same zapytania:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) zwraca kontenery z akcją kliknięcia.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) zwraca kontenery z akcją najechania myszą.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) zwraca kontenery z jedną lub obiema akcjami.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkClicks) zwraca kontenery z akcją kliknięcia.  
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getHyperlinkMouseOvers) zwraca kontenery z akcją najechania myszą.  
+- [getAnyHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#getAnyHyperlinks) zwraca kontenery z jedną lub obiema akcjami.
 
-Poniższy przykład tworzy `hyperlink-audit-input.pptx` z zewnętrznym linkiem kliknięcia, linkiem najechania pliku, wewnętrzną nawigacją slajdu, linkiem najechania tekstu i akcją makra. Nie wykonuje żadnej z tych akcji. Te same trzy zapytania działają w każdym zakresie; liczby opisują kontenery, a nie sumy akcji. Zakres ramki tekstowej wyklucza własne linki otaczającego kształtu.
+Poniższy przykład tworzy `hyperlink-audit-input.pptx` zewnętrznym linkiem kliknięcia, linkiem pliku przy najechaniu, wewnętrzną nawigacją slajdu, linkiem tekstowym przy najechaniu oraz akcją makra. Nie wykonuje żadnej z tych akcji. Te same trzy zapytania działają w każdym zakresie; liczby opisują kontenery, a nie sumy akcji. Zakres ramki tekstowej wyklucza własne linki otaczającego kształtu.
 
 ```python
 import jpype
@@ -343,37 +347,37 @@ finally:
     presentation.dispose()
 ```
 
-Dla tego przykładu zapytania prezentacji i slajdu zwracają po trzy kontenery kliknięć, dwa kontenery najechania i trzy kontenery posiadające dowolną akcję. Zapytanie ramki tekstowej zwraca po jednym kontenerze w każdej kategorii.
+W tym przykładzie zapytania prezentacji i slajdu zwracają po trzy kontenery kliknięcia, dwa kontenery najechania i trzy kontenery z dowolną akcją. Zapytanie ramki tekstowej zwraca po jednym kontenerze w każdej kategorii.
 
-### **Klasyfikuj akcje i miejsca docelowe**
+### **Klasyfikuj akcje i cele**
 
-Użyj [Hyperlink.getActionType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getActionType), aby zinterpretować akcję przed interpretacją jej celu. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkactiontype/) obejmują więcej niż nawigację sieciową:
+Użyj [Hyperlink.getActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getActionType), aby zinterpretować akcję przed interpretacją jej celu. Wartości [HyperlinkActionType](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkactiontype/) obejmują więcej niż nawigację internetową:
 
 | Wartości | Znaczenie dla audytu |
 | --- | --- |
-| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź adres URL i jego schemat. |
-| `JumpSpecificSlide` | Nawigacja wewnętrzna do konkretnego slajdu. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja w pokazie slajdów, rozwiązywana w kontekście pokazu. |
-| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub rozpoczęcie pokazu niestandardowego. |
-| `StartMacro` | Wykonaj makro. |
-| `StartProgram` | Uruchom program. |
-| `OpenFile`, `OpenPresentation` | Otwórz plik lub inną prezentację; przeglądaj oddzielnie od adresów URL. |
-| `StartStopMedia` | Rozpocznij lub zatrzymaj odtwarzanie multimediów. |
+| `Hyperlink` | Zewnętrzne hiperłącze; sprawdź URL i jego schemat. |
+| `JumpSpecificSlide` | Wewnętrzna nawigacja do konkretnego slajdu. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Wbudowana nawigacja pokazu slajdów, rozwiązywana w kontekście pokazu. |
+| `JumpEndShow`, `StartCustomSlideShow` | Zakończenie bieżącego pokazu lub uruchomienie pokazu niestandardowego. |
+| `StartMacro` | Uruchomienie makra. |
+| `StartProgram` | Uruchomienie programu. |
+| `OpenFile`, `OpenPresentation` | Otwarcie pliku lub innej prezentacji; przeglądaj oddzielnie od URL‑ów internetowych. |
+| `StartStopMedia` | Rozpoczęcie lub zatrzymanie odtwarzania multimediów. |
 | `NoAction`, `Unknown` | Brak akcji nawigacyjnej lub nieznana akcja wymagająca przeglądu. |
 
-Odczytaj zewnętrzne cele z [getExternalUrl](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getExternalUrl) oraz konkretne wewnętrzne cele z [getTargetSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getTargetSlide). Wewnętrzne akcje i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal), gdy różni się ona od znormalizowanego URL, i uwzględnij podpowiedź zwróconą przez [getTooltip](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlink/#getTooltip), gdy jest dostępna.
+Odczytaj zewnętrzne cele przy użyciu [getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) oraz konkretne wewnętrzne cele przy użyciu [getTargetSlide](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTargetSlide). Akcje wewnętrzne i wbudowane polecenia mogą nie mieć zewnętrznego URL; pusty URL nie oznacza, że kontener nie ma akcji. Zachowaj wartość zwróconą przez [getExternalUrlOriginal](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrlOriginal), gdy różni się od znormalizowanego URL, oraz dołącz podpowiedź z [getTooltip](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getTooltip), jeśli jest dostępna.
 
-### **Raport, Sanityzacja i weryfikacja hiperłączy**
+### **Raport, oczyszczenie i weryfikacja hiperłączy**
 
-Poniższy przykład w Pythonie odczytuje istniejącą prezentację (użyj pliku utworzonego powyżej), zapisuje `hyperlink-audit.json`, stosuje politykę, zapisuje `hyperlink-sanitized.pptx` i ponownie otwiera go, aby ponownie sprawdzić oba typy aktywacji. Zbiera kontenery przed ich zmianą i używa równości referencji, aby uniknąć podwójnego przetwarzania tego samego kontenera. Zapytania prezentacji obejmują zwykłe slajdy; dla inwentaryzacji całego pakietu explicite zapytuje również mistrze, układy, notatki oraz mistrze notatek i materiałów rozdawniczych, jeśli występują.
+Poniższy przykład w Pythonie odczytuje istniejącą prezentację (użyj pliku utworzonego powyżej), zapisuje `hyperlink-audit.json`, stosuje politykę, zapisuje `hyperlink-sanitized.pptx` i ponownie otwiera go, aby ponownie sprawdzić oba typy aktywacji. Zbiera kontenery przed ich zmianą i wykorzystuje równość referencji, aby uniknąć podwójnego przetworzenia tego samego kontenera. Zapytania prezentacji obejmują zwykłe slajdy; dla inwentaryzacji całego pakietu wyraźnie zapytuje także mastery, układy, notatki oraz mastery notatek i materiałów rozdawniczych, gdy są obecne.
 
-Raport zapisuje indeks slajdu zaczynający się od 1 oraz [getSlideId](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getSlideId), gdy jest dostępny. [getSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getSlide) podaje slajd właściciela dla obsługiwanych kontenerów. Mistrze, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują swoją nazwę typu w czasie wykonywania. Każdy kontener otrzymuje raportowy identyfikator lokalny, aby jego dwie akcje mogły być powiązane. Raport przechowuje typy akcji jako stałe liczbowe zdefiniowane w wyliczeniu Javy.
+Raport zapisuje indeks slajdu (liczony od 1) oraz [getSlideId](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getSlideId), gdy jest dostępny. [getSlide](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getSlide) dostarcza slajd właściciela dla obsługiwanych kontenerów. Mastery, układy i notatki nie mają zwykłego indeksu slajdu i są identyfikowane przez swój zakres. Kontenery kształtów i formatowania fragmentów tekstu są oznaczone osobno; inne typy kontenerów zachowują nazwę typu w czasie wykonania. Każdy kontener otrzymuje lokalny identyfikator raportu, aby jego dwie akcje mogły być ze sobą powiązane. Raport przechowuje typy akcji jako stałe liczbowe zdefiniowane w enumeracji Java.
 
-Ta celowo restrykcyjna polityka aplikacji zezwala wyłącznie na bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdu. Odrzuca makra, programy, akcje plików, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Odmowy te są decyzjami politycznymi, a nie werdyktem bezpieczeństwa Aspose.Slides. Same HTTPS nie zapewniają zaufania: dodaj listy dozwolonych hostów i inne kontrole w aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne URL. Przykład audytuje metadane bez podążania za linkami i uruchamiania akcji.
+Ta celowo restrykcyjna polityka aplikacji dopuszcza wyłącznie bezwzględne adresy HTTPS i prawidłowe wewnętrzne cele slajdów. Odrzuca makra, programy, akcje plikowe, inne akcje pokazu, nieznane akcje oraz inne schematy URL. Są to decyzje polityki, a nie ocena bezpieczeństwa Aspose.Slides. Sam protokół HTTPS nie zapewnia zaufania: dodaj listy dozwolonych hostów i inne kontrole dla swojej aplikacji. Sprawdzane są zarówno oryginalne, jak i znormalizowane zewnętrzne URL‑e. Przykład audytuje metadane bez podążania za linkami i bez uruchamiania akcji.
 
-W celu naprawy, [getHyperlinkManager](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getHyperlinkManager) obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) i [removeHyperlinkMouseOver](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Tutaj zabronione zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne zabronione kliknięcia i akcje najechania są usuwane niezależnie. Ustaw `replace_external_clicks` na `False`, aby usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
+Do naprawy kontenerów [getHyperlinkManager](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getHyperlinkManager) obsługuje [setExternalHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkClick) i [removeHyperlinkMouseOver](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkmanager/#removeHyperlinkMouseOver). Tutaj niedozwolone zewnętrzne linki kliknięcia są zastępowane stałą stroną docelową HTTPS; inne niedozwolone kliknięcia i akcje przy najechaniu są usuwane niezależnie. Ustaw `replace_external_clicks` na `False`, aby usunąć wszystkie naruszenia polityki. Wybierz stronę zastępczą zarządzaną przez aplikację przed wdrożeniem.
 
-Flaga eksportu raportu używa konserwatywnej polityki przeglądu PDF: oznacza akcje najechania i wszystko poza zewnętrznym linkiem lub konkretnym skokiem slajdu jako potencjalnie nieobsługiwane. Jest to wskazówka przeglądu, a nie test zdolności ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/python-java/convert-powerpoint-to-html/) mogą zachować hiperłącza, w zależności od akcji, opcji eksportu i przeglądarki. Rasterowe [images](/slides/pl/python-java/convert-powerpoint-to-png/) i [video](/slides/pl/python-java/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznacz każdą akcję przy audycie pod kątem tych wyjść.
+Flaga eksportu raportu używa konserwatywnej polityki przeglądu PDF: oznacza akcje przy najechaniu i wszystko poza zewnętrznym linkiem lub określonym skokiem slajdu jako potencjalnie nieobsługiwane. To wskazówka przeglądu, a nie test możliwości ani gwarancja, że nieoznaczone linki przetrwają eksport. Obsługiwane eksporty [PDF](/slides/pl/python-java/convert-powerpoint-to-pdf/) i [HTML](/slides/pl/python-java/convert-powerpoint-to-html/) mogą zachować hiperłącza, w zależności od akcji, opcji eksportu i przeglądarki. Rasterowe [images](/slides/pl/python-java/convert-powerpoint-to-png/) i [video](/slides/pl/python-java/convert-powerpoint-to-video/) nie mogą zachować interaktywnych hiperłączy; oznacz każdą akcję przy audycie pod kątem tych wyjść.
 
 ```python
 import json
@@ -526,20 +530,20 @@ finally:
     presentation.dispose()
 ```
 
-Przy stworzonej powyżej danej wejściowej raport zawiera pięć wierszy akcji. Link najechania pliku i kliknięcie makra zostały usunięte, natomiast linki HTTPS oraz wewnętrzna nawigacja slajdu pozostały. Weryfikacja wypisuje zero zabronionych akcji. Wejście zawierające zabroniony zewnętrzny URL kliknięcia również uruchamia gałąź zastąpienia. Kontener z dozwolonym kliknięciem i zabronionym najechaniem zachowuje akcję kliknięcia.
+Z utworzonego wyżej wejścia raport zawiera pięć wierszy akcji. Link pliku przy najechaniu i makroklik zostają usunięte, natomiast linki HTTPS i wewnętrzna nawigacja slajdu pozostają. Weryfikacja wypisuje zero niedozwolonych akcji. Wejście zawierające niedozwolony zewnętrzny URL kliknięcia również uruchamia gałąź zastąpienia. Kontener z dozwolonym kliknięciem i niedozwolonym najechaniem zachowuje akcji kliknięcia.
 
-To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/pl/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), które usuwa oba typy aktywacji w wybranym zakresie bez względu na politykę. Weryfikacja tutaj sprawdza tylko akcje hiperłączy; nie usuwa osadzonych projektów VBA, obiektów OLE ani innej aktywnej zawartości i nie waliduje wyeksportowanego pliku PDF ani HTML.
+To selektywne czyszczenie różni się od [removeAllHyperlinks](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlinkqueries/#removeAllHyperlinks), które usuwa oba typy aktywacji w wybranym zakresie, niezależnie od polityki. Weryfikacja tutaj sprawdza jedynie akcje hiperłączy; nie usuwa osadzonych projektów VBA, obiektów OLE ani innych treści aktywnych i nie weryfikuje wyeksportowanego pliku PDF ani HTML.
 
 ## **FAQ**
 
 **Jak mogę połączyć się z sekcją lub jej pierwszym slajdem?**
 
-Sekcje w PowerPoint grupują slajdy, ale wewnętrzne hiperłącze kieruje do pojedynczego slajdu. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
+Sekcje w PowerPoint grupują slajdy, ale wewnętrzne hiperłącze celuje w pojedynczy slajd. Aby utworzyć nawigację do sekcji, połącz się z pierwszym slajdem tej sekcji.
 
-**Czy mogę dołączyć hiperłącze do elementów slajdu‑mistrza, aby działało na wszystkich slajdach?**
+**Czy mogę dołączyć hiperłącze do elementów slajdu głównego, aby działało na wszystkich slajdach?**
 
-Tak. Elementy slajdu‑mistrza i układu obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu na slajdach używających danego mistrza lub układu.
+Tak. Elementy slajdu głównego i układu obsługują hiperłącza. Linki na tych elementach są dostępne podczas pokazu slajdów na slajdach korzystających z odpowiedniego mastera lub układu.
 
-**Czy hiperłącza będą zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
+**Czy hiperłącza zostaną zachowane przy eksporcie do PDF, HTML, obrazów lub wideo?**
 
-Obsługiwane eksporty PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz rozważania eksportu w sekcji [Raport, Sanityzacja i weryfikacja hiperłączy](#report-sanitize-and-verify-hyperlinks).
+Obsługiwane eksporty PDF i HTML mogą zachować hiperłącza; obrazy rastrowe i wideo nie mogą. Zobacz rozważania dotyczące eksportu w [Raport, oczyszczenie i weryfikacja hiperłączy](#report-sanitize-and-verify-hyperlinks).

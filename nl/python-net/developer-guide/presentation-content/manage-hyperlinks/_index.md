@@ -1,6 +1,6 @@
 ---
 title: Beheer presentatie‑hyperlinks in Python
-linktitle: Beheer hyperlinks
+linktitle: Beheer Hyperlinks
 type: docs
 weight: 20
 url: /nl/python-net/manage-hyperlinks/
@@ -22,28 +22,30 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Voeg hyperlinks toe, formatteer, werk bij en verwijder hyperlinks in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides for Python via .NET, met Python‑voorbeelden."
+description: "URL's, hyperlinks toevoegen, opmaken, bijwerken en verwijderen in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor Python via .NET, met Python‑voorbeelden."
 ---
-## **Inleiding**
+## **Introductie**
 
-Een hyperlink verbindt de inhoud van een presentatie met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks meestal twee doelen:
+Een hyperlink verbindt presentatiewaarde met een website of een locatie binnen de presentatie. In PowerPoint dienen hyperlinks meestal twee doelen:
 
-* Een website openen vanuit tekst, een vorm of een mediaframe.
-* Naar een andere dia navigeren, bijvoorbeeld vanuit een inhoudsopgave.
+* Een website openen vanuit tekst, een vorm of een mediakader.
+* Navigeren naar een andere dia, bijvoorbeeld vanuit een inhoudsopgave.
 
-Aspose.Slides for Python via .NET stelt je in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te regelen, hun eigenschappen bij te werken en ze te verwijderen. De onderstaande voorbeelden laten zien hoe je met hyperlinks op individuele elementen werkt en hoe je hyperlinks op presentatie‑, dia‑ of tekst‑frame‑niveau kunt benaderen.
+Aspose.Slides for Python via .NET stelt u in staat deze koppelingen toe te voegen, hun uiterlijk en geluid te regelen, hun eigenschappen bij te werken en ze te verwijderen. De voorbeelden hieronder laten zien hoe u met hyperlinks werkt op individuele elementen en hoe u hyperlinks benadert op presentatieniveau, dia‑niveau of tekst‑kaderniveau.
 
 {{% alert color="info" title="Note" %}}
-Je kunt ook presentaties bewerken met de [gratis online Aspose PowerPoint editor](https://products.aspose.app/slides/nl/editor).
+U kunt presentaties ook bewerken met de [gratis online Aspose PowerPoint editor](https://products.aspose.app/slides/editor).
 {{% /alert %}}
 
 ## **URL‑hyperlinks toevoegen**
 
-Je kunt een website‑URL toewijzen aan tekst, een vorm of een mediaframe. Het element waaraan je de hyperlink toekent bepaalt het klikbare gebied: een tekstgedeelte koppelt de geselecteerde tekst, terwijl een vorm of frame het dia‑object koppelt.
+U kunt een website‑URL toewijzen aan tekst, een vorm of een mediakader. Het element waaraan u de hyperlink toewijst bepaalt het klikbare gebied: een tekstdelen linkt de geselecteerde tekst, terwijl een vorm of kader het dia‑object linkt.
+
+Voor presentaties met relatieve hyperlinks, zie [Beheer de basis‑hyperlink](/slides/nl/python-net/presentation-properties/#manage-the-hyperlink-base) om de document‑niveau basis te lezen, wijzigen of wissen.
 
 ### **URL‑hyperlinks aan tekst toevoegen**
 
-Om tekst aan een website te koppelen, wijs je een [Hyperlink](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/) toe aan de [hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/hyperlink_click/)‑eigenschap van het tekstgedeelte, zoals hieronder getoond. Alleen dat deel van de tekst wordt klikbaar.
+Om tekst aan een website te koppelen, kent u een [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) toe aan de eigenschap [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/hyperlink_click/) van het tekstdeel, zoals hieronder weergegeven. Alleen dat tekstdeel wordt klikbaar.
 
 ```python
 import aspose.slides as slides
@@ -58,11 +60,11 @@ with slides.Presentation() as presentation:
     presentation.save("presentation-out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **URL‑hyperlinks aan vormen en mediaframes toevoegen**
+### **URL‑hyperlinks aan vormen en mediakaders toevoegen**
 
-Om een vorm of frame klikbaar te maken, stel je de [hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/hyperlink_click/)‑eigenschap in. De hyperlink behoort tot het object zelf en niet tot een tekstgedeelte erin.
+Om een vorm of kader klikbaar te maken, stelt u de eigenschap [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/shape/hyperlink_click/) in. De hyperlink behoort tot het object zelf en niet tot een tekstdeel binnen het object.
 
-Dezelfde aanpak geldt voor afbeelding‑, audio‑ en video‑frames: wijs de hyperlink toe aan het frame en stel indien nodig de [tooltip](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/tooltip/) van de link in.
+Dezelfde aanpak geldt voor afbeelding‑, audio‑ en video‑kaders: wijs de hyperlink toe aan het kader en stel desgewenst de [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) van de koppeling in.
 
 Het volgende voorbeeld maakt een rechthoek klikbaar:
 
@@ -78,7 +80,7 @@ with slides.Presentation() as presentation:
 
 ## **Hyperlinks gebruiken om een inhoudsopgave te maken**
 
-Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [set_internal_hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) om de tekst “Page 2” op de eerste dia te koppelen aan de tweede dia.
+Interne hyperlinks laten lezers springen van een inhoudsopgave naar een specifieke dia. Het volgende voorbeeld gebruikt [set_internal_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_internal_hyperlink_click/) om de tekst “Page 2” op de eerste dia te koppelen aan de tweede dia.
 
 ```python
 import aspose.pydrawing as draw
@@ -107,9 +109,9 @@ with slides.Presentation() as presentation:
 
 ### **Kleur**
 
-De [color_source](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/color_source/)‑eigenschap van [Hyperlink](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/) bepaalt of een hyperlink de hyperlink‑kleur van de presentatie gebruikt of de opmaak van het tekstgedeelte. Om een aangepaste tekstkleur toe te passen, selecteer je [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkcolorsource/) en stel je de opvulkleur van het gedeelte in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
+De eigenschap [color_source](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/color_source/) van [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) bepaalt of een hyperlink de hyperlinkkleur van de presentatie of de opmaak van het tekstdeel gebruikt. Om een aangepaste tekstkleur toe te passen, selecteert u [HyperlinkColorSource.PORTION_FORMAT](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkcolorsource/) en stelt u de opvulkleur van het tekstdeel in. Deze functie werd geïntroduceerd in PowerPoint 2019; oudere versies passen deze instelling niet toe.
 
-Het volgende voorbeeld voegt twee tekst‑hyperlinks toe aan dezelfde dia. De eerste gebruikt een rode tekstvulling, terwijl de tweede de standaard hyperlink‑kleur behoudt.
+Het volgende voorbeeld voegt twee tekst‑hyperlinks toe aan dezelfde dia. De eerste gebruikt een rode tekstopvulling, terwijl de tweede de standaard hyperlinkkleur behoudt.
 
 ```python
 import aspose.pydrawing as draw
@@ -131,14 +133,14 @@ with slides.Presentation() as presentation:
 
 ### **Geluid**
 
-Een hyperlink kan een geluid afspelen bij activering of een al afspelend geluid stoppen. Gebruik de volgende eigenschappen om dit gedrag te configureren:
+Een hyperlink kan een geluid afspelen wanneer deze wordt geactiveerd of een al afspelend geluid stoppen. Gebruik de volgende eigenschappen om dit gedrag te configureren:
 
-- [Hyperlink.sound](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/sound/) specificeert het audio‑bestand dat aan de hyperlink is gekoppeld.
-- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/stop_sound_on_click/) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
+- [Hyperlink.sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) specificeert het audio‑bestand dat aan de hyperlink is gekoppeld.
+- [Hyperlink.stop_sound_on_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/stop_sound_on_click/) bepaalt of het activeren van de hyperlink het vorige geluid stopt.
 
 #### **Een hyperlinkgeluid toevoegen**
 
-Het volgende voorbeeld laadt `sampleaudio.wav` en koppelt het aan een knop op de eerste dia. Klikken op de knop speelt het geluid af en navigeert naar de volgende dia. Een tweede vorm op die dia stopt het vorige geluid bij klikken, zonder een navigatie‑actie uit te voeren.
+Het volgende voorbeeld laadt `sampleaudio.wav` en koppelt het aan een knop op de eerste dia. Door op de knop te klikken wordt het geluid afgespeeld en wordt naar de volgende dia genavigeerd. Een tweede vorm op die dia stopt het vorige geluid bij een klik, zonder een navigatie‑actie uit te voeren.
 
 ```python
 import aspose.slides as slides
@@ -162,7 +164,7 @@ with slides.Presentation() as presentation:
 
 #### **Een hyperlinkgeluid extraheren**
 
-Het volgende voorbeeld opent de hierboven gemaakte presentatie en leest het hyperlink‑audio van de eerste vorm in het geheugen via [sound](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/sound/) en [binary_data](https://reference.aspose.com/slides/nl/python-net/aspose.slides/audio/binary_data/).
+Het volgende voorbeeld opent de hierboven gemaakte presentatie en leest het audio‑bestand van de hyperlink van de eerste vorm in het geheugen via [sound](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/sound/) en [binary_data](https://reference.aspose.com/slides/python-net/aspose.slides/audio/binary_data/).
 
 ```python
 import aspose.slides as slides
@@ -182,16 +184,16 @@ with slides.Presentation("hyperlink-sound.pptx") as presentation:
 
 ### **Tooltip‑ en interactie‑instellingen**
 
-Je kunt de volgende [Hyperlink](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/)‑eigenschappen bijwerken nadat je een hyperlink aan tekst of een vorm hebt toegewezen:
+U kunt de volgende [Hyperlink](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/) eigenschappen bijwerken nadat u een hyperlink aan tekst of een vorm heeft toegewezen:
 
-- [tooltip](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/tooltip/) stelt de tekst in die een kijker als hint voor de link kan zien.
-- [target_frame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/target_frame/) specificeert het doel‑frame binnen een bovenliggend HTML‑frameset, indien van toepassing.
-- [history](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/history/) bepaalt of het activeren van de link de bestemming toevoegt aan de lijst met bekeken hyperlinks.
-- [highlight_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/highlight_click/) bepaalt of de hyperlink gemarkeerd wordt bij een klik.
+- [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) stelt de tekst in die een kijker als hint voor de koppeling kan weergeven.
+- [target_frame](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_frame/) specificeert het doel‑kader binnen een bovenliggend HTML‑frameset, indien van toepassing.
+- [history](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/history/) bepaalt of het activeren van de koppeling de bestemming toevoegt aan de lijst van bekeken hyperlinks.
+- [highlight_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/highlight_click/) bepaalt of de hyperlink wordt gemarkeerd bij een klik.
 
 ## **Hyperlinks uit presentaties verwijderen**
 
-Gebruik [get_any_hyperlinks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) om hyperlink‑containers te verzamelen, inclusief tekstgedeelte‑koppelingen, voordat je ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep je alleen [remove_hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) of [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) aan; het verwijderen van een klik‑actie verwijdert niet de bijbehorende muis‑over‑actie.
+Gebruik [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) om hyperlink‑containers te verzamelen, inclusief links van tekstdelen, voordat u ze wijzigt. Het volgende voorbeeld verwijdert beide activeringstypen van de eerste dia. Om slechts één type te verwijderen, roep alleen [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) of [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/) aan; het verwijderen van een klik‑actie verwijdert niet de bijbehorende muis‑over‑actie.
 
 ```python
 import aspose.slides as slides
@@ -207,23 +209,23 @@ with slides.Presentation("pres.pptx") as presentation:
         print("The presentation has no slides to process.")
 ```
 
-Voor onvoorwaardelijke verwijdering verwijdert [remove_all_hyperlinks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) beide activeringstypen in de geselecteerde reikwijdte in één oproep. Voor selectieve opruiming en dekkingsgraad van masters, lay‑outs en notities, zie [Rapporteren, saniteren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Voor onvoorwaardelijke verwijdering verwijdert [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/) beide activeringstypen in het gekozen bereik in één oproep. Voor selectieve opschoning en dekking van masters, lay-outs en notities, zie [Rapport, saneren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
-## **Een volledige hyperlink‑inventaris maken**
+## **Een volledige hyperlink‑inventaris bouwen**
 
-Voordat je een presentatie verspreidt, maak je een inventaris van de interactieve acties en webkoppelingen. [get_any_hyperlinks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ihyperlinkcontainer/) objecten, geen platte lijst van URL‑strings. Inspecteer zowel [hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) als [hyperlink_mouse_over](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) op elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties bevatten, dus een volledig rapport heeft tot twee rijen per container nodig.
+Voordat u een presentatie verspreidt, maakt u een inventaris op van de interactieve acties en de web‑koppelingen. [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) retourneert [IHyperlinkContainer](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/) objecten, niet een platte lijst van URL‑strings. Inspecteer zowel [hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_click/) als [hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_mouse_over/) van elke container. Ze zijn onafhankelijk: dezelfde container kan beide acties bevatten, dus een volledig rapport heeft tot twee rijen per container nodig.
 
-Alleen hyperlinks op vorm‑niveau scannen kan links die aan tekstgedeelten zijn gekoppeld missen. Vraag in plaats daarvan de juiste reikwijdte op en bewaar de geretourneerde containers zodat je later hun acties kunt bijwerken of verwijderen.
+Alleen hyperkoppelingen op vormniveau scannen kan links die aan tekstdelen gekoppeld zijn missen. Vraag in plaats daarvan de juiste scope op, en bewaar de geretourneerde containers zodat u later hun acties kunt bijwerken of verwijderen.
 
-### **Presentatie‑, dia‑ en tekst‑frame‑reikwijdtes opvragen**
+### **Presentatie-, dia‑ en tekst‑kaderscopes opvragen**
 
-De klasse [HyperlinkQueries](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/) is beschikbaar via [Presentation.hyperlink_queries](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/hyperlink_queries/) en [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/hyperlink_queries/). Elke reikwijdte ondersteunt dezelfde query’s:
+De klasse [HyperlinkQueries](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/) is beschikbaar via [Presentation.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/hyperlink_queries/), [BaseSlide.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/hyperlink_queries/) en [TextFrame.hyperlink_queries](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/hyperlink_queries/). Elke scope ondersteunt dezelfde queries:
 
-- [get_hyperlink_clicks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) retourneert containers met een klik‑actie.
-- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) retourneert containers met een muis‑over‑actie.
-- [get_any_hyperlinks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) retourneert containers met een of beide acties.
+- [get_hyperlink_clicks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_clicks/) retourneert containers met een klik‑actie.
+- [get_hyperlink_mouse_overs](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_hyperlink_mouse_overs/) retourneert containers met een muis‑over‑actie.
+- [get_any_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/get_any_hyperlinks/) retourneert containers met één of beide acties.
 
-Het volgende voorbeeld maakt `hyperlink-audit-input.pptx` met een externe klik‑link, een bestand‑muisto‑over‑link, interne dia‑navigatie, een tekst‑muisto‑over‑link en een macro‑actie. Het voert geen van deze acties uit. Dezelfde drie query’s werken in elke reikwijdte; de aantallen beschrijven containers, niet het totaal aantal acties. De tekst‑frame‑reikwijdte sluit de eigen links van de omvattende vorm uit.
+Het volgende voorbeeld maakt `hyperlink-audit-input.pptx` met een externe klik‑link, een bestands‑mouse‑over‑link, interne dia‑navigatie, een tekst‑mouse‑over‑link en een macro‑actie. Het voert geen van deze acties uit. Dezelfde drie queries werken in elke scope; de aantallen beschrijven containers, geen actietotalen. De tekst‑kader‑scope sluit de eigen links van de omvattende vorm uit.
 
 ```python
 import aspose.slides as slides
@@ -257,37 +259,37 @@ with slides.Presentation() as presentation:
     presentation.save("hyperlink-audit-input.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Voor dit voorbeeld melden de presentatie‑ en dia‑query’s elk drie klik‑containers, twee muis‑over‑containers en drie containers met een van beide acties. De tekst‑frame‑query meldt één container in elke categorie.
+Voor dit voorbeeld melden de presentatie‑ en dia‑queries elk drie klik‑containers, twee muis‑over‑containers en drie containers met één van de acties. De tekst‑kader‑query meldt één container in elke categorie.
 
 ### **Acties en bestemmingen classificeren**
 
-Gebruik [Hyperlink.action_type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/action_type/) om een actie te interpreteren vóór het interpreteren van de bestemming. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkactiontype/) omvatten meer dan alleen webnavigatie:
+Gebruik [Hyperlink.action_type](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/action_type/) om een actie te interpreteren voordat u de bestemming interpreteert. De waarden van [HyperlinkActionType](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkactiontype/) bestrijken meer dan web‑navigatie:
 
-| Waarden | Betekenis voor een audit |
+| Values | Meaning for an audit |
 | --- | --- |
-| `HYPERLINK` | Externe hyperlink; inspecteer de URL en het protocol. |
+| `HYPERLINK` | Externe hyperlink; inspecteer de URL en het schema. |
 | `JUMP_SPECIFIC_SLIDE` | Interne navigatie naar een specifieke dia. |
-| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Ingebouwde diavoorstelling‑navigatie, opgelost in de context van de diavoorstelling. |
+| `JUMP_FIRST_SLIDE`, `JUMP_PREVIOUS_SLIDE`, `JUMP_NEXT_SLIDE`, `JUMP_LAST_SLIDE`, `JUMP_LAST_VIEWED_SLIDE` | Ingebouwde diavoorstelling‑navigatie, opgelost in de diavoorstelling‑context. |
 | `JUMP_END_SHOW`, `START_CUSTOM_SLIDE_SHOW` | Beëindig de huidige show of start een aangepaste show. |
 | `START_MACRO` | Voer een macro uit. |
 | `START_PROGRAM` | Start een programma. |
-| `OPEN_FILE`, `OPEN_PRESENTATION` | Open een bestand of een andere presentatie; bekijk apart van web‑URL‑s. |
-| `START_STOP_MEDIA` | Start of stop mediavoorstelling. |
-| `NO_ACTION`, `UNKNOWN` | Geen navigatie‑actie, of een niet‑herkende actie die gecontroleerd moet worden. |
+| `OPEN_FILE`, `OPEN_PRESENTATION` | Open een bestand of een andere presentatie; beoordeel apart van web‑URL's. |
+| `START_STOP_MEDIA` | Start of stop media‑afspeellijst. |
+| `NO_ACTION`, `UNKNOWN` | Geen navigatie‑actie, of een niet‑herkende actie die beoordeling behoeft. |
 
-Lees externe bestemmingen uit [external_url](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/external_url/) en specifieke interne bestemmingen uit [target_slide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/target_slide/). Interne acties en ingebouwde commando's kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Behoud [external_url_original](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/external_url_original/) wanneer het verschilt van de genormaliseerde URL, en neem de [tooltip](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlink/tooltip/) op wanneer beschikbaar.
+Lees externe bestemmingen van [external_url](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url/) en specifieke interne bestemmingen van [target_slide](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/target_slide/). Interne acties en ingebouwde commando's kunnen geen externe URL hebben; een lege URL betekent niet dat de container geen actie heeft. Bewaar [external_url_original](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/external_url_original/) wanneer deze verschilt van de genormaliseerde URL, en neem de [tooltip](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlink/tooltip/) op wanneer beschikbaar.
 
-### **Rapporteren, saniteren en verifiëren van hyperlinks**
+### **Rapport, saneren en verifiëren van hyperlinks**
 
-Het volgende Python‑voorbeeld leest een bestaande presentatie (gebruik het bestand dat hierboven is gecreëerd), schrijft `hyperlink-audit.json`, past een beleid toe, slaat `hyperlink-sanitized.pptx` op en opent het opnieuw om beide activeringstypen opnieuw te controleren. Het verzamelt containers voordat ze worden gewijzigd en vraagt elke dia‑reikwijdte één keer op om dubbele verwerking te vermijden. Presentatie‑query’s omvatten gewone dia’s; voor een pakket‑brede inventaris vraagt het voorbeeld gewone dia’s, masters, lay‑outs, notities en de notitie‑ en handout‑masters op wanneer aanwezig.
+Het volgende Python‑voorbeeld leest een bestaande presentatie (gebruik het hierboven gemaakte bestand), schrijft `hyperlink-audit.json`, past een beleid toe, slaat `hyperlink-sanitized.pptx` op en opent het opnieuw om beide activeringstypen opnieuw te controleren. Het verzamelt containers voordat deze worden gewijzigd en vraagt elke dia‑scope één keer op om dubbele verwerking te vermijden. Presentatie‑queries bestrijken gewone dia's; voor een pakkende inventaris vraagt het voorbeeld gewone dia's, masters, lay-outs, notities en de notitie‑ en handout‑masters op wanneer aanwezig.
 
-Het rapport registreert een één‑gebaseerde dia‑index en [slide_id](https://reference.aspose.com/slides/nl/python-net/aspose.slides/baseslide/slide_id/) indien beschikbaar. De verzamelaar bewaart de eigende dia en reikwijdte naast elke geretourneerde container. Masters, lay‑outs en notities hebben geen gewone dia‑index en worden geïdentificeerd aan hun reikwijdte. Vorm‑containers en tekst‑gedeelte‑formatteer‑containers worden apart gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat de twee acties met elkaar kunnen worden gekoppeld.
+Het rapport registreert een één‑gebaseerde dia‑index en [slide_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/slide_id/) indien beschikbaar. De verzamelaar behoudt de eigende dia en scope naast elke geretourneerde container. Masters, lay-outs en notities hebben geen gewone dia‑index en worden geïdentificeerd op basis van hun scope. Vorm‑containers en tekst‑deel‑opmaak‑containers worden apart gelabeld; andere containertypen behouden hun runtime‑type‑naam. Elke container krijgt een rapport‑lokale ID zodat de twee acties met elkaar kunnen worden gecorreleerd.
 
-Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL‑s en geldige interne dia‑doelen toe. Het wijst macro's, programma's, bestand‑acties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema's af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsbeoordeling van Aspose.Slides. Alleen HTTPS biedt geen vertrouwen: voeg host‑allowlists en andere controles toe voor je toepassing. Zowel originele als genormaliseerde externe URL‑s worden gecontroleerd. Het voorbeeld controleert metadata zonder links te volgen of acties uit te voeren.
+Dit opzettelijk restrictieve toepassingsbeleid staat alleen absolute HTTPS‑URL's en geldige interne dia‑doelen toe. Het wijst macro's, programma's, bestandsacties, andere diavoorstelling‑acties, onbekende acties en andere URL‑schema's af. Deze afwijzingen zijn beleidsbeslissingen, geen veiligheidsoordeel van Aspose.Slides. Alleen HTTPS biedt geen vertrouwen: voeg host‑toegestane lijsten en andere controles toe voor uw toepassing. Zowel originele als genormaliseerde externe URL's worden gecontroleerd. Het voorbeeld controleert metadata zonder de koppelingen te volgen of acties uit te voeren.
 
-Voor remediering ondersteunt de [hyperlink_manager](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) van de container [set_external_hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) en [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑over‑acties worden onafhankelijk verwijderd. Stel `replace_external_clicks` in op `False` om alle beleids­schendingen te verwijderen. Kies een vervangende pagina die eigendom is van de toepassing vóór implementatie.
+Voor correctie ondersteunt de [hyperlink_manager](https://reference.aspose.com/slides/python-net/aspose.slides/ihyperlinkcontainer/hyperlink_manager/) van de container [set_external_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/set_external_hyperlink_click/), [remove_hyperlink_click](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_click/) en [remove_hyperlink_mouse_over](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkmanager/remove_hyperlink_mouse_over/). Hier worden verboden externe klik‑links vervangen door een vaste HTTPS‑landingspagina; andere verboden klikken en verboden muis‑over‑acties worden onafhankelijk verwijderd. Stel `replace_external_clicks` in op `False` om alle beleids­schendingen te verwijderen. Kies een door de toepassing beheerde vervangingspagina vóór uitrol.
 
-De export‑vlag van het rapport gebruikt een conservatief PDF‑beoordelingsbeleid: markeer muis‑over‑acties en alles behalve een externe link of een specifieke dia‑sprong als mogelijk niet‑ondersteund. Het is een beoordelingshint, geen capaciteits‑test of garantie dat niet‑gemarkeerde links de export overleven. Ondersteunde [PDF](/slides/nl/python-net/convert-powerpoint-to-pdf/) en [HTML](/slides/nl/python-net/convert-powerpoint-to-html/) exports kunnen hyperlinks behouden, afhankelijk van de actie, export‑opties en viewer. Raster‑[images](/slides/nl/python-net/convert-powerpoint-to-png/) en [video](/slides/nl/python-net/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij het auditen voor die uitvoer.
+De export‑vlag van het rapport gebruikt een conservatief PDF‑review‑beleid: markeer muis‑over‑acties en alles behalve een externe link of een specifieke dia‑sprong als potentieel niet‑ondersteund. Het is een controle‑hint, geen capaciteits‑test of garantie dat niet‑gemarkeerde koppelingen de export overleven. Ondersteunde [PDF](/slides/nl/python-net/convert-powerpoint-to-pdf/)‑ en [HTML](/slides/nl/python-net/convert-powerpoint-to-html/)‑exports kunnen hyperlinks behouden, afhankelijk van de actie, exportopties en viewer. Raster‑[images](/slides/nl/python-net/convert-powerpoint-to-png/) en [video](/slides/nl/python-net/convert-powerpoint-to-video/) kunnen geen interactieve hyperlinks behouden; markeer elke actie bij het auditten voor die uitvoer.
 
 ```python
 import json
@@ -330,7 +332,7 @@ def slide_index(presentation, slide):
 
 
 def collect_containers(presentation):
-    # Vraag elke dia-scope één keer op, behoud de eigenaar bij elke container.
+    # Vraag elke dia‑scope één keer op, bewaar de eigenaar bij elke container.
     scopes = [("Slide", slide) for slide in presentation.slides]
     scopes.extend(("Master", master) for master in presentation.masters)
     scopes.extend(("Layout", layout) for layout in presentation.layout_slides)
@@ -417,20 +419,20 @@ with slides.Presentation("hyperlink-sanitized.pptx") as reopened:
         sys.exit(1)
 ```
 
-Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestand‑muisto‑over‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne dia‑navigatie behouden blijven. De verificatie geeft nul verboden acties weer. Een invoer met een verboden externe klik‑URL oefent ook de vervangings‑tak uit. Een container met een toegestane klik en een verboden muisto‑over behoudt zijn klik‑actie.
+Met de hierboven gemaakte invoer bevat het rapport vijf actierijen. De bestands‑mouse‑over‑link en macro‑klik worden verwijderd, terwijl de HTTPS‑links en interne dia‑navigatie behouden blijven. De verificatie geeft nul verboden acties weer. Een invoer met een verboden externe klik‑URL doorloopt ook de vervangings‑tak. Een container met een toegestane klik en een verboden muis‑over behoudt zijn klik‑actie.
 
-Deze selectieve opruiming verschilt van [remove_all_hyperlinks](https://reference.aspose.com/slides/nl/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), die beide activeringstypen verwijdert in de geselecteerde reikwijdte, ongeacht het beleid. De verificatie controleert hier alleen hyperlink‑acties; het verwijdert geen ingebedde VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
+Deze selectieve opschoning verschilt van [remove_all_hyperlinks](https://reference.aspose.com/slides/python-net/aspose.slides/hyperlinkqueries/remove_all_hyperlinks/), die beide activeringstypen in het geselecteerde bereik verwijdert, ongeacht het beleid. Verificatie hier controleert alleen hyperlink‑acties; het verwijdert geen ingesloten VBA‑projecten, OLE‑objecten of andere actieve inhoud, en het valideert geen geëxporteerd PDF‑ of HTML‑bestand.
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Hoe kan ik naar een sectie of de eerste dia daarvan linken?**
+**Hoe kan ik een link naar een sectie of de eerste dia ervan maken?**
 
-Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te maken, link je naar de eerste dia van die sectie.
+Secties in PowerPoint groeperen dia's, maar een interne hyperlink richt zich op een individuele dia. Om navigatie naar een sectie te creëren, linkt u naar de eerste dia in die sectie.
 
 **Kan ik een hyperlink aan elementen van de master‑dia koppelen zodat deze op alle dia's werkt?**
 
-Ja. Elementen van de master‑dia en lay‑out ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de betreffende master of lay‑out gebruiken.
+Ja. Elementen van de master‑dia en lay‑out ondersteunen hyperlinks. Links op deze elementen zijn beschikbaar tijdens de diavoorstelling op dia's die de overeenkomstige master of lay‑out gebruiken.
 
-**Worden hyperlinks behouden bij export naar PDF, HTML, afbeeldingen of video?**
+**Worden hyperlinks behouden bij het exporteren naar PDF, HTML, afbeeldingen of video?**
 
-Ondersteunde PDF- en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de exportoverwegingen in [Rapporteren, saniteren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Ondersteunde PDF‑ en HTML‑exports kunnen hyperlinks behouden; raster‑afbeeldingen en video kunnen dat niet. Zie de exportoverwegingen in [Rapport, saneren en verifiëren van hyperlinks](#report-sanitize-and-verify-hyperlinks).

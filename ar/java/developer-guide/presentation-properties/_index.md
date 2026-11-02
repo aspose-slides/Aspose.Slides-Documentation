@@ -1,20 +1,20 @@
 ---
-title: إدارة خصائص العرض التقديمي في Java
+title: إدارة خصائص العرض التقديمي في جافا
 linktitle: خصائص العرض التقديمي
 type: docs
 weight: 70
 url: /ar/java/presentation-properties/
 keywords:
 - خصائص PowerPoint
-- خصائص العرض
+- خصائص العرض التقديمي
 - خصائص المستند
-- خصائص مضمّنة
-- خصائص مخصّصة
+- خصائص مدمجة
+- خصائص مخصصة
 - خصائص متقدمة
 - إدارة الخصائص
 - تعديل الخصائص
-- بيانات المستند الوصفية
-- تحرير البيانات الوصفية
+- بيانات تعريف المستند
+- تحرير بيانات التعريف
 - لغة التدقيق
 - اللغة الافتراضية
 - PowerPoint
@@ -22,48 +22,34 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تحكم في خصائص العرض التقديمي في Aspose.Slides for Java وسهّل البحث والعلامة التجارية وتدفق العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
+description: "إتقان خصائص العرض التقديمي في Aspose.Slides for Java وتبسيط البحث والعلامة التجارية وسير العمل في ملفات PowerPoint وOpenDocument الخاصة بك."
 ---
-## **مقدمة**
+## **المقدمة**
 
-يدعم Aspose.Slides نوعين من خصائص المستند: **مضمّن** و **مخصّص**. يمكن الوصول إلى كلا النوعين من الخصائص وإدارتها بسهولة باستخدام Aspose.Slides API.
+يدعم Aspose.Slides for Java الخصائص **المدمجة** و **المخصصة** للمستندات. استخدم هذه الخصائص لقراءة وتحديث بيانات تعريف العرض التقديمي، مثل المؤلف، العنوان، والقيم المعرفة من قبل المستخدم.
 
-يسمح Aspose.Slides لك بالعمل مع خصائص مستند العرض التقديمي عبر واجهة [IDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idocumentproperties/). يتم إرجاع مثال من هذه الواجهة بواسطة [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getDocumentProperties--). تظهر الأمثلة التالية كيفية قراءة وتعديل وإدارة هذه الخصائص.
+يسمح Aspose.Slides لك بالعمل مع خصائص مستند العرض التقديمي من خلال واجهة [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) . يتم إرجاع مثيل من هذه الواجهة بواسطة [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). توضح الأمثلة التالية كيفية قراءة هذه الخصائص وتعديلها وإدارتها.
 
 {{% alert color="info" title="Note" %}}
-يرجى ملاحظة أن حقلي **Application** و **AppVersion** لا يمكن تعديلهما. يقوم Aspose.Slides بإعادة كتابتهما في كل عملية حفظ، لذا فإن العرض المحفوظ دائمًا يُظهر "Aspose.Slides for Java" وإصدار المكتبة التي أنتجته. يتم تجاهل أي قيمة تُمرَّر إلى `setNameOfApplication` عند كتابة العرض.
-{{% /alert %}} 
+يدير Aspose.Slides بيانات التعريف الخاصة بالتطبيق والمنتج عند حفظ العروض التقديمية؛ هذه الحقول تحدد البرنامج الذي أنشأ الناتج.
+{{% /alert %}}
 
-## **خصائص المستند في PowerPoint**
+## **إدارة خصائص العرض التقديمي**
 
-يسمح Microsoft PowerPoint 2007 بإدارة خصائص مستند ملفات العروض التقديمية. كل ما عليك هو النقر على أيقونة Office ثم اختيار القائمة **Prepare | Properties | Advanced Properties** في Microsoft PowerPoint 2007 كما هو موضح أدناه:
+تخزن خصائص المستند معلومات وصفية جنبًا إلى جنب مع محتوى العرض التقديمي. تنقسم إلى فئتين:
 
-|**تحديد عنصر القائمة Advanced Properties**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+- **الخصائص المدمجة** تحتوي على بيانات تعريف قياسية، مثل العنوان، المؤلف، وإحصائيات المستند.
+- **الخصائص المخصصة** تخزن أزواج اسم/قيمة يحددها المستخدم.
 
-بعد اختيار عنصر القائمة **Advanced Properties**، سيظهر حوار يسمح لك بإدارة خصائص مستند ملف PowerPoint كما هو موضح في الشكل أدناه:
+يوفر Aspose.Slides for Java إمكانية الوصول إلى كلا الفئتين. في PowerPoint، اختر **File → Info → Properties → Advanced Properties** لتفحص بيانات تعريف المستند. يجمع الحوار المعلومات في علامات تبويب مثل **Summary** و **Statistics** و **Contents** و **Custom**. استخدم علامة التبويب **Custom** لإدارة الخصائص التي يحددها المستخدم.
 
-|**حوار الخصائص**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
+## **قراءة الخصائص العامة من عرض تقديمي مشفر**
 
-في **حوار الخصائص** أعلاه، يمكنك رؤية العديد من علامات التبويب مثل **General** و **Summary** و **Statistics** و **Contents** و **Custom**. جميع هذه العلامات تسمح بتكوين أنواع مختلفة من المعلومات المتعلقة بملفات PowerPoint. تُستخدم علامة **Custom** لإدارة الخصائص المخصّصة لملفات PowerPoint.
+عادةً ما يحمي كلمة المرور المفتوحة كلًا من محتوى العرض التقديمي وخصائص المستند. عندما يتم تشفير عرض تقديمي بعد استدعاء [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) بالقيمة `false`، تبقى خصائص المستند عامة. يمكن للتطبيق بعد ذلك استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) بالقيمة `true` وقراءة بيانات التعريف العامة دون تزويد كلمة المرور المفتوحة.
 
-### العمل مع خصائص المستند باستخدام Aspose.Slides for Java
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) يتحكم فيما يقوم Aspose.Slides بتحميله؛ ولا يقوم بفك التشفير. إذا كانت الخصائص مشمولة في التشفير، فإن تحميلها بدون كلمة المرور سيفشل. إذا لم يكن العرض مشفرًا، يتم تجاهل الخيار ويتم تحميل العرض بالكامل.
 
-كما أوضحنا سابقًا، يدعم Aspose.Slides for Java نوعين من خصائص المستند، وهما الخصائص **المضمّنة** و **المخصّصة**. وبالتالي يمكن للمطورين الوصول إلى كلا النوعين باستخدام Aspose.Slides for Java API. يوفر Aspose.Slides for Java الفئة [IDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idocumentproperties) التي تمثّل خصائص المستند المرتبطة بملف العرض التقديمي عبر خاصية **Presentation.DocumentProperties**.
-
-يمكن للمطورين استخدام الخاصية **IDocumentProperties** التي يقدّمها كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation) للوصول إلى خصائص مستند ملفات العروض التقديمية كما هو موضح أدناه:
-
-## **قراءة الخصائص العامة من عرض تقديمي مشفّر**
-
-عادةً ما تحمي كلمة مرور الفتح كلًا من محتوى العرض وخصائص المستند. عندما يتم تشفير عرض تقديمي بتمرير `false` إلى [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-)، تظل خصائص المستند عامة. يمكن لتطبيق بعد ذلك تمرير `true` إلى [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) وقراءة البيانات الوصفية العامة دون توفير كلمة مرور الفتح.
-
-خيار تحميل الخصائص فقط يتحكم فيما يقوم Aspose.Slides بتحميله؛ فهو لا يفك تشفير شيء. إذا كانت الخصائص مشفّرة، فسينتهي التحميل دون كلمة المرور بالفشل. إذا لم يكن العرض مشفّرًا، يُتجاهل الخيار ويُحمَّل العرض بالكامل.
-
-المثال التالي يتحقق من وضع التحميل عبر [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ثم يقرأ الخصائص المضمنة عبر [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
-
+يتطلب المثال عرض تقديمي مشفر تُركت فيه خصائص المستند عامة. يتحقق من وضع التحميل عبر [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) ثم يقرأ الخصائص المدمجة عبر [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--):
 ```java
 import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.LoadOptions;
@@ -75,11 +61,11 @@ loadOptions.setOnlyLoadDocumentProperties(true);
 Presentation presentation = new Presentation("public-properties-encrypted.pptx", loadOptions);
 try {
     if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
-        IDocumentProperties properties = presentation.getDocumentProperties();
+        IDocumentProperties documentProperties = presentation.getDocumentProperties();
 
-        System.out.println("Author: " + properties.getAuthor());
-        System.out.println("Title: " + properties.getTitle());
-        System.out.println("Keywords: " + properties.getKeywords());
+        System.out.println("Author: " + documentProperties.getAuthor());
+        System.out.println("Title: " + documentProperties.getTitle());
+        System.out.println("Keywords: " + documentProperties.getKeywords());
     } else {
         System.out.println("The presentation was not loaded in document-properties-only mode.");
     }
@@ -88,19 +74,19 @@ try {
 }
 ```
 
-في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، والماسترات، وتخطيطات الشرائح، والأشكال، والوسائط، والكائنات الأخرى غير متوفرة. يجب على التطبيقات دائمًا التحقق من [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/ar/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) قبل تنفيذ عملية تتطلّب نموذج كائن العرض الكامل.
+في هذا الوضع، لا يتم تحميل محتوى الشرائح. الشرائح، القوالب، التخطيطات، الأشكال، الوسائط، وغيرها من كائنات العرض غير متاحة. يجب على التطبيقات دائمًا التحقق من [IProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#isOnlyDocumentPropertiesLoaded--) قبل تنفيذ عملية تتطلب نموذج كائن العرض الكامل.
 
 {{% alert color="warning" title="Warning" %}}
-قد تكشف البيانات الوصفية العامة عن أسماء المؤلفين، والعناوين، والمواضيع، والكلمات المفتاحية، ومعلومات الشركة، والتعليقات، والقيم المخصّصة. شفر الخصائص الحساسة مع العرض. اتركها عامة فقط عندما تكون أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات تتطلب الوصول إليها بدون كلمة مرور.
+قد تكشف البيانات العامة عن أسماء المؤلفين والعناوين والمواضيع والكلمات المفتاحية ومعلومات الشركة والتعليقات والقيم المخصصة. قم بتشفير الخصائص الحساسة مع العرض التقديمي. اتركها عامة فقط عندما تكون هناك حاجة من أنظمة الفهرسة أو التصنيف أو البحث أو إدارة المستندات للوصول إليها دون كلمة مرور.
 {{% /alert %}}
 
-## **تحديث خصائص عرض تقديمي مشفّر**
+## **تحديث خصائص عرض تقديمي مشفر**
 
-بالنسبة إلى ملف PPTX مشفّر، يُقصد من العرض المحمّل في وضع الخصائص العامة فقط قراءة البيانات الوصفية العامة. لا يمكن لـ Aspose.Slides حفظ الخصائص المعدّلة من هذا الكائن بسبب ضرورة توافق الخصائص العامة مع البيانات المقابلة داخل العرض المشفّر. لذلك يتطلّب التحديث كلمة مرور الفتح الصحيحة وتحميلًا كاملاً.
+بالنسبة إلى ملف PPTX مشفر، يتم تحميل عرض تقديمي بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) بالقيمة `true` لقراءة البيانات العامة فقط. لا يمكن لـ Aspose.Slides حفظ الخصائص التي تم تغييرها من كائن يقتصر على البيانات العامة لأن الخصائص العامة يجب أن تظل متسقة مع البيانات المقابلة داخل العرض المشفر. لذلك يتطلب تحديثها كلمة المرور المفتوحة الصحيحة وتحميلًا كاملاً.
 
-المثال التالي يفتح العرض باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/ar/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)، يحدّث الخصائص المضمّنة العامة، ثم يحفظ النتيجة. بعد ذلك يستخدم [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) للتحقق من بقاء التشفير، ويعيد فتح البيانات الوصفية العامة بدون كلمة مرور للتحقق من القيم الجديدة:
-
+يتطلب المثال عرض PPTX مشفر يحتوي على خصائص مستند عامة وكلمة مرور مفتوحة معروفة. يفتح العرض الكامل باستخدام [LoadOptions.setPassword](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)، ثم يحدّث الخصائص المدمجة العامة، ويحفظ النتيجة. بعد ذلك يستخدم [IPresentationInfo.isEncrypted](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#isEncrypted--) للتحقق من بقاء التشفير، ويعيد فتح البيانات العامة دون كلمة مرور للتحقق من القيم الجديدة:
 ```java
+import com.aspose.slides.IDocumentProperties;
 import com.aspose.slides.IPresentationInfo;
 import com.aspose.slides.LoadOptions;
 import com.aspose.slides.Presentation;
@@ -115,8 +101,10 @@ loadOptions.setPassword("open_password");
 
 Presentation presentation = new Presentation(inputPath, loadOptions);
 try {
-    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
-    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+    documentProperties.setTitle("Updated Product Roadmap");
+    documentProperties.setKeywords("roadmap, planning, indexed");
+
     presentation.save(outputPath, SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -141,314 +129,172 @@ try {
 }
 ```
 
-إذا لم يُسمح لتطبيق بفك تشفير أو تحميل محتوى العرض، يجب أن يتعامل مع الخصائص العامة لملف PPTX المشفّر كقراءة فقط.
+إذا لم يُسمح للتطبيق بفك تشفير أو تحميل محتوى العرض التقديمي، يجب أن يتعامل مع الخصائص العامة لملف PPTX المشفر كقابلة للقراءة فقط.
 
-## **الوصول إلى الخصائص المضمّنة**
+## **الوصول إلى الخصائص المدمجة**
 
-تشمل الخصائص التي يوفّرها كائن [IDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idocumentproperties) ما يلي: **Creator** (المؤلف)، **Description**، **Keywords**، **Created** (تاريخ الإنشاء)، **Modified** (تاريخ التعديل)، **Printed** (تاريخ الطباعة الأخير)، **LastModifiedBy**، **SharedDoc** (هل هو مشترك بين منتجين مختلفين؟)، **PresentationFormat**، **Subject** و **Title**.
-
+توفر واجهة [IDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/) البيانات المدمجة عبر طرق getter، بما في ذلك [getAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getAuthor--)، [getTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getTitle--)، و [getCreatedTime](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCreatedTime--). يفتح هذا المثال عرضًا تقديميًا موجودًا ويطبع بياناته المخزنة إلى وحدة التحكم. القيم تعتمد على العرض المُدخل؛ قد تكون بعض الحقول فارغة.
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
 
-// إنشاء كائن من فئة Presentation التي تمثل العرض التقديمي
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
 try {
-    // إنشاء إشارة إلى كائن IDocumentProperties المرتبط بالعرض التقديمي
-    IDocumentProperties dp = pres.getDocumentProperties();
-    
-    // عرض الخصائص المضمّنة
-    System.out.println("Category : " + dp.getCategory());
-    System.out.println("Current Status : " + dp.getContentStatus());
-    System.out.println("Creation Date : " + dp.getCreatedTime());
-    System.out.println("Author : " + dp.getAuthor());
-    System.out.println("Description : " + dp.getComments());
-    System.out.println("KeyWords : " + dp.getKeywords());
-    System.out.println("Last Modified By : " + dp.getLastSavedBy());
-    System.out.println("Supervisor : " + dp.getManager());
-    System.out.println("Modified Date : " + dp.getLastSavedTime());
-    System.out.println("Presentation Format : " + dp.getPresentationFormat());
-    System.out.println("Last Print Date : " + dp.getLastPrinted());
-    System.out.println("Is Shared between producers : " + dp.getSharedDoc());
-    System.out.println("Subject : " + dp.getSubject());
-    System.out.println("Title : " + dp.getTitle());
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    System.out.println("Category: " + documentProperties.getCategory());
+    System.out.println("Content status: " + documentProperties.getContentStatus());
+    System.out.println("Creation date: " + documentProperties.getCreatedTime());
+    System.out.println("Author: " + documentProperties.getAuthor());
+    System.out.println("Comments: " + documentProperties.getComments());
+    System.out.println("Keywords: " + documentProperties.getKeywords());
+    System.out.println("Last modified by: " + documentProperties.getLastSavedBy());
+    System.out.println("Manager: " + documentProperties.getManager());
+    System.out.println("Modified date: " + documentProperties.getLastSavedTime());
+    System.out.println("Presentation format: " + documentProperties.getPresentationFormat());
+    System.out.println("Last print date: " + documentProperties.getLastPrinted());
+    System.out.println("Is shared between producers: " + documentProperties.getSharedDoc());
+    System.out.println("Subject: " + documentProperties.getSubject());
+    System.out.println("Title: " + documentProperties.getTitle());
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تعديل الخصائص المضمّنة**
+## **تعديل الخصائص المدمجة**
 
-تعديل الخصائص المضمّنة لملفات العرض سهل مثل الوصول إليها. يمكنك ببساطة إسناد قيمة نصية لأي خاصية مرغوبة وسيتم تعديل قيمة الخاصية. في المثال أدناه، عرضنا كيف يمكننا تعديل خصائص المستند المضمّنة لملف العرض باستخدام Aspose.Slides for Java.
-
+لتحديث البيانات المدمجة، استخدم طرق setter على الكائن الذي تُرجعه [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDocumentProperties--). يفتح هذا المثال عرضًا تقديميًا موجودًا، ويستدعي [setAuthor](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setAuthor-java.lang.String-)، [setTitle](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setTitle-java.lang.String-)، [setSubject](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setSubject-java.lang.String-), [setComments](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setComments-java.lang.String-)، و [setManager](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setManager-java.lang.String-)، ثم يحفظ العرض المحدث باستخدام [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). يحتوي ملف PPTX المحفوظ على البيانات الجديدة.
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-Presentation pres = new Presentation("Presentation.pptx");
+Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
 try {
-    // إنشاء إشارة إلى كائن IDocumentProperties المرتبط بالعرض التقديمي
-    IDocumentProperties dp = pres.getDocumentProperties();
-    
-    // ضبط الخصائص المضمّنة
-    dp.setAuthor("Aspose.Slides for Java");
-    dp.setTitle("Modifying Presentation Properties");
-    dp.setSubject("Aspose Subject");
-    dp.setComments("Aspose Description");
-    dp.setManager("Aspose Manager");
-    
-    // حفظ العرض التقديمي إلى ملف
-    pres.save("DocProps.pptx", SaveFormat.Pptx);
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.setAuthor("Aspose.Slides for Java");
+    documentProperties.setTitle("Manage PowerPoint Presentation Properties");
+    documentProperties.setSubject("Modify Built-in Properties");
+    documentProperties.setComments("Aspose description");
+    documentProperties.setManager("Aspose manager");
+
+    presentation.save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-هذا المثال يغيّر الخصائص المضمّنة للعرض ويمكن مشاهدة النتيجة كما هو موضح أدناه:
+## **إدارة القاعدة الأساسية للروابط التشعبية**
 
-|**خصائص المستند المضمّنة بعد التعديل**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+تُعيد الدالة [IDocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getHyperlinkBase--) القاعدة على مستوى المستند للروابط التشعبية النسبية. استخدم [IDocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#setHyperlinkBase-java.lang.String-) لتغييرها أو مسحها. هذا مفيد عند نقل عرض تقديمي وملفاته المرتبطة إلى موقع آخر. إنها منفصلة عن [IHyperlink.getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) الخاص بأي رابط تشعبي فردي: تغيير القاعدة لا يعيد كتابة عناوين الروابط المخزنة ولا يغيّر الوجهات المطلقة.
 
-## **إضافة خصائص مستند مخصّصة**
-
-يسمح Aspose.Slides for Java أيضًا للمطورين بإضافة قيم مخصّصة لخصائص مستند العرض. المثال أدناه يضيف ثلاث خصائص مخصّصة، ثم يبحث عن الاسم المخزن في الفهرس 2 ويزيل تلك الخاصية، وبالتالي يبقى في العرض المحفوظ خاصيتان. تُرتّب الخصائص المخصّصة أبجديًا، وليس بترتيب الإضافة.
-
+يتطلب المثال عرضًا تقديميًا يحتوي على رابط نسبي، مثل `target.html`، ورابط مطلق، مثل `https://example.org/absolute.html`. يقرأ القاعدة الحالية، يعيّن عنوان قاعدة جديد، ويحفظ العرض ثم يعيد فتحه للتحقق من القيمة. ثم يمسح القاعدة بسلسلة فارغة ويتحقق من القيمة الفارغة في ملف محفوظ منفصل. استبدل عنوان القاعدة في المثال بموقع ملفاتك المرتبطة.
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation("hyperlinks.pptx");
 try {
-    // الحصول على خصائص الوثيقة
-    IDocumentProperties dProps = pres.getDocumentProperties();
-    
-    // إضافة خصائص مخصصة
-    dProps.set_Item("New Custom", 12);
-    dProps.set_Item("My Name", "Mudassir");
-    dProps.set_Item("Custom", 124);
-    
-    // الحصول على اسم الخاصية في فهرس معين
-    String getPropertyName = dProps.getCustomPropertyName(2);
-    
-    // إزالة الخاصية المحددة
-    dProps.removeCustomProperty(getPropertyName);
-    
-    // حفظ العرض التقديمي
-    pres.save("CustomDemo.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    System.out.println("Original base: " + presentation.getDocumentProperties().getHyperlinkBase());
 
-|**خصائص مستند مخصّصة مضافة**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+    final String newBase = "https://example.com/new/";
+    presentation.getDocumentProperties().setHyperlinkBase(newBase);
+    presentation.save("hyperlinks-updated.pptx", SaveFormat.Pptx);
 
-## **الوصول إلى الخصائص المخصّصة وتعديلها**
+    Presentation updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+    try {
+        System.out.println("Base preserved: " + newBase.equals(updatedPresentation.getDocumentProperties().getHyperlinkBase()));
 
-يتيح Aspose.Slides for Java أيضًا للمطورين الوصول إلى قيم الخصائص المخصّصة. المثال أدناه يوضح كيف يمكنك الوصول إلى جميع هذه الخصائص المخصّصة للعرض وتعديلها.
+        updatedPresentation.getDocumentProperties().setHyperlinkBase("");
+        updatedPresentation.save("hyperlinks-cleared.pptx", SaveFormat.Pptx);
 
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // إنشاء إشارة إلى كائن DocumentProperties المرتبط بالعرض التقديمي
-    IDocumentProperties dp = pres.getDocumentProperties();
-    
-    // الوصول إلى الخصائص المخصّصة وتعديلها
-    for (int i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // عرض أسماء وقيم الخصائص المخصّصة
-        System.out.println("Custom Property Name : " + dp.getCustomPropertyName(i));
-        System.out.println("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-    
-        // تعديل قيم الخصائص المخصّصة
-        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
+        Presentation clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+        try {
+            System.out.println("Base cleared: " + "".equals(clearedPresentation.getDocumentProperties().getHyperlinkBase()));
+        } finally {
+            clearedPresentation.dispose();
+        }
+    } finally {
+        updatedPresentation.dispose();
     }
-    
-    // حفظ العرض التقديمي إلى ملف
-    pres.save("CustomDemoModified.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-هذا المثال يغيّر الخصائص المخصّصة للـ [PPTX](https://docs.fileformat.com/presentation/pptx/) العرض. تُظهر الأشكال التالية الخصائص المخصّصة للعرض قبل وبعد التعديل:
+يجب أن تطبع رسالتا التحقق القيمتين `true`. مسح القاعدة يترك عناوين الروابط الفردية دون تغيير.
 
-|**الخصائص المخصّصة قبل التعديل**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
+رابط نسبي إلى `target.pptx` كان يفتح `old/target.pptx` عندما كانت القاعدة تشير إلى مجلد `old`. بعد تغيير القاعدة إلى مجلد `new`، وحفظ العرض وإعادة فتحه، فتح الرابط نفسه `new/target.pptx`. استمر الرابط المطلق في فتح نفس الملف. اختبر روابطك النسبية في PowerPoint قبل وبعد نقل العرض أو تغيير قاعدته.
 
-|**الخصائص المخصّصة بعد التعديل**|** |
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
+## **إضافة خصائص مخصصة للعرض التقديمي**
 
-## **خصائص المستند المتقدمة**
-
-{{% alert color="info" title="Note" %}}
-تمت إضافة الطرق الجديدة [ReadDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--)، [UpdateDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-)، و [WriteBindedPresentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo#writeBindedPresentation-java.lang.String-) إلى [IPresentationInfo](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo)، وتم تغيير منطق المُعيّن [IDocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/ar/java/com.aspose.slides/idocumentproperties#setLastSavedTime-java.util.Date-).
-{{% /alert %}} 
-
-تمت إضافة الطريقتين الجديدتين [ReadDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo#readDocumentProperties--) و [UpdateDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo#updateDocumentProperties-com.aspose.slides.IDocumentProperties-) إلى واجهة [IPresentationInfo](https://reference.aspose.com/slides/ar/java/com.aspose.slides/IPresentationInfo). توفران وصولًا سريعًا إلى خصائص المستند وتسمحان بتغيير وتحديث الخصائص دون تحميل العرض بالكامل.
-
-يمكن تنفيذ السيناريو النموذجي بتحميل الخصائص، تعديل بعض القيم، ثم تحديث المستند بالطريقة التالية:
-
+تخزن الخصائص المخصصة بيانات تعريف لا يوجد لها حقل مدمج مكافئ. تسمح طريقة [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-) بتعيين قيمة حسب اسم الخاصية. ينشئ هذا المثال عرضًا تقديميًا، ويضيف قيمتي نص وإصدار عدد صحيح، ويحفظ العرض باستخدام [Presentation.save](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/#save-java.lang.String-int-). تعيين قيمة لاسم موجود يستبدل قيمة الخاصية.
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-// قراءة معلومات العرض التقديمي
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-
-// الحصول على الخصائص الحالية
-IDocumentProperties props = info.readDocumentProperties();
-
-// تعيين القيم الجديدة لحقلي المؤلف والعنوان
-props.setAuthor("New Author");
-props.setTitle("New Title");
-
-// تحديث العرض التقديمي بالقيم الجديدة
-info.updateDocumentProperties(props);
-info.writeBindedPresentation("presentation.pptx");
-```
-
-هناك طريقة أخرى لاستخدام خصائص عرض تقديمي معين كقالب لتحديث خصائص عروض تقديمية أخرى:
-
-```java
-import com.aspose.slides.*;
-
-IPresentationInfo info = PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-DocumentProperties template = (DocumentProperties) info.readDocumentProperties();
-
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-
-for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
-    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-```java
-import com.aspose.slides.*;
-
-private static void updateByTemplate(String path, IDocumentProperties template) 
-{
-    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-يمكن إنشاء قالب جديد من الصفر ثم استخدامه لتحديث عدة عروض تقديمية:
-
-```java
-import com.aspose.slides.*;
-
-DocumentProperties template = new DocumentProperties();
-
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-
-for (String path : new String[] { "doc1.pptx", "doc2.odp", "doc3.ppt" }) {
-    IPresentationInfo toUpdate = PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-## **تحديد لغة التدقيق**
-
-يوفر Aspose.Slides الخاصية LanguageId (المُعَرَّفة في فئة PortionFormat) لتعيين لغة التدقيق لملف PowerPoint. لغة التدقيق هي اللغة التي يتم فيها فحص الإملاء والقواعد في PowerPoint.
-
-يعرض هذا الشيفرة Java كيفية تحديد لغة التدقيق لملف PowerPoint:
-
-```java
-import com.aspose.slides.*;
-
-String pptxFileName = "presentation.pptx";
-
-Presentation pres = new Presentation(pptxFileName);
+Presentation presentation = new Presentation();
 try {
-    AutoShape autoShape = (AutoShape)pres.getSlides().get_Item(0).getShapes().get_Item(0);
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    documentProperties.set_Item("Reviewed by", "John Smith");
+    documentProperties.set_Item("Confidentiality level", "Internal");
+    documentProperties.set_Item("Document version", 2);
 
-    Portion newPortion = new Portion();
-
-    IFontData font = new FontData("SimSun");
-    IPortionFormat portionFormat = newPortion.getPortionFormat();
-    portionFormat.setComplexScriptFont(font);
-    portionFormat.setEastAsianFont(font);
-    portionFormat.setLatinFont(font);
-
-    portionFormat.setLanguageId("zh-CN"); // تعيين معرف لغة التدقيق
-
-    newPortion.setText("1。");
-    paragraph.getPortions().add(newPortion);
+    presentation.save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تحديد اللغة الافتراضية**
+## **الوصول إلى وتعديل الخصائص المخصصة**
 
-يعرض هذا الشيفرة Java كيفية تعيين اللغة الافتراضية لكامل عرض PowerPoint:
-
+يفتح هذا المثال عرضًا تقديميًا يحتوي على خصائص مخصصة ويستخدم [getCountOfCustomProperties](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCountOfCustomProperties--) لتكرارها. يستقبل [getCustomPropertyName](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#getCustomPropertyName-int-) فهرسًا قائمًا على الصفر ويعيد الاسم المستخدم بواسطة [IDocumentProperties.set_Item](https://reference.aspose.com/slides/java/com.aspose.slides/idocumentproperties/#set-Item-java.lang.String-java.lang.Object-). يطبع المثال كل اسم وقيمة أصليين، يستبدل كل قيمة بسلسلة مرقمة بغض النظر عن نوعها الأصلي، ويحفظ التغييرات. إذا لم تكن هناك خصائص مخصصة، فلن يقوم الحلقة بأي تغييرات.
 ```java
-import com.aspose.slides.*;
+import com.aspose.slides.IDocumentProperties;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
 
-LoadOptions loadOptions = new LoadOptions();
-loadOptions.setDefaultTextLanguage("en-US");
-
-Presentation pres = new Presentation(loadOptions);
+Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
 try {
-    // يضيف شكل مستطيل جديد مع نص
-    IAutoShape shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("New Text");
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
 
-    // يفحص لغة الجزء الأول
-    System.out.println(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+    for (int i = 0; i < documentProperties.getCountOfCustomProperties(); i++) {
+        String propertyName = documentProperties.getCustomPropertyName(i);
+        Object propertyValue = documentProperties.get_Item(propertyName);
+
+        System.out.println("Custom property name: " + propertyName);
+        System.out.println("Custom property value: " + propertyValue);
+
+        documentProperties.set_Item(propertyName, "New Value " + (i + 1));
+    }
+
+    presentation.save("CustomProperties_output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **مثال حي**
 
-جرّب تطبيق [**Aspose.Slides Metadata**](https://products.aspose.app/slides/ar/metadata) على الإنترنت لترى كيفية العمل مع خصائص المستند عبر Aspose.Slides API:
-
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/ar/metadata)
+جرّب التطبيق على الإنترنت [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) لمعرفة كيفية العمل مع خصائص المستند باستخدام Aspose.Slides API:
+[![عرض وتعديل بيانات PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **الأسئلة المتكررة**
 
-**كيف يمكنني إزالة خاصية مضمّنة من عرض تقديمي؟**
+**كيف يمكنني إزالة خاصية مدمجة من عرض تقديمي؟**  
+الخصائص المدمجة هي جزء أساسي من العرض التقديمي ولا يمكن إزالتها تمامًا. ومع ذلك، يمكنك إما تغيير قيمها أو ضبطها كخانية إذا سمحت الخاصية المحددة بذلك.
 
-الخصائص المضمّنة جزء لا يتجزأ من العرض ولا يمكن إزالتها بالكامل. يمكنك إما تغيير قيمها أو تعيينها إلى فارغ إذا سمحت الخاصية بذلك.
+**ماذا يحدث إذا أضفت خاصية مخصصة موجودة بالفعل؟**  
+إذا أضفت خاصية مخصصة موجودة بالفعل، سيتم استبدال قيمتها الموجودة بالقيمة الجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides تلقائيًا بتحديث قيمة الخاصية.
 
-**ماذا يحدث إذا أضفت خاصية مخصّصة موجودة بالفعل؟**
+**هل يمكنني الوصول إلى خصائص العرض التقديمي دون تحميل العرض بالكامل؟**  
+نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ثم [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) لقراءة بيانات تعريف المستند المخزنة دون إنشاء نسخة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/). راجع [Build a Lightweight Presentation Inventory](/slides/ar/java/examine-presentation/) للحصول على مثال تقرير كامل وقيود خاصة بالتنسيق.
 
-إذا أضفت خاصية مخصّصة موجودة، سيتم استبدال قيمتها الحالية بالقيمة الجديدة. لا تحتاج إلى إزالة أو فحص الخاصية مسبقًا، حيث يقوم Aspose.Slides بتحديث قيمتها تلقائيًا.
+**هل يمكنني قراءة الخصائص العامة لعرض تقديمي مشفر دون كلمة المرور المفتوحة؟**  
+نعم. يجب أن يكون العرض تم تشفيره بعد استدعاء [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) بالقيمة `false`، ويجب تحميله بعد استدعاء [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setOnlyLoadDocumentProperties-boolean-) بالقيمة `true`.
 
-**هل يمكنني الوصول إلى خصائص العرض دون تحميل العرض بالكامل؟**
-
-نعم. استخدم [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentationfactory/#getPresentationInfo-java.lang.String-) ثم [IPresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ipresentationinfo/#readDocumentProperties--) لقراءة البيانات الوصفية المخزنة دون إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) . راجع [Build a Lightweight Presentation Inventory](/slides/ar/java/examine-presentation/) للحصول على مثال تقارير كامل والقيود الخاصة بكل تنسيق.
-
-**هل يمكنني قراءة الخصائص العامة لعرض مشفّر دون كلمة مرور الفتح؟**
-
-نعم. يجب أن يكون تشفير خاصية المستند قد أُعطل قبل تشفير العرض، ويجب تحميل العرض في وضع الخصائص العامة فقط.
-
-**هل يمكنني تحديث ملف PPTX مشفّر في وضع الخصائص العامة فقط؟**
-
-لا. يجب أن تظل بيانات الخصائص العامة والمشفّرة متسقة، لذا يتطلب تحديث ملف PPTX مشفّر تحميل العرض بالكامل مع كلمة مرور الفتح الصحيحة.
+**هل يمكنني تحديث ملف PPTX مشفر في وضع الخصائص-المستند فقط؟**  
+لا. يجب أن تظل بيانات الخصائص العامة والمشفرة متسقة، لذا يتطلب تحديث ملف PPTX مشفر تحميل العرض الكامل باستخدام كلمة المرور المفتوحة الصحيحة.

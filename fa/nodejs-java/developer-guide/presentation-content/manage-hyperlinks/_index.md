@@ -1,52 +1,52 @@
 ---
-title: مدیریت پیوندهای ابرمتنی ارائه در جاوااسکریپت
-linktitle: مدیریت پیوندهای ابرمتنی
+title: مدیریت پیوندهای ارائه در JavaScript
+linktitle: مدیریت پیوندها
 type: docs
 weight: 20
 url: /fa/nodejs-java/manage-hyperlinks/
 keywords:
 - افزودن URL
-- افزودن پیوند ابرمتنی
-- ایجاد پیوند ابرمتنی
-- قالب‌بندی پیوند ابرمتنی
-- حذف پیوند ابرمتنی
-- به‌روزرسانی پیوند ابرمتنی
-- پیوند ابرمتنی متن
-- پیوند ابرمتنی اسلاید
-- پیوند ابرمتنی شکل
-- پیوند ابرمتنی تصویر
-- پیوند ابرمتنی ویدئو
-- پیوند ابرمتنی قابل‌تغییر
+- افزودن پیوند
+- ایجاد پیوند
+- قالب‌بندی پیوند
+- حذف پیوند
+- به‌روزرسانی پیوند
+- پیوند متن
+- پیوند اسلاید
+- پیوند شکل
+- پیوند تصویر
+- پیوند ویدئو
+- پیوند قابل تغییر
 - PowerPoint
 - OpenDocument
 - ارائه
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "افزودن، قالب‌بندی، به‌روزرسانی و حذف پیوندهای ابرمتنی در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Node.js از طریق Java، با استفاده از مثال‌های JavaScript."
+description: "افزودن، قالب‌بندی، به‌روزرسانی و حذف پیوندها در ارائه‌های PowerPoint و OpenDocument با Aspose.Slides برای Node.js از طریق Java، با استفاده از مثال‌های JavaScript."
 ---
 ## **معرفی**
 
-یک پیوند ابرمتنی محتوای ارائه را به یک وب‌سایت یا یک مکان درون ارائه متصل می‌کند. در PowerPoint، پیوندهای ابرمتنی معمولاً دو هدف دارند:
+یک پیوند (hyperlink) محتویات ارائه را به یک وب‌سایت یا مکانی داخل ارائه متصل می‌کند. در PowerPoint، پیوندها معمولاً دو هدف را دنبال می‌کنند:
 
-* باز کردن یک وب‌سایت از متن، یک شکل یا یک فریم رسانه‌ای.
-* ناوبری به اسلاید دیگری، برای مثال از فهرست مطالب.
+* باز کردن یک وب‌سایت از متن، یک شکل، یا یک قاب رسانه‌ای.  
+* رفتن به اسلاید دیگری، برای مثال، از فهرست مطالب.
 
-Aspose.Slides for Node.js via Java به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صداهای آنها را کنترل کنید، خصوصیاتشان را به‌روزرسانی کنید و حذف نمایید. مثال‌های زیر نحوه کار با پیوندهای ابرمتنی بر روی عناصر منفرد و نحوه دسترسی به پیوندها در سطح ارائه، اسلاید یا فریم‑متن را نشان می‌دهند.
+Aspose.Slides for Node.js via Java به شما اجازه می‌دهد این پیوندها را اضافه کنید، ظاهر و صداهای آن‌ها را کنترل کنید، خواصشان را به‌روز کنید و آن‌ها را حذف کنید. مثال‌های زیر نشان می‌دهند چگونه با پیوندها روی عناصر منفرد کار کنید و چگونه به پیوندها در سطح ارائه، اسلاید یا قاب متن دسترسی پیدا کنید.
 
 {{% alert color="info" title="Note" %}}
-
-شما همچنین می‌توانید ارائه‌ها را با [ویرایشگر آنلاین رایگان Aspose PowerPoint](https://products.aspose.app/slides/fa/editor) ویرایش کنید.
-
+می‌توانید همچنین ارائه‌ها را با [ویرایشگر رایگان آنلاین Aspose PowerPoint](https://products.aspose.app/slides/editor) ویرایش کنید.
 {{% /alert %}} 
 
 ## **افزودن پیوندهای URL**
 
-شما می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک فریم رسانه‌ای اختصاص دهید. عنصری که به آن پیوند ابرمتنی می‌دهید، ناحیه کلیکی را تعیین می‌کند: بخشی از متن فقط آن متن انتخاب‌شده را کلیک‌پذیر می‌سازد، در حالی که یک شکل یا فریم، شیء اسلاید را کلیک‌پذیر می‌کند.
+شما می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک قاب رسانه‌ای اختصاص دهید. عنصری که پیوند به آن اختصاص می‌یابد، ناحیه قابل کلیک را تعیین می‌کند: یک بخش متن لینک متن انتخاب‌شده را می‌کند، در حالی که یک شکل یا قاب لینک شیء اسلاید را می‌کند.
+
+برای ارائه‌هایی که حاوی پیوندهای نسبی هستند، به [مدیریت پایه پیوندهای فراخوانی](/slides/fa/nodejs-java/presentation-properties/#manage-the-hyperlink-base) مراجعه کنید تا پایه در سطح سند را بخوانید، تغییر دهید یا پاک کنید.
 
 ### **افزودن پیوندهای URL به متن**
 
-برای پیوند دادن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) بخش متن پاس دهید، همان‌طور که در زیر نشان داده شده است. فقط همان بخش متن کلیک‌پذیر می‌شود.
+برای پیوند دادن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) بخش متن پاس دهید، همان‌طور که در زیر نشان داده شده است. فقط همان بخش متن کلیک‌پذیر می‌شود.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,11 +66,11 @@ try {
 }
 ```
 
-### **افزودن پیوندهای URL به اشکال و فریم‌های رسانه‌ای**
+### **افزودن پیوندهای URL به اشکال و قاب‌های رسانه‌ای**
 
-برای قابل کلیک کردن کردن یک شکل یا فریم، متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#setHyperlinkClick) آن را فراخوانی کنید. پیوند ابرمتنی به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
+برای قابل کلیک شدن کردن یک شکل یا قاب، متد [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) آن را فراخوانی کنید. پیوند به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
 
-همین رویکرد برای فریم‌های تصویر، صوت و ویدئو نیز صادق است: پیوند را به فریم اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setTooltip) را فراخوانی کنید.
+همین روش برای قاب‌های تصویر، صدا و ویدئو نیز اعمال می‌شود: پیوند را به قاب اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) را فراخوانی کنید.
 
 مثال زیر یک مستطیل را قابل کلیک می‌کند:
 
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-## **استفاده از پیوندهای ابرمتنی برای ایجاد فهرست مطالب**
+## **استفاده از پیوندها برای ایجاد فهرست مطالب**
 
-پیوندهای داخلی به خوانندگان امکان می‌دهند از فهرست مطالب به اسلاید خاصی بروید. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) برای پیوند متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
+پیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید خاصی پرش کنند. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) برای پیوند دادن متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -126,13 +126,13 @@ try {
 }
 ```
 
-## **قالب‌بندی پیوندهای ابرمتنی**
+## **قالب‌بندی پیوندها**
 
 ### **رنگ**
 
-متد [setColorSource](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setColorSource) کلاس [Hyperlink](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink) تعیین می‌کند که آیا پیوند ابرمتنی از رنگ پیوند ابرمتنی ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ سفارشی متن، مقدار [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkColorSource) را انتخاب کنید و رنگ پر کننده بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شده است؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
+متد [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) از کلاس [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) تعیین می‌کند که آیا پیوند از رنگ پیوندهای ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ متن سفارشی، [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
 
-مثال زیر دو پیوند ابرمتنی متنی به همان اسلاید اضافه می‌کند. اولین پیوند با پر کردن متن به رنگ قرمز است، در حالی که دومین پیوند رنگ پیش‌فرض پیوند ابرمتنی را حفظ می‌کند.
+مثال زیر دو پیوند متن را به همان اسلاید اضافه می‌کند. اولین پیوند از پر رنگ قرمز استفاده می‌کند، در حالی که دومین پیوند رنگ پیش‌فرض پیوند را حفظ می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -157,16 +157,17 @@ try {
     presentation.dispose();
 }
 ```
+
 ### **صدا**
 
-یک پیوند ابرمتنی می‌تواند هنگام فعال شدن صدا پخش کند یا صدایی که در حال پخش است متوقف کند. از متدهای زیر برای پیکربندی این رفتارها استفاده کنید:
+یک پیوند می‌تواند هنگام فعال شدن صدا پخش کند یا صدایی که از قبل در حال پخش است را متوقف کند. برای پیکربندی این رفتارها از متدهای زیر استفاده کنید:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setSound) صوت مرتبط با پیوند ابرمتنی را مشخص می‌کند.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) کنترل می‌کند که آیا فعال کردن پیوند ابرمتنی صدای قبلی را متوقف کند یا خیر.
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) صوتی را که به پیوند مرتبط است مشخص می‌کند.  
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) کنترل می‌کند که آیا فعال‌سازی پیوند صدا را متوقف می‌کند یا نه.
 
-#### **افزودن صدا به پیوند ابرمتنی**
+#### **افزودن صدای پیوند**
 
-مثال زیر فایل `sampleaudio.wav` را بارگذاری می‌کند و آن را به دکمه‌ای در اسلاید اول مرتبط می‌سازد. کلیک بر دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌رود. یک شکل دوم در همان اسلاید هنگام کلیک صدای قبلی را متوقف می‌کند، بدون اینکه عملیات ناوبری انجام دهد.
+مثال زیر فایل `sampleaudio.wav` را بارگیری می‌کند و آن را به یک دکمه در اسلاید اول اختصاص می‌دهد. کلیک روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌رود. یک شکل دوم در همان اسلاید هنگام کلیک صدا را متوقف می‌کند بدون اینکه عمل ناوبری انجام دهد.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,9 +206,9 @@ try {
 }
 ```
 
-#### **استخراج صدا از پیوند ابرمتنی**
+#### **استخراج صدای پیوند**
 
-مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صداهای پیوند ابرمتنی شکل اول را از طریق متدهای [getSound](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getSound) و [getBinaryData](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Audio#getBinaryData) به حافظه می‌خواند.
+مثال زیر ارائه ایجاد شده در بالا را باز می‌کند و صداهای پیوند اولین شکل را از طریق متدهای [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) و [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData) به حافظه می‌خواند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,18 +232,18 @@ try {
 }
 ```
 
-### **نکته‌سنجی و تنظیمات تعامل**
+### **راهنما (Tooltip) و تنظیمات تعامل**
 
-پس از تخصیص پیوند ابرمتنی به متن یا شکل می‌توانید متدهای زیر کلاس [Hyperlink](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink) را فراخوانی کنید:
+بعد از اختصاص پیوند به متن یا یک شکل می‌توانید متدهای زیر از کلاس [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) را فراخوانی کنید:
 
-- [setTooltip](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setTooltip) متنی را که بیننده می‌تواند به عنوان راهنمایی برای پیوند نمایش دهد تنظیم می‌کند.
-- [setTargetFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) فریم هدف را در یک مجموعه فریم HTML والد، در صورت وجود، مشخص می‌کند.
-- [setHistory](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setHistory) تعیین می‌کند که آیا فعال کردن پیوند، مقصد آن را به فهرست پیوندهای مشاهده‌شده اضافه کند یا نه.
-- [setHighlightClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) کنترل می‌کند که آیا پیوند ابرمتنی هنگام کلیک برجسته شود یا خیر.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) متنی را که بیننده می‌تواند به عنوان راهنمایی برای پیوند نمایش دهد تنظیم می‌کند.  
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) فریم هدف را داخل یک مجموعه‌فریم HTML والد، در صورت لزوم، مشخص می‌کند.  
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) کنترل می‌کند که آیا فعال‌سازی پیوند مقصد آن را به فهرست پیوندهای مشاهده‌شده اضافه می‌کند یا نه.  
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) تعیین می‌کند که آیا پیوند هنگام کلیک برجسته شود یا نه.
 
-## **حذف پیوندهای ابرمتنی از ارائه‌ها**
+## **حذف پیوندها از ارائه‌ها**
 
-از متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) برای جمع‌آوری محفظه‌های پیوند ابرمتنی، شامل پیوندهای بخش متنی، پیش از تغییر آنها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط متد [removeHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) را فراخوانی کنید؛ حذف عمل کلیک، معادل حذف عمل موس‑اور نیست.
+برای جمع‌آوری محفظه‌های پیوند، شامل پیوندهای بخش متن، قبل از تغییر آن‌ها از متد [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) را فراخوانی کنید؛ حذف عمل کلیک، معادل حذف عمل موشوور نیست.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,23 +269,23 @@ try {
 }
 ```
 
-برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، چیدمان‌ها و یادداشت‌ها، به بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) هر دو نوع فعال‌سازی را در حوزه انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، لایه‌ها و یادداشت‌ها، به بخش [گزارش، تمیزسازی و تأیید پیوندها](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
 
-## **ساخت فهرست کامل پیوندهای ابرمتنی**
+## **ساخت فهرست کامل پیوندها**
 
-پیش از توزیع یک ارائه، تعاملات آن و لینک‌های وب آن را فهرست کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) محفظه‌های پیوند ابرمتنی را باز می‌گرداند، نه لیست مسطحی از رشته‌های URL. برای هر محفظه هم متدهای [getHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getHyperlinkClick) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) را بررسی کنید. این دو مستقل‌اند: همان محفظه می‌تواند هر دو عمل را در اختیار داشته باشد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر محفظه داشته باشد.
+قبل از توزیع یک ارائه، اقدامات تعاملی و وب‌لینک‌های آن را فهرست کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) محفظه‌های پیوند را برمی‌گرداند نه یک لیست صاف از رشته‌های URL. هر دو متد [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) را بر روی هر محفظه بررسی کنید. این متدها مستقل‌اند: همان محفظه می‌تواند هر دو عمل را در اختیار داشته باشد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر محفظه نیاز داشته باشد.
 
-فقط بررسی پیوندهای سطح شکل ممکن است پیوندهای متصل به بخش‌های متنی را از دست بدهد. به جای آن، محدودهٔ مناسب را پرس‌وجو کنید و محفظه‌های بازگردانده‌شده را نگه دارید تا پس از آن بتوانید عمل‌ها را به‌روزرسانی یا حذف کنید.
+اسکن فقط پیوندهای سطح شکل می‌تواند پیوندهای الصاق‌شده به بخش‌های متن را از دست بدهد. به جای آن حوزه مناسب را پرس‌وجو کنید و محفظه‌های بازگردانده‌شده را نگه دارید تا بعدها بتوانید اقدامات آن‌ها را به‌روز یا حذف کنید.
 
-### **پرس‌وجوی دامنه‌های ارائه، اسلاید و فریم‑متن**
+### **پرسش حوزه‌های ارائه، اسلاید و قاب متن**
 
-کلاس [HyperlinkQueries](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries) از طریق متدهای [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)، [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) و [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) در دسترس است. هر دامنه همان پرس‌وجوها را پشتیبانی می‌کند:
+کلاس [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) از طریق متدهای [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries)، [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) و [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) در دسترس است. هر حوزه همان پرسش‌ها را پشتیبانی می‌کند:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) محفظه‌های دارای عمل کلیک را برمی‌گرداند.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) محفظه‌های دارای عمل موس‑اور را برمی‌گرداند.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) محفظه‌های دارای هر یک یا هر دو عمل را برمی‌گرداند.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) محفظه‌های دارای عمل کلیک را برمی‌گرداند.  
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) محفظه‌های دارای عمل موشوور را برمی‌گرداند.  
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) محفظه‌های دارای هر یک یا هر دو عمل را برمی‌گرداند.
 
-مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک موس‑اور فایل، ناوبری اسلاید داخلی، یک لینک موس‑اور متنی و یک عمل ماکرو است. این مثال هیچ‌یک از این عمل‌ها را اجرا نمی‌کند. همان سه پرس‌وجو در هر دامنه‌ای کار می‌کنند؛ شمارش‌ها نشان‌دهندهٔ تعداد محفظه‌ها است، نه مجموع عمل‌ها. دامنه فریم‑متن لینک‌های خود شکل محاطی را در بر نمی‌گیرد.
+مثال زیر فایلی به نام `hyperlink-audit-input.pptx` می‌سازد که شامل یک لینک کلیک خارجی، یک لینک موشوور فایل، ناوبری اسلاید داخلی، یک لینک موشوور متن و یک عمل ماکرو است. هیچ‌یک از این اعمال اجرا نمی‌شوند. همان سه پرسش در هر حوزه کار می‌کنند؛ شمارش‌ها تعداد محفظه‌ها را نشان می‌دهند نه مجموع اعمال. حوزه قاب متن لینک‌های مربوط به شکل محاط‌کننده را مستثنی می‌کند.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,37 +322,37 @@ try {
 }
 ```
 
-در این مثال، پرس‌وجوهای ارائه و اسلاید هر کدام سه محفظهٔ کلیک، دو محفظهٔ موس‑اور و سه محفظهٔ دارای هر یک از عمل‌ها را گزارش می‌دهند. پرس‌وجوی فریم‑متن در هر دسته یک محفظه را گزارش می‌کند.
+برای این مثال، پرسش‌های ارائه و اسلاید هرکدام سه محفظه کلیک، دو محفظه موشوور و سه محفظه دارای هر یک از اعمال را گزارش می‌کنند. پرسش قاب متن یک محفظه در هر دسته گزارش می‌دهد.
 
-### **دسته‌بندی عمل‌ها و مقصدها**
+### **دسته‌بندی اقدامات و مقصدها**
 
-از متد [Hyperlink.getActionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getActionType) برای تفسیر عمل قبل از بررسی مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkActionType) بیش از ناوبری وب را پوشش می‌دهند:
+با استفاده از متد [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) می‌توانید پیش از تفسیر مقصد، نوع اقدام را تشخیص دهید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) بیش از ناوبری وب را پوشش می‌دهند:
 
-| مقدار | معنی برای حسابرسی |
+| مقادیر | معنی برای حسابرسی |
 | --- | --- |
-| `Hyperlink` | پیوند ابرمتنی خارجی؛ URL و طرح آن را بررسی کنید. |
-| `JumpSpecificSlide` | ناوبری داخلی به اسلاید خاص. |
-| `JumpFirstSlide` | `JumpPreviousSlide` | `JumpNextSlide` | `JumpLastSlide` | `JumpLastViewedSlide` | ناوبری داخلی پیش‌فرض اسلایدشو، که در زمینهٔ اسلایدشو حل می‌شود. |
-| `JumpEndShow` | `StartCustomSlideShow` | پایان نمایش جاری یا شروع نمایش سفارشی. |
-| `StartMacro` | اجرای یک ماکرو. |
-| `StartProgram` | راه‌اندازی یک برنامه. |
-| `OpenFile` | `OpenPresentation` | باز کردن فایل یا ارائهٔ دیگر؛ جداگانه از URLهای وب بررسی شود. |
+| `Hyperlink` | پیوند خارجی؛ URL و طرح آن را بررسی کنید. |
+| `JumpSpecificSlide` | ناوبری داخلی به اسلاید خاصی. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری داخلی پیش‌فرض اسلایدشو، بسته به زمینه اجرا. |
+| `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش فعلی یا شروع نمایش سفارشی. |
+| `StartMacro` | اجرای ماکرو. |
+| `StartProgram` | راه‌اندازی برنامه. |
+| `OpenFile`, `OpenPresentation` | باز کردن فایل یا ارائه دیگر؛ جدا از URL‌های وب بررسی شود. |
 | `StartStopMedia` | شروع یا توقف پخش رسانه. |
-| `NoAction` | `Unknown` | بدون عمل ناوبری یا عمل ناشناخته که نیاز به بررسی دارد. |
+| `NoAction`, `Unknown` | بدون اقدام ناوبری یا اقدام ناشناخته که نیاز به بررسی دارد. |
 
-مقصدهای خارجی را از طریق [getExternalUrl](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) و مقاصد داخلی خاص را از طریق [getTargetSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) بخوانید. اعمال داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ وجود URL خالی به این معنا نیست که محفظهٔ مورد نظر عمل ندارند. مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) را هنگامی که با URL نرمال‌شده متفاوت باشد، حفظ کنید و نکته‌سنجی بازگشت داده‌شده توسط [getTooltip](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Hyperlink#getTooltip) را در صورت موجود بودن شامل کنید.
+مقاصد خارجی را از طریق متد [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) و مقصدهای داخلی خاص را از طریق متد [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) بخوانید. اقدامات داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ یک URL خالی به این معنی نیست که محفظه هیچ اقدامی ندارد. مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) را زمانی که با URL نرمال‌شده متفاوت است، حفظ کنید و راهنمایی بازگردانده‌شده توسط [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) را در صورت موجود بودن شامل کنید.
 
-### **گزارش، پاک‌سازی و تأیید پیوندهای ابرمتنی**
+### **گزارش، تمیزسازی و تأیید پیوندها**
 
-مثال JavaScript زیر یک ارائه موجود (فایلی که در بالا ساخته شد) را می‌خواند، `hyperlink-audit.json` می‌نویسد، یک سیاست را اعمال می‌کند، `hyperlink-sanitized.pptx` ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را دوباره بررسی کند. قبل از تغییر، محفظه‌ها جمع‌آوری می‌شوند و با استفاده از برابری ارجاعی از پردازش دوبار یک محفظه جلوگیری می‌شود. پرس‌وجوهای ارائه اسلایدهای معمولی را پوشش می‌دهند؛ برای فهرست‌سازی سراسری بسته، به صراحت مسترها، چیدمان‌ها، یادداشت‌ها و مسترهای یادداشت و برگهٔ توزیع زمانی که حضور دارند نیز پرس‌وجو می‌شوند.
+مثال JavaScript زیر یک ارائه موجود (از فایلی که در بالا ساخته شد) می‌خواند، `hyperlink-audit.json` می‌نویسد، سیاستی را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و سپس دوباره باز می‌کند تا هر دو نوع فعال‌سازی را دوباره بررسی کند. قبل از تغییر، محفظه‌ها جمع‌آوری می‌شوند و برای جلوگیری از پردازش دوبار یک‌محفظه از برابری مرجع استفاده می‌شود. پرسش‌های ارائه اسلایدهای عادی را پوشش می‌دهند؛ برای فهرست‌گیری در سرتاسر بسته، به‌طور صریح مسترها، لایه‌ها، یادداشت‌ها و مسترهای یادداشت و جزوه را نیز پرس‌وجو می‌کند.
 
-گزارش، اندیس اسلاید یک‌پایه و [getSlideId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/BaseSlide#getSlideId) را (در صورت موجود بودن) ذخیره می‌کند. متد [getSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getSlide) اسلاید مالک را برای محفظه‌های پشتیبانی‌شده فراهم می‌آورد. مسترها، چیدمان‌ها و یادداشت‌ها اندیس اسلاید عادی ندارند و با دامنهٔ خود شناسایی می‌شوند. محفظه‌های شکل و محفظه‌های قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ دیگر انواع محفظه نام کلاس زمان اجرا خود را حفظ می‌کنند. هر محفظه یک شناسهٔ گزارش‑محلی دریافت می‌کند تا دو عمل آن بتوانند مرتبط شوند. گزارش انواع عمل را به‌عنوان ثابت‌های عددی تعریف‌شده در شمارندهٔ HyperlinkActionType ذخیره می‌کند.
+گزارش یک شاخص اسلاید مبتنی بر یک‑پایه و [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) (در صورت موجود بودن) ثبت می‌کند. متد [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) اسلاید مالک را برای محفظه‌های پشتیبانی‌شده فراهم می‌کند. مسترها، لایه‌ها و یادداشت‌ها شاخص اسلاید عادی ندارند و با حوزه خود شناسایی می‌شوند. محفظه‌های شکل و محفظه‌های قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع محفظه نام نوع زمان اجرا خود را حفظ می‌کنند. هر محفظه یک شناسه محلی گزارش دریافت می‌کند تا دو اقدام آن بتوانند هم‑پوشانی داشته باشند. گزارش نوع اقدامات را به‌عنوان ثابت‌های عددی تعریف‌شده در شمارنده HyperlinkActionType ذخیره می‌کند.
 
-این سیاست کاربردی به‌طور عمدی فقط URLهای مطلق HTTPS و هدف‌های داخلی اسلاید معتبر را می‌پذیرد. ماکروها، برنامه‌ها، عمل‌های فایل، سایر عمل‌های اسلایدشو، عمل‌های ناشناخته و سایر طرح‌های URL رد می‌شوند. این ردها تصمیمات سیاسی هستند، نه حکم نهایی امنیتی Aspose.Slides. فقط HTTPS کافی نیست؛ برای برنامهٔ خود لیست سفید میزبان‌ها و بررسی‌های دیگر اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال فقط فراداده‌ها را بدون دنبال‌کردن لینک یا اجرای عمل‌ها حسابرسی می‌کند.
+این سیاست محدود‌کننده صراحتاً تنها URL‌های HTTPS مطلق و اهداف داخلی اسلاید معتبر را می‌پذیرد. ماکروها، برنامه‌ها، اقدام‌های فایلی، سایر اقدامات اسلایدشو، اقدامات ناشناخته و سایر طرح‌های URL را رد می‌کند. این ردها تصمیمات سیاستی‌اند، نه قضاوتی درباره ایمنی Aspose.Slides. تنها HTTPS اعتماد را تضمین نمی‌کند: لیست‌های سفید میزبان و سایر بررسی‌ها را برای برنامه خود اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال فقط متادیتا را بدون پیگیری لینک‌ها یا اجرای اقدامات حسابرسی می‌کند.
 
-برای اصلاح، شیء [getHyperlinkManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/Shape#getHyperlinkManager) شکل از متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick)، [removeHyperlinkClick](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحهٔ فرود ثابت HTTPS جایگزین می‌شوند؛ سایر کلیک‌ها و عمل‌های موس‑اور ممنوع به‌صورت مستقل حذف می‌شوند. مقدار `replaceExternalClicks` را به `false` تنظیم کنید تا تمام تخلفات سیاست حذف شوند. پیش از استقرار، یک صفحهٔ جایگزین متعلق به برنامه خود انتخاب کنید.
+برای اصلاح، کلاس محفظه [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) از متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick)، [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی منع‌شده با یک صفحه لندینگ ثابت HTTPS جایگزین می‌شوند؛ کلیک‌ها و موشوورهای منع‌شده دیگر به‌صورت مستقل حذف می‌شوند. مقدار `replaceExternalClicks` را به `false` تنظیم کنید تا تمام تخلفات سیاست حذف شوند. قبل از استقرار، یک صفحه جایگزین تحت مالکیت برنامه‌تان انتخاب کنید.
 
-پرچم‌گذاری خروجی گزارش از یک سیاست مرور PDF محتاطانه استفاده می‌کند: عمل‌های موس‑اور و هر چیزی به‌جز یک لینک خارجی یا پرش اسلاید خاص را به‌عنوان احتمالی غیرقابل‌پشتیبانی علامت‌گذاری می‌کند. این یک نکتهٔ مرور است، نه آزمون قابلیت یا ضمانتی که لینک‌های بدون پرچم برای خروجی حفظ شوند. صادرات‌های پشتیبانی‌شدهٔ [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/) ممکن است پیوندهای ابرمتنی را حفظ کنند، بسته به عمل، گزینه‌های صادرات و بیننده. [تصاویر](/slides/fa/nodejs-java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ برای این خروجی‌ها هر عمل را هنگام حسابرسی پرچم بزنید.
+پرچم خروجی گزارش از سیاست محافظه‌کارانه بررسی PDF استفاده می‌کند: اقدامات موشوور و هر چیزی غیر از لینک خارجی یا پرش اسلاید خاص را به‌عنوان احتمالی غیرقابل پشتیبانی پرچم می‌زند. این یک نکته بررسی است، نه آزمون توانایی یا تضمینی مبنی بر اینکه لینک‌های بدون پرچم در خروجی بقا خواهند یافت. خروجی‌های [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/) ممکن است پیوندها را حفظ کنند، بسته به نوع عمل، گزینه‌های خروجی و مرورگر. تصاویر [رستر](/slides/fa/nodejs-java/convert-powerpoint-to-png/) و [ویدئو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ هنگام حسابرسی برای این خروجی‌ها هر عمل را پرچم کنید.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -499,20 +500,20 @@ try {
 }
 ```
 
-با ورودی که در بالا ایجاد شد، گزارش شامل پنج ردیف عمل است. لینک موس‑اور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری داخلی اسلاید باقی می‌مانند. تأیید صفر عمل ممنوع چاپ می‌کند. ورودی شامل یک URL کلیک خارجی ممنوع نیز شاخهٔ جایگزینی را آزمون می‌کند. یک محفظه با کلیک مجاز و موس‑اور ممنوع، عمل کلیک خود را حفظ می‌کند.
+با ورودی ساخته‌شده در بالا، گزارش شامل پنج ردیف اقدام است. لینک موشوور فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری داخلی اسلاید باقی می‌مانند. تأیید صفر اقدام ممنوع را چاپ می‌کند. ورودی شامل یک URL کلیک خارجی ممنوع نیز شاخه جایگزینی را اجرا می‌کند. محفظه‌ای با کلیک مجاز و موشوور ممنوع کلیک خود را حفظ می‌کند.
 
-این پاک‌سازی انتخابی با [removeAllHyperlinks](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) که هر دو نوع فعال‌سازی را در تمام دامنهٔ انتخاب‌شده بدون توجه به سیاست حذف می‌کند، متفاوت است. تأیید در اینجا فقط عمل‌های پیوند ابرمتنی را بررسی می‌کند؛ پروژه‌های VBA نهفته، اشیاء OLE یا دیگر محتوای فعال را حذف نمی‌کند و اعتبارسنجی فایل‌های PDF یا HTML خروجی را انجام نمی‌دهد.
+این پاک‌سازی انتخابی با متد [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) که هر دو نوع فعال‌سازی را بدون در نظر گرفتن سیاست در تمام حوزه انتخاب‌شده حذف می‌کند، متفاوت است. تأیید در اینجا فقط اقدامات پیوند را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و یک فایل PDF یا HTML خروجی را اعتبارسنجی نمی‌کند.
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم به یک بخش یا اولین اسلاید آن پیوند دهم؟**
+**چگونه می‌توانم به یک بخش یا اولین اسلاید آن لینک کنم؟**
 
-بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند ابرمتنی داخلی فقط به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش پیوند دهید.
+بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند داخلی به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
 
-**آیا می‌توانم پیوند ابرمتنی را به عناصر اسلاید مستر الصاق کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توانم پیوند را به عناصر مستر اسلاید وصل کنم تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر مستر اسلاید و چیدمان از پیوندهای ابرمتنی پشتیبانی می‌کنند. این پیوندها در هنگام نمایش اسلاید در اسلایدهایی که از مستر یا چیدمان مربوطه استفاده می‌کنند در دسترس هستند.
+بله. عناصر مستر اسلاید و لایه‌ها از پیوندها پشتیبانی می‌کنند. این پیوندها در حین نمایش اسلاید بر روی اسلایدهایی که از مستر یا لایه مربوطه استفاده می‌کنند، در دسترس هستند.
 
-**آیا پیوندهای ابرمتنی هنگام صادرات به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
+**آیا پیوندها هنگام خروجی به PDF، HTML، تصاویر یا ویدئو حفظ می‌شوند؟**
 
-صادرات‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندهای ابرمتنی را حفظ کنند؛ تصاویر رستر و ویدئو این قابلیت را ندارند. برای جزئیات به بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندها را حفظ کنند؛ تصاویر رستر و ویدئو نمی‌توانند پیوندهای تعاملی را حفظ کنند. برای جزئیات بیشتر به بخش [گزارش، تمیزسازی و تأیید پیوندها](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.

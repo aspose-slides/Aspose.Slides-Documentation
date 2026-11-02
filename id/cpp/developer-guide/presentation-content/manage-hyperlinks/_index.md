@@ -1,49 +1,51 @@
 ---
-title: Kelola Hyperlink Presentasi di C++
+title: Kelola Hyperlink Presentasi dalam C++
 linktitle: Kelola Hyperlink
 type: docs
 weight: 20
 url: /id/cpp/manage-hyperlinks/
 keywords:
-- menambahkan URL
-- menambahkan hyperlink
-- membuat hyperlink
-- memformat hyperlink
-- menghapus hyperlink
-- memperbarui hyperlink
-- hyperlink teks
-- hyperlink slide
-- hyperlink bentuk
-- hyperlink gambar
-- hyperlink video
-- hyperlink yang dapat diubah
-- PowerPoint
-- OpenDocument
-- presentasi
-- C++
-- Aspose.Slides
+  - tambahkan URL
+  - tambahkan hyperlink
+  - buat hyperlink
+  - format hyperlink
+  - hapus hyperlink
+  - perbarui hyperlink
+  - hyperlink teks
+  - hyperlink slide
+  - hyperlink bentuk
+  - hyperlink gambar
+  - hyperlink video
+  - hyperlink dapat diubah
+  - PowerPoint
+  - OpenDocument
+  - presentasi
+  - C++
+  - Aspose.Slides
 description: "Menambahkan, memformat, memperbarui, dan menghapus hyperlink dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk C++, menggunakan contoh C++."
 ---
 ## **Pendahuluan**
 
-Hyperlink menghubungkan konten presentasi ke situs web atau ke lokasi dalam presentasi. Di PowerPoint, hyperlink biasanya memiliki dua tujuan:
+Hyperlink menghubungkan konten presentasi ke situs web atau lokasi di dalam presentasi. Di PowerPoint, hyperlink biasanya berfungsi dua tujuan:
 
 * Membuka situs web dari teks, bentuk, atau bingkai media.
-* Menavigasi ke slide lain, misalnya dari daftar isi.
+* Menavigasi ke slide lain, misalnya, dari daftar isi.
 
-Aspose.Slides untuk C++ memungkinkan Anda menambahkan tautan ini, mengontrol penampilan dan suara mereka, memperbarui pengaturannya, dan menghapusnya. Contoh di bawah menunjukkan cara bekerja dengan hyperlink pada elemen individu serta cara mengakses hyperlink pada tingkat presentasi, slide, atau bingkai teks.
+Aspose.Slides untuk C++ memungkinkan Anda menambahkan tautan ini, mengontrol tampilan dan suaranya, memperbarui pengaturannya, dan menghapusnya. Contoh di bawah menunjukkan cara bekerja dengan hyperlink pada elemen individual dan cara mengakses hyperlink pada tingkat presentasi, slide, atau bingkai teks.
 
 {{% alert color="info" title="Note" %}}
-Anda juga dapat mengedit presentasi dengan [editor Aspose PowerPoint online gratis](https://products.aspose.app/slides/id/editor).
+Anda juga dapat mengedit presentasi dengan [editor PowerPoint Aspose online gratis](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Menambahkan Hyperlink URL**
+## **Tambahkan Hyperlink URL**
 
-Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen yang Anda beri hyperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sedangkan bentuk atau bingkai menautkan objek slide.
+Anda dapat menetapkan URL situs web ke teks, bentuk, atau bingkai media. Elemen tempat Anda menetapkan hyperlink menentukan area yang dapat diklik: bagian teks menautkan teks yang dipilih, sementara bentuk atau bingkai menautkan objek slide.
 
-### **Menambahkan Hyperlink URL ke Teks**
+Untuk presentasi yang berisi hyperlink relatif, lihat [Kelola Dasar Hyperlink](/slides/id/cpp/presentation-properties/#manage-the-hyperlink-base) untuk membaca, mengubah, atau menghapus dasar tingkat dokumen.
 
-Untuk menautkan teks ke situs web, buat sebuah [Hyperlink](https://reference.aspose.com/slides/id/cpp/aspose.slides/hyperlink/) dan tetapkan dengan metode [set_HyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/portionformat/set_hyperlinkclick/) pada bagian teks, seperti yang ditunjukkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
+### **Tambahkan Hyperlink URL ke Teks**
+
+Untuk menautkan teks ke situs web, buat sebuah [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) dan tetapkan menggunakan metode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) pada bagian teks, seperti ditunjukkan di bawah. Hanya bagian teks tersebut yang menjadi dapat diklik.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -76,13 +78,13 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Menambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
+### **Tambahkan Hyperlink URL ke Bentuk dan Bingkai Media**
 
-Untuk membuat bentuk atau bingkai dapat diklik, gunakan metode [set_HyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/shape/set_hyperlinkclick/) miliknya. Hyperlink menjadi milik objek itu sendiri, bukan bagian teks di dalamnya.
+Untuk membuat bentuk atau bingkai dapat diklik, gunakan metode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/) miliknya. Hyperlink melekat pada objek itu sendiri bukan pada bagian teks di dalamnya.
 
-Pendekatan yang sama berlaku untuk bingkai gambar, audio, dan video: tetapkan hyperlink ke bingkai dan gunakan [set_Tooltip](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_tooltip/) untuk menambahkan petunjuk bila diperlukan.
+Pendekatan yang sama berlaku untuk bingkai gambar, audio, dan video: tetapkan hyperlink ke bingkai dan gunakan [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) untuk menambahkan petunjuk bila diperlukan.
 
-Contoh berikut membuat sebuah persegi panjang dapat diklik:
+Contoh berikut membuat persegi panjang dapat diklik:
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -107,9 +109,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **Menggunakan Hyperlink untuk Membuat Daftar Isi**
+## **Gunakan Hyperlink untuk Membuat Daftar Isi**
 
-Hyperlink internal memungkinkan pembaca melompat dari daftar isi ke slide tertentu. Contoh berikut menggunakan [SetInternalHyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) untuk menautkan teks “Page 2” pada slide pertama ke slide kedua.
+Hyperlink internal memungkinkan pembaca melompat dari daftar isi ke slide tertentu. Contoh berikut menggunakan [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) untuk menautkan teks “Page 2” pada slide pertama ke slide kedua.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -164,13 +166,13 @@ tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
-## **Memformat Hyperlink**
+## **Format Hyperlink**
 
 ### **Warna**
 
-Metode [set_ColorSource](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_colorsource/) pada [IHyperlink](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau format bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/hyperlinkcolorsource/) dan atur warna isi bagian. Fitur ini diperkenalkan pada PowerPoint 2019; versi lebih lama tidak menerapkan pengaturan ini.
+Metode [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) dari [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) menentukan apakah hyperlink menggunakan warna hyperlink presentasi atau pemformatan bagian teks. Untuk menerapkan warna teks khusus, pilih [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) dan tetapkan warna isi bagian. Fitur ini diperkenalkan di PowerPoint 2019; versi lebih lama tidak menerapkan pengaturan ini.
 
-Contoh berikut menambahkan dua hyperlink teks ke slide yang sama. Hyperlink pertama menggunakan isi teks merah, sedangkan yang kedua mempertahankan warna hyperlink default.
+Contoh berikut menambahkan dua hyperlink teks ke slide yang sama. Yang pertama menggunakan isi teks berwarna merah, sementara yang kedua tetap menggunakan warna hyperlink default.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -214,14 +216,14 @@ presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
 ### **Suara**
 
-Sebuah hyperlink dapat memutar suara saat diaktifkan atau menghentikan suara yang sedang diputar. Gunakan metode berikut untuk mengonfigurasi perilaku ini:
+Hyperlink dapat memutar suara saat diaktifkan atau menghentikan suara yang sudah diputar. Gunakan metode berikut untuk mengonfigurasi perilaku ini:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_sound/) menentukan audio yang terkait dengan hyperlink.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) mengontrol apakah mengaktifkan hyperlink menghentikan suara sebelumnya.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) menentukan audio yang terkait dengan hyperlink.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) mengontrol apakah mengaktifkan hyperlink menghentikan suara sebelumnya.
 
-#### **Menambahkan Suara Hyperlink**
+#### **Tambahkan Suara Hyperlink**
 
-Contoh berikut memuat `sampleaudio.wav` dan mengaitkannya dengan tombol pada slide pertama. Mengklik tombol memutar suara dan menavigasi ke slide berikutnya. Bentuk kedua pada slide tersebut menghentikan suara sebelumnya ketika diklik, tanpa melakukan navigasi.
+Contoh berikut memuat `sampleaudio.wav` dan mengaitkannya dengan tombol pada slide pertama. Mengklik tombol memutar suara dan menavigasi ke slide berikutnya. Bentuk kedua pada slide itu menghentikan suara sebelumnya saat diklik, tanpa melakukan aksi navigasi.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -265,9 +267,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Mengekstrak Suara Hyperlink**
+#### **Ekstrak Suara Hyperlink**
 
-Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink bentuk pertama ke memori melalui [get_Sound](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_sound/) dan [get_BinaryData](https://reference.aspose.com/slides/id/cpp/aspose.slides/iaudio/get_binarydata/).
+Contoh berikut membuka presentasi yang dibuat di atas dan membaca audio hyperlink bentuk pertama ke memori melalui [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) dan [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -303,18 +305,18 @@ else
 }
 ```
 
-### **Tooltip dan Pengaturan Interaksi**
+### **Pengaturan Tooltip dan Interaksi**
 
-Anda dapat memperbarui pengaturan [IHyperlink](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/) berikut melalui metode ini setelah menetapkan hyperlink ke teks atau bentuk:
+Anda dapat memperbarui pengaturan [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) berikut melalui metode ini setelah menetapkan hyperlink ke teks atau bentuk:
 
-- [set_Tooltip](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_tooltip/) menetapkan teks yang dapat ditampilkan penonton sebagai petunjuk untuk tautan.
-- [set_TargetFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_targetframe/) menentukan bingkai target dalam rangkaian bingkai HTML induk, bila berlaku.
-- [set_History](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_history/) mengontrol apakah mengaktifkan tautan menambahkan tujuan ke daftar hyperlink yang telah dilihat.
-- [set_HighlightClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/set_highlightclick/) mengontrol apakah hyperlink disorot ketika diklik.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) mengatur teks yang dapat ditampilkan penonton sebagai petunjuk untuk tautan.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) menentukan bingkai target dalam frameset HTML induk, bila berlaku.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) mengontrol apakah mengaktifkan tautan menambahkan tujuan ke daftar hyperlink yang telah dilihat.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) mengontrol apakah hyperlink disorot saat diklik.
 
-## **Menghapus Hyperlink dari Presentasi**
+## **Hapus Hyperlink dari Presentasi**
 
-Gunakan [GetAnyHyperlinks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua jenis aktivasi dari slide pertama. Untuk menghapus hanya satu jenis, panggil hanya [RemoveHyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) atau [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); menghapus aksi klik tidak menghapus aksi mouse‑over yang bersangkutan.
+Gunakan [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) untuk mengumpulkan kontainer hyperlink, termasuk tautan bagian teks, sebelum mengubahnya. Contoh berikut menghapus kedua tipe aktivasi dari slide pertama. Untuk menghapus hanya satu tipe, panggil hanya [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) atau [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); menghapus aksi klik tidak menghapus pasangan mouse-over.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -348,23 +350,23 @@ else
 }
 ```
 
-Untuk penghapusan tanpa syarat, [RemoveAllHyperlinks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) menghapus kedua jenis aktivasi dalam lingkup yang dipilih dalam satu panggilan. Untuk pembersihan selektif dan cakupan master, tata letak, serta catatan, lihat [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Untuk penghapusan tanpa syarat, [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) menghapus kedua tipe aktivasi dalam lingkup yang dipilih dalam satu pemanggilan. Untuk pembersihan selektif dan cakupan master, tata letak, serta catatan, lihat [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).
 
-## **Membangun Inventaris Hyperlink Lengkap**
+## **Bangun Inventaris Hyperlink Lengkap**
 
-Sebelum mendistribusikan presentasi, inventarisasikan aksi interaktif serta tautan webnya. [GetAnyHyperlinks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [get_HyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) maupun [get_HyperlinkMouseOver](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) pada setiap kontainer. Mereka independen: satu kontainer dapat mengekspose kedua aksi, sehingga laporan lengkap membutuhkan hingga dua baris per kontainer.
+Sebelum mendistribusikan presentasi, inventarisasi aksi interaktifnya serta tautan webnya. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan objek [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), bukan daftar datar string URL. Periksa baik [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) maupun [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) pada setiap kontainer. Mereka independen: kontainer yang sama dapat menampilkan kedua aksi, sehingga laporan lengkap memerlukan hingga dua baris per kontainer.
 
-Pemindaian hanya pada hyperlink tingkat bentuk dapat melewatkan tautan yang terpasang pada bagian teks. Kuiri lingkup yang tepat sebagai gantinya, dan simpan kontainer yang dikembalikan sehingga Anda dapat memperbarui atau menghapus aksinya nanti.
+Memindai hanya hyperlink tingkat bentuk dapat melewatkan tautan yang terlampir pada bagian teks. Kueri lingkup yang tepat sebagai gantinya, dan simpan kontainer yang dikembalikan sehingga Anda dapat memperbarui atau menghapus aksinya nanti.
 
-### **Kuiri Lingkup Presentasi, Slide, dan Bingkai Teks**
+### **Kueri Lingkup Presentasi, Slide, dan Bingkai Teks**
 
-Antarmuka [IHyperlinkQueries](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/) tersedia melalui [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), dan [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Setiap lingkup mendukung kuiri yang sama:
+Antarmuka [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) tersedia melalui [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), dan [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Setiap lingkup mendukung kueri yang sama:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) mengembalikan kontainer dengan aksi klik.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) mengembalikan kontainer dengan aksi mouse‑over.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan kontainer dengan salah satu atau kedua aksi.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) mengembalikan kontainer dengan aksi klik.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) mengembalikan kontainer dengan aksi mouse-over.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) mengembalikan kontainer dengan salah satu atau kedua aksi.
 
-Contoh berikut membuat `hyperlink-audit-input.pptx` dengan tautan klik eksternal, tautan file mouse‑over, navigasi slide internal, tautan mouse‑over teks, dan aksi makro. Contoh tidak mengeksekusi aksi apa pun. Ketiga kuiri bekerja pada setiap lingkup; hitungan menggambarkan kontainer, bukan total aksi. Lingkup bingkai teks mengecualikan tautan milik bentuk yang membungkusnya.
+Contoh berikut membuat `hyperlink-audit-input.pptx` dengan tautan klik eksternal, tautan mouse-over file, navigasi slide internal, tautan mouse-over teks, dan aksi makro. Itu tidak mengeksekusi aksi-aksi tersebut. Ketiga kueri yang sama bekerja pada setiap lingkup; hitungan menggambarkan kontainer, bukan total aksi. Lingkup bingkai teks mengecualikan tautan milik bentuk yang menutupinya.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -419,37 +421,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Untuk contoh ini, kuiri presentasi dan slide masing‑masing melaporkan tiga kontainer klik, dua kontainer mouse‑over, dan tiga kontainer dengan salah satu aksi. Kuiri bingkai teks melaporkan satu kontainer di setiap kategori.
+Untuk contoh ini, kueri presentasi dan slide masing‑masing melaporkan tiga kontainer klik, dua kontainer mouse‑over, dan tiga kontainer dengan salah satu aksi. Kueri bingkai teks melaporkan satu kontainer di setiap kategori.
 
-### **Mengklasifikasikan Aksi dan Tujuan**
+### **Klasifikasikan Aksi dan Tujuan**
 
-Gunakan [IHyperlink::get_ActionType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_actiontype/) untuk menafsirkan aksi sebelum menafsirkan tujuan. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/id/cpp/aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
+Gunakan [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) untuk menafsirkan sebuah aksi sebelum menafsirkan tujuannya. Nilai [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) mencakup lebih dari navigasi web:
 
 | Nilai | Makna untuk audit |
 | --- | --- |
 | `Hyperlink` | Hyperlink eksternal; periksa URL dan skemanya. |
 | `JumpSpecificSlide` | Navigasi internal ke slide tertentu. |
 | `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Navigasi slideshow bawaan, diselesaikan dalam konteks slideshow. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mengakhiri tayangan saat ini atau memulai tayangan khusus. |
-| `StartMacro` | Menjalankan makro. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mengakhiri pertunjukan saat ini atau memulai pertunjukan khusus. |
+| `StartMacro` | Menjalankan macro. |
 | `StartProgram` | Meluncurkan program. |
-| `OpenFile`, `OpenPresentation` | Membuka berkas atau presentasi lain; tinjau terpisah dari URL web. |
+| `OpenFile`, `OpenPresentation` | Membuka file atau presentasi lain; tinjau terpisah dari URL web. |
 | `StartStopMedia` | Memulai atau menghentikan pemutaran media. |
-| `NoAction`, `Unknown` | Tidak ada aksi navigasi, atau aksi tidak dikenali yang memerlukan tinjauan. |
+| `NoAction`, `Unknown` | Tidak ada aksi navigasi, atau aksi tidak dikenali yang memerlukan peninjauan. |
 
-Baca tujuan eksternal melalui [get_ExternalUrl](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_externalurl/) dan tujuan internal spesifik melalui [get_TargetSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_targetslide/). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti kontainer tidak memiliki aksi. Simpan [get_ExternalUrlOriginal](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) bila berbeda dari URL ternormalkan, dan sertakan tooltip yang dikembalikan oleh [get_Tooltip](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlink/get_tooltip/) bila tersedia.
+Baca tujuan eksternal dari [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) dan tujuan internal spesifik dari [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Aksi internal dan perintah bawaan mungkin tidak memiliki URL eksternal; URL kosong tidak berarti kontainer tidak memiliki aksi. Pertahankan [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) bila berbeda dari URL yang dinormalisasi, dan sertakan tooltip yang dikembalikan oleh [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) bila tersedia.
 
 ### **Laporan, Sanitasi, dan Verifikasi Hyperlink**
 
-Contoh C++ berikut membaca presentasi yang ada (gunakan berkas yang dibuat di atas), menulis `hyperlink-audit.json`, menerapkan kebijakan, menyimpan `hyperlink-sanitized.pptx`, dan membuka kembali untuk memeriksa kembali kedua jenis aktivasi. Ia mengumpulkan kontainer sebelum mengubahnya dan menggunakan identitas pointer untuk menghindari pemrosesan kontainer yang sama dua kali. Kuiri presentasi mencakup slide biasa; untuk inventarisasi seluruh paket, ia juga secara eksplisit mengkuiri master, tata letak, catatan, serta master catatan dan handout bila ada.
+Contoh C++ berikut membaca presentasi yang ada (gunakan file yang dibuat di atas), menulis `hyperlink-audit.json`, menerapkan kebijakan, menyimpan `hyperlink-sanitized.pptx`, dan membukanya kembali untuk memeriksa kembali kedua tipe aktivasi. Ia mengumpulkan kontainer sebelum mengubahnya dan menggunakan identitas pointer untuk menghindari memproses kontainer yang sama dua kali. Kueri presentasi mencakup slide biasa; untuk inventaris seluruh paket, ia juga secara eksplisit mengkueri master, tata letak, catatan, serta master catatan dan handout bila ada.
 
-Laporan mencatat indeks slide berbasis satu dan [get_SlideId](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseslide/get_slideid/) bila tersedia. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidecomponent/get_slide/) menyediakan slide pemilik untuk kontainer yang didukung. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi oleh lingkupnya. Kontainer bentuk dan kontainer format bagian teks dilabeli terpisah; tipe kontainer lain mempertahankan nama tipe runtime mereka. Setiap kontainer mendapatkan ID laporan lokal sehingga dua aksinya dapat dikorelasikan.
+Laporan mencatat indeks slide berbasis satu dan [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) bila tersedia. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) menyediakan slide pemilik untuk kontainer yang didukung. Master, tata letak, dan catatan tidak memiliki indeks slide biasa dan diidentifikasi oleh lingkupnya. Kontainer bentuk dan kontainer format bagian teks diberi label terpisah; tipe kontainer lain mempertahankan nama tipe waktu jalan. Setiap kontainer mendapatkan ID laporan lokal sehingga dua aksinya dapat dihubungkan.
 
-Kebijakan aplikasi yang sengaja ketat ini hanya memperbolehkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak makro, program, aksi berkas, aksi slideshow lain, aksi tidak dikenal, serta skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan penilaian keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar putih host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun ternormalkan diperiksa. Contoh mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
+Kebijakan aplikasi yang sengaja restriktif ini hanya memperbolehkan URL HTTPS absolut dan target slide internal yang valid. Ia menolak macro, program, aksi file, aksi slideshow lain, aksi tidak dikenal, serta skema URL lain. Penolakan ini merupakan keputusan kebijakan, bukan penilaian keamanan Aspose.Slides. HTTPS saja tidak menjamin kepercayaan: tambahkan daftar putih host dan pemeriksaan lain untuk aplikasi Anda. Baik URL eksternal asli maupun yang dinormalisasi diperiksa. Contoh ini mengaudit metadata tanpa mengikuti tautan atau menjalankan aksi.
 
-Untuk perbaikan, [get_HyperlinkManager](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) pada kontainer mendukung [SetExternalHyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), dan [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landas HTTPS tetap; klik yang dilarang lainnya serta aksi mouse‑over yang dilarang dihapus secara independen. Tetapkan `replaceExternalClicks` ke `false` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti milik aplikasi sebelum penyebaran.
+Untuk remediasi, [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) kontainer mendukung [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/), dan [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Di sini, tautan klik eksternal yang dilarang diganti dengan halaman landas HTTPS tetap; klik yang dilarang lain serta aksi mouse‑over yang dilarang dihapus secara independen. Tetapkan `replaceExternalClicks` ke `false` untuk menghapus semua pelanggaran kebijakan. Pilih halaman pengganti milik aplikasi sebelum penerapan.
 
-Bendera ekspor laporan menggunakan kebijakan peninjauan PDF yang konservatif: beri bendera pada aksi mouse‑over dan segala sesuatu selain tautan eksternal atau loncatan slide spesifik sebagai potensi tidak didukung. Ini merupakan petunjuk peninjauan, bukan uji kemampuan atau jaminan bahwa tautan yang tidak diberi bendera akan tetap ada setelah ekspor. Ekspor PDF dan HTML yang didukung ([PDF](/slides/id/cpp/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/cpp/convert-powerpoint-to-html/)) mungkin mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. Raster [image](/slides/id/cpp/convert-powerpoint-to-png/) dan [video](/slides/id/cpp/convert-powerpoint-to-video/) tidak dapat mempertahankan hyperlink interaktif; beri bendera pada setiap aksi saat mengaudit output tersebut.
+Bendera ekspor laporan menggunakan kebijakan peninjauan PDF yang konservatif: beri bendera aksi mouse‑over dan apa pun selain tautan eksternal atau lompat slide spesifik sebagai potensi tidak didukung. Itu merupakan petunjuk peninjauan, bukan tes kemampuan atau jaminan bahwa tautan yang tidak diberi bendera akan bertahan dalam ekspor. Ekspor [PDF](/slides/id/cpp/convert-powerpoint-to-pdf/) dan [HTML](/slides/id/cpp/convert-powerpoint-to-html/) yang didukung dapat mempertahankan hyperlink, tergantung pada aksi, opsi ekspor, dan penampil. Gambar [raster](/slides/id/cpp/convert-powerpoint-to-png/) dan [video](/slides/id/cpp/convert-powerpoint-to-video/) tidak dapat mempertahankan hyperlink interaktif; beri bendera setiap aksi saat mengaudit output tersebut.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -650,20 +652,20 @@ if (violations != 0)
 }
 ```
 
-Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse‑over berkas dan klik makro dihapus, sementara tautan HTTPS serta navigasi slide internal tetap. Verifikasi mencetak nol aksi yang dilarang. Input yang berisi URL klik eksternal yang dilarang juga menguji cabang penggantian. Kontainer dengan klik diizinkan dan mouse‑over terlarang tetap mempertahankan aksi kliknya.
+Dengan input yang dibuat di atas, laporan berisi lima baris aksi. Tautan mouse‑over file dan klik macro dihapus, sementara tautan HTTPS dan navigasi slide internal tetap. Verifikasi mencetak nol aksi yang dilarang. Input yang berisi URL klik eksternal yang dilarang juga menguji jalur penggantian. Kontainer dengan klik yang diizinkan dan mouse‑over yang dilarang mempertahankan aksi kliknya.
 
-Pembersihan selektif ini berbeda dari [RemoveAllHyperlinks](https://reference.aspose.com/slides/id/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), yang menghapus kedua jenis aktivasi di seluruh lingkup yang dipilih tanpa mempedulikan kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; tidak menghapus proyek VBA yang tertanam, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi berkas PDF atau HTML yang diekspor.
+Pembersihan selektif ini berbeda dari [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), yang menghapus kedua tipe aktivasi di seluruh lingkup terpilih tanpa memperhatikan kebijakan. Verifikasi di sini hanya memeriksa aksi hyperlink; tidak menghapus proyek VBA tertanam, objek OLE, atau konten aktif lainnya, dan tidak memvalidasi file PDF atau HTML yang diekspor.
 
 ## **FAQ**
 
-**Bagaimana cara menautkan ke sebuah seksi atau slide pertamanya?**
+**Bagaimana saya dapat menautkan ke sebuah seksi atau slide pertamanya?**
 
-Seksi di PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan slide individu. Untuk membuat navigasi ke sebuah seksi, tautkan ke slide pertama dalam seksi tersebut.
+Seksi di PowerPoint mengelompokkan slide, tetapi hyperlink internal menargetkan slide individual. Untuk membuat navigasi ke sebuah seksi, tautkan ke slide pertama dalam seksi tersebut.
 
-**Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi di semua slide?**
+**Apakah saya dapat menempelkan hyperlink pada elemen master slide sehingga berfungsi pada semua slide?**
 
-Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen ini tersedia selama slideshow pada slide yang menggunakan master atau tata letak yang bersangkutan.
+Ya. Elemen master slide dan tata letak mendukung hyperlink. Tautan pada elemen ini tersedia selama pertunjukan slide pada slide yang menggunakan master atau tata letak yang bersangkutan.
 
 **Apakah hyperlink akan dipertahankan saat mengekspor ke PDF, HTML, gambar, atau video?**
 
-Ekspor PDF dan HTML yang didukung mungkin mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor dalam [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Ekspor PDF dan HTML yang didukung mungkin mempertahankan hyperlink; gambar raster dan video tidak dapat. Lihat pertimbangan ekspor dalam [Laporan, Sanitasi, dan Verifikasi Hyperlink](#report-sanitize-and-verify-hyperlinks).

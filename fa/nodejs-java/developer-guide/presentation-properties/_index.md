@@ -1,21 +1,21 @@
 ---
-title: مدیریت ویژگی‌های ارائه در جاوااسکریپت
-linktitle: ویژگی‌های ارائه
+title: مدیریت خواص ارائه در JavaScript
+linktitle: خواص ارائه
 type: docs
 weight: 70
 url: /fa/nodejs-java/presentation-properties/
 keywords:
-- ویژگی‌های PowerPoint
-- ویژگی‌های ارائه
-- ویژگی‌های سند
-- ویژگی‌های درون‌ساخته
-- ویژگی‌های سفارشی
-- ویژگی‌های پیشرفته
-- مدیریت ویژگی‌ها
-- اصلاح ویژگی‌ها
-- متادیتای سند
-- ویرایش متادیتا
-- زبان اصلاحیه
+- خواص PowerPoint
+- خواص ارائه
+- خواص سند
+- خواص داخلی
+- خواص سفارشی
+- خواص پیشرفته
+- مدیریت خواص
+- تغییر خواص
+- فراداده سند
+- ویرایش فراداده
+- زبان تصحیح
 - زبان پیش‌فرض
 - PowerPoint
 - OpenDocument
@@ -23,56 +23,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "در Aspose.Slides برای Node.js via Java، ویژگی‌های ارائه را به‌طور کامل مدیریت کنید و جستجو، برندسازی و جریان کار را در فایل‌های PowerPoint و OpenDocument خود ساماندهی کنید."
+description: "بهینه‌سازی خواص ارائه در Aspose.Slides برای Node.js از طریق Java و ساده‌سازی جستجو، برندینگ و گردش کار در فایل‌های PowerPoint و OpenDocument شما."
 ---
-## **مقدمه**
+## **معرفی**
 
-Aspose.Slides دو نوع ویژگی سند را پشتیبانی می‌کند: **Built-in** و **Custom**. هر دو این نوع ویژگی‌ها می‌توانند به راحتی با استفاده از API Aspose.Slides دسترسی و مدیریت شوند.
+Aspose.Slides برای Node.js از طریق Java از **درون‌ساز** و **سفارشی** خواص اسناد پشتیبانی می‌کند. از این خواص برای خواندن و به‌روزرسانی فرادادهٔ ارائه‌نامه، مانند نویسنده، عنوان و مقادیر تعریف‌شده توسط کاربر استفاده کنید.
 
-Aspose.Slides به شما امکان می‌دهد تا با ویژگی‌های سند ارائه از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties/) کار کنید. یک نمونه از این کلاس توسط متد [Presentation.getDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getDocumentProperties) بازگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این ویژگی‌ها را بخوانید، اصلاح کنید و مدیریت کنید.
+Aspose.Slides به شما امکان کار با خواص اسناد ارائه را از طریق کلاس [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) فراهم می‌کند. یک نمونه از این کلاس توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) برگردانده می‌شود. مثال‌های زیر نشان می‌دهند چگونه این خواص را بخوانید، تغییر دهید و مدیریت کنید.
 
 {{% alert color="info" title="Note" %}}
-لطفاً توجه داشته باشید که فیلدهای **Application** و **AppVersion** قابل تغییر نیستند. Aspose.Slides در هر بار ذخیره آنها را بازنویسی می‌کند، بنابراین یک ارائهٔ ذخیره‌شده همیشه گزارش می‌دهد «Aspose.Slides for Node.js via Java» و نسخهٔ کتابخانه‌ای که آن را تولید کرده است. هر مقداری که به `setNameOfApplication` پاس داده شود هنگام نوشتن ارائه نادیده گرفته می‌شود.
-{{% /alert %}} 
+Aspose.Slides هنگام ذخیرهٔ ارائه‌ها، فرادادهٔ برنامه و تولیدکننده را مدیریت می‌کند؛ این فیلدها نرم‌افزاری که خروجی را ایجاد کرده است شناسایی می‌کنند.
+{{% /alert %}}
 
-## **مدیریت ویژگی‌های ارائه**
+## **مدیریت خواص ارائه**
 
-Microsoft PowerPoint ویژگی‌ای برای افزودن برخی ویژگی‌ها به فایل‌های ارائه ارائه می‌دهد. این ویژگی‌های سند اجازه می‌دهند اطلاعات مفیدی همراه با اسناد (فایل‌های ارائه) ذخیره شود. دو نوع ویژگی سند به شرح زیر وجود دارد
+خواص اسناد اطلاعات توصیفی را همراه با محتوای ارائه ذخیره می‌کنند. آنها به دو دسته تقسیم می‌شوند:
 
-- ویژگی‌های تعریف‌شده توسط سیستم (Built-in)
-- ویژگی‌های تعریف‌شده توسط کاربر (Custom)
+- **خواص داخلی** شامل فرادادهٔ استاندارد هستند، مانند عنوان، نویسنده و آمار سند.
+- **خواص سفارشی** جفت‌های نام/مقدار تعریف‌شده توسط کاربر را ذخیره می‌کنند.
 
-**Built-in** ویژگی‌های کلی دربارهٔ سند مانند عنوان سند، نام نویسنده، آمار سند و غیره را شامل می‌شود. **Custom** ویژگی‌هایی هستند که توسط کاربران به صورت جفت‌های **Name/Value** تعریف می‌شوند، به طوری که هم نام و هم مقدار توسط کاربر تعیین می‌شود. با استفاده از Aspose.Slides for Node.js via Java، توسعه‌دهندگان می‌توانند به مقادیر ویژگی‌های درون‌ساخته و سفارشی دسترسی پیدا کنند و آنها را اصلاح کنند.
+Aspose.Slides برای Node.js از طریق Java دسترسی به هر دو دسته را فراهم می‌کند. در PowerPoint، برای بررسی فرادادهٔ سند، **File → Info → Properties → Advanced Properties** را انتخاب کنید. این گفت‌وگو اطلاعات را در برگه‌هایی مانند **Summary**، **Statistics**، **Contents** و **Custom** دسته‌بندی می‌کند. برای مدیریت خواص تعریف‌شده توسط کاربر، از برگهٔ **Custom** استفاده کنید.
 
-## **ویژگی‌های سند در PowerPoint**
+## **خواندن خواص عمومی از یک ارائهٔ رمزگذاری‌شده**
 
-Microsoft PowerPoint 2007 امکان مدیریت ویژگی‌های سند فایل‌های ارائه را فراهم می‌کند. برای این کار کافی است روی نماد Office کلیک کنید و سپس گزینهٔ **Prepare | Properties | Advanced Properties** منوی Microsoft PowerPoint 2007 را همان‌طور که در زیر نشان داده شده است انتخاب کنید:
+رمز عبور باز کردن به‌طور معمول محتوای ارائه و خواص اسناد را محافظت می‌کند. وقتی ارائه پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) با مقدار `false` رمزگذاری شود، خواص اسناد آن به‌صورت عمومی باقی می‌مانند. سپس یک برنامه می‌تواند [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) را با مقدار `true` فراخوانی کند و فرادادهٔ عمومی را بدون ارائهٔ رمز عبور باز کردن بخواند.
 
-|**انتخاب گزینهٔ Advanced Properties**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) کنترل می‌کند Aspose.Slides چه چیزی را بارگذاری می‌کند؛ هیچ چیزی را رمزگشایی نمی‌کند. اگر خواص در رمزگذاری گنجانده شوند، بارگذاری آنها بدون رمز عبور شکست می‌خورد. اگر ارائه رمزگذاری نشده باشد، گزینه نادیده گرفته می‌شود و ارائهٔ کامل بارگذاری می‌شود.
 
-پس از انتخاب گزینهٔ **Advanced Properties**، دیالوگی ظاهر می‌شود که امکان مدیریت ویژگی‌های سند فایل PowerPoint را همان‌طور که در شکل زیر نشان داده شده است، فراهم می‌کند:
-
-|**دیالوگ ویژگی‌ها**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-
-در **دیالوگ ویژگی‌ها** بالا، می‌توانید ببینید که چندین صفحهٔ برگه مانند **General**، **Summary**، **Statistics**، **Contents** و **Custom** وجود دارد. همه این برگه‌ها امکان پیکربندی انواع مختلف اطلاعات مرتبط با فایل‌های PowerPoint را فراهم می‌کنند. برگهٔ **Custom** برای مدیریت ویژگی‌های سفارشی فایل‌های PowerPoint استفاده می‌شود.
-
-## **کار با ویژگی‌های سند با استفاده از Aspose.Slides for Node.js via Java**
-
-همان‌طور که قبلاً توضیح دادیم Aspose.Slides برای Node.js via Java از دو نوع ویژگی سند پشتیبانی می‌کند که **Built-in** و **Custom** هستند. بنابراین، توسعه‌دهندگان می‌توانند به هر دو نوع ویژگی با استفاده از API Aspose.Slides برای Node.js via Java دسترسی داشته باشند. Aspose.Slides برای Node.js via Java یک کلاس به نام [DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties) ارائه می‌دهد که ویژگی‌های سند مرتبط با یک فایل ارائه را از طریق ویژگی **Presentation.DocumentProperties** نشان می‌دهد.
-
-توسعه‌دهندگان می‌توانند از ویژگی **DocumentProperties** که توسط شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation) در دسترس است، برای دسترسی به ویژگی‌های سند فایل‌های ارائه همان‌طور که در ادامه توضیح داده شده است، استفاده کنند:
-
-## **خواندن ویژگی‌های عمومی از یک ارائهٔ رمزگذاری شده**
-
-یک رمز عبور باز کردن معمولاً محتوای ارائه و ویژگی‌های سند را محافظت می‌کند. وقتی یک ارائه با عبور `false` به [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) رمزگذاری می‌شود، ویژگی‌های سند آن عمومی می‌مانند. سپس یک برنامه می‌تواند `true` را به [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) پاس دهد و متادیتای عمومی را بدون وارد کردن رمز عبور باز کردن بخواند.
-
-گزینهٔ بارگذاری فقط‑ویژگی‌های‑سند، آنچه Aspose.Slides بارگذاری می‌کند را کنترل می‌کند؛ هیچ چیزی را رمزگشایی نمی‌کند. اگر این ویژگی‌ها در رمزنگاری گنجانده شوند، بارگذاری آنها بدون رمز عبور ناموفق می‌شود. اگر ارائه رمزگذاری شده نباشد، این گزینه نادیده گرفته می‌شود و کل ارائه بارگذاری می‌شود.
-
-مثال زیر حالت بارگذاری را از طریق [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) بررسی می‌کند و سپس ویژگی‌های درون‌ساخته را از طریق [Presentation.getDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getDocumentProperties) می‌خواند:
+این مثال به ارائهٔ رمزگذاری‌شده‌ای نیاز دارد که خواص اسناد آن عمومی باقی مانده باشد. حالت بارگذاری را از طریق [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) تأیید می‌کند و سپس خواص داخلی را از طریق [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) می‌خواند:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -83,11 +61,11 @@ loadOptions.setOnlyLoadDocumentProperties(true);
 const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
 try {
     if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
-        const properties = presentation.getDocumentProperties();
+        const documentProperties = presentation.getDocumentProperties();
 
-        console.log("Author: " + properties.getAuthor());
-        console.log("Title: " + properties.getTitle());
-        console.log("Keywords: " + properties.getKeywords());
+        console.log("Author: " + documentProperties.getAuthor());
+        console.log("Title: " + documentProperties.getTitle());
+        console.log("Keywords: " + documentProperties.getKeywords());
     } else {
         console.log("The presentation was not loaded in document-properties-only mode.");
     }
@@ -96,17 +74,17 @@ try {
 }
 ```
 
-در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، مسترها، چیدمان‌ها، شکل‌ها، رسانه‌ها و سایر اشیای ارائه در دسترس نیستند. برنامه‌ها باید قبل از انجام عملیاتی که به مدل کامل شیء ارائه نیاز دارد، همیشه [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) را بررسی کنند.
+در این حالت، محتوای اسلاید بارگذاری نمی‌شود. اسلایدها، استادان (masters)، طرح‌ها (layouts)، اشکال، رسانه و سایر اشیاء ارائه در دسترس نیستند. برنامه‌ها باید همیشه قبل از انجام عملی که به مدل شیء کامل ارائه نیاز دارد، [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) را بررسی کنند.
 
 {{% alert color="warning" title="Warning" %}}
-متادیتای عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلیدواژه‌ها، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. ویژگی‌های حساس را به همراه ارائه رمزگذاری کنید. فقط زمانی که سیستم‌های نمایه‌سازی، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی بدون رمز عبور داشته باشند، آنها را عمومی بگذارید.
+فرادادهٔ عمومی ممکن است نام نویسندگان، عناوین، موضوعات، کلمات کلیدی، اطلاعات شرکت، نظرات و مقادیر سفارشی را فاش کند. خواص حساس را همراه با ارائه رمزگذاری کنید. آنها را عمومی بگذارید فقط زمانی که سیستم‌های ایندکس‌گذاری، طبقه‌بندی، جستجو یا مدیریت سند نیاز خاصی به دسترسی بدون رمز عبور داشته باشند.
 {{% /alert %}}
 
-## **به‌روزرسانی ویژگی‌های یک ارائهٔ رمزگذاری شده**
+## **به‌روزرسانی خواص یک ارائهٔ رمزگذاری‌شده**
 
-برای یک فایل PPTX رمزگذاری‌شده، یک ارائه که در حالت فقط‑ویژگی‌های‑سند بارگذاری شود برای خواندن متادیتای عمومی منظور شده است. Aspose.Slides نمی‌تواند ویژگی‌های تغییر یافته را از آن شیء فقط‑متادیتا ذخیره کند، زیرا ویژگی‌های عمومی باید با داده‌های متناظر داخل ارائهٔ رمزگذاری شده هم‌خوانی داشته باشند. بنابراین به‌روزرسانی آنها نیاز به رمز عبور باز کردن صحیح و بارگذاری کامل دارد.
+برای فایل PPTX رمزگذاری‌شده، ارائه‌ای که پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) با `true` بارگذاری می‌شود، برای خواندن فرادادهٔ عمومی در نظر گرفته شده است. Aspose.Slides نمی‌تواند خواص تغییر یافته را از آن شیء تنها‑متادیتا ذخیره کند، زیرا خواص عمومی باید با داده‌های مربوطه داخل ارائهٔ رمزگذاری‌شده هم‌خوانی داشته باشند. به‌روزرسانی آنها بنابراین به رمز عبور صحیح باز کردن و بارگذاری کامل نیاز دارد.
 
-مثال زیر ارائه را با [LoadOptions.setPassword](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setPassword) باز می‌کند، ویژگی‌های عمومی درون‌ساخته را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌نماید. سپس با استفاده از [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/#isEncrypted) صحت رمزنگاری را بررسی می‌کند و متادیتای عمومی را بدون رمز عبور دوباره باز می‌کند تا مقادیر جدید را تأیید کند:
+این مثال به ارائهٔ PPTX رمزگذاری‌شده‌ای نیاز دارد که خواص اسناد عمومی داشته باشد و رمز عبور باز کردن شناخته‌شده‌ای داشته باشد. ابتدا ارائهٔ کامل را با استفاده از [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword) باز می‌کند، خواص داخلی عمومی را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌کند. سپس با استفاده از [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) تأیید می‌کند که رمزگذاری حفظ شده و فرادادهٔ عمومی را بدون رمز عبور باز می‌کند تا مقادیر جدید را بررسی کند:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -119,8 +97,10 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation(inputPath, loadOptions);
 try {
-    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
-    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    const documentProperties = presentation.getDocumentProperties();
+    documentProperties.setTitle("Updated Product Roadmap");
+    documentProperties.setKeywords("roadmap, planning, indexed");
+    
     presentation.save(outputPath, slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -145,327 +125,175 @@ try {
 }
 ```
 
-اگر یک برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید ویژگی‌های عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
+اگر برنامه اجازهٔ رمزگشایی یا بارگذاری محتوای ارائه را نداشته باشد، باید خواص عمومی یک فایل PPTX رمزگذاری‌شده را به‌عنوان فقط‑خواندنی در نظر بگیرد.
 
-## **دسترسی به ویژگی‌های درون‌ساخته**
+## **دسترسی به خواص داخلی**
 
-این ویژگی‌ها که توسط شیء [DocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties) افشا می‌شوند شامل: **Creator** (Author)، **Description**، **Keywords**، **Created** (Creation Date)، **Modified** (Modification Date)، **Printed** (Last Print Date)، **LastModifiedBy**، **SharedDoc** (آیا بین تولیدکنندگان مختلف به اشتراک گذاشته شده؟)، **PresentationFormat**، **Subject** و **Title** می‌باشند.
+کلاس [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) فرادادهٔ داخلی را از طریق متدهای getter مانند [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor)، [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) و [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime) در اختیار می‌گذارد. این مثال یک ارائهٔ موجود را باز می‌کند و فرادادهٔ ذخیره‌شدهٔ آن را در کنسول چاپ می‌کند. مقادیر بسته به ارائهٔ ورودی متفاوت هستند؛ برخی فیلدها ممکن است خالی باشند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// نمونه‌سازی کلاس Presentation که نمایانگر ارائه است
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessBuiltInProperties.pptx");
 try {
-    // ایجاد یک ارجاع به شیء IDocumentProperties مربوط به Presentation
-    var dp = pres.getDocumentProperties();
-    // نمایش ویژگی‌های درون‌ساخته
-    console.log("Category : " + dp.getCategory());
-    console.log("Current Status : " + dp.getContentStatus());
-    console.log("Creation Date : " + dp.getCreatedTime());
-    console.log("Author : " + dp.getAuthor());
-    console.log("Description : " + dp.getComments());
-    console.log("KeyWords : " + dp.getKeywords());
-    console.log("Last Modified By : " + dp.getLastSavedBy());
-    console.log("Supervisor : " + dp.getManager());
-    console.log("Modified Date : " + dp.getLastSavedTime());
-    console.log("Presentation Format : " + dp.getPresentationFormat());
-    console.log("Last Print Date : " + dp.getLastPrinted());
-    console.log("Is Shared between producers : " + dp.getSharedDoc());
-    console.log("Subject : " + dp.getSubject());
-    console.log("Title : " + dp.getTitle());
+    const documentProperties = presentation.getDocumentProperties();
+
+    console.log("Category: " + documentProperties.getCategory());
+    console.log("Content status: " + documentProperties.getContentStatus());
+    console.log("Creation date: " + documentProperties.getCreatedTime());
+    console.log("Author: " + documentProperties.getAuthor());
+    console.log("Comments: " + documentProperties.getComments());
+    console.log("Keywords: " + documentProperties.getKeywords());
+    console.log("Last modified by: " + documentProperties.getLastSavedBy());
+    console.log("Manager: " + documentProperties.getManager());
+    console.log("Modified date: " + documentProperties.getLastSavedTime());
+    console.log("Presentation format: " + documentProperties.getPresentationFormat());
+    console.log("Last print date: " + documentProperties.getLastPrinted());
+    console.log("Is shared between producers: " + documentProperties.getSharedDoc());
+    console.log("Subject: " + documentProperties.getSubject());
+    console.log("Title: " + documentProperties.getTitle());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **اصلاح ویژگی‌های درون‌ساخته**
+## **تغییر خواص داخلی**
 
-اصلاح ویژگی‌های درون‌ساختهٔ فایل‌های ارائه به سادگی همانند دسترسی به آنهاست. می‌توانید به سادگی مقدار رشته‌ای را به هر ویژگی مورد نظر اختصاص دهید و مقدار ویژگی تغییر خواهد کرد. در مثال زیر نشان داده‌ایم چگونه می‌توان ویژگی‌های درون‌ساختهٔ سند ارائه را با استفاده از Aspose.Slides for Node.js via Java اصلاح کرد.
+برای به‌روزرسانی فرادادهٔ داخلی، از متدهای setter روی شیء بازگردانده‌شده توسط [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) استفاده کنید. این مثال یک ارائهٔ موجود را باز می‌کند، [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor)، [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) و [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager) را فراخوانی می‌کند، سپس ارائهٔ به‌روزرسانی‌شده را با [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save) ذخیره می‌کند. فایل PPTX ذخیره‌شده حاوی متادیتای جدید خواهد بود.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("ModifyBuiltInProperties.pptx");
 try {
-    // ایجاد یک ارجاع به شیء IDocumentProperties مرتبط با Presentation
-    var dp = pres.getDocumentProperties();
-    // تنظیم ویژگی‌های درون‌ساخته
-    dp.setAuthor("Aspose.Slides for Node.js via Java");
-    dp.setTitle("Modifying Presentation Properties");
-    dp.setSubject("Aspose Subject");
-    dp.setComments("Aspose Description");
-    dp.setManager("Aspose Manager");
-    // ذخیرهٔ ارائهٔ خود به یک فایل
-    pres.save("DocProps.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.setAuthor("Aspose.Slides for Node.js via Java");
+    documentProperties.setTitle("Manage PowerPoint Presentation Properties");
+    documentProperties.setSubject("Modify Built-in Properties");
+    documentProperties.setComments("Aspose description");
+    documentProperties.setManager("Aspose manager");
+
+    presentation.save("DocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-این مثال ویژگی‌های درون‌ساختهٔ ارائه را که می‌توانید همان‌طور که در زیر آمده است مشاهده کنید، اصلاح می‌کند:
+## **مدیریت مبنای پیوند (Hyperlink Base)**
 
-|**ویژگی‌های سند درون‌ساخته پس از اصلاح**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) مبنای سطری سند برای پیوندهای نسبی را برمی‌گرداند. برای تغییر یا پاک کردن آن از [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) استفاده کنید. این ویژگی هنگام جابجایی ارائه و فایل‌های مرتبط به مکان دیگری مفید است. این مورد متفاوت از [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) یک پیوند تک‌تک است: تغییر مبنا آدرس‌های ذخیره‌شدهٔ پیوندها را بازنویسی نمی‌کند و مقصدهای مطلق را تغییر نمی‌دهد.
 
-## **افزودن ویژگی‌های سند سفارشی**
-
-Aspose.Slides for Node.js via Java همچنین به توسعه‌دهندگان اجازه می‌دهد مقادیر سفارشی برای ویژگی‌های سند ارائه اضافه کنند. مثال زیر نشان می‌دهد چگونه ویژگی‌های سفارشی را برای یک ارائه تنظیم کنیم.
+این مثال به ارائه‌ای نیاز دارد که هم پیوند نسبی مانند `target.html` و هم پیوند مطلق مانند `https://example.org/absolute.html` داشته باشد. مبنای موجود را می‌خواند، مبنای جدیدی اختصاص می‌دهد و برای بررسی مقدار، ارائه را ذخیره و دوباره باز می‌کند. سپس مبنا را با رشتهٔ خالی پاک می‌کند و مقدار خالی را در فایل ذخیره‌شدهٔ جداگانه تأیید می‌کند. آدرس مبنای مثال را با موقعیت فایل‌های پیوندی خود جایگزین کنید.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("hyperlinks.pptx");
 try {
-    // دریافت ویژگی‌های سند
-    var dProps = pres.getDocumentProperties();
-    // افزودن ویژگی‌های سفارشی
-    dProps.set_Item("New Custom", 12);
-    dProps.set_Item("My Name", "Mudassir");
-    dProps.set_Item("Custom", 124);
-    // دریافت نام ویژگی در اندیس مشخص
-    var getPropertyName = dProps.getCustomPropertyName(2);
-    // حذف ویژگی انتخاب‌شده
-    dProps.removeCustomProperty(getPropertyName);
-    // ذخیره‌سازی ارائه
-    pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    console.log("Original base: " + presentation.getDocumentProperties().getHyperlinkBase());
+
+    const newBase = "https://example.com/new/";
+    presentation.getDocumentProperties().setHyperlinkBase(newBase);
+    presentation.save("hyperlinks-updated.pptx", slides.SaveFormat.Pptx);
+
+    const updatedPresentation = new slides.Presentation("hyperlinks-updated.pptx");
+    try {
+        console.log("Base preserved: " + (newBase === updatedPresentation.getDocumentProperties().getHyperlinkBase()));
+
+        updatedPresentation.getDocumentProperties().setHyperlinkBase("");
+        updatedPresentation.save("hyperlinks-cleared.pptx", slides.SaveFormat.Pptx);
+
+        const clearedPresentation = new slides.Presentation("hyperlinks-cleared.pptx");
+        try {
+            console.log("Base cleared: " + ("" === clearedPresentation.getDocumentProperties().getHyperlinkBase()));
+        } finally {
+            clearedPresentation.dispose();
+        }
+    } finally {
+        updatedPresentation.dispose();
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-|**ویژگی‌های سند سفارشی افزوده شده**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+دو پیام تأیید باید `true` چاپ کنند. پاک کردن مبنا آدرس‌های پیوندهای تک‌تک را دست‌نخورده می‌گذارد.
 
-## **دسترسی و اصلاح ویژگی‌های سفارشی**
+یک پیوند نسبی به `target.pptx` زمانی که مبنا به پوشهٔ `old` اشاره می‌کرد، `old/target.pptx` را باز می‌کرد. پس از تغییر مبنا به پوشهٔ `new`، ذخیره و باز کردن مجدد ارائه، همان پیوند `new/target.pptx` را باز می‌کرد. یک پیوند مطلق همچنان همان فایل را باز می‌کرد. پیوندهای نسبی خود را در PowerPoint قبل و بعد از جابجایی ارائه یا تغییر مبنا تست کنید.
 
-Aspose.Slides for Node.js via Java همچنین به توسعه‌دهندگان اجازه می‌دهد به مقادیر ویژگی‌های سفارشی دسترسی پیدا کنند. مثال زیر نشان می‌دهد چگونه می‌توانید تمام این ویژگی‌های سفارشی یک ارائه را دسترسی و اصلاح کنید.
+## **افزودن خواص سفارشی به ارائه**
+
+خواص سفارشی فراداده‌ای را ذخیره می‌کنند که فیلد داخلی متناظر ندارند. متد [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) به شما امکان می‌دهد مقدار را بر اساس نام خاصیت اختصاص دهید. این مثال یک ارائه ایجاد می‌کند، دو مقدار متنی و یک مقدار عددی نسخه را اضافه می‌کند و ارائه را با [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save) ذخیره می‌کند. اختصاص مقدار به یک نام موجود، مقدار آن خاصیت را جایگزین می‌کند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation();
 try {
-    // ایجاد یک ارجاع به شیء DocumentProperties مرتبط با Presentation
-    var dp = pres.getDocumentProperties();
-    // دسترسی و اصلاح ویژگی‌های سفارشی
-    for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // نمایش نام‌ها و مقادیر ویژگی‌های سفارشی
-        console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
-        console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-        // اصلاح مقادیر ویژگی‌های سفارشی
-        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
-    }
-    // ذخیرهٔ ارائهٔ شما به یک فایل
-    pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.set_Item("Reviewed by", "John Smith");
+    documentProperties.set_Item("Confidentiality level", "Internal");
+    documentProperties.set_Item("Document version", 2);
+
+    presentation.save("CustomDocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-این مثال ویژگی‌های سفارشی پرونده [PPTX](https://docs.fileformat.com/presentation/pptx/) را اصلاح می‌کند. شکل‌های زیر ویژگی‌های سفارشی ارائه را قبل و بعد از اصلاح نشان می‌دهند:
+## **دسترسی و تغییر خواص سفارشی**
 
-|**ویژگی‌های سفارشی قبل از اصلاح**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
-|**ویژگی‌های سفارشی پس از اصلاح**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
-
-## **ویژگی‌های سند پیشرفته**
-
-{{% alert color="info" title="Note" %}}
-متدهای جدید [ReadDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--)، [UpdateDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-)، و [WriteBindedPresentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-) به [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo) اضافه شده‌اند، منطق setter ویژگی [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-) تغییر یافته است.
-{{% /alert %}} 
-
-دو متد جدید [ReadDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--) و [UpdateDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-) به کلاس [PresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/PresentationInfo) اضافه شده‌اند. این متدها دسترسی سریع به ویژگی‌های سند را فراهم می‌کند و اجازه می‌دهد بدون بارگذاری کل ارائه، ویژگی‌ها را تغییر و به‌روزرسانی کنید.
-
-سناریوی معمول بارگذاری ویژگی‌ها، تغییر مقداری و به‌روزرسانی سند می‌تواند به شکل زیر پیاده‌سازی شود:
+این مثال یک ارائه حاوی خواص سفارشی را باز می‌کند و از [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) برای پیمایش آن‌ها استفاده می‌نماید. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) یک ایندکس صفر‑مبنا می‌گیرد و نامی را برمی‌گرداند که توسط [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) استفاده می‌شود. مثال هر نام و مقدار اصلی را چاپ می‌کند، هر مقدار را با رشته‌ای شماره‌دار جایگزین می‌کند، صرف‌نظر از نوع اصلی آن، و تغییرات را ذخیره می‌کند. اگر هیچ خاصیت سفارشی‌ای وجود نداشته باشد، حلقه هیچ تغییری اعمال نمی‌کند.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// اطلاعات ارائه را بخوانید
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-var props = info.readDocumentProperties();
-props.setAuthor("New Author");
-props.setTitle("New Title");
-info.updateDocumentProperties(props);
-info.writeBindedPresentation("presentation.pptx");
-```
-
-راه دیگری برای استفاده از ویژگی‌های یک ارائه خاص به عنوان الگو برای به‌روزرسانی ویژگی‌ها در ارائه‌های دیگر وجود دارد:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-var template = info.readDocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-یک الگوی جدید می‌تواند از ابتدا ایجاد شود و سپس برای به‌روزرسانی چندین ارائه استفاده گردد:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var template = new aspose.slides.DocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-## **تنظیم زبان اصلاحیه**
-
-Aspose.Slides ویژگی LanguageId (که توسط کلاس PortionFormat افشا می‌شود) را فراهم می‌کند تا بتوانید زبان اصلاحیه را برای یک سند PowerPoint تنظیم کنید. زبان اصلاحیه زبانی است که املا و گرامر در PowerPoint برای آن بررسی می‌شود.
-
-این کد JavaScript نشان می‌دهد چگونه زبان اصلاحیه را برای یک PowerPoint تنظیم کنید: xxx چرا LanguageId در کلاس JavaScript PortionFormat موجود نیست؟
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessAndModifyProperties.pptx");
 try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
-    var newPortion = new aspose.slides.Portion();
-    var font = new aspose.slides.FontData("SimSun");
-    var portionFormat = newPortion.getPortionFormat();
-    portionFormat.setComplexScriptFont(font);
-    portionFormat.setEastAsianFont(font);
-    portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// set the Id of a proofing language
-    newPortion.setText("1。");
-    paragraph.getPortions().add(newPortion);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const documentProperties = presentation.getDocumentProperties();
+
+    for (let i = 0; i < documentProperties.getCountOfCustomProperties(); i++) {
+        const propertyName = documentProperties.getCustomPropertyName(i);
+        const propertyValue = documentProperties.get_Item(propertyName);
+
+        console.log("Custom property name: " + propertyName);
+        console.log("Custom property value: " + propertyValue);
+
+        documentProperties.set_Item(propertyName, "New Value " + (i + 1));
     }
-}
-```
 
-## **تنظیم زبان پیش‌فرض**
-
-این کد JavaScript نشان می‌دهد چگونه زبان پیش‌فرض را برای یک ارائهٔ PowerPoint کامل تنظیم کنید:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDefaultTextLanguage("en-US");
-var pres = new aspose.slides.Presentation(loadOptions);
-try {
-    // افزودن یک شکل مستطیلی جدید با متن
-    var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("New Text");
-    // بررسی زبان اولین قسمت
-    console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+    presentation.save("CustomProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **مثال زنده**
 
-برای مشاهدهٔ نحوه کار با ویژگی‌های سند از طریق Aspose.Slides API، برنامه آنلاین [**Aspose.Slides Metadata**](https://products.aspose.app/slides/fa/metadata) را امتحان کنید:
+اپلیکیشن آنلاین [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) را امتحان کنید تا ببینید چگونه با استفاده از API Aspose.Slides با خواص اسناد کار می‌کنید:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/fa/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**چگونه می‌توان یک ویژگی درون‌ساخته را از یک ارائه حذف کرد؟**
+**چگونه می‌توان یک خاصیت داخلی را از یک ارائه حذف کرد؟**
 
-ویژگی‌های درون‌ساخته بخشی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را به‌طور کامل حذف کرد. با این حال می‌توانید مقادیر آنها را تغییر دهید یا در صورت امکان به مقدار خالی تنظیم کنید.
+خواص داخلی جزئی جدایی‌ناپذیر از ارائه هستند و نمی‌توان آنها را کاملاً حذف کرد. اما می‌توانید مقدارشان را تغییر دهید یا در صورت امکان به مقدار خالی تنظیم کنید.
 
-**اگر یک ویژگی سفارشی که قبلاً وجود داشته باشد اضافه کنم چه اتفاقی می‌افتد؟**
+**اگر یک خاصیت سفارشی که از قبل وجود دارد را اضافه کنم چه می‌شود؟**
 
-اگر یک ویژگی سفارشی که قبلاً وجود دارد را اضافه کنید، مقدار موجود آن با مقدار جدید بازنویسی می‌شود. نیازی به حذف یا بررسی ویژگی پیش از افزودن نیست، زیرا Aspose.Slides به‌طور خودکار مقدار ویژگی را به‌روز می‌کند.
+اگر خاصیتی را اضافه کنید که از قبل وجود داشته باشد، مقدار موجود آن با مقدار جدید جایگزین می‌شود. نیازی به حذف یا بررسی پیش‌از پیش خاصیت ندارید، زیرا Aspose.Slides به‑صورت خودکار مقدار خاصیت را به‌روز می‌کند.
 
-**آیا می‌توانم بدون بارگذاری کامل ارائه به ویژگی‌های آن دسترسی داشته باشم؟**
+**آیا می‌توان خواص ارائه را بدون بارگذاری کامل ارائه دسترسی یافت؟**
 
-بله. از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/) استفاده کنید و سپس [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/) را برای خواندن متادیتای ذخیره‌شدهٔ سند بدون ایجاد نمونهٔ [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) فراخوانی کنید. برای مثال کامل گزارش‌گیری و محدودیت‌های خاص فرمت، به [Build a Lightweight Presentation Inventory](/slides/fa/nodejs-java/examine-presentation/) مراجعه کنید.
+بله. می‌توانید از [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) سپس [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) استفاده کنید تا فرادادهٔ ذخیره‌شدهٔ سند را بدون ایجاد یک نمونهٔ [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) بخوانید. برای مثال کامل گزارش‌گیری به بخش [Build a Lightweight Presentation Inventory](/slides/fa/nodejs-java/examine-presentation/) مراجعه کنید و محدودیت‌های فرمت‑خاص را بررسی کنید.
 
-**آیا می‌توانم ویژگی‌های عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور باز کردن بخوانم؟**
+**آیا می‌توان خواص عمومی یک ارائهٔ رمزگذاری‌شده را بدون رمز عبور باز کردن خواند؟**
 
-بله. رمزنگاری ویژگی‌های سند باید پیش از رمزگذاری ارائه غیرفعال شده باشد و ارائه باید در حالت فقط‑ویژگی‌های‑سند بارگذاری شود.
+بله. ارائه باید پس از فراخوانی [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) با `false` رمزگذاری شده باشد و سپس پس از فراخوانی [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) با `true` بارگذاری شود.
 
-**آیا می‌توانم یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑ویژگی‌های‑سند به‌روزرسانی کنم؟**
+**آیا می‌توان یک فایل PPTX رمزگذاری‌شده را در حالت فقط‑خواندن‑خواص‑سند به‌روزرسانی کرد؟**
 
-خیر. داده‌های عمومی و رمزگذاری‌شده باید هماهنگ بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده مستلزم بارگذاری کامل ارائه با رمز عبور صحیح باز کردن است.
+خیر. داده‌های عمومی و رمزگذاری‌شده باید سازگار باقی بمانند، بنابراین به‌روزرسانی یک فایل PPTX رمزگذاری‌شده نیازمند بارگذاری کامل ارائه با رمز عبور صحیح باز کردن است.

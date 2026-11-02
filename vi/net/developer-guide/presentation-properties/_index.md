@@ -1,12 +1,12 @@
 ---
-title: Quản lý Thuộc tính Bản trình chiếu trong .NET
-linktitle: Thuộc tính Bản trình chiếu
+title: Quản lý Thuộc tính Bản trình bày trong .NET
+linktitle: Thuộc tính Bản trình bày
 type: docs
 weight: 70
 url: /vi/net/presentation-properties/
 keywords:
 - Thuộc tính PowerPoint
-- thuộc tính bản trình chiếu
+- thuộc tính bản trình bày
 - thuộc tính tài liệu
 - thuộc tính tích hợp
 - thuộc tính tùy chỉnh
@@ -19,46 +19,38 @@ keywords:
 - ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý các thuộc tính bản trình chiếu trong Aspose.Slides cho .NET và tối ưu hoá tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
+description: "Quản lý toàn diện các thuộc tính bản trình bày trong Aspose.Slides cho .NET và tối ưu hoá tìm kiếm, thương hiệu và quy trình làm việc trong các tệp PowerPoint và OpenDocument của bạn."
 ---
 ## **Giới thiệu**
 
-Aspose.Slides cho .NET hỗ trợ hai loại thuộc tính tài liệu: **Built-in** và **Custom**. Cả hai loại thuộc tính này đều có thể được truy cập và quản lý dễ dàng bằng API Aspose.Slides cho .NET.
+Aspose.Slides for .NET hỗ trợ các thuộc tính tài liệu **tích hợp** và **tùy chỉnh**. Sử dụng các thuộc tính này để đọc và cập nhật siêu dữ liệu bản trình bày, chẳng hạn như tác giả, tiêu đề và các giá trị do người dùng định nghĩa.
 
-Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu bản trình chiếu thông qua giao diện [IDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/idocumentproperties/). Một thể hiện của giao diện này được trả về bởi [IPresentation.DocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/documentproperties/). Các ví dụ dưới đây cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
+Aspose.Slides cho phép bạn làm việc với các thuộc tính tài liệu bản trình bày thông qua giao diện [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . Một thể hiện của giao diện này được trả về bởi [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Các ví dụ sau đây cho thấy cách đọc, sửa đổi và quản lý các thuộc tính này.
 
-{{% alert color="info" title="Note" %}}
-Vui lòng lưu ý rằng các trường **Application** và **Producer** không thể được sửa đổi, vì các trường này luôn hiển thị "Aspose Ltd." và "Aspose.Slides for .NET x.x.x".
-{{% /alert %}} 
+{{% alert color="info" title="Lưu ý" %}}
+Aspose.Slides quản lý siêu dữ liệu ứng dụng và nhà sản xuất khi lưu bản trình bày; các trường này xác định phần mềm đã tạo ra đầu ra.
+{{% /alert %}}
 
-## **Quản lý Thuộc tính Bản trình chiếu**
+## **Quản lý Thuộc tính Bản trình bày**
 
-Microsoft PowerPoint cung cấp tính năng thêm thuộc tính vào tệp bản trình chiếu. Các thuộc tính tài liệu này cho phép lưu trữ thông tin hữu ích cùng với tệp. Có hai loại thuộc tính tài liệu:
+Thuộc tính tài liệu lưu trữ thông tin mô tả bên cạnh nội dung bản trình bày. Chúng được chia thành hai loại:
 
-- Thuộc tính hệ thống (built-in)
-- Thuộc tính người dùng (custom)
+- **Thuộc tính tích hợp** chứa siêu dữ liệu tiêu chuẩn, chẳng hạn như tiêu đề, tác giả và thống kê tài liệu.
+- **Thuộc tính tùy chỉnh** lưu các cặp tên/giá trị do người dùng xác định.
 
-**Built-in** chứa thông tin chung về tài liệu, chẳng hạn như tiêu đề tài liệu, tên tác giả, thống kê tài liệu, và nhiều hơn nữa.
+Aspose.Slides for .NET cung cấp quyền truy cập vào cả hai loại. Trong PowerPoint, chọn **File → Info → Properties → Advanced Properties** để kiểm tra siêu dữ liệu tài liệu. Hộp thoại nhóm thông tin thành các tab như **Summary**, **Statistics**, **Contents**, và **Custom**. Sử dụng tab **Custom** để quản lý các thuộc tính do người dùng định nghĩa.
 
-**Custom** được người dùng định nghĩa dưới dạng cặp **Tên/Giá trị**, trong đó cả tên và giá trị đều được người dùng chỉ định.
+## **Đọc Thuộc tính Công khai từ Bản trình bày Được Mã hoá**
 
-Sử dụng Aspose.Slides cho .NET, các nhà phát triển có thể truy cập và sửa đổi cả thuộc tính built-in và custom.
+Mật khẩu mở thường bảo vệ cả nội dung bản trình bày và các thuộc tính tài liệu. Khi một bản trình bày được mã hoá bằng [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) đặt thành `false`, các thuộc tính tài liệu của nó vẫn công khai. Khi đó ứng dụng có thể đặt [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) thành `true` và đọc siêu dữ liệu công khai mà không cần cung cấp mật khẩu mở.
 
-Microsoft PowerPoint cho phép người dùng quản lý thuộc tính tài liệu bằng cách nhấp vào biểu tượng Office, sau đó chọn **File → Info → Properties**. Sau khi chọn **Advanced Properties**, một hộp thoại xuất hiện cho phép bạn quản lý tất cả các thuộc tính tài liệu của tệp bản trình chiếu.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) điều khiển những gì Aspose.Slides tải; nó không giải mã bất cứ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hoá, việc tải chúng mà không có mật khẩu sẽ thất bại. Nếu bản trình bày không được mã hoá, tùy chọn này sẽ bị bỏ qua và toàn bộ bản trình bày sẽ được tải.
 
-Trong hộp thoại **Properties**, có một số tab, chẳng hạn như **General**, **Summary**, **Statistics**, **Contents**, và **Custom**. Mỗi tab cung cấp các tùy chọn cấu hình cho các loại thông tin cụ thể liên quan đến tệp PowerPoint. Tab **Custom** được sử dụng để quản lý các thuộc tính do người dùng định nghĩa.
-
-## **Đọc Thuộc tính Công khai từ Bản trình chiếu Được Mã hoá**
-
-Mật khẩu mở thường bảo vệ cả nội dung bản trình chiếu và các thuộc tính tài liệu. Khi bản trình chiếu được mã hoá với [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) được đặt thành `false`, các thuộc tính tài liệu của nó vẫn công khai. Ứng dụng sau đó có thể đặt [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) thành `true` và đọc siêu dữ liệu công khai mà không cần cung cấp mật khẩu mở.
-
-`OnlyLoadDocumentProperties` kiểm soát những gì Aspose.Slides tải; nó không giải mã bất kỳ thứ gì. Nếu các thuộc tính đã được bao gồm trong quá trình mã hoá, việc tải chúng mà không có mật khẩu sẽ thất bại. Nếu bản trình chiếu không được mã hoá, tùy chọn này bị bỏ qua và toàn bộ bản trình chiếu sẽ được tải.
-
-Ví dụ sau kiểm tra chế độ tải thông qua [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/vi/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) và sau đó đọc các thuộc tính built-in qua [IPresentation.DocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentation/documentproperties/):
+Ví dụ yêu cầu một bản trình bày đã được mã hoá mà các thuộc tính tài liệu được để công khai. Nó xác nhận chế độ tải qua [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) và sau đó đọc các thuộc tính tích hợp qua [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -69,11 +61,11 @@ using var presentation = new Presentation("public-properties-encrypted.pptx", lo
 
 if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
 {
-    var properties = presentation.DocumentProperties;
+    var documentProperties = presentation.DocumentProperties;
 
-    Console.WriteLine("Author: " + properties.Author);
-    Console.WriteLine("Title: " + properties.Title);
-    Console.WriteLine("Keywords: " + properties.Keywords);
+    Console.WriteLine("Author: " + documentProperties.Author);
+    Console.WriteLine("Title: " + documentProperties.Title);
+    Console.WriteLine("Keywords: " + documentProperties.Keywords);
 }
 else
 {
@@ -81,17 +73,17 @@ else
 }
 ```
 
-Trong chế độ này, nội dung slide không được tải. Các slide, master, layout, shape, media và các đối tượng khác của bản trình chiếu không khả dụng. Ứng dụng nên luôn kiểm tra `IsOnlyDocumentPropertiesLoaded` trước khi thực hiện thao tác yêu cầu mô hình đối tượng bản trình chiếu đầy đủ.
+Trong chế độ này, nội dung slide không được tải. Các slide, master, layout, shape, media và các đối tượng khác của bản trình bày không khả dụng. Ứng dụng luôn nên kiểm tra [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) trước khi thực hiện thao tác yêu cầu mô hình đối tượng bản trình bày đầy đủ.
 
-{{% alert color="warning" title="Security" %}}
-Siêu dữ liệu công khai có thể tiết lộ tên tác giả, tiêu đề, chủ đề, từ khóa, thông tin công ty, bình luận và các giá trị tùy chỉnh. Hãy mã hoá các thuộc tính nhạy cảm cùng với bản trình chiếu. Chỉ để chúng công khai khi hệ thống lập chỉ mục, phân loại, tìm kiếm hoặc quản lý tài liệu có yêu cầu cụ thể truy cập chúng mà không cần mật khẩu.
+{{% alert color="warning" title="Bảo mật" %}}
+Siêu dữ liệu công khai có thể lộ tên tác giả, tiêu đề, chủ đề, từ khóa, thông tin công ty, bình luận và các giá trị tùy chỉnh. Hãy mã hoá các thuộc tính nhạy cảm cùng với bản trình bày. Chỉ để chúng công khai khi hệ thống lập chỉ mục, phân loại, tìm kiếm hoặc quản lý tài liệu có yêu cầu cụ thể để truy cập chúng mà không cần mật khẩu.
 {{% /alert %}}
 
-## **Cập nhật Thuộc tính của Bản trình chiếu Được Mã hoá**
+## **Cập nhật Thuộc tính của Bản trình bày Được Mã hoá**
 
-Đối với tệp PPTX được mã hoá, một bản trình chiếu được tải với `OnlyLoadDocumentProperties` nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ có siêu dữ liệu này vì các thuộc tính công khai phải đồng nhất với dữ liệu tương ứng bên trong bản trình chiếu đã mã hoá. Do đó, việc cập nhật chúng đòi hỏi mật khẩu mở đúng và tải toàn bộ bản trình chiếu.
+Đối với tệp PPTX đã được mã hoá, một bản trình bày được tải bằng [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) chỉ nhằm mục đích đọc siêu dữ liệu công khai. Aspose.Slides không thể lưu các thuộc tính đã thay đổi từ đối tượng chỉ chứa siêu dữ liệu vì các thuộc tính công khai phải đồng nhất với dữ liệu tương ứng bên trong bản trình bày đã mã hoá. Do đó việc cập nhật chúng yêu cầu mật khẩu mở đúng và việc tải đầy đủ.
 
-Ví dụ sau mở bản trình chiếu bằng [LoadOptions.Password](https://reference.aspose.com/slides/vi/net/aspose.slides/loadoptions/password/), cập nhật các thuộc tính built-in công khai, và lưu kết quả. Sau đó sử dụng [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/isencrypted/) để xác minh rằng việc mã hoá vẫn được duy trì và mở lại siêu dữ liệu công khai mà không có mật khẩu để kiểm tra các giá trị mới:
+Ví dụ yêu cầu một bản trình bày PPTX đã được mã hoá với các thuộc tính tài liệu công khai và một mật khẩu mở đã biết. Nó mở toàn bộ bản trình bày bằng [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), cập nhật các thuộc tính tích hợp công khai, và lưu kết quả. Sau đó sử dụng [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) để xác minh rằng mã hoá vẫn được giữ và mở lại siêu dữ liệu công khai mà không cần mật khẩu để kiểm tra các giá trị mới:
 
 ```csharp
 using System;
@@ -101,14 +93,14 @@ using Aspose.Slides.Export;
 const string inputPath = "public-properties-encrypted.pptx";
 const string outputPath = "updated-public-properties-encrypted.pptx";
 
-{
-    var loadOptions = new LoadOptions { Password = "open_password" };
-    using var presentation = new Presentation(inputPath, loadOptions);
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation(inputPath, loadOptions);
 
-    presentation.DocumentProperties.Title = "Updated Product Roadmap";
-    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
-    presentation.Save(outputPath, SaveFormat.Pptx);
-}
+var documentProperties = presentation.DocumentProperties;
+documentProperties.Title = "Updated Product Roadmap";
+documentProperties.Keywords = "roadmap, planning, indexed";
+
+presentation.Save(outputPath, SaveFormat.Pptx);
 
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
 Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
@@ -127,142 +119,159 @@ else
 }
 ```
 
-Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình chiếu, nó phải coi các thuộc tính công khai của tệp PPTX được mã hoá là chỉ đọc.
+Nếu một ứng dụng không được phép giải mã hoặc tải nội dung bản trình bày, nó phải coi các thuộc tính công khai của tệp PPTX đã mã hoá là chỉ đọc.
 
-## **Truy cập Thuộc tính Built-in**
+## **Truy cập Thuộc tính Tích hợp**
 
-Các thuộc tính này, được mở ra bởi giao diện [IDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/idocumentproperties/), bao gồm: **Creator** (Author), **Description**, **Keywords**, **Created** (Creation Date), **Modified** (Modification Date), **Printed** (Last Print Date), **LastModifiedBy**, **SharedDoc** (chỉ ra liệu tài liệu có được chia sẻ giữa các nhà sản xuất khác nhau hay không), **PresentationFormat**, **Subject**, **Title**, và nhiều hơn nữa.
+Giao diện [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) cung cấp siêu dữ liệu tích hợp qua các thuộc tính kiểu, bao gồm [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), và [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Ví dụ này mở một bản trình bày hiện có và in siêu dữ liệu đã lưu ra console. Các giá trị phụ thuộc vào bản trình bày đầu vào; một số trường có thể để trống.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
-using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
+using var presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// Lấy tham chiếu tới đối tượng kiểu IDocumentProperties liên kết với bản trình chiếu.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Hiển thị các thuộc tính Built-in.
-Console.WriteLine("Category : " + documentProperties.Category);
-Console.WriteLine("Content status : " + documentProperties.ContentStatus);
-Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
-Console.WriteLine("Author : " + documentProperties.Author);
-Console.WriteLine("Comments : " + documentProperties.Comments);
-Console.WriteLine("Key words : " + documentProperties.Keywords);
-Console.WriteLine("Last modified by : " + documentProperties.LastSavedBy);
-Console.WriteLine("Manager : " + documentProperties.Manager);
-Console.WriteLine("Modified date : " + documentProperties.LastSavedTime);
-Console.WriteLine("Presentation format : " + documentProperties.PresentationFormat);
-Console.WriteLine("Last print date : " + documentProperties.LastPrinted);
-Console.WriteLine("Is shared between producers : " + documentProperties.SharedDoc);
-Console.WriteLine("Subject : " + documentProperties.Subject);
-Console.WriteLine("Title : " + documentProperties.Title);
+Console.WriteLine("Category: " + documentProperties.Category);
+Console.WriteLine("Content status: " + documentProperties.ContentStatus);
+Console.WriteLine("Creation date: " + documentProperties.CreatedTime);
+Console.WriteLine("Author: " + documentProperties.Author);
+Console.WriteLine("Comments: " + documentProperties.Comments);
+Console.WriteLine("Keywords: " + documentProperties.Keywords);
+Console.WriteLine("Last modified by: " + documentProperties.LastSavedBy);
+Console.WriteLine("Manager: " + documentProperties.Manager);
+Console.WriteLine("Modified date: " + documentProperties.LastSavedTime);
+Console.WriteLine("Presentation format: " + documentProperties.PresentationFormat);
+Console.WriteLine("Last print date: " + documentProperties.LastPrinted);
+Console.WriteLine("Is shared between producers: " + documentProperties.SharedDoc);
+Console.WriteLine("Subject: " + documentProperties.Subject);
+Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
-## **Sửa đổi Thuộc tính Built-in**
+## **Sửa đổi Thuộc tính Tích hợp**
 
-Sửa đổi các thuộc tính built-in của tệp bản trình chiếu dễ dàng như việc truy cập chúng. Bạn chỉ cần gán một giá trị chuỗi cho bất kỳ thuộc tính nào mong muốn, và giá trị của thuộc tính sẽ được cập nhật. Trong ví dụ dưới đây, chúng tôi minh họa cách sửa đổi các thuộc tính tài liệu built-in của một tệp bản trình chiếu.
+Để cập nhật siêu dữ liệu tích hợp, gán giá trị cho các thuộc tính có thể ghi được được cung cấp bởi [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Ví dụ này mở một bản trình bày hiện có, đặt [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), và [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), sau đó lưu bản trình bày đã cập nhật bằng [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Tệp PPTX đã lưu sẽ chứa siêu dữ liệu mới.
 
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
-using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
+using var presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// Lấy tham chiếu đến đối tượng kiểu IDocumentProperties liên kết với bản trình chiếu.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Đặt các thuộc tính Built-in.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Save the presentation to a file.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Thuộc tính Presentation Tùy chỉnh**
+## **Quản lý Cơ sở Siêu liên kết**
 
-Các thuộc tính presentation tùy chỉnh cho phép các nhà phát triển lưu trữ siêu dữ liệu bổ sung hoặc thông tin cụ thể trong tệp bản trình chiếu. Aspose.Slides giúp tạo và quản lý các thuộc tính tùy chỉnh này một cách dễ dàng bằng mã. Các ví dụ sau minh họa cách thêm thuộc tính tùy chỉnh vào bản trình chiếu của bạn.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) lưu cơ sở ở mức tài liệu cho các siêu liên kết tương đối. Điều này hữu ích khi di chuyển một bản trình bày và các tệp liên kết sang vị trí khác. Nó độc lập với [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) của một siêu liên kết cá nhân: việc thay đổi cơ sở không ghi lại lại địa chỉ liên kết đã lưu hoặc thay đổi đích tuyệt đối.
 
-```cs
+Ví dụ yêu cầu một bản trình bày chứa cả một liên kết tương đối, ví dụ `target.html`, và một liên kết tuyệt đối, ví dụ `https://example.org/absolute.html`. Nó đọc cơ sở hiện có, gán một địa chỉ cơ sở mới, và lưu rồi mở lại bản trình bày để kiểm tra giá trị. Sau đó xóa cơ sở bằng `string.Empty` và xác minh giá trị rỗng trong một tệp đã lưu riêng. Thay thế địa chỉ cơ sở mẫu bằng vị trí các tệp liên kết của bạn.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tạo thể hiện của lớp Presentation.
-using Presentation presentation = new Presentation();
+using var presentation = new Presentation("hyperlinks.pptx");
+Console.WriteLine("Original base: " + presentation.DocumentProperties.HyperlinkBase);
 
-// Lấy tham chiếu tới đối tượng kiểu IDocumentProperties liên kết với bản trình chiếu.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+const string newBase = "https://example.com/new/";
+presentation.DocumentProperties.HyperlinkBase = newBase;
+presentation.Save("hyperlinks-updated.pptx", SaveFormat.Pptx);
 
-// Thêm các thuộc tính tùy chỉnh.
+using var updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+Console.WriteLine("Base preserved: " + (updatedPresentation.DocumentProperties.HyperlinkBase == newBase));
+
+updatedPresentation.DocumentProperties.HyperlinkBase = string.Empty;
+updatedPresentation.Save("hyperlinks-cleared.pptx", SaveFormat.Pptx);
+
+using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
+```
+
+Hai thông báo xác minh nên in ra `True`. Xóa cơ sở không ảnh hưởng tới địa chỉ các siêu liên kết cá nhân.
+
+Một liên kết tương đối tới `target.pptx` đã mở `old/target.pptx` khi cơ sở trỏ tới thư mục `old`. Sau khi thay đổi cơ sở thành thư mục `new`, lưu và mở lại bản trình bày, cùng một liên kết sẽ mở `new/target.pptx`. Một liên kết tuyệt đối vẫn mở cùng một tệp. Hãy kiểm tra các liên kết tương đối của bạn trong PowerPoint trước và sau khi di chuyển bản trình bày hoặc thay đổi cơ sở.
+
+## **Thêm Thuộc tính Bản trình bày Tùy chỉnh**
+
+Thuộc tính tùy chỉnh lưu siêu dữ liệu không có trường tích hợp tương ứng. Bộ chỉ mục của [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) cho phép bạn gán giá trị bằng tên thuộc tính. Ví dụ này tạo một bản trình bày, thêm hai giá trị văn bản và một giá trị phiên bản kiểu nguyên, và lưu bản trình bày bằng [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Gán giá trị cho một tên đã tồn tại sẽ thay thế giá trị của thuộc tính đó.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var documentProperties = presentation.DocumentProperties;
+
 documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// Lưu bản trình chiếu vào tệp.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Truy cập và Sửa đổi Thuộc tính Tùy chỉnh**
 
-Aspose.Slides cũng cho phép các nhà phát triển truy cập các thuộc tính tùy chỉnh hiện có và dễ dàng sửa đổi giá trị của chúng. Chức năng này giúp duy trì siêu dữ liệu chính xác và hỗ trợ cập nhật động dựa trên đầu vào của người dùng hoặc logic nghiệp vụ. Các ví dụ dưới đây minh họa cách lấy và cập nhật giá trị thuộc tính tùy chỉnh trong một bản trình chiếu.
+Ví dụ này mở một bản trình bày chứa các thuộc tính tùy chỉnh và sử dụng [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) để lặp qua chúng. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) nhận một chỉ số bắt đầu từ 0 và trả về tên được sử dụng bởi bộ chỉ mục của [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). Ví dụ in mỗi tên và giá trị gốc, thay thế mọi giá trị bằng một chuỗi đánh số bất kể kiểu gốc, và lưu các thay đổi. Nếu không có thuộc tính tùy chỉnh nào, vòng lặp sẽ không thực hiện thay đổi.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp PPTX.
-using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
+using var presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Lấy tham chiếu tới đối tượng kiểu IDocumentProperties liên kết với bản trình chiếu.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Truy cập và sửa đổi các thuộc tính tùy chỉnh.
-for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
+for (var i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
-    string propertyName = documentProperties.GetCustomPropertyName(i);
-    object propertyValue = documentProperties[propertyName];
+    var propertyName = documentProperties.GetCustomPropertyName(i);
+    var propertyValue = documentProperties[propertyName];
 
-    // Hiển thị tên và giá trị của thuộc tính tùy chỉnh.
-    Console.WriteLine("Custom property name : " + propertyName);
-    Console.WriteLine("Custom property value : " + propertyValue);
+    Console.WriteLine("Custom property name: " + propertyName);
+    Console.WriteLine("Custom property value: " + propertyValue);
 
-    // Sửa đổi giá trị của thuộc tính tùy chỉnh.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// Lưu bản trình chiếu vào tệp.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Ví dụ Trực tiếp**
+## **Ví dụ Trực tuyến**
 
-Hãy thử ứng dụng trực tuyến [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/vi/metadata) để xem cách làm việc với các thuộc tính tài liệu bằng API Aspose.Slides:
+Hãy thử ứng dụng trực tuyến [**Xem & Chỉnh sửa Siêu dữ liệu PowerPoint**](https://products.aspose.app/slides/metadata) để xem cách làm việc với các thuộc tính tài liệu bằng API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/vi/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể xóa một thuộc tính built-in khỏi bản trình chiếu?**
+**Làm thế nào để tôi có thể xóa một thuộc tính tích hợp khỏi bản trình bày?**
 
-Các thuộc tính built-in là một phần không thể tách rời của bản trình chiếu và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
+Thuộc tính tích hợp là một phần không thể tách rời của bản trình bày và không thể bị xóa hoàn toàn. Tuy nhiên, bạn có thể thay đổi giá trị của chúng hoặc đặt chúng thành rỗng nếu thuộc tính cụ thể cho phép.
 
 **Điều gì sẽ xảy ra nếu tôi thêm một thuộc tính tùy chỉnh đã tồn tại?**
 
 Nếu bạn thêm một thuộc tính tùy chỉnh đã tồn tại, giá trị hiện tại của nó sẽ bị ghi đè bằng giá trị mới. Bạn không cần phải xóa hoặc kiểm tra thuộc tính trước, vì Aspose.Slides sẽ tự động cập nhật giá trị của thuộc tính.
 
-**Tôi có thể truy cập các thuộc tính bản trình chiếu mà không tải toàn bộ bản trình chiếu không?**
+**Tôi có thể truy cập các thuộc tính bản trình bày mà không tải đầy đủ bản trình bày không?**
 
-Có. Sử dụng [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/vi/net/aspose.slides/presentationfactory/getpresentationinfo/) và sau đó [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/vi/net/aspose.slides/ipresentationinfo/readdocumentproperties/) để đọc siêu dữ liệu tài liệu đã lưu mà không tạo một thể hiện [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/). Xem [Build a Lightweight Presentation Inventory](/slides/vi/net/examine-presentation/) để biết ví dụ báo cáo đầy đủ và các giới hạn theo định dạng.
+Có. Sử dụng [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) và sau đó [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) để đọc siêu dữ liệu tài liệu đã lưu mà không tạo một thể hiện [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/). Xem [**Xây dựng Kiểm kê Bản trình bày Nhẹ**](/slides/vi/net/examine-presentation/) để có ví dụ báo cáo đầy đủ và các hạn chế theo định dạng.
 
-**Tôi có thể đọc các thuộc tính công khai của bản trình chiếu được mã hoá mà không có mật khẩu mở không?**
+**Tôi có thể đọc các thuộc tính công khai của một bản trình bày được mã hoá mà không cần mật khẩu mở không?**
 
-Có. Bản trình chiếu phải đã được mã hoá với `EncryptDocumentProperties` đặt thành `false`, và phải được tải với `OnlyLoadDocumentProperties` đặt thành `true`.
+Có. Bản trình bày phải được mã hoá bằng [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) đặt thành `false`, và phải được tải bằng [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) đặt thành `true`.
 
-**Tôi có thể cập nhật một tệp PPTX được mã hoá ở chế độ chỉ tải thuộc tính tài liệu không?**
+**Tôi có thể cập nhật một tệp PPTX đã mã hoá ở chế độ chỉ tải thuộc tính tài liệu không?**
 
-Không. Dữ liệu thuộc tính công khai và được mã hoá phải đồng nhất, vì vậy việc cập nhật một tệp PPTX được mã hoá yêu cầu tải toàn bộ bản trình chiếu với mật khẩu mở đúng.
+Không. Dữ liệu thuộc tính công khai và mã hoá phải đồng nhất, do đó việc cập nhật một tệp PPTX đã mã hoá yêu cầu tải toàn bộ bản trình bày với mật khẩu mở đúng.

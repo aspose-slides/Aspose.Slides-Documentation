@@ -1,5 +1,5 @@
 ---
-title: จัดการไฮเปอร์ลิงก์การนำเสนอใน JavaScript
+title: จัดการไฮเปอร์ลิงก์ของงานนำเสนอใน JavaScript
 linktitle: จัดการไฮเปอร์ลิงก์
 type: docs
 weight: 20
@@ -8,45 +8,45 @@ keywords:
 - เพิ่ม URL
 - เพิ่มไฮเปอร์ลิงก์
 - สร้างไฮเปอร์ลิงก์
-- กำหนดรูปแบบไฮเปอร์ลิงก์
+- จัดรูปแบบไฮเปอร์ลิงก์
 - ลบไฮเปอร์ลิงก์
 - อัปเดตไฮเปอร์ลิงก์
 - ไฮเปอร์ลิงก์ข้อความ
 - ไฮเปอร์ลิงก์สไลด์
 - ไฮเปอร์ลิงก์รูปร่าง
-- ไฮเปอร์ลิงก์ภาพ
+- ไฮเปอร์ลิงก์รูปภาพ
 - ไฮเปอร์ลิงก์วิดีโอ
-- ไฮเปอร์ลิงก์ที่แก้ไขได้
+- ไฮเปอร์ลิงก์ที่ปรับเปลี่ยนได้
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เพิ่ม, กำหนดรูปแบบ, อัปเดตและลบไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java โดยใช้ตัวอย่าง JavaScript."
+description: "เพิ่ม, จัดรูปแบบ, อัปเดตและลบไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java โดยใช้ตัวอย่าง JavaScript"
 ---
 ## **บทนำ**
 
-ไฮเปอร์ลิงก์เชื่อมต่อเนื้อหางานนำเสนอไปยังเว็บไซต์หรือตำแหน่งภายในงานนำเสนอเอง ใน PowerPoint ไฮเปอร์ลิงก์มักทำหน้าที่สองอย่าง:
+Hyperlink เชื่อมต่อเนื้อหาการนำเสนอไปยังเว็บไซต์หรือตำแหน่งภายในงานนำเสนอ ใน PowerPoint Hyperlink มักใช้เพื่อสองวัตถุประสงค์:
 
-* เปิดเว็บไซต์จากข้อความ รูปร่าง หรือเฟรมสื่อ
-* ไปยังสไลด์อื่น ตัวอย่างเช่นจากสารบัญ
+* เปิดเว็บไซต์จากข้อความ, รูปร่าง หรือกรอบสื่อ
+* นำทางไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ
 
-Aspose.Slides for Node.js via Java ให้คุณเพิ่มลิงก์เหล่านี้ ควบคุมลักษณะและเสียงของมัน ปรับปรุงคุณสมบัติ และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับไฮเปอร์ลิงก์บนองค์ประกอบแต่ละตัวและวิธีเข้าถึงไฮเปอร์ลิงก์ที่ระดับงานนำเสนอ สไลด์ หรือกรอบข้อความ
+Aspose.Slides for Node.js via Java ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมลักษณะและเสียง, ปรับปรุงคุณสมบัติ, และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับ Hyperlink บนแต่ละองค์ประกอบและวิธีเข้าถึง Hyperlink ระดับงานนำเสนอ, สไลด์, หรือกรอบข้อความ
 
 {{% alert color="info" title="Note" %}}
-
-คุณสามารถแก้ไขงานนำเสนอด้วย [ฟรีออนไลน์ Aspose PowerPoint editor](https://products.aspose.app/slides/th/editor) ได้เช่นกัน
-
+คุณยังสามารถแก้ไขงานนำเสนอด้วย [ฟรีออนไลน์ Aspose PowerPoint editor](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
-## **เพิ่มไฮเปอร์ลิงก์ URL**
+## **เพิ่ม URL ไฮเปอร์ลิงก์**
 
-คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ รูปร่าง หรือเฟรมสื่อได้ พื้นที่ที่คลิกได้จะขึ้นอยู่กับองค์ประกอบที่คุณกำหนดไฮเปอร์ลิงก์: ส่วนของข้อความจะเป็นลิงก์ที่เชื่อมต่อกับข้อความที่เลือก ขณะที่รูปร่างหรือเฟรมจะเป็นลิงก์ที่เชื่อมต่อกับอ็อบเจ็กต์สไลด์
+คุณสามารถกำหนด URL เว็บไซต์ให้กับข้อความ, รูปร่าง, หรือกรอบสื่อได้ พื้นที่กดคลิกจะขึ้นกับองค์ประกอบที่คุณกำหนด Hyperlink : ส่วนของข้อความจะเชื่อมต่อข้อความที่เลือก, ในขณะที่รูปร่างหรือกรอบจะเชื่อมต่อกับวัตถุสไลด์
 
-### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับข้อความ**
+สำหรับงานนำเสนอที่มี Hyperlink แบบสัมพันธ์, ดูที่ [Manage the Hyperlink Base](/slides/th/nodejs-java/presentation-properties/#manage-the-hyperlink-base) เพื่ออ่าน, แก้ไข, หรือเคลียร์ฐานระดับเอกสาร
 
-เพื่อเชื่อมข้อความกับเว็บไซต์ ให้ส่ง [Hyperlink](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) ของส่วนข้อความ ตามตัวอย่างด้านล่าง ส่วนของข้อความนั้นจะกลายเป็นคลิกได้เท่านั้น
+### **เพิ่ม URL ไฮเปอร์ลิงก์ให้กับข้อความ**
+
+ในการเชื่อมข้อความไปยังเว็บไซต์, ส่งค่า [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) ของส่วนข้อความตามที่แสดงด้านล่าง เพียงส่วนข้อความนั้นเท่านั้นที่จะกดคลิกได้
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,13 +66,13 @@ try {
 }
 ```
 
-### **เพิ่มไฮเปอร์ลิงก์ URL ให้กับรูปร่างและเฟรมสื่อ**
+### **เพิ่ม URL ไฮเปอร์ลิงก์ให้กับรูปร่างและกรอบสื่อ**
 
-เพื่อทำให้รูปร่างหรือเฟรมสามารถคลิกได้ ให้เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#setHyperlinkClick) ของมัน ไฮเปอร์ลิงก์จะเป็นของอ็อบเจ็กต์เอง ไม่ใช่ของส่วนข้อความภายใน
+เพื่อทำให้รูปร่างหรือกรอบกดคลิกได้, เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick) ของมัน Hyperlink จะเป็นของวัตถุเอง ไม่ได้เป็นของส่วนข้อความภายใน
 
-วิธีเดียวกันใช้กับรูปภาพ เสียง และวิดีโอเฟรม: กำหนดไฮเปอร์ลิงก์ให้กับเฟรมและเรียก [setTooltip](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setTooltip) หากต้องการ
+แนวทางเดียวกันใช้ได้กับกรอบรูป, เสียง, และวิดีโอ: กำหนด Hyperlink ให้กับกรอบและเรียก [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) หากต้องการ
 
-ตัวอย่างต่อไปทำให้สี่เหลี่ยมสามารถคลิกได้:
+ตัวอย่างต่อไปทำให้สี่เหลี่ยมกดคลิกได้:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -90,9 +90,9 @@ try {
 }
 ```
 
-## **ใช้ไฮเปอร์ลิงก์สร้างสารบัญ**
+## **ใช้ Hyperlink สร้างสารบัญ**
 
-ไฮเปอร์ลิงก์ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์ที่ต้องการ ตัวอย่างต่อไปใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) เพื่อเชื่อมข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
+Hyperlink ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์ที่กำหนด ตัวอย่างต่อไปใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) เพื่อลิงก์ข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -126,13 +126,13 @@ try {
 }
 ```
 
-## **กำหนดรูปแบบไฮเปอร์ลิงก์**
+## **จัดรูปแบบ Hyperlink**
 
 ### **สี**
 
-เมธอด [setColorSource](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setColorSource) ของ [Hyperlink](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของงานนำเสนอหรือการจัดรูปแบบของส่วนข้อความหรือไม่ หากต้องการใช้สีข้อความที่กำหนดเอง ให้เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkColorSource) และตั้งค่าสีเติมของส่วนนั้น ฟีเจอร์นี้เริ่มต้นตั้งแต่ PowerPoint 2019; รุ่นก่อนหน้าจะไม่ใช้การตั้งค่านี้
+เมธอด [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) ของ [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) กำหนดว่า Hyperlink จะใช้สี Hyperlink ของงานนำเสนอหรือการฟอร์แมตของส่วนข้อความหรือไม่ เพื่อใช้สีข้อความกำหนดเอง ให้เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) และตั้งค่าสีเติมของส่วนนี้ ฟีเจอร์นี้เริ่มต้นจาก PowerPoint 2019; เวอร์ชันเก่าจะไม่ใช้การตั้งค่านี้
 
-ตัวอย่างต่อไปเพิ่มไฮเปอร์ลิงก์ข้อความสองตัวบนสไลด์เดียว ตัวแรกใช้สีเติมข้อความสีแดง ส่วนที่สองใช้สีไฮเปอร์ลิงก์เริ่มต้น
+ตัวอย่างต่อไปเพิ่ม Hyperlink ข้อความสองอันในสไลด์เดียว อันแรกใช้สีเติมข้อความสีแดง, ส่วนที่สองใช้สี Hyperlink เริ่มต้น
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,14 +159,14 @@ try {
 ```
 ### **เสียง**
 
-ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ได้ ใช้เมธอดต่อไปนี้เพื่อกำหนดพฤติกรรมเหล่านั้น:
+Hyperlink สามารถเล่นเสียงเมื่อเปิดใช้งาน หรือหยุดเสียงที่กำลังเล่นอยู่ ใช้เมธอดต่อไปนี้เพื่อกำหนดพฤติกรรม:
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setSound) ระบุไฟล์เสียงที่เชื่อมกับไฮเปอร์ลิงก์
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) ควบคุมว่าการคลิกไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) ระบุไฟล์เสียงที่เชื่อมกับ Hyperlink
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) ควบคุมว่าการเปิด Hyperlink จะหยุดเสียงก่อนหน้าหรือไม่
 
-#### **เพิ่มเสียงให้กับไฮเปอร์ลิงก์**
+#### **เพิ่มเสียงให้กับ Hyperlink**
 
-ตัวอย่างต่อไปโหลด `sampleaudio.wav` แล้วเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและไปยังสไลด์ถัดไป รูปร่างที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่ทำการนำทางใด ๆ
+ตัวอย่างต่อไปโหลด `sampleaudio.wav` แล้วเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและไปสไลด์ถัดไป รูปร่างอื่นบนสไลด์นั้นจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่มีการนำทาง
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -205,9 +205,9 @@ try {
 }
 ```
 
-#### **ดึงเสียงจากไฮเปอร์ลิงก์**
+#### **ดึงเสียงจาก Hyperlink**
 
-ตัวอย่างต่อไปเปิดงานนำเสนอที่สร้างไว้ข้างต้นและอ่านเสียงของไฮเปอร์ลิงก์ในรูปร่างแรกเข้าสู่หน่วยความจำโดยใช้ [getSound](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getSound) และ [getBinaryData](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Audio#getBinaryData)
+ตัวอย่างต่อไปเปิดงานนำเสนอที่สร้างข้างต้นและอ่านเสียง Hyperlink ของรูปร่างแรกเข้าสู่หน่วยความจำผ่าน [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) และ [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData)
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -231,18 +231,18 @@ try {
 }
 ```
 
-### **Tooltip และการตั้งค่าปฏิสัมพันธ์**
+### **คำอธิบายและการตั้งค่าการโต้ตอบ**
 
-หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง คุณสามารถเรียกเมธอด [Hyperlink](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink) ดังต่อไปนี้:
+คุณสามารถเรียกเมธอดของ [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) เหล่านี้หลังจากกำหนด Hyperlink ให้กับข้อความหรือรูปร่าง:
 
-- [setTooltip](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setTooltip) ตั้งข้อความที่ผู้ชมสามารถแสดงเป็นคำแนะนำสำหรับลิงก์
-- [setTargetFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) ระบุเฟรมเป้าหมายภายในชุดเฟรม HTML ของพาเรนต์ (หากมี)
-- [setHistory](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setHistory) ควบคุมว่าการเปิดลิงก์จะเพิ่มตำแหน่งปลายทางไปยังรายการไฮเปอร์ลิงก์ที่เคยดูหรือไม่
-- [setHighlightClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) ควบคุมว่าฮไฮเปอร์ลิงก์จะถูกเน้นเมื่อคลิกหรือไม่
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) ตั้งข้อความแนะนำที่ผู้ชมสามารถมองเห็นเป็นคำชี้แนะสำหรับลิงก์
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) ระบุเฟรมเป้าหมายภายในชุดเฟรม HTML ของพาเรนต์, เมื่อมีความเกี่ยวข้อง
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) ควบคุมว่าการเปิดลิงก์จะเพิ่มปลายทางลงในรายการ Hyperlink ที่เคยดูหรือไม่
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) ควบคุมว่าการคลิก Hyperlink จะทำให้ไฮไลท์หรือไม่
 
-## **ลบไฮเปอร์ลิงก์ออกจากงานนำเสนอ**
+## **ลบ Hyperlink จากงานนำเสนอ**
 
-ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) เพื่อรวบรวมคอนเทนเนอร์ไฮเปอร์ลิงก์ รวมถึงลิงก์ส่วนข้อความ ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบทั้งสองประเภทการเปิดใช้งานจากสไลด์แรก หากต้องการลบเฉพาะประเภทใดประเภทหนึ่ง ให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) การลบการคลิกจะไม่ลบการเมาส์โอเวอร์ที่สอดคล้องกัน
+ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) เพื่อรวบรวมคอนเทนเนอร์ของ Hyperlink รวมถึงลิงก์ส่วนข้อความ ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบประเภทการเปิดใช้งานทั้งสองจากสไลด์แรก เพื่อลบเพียงประเภทเดียวให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); การลบการคลิกจะไม่ลบการโฮเวอร์
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,23 +268,23 @@ try {
 }
 ```
 
-สำหรับการลบแบบไม่มีเงื่อนไข [removeAllHyperlinks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) จะลบทั้งสองประเภทการเปิดใช้งานในสโคปที่เลือกในหนึ่งคำสั่ง สำหรับการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลย์เอาต์, และโน้ต ให้ดูที่ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+สำหรับการลบโดยไม่มีเงื่อนไข, [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) จะลบประเภทการเปิดใช้งานทั้งสองในขอบเขตที่เลือกในหนึ่งคำสั่ง สำหรับการทำความสะอาดแบบเลือกและครอบคลุม masters, layouts, และ notes ให้ดูที่ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
 
-## **สร้างรายการตรวจสอบไฮเปอร์ลิงก์ครบถ้วน**
+## **สร้างรายการตรวจสอบ Hyperlink แบบสมบูรณ์**
 
-ก่อนเผยแพร่งานนำเสนอ ควรตรวจสอบการกระทำแบบโต้ตอบและลิงก์เว็บของมัน [getAnyHyperlinks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) จะคืนค่าคอนเทนเนอร์ไฮเปอร์ลิงก์ ไม่ใช่รายการแบนของสตริง URL ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getHyperlinkClick) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) บนแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระกัน: คอนเทนเนอร์เดียวกันอาจเปิดให้ทำทั้งสองการกระทำ ดังนั้นรายงานครบถ้วนอาจต้องมีแถวสูงสุดสองแถวต่อคอนเทนเนอร์
+ก่อนแจกจ่ายงานนำเสนอ, ควรทำรายการตรวจสอบการกระทำเชิงโต้ตอบและลิงก์เว็บทั้งหมด [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) จะคืนคอนเทนเนอร์ของ Hyperlink ไม่ใช่รายการ URL แบน ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) บนแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันสามารถเปิดใช้งานทั้งสองการกระทำได้ ดังนั้นรายงานสมบูรณ์อาจต้องมีแถวสูงสุดสองแถวต่อคอนเทนเนอร์
 
-การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สืบค้นในสโคปที่เหมาะแทน แล้วเก็บคอนเทนเนอร์ที่คืนค่าไว้เพื่อที่คุณจะได้อัปเดตหรือลบการกระทำของมันภายหลัง
+การสแกนเฉพาะ Hyperlink ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สอบถามขอบเขตที่เหมาะสมแทนและเก็บคอนเทนเนอร์ที่คืนค่ามาไว้เพื่อที่จะอัปเดตหรือเอาการกระทำออกในภายหลัง
 
-### **สืบค้นสโคปของงานนำเสนอ สไลด์ และกรอบข้อความ**
+### **สอบถามขอบเขต Presentation, Slide, และ Text‑Frame**
 
-คลาส [HyperlinkQueries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries) สามารถเข้าถึงได้ผ่าน [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries), และ [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) แต่ละสโคปสนับสนุนการสืบค้นเดียวกัน:
+คลาส [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) สามารถเรียกได้ผ่าน [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries), และ [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries) แต่ละขอบเขตสนับสนุนการสอบถามเดียวกัน:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) คืนค่าคอนเทนเนอร์ที่มีการคลิก
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) คืนค่าคอนเทนเนอร์ที่มีการเมาส์โอเวอร์
-- [getAnyHyperlinks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) คืนค่าคอนเทนเนอร์ที่มีการกระทำอย่างใดอย่างหนึ่งหรือทั้งสอง
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) คืนคอนเทนเนอร์ที่มีการกระทำคลิก
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) คืนคอนเทนเนอร์ที่มีการกระทำโฮเวอร์
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) คืนคอนเทนเนอร์ที่มีการกระทำใด ๆ หรือทั้งสองอย่าง
 
-ตัวอย่างต่อไปสร้างไฟล์ `hyperlink-audit-input.pptx` ที่มีลิงก์คลิกภายนอก, ลิงก์เมาส์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เมาส์โอเวอร์ข้อความ, และการกระทำแมโคร โดยไม่ทำการเรียกใช้การกระทำใด ๆ การสืบค้นทั้งสามทำงานที่ทุกสโคป; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำเอง กรอบข้อความจะยกเว้นลิงก์ของรูปร่างที่ล้อมรอบ
+ตัวอย่างต่อไปสร้างไฟล์ `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์โฮเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์โฮเวอร์ข้อความ, และการกระทำแมโคร ตัวอย่างไม่ได้เรียกใช้การกระทำใด ๆ ทั้งหมด การสอบถามสามประเภททำงานได้ที่ทุกขอบเขต; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำ ขอบเขต Text‑Frame จะไม่รวมลิงก์ของรูปร่างที่บรรจุอยู่
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -321,37 +321,37 @@ try {
 }
 ```
 
-สำหรับตัวอย่างนี้ การสืบค้นระดับงานนำเสนอและสไลด์แต่ละอันรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เมาส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีการกระทำใดอย่างหนึ่งสามรายการ ส่วนการสืบค้นระดับกรอบข้อความรายงานหนึ่งคอนเทนเนอร์ในแต่ละประเภท
+สำหรับตัวอย่างนี้, การสอบถามระดับ Presentation และ Slide แสดงคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์โฮเวอร์สองรายการ, และคอนเทนเนอร์ที่มีการกระทำใด ๆ ก็ตามสามรายการ ขอบเขต Text‑Frame แสดงคอนเทนเนอร์หนึ่งรายการในแต่ละประเภท
 
-### **จำแนกการกระทำและปลายทาง**
+### **จำแนกประเภทการกระทำและปลายทาง**
 
-ใช้ [Hyperlink.getActionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getActionType) เพื่อแปลประเภทการกระทำก่อนแปลปลายทางค่า [HyperlinkActionType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkActionType) ครอบคลุมมากกว่าการนำทางเว็บ:
+ใช้ [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทาง ค่าของ [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) ครอบคลุมมากกว่าการนำทางเว็บ:
 
-| ค่า | ความหมายสำหรับการตรวจสอบ |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสเค็มของมัน |
-| `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์ที่มาพร้อมโปรแกรม, แก้ไขตามบริบทการแสดงสไลด์ |
+| `Hyperlink` | Hyperlink ภายนอก; ตรวจสอบ URL และสคีม |
+| `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์ที่ระบุ |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ที่สร้างขึ้นโดยอัตโนมัติ, ทำงานในบริบทของการสไลด์โชว์ |
 | `JumpEndShow`, `StartCustomSlideShow` | สิ้นสุดการแสดงปัจจุบันหรือเริ่มการแสดงแบบกำหนดเอง |
-| `StartMacro` | เริ่มทำแมโคร |
-| `StartProgram` | เรียกโปรแกรม |
-| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; ตรวจสอบแยกจาก URL เว็บ |
+| `StartMacro` | เรียกใช้แมโคร |
+| `StartProgram` | เปิดโปรแกรม |
+| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; แยกตรวจสอบจาก URL เว็บ |
 | `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ |
-| `NoAction`, `Unknown` | ไม่มีการนำทาง หรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
+| `NoAction`, `Unknown` | ไม่มีการนำทาง, หรือการกระทำที่ไม่รู้จักต้องตรวจสอบ |
 
-อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ อย่าลืมเก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐาน, และรวม tooltip จาก [getTooltip](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Hyperlink#getTooltip) หากมี
+อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide) การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ ให้เก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐานและรวมคำอธิบายจาก [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) หากมี
 
-### **รายงาน ทำความสะอาด และตรวจสอบไฮเปอร์ลิงก์**
+### **Report, Sanitize, and Verify Hyperlinks**
 
-ตัวอย่าง JavaScript ต่อไปอ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างด้านบน), เขียน `hyperlink-audit.json`, ใช้นโยบาย, บันทึก `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อตรวจสอบทั้งสองประเภทการเปิดใช้งานอีกครั้ง ตัวอย่างจะรวบรวมคอนเทนเนอร์ก่อนทำการเปลี่ยนแปลงและใช้การเทียบค่าอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์ซ้ำ การสืบค้นงานนำเสนอครอบคลุมสไลด์ปกติ; สำหรับการตรวจสอบทั่วแพ็กเกจ จะสืบค้นมาสเตอร์, เลย์เอาต์, โน้ต, และมาสเตอร์ของโน้ตและแจกจ่ายเมื่อมี
+ตัวอย่าง JavaScript ต่อไปอ่านงานนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างข้างต้น), เขียน `hyperlink-audit.json`, ใช้นโยบาย, บันทึก `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อตรวจสอบประเภทการกระทำทั้งสองอีกครั้ง จะรวบรวมคอนเทนเนอร์ก่อนทำการเปลี่ยนแปลงและใช้การเทียบค่าด้วยการอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันสองครั้ง การสอบถามระดับงานนำเสนอครอบคลุมสไลด์ปกติ; สำหรับการตรวจสอบระดับแพ็กเกจทั้งหมดยังสอบถาม masters, layouts, notes, และ notes & handout masters เมื่อมีอยู่
 
-รายงานบันทึกดัชนีสไลด์แบบหนึ่งฐานและ [getSlideId](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/BaseSlide#getSlideId) หากมี [getSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getSlide) จะให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่รองรับ มาสเตอร์, เลย์เอาต์, และโน้ตไม่มีดัชนีสไลด์ปกติและจะระบุด้วยสโคปของมัน คอนเทนเนอร์รูปร่างและคอนเทนเนอร์การจัดรูปแบบส่วนข้อความจะถูกระบุแยกกัน; ประเภทคอนเทนเนอร์อื่นจะคงชื่อประเภทรันไทม์ของมันเอง แต่ละคอนเทนเนอร์จะได้รับ ID รายงานระดับท้องถิ่นเพื่อให้การกระทำสองอย่างสามารถเชื่อมโยงกันได้ รายงานจะเก็บประเภทการกระทำเป็นค่าคงที่จำนวนเต็มจากการนับของ `HyperlinkActionType`
+รายงานบันทึกดัชนีสไลด์แบบหนึ่ง‑ฐานและ [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) หากมี [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่รองรับ Masters, layouts, และ notes ไม่มีดัชนีสไลด์ปกติและจะระบุด้วยขอบเขตของมันเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์ฟอร์แมตส่วนข้อความจะมีป้ายแยกกัน; ประเภทคอนเทนเนอร์อื่นจะเก็บชื่อประเภทในเวลารัน รายการแต่ละคอนเทนเนอร์จะได้รับ ID เฉพาะในรายงานเพื่อให้การกระทำทั้งสองสามารถเชื่อมโยงกันได้ รายงานเก็บประเภทการกระทำเป็นค่าคงที่จำนวนเต็มจากการกำหนดค่า HyperlinkActionType
 
-นโยบายการใช้งานที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบเต็มและปลายทางสไลด์ภายในที่ถูกต้อง มันจะปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์อื่น ๆ, การกระทำที่ไม่รู้จัก, และสเค็ม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจของนโยบาย ไม่ใช่คำตัดสินด้านความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่ทำให้เชื่อถือได้: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปพลิเคชันของคุณ URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานทั้งสองจะถูกตรวจสอบ ตัวอย่างตรวจสอบเมตาดาต้าโดยไม่เปิดลิงก์หรือรันการกระทำ
+นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเพียง URL HTTPS แบบเต็มและเป้าหมายสไลด์ภายในที่ถูกต้อง จะปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น ๆ, การกระทำที่ไม่รู้จัก, และสคีม URL อื่น ๆ การปฏิเสธเป็นการตัดสินใจของนโยบาย ไม่ใช่การตัดสินความปลอดภัยของ Aspose.Slides HTTPS อย่างเดียวไม่เพียงพอ: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกดั้งเดิมและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างทำการตรวจสอบเมตาดาต้าโดยไม่เปิดลิงก์หรือเรียกการกระทำ
 
-สำหรับการแก้ไข คอนเทนเนอร์ของ [getHyperlinkManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getHyperlinkManager) รองรับ [setExternalHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) ที่นี่ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้า Landing HTTPS คงที่; การคลิกที่ไม่ได้รับอนุญาตอื่น ๆ และการเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตจะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อทำการลบทุกการละเมิดนโยบายแทน เลือกหน้าแทนที่ที่เป็นของแอปพลิเคชันก่อนการเผยแพร่
+สำหรับการแก้ไข, คอนเทนเนอร์ [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) รองรับ [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick), และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver) ที่นี่ ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้า HTTPS คงที่; การคลิกที่ไม่ได้รับอนุญาตและการกระทำโฮเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อเอาการละเมิดนโยบายทั้งหมดออก เลือกหน้าทดแทนที่เป็นของแอปก่อนการปรับใช้
 
-ธงการส่งออกของรายงานใช้การทบทวน PDF อย่างระมัดระวัง: ทำเครื่องหมายการกระทำเมาส์โอเวอร์และทุกอย่างที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ มันเป็นเคล็ดลับการทบทวน ไม่ใช่การทดสอบความสามารถหรือการการันตีว่าลิงก์ที่ไม่มีเครื่องหมายจะคงอยู่ในการส่งออก การส่งออก PDF และ HTML ที่สนับสนุน ([PDF](/slides/th/nodejs-java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/nodejs-java/convert-powerpoint-to-html/)) อาจเก็บไฮเปอร์ลิงก์ไว้ขึ้นกับการกระทำ, ตัวเลือกการส่งออก, และโปรแกรมชมไฟล์ ภาพ raster ([images](/slides/th/nodejs-java/convert-powerpoint-to-png/)) และวิดีโอ ([video](/slides/th/nodejs-java/convert-powerpoint-to-video/)) ไม่สามารถเก็บไฮเปอร์ลิงก์แบบโต้ตอบได้; ควรทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบสำหรับผลลัพธ์เหล่านั้น
+ค่าสธนของการส่งออกในรายงานใช้แนวนโยบายรีวิว PDF เชิงรหัส: ทำเครื่องหมายการกระทำโฮเวอร์และสิ่งใด ๆ ที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ เป็นคำแนะนำการรีวิว ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ทำเครื่องหมายจะคงอยู่ การส่งออก [PDF](/slides/th/nodejs-java/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/nodejs-java/convert-powerpoint-to-html/) ที่รองรับอาจคง Hyperlink ไว้ ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และผู้ดูภาพ ส่วน [images](/slides/th/nodejs-java/convert-powerpoint-to-png/) และ [video](/slides/th/nodejs-java/convert-powerpoint-to-video/) ไม่สามารถคง Hyperlink เชิงโต้ตอบได้; ควรทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบเพื่อเอาท์พุตเหล่านั้น
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -499,20 +499,20 @@ try {
 }
 ```
 
-ด้วยอินพุตที่สร้างข้างต้น รายงานมีห้าแถวการกระทำ ลิงก์เมาส์โอเวอร์ไฟล์และแมโครคลิกจะถูกลบ ส่วนลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบพิมพ์ศูนย์การกระทำที่ไม่ได้รับอนุญาต อินพุตที่มี URL คลิกภายนอกที่ไม่ได้รับอนุญาตจะทำให้สาขาการแทนที่ทำงาน คอนเทนเนอร์ที่มีคลิกที่ได้รับอนุญาตและเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตจะเก็บคลิกไว้
+ด้วยอินพุตที่สร้างข้างต้น, รายงานมีแถวการกระทำห้ารายการ ลิงก์ไฟล์โฮเวอร์และแมโครคลิกถูกลบ ขณะที่ลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบจะแสดงศูนย์การกระทำที่ถูกห้าม อินพุตที่มี URL คลิกภายนอกที่ห้ามจะทำให้สาขาการแทนที่ทำงาน คอนเทนเนอร์ที่มีคลิกที่อนุญาตและโฮเวอร์ที่ห้ามจะเก็บคลิกไว้
 
-การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) ที่ลบทั้งสองประเภทการเปิดใช้งานในสโคปที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบการกระทำของไฮเปอร์ลิงก์เท่านั้น; ไม่ได้ลบโครงการ VBA ฝัง, วัตถุ OLE, หรือเนื้อหาแอคทีฟอื่น ๆ และไม่ได้ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
+การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) ซึ่งลบการกระทำทั้งสองในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบการกระทำของ Hyperlink เท่านั้น; ไม่ลบโครงการ VBA ฝัง, วัตถุ OLE, หรือเนื้อหาแอคทีฟอื่น ๆ, และไม่ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ฉันจะเชื่อมไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
+**ฉันจะเชื่อมโยงไปยังส่วนหรือสไลด์แรกของมันได้อย่างไร?**
 
-ส่วนใน PowerPoint จะจัดกลุ่มสไลด์ แต่ไฮเปอร์ลิงก์ภายในจะชี้ไปยังสไลด์เดียว หากต้องการสร้างการนำทางไปยังส่วน ให้เชื่อมไปยังสไลด์แรกของส่วนนั้น
+ส่วนใน PowerPoint จะจัดกลุ่มสไลด์, แต่ Hyperlink ภายในจะชี้ไปยังสไลด์เดี่ยว เพื่อสร้างการนำทางไปยังส่วน, ให้เชื่อมไปยังสไลด์แรกของส่วนนั้น
 
-**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
+**ฉันสามารถผูก Hyperlink กับองค์ประกอบของมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกสไลด์ได้หรือไม่?**
 
-ได้ มาสเตอร์สไลด์และองค์ประกอบเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานในโหมดสไลด์โชว์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์ที่สอดคล้องกัน
+ได้ มาสเตอร์สไลด์และองค์ประกอบของเลเอาต์รองรับ Hyperlink ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานขณะแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลเอาต์นั้น
 
-**ไฮเปอร์ลิงก์จะคงอยู่เมื่อส่งออกเป็น PDF, HTML, ภาพ หรือวิดีโอหรือไม่?**
+**Hyperlink จะคงอยู่เมื่อส่งออกเป็น PDF, HTML, ภาพ หรือวิดีโอหรือไม่?**
 
-การส่งออก PDF และ HTML ที่สนับสนุนอาจคงไฮเปอร์ลิงก์ไว้; ภาพ raster และวิดีโอไม่สามารถคงไฮเปอร์ลิงก์แบบโต้ตอบได้ ดูข้อควรพิจารณาการส่งออกใน [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+การส่งออก PDF และ HTML ที่รองรับอาจคง Hyperlink ไว้; ภาพเรสเตอร์และวิดีโอไม่สามารถคง Hyperlink เชิงโต้ตอบได้ ดูข้อควรพิจารณาการส่งออกใน [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)

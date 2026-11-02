@@ -1,5 +1,5 @@
 ---
-title: Python'da Sunum Özelliklerini Yönetme
+title: Python'da Sunum Özelliklerini Yönet
 linktitle: Sunum Özellikleri
 type: docs
 weight: 70
@@ -13,8 +13,8 @@ keywords:
 - gelişmiş özellikler
 - özellikleri yönet
 - özellikleri değiştir
-- belge üst verileri
-- üst verileri düzenle
+- belge meta verileri
+- meta verileri düzenle
 - düzeltme dili
 - varsayılan dil
 - PowerPoint
@@ -22,47 +22,34 @@ keywords:
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via Java'da sunum özelliklerini uzmanlaşın ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaşmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Python via Java'da sunum özelliklerini ustaca yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalaştırmayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides belge özelliklerinin iki türünü destekler: **Built-in** ve **Custom**. Bu özellik türlerine Aspose.Slides API'si aracılığıyla kolayca erişilebilir ve yönetilebilir.
+Aspose.Slides for Python via Java, **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri, yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle çalışmanıza **DocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) sınıfı üzerinden olanak tanır. Bu sınıfın bir örneği **Presentation.getDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties) tarafından döndürülür. Aşağıdaki örnekler bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) tarafından döndürülür. Aşağıdaki örnekler, bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
-{{% alert color="info" title="Not" %}}
-Lütfen **Application** ve **AppVersion** alanlarının değiştirilemeyeceğini unutmayın. Aspose.Slides bu alanları her kaydetmede yeniden yazar; bu nedenle kaydedilen bir sunum her zaman “Aspose.Slides for Java” ve onu üreten kütüphanenin sürümünü rapor eder. **DocumentProperties.setNameOfApplication**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#setNameOfApplication](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/#setNameOfApplication)’a geçirilen herhangi bir değer, sunum yazıldığında göz ardı edilir.
+{{% alert color="info" title="Note" %}}
+Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
 {{% /alert %}}
 
-## **PowerPoint'ta Belge Özellikleri**
+## **Sunum Özelliklerini Yönet**
 
-Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmenize olanak tanır. Aşağıda gösterildiği gibi Office simgesine tıklayın ve **Prepare | Properties | Advanced Properties** seçeneğini seçin:
+Belge özellikleri, sunum içeriği ile birlikte tanımlayıcı bilgileri depolar. İki kategoriye ayrılırlar:
 
-|**Gelişmiş Özellikler menüsü öğesini seçme**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/ZrmuCD6.jpg)|
+- **Yerleşik özellikler** standart meta verileri içerir, örneğin başlık, yazar ve belge istatistikleri.
+- **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini saklar.
 
-**Advanced Properties** seçtikten sonra, PowerPoint dosyasının belge özelliklerini yönetebileceğiniz bir iletişim kutusu görüntülenir:
+Aspose.Slides for Python via Java, her iki kategoriye de erişim sağlar. PowerPoint'te belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties** seçeneğini seçin. İletişim kutusu, bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere ayırır. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-|**Özellikler İletişim Kutusu**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/LibmdQd.jpg)|
+## **Şifreli Sunumdan Genel Özellikleri Okuma**
 
-**Properties Dialog** **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmeler içerir. Bu sekmeler, PowerPoint dosyaları hakkında farklı türde bilgiler yapılandırmanıza olanak tanır. Özel özellikleri yönetmek için **Custom** sekmesini kullanın.
+Açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` ile çağrıldıktan sonra şifrelenirse, belge özellikleri genel olarak kalır. Bir uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` ile çağırarak açma parolasını sağlamadan genel meta verileri okuyabilir.
 
-## **Aspose.Slides for Python via Java Kullanarak Belge Özellikleriyle Çalışma**
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) Aspose.Slides'in neyi yükleyeceğini kontrol eder; hiçbir şeyi çözümlmez. Özellikler şifreleme içinde dahil edilmişse, parolasız yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yoksayılır ve tam sunum yüklenir.
 
-Yukarıda açıklandığı gibi, Aspose.Slides for Python via Java hem **Built-in** hem de **Custom** belge özelliklerini destekler. **DocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) sınıfı, bir sunum dosyasıyla ilişkili belge özelliklerini temsil eder.
-
-Bu özelliklere **Presentation.getDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties) ile erişin.
-
-## **Şifreli Bir Sunumdan Genel Özellikleri Okuma**
-
-Açma parolası, genellikle sunum içeriğini ve belge özelliklerini korur. **ProtectionManager.setEncryptDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties)‘a `false` geçirilerek bir sunum şifrelendiğinde, belge özellikleri genel kalır. Bir uygulama daha sonra **LoadOptions.setOnlyLoadDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties)‘a `true` geçirerek açma parolasını sağlamadan genel üst verileri okuyabilir.
-
-Belge‑özellikleri‑yalnızca seçeneği, Aspose.Slides’ın neyi yüklediğini kontrol eder; hiçbir şeyi şifre çözmez. Özellikler şifreleme içinde dahil edilmişse, parolasız yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
-
-Aşağıdaki örnek, **ProtectionManager.isOnlyDocumentPropertiesLoaded**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) aracılığıyla yükleme modunu doğrular ve ardından **Presentation.getDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/#getDocumentProperties) ile yerleşik özellikleri okur:
+Örnek, belge özellikleri genel bırakılmış bir şifreli sunum gerektirir. Yükleme modunu [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) üzerinden doğrular ve ardından [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) aracılığıyla yerleşik özellikleri okur:
 
 ```python
 import jpype
@@ -91,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-Bu modda slayt içeriği yüklenmez. Slaytlar, ana şablonlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman **ProtectionManager.isOnlyDocumentPropertiesLoaded**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/tr/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) kontrol etmelidir.
+Bu modda, slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) kontrol etmelidir.
 
-{{% alert color="warning" title="Uyarı" %}}
-Genel üst veriler yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin parola olmadan erişim gerektirdiği durumlarda genel bırakın.
+{{% alert color="warning" title="Warning" %}}
+Genel meta veriler, yazar adları, başlıklar, konular, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerleri ifşa edebilir. Hassas özellikleri sunumla birlikte şifreleyin. Parolasız erişim gerektiren sadece indeksleme, sınıflandırma, arama veya belge yönetim sistemleri gibi özel durumlarda genel bırakın.
 {{% /alert %}}
 
-## **Şifreli Bir Sunumun Özelliklerini Güncelleme**
+## **Şifreli Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için, belge‑özellikleri‑yalnızca modunda yüklü bir sunum, yalnızca genel üst verileri okumak içindir. Aspose.Slides, bu yalnızca‑üst‑veri nesnesindeki değiştirilen özellikleri kaydedemez; çünkü genel özellikler şifreli sunum içindeki ilgili verilerle tutarlı olmalıdır. Bu nedenle güncelleme, doğru açma parolasını sağlayarak tam yükleme gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` ile çağrıldıktan sonra yüklenen bir sunum, genel meta verileri okumak içindir. Aspose.Slides, bu yalnızca meta veri nesnesinden değiştirilen özellikleri kaydedemez çünkü genel özelliklerin şifreli sunum içindeki karşılık gelen verilerle tutarlı kalması gerekir. Bu yüzden güncelleme için doğru açma parolası ve tam yükleme gereklidir.
 
-Aşağıdaki örnek, **LoadOptions.setPassword**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setPassword](https://reference.aspose.com/slides/tr/python-java/aspose.slides/loadoptions/#setPassword) ile sunumu açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından **PresentationInfo.isEncrypted**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#isEncrypted](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#isEncrypted) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için parolasız olarak genel üst verileri tekrar açar:
+Örnek, genel belge özelliklerine ve bilinen bir açma parolasına sahip şifreli bir PPTX sunumu gerektirir. Tam sunumu [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri doğrulamak için parolasız genel meta verileri tekrar açar:
 
 ```python
 import jpype
@@ -122,6 +109,7 @@ presentation = Presentation(input_path, load_options)
 try:
     presentation.getDocumentProperties().setTitle("Updated Product Roadmap")
     presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed")
+    
     presentation.save(output_path, SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -144,11 +132,11 @@ finally:
     metadata_presentation.dispose()
 ```
 
-Bir uygulama sunum içeriğini şifreleyemiyor veya yükleyemiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okuma‑yazma olarak değerlendirmelidir.
+Bir uygulama sunum içeriğini çözümlmeye veya yüklemeye yetkili değilse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okuma olarak ele almalıdır.
 
 ## **Yerleşik Özelliklere Erişim**
 
-**DocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/](https://reference.aspose.com/slides/tr/python-java/aspose.slides/documentproperties/) tarafından sunulan yerleşik özellikler şunlardır: **Creator** (Yazar), **Description**, **Created** (Oluşturulma Tarihi), **Modified** (Değiştirilme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **Keywords**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title**.
+[DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) sınıfı, [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) ve [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime) gibi getter metodları aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve saklanan meta verileri konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```python
 import jpype
@@ -157,36 +145,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, DocumentProperties
+from asposeslides.api import Presentation
 
-# Sunumu temsil eden Presentation sınıfını örnekleyin
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessBuiltInProperties.pptx")
 try:
-    # Presentation ile ilişkili DocumentProperties nesnesine bir referans oluşturun
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Yerleşik özellikleri görüntüle
-    print("Category : ", properties.getCategory())
-    print("Current Status : ", properties.getContentStatus())
-    print("Creation Date : ", properties.getCreatedTime())
-    print("Author : ", properties.getAuthor())
-    print("Description : ", properties.getComments())
-    print("KeyWords : ", properties.getKeywords())
-    print("Last Modified By : ", properties.getLastSavedBy())
-    print("Supervisor : ", properties.getManager())
-    print("Modified Date : ", properties.getLastSavedTime())
-    print("Presentation Format : ", properties.getPresentationFormat())
-    print("Last Print Date : ", properties.getLastPrinted())
-    print("Is Shared between producers : ", properties.getSharedDoc())
-    print("Subject : ", properties.getSubject())
-    print("Title : ", properties.getTitle())
+    print("Category:", document_properties.getCategory())
+    print("Content status:", document_properties.getContentStatus())
+    print("Creation date:", document_properties.getCreatedTime())
+    print("Author:", document_properties.getAuthor())
+    print("Comments:", document_properties.getComments())
+    print("Keywords:", document_properties.getKeywords())
+    print("Last modified by:", document_properties.getLastSavedBy())
+    print("Manager:", document_properties.getManager())
+    print("Modified date:", document_properties.getLastSavedTime())
+    print("Presentation format:", document_properties.getPresentationFormat())
+    print("Last print date:", document_properties.getLastPrinted())
+    print("Is shared between producers:", document_properties.getSharedDoc())
+    print("Subject:", document_properties.getSubject())
+    print("Title:", document_properties.getTitle())
 finally:
     presentation.dispose()
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+## **Yerleşik Özellikleri Değiştir**
 
-Yerleşik özellikleri değiştirmek, onlara erişmek kadar basittir. Yeni bir değer atamak için ilgili ayarlayıcıyı kullanın. Aşağıdaki örnek, Aspose.Slides for Python via Java kullanarak yerleşik belge özelliklerini değiştirir.
+Yerleşik meta verileri güncellemek için, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) tarafından döndürülen nesnedeki setter metodlarını kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) ve [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager) metodlarını çağırır, ardından güncellenen sunumu [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```python
 import jpype
@@ -195,35 +180,71 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("ModifyBuiltInProperties.pptx")
 try:
-    # Presentation ile ilişkili DocumentProperties nesnesine bir referans oluşturun
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Yerleşik özellikleri ayarlayın
-    properties.setAuthor("Aspose.Slides for Python via Java")
-    properties.setTitle("Modifying Presentation Properties")
-    properties.setSubject("Aspose Subject")
-    properties.setComments("Aspose Description")
-    properties.setManager("Aspose Manager")
+    document_properties.setAuthor("Aspose.Slides for Python via Java")
+    document_properties.setTitle("Manage PowerPoint Presentation Properties")
+    document_properties.setSubject("Modify Built-in Properties")
+    document_properties.setComments("Aspose description")
+    document_properties.setManager("Aspose manager")
 
-    # Sunumunuzu bir dosyaya kaydedin
-    presentation.save("DocProps.pptx", SaveFormat.Pptx)
+    presentation.save("DocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Bu örnek, aşağıda gösterildiği gibi sunumun yerleşik özelliklerini değiştirir:
+## **Köprü Temelini Yönet**
 
-|**Değişiklikten Sonra Yerleşik Belge Özellikleri**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/zz1N9de.jpg)|
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) görece köprüler için belge düzeyinde temel adresi döndürür. [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) kullanarak bunu değiştirebilir veya temizleyebilirsiniz. Bu, bir sunumu ve bağlı dosyalarını başka bir konuma taşıdığınızda faydalıdır. Bu, tek tek bir köprünün [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) metodundan ayrı bir şeydir; temeli değiştirmek, kaydedilen köprü adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-## **Özel Belge Özellikleri Ekleme**
+Örnek, `target.html` gibi bir görece köprü ve `https://example.org/absolute.html` gibi bir mutlak köprü içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip tekrar açar. Ardından temeli boş bir string ile temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini, bağlı dosyalarınızın konumuyla değiştirin.
 
-Aspose.Slides for Python via Java, geliştiricilerin sunumlara özel belge özellikleri eklemesine de izin verir. Aşağıdaki örnek üç özel özellik ekler, ardından 2. indekste saklanan adı bulur ve bu özelliği kaldırır; böylece kaydedilen sunum iki özelliği tutar. Özel özellikler alfabetik sırayla indekslenir, eklenme sırasına göre değil.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("hyperlinks.pptx")
+try:
+    print("Original base:", presentation.getDocumentProperties().getHyperlinkBase())
+
+    new_base = "https://example.com/new/"
+    presentation.getDocumentProperties().setHyperlinkBase(new_base)
+    presentation.save("hyperlinks-updated.pptx", SaveFormat.Pptx)
+
+    updated_presentation = Presentation("hyperlinks-updated.pptx")
+    try:
+        print("Base preserved:", new_base == updated_presentation.getDocumentProperties().getHyperlinkBase())
+
+        updated_presentation.getDocumentProperties().setHyperlinkBase("")
+        updated_presentation.save("hyperlinks-cleared.pptx", SaveFormat.Pptx)
+
+        cleared_presentation = Presentation("hyperlinks-cleared.pptx")
+        try:
+            print("Base cleared:", "" == cleared_presentation.getDocumentProperties().getHyperlinkBase())
+        finally:
+            cleared_presentation.dispose()
+    finally:
+        updated_presentation.dispose()
+finally:
+    presentation.dispose()
+```
+
+İki doğrulama mesajı `True` yazdırmalıdır. Temelin temizlenmesi, tek tek köprü adreslerini etkilenmemiş bırakır.
+
+`target.pptx`'ye görece bir köprü, temel `old` klasörüne işaret ettiğinde `old/target.pptx`'yi açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum tekrar açıldıktan sonra aynı köprü `new/target.pptx`'yi açtı. Mutlak bir köprü aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temeli değiştirdikten önce ve sonra PowerPoint'te görece köprülerinizi test edin.
+
+## **Özel Sunum Özellikleri Ekle**
+
+Özel özellikler, karşılık gelen bir yerleşik alanı olmayan meta verileri depolar. [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) metodu, özellik adını kullanarak bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri (`jpype.JInt` kullanarak Java tam sayısı geçirilir) ekler ve [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) ile sunumu kaydeder. Mevcut bir ada değer atamak, o özelliğin değerini değiştirir.
 
 ```python
 import jpype
@@ -236,33 +257,20 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Belge Özelliklerini Almak
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Özel özellikler ekleme
-    properties.set_Item("New Custom", jpype.JInt(12))
-    properties.set_Item("My Name", "Mudassir")
-    properties.set_Item("Custom", jpype.JInt(124))
+    document_properties.set_Item("Reviewed by", "John Smith")
+    document_properties.set_Item("Confidentiality level", "Internal")
+    document_properties.set_Item("Document version", jpype.JInt(2))
 
-    # Belirli bir indeksdeki özellik adını alıyor
-    property_name = properties.getCustomPropertyName(2)
-
-    # Seçilen özelliği kaldırma
-    properties.removeCustomProperty(property_name)
-
-    # Sunumu kaydetme
-    presentation.save("CustomDemo.pptx", SaveFormat.Pptx)
+    presentation.save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
-
-|**Eklenmiş Özel Belge Özellikleri**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/HdKcxI9.png)|
 
 ## **Özel Özelliklere Erişim ve Değiştirme**
 
-Aspose.Slides for Python via Java, geliştiricilerin özel özellik değerlerine erişmesine de imkan tanır. Aşağıdaki örnek, bir sunumdaki tüm özel özelliklere nasıl erişileceğini ve değiştirileceğini gösterir.
+Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) kullanarak bunlar üzerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) sıfır tabanlı bir indeks alır ve [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, tüm değerleri tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
 
 ```python
 import jpype
@@ -271,237 +279,50 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessAndModifyProperties.pptx")
 try:
-    # Presentation ile ilişkili DocumentProperties nesnesine bir referans oluşturun
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Özel özelliklere eriş ve değiştir
-    for i in range(properties.getCountOfCustomProperties()):
-        property_name = properties.getCustomPropertyName(i)
-        # Özel özelliklerin adlarını ve değerlerini görüntüle
-        print("Custom Property Name : ", property_name)
-        print("Custom Property Value : ", properties.get_Item(property_name))
+    for i in range(document_properties.getCountOfCustomProperties()):
+        property_name = document_properties.getCustomPropertyName(i)
+        property_value = document_properties.get_Item(property_name)
 
-        # Özel özelliklerin değerlerini değiştir
-        properties.set_Item(property_name, f"New Value {i + 1}")
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value)
 
-    # Sunumunuzu bir dosyaya kaydedin
-    presentation.save("CustomDemoModified.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+        document_properties.set_Item(property_name, f"New Value {i + 1}")
 
-Bu örnek, [PPTX](https://docs.fileformat.com/presentation/pptx/) sunumunun özel özelliklerini değiştirir. Aşağıdaki figürler, değişiklik öncesi ve sonrası sunum özel özelliklerini gösterir:
-
-|**Değişiklik Öncesi Özel Özellikler**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/Ze7YHvi.jpg)|
-
-|**Değişiklik Sonrası Özel Özellikler**|
-| :- |
-|![PowerPoint belge özellikleri](https://i.imgur.com/Tofu0CL.jpg)|
-
-## **Gelişmiş Belge Özellikleri**
-
-{{% alert color="info" title="Not" %}}
-Yeni yöntemler **readDocumentProperties**, **updateDocumentProperties** ve **writeBindedPresentation**, **PresentationInfo** sınıfına eklenmiştir; ayrıca **DocumentProperties.setLastSavedTime** metodunun davranışı değiştirilmiştir.
-{{% /alert %}}
-
-İki yeni yöntem **readDocumentProperties** ve **updateDocumentProperties**, **PresentationInfo** sınıfına eklenmiştir. Bu yöntemler, belge özelliklerine hızlı erişim sağlar ve tüm sunumu yüklemeden özellikleri değiştirme ve güncelleme imkanı tanır.
-
-Özellikleri yükleme, değerlerini değiştirme ve belgeyi güncelleme tipik iş akışı aşağıdaki gibi uygulanabilir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-# Sunum bilgilerini oku
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx")
-
-# Mevcut özellikleri al
-properties = presentation_info.readDocumentProperties()
-
-# Yazar ve Başlık alanlarının yeni değerlerini ayarla
-properties.setAuthor("New Author")
-properties.setTitle("New Title")
-
-# Sunumu yeni değerlerle güncelle
-presentation_info.updateDocumentProperties(properties)
-presentation_info.writeBindedPresentation("presentation.pptx")
-```
-
-Belirli bir sunumun özelliklerini şablon olarak kullanıp diğer sunumlarda özellikleri güncellemenin başka bir yolu da vardır:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("template.pptx")
-template = presentation_info.readDocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-def update_by_template(path, template):
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-Sıfırdan yeni bir şablon oluşturulabilir ve ardından birden fazla sunumu güncellemek için kullanılabilir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory, DocumentProperties
-
-template = DocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-## **Düzeltme Diline Ayar**
-
-Aspose.Slides, **PortionFormat.setLanguageId**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/#setLanguageId](https://reference.aspose.com/slides/tr/python-java/aspose.slides/portionformat/#setLanguageId) metodunu sağlar; bu metod, bir PowerPoint belgesi için düzeltme dilini ayarlamanıza olanak tanır. Düzeltme dili, sunumdaki yazım ve dilbilgisi denetiminin yapılacağı dildir.
-
-Bu Python kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gösterir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, Portion, FontData
-
-pptx_file_name = "presentation.pptx"
-
-presentation = Presentation(pptx_file_name)
-try:
-    auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
-    paragraph.getPortions().clear()
-
-    new_portion = Portion()
-
-    font = FontData("SimSun")
-    portion_format = new_portion.getPortionFormat()
-    portion_format.setComplexScriptFont(font)
-    portion_format.setEastAsianFont(font)
-    portion_format.setLatinFont(font)
-
-    portion_format.setLanguageId("zh-CN") # set the Id of a proofing language
-
-    new_portion.setText("1。")
-    paragraph.getPortions().add(new_portion)
-finally:
-    presentation.dispose()
-```
-
-## **Varsayılan Dile Ayar**
-
-Bu Python kodu, tüm bir PowerPoint sunumu için varsayılan dilin nasıl ayarlanacağını gösterir:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, LoadOptions, ShapeType
-
-load_options = LoadOptions()
-load_options.setDefaultTextLanguage("en-US")
-
-presentation = Presentation(load_options)
-try:
-    # Metin içeren bir dikdörtgen şekil ekler
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50)
-    shape.getTextFrame().setText("New Text")
-
-    # İlk bölümün dilini kontrol eder
-    print(shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId())
+    presentation.save("CustomProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Canlı Örnek**
 
-Aspose.Slides API'si aracılığıyla belge özellikleriyle nasıl çalışılacağını görmek için **[Aspose.Slides Metadata](https://products.aspose.app/slides/tr/metadata)** çevrimiçi uygulamasını deneyin:
+Aspose.Slides API'sini kullanarak belge özellikleriyle nasıl çalışılacağını görmek için çevrimiçi uygulama olan [**PowerPoint Meta Verilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata)'yi deneyin:
 
-[![PowerPoint Üst Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
+[![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
-**Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
+**Sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, izin verilen bir özellik ise değerlerini değiştirebilir veya boş bir değere ayarlayabilirsiniz.
+Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, değerlerini değiştirebilir veya ilgili özellik izin veriyorsa boş olarak ayarlayabilirsiniz.
 
-**Zaten var olan bir özel özelliği eklersem ne olur?**
+**Zaten mevcut olan bir özel özellik eklersem ne olur?**
 
-Var olan bir özel özelliği eklediğinizde, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak değeri günceller.
+Varolan bir özel özellik eklenirse, mevcut değeri yeniyle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides özelliğin değerini otomatik olarak günceller.
 
 **Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
 
-Evet. **PresentationFactory.getPresentationInfo**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ve ardından **PresentationInfo.readDocumentProperties**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentationinfo/#readDocumentProperties) kullanarak bir **Presentation**[https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/](https://reference.aspose.com/slides/tr/python-java/aspose.slides/presentation/) örneği oluşturmadan saklanan belge üst verilerini okuyabilirsiniz. Tam raporlama örneği ve format‑spesifik sınırlamalar için **[Build a Lightweight Presentation Inventory](/slides/tr/python-java/examine-presentation/)** bölümüne bakın.
+Evet. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) ve ardından [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) kullanarak bir [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) örneği oluşturmadan saklanan belge meta verilerini okuyabilirsiniz. Tam bir raporlama örneği ve format‑spesifik sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/python-java/examine-presentation/) sayfasına bakın.
 
-**Şifreli bir sunumun genel özelliklerini açma parolasını bilmeden okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma parolası olmadan okuyabilir miyim?**
 
-Evet. Belge‑özelliği şifrelemesi, sunum şifrelenmeden önce devre dışı bırakılmış olmalı ve sunum belge‑özellikleri‑yalnızca modunda yüklenmiş olmalıdır.
+Evet. Sunum, [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) `False` ile çağrıldıktan sonra şifrelenmiş olmalı ve [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) `True` ile çağrıldıktan sonra yüklenmiş olmalıdır.
 
-**Şifreli bir PPTX dosyasını belge‑özellikleri‑yalnızca modunda güncelleyebilir miyim?**
+**Yerleşik belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu nedenle bir şifreli PPTX dosyasını güncellemek, doğru açma parolasıyla tam yükleme gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açma parolasını kullanarak tam sunumu yüklemeyi gerektirir.

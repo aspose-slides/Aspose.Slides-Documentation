@@ -14,7 +14,7 @@ keywords:
 - metin köprüsü
 - slayt köprüsü
 - şekil köprüsü
-- resim köprüsü
+- görüntü köprüsü
 - video köprüsü
 - değiştirilebilir köprü
 - PowerPoint
@@ -22,28 +22,32 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Java için Aspose.Slides kullanarak PowerPoint ve OpenDocument sunumlarındaki köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın, Java örnekleriyle."
+description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument sunumlarında köprüleri ekleyin, biçimlendirin, güncelleyin ve kaldırın, Java örnekleri kullanarak."
 ---
 ## **Giriş**
 
 Bir köprü, sunum içeriğini bir web sitesine veya sunum içinde bir konuma bağlar. PowerPoint'te köprüler genellikle iki amaca hizmet eder:
 
 * Metin, şekil veya medya çerçevesinden bir web sitesini açmak.
-* Örneğin bir içerik tablosundan başka bir slayta gitmek.
+* Örneğin bir içindekiler tablosundan başka bir slayta gitmek.
 
-Aspose.Slides for Java, bu bağlantıları eklemenizi, görünüm ve seslerini kontrol etmenizi, özelliklerini güncellemenizi ve kaldırmanızı sağlar. Aşağıdaki örnekler, köprülerle bireysel öğeler üzerinde nasıl çalışılacağını ve sunum, slayt veya metin çerçevesi seviyesinde köprülerin nasıl erişileceğini gösterir.
+Aspose.Slides for Java, bu bağlantıları eklemenize, görünüm ve seslerini kontrol etmenize, özelliklerini güncellemenize ve kaldırmanıza olanak tanır. Aşağıdaki örnekler, bireysel öğeler üzerindeki köprülerle nasıl çalışılacağını ve sunum, slayt veya metin‑çerçevesi seviyesinde köprülere nasıl erişileceğini gösterir.
 
-{{% alert color="info" title="Note" %}}
-Sunumları ayrıca [Ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/tr/editor) ile düzenleyebilirsiniz.
+{{% alert color="info" title="Not" %}}
+
+Sunumları ayrıca [ücretsiz çevrimiçi Aspose PowerPoint düzenleyicisi](https://products.aspose.app/slides/editor) ile düzenleyebilirsiniz.
+
 {{% /alert %}} 
 
-## **URL Köprüleri Ekle**
+## **URL Köprüleri Ekleme**
 
-Bir web sitesi URL'sini metne, bir şekle veya bir medya çerçevesine atayabilirsiniz. Köprünün atandığı öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
+Bir web sitesi URL'sini metne, şekle veya medya çerçevesine atayabilirsiniz. Köprüyü atadığınız öğe, tıklanabilir alanı belirler: bir metin bölümü seçili metni bağlarken, bir şekil veya çerçeve slayt nesnesini bağlar.
 
-### **Metne URL Köprüleri Ekle**
+Göreceli köprüler içeren sunumlar için, belge‑seviyesi temel URL'sini okumak, değiştirmek veya temizlemek amacıyla [Hyperlink Base Yönetimi](/slides/tr/java/presentation-properties/#manage-the-hyperlink-base) bölümüne bakın.
 
-Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi, metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metoduna bir [Hyperlink](https://reference.aspose.com/slides/tr/java/com.aspose.slides/hyperlink/) nesnesi geçirin. Sadece o metin bölümü tıklanabilir hâle gelir.
+### **Metne URL Köprüsü Ekleme**
+
+Metni bir web sitesine bağlamak için, aşağıda gösterildiği gibi metin bölümünün [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) yöntemine bir [Hyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlink/) nesnesi iletmelisiniz. Yalnızca o metin bölümü tıklanabilir olur.
 
 ```java
 import com.aspose.slides.*;
@@ -63,11 +67,11 @@ try {
 }
 ```
 
-### **Şekillere ve Medya Çerçevelerine URL Köprüleri Ekle**
+### **Şekillere ve Medya Çerçevelerine URL Köprüsü Ekleme**
 
-Bir şekil veya çerçeveyi tıklanabilir hâle getirmek için, onun [setHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metodunu çağırın. Köprü, içinde bir metin bölümü bulunmasından ziyade nesnenin kendisine aittir.
+Bir şekil veya çerçeveyi tıklanabilir hâle getirmek için, nesnenin [setHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) yöntemini çağırın. Köprü, içinde bir metin bölümü bulunmasından bağımsız olarak nesneye aittir.
 
-Aynı yaklaşım resim, ses ve video çerçevelerine de uygulanır: köprüyü çerçeveye atayın ve gerekirse [setTooltip](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) metodunu çağırın.
+Aynı yaklaşım resim, ses ve video çerçeveleri için de geçerlidir: köprüyü çerçeveye atayın ve gerektiğinde [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) yöntemini çağırın.
 
 Aşağıdaki örnek bir dikdörtgeni tıklanabilir hâle getirir:
 
@@ -87,9 +91,9 @@ try {
 }
 ```
 
-## **Köprüleri Kullanarak İçindekiler Tablosu Oluşturma**
+## **İçindekiler Tablosu Oluşturmak İçin Köprü Kullanma**
 
-Dahili köprüler, okuyucuların içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, birinci slayttaki “Page 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) metodunu kullanır.
+İç köprüler, okuyucuların bir içindekiler tablosundan belirli bir slayta atlamasını sağlar. Aşağıdaki örnek, ilk slayttaki “Sayfa 2” metnini ikinci slayta bağlamak için [setInternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) yöntemini kullanır.
 
 ```java
 import com.aspose.slides.*;
@@ -127,9 +131,9 @@ try {
 
 ### **Renk**
 
-[IHyperlink](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/) arayüzünün [setColorSource](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setColorSource-int-) yöntemi, bir köprünün sunumun köprü rengi mi yoksa metin bölümünün biçimlendirmesi mi kullanılacağını belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/hyperlinkcolorsource/) seçin ve bölümün doldurma rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
+[IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) arayüzünün [setColorSource](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setColorSource-int-) yöntemi, köprünün sunumun köprü rengine mi yoksa metin bölümünün biçimlendirmesine mi göre renklendirileceğini belirler. Özel bir metin rengi uygulamak için [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkcolorsource/) seçip bölümün dolgu rengini ayarlayın. Bu özellik PowerPoint 2019’da tanıtıldı; eski sürümler bu ayarı uygulamaz.
 
-Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlkinde kırmızı metin doldurma kullanılır, ikincisi ise varsayılan köprü rengini korur.
+Aşağıdaki örnek aynı slayta iki metin köprüsü ekler. İlki kırmızı dolgu renkli, ikincisi varsayılan köprü rengini korur.
 
 ```java
 import com.aspose.slides.*;
@@ -156,14 +160,14 @@ try {
 ```
 ### **Ses**
 
-Bir köprü, etkinleştirildiğinde bir ses çalabilir veya zaten çalan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
+Bir köprü, etkinleştirildiğinde bir ses çalabilir veya zaten çalmakta olan bir sesi durdurabilir. Bu davranışları yapılandırmak için aşağıdaki yöntemleri kullanın:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) köprüye bağlı ses dosyasını belirler.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) köprünün etkinleştirilmesinin önceki sesi durdurup durdurmayacağını kontrol eder.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) köprüye ilişkilendirilecek sesi belirtir.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) köprünün etkinleştirilmesiyle önceki sesin durdurulup durdurulmayacağını kontrol eder.
 
-#### **Köprüye Ses Ekle**
+#### **Köprü Sesi Ekleme**
 
-Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve birinci slayttaki bir düğmeye bağlar. Düğmeye tıklamak sesi çalar ve bir sonraki slayta geçiş yapar. Aynı slayttaki ikinci bir şekil tıklandığında önceki sesi durdurur, ancak bir geçiş işlemi gerçekleştirmez.
+Aşağıdaki örnek `sampleaudio.wav` dosyasını yükler ve ilk slayd üzerindeki bir düğmeye ilişkilendirir. Düğmeye tıklandığında ses çalar ve bir sonraki slayta geçilir. Aynı slaydın ikinci şekli tıklandığında önceki sesi durdurur, ancak gezinme işlemi yapmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -201,9 +205,9 @@ try {
 }
 ```
 
-#### **Köprü Sesini Çıkar**
+#### **Köprü Sesini Çıkarma**
 
-Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve birinci şeklin köprü sesini [getSound](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getSound--) ve [getBinaryData](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iaudio/#getBinaryData--) aracılığıyla belleğe okur.
+Aşağıdaki örnek, yukarıda oluşturulan sunumu açar ve ilk şeklin köprü sesini [getSound](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getSound--) ve [getBinaryData](https://reference.aspose.com/slides/java/com.aspose.slides/iaudio/#getBinaryData--) yöntemleriyle belleğe okur.
 
 ```java
 import com.aspose.slides.*;
@@ -229,16 +233,16 @@ try {
 
 ### **İpucu ve Etkileşim Ayarları**
 
-Metne veya şekle bir köprü atadıktan sonra aşağıdaki [IHyperlink](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/) yöntemlerini çağırabilirsiniz:
+Bir köprüyü metne veya şekle atadıktan sonra aşağıdaki [IHyperlink](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/) yöntemlerini çağırabilirsiniz:
 
-- [setTooltip](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) izleyicinin bağlantı için ipucu olarak gösterebileceği metni ayarlar.
-- [setTargetFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) geçerli olduğunda, üst HTML çerçeve seti içinde hedef çerçeveyi belirtir.
-- [setHistory](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) bağlantının etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
-- [setHighlightClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) köprünün tıklandığında vurgulanıp vurgulanmayacağını kontrol eder.
+- [setTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) izleyicinin bağlantı için bir ipucu olarak görüntüleyebileceği metni ayarlar.
+- [setTargetFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) uygulanabilir olduğunda, bir üst HTML çerçeve seti içinde hedef çerçeveyi belirtir.
+- [setHistory](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHistory-boolean-) bağlantının etkinleştirilmesinin hedefini görüntülenen köprüler listesine ekleyip eklemeyeceğini kontrol eder.
+- [setHighlightClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) tıklandığında köprünün vurgulanıp vurgulanmayacağını belirler.
 
 ## **Sunumlardan Köprüleri Kaldırma**
 
-Değişiklik yapmadan önce metin bölümü köprüleri dahil olmak üzere köprü kapsayıcılarını toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) yöntemini kullanın. Aşağıdaki örnek, birinci slayttan her iki aktivasyon tipini de kaldırır. Yalnızca bir tipi kaldırmak için sadece [removeHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) çağırın; bir tıklama eylemini kaldırmak, fare üzerine eylemini kaldırmaz.
+Köprü konteynerlerini (metin‑bölümü köprüleri dahil) değiştirmeden önce toplamak için [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) yöntemini kullanın. Aşağıdaki örnek, ilk slayttaki hem tıklama hem de fare‑üzerinde iki etkinleştirme tipini kaldırır. Yalnızca bir tip kaldırmak isterseniz, sadece [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) veya [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) yöntemini çağırın; tıklama eylemini kaldırmak fare‑üzerindeki eylemi kaldırmaz.
 
 ```java
 import com.aspose.slides.*;
@@ -265,23 +269,23 @@ try {
 }
 ```
 
-Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) seçili kapsamda her iki aktivasyon tipini tek bir çağrıyla kaldırır. Seçimli temizlik ve ana, yerleşim ve notların kapsanması için [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Koşulsuz kaldırma için, [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) seçili kapsamda her iki etkinleştirme tipini tek bir çağrıyla kaldırır. Ustalar, düzenler ve notlar dahil olmak üzere seçici temizlik ve kapsamlı kapsama için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
 
 ## **Tam Bir Köprü Envanteri Oluşturma**
 
-Sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envanterleyin. [getAnyHyperlinks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) [IHyperlinkContainer](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkcontainer/) nesneleri döndürür, düz bir URL dizesi listesi değil. Her kapsayıcıda hem [getHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) hem de [getHyperlinkMouseOver](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) inceleyin. Bunlar bağımsızdır: aynı kapsayıcı her iki eylemi de gösterebilir, bu yüzden tam bir rapor her kapsayıcı için iki satır gerektirebilir.
+Bir sunumu dağıtmadan önce, etkileşimli eylemlerini ve web bağlantılarını envantere alın. [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) yöntemi, URL dizesi listesi yerine [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) nesneleri döndürür. Her konteynerdeki [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) ve [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) yöntemlerini inceleyin. Bunlar bağımsızdır: aynı konteyner iki eylemi de içerebilir; bu yüzden tam rapor bir konteyner için iki satır gerektirebilir.
 
-Yalnızca şekil düzeyindeki köprüleri taramak, metin bölümlerine eklenmiş bağlantıları kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve dönen kapsayıcıları saklayın, böylece daha sonra eylemlerini güncelleyebilir veya kaldırabilirsiniz.
+Sadece şekil‑seviyesi köprüleri sorgulamak, metin bölümlerine eklenmiş köprüleri kaçırabilir. Bunun yerine uygun kapsamı sorgulayın ve daha sonra eylemlerini güncellemek veya kaldırmak için döndürülen konteynerleri saklayın.
 
-### **Sunum, Slayt ve Metin-Çerçeve Kapsamlarını Sorgula**
+### **Sunum, Slayt ve Metin‑Çerçeve Kapsamlarını Sorgulama**
 
-[IHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/) arabirimi, [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) ve [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) üzerinden kullanılabilir. Her kapsam aynı sorguları destekler:
+[IHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/) arayüzüne sırasıyla [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), ve [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/#getHyperlinkQueries--) üzerinden erişilir. Her kapsam aynı sorguları destekler:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) tıklama eylemi olan kapsayıcıları döndürür.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) fare üzerine eylemi olan kapsayıcıları döndürür.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) bir veya iki eylemi olan kapsayıcıları döndürür.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) tıklama eylemi içeren konteynerleri döndürür.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) fare‑üzerinde eylemi içeren konteynerleri döndürür.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) bir ya da her iki eylemi içeren konteynerleri döndürür.
 
-Aşağıdaki örnek, harici bir tıklama bağlantısı, bir dosya fare üzerine bağlantısı, iç slayt navigasyonu, bir metin fare üzerine bağlantısı ve bir makro eylemi içeren `hyperlink-audit-input.pptx` oluşturur. Bu eylemlerden hiçbiri çalıştırılmaz. Aynı üç sorgu her kapsamda çalışır; sayılar kapsayıcıları tanımlar, eylem toplamlarını değil. Metin-çerçeve kapsamı, içeren şeklin kendi bağlantılarını dışlar.
+Aşağıdaki örnek, dış tıklama köprüsü, dosya fare‑üzerinde köprüsü, iç slayt navigasyonu, metin fare‑üzerinde köprüsü ve makro eylemi içeren `hyperlink-audit-input.pptx` dosyasını oluşturur. Bu eylemler çalıştırılmaz. Aynı üç sorgu her kapsamda çalışır; sayıların anlamı konteyner sayısıdır, eylem toplamı değildir. Metin‑çerçeve kapsamı, kapsayan şeklin kendi köprülerini içermez.
 
 ```java
 import com.aspose.slides.*;
@@ -321,37 +325,37 @@ try {
 }
 ```
 
-Bu örnek için, sunum ve slayt sorguları her biri üç tıklama kapsayıcısı, iki fare üzerine kapsayıcısı ve bir eylemi olan üç kapsayıcı rapor eder. Metin-çerçeve sorgusu her kategoride bir kapsayıcı rapor eder.
+Bu örnek için, sunum ve slayt sorguları üç tıklama konteyneri, iki fare‑üzerinde konteyner ve üç ortak konteyner raporlar. Metin‑çerçeve sorgusu her kategoride bir konteyner raporlar.
 
 ### **Eylemleri ve Hedefleri Sınıflandırma**
 
-[IHyperlink.getActionType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getActionType--) kullanarak bir eylemi yorumlamadan önce hedefini yorumlayın. [HyperlinkActionType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/hyperlinkactiontype/) değerleri web navigasyonundan daha fazlasını kapsar:
+Bir eylemi yorumlamadan önce hedefini yorumlamak için [IHyperlink.getActionType](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getActionType--) yöntemini kullanın. [HyperlinkActionType](https://reference.aspose.com/slides/java/com.aspose.slides/hyperlinkactiontype/) değerleri web navigasyonunun ötesine geçer:
 
-| Değerler | Denetim İçin Anlamı |
+| Değer | Denetim İçin Anlamı |
 | --- | --- |
 | `Hyperlink` | Dış köprü; URL ve şemasını inceleyin. |
-| `JumpSpecificSlide` | Belirli bir slayta iç yönlendirme. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Yerleşik slayt gösterisi navigasyonu, slayt gösterisi bağlamında çözülür. |
-| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel bir gösteri başlat. |
+| `JumpSpecificSlide` | Belirli bir slayta iç navigasyon. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Slayt gösterisi içinde yerleşik gezinme. |
+| `JumpEndShow`, `StartCustomSlideShow` | Mevcut gösteriyi sonlandır veya özel gösteriyi başlat. |
 | `StartMacro` | Bir makroyu çalıştır. |
-| `StartProgram` | Bir program başlat. |
-| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunum aç; web URL'lerinden ayrı incele. |
-| `StartStopMedia` | Ortam çalmayı başlat veya durdur. |
-| `NoAction`, `Unknown` | Navigasyon eylemi yok veya gözden geçirme gerektiren tanımlanamayan bir eylem. |
+| `StartProgram` | Bir programı başlat. |
+| `OpenFile`, `OpenPresentation` | Bir dosya veya başka bir sunumu aç; web URL'lerinden ayrı değerlendirin. |
+| `StartStopMedia` | Medya oynatmayı başlat veya durdur. |
+| `NoAction`, `Unknown` | Navigasyon eylemi yok veya tanınmayan eylem; inceleme gerektirir. |
 
-Harici hedefleri [getExternalUrl](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getExternalUrl--) ile, belirli iç hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getTargetSlide--) ile okuyun. İç eylemler ve yerleşik komutlar harici bir URL içermeyebilir; boş bir URL, kapsayıcının eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [getExternalUrlOriginal](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) tarafından döndürülen değeri koruyun ve mevcutsa [getTooltip](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlink/#getTooltip--) tarafından döndürülen ipucunu ekleyin.
+Dış hedefleri [getExternalUrl](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrl--) ile, belirli iç hedefleri ise [getTargetSlide](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTargetSlide--) ile okuyun. İç eylemler ve yerleşik komutlar dış URL içermeyebilir; boş bir URL, konteynerin eylemi olmadığı anlamına gelmez. Normalleştirilmiş URL'den farklıysa [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) değerini koruyun ve mümkünse [getTooltip](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getTooltip--) ile dönen ipucunu ekleyin.
 
-### **Köprüleri Raporla, Temizle ve Doğrula**
+### **Köprüleri Raporlama, Temizleme ve Doğrulama**
 
-Aşağıdaki Java örneği mevcut bir sunumu okur (yukarıda oluşturulan dosyayı kullanın), `hyperlink-audit.json` yazar, bir politika uygular, `hyperlink-sanitized.pptx` kaydeder ve tekrar açarak her iki aktivasyon tipini yeniden kontrol eder. Değişiklik yapmadan önce kapsayıcıları toplar ve aynı kapsayıcının iki kez işlenmesini önlemek için referans eşitliğini kullanır. Sunum sorguları sıradan slaytları kapsar; paket çapında bir envanter için aynı zamanda ana, yerleşim, not ve mevcut olduğunda not ve el ilanı analarını da açıkça sorgular.
+Aşağıdaki Java örneği mevcut bir sunumu (yukarıdaki dosyayı) okur, `hyperlink-audit.json` oluşturur, bir politika uygular, `hyperlink-sanitized.pptx` kaydeder ve tekrar açarak iki etkinleştirme tipini yeniden kontrol eder. Değişiklik öncesi konteynerleri toplar ve aynı konteyneri iki kez işlememek için referans eşitliğini kullanır. Sunum sorguları sıradan slaytları kapsar; paket‑geneli envanter için ayrıca ustalar, düzenler, notlar ve varsa not‑ve el ilanı ustaları da sorgulanır.
 
-Rapor, mevcut olduğunda bir‑bazlı slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseslide/#getSlideId--) değerini kaydeder. [ISlideComponent.getSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecomponent/#getSlide--) desteklenen kapsayıcılar için sahibi slaytı sağlar. Ana, yerleşim ve notların sıradan bir slayt indeksi yoktur ve kapsamlarıyla tanımlanırlar. Şekil kapsayıcıları ve metin‑bölüm biçimleme kapsayıcıları ayrı ayrı etiketlenir; diğer kapsayıcı tipleri çalışma zamanındaki tip adlarını korur. Her kapsayıcı, iki eylemin ilişkilendirilebilmesi için rapor‑yerel bir kimlik alır. Rapor, eylem tiplerini Java enum'unda tanımlı tam sayı sabitleri olarak saklar.
+Rapor, mevcut olduğunda bir‑tabanlı slayt indeksini ve [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) değerini kaydeder. [ISlideComponent.getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) desteklenen konteynerler için sahip slaytı sağlar. Ustalar, düzenler ve notlar normal slayt indeksi taşımadığından kapsamlarıyla tanımlanır. Şekil konteynerleri ve metin‑bölümü biçim konteynerleri ayrı ayrı etiketlenir; diğer konteyner tipleri çalışma zamanı sınıf adını korur. Her konteyner, iki eylemin ilişkili olabilmesi için rapor‑yerel bir kimlik alır. Rapor, eylem tiplerini Java enum’unda tanımlı tam sayı sabitleri olarak saklar.
 
-Bu kasıtlı olarak kısıtlayıcı uygulama politikası yalnızca mutlak HTTPS URL'lerini ve geçerli iç slayt hedeflerini izin verir. Makroları, programları, dosya eylemlerini, diğer slayt gösterisi eylemlerini, bilinmeyen eylemleri ve diğer URL şemalarını reddeder. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenlik kararı değildir. HTTPS tek başına güven oluşturmaz: uygulamanız için host izin listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş harici URL'ler kontrol edilir. Örnek, linkleri takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
+Bu kasıtlı olarak kısıtlayıcı uygulama politikası, yalnızca mutlak HTTPS URL’lerini ve geçerli iç slayt hedeflerini kabul eder. Makrolar, programlar, dosya eylemleri, diğer slayt gösterisi eylemleri, bilinmeyen eylemler ve diğer URL şemaları reddedilir. Bu reddetmeler politika kararlarıdır, Aspose.Slides güvenliği kararı değildir. HTTPS tek başına güven oluşturmaz: uygulamanız için host beyaz listeleri ve diğer kontroller ekleyin. Hem orijinal hem de normalleştirilmiş dış URL’ler kontrol edilir. Örnek, bağlantıları takip etmeden veya eylemleri çalıştırmadan meta verileri denetler.
 
-Düzeltme için, kapsayıcının [getHyperlinkManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) şu yöntemleri destekler: [setExternalHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). Burada, yasak dış tıklama bağlantıları sabit bir HTTPS açılış sayfası ile değiştirilir; diğer yasak tıklamalar ve yasak fare‑üzeri eylemler bağımsız olarak kaldırılır. `replaceExternalClicks` değerini `false` yaparak tüm politika ihlallerini kaldırabilirsiniz. Dağıtımdan önce uygulama sahipli bir değişim sayfası seçin.
+Düzeltme için, konteynerin [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) yöntemi [setExternalHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) ve [removeHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) işlevlerini destekler. Burada, yasak dış tıklama köprüleri sabit bir HTTPS açılış sayfası ile değiştirilir; diğer yasak tıklama ve fare‑üzerinde eylemler bağımsız olarak kaldırılır. `replaceExternalClicks` değerini `false` yaparsanız tüm politika ihlallerini kaldırırsınız. Dağıtımdan önce uygulama sahipli bir değiştirme sayfası seçin.
 
-Raporun dışa aktarma bayrağı, temkinli bir PDF inceleme politikası kullanır: fare‑üzeri eylemler ve dış bağlantı veya belirli bir slayt atlaması dışındaki her şey potansiyel olarak desteklenmez olarak işaretlenir. Bu bir inceleme ipucu, yetenek testi veya işaretsiz bağlantıların dışa aktarma sırasında hayatta kalacağının garantisi değildir. Desteklenen [PDF](/slides/tr/java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/java/convert-powerpoint-to-html/) dışa aktarmaları, eyleme, dışa aktarım seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görüntüler](/slides/tr/java/convert-powerpoint-to-png/) ve [video](/slides/tr/java/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktıların denetimi için her eylemi işaretleyin.
+Raporun dışa aktarım bayrağı, temkinli bir PDF inceleme politikası uygular: fare‑üzerindeki eylemleri ve dış bağlantı olmayan ya da belirli slayt atlaması dışındaki her şeyi potansiyel olarak desteklenmeyen olarak işaretler. Bu bir inceleme ipucu olup, bir yetenek testi ya da işaretlenmemiş bağlantıların dışa aktarımda korunacağı garantisi değildir. Desteklenen [PDF](/slides/tr/java/convert-powerpoint-to-pdf/) ve [HTML](/slides/tr/java/convert-powerpoint-to-html/) dışa aktarımları, eyleme, dışa aktarma seçeneklerine ve görüntüleyiciye bağlı olarak köprüleri koruyabilir. Raster [görseller](/slides/tr/java/convert-powerpoint-to-png/) ve [videolar](/slides/tr/java/convert-powerpoint-to-video/) etkileşimli köprüleri koruyamaz; bu çıktılar için denetim yaparken tüm eylemleri işaretleyin.
 
 ```java
 import com.aspose.slides.*;
@@ -536,20 +540,20 @@ try {
 }
 ```
 
-Yukarıda oluşturulan girdi ile rapor beş eylem satırı içerir. Dosya fare‑üzeri bağlantısı ve makro tıklaması kaldırılırken, HTTPS bağlantıları ve iç slayt navigasyonu kalır. Doğrulama sıfır yasak eylem yazdırır. Yasak bir dış tıklama URL'si içeren bir girdi, değişim dalını da çalıştırır. İzinli bir tıklama ve yasak bir fare‑üzeri içeren bir kapsayıcı, tıklama eylemini korur.
+Yukarıda oluşturulan giriş ile rapor beş eylem satırı içerir. Dosya fare‑üzerinde köprüsü ve makro tıklaması kaldırılır, HTTPS köprüleri ve iç slayt navigasyonu kalır. Doğrulama sıfır yasaklı eylem çıktılar. Yasak bir dış tıklama URL’si içeren bir giriş, değiştirme dalını da çalıştırır. İzin verilen bir tıklama ve yasak bir fare‑üzerinde eylemi olan bir konteyner, tıklama eylemini tutar.
 
-Bu seçmeli temizlik, politika göz ardı edilse de kapsam içinde her iki aktivasyon tipini kaldıran [removeAllHyperlinks](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) yönteminden farklıdır. Buradaki doğrulama yalnızca köprü eylemlerini kontrol eder; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış bir PDF veya HTML dosyasını doğrulamaz.
+Bu seçici temizlik, politika göz önünde bulundurularak [removeAllHyperlinks](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) yönteminin tüm aktifleştirme tiplerini kapsamdan bağımsız olarak kaldırmasından farklıdır. Buradaki doğrulama yalnızca köprü eylemlerini denetler; gömülü VBA projelerini, OLE nesnelerini veya diğer aktif içeriği kaldırmaz ve dışa aktarılmış PDF ya da HTML dosyasını doğrulamaz.
 
 ## **SSS**
 
-**Bir bölüme veya onun ilk slaytına nasıl bağlanabilirim?**
+**Bir bölümün ya da bölümün ilk slaytına nasıl bağlanabilirim?**
 
-PowerPoint'te bölümler slaytları gruplar, ancak dahili bir köprü bireysel bir slaytı hedef alır. Bir bölüme navigasyon oluşturmak için o bölümün ilk slaytına bağlayın.
+PowerPoint’te bölümler slaytları gruplar, ancak iç köprü tek bir slaytı hedef alır. Bir bölüme gezinme oluşturmak için, o bölümün ilk slaytına bağlayın.
 
-**Ana slayt öğelerine bir köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
+**Usta slayt öğelerine köprü ekleyebilir miyim, böylece tüm slaytlarda çalışır?**
 
-Evet. Ana slayt ve yerleşim öğeleri köprüleri destekler. Bu öğelerdeki bağlantılar, ilgili ana veya yerleşimi kullanan slayt gösterisi sırasında kullanılabilir.
+Evet. Usta slayt ve düzen öğeleri köprüleri destekler. Bu öğelere eklenen köprüler, ilgili usta ya da düzeni kullanan slayt gösterisi sırasında kullanılabilir.
 
-**Köprüler PDF, HTML, görüntüler veya video olarak dışa aktarıldığında korunur mu?**
+**Köprüler PDF, HTML, görseller veya video olarak dışa aktarıldığında korunur mu?**
 
-Desteklenen PDF ve HTML dışa aktarmaları köprüleri koruyabilir; raster görüntüler ve video koruyamaz. Ayrıntılar için [Köprüleri Raporla, Temizle ve Doğrula](#report-sanitize-and-verify-hyperlinks) bölümüne bakın.
+Desteklenen PDF ve HTML dışa aktarımları köprüleri koruyabilir; raster görseller ve videolar koruyamaz. Ayrıntılar için [Köprüleri Raporlama, Temizleme ve Doğrulama](#report-sanitize-and-verify-hyperlinks) bölümündeki dışa aktarım hususlarına bakın.

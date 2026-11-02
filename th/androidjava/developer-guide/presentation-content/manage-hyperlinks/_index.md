@@ -1,5 +1,5 @@
 ---
-title: จัดการไฮเปอร์ลิงก์การนำเสนอบน Android
+title: จัดการไฮเปอร์ลิงก์ของงานนำเสนอบน Android
 linktitle: จัดการไฮเปอร์ลิงก์
 type: docs
 weight: 20
@@ -16,35 +16,37 @@ keywords:
 - ไฮเปอร์ลิงก์รูปร่าง
 - ไฮเปอร์ลิงก์รูปภาพ
 - ไฮเปอร์ลิงก์วิดีโอ
-- ไฮเปอร์ลิงก์ที่เปลี่ยนแปลงได้
+- ไฮเปอร์ลิงก์ที่แก้ไขได้
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เพิ่ม จัดรูปแบบ อัปเดต และลบไฮเปอร์ลิงก์ในการนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java โดยใช้ตัวอย่าง Java."
+description: "เพิ่ม, จัดรูปแบบ, อัปเดต, และลบไฮเปอร์ลิงก์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Android ผ่าน Java โดยใช้ตัวอย่าง Java"
 ---
 ## **บทนำ**
 
-ไฮเปอร์ลิงก์เชื่อมต่อเนื้อหาการนำเสนอไปยังเว็บไซต์หรือสถานที่ภายในการนำเสนอ ใน PowerPoint ไฮเปอร์ลิงก์มักใช้เพื่อสองวัตถุประสงค์:
+ไฮเปอร์ลิงก์เชื่อมต่อเนื้อหาการนำเสนอไปยังเว็บไซต์หรือที่ตั้งภายในการนำเสนอ ใน PowerPoint ไฮเปอร์ลิงก์มักใช้เพื่อสองวัตถุประสงค์หลัก:
 
-* เปิดเว็บไซต์จากข้อความ, รูปร่าง, หรือกรอบสื่อ.
-* ไปยังสไลด์อื่น, ตัวอย่างเช่น จากสารบัญ.
+* เปิดเว็บไซต์จากข้อความ รูปร่าง หรือกรอบสื่อ
+* นำทางไปยังสไลด์อื่น ตัวอย่างเช่น จากสารบัญ
 
-Aspose.Slides for Android ผ่าน Java ให้คุณเพิ่มลิงก์เหล่านี้, ควบคุมการปรากฏและเสียง, อัปเดตคุณสมบัติต่าง ๆ, และลบออก ตัวอย่างต่อไปนี้แสดงวิธีทำงานกับไฮเปอร์ลิงก์บนองค์ประกอบแต่ละอันและวิธีเข้าถึงไฮเปอร์ลิงก์ระดับการนำเสนอ, สไลด์, หรือกรอบข้อความ.
+Aspose.Slides for Android via Java ให้คุณเพิ่มลิงก์เหล่านี้ ควบคุมการแสดงผลและเสียง อัปเดตคุณสมบัติ และลบออก ตัวอย่างด้านล่างแสดงวิธีทำงานกับไฮเปอร์ลิงก์บนแต่ละองค์ประกอบและวิธีเข้าถึงไฮเปอร์ลิงก์ในระดับงานนำเสนอ สไลด์ หรือกรอบข้อความ
 
 {{% alert color="info" title="Note" %}}
-คุณยังสามารถแก้ไขการนำเสนอด้วย [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/th/editor).
+คุณยังสามารถแก้ไขงานนำเสนอด้วย [เครื่องมือแก้ไข PowerPoint ออนไลน์ฟรีของ Aspose](https://products.aspose.app/slides/editor)
 {{% /alert %}} 
 
 ## **เพิ่มไฮเปอร์ลิงก์ URL**
 
-คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ, รูปร่าง, หรือกรอบสื่อได้ ส่วนที่คุณกำหนดไฮเปอร์ลิงก์จะกำหนดพื้นที่ที่คลิกได้: ส่วนของข้อความจะลิงก์ข้อความที่เลือก, ส่วนของรูปหรือกรอบจะลิงก์วัตถุสไลด์.
+คุณสามารถกำหนด URL ของเว็บไซต์ให้กับข้อความ รูปร่าง หรือกรอบสื่อได้ พื้นที่ที่คลิกได้ขึ้นอยู่กับองค์ประกอบที่กำหนดไฮเปอร์ลิงก์: ส่วนของข้อความจะลิงก์เฉพาะข้อความที่เลือก ส่วนรูปร่างหรือกรอบจะลิงก์วัตถุสไลด์
+
+สำหรับงานนำเสนอที่มีไฮเปอร์ลิงก์แบบสัมพันธ์ ให้ดูที่ [จัดการฐานไฮเปอร์ลิงก์](/slides/th/androidjava/presentation-properties/#manage-the-hyperlink-base) เพื่ออ่าน เปลี่ยน หรือเคลียร์ฐานระดับเอกสาร
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังข้อความ**
 
-เพื่อเชื่อมข้อความกับเว็บไซต์ ให้ส่ง [Hyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/hyperlink/) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) ของส่วนข้อความตามตัวอย่างด้านล่าง ส่วนของข้อความนั้นเท่านั้นที่จะสามารถคลิกได้.
+เพื่อเชื่อมข้อความกับเว็บไซต์ ให้ส่ง [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) ไปยังเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) ของส่วนข้อความตามตัวอย่างด้านล่าง ส่วนของข้อความนั้นจะกลายเป็นคลิกได้เท่านั้น
 
 ```java
 import com.aspose.slides.*;
@@ -66,11 +68,11 @@ try {
 
 ### **เพิ่มไฮเปอร์ลิงก์ URL ไปยังรูปร่างและกรอบสื่อ**
 
-เพื่อทำให้รูปหรือกรอบสามารถคลิกได้ ให้เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) ของออบเจกต์นั้น ไฮเปอร์ลิงก์เป็นของออบเจกต์เองไม่ใช่ของส่วนข้อความภายใน
+เพื่อทำให้รูปร่างหรือกรอบคลิกได้ ให้เรียกเมธอด [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) ของวัตถุ ไฮเปอร์ลิงก์จะเป็นของวัตถุนั้นเอง ไม่ใช่ของส่วนข้อความภายใน
 
-แนวทางเดียวกันใช้กับกรอบรูปภาพ, กรอบเสียง, และกรอบวิดีโอ: กำหนดไฮเปอร์ลิงก์ให้กับกรอบและเรียก [setTooltip](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) หากต้องการ
+แนวทางเดียวกันใช้กับกรอบรูป ภาพ เสียง และวิดีโอ: กำหนดไฮเปอร์ลิงก์ให้กับกรอบแล้วเรียก [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) หากต้องการ
 
-ตัวอย่างต่อไปทำให้สี่เหลี่ยมสามารถคลิกได้:
+ตัวอย่างต่อไปทำให้สี่เหลี่ยมคลิกได้:
 
 ```java
 import com.aspose.slides.*;
@@ -90,7 +92,7 @@ try {
 
 ## **ใช้ไฮเปอร์ลิงก์เพื่อสร้างสารบัญ**
 
-ไฮเปอร์ลิงก์ภายในทำให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) เพื่อลิงก์ข้อความ “Page 2” บนสไลด์แรกไปยังสไลด์ที่สอง.
+ไฮเปอร์ลิงก์ภายในช่วยให้ผู้อ่านกระโดดจากสารบัญไปยังสไลด์เฉพาะ ตัวอย่างต่อไปใช้ [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) เพื่อเชื่อมข้อความ “Page 2” บนสไลด์แรกกับสไลด์ที่สอง
 
 ```java
 import com.aspose.slides.*;
@@ -128,9 +130,9 @@ try {
 
 ### **สี**
 
-เมธอด [setColorSource](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) ของ [IHyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของการนำเสนอหรือการฟอร์แมตของส่วนข้อความ เพื่อใช้สีข้อความที่กำหนดเอง ให้เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วน วิธีนี้เริ่มต้นตั้งแต่ PowerPoint 2019; เวอร์ชันเก่าไม่รองรับการตั้งค่านี้
+เมธอด [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) ของ [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) กำหนดว่าไฮเปอร์ลิงก์จะใช้สีไฮเปอร์ลิงก์ของงานนำเสนอหรือการจัดรูปแบบของส่วนข้อความ เพื่อใช้สีข้อความแบบกำหนดเอง ให้เลือก [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) แล้วตั้งค่าสีเติมของส่วนนั้น คุณสมบัตินี้เริ่มใช้ตั้งแต่ PowerPoint 2019; เวอร์ชันเก่ากว่าจะไม่รองรับการตั้งค่านี้
 
-ตัวอย่างต่อไปเพิ่มไฮเปอร์ลิงก์ข้อความสองอันลงในสไลด์เดียว อันแรกใช้สีเติมข้อความสีแดง ส่วนอันที่สองใช้สีไฮเปอร์ลิงก์เริ่มต้น
+ตัวอย่างต่อไปเพิ่มไฮเปอร์ลิงก์ข้อความสองรายการในสไลด์เดียว รายการแรกใช้สีเติมข้อความสีแดง ส่วนรายการที่สองใช้สีไฮเปอร์ลิงก์ค่าเริ่มต้น
 
 ```java
 import com.aspose.slides.*;
@@ -158,14 +160,14 @@ try {
 
 ### **เสียง**
 
-ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้วิธีต่อไปนี้เพื่อกำหนดพฤติกรรม:
+ไฮเปอร์ลิงก์สามารถเล่นเสียงเมื่อถูกเปิดใช้งานหรือหยุดเสียงที่กำลังเล่นอยู่ ใช้เมธอดต่อไปนี้เพื่อกำหนดพฤติกรรมเหล่านั้น:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) ระบุไฟล์เสียงที่เชื่อมกับไฮเปอร์ลิงก์
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) ควบคุมว่าการเปิดไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) ระบุไฟล์เสียงที่เกี่ยวข้องกับไฮเปอร์ลิงก์
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) ควบคุมว่าการคลิกไฮเปอร์ลิงก์จะหยุดเสียงก่อนหน้าหรือไม่
 
 #### **เพิ่มเสียงไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปโหลด `sampleaudio.wav` แล้วเชื่อมกับปุ่มบนสไลด์แรก คลิกปุ่มจะเล่นเสียงและไปยังสไลด์ถัดไป รูปร่างที่สองบนสไลด์นั้นคลิกจะหยุดเสียงก่อนหน้าโดยไม่ทำการนำทาง
+ตัวอย่างต่อไปโหลด `sampleaudio.wav` แล้วเชื่อมกับปุ่มบนสไลด์แรก การคลิกปุ่มจะเล่นเสียงและนำทางไปยังสไลด์ถัดไป รูปร่างที่สองบนสไลด์เดียวกันจะหยุดเสียงก่อนหน้าเมื่อคลิกโดยไม่ทำการนำทาง
 
 ```java
 import com.aspose.slides.*;
@@ -204,9 +206,9 @@ try {
 }
 ```
 
-#### **ดึงเสียงไฮเปอร์ลิงก์**
+#### **สกัดเสียงไฮเปอร์ลิงก์**
 
-ตัวอย่างต่อไปเปิดการนำเสนอที่สร้างด้านบนและอ่านเสียงไฮเปอร์ลิงก์ของรูปแรกเข้าสู่หน่วยความจำด้วย [getSound](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getSound--) และ [getBinaryData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iaudio/#getBinaryData--)
+ตัวอย่างต่อไปเปิดงานนำเสนอที่สร้างไว้ข้างต้นและอ่านไฟล์เสียงไฮเปอร์ลิงก์ของรูปร่างแรกเข้าสู่หน่วยความจำโดยใช้ [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) และ [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--)
 
 ```java
 import com.aspose.slides.*;
@@ -230,18 +232,18 @@ try {
 }
 ```
 
-### **คำแนะนำเครื่องมือและการตั้งค่าการโต้ตอบ**
+### **คำแนะนำเครื่องมือ (Tooltip) และการตั้งค่าการโต้ตอบ**
 
-คุณสามารถเรียกเมธอดของ [IHyperlink](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/) ต่อไปนี้หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง:
+หลังจากกำหนดไฮเปอร์ลิงก์ให้กับข้อความหรือรูปร่าง คุณสามารถเรียกเมธอดของ [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) ต่อไปนี้ได้:
 
-- [setTooltip](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) ตั้งข้อความที่ผู้ชมสามารถแสดงเป็นคำแนะนำของลิงก์
-- [setTargetFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) ระบุกรอบเป้าหมายภายในเฟรมเซ็ต HTML ของพาเรนท์ หากมี
-- [setHistory](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) ควบคุมว่าการเปิดลิงก์จะเพิ่มปลายทางลงในรายการไฮเปอร์ลิงก์ที่ดูแล้วหรือไม่
-- [setHighlightClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) ควบคุมว่าลิงก์จะถูกไฮไลท์เมื่อคลิกหรือไม่
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) ตั้งข้อความที่ผู้ชมสามารถเห็นเป็นคำแนะนำสำหรับลิงก์
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) ระบุกรอบเป้าหมายภายในชุดกรอบ HTML ของพาเรนท์ หากมี
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) ควบคุมว่าการเปิดลิงก์จะถูกบันทึกในประวัติลิงก์ที่ดูหรือไม่
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) ควบคุมว่าฮีเปอร์ลิงก์จะถูกไฮไลท์เมื่อคลิกหรือไม่
 
-## **ลบไฮเปอร์ลิงก์ออกจากการนำเสนอ**
+## **ลบไฮเปอร์ลิงก์ออกจากงานนำเสนอ**
 
-ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) เพื่อเก็บคอนเทนเนอร์ไฮเปอร์ลิงก์รวมถึงลิงก์ส่วนข้อความ ก่อนทำการเปลี่ยนแปลง ตัวอย่างต่อไปลบทั้งสองประเภทการเปิดใช้งานจากสไลด์แรก หากต้องการลบเพียงประเภทหนึ่ง ให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) ; การลบการคลิกจะไม่ลบการเมาส์โอเวอร์ที่สอดคล้องกัน
+ใช้ [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) เพื่อรวบรวมคอนเทนเนอร์ของไฮเปอร์ลิงก์ รวมถึงลิงก์ส่วนข้อความ ก่อนทำการแก้ไข ตัวอย่างต่อไปลบการกระตุ้นทั้งสองประเภทจากสไลด์แรก หากต้องการลบแค่ประเภทหนึ่ง ให้เรียกเฉพาะ [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) หรือ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) การลบการคลิกจะไม่ลบการเม้าส์โอเวอร์ที่สอดคล้องกัน
 
 ```java
 import com.aspose.slides.*;
@@ -268,23 +270,23 @@ try {
 }
 ```
 
-สำหรับการลบโดยไม่มีเงื่อนไข [removeAllHyperlinks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) จะลบทั้งสองการเปิดใช้งานในขอบเขตที่เลือกในหนึ่งคำสั่ง สำหรับการทำความสะอาดแบบเลือกและครอบคลุมมาสเตอร์, เลเอาต์, และโน้ต ให้ดูที่ [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+สำหรับการลบแบบไม่มีเงื่อนไข ให้ใช้ [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) ซึ่งจะลบการกระตุ้นทั้งสองประเภทในขอบเขตที่เลือกด้วยคำสั่งเดียว สำหรับการทำความสะอาดอย่างเลือกสรรและครอบคลุมมาสเตอร์, เลย์เอาต์, และโน้ต ให้ดูที่ [รายงาน ทำความสะอาด และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks)
 
-## **สร้างรายการไฮเปอร์ลิงก์ที่สมบูรณ์**
+## **สร้างรายการไฮเปอร์ลิงก์ครบถ้วน**
 
-ก่อนกระจายการนำเสนอ ควรทำรายการการกระทำเชิงโต้ตอบและลิงก์เว็บของมัน [getAnyHyperlinks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) จะคืนค่าอ็อบเจกต์ [IHyperlinkContainer](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkcontainer/) ไม่ใช่ลิสต์แบนของสตริง URL ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) ในแต่ละคอนเทนเนอร์ พวกมันเป็นอิสระ: คอนเทนเนอร์เดียวกันอาจเปิดเผยทั้งสองการกระทำ ดังนั้นรายงานที่ครบถ้วนต้องใช้แถวสูงสุดสองแถวต่อคอนเทนเนอร์
+ก่อนจัดจำหน่ายงานนำเสนอ ให้ทำรายการการกระทำเชิงโต้ตอบพร้อมลิงก์เว็บทั้งหมด [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) จะคืนค่าอ็อบเจกต์ [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/) ไม่ใช่รายการ URL แบน ตรวจสอบทั้ง [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) และ [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) ของแต่ละคอนเทนเนอร์ ค่ะ ทั้งสองการกระทำอาจปรากฏในคอนเทนเนอร์เดียวกัน ดังนั้นรายงานที่ครบถ้วนอาจต้องมีแถวสูงสุดสองแถวต่อคอนเทนเนอร์
 
-การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สืบค้นขอบเขตที่เหมาะสมแทนและเก็บคอนเทนเนอร์ที่คืนค่าไว้เพื่อให้คุณสามารถอัปเดตหรือเอาการกระทำออกในภายหลังได้
+การสแกนเฉพาะไฮเปอร์ลิงก์ระดับรูปร่างอาจพลาดลิงก์ที่แนบกับส่วนข้อความ ให้สอบถามขอบเขตที่เหมาะสมแทน และเก็บคอนเทนเนอร์ที่คืนกลับไว้เพื่อที่จะอัปเดตหรือเอาการกระทำออกในภายหลัง
 
-### **สอบถามขอบเขตการนำเสนอ, สไลด์, และกรอบข้อความ**
+### **สอบถามขอบเขตของงานนำเสนอ สไลด์ และกรอบข้อความ**
 
-อินเตอร์เฟส [IHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/) มีให้ผ่าน [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), และ [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). แต่ละขอบเขตสนับสนุนการสืบค้นเดียวกัน:
+อินเทอร์เฟซ [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) สามารถเข้าถึงได้ผ่าน [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), และ [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). แต่ละขอบเขตสนับสนุนการสอบถามเดียวกัน:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) คืนคอนเทนเนอร์ที่มีการคลิก
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) คืนคอนเทนเนอร์ที่มีการเมาส์โอเวอร์
-- [getAnyHyperlinks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) คืนคอนเทนเนอร์ที่มีหนึ่งหรือทั้งสองการกระทำ
+- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) คืนคอนเทนเนอร์ที่มีการคลิก
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) คืนคอนเทนเนอร์ที่มีการเม้าส์โอเวอร์
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) คืนคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งหรือทั้งสอง
 
-ตัวอย่างต่อไปสร้าง `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์เมาส์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เมาส์โอเวอร์ข้อความ, และการกระทำแมโคร ไม่ได้เรียกใช้การกระทำใด ๆ คำสืบค้นสามแบบทำงานที่ทุกขอบเขต; จำนวนที่แสดงเป็นจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำทั้งหมด ขอบเขตกรอบข้อความจะยกเว้นลิงก์ของรูปร่างที่ครอบมัน
+ตัวอย่างต่อไปสร้างไฟล์ `hyperlink-audit-input.pptx` พร้อมลิงก์คลิกภายนอก, ลิงก์เม้าส์โอเวอร์ไฟล์, การนำทางสไลด์ภายใน, ลิงก์เม้าส์โอเวอร์ข้อความ, และการกระทำแมโคร ตัวอย่างไม่ได้เรียกใช้การกระทำเหล่านั้น การสอบถามทั้งสามทำงานที่ทุกขอบเขต; จำนวนที่แสดงคือจำนวนคอนเทนเนอร์ ไม่ใช่จำนวนการกระทำ ขอบเขตกรอบข้อความจะไม่รวมลิงก์ของรูปร่างที่ล้อมรอบ
 
 ```java
 import com.aspose.slides.*;
@@ -324,37 +326,37 @@ try {
 }
 ```
 
-สำหรับตัวอย่างนี้ การสืบค้นการนำเสนอและสไลด์แต่ละอันรายงานคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เมาส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีหนึ่งหรือทั้งสองการกระทำสามรายการ ขอบเขตกรอบข้อความรายงานคอนเทนเนอร์หนึ่งรายการในแต่ละประเภท
+สำหรับตัวอย่างนี้ งานสอบถามของงานนำเสนอและสไลด์แต่ละรายการคืนคอนเทนเนอร์คลิกสามรายการ, คอนเทนเนอร์เม้าส์โอเวอร์สองรายการ, และคอนเทนเนอร์ที่มีอย่างใดอย่างหนึ่งสามรายการ ขอบเขตกรอบข้อความคืนคอนเทนเนอร์หนึ่งรายการในแต่ละประเภท
 
-### **จำแนกการกระทำและปลายทาง**
+### **จัดประเภทการกระทำและปลายทาง**
 
-ใช้ [IHyperlink.getActionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getActionType--) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทาง ค่าใน [HyperlinkActionType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
+ใช้ [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) เพื่อแปลความหมายของการกระทำก่อนแปลความหมายของปลายทางค่า [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) ครอบคลุมมากกว่าการนำทางเว็บ:
 
 | ค่า | ความหมายสำหรับการตรวจสอบ |
 | --- | --- |
-| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสคีมของมัน. |
-| `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางภายในสไลด์โชว์ที่มีอยู่แล้ว, แก้ไขในบริบทสไลด์โชว์. |
-| `JumpEndShow`, `StartCustomSlideShow` | จบการแสดงปัจจุบันหรือเริ่มการแสดงสไลด์แบบกำหนดเอง. |
-| `StartMacro` | เรียกใช้มาโคร. |
-| `StartProgram` | เปิดโปรแกรม. |
-| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; ตรวจสอบแยกจาก URL เว็บ. |
-| `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ. |
-| `NoAction`, `Unknown` | ไม่มีการนำทาง, หรือการกระทำที่ไม่รู้จักและต้องตรวจสอบ. |
+| `Hyperlink` | ไฮเปอร์ลิงก์ภายนอก; ตรวจสอบ URL และสคีม |
+| `JumpSpecificSlide` | การนำทางภายในไปยังสไลด์เฉพาะ |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | การนำทางสไลด์โชว์ในตัว, แก้ไขในบริบทสไลด์โชว์ |
+| `JumpEndShow`, `StartCustomSlideShow` | สิ้นสุดการแสดงปัจจุบันหรือเริ่มการแสดงแบบกำหนดเอง |
+| `StartMacro` | เรียกใช้แมโคร |
+| `StartProgram` | เปิดโปรแกรม |
+| `OpenFile`, `OpenPresentation` | เปิดไฟล์หรือการนำเสนออื่น; ตรวจสอบแยกจาก URL เว็บ |
+| `StartStopMedia` | เริ่มหรือหยุดการเล่นสื่อ |
+| `NoAction`, `Unknown` | ไม่มีการนำทางหรือการกระทำที่ไม่รู้จัก, ต้องตรวจสอบต่อ |
 
-อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--) การกระทำภายในและคำสั่งที่มีมาในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ ให้เก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) เมื่อแตกต่างจาก URL ที่ทำให้เป็นมาตรฐาน และรวมคำแนะนำเครื่องมือที่คืนจาก [getTooltip](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) หากมี
+อ่านปลายทางภายนอกจาก [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) และปลายทางภายในเฉพาะจาก [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--). การกระทำภายในและคำสั่งในตัวอาจไม่มี URL ภายนอก; URL ว่างไม่ได้หมายความว่าคอนเทนเนอร์ไม่มีการกระทำ ให้เก็บค่าที่คืนจาก [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) เมื่อแตกต่างจาก URL ปกติ และรวม tooltip จาก [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) หากมี
 
-### **รายงาน, ทำให้สะอาด, และตรวจสอบไฮเปอร์ลิงก์**
+### **รายงาน ทำความสะอาด และตรวจสอบไฮเปอร์ลิงก์**
 
-ตัวอย่าง Java ต่อไปอ่านการนำเสนอที่มีอยู่ (ใช้ไฟล์ที่สร้างด้านบน), เขียน `hyperlink-audit.json`, นำแนวนโยบายไปใช้, บันทึก `hyperlink-sanitized.pptx`, แล้วเปิดใหม่เพื่อตรวจสอบทั้งสองประเภทการเปิดใช้งานอีกครั้ง มันเก็บคอนเทนเนอร์ก่อนทำการเปลี่ยนแปลงและใช้การเทียบอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวกันสองครั้ง การสืบค้นการนำเสนอครอบคลุมสไลด์ทั่วไป; สำหรับการทำรายการระดับแพคเกจ จะสืบค้นมาสเตอร์, เลเอาต์, โน้ต, และมาสเตอร์ของโน้ตและแจกจ่ายเมื่อมี
+ตัวอย่าง Java ด้านล่างอ่านงานนำเสนอที่สร้างไว้ข้างต้น, เขียนไฟล์ `hyperlink-audit.json`, ใช้นโยบาย, บันทึกเป็น `hyperlink-sanitized.pptx`, แล้วเปิดอีกครั้งเพื่อตรวจสอบการกระตุ้นทั้งสองประเภทอีกครั้ง จะรวบรวมคอนเทนเนอร์ก่อนแก้ไขและใช้การตรวจสอบอ้างอิงเพื่อหลีกเลี่ยงการประมวลผลคอนเทนเนอร์เดียวซ้ำ งานสอบถามของงานนำเสนอครอบคลุมสไลด์ธรรมดา; เพื่อทำรายการทั่วแพ็กเกจ ยังสอบถามมาสเตอร์, เลย์เอาต์, โน้ต, และมาสเตอร์โน้ต/แฮนด์เอาท์เมื่อมี
 
-รายงานบันทึกดัชนีสไลด์ตั้งแต่ 1 และ [getSlideId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) เมื่อมีให้ [ISlideComponent.getSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecomponent/#getSlide--) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลเอาต์, และโน้ตไม่มีดัชนีสไลด์ทั่วไปและระบุด้วยขอบเขตของมันเอง คอนเทนเนอร์รูปร่างและคอนเทนเนอร์ฟอร์แมตส่วนข้อความแยกป้ายชื่อ; ประเภทคอนเทนเนอร์อื่นคงชื่อชนิดรันไทม์ของมัน แต่ละคอนเทนเนอร์จะได้รับ ID รายงานท้องถิ่นเพื่อให้การกระทำสองอย่างสามารถเชื่อมโยงกัน รายงานจัดเก็บประเภทการกระทำเป็นค่าคงที่จำนวนเต็มที่กำหนดโดย enum ของ Java
+รายงานบันทึกดัชนีสไลด์เริ่มจาก 1 และ [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) หากมี [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) ให้สไลด์เจ้าของสำหรับคอนเทนเนอร์ที่สนับสนุน มาสเตอร์, เลย์เอาต์, โน้ตไม่มีดัชนีสไลด์ธรรมดาและจะแสดงตามขอบเขตของพวกมัน คอนเทนเนอร์ของรูปร่างและการจัดรูปแบบส่วนข้อความจะแยกแยะออก; ประเภทคอนเทนเนอร์อื่นคงชื่อประเภทเวลารัน แต่ละคอนเทนเนอร์จะมี ID ท้องถิ่นในรายงานเพื่อให้สามารถเชื่อมโยงการกระทำสองอย่างได้ ค่าในรายงานจะเป็นค่าคงที่จำนวนเต็มตามที่กำหนดใน enum ของ Java
 
-นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบสัมบูรณ์และเป้าหมายสไลด์ภายในที่ถูกต้อง มันปฏิเสธมาโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น, การกระทำที่ไม่รู้จัก, และสกีม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจกับนโยบาย ไม่ใช่การตัดสินความปลอดภัยของ Aspose.Slides HTTPS อย่างเดียวไม่ถือเป็นความเชื่อถือ: เพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกต้นฉบับและที่ทำให้เป็นมาตรฐานจะถูกตรวจสอบ ตัวอย่างตรวจสอบเมทาดาต้าโดยไม่ตามลิงก์หรือรันการกระทำ
+นโยบายแอปพลิเคชันที่เข้มงวดนี้อนุญาตเฉพาะ URL HTTPS แบบเต็มที่และเป้าหมายสไลด์ภายในที่ถูกต้อง จะปฏิเสธแมโคร, โปรแกรม, การกระทำไฟล์, การกระทำสไลด์โชว์อื่น, การกระทำที่ไม่รู้จัก, และสคีม URL อื่น ๆ การปฏิเสธเหล่านี้เป็นการตัดสินใจของนโยบาย ไม่ใช่การตัดสินความปลอดภัยของ Aspose.Slides HTTPS เพียงอย่างเดียวไม่รับประกันความเชื่อถือ: ควรเพิ่มรายการอนุญาตโฮสต์และการตรวจสอบอื่น ๆ สำหรับแอปของคุณ ทั้ง URL ภายนอกต้นฉบับและปกติจะถูกตรวจสอบ ตัวอย่างตรวจสอบเมตาดาต้าโดยไม่เปิดลิงก์หรือรันการกระทำ
 
-สำหรับการแก้ไข ปัญหา, คอนเทนเนอร์ของ [getHyperlinkManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) รองรับ [setExternalHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) ในที่นี้ ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้า Landing Page HTTPS คงที่; ลิงก์คลิกและเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อให้ลบการละเมิดนโยบายทั้งหมด เลือกหน้าทดแทนอัตโนมัติที่เป็นของแอปก่อนการปรับใช้
+สำหรับการแก้ไข คอนเทนเนอร์ [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) รองรับ [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--), และ [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--). ที่นี้ ลิงก์คลิกภายนอกที่ไม่ได้รับอนุญาตจะถูกแทนที่ด้วยหน้า Landing Page HTTPS คงที่; ลิงก์คลิกและเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตอื่น ๆ จะถูกลบแยกกัน ตั้งค่า `replaceExternalClicks` เป็น `false` เพื่อทำการลบทั้งหมดที่ละเมิดนโยบาย เลือกหน้าทดแทนที่เป็นของแอปก่อนการปรับใช้
 
-ธงส่งออกของรายงานใช้แนวนโยบายการตรวจสอบ PDF อย่างระมัดระวัง: ทำเครื่องหมายการกระทำเมาส์โอเวอร์และทุกอย่างที่ไม่ใช่ลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ เป็นเพียงคำแนะนำสำหรับการตรวจสอบ ไม่ใช่การทดสอบความสามารถหรือการรับรองว่าลิงก์ที่ไม่ได้ทำเครื่องหมายจะยังคงอยู่ในการส่งออก การส่งออก PDF และ HTML ที่รองรับอาจยังคงไฮเปอร์ลิงก์ ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และผู้ดูไฟล์ ภาพ [images](/slides/th/androidjava/convert-powerpoint-to-png/) และวิดีโอ [video](/slides/th/androidjava/convert-powerpoint-to-video/) แบบราสเตอร์ไม่สามารถเก็บไฮเปอร์ลิงก์เชิงโต้ตอบ; ทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบสำหรับเอาต์พุตเหล่านั้น
+ธงการส่งออกของรายงานใช้โพลิซีการตรวจสอบ PDF อย่างระมัดระวัง: ทำเครื่องหมายการกระทำเม้าส์โอเวอร์และสิ่งใด ๆ ยกเว้นลิงก์ภายนอกหรือการกระโดดสไลด์เฉพาะว่าอาจไม่รองรับ นี่เป็นการให้คำแนะนำสำหรับการตรวจสอบ ไม่ใช่การทดสอบความสามารถหรือการรับประกันว่าลิงก์ที่ไม่ได้ทำเครื่องหมายจะคงอยู่ในการส่งออก PDF และ HTML ที่รองรับ ([PDF](/slides/th/androidjava/convert-powerpoint-to-pdf/) และ [HTML](/slides/th/androidjava/convert-powerpoint-to-html/)) อาจเก็บไฮเปอร์ลิงก์ไว้ขึ้นอยู่กับการกระทำ, ตัวเลือกการส่งออก, และตัวดูภาพ ส่วน [images](/slides/th/androidjava/convert-powerpoint-to-png/) และ [video](/slides/th/androidjava/convert-powerpoint-to-video/) ไม่สามารถเก็บไฮเปอร์ลิงก์เชิงโต้ตอบ; ทำเครื่องหมายทุกการกระทำเมื่อทำการตรวจสอบเพื่อวัตถุประสงค์เหล่านั้น
 
 ```java
 import com.aspose.slides.*;
@@ -456,7 +458,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // แปลงแถวแบนของรายงานนี้เป็น JSON โดยไม่ต้องใช้ไลบรารี JSON เพิ่มเติม
+    // ซีเรียลไลซ์แถวแบนของรายงานนี้โดยไม่ต้องใช้ไลบรารี JSON เพิ่มเติม.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -541,20 +543,20 @@ try {
 }
 ```
 
-ด้วยอินพุตที่สร้างด้านบน รายงานมีแถวการกระทำห้ารายการ ลิงก์เมาส์โอเวอร์ไฟล์และคลิกมาโครถูกลบ ส่วนลิงก์ HTTPSและการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบพิมพ์จำนวนการกระทำที่ไม่ได้รับอนุญาตเป็นศูนย์ อินพุตที่มี URL คลิกภายนอกที่ไม่ได้รับอนุญาตจะทำให้สาขาการแทนที่ทำงาน คอนเทนเนอร์ที่มีคลิกที่อนุญาตและเมาส์โอเวอร์ที่ไม่ได้รับอนุญาตจะรักษาการกระทำคลิกไว้
+ด้วยข้อมูลที่สร้างข้างต้น รายงานมีแถวการกระทำห้าแถว ลิงก์เม้าส์โอเวอร์ไฟล์และแมโครที่คลิกถูกลบ ส่วนลิงก์ HTTPS และการนำทางสไลด์ภายในยังคงอยู่ การตรวจสอบแสดงผลศูนย์การกระทำที่ไม่ได้รับอนุญาต ตัวอย่างที่มี URL คลิกภายนอกที่ไม่ได้รับอนุญาตยังแสดงสาขาการแทนที่ด้วยคอนเทนเนอร์ที่คลิกได้และเม้าส์โอเวอร์ที่ไม่ได้รับอนุญาตจะเก็บการกระทำคลิกไว้
 
-การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) ซึ่งลบทั้งสองการกระทำในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบเฉพาะการกระทำของไฮเปอร์ลิงก์; ไม่ลบโครงการ VBA ที่ฝังอยู่, วัตถุ OLE, หรือเนื้อหาเชิงโต้ตอบอื่น ๆ และไม่ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
+การทำความสะอาดแบบเลือกนี้แตกต่างจาก [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) ที่ลบการกระตุ้นทั้งสองประเภทในขอบเขตที่เลือกโดยไม่คำนึงถึงนโยบาย การตรวจสอบที่นี่ตรวจสอบการกระทำของไฮเปอร์ลิงก์เท่านั้น; ไม่ได้ลบโครงการ VBA ฝัง, วัตถุ OLE, หรือคอนเทนต์ที่ทำงานอื่น ๆ และไม่ได้ตรวจสอบไฟล์ PDF หรือ HTML ที่ส่งออก
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันจะลิงก์ไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
+**ฉันจะเชื่อมไปยังส่วนหรือสไลด์แรกของส่วนได้อย่างไร?**
 
-ส่วนใน PowerPoint จัดกลุ่มสไลด์, แต่ไฮเปอร์ลิงก์ภายในจะเป้าหมายที่สไลด์เดี่ยว เพื่อสร้างการนำทางไปยังส่วน ให้ลิงก์ไปยังสไลด์แรกของส่วนนั้น
+ส่วนใน PowerPoint จัดกลุ่มสไลด์ แต่ไฮเปอร์ลิงก์ภายในจะชี้ไปยังสไลด์เดี่ยวเพื่อทำการนำทางไปยังส่วน ให้เชื่อมไปยังสไลด์แรกของส่วนนั้น
 
-**ฉันสามารถแนบไฮเปอร์ลิงก์กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนสไลด์ทั้งหมดได้หรือไม่?**
+**ฉันสามารถแนบไฮเปอร์ลิงก์ให้กับองค์ประกอบมาสเตอร์สไลด์เพื่อให้ทำงานบนทุกร่างสไลด์ได้หรือไม่?**
 
-ได้ มาสเตอร์สไลด์และองค์ประกอบเลเอาต์รองรับไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลเอาต์ที่สัมพันธ์
+ได้ มาสเตอร์สไลด์และองค์ประกอบเลย์เอาต์รองรับไฮเปอร์ลิงก์ ลิงก์บนองค์ประกอบเหล่านี้จะพร้อมใช้งานระหว่างการแสดงสไลด์บนสไลด์ที่ใช้มาสเตอร์หรือเลย์เอาต์ที่สอดคล้องกัน
 
-**ไฮเปอร์ลิงก์จะถูกเก็บไว้เมื่อส่งออกเป็น PDF, HTML, รูปภาพ หรือวิดีโอหรือไม่?**
+**ไฮเปอร์ลิงก์จะยังคงอยู่เมื่อตีออกเป็น PDF, HTML, ภาพ หรือวิดีโอหรือไม่?**
 
-การส่งออก PDF และ HTML ที่รองรับอาจเก็บไฮเปอร์ลิงก์ไว้; รูปภาพแบบราสเตอร์และวิดีโอไม่สามารถทำได้ ดูข้อพิจารณาการส่งออกใน [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks)
+การส่งออก PDF และ HTML ที่รองรับอาจเก็บไฮเปอร์ลิงก์ไว้ได้ ส่วนภาพแบบแรสเตอร์และวิดีโอไม่สามารถเก็บไฮเปอร์ลิงก์เชิงโต้ตอบได้ ดูข้อควรพิจารณาการส่งออกใน [รายงาน ทำความสะอาด และตรวจสอบไฮเปอร์ลิงก์](#report-sanitize-and-verify-hyperlinks)

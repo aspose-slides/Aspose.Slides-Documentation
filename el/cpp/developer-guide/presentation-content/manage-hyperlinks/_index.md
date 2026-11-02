@@ -1,49 +1,51 @@
 ---
-title: Διαχείριση Υπερσυνδέσεων Παρουσίασης σε C++
-linktitle: Διαχείριση Υπερσυνδέσεων
+title: Διαχείριση υπερσυνδέσμων παρουσίασης σε C++
+linktitle: Διαχείριση υπερσυνδέσμων
 type: docs
 weight: 20
 url: /el/cpp/manage-hyperlinks/
 keywords:
 - προσθήκη URL
-- προσθήκη υπερσύνδεσης
-- δημιουργία υπερσύνδεσης
-- μορφοποίηση υπερσύνδεσης
-- αφαίρεση υπερσύνδεσης
-- ενημέρωση υπερσύνδεσης
-- υπερσύνδεση κειμένου
-- υπερσύνδεση διαφάνειας
-- υπερσύνδεση σχήματος
-- υπερσύνδεση εικόνας
-- υπερσύνδεση βίντεο
-- μεταβλητή υπερσύνδεση
+- προσθήκη υπερσύνδεσμου
+- δημιουργία υπερσύνδεσμου
+- μορφοποίηση υπερσύνδεσμου
+- αφαίρεση υπερσύνδεσμου
+- ενημέρωση υπερσύνδεσμου
+- υπερσύνδεσμος κειμένου
+- υπερσύνδεσμος διαφάνειας
+- υπερσύνδεσμος σχήματος
+- υπερσύνδεσμος εικόνας
+- υπερσύνδεσμος βίντεο
+- μεταβλητός υπερσύνδεσμος
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Προσθέστε, μορφοποιήστε, ενημερώστε και αφαιρέστε υπερσυνδέσεις σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για C++, χρησιμοποιώντας παραδείγματα C++."
+description: "Προσθήκη, μορφοποίηση, ενημέρωση και αφαίρεση υπερσυνδέσμων σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για C++, χρησιμοποιώντας παραδείγματα C++."
 ---
 ## **Εισαγωγή**
 
-Μια υπερσύνδεση συνδέει το περιεχόμενο μιας παρουσίασης με έναν ιστότοπο ή με μια θέση εντός της παρουσίασης. Στο PowerPoint, οι υπερσυνδέσεις συνήθως εξυπηρετούν δύο σκοπούς:
+Ένας υπερσύνδεσμος συνδέει το περιεχόμενο της παρουσίασης με έναν ιστότοπο ή μια θέση εντός της παρουσίασης. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δυο σκοπούς:
 
-* Άνοιγμα ενός ιστότοπου από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
-* Μετάβαση σε άλλη διαφάνεια, π.χ. από πίνακα περιεχομένου.
+* Άνοιγμα ιστότοπου από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
+* Μετάβαση σε άλλη διαφάνεια, για παράδειγμα από έναν πίνακα περιεχομένων.
 
-Aspose.Slides for C++ σας επιτρέπει να προσθέσετε αυτές τις συνδέσεις, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ρυθμίσεις τους και να τις αφαιρέσετε. Τα παρακάτω παραδείγματα δείχνουν πώς να εργάζεστε με υπερσυνδέσεις σε μεμονωμένα στοιχεία και πώς να έχετε πρόσβαση σε υπερσυνδέσεις σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
+Το Aspose.Slides για C++ σας επιτρέπει να προσθέσετε αυτούς τους συνδέσμους, να ελέγξετε την εμφάνιση και τον ήχο τους, να ενημερώσετε τις ρυθμίσεις τους και να τους αφαιρέσετε. Τα παραδείγματα παρακάτω δείχνουν πώς να εργαστείτε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να αποκτήσετε πρόσβαση σε υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
 
 {{% alert color="info" title="Note" %}}
-Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας Aspose PowerPoint](https://products.aspose.app/slides/el/editor).
+You can also edit presentations with the [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **Προσθήκη Υπερσυνδέσεων URL**
+## **Προσθήκη Υπερσυνδέσμων URL**
 
-Μπορείτε να αντιστοιχίσετε μια διεύθυνση URL σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αντιστοιχίζετε την υπερσύνδεση καθορίζει την περιοχή που μπορεί να κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
+Μπορείτε να αντιστοιχίσετε μια διεύθυνση URL ιστότοπου σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αντιστοιχίζετε τον υπερσύνδεσμο καθορίζει την περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
 
-### **Προσθήκη Υπερσυνδέσεων URL σε Κείμενο**
+Για παρουσιάσεις που περιέχουν σχετικούς υπερσυνδέσμους, δείτε το [Διαχείριση Βάσης Υπερσυνδέσμου](/slides/el/cpp/presentation-properties/#manage-the-hyperlink-base) για να διαβάσετε, να αλλάξετε ή να διαγράψετε τη βάση σε επίπεδο εγγράφου.
 
-Για να συνδέσετε κείμενο με έναν ιστότοπο, δημιουργήστε ένα [Hyperlink](https://reference.aspose.com/slides/el/cpp/aspose.slides/hyperlink/) και αντιστοιχίστε το με τη μέθοδο [set_HyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/portionformat/set_hyperlinkclick/) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ-αξιόλογο.
+### **Προσθήκη Υπερσυνδέσμων URL σε Κείμενο**
+
+Για να συνδέσετε κείμενο με έναν ιστότοπο, δημιουργήστε ένα [Υπερσύνδεσμο](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) και αντιστοιχίστε το με τη μέθοδο [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ‑δυνατό.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -76,13 +78,13 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **Προσθήκη Υπερσυνδέσεων URL σε Σχήματα και Πλαίσια Πολυμέσων**
+### **Προσθήκη Υπερσυνδέσμων URL σε Σχήματα και Πλαίσια Πολυμέσων**
 
-Για να κάνετε ένα σχήμα ή πλαίσιο κλικ-αξιόλογο, χρησιμοποιήστε τη μέθοδο [set_HyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/shape/set_hyperlinkclick/) του. Η υπερσύνδεση ανήκει στο ίδιο το αντικείμενο και όχι σε κάποιο τμήμα κειμένου μέσα σε αυτό.
+Για να κάνετε ένα σχήμα ή πλαίσιο κλικ‑δυνατό, χρησιμοποιήστε τη μέθοδο [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο αντί σε τμήμα κειμένου μέσα σε αυτό.
 
-Η ίδια προσέγγιση ισχύει για πλαίσια εικόνας, ήχου και βίντεο: αντιστοιχίστε την υπερσύνδεση στο πλαίσιο και χρησιμοποιήστε τη μέθοδο [set_Tooltip](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_tooltip/) για να προσθέσετε υπόδειξη εάν χρειάζεται.
+Η ίδια προσέγγιση εφαρμόζεται σε πλαίσια εικόνων, ήχου και βίντεο: αντιστοιχίστε τον υπερσύνδεσμο στο πλαίσιο και χρησιμοποιήστε το [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) για να προσθέσετε μια υπόδειξη εάν χρειάζεται.
 
-Το ακόλουθο παράδειγμα κάνει ένα ορθογώνιο σχήμα κλικ-αξιόλογο:
+Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικ‑δυνατό:
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -107,9 +109,9 @@ shape->get_HyperlinkClick()->set_Tooltip(u"Explore Aspose file format APIs");
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-## **Χρήση Υπερσυνδέσεων για Δημιουργία Πίνακα Περιεχομένων**
+## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Οι εσωτερικές υπερσυνδέσεις επιτρέπουν στους αναγνώστες να μεταπηδούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί τη μέθοδο [SetInternalHyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) για να συνδέσει το κείμενο «Σελίδα 2» στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
+Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί το [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -164,13 +166,13 @@ tableOfContents->get_TextFrame()->get_Paragraphs()->Add(paragraph);
 presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 ```
 
-## **Μορφοποίηση Υπερσυνδέσεων**
+## **Μορφοποίηση Υπερσυνδέσμων**
 
 ### **Χρώμα**
 
-Η μέθοδος [set_ColorSource](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_colorsource/) του [IHyperlink](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/) καθορίζει εάν μια υπερσύνδεση χρησιμοποιεί το χρώμα υπερσύνδεσης της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε το [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/hyperlinkcolorsource/) και θέστε το χρώμα γεμίσματος του τμήματος. Αυτή η δυνατότητα εισήχθη στο PowerPoint 2019· παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
+Η μέθοδος [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) του [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) καθορίζει εάν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε το [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) και ορίστε το χρώμα γεμίσματος του τμήματος. Αυτή η δυνατότητα εισήχθη στο PowerPoint 2019· παλαιότερες εκδόσεις δεν εφαρμόζουν αυτήν τη ρύθμιση.
 
-Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσεις κειμένου στην ίδια διαφάνεια. Η πρώτη χρησιμοποιεί κόκκινο χρώμα γεμίσματος κειμένου, ενώ η δεύτερη διατηρεί το προεπιλεγμένο χρώμα υπερσύνδεσης.
+Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο γέμισμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -212,16 +214,17 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
+
 ### **Ήχος**
 
-Μια υπερσύνδεση μπορεί να αναπαράγει ήχο όταν ενεργοποιείται ή να διακόψει ήχο που ήδη παίζει. Χρησιμοποιήστε τις παρακάτω μεθόδους για να ρυθμίσετε αυτές τις συμπεριφορές:
+Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιηθεί ή να σταματήσει ήχο που ήδη αναπαράγεται. Χρησιμοποιήστε τις παρακάτω μεθόδους για να διαμορφώσετε αυτές τις συμπεριφορές:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_sound/) ορίζει το αρχείο ήχου που σχετίζεται με την υπερσύνδεση.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) ελέγχει εάν η ενεργοποίηση της υπερσύνδεσης διακόπτει τον προηγούμενο ήχο.
+- Το [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) καθορίζει το ήχο που συνδέεται με τον υπερσύνδεσμο.
+- Το [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) ελέγχει εάν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
 
-#### **Προσθήκη Ήχου Υπερσύνδεσης**
+#### **Προσθήκη Ήχου σε Υπερσύνδεσμο**
 
-Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί παίζει ο ήχος και πηγαίνει στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα στην ίδια διαφάνεια διακόπτει τον προηγούμενο ήχο όταν κλικάρεται, χωρίς να εκτελεί ενέργεια πλοήγησης.
+Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάνεια. Το κλικ στο κουμπί αναπαράγει τον ήχο και μεταβαίνει στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα σε αυτή τη διαφάνεια σταματά τον προηγούμενο ήχο όταν κλικάρεται, χωρίς να εκτελεί ενέργεια πλοήγησης.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -265,9 +268,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Ανάκτηση Ήχου Υπερσύνδεσης**
+#### **Εξαγωγή Ήχου από Υπερσύνδεσμο**
 
-Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο της υπερσύνδεσης του πρώτου σχήματος στη μνήμη μέσω των [get_Sound](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_sound/) και [get_BinaryData](https://reference.aspose.com/slides/el/cpp/aspose.slides/iaudio/get_binarydata/).
+Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο υπερσυνδέσμου του πρώτου σχήματος στη μνήμη μέσω των μεθόδων [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) και [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -303,18 +306,18 @@ else
 }
 ```
 
-### **Tooltip και Ρυθμίσεις Αλληλεπίδρασης**
+### **Ρυθμίσεις Tooltip και Αλληλεπίδρασης**
 
-Μπορείτε να ενημερώσετε τις παρακάτω ρυθμίσεις του [IHyperlink](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/) μέσω αυτών των μεθόδων αφού αντιστοιχίσετε μια υπερσύνδεση σε κείμενο ή σχήμα:
+Μπορείτε να ενημερώσετε τις παρακάτω ρυθμίσεις του [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) μέσω αυτών των μεθόδων μετά την αντιστοίχηση ενός υπερσυνδέσμου σε κείμενο ή σχήμα:
 
-- [set_Tooltip](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_tooltip/) ορίζει το κείμενο που ο θεατής μπορεί να δει ως υπόδειξη για τη σύνδεση.
-- [set_TargetFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_targetframe/) καθορίζει το πλαίσιο προορισμού μέσα σε ένα γονικό HTML frameset, εάν εφαρμόζεται.
-- [set_History](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_history/) ελέγχει εάν η ενεργοποίηση της σύνδεσης προσθέτει τον προορισμό της στη λίστα των προβλεπόμενων υπερσυνδέσεων.
-- [set_HighlightClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/set_highlightclick/) ελέγχει εάν η υπερσύνδεση επισημαίνεται όταν γίνεται κλικ.
+- Το [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) ορίζει το κείμενο που μπορεί να εμφανίσει ο θεατής ως υπόδειξη για το σύνδεσμο.
+- Το [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) καθορίζει το πλαίσιο‑στόχο μέσα σε ένα γονικό HTML frameset, όταν είναι εφαρμόσιμο.
+- Το [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) ελέγχει αν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των προβεβλημένων υπερσυνδέσμων.
+- Το [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) ελέγχει αν ο υπερσύνδεσμος επισημαίνεται όταν κλικάρεται.
 
-## **Αφαίρεση Υπερσυνδέσεων από Παρουσιάσεις**
+## **Αφαίρεση Υπερσυνδέσμων από Παρουσιάσεις**
 
-Χρησιμοποιήστε το [GetAnyHyperlinks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) για να συλλέξετε τους containers υπερσυνδέσεων, συμπεριλαμβανομένων των συνδέσεων τμημάτων κειμένου, πριν τα αλλάξετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [RemoveHyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ή το [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί την αντίστοιχη ενέργεια όταν ο δείκτης είναι πάνω.
+Χρησιμοποιήστε το [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) για να συλλέξετε τα containers υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα αλλάξετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) ή το [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί την αντίστοιχη ενέργεια mouse‑over.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -348,23 +351,23 @@ else
 }
 ```
 
-Για ανεξόδου αφαίρεση, το [RemoveAllHyperlinks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) αφαιρεί και τους δύο τύπους ενεργοποίησης στο επιλεγμένο εύρος με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των masters, layouts και notes, δείτε το [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Για αδιάκοπη αφαίρεση, το [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) αφαιρεί και τους δύο τύπους ενεργοποίησης στο επιλεγμένο εύρος με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των master, layouts και σημειώσεων, δείτε το [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων](#report-sanitize-and-verify-hyperlinks).
 
-## **Δημιουργία Πλήρους Καταλόγου Υπερσυνδέσεων**
+## **Δημιουργία Πλήρους Καταλογισμού Υπερσυνδέσμων**
 
-Πριν διανείμετε μια παρουσίαση, καταγράψτε τις διαδραστικές ενέργειές της καθώς και τους web συνδέσμους της. Το [GetAnyHyperlinks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) επιστρέφει αντικείμενα [IHyperlinkContainer](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkcontainer/), όχι απλή λίστα URL. Εξετάστε τόσο το [get_HyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) όσο και το [get_HyperlinkMouseOver](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) σε κάθε container. Είναι ανεξάρτητα: το ίδιο container μπορεί να εκθέτει και τις δύο ενέργειες, οπότε μια πλήρης αναφορά χρειάζεται έως δύο γραμμές ανά container.
+Πριν τη διανομή μιας παρουσίασης, καταγράψτε τις διαδραστικές της ενέργειες καθώς και τους ιστότοπους συνδέσμους. Το [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) επιστρέφει αντικείμενα [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/), όχι μια επίπεδη λίστα συμβολοσειρών URL. Εξετάστε τόσο το [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) όσο και το [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) σε κάθε container. Είναι ανεξάρτητα: το ίδιο container μπορεί να εκθέτει και τις δύο ενέργειες, έτσι μια πλήρης αναφορά απαιτεί έως δύο σειρές ανά container.
 
-Η σάρωση μόνο σε υπερσυνδέσεις επιπέδου σχήματος μπορεί να παραλείψει συνδέσεις που είναι στο τμήμα κειμένου. Ερωτήστε το κατάλληλο εύρος και διατηρήστε τα containers που επιστρέφονται ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
+Η σάρωση μόνο των υπερσυνδέσμων σε επίπεδο σχήματος μπορεί να παραλείψει συνδέσμους που είναι προσαρτημένοι σε τμήματα κειμένου. Αντ' αυτού ερωτήστε το κατάλληλο εύρος και διατηρήστε τα επιστρεφόμενα containers ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
 
-### **Ερώτηση Ευσώνων Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
+### **Ερώτηση για Εύρη Παρουσίασης, Διαφάνειας και Πλαισίου‑Κειμένου**
 
-Η διεπαφή [IHyperlinkQueries](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/) είναι διαθέσιμη μέσω των [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) και [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/el/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Κάθε εύρος υποστηρίζει τις ίδιες ερωτήσεις:
+Η διεπαφή [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/) είναι διαθέσιμη μέσω των [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/), και [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/). Κάθε εύρος υποστηρίζει τις ίδιες ερωτήσεις:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) επιστρέφει containers με ενέργεια κλικ.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) επιστρέφει containers με ενέργεια όταν ο δείκτης είναι πάνω.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) επιστρέφει containers με μία ή και τις δύο ενέργειες.
+- Το [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) επιστρέφει containers με ενέργεια κλικ.
+- Το [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) επιστρέφει containers με ενέργεια mouse‑over.
+- Το [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) επιστρέφει containers με είτε ή και τις δύο ενέργειες.
 
-Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με εξωτερική σύνδεση κλικ, σύνδεση αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, σύνδεση mouse‑over κειμένου και ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ερωτήσεις λειτουργούν σε κάθε εύρος· οι μετρήσεις περιγράφουν containers, όχι σύνολο ενεργειών. Το εύρος πλαισίου κειμένου εξαιρεί τις συνδέσεις του περιβάλου σχήματος.
+Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με έναν εξωτερικό σύνδεσμο κλικ, έναν σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, έναν σύνδεσμο κειμένου mouse‑over και μια ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι ίδιες τρεις ερωτήσεις λειτουργούν σε κάθε εύρος· οι μετρήσεις περιγράφουν containers, όχι συνολικούς αριθμούς ενεργειών. Το εύρος πλαισίου‑κειμένου εξαιρεί τους δικούς του συνδέσμους του περιβάλλοντος σχήματος.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -419,37 +422,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία containers κλικ, δύο containers mouse‑over και τρία containers με μία ή και τις δύο ενέργειες. Η ερώτηση πλαισίου κειμένου αναφέρει ένα container σε κάθε κατηγορία.
+Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία containers κλικ, δύο containers mouse‑over και τρία containers με είτε ενέργεια. Η ερώτηση πλαισίου‑κειμένου αναφέρει ένα container σε κάθε κατηγορία.
 
 ### **Κατηγοριοποίηση Ενεργειών και Προορισμών**
 
-Χρησιμοποιήστε το [IHyperlink::get_ActionType](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_actiontype/) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/el/cpp/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερα από πλοήγηση στο web:
+Χρησιμοποιήστε το [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/) καλύπτουν περισσότερα από πλοήγηση στον ιστό:
 
 | Τιμές | Σημασία για έλεγχο |
 | --- | --- |
-| `Hyperlink` | Εξωτερική υπερσύνδεση· ελέγξτε το URL και το σχήμα του. |
+| `Hyperlink` | Εξωτερικός υπερσύνδεσμος· ελέγξτε το URL και το σχήμα του. |
 | `JumpSpecificSlide` | Εσωτερική πλοήγηση σε συγκεκριμένη διαφάνεια. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται στο πλαίσιο παρουσίασης. |
-| `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός τρέχουσας παρουσίασης ή εκκίνηση προσαρμοσμένης παρουσίασης. |
-| `StartMacro` | Εκκίνηση μακροεντολής. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται σε πλαίσιο παρουσίασης. |
+| `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός τρέχουσας παρουσίασης ή έναρξη προσαρμοσμένης παρουσίασης. |
+| `StartMacro` | Εκτέλεση μακροεντολής. |
 | `StartProgram` | Εκκίνηση προγράμματος. |
-| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ελέγξτε ξεχωριστά από web URLs. |
-| `StartStopMedia` | Έναρξη ή διακοπή αναπαραγωγής πολυμέσων. |
-| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης ή άγνωστη ενέργεια που απαιτεί έλεγχο. |
+| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· εξετάστε ξεχωριστά από τις διευθύνσεις URL ιστού. |
+| `StartStopMedia` | Έναρξη ή τερματισμός αναπαραγωγής πολυμέσων. |
+| `NoAction`, `Unknown` | Καμία ενέργεια πλοήγησης ή μη αναγνωρισμένη ενέργεια που απαιτεί έλεγχο. |
 
-Διαβάστε εξωτερικούς προορισμούς από το [get_ExternalUrl](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_externalurl/) και συγκεκριμένους εσωτερικούς προορισμούς από το [get_TargetSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_targetslide/). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το container δεν έχει ενέργεια. Διατηρήστε το [get_ExternalUrlOriginal](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [get_Tooltip](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlink/get_tooltip/) όταν είναι διαθέσιμο.
+Διαβάστε εξωτερικούς προορισμούς από το [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) και συγκεκριμένους εσωτερικούς προορισμούς από το [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το container δεν έχει ενέργεια. Διατηρήστε το [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφεται από το [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) όταν είναι διαθέσιμο.
 
-### **Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσεων**
+### **Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων**
 
-Το παρακάτω παράδειγμα C++ διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιεί το αρχείο που δημιουργήθηκε προηγουμένως), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει ξανά και τους δύο τύπους ενεργοποίησης. Συλλέγει containers πριν τους αλλάξει και χρησιμοποιεί ταυτότητα δείκτη για να αποφύγει την επεξεργασία του ίδιου container δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις κανονικές διαφάνειες· για καταγραφή σε όλο το πακέτο, ερωτά επίσης ρητά masters, layouts, notes και τους masters σημειώσεων/χειροτύπων όταν υπάρχουν.
+Το παρακάτω παράδειγμα C++ διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει ξανά και τους δύο τύπους ενεργοποίησης. Συλλέγει containers πριν τα αλλάξει και χρησιμοποιεί ταυτοποίηση δεικτών για να αποφύγει την επεξεργασία του ίδιου container δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις συνηθισμένες διαφάνειες· για ενδεχόμενο καταλογισμό πακέτου, ερωτά επίσης ρητά τους master, τα layouts, τις σημειώσεις και τους master σημειώσεων και διανομής όταν υπάρχουν.
 
-Η αναφορά καταγράφει έναν δεικτικό αριθμό διαφάνειας (ξεκινώντας από το 1) και το [get_SlideId](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/get_slideid/) όπου είναι διαθέσιμο. Το [ISlideComponent::get_Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecomponent/get_slide/) παρέχει τη διαφάνεια-ιδιοκτήτης για υποστηριζόμενα containers. Τα masters, layouts και notes δεν έχουν κανονικό αριθμό διαφάνειας και τα ταυτοποιεί το εύρος τους. Τα containers σχήματος και τα containers μορφοποίησης τμημάτων κειμένου επισημαίνονται χωριστά· οι άλλοι τύποι containers διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε container λαμβάνει τοπικό ID αναφοράς ώστε οι δύο του ενέργειες να μπορούν να συσχετιστούν.
+Η αναφορά καταγράφει έναν δείκτη διαφάνειας με βάση το 1 και το [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/) όπου είναι διαθέσιμο. Το [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) παρέχει τη διαφάνεια ιδιοκτήτη για υποστηριζόμενα containers. Οι master, τα layouts και οι σημειώσεις δεν έχουν συνηθισμένο δείκτη διαφάνειας και ταυτοποιούνται με το εύρος τους. Τα containers σχήματος και τα containers μορφοποίησης τμήματος κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι containers διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε container λαμβάνει ένα τοπικό ID αναφοράς ώστε οι δύο ενέργειές του να μπορούν να συσχετιστούν.
 
-Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απολύτως HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Αυτές οι απορρίψεις αποτελούν αποφάσεις πολιτικής, όχι απόφαση ασφαλείας της Aspose.Slides. Το HTTPS μόνο δεν εγγυάται εμπιστοσύνη· προσθέστε λιστές επιτρεπόμενων κεντρικών (allowlists) και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URLs. Το παράδειγμα ελέγχει μόνο μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
+Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URLs και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι απόφαση ασφαλείας του Aspose.Slides. Το μόνο HTTPS δεν εγγυάται εμπιστοσύνη· προσθέστε λίστες επιτρεπόμενων κεντρικών υπολογιστών και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URLs. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
 
-Για διόρθωση, το [get_HyperlinkManager](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) του container υποστηρίζει τις μεθόδους [SetExternalHyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) και [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Εδώ, οι απαγορευμένες εξωτερικές συνδέσεις κλικ αντικαθίστανται με μια σταθερή σελίδα προσγείωσης HTTPS· οι άλλες απαγορευμένες συνδέσεις κλικ και οι απαγορευμένες ενέργειες mouse‑over αφαιρούνται ανεξάρτητα. Ορίστε `replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή σας πριν από την ανάπτυξη.
+Για αντιμετώπιση, το container's [get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) υποστηρίζει το [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), το [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) και το [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή σελίδα προσγείωσης HTTPS· οι άλλοι απαγορευμένοι κλικ και οι απαγορευμένες ενέργειες mouse‑over αφαιρούνται ανεξάρτητα. Ορίστε το `replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβιάσεις πολιτικής αντ' αυτού. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή πριν από την ανάπτυξη.
 
-Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ελέγχου PDF: σημειώνει ενέργειες mouse‑over και οτιδήποτε άλλο εκτός από εξωτερική σύνδεση ή συγκεκριμένο άλμα διαφάνειας ως πιθανά μη υποστηριζόμενα. Είναι υπόδειξη ελέγχου, όχι δοκιμή ικανότητας ή εγγύηση ότι τα μη σημειωμένα links θα διατηρηθούν στην εξαγωγή. Οι υποστηριζόμενες εξαγωγές σε [PDF](/slides/el/cpp/convert-powerpoint-to-pdf/) και [HTML](/slides/el/cpp/convert-powerpoint-to-html/) μπορεί να διατηρήσουν υπερσυνδέσεις, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προβολέα. Τα raster [images](/slides/el/cpp/convert-powerpoint-to-png/) και [video](/slides/el/cpp/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικές υπερσυνδέσεις· σημειώστε κάθε ενέργεια όταν ελέγχετε για αυτά τα είδη εξόδου.
+Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ελέγχου PDF: σημαδεύει ενέργειες mouse‑over και οτιδήποτε άλλο εκτός από εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως πιθανώς μη υποστηριζόμενο. Είναι μια υπόδειξη ελέγχου, όχι δοκιμή δυνατότητας ή εγγύηση ότι οι μη επισημασμένοι σύνδεσμοι θα παραμείνουν στην εξαγωγή. Τα υποστηριζόμενα [PDF](/slides/el/cpp/convert-powerpoint-to-pdf/) και [HTML](/slides/el/cpp/convert-powerpoint-to-html/) εξαγόμενα μπορεί να διατηρήσουν τους υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προγράμματος προβολής. Οι ραστερ [εικόνες](/slides/el/cpp/convert-powerpoint-to-png/) και [βίντεο](/slides/el/cpp/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαδεύστε κάθε ενέργεια όταν ελέγχετε αυτά τα αποτελέσματα.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -650,20 +653,20 @@ if (violations != 0)
 }
 ```
 
-Με το παραπάνω αρχείο εισόδου, η αναφορά περιέχει πέντε σειρές ενεργειών. Η σύνδεση αρχείου mouse‑over και το κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφανειών παραμένουν. Η επαλήθευση εμφανίζει μηδέν απαγορευμένες ενέργειες. Ένα αρχείο εισόδου με απαγορευμένο εξωτερικό URL κλικ επίσης εκτελεί το κλαδί αντικατάστασης. Ένα container με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί τη δράση κλικ του.
+Με το παραπάνω εισροή, η αναφορά περιέχει πέντε σειρές ενεργειών. Ο σύνδεσμος αρχείου mouse‑over και το κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφάνειας παραμένουν. Η επαλήθευση εμφανίζει μηδέν απαγορευμένες ενέργειες. Μια εισροή με απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλάδο αντικατάστασης. Ένα container με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί την ενέργεια κλικ της.
 
-Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [RemoveAllHyperlinks](https://reference.aspose.com/slides/el/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), το οποίο αφαιρεί και τους δύο τύπους ενεργοποίησης σε όλο το επιλεγμένο εύρος ανεξάρτητα από την πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες υπερσύνδεσης· δεν αφαιρεί ενσωματωμένα VBA projects, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο, και δεν επικυρώνει ένα εξαγόμενο PDF ή HTML αρχείο.
+Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [RemoveAllHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), το οποίο αφαιρεί και τους δύο τύπους ενεργοποίησης σε όλο το επιλεγμένο εύρος ανεξάρτητα από την πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα VBA projects, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο, και δεν επαληθεύει ένα εξαγόμενο PDF ή HTML αρχείο.
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Πώς μπορώ να συνδέσω σε μια ενότητα ή στην πρώτη της διαφάνεια;**
+**Πώς μπορώ να συνδέσω σε ενότητα ή στην πρώτη διαφάνειά της;**
 
-Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά μια εσωτερική υπερσύνδεση στοχεύει σε μία συγκεκριμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε ενότητα, συνδέστε στην πρώτη διαφάνεια της ενότητας.
+Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε ενότητα, συνδέστε τη πρώτη διαφάνεια της ενότητας.
 
-**Μπορώ να προσθέσω υπερσύνδεση σε στοιχεία master slide ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+**Μπορώ να συνδέσω έναν υπερσύνδεσμο σε στοιχεία master διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
 
-Ναι. Τα στοιχεία του master slide και του layout υποστηρίζουν υπερσυνδέσεις. Οι συνδέσεις σε αυτά τα στοιχεία είναι διαθέσιμες κατά τη διάρκεια της παρουσίασης στις διαφάνειες που χρησιμοποιούν τον αντίστοιχο master ή layout.
+Ναι. Τα στοιχεία master διαφάνειας και layout υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά τη διάρκεια της παρουσίασης στις διαφάνειες που χρησιμοποιούν τον αντίστοιχο master ή layout.
 
-**Θα διατηρηθούν οι υπερσυνδέσεις όταν εξάγονται σε PDF, HTML, εικόνες ή βίντεο;**
+**Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
 
-Οι υποστηριζόμενες εξαγωγές PDF και HTML μπορεί να διατηρήσουν υπερσυνδέσεις· οι raster εικόνες και τα βίντεο δεν μπορούν. Δείτε τις εκτιμήσεις εξαγωγής στο [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Τα υποστηριζόμενα PDF και HTML εξαγόμενα μπορεί να διατηρήσουν τους υπερσυνδέσμους· οι ραστερ εικόνες και τα βίντεο δεν μπορούν. Δείτε τις προϋποθέσεις εξαγωγής στο [Αναφορά, Καθαρισμός και Επαλήθευση Υπερσυνδέσμων](#report-sanitize-and-verify-hyperlinks).

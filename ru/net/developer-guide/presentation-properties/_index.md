@@ -23,42 +23,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Освойте свойства презентаций в Aspose.Slides для .NET и упростите поиск, брендинг и рабочий процесс в ваших файлах PowerPoint и OpenDocument."
+description: "Управляйте свойствами презентаций в Aspose.Slides для .NET и оптимизируйте поиск, брендинг и рабочий процесс в ваших файлах PowerPoint и OpenDocument."
 ---
 ## **Введение**
 
-Aspose.Slides for .NET поддерживает два типа свойств документа: **Built-in** и **Custom**. Оба этих типа свойств легко доступны и управляются с помощью API Aspose.Slides for .NET.
+Aspose.Slides for .NET поддерживает **встроенные** и **пользовательские** свойства документа. Используйте эти свойства для чтения и обновления метаданных презентации, таких как автор, заголовок и пользовательские значения.
 
-Aspose.Slides позволяет работать со свойствами презентации через интерфейс [IDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/idocumentproperties/). Экземпляр этого интерфейса возвращается методом [IPresentation.DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/documentproperties/). Ниже приведены примеры чтения, изменения и управления этими свойствами.
+Aspose.Slides позволяет работать со свойствами документа презентации через интерфейс [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) . Экземпляр этого интерфейса возвращается методом [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Ниже приведены примеры того, как читать, изменять и управлять этими свойствами.
 
 {{% alert color="info" title="Note" %}}
-Обратите внимание, что поля **Application** и **Producer** нельзя изменять, так как они всегда отображают «Aspose Ltd.» и «Aspose.Slides for .NET x.x.x».
-{{% /alert %}} 
+Aspose.Slides управляет метаданными приложения и производителя при сохранении презентаций; эти поля идентифицируют программное обеспечение, создавшее вывод.
+{{% /alert %}}
 
 ## **Управление свойствами презентации**
 
-Microsoft PowerPoint предоставляет возможность добавлять свойства к файлам презентаций. Эти свойства документа позволяют хранить полезную информацию вместе с файлами. Существует два типа свойств документа:
+Свойства документа хранят описательную информацию вместе с содержимым презентации. Они делятся на две категории:
 
-- Свойства, определённые системой (встроенные)
-- Свойства, определённые пользователем (настраиваемые)
+- **Встроенные свойства** содержат стандартные метаданные, такие как заголовок, автор и статистика документа.
+- **Пользовательские свойства** хранят пары имя/значение, определённые пользователем.
 
-**Built-in** свойства содержат общую информацию о документе, такую как заголовок, имя автора, статистика документа и т.д.
-
-**Custom** свойства определяются пользователями в виде пар **Имя/Значение**, где и имя, и значение задаются пользователем.
-
-С помощью Aspose.Slides for .NET разработчики могут получать доступ и изменять как встроенные, так и пользовательские свойства.
-
-Microsoft PowerPoint позволяет пользователям управлять свойствами документа, щёлкнув значок Office, затем выбрав **File → Info → Properties**. После выбора **Advanced Properties** появляется диалог, где можно управлять всеми свойствами презентации.
-
-В диалоговом окне **Properties** есть несколько вкладок, таких как **General**, **Summary**, **Statistics**, **Contents** и **Custom**. Каждая вкладка предоставляет параметры для настройки определённых типов информации, связанной с файлом PowerPoint. Вкладка **Custom** используется для управления пользовательскими свойствами.
+Aspose.Slides for .NET предоставляет доступ к обеим категориям. В PowerPoint выберите **File → Info → Properties → Advanced Properties**, чтобы просмотреть метаданные документа. Диалоговое окно группирует информацию по вкладкам, таким как **Summary**, **Statistics**, **Contents** и **Custom**. Используйте вкладку **Custom** для управления пользовательскими свойствами.
 
 ## **Чтение публичных свойств из зашифрованной презентации**
 
-Пароль открытия обычно защищает как содержимое презентации, так и свойства документа. Когда презентация зашифрована с помощью [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) со значением `false`, её свойства документа остаются публичными. Приложение может затем установить [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) в `true` и прочитать публичные метаданные без указания пароля открытия.
+Пароль открытия обычно защищает как содержимое презентации, так и свойства документа. Когда презентация зашифрована с помощью [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) установленного в `false`, её свойства документа остаются публичными. Приложение может затем установить [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) в `true` и прочитать публичные метаданные без предоставления пароля открытия.
 
-`OnlyLoadDocumentProperties` управляет тем, что Aspose.Slides загружает; он ничего не дешифрует. Если свойства включены в шифрование, их загрузка без пароля завершится неудачей. Если презентация не зашифрована, параметр игнорируется и загружается полная презентация.
+[LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) контролирует, что загружает Aspose.Slides; он ничего не дешифрует. Если свойства включены в шифрование, загрузка их без пароля завершается ошибкой. Если презентация не зашифрована, параметр игнорируется и загружается полная презентация.
 
-Следующий пример проверяет режим загрузки через [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/ru/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) и затем читает встроенные свойства через [IPresentation.DocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentation/documentproperties/):
+Пример требует зашифрованную презентацию, у которой свойства документа оставлены публичными. Он проверяет режим загрузки с помощью [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) и затем читает встроенные свойства через [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/):
 
 ```csharp
 using System;
@@ -69,11 +61,11 @@ using var presentation = new Presentation("public-properties-encrypted.pptx", lo
 
 if (presentation.ProtectionManager.IsOnlyDocumentPropertiesLoaded)
 {
-    var properties = presentation.DocumentProperties;
+    var documentProperties = presentation.DocumentProperties;
 
-    Console.WriteLine("Author: " + properties.Author);
-    Console.WriteLine("Title: " + properties.Title);
-    Console.WriteLine("Keywords: " + properties.Keywords);
+    Console.WriteLine("Author: " + documentProperties.Author);
+    Console.WriteLine("Title: " + documentProperties.Title);
+    Console.WriteLine("Keywords: " + documentProperties.Keywords);
 }
 else
 {
@@ -81,17 +73,17 @@ else
 }
 ```
 
-В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, медиа и другие объекты презентации недоступны. Приложения всегда должны проверять `IsOnlyDocumentPropertiesLoaded` перед выполнением операций, требующих полной модели объектов презентации.
+В этом режиме содержимое слайдов не загружается. Слайды, шаблоны, макеты, фигуры, мультимедиа и другие объекты презентации недоступны. Приложения всегда должны проверять [IProtectionManager.IsOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/isonlydocumentpropertiesloaded/) перед выполнением операции, требующей полной модели объектов презентации.
 
 {{% alert color="warning" title="Security" %}}
-Публичные метаданные могут раскрывать имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Шифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только когда системы индексирования, классификации, поиска или управления документами требуют доступа к ним без пароля.
+Публичные метаданные могут раскрыть имена авторов, заголовки, темы, ключевые слова, информацию о компании, комментарии и пользовательские значения. Шифруйте чувствительные свойства вместе с презентацией. Оставляйте их публичными только тогда, когда индексация, классификация, поиск или системы управления документами имеют конкретную потребность доступа к ним без пароля.
 {{% /alert %}}
 
 ## **Обновление свойств зашифрованной презентации**
 
-Для зашифрованного файла PPTX презентация, загруженная с `OnlyLoadDocumentProperties`, предназначена только для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из такого объекта, поскольку публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
+Для зашифрованного файла PPTX презентация, загруженная с [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/), предназначена для чтения публичных метаданных. Aspose.Slides не может сохранить изменённые свойства из этого объекта, содержащего только метаданные, поскольку публичные свойства должны оставаться согласованными с соответствующими данными внутри зашифрованной презентации. Поэтому их обновление требует правильного пароля открытия и полной загрузки.
 
-Следующий пример открывает презентацию с помощью [LoadOptions.Password](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/password/), обновляет публичные встроенные свойства и сохраняет результат. Затем он использует [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/isencrypted/) для проверки сохранения шифрования и повторно открывает публичные метаданные без пароля, чтобы проверить новые значения:
+Пример требует зашифрованную PPTX‑презентацию с публичными свойствами документа и известным паролем открытия. Он открывает полную презентацию с помощью [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), обновляет публичные встроенные свойства и сохраняет результат. Затем он использует [IPresentationInfo.IsEncrypted](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/isencrypted/) , чтобы проверить, что шифрование сохранено, и повторно открывает публичные метаданные без пароля для проверки новых значений:
 
 ```csharp
 using System;
@@ -101,14 +93,14 @@ using Aspose.Slides.Export;
 const string inputPath = "public-properties-encrypted.pptx";
 const string outputPath = "updated-public-properties-encrypted.pptx";
 
-{
-    var loadOptions = new LoadOptions { Password = "open_password" };
-    using var presentation = new Presentation(inputPath, loadOptions);
+var loadOptions = new LoadOptions { Password = "open_password" };
+using var presentation = new Presentation(inputPath, loadOptions);
 
-    presentation.DocumentProperties.Title = "Updated Product Roadmap";
-    presentation.DocumentProperties.Keywords = "roadmap, planning, indexed";
-    presentation.Save(outputPath, SaveFormat.Pptx);
-}
+var documentProperties = presentation.DocumentProperties;
+documentProperties.Title = "Updated Product Roadmap";
+documentProperties.Keywords = "roadmap, planning, indexed";
+
+presentation.Save(outputPath, SaveFormat.Pptx);
 
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo(outputPath);
 Console.WriteLine("The presentation is encrypted: " + presentationInfo.IsEncrypted);
@@ -127,142 +119,159 @@ else
 }
 ```
 
-Если приложение не имеет права дешифровать или загружать содержимое презентации, оно должно рассматривать публичные свойства зашифрованного файла PPTX как только для чтения.
+Если приложению не разрешено расшифровывать или загружать содержимое презентации, оно должно рассматривать публичные свойства зашифрованного файла PPTX как только для чтения.
 
 ## **Доступ к встроенным свойствам**
 
-Эти свойства, предоставляемые интерфейсом [IDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/idocumentproperties/), включают: **Creator** (Автор), **Description**, **Keywords**, **Created** (Дата создания), **Modified** (Дата изменения), **Printed** (Дата последней печати), **LastModifiedBy**, **SharedDoc** (указывает, совместно используется ли документ разными производителями), **PresentationFormat**, **Subject**, **Title** и др.
+Интерфейс [IDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/) предоставляет встроенные метаданные через типизированные свойства, включая [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), и [CreatedTime](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/createdtime/). Этот пример открывает существующую презентацию и выводит её сохранённые метаданные в консоль. Значения зависят от входной презентации; некоторые поля могут быть пустыми.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-// Создайте экземпляр класса Presentation, который представляет файл презентации.
-using Presentation presentation = new Presentation("AccessBuiltInProperties.pptx");
+using var presentation = new Presentation("AccessBuiltInProperties.pptx");
 
-// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Display the Built-in properties.
-Console.WriteLine("Category : " + documentProperties.Category);
-Console.WriteLine("Content status : " + documentProperties.ContentStatus);
-Console.WriteLine("Creation date : " + documentProperties.CreatedTime);
-Console.WriteLine("Author : " + documentProperties.Author);
-Console.WriteLine("Comments : " + documentProperties.Comments);
-Console.WriteLine("Key words : " + documentProperties.Keywords);
-Console.WriteLine("Last modified by : " + documentProperties.LastSavedBy);
-Console.WriteLine("Manager : " + documentProperties.Manager);
-Console.WriteLine("Modified date : " + documentProperties.LastSavedTime);
-Console.WriteLine("Presentation format : " + documentProperties.PresentationFormat);
-Console.WriteLine("Last print date : " + documentProperties.LastPrinted);
-Console.WriteLine("Is shared between producers : " + documentProperties.SharedDoc);
-Console.WriteLine("Subject : " + documentProperties.Subject);
-Console.WriteLine("Title : " + documentProperties.Title);
+Console.WriteLine("Category: " + documentProperties.Category);
+Console.WriteLine("Content status: " + documentProperties.ContentStatus);
+Console.WriteLine("Creation date: " + documentProperties.CreatedTime);
+Console.WriteLine("Author: " + documentProperties.Author);
+Console.WriteLine("Comments: " + documentProperties.Comments);
+Console.WriteLine("Keywords: " + documentProperties.Keywords);
+Console.WriteLine("Last modified by: " + documentProperties.LastSavedBy);
+Console.WriteLine("Manager: " + documentProperties.Manager);
+Console.WriteLine("Modified date: " + documentProperties.LastSavedTime);
+Console.WriteLine("Presentation format: " + documentProperties.PresentationFormat);
+Console.WriteLine("Last print date: " + documentProperties.LastPrinted);
+Console.WriteLine("Is shared between producers: " + documentProperties.SharedDoc);
+Console.WriteLine("Subject: " + documentProperties.Subject);
+Console.WriteLine("Title: " + documentProperties.Title);
 ```
 
 ## **Изменение встроенных свойств**
 
-Изменять встроенные свойства файлов презентаций так же просто, как к ним обращаться. Достаточно присвоить строковое значение нужному свойству, и значение свойства будет обновлено. В примере ниже показано, как изменить встроенные свойства документа презентации.
+Чтобы обновить встроенные метаданные, присвойте значения записываемым свойствам, раскрытым через [IPresentation.DocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentation/documentproperties/). Этот пример открывает существующую презентацию, задаёт [Author](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/author/), [Title](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/title/), [Subject](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/subject/), [Comments](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/comments/), и [Manager](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/manager/), затем сохраняет обновлённую презентацию с помощью [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Сохранённый PPTX содержит новые метаданные.
 
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создайте экземпляр класса Presentation, который представляет файл презентации.
-using Presentation presentation = new Presentation("ModifyBuiltInProperties.pptx");
+using var presentation = new Presentation("ModifyBuiltInProperties.pptx");
 
-// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Установите встроенные свойства.
 documentProperties.Author = "Aspose.Slides for .NET";
 documentProperties.Title = "Manage PowerPoint Presentation Properties";
 documentProperties.Subject = "Modify Built-in Properties";
 documentProperties.Comments = "Aspose description";
 documentProperties.Manager = "Aspose manager";
 
-// Сохраните презентацию в файл.
 presentation.Save("DocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавление пользовательских свойств презентации**
+## **Управление базой гиперссылок**
 
-Пользовательские свойства презентации позволяют разработчикам сохранять дополнительные метаданные или специфическую информацию внутри файла презентации. Aspose.Slides упрощает создание и управление этими пользовательскими свойствами программно. Ниже приведены примеры, демонстрирующие, как добавить пользовательские свойства к вашим презентациям.
+[IDocumentProperties.HyperlinkBase](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/hyperlinkbase/) хранит базовый адрес документа для относительных гиперссылок. Это полезно при перемещении презентации и связанных с ней файлов в другое место. Это отдельный параметр от [IHyperlink.ExternalUrl](https://reference.aspose.com/slides/net/aspose.slides/ihyperlink/externalurl/) отдельной гиперссылки: изменение базы не переписывает сохранённые адреса ссылок и не меняет абсолютные назначения.
 
-```cs
+Пример требует презентацию, содержащую как относительную ссылку, например `target.html`, так и абсолютную ссылку, например `https://example.org/absolute.html`. Он читает существующую базу, задаёт новый базовый адрес и сохраняет, а затем открывает презентацию заново, чтобы проверить значение. Затем он очищает базу с помощью `string.Empty` и проверяет пустое значение в отдельном сохранённом файле. Замените пример базового адреса на расположение ваших связанных файлов.
+
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создайте экземпляр класса Presentation.
-using Presentation presentation = new Presentation();
+using var presentation = new Presentation("hyperlinks.pptx");
+Console.WriteLine("Original base: " + presentation.DocumentProperties.HyperlinkBase);
 
-// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+const string newBase = "https://example.com/new/";
+presentation.DocumentProperties.HyperlinkBase = newBase;
+presentation.Save("hyperlinks-updated.pptx", SaveFormat.Pptx);
 
-// Добавьте пользовательские свойства.
+using var updatedPresentation = new Presentation("hyperlinks-updated.pptx");
+Console.WriteLine("Base preserved: " + (updatedPresentation.DocumentProperties.HyperlinkBase == newBase));
+
+updatedPresentation.DocumentProperties.HyperlinkBase = string.Empty;
+updatedPresentation.Save("hyperlinks-cleared.pptx", SaveFormat.Pptx);
+
+using var clearedPresentation = new Presentation("hyperlinks-cleared.pptx");
+Console.WriteLine("Base cleared: " + (clearedPresentation.DocumentProperties.HyperlinkBase == string.Empty));
+```
+
+Два сообщения проверки должны вывести `True`. Очистка базы оставляет отдельные адреса гиперссылок без изменений.
+
+Относительная ссылка на `target.pptx` открывала `old/target.pptx`, когда база указывала на папку `old`. После изменения базы на папку `new`, сохранения и повторного открытия презентации та же ссылка открывала `new/target.pptx`. Абсолютная ссылка продолжала открывать тот же файл. Проверьте свои относительные ссылки в PowerPoint до и после перемещения презентации или изменения её базы.
+
+## **Добавление пользовательских свойств презентации**
+
+Пользовательские свойства хранят метаданные, которые не имеют соответствующего встроенного поля. [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/) позволяет присвоить значение по имени свойства. Этот пример создаёт презентацию, добавляет два текстовых значения и целочисленную версию, и сохраняет презентацию с помощью [Presentation.Save](https://reference.aspose.com/slides/net/aspose.slides/presentation/save/). Присвоение значения существующему имени заменяет значение этого свойства.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var documentProperties = presentation.DocumentProperties;
+
 documentProperties["Reviewed by"] = "John Smith";
 documentProperties["Confidentiality level"] = "Internal";
 documentProperties["Document version"] = 2;
 
-// Сохраните презентацию в файл.
 presentation.Save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx);
 ```
 
 ## **Доступ и изменение пользовательских свойств**
 
-Aspose.Slides также позволяет разработчикам получать доступ к существующим пользовательским свойствам и легко изменять их значения. Эта возможность помогает поддерживать точные метаданные и поддерживает динамические обновления на основе ввода пользователя или бизнес‑логики. Примеры ниже показывают, как получить и обновить значения пользовательских свойств в презентации.
+Этот пример открывает презентацию, содержащую пользовательские свойства, и использует [CountOfCustomProperties](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/countofcustomproperties/) , чтобы перебрать их. [GetCustomPropertyName](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/getcustompropertyname/) принимает нулевой индекс и возвращает имя, используемое [IDocumentProperties indexer](https://reference.aspose.com/slides/net/aspose.slides/idocumentproperties/item/). Пример выводит каждое исходное имя и значение, заменяет каждое значение пронумерованной строкой независимо от его исходного типа и сохраняет изменения. Если пользовательских свойств нет, цикл не вносит изменений.
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создайте экземпляр класса Presentation, который представляет файл PPTX.
-using Presentation presentation = new Presentation("AccessAndModifyProperties.pptx");
+using var presentation = new Presentation("AccessAndModifyProperties.pptx");
 
-// Получите ссылку на объект типа IDocumentProperties, связанный с презентацией.
-IDocumentProperties documentProperties = presentation.DocumentProperties;
+var documentProperties = presentation.DocumentProperties;
 
-// Доступ и изменение пользовательских свойств.
-for (int i = 0; i < documentProperties.CountOfCustomProperties; i++)
+for (var i = 0; i < documentProperties.CountOfCustomProperties; i++)
 {
-    string propertyName = documentProperties.GetCustomPropertyName(i);
-    object propertyValue = documentProperties[propertyName];
+    var propertyName = documentProperties.GetCustomPropertyName(i);
+    var propertyValue = documentProperties[propertyName];
 
-    // Отобразите имя и значение пользовательского свойства.
-    Console.WriteLine("Custom property name : " + propertyName);
-    Console.WriteLine("Custom property value : " + propertyValue);
+    Console.WriteLine("Custom property name: " + propertyName);
+    Console.WriteLine("Custom property value: " + propertyValue);
 
-    // Измените значение пользовательского свойства.
     documentProperties[propertyName] = "New Value " + (i + 1);
 }
 
-// Сохраните презентацию в файл.
 presentation.Save("CustomProperties_output.pptx", SaveFormat.Pptx);
 ```
 
-## **Живой пример**
+## **Рабочий пример**
 
-Попробуйте онлайн‑приложение [**Просмотр и редактирование метаданных PowerPoint**](https://products.aspose.app/slides/ru/metadata), чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
+Попробуйте онлайн‑приложение [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata), чтобы увидеть, как работать со свойствами документа с помощью API Aspose.Slides:
 
-[![Просмотр и редактирование метаданных PowerPoint](slides-metadata.png)](https://products.aspose.app/slides/ru/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 **Как удалить встроенное свойство из презентации?**
 
-Встроенные свойства являются неотъемлемой частью презентации и полностью удалить их нельзя. Однако вы можете изменить их значения или установить пустую строку, если конкретное свойство позволяет это.
+Встроенные свойства являются неотъемлемой частью презентации и не могут быть полностью удалены. Однако их можно изменить или установить пустыми, если это разрешено для конкретного свойства.
 
-**Что происходит, если я добавляю пользовательское свойство, которое уже существует?**
+**Что произойдёт, если я добавлю пользовательское свойство, которое уже существует?**
 
-Если вы добавляете пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Не требуется предварительно удалять или проверять свойство, поскольку Aspose.Slides автоматически обновит его значение.
+Если вы добавите пользовательское свойство, которое уже существует, его текущее значение будет перезаписано новым. Не требуется удалять или проверять свойство заранее, так как Aspose.Slides автоматически обновляет значение свойства.
 
-**Можно ли получить доступ к свойствам презентации без полной загрузки презентации?**
+**Могу ли я получить доступ к свойствам презентации без полной загрузки презентации?**
 
-Да. Используйте [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/ru/net/aspose.slides/presentationfactory/getpresentationinfo/) и затем [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/ru/net/aspose.slides/ipresentationinfo/readdocumentproperties/) для чтения сохранённых метаданных документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/). См. [Build a Lightweight Presentation Inventory](/slides/ru/net/examine-presentation/) для полного примера отчёта и ограничений, зависящих от формата.
+Да. Используйте [PresentationFactory.GetPresentationInfo](https://reference.aspose.com/slides/net/aspose.slides/presentationfactory/getpresentationinfo/) , а затем [IPresentationInfo.ReadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/ipresentationinfo/readdocumentproperties/) , чтобы прочитать сохранённые метаданные документа без создания экземпляра [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) . См. [Build a Lightweight Presentation Inventory](/slides/ru/net/examine-presentation/) для полного примера отчёта и ограничений, зависящих от формата.
 
-**Можно ли прочитать публичные свойства зашифрованной презентации без её пароля открытия?**
+**Могу ли я читать публичные свойства зашифрованной презентации без её пароля открытия?**
 
-Да. Презентация должна быть зашифрована с параметром `EncryptDocumentProperties`, установленным в `false`, и должна быть загружена с `OnlyLoadDocumentProperties`, установленным в `true`.
+Да. Презентация должна быть зашифрована с параметром [IProtectionManager.EncryptDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/iprotectionmanager/encryptdocumentproperties/) установленным в `false`, и её необходимо загрузить с помощью [LoadOptions.OnlyLoadDocumentProperties](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) установленного в `true`.
 
-**Можно ли обновить зашифрованный файл PPTX в режиме только‑свойств‑документа?**
+**Могу ли я обновить зашифрованный файл PPTX в режиме только свойств документа?**
 
 Нет. Публичные и зашифрованные данные свойств должны оставаться согласованными, поэтому обновление зашифрованного файла PPTX требует полной загрузки презентации с правильным паролем открытия.

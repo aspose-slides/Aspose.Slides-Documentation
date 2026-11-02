@@ -15,7 +15,7 @@ keywords:
 - پیوند اسلاید
 - پیوند شکل
 - پیوند تصویر
-- پیوند ویدئو
+- پیوند ویدیو
 - پیوند قابل تغییر
 - PowerPoint
 - OpenDocument
@@ -26,24 +26,26 @@ description: "افزودن، قالب‌بندی، به‌روزرسانی و ح
 ---
 ## **مقدمه**
 
-یک پیوند (hyperlink) محتویات ارائه را به یک وب‌سایت یا به مکانی درون ارائه متصل می‌کند. در PowerPoint، پیوندها معمولاً دو هدف دارند:
+یک پیوند (hyperlink) محتویات ارائه را به یک وب‌سایت یا مکانی درون ارائه متصل می‌کند. در PowerPoint، پیوندها معمولاً دو هدف دارند:
 
-* باز کردن یک وب‌سایت از متن، یک شکل یا یک فریم رسانه‌ای.
-* رفتن به اسلاید دیگری، به عنوان مثال از فهرست مطالب.
+* باز کردن یک وب‌سایت از متن، یک شکل یا یک قاب رسانه‌ای.
+* پیمایش به اسلاید دیگری، به عنوان مثال از فهرست مطالب.
 
-Aspose.Slides برای PHP از طریق Java به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صدای آن‌ها را کنترل کنید، ویژگی‌هایشان را به‌روز کنید و حذف کنید. مثال‌های زیر نشان می‌دهند چگونه با پیوندها روی عناصر منفرد کار کنید و چگونه به پیوندها در سطح ارائه، اسلاید یا فریم متن دسترسی پیدا کنید. این مثال‌ها فرض می‌کنند که PHP/Java Bridge و بستهٔ Aspose.Slides برای PHP مقداردهی اولیه شده‌اند. اعضای API که صفحهٔ مرجع PHP ندارند به API پایهٔ Java لینک می‌شوند.
+Aspose.Slides برای PHP از طریق Java به شما امکان می‌دهد این پیوندها را اضافه کنید، ظاهر و صدای آن‌ها را کنترل کنید، خواصشان را به‌روزرسانی کنید و حذف کنید. مثال‌های زیر نشان می‌دهند چگونه بر روی عناصر منفرد با پیوندها کار کنید و چگونه به پیوندها در سطح ارائه، اسلاید یا فریم متن دسترسی داشته باشید. فرض می‌شود که PHP/Java Bridge و بسته‌بند Aspose.Slides برای PHP مقداردهی اولیه شده‌اند. اعضای API که صفحه مرجع PHP ندارند به API جاوا زیرین لینک می‌شوند.
 
 {{% alert color="info" title="Note" %}}
-می‌توانید ارائه‌ها را با [ویرایشگر رایگان آنلاین Aspose PowerPoint](https://products.aspose.app/slides/fa/editor) ویرایش کنید.
+همچنین می‌توانید ارائه‌ها را با [ویرایشگر رایگان آنلاین Aspose PowerPoint](https://products.aspose.app/slides/editor) ویرایش کنید.
 {{% /alert %}} 
 
 ## **افزودن پیوندهای URL**
 
-می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک فریم رسانه‌ای اختصاص دهید. عنصری که پیوند را به آن اختصاص می‌دهید، ناحیهٔ قابل کلیک را تعیین می‌کند: بخشی از متن به متن انتخاب شده لینک می‌شود، در حالی که یک شکل یا فریم به شیء اسلاید لینک می‌دهد.
+می‌توانید یک URL وب‌سایت را به متن، یک شکل یا یک قاب رسانه‌ای اختصاص دهید. عنصری که پیوند به آن اختصاص می‌یابد ناحیه قابل کلیک را تعیین می‌کند: بخشی از متن فقط متن انتخاب‌شده را لینک می‌کند، در حالی که یک شکل یا قاب کل شیء اسلاید را لینک می‌کند.
+
+برای ارائه‌هایی که پیوندهای نسبی دارند، به [Manage the Hyperlink Base](/slides/fa/php-java/presentation-properties/#manage-the-hyperlink-base) مراجعه کنید تا پایه سطری سند را بخوانید، تغییر دهید یا پاک کنید.
 
 ### **افزودن پیوندهای URL به متن**
 
-برای لینک کردن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/portionformat/sethyperlinkclick/) بخش متن پاس کنید، همان‌طور که در زیر نشان داده شده است. فقط آن بخش از متن قابل کلیک می‌شود.
+برای لینک کردن متن به یک وب‌سایت، یک [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) را به متد [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/sethyperlinkclick/) بخش متن پاس می‌دهید، همان‌طور که در زیر نشان داده شده است. فقط همان بخش متن قابل کلیک می‌شود.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -66,13 +68,13 @@ try {
 }
 ```
 
-### **افزودن پیوندهای URL به اشکال و فریم‌های رسانه‌ای**
+### **افزودن پیوندهای URL به اشکال و قاب‌های رسانه‌ای**
 
-برای کلیک‌شدن یک شکل یا فریم، متد [setHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shape/sethyperlinkclick/) آن را فراخوانی کنید. پیوند به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
+برای قابل کلیک کردن کردن یک شکل یا قاب، متد [setHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/shape/sethyperlinkclick/) آن را فراخوانی کنید. پیوند به خود شیء تعلق دارد نه به بخشی از متن داخل آن.
 
-همین رویکرد برای فریم‌های تصویر، صدا و ویدئو اعمال می‌شود: پیوند را به فریم اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/settooltip/) را صدا بزنید.
+همین روش برای قاب‌های تصویر، صدا و ویدیو اعمال می‌شود: پیوند را به قاب اختصاص دهید و در صورت نیاز متد [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) را فراخوانی کنید.
 
-مثال زیر یک مستطیل را کلیک‌پذیر می‌کند:
+مثال زیر یک مستطیل را قابل کلیک می‌کند:
 
 ```php
 use aspose\slides\Hyperlink;
@@ -93,9 +95,9 @@ try {
 }
 ```
 
-## **استفاده از پیوندها برای ایجاد فهرست مطالب**
+## **استفاده از پیوندها برای ساخت فهرست مطالب**
 
-پیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید خاصی پرش کنند. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) برای لینک کردن متن «Page 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
+پیوندهای داخلی به خوانندگان اجازه می‌دهند از فهرست مطالب به اسلاید خاصی پرش کنند. مثال زیر از متد [setInternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setinternalhyperlinkclick/) برای لینک کردن متن «صفحه 2» در اسلاید اول به اسلاید دوم استفاده می‌کند.
 
 ```php
 use aspose\slides\FillType;
@@ -137,9 +139,9 @@ try {
 
 ### **رنگ**
 
-متد [setColorSource](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/setcolorsource/) در کلاس [Hyperlink](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/) تعیین می‌کند که آیا پیوند از رنگ پیوندهای ارائه یا قالب‌بندی بخش متن استفاده کند. برای اعمال رنگ متن دلخواه، [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر کردن بخش را تنظیم کنید. این ویژگی در PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
+متد [setColorSource](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setcolorsource/) کلاس [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) تعیین می‌کند که آیا پیوند از رنگ پیوندهای ارائه استفاده کند یا قالب‌بندی بخش متن. برای اعمال رنگ متن سفارشی، [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkcolorsource/) را انتخاب کنید و رنگ پر شدن بخش را تنظیم کنید. این ویژگی از PowerPoint 2019 معرفی شد؛ نسخه‌های قدیمی‌تر این تنظیم را اعمال نمی‌کنند.
 
-مثال زیر دو پیوند متنی را به یک اسلاید اضافه می‌کند. اولین پیوند از پر کردن متن قرمز استفاده می‌کند، در حالی که دومین پیوند رنگ پیش‌فرض پیوند را حفظ می‌کند.
+مثال زیر دو پیوند متنی را به همان اسلاید اضافه می‌کند. اولی با پر شدن متن قرمز است، در حالی که دومین رنگ پیش‌فرض پیوند را حفظ می‌کند.
 
 ```php
 use aspose\slides\FillType;
@@ -168,16 +170,17 @@ try {
     $presentation->dispose();
 }
 ```
+
 ### **صدا**
 
-یک پیوند می‌تواند هنگام فعال شدن صدایی پخش کند یا صدایی که در حال پخش است را متوقف کند. از روش‌های زیر برای پیکربندی این رفتارها استفاده کنید:
+یک پیوند می‌تواند هنگام فعال شدن صدا پخش کند یا صدای در حال پخش را متوقف کند. برای پیکربندی این رفتارها از متدهای زیر استفاده کنید:
 
-- [Hyperlink::setSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/setsound/) صدایی که به پیوند مرتبط است را مشخص می‌کند.
-- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/setstopsoundonclick/) کنترل می‌کند که آیا فعال‌سازی پیوند صداهای قبلی را متوقف می‌کند یا نه.
+- [Hyperlink::setSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setsound/) صدای مرتبط با پیوند را تعیین می‌کند.
+- [Hyperlink::setStopSoundOnClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/setstopsoundonclick/) کنترل می‌کند که آیا فعال کردن پیوند صدای قبلی را متوقف می‌کند یا نه.
 
-#### **افزودن صدای پیوند**
+#### **افزودن صدا به پیوند**
 
-مثال زیر فایل `sampleaudio.wav` را بارگذاری می‌کند و آن را به یک دکمه در اسلاید اول مرتبط می‌سازد. کلیک بر دکمه صدای موردنظر را پخش می‌کند و به اسلاید بعدی می‌رود. شکل دوم در همان اسلاید با کلیک صدا را متوقف می‌کند، بدون انجام عمل پیمایش.
+مثال زیر فایل `sampleaudio.wav` را بارگذاری می‌کند و آن را به دکمه‌ای در اسلاید اول اختصاص می‌دهد. کلیک روی دکمه صدا را پخش می‌کند و به اسلاید بعدی می‌برد. شکل دوم در همان اسلاید با کلیک صدا را متوقف می‌کند، بدون انجام عمل ناوبری.
 
 ```php
 use aspose\slides\Hyperlink;
@@ -217,9 +220,9 @@ try {
 }
 ```
 
-#### **استخراج صدای پیوند**
+#### **استخراج صدا از پیوند**
 
-مثال زیر ارائه‌ای که بالا ایجاد شده را باز می‌کند و صدای پیوند شکل اول را از طریق متدهای [getSound](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/getsound/) و [getBinaryData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/audio/getbinarydata/) به حافظه می‌خواند.
+مثال زیر ارائه‌ای که در بالا ایجاد شد را باز می‌کند و صداهای پیوند اولین شکل را از طریق متدهای [getSound](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getsound/) و [getBinaryData](https://reference.aspose.com/slides/php-java/aspose.slides/audio/getbinarydata/) به حافظه می‌خواند.
 
 ```php
 use aspose\slides\Presentation;
@@ -243,18 +246,18 @@ try {
 }
 ```
 
-### **تنظیمات Tooltip و تعامل**
+### **Tooltip و تنظیمات تعامل**
 
-پس از اختصاص پیوند به متن یا شکل می‌توانید روش‌های زیر کلاس [Hyperlink](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/) را فراخوانی کنید:
+پس از اختصاص پیوند به متن یا شکل می‌توانید متدهای زیر کلاس [Hyperlink](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/) را فراخوانی کنید:
 
-- [setTooltip](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/settooltip/) متنی را که بیننده می‌تواند به‌عنوان راهنمای پیوند نمایش دهد، تنظیم می‌کند.
-- [setTargetFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/settargetframe/) فریم هدف درون یک فریم‌ست HTML والد را (در صورت امکان) مشخص می‌کند.
-- [setHistory](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/sethistory/) کنترل می‌کند که آیا فعال‌سازی پیوند مقصد آن را به لیست پیوندهای مشاهده‌شده اضافه می‌کند یا نه.
-- [setHighlightClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/sethighlightclick/) کنترل می‌کند که آیا پیوند هنگام کلیک برجسته شود یا خیر.
+- [setTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settooltip/) متنی را که بیننده می‌تواند به عنوان راهنمای لینک مشاهده کند تنظیم می‌گردد.
+- [setTargetFrame](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/settargetframe/) فریم هدف را در یک مجموعه فریم HTML والد، در صورت لزوم، مشخص می‌کند.
+- [setHistory](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethistory/) تعیین می‌کند که آیا فعال‌سازی لینک به فهرست پیوندهای مشاهده‌شده اضافه شود یا نه.
+- [setHighlightClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/sethighlightclick/) کنترل می‌کند که آیا پیوند هنگام کلیک برجسته شود یا نه.
 
 ## **حذف پیوندها از ارائه‌ها**
 
-از متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) برای جمع‌آوری کانتینرهای پیوند، از جمله پیوندهای بخش متن، قبل از تغییر آنها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف فقط یک نوع، تنها [removeHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) را صدا بزنید؛ حذف عمل کلیک، معادل حذف عمل موس‑بالای آن نیست.
+از متد [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) برای جمع‌آوری محفظه‌های پیوند، از جمله پیوندهای بخش متن، پیش از تغییر آن‌ها استفاده کنید. مثال زیر هر دو نوع فعال‌سازی را از اسلاید اول حذف می‌کند. برای حذف تنها یک نوع، فقط متد [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) یا [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) را فراخوانی کنید؛ حذف عمل کلیک، عمل mouse‑over را حذف نمی‌کند.
 
 ```php
 use aspose\slides\Presentation;
@@ -280,23 +283,23 @@ try {
 }
 ```
 
-برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) هر دو نوع فعال‌سازی را در حوزهٔ انتخابی در یک فراخوانی حذف می‌کند. برای پاک‌سازی انتخابی و پوشش مسترها، طرح‌بندی‌ها و یادداشت‌ها، به بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
+برای حذف بدون شرط، متد [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) هر دو نوع فعال‌سازی را در محدوده انتخاب‌شده در یک فراخوانی حذف می‌کند. برای پاک‌سازی گزینشی و شامل کردن مسترها، طرح‌بندی‌ها و نکات، به بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.
 
-## **ساخت یک فهرست کامل از پیوندها**
+## **ساخت فهرست کامل پیوندها**
 
-قبل از توزیع یک ارائه، اقدامات تعاملی و وب‌لینک‌های آن را فهرست کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) اشیای [IHyperlinkContainer](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/) را برمی‌گرداند، نه یک فهرست صاف از رشته‌های URL. بر روی هر کانتینر هر دو متد [getHyperlinkClick](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و [getHyperlinkMouseOver](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) را بررسی کنید. آن‌ها مستقل‌اند: یک کانتینر می‌تواند هر دو عمل را نشان دهد، بنابراین یک گزارش کامل ممکن است تا دو ردیف برای هر کانتینر نیاز داشته باشد.
+قبل از توزیع یک ارائه، اقدامات تعاملی و لینک‌های وب آن را فهرست کنید. متد [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) اشیاء [IHyperlinkContainer](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/) را بر می‌گرداند، نه فهرست مسطحی از رشته‌های URL. بر روی هر محفظه هم [getHyperlinkClick](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) و هم [getHyperlinkMouseOver](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) بررسی کنید. این دو مستقل هستند: یک محفظه می‌تواند هر دو عمل را در خود داشته باشد، بنابراین گزارش کامل ممکن است تا دو ردیف برای هر محفظه نیاز داشته باشد.
 
-اسکن فقط پیوندهای سطح شکل ممکن است پیوندهای متصل به بخش‌های متن را از دست بدهد. به‌جای آن، حوزه مناسب را پرس‌وجو کنید و کانتینرهای بازگردانده‌شده را نگه‌دارید تا بعداً بتوانید اعمال آن‌ها را به‌روز یا حذف کنید.
+فقط بررسی پیوندهای سطح شکل می‌تواند پیوندهای اختصاص‌داده‌شده به بخش‌های متن را نادیده بگیرد. به جای آن، دامنه مناسب را کوئری کنید و محفظه‌های بازگشتی را نگهداری کنید تا بعداً بتوانید اعمال آن‌ها را به‌روزرسانی یا حذف کنید.
 
-### **پرس‌وجو حوزه‌های ارائه، اسلاید و فریم متن**
+### **کوئری دامنه‌های ارائه، اسلاید و فریم متن**
 
-کلاس [HyperlinkQueries](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/) از طریق متدهای [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/gethyperlinkqueries/)، [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) و [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/fa/php-java/aspose.slides/textframe/gethyperlinkqueries/) در دسترس است. هر حوزه همان پرس‌وجوها را پشتیبانی می‌کند:
+کلاس [HyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/) از طریق متدهای [Presentation::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/gethyperlinkqueries/)، [IBaseSlide::getHyperlinkQueries](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) و [TextFrame::getHyperlinkQueries](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/gethyperlinkqueries/) در دسترس است. هر دامنه همان پرس‌و‌جوها را پشتیبانی می‌کند:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) کانتینرهایی را برمی‌گرداند که عمل کلیک دارند.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) کانتینرهایی را برمی‌گرداند که عمل موس‑بالا دارند.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) کانتینرهایی را برمی‌گرداند که هر یک یا هر دو عمل را دارند.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkclicks/) محفظه‌های دارای عمل کلیک را بر می‌گرداند.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/gethyperlinkmouseovers/) محفظه‌های دارای عمل mouse‑over را بر می‌گرداند.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/getanyhyperlinks/) محفظه‌های دارای هر یک یا هر دو عمل را بر می‌گرداند.
 
-مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک موس‑بالای فایل، یک پیمایش اسلاید داخلی، یک لینک موس‑بالای متن و یک عمل ماکرو است. این مثال هیچ‌یک از این اعمال را اجرا نمی‌کند. هر سه پرس‌وجو در هر حوزه‌ای کار می‌کند؛ شمارش‌ها نشان‌دهندهٔ کانتینرها است، نه مجموع اعمال. حوزهٔ فریم متن، پیوندهای خود شکل ظرفی را شامل نمی‌شود.
+مثال زیر فایلی به نام `hyperlink-audit-input.pptx` ایجاد می‌کند که شامل یک لینک کلیک خارجی، یک لینک mouse‑over فایل، ناوبری اسلاید داخلی، یک لینک mouse‑over متن و یک عمل ماکرو است. این مثال هیچ‌یک از این اعمال را اجرا نمی‌کند. همان سه کوئری در هر دامنه کار می‌کند؛ شمارش‌ها تعداد محفظه‌ها را نشان می‌دهد، نه مجموع اعمال. دامنه فریم متن لینک‌های شکل محاطی خود را شامل نمی‌شود.
 
 ```php
 use aspose\slides\Presentation;
@@ -335,37 +338,37 @@ try {
 }
 ```
 
-برای این مثال، پرس‌وجوهای ارائه و اسلاید هر کدام سه کانتینر کلیک، دو کانتینر موس‑بالا و سه کانتینر دارای هر یک از این اعمال را گزارش می‌کنند. پرس‌وجوی فریم متن یک کانتینر در هر دسته گزارش می‌دهد.
+برای این مثال، کوئری‌های ارائه و اسلاید هر کدام سه محفظه کلیک، دو محفظه mouse‑over و سه محفظه با هر یک از اعمال را گزارش می‌کنند. کوئری فریم متن در هر دسته یک محفظه گزارش می‌دهد.
 
-### **دسته‌بندی اعمال و مقاصد**
+### **دسته‌بندی اعمال و مقصدها**
 
-از متد [Hyperlink::getActionType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/getactiontype/) برای تفسیر یک عمل قبل از تفسیر مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب را پوشش می‌دهند:
+از متد [Hyperlink::getActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getactiontype/) برای تفسیر یک عمل قبل از بررسی مقصد آن استفاده کنید. مقادیر [HyperlinkActionType](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkactiontype/) بیش از ناوبری وب شامل می‌شوند:
 
-| مقادیر | معنی برای حسابرسی |
+| مقدارها | معنی برای حسابرسی |
 | --- | --- |
 | `Hyperlink` | پیوند خارجی؛ URL و طرح آن را بررسی کنید. |
-| `JumpSpecificSlide` | ناوبری داخلی به یک اسلاید خاص. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری داخلی پیش‌ساختهٔ نمایش اسلاید، در زمینهٔ نمایش اسلاید حل می‌شود. |
-| `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش جاری یا شروع یک نمایش سفارشی. |
-| `StartMacro` | اجرای یک ماکرو. |
-| `StartProgram` | راه‌اندازی یک برنامه. |
-| `OpenFile`, `OpenPresentation` | باز کردن یک فایل یا ارائهٔ دیگر؛ جداگانه از URLهای وب بررسی کنید. |
-| `StartStopMedia` | آغاز یا توقف پخش رسانه. |
+| `JumpSpecificSlide` | ناوبری داخلی به اسلاید خاص. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | ناوبری پیش‌فرض اسلایدشو، در زمینه اسلایدشو حل می‌شود. |
+| `JumpEndShow`, `StartCustomSlideShow` | پایان نمایش فعلی یا شروع یک نمایش سفارشی. |
+| `StartMacro` | اجرای ماکرو. |
+| `StartProgram` | راه‌اندازی برنامه. |
+| `OpenFile`, `OpenPresentation` | باز کردن فایل یا ارائه دیگر؛ جدا از URLهای وب بررسی شود. |
+| `StartStopMedia` | شروع یا توقف پخش رسانه. |
 | `NoAction`, `Unknown` | بدون عمل ناوبری، یا عمل ناشناخته‌ای که نیاز به بررسی دارد. |
 
-مقاصد خارجی را با استفاده از متد [getExternalUrl](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/getexternalurl/) بخوانید و مقاصد داخلی خاص را با متد [getTargetSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/gettargetslide/) به‌دست آورید. اعمال داخلی و دستورهای پیش‌ساخته ممکن است URL خارجی نداشته باشند؛ URL خالی به این معنی نیست که کانتینر هیچ عملی ندارد. مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) را هنگامی که با URL نرمال‌شده متفاوت است، حفظ کنید و tooltip بازگردانده‌شده توسط [getTooltip](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlink/gettooltip/) را در صورت موجود بودن شامل کنید.
+مقاصد خارجی را از متد [getExternalUrl](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/getexternalurl/) و مقاصد داخلی خاص را از متد [getTargetSlide](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettargetslide/) بخوانید. اعمال داخلی و دستورات داخلی ممکن است URL خارجی نداشته باشند؛ URL خالی به این معنی نیست که محفظه هیچ عملی ندارد. وقتی مقدار بازگردانده‌شده توسط [getExternalUrlOriginal](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) با URL نرمال‌شده متفاوت باشد، آن را حفظ کنید و وقتی موجود باشد، متن tooltip بازگردانده‌شده توسط [getTooltip](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlink/gettooltip/) را نیز شامل کنید.
 
-### **گزارش، پاک‌سازی و بررسی پیوندها**
+### **گزارش، پاک‌سازی و اعتبارسنجی پیوندها**
 
-مثال PHP زیر یک ارائهٔ موجود را می‌خواند (از فایلی که بالا ایجاد شد استفاده کنید)، `hyperlink-audit.json` می‌نویسد، یک سیاست را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و برای بررسی دوباره هر دو نوع فعال‌سازی آن را باز می‌گیرد. پیش از تغییر، کانتینرها را جمع‌آوری می‌کند و برای جلوگیری از پردازش دوبارهٔ همان کانتینر از برابری مرجع استفاده می‌کند. پرس‌وجوهای ارائه اسلایدهای عادی را شامل می‌شود؛ برای فهرست‌گذاری در سطح بسته، به‌صورت صریح مسترها، طرح‌بندی‌ها، یادداشت‌ها و مسترهای یادداشت و بروشور را نیز پرس‌وجو می‌کند.
+مثال PHP زیر یک ارائه موجود (فایلی که در بالا ایجاد شد) را می‌خواند، `hyperlink-audit.json` می‌نویسد، سیاستی را اعمال می‌کند، `hyperlink-sanitized.pptx` را ذخیره می‌کند و دوباره باز می‌کند تا هر دو نوع فعال‌سازی را بررسی کند. قبل از تغییر، محفظه‌ها را جمع‌آوری می‌کند و برای جلوگیری از پردازش دوبار یکسان از برابری ارجاعی استفاده می‌کند. کوئری‌های ارائه اسلایدهای عادی را پوشش می‌دهند؛ برای فهرست‌کشی در سطوح بسته، به‌طور صریح مسترها، طرح‌بندی‌ها، نکات و مسترهای نکات و برگه‌های توزیع را نیز کوئری می‌کند.
 
-گزارش، شاخص اسلاید یک‌پایه و [getSlideId](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ibaseslide/#getSlideId--) را در صورت موجود بودن ثبت می‌کند. [ISlideComponent::getSlide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/islidecomponent/#getSlide--) اسلاید مالک را برای کانتینرهای پشتیبانی‌شده فراهم می‌کند. مسترها، طرح‌بندی‌ها و یادداشت‌ها شاخص اسلاید عادی ندارند و بر اساس حوزهٔ خود شناسایی می‌شوند. کانتینرهای شکل و کانتینرهای قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ سایر انواع کانتینر نام نوع زمان اجرا خود را حفظ می‌کنند. هر کانتینر یک شناسه گزارش‑محلی دریافت می‌کند تا دو عمل آن مرتبط شوند. گزارش انواع عمل را به‌عنوان ثابت‌های عددی تعریف‌شده توسط enum PHP ذخیره می‌کند.
+گزارش، اندیس اسلاید یک‌پایه و [getSlideId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/#getSlideId--) را وقتی موجود باشد، ذخیره می‌کند. [ISlideComponent::getSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islidecomponent/#getSlide--) اسلاید مالک را برای محفظه‌های پشتیبانی‌شده فراهم می‌کند. مسترها، طرح‌بندی‌ها و نکات اندیس اسلاید معمولی ندارند و با دامنهٔ خود شناسایی می‌شوند. محفظه‌های شکل و محفظه‌های قالب‌بندی بخش متن به‌صورت جداگانه برچسب‌گذاری می‌شوند؛ انواع دیگر محفظه نام نوع زمان اجرا خود را حفظ می‌کنند. هر محفظه یک شناسه محلی گزارش دریافت می‌کند تا دو عمل آن بتوانند همبسته شوند. گزارش انواع عمل را به‌عنوان ثابت‌های عددی تعریف‌شده توسط شمارش PHP ذخیره می‌کند.
 
-این سیاست کاربردی به‌صورت عمدی محدود، فقط URLهای مطلق HTTPS و اهداف اسلاید داخلی معتبر را اجازه می‌دهد. ماکروها، برنامه‌ها، عملیات فایل، سایر عملیات نمایش اسلاید، اعمال ناشناخته و سایر طرح‌های URL را رد می‌کند. این ردها تصمیمات سیاسی هستند، نه قضاوتی دربارهٔ امنیت Aspose.Slides. تنها HTTPS اعتماد را تضمین نمی‌کند: فهرست‌های مجاز میزبانی و بررسی‌های دیگر برای برنامهٔ خود اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. مثال متادیتا را بدون دنبال‌کردن لینک‌ها یا اجرای اعمال بررسی می‌کند.
+این سیاست کاربردی محدود، تنها URLهای مطلق HTTPS و هدف‌های اسلاید داخلی معتبر را می‌پذیرد. ماکروها، برنامه‌ها، عمل‌های فایل، سایر اعمال اسلایدشو، عمل‌های ناشناخته و سایر طرح‌های URL رد می‌شوند. این ردها تصمیمات سیاستی هستند، نه قضاوتی دربارهٔ ایمنی Aspose.Slides. تنها داشتن HTTPS کافی نیست؛ فهرست‌های سفید میزبان و بررسی‌های دیگر برای برنامهٔ شما اضافه کنید. هر دو URL خارجی اصلی و نرمال‌شده بررسی می‌شوند. این مثال متادیتا را بدون دنبال کردن لینک‌ها یا اجرای اعمال حسابرسی می‌کند.
 
-برای رفع مشکلات، کانتینر از طریق [getHyperlinkManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/)، [removeHyperlinkClick](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) را پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحه ثابت HTTPS جایگزین می‌شوند؛ کلیک‌ها و عمل‌های موس‑بالای ممنوع دیگر به‌صورت مستقل حذف می‌شوند. برای حذف تمام تخلفات سیاست، مقدار `$replaceExternalClicks` را به `false` تنظیم کنید. قبل از استقرار، یک صفحهٔ جایگزین تحت مالکیت برنامه انتخاب کنید.
+برای اصلاح، محفظهٔ [getHyperlinkManager](https://reference.aspose.com/slides/java/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) متدهای [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/)، [removeHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkclick/) و [removeHyperlinkMouseOver](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/removehyperlinkmouseover/) را پشتیبانی می‌کند. در اینجا، لینک‌های کلیک خارجی ممنوع با یک صفحه فرود ثابت HTTPS جایگزین می‌شوند؛ کلیک‌ها و اعمال mouse‑over ممنوع دیگر به‌طور مستقل حذف می‌شوند. مقدار `$replaceExternalClicks` را به `false` تنظیم کنید تا تمام نقض‌های سیاست حذف شوند. قبل از انتشار، صفحهٔ جایگزین متعلق به برنامهٔ خود را انتخاب کنید.
 
-پرچم خروجی گزارش از سیاست بازبینی PDF محتاطانه استفاده می‌کند: عمل‌های موس‑بالا و هر چیزی به‌جز یک لینک خارجی یا پرش اسلاید خاص به‌عنوان احتمال ناپشتیبانی شده پرچم‌گذاری می‌شود. این یک نکتهٔ بازبینی است، نه آزمونی برای قابلیت یا تضمینی که لینک‌های بدون پرچم در خروجی باقی بمانند. خروجی‌های PDF [PDF](/slides/fa/php-java/convert-powerpoint-to-pdf/) و HTML [HTML](/slides/fa/php-java/convert-powerpoint-to-html/) پشتیبانی‌شده ممکن است پیوندها را حفظ کنند، بسته به عمل، گزینه‌های خروجی و مشاهده‌کننده. تصاویر رستری [images](/slides/fa/php-java/convert-powerpoint-to-png/) و ویدئو [video](/slides/fa/php-java/convert-powerpoint-to-video/) نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ هنگام حسابرسی برای این خروجی‌ها تمام اعمال را پرچم‌گذاری کنید.
+پرچم خروجی گزارش از سیاست بازبینی محافظه‌کارانه PDF استفاده می‌کند: اعمال mouse‑over و هر چیزی غیر از یک لینک خارجی یا پرش اسلاید خاص به‌عنوان احتمالا پشتیبانی‌نشده پرچم‌گذاری می‌شوند. این یک نکتهٔ بازبینی است، نه آزمون قابلیت یا ضمانتی که لینک‌های بدون پرچم بر خروجی حفظ می‌شوند. خروجی‌های پشتیبانی‌شدهٔ [PDF](/slides/fa/php-java/convert-powerpoint-to-pdf/) و [HTML](/slides/fa/php-java/convert-powerpoint-to-html/) ممکن است پیوندها را حفظ کنند، بسته به عمل، گزینه‌های خروجی و مرورگر. [تصاویر](/slides/fa/php-java/convert-powerpoint-to-png/) و [ویدیو](/slides/fa/php-java/convert-powerpoint-to-video/) رستری نمی‌توانند پیوندهای تعاملی را حفظ کنند؛ برای آن‌ها همهٔ اعمال را هنگام حسابرسی پرچم‌گذاری کنید.
 
 ```php
 use aspose\slides\HyperlinkActionType;
@@ -522,20 +525,20 @@ try {
 }
 ```
 
-با ورودی‌ای که در بالا ایجاد شد، گزارش شامل پنج ردیف عمل است. لینک موس‑بالای فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و پیمایشی داخلی اسلاید باقی می‌مانند. تاییدیه صفر عمل ممنوع چاپ می‌کند. ورودی‌ای که شامل یک URL کلیک خارجی ممنوع است نیز شاخهٔ جایگزینی را اجرا می‌کند. یک کانتینر با کلیک مجاز و موس‑بالای ممنوع عمل کلیک خود را حفظ می‌کند.
+با ورودی ساخته‌شده در بالا، گزارش شامل پنج ردیف عمل است. لینک mouse‑over فایل و کلیک ماکرو حذف می‌شوند، در حالی که لینک‌های HTTPS و ناوبری اسلاید داخلی باقی می‌مانند. اعتبارسنجی صفر عمل ممنوعی چاپ می‌کند. ورودی‌ای که شامل یک URL کلیک خارجی ممنوع است، شاخهٔ جایگزینی را نیز اجرا می‌کند. محفظه‌ای با کلیک مجاز و mouse‑over ممنوع کلیک خود را حفظ می‌کند.
 
-این پاک‌سازی انتخابی با متد [removeAllHyperlinks](https://reference.aspose.com/slides/fa/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) متفاوت است که هر دو نوع فعال‌سازی را در کل حوزهٔ انتخابی صرف‌نظر از سیاست حذف می‌کند. بررسی در اینجا فقط اعمال پیوند را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیاء OLE یا سایر محتویات فعال را حذف نمی‌کند و یک فایل PDF یا HTML خروجی را نیز اعتبارسنجی نمی‌کند.
+این پاک‌سازی گزینشی با [removeAllHyperlinks](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkqueries/removeallhyperlinks/) تفاوت دارد؛ این آخرین متد هر دو نوع فعال‌سازی را در دامنهٔ انتخاب‌شده صرف‌نظر از سیاست حذف می‌کند. اعتبارسنجی اینجا فقط اعمال پیوندها را بررسی می‌کند؛ پروژه‌های VBA توکار، اشیای OLE یا سایر محتوای فعال را حذف نمی‌کند و همچنین صحت فایل‌های PDF یا HTML خروجی را اعتبارسنجی نمی‌کند.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چگونه می‌توانم به یک بخش یا اولین اسلاید آن لینک کنم؟**
+**چگونه می‌توانم به یک بخش یا اسلاید اول آن لینک دهم؟**
 
-بخش‌ها در PowerPoint اسلایدها را گروهبندی می‌کنند، اما یک پیوند داخلی به یک اسلاید فردی هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اولین اسلاید آن بخش لینک کنید.
+بخش‌ها در PowerPoint اسلایدها را گروه‌بندی می‌کنند، اما یک پیوند داخلی به یک اسلاید منفرد هدف می‌گیرد. برای ایجاد ناوبری به یک بخش، به اسلاید اول آن بخش لینک کنید.
 
-**آیا می‌توانم یک پیوند را به عناصر اسلاید اصلی (master) الصاق کنم تا در تمام اسلایدها کار کند؟**
+**آیا می‌توان پیوند را به عناصر اسلاید مستر الصاق کرد تا در تمام اسلایدها کار کند؟**
 
-بله. عناصر اسلاید اصلی و طرح‌بندی از پیوندها پشتیبانی می‌کنند. پیوندهای موجود بر روی این عناصر در حین نمایش اسلایدهای استفاده‌کننده از مستر یا طرح‌بندی مربوطه قابل دسترسی هستند.
+بله. عناصر اسلاید مستر و طرح‌بندی از پیوندها پشتیبانی می‌کنند. این لینک‌ها در زمان اجرا بر روی اسلایدهایی که از مستر یا طرح‌بندی مربوطه استفاده می‌کنند، در دسترس هستند.
 
-**آیا پیوندها هنگام خروجی به فرمت‌های PDF، HTML، تصویر یا ویدئو حفظ می‌شوند؟**
+**آیا پیوندها هنگام خروجی به PDF، HTML، تصویر یا ویدیو حفظ می‌شوند؟**
 
-خروجی‌های پشتیبانی‌شده PDF و HTML ممکن است پیوندها را حفظ کنند؛ اما تصاویر رستری و ویدئوها نمی‌توانند. نکات مربوط به خروجی در بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) را ببینید.
+خروجی‌های PDF و HTML پشتیبانی‌شده ممکن است پیوندها را حفظ کنند؛ تصاویر رستری و ویدیو نمی‌توانند پیوندهای تعاملی را حفظ کنند. برای جزئیات بیشتر به ملاحظات خروجی در بخش [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks) مراجعه کنید.

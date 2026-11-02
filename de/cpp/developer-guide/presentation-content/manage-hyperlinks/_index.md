@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Präsentations-Hyperlinks in C++
+title: Verwalten von Präsentationshyperlinks in C++
 linktitle: Hyperlinks verwalten
 type: docs
 weight: 20
@@ -12,7 +12,7 @@ keywords:
 - Hyperlink entfernen
 - Hyperlink aktualisieren
 - Text-Hyperlink
-- Folien-Hyperlink
+- Folie-Hyperlink
 - Form-Hyperlink
 - Bild-Hyperlink
 - Video-Hyperlink
@@ -24,26 +24,28 @@ keywords:
 - Aspose.Slides
 description: "Hinzufügen, Formatieren, Aktualisieren und Entfernen von Hyperlinks in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für C++ anhand von C++-Beispielen."
 ---
-## **Einleitung**
+## **Einführung**
 
 Ein Hyperlink verbindet Präsentationsinhalte mit einer Website oder einem Ort innerhalb der Präsentation. In PowerPoint dienen Hyperlinks üblicherweise zwei Zwecken:
 
-* Öffnen einer Website über Text, eine Form oder einen Medienrahmen.
-* Navigieren zu einer anderen Folie, beispielsweise von einem Inhaltsverzeichnis.
+* Eine Website aus Text, einer Form oder einem Medienrahmen öffnen.
+* Zu einer anderen Folie navigieren, zum Beispiel aus einem Inhaltsverzeichnis.
 
-Aspose.Slides for C++ ermöglicht das Hinzufügen dieser Links, das Steuern von Aussehen und Klang, das Aktualisieren ihrer Einstellungen und das Entfernen. Die nachstehenden Beispiele zeigen, wie man mit Hyperlinks auf einzelnen Elementen arbeitet und wie man Hyperlinks auf Ebene der Präsentation, Folie oder des Text‑Frames abruft.
+Aspose.Slides für C++ ermöglicht das Hinzufügen dieser Links, das Steuern ihres Erscheinungsbildes und Klangs, das Aktualisieren ihrer Einstellungen und das Entfernen. Die nachstehenden Beispiele zeigen, wie man mit Hyperlinks an einzelnen Elementen arbeitet und wie man Hyperlinks auf Präsentations‑, Folien‑ oder Textrahmenebene abruft.
 
-{{% alert color="info" title="Hinweis" %}}
-Sie können Präsentationen auch mit dem [kostenlosen Online‑Aspose‑PowerPoint‑Editor](https://products.aspose.app/slides/de/editor) bearbeiten.
+{{% alert color="info" title="Note" %}}
+Sie können Präsentationen auch mit dem [kostenlosen Online-Aspose PowerPoint-Editor](https://products.aspose.app/slides/editor) bearbeiten.
 {{% /alert %}} 
 
-## **URL‑Hyperlinks hinzufügen**
+## **URL-Hyperlinks hinzufügen**
 
-Sie können einer Webseite eine URL zuweisen, die an Text, einer Form oder einem Medienrahmen angehängt wird. Das Element, dem Sie den Hyperlink zuweisen, bestimmt den anklickbaren Bereich: Ein Textabschnitt verlinkt den ausgewählten Text, während eine Form oder ein Rahmen das Folienobjekt verlinkt.
+Sie können einer Website‑URL Text, einer Form oder einem Medienrahmen zuweisen. Das Element, dem Sie den Hyperlink zuweisen, bestimmt den anklickbaren Bereich: Ein Textabschnitt verlinkt den ausgewählten Text, während eine Form oder ein Rahmen das Folienobjekt verlinkt.
 
-### **URL‑Hyperlinks zu Text hinzufügen**
+Für Präsentationen mit relativen Hyperlinks siehe [Hyperlink-Basis verwalten](/slides/de/cpp/presentation-properties/#manage-the-hyperlink-base), um die dokumentweite Basis zu lesen, zu ändern oder zu löschen.
 
-Um Text mit einer Website zu verknüpfen, erstellen Sie einen [Hyperlink](https://reference.aspose.com/slides/de/cpp/aspose.slides/hyperlink/) und weisen ihn über die Methode [set_HyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/portionformat/set_hyperlinkclick/) des Textabschnitts zu, wie unten gezeigt. Nur dieser Textabschnitt wird anklickbar.
+### **URL-Hyperlinks zu Text hinzufügen**
+
+Um Text mit einer Website zu verknüpfen, erstellen Sie ein [Hyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlink/) und weisen es mit der Methode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/portionformat/set_hyperlinkclick/) des Textabschnitts zu, wie unten gezeigt. Nur dieser Textabschnitt wird anklickbar.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -76,11 +78,11 @@ portionFormat->set_FontHeight(32);
 presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 ```
 
-### **URL‑Hyperlinks zu Formen und Medienrahmen hinzufügen**
+### **URL-Hyperlinks zu Formen und Medienrahmen hinzufügen**
 
-Um eine Form oder einen Rahmen anklickbar zu machen, verwenden Sie deren Methode [set_HyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/shape/set_hyperlinkclick/). Der Hyperlink gehört zum Objekt selbst und nicht zu einem Textabschnitt darin.
+Um eine Form oder einen Rahmen anklickbar zu machen, verwenden Sie deren Methode [set_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/shape/set_hyperlinkclick/). Der Hyperlink gehört zum Objekt selbst und nicht zu einem Textabschnitt darin.
 
-Der gleiche Ansatz gilt für Bild‑, Audio‑ und Video‑Rahmen: Vergeben Sie den Hyperlink dem Rahmen und verwenden Sie [set_Tooltip](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_tooltip/), um bei Bedarf einen Hinweis hinzuzufügen.
+Der gleiche Ansatz gilt für Bild-, Audio- und Videorahmen: Weisen Sie dem Rahmen den Hyperlink zu und verwenden Sie [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/), um bei Bedarf einen Hinweis hinzuzufügen.
 
 Das folgende Beispiel macht ein Rechteck anklickbar:
 
@@ -109,7 +111,7 @@ presentation->Save(u"presentation-out.pptx", SaveFormat::Pptx);
 
 ## **Hyperlinks zur Erstellung eines Inhaltsverzeichnisses verwenden**
 
-Interne Hyperlinks ermöglichen es Lesern, vom Inhaltsverzeichnis zu einer bestimmten Folie zu springen. Das folgende Beispiel verwendet [SetInternalHyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/), um den Text „Seite 2“ auf der ersten Folie mit der zweiten Folie zu verknüpfen.
+Interne Hyperlinks ermöglichen es Lesern, von einem Inhaltsverzeichnis zu einer bestimmten Folie zu springen. Das folgende Beispiel verwendet [SetInternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setinternalhyperlinkclick/), um den Text „Seite 2“ auf der ersten Folie mit der zweiten Folie zu verknüpfen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -168,9 +170,9 @@ presentation->Save(u"link_to_slide.pptx", SaveFormat::Pptx);
 
 ### **Farbe**
 
-Die Methode [set_ColorSource](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_colorsource/) von [IHyperlink](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/) bestimmt, ob ein Hyperlink die Hyperlink‑Farbe der Präsentation oder die Formatierung des Textabschnitts verwendet. Um eine benutzerdefinierte Textfarbe anzuwenden, wählen Sie [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/hyperlinkcolorsource/) und setzen die Füllfarbe des Abschnitts. Diese Funktion wurde in PowerPoint 2019 eingeführt; ältere Versionen unterstützen diese Einstellung nicht.
+Die Methode [set_ColorSource](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_colorsource/) von [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/) bestimmt, ob ein Hyperlink die Hyperlink‑Farbe der Präsentation oder die Formatierung des Textabschnitts verwendet. Um eine benutzerdefinierte Textfarbe anzuwenden, wählen Sie [HyperlinkColorSource::PortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkcolorsource/) und setzen die Füllfarbe des Abschnitts. Diese Funktion wurde in PowerPoint 2019 eingeführt; ältere Versionen übernehmen diese Einstellung nicht.
 
-Das folgende Beispiel fügt zwei Text‑Hyperlinks zur selben Folie hinzu. Der erste verwendet eine rote Textfüllung, der zweite behält die Standard‑Hyperlink‑Farbe bei.
+Das folgende Beispiel fügt zwei Text‑Hyperlinks zur selben Folie hinzu. Der erste verwendet eine rote Textfüllung, während der zweite die Standard‑Hyperlink‑Farbe beibehält.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -212,16 +214,16 @@ defaultShape->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionForm
 
 presentation->Save(u"presentation-out-hyperlink.pptx", SaveFormat::Pptx);
 ```
-### **Klang**
+### **Ton**
 
-Ein Hyperlink kann beim Aktivieren einen Klang abspielen oder einen bereits spielenden Klang stoppen. Verwenden Sie die folgenden Methoden, um dieses Verhalten zu konfigurieren:
+Ein Hyperlink kann beim Aktivieren einen Ton abspielen oder einen bereits spielenden Ton stoppen. Verwenden Sie die folgenden Methoden, um dieses Verhalten zu konfigurieren:
 
-- [IHyperlink::set_Sound](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_sound/) legt die dem Hyperlink zugeordnete Audiodatei fest.
-- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) bestimmt, ob das Aktivieren des Hyperlinks den vorherigen Klang stoppt.
+- [IHyperlink::set_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_sound/) gibt das dem Hyperlink zugeordnete Audio an.
+- [IHyperlink::set_StopSoundOnClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_stopsoundonclick/) steuert, ob das Aktivieren des Hyperlinks den vorherigen Ton stoppt.
 
-#### **Hyperlink‑Klang hinzufügen**
+#### **Hyperlink‑Ton hinzufügen**
 
-Das folgende Beispiel lädt `sampleaudio.wav` und verknüpft sie mit einem Button auf der ersten Folie. Ein Klick auf den Button spielt den Klang ab und navigiert zur nächsten Folie. Eine zweite Form auf derselben Folie stoppt den vorherigen Klang, ohne eine Navigation auszuführen.
+Das folgende Beispiel lädt `sampleaudio.wav` und verknüpft es mit einer Schaltfläche auf der ersten Folie. Das Klicken der Schaltfläche spielt den Ton ab und navigiert zur nächsten Folie. Eine zweite Form auf dieser Folie stoppt den vorherigen Ton beim Klick, ohne eine Navigationsaktion auszuführen.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -265,9 +267,9 @@ stopButton->get_HyperlinkClick()->set_StopSoundOnClick(true);
 presentation->Save(u"hyperlink-sound.pptx", SaveFormat::Pptx);
 ```
 
-#### **Hyperlink‑Klang extrahieren**
+#### **Hyperlink‑Ton extrahieren**
 
-Das folgende Beispiel öffnet die oben erstellte Präsentation und liest den Hyperlink‑Audio‑Stream der ersten Form über [get_Sound](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_sound/) und [get_BinaryData](https://reference.aspose.com/slides/de/cpp/aspose.slides/iaudio/get_binarydata/) in den Speicher ein.
+Das folgende Beispiel öffnet die oben erstellte Präsentation und liest das Hyperlink‑Audio der ersten Form in den Speicher über [get_Sound](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_sound/) und [get_BinaryData](https://reference.aspose.com/slides/cpp/aspose.slides/iaudio/get_binarydata/).
 
 ```cpp
 #include <DOM/IAudio.h>
@@ -305,16 +307,16 @@ else
 
 ### **Tooltip‑ und Interaktionseinstellungen**
 
-Sie können die folgenden [IHyperlink](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/)‑Einstellungen nach dem Zuweisen eines Hyperlinks zu Text oder einer Form über die jeweiligen Methoden aktualisieren:
+Sie können die folgenden [IHyperlink](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/)‑Einstellungen mittels dieser Methoden nach der Zuweisung eines Hyperlinks zu Text oder einer Form aktualisieren:
 
-- [set_Tooltip](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_tooltip/) legt den Hinweistext fest, den ein Betrachter als Hinweis für den Link anzeigen kann.
-- [set_TargetFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_targetframe/) gibt bei Bedarf den Ziel‑Frame innerhalb eines übergeordneten HTML‑Framesets an.
-- [set_History](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_history/) steuert, ob das Aktivieren des Links sein Ziel zur Liste der angesehenen Hyperlinks hinzufügt.
-- [set_HighlightClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/set_highlightclick/) legt fest, ob der Hyperlink beim Klick hervorgehoben wird.
+- [set_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_tooltip/) legt den Text fest, den ein Betrachter als Hinweis für den Link anzeigen kann.
+- [set_TargetFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_targetframe/) gibt den Zielrahmen innerhalb eines übergeordneten HTML‑Framesets an, falls zutreffend.
+- [set_History](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_history/) steuert, ob das Aktivieren des Links sein Ziel zur Liste der angesehenen Hyperlinks hinzufügt.
+- [set_HighlightClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/set_highlightclick/) steuert, ob der Hyperlink beim Klicken hervorgehoben wird.
 
 ## **Hyperlinks aus Präsentationen entfernen**
 
-Verwenden Sie [GetAnyHyperlinks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), um Hyperlink‑Container, einschließlich Text‑Abschnitts‑Links, zu sammeln, bevor Sie sie ändern. Das folgende Beispiel entfernt beide Aktivierungstypen von der ersten Folie. Um nur einen Typ zu entfernen, rufen Sie ausschließlich [RemoveHyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) oder [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) auf; das Entfernen einer Klick‑Aktion entfernt nicht deren Mouse‑Over‑Gegenstück.
+Verwenden Sie [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/), um Hyperlink‑Container, einschließlich Text‑Abschnitt‑Links, vor Änderungen zu sammeln. Das folgende Beispiel entfernt beide Aktivierungstypen von der ersten Folie. Um nur einen Typ zu entfernen, rufen Sie ausschließlich [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) oder [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/) auf; das Entfernen einer Klick‑Aktion entfernt nicht deren Maus‑Über‑Gegenstück.
 
 ```cpp
 #include <DOM/IHyperlinkManager.h>
@@ -348,23 +350,23 @@ else
 }
 ```
 
-Für uneingeschränktes Entfernen entfernt [RemoveAllHyperlinks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) beide Aktivierungstypen im ausgewählten Geltungsbereich in einem Aufruf. Für selektive Aufräum‑ und Abdeckungsarbeiten von Master‑, Layout‑ und Notiz‑Folien siehe [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Für eine bedingungslose Entfernung entfernt [Alle Hyperlinks entfernen](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/) beide Aktivierungstypen im ausgewählten Umfang in einem Aufruf. Für eine selektive Aufräumung und Abdeckung von Mastern, Layouts und Notizen siehe [Hyperlinks berichten, bereinigen und verifizieren](#report-sanitize-and-verify-hyperlinks).
 
 ## **Ein vollständiges Hyperlink‑Inventar erstellen**
 
-Bevor Sie eine Präsentation verteilen, erfassen Sie deren interaktive Aktionen sowie deren Web‑Links. [GetAnyHyperlinks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) liefert Objekte vom Typ [IHyperlinkContainer](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkcontainer/), nicht eine flache Liste von URL‑Strings. Prüfen Sie sowohl [get_HyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) als auch [get_HyperlinkMouseOver](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) jedes Containers. Sie sind unabhängig: derselbe Container kann beide Aktionen bereitstellen, sodass ein vollständiger Bericht bis zu zwei Zeilen pro Container benötigen kann.
+Bevor Sie eine Präsentation verteilen, erfassen Sie deren interaktive Aktionen sowie deren Web‑Links. [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) liefert [IHyperlinkContainer](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/)-Objekte, nicht eine flache Liste von URL‑Zeichenketten. Untersuchen Sie sowohl [get_HyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkclick/) als auch [get_HyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmouseover/) jedes Containers. Sie sind unabhängig: derselbe Container kann beide Aktionen bereitstellen, sodass ein vollständiger Bericht bis zu zwei Zeilen pro Container benötigen kann.
 
-Das reine Abfragen von Shape‑Level‑Hyperlinks kann Links übersehen, die an Text‑Abschnitten hängen. Fragen Sie stattdessen den entsprechenden Geltungsbereich ab und behalten Sie die zurückgegebenen Container, damit Sie deren Aktionen später aktualisieren oder entfernen können.
+Das Scannen nur von Hyperlinks auf Form‑Ebene kann Links übersehen, die Text‑Abschnitten zugeordnet sind. Fragen Sie stattdessen den entsprechenden Umfang ab und behalten Sie die zurückgegebenen Container, damit Sie deren Aktionen später aktualisieren oder entfernen können.
 
-### **Präsentations‑, Folien‑ und Text‑Frame‑Bereiche abfragen**
+### **Abfrage von Präsentations‑, Folien‑ und Textrahmen‑Bereichen**
 
-Das Interface [IHyperlinkQueries](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/) ist über [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) und [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) verfügbar. Jeder Geltungsbereich unterstützt dieselben Abfragen:
+Die [IHyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/)-Schnittstelle ist über [IPresentation::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_hyperlinkqueries/), [IBaseSlide::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_hyperlinkqueries/) und [ITextFrame::get_HyperlinkQueries](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_hyperlinkqueries/) verfügbar. Jeder Umfang unterstützt dieselben Abfragen:
 
-- [GetHyperlinkClicks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) liefert Container mit einer Klick‑Aktion.
-- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) liefert Container mit einer Mouse‑Over‑Aktion.
-- [GetAnyHyperlinks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) liefert Container mit einer oder beiden Aktionen.
+- [GetHyperlinkClicks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkclicks/) liefert Container mit einer Klick‑Aktion.
+- [GetHyperlinkMouseOvers](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/gethyperlinkmouseovers/) liefert Container mit einer Maus‑Über‑Aktion.
+- [GetAnyHyperlinks](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/getanyhyperlinks/) liefert Container mit einer oder beiden Aktionen.
 
-Das folgende Beispiel erstellt `hyperlink-audit-input.pptx` mit einem externen Klick‑Link, einem Datei‑Mouse‑Over‑Link, einer internen Folien‑Navigation, einem Text‑Mouse‑Over‑Link und einer Makro‑Aktion. Es führt keine dieser Aktionen aus. Die gleichen drei Abfragen funktionieren in jedem Geltungsbereich; die Zählungen beziehen sich auf Container, nicht auf Gesamtaktionen. Der Text‑Frame‑Geltungsbereich schließt die eigenen Links des umgebenden Shapes aus.
+Das folgende Beispiel erstellt `hyperlink-audit-input.pptx` mit einem externen Klick‑Link, einem Datei‑Maus‑Über‑Link, interner Folien‑Navigation, einem Text‑Maus‑Über‑Link und einer Makro‑Aktion. Es führt keine dieser Aktionen aus. Die gleichen drei Abfragen funktionieren in jedem Umfang; die Zählungen beschreiben Container, nicht die Gesamtsumme der Aktionen. Der Text‑Rahmen‑Umfang schließt die eigenen Links der umgebenden Form aus.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -419,37 +421,37 @@ printCounts(u"Text frame", shape->get_TextFrame()->get_HyperlinkQueries());
 presentation->Save(u"hyperlink-audit-input.pptx", SaveFormat::Pptx);
 ```
 
-Für dieses Beispiel melden die Präsentations‑ und Folien‑Abfragen jeweils drei Klick‑Container, zwei Mouse‑Over‑Container und drei Container mit einer beliebigen Aktion. Die Text‑Frame‑Abfrage meldet jeweils einen Container pro Kategorie.
+Für dieses Beispiel melden Präsentations‑ und Folien‑Abfragen jeweils drei Klick‑Container, zwei Maus‑Über‑Container und drei Container mit einer beliebigen Aktion. Die Text‑Rahmen‑Abfrage meldet jeweils einen Container pro Kategorie.
 
 ### **Aktionen und Ziele klassifizieren**
 
-Verwenden Sie [IHyperlink::get_ActionType](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_actiontype/), um eine Aktion zu interpretieren, bevor Sie ihr Ziel auswerten. Die Werte von [HyperlinkActionType](https://reference.aspose.com/slides/de/cpp/aspose.slides/hyperlinkactiontype/) decken mehr als nur Web‑Navigation ab:
+Verwenden Sie [IHyperlink::get_ActionType](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_actiontype/), um eine Aktion zu interpretieren, bevor Sie ihr Ziel interpretieren. Die [HyperlinkActionType](https://reference.aspose.com/slides/cpp/aspose.slides/hyperlinkactiontype/)-Werte decken mehr als reine Web‑Navigation ab:
 
-| Werte | Bedeutung für das Audit |
+| Values | Meaning for an audit |
 | --- | --- |
-| `Hyperlink` | Externer Hyperlink; prüfen Sie die URL und ihr Schema. |
+| `Hyperlink` | Externer Hyperlink; URL und Schema prüfen. |
 | `JumpSpecificSlide` | Interne Navigation zu einer bestimmten Folie. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Eingebaute Folien‑Navigation, im Präsentations‑Kontext aufgelöst. |
-| `JumpEndShow`, `StartCustomSlideShow` | Aktuelle Show beenden bzw. benutzerdefinierte Show starten. |
-| `StartMacro` | Makro ausführen. |
-| `StartProgram` | Programm starten. |
-| `OpenFile`, `OpenPresentation` | Datei oder andere Präsentation öffnen; gesondert von Web‑URLs prüfen. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Eingebaute Diashow‑Navigation, im Diashow‑Kontext aufgelöst. |
+| `JumpEndShow`, `StartCustomSlideShow` | Beendet die aktuelle Show oder startet eine benutzerdefinierte Show. |
+| `StartMacro` | Ein Makro ausführen. |
+| `StartProgram` | Ein Programm starten. |
+| `OpenFile`, `OpenPresentation` | Eine Datei oder eine andere Präsentation öffnen; gesondert von Web‑URLs prüfen. |
 | `StartStopMedia` | Medienwiedergabe starten oder stoppen. |
-| `NoAction`, `Unknown` | Keine Navigationsaktion bzw. unbekannte Aktion, die überprüft werden muss. |
+| `NoAction`, `Unknown` | Keine Navigationsaktion oder eine nicht erkannte Aktion, die überprüft werden muss. |
 
-Lesen Sie externe Ziele über [get_ExternalUrl](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_externalurl/) und spezifische interne Ziele über [get_TargetSlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_targetslide/). Interne Aktionen und eingebaute Befehle besitzen möglicherweise keine externe URL; eine leere URL bedeutet nicht, dass der Container keine Aktion hat. Bewahren Sie [get_ExternalUrlOriginal](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) auf, wenn sie von der normalisierten URL abweicht, und fügen Sie den Tooltip aus [get_Tooltip](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlink/get_tooltip/) hinzu, sofern verfügbar.
+Lesen Sie externe Ziele aus [get_ExternalUrl](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurl/) und spezifische interne Ziele aus [get_TargetSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_targetslide/). Interne Aktionen und eingebaute Befehle können keine externe URL besitzen; eine leere URL bedeutet nicht, dass der Container keine Aktion hat. Bewahren Sie [get_ExternalUrlOriginal](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_externalurloriginal/) auf, wenn sie von der normalisierten URL abweicht, und fügen Sie den Tooltip aus [get_Tooltip](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlink/get_tooltip/) hinzu, sofern verfügbar.
 
-### **Hyperlinks melden, bereinigen und prüfen**
+### **Hyperlinks berichten, bereinigen und verifizieren**
 
-Das folgende C++‑Beispiel liest eine bestehende Präsentation (verwenden Sie die oben erstellte Datei), schreibt `hyperlink-audit.json`, wendet eine Richtlinie an, speichert `hyperlink-sanitized.pptx` und öffnet sie erneut, um beide Aktivierungstypen erneut zu prüfen. Es sammelt Container, bevor Änderungen vorgenommen werden, und nutzt die Zeigeridentität, um dieselbe Container‑Instanz nicht doppelt zu verarbeiten. Präsentations‑Abfragen decken gewöhnliche Folien ab; für ein paketweites Inventar werden zudem explizit Master‑, Layout‑, Notiz‑ und Handout‑Master‑Folien abgefragt, sofern vorhanden.
+Das folgende C++‑Beispiel liest eine bestehende Präsentation (verwenden Sie die oben erstellte Datei), schreibt `hyperlink-audit.json`, wendet eine Richtlinie an, speichert `hyperlink-sanitized.pptx` und öffnet sie erneut, um beide Aktivierungstypen erneut zu prüfen. Es sammelt Container vor Änderungen und nutzt Pointer‑Identität, um dieselbe Instanz nicht doppelt zu verarbeiten. Präsentations‑Abfragen decken gewöhnliche Folien ab; für ein paketweites Inventar werden außerdem explizit Master‑, Layout‑, Notiz‑ und Handout‑Master‑Bereiche abgefragt, sofern vorhanden.
 
-Der Bericht enthält einen eins‑basierten Folien‑Index sowie [get_SlideId](https://reference.aspose.com/slides/de/cpp/aspose.slides/ibaseslide/get_slideid/), falls verfügbar. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecomponent/get_slide/) liefert die zugehörige Folie für unterstützte Container. Master‑, Layout‑ und Notiz‑Folien besitzen keinen normalen Folien‑Index und werden über ihren Geltungsbereich identifiziert. Shape‑Container und Text‑Abschnitt‑Formatierungs‑Container werden separat bezeichnet; andere Containertypen behalten ihren Laufzeit‑Typnamen. Jeder Container erhält eine berichtslokale ID, sodass seine beiden Aktionen korreliert werden können.
+Der Bericht erfasst einen einsbasierten Folien‑Index und [get_SlideId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_slideid/), sofern verfügbar. [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cpp/aspose.slides/islidecomponent/get_slide/) liefert die zugehörige Folie für unterstützte Container. Master, Layouts und Notizen besitzen keinen normalen Folien‑Index und werden durch ihren Umfang identifiziert. Form‑Container und Text‑Abschnitt‑Formatierungs‑Container werden separat gekennzeichnet; andere Container‑Typen behalten ihren Laufzeit‑Typnamen. Jeder Container erhält eine berichtslokale ID, damit seine beiden Aktionen korreliert werden können.
 
-Diese bewusst restriktive Anwendungsrichtlinie erlaubt ausschließlich absolute HTTPS‑URLs und gültige interne Folien‑Ziele. Sie verwirft Makros, Programme, Datei‑Aktionen, andere Folien‑Aktionen, unbekannte Aktionen sowie andere URL‑Schemen. Diese Ablehnungen sind Richtlinien‑Entscheidungen, nicht ein Sicherheitsurteil von Aspose.Slides. HTTPS allein begründet kein Vertrauen: Ergänzen Sie Host‑Allowlists und weitere Prüfungen für Ihre Anwendung. Sowohl originale als auch normalisierte externe URLs werden geprüft. Das Beispiel prüft Metadaten, ohne Links zu folgen oder Aktionen auszuführen.
+Diese bewusst restriktive Anwendungs‑Richtlinie erlaubt nur absolute HTTPS‑URLs und gültige interne Folien‑Ziele. Sie verwirft Makros, Programme, Datei‑Aktionen, andere Diashow‑Aktionen, unbekannte Aktionen und andere URL‑Schemen. Diese Ablehnungen sind Richtlinien‑Entscheidungen, kein Aspose.Slides‑Sicherheitsurteil. HTTPS allein schafft kein Vertrauen: Ergänzen Sie Host‑Allowlists und weitere Prüfungen für Ihre Anwendung. Sowohl originale als auch normalisierte externe URLs werden geprüft. Das Beispiel prüft Metadaten, ohne Links zu folgen oder Aktionen auszuführen.
 
-Zur Korrektur unterstützt das [get_HyperlinkManager](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) des Containers [SetExternalHyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) und [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Hier werden verbotene externe Klick‑Links durch eine feste HTTPS‑Landing‑Page ersetzt; andere verbotene Klicks und Mouse‑Over‑Aktionen werden unabhängig entfernt. Setzen Sie `replaceExternalClicks` auf `false`, um alle Richtlinien‑Verstöße zu entfernen. Bestimmen Sie eine von Ihrer Anwendung bereitgestellte Ersatz‑Seite vor dem Deployment.
+Zur Behebung unterstützt der Container‑[get_HyperlinkManager](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkcontainer/get_hyperlinkmanager/) [SetExternalHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/), [RemoveHyperlinkClick](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkclick/) und [RemoveHyperlinkMouseOver](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkmanager/removehyperlinkmouseover/). Hier werden verbotene externe Klick‑Links durch eine feste HTTPS‑Landing‑Page ersetzt; andere verbotene Klick‑ und Maus‑Über‑Aktionen werden unabhängig voneinander entfernt. Setzen Sie `replaceExternalClicks` auf `false`, um alle Richtlinien‑Verstöße zu entfernen. Wählen Sie vor dem Deployment eine anwendungs‑eigene Ersatz‑Seite.
 
-Das Export‑Flag des Berichts verwendet eine konservative PDF‑Überprüfung‑Richtlinie: Mouse‑Over‑Aktionen und alles außer einem externen Link oder einem spezifischen Folien‑Sprung werden als potenziell nicht unterstützt markiert. Das ist ein Hinweis für die Überprüfung, kein Funktions‑Test oder eine Garantie, dass nicht markierte Links beim Export erhalten bleiben. Unterstützte [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/)‑ und [HTML](/slides/de/cpp/convert-powerpoint-to-html/)‑Exporte können Hyperlinks je nach Aktion, Export‑Optionen und Viewer erhalten; Raster‑[Bilder](/slides/de/cpp/convert-powerpoint-to-png/) und -[Video](/slides/de/cpp/convert-powerpoint-to-video/) können interaktive Hyperlinks nicht erhalten; beim Auditen für diese Ausgaben sollten Sie jede Aktion markieren.
+Die Export‑Flagge des Berichts verwendet eine konservative PDF‑Prüfrichtlinie: Markieren Sie Maus‑Über‑Aktionen und alles außer einem externen Link oder einem spezifischen Folien‑Sprung als potenziell nicht unterstützt. Es handelt sich um einen Prüf‑Hinweis, keinen Fähigkeitstest oder eine Garantie, dass nicht markierte Links den Export überstehen. Unterstützte [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/) und [HTML](/slides/de/cpp/convert-powerpoint-to-html/) Exporte können Hyperlinks je nach Aktion, Exportoptionen und Viewer beibehalten. Raster‑[Bilder](/slides/de/cpp/convert-powerpoint-to-png/) und [Video](/slides/de/cpp/convert-powerpoint-to-video/) können interaktive Hyperlinks nicht beibehalten; markieren Sie jede Aktion bei Audits für diese Ausgaben.
 
 ```cpp
 #include <DOM/Hyperlink.h>
@@ -650,20 +652,20 @@ if (violations != 0)
 }
 ```
 
-Mit dem oben erstellten Eingabedokument enthält der Bericht fünf Aktions‑Zeilen. Der Datei‑Mouse‑Over‑Link und das Makro‑Klick‑Element werden entfernt, während die HTTPS‑Links und die interne Folien‑Navigation erhalten bleiben. Die Verifikation gibt null verbotene Aktionen aus. Ein Eingabedokument mit einer verbotenen externen Klick‑URL demonstriert zudem den Ersetzungs‑Pfad. Ein Container mit einem zulässigen Klick und einem verbotenen Mouse‑Over behält seine Klick‑Aktion bei.
+Mit dem oben erstellten Eingabedokument enthält der Bericht fünf Aktions‑Zeilen. Der Datei‑Maus‑Über‑Link und der Makro‑Klick werden entfernt, während die HTTPS‑Links und die interne Folien‑Navigation erhalten bleiben. Die Verifikation gibt null verbotene Aktionen aus. Eine Eingabe mit einer verbotenen externen Klick‑URL testet ebenfalls den Ersetzungs­zweig. Ein Container mit einem erlaubten Klick und einem verbotenen Maus‑Über‑Link behält seine Klick‑Aktion bei.
 
-Diese selektive Bereinigung unterscheidet sich von [RemoveAllHyperlinks](https://reference.aspose.com/slides/de/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), das beide Aktivierungstypen im ausgewählten Geltungsbereich unabhängig von Richtlinien entfernt. Die Verifikation prüft hier ausschließlich Hyperlink‑Aktionen; sie entfernt keine eingebetteten VBA‑Projekte, OLE‑Objekte oder andere aktive Inhalte und validiert nicht ein exportiertes PDF‑ oder HTML‑Dokument.
+Diese selektive Bereinigung unterscheidet sich von [Alle Hyperlinks entfernen](https://reference.aspose.com/slides/cpp/aspose.slides/ihyperlinkqueries/removeallhyperlinks/), das beide Aktivierungstypen im gesamten ausgewählten Umfang unabhängig von der Richtlinie entfernt. Die Verifikation prüft hier ausschließlich Hyperlink‑Aktionen; sie entfernt keine eingebetteten VBA‑Projekte, OLE‑Objekte oder anderen aktiven Inhalt und validiert weder eine exportierte PDF‑ noch HTML‑Datei.
 
 ## **FAQ**
 
-**Wie kann ich zu einem Abschnitt oder dessen erster Folie verlinken?**
+**Wie kann ich zu einem Abschnitt oder seiner ersten Folie verlinken?**
 
 Abschnitte in PowerPoint gruppieren Folien, aber ein interner Hyperlink zielt auf eine einzelne Folie. Um zu einem Abschnitt zu navigieren, verlinken Sie zur ersten Folie dieses Abschnitts.
 
-**Kann ich einen Hyperlink an Elemente der Master‑Folien anhängen, sodass er auf allen Folien funktioniert?**
+**Kann ich einem Master‑Folienelement einen Hyperlink zuweisen, damit er auf allen Folien funktioniert?**
 
-Ja. Elemente von Master‑Folien und Layout‑Folien unterstützen Hyperlinks. Diese Links sind während der Vorführung auf allen Folien verfügbar, die den entsprechenden Master oder das Layout nutzen.
+Ja. Master‑Folien‑ und Layout‑Elemente unterstützen Hyperlinks. Links auf diesen Elementen sind während der Bildschirmpräsentation auf Folien verfügbar, die den entsprechenden Master oder das Layout verwenden.
 
-**Werden Hyperlinks beim Export nach PDF, HTML, Bild‑ oder Videoformat beibehalten?**
+**Werden Hyperlinks beim Export nach PDF, HTML, Bildern oder Video erhalten bleiben?**
 
-Unterstützte PDF‑ und HTML‑Exporte können Hyperlinks erhalten; Raster‑Bilder und Video können keine interaktiven Hyperlinks beibehalten. Siehe die Export‑Hinweise in [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Unterstützte PDF‑ und HTML‑Exporte können Hyperlinks beibehalten; Raster‑Bilder und Video können das nicht. Siehe die Export‑Hinweise in [Hyperlinks berichten, bereinigen und verifizieren](#report-sanitize-and-verify-hyperlinks).

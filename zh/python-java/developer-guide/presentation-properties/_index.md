@@ -8,7 +8,7 @@ keywords:
 - PowerPoint 属性
 - 演示文稿属性
 - 文档属性
-- 内建属性
+- 内置属性
 - 自定义属性
 - 高级属性
 - 管理属性
@@ -22,47 +22,34 @@ keywords:
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "在 Aspose.Slides for Python via Java 中掌握演示文稿属性，并简化 PowerPoint 与 OpenDocument 文件的搜索、品牌化和工作流程。"
+description: "在 Aspose.Slides for Python via Java 中精通演示文稿属性，并在您的 PowerPoint 和 OpenDocument 文件中简化搜索、品牌化和工作流。"
 ---
-## **简介**
+## **介绍**
 
-Aspose.Slides 支持两种文档属性类型：**内建**和**自定义**。这两种属性类型都可以通过 Aspose.Slides API 轻松访问和管理。
+Aspose.Slides for Python via Java 支持 **内置** 和 **自定义** 文档属性。使用这些属性读取和更新演示文稿的元数据，例如作者、标题和用户定义的值。
 
-Aspose.Slides 允许您通过 [DocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/documentproperties/) 类来处理演示文稿的文档属性。该类的实例由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#getDocumentProperties) 返回。下面的示例展示了如何读取、修改和管理这些属性。
+Aspose.Slides 允许您通过 [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) 类来处理演示文稿的文档属性。该类的实例由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) 返回。以下示例展示了如何读取、修改和管理这些属性。
 
 {{% alert color="info" title="Note" %}}
-请注意，**Application** 和 **AppVersion** 字段无法修改。Aspose.Slides 在每次保存时都会重写它们，因此保存的演示文稿始终报告为 “Aspose.Slides for Java” 以及生成它的库版本。传递给 [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/zh/python-java/aspose.slides/documentproperties/#setNameOfApplication) 的任何值在写入演示文稿时都会被丢弃。
+Aspose.Slides 在保存演示文稿时会管理应用程序和生成者的元数据；这些字段标识创建输出的软件。
 {{% /alert %}}
 
-## **PowerPoint 中的文档属性**
+## **管理演示文稿属性**
 
-Microsoft PowerPoint 2007 允许您管理演示文件的文档属性。单击 Office 图标并选择 **准备 | 属性 | 高级属性**，如下所示：
+文档属性在演示内容旁存储描述性信息。它们分为两类：
 
-|**选择高级属性菜单项**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/ZrmuCD6.jpg)|
+- **内置属性** 包含标准元数据，例如标题、作者和文档统计信息。
+- **自定义属性** 存储用户定义的名称/值对。
 
-选择 **高级属性** 后，会出现一个对话框，您可以在其中管理 PowerPoint 文件的文档属性：
-
-|**属性对话框**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/LibmdQd.jpg)|
-
-**属性对话框** 包含 **常规**、**摘要**、**统计**、**内容** 和 **自定义** 等选项卡。这些选项卡允许您配置 PowerPoint 文件的不同信息。使用 **自定义** 选项卡来管理自定义属性。
-
-## **使用 Aspose.Slides for Python via Java 处理文档属性**
-
-如前所述，Aspose.Slides for Python via Java 支持 **内建** 和 **自定义** 文档属性。[DocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/documentproperties/) 类表示与演示文件关联的文档属性。
-
-使用 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#getDocumentProperties) 访问这些属性，如下所述。
+Aspose.Slides for Python via Java 提供对这两类属性的访问。在 PowerPoint 中，选择 **文件 → 信息 → 属性 → 高级属性** 以检查文档元数据。对话框将信息分组到 **摘要**、**统计**、**内容** 和 **自定义** 等标签页。使用 **自定义** 标签页来管理用户定义的属性。
 
 ## **从加密演示文稿读取公共属性**
 
-打开密码通常保护演示文稿内容和文档属性。通过向 [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) 传递 `false` 对演示文稿进行加密时，文档属性保持为公共的。随后，应用程序可以向 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) 传递 `true`，在不提供打开密码的情况下读取公共元数据。
+打开密码通常会保护演示文稿内容和文档属性。当在调用 [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) 并传入 `False` 后对演示文稿进行加密时，其文档属性仍保持为公共的。此时应用程序可以调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) 并传入 `True`，在无需提供打开密码的情况下读取公共元数据。
 
-仅文档属性选项控制 Aspose.Slides 加载的内容；它不会解密任何内容。如果属性已包含在加密中，则在未提供密码的情况下加载会失败。如果演示文稿未加密，则该选项被忽略，加载完整的演示文稿。
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) 控制 Aspose.Slides 加载的内容；它不会进行解密。如果属性被加密，未提供密码加载会失败。如果演示文稿未加密，则该选项被忽略，完整的演示文稿会被加载。
 
-以下示例通过 [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/zh/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) 验证加载模式，然后通过 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/#getDocumentProperties) 读取内建属性：
+示例需要一个文档属性保持公共的加密演示文稿。它通过 [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) 验证加载模式，然后通过 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) 读取内置属性：
 
 ```python
 import jpype
@@ -91,17 +78,17 @@ finally:
     presentation.dispose()
 ```
 
-在此模式下，幻灯片内容不会被加载。幻灯片、母版、布局、形状、媒体以及其他演示对象均不可用。应用程序在执行需要完整演示对象模型的操作之前，应始终检查 [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/zh/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)。
+在此模式下，幻灯片内容不会被加载。幻灯片、母版、布局、形状、媒体及其他演示对象均不可用。应用程序在执行需要完整演示对象模型的操作前，应始终检查 [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)。
 
 {{% alert color="warning" title="Warning" %}}
-公共元数据可能会泄露作者姓名、标题、主题、关键字、公司信息、注释以及自定义值。应将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统明确要求在无密码情况下访问时才将其保持公开。
+公共元数据可能泄露作者姓名、标题、主题、关键字、公司信息、注释和自定义值。请将敏感属性与演示文稿一起加密。仅在索引、分类、搜索或文档管理系统有特定需求必须在不使用密码的情况下访问时，才将其保持公共。
 {{% /alert %}}
 
 ## **更新加密演示文稿的属性**
 
-对于加密的 PPTX 文件，以仅文档属性模式加载的演示文稿旨在读取公共元数据。Aspose.Slides 无法从该仅元数据对象保存已更改的属性，因为公共属性必须与加密演示文稿内部的相应数据保持一致。因此，更新这些属性需要正确的打开密码并完整加载演示文稿。
+对于加密的 PPTX 文件，在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) 并传入 `True` 后加载的演示文稿仅用于读取公共元数据。Aspose.Slides 无法从仅包含元数据的对象保存已更改的属性，因为公共属性必须与加密演示文稿内部的相应数据保持一致。因此，更新这些属性需要正确的打开密码并完成完整加载。
 
-以下示例使用 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh/python-java/aspose.slides/loadoptions/#setPassword) 打开演示文稿，更新公共内建属性并保存结果。随后使用 [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#isEncrypted) 验证加密仍然保留，并在不提供密码的情况下重新打开公共元数据以验证新值：
+示例需要一个具有公共文档属性且已知打开密码的加密 PPTX 演示文稿。它使用 [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword) 打开完整演示文稿，更新公共内置属性并保存结果。随后使用 [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted) 验证加密仍然保留，并在不提供密码的情况下重新打开公共元数据以验证新值：
 
 ```python
 import jpype
@@ -122,6 +109,7 @@ presentation = Presentation(input_path, load_options)
 try:
     presentation.getDocumentProperties().setTitle("Updated Product Roadmap")
     presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed")
+    
     presentation.save(output_path, SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -146,9 +134,9 @@ finally:
 
 如果应用程序不被允许解密或加载演示文稿内容，则必须将加密 PPTX 文件的公共属性视为只读。
 
-## **访问内建属性**
+## **访问内置属性**
 
-[DocumentProperties] 公开的内建属性包括：**Creator**（作者），**Description**，**Created**（创建日期），**Modified**（修改日期），**Printed**（最近打印日期），**LastModifiedBy**，**Keywords**，**SharedDoc**（是否在不同制作者之间共享？），**PresentationFormat**，**Subject**，以及 **Title**。
+[DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) 类通过 getter 方法公开内置元数据，包括 [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor)、[getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) 和 [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime)。此示例打开现有演示文稿并将其存储的元数据打印到控制台。值取决于输入的演示文稿；某些字段可能为空。
 
 ```python
 import jpype
@@ -157,73 +145,106 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, DocumentProperties
+from asposeslides.api import Presentation
 
-# 实例化表示演示文稿的 Presentation 类
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessBuiltInProperties.pptx")
 try:
-    # 创建与 Presentation 关联的 DocumentProperties 对象的引用
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # 显示内建属性
-    print("Category : ", properties.getCategory())
-    print("Current Status : ", properties.getContentStatus())
-    print("Creation Date : ", properties.getCreatedTime())
-    print("Author : ", properties.getAuthor())
-    print("Description : ", properties.getComments())
-    print("KeyWords : ", properties.getKeywords())
-    print("Last Modified By : ", properties.getLastSavedBy())
-    print("Supervisor : ", properties.getManager())
-    print("Modified Date : ", properties.getLastSavedTime())
-    print("Presentation Format : ", properties.getPresentationFormat())
-    print("Last Print Date : ", properties.getLastPrinted())
-    print("Is Shared between producers : ", properties.getSharedDoc())
-    print("Subject : ", properties.getSubject())
-    print("Title : ", properties.getTitle())
+    print("Category:", document_properties.getCategory())
+    print("Content status:", document_properties.getContentStatus())
+    print("Creation date:", document_properties.getCreatedTime())
+    print("Author:", document_properties.getAuthor())
+    print("Comments:", document_properties.getComments())
+    print("Keywords:", document_properties.getKeywords())
+    print("Last modified by:", document_properties.getLastSavedBy())
+    print("Manager:", document_properties.getManager())
+    print("Modified date:", document_properties.getLastSavedTime())
+    print("Presentation format:", document_properties.getPresentationFormat())
+    print("Last print date:", document_properties.getLastPrinted())
+    print("Is shared between producers:", document_properties.getSharedDoc())
+    print("Subject:", document_properties.getSubject())
+    print("Title:", document_properties.getTitle())
 finally:
     presentation.dispose()
 ```
 
-## **修改内建属性**
+## **修改内置属性**
 
-修改内建属性与访问它们同样简单。使用相应的 setter 分配新值。以下示例使用 Aspose.Slides for Python via Java 修改内建文档属性。
+要更新内置元数据，请对由 [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties) 返回的对象使用 setter 方法。此示例打开现有演示文稿，调用 [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor)、[setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle)、[setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject)、[setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) 和 [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager)，随后使用 [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 保存更新后的演示文稿。保存的 PPTX 包含新元数据。
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("ModifyBuiltInProperties.pptx")
 try:
-    # 创建与 Presentation 关联的 DocumentProperties 对象的引用
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # 设置内建属性
-    properties.setAuthor("Aspose.Slides for Python via Java")
-    properties.setTitle("Modifying Presentation Properties")
-    properties.setSubject("Aspose Subject")
-    properties.setComments("Aspose Description")
-    properties.setManager("Aspose Manager")
+    document_properties.setAuthor("Aspose.Slides for Python via Java")
+    document_properties.setTitle("Manage PowerPoint Presentation Properties")
+    document_properties.setSubject("Modify Built-in Properties")
+    document_properties.setComments("Aspose description")
+    document_properties.setManager("Aspose manager")
 
-    # 将演示文稿保存到文件
-    presentation.save("DocProps.pptx", SaveFormat.Pptx)
+    presentation.save("DocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-此示例修改了演示文稿的内建属性，效果如下所示：
+## **管理超链接基准**
 
-|**修改后内建文档属性**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/zz1N9de.jpg)|
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) 返回文档级别的相对超链接基准。使用 [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase) 可以更改或清除它。当将演示文稿及其链接文件移动到其他位置时，这非常有用。它与单个超链接的 [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl) 是分离的：更改基准不会重写已存储的链接地址或更改绝对目标。
 
-## **添加自定义文档属性**
+示例需要一个包含相对链接（例如 `target.html`）和绝对链接（例如 `https://example.org/absolute.html`）的演示文稿。它读取现有基准，分配新的基准地址，并保存后重新打开演示文稿以检查该值。随后使用空字符串清除基准，并在另一个保存的文件中验证空值。请将示例基准地址替换为您的链接文件所在位置。
 
-Aspose.Slides for Python via Java 还允许开发人员向演示文稿添加自定义文档属性。下面的示例添加了三个自定义属性，然后查找索引 2 处存储的名称并删除该属性，因此保存的演示文稿保留了其中的两个。自定义属性按字母顺序索引，而不是添加的顺序。
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("hyperlinks.pptx")
+try:
+    print("Original base:", presentation.getDocumentProperties().getHyperlinkBase())
+
+    new_base = "https://example.com/new/"
+    presentation.getDocumentProperties().setHyperlinkBase(new_base)
+    presentation.save("hyperlinks-updated.pptx", SaveFormat.Pptx)
+
+    updated_presentation = Presentation("hyperlinks-updated.pptx")
+    try:
+        print("Base preserved:", new_base == updated_presentation.getDocumentProperties().getHyperlinkBase())
+
+        updated_presentation.getDocumentProperties().setHyperlinkBase("")
+        updated_presentation.save("hyperlinks-cleared.pptx", SaveFormat.Pptx)
+
+        cleared_presentation = Presentation("hyperlinks-cleared.pptx")
+        try:
+            print("Base cleared:", "" == cleared_presentation.getDocumentProperties().getHyperlinkBase())
+        finally:
+            cleared_presentation.dispose()
+    finally:
+        updated_presentation.dispose()
+finally:
+    presentation.dispose()
+```
+
+两个验证消息应打印 `True`。清除基准后，单个超链接地址保持不变。
+
+当基准指向 `old` 文件夹时，指向 `target.pptx` 的相对链接会打开 `old/target.pptx`。将基准更改为 `new` 文件夹后，保存并重新打开演示文稿，同一链接会打开 `new/target.pptx`。绝对链接仍然打开相同的文件。请在 PowerPoint 中在移动演示文稿或更改基准前后测试您的相对链接。
+
+## **添加自定义演示文稿属性**
+
+自定义属性存储没有对应内置字段的元数据。[DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) 方法允许您通过属性名称赋值。此示例创建一个演示文稿，添加两个文本值和一个整数版本值（使用 `jpype.JInt` 传递 Java 整数），并使用 [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save) 保存演示文稿。为已存在的名称赋值会替换该属性的值。
 
 ```python
 import jpype
@@ -236,33 +257,20 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # 获取文档属性
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # 添加自定义属性
-    properties.set_Item("New Custom", jpype.JInt(12))
-    properties.set_Item("My Name", "Mudassir")
-    properties.set_Item("Custom", jpype.JInt(124))
+    document_properties.set_Item("Reviewed by", "John Smith")
+    document_properties.set_Item("Confidentiality level", "Internal")
+    document_properties.set_Item("Document version", jpype.JInt(2))
 
-    # 获取特定索引处的属性名称
-    property_name = properties.getCustomPropertyName(2)
-
-    # 删除选定的属性
-    properties.removeCustomProperty(property_name)
-
-    # 保存演示文稿
-    presentation.save("CustomDemo.pptx", SaveFormat.Pptx)
+    presentation.save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-|**已添加的自定义文档属性**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/HdKcxI9.png)|
+## **访问和修改自定义属性**
 
-## **访问并修改自定义属性**
-
-Aspose.Slides for Python via Java 还允许开发人员访问自定义属性的值。以下示例展示了如何在演示文稿中访问并修改所有自定义属性。
+此示例打开包含自定义属性的演示文稿，并使用 [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) 遍历它们。 [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) 接受从零开始的索引并返回由 [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) 使用的名称。示例打印每个原始名称和值，将所有值替换为带编号的字符串（不论其原始类型），并保存更改。如果没有自定义属性，循环不会进行任何更改。
 
 ```python
 import jpype
@@ -271,237 +279,50 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessAndModifyProperties.pptx")
 try:
-    # 创建与 Presentation 关联的 DocumentProperties 对象的引用
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # 访问并修改自定义属性
-    for i in range(properties.getCountOfCustomProperties()):
-        property_name = properties.getCustomPropertyName(i)
-        # 显示自定义属性的名称和值
-        print("Custom Property Name : ", property_name)
-        print("Custom Property Value : ", properties.get_Item(property_name))
+    for i in range(document_properties.getCountOfCustomProperties()):
+        property_name = document_properties.getCustomPropertyName(i)
+        property_value = document_properties.get_Item(property_name)
 
-        # 修改自定义属性的值
-        properties.set_Item(property_name, f"New Value {i + 1}")
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value)
 
-    # 将演示文稿保存到文件
-    presentation.save("CustomDemoModified.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+        document_properties.set_Item(property_name, f"New Value {i + 1}")
 
-此示例修改了 [PPTX](https://docs.fileformat.com/presentation/pptx/) 演示文稿的自定义属性。下图显示了修改前后的演示文稿自定义属性：
-
-|**修改前的自定义属性**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/Ze7YHvi.jpg)|
-
-|**修改后的自定义属性**|
-| :- |
-|![PowerPoint 文档属性](https://i.imgur.com/Tofu0CL.jpg)|
-
-## **高级文档属性**
-
-{{% alert color="info" title="Note" %}}
-新增了方法 [readDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#readDocumentProperties)、[updateDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) 和 [writeBindedPresentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#writeBindedPresentation) 至 [PresentationInfo](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/)，并且 [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/zh/python-java/aspose.slides/documentproperties/#setLastSavedTime) 方法的行为已更改。
-{{% /alert %}}
-
-已向 [PresentationInfo](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/) 类添加了两个新方法 [readDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 和 [updateDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#updateDocumentProperties)。它们提供了快速访问文档属性的方式，并允许您在不加载整个演示文稿的情况下更改和更新属性。
-
-加载属性、修改其值并更新文档的典型工作流程如下所示：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-# 读取演示文稿信息
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx")
-
-# 获取当前属性
-properties = presentation_info.readDocumentProperties()
-
-# 设置 Author 和 Title 字段的新值
-properties.setAuthor("New Author")
-properties.setTitle("New Title")
-
-# 使用新值更新演示文稿
-presentation_info.updateDocumentProperties(properties)
-presentation_info.writeBindedPresentation("presentation.pptx")
-```
-
-还有另一种方法是使用特定演示文稿的属性作为模板来更新其他演示文稿的属性：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("template.pptx")
-template = presentation_info.readDocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-def update_by_template(path, template):
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-可以从头创建一个新模板，然后用于更新多个演示文稿：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory, DocumentProperties
-
-template = DocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-## **设置校对语言**
-
-Aspose.Slides 提供了 [PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/python-java/aspose.slides/portionformat/#setLanguageId) 方法，允许您为 PowerPoint 文档设置校对语言。校对语言是对演示文稿中的拼写和语法进行检查的语言。
-
-以下 Python 代码演示了如何为 PowerPoint 设置校对语言：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, Portion, FontData
-
-pptx_file_name = "presentation.pptx"
-
-presentation = Presentation(pptx_file_name)
-try:
-    auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
-    paragraph.getPortions().clear()
-
-    new_portion = Portion()
-
-    font = FontData("SimSun")
-    portion_format = new_portion.getPortionFormat()
-    portion_format.setComplexScriptFont(font)
-    portion_format.setEastAsianFont(font)
-    portion_format.setLatinFont(font)
-
-    portion_format.setLanguageId("zh-CN") # 设置校对语言的 Id
-
-    new_portion.setText("1。")
-    paragraph.getPortions().add(new_portion)
-finally:
-    presentation.dispose()
-```
-
-## **设置默认语言**
-
-以下 Python 代码演示了如何为整个 PowerPoint 演示文稿设置默认语言：
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, LoadOptions, ShapeType
-
-load_options = LoadOptions()
-load_options.setDefaultTextLanguage("en-US")
-
-presentation = Presentation(load_options)
-try:
-    # 添加一个带文本的矩形形状
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50)
-    shape.getTextFrame().setText("New Text")
-
-    # 检查第一个段落的语言
-    print(shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId())
+    presentation.save("CustomProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **实时示例**
 
-尝试使用在线应用程序 [**Aspose.Slides Metadata**](https://products.aspose.app/slides/zh/metadata) 了解如何通过 Aspose.Slides API 处理文档属性：
+试用在线应用程序 [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata) 了解如何使用 Aspose.Slides API 操作文档属性：
 
-[![查看和编辑 PowerPoint 元数据](slides-metadata.png)](https://products.aspose.app/slides/zh/metadata)
+[![查看并编辑 PowerPoint 元数据](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **常见问题**
 
-**如何从演示文稿中移除内建属性？**
+**如何从演示文稿中移除内置属性？**
 
-内建属性是演示文稿的组成部分，无法完全删除。但是，您可以更改其值，或在特定属性允许的情况下将其设为空。
+内置属性是演示文稿的组成部分，不能完全移除。但您可以更改其值，或在该属性允许的情况下将其设置为空。
 
-**如果我添加已存在的自定义属性会怎样？**
+**如果添加已存在的自定义属性会怎样？**
 
-如果您添加的自定义属性已存在，其现有值将被新值覆盖。您无需事先删除或检查该属性，因为 Aspose.Slides 会自动更新属性的值。
+如果添加的自定义属性已存在，其现有值会被新值覆盖。您无需事先删除或检查该属性，Aspose.Slides 会自动更新属性的值。
 
-**我能在不完整加载演示文稿的情况下访问演示文稿属性吗？**
+**是否可以在不完整加载演示文稿的情况下访问演示文稿属性？**
 
-可以。使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 然后调用 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 即可在不创建 [Presentation](https://reference.aspose.com/slides/zh/python-java/aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。有关完整的报告示例和格式特定限制，请参阅 [Build a Lightweight Presentation Inventory](/slides/zh/python-java/examine-presentation/)。
+可以。使用 [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo) 然后调用 [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties) 即可在不创建 [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) 实例的情况下读取存储的文档元数据。完整的报告示例及格式特定限制请参阅 [Build a Lightweight Presentation Inventory](/slides/zh/python-java/examine-presentation/)。
 
-**我能在没有打开密码的情况下读取加密演示文稿的公共属性吗？**
+**是否可以在不提供打开密码的情况下读取加密演示文稿的公共属性？**
 
-可以。必须在演示文稿加密之前禁用文档属性加密，并且演示文稿需要以仅文档属性模式加载。
+可以。演示文稿必须是在调用 [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) 并传入 `False` 后进行加密，并且在调用 [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) 并传入 `True` 后加载。
 
-**我能在仅文档属性模式下更新加密的 PPTX 文件吗？**
+**是否可以在仅文档属性模式下更新加密的 PPTX 文件？**
 
-不能。公共属性和加密属性的数据必须保持一致，因此更新加密的 PPTX 文件需要使用正确的打开密码完整加载演示文稿。
+不能。公共属性和加密属性数据必须保持一致，因此更新加密的 PPTX 文件需要使用正确的打开密码加载完整的演示文稿。

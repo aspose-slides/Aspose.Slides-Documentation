@@ -27,26 +27,26 @@ description: "Hiperhivatkozások hozzáadása, formázása, frissítése és elt
 ---
 ## **Bevezetés**
 
-Egy hiperhivatkozás összeköti a prezentáció tartalmát egy weboldallal vagy a prezentáción belüli helyszínnel. A PowerPointban a hiperhivatkozások általában két célt szolgálnak:
+A hiperhivatkozás összekapcsolja a prezentáció tartalmát egy weboldallal vagy a prezentáción belüli egy helyszínnel. A PowerPointban a hiperhivatkozások általában két célra szolgálnak:
 
 * Weboldal megnyitása szövegből, alakzatból vagy média keretből.
-* Navigálás egy másik diára, például a tartalomjegyzékből.
+* Navigálás egy másik diára, például egy tartalomjegyzékből.
 
-Az Aspose.Slides for Android via Java lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk szabályozását, tulajdonságaik frissítését, valamint eltávolításukat. Az alábbi példák bemutatják, hogyan dolgozhatunk hiperhivatkozásokkal egyedi elemekkel, illetve hogyan érhetjük el a hiperhivatkozásokat a prezentáció, dia vagy szövegkeret szinten.
+Az Aspose.Slides for Android via Java lehetővé teszi ezen hivatkozások hozzáadását, megjelenésük és hangjuk szabályozását, tulajdonságaik frissítését, valamint eltávolításukat. Az alábbi példák bemutatják, hogyan kell dolgozni a hiperhivatkozásokkal egyedi elemeknél, valamint hogyan érhetők el a hiperhivatkozások a prezentáció, dia vagy szövegkeret szintjén.
 
-{{% alert color="info" title="Megjegyzés" %}}
-
-A prezentációkat a [ingyenes online Aspose PowerPoint szerkesztővel](https://products.aspose.app/slides/hu/editor) is szerkesztheti.
-
+{{% alert color="info" title="Note" %}}
+A prezentációkat szerkesztheti a [gratis online Aspose PowerPoint szerkesztővel](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
-## **URL‑hiperhivatkozások hozzáadása**
+## **URL hiperhivatkozások hozzáadása**
 
-Weboldal URL‑jét hozzárendelheti szöveghez, alakzathoz vagy média kerethez. Az a elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrészlet az adott szövegre, míg egy alakzat vagy keret a diára helyezett objektumra hivatkozik.
+Webhely URL-jét szöveghez, alakzathoz vagy média kerethez rendelhet. Az a elem, amelyhez a hiperhivatkozást rendeli, meghatározza a kattintható területet: egy szövegrészlet a kijelölt szöveget kapcsolja, míg egy alakzat vagy keret a diaobjektumot.
 
-### **URL‑hiperhivatkozások hozzáadása szöveghez**
+A relatív hiperhivatkozásokat tartalmazó prezentációkhoz tekintse meg a [Hiperhivatkozás-alap kezelése](/slides/hu/androidjava/presentation-properties/#manage-the-hyperlink-base) szakaszt a dokumentumszintű alap beolvasásához, módosításához vagy törléséhez.
 
-A szöveget weboldalra mutató hivatkozással kell ellátni, ehhez adjon át egy [Hyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/hyperlink/) objektumot a szövegrészlet [setHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metódusának, ahogy az alább látható. Csak ez a szövegrészlet lesz kattintható.
+### **URL hiperhivatkozások hozzáadása szöveghez**
+
+A szöveget egy weboldalra hivatkozáshoz adja át egy [Hyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlink/) objektumot a szövegrészlet [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/portionformat/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metódusával, ahogy az alább látható. Csak ez a szövegrészlet lesz kattintható.
 
 ```java
 import com.aspose.slides.*;
@@ -66,11 +66,11 @@ try {
 }
 ```
 
-### **URL‑hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
+### **URL hiperhivatkozások hozzáadása alakzatokhoz és média keretekhez**
 
-A kattintható alakzat vagy keret létrehozásához hívja meg annak [setHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metódusát. A hiperhivatkozás az objektumhoz tartozik, nem egy benne levő szövegrésszel.
+Egy alakzat vagy keret kattinthatóvá tételéhez hívja meg a [setHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shape/#setHyperlinkClick-com.aspose.slides.IHyperlink-) metódust. A hiperhivatkozás az objektumhoz, nem egy benne lévő szöveghez tartozik.
 
-Ugyanez a megközelítés vonatkozik kép, hang és videó keretekre: a hivatkozást a kerethez rendeli, és szükség esetén meghívja a [setTooltip](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) metódust.
+Ugyanez a megközelítés érvényes kép-, audio- és videókeretekre is: adja hozzá a hiperhivatkozást a kerethez, és szükség esetén hívja meg a [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) metódust.
 
 Az alábbi példa egy téglalapot tesz kattinthatóvá:
 
@@ -92,7 +92,7 @@ try {
 
 ## **Hiperhivatkozások használata tartalomjegyzék létrehozásához**
 
-A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy egy tartalomjegyzékből egy adott diára ugorjanak. Az alábbi példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) metódust használja, hogy az első dia „2. oldal” szövegét a második diára irányítsa.
+A belső hiperhivatkozások lehetővé teszik az olvasók számára, hogy a tartalomjegyzékről egy adott diára ugorjanak. Az alábbi példa a [setInternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setInternalHyperlinkClick-com.aspose.slides.ISlide-) metódust használja a “Page 2” szöveg első dián való hivatkozásához a második diára.
 
 ```java
 import com.aspose.slides.*;
@@ -130,9 +130,9 @@ try {
 
 ### **Szín**
 
-Az [IHyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/) [setColorSource](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) metódusa határozza meg, hogy a hiperhivatkozás a prezentáció hiperhivatkozás‑színét vagy a szövegrészlet formázását használja. Egyéni szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/hyperlinkcolorsource/) értéket, és állítsa be a részlet kitöltőszínét. Ez a funkció a PowerPoint 2019‑ben került bevezetésre; régebbi verziók nem alkalmazzák ezt a beállítást.
+Az [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) [setColorSource](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setColorSource-int-) metódusa határozza meg, hogy a hiperhivatkozás a prezentáció hiperhivatkozás-színét vagy a szövegrészlet formázását használja-e. Egyedi szövegszín alkalmazásához válassza a [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkcolorsource/) értéket, és állítsa be a rész kitöltőszínét. Ez a funkció a PowerPoint 2019‑ben került bevezetésre; régebbi verziókban ez a beállítás nem alkalmazható.
 
-Az alábbi példa két szöveges hiperhivatkozást ad ugyanarra a diára. Az első piros szöveggel, a második az alapértelmezett hiperhivatkozás‑színnel jelenik meg.
+Az alábbi példa két szöveghiperhivatkozást ad ugyanarra a diára. Az első piros szöveggel van formázva, a második a szabványos hiperhivatkozás-színnel marad.
 
 ```java
 import com.aspose.slides.*;
@@ -159,14 +159,14 @@ try {
 ```
 ### **Hang**
 
-A hiperhivatkozás aktiváláskor hangot játszhat le, vagy megállíthat egy már lejátszott hangot. A következő metódusokkal konfigurálhatja ezeket a viselkedéseket:
+A hiperhivatkozás aktiválásakor lejátszhat hangot, vagy leállíthat egy már lejátszó hangot. A következő metódusokkal állíthatja be ezeket a viselkedéseket:
 
-- [IHyperlink.setSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) adja meg a hiperhivatkozáshoz tartozó audiót.
-- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) határozza meg, hogy a hiperhivatkozás aktiválása leállítsa‑e az előző hangot.
+- [IHyperlink.setSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setSound-com.aspose.slides.IAudio-) adja meg a hiperhivatkozáshoz tartozó hangot.
+- [IHyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setStopSoundOnClick-boolean-) szabályozza, hogy a hiperhivatkozás aktiválása leállítja-e az előző hangot.
 
-#### **Hiperhivatkozás‑hang hozzáadása**
+#### **Hiperhivatkozás hangjának hozzáadása**
 
-Az alábbi példa betölti a `sampleaudio.wav` fájlt, és hozzárendeli az első dia egy gombjához. A gombra kattintva a hang lejátszódik, majd a következő diára navigál. Egy másik alakzat ugyanazon a dián a kattintáskor leállítja az előző hangot, anélkül hogy navigációt végezne.
+Az alábbi példa betölti a `sampleaudio.wav` fájlt, és egy gombhoz kapcsolja az első dián. A gomb megnyomásakor a hang lejátszódik, és a következő diára navigál. Egy másik alakzat ugyanazon a dián leállítja a korábbi hangot kattintáskor, anélkül, hogy navigációt végezne.
 
 ```java
 import com.aspose.slides.*;
@@ -205,9 +205,9 @@ try {
 }
 ```
 
-#### **Hiperhivatkozás‑hang kinyerése**
+#### **Hiperhivatkozás hangjának kinyerése**
 
-Az alábbi példa megnyitja a fent létrehozott prezentációt, és a [getSound](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getSound--) valamint a [getBinaryData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iaudio/#getBinaryData--) segítségével memóriába olvassa az első alakzat hiperhivatkozás‑audióját.
+Az alábbi példa megnyitja a fent létrehozott prezentációt, és a [getSound](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getSound--) illetve a [getBinaryData](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iaudio/#getBinaryData--) metódusok segítségével beolvassa az első alakzat hiperhivatkozás-audióját a memóriába.
 
 ```java
 import com.aspose.slides.*;
@@ -231,18 +231,18 @@ try {
 }
 ```
 
-### **Buborék és interakció beállítások**
+### **Buborék és interakciós beállítások**
 
-A hiperhivatkozás szöveghez vagy alakzathoz rendelése után a következő [IHyperlink](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/) metódusokat hívhatja meg:
+A hiperhivatkozás szöveghez vagy alakzathoz történő hozzárendelése után a következő [IHyperlink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/) metódusokat hívhatja meg:
 
-- [setTooltip](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) állítja be a felhasználó számára megjelenő tippet.
-- [setTargetFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) adja meg a célkeretet egy szülő HTML framesetben, ha releváns.
-- [setHistory](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) szabályozza, hogy a hivatkozás aktiválása felvegye‑e a célját a megtekintett hiperhivatkozások listájába.
-- [setHighlightClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) meghatározza, hogy a hiperhivatkozás kattintáskor ki legyen‑e emelve.
+- [setTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTooltip-java.lang.String-) a hivatkozásra mutató tippek megjelenítéséhez.
+- [setTargetFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setTargetFrame-java.lang.String-) a célkeret meghatározásához egy szülő HTML keretcsoportban, ha alkalmazható.
+- [setHistory](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHistory-boolean-) szabályozza, hogy a hivatkozás aktiválása felvegye‑e a célját a megtekintett hiperhivatkozások listájába.
+- [setHighlightClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#setHighlightClick-boolean-) szabályozza, hogy a hiperhivatkozás kattintáskor ki legyen‑e emelve.
 
 ## **Hiperhivatkozások eltávolítása a prezentációkból**
 
-A [getAnyHyperlinks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) segítségével gyűjtheti össze a hiperhivatkozás‑konténereket, beleértve a szövegrész‑hivatkozásokat is, mielőtt módosítaná őket. Az alábbi példa mindkét aktiválási típust eltávolítja az első diáról. Ha csak egy típust kíván eltávolítani, hívja meg a [removeHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) metódust; egy kattintási művelet eltávolítása nem vonja el a rámutatási (mouse‑over) változatot.
+A [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) segítségével gyűjtheti a hiperhivatkozás‑konténereket, köztük a szövegrészlet‑hivatkozásokat, a módosítás előtt. Az alábbi példa mindkét aktiválási típust eltávolítja az első diáról. Egy típus eltávolításához csak a [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) vagy a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) metódust hívja; a kattintási művelet eltávolítása nem távolítja el az egér‑felette lépést.
 
 ```java
 import com.aspose.slides.*;
@@ -269,23 +269,23 @@ try {
 }
 ```
 
-Feltétlen eltávolításhoz a [removeAllHyperlinks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) egy hívásban mindkét aktiválási típust eltávolítja a kijelölt tartományban. A mester‑, elrendezés‑ és jegyzet‑szintű selektív takarításhoz és lefedettséghez tekintse meg a [Jelentés, tisztítás és hiperhivatkozások ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt.
+Feltétlen eltávolításhoz a [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) egy hívással mindkét aktiválási típust törli a kiválasztott hatókörben. Kiválasztott tisztításhoz és a mesterek, elrendezések és jegyzetek lefedéséhez tekintse meg a [Hiperhivatkozások jelentése, szanitizálása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt.
 
-## **Teljes hiperhivatkozás‑leltár felépítése**
+## **Teljes hiperhivatkozás‑leltár felállítása**
 
-A prezentáció közzététele előtt készítsen leltárt az interaktív műveletekről és a webes hivatkozásokról. A [getAnyHyperlinks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) [IHyperlinkContainer](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkcontainer/) objektumokat ad vissza, nem egy egyszerű URL‑lista. Minden konténeren vizsgálja meg a [getHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) és a [getHyperlinkMouseOver](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) értékeket. Ezek egymástól függetlenek: ugyanazon konténer mindkét akciót tartalmazhatja, ezért egy teljes jelentéshez akár két sort is szükség lehet konténerenként.
+A prezentáció terjesztése előtt auditálja interaktív műveleteit és webes hivatkozásait. A [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) [IHyperlinkContainer](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/) objektumokat ad vissza, nem egyszerű URL‑lista formájában. Vizsgálja meg mind a [getHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkClick--) , mind a [getHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkMouseOver--) metódusokat minden konténeren. Függetlenek: egy konténer mindkét műveletet tartalmazhatja, ezért egy teljes jelentés akár két sorra is szükséges konténerenként.
 
-Csak alakzatszintű hiperhivatkozások beolvasása kihagyhatja a szövegrészekhez csatolt linkeket. Használja a megfelelő tartomány‑lekérdezést, és őrizze meg a visszakapott konténereket a későbbi frissítéshez vagy eltávolításhoz.
+Csak alakzatszintű hiperhivatkozások lekérdezése kihagyhatja a szöveg‑részletekhez csatolt hivatkozásokat. Kérdezze le a megfelelő hatókört, és őrizze meg a visszaadott konténereket a későbbi frissítéshez vagy eltávolításhoz.
 
-### **Prezentáció, dia és szövegkeret tartományok lekérdezése**
+### **Prezentáció, dia és szövegkeret hatókörök lekérdezése**
 
-Az [IHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/) interfész a következő útvonalakon érhető el: [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--), és [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--). Minden tartomány ugyanazokat a lekérdezéseket támogatja:
+Az [IHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/) interfészt a [IPresentation.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipresentation/#getHyperlinkQueries--), a [IBaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getHyperlinkQueries--) és az [ITextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getHyperlinkQueries--) biztosítja. Minden hatókör ugyanazokat a lekérdezéseket támogatja:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) visszaadja a kattintási akcióval rendelkező konténereket.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) visszaadja a rámutatási akcióval rendelkező konténereket.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) visszaadja a bármelyik vagy mindkét akcióval rendelkező konténereket.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkClicks--) a kattintási művelettel rendelkező konténereket adja vissza.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getHyperlinkMouseOvers--) az egér‑felette lépéses művelettel rendelkező konténereket adja vissza.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#getAnyHyperlinks--) az egy vagy mindkét művelettel rendelkező konténereket adja vissza.
 
-Az alábbi példa létrehozza a `hyperlink-audit-input.pptx` fájlt egy külső kattintási linkgel, egy fájl rámutatási linkkel, belső dia‑navigációval, egy szövegrésszel történő rámutatással és egy makró­akcióval. A példában egyik akció sem hajtódik végre. Ugyanaz a három lekérdezés minden tartományban működik; a számlálók konténereket adnak vissza, nem az akciók összegét. A szövegkeret‑tartomány kizárja a befoglaló alakzat saját linkjeit.
+Az alábbi példa létrehoz egy `hyperlink-audit-input.pptx` fájlt egy külső kattintási linkkel, egy fájl‑egér‑felette linkkel, belső dia‑navigációval, egy szöveg‑egér‑felette linkkel és egy makró‑művelettel. Nem hajtja végre ezeket a műveleteket. A három lekérdezés minden hatókörben ugyanúgy működik; a számlálók konténereket, nem művelet‑összesítéseket adnak vissza. A szövegkeret‑hatókör kizárja a körülvevő alakzat saját linkjeit.
 
 ```java
 import com.aspose.slides.*;
@@ -325,37 +325,37 @@ try {
 }
 ```
 
-Ebben a példában a prezentáció‑ és dia‑lekérdezések három kattintási, két rámutatási és három vegyes konténert jelentenek. A szövegkeret‑lekérdezés egy konténert ad vissza minden kategóriában.
+Ebben a példában a prezentáció‑ és dia‑lekérdezések három kattintási, két egér‑felette és három kombinált konténert jeleznek. A szövegkeret‑lekérdezés egy konténert ad minden kategóriában.
 
-### **Akciók és célok osztályozása**
+### **Műveletek és célpontok osztályozása**
 
-Az [IHyperlink.getActionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getActionType--) segítségével értelmezze az akciót, mielőtt a célra fókuszálna. A [HyperlinkActionType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/hyperlinkactiontype/) értékek a webes navigáción túl is kiterjednek:
+Használja az [IHyperlink.getActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getActionType--) metódust, hogy a célpont meghatározása előtt értelmezze a műveletet. A [HyperlinkActionType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/hyperlinkactiontype/) értékek a web‑navigációt meghaladják:
 
-| Értékek | Jelentés audit során |
+| Értékek | Jelentés auditáláskor |
 | --- | --- |
-| `Hyperlink` | Külső hiperhivatkozás; vizsgálja meg az URL‑t és annak sémáját. |
-| `JumpSpecificSlide` | Belső navigáció egy meghatározott diára. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés‑navigáció, a diavetítés kontextusában értelmezve. |
-| `JumpEndShow`, `StartCustomSlideShow` | Az aktuális bemutató befejezése vagy egy egyedi bemutató indítása. |
+| `Hyperlink` | Külső hiperhivatkozás; ellenőrizze az URL‑t és séma‑elemét. |
+| `JumpSpecificSlide` | Belső navigáció egy adott diára. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Beépített diavetítés‑navigáció, a diavetítés környezetében értelmezve. |
+| `JumpEndShow`, `StartCustomSlideShow` | Jelenlegi előadás befejezése vagy egy egyedi előadás indítása. |
 | `StartMacro` | Makró végrehajtása. |
 | `StartProgram` | Program indítása. |
-| `OpenFile`, `OpenPresentation` | Fájl vagy másik prezentáció megnyitása; külön ellenőrizze a webes URL‑ktől. |
-| `StartStopMedia` | Média lejátszásának indítása vagy leállítása. |
-| `NoAction`, `Unknown` | Nincs navigációs akció, vagy ismeretlen akció, amely felülvizsgálatot igényel. |
+| `OpenFile`, `OpenPresentation` | Fájl vagy másik prezentáció megnyitása; külön kezelendő a web‑URL‑ektől. |
+| `StartStopMedia` | Média lejátszás indítása vagy leállítása. |
+| `NoAction`, `Unknown` | Nincs navigációs művelet, vagy ismeretlen művelet, amely felülvizsgálatot igényel. |
 
-Külső célokat a [getExternalUrl](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) adja vissza, a belső célokat a [getTargetSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--) adja meg. Belső akciók és beépített parancsok esetén előfordulhat, hogy nincs külső URL; egy üres URL nem jelenti azt, hogy a konténernek nincs akciója. Amikor a [getExternalUrlOriginal](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) eredménye eltér a normalizált URL‑től, őrizze meg az eredetit, és adja meg a [getTooltip](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) által visszaadott buborék‑szöveget, ha elérhető.
+A külső célpontokat a [getExternalUrl](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrl--) metódussal, a belső célpontokat a [getTargetSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTargetSlide--) metódussal olvassa ki. Belső műveletek és beépített parancsok esetén lehet, hogy nincs külső URL; egy üres URL nem jelenti, hogy a konténernek nincs művelete. Tartsa meg a [getExternalUrlOriginal](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getExternalUrlOriginal--) által visszaadott értéket, ha eltér a normalizált URL‑től, és adja hozzá a [getTooltip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlink/#getTooltip--) által visszaadott buborék‑szöveget, ha elérhető.
 
-### **Hiperhivatkozások jelentése, tisztítása és ellenőrzése**
+### **Hiperhivatkozások jelentése, szanitizálása és ellenőrzése**
 
-Az alábbi Java‑példa beolvas egy meglévő prezentációt (használja a fenti fájlt), írja a `hyperlink-audit.json` fájlt, egy szabályt alkalmaz, elmenti a `hyperlink-sanitized.pptx` fájlt, majd újra megnyitja, hogy újra ellenőrizze mindkét aktiválási típust. A konténereket a módosítás előtt gyűjti, és referenciákat használ, hogy ne dolgozza fel ugyanazt a konténert kétszer. A prezentáció‑lekérdezések a szokásos diákat fedik le; a csomag‑szintű leltárhoz kifejezetten a mester‑, elrendezés‑, jegyzet‑ és a jegyzet‑/osztópáros mester‑elemeket is lekérdezi, ha jelen vannak.
+Az alábbi Java‑példa beolvassa egy meglévő prezentációt (a fenti fájlt használja), kiírja a `hyperlink-audit.json` fájlt, alkalmaz egy szabályt, menti a `hyperlink-sanitized.pptx`‑et, majd újból megnyitja, hogy újra ellenőrizze mindkét aktiválási típust. A változtatások előtt összegyűjti a konténereket, és referenciakénti egyenlőséget használ a duplikációk elkerüléséhez. A prezentáció‑lekérdezések a szokásos diákra vonatkoznak; a csomag‑széles leltárhoz kifejezetten a mestereket, elrendezéseket, jegyzeteket és a jegyzet‑ illetve kiosztó‑mestereket is lekérdezi, ha léteznek.
 
-A jelentés egy 1‑től számozott diát és a [getSlideId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) értékét rögzíti, ha elérhető. Az [ISlideComponent.getSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecomponent/#getSlide--) a támogatott konténerekhez a tulajdonos diát adja vissza. A mesterek, elrendezések és jegyzetek nem rendelkeznek szokásos dia‑indexszel, ezért a tartományuk szerint azonosítjuk őket. Az alakzat‑konténereket és a szövegrész‑formázási konténereket külön jelöli; más konténer‑típusok a futási típusként kapják nevüket. Minden konténer kap egy jelentés‑helyi azonosítót, hogy a két akcióját összekapcsolhassa. A jelentés az akciótípusokat a Java‑enumeráció egész‑konstansaként tárolja.
+A jelentés egy egy‑alapú dia‑indexet és a [getSlideId](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/#getSlideId--) értéket rögzíti, ahol elérhető. Az [ISlideComponent.getSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidecomponent/#getSlide--) biztosítja a tulajdonos diát a támogatott konténerekhez. A mesterek, elrendezések és jegyzetek nem rendelkeznek szokásos dia‑indexszel, hanem a hatókörük alapján azonosíthatók. Az alakzat‑konténereket és a szövegrészlet‑formázási konténereket külön jelöli; egyéb konténer‑típusok megtartják a futás‑idejű típusnevüket. Minden konténer kap egy helyi jelentés‑azonosítót, hogy a két művelet összerendelhető legyen. A jelentés a művelettípusokat a Java‑enumeráció által definiált egész‑konstansokként tárolja.
 
-Ez a szándékosan szigorú alkalmazási szabály csak abszolút HTTPS‑URL‑eket és érvényes belső diacélokat engedélyez. Tiltja a makrókat, programokat, fájl‑akciókat, egyéb diavetítési akciókat, ismeretlen akciókat és egyéb URL‑sémákat. Ezek a tiltások szabályozási döntések, nem az Aspose.Slides biztonsági megítélése. A HTTPS önmagában nem garantál megbízhatóságot: adjon hozzá host‑engedélylistákat és egyéb ellenőrzéseket az alkalmazásához. Mind az eredeti, mind a normalizált külső URL‑ket ellenőrzi a rendszer. A példa metaadat‑auditot végez a linkek követése vagy akciók futtatása nélkül.
+Ez a szándékosan szigorú alkalmazási szabály csak abszolút HTTPS‑URL‑eket és érvényes belső dia‑célokat engedélyez. Visszautasítja a makrókat, programokat, fájl‑műveleteket, egyéb diavetítési műveleteket, ismeretlen műveleteket és egyéb URL‑sémákat. Ezek az elutasítások szabályozási döntések, nem az Aspose.Slides biztonsági megítélését tükrözik. A HTTPS önmagában nem garantálja a megbízhatóságot: adjon meg gazdagép‑fehérlistákat és egyéb ellenőrzéseket az alkalmazásához. Az eredeti és a normalizált külső URL‑eket egyaránt ellenőrzik. A példa a metaadatokat auditálja anélkül, hogy linkeket követne vagy műveleteket hajtana végre.
 
-Javításhoz a konténer [getHyperlinkManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), a [removeHyperlinkClick](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) és a [removeHyperlinkMouseOver](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) metódusokat. Itt a tiltott külső kattintási hivatkozásokat egy rögzített HTTPS landoló oldalra cserélik; a többi tiltott kattintást és rámutatást külön‑külön eltávolítják. Állítsa a `replaceExternalClicks` értékét `false`‑ra, hogy minden szabálysértést eltávolítson. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a telepítés előtt.
+Javításhoz a konténer [getHyperlinkManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkcontainer/#getHyperlinkManager--) támogatja a [setExternalHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-), [removeHyperlinkClick](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkClick--) és [removeHyperlinkMouseOver](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkmanager/#removeHyperlinkMouseOver--) metódusokat. Itt a tiltott külső kattintási linkek egy rögzített HTTPS céloldalra cserélődnek; a többi tiltott kattintás és egér‑felette művelet önállóan eltávolításra kerül. A `replaceExternalClicks` értékének `false`‑ra állítása minden szabálysértés eltávolítását eredményezi. Válasszon egy alkalmazás‑tulajdonú helyettesítő oldalt a telepítés előtt.
 
-A jelentés export‑jelzője egy konzervatív PDF‑ellenőrzési szabályt alkalmaz: jelöli a rámutatási akciókat és minden – egy külső hivatkozás vagy egyedi dia‑ugrás kivételével – potenciálisan nem támogatott elemet. Ez csak egy felülvizsgálati tipp, nem egy képesség‑teszt vagy garancia arra, hogy a jelöletlen linkek megmaradnak az exportálás során. A támogatott [PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/androidjava/convert-powerpoint-to-html/) exportok megőrizhetik a hiperhivatkozásokat, az akciótól, export‑opcióktól és a megjelenítőtől függően. A raszteres [képek](/slides/hu/androidjava/convert-powerpoint-to-png/) és [videók](/slides/hu/androidjava/convert-powerpoint-to-video/) nem tudják megőrizni az interaktív hiperhivatkozásokat; ezért az ilyen kimenetek auditálásakor minden akciót jelölje.
+A jelentés export‑jelzője egy konzervatív PDF‑áttekintési szabályt használ: jelöli az egér‑felette műveleteket és mindent, ami nem külső link vagy konkrét dia‑ugrás, potenciálisan nem támogatottként. Ez egy ellenőrzési tipp, nem egy képesség‑teszt vagy garancia arra, hogy a jelöletlen linkek megmaradnak az export során. A támogatott [PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és [HTML](/slides/hu/androidjava/convert-powerpoint-to-html/) exportok a hiperhivatkozásokat megőrizhetik, a művelettől, export‑beállításoktól és a megjelenítőtől függően. A raszteres [képek](/slides/hu/androidjava/convert-powerpoint-to-png/) és [videók](/slides/hu/androidjava/convert-powerpoint-to-video/) nem őrizhetik meg az interaktív hiperhivatkozásokat; ezeknél minden művelet jelölendő auditáláskor.
 
 ```java
 import com.aspose.slides.*;
@@ -457,7 +457,7 @@ class HyperlinkAudit {
         rows.add(row);
     }
 
-    // A jelentés lapos sorainak sorosítása további JSON függőség nélkül.
+    // A jelentés lapos sorait további JSON függőség nélkül sorosítja.
     String jsonValue(Object value) {
         if (value == null) return "null";
         if (value instanceof Number || value instanceof Boolean) return value.toString();
@@ -542,20 +542,20 @@ try {
 }
 ```
 
-A fenti bemenettel a jelentés öt akciósort tartalmaz. A fájl‑rámutatási link és a makró‑kattintás eltávolításra kerül, míg a HTTPS‑linkek és a belső dia‑navigáció megmarad. Az ellenőrzés nulla tiltott akciót jelez. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a cserélési ágat is demonstrálja. Egy engedélyezett kattintással, tiltott rámutatással rendelkező konténer megtartja a kattintási akciót.
+A fenti bemenet alapján a jelentés öt műveleti sort tartalmaz. A fájl‑egér‑felette link és a makró‑kattintás eltávolításra kerül, míg a HTTPS‑linkek és a belső dia‑navigáció megmarad. Az ellenőrzés nulla tiltott műveletet jelez. Egy tiltott külső kattintási URL‑t tartalmazó bemenet a helyettesítő ágat is aktiválja. Egy engedélyezett kattintással és tiltott egér‑felette művelettel rendelkező konténer megtartja a kattintási műveletet.
 
-Ez a szelektív tisztítás különbözik a [removeAllHyperlinks](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) módszertől, amely a kiválasztott tartományban mindkét aktiválási típust eltávolítja a szabályoktól függetlenül. Az itt végzett ellenőrzés csak a hiperhivatkozás‑akciókat vizsgálja; nem távolít el beágyazott VBA‑projekteket, OLE‑objektumokat vagy egyéb aktív tartalmakat, és nem validálja az exportált PDF‑ vagy HTML‑fájlokat.
+Ez a szelektív tisztítás különbözik a [removeAllHyperlinks](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ihyperlinkqueries/#removeAllHyperlinks--) módszertől, amely a kiválasztott hatókörben mindkét aktiválási típust eltávolítja, függetlenül a szabálytól. Az ellenőrzés itt csak a hiperhivatkozás‑műveleteket vizsgálja; nem távolítja el a beágyazott VBA‑projket, OLE‑objektumokat vagy egyéb aktív tartalmakat, és nem ellenőrzi a kiexportált PDF‑ vagy HTML‑fájlokat.
 
 ## **GYIK**
 
-**Hogyan linkelhetek egy szekcióra vagy annak első diájára?**
+**Hogyan hozhatok létre hivatkozást egy szakaszra vagy annak első diájára?**
 
-A PowerPoint szekciók a diákat csoportosítják, de egy belső hiperhivatkozás egyedi diát céloz meg. Egy szekcióra való navigáció létrehozásához linkelje az adott szekció első diáját.
+A PowerPointban a szakaszok a diák csoportosítására szolgálnak, de egy belső hiperhivatkozás egy adott diára mutat. A szakaszra való navigációhoz hivatkozzon a szakasz első diájára.
 
-**Hozzáadhatok‑e hiperhivatkozást a mester dia elemeihez, hogy minden dián működjön?**
+**Hozzá tudok-e rendelni hiperhivatkozást a mesterdia elemeihez, hogy minden dián működjön?**
 
-Igen. A mester dia és az elrendezés elemei támogatják a hiperhivatkozásokat. Ezek a linkek a diavetítés során elérhetők azon diákon, amelyek a megfelelő mestert vagy elrendezést használják.
+Igen. A mesterdia- és elrendezés‑elemek támogatják a hiperhivatkozásokat. Ezeken az elemeken lévő linkek a diavetítés során elérhetők azokra a diákra, amelyek a megfelelő mestert vagy elrendezést használják.
 
-**Megmaradnak‑e a hiperhivatkozások PDF, HTML, képek vagy videó exportálásakor?**
+**Megmaradnak‑e a hiperhivatkozások PDF, HTML, kép vagy videó exportálásakor?**
 
-A támogatott PDF és HTML exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és videók nem. Tekintse meg a [Jelentés, tisztítás és hiperhivatkozások ellenőrzése](#report-sanitize-and-verify-hyperlinks) részben leírt exporti szempontokat.
+A támogatott PDF‑ és HTML‑exportok megőrizhetik a hiperhivatkozásokat; a raszteres képek és a videók nem. Lásd a [Hiperhivatkozások jelentése, szanitizálása és ellenőrzése](#report-sanitize-and-verify-hyperlinks) részt az exportálással kapcsolatos megfontolásokról.

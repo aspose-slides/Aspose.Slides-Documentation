@@ -1,67 +1,57 @@
 ---
-title: Zarządzanie właściwościami prezentacji w Pythonie
-linktitle: Właściwości prezentacji
+title: Zarządzanie własnościami prezentacji w Python
+linktitle: Własności prezentacji
 type: docs
 weight: 70
 url: /pl/python-java/presentation-properties/
 keywords:
-- Właściwości PowerPoint
-- Właściwości prezentacji
-- Właściwości dokumentu
-- Wbudowane właściwości
-- Własne właściwości
-- Zaawansowane właściwości
-- Zarządzanie właściwościami
-- Modyfikowanie właściwości
-- Metadane dokumentu
-- Edycja metadanych
-- Język korekty
-- Domyślny język
+- własności PowerPoint
+- własności prezentacji
+- własności dokumentu
+- własności wbudowane
+- własności niestandardowe
+- własności zaawansowane
+- zarządzaj własnościami
+- modyfikuj własności
+- metadane dokumentu
+- edytuj metadane
+- język korekty
+- język domyślny
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Opanuj zarządzanie właściwościami prezentacji w Aspose.Slides dla Pythona poprzez Java oraz usprawnij wyszukiwanie, markę i przepływ pracy w swoich plikach PowerPoint i OpenDocument."
+description: "Zarządzaj własnościami prezentacji w Aspose.Slides dla Pythona via Java i usprawnij wyszukiwanie, branding oraz przepływ pracy w swoich plikach PowerPoint i OpenDocument."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides obsługuje dwa rodzaje właściwości dokumentu: **Built-in** i **Custom**. Oba typy właściwości można łatwo odczytać i zarządzać przy użyciu API Aspose.Slides.
+Aspose.Slides for Python via Java obsługuje **wbudowane** i **niestandardowe** właściwości dokumentu. Użyj tych właściwości, aby odczytać i zaktualizować metadane prezentacji, takie jak autor, tytuł i wartości definiowane przez użytkownika.
 
-Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji za pomocą klasy [DocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/documentproperties/). Instancja tej klasy jest zwracana przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getDocumentProperties). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
+Aspose.Slides umożliwia pracę z właściwościami dokumentu prezentacji za pomocą klasy [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) . Instancja tej klasy jest zwracana przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). Poniższe przykłady pokazują, jak odczytywać, modyfikować i zarządzać tymi właściwościami.
 
-{{% alert color="info" title="Note" %}}
-Należy pamiętać, że pola **Application** i **AppVersion** nie mogą być modyfikowane. Aspose.Slides nadpisuje je przy każdym zapisie, więc zapisana prezentacja zawsze zgłasza „Aspose.Slides for Java” oraz wersję biblioteki, która ją wygenerowała. Każda wartość przekazana do [DocumentProperties.setNameOfApplication](https://reference.aspose.com/slides/pl/python-java/aspose.slides/documentproperties/#setNameOfApplication) jest odrzucana podczas zapisu prezentacji.
+{{% alert color="info" title="Uwaga" %}}
+
+Aspose.Slides zarządza metadanymi aplikacji i producenta podczas zapisywania prezentacji; pola te identyfikują oprogramowanie, które utworzyło wynik.
+
 {{% /alert %}}
 
-## **Właściwości dokumentu w programie PowerPoint**
+## **Zarządzanie właściwościami prezentacji**
 
-Microsoft PowerPoint 2007 umożliwia zarządzanie właściwościami dokumentu plików prezentacji. Kliknij ikonę Office i wybierz **Prepare | Properties | Advanced Properties**, jak pokazano poniżej:
+Właściwości dokumentu przechowują informacyjne dane opisowe razem z treścią prezentacji. Dzielą się na dwie kategorie:
 
-|**Wybranie pozycji menu Zaawansowane właściwości**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/ZrmuCD6.jpg)|
+- **Wbudowane właściwości** zawierają standardowe metadane, takie jak tytuł, autor i statystyki dokumentu.
+- **Niestandardowe właściwości** przechowują pary nazwa/wartość definiowane przez użytkownika.
 
-Po wybraniu **Advanced Properties** pojawia się okno dialogowe, w którym można zarządzać właściwościami dokumentu pliku PowerPoint:
-
-|**Okno właściwości**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/LibmdQd.jpg)|
-Okno **Properties Dialog** zawiera zakładki takie jak **General**, **Summary**, **Statistics**, **Contents** i **Custom**. Zakładki te pozwalają konfigurować różne informacje o plikach PowerPoint. Użyj zakładki **Custom**, aby zarządzać własnymi właściwościami.
-
-## **Praca z właściwościami dokumentu przy użyciu Aspose.Slides dla Pythona poprzez Java**
-
-Jak opisano wcześniej, Aspose.Slides dla Pythona poprzez Java obsługuje zarówno **Built-in**, jak i **Custom** właściwości dokumentu. Klasa [DocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/documentproperties/) reprezentuje właściwości dokumentu powiązane z plikiem prezentacji.
-
-Użyj [Presentation.getDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getDocumentProperties), aby uzyskać dostęp do tych właściwości, jak opisano poniżej.
+Aspose.Slides for Python via Java zapewnia dostęp do obu kategorii. W programie PowerPoint wybierz **File → Info → Properties → Advanced Properties**, aby przejrzeć metadane dokumentu. Okno dialogowe grupuje informacje w zakładki, takie jak **Summary**, **Statistics**, **Contents** i **Custom**. Użyj zakładki **Custom**, aby zarządzać własnymi właściwościami.
 
 ## **Odczyt publicznych właściwości z zaszyfrowanej prezentacji**
 
-Normalnie hasło otwierające chroni zarówno zawartość prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana przy przekazaniu `false` do [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties), jej właściwości pozostają publiczne. Aplikacja może wtedy przekazać `true` do [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) i odczytać publiczne metadane bez podawania hasła otwierającego.
+Hasło otwierające normalnie chroni zarówno treść prezentacji, jak i właściwości dokumentu. Gdy prezentacja jest szyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) z wartością `False`, jej właściwości dokumentu pozostają publiczne. Aplikacja może wtedy wywołać [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) z wartością `True` i odczytać publiczne metadane bez podawania hasła otwierającego.
 
-Opcja ładowania wyłącznie właściwości dokumentu określa, co Aspose.Slides ładuje; nie odszyfrowuje ona niczego. Jeśli właściwości były objęte szyfrowaniem, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest szyfrowana, opcja jest ignorowana i ładowana jest pełna prezentacja.
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) kontroluje, co Aspose.Slides ładuje; nie odszyfrowuje niczego. Jeśli właściwości zostały objęte szyfrowaniem, ich ładowanie bez hasła kończy się niepowodzeniem. Jeśli prezentacja nie jest zaszyfrowana, opcja jest ignorowana i ładowana jest cała prezentacja.
 
-Poniższy przykład weryfikuje tryb ładowania za pomocą [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/pl/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) i następnie odczytuje wbudowane właściwości przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/#getDocumentProperties):
+Przykład wymaga zaszyfrowanej prezentacji, której właściwości dokumentu zostały pozostawione publiczne. Weryfikuje tryb ładowania za pomocą [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) i następnie odczytuje wbudowane właściwości przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties):
 
 ```python
 import jpype
@@ -90,17 +80,17 @@ finally:
     presentation.dispose()
 ```
 
-W tym trybie zawartość slajdów nie jest ładowana. Slajdy, mastery, układy, kształty, media i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/pl/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
+W tym trybie zawartość slajdów nie jest ładowana. Slajdy, wzorce, układy, kształty, multimedia i inne obiekty prezentacji są niedostępne. Aplikacje powinny zawsze sprawdzać [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded) przed wykonaniem operacji wymagającej pełnego modelu obiektowego prezentacji.
 
-{{% alert color="warning" title="Warning" %}}
-Publiczne metadane mogą ujawnić nazwy autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i własne wartości. Szyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne wyłącznie wtedy, gdy systemy indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami wymagają dostępu bez hasła.
+{{% alert color="warning" title="Ostrzeżenie" %}}
+Publiczne metadane mogą ujawnić imiona autorów, tytuły, tematy, słowa kluczowe, informacje o firmie, komentarze i wartości niestandardowe. Szyfruj wrażliwe właściwości razem z prezentacją. Pozostaw je publiczne tylko wtedy, gdy systemy indeksowania, klasyfikacji, wyszukiwania lub zarządzania dokumentami mają konkretny wymóg dostępu do nich bez hasła.
 {{% /alert %}}
 
 ## **Aktualizacja właściwości zaszyfrowanej prezentacji**
 
-Dla zaszyfrowanego pliku PPTX prezentacja ładowana w trybie wyłącznie właściwości dokumentu służy do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z tego obiektu zawierającego jedynie metadane, ponieważ publiczne właściwości muszą pozostać spójne z odpowiadającymi danymi w zaszyfrowanej prezentacji. Ich aktualizacja wymaga więc prawidłowego hasła otwierającego oraz pełnego załadowania prezentacji.
+Dla zaszyfrowanego pliku PPTX, prezentacja załadowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) z `True` jest przeznaczona do odczytu publicznych metadanych. Aspose.Slides nie może zapisać zmienionych właściwości z tego obiektu zawierającego wyłącznie metadane, ponieważ publiczne właściwości muszą pozostać zgodne z odpowiadającymi danymi wewnątrz zaszyfrowanej prezentacji. Aktualizacja wymaga więc prawidłowego hasła otwierającego i pełnego załadowania.
 
-Poniższy przykład otwiera prezentację przy pomocy [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/python-java/aspose.slides/loadoptions/#setPassword), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#isEncrypted), aby zweryfikować, że szyfrowanie zostało zachowane, oraz ponownie otwiera publiczne metadane bez hasła, aby sprawdzić nowe wartości:
+Przykład wymaga zaszyfrowanej prezentacji PPTX z publicznymi właściwościami dokumentu oraz znanego hasła otwierającego. Otwiera pełną prezentację przy użyciu [LoadOptions.setPassword](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setPassword), aktualizuje publiczne wbudowane właściwości i zapisuje wynik. Następnie używa [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#isEncrypted), aby zweryfikować, że szyfrowanie zostało zachowane, oraz ponownie otwiera publiczne metadane bez hasła, aby sprawdzić nowe wartości:
 
 ```python
 import jpype
@@ -121,6 +111,7 @@ presentation = Presentation(input_path, load_options)
 try:
     presentation.getDocumentProperties().setTitle("Updated Product Roadmap")
     presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed")
+    
     presentation.save(output_path, SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -147,7 +138,7 @@ Jeśli aplikacja nie ma uprawnień do odszyfrowania lub załadowania zawartości
 
 ## **Dostęp do wbudowanych właściwości**
 
-Wbudowane właściwości udostępniane przez [DocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/documentproperties/) obejmują: **Creator** (Autor), **Description**, **Created** (Data utworzenia), **Modified** (Data modyfikacji), **Printed** (Data ostatniego wydruku), **LastModifiedBy**, **Keywords**, **SharedDoc** (Czy dokument jest współdzielony?), **PresentationFormat**, **Subject** oraz **Title**.
+Klasa [DocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/) udostępnia wbudowane metadane poprzez metody getter, w tym [getAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getAuthor), [getTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getTitle) i [getCreatedTime](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCreatedTime). Ten przykład otwiera istniejącą prezentację i wypisuje jej zapisane metadane w konsoli. Wartości zależą od wejściowej prezentacji; niektóre pola mogą być puste.
 
 ```python
 import jpype
@@ -156,36 +147,33 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, DocumentProperties
+from asposeslides.api import Presentation
 
-# Utwórz instancję klasy Presentation reprezentującej prezentację
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessBuiltInProperties.pptx")
 try:
-    # Utwórz odniesienie do obiektu DocumentProperties powiązanego z prezentacją
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Wyświetl wbudowane właściwości
-    print("Category : ", properties.getCategory())
-    print("Current Status : ", properties.getContentStatus())
-    print("Creation Date : ", properties.getCreatedTime())
-    print("Author : ", properties.getAuthor())
-    print("Description : ", properties.getComments())
-    print("KeyWords : ", properties.getKeywords())
-    print("Last Modified By : ", properties.getLastSavedBy())
-    print("Supervisor : ", properties.getManager())
-    print("Modified Date : ", properties.getLastSavedTime())
-    print("Presentation Format : ", properties.getPresentationFormat())
-    print("Last Print Date : ", properties.getLastPrinted())
-    print("Is Shared between producers : ", properties.getSharedDoc())
-    print("Subject : ", properties.getSubject())
-    print("Title : ", properties.getTitle())
+    print("Category:", document_properties.getCategory())
+    print("Content status:", document_properties.getContentStatus())
+    print("Creation date:", document_properties.getCreatedTime())
+    print("Author:", document_properties.getAuthor())
+    print("Comments:", document_properties.getComments())
+    print("Keywords:", document_properties.getKeywords())
+    print("Last modified by:", document_properties.getLastSavedBy())
+    print("Manager:", document_properties.getManager())
+    print("Modified date:", document_properties.getLastSavedTime())
+    print("Presentation format:", document_properties.getPresentationFormat())
+    print("Last print date:", document_properties.getLastPrinted())
+    print("Is shared between producers:", document_properties.getSharedDoc())
+    print("Subject:", document_properties.getSubject())
+    print("Title:", document_properties.getTitle())
 finally:
     presentation.dispose()
 ```
 
-## **Modyfikowanie wbudowanych właściwości**
+## **Modyfikacja wbudowanych właściwości**
 
-Modyfikowanie wbudowanych właściwości jest tak proste, jak ich odczyt. Użyj odpowiedniego settera, aby przypisać nową wartość. Poniższy przykład modyfikuje wbudowane właściwości dokumentu przy użyciu Aspose.Slides dla Pythona poprzez Java.
+Aby zaktualizować wbudowane metadane, użyj metod setter na obiekcie zwróconym przez [Presentation.getDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDocumentProperties). Ten przykład otwiera istniejącą prezentację, wywołuje [setAuthor](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setAuthor), [setTitle](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setTitle), [setSubject](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setSubject), [setComments](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setComments) i [setManager](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setManager), a następnie zapisuje zaktualizowaną prezentację przy użyciu [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Zapisany plik PPTX zawiera nowe metadane.
 
 ```python
 import jpype
@@ -194,35 +182,71 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("ModifyBuiltInProperties.pptx")
 try:
-    # Utwórz odniesienie do obiektu DocumentProperties powiązanego z prezentacją
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Ustaw wbudowane właściwości
-    properties.setAuthor("Aspose.Slides for Python via Java")
-    properties.setTitle("Modifying Presentation Properties")
-    properties.setSubject("Aspose Subject")
-    properties.setComments("Aspose Description")
-    properties.setManager("Aspose Manager")
+    document_properties.setAuthor("Aspose.Slides for Python via Java")
+    document_properties.setTitle("Manage PowerPoint Presentation Properties")
+    document_properties.setSubject("Modify Built-in Properties")
+    document_properties.setComments("Aspose description")
+    document_properties.setManager("Aspose manager")
 
-    # Zapisz prezentację do pliku
-    presentation.save("DocProps.pptx", SaveFormat.Pptx)
+    presentation.save("DocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-Ten przykład zmienia wbudowane właściwości prezentacji, co można zobaczyć na poniższym zrzucie:
+## **Zarządzanie bazą hiperłączy**
 
-|**Wbudowane właściwości dokumentu po modyfikacji**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/zz1N9de.jpg)|
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getHyperlinkBase) zwraca bazę na poziomie dokumentu dla względnych hiperłącz. Użyj [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#setHyperlinkBase), aby ją zmienić lub wyczyścić. Jest to przydatne przy przenoszeniu prezentacji i powiązanych plików w inne miejsce. Nie ma to wpływu na indywidualny adres hiperłącza uzyskiwany przez [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/python-java/aspose.slides/hyperlink/#getExternalUrl): zmiana bazy nie przepisuje zapisanych adresów linków ani nie zmienia ich bezwzględnych docelowych lokalizacji.
 
-## **Dodawanie własnych właściwości dokumentu**
+Przykład wymaga prezentacji zawierającej zarówno względny link, np. `target.html`, jak i bezwzględny link, np. `https://example.org/absolute.html`. Odczytuje istniejącą bazę, nadaje nowy adres bazy, zapisuje i ponownie otwiera prezentację w celu sprawdzenia wartości. Następnie czyści bazę, ustawiając pusty ciąg znaków, i weryfikuje pustą wartość w osobnym zapisanym pliku. Zamień przykładowy adres bazy na lokalizację swoich powiązanych plików.
 
-Aspose.Slides dla Pythona poprzez Java umożliwia również programistom dodawanie własnych właściwości dokumentu do prezentacji. Poniższy przykład dodaje trzy własne właściwości, następnie odczytuje nazwę przechowywaną pod indeksem 2 i usuwa tę właściwość, tak że zapisana prezentacja zachowuje dwie z nich. Własne właściwości są indeksowane w kolejności alfabetycznej, a nie w kolejności ich dodania.
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, SaveFormat
+
+presentation = Presentation("hyperlinks.pptx")
+try:
+    print("Original base:", presentation.getDocumentProperties().getHyperlinkBase())
+
+    new_base = "https://example.com/new/"
+    presentation.getDocumentProperties().setHyperlinkBase(new_base)
+    presentation.save("hyperlinks-updated.pptx", SaveFormat.Pptx)
+
+    updated_presentation = Presentation("hyperlinks-updated.pptx")
+    try:
+        print("Base preserved:", new_base == updated_presentation.getDocumentProperties().getHyperlinkBase())
+
+        updated_presentation.getDocumentProperties().setHyperlinkBase("")
+        updated_presentation.save("hyperlinks-cleared.pptx", SaveFormat.Pptx)
+
+        cleared_presentation = Presentation("hyperlinks-cleared.pptx")
+        try:
+            print("Base cleared:", "" == cleared_presentation.getDocumentProperties().getHyperlinkBase())
+        finally:
+            cleared_presentation.dispose()
+    finally:
+        updated_presentation.dispose()
+finally:
+    presentation.dispose()
+```
+
+Oba komunikaty weryfikacyjne powinny wypisać `True`. Czyszczenie bazy pozostawia niezmienione indywidualne adresy hiperłączy.
+
+Względny link do `target.pptx` otwierał `old/target.pptx`, gdy baza wskazywała na folder `old`. Po zmianie bazy na folder `new`, zapisaniu i ponownym otwarciu prezentacji, ten sam link otworzył `new/target.pptx`. Bezpośredni link nadal otwierał ten sam plik. Przetestuj swoje względne linki w PowerPoint przed i po przeniesieniu prezentacji lub zmianie jej bazy.
+
+## **Dodawanie niestandardowych właściwości prezentacji**
+
+Niestandardowe właściwości przechowują metadane, które nie mają odpowiadającego im pola wbudowanego. Metoda [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item) pozwala przypisać wartość według nazwy właściwości. Ten przykład tworzy prezentację, dodaje dwie wartości tekstowe oraz wartość wersji całkowitej (używając `jpype.JInt` do przekazania liczby całkowitej Java) i zapisuje prezentację przy użyciu [Presentation.save](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#save). Przypisanie wartości do istniejącej nazwy zastępuje poprzednią wartość tej właściwości.
 
 ```python
 import jpype
@@ -235,33 +259,20 @@ from asposeslides.api import Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Pobieranie właściwości dokumentu
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Dodawanie własnych właściwości
-    properties.set_Item("New Custom", jpype.JInt(12))
-    properties.set_Item("My Name", "Mudassir")
-    properties.set_Item("Custom", jpype.JInt(124))
+    document_properties.set_Item("Reviewed by", "John Smith")
+    document_properties.set_Item("Confidentiality level", "Internal")
+    document_properties.set_Item("Document version", jpype.JInt(2))
 
-    # Pobieranie nazwy właściwości pod określonym indeksem
-    property_name = properties.getCustomPropertyName(2)
-
-    # Usuwanie wybranej właściwości
-    properties.removeCustomProperty(property_name)
-
-    # Zapisywanie prezentacji
-    presentation.save("CustomDemo.pptx", SaveFormat.Pptx)
+    presentation.save("CustomDocumentProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-|**Dodane własne właściwości dokumentu**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/HdKcxI9.png)|
+## **Dostęp i modyfikacja niestandardowych właściwości**
 
-## **Dostęp i modyfikacja własnych właściwości**
-
-Aspose.Slides dla Pythona poprzez Java umożliwia również programistom dostęp do wartości własnych właściwości. Poniższy przykład pokazuje, jak odczytać i zmodyfikować wszystkie własne właściwości w prezentacji.
+Ten przykład otwiera prezentację zawierającą niestandardowe właściwości i używa [getCountOfCustomProperties](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCountOfCustomProperties) do iteracji po nich. [getCustomPropertyName](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#getCustomPropertyName) przyjmuje indeks zerowy i zwraca nazwę używaną przez [DocumentProperties.set_Item](https://reference.aspose.com/slides/python-java/aspose.slides/documentproperties/#set_Item). Przykład wypisuje każdą oryginalną nazwę i wartość, zamienia każdą wartość na numerowany ciąg znaków niezależnie od pierwotnego typu i zapisuje zmiany. Jeśli nie ma niestandardowych właściwości, pętla nie wprowadza żadnych zmian.
 
 ```python
 import jpype
@@ -270,237 +281,50 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import Presentation, SaveFormat, DocumentProperties
+from asposeslides.api import Presentation, SaveFormat
 
-presentation = Presentation("Presentation.pptx")
+presentation = Presentation("AccessAndModifyProperties.pptx")
 try:
-    # Utwórz odniesienie do obiektu DocumentProperties powiązanego z prezentacją
-    properties = presentation.getDocumentProperties()
+    document_properties = presentation.getDocumentProperties()
 
-    # Uzyskaj dostęp i zmodyfikuj własne właściwości
-    for i in range(properties.getCountOfCustomProperties()):
-        property_name = properties.getCustomPropertyName(i)
-        # Wyświetl nazwy i wartości własnych właściwości
-        print("Custom Property Name : ", property_name)
-        print("Custom Property Value : ", properties.get_Item(property_name))
+    for i in range(document_properties.getCountOfCustomProperties()):
+        property_name = document_properties.getCustomPropertyName(i)
+        property_value = document_properties.get_Item(property_name)
 
-        # Zmodyfikuj wartości własnych właściwości
-        properties.set_Item(property_name, f"New Value {i + 1}")
+        print("Custom property name:", property_name)
+        print("Custom property value:", property_value)
 
-    # Zapisz prezentację do pliku
-    presentation.save("CustomDemoModified.pptx", SaveFormat.Pptx)
-finally:
-    presentation.dispose()
-```
+        document_properties.set_Item(property_name, f"New Value {i + 1}")
 
-Przykład modyfikuje własne właściwości prezentacji [PPTX](https://docs.fileformat.com/presentation/pptx/). Poniższe ilustracje przedstawiają własne właściwości prezentacji przed i po modyfikacji:
-
-|**Własne właściwości przed modyfikacją**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/Ze7YHvi.jpg)|
-
-|**Własne właściwości po modyfikacji**|
-| :- |
-|![PowerPoint document properties](https://i.imgur.com/Tofu0CL.jpg)|
-
-## **Zaawansowane właściwości dokumentu**
-
-{{% alert color="info" title="Note" %}}
-Do klasy [PresentationInfo](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/) dodano nowe metody [readDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#readDocumentProperties), [updateDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) oraz [writeBindedPresentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#writeBindedPresentation), a zachowanie metody [DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/pl/python-java/aspose.slides/documentproperties/#setLastSavedTime) uległo zmianie.
-{{% /alert %}}
-
-Dwie nowe metody [readDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#readDocumentProperties) i [updateDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#updateDocumentProperties) zostały dodane do klasy [PresentationInfo](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/). Umożliwiają one szybki dostęp do właściwości dokumentu oraz ich zmianę i aktualizację bez ładowania całej prezentacji.
-
-Typowy przepływ pracy polegający na ładowaniu właściwości, zmianie ich wartości i aktualizacji dokumentu można zaimplementować w następujący sposób:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-# Odczytaj informacje o prezentacji
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("presentation.pptx")
-
-# Pobierz bieżące właściwości
-properties = presentation_info.readDocumentProperties()
-
-# Ustaw nowe wartości pól Autor i Tytuł
-properties.setAuthor("New Author")
-properties.setTitle("New Title")
-
-# Zaktualizuj prezentację nowymi wartościami
-presentation_info.updateDocumentProperties(properties)
-presentation_info.writeBindedPresentation("presentation.pptx")
-```
-
-Istnieje inny sposób użycia właściwości konkretnej prezentacji jako szablonu do aktualizacji właściwości w innych prezentacjach:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-presentation_info = PresentationFactory.getInstance().getPresentationInfo("template.pptx")
-template = presentation_info.readDocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory
-
-def update_by_template(path, template):
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-Nowy szablon można utworzyć od podstaw, a następnie używać go do aktualizacji wielu prezentacji:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import PresentationFactory, DocumentProperties
-
-template = DocumentProperties()
-
-template.setAuthor("Template Author")
-template.setTitle("Template Title")
-template.setCategory("Template Category")
-template.setKeywords("Keyword1, Keyword2, Keyword3")
-template.setCompany("Our Company")
-template.setComments("Created from template")
-template.setContentType("Template Content")
-template.setSubject("Template Subject")
-
-for path in ["doc1.pptx", "doc2.odp", "doc3.ppt"]:
-    presentation_to_update = PresentationFactory.getInstance().getPresentationInfo(path)
-    presentation_to_update.updateDocumentProperties(template)
-    presentation_to_update.writeBindedPresentation(path)
-```
-
-## **Ustawienie języka korekty**
-
-Aspose.Slides udostępnia metodę [PortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/python-java/aspose.slides/portionformat/#setLanguageId), która pozwala ustawić język korekty dla dokumentu PowerPoint. Język korekty to język, dla którego w prezentacji sprawdzane są ortografia i gramatyka.
-
-Ten kod w Pythonie pokazuje, jak ustawić język korekty dla PowerPointa:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, Portion, FontData
-
-pptx_file_name = "presentation.pptx"
-
-presentation = Presentation(pptx_file_name)
-try:
-    auto_shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
-    paragraph.getPortions().clear()
-
-    new_portion = Portion()
-
-    font = FontData("SimSun")
-    portion_format = new_portion.getPortionFormat()
-    portion_format.setComplexScriptFont(font)
-    portion_format.setEastAsianFont(font)
-    portion_format.setLatinFont(font)
-
-    portion_format.setLanguageId("zh-CN") # ustaw identyfikator języka korekty
-
-    new_portion.setText("1。")
-    paragraph.getPortions().add(new_portion)
-finally:
-    presentation.dispose()
-```
-
-## **Ustawienie domyślnego języka**
-
-Ten kod w Pythonie pokazuje, jak ustawić domyślny język dla całej prezentacji PowerPoint:
-
-```python
-import jpype
-import asposeslides
-
-if not jpype.isJVMStarted():
-    jpype.startJVM()
-
-from asposeslides.api import Presentation, LoadOptions, ShapeType
-
-load_options = LoadOptions()
-load_options.setDefaultTextLanguage("en-US")
-
-presentation = Presentation(load_options)
-try:
-    # Dodaje prostokątny kształt z tekstem
-    shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 50)
-    shape.getTextFrame().setText("New Text")
-
-    # Sprawdza język pierwszej części
-    print(shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId())
+    presentation.save("CustomProperties_output.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
 ## **Przykład na żywo**
 
-Wypróbuj aplikację online [**Aspose.Slides Metadata**](https://products.aspose.app/slides/pl/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
+Wypróbuj aplikację online [**View & Edit PowerPoint Metadata**](https://products.aspose.app/slides/metadata), aby zobaczyć, jak pracować z właściwościami dokumentu przy użyciu API Aspose.Slides:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/pl/metadata)
+[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **FAQ**
 
 **Jak mogę usunąć wbudowaną właściwość z prezentacji?**
 
-Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je na pustą wartość, o ile dana właściwość na to pozwala.
+Wbudowane właściwości są integralną częścią prezentacji i nie mogą być całkowicie usunięte. Można jednak zmienić ich wartości lub ustawić je jako pustą, jeśli dana właściwość na to pozwala.
 
-**Co się stanie, jeśli dodam własną właściwość, która już istnieje?**
+**Co się stanie, jeśli dodam niestandardową właściwość, która już istnieje?**
 
-Jeśli dodasz własną właściwość, która już istnieje, jej dotychczasowa wartość zostanie nadpisana nową. Nie musisz najpierw usuwać ani sprawdzać tej właściwości, ponieważ Aspose.Slides automatycznie aktualizuje jej wartość.
+Jeśli dodasz niestandardową właściwość, która już istnieje, jej istniejąca wartość zostanie nadpisana nową. Nie musisz usuwać ani sprawdzać właściwości wcześniej, ponieważ Aspose.Slides automatycznie aktualizuje wartość właściwości.
 
-**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego ładowania prezentacji?**
+**Czy mogę uzyskać dostęp do właściwości prezentacji bez pełnego wczytywania prezentacji?**
 
-Tak. Użyj [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationfactory/#getPresentationInfo), a następnie [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentationinfo/#readDocumentProperties), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/pl/python-java/aspose.slides/presentation/). Zobacz sekcję [Build a Lightweight Presentation Inventory](/slides/pl/python-java/examine-presentation/) dla pełnego przykładu raportowania oraz ograniczeń zależnych od formatu.
+Tak. Użyj [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/python-java/aspose.slides/presentationfactory/#getPresentationInfo), a następnie [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/presentationinfo/#readDocumentProperties), aby odczytać zapisane metadane dokumentu bez tworzenia instancji [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/). Zobacz [Build a Lightweight Presentation Inventory](/slides/pl/python-java/examine-presentation/) po kompletny przykład raportowania i ograniczenia specyficzne dla formatów.
 
-**Czy mogę odczytać publiczne właściwości zaszyfrowanej prezentacji bez hasła otwierającego?**
+**Czy mogę odczytać publiczne właściwości zaszyfrowanej prezentacji bez jej hasła otwierającego?**
 
-Tak. Szyfrowanie właściwości dokumentu musiało być wyłączone przed zaszyfrowaniem prezentacji, a prezentacja musi być załadowana w trybie wyłącznie właściwości dokumentu.
+Tak. Prezentacja musi być zaszyfrowana po wywołaniu [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties) z `False`, a następnie załadowana po wywołaniu [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties) z `True`.
 
-**Czy mogę zaktualizować zaszyfrowany plik PPTX w trybie wyłącznie właściwości dokumentu?**
+**Czy mogę zaktualizować zaszyfrowany plik PPTX w trybie tylko właściwości dokumentu?**
 
 Nie. Publiczne i zaszyfrowane dane właściwości muszą pozostać spójne, więc aktualizacja zaszyfrowanego pliku PPTX wymaga pełnego załadowania prezentacji z prawidłowym hasłem otwierającym.

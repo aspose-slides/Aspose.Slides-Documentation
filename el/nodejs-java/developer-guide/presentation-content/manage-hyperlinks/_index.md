@@ -1,5 +1,5 @@
 ---
-title: Διαχειριστείτε τους Υπερσυνδέσμους Παρουσίασης σε JavaScript
+title: Διαχείριση Υπερσυνδέσμων Παρουσίασης σε JavaScript
 linktitle: Διαχείριση Υπερσυνδέσμων
 type: docs
 weight: 20
@@ -27,24 +27,26 @@ description: "Προσθέστε, μορφοποιήστε, ενημερώστε
 ---
 ## **Εισαγωγή**
 
-Ένας υπερσύνδεσμος συνδέει το περιεχόμενο μιας παρουσίασης με έναν ιστότοπο ή μια τοποθεσία μέσα στην παρουσίαση. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δύο σκοπούς:
+Ένας υπερσύνδεσμος συνδέει το περιεχόμενο μιας παρουσίασης με έναν ιστότοπο ή μια τοποθεσία εντός της παρουσίασης. Στο PowerPoint, οι υπερσύνδεσμοι συνήθως εξυπηρετούν δύο σκοπούς:
 
-* Ανοίξτε έναν ιστότοπο από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
-* Μεταβείτε σε άλλη διαφάνεια, για παράδειγμα από έναν πίνακα περιεχομένων.
+* Άνοιγμα ιστότοπου από κείμενο, σχήμα ή πλαίσιο πολυμέσων.
+* Πλοήγηση σε άλλη διαφάνεια, για παράδειγμα από έναν πίνακα περιεχομένων.
 
-Aspose.Slides for Node.js via Java σάς επιτρέπει να προσθέτετε αυτούς τους συνδέσμους, να ελέγχετε την εμφάνιση και τον ήχο τους, να ενημερώνετε τις ιδιότητές τους και να τους αφαιρείτε. Τα παραδείγματα παρακάτω δείχνουν πώς να δουλέψετε με υπερσυνδέσμους σε επιμέρους στοιχεία και πώς να προσπελάσετε υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
+Aspose.Slides for Node.js via Java επιτρέπει την προσθήκη αυτών των συνδέσμων, τον έλεγχο της εμφάνισης και του ήχου τους, την ενημέρωση των ιδιοτήτων τους και την αφαίρεσή τους. Τα παρακάτω παραδείγματα δείχνουν πώς να δουλέψετε με υπερσυνδέσμους σε μεμονωμένα στοιχεία και πώς να έχετε πρόσβαση σε υπερσυνδέσμους σε επίπεδο παρουσίασης, διαφάνειας ή πλαισίου κειμένου.
 
-{{% alert color="info" title="Note" %}}
-Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις με τον [δωρεάν διαδικτυακό επεξεργαστή Aspose PowerPoint](https://products.aspose.app/slides/el/editor).
+{{% alert color="info" title="Σημείωση" %}}
+Μπορείτε επίσης να επεξεργαστείτε παρουσιάσεις χρησιμοποιώντας το [δωρεάν διαδικτυακό πρόγραμμα επεξεργασίας Aspose PowerPoint](https://products.aspose.app/slides/editor).
 {{% /alert %}} 
 
 ## **Προσθήκη Υπερσυνδέσμων URL**
 
-Μπορείτε να αντιστοιχίσετε ένα URL ιστότοπου σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο αντιστοιχίζετε τον υπερσύνδεσμο καθορίζει την περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
+Μπορείτε να εκχωρήσετε ένα URL ιστότοπου σε κείμενο, σχήμα ή πλαίσιο πολυμέσων. Το στοιχείο στο οποίο εκχωρείτε τον υπερσύνδεσμο καθορίζει την περιοχή κλικ: ένα τμήμα κειμένου συνδέει το επιλεγμένο κείμενο, ενώ ένα σχήμα ή πλαίσιο συνδέει το αντικείμενο της διαφάνειας.
+
+Για παρουσιάσεις που περιέχουν σχετικούς υπερσυνδέσμους, δείτε [Διαχείριση της Βάσης Υπερσυνδέσμων](/slides/el/nodejs-java/presentation-properties/#manage-the-hyperlink-base) για ανάγνωση, τροποποίηση ή εκκαθάριση της βάσης σε επίπεδο εγγράφου.
 
 ### **Προσθήκη Υπερσυνδέσμων URL σε Κείμενο**
 
-Για να συνδέσετε κείμενο με έναν ιστότοπο, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ-αποδεκτό.
+Για να συνδέσετε κείμενο με έναν ιστότοπο, περάστε ένα [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) στη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PortionFormat#setHyperlinkClick) του τμήματος κειμένου, όπως φαίνεται παρακάτω. Μόνο αυτό το τμήμα κειμένου γίνεται κλικ-δυνατό.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,11 +68,11 @@ try {
 
 ### **Προσθήκη Υπερσυνδέσμων URL σε Σχήματα και Πλαίσια Πολυμέσων**
 
-Για να κάνετε ένα σχήμα ή πλαίσιο κλικ-αποδεκτό, καλέστε τη μέθοδο [setHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#setHyperlinkClick) του. Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε κάποιο τμήμα κειμένου μέσα σε αυτό.
+Για να κάνετε ένα σχήμα ή πλαίσιο κλικ-δυνατό, καλέστε τη μέθοδό του [setHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#setHyperlinkClick). Ο υπερσύνδεσμος ανήκει στο ίδιο το αντικείμενο και όχι σε τμήμα κειμένου μέσα σε αυτό.
 
-Το ίδιο ισχύει για πλαίσια εικόνας, ήχου και βίντεο: αντιστοιχίστε τον υπερσύνδεσμο στο πλαίσιο και καλέστε [setTooltip](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setTooltip) εάν χρειάζεται.
+Η ίδια προσέγγιση ισχύει για πλαίσια εικόνας, ήχου και βίντεο: εκχωρήστε τον υπερσύνδεσμο στο πλαίσιο και καλέστε το [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) εάν χρειάζεται.
 
-Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικ-αποδεκτό:
+Το παρακάτω παράδειγμα κάνει ένα ορθογώνιο κλικ-δυνατό:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -90,7 +92,7 @@ try {
 
 ## **Χρήση Υπερσυνδέσμων για Δημιουργία Πίνακα Περιεχομένων**
 
-Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να μεταβούν από έναν πίνακα περιεχομένων σε μια συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί τη μέθοδο [setInternalHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) για να συνδέσει το κείμενο “Page 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
+Οι εσωτερικοί υπερσύνδεσμοι επιτρέπουν στους αναγνώστες να περάσουν από έναν πίνακα περιεχομένων σε συγκεκριμένη διαφάνεια. Το παρακάτω παράδειγμα χρησιμοποιεί το [setInternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setInternalHyperlinkClick) για να συνδέσει το κείμενο “Σελίδα 2” στην πρώτη διαφάνεια με τη δεύτερη διαφάνεια.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -126,11 +128,11 @@ try {
 
 ## **Μορφοποίηση Υπερσυνδέσμων**
 
-### **Χρώμα**
+### **Color**
 
-Η μέθοδος [setColorSource](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setColorSource) του [Hyperlink](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink) καθορίζει αν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσύνδεσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkColorSource) και ορίστε το χρώμα γέμισης του τμήματος. Η δυνατότητα αυτή εισήχθηκε στο PowerPoint 2019· παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
+Η μέθοδος [setColorSource](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setColorSource) του [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) καθορίζει εάν ένας υπερσύνδεσμος χρησιμοποιεί το χρώμα υπερσυνδέσμου της παρουσίασης ή τη μορφοποίηση του τμήματος κειμένου. Για να εφαρμόσετε προσαρμοσμένο χρώμα κειμένου, επιλέξτε το [HyperlinkColorSource.PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkColorSource) και ορίστε το χρώμα γεμάσης του τμήματος. Η δυνατότητα αυτή εισήχθη στο PowerPoint 2019· παλαιότερες εκδόσεις δεν εφαρμόζουν αυτή τη ρύθμιση.
 
-Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο γέμισμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
+Το παρακάτω παράδειγμα προσθέτει δύο υπερσυνδέσμους κειμένου στην ίδια διαφάνεια. Ο πρώτος χρησιμοποιεί κόκκινο χρώμα κειμένου, ενώ ο δεύτερος διατηρεί το προεπιλεγμένο χρώμα υπερσυνδέσμου.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -155,16 +157,17 @@ try {
     presentation.dispose();
 }
 ```
-### **Ήχος**
 
-Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο κατά την ενεργοποίησή του ή να σταματήσει ήχο που ήδη παίζει. Χρησιμοποιήστε τις παρακάτω μεθόδους για να ρυθμίσετε αυτές τις συμπεριφορές:
+### **Sound**
 
-- [Hyperlink.setSound](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setSound) καθορίζει τον ήχο που συνδέεται με τον υπερσύνδεσμο.
-- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) ελέγχει αν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
+Ένας υπερσύνδεσμος μπορεί να αναπαράγει ήχο όταν ενεργοποιείται ή να σταματήσει ήχο που ήδη αναπαράγεται. Χρησιμοποιήστε τις ακόλουθες μεθόδους για να διαμορφώσετε αυτές τις συμπεριφορές:
 
-#### **Προσθήκη Ήχου σε Υπερσύνδεσμο**
+- [Hyperlink.setSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setSound) καθορίζει το ήχο που σχετίζεται με τον υπερσύνδεσμο.
+- [Hyperlink.setStopSoundOnClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setStopSoundOnClick) ελέγχει εάν η ενεργοποίηση του υπερσυνδέσμου σταματά τον προηγούμενο ήχο.
 
-Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συνδέει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί παίζει ο ήχος και μεταβαίνει στην επόμενη διαφάνεια. Ένα δεύτερο σχήμα στην ίδια διαφάνεια σταματά τον προηγούμενο ήχο όταν κλικάρεται, χωρίς να εκτελεί ενέργεια μετάβασης.
+#### **Add a Hyperlink Sound**
+
+Το παρακάτω παράδειγμα φορτώνει το `sampleaudio.wav` και το συσχετίζει με ένα κουμπί στην πρώτη διαφάνεια. Κάνοντας κλικ στο κουμπί αναπαράγεται ο ήχος και γίνεται πλοήγηση στη επόμενη διαφάνεια. Ένα δεύτερο σχήμα στην ίδια διαφάνεια σταματά τον προηγούμενο ήχο όταν κάνετε κλικ, χωρίς να εκτελεί ενέργεια πλοήγησης.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -203,9 +206,9 @@ try {
 }
 ```
 
-#### **Εξαγωγή Ήχου από Υπερσύνδεσμο**
+#### **Extract a Hyperlink Sound**
 
-Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο του πρώτου σχήματος μέσω των μεθόδων [getSound](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getSound) και [getBinaryData](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Audio#getBinaryData).
+Το παρακάτω παράδειγμα ανοίγει την παρουσίαση που δημιουργήθηκε παραπάνω και διαβάζει τον ήχο υπερσυνδέσμου του πρώτου σχήματος στη μνήμη μέσω των [getSound](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getSound) και [getBinaryData](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Audio#getBinaryData).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -229,18 +232,18 @@ try {
 }
 ```
 
-### **Tooltip και Ρυθμίσεις Αλληλεπίδρασης**
+### **Tooltip and Interaction Settings**
 
-Μπορείτε να καλέσετε τις παρακάτω μεθόδους του [Hyperlink](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink) μετά την εκχώρηση ενός υπερσυνδέσμου σε κείμενο ή σχήμα:
+Μπορείτε να καλέσετε τις ακόλουθες μεθόδους του [Hyperlink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink) μετά την εκχώρηση ενός υπερσυνδέσμου σε κείμενο ή σχήμα:
 
-- [setTooltip](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setTooltip) ορίζει το κείμενο που μπορεί να εμφανίσει ο θεατής ως υπόδειξη για το σύνδεσμο.
-- [setTargetFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) προσδιορίζει το πλαίσιο-στόχο μέσα σε ένα γονικό HTML frameset, όταν ισχύει.
-- [setHistory](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setHistory) ελέγχει αν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των προσανατολισμένων υπερσυνδέσμων.
-- [setHighlightClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) ελέγχει αν ο υπερσύνδεσμος επισημαίνεται όταν κλικαριστεί.
+- [setTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTooltip) ορίζει το κείμενο που μπορεί να εμφανίσει ένας θεατής ως υπόδειξη για τον σύνδεσμο.
+- [setTargetFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setTargetFrame) καθορίζει το πλαίσιο-στόχο μέσα σε ένα γονικό HTML frameset, όταν είναι εφαρμοστέο.
+- [setHistory](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHistory) ελέγχει εάν η ενεργοποίηση του συνδέσμου προσθέτει τον προορισμό του στη λίστα των προβληθέντων υπερσυνδέσμων.
+- [setHighlightClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#setHighlightClick) ελέγχει εάν ο υπερσύνδεσμος επισημαίνεται όταν γίνεται κλικ.
 
 ## **Αφαίρεση Υπερσυνδέσμων από Παρουσιάσεις**
 
-Χρησιμοποιήστε το [getAnyHyperlinks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) για να συλλέξετε τα κοντέινερ υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα αλλάξετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [removeHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) ή το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί το αντίστοιχο mouse‑over.
+Χρησιμοποιήστε το [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) για να συλλέξετε δοχεία υπερσυνδέσμων, συμπεριλαμβανομένων των συνδέσμων τμημάτων κειμένου, πριν τα τροποποιήσετε. Το παρακάτω παράδειγμα αφαιρεί και τους δύο τύπους ενεργοποίησης από την πρώτη διαφάνεια. Για να αφαιρέσετε μόνο έναν τύπο, καλέστε μόνο το [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) ή το [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver); η αφαίρεση μιας ενέργειας κλικ δεν αφαιρεί το αντίστοιχο mouse‑over.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,23 +269,23 @@ try {
 }
 ```
 
-Για απεριόριστη αφαίρεση, το [removeAllHyperlinks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) αφαιρεί και τους δύο τύπους ενεργοποίησης στο επιλεγμένο πεδίο με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των κυρίων, διατάξεων και σημειώσεων, δείτε το [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Για αμετάκλητη αφαίρεση, το [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks) αφαιρεί και τους δύο τύπους ενεργοποίησης στην επιλεγμένη εμβέλεια με μία κλήση. Για επιλεκτικό καθαρισμό και κάλυψη των master, layout και σημειώσεων, δείτε το [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
 
 ## **Δημιουργία Πλήρους Καταλόγου Υπερσυνδέσμων**
 
-Πριν διανείμετε μια παρουσίαση, καταγράψτε τις διαδραστικές ενέργειές της καθώς και τους συνδέσμους web. Το [getAnyHyperlinks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) επιστρέφει κοντέινερ υπερσυνδέσμων, όχι μια απλή λίστα URL. Εξετάστε τόσο το [getHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getHyperlinkClick) όσο και το [getHyperlinkMouseOver](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) σε κάθε κοντέινερ. Είναι ανεξάρτητα: το ίδιο κοντέινερ μπορεί να εκθέτει και τις δύο ενέργειες, έτσι ένας πλήρης αναφοράς χρειάζεται έως δύο γραμμές ανά κοντέινερ.
+Πριν τη διανομή μιας παρουσίασης, καταγράψτε τις διαδραστικές ενέργειές της καθώς και τους διαδικτυακούς της συνδέσμους. Το [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) επιστρέφει δοχεία υπερσυνδέσμων, όχι μια επίπεδη λίστα από συμβολοσειρές URL. Εξετάστε τόσο το [getHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkClick) όσο και το [getHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkMouseOver) σε κάθε δοχείο. Είναι ανεξάρτητα: το ίδιο δοχείο μπορεί να εκθέτει και τις δύο ενέργειες, ώστε μια πλήρης αναφορά χρειάζεται έως δύο γραμμές ανά δοχείο.
 
-Η σάρωση μόνο υπερσυνδέσμων σε επίπεδο σχήματος μπορεί να παραλείψει συνδέσμους που είναι προσαρτημένοι σε τμήματα κειμένου. Κάντε ερώτημα στο κατάλληλο πεδίο αντί αυτού και διατηρήστε τα επιστρεφόμενα κοντέινερ ώστε να μπορείτε αργότερα να τα ενημερώσετε ή να αφαιρέσετε τις ενέργειες τους.
+Η σάρωση μόνο των υπερσυνδέσμων σε επίπεδο σχήματος μπορεί να παραβλέψει συνδέσμους που είναι προσαρτημένοι σε τμήματα κειμένου. Αντ' αυτού, ερωτήστε την κατάλληλη εμβέλεια και διατηρήστε τα επιστρεφόμενα δοχεία ώστε να μπορείτε αργότερα να ενημερώσετε ή να αφαιρέσετε τις ενέργειές τους.
 
-### **Ερώτημα Πεδίων Παρουσίασης, Διαφάνειας και Πλαισίου Κειμένου**
+### **Query Presentation, Slide, and Text-Frame Scopes**
 
-Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries) είναι διαθέσιμη μέσω των μεθόδων [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) και [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Κάθε πεδίο υποστηρίζει τις ίδιες ερωτήσεις:
+Η κλάση [HyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries) είναι διαθέσιμη μέσω των [Presentation.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getHyperlinkQueries), [BaseSlide.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getHyperlinkQueries) και [TextFrame.getHyperlinkQueries](https://reference.aspose.com/slides/nodejs-java/aspose.slides/TextFrame#getHyperlinkQueries). Κάθε εμβέλεια υποστηρίζει τις ίδιες ερωτήσεις:
 
-- [getHyperlinkClicks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) επιστρέφει κοντέινερ με ενέργεια κλικ.
-- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) επιστρέφει κοντέινερ με ενέργεια mouse‑over.
-- [getAnyHyperlinks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) επιστρέφει κοντέινερ με οποιαδήποτε από τις δύο ενέργειες.
+- [getHyperlinkClicks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkClicks) επιστρέφει δοχεία με ενέργεια κλικ.
+- [getHyperlinkMouseOvers](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getHyperlinkMouseOvers) επιστρέφει δοχεία με ενέργεια mouse‑over.
+- [getAnyHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#getAnyHyperlinks) επιστρέφει δοχεία με μία ή και τις δύο ενέργειες.
 
-Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με έναν εξωτερικό σύνδεσμο κλικ, έναν σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, σύνδεσμο κειμένου mouse‑over και μια ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ερωτήσεις λειτουργούν σε κάθε πεδίο· οι μετρήσεις περιγράφουν κοντέινερ, όχι συνολικό αριθμό ενεργειών. Το πεδίο πλαισίου κειμένου εξαιρεί τους δικούς του συνδέσμους σχήματος.
+Το παρακάτω παράδειγμα δημιουργεί το `hyperlink-audit-input.pptx` με έναν εξωτερικό σύνδεσμο κλικ, έναν σύνδεσμο αρχείου mouse‑over, εσωτερική πλοήγηση διαφάνειας, έναν σύνδεσμο κειμένου mouse‑over και μια ενέργεια μακροεντολής. Δεν εκτελεί καμία από αυτές τις ενέργειες. Οι τρεις ίδιες ερωτήσεις λειτουργούν σε κάθε εμβέλεια· οι μετρήσεις περιγράφουν δοχεία, όχι συνολικές ενέργειες. Η εμβέλεια πλαισίου κειμένου εξαιρεί τους δικούς του συνδέσμους του περιβάλλοντος σχήματος.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -319,37 +322,37 @@ try {
 }
 ```
 
-Σε αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας επιστρέφουν τρία κοντέινερ κλικ, δύο κοντέινερ mouse‑over και τρία κοντέινερ με οποιαδήποτε από τις δύο ενέργειες. Η ερώτηση πλαισίου κειμένου επιστρέφει ένα κοντέινερ σε κάθε κατηγορία.
+Για αυτό το παράδειγμα, οι ερωτήσεις παρουσίασης και διαφάνειας αναφέρουν τρία δοχεία κλικ, δύο δοχεία mouse‑over και τρία δοχεία με μία ή και τις δύο ενέργειες. Η ερώτηση πλαισίου κειμένου αναφέρει ένα δοχείο σε κάθε κατηγορία.
 
-### **Κατηγοριοποίηση Ενεργειών και Προορισμών**
+### **Classify Actions and Destinations**
 
-Χρησιμοποιήστε το [Hyperlink.getActionType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getActionType) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkActionType) καλύπτουν περισσότερα από την πλοήγηση ιστού:
+Χρησιμοποιήστε το [Hyperlink.getActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getActionType) για να ερμηνεύσετε μια ενέργεια πριν ερμηνεύσετε τον προορισμό της. Οι τιμές του [HyperlinkActionType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkActionType) καλύπτουν περισσότερα από την περιήγηση στον ιστό:
 
-| Τιμές | Σημασία για έλεγχο |
+| Values | Meaning for an audit |
 | --- | --- |
 | `Hyperlink` | Εξωτερικός υπερσύνδεσμος· ελέγξτε το URL και το σχήμα του. |
 | `JumpSpecificSlide` | Εσωτερική πλοήγηση σε συγκεκριμένη διαφάνεια. |
-| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση παρουσίασης, επιλύεται στο πλαίσιο παρουσίασης. |
-| `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός τρέχουσας παρουσίασης ή έναρξη προσαρμοσμένης παρουσίασης. |
+| `JumpFirstSlide`, `JumpPreviousSlide`, `JumpNextSlide`, `JumpLastSlide`, `JumpLastViewedSlide` | Ενσωματωμένη πλοήγηση της παρουσίασης, επιλύεται στο πλαίσιο της παρουσίασης. |
+| `JumpEndShow`, `StartCustomSlideShow` | Τερματισμός της τρέχουσας παρουσίασης ή εκκίνηση προσαρμοσμένης παρουσίασης. |
 | `StartMacro` | Εκτέλεση μακροεντολής. |
 | `StartProgram` | Εκκίνηση προγράμματος. |
-| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· εξετάστε ξεχωριστά από τα URL ιστού. |
+| `OpenFile`, `OpenPresentation` | Άνοιγμα αρχείου ή άλλης παρουσίασης· ελέγξτε χωριστά από τα URL του ιστού. |
 | `StartStopMedia` | Έναρξη ή διακοπή αναπαραγωγής πολυμέσων. |
-| `NoAction`, `Unknown` | Καμμία ενέργεια πλοήγησης ή μη αναγνωρίσιμη ενέργεια που απαιτεί έλεγχο. |
+| `NoAction`, `Unknown` | Χωρίς ενέργεια πλοήγησης ή μη αναγνωρισμένη ενέργεια που απαιτεί έλεγχο. |
 
-Διαβάστε εξωτερικούς προορισμούς από το [getExternalUrl](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) και συγκεκριμένους εσωτερικούς προορισμούς από το [getTargetSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές μπορεί να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το κοντέινερ δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφεται από το [getExternalUrlOriginal](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε το tooltip που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Hyperlink#getTooltip) εφόσον είναι διαθέσιμο.
+Αναγνώστε εξωτερικούς προορισμούς μέσω του [getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) και συγκεκριμένους εσωτερικούς προορισμούς μέσω του [getTargetSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTargetSlide). Οι εσωτερικές ενέργειες και οι ενσωματωμένες εντολές ενδέχεται να μην έχουν εξωτερικό URL· ένα κενό URL δεν σημαίνει ότι το δοχείο δεν έχει ενέργεια. Διατηρήστε την τιμή που επιστρέφει το [getExternalUrlOriginal](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrlOriginal) όταν διαφέρει από το κανονικοποιημένο URL, και συμπεριλάβετε τη συμβουλή εργαλείου που επιστρέφει το [getTooltip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getTooltip) όταν είναι διαθέσιμη.
 
-### **Αναφορά, Καθαρισμός και Έλεγχος Υπερσυνδέσμων**
+### **Report, Sanitize, and Verify Hyperlinks**
 
-Το παρακάτω παράδειγμα JavaScript διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει ξανά και τις δύο ενέργειες ενεργοποίησης. Συλλέγει τα κοντέινερ πριν τα αλλάξει και χρησιμοποιεί ισότητα αναφοράς για να αποφύγει την επεξεργασία του ίδιου κοντέινερ δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις κανονικές διαφάνειες· για πλήρη απογραφή σε όλο το πακέτο, ερωτούν επίσης ρητά τους κυρίους, τις διατάξεις, τις σημειώσεις και τους κύριους σημειώσεων/χαιρετισμού όταν υπάρχουν.
+Το παρακάτω παράδειγμα JavaScript διαβάζει μια υπάρχουσα παρουσίαση (χρησιμοποιήστε το αρχείο που δημιουργήθηκε παραπάνω), γράφει το `hyperlink-audit.json`, εφαρμόζει μια πολιτική, αποθηκεύει το `hyperlink-sanitized.pptx` και το ανοίγει ξανά για να ελέγξει και τις δύο τύποι ενεργοποίησης. Συλλέγει τα δοχεία πριν τα τροποποιήσει και χρησιμοποιεί ισότητα αναφοράς για να αποτρέψει την επεξεργασία του ίδιου δοχείου δύο φορές. Οι ερωτήσεις παρουσίασης καλύπτουν τις συνηθισμένες διαφάνειες· για έναν συνολικό κατάλογο πακέτου, ερωτά ρητά και τα master, τα layout, τις σημειώσεις και τα master σημειώσεων και φυλλαδίων όταν υπάρχουν.
 
-Η αναφορά καταγράφει τον δείκτη διαφάνειας με βάση το 1 και το [getSlideId](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/BaseSlide#getSlideId) όπου είναι διαθέσιμο. Το [getSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getSlide) παρέχει τη διαφάνεια‑ιδιοκτήτη για τα υποστηριζόμενα κοντέινερ. Οι κύριοι, οι διατάξεις και οι σημειώσεις δεν έχουν συνηθισμένο δείκτη διαφάνειας και ταυτοποιούνται από το πεδίο τους. Τα κοντέινερ σχήματος και τα κοντέινερ μορφοποίησης τμημάτων κειμένου ετικετοποιούνται ξεχωριστά· άλλοι τύποι κοντέινερ διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε κοντέινερ λαμβάνει τοπικό ID αναφοράς ώστε οι δύο του ενέργειες να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους ενεργειών ως ακέραιους σταθερούς που ορίζονται από την απαρίθμηση HyperlinkActionType.
+Η αναφορά καταγράφει έναν δείκτη διαφάνειας αρχής από το 1 και το [getSlideId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/BaseSlide#getSlideId) όπου είναι διαθέσιμο. Το [getSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getSlide) παρέχει τη διαφάνεια‑κάτοχο για τα υποστηριζόμενα δοχεία. Τα master, τα layout και οι σημειώσεις δεν έχουν κανονικό δείκτη διαφάνειας και ταυτοποιούνται με την εμβέλειά τους. Τα δοχεία σχήματος και τα δοχεία μορφοποίησης τμημάτων κειμένου επισημαίνονται ξεχωριστά· άλλοι τύποι δοχείων διατηρούν το όνομα τύπου χρόνου εκτέλεσης. Κάθε δοχείο λαμβάνει ένα αναφορικό ID ώστε οι δύο ενέργειές του να συσχετιστούν. Η αναφορά αποθηκεύει τους τύπους ενεργειών ως ακέραιες σταθερές που ορίζει η αρίθμηση HyperlinkActionType.
 
-Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URL και έγκυρους εσωτερικούς προορισμούς διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι μια τελική αξιολόγηση ασφαλείας του Aspose.Slides. Το μόνο HTTPS δεν εγγυάται εμπιστοσύνη: προσθέστε λιστές επιτρεπόμενων κεντρικών υπολογιστών και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URL. Το παράδειγμα ελέγχει μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
+Αυτή η σκόπιμα περιοριστική πολιτική εφαρμογής επιτρέπει μόνο απόλυτα HTTPS URL και έγκυρους εσωτερικούς στόχους διαφάνειας. Απορρίπτει μακροεντολές, προγράμματα, ενέργειες αρχείων, άλλες ενέργειες παρουσίασης, άγνωστες ενέργειες και άλλα σχήματα URL. Αυτές οι απορρίψεις είναι αποφάσεις πολιτικής, όχι δικαστική απόφαση για την ασφάλεια του Aspose.Slides. Το HTTPS από μόνο του δεν εγγυάται την εμπιστοσύνη: προσθέστε λίστες επιτρεπόμενων κεντρικών υπολογιστών και άλλους ελέγχους για την εφαρμογή σας. Ελέγχονται τόσο τα αρχικά όσο και τα κανονικοποιημένα εξωτερικά URL. Το παράδειγμα ελέγχει τα μεταδεδομένα χωρίς να ακολουθεί συνδέσμους ή να εκτελεί ενέργειες.
 
-Για αποκατάσταση, το [getHyperlinkManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Shape#getHyperlinkManager) του κοντέινερ υποστηρίζει τα [setExternalHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) και [removeHyperlinkMouseOver](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή σελίδα προορισμού HTTPS· οι άλλοι απαγορευμένοι κλικ και οι απαγορευμένες ενέργειες mouse‑over αφαιρούνται αυτόνομα. Ορίστε το `replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβιάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή σας πριν την ανάπτυξη.
+Για αποκατάσταση, ο [getHyperlinkManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Shape#getHyperlinkManager) του δοχείου υποστηρίζει τα [setExternalHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#setExternalHyperlinkClick), [removeHyperlinkClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkClick) και [removeHyperlinkMouseOver](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkManager#removeHyperlinkMouseOver). Εδώ, οι απαγορευμένοι εξωτερικοί σύνδεσμοι κλικ αντικαθίστανται με μια σταθερή σελίδα προορισμού HTTPS· άλλοι απαγορευμένοι κλικ και απαγορευμένες ενέργειες mouse‑over αφαιρούνται ανεξάρτητα. Ορίστε το `replaceExternalClicks` σε `false` για να αφαιρέσετε όλες τις παραβάσεις πολιτικής. Επιλέξτε μια σελίδα αντικατάστασης που ανήκει στην εφαρμογή πριν από την υλοποίηση.
 
-Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί συντηρητική πολιτική ελέγχου PDF: σημαίνει ενέργειες mouse‑over και οτιδήποτε άλλο εκτός από έναν εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως πιθανώς μη υποστηριζόμενο. Είναι μια υπόδειξη ελέγχου, όχι ένα τεστ δυνατότητας ή εγγύηση ότι οι μη σημασμένες συνδέσεις θα διατηρηθούν στην εξαγωγή. Οι υποστηριζόμενες εξαγωγές [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/) μπορεί να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και το πρόγραμμα προβολής. Τα raster [images](/slides/el/nodejs-java/convert-powerpoint-to-png/) και [video](/slides/el/nodejs-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαίνετε κάθε ενέργεια κατά τον έλεγχο για αυτές τις εξόδους.
+Η σημαία εξαγωγής της αναφοράς χρησιμοποιεί μια συντηρητική πολιτική ελέγχου PDF: σημαδεύει ενέργειες mouse‑over και οτιδήποτε άλλο εκτός από εξωτερικό σύνδεσμο ή συγκεκριμένο άλμα διαφάνειας ως πιθανώς μη υποστηριζόμενο. Είναι υπόδειξη ελέγχου, όχι δοκιμή δυνατότητας ή εγγύηση ότι οι μη σημαδεμένες συνδέσεις θα παραμείνουν μετά την εξαγωγή. Τα υποστηριζόμενα εξαγόμενα σε [PDF](/slides/el/nodejs-java/convert-powerpoint-to-pdf/) και [HTML](/slides/el/nodejs-java/convert-powerpoint-to-html/) μπορεί να διατηρήσουν υπερσυνδέσμους, ανάλογα με την ενέργεια, τις επιλογές εξαγωγής και τον προορισμό. Τα raster [images](/slides/el/nodejs-java/convert-powerpoint-to-png/) και [video](/slides/el/nodejs-java/convert-powerpoint-to-video/) δεν μπορούν να διατηρήσουν διαδραστικούς υπερσυνδέσμους· σημαδέψτε κάθε ενέργεια όταν ελέγχετε για αυτές τις εξόδους.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -497,20 +500,20 @@ try {
 }
 ```
 
-Με το παραπάνω εισαγόμενο αρχείο, η αναφορά περιέχει πέντε γραμμές ενεργειών. Ο σύνδεσμος αρχείου mouse‑over και το κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφανειών παραμένουν. Η επαλήθευση εκτυπώνει μηδενικές απαγορευμένες ενέργειες. Ένα εισαγόμενο αρχείο με απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλάδο αντικατάστασης. Ένα κοντέινερ με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί το κλικ του.
+Με το παραπάνω εισαγόμενο αρχείο, η αναφορά περιέχει πέντε γραμμές ενεργειών. Ο σύνδεσμος αρχείου mouse‑over και ο κλικ μακροεντολής αφαιρούνται, ενώ οι HTTPS σύνδεσμοι και η εσωτερική πλοήγηση διαφάνειας παραμένουν. Η επαλήθευση εμφανίζει μηδέν απαγορευμένες ενέργειες. Ένα εισαγόμενο αρχείο που περιέχει απαγορευμένο εξωτερικό URL κλικ επίσης ενεργοποιεί το κλαδί αντικατάστασης. Ένα δοχείο με επιτρεπόμενο κλικ και απαγορευμένο mouse‑over διατηρεί την ενέργεια κλικ του.
 
-Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), το οποίο αφαιρεί και τις δύο ενέργειες σε όλο το επιλεγμένο πεδίο ανεξάρτητα από την πολιτική. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα VBA projects, OLE objects ή άλλο ενεργό περιεχόμενο, και δεν επικυρώνει εξαγόμενο αρχείο PDF ή HTML.
+Αυτός ο επιλεκτικός καθαρισμός διαφέρει από το [removeAllHyperlinks](https://reference.aspose.com/slides/nodejs-java/aspose.slides/HyperlinkQueries#removeAllHyperlinks), το οποίο αφαιρεί και τους δύο τύπους ενεργοποίησης σε όλη την επιλεγμένη εμβέλεια ανεξαρτήτως πολιτικής. Η επαλήθευση εδώ ελέγχει μόνο τις ενέργειες των υπερσυνδέσμων· δεν αφαιρεί ενσωματωμένα έργα VBA, αντικείμενα OLE ή άλλο ενεργό περιεχόμενο και δεν επικυρώνει ένα εξαγόμενο αρχείο PDF ή HTML.
 
 ## **Συχνές Ερωτήσεις**
 
-**Πώς μπορώ να συνδέσω σε μια ενότητα ή στην πρώτη διαφάνειά της;**
+**Πώς μπορώ να δημιουργήσω σύνδεσμο σε ενότητα ή στην πρώτη της διαφάνεια;**
 
-Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε ενότητα, συνδέστε την πρώτη διαφάνεια της ενότητας.
+Οι ενότητες στο PowerPoint ομαδοποιούν διαφάνειες, αλλά ένας εσωτερικός υπερσύνδεσμος στοχεύει σε μια μεμονωμένη διαφάνεια. Για να δημιουργήσετε πλοήγηση σε μια ενότητα, συνδέστε την πρώτη διαφάνεια της ενότητας.
 
-**Μπορώ να προσθέσω υπερσύνδεσμο σε στοιχεία κύριου (master) διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
+**Μπορώ να προσθέσω έναν υπερσύνδεσμο σε στοιχεία master διαφάνειας ώστε να λειτουργεί σε όλες τις διαφάνειες;**
 
-Ναι. Τα στοιχεία του κύριου (master) διαφάνειας και των διατάξεων υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά το slideshow στις διαφάνειες που χρησιμοποιούν τον αντίστοιχο κύριο ή διάταξη.
+Ναι. Τα στοιχεία του master slide και των layout υποστηρίζουν υπερσυνδέσμους. Οι σύνδεσμοι σε αυτά τα στοιχεία είναι διαθέσιμοι κατά τη διάρκεια της παρουσίασης στις διαφάνειες που χρησιμοποιούν το αντίστοιχο master ή layout.
 
 **Θα διατηρηθούν οι υπερσύνδεσμοι κατά την εξαγωγή σε PDF, HTML, εικόνες ή βίντεο;**
 
-Οι υποστηριζόμενες εξαγωγές PDF και HTML μπορεί να διατηρήσουν τους υπερσυνδέσμους· οι raster εικόνες και το βίντεο δεν μπορούν. Δείτε τις παρατηρήσεις εξαγωγής στο [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).
+Οι εξαγωγές PDF και HTML ενδέχεται να διατηρήσουν τους υπερσυνδέσμους· οι raster εικόνες και το βίντεο δεν μπορούν. Δείτε τις επι considerations εξαγωγής στο [Report, Sanitize, and Verify Hyperlinks](#report-sanitize-and-verify-hyperlinks).

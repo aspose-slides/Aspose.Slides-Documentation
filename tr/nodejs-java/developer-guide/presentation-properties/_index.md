@@ -1,6 +1,6 @@
 ---
-title: JavaScript'te Sunum Özelliklerini Yönetme
-linktitle: Sunum Özellikleri
+title: "JavaScript'te Sunum Özelliklerini Yönet"
+linktitle: "Sunum Özellikleri"
 type: docs
 weight: 70
 url: /tr/nodejs-java/presentation-properties/
@@ -23,58 +23,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, marka oluşturmayı ve iş akışını kolaylaştırın."
+description: "Aspose.Slides for Node.js via Java'da sunum özelliklerini yönetin ve PowerPoint ve OpenDocument dosyalarınızda aramayı, markalamayı ve iş akışını kolaylaştırın."
 ---
 ## **Giriş**
 
-Aspose.Slides iki tür belge özelliğini destekler: **Yerleşik** ve **Özel**. Bu özellik türlerine Aspose.Slides API'si ile kolayca erişebilir ve yönetebilirsiniz.
+Aspose.Slides for Node.js via Java **yerleşik** ve **özel** belge özelliklerini destekler. Bu özellikleri yazar, başlık ve kullanıcı tanımlı değerler gibi sunum meta verilerini okumak ve güncellemek için kullanın.
 
-Aspose.Slides, sunum belge özellikleriyle **[DocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/documentproperties/)** sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği **[Presentation.getDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getDocumentProperties)** yöntemiyle döndürülür. Aşağıdaki örnekler, bu özelliklerin nasıl okunacağını, değiştirileceğini ve yönetileceğini gösterir.
+Aspose.Slides, sunum belge özellikleriyle [DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) sınıfı aracılığıyla çalışmanıza olanak tanır. Bu sınıfın bir örneği [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) tarafından döndürülür. Aşağıdaki örnekler bu özellikleri nasıl okuyacağınızı, değiştireceğinizi ve yöneteceğinizi gösterir.
 
-{{% alert color="info" title="Not" %}}
+{{% alert color="info" title="Note" %}}
+Aspose.Slides, sunumları kaydederken uygulama ve üretici meta verilerini yönetir; bu alanlar çıktıyı oluşturan yazılımı tanımlar.
+{{% /alert %}}
 
-**Application** ve **AppVersion** alanlarının değiştirilemeyeceğini unutmayın. Aspose.Slides her kaydetmede bu alanları yeniden yazar; bu nedenle kaydedilen bir sunum her zaman “Aspose.Slides for Node.js via Java” ve onu oluşturan kütüphanenin sürümünü rapor eder. `setNameOfApplication` yöntemine geçirilen değer, sunum yazılırken atılır.
+## **Sunum Özelliklerini Yönet**
 
-{{% /alert %}} 
+Belge özellikleri, sunum içeriğiyle birlikte tanımlayıcı bilgiler depolar. İki kategoriye ayrılırlar:
 
-## **Sunum Özelliklerini Yönetme**
+- **Yerleşik özellikler** başlık, yazar ve belge istatistikleri gibi standart meta verileri içerir.
+- **Özel özellikler** kullanıcı tanımlı ad/değer çiftlerini depolar.
 
-Microsoft PowerPoint, sunum dosyalarına bazı özellikler ekleme özelliği sunar. Bu belge özellikleri, belgelerle (sunum dosyaları) birlikte faydalı bilgilerin saklanmasını sağlar. Aşağıdaki iki tür belge özelliği bulunur:
+Aspose.Slides for Node.js via Java, her iki kategoriye de erişim sağlar. PowerPoint'ta belge meta verilerini incelemek için **File → Info → Properties → Advanced Properties**'i seçin. İletişim kutusu bilgileri **Summary**, **Statistics**, **Contents** ve **Custom** gibi sekmelere gruplar. Kullanıcı tanımlı özellikleri yönetmek için **Custom** sekmesini kullanın.
 
-- Sistem Tanımlı (Yerleşik) Özellikler
-- Kullanıcı Tanımlı (Özel) Özellikler
+## **Şifrelenmiş Bir Sunumdan Genel Özellikleri Okuma**
 
-**Yerleşik** özellikler, belge başlığı, yazar adı, belge istatistikleri gibi genel bilgileri içerir. **Özel** özellikler ise kullanıcılar tarafından **Ad/Değer** çifti şeklinde tanımlanan, hem adın hem de değerin kullanıcı tarafından belirlendiği özelliklerdir. Aspose.Slides for Node.js via Java kullanılarak, yerleşik ve özel özelliklerin değerlerine erişilip değiştirilebilir.
+Açma şifresi genellikle hem sunum içeriğini hem de belge özelliklerini korur. Bir sunum, [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) metodunu `false` ile çağırdıktan sonra şifrelenirse, belge özellikleri genel olarak kalır. Bir uygulama daha sonra [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) metodunu `true` ile çağırarak açma şifresini vermeden genel meta verileri okuyabilir.
 
-## **PowerPoint’te Belge Özellikleri**
+[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) Aspose.Slides'in neyi yükleyeceğini kontrol eder; hiçbir şeyi şifre çözmez. Özellikler şifreleme içine dahil edilmişse, şifre olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yoksayılır ve tam sunum yüklenir.
 
-Microsoft PowerPoint 2007, sunum dosyalarının belge özelliklerini yönetmeye izin verir. Tek yapmanız gereken Office simgesine tıklayıp **Prepare | Properties | Advanced Properties** menü öğesini seçmektir (aşağıda gösterildiği gibi):
-
-|**Gelişmiş Özellikler menüsü seçimi**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/ZrmuCD6.jpg)| |
-
-**Advanced Properties** menü öğesini seçtiğinizde, PowerPoint dosyasının belge özelliklerini yönetmenizi sağlayan bir iletişim kutusu açılır (aşağıdaki gibi):
-
-|**Özellikler İletişim Kutusu**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/LibmdQd.jpg)| |
-
-Yukarıdaki **Properties Dialog** içinde **General**, **Summary**, **Statistics**, **Contents** ve **Custom** gibi birçok sekme sayfası görebilirsiniz. Bu sekmeler, PowerPoint dosyalarıyla ilgili farklı bilgi türlerini yapılandırmaya olanak tanır. **Custom** sekmesi, PowerPoint dosyalarının özel özelliklerini yönetmek için kullanılır.
-
-### Aspose.Slides for Node.js via Java ile Belge Özellikleriyle Çalışma
-
-Daha önce belirttiğimiz gibi Aspose.Slides for Node.js via Java, **Yerleşik** ve **Özel** olmak üzere iki tür belge özelliğini destekler. Böylece geliştiriciler, Aspose.Slides for Node.js via Java API'sı ile her iki tür özelliğe de erişebilir. Aspose.Slides for Node.js via Java, sunum dosyasıyla ilişkili belge özelliklerini temsil eden **[DocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/documentproperties)** sınıfını **Presentation.DocumentProperties** özelliği aracılığıyla sunar.
-
-Geliştiriciler, **[Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation)** nesnesinin **DocumentProperties** özelliğini kullanarak sunum dosyalarının belge özelliklerine aşağıdaki gibi ulaşabilir:
-
-## **Şifreli Bir Sunumdan Genel Özellikleri Okuma**
-
-Açma parolası genellikle hem sunum içeriğini hem de belge özelliklerini korur. `[ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#setEncryptDocumentProperties)` yöntemine `false` geçirilerek bir sunum şifrelenirse, belge özellikleri genel (public) kalır. Daha sonra uygulama, **[LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setOnlyLoadDocumentProperties)** yöntemine `true` geçirerek açma parolası sağlamadan sadece genel meta verileri okuyabilir.
-
-`document-properties-only` seçeneği, Aspose.Slides’ın neyi yükleyeceğini denetler; hiçbir şeyi şifre çözmez. Özellikler şifrelemeye dahil edilmişse, parola olmadan yükleme başarısız olur. Sunum şifrelenmemişse, seçenek yok sayılır ve tam sunum yüklenir.
-
-Aşağıdaki örnek, **[ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)** yöntemiyle yükleme modunu doğrular ve ardından **[Presentation.getDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getDocumentProperties)** yöntemiyle yerleşik özellikleri okur:
+Örnek, belge özellikleri genel olarak bırakılmış şifreli bir sunum gerektirir. Yükleme modunu [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) aracılığıyla doğrular ve ardından [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) üzerinden yerleşik özellikleri okur:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -85,11 +61,11 @@ loadOptions.setOnlyLoadDocumentProperties(true);
 const presentation = new slides.Presentation("public-properties-encrypted.pptx", loadOptions);
 try {
     if (presentation.getProtectionManager().isOnlyDocumentPropertiesLoaded()) {
-        const properties = presentation.getDocumentProperties();
+        const documentProperties = presentation.getDocumentProperties();
 
-        console.log("Author: " + properties.getAuthor());
-        console.log("Title: " + properties.getTitle());
-        console.log("Keywords: " + properties.getKeywords());
+        console.log("Author: " + documentProperties.getAuthor());
+        console.log("Title: " + documentProperties.getTitle());
+        console.log("Keywords: " + documentProperties.getKeywords());
     } else {
         console.log("The presentation was not loaded in document-properties-only mode.");
     }
@@ -98,17 +74,17 @@ try {
 }
 ```
 
-Bu modda, slayt içeriği yüklenmez. Slaytlar, ana şablonlar, düzenler, şekiller, medya ve diğer sunum nesneleri kullanılamaz. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman **[ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/protectionmanager/#isOnlyDocumentPropertiesLoaded)** metodunu kontrol etmelidir.
+Bu modda, slayt içeriği yüklenmez. Slaytlar, masterlar, düzenler, şekiller, medya ve diğer sunum nesneleri erişilemez. Uygulamalar, tam sunum nesne modelini gerektiren bir işlem yapmadan önce her zaman [ProtectionManager.isOnlyDocumentPropertiesLoaded](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#isOnlyDocumentPropertiesLoaded) kontrol etmelidir.
 
-{{% alert color="warning" title="Uyarı" %}}
-Genel meta veriler yazar adları, başlıklar, konu, anahtar kelimeler, şirket bilgileri, yorumlar ve özel değerler gibi bilgileri ortaya çıkarabilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin parola olmadan erişim gerektirdiği durumlarda genel tutun.
+{{% alert color="warning" title="Warning" %}}
+Genel meta veriler, yazar adları, başlıklar, konular, anahtar sözcükler, şirket bilgileri, yorumlar ve özel değerleri ifşa edebilir. Hassas özellikleri sunumla birlikte şifreleyin. Yalnızca indeksleme, sınıflandırma, arama veya belge‑yönetim sistemlerinin şifre olmadan erişim gereksinimi olduğunda genel olarak bırakın.
 {{% /alert %}}
 
-## **Şifreli Bir Sunumu Güncelleme**
+## **Şifrelenmiş Bir Sunumun Özelliklerini Güncelleme**
 
-Şifreli bir PPTX dosyası için belge‑özellikleri‑yalnızca modunda yüklenen bir sunum, genel meta verileri okuma amacı taşır. Aspose.Slides, bu meta veri‑yalnızca nesnesinden değiştirilen özellikleri kaydedemez; çünkü genel özelliklerin şifreli sunum içindeki karşılık gelen verilerle tutarlı kalması gerekir. Bu nedenle güncelleme, doğru açma parolası ve tam yükleme gerektirir.
+Şifreli bir PPTX dosyası için, [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) `true` ile çağrıldıktan sonra yüklenen bir sunum, yalnızca genel meta verileri okumak amacıyla yüklenir. Aspose.Slides, bu sadece‑meta‑veri nesnesindeki değiştirilen özellikleri kaydedemez çünkü genel özelliklerin, şifreli sunum içindeki ilgili verilerle tutarlı kalması gerekir. Bu nedenle güncelleme doğru açma şifresini ve tam bir yüklemeyi gerektirir.
 
-Aşağıdaki örnek, **[LoadOptions.setPassword](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setPassword)** yöntemiyle sunumu açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından **[PresentationInfo.isEncrypted](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/#isEncrypted)** yöntemiyle şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için parolasız genel meta verileri tekrar açar:
+Örnek, genel belge özelliklerine sahip şifreli bir PPTX sunumu ve bilinen bir açma şifresi gerektirir. Tam sunumu [LoadOptions.setPassword](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setPassword) ile açar, genel yerleşik özellikleri günceller ve sonucu kaydeder. Ardından [PresentationInfo.isEncrypted](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#isEncrypted) kullanarak şifrelemenin korunduğunu doğrular ve yeni değerleri kontrol etmek için genel meta verileri şifresiz olarak yeniden açar:
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -121,8 +97,10 @@ loadOptions.setPassword("open_password");
 
 const presentation = new slides.Presentation(inputPath, loadOptions);
 try {
-    presentation.getDocumentProperties().setTitle("Updated Product Roadmap");
-    presentation.getDocumentProperties().setKeywords("roadmap, planning, indexed");
+    const documentProperties = presentation.getDocumentProperties();
+    documentProperties.setTitle("Updated Product Roadmap");
+    documentProperties.setKeywords("roadmap, planning, indexed");
+    
     presentation.save(outputPath, slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -147,332 +125,175 @@ try {
 }
 ```
 
-Uygulama sunum içeriğini şifreleyemez veya yükleyemezse, şifreli bir PPTX dosyasının genel özelliklerini yalnızca okunabilir olarak kabul etmelidir.
+Bir uygulama sunum içeriğini şifre çözmeye veya yüklemeye izin verilmiyorsa, şifreli bir PPTX dosyasının genel özelliklerini yalnızca‑okunur olarak ele almalıdır.
 
 ## **Yerleşik Özelliklere Erişim**
 
-**[DocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/documentproperties)** nesnesi tarafından sunulan bu özellikler şunları içerir: **Creator** (Yazar), **Description**, **Keywords**, **Created** (Oluşturulma Tarihi), **Modified** (Değiştirilme Tarihi), **Printed** (Son Yazdırma Tarihi), **LastModifiedBy**, **SharedDoc** (Farklı üreticiler arasında paylaşılıyor mu?), **PresentationFormat**, **Subject** ve **Title**.
+[DocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties) sınıfı, [getAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getAuthor), [getTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getTitle) ve [getCreatedTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCreatedTime) gibi getter metodları aracılığıyla yerleşik meta verileri ortaya çıkarır. Bu örnek mevcut bir sunumu açar ve saklanan meta verilerini konsola yazdırır. Değerler giriş sunumuna bağlıdır; bazı alanlar boş olabilir.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// Sunumu temsil eden Presentation sınıfını örnekleyin
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessBuiltInProperties.pptx");
 try {
-    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
-    var dp = pres.getDocumentProperties();
-    // Yerleşik özellikleri görüntüle
-    console.log("Category : " + dp.getCategory());
-    console.log("Current Status : " + dp.getContentStatus());
-    console.log("Creation Date : " + dp.getCreatedTime());
-    console.log("Author : " + dp.getAuthor());
-    console.log("Description : " + dp.getComments());
-    console.log("KeyWords : " + dp.getKeywords());
-    console.log("Last Modified By : " + dp.getLastSavedBy());
-    console.log("Supervisor : " + dp.getManager());
-    console.log("Modified Date : " + dp.getLastSavedTime());
-    console.log("Presentation Format : " + dp.getPresentationFormat());
-    console.log("Last Print Date : " + dp.getLastPrinted());
-    console.log("Is Shared between producers : " + dp.getSharedDoc());
-    console.log("Subject : " + dp.getSubject());
-    console.log("Title : " + dp.getTitle());
+    const documentProperties = presentation.getDocumentProperties();
+
+    console.log("Category: " + documentProperties.getCategory());
+    console.log("Content status: " + documentProperties.getContentStatus());
+    console.log("Creation date: " + documentProperties.getCreatedTime());
+    console.log("Author: " + documentProperties.getAuthor());
+    console.log("Comments: " + documentProperties.getComments());
+    console.log("Keywords: " + documentProperties.getKeywords());
+    console.log("Last modified by: " + documentProperties.getLastSavedBy());
+    console.log("Manager: " + documentProperties.getManager());
+    console.log("Modified date: " + documentProperties.getLastSavedTime());
+    console.log("Presentation format: " + documentProperties.getPresentationFormat());
+    console.log("Last print date: " + documentProperties.getLastPrinted());
+    console.log("Is shared between producers: " + documentProperties.getSharedDoc());
+    console.log("Subject: " + documentProperties.getSubject());
+    console.log("Title: " + documentProperties.getTitle());
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Yerleşik Özellikleri Değiştirme**
+## **Yerleşik Özellikleri Değiştir**
 
-Sunum dosyalarının yerleşik özelliklerini değiştirmek, onlara erişmek kadar basittir. İstediğiniz özelliğe bir dize değeri atayabilir ve özellik değeri güncellenir. Aşağıdaki örnekte, Aspose.Slides for Node.js via Java kullanarak sunum dosyasının yerleşik belge özelliklerini nasıl değiştirebileceğimiz gösterilmiştir.
+Yerleşik meta verileri güncellemek için, [Presentation.getDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#getDocumentProperties) tarafından döndürülen nesnedeki setter metodlarını kullanın. Bu örnek mevcut bir sunumu açar, [setAuthor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setAuthor), [setTitle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setTitle), [setSubject](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setSubject), [setComments](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setComments) ve [setManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setManager) metodlarını çağırır, ardından güncellenen sunumu [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save) ile kaydeder. Kaydedilen PPTX yeni meta verileri içerir.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("ModifyBuiltInProperties.pptx");
 try {
-    // Presentation ile ilişkili IDocumentProperties nesnesine bir referans oluştur
-    var dp = pres.getDocumentProperties();
-    // Yerleşik özellikleri ayarla
-    dp.setAuthor("Aspose.Slides for Node.js via Java");
-    dp.setTitle("Modifying Presentation Properties");
-    dp.setSubject("Aspose Subject");
-    dp.setComments("Aspose Description");
-    dp.setManager("Aspose Manager");
-    // Sunumunuzu bir dosyaya kaydedin
-    pres.save("DocProps.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.setAuthor("Aspose.Slides for Node.js via Java");
+    documentProperties.setTitle("Manage PowerPoint Presentation Properties");
+    documentProperties.setSubject("Modify Built-in Properties");
+    documentProperties.setComments("Aspose description");
+    documentProperties.setManager("Aspose manager");
+
+    presentation.save("DocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Bu örnek, aşağıda gösterildiği gibi değiştirilen yerleşik özellikleri sunar:
+## **Hipermetin Temelini Yönet**
 
-|**Değiştirilmiş yerleşik belge özellikleri**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/zz1N9de.jpg)| |
+[DocumentProperties.getHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getHyperlinkBase) göreli hipermetinler için belge‑düzeyinde bir temel döndürür. [DocumentProperties.setHyperlinkBase](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#setHyperlinkBase) kullanarak bunu değiştirebilir veya temizleyebilirsiniz. Bu, bir sunumu ve bağlı dosyalarını başka bir konuma taşırken faydalıdır. Bu, bireysel bir hipermetnin [Hyperlink.getExternalUrl](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Hyperlink#getExternalUrl) metodundan ayrıktır: temelin değiştirilmesi, saklanan link adreslerini yeniden yazmaz veya mutlak hedefleri değiştirmez.
 
-## **Özel Belge Özellikleri Ekleme**
-
-Aspose.Slides for Node.js via Java, geliştiricilerin sunum Belge özellikleri için özel değerler eklemesine de izin verir. Aşağıdaki örnek, bir sunuma özel özelliklerin nasıl ayarlanacağını gösterir.
+Örnek, `target.html` gibi bir göreli link ve `https://example.org/absolute.html` gibi bir mutlak link içeren bir sunum gerektirir. Mevcut temeli okur, yeni bir temel adresi atar ve değeri kontrol etmek için sunumu kaydedip yeniden açar. Ardından temeli boş bir dizeyle temizler ve ayrı bir kaydedilmiş dosyada boş değeri doğrular. Örnek temel adresini bağlı dosyalarınızın konumuyla değiştirin.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation();
+const presentation = new slides.Presentation("hyperlinks.pptx");
 try {
-    // Belge Özelliklerini Alma
-    var dProps = pres.getDocumentProperties();
-    // Özel Özellikler Ekleniyor
-    dProps.set_Item("New Custom", 12);
-    dProps.set_Item("My Name", "Mudassir");
-    dProps.set_Item("Custom", 124);
-    // Belirli bir indeksdeki özellik adını alma
-    var getPropertyName = dProps.getCustomPropertyName(2);
-    // Seçilen özelliği kaldırma
-    dProps.removeCustomProperty(getPropertyName);
-    // Sunumu kaydetme
-    pres.save("CustomDemo.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    console.log("Original base: " + presentation.getDocumentProperties().getHyperlinkBase());
+
+    const newBase = "https://example.com/new/";
+    presentation.getDocumentProperties().setHyperlinkBase(newBase);
+    presentation.save("hyperlinks-updated.pptx", slides.SaveFormat.Pptx);
+
+    const updatedPresentation = new slides.Presentation("hyperlinks-updated.pptx");
+    try {
+        console.log("Base preserved: " + (newBase === updatedPresentation.getDocumentProperties().getHyperlinkBase()));
+
+        updatedPresentation.getDocumentProperties().setHyperlinkBase("");
+        updatedPresentation.save("hyperlinks-cleared.pptx", slides.SaveFormat.Pptx);
+
+        const clearedPresentation = new slides.Presentation("hyperlinks-cleared.pptx");
+        try {
+            console.log("Base cleared: " + ("" === clearedPresentation.getDocumentProperties().getHyperlinkBase()));
+        } finally {
+            clearedPresentation.dispose();
+        }
+    } finally {
+        updatedPresentation.dispose();
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-|**Eklenen Özel Belge Özellikleri**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/HdKcxI9.png)| |
+İki doğrulama mesajı `true` yazdırmalıdır. Temelin temizlenmesi, bireysel hipermetin adreslerini aynı tutar.
 
-## **Özel Özelliklere Erişim ve Değiştirme**
+`target.pptx` göreli bir link, temel `old` klasörüne işaret ettiğinde `old/target.pptx` dosyasını açtı. Temel `new` klasörüne değiştirildikten, kaydedildikten ve sunum yeniden açıldıktan sonra aynı link `new/target.pptx` dosyasını açtı. Mutlak bir link aynı dosyayı açmaya devam etti. Sunumu taşıdıktan veya temelini değiştirdikten önce ve sonra PowerPoint'te göreli linklerinizi test edin.
 
-Aspose.Slides for Node.js via Java, geliştiricilerin özel özellik değerlerine erişmesine de olanak tanır. Aşağıdaki örnek, bir sunum için tüm bu özel özelliklere nasıl erişileceğini ve değiştirileceğini gösterir.
+## **Özel Sunum Özellikleri Ekle**
+
+Özel özellikler, karşılığı olan yerleşik alanı olmayan meta verileri depolar. [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) metodu, özellik adını kullanarak bir değer atamanızı sağlar. Bu örnek bir sunum oluşturur, iki metin değeri ve bir tam sayı sürüm değeri ekler ve sunumu [Presentation.save](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation#save) ile kaydeder. Mevcut bir isme değer atamak, o özelliğin değerini değiştirir.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation();
 try {
-    // Presentation ile ilişkili DocumentProperties nesnesine bir referans oluştur
-    var dp = pres.getDocumentProperties();
-    // Özel özelliklere eriş ve değiştir
-    for (var i = 0; i < dp.getCountOfCustomProperties(); i++) {
-        // Özel özelliklerin adlarını ve değerlerini görüntüle
-        console.log("Custom Property Name : " + dp.getCustomPropertyName(i));
-        console.log("Custom Property Value : " + dp.get_Item(dp.getCustomPropertyName(i)));
-        // Özel özelliklerin değerlerini değiştir
-        dp.set_Item(dp.getCustomPropertyName(i), "New Value " + (i + 1));
-    }
-    // Sunumunuzu bir dosyaya kaydedin
-    pres.save("CustomDemoModified.pptx", aspose.slides.SaveFormat.Pptx);
+    const documentProperties = presentation.getDocumentProperties();
+
+    documentProperties.set_Item("Reviewed by", "John Smith");
+    documentProperties.set_Item("Confidentiality level", "Internal");
+    documentProperties.set_Item("Document version", 2);
+
+    presentation.save("CustomDocumentProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Bu örnek, **[PPTX](https://docs.fileformat.com/presentation/pptx/)** sunumunun özel özelliklerini değiştirir. Aşağıdaki görseller, değişiklik öncesi ve sonrası özel özellikleri gösterir:
+## **Özel Özelliklere Eriş ve Değiştir**
 
-|**Değişiklik Öncesi Özel Özellikler**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Ze7YHvi.jpg)| |
-
-|**Değişiklik Sonrası Özel Özellikler**|** **|
-| :- | :- |
-|![todo:image_alt_text](https://i.imgur.com/Tofu0CL.jpg)| |
-
-## **Gelişmiş Belge Özellikleri**
-
-{{% alert color="info" title="Not" %}}
-
-Yeni yöntemler **[ReadDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--)**, **[UpdateDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-)** ve **[WriteBindedPresentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo#writeBindedPresentation-java.lang.String-)**, **[PresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo)** sınıfına eklenmiştir; **[DocumentProperties.setLastSavedTime](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/documentproperties#setLastSavedTime-java.util.Date-)** özelliğinin ayarlayıcı mantığı değiştirilmiştir.
-
-{{% /alert %}} 
-
-Yeni eklenen iki yöntem **[ReadDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties--)** ve **[UpdateDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo#updateDocumentProperties-aspose.slides.IDocumentProperties-)**, **[PresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/PresentationInfo)** sınıfına eklenmiştir. Bu yöntemler belge özelliklerine hızlı erişim sağlar ve tüm sunumu yüklemeden özellikleri değiştirme ve güncelleme imkanı sunar.
-
-Tipik senaryo: özellikleri yükle, bir değeri değiştir ve belgeyi güncelle; aşağıdaki şekilde uygulanabilir:
+Bu örnek, özel özellikler içeren bir sunumu açar ve [getCountOfCustomProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCountOfCustomProperties) kullanarak bunlar üzerinde döner. [getCustomPropertyName](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#getCustomPropertyName) sıfır tabanlı bir dizin alır ve [DocumentProperties.set_Item](https://reference.aspose.com/slides/nodejs-java/aspose.slides/DocumentProperties#set_Item) tarafından kullanılan adı döndürür. Örnek, her orijinal adı ve değeri yazdırır, her değeri özgün tipine bakılmaksızın numaralı bir dizeyle değiştirir ve değişiklikleri kaydeder. Eğer özel özellik yoksa, döngü hiçbir değişiklik yapmaz.
 
 ```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+const slides = require("aspose.slides.via.java");
 
-// sunumun bilgilerini oku
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("presentation.pptx");
-// mevcut özellikleri al
-var props = info.readDocumentProperties();
-// Yazar ve Başlık alanlarının yeni değerlerini ayarla
-props.setAuthor("New Author");
-props.setTitle("New Title");
-// sunumu yeni değerlerle güncelle
-info.updateDocumentProperties(props);
-info.writeBindedPresentation("presentation.pptx");
-```
-
-Belirli bir sunumun özelliklerini şablon olarak kullanıp diğer sunumlardaki özellikleri güncellemenin başka bir yolu da vardır:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var info = aspose.slides.PresentationFactory.getInstance().getPresentationInfo("template.pptx");
-var template = info.readDocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-Sıfırdan yeni bir şablon oluşturulabilir ve ardından birden fazla sunumu güncellemek için kullanılabilir:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) {
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-
-var template = new aspose.slides.DocumentProperties();
-template.setAuthor("Template Author");
-template.setTitle("Template Title");
-template.setCategory("Template Category");
-template.setKeywords("Keyword1, Keyword2, Keyword3");
-template.setCompany("Our Company");
-template.setComments("Created from template");
-template.setContentType("Template Content");
-template.setSubject("Template Subject");
-updateByTemplate("doc1.pptx", template);
-updateByTemplate("doc2.odp", template);
-updateByTemplate("doc3.ppt", template);
-```
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-function updateByTemplate(path, template) 
-{
-    var toUpdate = aspose.slides.PresentationFactory.getInstance().getPresentationInfo(path);
-    toUpdate.updateDocumentProperties(template);
-    toUpdate.writeBindedPresentation(path);
-}
-```
-
-## **Düzeltme Dili Ayarlama**
-
-Aspose.Slides, PowerPoint belgesi için düzeltme dilini ayarlamanıza olanak tanıyan **LanguageId** özelliğini (**PortionFormat** sınıfı tarafından sunulur) sağlar. Düzeltme dili, PowerPoint’te yazım ve dil bilgisi denetiminin yapıldığı dildir.
-
-Bu JavaScript kodu, bir PowerPoint için düzeltme dilinin nasıl ayarlanacağını gösterir: xxx Why is LanguageId missing from JavaScript PortionFormat class?
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new slides.Presentation("AccessAndModifyProperties.pptx");
 try {
-    var autoShape = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
-    var newPortion = new aspose.slides.Portion();
-    var font = new aspose.slides.FontData("SimSun");
-    var portionFormat = newPortion.getPortionFormat();
-    portionFormat.setComplexScriptFont(font);
-    portionFormat.setEastAsianFont(font);
-    portionFormat.setLatinFont(font);
-    portionFormat.setLanguageId("zh-CN");// düzeltme dilinin kimliğini ayarla
-    newPortion.setText("1。");
-    paragraph.getPortions().add(newPortion);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const documentProperties = presentation.getDocumentProperties();
+
+    for (let i = 0; i < documentProperties.getCountOfCustomProperties(); i++) {
+        const propertyName = documentProperties.getCustomPropertyName(i);
+        const propertyValue = documentProperties.get_Item(propertyName);
+
+        console.log("Custom property name: " + propertyName);
+        console.log("Custom property value: " + propertyValue);
+
+        documentProperties.set_Item(propertyName, "New Value " + (i + 1));
     }
-}
-```
 
-## **Varsayılan Dil Ayarlama**
-
-Bu JavaScript kodu, bir PowerPoint sunumunun tümü için varsayılan dilin nasıl ayarlanacağını gösterir:
-
-```javascript
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-var loadOptions = new aspose.slides.LoadOptions();
-loadOptions.setDefaultTextLanguage("en-US");
-var pres = new aspose.slides.Presentation(loadOptions);
-try {
-    // Metin içeren yeni bir dikdörtgen şekil ekler
-    var shp = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 50);
-    shp.getTextFrame().setText("New Text");
-    // İlk parçanın dilini kontrol eder
-    console.log(shp.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getLanguageId());
+    presentation.save("CustomProperties_output.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
 ## **Canlı Örnek**
 
-Belge özellikleriyle Aspose.Slides API üzerinden nasıl çalışılacağını görmek için **[Aspose.Slides Metadata](https://products.aspose.app/slides/tr/metadata)** çevrimiçi uygulamasını deneyin:
+[**PowerPoint Meta Verilerini Görüntüle ve Düzenle**](https://products.aspose.app/slides/metadata) çevrimiçi uygulamasını deneyin ve Aspose.Slides API'siyle belge özellikleriyle nasıl çalışılacağını görün:
 
-[![View & Edit PowerPoint Metadata](slides-metadata.png)](https://products.aspose.app/slides/tr/metadata)
+[![PowerPoint Meta Verilerini Görüntüle ve Düzenle](slides-metadata.png)](https://products.aspose.app/slides/metadata)
 
 ## **SSS**
 
-**Bir sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
+**Sunumdan yerleşik bir özelliği nasıl kaldırabilirim?**
 
-Yerleşik özellikler sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özellik izin veriyorsa değerlerini değiştirebilir veya boş bir değere ayarlayabilirsiniz.
+Yerleşik özellikler, sunumun ayrılmaz bir parçasıdır ve tamamen kaldırılamaz. Ancak, belirli özelliğin izin verdiği durumlarda değerlerini değiştirebilir veya boş olarak ayarlayabilirsiniz.
 
 **Zaten var olan bir özel özelliği eklersem ne olur?**
 
 Zaten var olan bir özel özellik eklenirse, mevcut değeri yeni değerle üzerine yazılır. Özelliği önceden kaldırmanıza veya kontrol etmenize gerek yoktur; Aspose.Slides otomatik olarak özelliğin değerini günceller.
 
-**Sunumu tamamen yüklemeden sunum özelliklerine erişebilir miyim?**
+**Sunum özelliklerine, sunumu tamamen yüklemeden erişebilir miyim?**
 
-Evet. **[PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationfactory/getpresentationinfo/)** metodunu ardından **[PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentationinfo/readdocumentproperties/)** metodunu kullanarak bir **[Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/)** örneği oluşturmadığınız halde saklanan belge meta verilerini okuyabilirsiniz. Tam raporlama örneği ve format‑spesifik sınırlamalar için **[Build a Lightweight Presentation Inventory](/slides/tr/nodejs-java/examine-presentation/)** sayfasına bakın.
+Evet. [PresentationFactory.getPresentationInfo](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationFactory#getPresentationInfo) kullanın ve ardından [PresentationInfo.readDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/PresentationInfo#readDocumentProperties) ile bir [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) örneği oluşturmadan saklanan belge meta verilerini okuyun. Tam bir raporlama örneği ve format‑spesifik sınırlamalar için [Build a Lightweight Presentation Inventory](/slides/tr/nodejs-java/examine-presentation/) sayfasına bakın.
 
-**Şifreli bir sunumun genel özelliklerini, açma parolası olmadan okuyabilir miyim?**
+**Şifreli bir sunumun genel özelliklerini açma şifresi olmadan okuyabilir miyim?**
 
-Evet. Belge‑özelliği şifrelemesi, sunum şifrelenmeden önce devre dışı bırakılmış olmalı ve sunum belge‑özellikleri‑yalnızca modunda yüklenmiş olmalıdır.
+Evet. Sunum, [ProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ProtectionManager#setEncryptDocumentProperties) `false` ile çağrıldıktan sonra şifrelenmiş olmalı ve [LoadOptions.setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/nodejs-java/aspose.slides/LoadOptions#setOnlyLoadDocumentProperties) `true` ile çağrıldıktan sonra yüklenmiş olmalıdır.
 
-**Şifreli bir PPTX dosyasını belge‑özellikleri‑yalnızca modunda güncelleyebilir miyim?**
+**Belge‑özellikleri‑sadece modunda şifreli bir PPTX dosyasını güncelleyebilir miyim?**
 
-Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır; bu yüzden şifreli bir PPTX dosyasını güncellemek, doğru açma parolasıyla tam sunumu yüklemeyi gerektirir.
+Hayır. Genel ve şifreli özellik verileri tutarlı olmalıdır, bu nedenle şifreli bir PPTX dosyasını güncellemek, doğru açma şifresiyle tam sunumu yüklemeyi gerektirir.
