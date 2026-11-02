@@ -1,6 +1,6 @@
 ---
-title: إدارة القوائم النقطية والمرقمة في العروض التقديمية باستخدام Python عبر Java
-linktitle: إدارة القوائم
+title: "إدارة القوائم النقطية والمرقمة في العروض التقديمية باستخدام Python عبر Java"
+linktitle: "إدارة القوائم"
 type: docs
 weight: 60
 url: /ar/python-java/manage-lists/
@@ -8,7 +8,7 @@ keywords:
 - رصاصة
 - قائمة نقطية
 - قائمة مرقمة
-- رصاصة رمز
+- رصاصة رمزية
 - رصاصة صورة
 - رصاصة مخصصة
 - قائمة متعددة المستويات
@@ -21,27 +21,28 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "تعرف على كيفية إنشاء وتنسيق القوائم النقطية، رصاصات الصور، القوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint وOpenDocument باستخدام Aspose.Slides للغة Python عبر Java."
+description: "تعلم كيفية إنشاء وتنسيق القوائم النقطية، رصاصات الصورة، القوائم متعددة المستويات، والقوائم المرقمة في عروض PowerPoint و OpenDocument باستخدام Aspose.Slides للغة Python عبر Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for Python via Java يتيح لك إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint وOpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاص فيها عبر تنسيق الفقرة الخاص بها.
+Aspose.Slides for Python via Java تمكنك من إنشاء وتنسيق القوائم النقطية والمرقمة في عروض PowerPoint و OpenDocument. عنصر القائمة هو فقرة يتم التحكم في إعدادات الرصاصة الخاصة بها من خلال تنسيق الفقرة.
 
-استخدم الطريقة [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/#getParagraphFormat) للوصول إلى إعدادات القائمة على مستوى الفقرة. نقطة الدخول الرئيسية هي [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getBullet)، والتي تُرجع كائنًا من نوع [BulletFormat](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/). باستخدام هذا الكائن، يمكنك تعيين نوع الرصاص، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البداية.
+استخدم طريقة [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) للوصول إلى إعدادات القوائم على مستوى الفقرة. النقطة الرئيسية هي [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet)، التي تُعيد كائنًا من نوع [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/) . باستخدام هذا الكائن، يمكنك تعيين نوع الرصاصة، الرمز، الصورة، اللون، الحجم، نمط الترقيم، ورقم البدء.
 
-تُظهر هذه المقالة كيفية:
+توضح هذه المقالة كيفية:
 
 - إنشاء قائمة نقطية برمز مخصص
-- إنشاء رصاص صورة
-- إنشاء قائمة متعددة المستويات عبر تعيين عمق الفقرة
+- إنشاء رصاصة صورة
+- إنشاء قائمة متعددة المستويات عن طريق ضبط عمق الفقرة
 - إنشاء قائمة مرقمة
-- فحص وتغيير تنسيق القائمة في عرض تقديمي موجود
+- فحص وتعديل تنسيق القائمة في عرض تقديمي موجود
+- قراءة علامات القوائم الفعلية والأرقام جنبًا إلى جنب مع نص الفقرة
 
 ## **إنشاء قائمة نقطية**
 
-لإنشاء قائمة نقطية، أضف كائنات [Paragraph](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraph/) إلى [TextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/textframe/) واضبط [BulletFormat.setType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Symbol](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bullettype/#Symbol). بعد ذلك يمكنك استخدام [BulletFormat.setChar](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setChar)، [BulletFormat.getColor](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#getColor)، و[BulletFormat.setHeight](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setHeight) للتحكم في مظهر الرصاص.
+لإنشاء قائمة نقطية، أضف كائنات [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) إلى [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) وعيّن [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Symbol](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Symbol). يمكنك بعد ذلك استخدام [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar)، [BulletFormat.getColor](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getColor)، و[BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight) للتحكم في مظهر الرصاصة.
 
-يُظهر كود Python التالي كيفية إنشاء قائمة نقطية على شريحة:
+الرمز التالي بلغة Python يوضح كيفية إنشاء قائمة نقطية على شريحة:
 
 ```python
 import jpype
@@ -56,6 +57,7 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -90,13 +92,13 @@ finally:
 
 النتيجة:
 
-![The symbol bullets](symbol_bullets.png)
+![رصاصات الرمز](symbol_bullets.png)
 
 ## **إنشاء قائمة مرقمة**
 
-استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. اضبط [BulletFormat.setType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Numbered](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bullettype/#Numbered). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) أو استخدام [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) عندما يجب أن تبدأ القائمة بقيمة غير 1.
+استخدم القوائم المرقمة عندما يكون ترتيب العناصر مهمًا. عيّن [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Numbered](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Numbered). يمكنك أيضًا اختيار تنسيق الترقيم باستخدام [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) أو استخدام [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) عندما يجب أن تبدأ القائمة بقيمة غير 1.
 
-الكود التالي في Python يوضح كيفية إنشاء قائمة مرقمة على شريحة:
+الرمز التالي بلغة Python يوضح كيفية إنشاء قائمة مرقمة على شريحة:
 
 ```python
 import jpype
@@ -110,6 +112,7 @@ from asposeslides.api import BulletType, Paragraph, Presentation, SaveFormat, Sh
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 90, 80)
 
     text_frame = auto_shape.getTextFrame()
@@ -137,23 +140,23 @@ finally:
 
 النتيجة:
 
-![The numbered bullets](numbered_bullets.png)
+![الرصاصات المرقمة](numbered_bullets.png)
 
-## **إنشاء رصاص صورة**
+## **إنشاء رصاصة صورة**
 
-Aspose.Slides يسمح لك باستبدال رمز الرصاص العادي بصورة. تعمل رصاصات الصور بشكل أفضل مع الصور البسيطة التي تظل مقروءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
+Aspose.Slides يتيح لك استبدال رمز الرصاصة العادي بصورة. تعمل رصاصات الصورة بشكل أفضل مع الصور البسيطة التي تظل مقروءة بحجم صغير، مثل الأيقونات أو ملفات PNG الشفافة الصغيرة.
 
 {{% alert color="info" title="Note" %}}
-إذا كنت تخطط لاستبدال رمز رصاص عادي بصورة، اختر رسمًا بسيطًا بخلفية شفافة. تعمل مثل هذه الصور جيدًا كرموز رصاص مخصصة.
+إذا كنت تخطط لاستبدال رمز الرصاصة العادي بصورة، اختر رسمًا بسيطًا بخلفية شفافة. هذه الصور تعمل جيدًا كرموز رصاصة مخصصة.
 {{% /alert %}}
 
-لإنشاء رصاص صورة، أضف صورة إلى [Presentation.getImages](https://reference.aspose.com/slides/ar/python-java/aspose.slides/presentation/#getImages) وعيّن كائن الصورة المسترجع إلى [BulletFormat.getPicture](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#getPicture). اضبط [BulletFormat.setType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Picture](https://reference.aspose.com/slides/ar/python-java/aspose.slides/bullettype/#Picture) قبل تعيين الصورة.
+لإنشاء رصاصة صورة، أضف صورة إلى [Presentation.getImages](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getImages) وعيّن كائن الصورة المرتجع إلى [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). عيّن [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) إلى [BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Picture) قبل تعيين الصورة.
 
 لنفترض أن لدينا صورة باسم "image.png":
 
-![A picture for the bullets](picture_for_bullets.png)
+![صورة للرصاصات](picture_for_bullets.png)
 
-الكود التالي في Python يوضح كيفية إنشاء رصاصات صور على شريحة:
+الرمز التالي بلغة Python يوضح كيفية إنشاء رصاصات صورة على شريحة:
 
 ```python
 import jpype
@@ -167,6 +170,7 @@ from asposeslides.api import BulletType, Images, Paragraph, Presentation, SaveFo
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -201,13 +205,13 @@ finally:
 
 النتيجة:
 
-![The picture bullets](picture_bullets.png)
+![الرصاصات الصورة](picture_bullets.png)
 
 ## **إنشاء قائمة متعددة المستويات**
 
-استخدم [ParagraphFormat.setDepth](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#setDepth) لوضع عناصر القائمة على مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 هو المتداخل تحته، وهكذا.
+استخدم [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) لوضع عناصر القائمة في مستويات مختلفة. المستوى 0 هو المستوى الأعلى، المستوى 1 متداخل تحته، وهكذا.
 
-الكود التالي في Python يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
+الرمز التالي بلغة Python يوضح كيفية إنشاء قائمة نقطية متعددة المستويات:
 
 ```python
 import jpype
@@ -221,6 +225,7 @@ from asposeslides.api import Paragraph, Presentation, SaveFormat, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 260, 110)
 
     text_frame = auto_shape.getTextFrame()
@@ -253,13 +258,11 @@ finally:
 
 النتيجة:
 
-![The multilevel list](multilevel_list.png)
+![القائمة متعددة المستويات](multilevel_list.png)
 
-## **تغيير قائمة موجودة**
+## **تعديل قائمة موجودة**
 
-لتغيير تنسيق القائمة في عرض تقديمي موجود، احصل على الفقرة المستهدفة وقم بتحديث إعدادات [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getBullet) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
-
-الكود التالي في Python يغيّر الفقرة الأولى في إطار نص لاستخدام نمط قائمة مرقمة:
+لتعديل تنسيق القائمة في عرض تقديمي موجود، احصل على الفقرة المستهدفة وقم بتحديث إعدادات [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet) الخاصة بها. يمكن استخدام نفس الخصائص المستخدمة لإنشاء القوائم لفحص أو تعديل القوائم التي تم تحميلها من ملف PPT أو PPTX أو ODP.
 
 ```python
 import jpype
@@ -273,9 +276,10 @@ from asposeslides.api import BulletType, NumberedBulletStyle, Presentation, Save
 presentation = Presentation("input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
+
+    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Numbered)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletRomanUCPeriod)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(1)
@@ -287,15 +291,139 @@ finally:
     presentation.dispose()
 ```
 
+## **قراءة قيم الرصاصات الفعلية**
+
+عند استخراج محتوى العرض التقديمي، احتفظ بعلامات القوائم جنبًا إلى جنب مع نص الفقرة. استدعِ [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective) وتابع إلى `getBullet` للحصول على تنسيق الرصاصة الفعلي. تحقق من `getType` قبل قراءة `getActualBulletValue`.
+
+للقوائم المرقمة، فرق بين هذه القيم الثلاث:
+
+- `getNumberedBulletStyle` يحدد التنسيق، مثل الأرقام العربية متبوعة بنقطة أو الأحرف الصغيرة متبوعة بنقطة.
+- `getNumberedBulletStartWith` يحدد رقم البداية لمجموعة من الفقرات المرقمة.
+- `getActualBulletValue` يعيد العلامة المنسقة لفقرة معينة. على سبيل المثال، العنصر الثاني في قائمة تبدأ من 5 يعيد `6.`.
+
+احتفظ بـ [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDepth) مع كل فقرة للاحتفاظ بمستوى التداخل. العلامة الفعلية لا تشفر الهرمية الكاملة: يمكن لعنصر متداخل أن يعيد `c.` بدلاً من تسمية مركبة مثل `6.c.`.
+
+المثال التالي المتكامل ينشئ قوائم، يحفظها في عرض تقديمي، ثم يعيد تحميل العرض لتقرير نص كل فقرة، العمق، نوع الرصاصة، والقيمة الفعلية. يتم إنشاء علامة الصورة الزرقاء الصغيرة من SVG مضمن.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BulletType, FillType, NullableBool, NumberedBulletStyle, Paragraph, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, SvgImage
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 440, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20, 660, 400)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    text_frame = shape.getTextFrame()
+    text_frame.getParagraphs().clear()
+
+    # إنشاء علامة صورة دون ملف صورة خارجي.
+    svg = SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>")
+    bullet_image = presentation.getImages().addImage(svg)
+
+    def add_paragraph(text, depth, bullet_type, start, style):
+        paragraph = Paragraph()
+        paragraph.setText(text)
+
+        paragraph_format = paragraph.getParagraphFormat()
+        paragraph_format.setDepth(depth)
+        paragraph_format.setMarginLeft(30 + depth * 40)
+        paragraph_format.setIndent(-28)
+        paragraph_format.setSpaceAfter(8)
+        paragraph_format.getDefaultPortionFormat().setFontHeight(22)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        paragraph_format.getBullet().setType(bullet_type)
+        paragraph_format.getBullet().setBulletHardColor(NullableBool.True_)
+        paragraph_format.getBullet().getColor().setColor(Color.BLACK)
+        if bullet_type == BulletType.Numbered:
+            paragraph_format.getBullet().setNumberedBulletStyle(style)
+            paragraph_format.getBullet().setNumberedBulletStartWith(start)
+        elif bullet_type == BulletType.Symbol:
+            paragraph_format.getBullet().setChar('\u2022')
+        elif bullet_type == BulletType.Picture:
+            paragraph_format.getBullet().getPicture().setImage(bullet_image)
+
+        text_frame.getParagraphs().add(paragraph)
+
+    add_paragraph("First item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Second item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Next nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Deep item", 2, BulletType.Numbered, 4, NumberedBulletStyle.BulletRomanLCPeriod)
+    add_paragraph("Back to top level", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Symbol marker", 0, BulletType.Symbol, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("No bullet", 0, BulletType.None_, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Picture marker", 0, BulletType.Picture, 1, NumberedBulletStyle.BulletArabicPeriod)
+    presentation.save("actual_bullet_values.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+loaded_presentation = Presentation("actual_bullet_values.pptx")
+try:
+    loaded_shape = loaded_presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    type_names = {
+        BulletType.Numbered: "Numbered",
+        BulletType.Symbol: "Symbol",
+        BulletType.None_: "None",
+        BulletType.Picture: "Picture",
+    }
+    print("Text | Depth | Type | Actual value")
+    for paragraph in loaded_shape.getTextFrame().getParagraphs():
+        bullet = paragraph.getParagraphFormat().getEffective().getBullet()
+        bullet_type = bullet.getType()
+        if bullet_type in (BulletType.Numbered, BulletType.Symbol):
+            marker = bullet.getActualBulletValue()
+        elif bullet_type == BulletType.None_:
+            marker = f"{bullet.getActualBulletValue()} (no bullet)"
+        elif bullet_type == BulletType.Picture:
+            marker = f"{bullet.getActualBulletValue()} (image required)"
+        else:
+            marker = "unsupported bullet type"
+        type_name = type_names.get(bullet_type, "Unknown")
+        print(f"{paragraph.getText()} | {paragraph.getParagraphFormat().getDepth()} | {type_name} | {marker}")
+finally:
+    loaded_presentation.dispose()
+```
+
+قوائم المصدر موضح أدناه.
+
+![قوائم تبدأ من 5، عناصر حرفية ورومانية متداخلة، علامة رمزية، فقرة بدون رصاصة، وعلامة صورة زرقاء](actual_bullet_values.png)
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | None (no bullet)
+Picture marker | 0 | Picture | None (image required)
+```
+
+لـ [BulletType.None_ and BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/)، `getActualBulletValue` يعيد `None` (Java `null`)، وليس سلسلة فارغة. عالج هذه الأنواع بشكل منفصل: الأول لا يحتوي على علامة، بينما الثاني يتطلب استخراج صورة الرصاصة بشكل منفصل. لا يمكن استنساخ رصاصة صورة فقط باستخراج علامة نصية.
+
 ## **الأسئلة الشائعة**
 
 **هل يمكن تصدير القوائم النقطية والمرقمة إلى PDF أو صور؟**
 
-نعم. Aspose.Slides يحافظ على تنسيق القائمة عندما يدعم التنسيق المستهدف تخطيط النص وميزات الرصاص المقابلة.
+نعم. Aspose.Slides يحافظ على تنسيق القوائم عندما يدعم التنسيق الهدف تخطيط النص والميزات المتعلقة بالرصاصات.
 
 **هل يمكنني تعديل القوائم في العروض التقديمية الموجودة؟**
 
-نعم. قم بتحميل العرض التقديمي، وصول إلى الفقرة المستهدفة، فحص أو تحديث إعدادات [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ar/python-java/aspose.slides/paragraphformat/#getBullet)، ثم احفظ العرض التقديمي.
+نعم. حمِّل العرض التقديمي، احصل على الفقرة المستهدفة، افحص أو حدّث إعدادات [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet)، ثم احفظ العرض.
 
 **هل يمكن أن تحتوي القوائم على نص غير لاتيني؟**
 

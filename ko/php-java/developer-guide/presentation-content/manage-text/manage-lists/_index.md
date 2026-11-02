@@ -10,7 +10,7 @@ keywords:
 - 번호 매기기 목록
 - 기호 글머리표
 - 그림 글머리표
-- 맞춤 글머리표
+- 사용자 정의 글머리표
 - 다중 수준 목록
 - 글머리표 만들기
 - 글머리표 추가
@@ -24,25 +24,32 @@ description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 및 Open
 ---
 ## **개요**
 
-Aspose.Slides for PHP via Java을 사용하면 PowerPoint 및 OpenDocument 프레젠테이션에서 글머리표 및 번호 매기기 목록을 만들고 서식 지정할 수 있습니다. 목록 항목은 글머리표 설정이 해당 단락 서식을 통해 제어되는 단락입니다.
+Aspose.Slides for PHP via Java을 사용하면 PowerPoint 및 OpenDocument 프레젠테이션에서 글머리표 및 번호 매기기 목록을 만들고 서식 지정할 수 있습니다. 목록 항목은 글머리표 설정이 해당 단락 형식을 통해 제어되는 단락입니다.
 
-단락 수준의 목록 설정에 액세스하려면 [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraph/#getParagraphFormat--) 메서드를 사용합니다. 주요 진입점은 [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraphformat/#getBullet--)이며, 이는 [BulletFormat](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/) 객체를 반환합니다. 이 객체를 사용하여 글머리표 유형, 기호, 그림, 색상, 크기, 번호 매기기 스타일 및 시작 번호를 설정할 수 있습니다.
+Use the [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat) method to access paragraph-level list settings. The main entry point is [ParagraphFormat::getBullet](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getBullet) which returns a [BulletFormat](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/) object. With this object, you can set the bullet type, symbol, picture, color, size, numbering style, and starting number.
 
-This article shows how to:
-
-- 사용자 정의 기호를 사용한 글머리표 목록 만들기
+이 문서에서는 다음과 같은 방법을 보여줍니다:
+- 사용자 정의 기호로 글머리표 목록 만들기
 - 그림 글머리표 만들기
 - 단락 깊이를 설정하여 다중 수준 목록 만들기
 - 번호 매기기 목록 만들기
 - 기존 프레젠테이션에서 목록 서식을 검사하고 변경하기
+- 단락 텍스트와 함께 실제 목록 표시기 및 번호 읽기
 
 ## **글머리표 목록 만들기**
 
-글머리표 목록을 만들려면 [Paragraph](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraph/) 객체를 [TextFrame](https://reference.aspose.com/slides/ko/php-java/aspose.slides/textframe/)에 추가하고 [BulletFormat.setType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setType-int-)을 [BulletType.Symbol](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bullettype/#Symbol)으로 설정합니다. 그런 다음 [BulletFormat.setChar](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setChar-char-), [BulletFormat.getColor](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#getColor--), 및 [BulletFormat.setHeight](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setHeight-float-)를 설정하여 글머리표 모양을 제어할 수 있습니다.
+To create a bulleted list, add [Paragraph](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/) objects to a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) and set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) to [BulletType::Symbol](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Symbol). You can then set [BulletFormat::setChar](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setChar), [BulletFormat::getColor](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getColor), and [BulletFormat::setHeight](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setHeight) to control the bullet appearance.
 
-다음 PHP 코드는 슬라이드에서 글머리표 목록을 만드는 방법을 보여줍니다:
+The following PHP code demonstrates how to create a bulleted list in a slide:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 function createParagraph($paragraphText)
 {
     $paragraph = new Paragraph();
@@ -60,6 +67,7 @@ function createParagraph($paragraphText)
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 200, 50);
 
     $textFrame = $autoShape->getTextFrame();
@@ -73,26 +81,31 @@ try {
 
     $presentation->save("symbol_bullets.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
 결과:
 
-![기호 글머리표](symbol_bullets.png)
+![The symbol bullets](symbol_bullets.png)
 
 ## **번호 매기기 목록 만들기**
 
-항목 순서가 중요한 경우 번호 매기기 목록을 사용합니다. [BulletFormat.setType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setType-int-)을 [BulletType.Numbered](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bullettype/#Numbered)으로 설정합니다. 또한 [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle-int-)를 사용하여 번호 매기기 형식을 선택하거나, 목록을 1이 아닌 다른 값에서 시작하도록 할 경우 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-)를 설정할 수 있습니다.
+Use numbered lists when the order of items matters. Set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) to [BulletType::Numbered](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Numbered). You can also choose a numbering format with [BulletFormat::setNumberedBulletStyle](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStyle) or set [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith) when the list should start from a value other than 1.
 
-다음 PHP 코드는 슬라이드에서 번호 매기기 목록을 만드는 방법을 보여줍니다:
+The following PHP code shows how to create a numbered list in a slide:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 90, 80);
 
     $textFrame = $autoShape->getTextFrame();
@@ -115,35 +128,40 @@ try {
 
     $presentation->save("numbered_bullets.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
 결과:
 
-![번호 매기기 글머리표](numbered_bullets.png)
+![The numbered bullets](numbered_bullets.png)
 
 ## **그림 글머리표 만들기**
 
-Aspose.Slides를 사용하면 일반 글머리표 기호를 이미지로 교체할 수 있습니다. 그림 글머리표는 아이콘이나 작은 투명 PNG 파일처럼 작은 크기에서도 읽을 수 있는 단순한 이미지와 가장 잘 어울립니다.
+Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
-{{% alert color="primary" %}}
-가능하면 일반 글머리표 기호를 이미지로 교체하려는 경우, 투명 배경의 단순한 그래픽을 선택하는 것이 가장 좋습니다. 이러한 이미지는 사용자 정의 글머리표 기호로 잘 사용됩니다.
+{{% alert color="info" title="Note" %}}
+Ideally, if you plan to replace the regular bullet symbol with an image, it's best to choose a simple graphic with a transparent background. Such images work well as custom bullet symbols.
 
-이미지가 매우 작은 크기로 축소된다는 점을 기억하십시오. 따라서 목록에서 글머리표로 사용할 때도 선명하고 시각적으로 효과적인 이미지를 선택하는 것이 강력히 권장됩니다.
+Keep in mind that the image will be scaled down to a very small size. For that reason, we strongly recommend selecting an image that remains clear and visually effective when used as a bullet in a list.
 {{% /alert %}}
 
-그림 글머리표를 만들려면 [Presentation.getImages](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/#getImages--)에 이미지를 추가하고 반환된 [PPImage](https://reference.aspose.com/slides/ko/php-java/aspose.slides/ppimage/) 객체를 [BulletFormat.getPicture](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#getPicture--)에 할당합니다. 이미지를 할당하기 전에 [BulletFormat.setType](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bulletformat/#setType-int-)을 [BulletType.Picture](https://reference.aspose.com/slides/ko/php-java/aspose.slides/bullettype/#Picture)으로 설정합니다.
+To create a picture bullet, add an image to [Presentation::getImages](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getImages) and assign the returned [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) object to [BulletFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#getPicture). Set [BulletFormat::setType](https://reference.aspose.com/slides/php-java/aspose.slides/bulletformat/#setType) to [BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/#Picture) before assigning the image.
 
-예를 들어 "image.png"가 있다고 가정해 보겠습니다:
+예를 들어, "image.png"가 있다고 가정해 보겠습니다:
 
-![글머리표용 이미지](picture_for_bullets.png)
+![A picture for the bullets](picture_for_bullets.png)
 
-다음 PHP 코드는 슬라이드에서 그림 글머리표를 만드는 방법을 보여줍니다:
+The following PHP code shows how to create picture bullets in a slide:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Images;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 function createParagraph($paragraphText, $bulletImage)
 {
     $paragraph = new Paragraph();
@@ -158,6 +176,7 @@ function createParagraph($paragraphText, $bulletImage)
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 200, 50);
 
     $textFrame = $autoShape->getTextFrame();
@@ -174,26 +193,30 @@ try {
 
     $presentation->save("picture_bullets.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
 결과:
 
-![그림 글머리표](picture_bullets.png)
+![The picture bullets](picture_bullets.png)
 
 ## **다중 수준 목록 만들기**
 
-[ParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraphformat/#setDepth-short-)를 사용하여 목록 항목을 다른 수준에 배치합니다. 레벨 0은 최상위 수준이며, 레벨 1은 그 아래에 중첩되고, 계속해서 이어집니다.
+Use [ParagraphFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDepth) to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
 
-다음 PHP 코드는 다중 수준 글머리표 목록을 만드는 방법을 보여줍니다:
+The following PHP code shows how to create a multilevel bulleted list:
 
 ```php
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 260, 110);
 
     $textFrame = $autoShape->getTextFrame();
@@ -221,29 +244,33 @@ try {
 
     $presentation->save("multilevel_bullets.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
 결과:
 
-![다중 수준 목록](multilevel_list.png)
+![The multilevel list](multilevel_list.png)
 
 ## **기존 목록 변경**
 
-기존 프레젠테이션에서 목록 서식을 변경하려면 대상 단락에 접근하여 해당 [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraphformat/#getBullet--) 설정을 업데이트합니다. 목록을 만들 때 사용한 동일한 속성을 사용하여 PPT, PPTX 또는 ODP 파일에서 로드한 목록을 검사하거나 수정할 수 있습니다.
+To change list formatting in an existing presentation, access the target paragraph and update its [ParagraphFormat::getBullet](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getBullet) settings. The same properties used to create lists can be used to inspect or modify lists loaded from a PPT, PPTX, or ODP file.
 
-다음 PHP 코드는 텍스트 프레임의 첫 번째 단락을 번호 매기기 목록 스타일로 변경합니다:
+The following PHP code changes the first paragraph in a text frame to use a numbered list style:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("input.pptx");
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $autoShape = $slide->getShapes()->get_Item(0);
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
+    $autoShape = $slide->getShapes()->get_Item(0);
+
+    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
     $paragraph->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle::BulletRomanUCPeriod);
     $paragraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(1);
@@ -252,22 +279,156 @@ try {
 
     $presentation->save("updated_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
+## **실제 글머리표 값 읽기**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getEffective) and access [ParagraphFormatEffectiveData::getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformateffectivedata/#getBullet--) to obtain the effective bullet format. Check its [getType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getType--) before reading [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--).
+
+번호 매기기 목록의 경우, 다음 세 값을 구분합니다:
+- [getNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStyle--)은 형식을 결정합니다. 예를 들어 점으로 끝나는 아라비아 숫자 또는 소문자 알파벳 등.
+- [getNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStartWith--)은 번호 매기기 단락 그룹의 시작 번호를 지정합니다.
+- [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--)은 특정 단락에 대한 서식이 적용된 표시기를 반환합니다. 예를 들어, 5부터 시작하는 목록의 두 번째 항목은 `6.`을 반환합니다.
+
+Preserve [getDepth](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDepth) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 440, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 20, 660, 400);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    // 외부 이미지 파일 없이 그림 표시기를 생성합니다.
+    $svg = new SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    $bulletImage = $presentation->getImages()->addImage($svg);
+
+    $black = new Java("java.awt.Color", 0, 0, 0);
+    $addParagraph = function ($text, $depth, $type, $start, $style) use ($textFrame, $bulletImage, $black) {
+        $paragraph = new Paragraph();
+        $paragraph->setText($text);
+
+        $format = $paragraph->getParagraphFormat();
+        $format->setDepth($depth);
+        $format->setMarginLeft(30 + $depth * 40);
+        $format->setIndent(-28);
+        $format->setSpaceAfter(8);
+        $format->getDefaultPortionFormat()->setFontHeight(22);
+        $format->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $format->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+        $format->getBullet()->setType($type);
+        $format->getBullet()->setBulletHardColor(NullableBool::True);
+        $format->getBullet()->getColor()->setColor($black);
+        if ($type == BulletType::Numbered) {
+            $format->getBullet()->setNumberedBulletStyle($style);
+            $format->getBullet()->setNumberedBulletStartWith($start);
+        } else if ($type == BulletType::Symbol) {
+            $format->getBullet()->setChar("\u{2022}");
+        } else if ($type == BulletType::Picture) {
+            $format->getBullet()->getPicture()->setImage($bulletImage);
+        }
+
+        $textFrame->getParagraphs()->add($paragraph);
+    };
+
+    $addParagraph("First item", 0, BulletType::Numbered, 5, NumberedBulletStyle::BulletArabicPeriod);
+    $addParagraph("Second item", 0, BulletType::Numbered, 5, NumberedBulletStyle::BulletArabicPeriod);
+    $addParagraph("Nested item", 1, BulletType::Numbered, 3, NumberedBulletStyle::BulletAlphaLCPeriod);
+    $addParagraph("Next nested item", 1, BulletType::Numbered, 3, NumberedBulletStyle::BulletAlphaLCPeriod);
+    $addParagraph("Deep item", 2, BulletType::Numbered, 4, NumberedBulletStyle::BulletRomanLCPeriod);
+    $addParagraph("Back to top level", 0, BulletType::Numbered, 5, NumberedBulletStyle::BulletArabicPeriod);
+    $addParagraph("Symbol marker", 0, BulletType::Symbol, 1, NumberedBulletStyle::BulletArabicPeriod);
+    $addParagraph("No bullet", 0, BulletType::None, 1, NumberedBulletStyle::BulletArabicPeriod);
+    $addParagraph("Picture marker", 0, BulletType::Picture, 1, NumberedBulletStyle::BulletArabicPeriod);
+    $presentation->save("actual_bullet_values.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$loadedPresentation = new Presentation("actual_bullet_values.pptx");
+try {
+    $loadedShape = $loadedPresentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    echo "Text | Depth | Type | Actual value\n";
+    $paragraphs = $loadedShape->getTextFrame()->getParagraphs();
+    for ($i = 0; $i < java_values($paragraphs->getCount()); $i++) {
+        $paragraph = $paragraphs->get_Item($i);
+        $bullet = $paragraph->getParagraphFormat()->getEffective()->getBullet();
+        switch (java_values($bullet->getType())) {
+            case BulletType::Numbered:
+            case BulletType::Symbol:
+                $marker = $bullet->getActualBulletValue();
+                break;
+            case BulletType::None:
+                $marker = "null (no bullet)";
+                break;
+            case BulletType::Picture:
+                $marker = "null (image required)";
+                break;
+            default:
+                $marker = "unsupported bullet type";
+                break;
+        }
+        $typeNames = [BulletType::Numbered => "Numbered", BulletType::Symbol => "Symbol", BulletType::None => "None", BulletType::Picture => "Picture"];
+        $typeName = $typeNames[java_values($bullet->getType())] ?? "Unknown";
+        echo $paragraph->getText() . " | " . $paragraph->getParagraphFormat()->getDepth() . " | " . $typeName . " | " . $marker . "\n";
+    }
+} finally {
+    $loadedPresentation->dispose();
+}
+```
+
+아래에 원본 목록이 표시됩니다.
+
+![5부터 시작하는 목록, 중첩된 문자 및 로마 숫자 항목, 기호 표시기, 글머리표가 없는 단락, 파란색 그림 표시기](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+For [BulletType::None and BulletType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/bullettype/) , [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) returns `null`, not an empty string. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
+
 ## **FAQ**
 
-**글머리표 및 번호 매기기 목록을 PDF 또는 이미지로 내보낼 수 있나요?**
+**Can bulleted and numbered lists be exported to PDF or images?**
 
-예. Aspose.Slides는 대상 형식이 해당 텍스트 레이아웃 및 글머리표 기능을 지원할 경우 목록 서식을 유지합니다.
+Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-**기존 프레젠테이션에서 목록을 편집할 수 있나요?**
+**Can I edit lists in existing presentations?**
 
-예. 프레젠테이션을 로드하고, 대상 단락에 접근하여 해당 [ParagraphFormat.getBullet](https://reference.aspose.com/slides/ko/php-java/aspose.slides/paragraphformat/#getBullet--) 설정을 검사하거나 업데이트한 후 프레젠테이션을 저장합니다.
+Yes. Load the presentation, access the target paragraph, inspect or update its [ParagraphFormat::getBullet](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getBullet) settings, and save the presentation.
 
-**목록에 비라틴 문자 텍스트를 포함할 수 있나요?**
+**Can lists contain non-Latin text?**
 
-예. 목록 항목 텍스트는 Unicode 문자를 포함할 수 있으므로 다국어 프레젠테이션에서도 목록을 만들 수 있습니다. 프레젠테이션에 사용된 글꼴이 필요한 문자를 지원하는지 확인하십시오.
+Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.
