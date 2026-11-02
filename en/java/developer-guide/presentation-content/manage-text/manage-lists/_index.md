@@ -36,6 +36,7 @@ This article shows how to:
 - create a multilevel list by setting paragraph depth
 - create a numbered list
 - inspect and change list formatting in an existing presentation
+- read actual list markers and numbers alongside paragraph text
 
 ## **Create a Bulleted List**
 
@@ -50,6 +51,7 @@ import java.awt.Color;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -99,6 +101,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 90, 80);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -133,7 +136,7 @@ The result:
 
 Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
-{{% alert color="info" %}}
+{{% alert color="info" title="Note" %}}
 
 Ideally, if you plan to replace the regular bullet symbol with an image, it's best to choose a simple graphic with a transparent background. Such images work well as custom bullet symbols.
 
@@ -155,6 +158,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -200,6 +204,7 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 260, 110);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -247,9 +252,10 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletRomanUCPeriod);
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 1);
@@ -262,16 +268,145 @@ try {
 }
 ```
 
+## **Read Actual Bullet Values**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--) and access [IParagraphFormatEffectiveData.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformateffectivedata/#getBullet--) to obtain the effective bullet format. Check its [getType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getType--) before reading [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--).
+
+For numbered lists, distinguish these three values:
+
+- [getNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStyle--) determines the format, such as Arabic numbers followed by a period or lowercase letters followed by a period.
+- [getNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStartWith--) specifies the starting number for a group of numbered paragraphs.
+- [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) returns the formatted marker for a particular paragraph. For example, the second item in a list starting at 5 returns `6.`.
+
+Preserve [getDepth](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDepth--) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 440, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20, 660, 400);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    // Create a picture marker without an external image file.
+    SvgImage svg = new SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    IPPImage bulletImage = presentation.getImages().addImage(svg);
+
+    class ListBuilder {
+        void addParagraph(String text, short depth, byte type, short start, byte style) {
+            Paragraph paragraph = new Paragraph();
+            paragraph.setText(text);
+
+            IParagraphFormat format = paragraph.getParagraphFormat();
+            format.setDepth(depth);
+            format.setMarginLeft(30 + depth * 40);
+            format.setIndent(-28);
+            format.setSpaceAfter(8);
+            format.getDefaultPortionFormat().setFontHeight(22);
+            format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+            format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+            format.getBullet().setType(type);
+            format.getBullet().setBulletHardColor(NullableBool.True);
+            format.getBullet().getColor().setColor(Color.BLACK);
+            if (type == BulletType.Numbered) {
+                format.getBullet().setNumberedBulletStyle(style);
+                format.getBullet().setNumberedBulletStartWith(start);
+            } else if (type == BulletType.Symbol) {
+                format.getBullet().setChar('\u2022');
+            } else if (type == BulletType.Picture) {
+                format.getBullet().getPicture().setImage(bulletImage);
+            }
+
+            textFrame.getParagraphs().add(paragraph);
+        }
+    }
+
+    ListBuilder list = new ListBuilder();
+    list.addParagraph("First item", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Second item", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Nested item", (short) 1, BulletType.Numbered, (short) 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    list.addParagraph("Next nested item", (short) 1, BulletType.Numbered, (short) 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    list.addParagraph("Deep item", (short) 2, BulletType.Numbered, (short) 4, NumberedBulletStyle.BulletRomanLCPeriod);
+    list.addParagraph("Back to top level", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Symbol marker", (short) 0, BulletType.Symbol, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("No bullet", (short) 0, BulletType.None, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Picture marker", (short) 0, BulletType.Picture, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    presentation.save("actual_bullet_values.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation loadedPresentation = new Presentation("actual_bullet_values.pptx");
+try {
+    IAutoShape loadedShape = (IAutoShape) loadedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    System.out.println("Text | Depth | Type | Actual value");
+    for (IParagraph paragraph : loadedShape.getTextFrame().getParagraphs()) {
+        IBulletFormatEffectiveData bullet = paragraph.getParagraphFormat().getEffective().getBullet();
+        String marker;
+        switch (bullet.getType()) {
+            case BulletType.Numbered:
+            case BulletType.Symbol:
+                marker = bullet.getActualBulletValue();
+                break;
+            case BulletType.None:
+                marker = bullet.getActualBulletValue() + " (no bullet)";
+                break;
+            case BulletType.Picture:
+                marker = bullet.getActualBulletValue() + " (image required)";
+                break;
+            default:
+                marker = "unsupported bullet type";
+                break;
+        }
+        String typeName = BulletType.getName(BulletType.class, bullet.getType());
+        System.out.println(paragraph.getText() + " | " + paragraph.getParagraphFormat().getDepth() + " | " + typeName + " | " + marker);
+    }
+} finally {
+    loadedPresentation.dispose();
+}
+```
+
+The source lists are shown below.
+
+![Lists starting at 5, nested letter and Roman-number items, a symbol marker, a paragraph without a bullet, and a blue picture marker](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+For [BulletType.None and BulletType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/bullettype/), [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) returns `null`, not an empty string. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
+
 ## **FAQ**
 
-### Can bulleted and numbered lists be exported to PDF or images?
+**Can bulleted and numbered lists be exported to PDF or images?**
 
 Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-### Can I edit lists in existing presentations?
+**Can I edit lists in existing presentations?**
 
 Yes. Load the presentation, access the target paragraph, inspect or update its [IParagraphFormat.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getBullet--) settings, and save the presentation.
 
-### Can lists contain non-Latin text?
+**Can lists contain non-Latin text?**
 
 Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.
