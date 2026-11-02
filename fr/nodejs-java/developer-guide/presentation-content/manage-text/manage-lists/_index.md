@@ -13,37 +13,42 @@ keywords:
 - puce personnalisée
 - liste à plusieurs niveaux
 - créer une puce
-- ajouter puce
-- ajouter liste
+- ajouter une puce
+- ajouter une liste
 - PowerPoint
 - OpenDocument
 - présentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Apprenez à créer et à mettre en forme des listes à puces, image, à plusieurs niveaux et numérotées dans les présentations PowerPoint et OpenDocument en utilisant Aspose.Slides pour Node.js via Java."
+description: "Apprenez à créer et formater des listes à puces, des listes image, des listes à plusieurs niveaux et des listes numérotées dans les présentations PowerPoint et OpenDocument en utilisant Aspose.Slides pour Node.js via Java."
 ---
 ## **Aperçu**
 
 Aspose.Slides for Node.js via Java vous permet de créer et de formater des listes à puces et numérotées dans les présentations PowerPoint et OpenDocument. Un élément de liste est un paragraphe dont les paramètres de puce sont contrôlés via son format de paragraphe.
 
-Utilisez la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) pour accéder aux paramètres de liste au niveau du paragraphe. Le point d’entrée principal est `Paragraph.getParagraphFormat().getBullet()`, qui renvoie un objet [BulletFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/). Avec cet objet, vous pouvez définir le type de puce, le symbole, l’image, la couleur, la taille, le style de numérotation et le numéro de départ.
+Use the [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) class to access paragraph-level list settings. The main entry point is `Paragraph.getParagraphFormat().getBullet()`, which returns a [BulletFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bulletformat/) object. With this object, you can set the bullet type, symbol, picture, color, size, numbering style, and starting number.
 
-Cet article montre comment :
+This article shows how to:
 
 - créer une liste à puces avec un symbole personnalisé
 - créer une puce image
 - créer une liste à plusieurs niveaux en définissant la profondeur du paragraphe
 - créer une liste numérotée
-- inspecter et modifier le format d’une liste dans une présentation existante
+- examiner et modifier le formatage des listes dans une présentation existante
+- lire les marqueurs et numéros réels des listes à côté du texte du paragraphe
 
 ## **Créer une liste à puces**
 
-Pour créer une liste à puces, ajoutez des objets [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) à un [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) et définissez `BulletFormat.setType` sur [BulletType.Symbol](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/). Vous pouvez ensuite régler `BulletFormat.setChar`, `BulletFormat.getColor` et `BulletFormat.setHeight` pour contrôler l’apparence de la puce.
+To create a bulleted list, add [Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/) objects to a [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) and set `BulletFormat.setType` to [BulletType.Symbol](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/). You can then set `BulletFormat.setChar`, `BulletFormat.getColor`, and `BulletFormat.setHeight` to control the bullet appearance.
 
-Le code JavaScript suivant montre comment créer une liste à puces dans une diapositive :
+The following JavaScript code demonstrates how to create a bulleted list in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createParagraph(text, bulletColor) {
     const paragraph = new aspose.slides.Paragraph();
     const paragraphFormat = paragraph.getParagraphFormat();
@@ -63,6 +68,7 @@ function createParagraph(text, bulletColor) {
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 50);
 
     const textFrame = autoShape.getTextFrame();
@@ -82,20 +88,25 @@ try {
 }
 ```
 
-Le résultat :
+Le résultat:
 
 ![Les puces symboles](symbol_bullets.png)
 
 ## **Créer une liste numérotée**
 
-Utilisez des listes numérotées lorsque l’ordre des éléments est important. Définissez `BulletFormat.setType` sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/). Vous pouvez également choisir un format de numérotation avec `BulletFormat.setNumberedBulletStyle` ou définir `BulletFormat.setNumberedBulletStartWith` lorsque la liste doit commencer à une valeur différente de 1.
+Use numbered lists when the order of items matters. Set `BulletFormat.setType` to [BulletType.Numbered](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/). You can also choose a numbering format with `BulletFormat.setNumberedBulletStyle` or set `BulletFormat.setNumberedBulletStartWith` when the list should start from a value other than 1.
 
-Le code JavaScript suivant montre comment créer une liste numérotée dans une diapositive :
+The following JavaScript code shows how to create a numbered list in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 90, 80);
 
     const textFrame = autoShape.getTextFrame();
@@ -122,29 +133,33 @@ try {
 }
 ```
 
-Le résultat :
+Le résultat:
 
 ![Les puces numérotées](numbered_bullets.png)
 
 ## **Créer une puce image**
 
-Aspose.Slides vous permet de remplacer un symbole de puce standard par une image. Les puces image fonctionnent mieux avec des images simples qui restent lisibles à petite taille, comme des icônes ou de petits fichiers PNG transparents.
+Aspose.Slides allows you to replace a regular bullet symbol with an image. Picture bullets work best with simple images that remain readable at a small size, such as icons or small transparent PNG files.
 
-{{% alert color="primary" %}}
-Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, choisissez un graphique simple avec un arrière‑plan transparent. Ce type d’image fonctionne bien comme symbole de puce personnalisé.
+{{% alert color="info" title="Note" %}}
+Idéalement, si vous prévoyez de remplacer le symbole de puce standard par une image, il est préférable de choisir un graphique simple avec un arrière‑plan transparent. De telles images fonctionnent bien comme symboles de puce personnalisés.
 
-Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons fortement de sélectionner une image qui reste claire et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
+Gardez à l’esprit que l’image sera réduite à une taille très petite. Pour cette raison, nous vous recommandons vivement de choisir une image qui reste claire et visuellement efficace lorsqu’elle est utilisée comme puce dans une liste.
 {{% /alert %}}
 
-Pour créer une puce image, ajoutez une image à [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) avec `Presentation.getImages().addImage` et affectez l’objet [PPImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ppimage/) retourné à `BulletFormat.getPicture().setImage`. Définissez `BulletFormat.setType` sur [BulletType.Picture](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/) avant d’assigner l’image.
+To create a picture bullet, add an image to [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) with `Presentation.getImages().addImage` and assign the returned [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) object to `BulletFormat.getPicture().setImage`. Set `BulletFormat.setType` to [BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/) before assigning the image.
 
-Imaginons que nous ayons une « image.png » :
+Let's say we have an "image.png":
 
 ![Une image pour les puces](picture_for_bullets.png)
 
-Le code JavaScript suivant montre comment créer des puces image dans une diapositive :
+The following JavaScript code shows how to create picture bullets in a slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 function createParagraph(text, image) {
     const paragraph = new aspose.slides.Paragraph();
     const paragraphFormat = paragraph.getParagraphFormat();
@@ -163,6 +178,7 @@ const presentation = new aspose.slides.Presentation();
 let image = null;
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 50);
 
     const textFrame = autoShape.getTextFrame();
@@ -186,20 +202,25 @@ try {
 }
 ```
 
-Le résultat :
+Le résultat:
 
 ![Les puces image](picture_bullets.png)
 
 ## **Créer une liste à plusieurs niveaux**
 
-Utilisez `ParagraphFormat.setDepth` pour placer les éléments de liste à différents niveaux. Le niveau 0 est le niveau supérieur, le niveau 1 est imbriqué en dessous, etc.
+Use `ParagraphFormat.setDepth` to place list items on different levels. Level 0 is the top level, level 1 is nested below it, and so on.
 
-Le code JavaScript suivant montre comment créer une liste à puces à plusieurs niveaux :
+The following JavaScript code shows how to create a multilevel bulleted list:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 260, 110);
 
     const textFrame = autoShape.getTextFrame();
@@ -231,21 +252,27 @@ try {
 }
 ```
 
-Le résultat :
+Le résultat:
 
 ![La liste à plusieurs niveaux](multilevel_list.png)
 
 ## **Modifier une liste existante**
 
-Pour modifier le format d’une liste dans une présentation existante, accédez au paragraphe cible et mettez à jour ses paramètres `ParagraphFormat.getBullet`. Les mêmes propriétés utilisées pour créer des listes peuvent être utilisées pour inspecter ou modifier des listes chargées depuis un fichier PPT, PPTX ou ODP.
+To change list formatting in an existing presentation, access the target paragraph and update its `ParagraphFormat.getBullet` settings. The same properties used to create lists can be used to inspect or modify lists loaded from a PPT, PPTX, or ODP file.
 
-Le code JavaScript suivant modifie le premier paragraphe d’un cadre de texte pour qu’il utilise un style de liste numérotée :
+The following JavaScript code changes the first paragraph in a text frame to use a numbered list style:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("input.pptx");
 try {
     const slide = presentation.getSlides().get_Item(0);
+
     const autoShape = slide.getShapes().get_Item(0);
+
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     const paragraphFormat = paragraph.getParagraphFormat();
@@ -263,16 +290,146 @@ try {
 }
 ```
 
+## **Lire les valeurs réelles des puces**
+
+When extracting presentation content, keep list markers alongside paragraph text. Call [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective) and access [IParagraphFormatEffectiveData.getBullet](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformateffectivedata/#getBullet--) to obtain the effective bullet format. Check its [getType](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getType--) before reading [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--).
+
+For numbered lists, distinguish these three values:
+
+- [getNumberedBulletStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStyle--) détermine le format, par exemple des chiffres arabes suivis d’un point ou des lettres minuscules suivies d’un point.
+- [getNumberedBulletStartWith](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStartWith--) spécifie le numéro de départ pour un groupe de paragraphes numérotés.
+- [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) renvoie le marqueur formaté pour un paragraphe particulier. Par exemple, le deuxième élément d’une liste commençant à 5 renvoie `6.`.
+
+Preserve [getDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDepth) with each paragraph to retain its nesting level. The actual marker does not encode the full hierarchy: a nested item can return `c.` rather than a combined label such as `6.c.`.
+
+The following self-contained example creates lists, saves them to a presentation, and reloads the presentation to report each paragraph's text, depth, bullet type, and actual value. The small blue picture marker is created from inline SVG.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const black = java.newInstanceSync("java.awt.Color", 0, 0, 0);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 440, aspose.slides.SlideSizeScaleType.DoNotScale);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 20, 660, 400);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    // Créez un marqueur image sans fichier image externe.
+    const svg = new aspose.slides.SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    const bulletImage = presentation.getImages().addImage(svg);
+
+    function addParagraph(text, depth, type, start, style) {
+        const paragraph = new aspose.slides.Paragraph();
+        paragraph.setText(text);
+
+        const format = paragraph.getParagraphFormat();
+        format.setDepth(java.newShort(depth));
+        format.setMarginLeft(30 + depth * 40);
+        format.setIndent(-28);
+        format.setSpaceAfter(8);
+        format.getDefaultPortionFormat().setFontHeight(22);
+        format.getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(black);
+        format.getBullet().setType(java.newByte(type));
+        format.getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+        format.getBullet().getColor().setColor(black);
+        if (type === aspose.slides.BulletType.Numbered) {
+            format.getBullet().setNumberedBulletStyle(java.newByte(style));
+            format.getBullet().setNumberedBulletStartWith(java.newShort(start));
+        } else if (type === aspose.slides.BulletType.Symbol) {
+            format.getBullet().setChar(java.newChar(0x2022));
+        } else if (type === aspose.slides.BulletType.Picture) {
+            format.getBullet().getPicture().setImage(bulletImage);
+        }
+
+        textFrame.getParagraphs().add(paragraph);
+    }
+
+    addParagraph("First item", 0, aspose.slides.BulletType.Numbered, 5, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    addParagraph("Second item", 0, aspose.slides.BulletType.Numbered, 5, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    addParagraph("Nested item", 1, aspose.slides.BulletType.Numbered, 3, aspose.slides.NumberedBulletStyle.BulletAlphaLCPeriod);
+    addParagraph("Next nested item", 1, aspose.slides.BulletType.Numbered, 3, aspose.slides.NumberedBulletStyle.BulletAlphaLCPeriod);
+    addParagraph("Deep item", 2, aspose.slides.BulletType.Numbered, 4, aspose.slides.NumberedBulletStyle.BulletRomanLCPeriod);
+    addParagraph("Back to top level", 0, aspose.slides.BulletType.Numbered, 5, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    addParagraph("Symbol marker", 0, aspose.slides.BulletType.Symbol, 1, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    addParagraph("No bullet", 0, aspose.slides.BulletType.None, 1, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    addParagraph("Picture marker", 0, aspose.slides.BulletType.Picture, 1, aspose.slides.NumberedBulletStyle.BulletArabicPeriod);
+    presentation.save("actual_bullet_values.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+const loadedPresentation = new aspose.slides.Presentation("actual_bullet_values.pptx");
+try {
+    const loadedShape = loadedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    console.log("Text | Depth | Type | Actual value");
+    const paragraphs = loadedShape.getTextFrame().getParagraphs();
+    for (let i = 0; i < paragraphs.getCount(); i++) {
+        const paragraph = paragraphs.get_Item(i);
+        const bullet = paragraph.getParagraphFormat().getEffective().getBullet();
+        let marker;
+        switch (bullet.getType()) {
+            case aspose.slides.BulletType.Numbered:
+            case aspose.slides.BulletType.Symbol:
+                marker = bullet.getActualBulletValue();
+                break;
+            case aspose.slides.BulletType.None:
+                marker = bullet.getActualBulletValue() + " (no bullet)";
+                break;
+            case aspose.slides.BulletType.Picture:
+                marker = bullet.getActualBulletValue() + " (image required)";
+                break;
+            default:
+                marker = "unsupported bullet type";
+                break;
+        }
+        const typeName = Object.keys(aspose.slides.BulletType).find(name => aspose.slides.BulletType[name] === bullet.getType());
+        console.log(paragraph.getText() + " | " + paragraph.getParagraphFormat().getDepth() + " | " + typeName + " | " + marker);
+    }
+} finally {
+    loadedPresentation.dispose();
+}
+```
+
+Les listes source sont affichées ci‑dessous.
+
+![Listes commençant à 5, éléments imbriqués en lettres et chiffres romains, un marqueur symbole, un paragraphe sans puce, et un marqueur image bleu](actual_bullet_values.png)
+
+The report matches the markers displayed in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+For [BulletType.None and BulletType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/bullettype/), [getActualBulletValue](https://reference.aspose.com/slides/java/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) returns `null`, not an empty string. Handle these types separately: the former has no marker, while the latter requires extracting the bullet image separately. A picture bullet cannot be reproduced solely by extracting a text marker.
+
 ## **FAQ**
 
-**Les listes à puces et numérotées peuvent‑elles être exportées vers PDF ou images ?**
+**Can bulleted and numbered lists be exported to PDF or images?**
 
-Oui. Aspose.Slides conserve le formatage des listes lorsque le format cible prend en charge la mise en page du texte et les fonctionnalités de puces correspondantes.
+Yes. Aspose.Slides preserves list formatting when the target format supports the corresponding text layout and bullet features.
 
-**Puis‑je modifier les listes dans des présentations existantes ?**
+**Can I edit lists in existing presentations?**
 
-Oui. Chargez la présentation, accédez au paragraphe cible, inspectez ou mettez à jour ses paramètres `ParagraphFormat.getBullet`, puis enregistrez la présentation.
+Yes. Load the presentation, access the target paragraph, inspect or update its `ParagraphFormat.getBullet` settings, and save the presentation.
 
-**Les listes peuvent‑elles contenir du texte non latin ?**
+**Can lists contain non-Latin text?**
 
-Oui. Le texte des éléments de liste peut contenir des caractères Unicode, vous permettant de créer des listes dans des présentations multilingues. Assurez‑vous que les polices utilisées dans la présentation prennent en charge les caractères dont vous avez besoin.
+Yes. List item text can contain Unicode characters, so you can create lists in multilingual presentations. Make sure the fonts used in the presentation support the characters you need.

@@ -1,63 +1,70 @@
 ---
 title: Gestire elenchi puntati e numerati nelle presentazioni su Android
-linktitle: Gestire gli elenchi
+linktitle: Gestisci gli elenchi
 type: docs
 weight: 60
 url: /it/androidjava/manage-lists/
 keywords:
-- punto elenco
+- punto
 - elenco puntato
 - elenco numerato
 - punto simbolo
 - punto immagine
 - punto personalizzato
-- elenco multlivello
-- creare punto
-- aggiungere punto
-- aggiungere elenco
+- elenco multilivello
+- crea punto
+- aggiungi punto
+- aggiungi elenco
 - PowerPoint
 - OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Scopri come creare e formattare elenchi puntati, immagine, multlivello e numerati nelle presentazioni PowerPoint e OpenDocument utilizzando Aspose.Slides per Android via Java."
+description: "Impara a creare e formattare elenchi puntati, con immagine, multilivello e numerati in presentazioni PowerPoint e OpenDocument usando Aspose.Slides per Android via Java."
 ---
 ## **Panoramica**
 
-Aspose.Slides for Android via Java consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento dell'elenco è un paragrafo le cui impostazioni del punto elenco sono controllate tramite il formato del paragrafo.
+Aspose.Slides for Android via Java ti consente di creare e formattare elenchi puntati e numerati in presentazioni PowerPoint e OpenDocument. Un elemento di elenco è un paragrafo le cui impostazioni di punto elenco sono controllate tramite il suo formato di paragrafo.
 
-Usa il metodo [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) per accedere alle impostazioni dell'elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/). Con questo oggetto è possibile impostare il tipo di punto, il simbolo, l'immagine, il colore, la dimensione, lo stile di numerazione e il numero di partenza.
+Utilizza il metodo [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--) per accedere alle impostazioni dell'elenco a livello di paragrafo. Il punto di ingresso principale è [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), che restituisce un oggetto [IBulletFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/). Con questo oggetto, è possibile impostare il tipo di punto elenco, il simbolo, l'immagine, il colore, la dimensione, lo stile di numerazione e il numero di partenza.
 
 Questo articolo mostra come:
 
 - creare un elenco puntato con un simbolo personalizzato
-- creare un punto elenco immagine
-- creare un elenco multlivello impostando la profondità del paragrafo
+- creare un punto elenco con immagine
+- creare un elenco a più livelli impostando la profondità del paragrafo
 - creare un elenco numerato
-- esaminare e modificare la formattazione dell'elenco in una presentazione esistente
+- ispezionare e modificare la formattazione dell'elenco in una presentazione esistente
+- leggere i marcatori di elenco reali e i numeri accanto al testo del paragrafo
 
-## **Creare un elenco puntato**
+## **Crea un elenco puntato**
 
-Per creare un elenco puntato, aggiungi paragrafi a un [ITextFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/itextframe/) e imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Symbol](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/bullettype/). Puoi quindi impostare [IBulletFormat.setChar](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#getColor--) e [IBulletFormat.setHeight](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) per controllare l'aspetto del punto elenco.
+Per creare un elenco puntato, aggiungi paragrafi a un [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) e imposta [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Symbol](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/). Puoi poi impostare [IBulletFormat.setChar](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setChar-char-), [IBulletFormat.getColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getColor--) e [IBulletFormat.setHeight](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setHeight-float-) per controllare l'aspetto del punto elenco.
 
-Il codice Java seguente mostra come creare un elenco puntato in una diapositiva:
+Il seguente codice Java dimostra come creare un elenco puntato in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
     ITextFrame textFrame = autoShape.getTextFrame();
     textFrame.getParagraphs().clear();
+
+    int bulletColor = Color.rgb(205, 92, 92);
 
     Paragraph paragraph1 = new Paragraph();
     paragraph1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
     paragraph1.getParagraphFormat().getBullet().setChar('*');
     paragraph1.getParagraphFormat().setIndent(15);
     paragraph1.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph1.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph1.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph1.getParagraphFormat().getBullet().setHeight(100);
     paragraph1.setText("The first paragraph");
     textFrame.getParagraphs().add(paragraph1);
@@ -67,7 +74,7 @@ try {
     paragraph2.getParagraphFormat().getBullet().setChar('*');
     paragraph2.getParagraphFormat().setIndent(15);
     paragraph2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
-    paragraph2.getParagraphFormat().getBullet().getColor().setColor(Color.RED);
+    paragraph2.getParagraphFormat().getBullet().getColor().setColor(bulletColor);
     paragraph2.getParagraphFormat().getBullet().setHeight(100);
     paragraph2.setText("The second paragraph");
     textFrame.getParagraphs().add(paragraph2);
@@ -80,18 +87,21 @@ try {
 
 Il risultato:
 
-![I simboli puntati](symbol_bullets.png)
+![I simboli dei punti](symbol_bullets.png)
 
-## **Creare un elenco numerato**
+## **Crea un elenco numerato**
 
-Utilizza gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Numbered](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/bullettype/). Puoi anche scegliere un formato di numerazione con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) o impostare [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) quando l'elenco deve iniziare da un valore diverso da 1.
+Utilizza gli elenchi numerati quando l'ordine degli elementi è importante. Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Numbered](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/). È inoltre possibile scegliere un formato di numerazione con [IBulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStyle-byte-) oppure impostare [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) quando l'elenco deve iniziare da un valore diverso da 1.
 
-Il codice Java seguente mostra come creare un elenco numerato in una diapositiva:
+Il seguente codice Java mostra come creare un elenco numerato in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 90, 80);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -120,30 +130,33 @@ try {
 
 Il risultato:
 
-![I punti elenco numerati](numbered_bullets.png)
+![I punti numerati](numbered_bullets.png)
 
-## **Creare un punto elenco immagine**
+## **Crea un punto elenco con immagine**
 
-Aspose.Slides consente di sostituire un simbolo di punto elenco normale con un'immagine. I punti elenco immagine funzionano meglio con immagini semplici che rimangono leggibili a dimensioni ridotte, come icone o piccoli file PNG trasparenti.
+Aspose.Slides ti consente di sostituire un simbolo di punto elenco regolare con un'immagine. I punti elenco con immagine funzionano al meglio con immagini semplici che rimangono leggibili a piccole dimensioni, come icone o piccoli file PNG trasparenti.
 
-{{% alert color="primary" %}}
-Idealmente, se prevedi di sostituire il simbolo di punto elenco normale con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Tali immagini funzionano bene come simboli di punto elenco personalizzati.
+{{% alert color="info" title="Nota" %}}
+Idealmente, se prevedi di sostituire il simbolo di punto elenco regolare con un'immagine, è consigliabile scegliere una grafica semplice con sfondo trasparente. Tali immagini funzionano bene come simboli di punto elenco personalizzati.
 
-Tieni presente che l'immagine verrà ridimensionata a dimensioni molto piccole. Per questo motivo, raccomandiamo vivamente di scegliere un'immagine che rimanga chiara ed efficace visivamente quando viene usata come punto elenco in un elenco.
+Tieni presente che l'immagine verrà ridotta a dimensioni molto piccole. Per questo motivo, consigliamo vivamente di scegliere un'immagine che rimanga chiara ed efficace visualmente quando utilizzata come punto elenco in un elenco.
 {{% /alert %}}
 
-Per creare un punto elenco immagine, aggiungi un'immagine a [Presentation.getImages](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/#getImages--) e assegna l'oggetto [IPPImage](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ippimage/) restituito a [IBulletFormat.getPicture](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Picture](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/bullettype/) prima di assegnare l'immagine.
+Per creare un punto elenco con immagine, aggiungi un'immagine a [Presentation.getImages](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getImages--) e assegna l'oggetto [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) restituito a [IBulletFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#getPicture--). Imposta [IBulletFormat.setType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformat/#setType-byte-) su [BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/) prima di assegnare l'immagine.
 
-Supponiamo di avere un file "image.png":
+Supponiamo di avere un "image.png":
 
 ![Un'immagine per i punti elenco](picture_for_bullets.png)
 
-Il codice Java seguente mostra come creare punti elenco immagine in una diapositiva:
+Il seguente codice Java mostra come creare punti elenco con immagine in una diapositiva:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -175,18 +188,21 @@ try {
 
 Il risultato:
 
-![I punti elenco immagine](picture_bullets.png)
+![I punti elenco con immagine](picture_bullets.png)
 
-## **Creare un elenco multlivello**
+## **Crea un elenco a più livelli**
 
-Usa [IParagraphFormat.setDepth](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare gli elementi dell'elenco su livelli diversi. Il livello 0 è il livello superiore, il livello 1 è nidificato al di sotto, e così via.
+Utilizza [IParagraphFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) per posizionare gli elementi dell'elenco a diversi livelli. Il livello 0 è il livello superiore, il livello 1 è annidato sotto di esso, e così via.
 
-Il codice Java seguente mostra come creare un elenco puntato multlivello:
+Il seguente codice Java mostra come creare un elenco a più livelli:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 260, 110);
 
     ITextFrame textFrame = autoShape.getTextFrame();
@@ -220,21 +236,22 @@ try {
 
 Il risultato:
 
-![L'elenco multlivello](multilevel_list.png)
+![L'elenco a più livelli](multilevel_list.png)
 
-## **Modificare un elenco esistente**
+## **Modifica un elenco esistente**
 
-Per modificare la formattazione dell'elenco in una presentazione esistente, accedi al paragrafo di destinazione e aggiorna le sue impostazioni [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getBullet--). Gli stessi metodi usati per creare gli elenchi possono essere utilizzati per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
-
-Il codice Java seguente modifica il primo paragrafo in un frame di testo per utilizzare uno stile di elenco numerato:
+Per modificare la formattazione dell'elenco in una presentazione esistente, accedi al paragrafo target e aggiorna le sue impostazioni [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--). Gli stessi metodi usati per creare gli elenchi possono essere utilizzati per ispezionare o modificare gli elenchi caricati da un file PPT, PPTX o ODP.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
+    IAutoShape autoShape = (IAutoShape) slide.getShapes().get_Item(0);
+
+    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletRomanUCPeriod);
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 1);
@@ -247,16 +264,142 @@ try {
 }
 ```
 
+## **Leggi i valori effettivi dei punti elenco**
+
+Durante l'estrazione del contenuto della presentazione, mantieni i marcatori dell'elenco accanto al testo del paragrafo. Chiama [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--) e accedi a [IParagraphFormatEffectiveData.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformateffectivedata/#getBullet--) per ottenere il formato effettivo del punto elenco. Verifica il suo [getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getType--) prima di leggere [getActualBulletValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--).
+
+Per gli elenchi numerati, distingui questi tre valori:
+
+- [getNumberedBulletStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStyle--) determina il formato, ad esempio numeri arabi seguiti da un punto o lettere minuscole seguite da un punto.
+- [getNumberedBulletStartWith](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getNumberedBulletStartWith--) specifica il numero di partenza per un gruppo di paragrafi numerati.
+- [getActualBulletValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) restituisce il marcatore formattato per un particolare paragrafo. Ad esempio, il secondo elemento di un elenco che inizia da 5 restituisce `6.`.
+
+Conserva [getDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getDepth--) per ogni paragrafo per mantenere il suo livello di annidamento. Il marcatore effettivo non codifica l'intera gerarchia: un elemento annidato può restituire `c.` invece di un'etichetta combinata come `6.c.`.
+
+Il seguente esempio autonomo crea elenchi, li salva in una presentazione e ricarica la presentazione per segnalare il testo, la profondità, il tipo di punto elenco e il valore effettivo di ogni paragrafo. Il piccolo marcatore immagine blu è creato da SVG in linea.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 440, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20, 660, 400);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    // Crea un marcatore immagine senza un file immagine esterno.
+    SvgImage svg = new SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    IPPImage bulletImage = presentation.getImages().addImage(svg);
+
+    class ListBuilder {
+        void addParagraph(String text, short depth, byte type, short start, byte style) {
+            Paragraph paragraph = new Paragraph();
+            paragraph.setText(text);
+
+            IParagraphFormat format = paragraph.getParagraphFormat();
+            format.setDepth(depth);
+            format.setMarginLeft(30 + depth * 40);
+            format.setIndent(-28);
+            format.setSpaceAfter(8);
+            format.getDefaultPortionFormat().setFontHeight(22);
+            format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+            format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+            format.getBullet().setType(type);
+            format.getBullet().setBulletHardColor(NullableBool.True);
+            format.getBullet().getColor().setColor(Color.BLACK);
+            if (type == BulletType.Numbered) {
+                format.getBullet().setNumberedBulletStyle(style);
+                format.getBullet().setNumberedBulletStartWith(start);
+            } else if (type == BulletType.Symbol) {
+                format.getBullet().setChar('\u2022');
+            } else if (type == BulletType.Picture) {
+                format.getBullet().getPicture().setImage(bulletImage);
+            }
+
+            textFrame.getParagraphs().add(paragraph);
+        }
+    }
+
+    ListBuilder list = new ListBuilder();
+    list.addParagraph("First item", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Second item", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Nested item", (short) 1, BulletType.Numbered, (short) 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    list.addParagraph("Next nested item", (short) 1, BulletType.Numbered, (short) 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    list.addParagraph("Deep item", (short) 2, BulletType.Numbered, (short) 4, NumberedBulletStyle.BulletRomanLCPeriod);
+    list.addParagraph("Back to top level", (short) 0, BulletType.Numbered, (short) 5, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Symbol marker", (short) 0, BulletType.Symbol, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("No bullet", (short) 0, BulletType.None, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    list.addParagraph("Picture marker", (short) 0, BulletType.Picture, (short) 1, NumberedBulletStyle.BulletArabicPeriod);
+    presentation.save("actual_bullet_values.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation loadedPresentation = new Presentation("actual_bullet_values.pptx");
+try {
+    IAutoShape loadedShape = (IAutoShape) loadedPresentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    System.out.println("Text | Depth | Type | Actual value");
+    for (IParagraph paragraph : loadedShape.getTextFrame().getParagraphs()) {
+        IBulletFormatEffectiveData bullet = paragraph.getParagraphFormat().getEffective().getBullet();
+        String marker;
+        switch (bullet.getType()) {
+            case BulletType.Numbered:
+            case BulletType.Symbol:
+                marker = bullet.getActualBulletValue();
+                break;
+            case BulletType.None:
+                marker = bullet.getActualBulletValue() + " (no bullet)";
+                break;
+            case BulletType.Picture:
+                marker = bullet.getActualBulletValue() + " (image required)";
+                break;
+            default:
+                marker = "unsupported bullet type";
+                break;
+        }
+        String typeName = BulletType.getName(BulletType.class, bullet.getType());
+        System.out.println(paragraph.getText() + " | " + paragraph.getParagraphFormat().getDepth() + " | " + typeName + " | " + marker);
+    }
+} finally {
+    loadedPresentation.dispose();
+}
+```
+
+Gli elenchi di origine sono mostrati di seguito.
+
+![Elenchi che iniziano da 5, elementi annidati con lettere e numeri romani, un marcatore simbolico, un paragrafo senza punto elenco e un marcatore immagine blu](actual_bullet_values.png)
+
+Il rapporto corrisponde ai marcatori visualizzati in PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+Per [BulletType.None and BulletType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/bullettype/), [getActualBulletValue](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibulletformateffectivedata/#getActualBulletValue--) restituisce `null`, non una stringa vuota. Gestisci questi tipi separatamente: il primo non ha marcatore, mentre il secondo richiede l'estrazione dell'immagine del punto elenco separatamente. Un punto elenco con immagine non può essere riprodotto esclusivamente estraendo un marcatore di testo.
+
 ## **FAQ**
 
-**È possibile esportare elenchi puntati e numerati in PDF o immagini?**
+**È possibile esportare elenchi puntati e numerati in PDF o immagini?**  
+Sì. Aspose.Slides conserva la formattazione dell'elenco quando il formato di destinazione supporta la corrispondente disposizione del testo e le funzionalità dei punti elenco.
 
-Sì. Aspose.Slides conserva la formattazione degli elenchi quando il formato di destinazione supporta il layout del testo e le funzionalità di punto elenco corrispondenti.
+**Posso modificare gli elenchi in presentazioni esistenti?**  
+Sì. Carica la presentazione, accedi al paragrafo target, ispeziona o aggiorna le sue impostazioni [IParagraphFormat.getBullet](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), e salva la presentazione.
 
-**Posso modificare gli elenchi in presentazioni esistenti?**
-
-Sì. Carica la presentazione, accedi al paragrafo di destinazione, ispeziona o aggiorna le sue impostazioni [IParagraphFormat.getBullet](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iparagraphformat/#getBullet--), e salva la presentazione.
-
-**Gli elenchi possono contenere testo non latino?**
-
+**Gli elenchi possono contenere testo non latino?**  
 Sì. Il testo degli elementi dell'elenco può contenere caratteri Unicode, quindi è possibile creare elenchi in presentazioni multilingue. Assicurati che i caratteri utilizzati nella presentazione supportino i caratteri di cui hai bisogno.

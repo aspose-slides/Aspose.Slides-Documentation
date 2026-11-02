@@ -1,6 +1,6 @@
 ---
-title: Správa odrážkových a číslovaných seznamů v prezentacích pomocí Pythonu přes Java
-linktitle: Správa seznamů
+title: Spravovat odrážkové a číslované seznamy v prezentacích pomocí Pythonu přes Java
+linktitle: Spravovat seznamy
 type: docs
 weight: 60
 url: /cs/python-java/manage-lists/
@@ -8,7 +8,7 @@ keywords:
 - odrážka
 - odrážkový seznam
 - číslovaný seznam
-- symbolová odrážka
+- symbolická odrážka
 - obrázková odrážka
 - vlastní odrážka
 - víceúrovňový seznam
@@ -25,9 +25,9 @@ description: "Naučte se, jak vytvářet a formátovat odrážkové seznamy, obr
 ---
 ## **Přehled**
 
-Aspose.Slides for Python via Java vám umožňuje vytvářet a formátovat odrážkové i číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno prostřednictvím formátu odstavce.
+Aspose.Slides pro Python přes Java vám umožňuje vytvářet a formátovat odrážkové a číslované seznamy v prezentacích PowerPoint a OpenDocument. Položka seznamu je odstavec, jehož nastavení odrážky je řízeno pomocí formátu odstavce.
 
-Použijte metodu [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/#getParagraphFormat) pro přístup k nastavením seznamu na úrovni odstavce. Hlavním vstupním bodem je [ParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getBullet), který vrací objekt [BulletFormat](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/). S tímto objektem můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
+Použijte metodu [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat) k přístupu k nastavením seznamu na úrovni odstavce. Hlavním vstupním bodem je [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet), která vrací objekt [BulletFormat](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/). Pomocí tohoto objektu můžete nastavit typ odrážky, symbol, obrázek, barvu, velikost, styl číslování a počáteční číslo.
 
 Tento článek ukazuje, jak:
 
@@ -35,13 +35,12 @@ Tento článek ukazuje, jak:
 - vytvořit obrázkovou odrážku
 - vytvořit víceúrovňový seznam nastavením hloubky odstavce
 - vytvořit číslovaný seznam
-- zkontrolovat a změnit formátování seznamu v existující prezentaci
+- prohlédnout a změnit formátování seznamu v existující prezentaci
+- přečíst skutečné značky seznamu a čísla spolu s textem odstavce
 
-## **Vytvoření odrážkového seznamu**
+## **Vytvořit odrážkový seznam**
 
-Pro vytvoření odrážkového seznamu přidejte objekty [Paragraph](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/textframe/) a nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bullettype/#Symbol). Poté můžete použít [BulletFormat.setChar](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setChar), [BulletFormat.getColor](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#getColor) a [BulletFormat.setHeight](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setHeight) pro řízení vzhledu odrážky.
-
-Následující kód v Pythonu ukazuje, jak vytvořit odrážkový seznam na snímku:
+Chcete‑li vytvořit odrážkový seznam, přidejte objekty [Paragraph](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/) do [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/) a nastavte [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Symbol](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Symbol). Poté můžete použít [BulletFormat.setChar](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setChar), [BulletFormat.getColor](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getColor) a [BulletFormat.setHeight](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setHeight), abyste ovládali vzhled odrážky.
 
 ```python
 import jpype
@@ -56,6 +55,7 @@ from java.awt import Color
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -90,13 +90,11 @@ finally:
 
 Výsledek:
 
-![The symbol bullets](symbol_bullets.png)
+![Symbolické odrážky](symbol_bullets.png)
 
-## **Vytvoření číslovaného seznamu**
+## **Vytvořit číslovaný seznam**
 
-Používejte číslované seznamy, když je pořadí položek důležité. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Numbered](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bullettype/#Numbered). Můžete také vybrat formát číslování pomocí [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) nebo použít [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), pokud má seznam začít jinou hodnotou než 1.
-
-Následující kód v Pythonu ukazuje, jak vytvořit číslovaný seznam na snímku:
+Používejte číslované seznamy, když záleží na pořadí položek. Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Numbered](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Numbered). Můžete také zvolit formát číslování pomocí [BulletFormat.setNumberedBulletStyle](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStyle) nebo použít [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setNumberedBulletStartWith), pokud má seznam začít jinou hodnotou než 1.
 
 ```python
 import jpype
@@ -110,6 +108,7 @@ from asposeslides.api import BulletType, Paragraph, Presentation, SaveFormat, Sh
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 90, 80)
 
     text_frame = auto_shape.getTextFrame()
@@ -137,25 +136,21 @@ finally:
 
 Výsledek:
 
-![The numbered bullets](numbered_bullets.png)
+![Číslované odrážky](numbered_bullets.png)
 
-## **Vytvoření obrázkové odrážky**
+## **Vytvořit obrázkovou odrážku**
 
-Aspose.Slides umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné i při malé velikosti, například ikony nebo malé průhledné soubory PNG.
+Aspose.Slides vám umožňuje nahradit běžný symbol odrážky obrázkem. Obrázkové odrážky fungují nejlépe s jednoduchými obrázky, které zůstávají čitelné při malé velikosti, například ikony nebo malé průhledné PNG soubory.
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Poznámka" %}}
 Pokud plánujete nahradit běžný symbol odrážky obrázkem, zvolte jednoduchou grafiku s průhledným pozadím. Takové obrázky fungují dobře jako vlastní symboly odrážek.
-
-Mějte na paměti, že obrázek bude zmenšen na velmi malou velikost. Z tohoto důvodu důrazně doporučujeme vybrat obrázek, který zůstane jasný a vizuálně účinný, když bude použit jako odrážka v seznamu.
 {{% /alert %}}
 
-Pro vytvoření obrázkové odrážky přidejte obrázek pomocí [Presentation.getImages](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#getImages) a přiřaďte vrácený objekt obrázku k [BulletFormat.getPicture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#getPicture). Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Picture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/bullettype/#Picture) před přiřazením obrázku.
+Chcete‑li vytvořit obrázkovou odrážku, přidejte obrázek do [Presentation.getImages](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getImages) a přiřaďte vrácený objekt obrázku k [BulletFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#getPicture). Nastavte [BulletFormat.setType](https://reference.aspose.com/slides/python-java/aspose.slides/bulletformat/#setType) na [BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/#Picture) před přiřazením obrázku.
 
-Předpokládejme, že máme obrázek s názvem "image.png":
+Předpokládejme, že máme obrázek pojmenovaný „image.png“:
 
-![A picture for the bullets](picture_for_bullets.png)
-
-Následující kód v Pythonu ukazuje, jak vytvořit obrázkové odrážky na snímku:
+![Obrázek pro odrážky](picture_for_bullets.png)
 
 ```python
 import jpype
@@ -169,6 +164,7 @@ from asposeslides.api import BulletType, Images, Paragraph, Presentation, SaveFo
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 200, 50)
 
     text_frame = auto_shape.getTextFrame()
@@ -203,13 +199,11 @@ finally:
 
 Výsledek:
 
-![The picture bullets](picture_bullets.png)
+![Obrázkové odrážky](picture_bullets.png)
 
-## **Vytvoření víceúrovňového seznamu**
+## **Vytvořit víceúrovňový seznam**
 
-Použijte [ParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#setDepth) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní a tak dále.
-
-Následující kód v Pythonu ukazuje, jak vytvořit víceúrovňový odrážkový seznam:
+Použijte [ParagraphFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDepth) k umístění položek seznamu na různé úrovně. Úroveň 0 je nejvyšší úroveň, úroveň 1 je pod ní vnořená a tak dále.
 
 ```python
 import jpype
@@ -223,6 +217,7 @@ from asposeslides.api import Paragraph, Presentation, SaveFormat, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 260, 110)
 
     text_frame = auto_shape.getTextFrame()
@@ -255,13 +250,11 @@ finally:
 
 Výsledek:
 
-![The multilevel list](multilevel_list.png)
+![Víceúrovňový seznam](multilevel_list.png)
 
-## **Změna existujícího seznamu**
+## **Změnit existující seznam**
 
-Pro změnu formátování seznamu v existující prezentaci přistupte k požadovanému odstavci a aktualizujte jeho nastavení [ParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getBullet). Stejné vlastnosti použité při vytváření seznamů lze použít i k prohlížení či úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
-
-Následující kód v Pythonu mění první odstavec v textovém rámci tak, aby použil styl číslovaného seznamu:
+Chcete‑li změnit formátování seznamu v existující prezentaci, přistupte k cílovému odstavci a aktualizujte jeho nastavení [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet). Stejná vlastnosti, které se používají k vytváření seznamů, lze použít k prohlížení nebo úpravě seznamů načtených ze souboru PPT, PPTX nebo ODP.
 
 ```python
 import jpype
@@ -275,9 +268,10 @@ from asposeslides.api import BulletType, NumberedBulletStyle, Presentation, Save
 presentation = Presentation("input.pptx")
 try:
     slide = presentation.getSlides().get_Item(0)
-    auto_shape = slide.getShapes().get_Item(0)
-    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
+    auto_shape = slide.getShapes().get_Item(0)
+
+    paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Numbered)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletRomanUCPeriod)
     paragraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(1)
@@ -289,16 +283,140 @@ finally:
     presentation.dispose()
 ```
 
+## **Přečíst skutečné hodnoty odrážek**
+
+Při extrahování obsahu prezentace uchovávejte značky seznamu vedle textu odstavce. Zavolejte [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective) a přistupte k `getBullet`, abyste získali efektivní formát odrážky. Zkontrolujte jeho `getType` před čtením `getActualBulletValue`.
+
+U číslovaných seznamů rozlišujte tyto tři hodnoty:
+
+- `getNumberedBulletStyle` určuje formát, například arabské číslice následované tečkou nebo malá písmena následovaná tečkou.
+- `getNumberedBulletStartWith` určuje počáteční číslo pro skupinu číslovaných odstavců.
+- `getActualBulletValue` vrací formátovanou značku pro konkrétní odstavec. Například druhá položka v seznamu začínajícím od 5 vrátí `6.`.
+
+Uchovejte [getDepth](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDepth) u každého odstavce, aby se zachoval jeho úroveň vnoření. Skutečná značka neobsahuje úplnou hierarchii: vnořená položka může vrátit `c.` místo kombinované štítku jako `6.c.`.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BulletType, FillType, NullableBool, NumberedBulletStyle, Paragraph, Presentation, SaveFormat, ShapeType, SlideSizeScaleType, SvgImage
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 440, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 20, 660, 400)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    text_frame = shape.getTextFrame()
+    text_frame.getParagraphs().clear()
+
+    # Vytvořte obrázkovou značku bez externího souboru obrázku.
+    svg = SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>")
+    bullet_image = presentation.getImages().addImage(svg)
+
+    def add_paragraph(text, depth, bullet_type, start, style):
+        paragraph = Paragraph()
+        paragraph.setText(text)
+
+        paragraph_format = paragraph.getParagraphFormat()
+        paragraph_format.setDepth(depth)
+        paragraph_format.setMarginLeft(30 + depth * 40)
+        paragraph_format.setIndent(-28)
+        paragraph_format.setSpaceAfter(8)
+        paragraph_format.getDefaultPortionFormat().setFontHeight(22)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        paragraph_format.getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        paragraph_format.getBullet().setType(bullet_type)
+        paragraph_format.getBullet().setBulletHardColor(NullableBool.True_)
+        paragraph_format.getBullet().getColor().setColor(Color.BLACK)
+        if bullet_type == BulletType.Numbered:
+            paragraph_format.getBullet().setNumberedBulletStyle(style)
+            paragraph_format.getBullet().setNumberedBulletStartWith(start)
+        elif bullet_type == BulletType.Symbol:
+            paragraph_format.getBullet().setChar('\u2022')
+        elif bullet_type == BulletType.Picture:
+            paragraph_format.getBullet().getPicture().setImage(bullet_image)
+
+        text_frame.getParagraphs().add(paragraph)
+
+    add_paragraph("First item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Second item", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Next nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod)
+    add_paragraph("Deep item", 2, BulletType.Numbered, 4, NumberedBulletStyle.BulletRomanLCPeriod)
+    add_paragraph("Back to top level", 0, BulletType.Numbered, 5, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Symbol marker", 0, BulletType.Symbol, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("No bullet", 0, BulletType.None_, 1, NumberedBulletStyle.BulletArabicPeriod)
+    add_paragraph("Picture marker", 0, BulletType.Picture, 1, NumberedBulletStyle.BulletArabicPeriod)
+    presentation.save("actual_bullet_values.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+
+loaded_presentation = Presentation("actual_bullet_values.pptx")
+try:
+    loaded_shape = loaded_presentation.getSlides().get_Item(0).getShapes().get_Item(0)
+    type_names = {
+        BulletType.Numbered: "Numbered",
+        BulletType.Symbol: "Symbol",
+        BulletType.None_: "None",
+        BulletType.Picture: "Picture",
+    }
+    print("Text | Depth | Type | Actual value")
+    for paragraph in loaded_shape.getTextFrame().getParagraphs():
+        bullet = paragraph.getParagraphFormat().getEffective().getBullet()
+        bullet_type = bullet.getType()
+        if bullet_type in (BulletType.Numbered, BulletType.Symbol):
+            marker = bullet.getActualBulletValue()
+        elif bullet_type == BulletType.None_:
+            marker = f"{bullet.getActualBulletValue()} (no bullet)"
+        elif bullet_type == BulletType.Picture:
+            marker = f"{bullet.getActualBulletValue()} (image required)"
+        else:
+            marker = "unsupported bullet type"
+        type_name = type_names.get(bullet_type, "Unknown")
+        print(f"{paragraph.getText()} | {paragraph.getParagraphFormat().getDepth()} | {type_name} | {marker}")
+finally:
+    loaded_presentation.dispose()
+```
+
+Zdrojové seznamy jsou zobrazeny níže.
+
+![Seznamy začínající od 5, vnořené položky s písmeny a římskými čísly, symbolické značky, odstavec bez odrážky a modrá obrázková značka](actual_bullet_values.png)
+
+Výstup odpovídá značkám zobrazeným v PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | None (no bullet)
+Picture marker | 0 | Picture | None (image required)
+```
+
+Pro [BulletType.None_ a BulletType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/bullettype/), `getActualBulletValue` vrací `None` (Java `null`), nikoli prázdný řetězec. Tyto typy ošetřujte samostatně: první nemá žádnou značku, zatímco druhý vyžaduje samostatné získání obrázku odrážky. Obrázkovou odrážku nelze reprodukovat pouze extrakcí textové značky.
+
 ## **Často kladené otázky**
 
 **Lze odrážkové a číslované seznamy exportovat do PDF nebo obrázků?**
 
-Ano. Aspose.Slides zachovává formátování seznamu, pokud cílový formát podporuje odpovídající rozvržení textu a funkce odrážek.
+Ano. Aspose.Slides zachovává formátování seznamu, pokud cílový formát podporuje odpovídající rozložení textu a funkce odrážek.
 
 **Mohu upravovat seznamy v existujících prezentacích?**
 
-Ano. Načtěte prezentaci, přistupte k požadovanému odstavci, zkontrolujte nebo aktualizujte jeho [ParagraphFormat.getBullet](https://reference.aspose.com/slides/cs/python-java/aspose.slides/paragraphformat/#getBullet) nastavení a prezentaci uložte.
+Ano. Načtěte prezentaci, přistupte k cílovému odstavci, prohlédněte nebo aktualizujte jeho nastavení [ParagraphFormat.getBullet](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getBullet) a uložte prezentaci.
 
-**Mohou seznamy obsahovat ne‑latinový text?**
+**Mohou seznamy obsahovat ne‑latinský text?**
 
-Ano. Text položek seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy ve vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují potřebné znaky.
+Ano. Text položky seznamu může obsahovat Unicode znaky, takže můžete vytvářet seznamy ve vícejazyčných prezentacích. Ujistěte se, že použité fonty v prezentaci podporují potřebné znaky.

@@ -1,19 +1,21 @@
 ---
-title: จัดการรายการแบบหัวข้อและลำดับเลขในงานนำเสนอด้วย .NET
+title: จัดการรายการแบบหัวข้อสัญลักษณ์และลำดับเลขในงานนำเสนอด้วย .NET
 linktitle: จัดการรายการ
 type: docs
 weight: 70
 url: /th/net/manage-lists/
+aliases:
+  - /net/manage-bullet-and-numbered-lists/
 keywords:
-- หัวข้อ
-- รายการแบบหัวข้อ
-- รายการแบบลำดับเลข
 - หัวข้อสัญลักษณ์
-- หัวข้อรูปภาพ
-- หัวข้อกำหนดเอง
+- รายการแบบหัวข้อสัญลักษณ์
+- รายการลำดับเลข
+- สัญลักษณ์หัวข้อสัญลักษณ์
+- หัวข้อสัญลักษณ์รูปภาพ
+- หัวข้อสัญลักษณ์กำหนดเอง
 - รายการหลายระดับ
-- สร้างหัวข้อ
-- เพิ่มหัวข้อ
+- สร้างหัวข้อสัญลักษณ์
+- เพิ่มหัวข้อสัญลักษณ์
 - เพิ่มรายการ
 - PowerPoint
 - OpenDocument
@@ -21,29 +23,34 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีสร้างและกำหนดรูปแบบรายการแบบหัวข้อ, รูปภาพ, หลายระดับและลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ .NET."
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบรายการแบบหัวข้อสัญลักษณ์, รูปภาพ, หลายระดับ และลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument โดยใช้ Aspose.Slides สำหรับ .NET."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for .NET ให้คุณสร้างและกำหนดรูปแบบรายการแบบหัวข้อและลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการแต่ละรายการคือย่อหน้าที่การตั้งค่าหัวข้อถูกควบคุมผ่านรูปแบบย่อหน้า
+Aspose.Slides for .NET ช่วยให้คุณสร้างและจัดรูปแบบรายการแบบหัวข้อสัญลักษณ์และรายการลำดับเลขในงานนำเสนอ PowerPoint และ OpenDocument รายการแต่ละรายการคือย่อหน้าที่การตั้งค่าหัวข้อสัญลักษณ์ถูกควบคุมผ่านรูปแบบย่อหน้า
 
-ใช้คุณสมบัติ [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/paragraphformat/) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเริ่มต้นหลักคือ [IParagraphFormat.Bullet](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/bullet/) ซึ่งจะคืนค่าอ็อบเจกต์ [IBulletFormat](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/) ด้วยอ็อบเจกต์นี้คุณสามารถตั้งค่าชนิดหัวข้อ สัญลักษณ์ รูปภาพ สี ขนาด รูปแบบการลำดับเลข และหมายเลขเริ่มต้นได้
+ใช้คุณสมบัติ [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/paragraphformat/) เพื่อเข้าถึงการตั้งค่ารายการระดับย่อหน้า จุดเข้าสำคัญคือ [IParagraphFormat.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/bullet/) ซึ่งคืนค่าออบเจกต์ [IBulletFormat](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/) ด้วยออบเจกต์นี้ คุณสามารถตั้งค่าประเภทสัญลักษณ์, สัญลักษณ์, รูปภาพ, สี, ขนาด, รูปแบบการลำดับเลข, และหมายเลขเริ่มต้น
 
-บทความนี้แสดงวิธี:
+บทความนี้แสดงวิธีการ:
 
-- สร้างรายการแบบหัวข้อด้วยสัญลักษณ์กำหนดเอง
-- สร้างหัวข้อรูปภาพ
-- สร้างรายการหลายระดับโดยตั้งค่าความลึกของย่อหน้า
-- สร้างรายการแบบลำดับเลข
-- ตรวจสอบและเปลี่ยนรูปแบบรายการในงานนำเสนอที่มีอยู่
+- สร้างรายการแบบหัวข้อสัญลักษณ์ด้วยสัญลักษณ์ที่กำหนดเอง
+- สร้างหัวข้อสัญลักษณ์รูปภาพ
+- สร้างรายการหลายระดับโดยกำหนดความลึกของย่อหน้า
+- สร้างรายการลำดับเลข
+- ตรวจสอบและเปลี่ยนการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่
+- อ่านสัญลักษณ์รายการและหมายเลขจริงพร้อมกับข้อความย่อหน้า
 
-## **สร้างรายการแบบหัวข้อ**
+## **สร้างรายการแบบหัวข้อสัญลักษณ์**
 
-เพื่อสร้างรายการแบบหัวข้อ ให้เพิ่มอ็อบเจกต์ [IParagraph](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/) ไปยัง [ITextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/itextframe/) และตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/) จากนั้นคุณสามารถตั้งค่า [IBulletFormat.Char](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/color/), และ [IBulletFormat.Height](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/height/) เพื่อควบคุมลักษณะของหัวข้อได้
+เพื่อสร้างรายการแบบหัวข้อสัญลักษณ์ ให้เพิ่มออบเจกต์ [IParagraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph/) ไปยัง [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) และตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/net/aspose.slides/bullettype/). จากนั้นคุณสามารถตั้งค่า [IBulletFormat.Char](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/char/), [IBulletFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/color/), และ [IBulletFormat.Height](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/height/) เพื่อควบคุมลักษณะของหัวข้อสัญลักษณ์ได้
 
-โค้ด C# ต่อไปนี้แสดงวิธีสร้างรายการแบบหัวข้อในสไลด์:
+โค้ด C# ด้านล่างแสดงวิธีการสร้างรายการแบบหัวข้อสัญลักษณ์ในสไลด์:
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text)
 {
     var paragraph = new Paragraph();
@@ -58,8 +65,8 @@ static Paragraph CreateParagraph(string text)
 }
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
 var textFrame = autoShape.TextFrame;
@@ -76,18 +83,21 @@ presentation.Save("symbol_bullets.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![สัญลักษณ์หัวข้อ](symbol_bullets.png)
+![หัวข้อสัญลักษณ์](symbol_bullets.png)
 
-## **สร้างรายการแบบลำดับเลข**
+## **สร้างรายการลำดับเลข**
 
-ใช้รายการแบบลำดับเลขเมื่ออันดับของรายการมีความสำคัญ ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/) คุณยังสามารถเลือกรูปแบบการลำดับเลขด้วย [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/numberedbulletstyle/) หรือกำหนดค่าเริ่มต้นด้วย [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เมื่อรายการควรเริ่มจากค่าที่ไม่ใช่ 1
+ใช้รายการลำดับเลขเมื่อลำดับของรายการสำคัญ ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/net/aspose.slides/bullettype/). คุณยังสามารถเลือกรูปแบบเลขลำดับด้วย [IBulletFormat.NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstyle/) หรือกำหนด [IBulletFormat.NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/numberedbulletstartwith/) เมื่อรายการควรเริ่มจากค่าที่ไม่ใช่ 1
 
-โค้ด C# ต่อไปนี้แสดงวิธีสร้างรายการแบบลำดับเลขในสไลด์:
+โค้ด C# ด้านล่างแสดงวิธีการสร้างรายการลำดับเลขในสไลด์:
 
 ```csharp
-using var presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 90, 80);
 
 var textFrame = autoShape.TextFrame;
@@ -113,27 +123,30 @@ presentation.Save("numbered_bullets.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![หัวข้อแบบลำดับเลข](numbered_bullets.png)
+![หัวข้อสัญลักษณ์ลำดับเลข](numbered_bullets.png)
 
-## **สร้างหัวข้อรูปภาพ**
+## **สร้างหัวข้อสัญลักษณ์รูปภาพ**
 
-Aspose.Slides ให้คุณแทนที่สัญลักษณ์หัวข้อปกติกับรูปภาพ หัวข้อรูปภาพทำงานได้ดีที่สุดกับภาพที่เรียบง่ายและยังคงอ่านได้เมื่อขนาดเล็ก เช่น ไอคอนหรือไฟล์ PNG โปร่งใสขนาดเล็ก
+Aspose.Slides ให้คุณแทนที่สัญลักษณ์หัวข้อสัญลักษณ์ปกติด้วยรูปภาพ. หัวข้อสัญลักษณ์รูปภาพทำงานได้ดีที่สุดกับรูปภาพที่เรียบง่ายและยังคงอ่านได้ที่ขนาดเล็ก เช่น ไอคอนหรือไฟล์ PNG โปร่งใสขนาดเลาะ.
 
-{{% alert color="primary" %}}
-โดยทั่วไป หากคุณต้องการแทนที่สัญลักษณ์หัวข้อปกติกับภาพ ควรเลือกกราฟิกที่เรียบง่ายพร้อมพื้นหลังโปร่งใส ภาพเช่นนี้ทำงานได้ดีเป็นสัญลักษณ์หัวข้อกำหนดเอง
+{{% alert color="info" title="Note" %}}
+โดยทั่วไป หากคุณวางแผนที่จะแทนที่สัญลักษณ์หัวข้อสัญลักษณ์ปกติด้วยรูปภาพ ควรเลือกกราฟิกที่เรียบง่ายพร้อมพื้นหลังโปร่งแสง รูปภาพเช่นนี้ทำงานได้ดีเป็นสัญลักษณ์หัวข้อสัญลักษณ์แบบกำหนดเอง.
 
-ควรจำไว้ว่าภาพจะถูกย่อขนาดลงเป็นขนาดเล็กมาก ด้วยเหตุนี้เราขอแนะนำให้เลือกภาพที่ยังคงชัดเจนและมีประสิทธิภาพในการมองเห็นเมื่อใช้เป็นหัวข้อในรายการ
+ควรจำไว้ว่า รูปภาพจะถูกย่อให้เล็กลงมาก สำหรับเหตุผลนี้ เราขอแนะนำอย่างยิ่งให้เลือกภาพที่ยังคงชัดเจนและเห็นผลภาพได้ดีเมื่อใช้เป็นหัวข้อสัญลักษณ์ในรายการ.
 {{% /alert %}}
 
-เพื่อสร้างหัวข้อรูปภาพ ให้เพิ่มรูปภาพใน [Presentation.Images](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/images/) และกำหนดอ็อบเจกต์ภาพที่คืนค่ามาให้กับ [IBulletFormat.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/picture/) ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/th/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/bullettype/) ก่อนกำหนดภาพ
+เพื่อสร้างหัวข้อสัญลักษณ์รูปภาพ ให้เพิ่มรูปภาพไปยัง [Presentation.Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/images/) และกำหนดออบเจกต์รูปภาพที่คืนค่าให้กับ [IBulletFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/picture/). ตั้งค่า [IBulletFormat.Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformat/type/) เป็น [BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) ก่อนการกำหนดรูปภาพ.
 
-สมมติว่าเรามีไฟล์ "image.png":
+สมมุติว่าเรามีไฟล์ "image.png":
 
-![รูปภาพสำหรับหัวข้อ](picture_for_bullets.png)
+![รูปภาพสำหรับหัวข้อสัญลักษณ์](picture_for_bullets.png)
 
-โค้ด C# ต่อไปนี้แสดงวิธีสร้างหัวข้อรูปภาพในสไลด์:
+โค้ด C# ด้านล่างแสดงวิธีการสร้างหัวข้อสัญลักษณ์รูปภาพในสไลด์:
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 static Paragraph CreateParagraph(string text, IPPImage image)
 {
     var paragraph = new Paragraph();
@@ -146,8 +159,8 @@ static Paragraph CreateParagraph(string text, IPPImage image)
 }
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 200, 50);
 
 var textFrame = autoShape.TextFrame;
@@ -167,18 +180,21 @@ presentation.Save("picture_bullets.pptx", SaveFormat.Pptx);
 
 ผลลัพธ์:
 
-![หัวข้อรูปภาพ](picture_bullets.png)
+![หัวข้อสัญลักษณ์รูปภาพ](picture_bullets.png)
 
 ## **สร้างรายการหลายระดับ**
 
-ใช้ [IParagraphFormat.Depth](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/depth/) เพื่อวางรายการในระดับที่ต่างกัน ระดับ 0 คือระดับบนสุด ระดับ 1 อยู่ด้านในของระดับ 0 เป็นต้น
+ใช้ [IParagraphFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) เพื่อวางรายการในระดับต่าง ๆ ระดับ 0 คือระดับบนสุด, ระดับ 1 อยู่ด้านล่างในระดับย่อย, เป็นต้น.
 
-โค้ด C# ต่อไปนี้แสดงวิธีสร้างรายการแบบหัวข้อหลายระดับ:
+โค้ด C# ด้านล่างแสดงวิธีการสร้างรายการแบบหัวข้อสัญลักษณ์หลายระดับ:
 
 ```csharp
-using var presentation = new Presentation();
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+
 var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 260, 110);
 
 var textFrame = autoShape.TextFrame;
@@ -213,17 +229,19 @@ presentation.Save("multilevel_bullets.pptx", SaveFormat.Pptx);
 
 ## **เปลี่ยนรายการที่มีอยู่**
 
-เพื่อเปลี่ยนรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าที่ต้องการและอัปเดตการตั้งค่า [IParagraphFormat.Bullet](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/bullet/) คุณสามารถใช้คุณสมบัติเช่นเดียวกับที่ใช้สร้างรายการเพื่อสำรวจหรือแก้ไขรายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP
+เพื่อเปลี่ยนการจัดรูปแบบรายการในงานนำเสนอที่มีอยู่ ให้เข้าถึงย่อหน้าเป้าหมายและอัปเดตการตั้งค่า [IParagraphFormat.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/bullet/) ของมัน คุณสมบัติเหมือนกันที่ใช้สร้างรายการสามารถใช้เพื่อสอบถามหรือแก้ไขรายการที่โหลดจากไฟล์ PPT, PPTX หรือ ODP ได้.
 
-โค้ด C# ต่อไปนี้เปลี่ยนย่อหน้าแรกในกรอบข้อความให้ใช้สไตล์รายการแบบลำดับเลข:
+โค้ด C# ด้านล่างเปลี่ยนย่อหน้าแรกในฟรมข้อความให้ใช้สไตล์รายการลำดับเลข:
 
 ```csharp
-using var presentation = new Presentation("input.pptx");
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
+using var presentation = new Presentation("input.pptx");
 var slide = presentation.Slides[0];
 var autoShape = (IAutoShape)slide.Shapes[0];
-var paragraph = autoShape.TextFrame.Paragraphs[0];
 
+var paragraph = autoShape.TextFrame.Paragraphs[0];
 paragraph.ParagraphFormat.Bullet.Type = BulletType.Numbered;
 paragraph.ParagraphFormat.Bullet.NumberedBulletStyle = NumberedBulletStyle.BulletRomanUCPeriod;
 paragraph.ParagraphFormat.Bullet.NumberedBulletStartWith = 1;
@@ -233,16 +251,144 @@ paragraph.ParagraphFormat.Indent = -20;
 presentation.Save("updated_list.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **อ่านค่าหัวข้อสัญลักษณ์จริง**
 
-**สามารถส่งออกรายการแบบหัวข้อและลำดับเลขเป็น PDF หรือรูปภาพได้หรือไม่?**
+เมื่อสกัดเนื้องานนำเสนอ ให้เก็บสัญลักษณ์รายการพร้อมกับข้อความย่อหน้า เรียกใช้ [IParagraphFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/geteffective/) และเข้าถึง [IParagraphFormatEffectiveData.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformateffectivedata/bullet/) เพื่อรับรูปแบบหัวข้อสัญลักษณ์ที่มีผล ตรวจสอบ [Type](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/type/) ก่อนอ่าน [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/).
 
-ได้ Aspose.Slides จะคงรูปแบบรายการไว้เมื่อรูปแบบเป้าหมายรองรับการจัดวางข้อความและคุณลักษณะหัวข้อที่สอดคล้องกัน
+สำหรับรายการลำดับเลข ให้แยกแยะค่าต่อไปนี้สามค่า:
+
+- [NumberedBulletStyle](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/numberedbulletstyle/) กำหนดรูปแบบ เช่น ตัวเลขอารบิกตามด้วยจุด หรือ ตัวอักษรตัวเล็กตามด้วยจุด.
+- [NumberedBulletStartWith](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/numberedbulletstartwith/) ระบุหมายเลขเริ่มต้นสำหรับกลุ่มย่อหน้าลำดับเลข.
+- [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/) คืนค่าตัวบ่งชี้ที่จัดรูปแบบสำหรับย่อหน้าที่กำหนด ตัวอย่าง รายการที่สองในรายการที่เริ่มจาก 5 จะคืนค่า `6.`.
+
+รักษา [Depth](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/depth/) กับแต่ละย่อหน้าเพื่อคงระดับการซ้อนกันของมัน ตัวบ่งชี้จริงไม่ได้เข้ารหัสลำดับขั้นทั้งหมด: รายการซ้อนอาจคืนค่า `c.` แทนที่จะเป็นป้ายกำกับรวมเช่น `6.c.`.
+
+ตัวอย่างที่ทำงานอิสระต่อไปนี้สร้างรายการ, บันทึกลงในงานนำเสนอ, และโหลดงานนำเสนอใหม่เพื่อรายงานข้อความของแต่ละย่อหน้า, ความลึก, ประเภทหัวข้อสัญลักษณ์, และค่าจริง. ตัวบ่งชี้รูปภาพสีน้ำเงินขนาดเล็กถูกสร้างจาก SVG ในบรรทัด.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using (var presentation = new Presentation())
+{
+    presentation.SlideSize.SetSize(720, 440, SlideSizeScaleType.DoNotScale);
+    var slide = presentation.Slides[0];
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20, 660, 400);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.Paragraphs.Clear();
+
+    // สร้างสัญลักษณ์รูปภาพโดยไม่ต้องอ้างอิงไฟล์ภาพภายนอก.
+    var svg = new SvgImage("<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16'><rect width='16' height='16' rx='4' fill='#0078D4'/></svg>");
+    var bulletImage = presentation.Images.AddImage(svg);
+
+    void AddParagraph(string text, short depth, BulletType type, short start = 1, NumberedBulletStyle style = NumberedBulletStyle.BulletArabicPeriod)
+    {
+        var paragraph = new Paragraph { Text = text };
+
+        var format = paragraph.ParagraphFormat;
+        format.Depth = depth;
+        format.MarginLeft = 30 + depth * 40;
+        format.Indent = -28;
+        format.SpaceAfter = 8;
+        format.DefaultPortionFormat.FontHeight = 22;
+        format.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
+        format.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+        format.Bullet.Type = type;
+        format.Bullet.IsBulletHardColor = NullableBool.True;
+        format.Bullet.Color.Color = Color.Black;
+        if (type == BulletType.Numbered)
+        {
+            format.Bullet.NumberedBulletStyle = style;
+            format.Bullet.NumberedBulletStartWith = start;
+        }
+        else if (type == BulletType.Symbol)
+        {
+            format.Bullet.Char = '\u2022';
+        }
+        else if (type == BulletType.Picture)
+        {
+            format.Bullet.Picture.Image = bulletImage;
+        }
+
+        textFrame.Paragraphs.Add(paragraph);
+    }
+
+    AddParagraph("First item", 0, BulletType.Numbered, 5);
+    AddParagraph("Second item", 0, BulletType.Numbered, 5);
+    AddParagraph("Nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    AddParagraph("Next nested item", 1, BulletType.Numbered, 3, NumberedBulletStyle.BulletAlphaLCPeriod);
+    AddParagraph("Deep item", 2, BulletType.Numbered, 4, NumberedBulletStyle.BulletRomanLCPeriod);
+    AddParagraph("Back to top level", 0, BulletType.Numbered, 5);
+    AddParagraph("Symbol marker", 0, BulletType.Symbol);
+    AddParagraph("No bullet", 0, BulletType.None);
+    AddParagraph("Picture marker", 0, BulletType.Picture);
+    presentation.Save("actual_bullet_values.pptx", SaveFormat.Pptx);
+}
+
+using var loadedPresentation = new Presentation("actual_bullet_values.pptx");
+var loadedShape = (IAutoShape)loadedPresentation.Slides[0].Shapes[0];
+Console.WriteLine("Text | Depth | Type | Actual value");
+foreach (var paragraph in loadedShape.TextFrame.Paragraphs)
+{
+    var bullet = paragraph.ParagraphFormat.GetEffective().Bullet;
+    string marker;
+    switch (bullet.Type)
+    {
+        case BulletType.Numbered:
+        case BulletType.Symbol:
+            marker = bullet.ActualBulletValue;
+            break;
+        case BulletType.None:
+            marker = $"{bullet.ActualBulletValue ?? "null"} (no bullet)";
+            break;
+        case BulletType.Picture:
+            marker = $"{bullet.ActualBulletValue ?? "null"} (image required)";
+            break;
+        default:
+            marker = "unsupported bullet type";
+            break;
+    }
+    Console.WriteLine($"{paragraph.Text} | {paragraph.ParagraphFormat.Depth} | {bullet.Type} | {marker}");
+}
+```
+
+รายการที่แสดงด้านล่างเป็นแหล่งข้อมูลของรายการ:
+
+![รายการที่เริ่มจาก 5, รายการอักษรและเลขโรมันซ้อน, สัญลักษณ์, ย่อหน้าไม่มีหัวข้อสัญลักษณ์, และตัวบ่งชี้รูปภาพสีน้ำเงิน](actual_bullet_values.png)
+
+รายงานตรงกับสัญลักษณ์ที่แสดงใน PowerPoint:
+
+```text
+Text | Depth | Type | Actual value
+First item | 0 | Numbered | 5.
+Second item | 0 | Numbered | 6.
+Nested item | 1 | Numbered | c.
+Next nested item | 1 | Numbered | d.
+Deep item | 2 | Numbered | iv.
+Back to top level | 0 | Numbered | 7.
+Symbol marker | 0 | Symbol | •
+No bullet | 0 | None | null (no bullet)
+Picture marker | 0 | Picture | null (image required)
+```
+
+สำหรับ [BulletType.None and BulletType.Picture](https://reference.aspose.com/slides/net/aspose.slides/bullettype/) [ActualBulletValue](https://reference.aspose.com/slides/net/aspose.slides/ibulletformateffectivedata/actualbulletvalue/) คืนค่า `null` ไม่ใช่สตริงว่าง ให้จัดการประเภทเหล่านี้แยกกัน: ประเภทแรกไม่มีตัวบ่งชี้, ในขณะที่ประเภทที่สองต้องทำการสกัดรูปภาพหัวข้อสัญลักษณ์แยกต่างหาก. หัวข้อสัญลักษณ์รูปภาพไม่สามารถจำลองได้โดยเพียงสกัดตัวบ่งชี้ข้อความ.
+
+## **คำถามที่พบบ่อย**
+
+**สามารถส่งออกรายการแบบหัวข้อสัญลักษณ์และลำดับเลขเป็น PDF หรือภาพได้หรือไม่?**
+
+ใช่. Aspose.Slides รักษาการจัดรูปแบบรายการเมื่อรูปแบบเป้าหมายสนับสนุนการจัดวางข้อความและฟีเจอร์หัวข้อสัญลักษณ์ที่สอดคล้อง.
 
 **ฉันสามารถแก้ไขรายการในงานนำเสนอที่มีอยู่ได้หรือไม่?**
 
-ได้ โหลดงานนำเสนอ, เข้าถึงย่อหน้าที่ต้องการ, ตรวจสอบหรืออัปเดตการตั้งค่า [IParagraphFormat.Bullet](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraphformat/bullet/) แล้วบันทึกงานนำเสนอ
+ใช่. โหลดงานนำเสนอ, เข้าถึงย่อหน้าเป้าหมาย, ตรวจสอบหรืออัปเดตการตั้งค่า [IParagraphFormat.Bullet](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/bullet/) ของมัน, แล้วบันทึกงานนำเสนอ.
 
-**รายการสามารถมีข้อความที่ไม่ใช่ละตินได้หรือไม่?**
+**รายการสามารถประกอบด้วยข้อความที่ไม่ใช่ละตินได้หรือไม่?**
 
-ได้ ข้อความของรายการสามารถมีอักขระ Unicode ได้ ดังนั้นคุณสามารถสร้างรายการในงานนำเสนอหลายภาษา ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอรองรับอักขระที่คุณต้องการ
+ใช่. ข้อความของรายการสามารถมีอักขระ Unicode, ดังนั้นคุณสามารถสร้างรายการในงานนำเสนอหลายภาษาได้. ตรวจสอบให้แน่ใจว่าแบบอักษรที่ใช้ในงานนำเสนอสนับสนุนอักขระที่คุณต้องการ.
