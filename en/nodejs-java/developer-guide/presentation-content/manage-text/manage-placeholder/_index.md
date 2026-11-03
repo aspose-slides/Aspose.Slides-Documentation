@@ -109,6 +109,72 @@ try {
 
 Editing a placeholder on a normal slide creates or changes a local override for that slide. Editing the related layout or master can affect all slides that still inherit that setting. A local ordinary shape has no base placeholder and does not begin inheriting merely because it occupies the same coordinates.
 
+## **Remove Placeholder Status**
+
+When adapting a template, use [Shape.removePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#removePlaceholder) to keep an existing object as an ordinary shape. Its [getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) method returns `null`, but the shape remains in the slide's collection. In contrast, [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#remove) deletes the shape from that collection.
+
+The following example requires `template.pptx` with at least one slide and a nonempty text placeholder on the first slide. Use a placeholder with formatting inherited from its layout or master to see the effect of removing that relationship. The example checks that the same shape remains, calls the method again on the now ordinary shape, and saves the result.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+    let found = false;
+
+    for (let index = 0; index < shapes.size(); index++) {
+        const shape = shapes.get_Item(index);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || textFrame == null) {
+            continue;
+        }
+
+        const text = textFrame.getText();
+        if (text == null || text.length === 0) {
+            continue;
+        }
+
+        const shapeCount = shapes.size();
+        shape.removePlaceholder();
+
+        console.log("Placeholder removed: " + (shape.getPlaceholder() == null));
+        const retainedShape = shapes.get_Item(index);
+        console.log("Same shape retained: " + shape.equals(retainedShape));
+        console.log("Shape count unchanged: " + (shapes.size() === shapeCount));
+
+        // Calling the method on an ordinary shape has no effect.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+For a matching placeholder, all three checks print `true`. The text remains, but inherited position, size, rotation, font, paragraph alignment, text-frame margins, vertical anchoring, fill, and line settings can change when the placeholder relationship is removed. For example, inherited title formatting can fall back to ordinary text formatting. See [Slide Layout](/slides/nodejs-java/slide-layout/) for more about layouts.
+
+To preserve the intended appearance, capture the resolved position, size, and rotation before the call, and copy the required effective formatting values into separate variables. Retrieve those values through [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getEffective), and [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective). Do not rely on retaining only the effective-format objects, because their text-formatting values can change after the relationship is removed. Explicitly apply the captured values to the ordinary shape afterward, including the font family, size, style, color, paragraph settings, text-frame settings, fill, and line used by your template.
+
+Inherited shape geometry may also need to be assigned explicitly through [GeometryShape.setShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setShapeType). For a rectangular text placeholder, this means assigning [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/#Rectangle); restoring only the fill and line may not restore the visible rectangle. Templates with additional effects or more complex formatting require those settings to be handled as well.
+
 ## **Change Text in a Placeholder**
 
 Title, centered-title, subtitle, body, and text placeholders normally support text. Check for [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) before using its [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) method.

@@ -84,6 +84,63 @@ foreach (var shape in slide.Shapes)
 
 Editing a placeholder on a normal slide creates or changes a local override for that slide. Editing the related layout or master can affect all slides that still inherit that setting. A local ordinary shape has no base placeholder and does not begin inheriting merely because it occupies the same coordinates.
 
+## **Remove Placeholder Status**
+
+When adapting a template, use [IShape.RemovePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/removeplaceholder/) to keep an existing object as an ordinary shape. Its [Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) property becomes `null`, but the shape remains in the slide's collection. In contrast, [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) deletes the shape from that collection.
+
+The following example requires `template.pptx` with at least one slide and a nonempty text placeholder on the first slide. Use a placeholder with formatting inherited from its layout or master to see the effect of removing that relationship. The example checks that the same shape remains, calls the method again on the now ordinary shape, and saves the result.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var slide = presentation.Slides[0];
+var found = false;
+
+for (var index = 0; index < slide.Shapes.Count; index++)
+{
+    if (slide.Shapes[index] is not IAutoShape shape || 
+        shape.Placeholder == null || 
+        string.IsNullOrEmpty(shape.TextFrame?.Text))
+    {
+        continue;
+    }
+
+    var shapeCount = slide.Shapes.Count;
+    shape.RemovePlaceholder();
+
+    Console.WriteLine($"Placeholder removed: {shape.Placeholder == null}");
+    Console.WriteLine($"Same shape retained: {ReferenceEquals(slide.Shapes[index], shape)}");
+    Console.WriteLine($"Shape count unchanged: {slide.Shapes.Count == shapeCount}");
+
+    // Calling the method on an ordinary shape has no effect.
+    shape.RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation.Save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No nonempty text placeholder was found on the first slide.");
+}
+```
+
+For a matching placeholder, all three checks print `True`. The text remains, but inherited position, size, rotation, font, paragraph alignment, text-frame margins, vertical anchoring, fill, and line settings can change when the placeholder relationship is removed. For example, inherited title formatting can fall back to ordinary text formatting. See [Slide Layout](/slides/net/slide-layout/) for more about layouts.
+
+To preserve the intended appearance, capture the resolved position, size, and rotation before the call, and copy the required effective formatting values into separate variables. Retrieve those values through [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/), [IParagraphFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/geteffective/), [IFillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/geteffective/), and [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/). Do not rely on retaining only the effective-format objects, because their text-formatting values can change after the relationship is removed. Explicitly apply the captured values to the ordinary shape afterward, including the font family, size, style, color, paragraph settings, text-frame settings, fill, and line used by your template.
+
+Inherited shape geometry may also need to be assigned explicitly through [IGeometryShape.ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/shapetype/). For a rectangular text placeholder, this means assigning [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype/); restoring only the fill and line may not restore the visible rectangle. Templates with additional effects or more complex formatting require those settings to be handled as well.
+
 ## **Change Text in a Placeholder**
 
 Title, centered-title, subtitle, body, and text placeholders normally support text. Check for [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) before using its [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) property.

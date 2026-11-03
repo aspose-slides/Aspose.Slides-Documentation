@@ -98,6 +98,82 @@ try {
 
 Editing a placeholder on a normal slide creates or changes a local override for that slide. Editing the related layout or master can affect all slides that still inherit that setting. A local ordinary shape has no base placeholder and does not begin inheriting merely because it occupies the same coordinates.
 
+## **Remove Placeholder Status**
+
+When adapting a template, use [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/) to keep an existing object as an ordinary shape. Its [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) method returns `null`, but the shape remains in the slide's collection. In contrast, [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) deletes the shape from that collection.
+
+The following example requires `template.pptx` with at least one slide and a nonempty text placeholder on the first slide. Use a placeholder with formatting inherited from its layout or master to see the effect of removing that relationship. The example checks that the same shape remains, calls the method again on the now ordinary shape, and saves the result.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // Calling the method on an ordinary shape has no effect.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+For a matching placeholder, all three checks print `true`. The text remains, but inherited position, size, rotation, font, paragraph alignment, text-frame margins, vertical anchoring, fill, and line settings can change when the placeholder relationship is removed. For example, inherited title formatting can fall back to ordinary text formatting. See [Slide Layout](/slides/php-java/slide-layout/) for more about layouts.
+
+To preserve the intended appearance, capture the resolved position, size, and rotation before the call, and copy the required effective formatting values into separate variables. Retrieve those values through [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/), and [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/). Do not rely on retaining only the effective-format objects, because their text-formatting values can change after the relationship is removed. Explicitly apply the captured values to the ordinary shape afterward, including the font family, size, style, color, paragraph settings, text-frame settings, fill, and line used by your template.
+
+Inherited shape geometry may also need to be assigned explicitly through [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType). For a rectangular text placeholder, this means assigning [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/); restoring only the fill and line may not restore the visible rectangle. Templates with additional effects or more complex formatting require those settings to be handled as well.
+
 ## **Change Text in a Placeholder**
 
 Title, centered-title, subtitle, body, and text placeholders normally support text. Check for [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) before using its [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) method.
@@ -202,7 +278,7 @@ Prompt text is not normal slide content. It is intended for empty placeholders i
 
 There are two cases to handle:
 
-- If the picture placeholder is already populated and represented by a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), replace the image through [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) and [SlidesPicture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/slidespicture/setimage/).
+- If the picture placeholder is already populated and represented by a [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), replace the image through [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) and [Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage).
 - If it is still an empty placeholder, add a picture frame at the placeholder's coordinates with [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) and remove the empty placeholder.
 
 The next example supports both cases and saves the presentation:
