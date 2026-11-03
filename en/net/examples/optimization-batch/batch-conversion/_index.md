@@ -121,7 +121,7 @@ internal static class Program
 
 ## **Expected result and checks**
 
-Each of `example-output/sequential` and `example-output/parallel` contains three PDFs. Corrupt and password-protected inputs report failures without stopping later jobs. The download additionally measures peak workers and verifies input hashes.
+Each of `example-output/sequential` and `example-output/parallel` contains three PDFs. Corrupt and password-protected inputs report failures without stopping later jobs. The download additionally measures peak workers.
 
 ## **Learn more**
 
