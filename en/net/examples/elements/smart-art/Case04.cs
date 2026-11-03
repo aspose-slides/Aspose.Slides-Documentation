@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -16,11 +12,6 @@ internal static partial class Program
 
         smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<ISmartArt>().Single().Layout == SmartArtLayoutType.VerticalPictureList, "ChangeSmartArtLayout: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-004", "ChangeSmartArtLayout", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

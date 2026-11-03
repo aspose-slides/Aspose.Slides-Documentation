@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "complete-workflows/distribution-copy",
   "archive": "example.zip",
-  "archive_sha256": "379a9d2eb96e3e98e80e87fac700588969561e94c25122ca4d6f6a16ef87c458",
+  "archive_sha256": "1dfeec5b5c40860c8e4132eb20def48db00c08e9e07a8822b21555dbd666c82a",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -30,6 +30,11 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleSupport.cs",
+      "sha256": "d688c8c4fd14f43a8c0318b0570efb1f97a5757d4137a16e48274b59b8fbaf57",
+      "bytes": 2950
+    },
+    {
       "path": "Fonts/NotoSans-Regular.ttf",
       "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
       "bytes": 569208
@@ -51,8 +56,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "2cc58dfc438b08516adb80c1192b52e5f8c7a1cfce762027719fee4848cf3100",
-      "bytes": 5355
+      "sha256": "9d35efafdea6e8f337c719f6cd1392b440485f28829d0ea1d4626ae31bf26eb5",
+      "bytes": 2609
     },
     {
       "path": "README.txt",
@@ -61,8 +66,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "cee96ce2b81508fd1d4247838624a6a0416def2e8f8856471d63d49e264de7fe",
-      "bytes": 2014
+      "sha256": "32ad0a3252a6d67126adb9ab0b91572a269dcf2c1a8fa032999f76b5a8892306",
+      "bytes": 2166
     },
     {
       "path": "global.json",

@@ -1,8 +1,6 @@
-using System;
 using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -17,11 +15,6 @@ internal static partial class Program
         // Access the first audio frame on the slide.
         var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IAudioFrame>().Single().EmbeddedAudio.BinaryData.Length > 44, "AccessAudio: semantic check 1 failed.");
-        });
-        Context.Pass("elements/audio/block-002", "AccessAudio", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

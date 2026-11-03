@@ -1,8 +1,5 @@
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -16,11 +13,6 @@ internal static partial class Program
 
         var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<ISmartArt>().Single().AllNodes.Count > 0, "AccessSmartArt: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-002", "AccessSmartArt", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

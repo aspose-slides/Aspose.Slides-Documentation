@@ -32,18 +32,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Connector**
 
 Insert a connector shape between two points on the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -54,12 +50,7 @@ internal static partial class Program
 
         var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IConnector>().Count() == 1, "AddConnector: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-001", "AddConnector", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -69,11 +60,8 @@ internal static partial class Program
 Retrieve the first connector shape added to a slide.
 
 ```csharp
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -86,12 +74,7 @@ internal static partial class Program
 
         var connector = slide.Shapes.OfType<IConnector>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IConnector>().Count() == 1, "AccessConnector: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-002", "AccessConnector", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -101,11 +84,7 @@ internal static partial class Program
 Delete a connector from the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -118,12 +97,7 @@ internal static partial class Program
 
         slide.Shapes.Remove(connector);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<IConnector>().Any(), "RemoveConnector: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-003", "RemoveConnector", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -133,11 +107,7 @@ internal static partial class Program
 Attach a connector to two shapes by assigning start and end targets.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -153,12 +123,7 @@ internal static partial class Program
         connector.StartShapeConnectedTo = shape1;
         connector.EndShapeConnectedTo = shape2;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IConnector>().Single().StartShapeConnectedTo != null && p.Slides[0].Shapes.OfType<IConnector>().Single().EndShapeConnectedTo != null, "ReconnectShapes: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-004", "ReconnectShapes", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

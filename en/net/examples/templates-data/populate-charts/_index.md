@@ -8,95 +8,77 @@ description: "Read synthetic JSON sales data and update an editable chart, inclu
 
 Read synthetic JSON sales data and update an editable chart, including the cells of its embedded workbook.
 
-## Run the example
-
-Download the [complete project](example.zip), extract it, and run it with the .NET 8 SDK.
-The project pins Aspose.Slides.NET6.CrossPlatform 26.10.0. The complete project uses portable image fixtures and the CrossPlatform package.
-For the complete data assertions, set `ASPOSE_LICENSE_PATH` to your own valid license;
-the visible helper loads it when supplied. Evaluation mode may truncate text or add watermarks.
-
-```text
-dotnet restore Example.csproj 
-dotnet run --project Example.csproj --configuration Release --no-restore
-```
-
-The download contains [Program.cs](Program.cs), [Example.cs](Example.cs), the project,
-dependency lock, and any JSON/CSV input. The helper source contains fixture generation,
-license loading, serialization and assertions; it is part of the runnable project.
-All presentation inputs are generated from original synthetic data. Results go to `output/`.
-
 ## Example
 
+The chart workbook stores category labels in the first column and series names in the first row.
+Clear the template chart's existing data, add the labels and series names, and link each data point
+to its workbook cell. [Program.cs](Program.cs) contains the chart update. [Example.cs](Example.cs)
+creates the synthetic template and verifies the saved report.
+
 ```csharp
-using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
+using System.Threading.Tasks;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
-using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 
 internal static class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
-    {
-        Context = ctx;
-        Example.Context = ctx;
-        ctx.BeginAction("templates-data/populate-charts/block-001");
-        RunExample();
-        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
-        using var result=JsonDocument.Parse(File.ReadAllText(path));
-        var checks=new System.Collections.Generic.Dictionary<string,bool>();
-        if(ctx.IsLicensed)
-        {
-            using var expected=JsonDocument.Parse("{\"checks.series_count\":2,\"checks.category_count\":2,\"checks.all_values_checked\":true,\"checks.embedded_workbook_checked\":true}");
-            foreach(var field in expected.RootElement.EnumerateObject())
-            {
-                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
-                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
-                checks["licensed-"+field.Name.Replace('.','-')]=true;
-            }
-        }
-        else
-        {
-            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
-            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
-            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
-        }
-        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
-        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
-        ctx.Pass("templates-data/populate-charts/block-001",checks);
-        await Task.CompletedTask;
-    });
+    private const string ActionId = "templates-data/populate-charts/block-001";
 
+    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, RunExample);
 
-    private sealed record Data(string[] Categories,string[] Series,double[][] Values);
-    private static void RunExample()
+    private static Task RunExample(ExampleContext context)
     {
-        Example.Setup();var data=JsonSerializer.Deserialize<Data>(File.ReadAllText("sales.json"))!;
-        using(var p=new Presentation()){Example.Chart(p.Slides[0],"Sales");p.Save("output/template.pptx",SaveFormat.Pptx);}
-        using(var p=new Presentation("output/template.pptx"))
-        {var chart=Example.Named<IChart>(p.Slides[0],"Sales");Example.ChartData(chart,data.Categories,data.Series,data.Values);p.Save("output/report.pptx",SaveFormat.Pptx);Example.Render(p,"output/preview.png");}
-        using var result=new Presentation("output/report.pptx");var saved=Example.Named<IChart>(result.Slides[0],"Sales");
-        Example.Require(saved.ChartData.Categories.Count==data.Categories.Length,"Category count differs.");
-        for(int c=0;c<data.Series.Length;c++)
-        {Example.Require(saved.ChartData.Series[c].Name.ToString()==data.Series[c],"Series name differs.");
-         for(int r=0;r<data.Categories.Length;r++)
-         {Example.Require(saved.ChartData.Categories[r].Value.ToString()==data.Categories[r],"Category differs.");
-          Example.Require(Convert.ToDouble(saved.ChartData.Series[c].DataPoints[r].Value.Data,CultureInfo.InvariantCulture)==data.Values[c][r],"Chart value differs.");
-          Example.Require(Convert.ToDouble(saved.ChartData.ChartDataWorkbook.GetCell(0,r+1,c+1).Value,CultureInfo.InvariantCulture)==data.Values[c][r],"Workbook value differs.");}}
-        using(var stream=saved.ChartData.ReadWorkbookStream())using(var file=File.Create("output/workbook.xlsx"))stream.CopyTo(file);
-        Example.Result(new{series_count=data.Series.Length,category_count=data.Categories.Length,all_values_checked=true,embedded_workbook_checked=true});
+        context.BeginAction(ActionId);
+        var sales = Example.ReadSales(Path.Combine(context.OutputRoot, "sales.json"));
+        string outputFolder = Path.Combine(context.OutputRoot, "output");
+        Directory.CreateDirectory(outputFolder);
+
+        string templatePath = Path.Combine(outputFolder, "template.pptx");
+        string reportPath = Path.Combine(outputFolder, "report.pptx");
+        Example.CreateTemplate(templatePath);
+
+        using (var presentation = new Presentation(templatePath))
+        {
+            IChart chart = Example.FindSalesChart(presentation);
+            PopulateChart(chart, sales);
+            presentation.Save(reportPath, SaveFormat.Pptx);
+            Example.SavePreview(presentation, Path.Combine(outputFolder, "preview.png"));
+        }
+
+        Example.VerifyAndReport(context, ActionId, sales, outputFolder);
+        return Task.CompletedTask;
     }
 
+    private static void PopulateChart(IChart chart, SalesData sales)
+    {
+        IChartData chartData = chart.ChartData;
+        IChartDataWorkbook workbook = chartData.ChartDataWorkbook;
+        const int worksheetIndex = 0;
+
+        chartData.Series.Clear();
+        chartData.Categories.Clear();
+        workbook.Clear(worksheetIndex);
+
+        // Column zero holds the category labels. Row zero holds the series names.
+        for (int category = 0; category < sales.Categories.Length; category++)
+        {
+            chartData.Categories.Add(workbook.GetCell(worksheetIndex, category + 1, 0, sales.Categories[category]));
+        }
+
+        for (int column = 0; column < sales.Series.Length; column++)
+        {
+            var seriesName = workbook.GetCell(worksheetIndex, 0, column + 1, sales.Series[column]);
+            var series = chartData.Series.Add(seriesName, ChartType.ClusteredColumn);
+            for (int category = 0; category < sales.Categories.Length; category++)
+            {
+                var value = workbook.GetCell(worksheetIndex, category + 1, column + 1, sales.Values[column][category]);
+                series.DataPoints.AddDataPointForBarSeries(value);
+            }
+        }
+    }
 }
 ```
 
@@ -114,7 +96,7 @@ result differs. Expected check values are:
 }
 ```
 
-The sample updates categories, series names and every data point explicitly. It reopens the saved PPTX and checks both chart values and workbook cells. It also exports the embedded workbook for inspection. Data parsing is application code, not a built-in reporting engine.
+The sample updates categories, series names and every data point explicitly. It reopens the saved PPTX and checks both chart values and workbook cells. It also exports the embedded workbook for inspection. The example reads its sales data from a JSON fixture.
 
 ## Learn more
 

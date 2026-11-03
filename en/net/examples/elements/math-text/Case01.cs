@@ -1,8 +1,5 @@
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -32,11 +29,6 @@ internal static partial class Program
 
         mathParagraph.Add(mathBlock);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(Maths(p).Count == 2, "AddMathText: semantic check 1 failed.");
-        });
-        Context.Pass("elements/math-text/block-001", "AddMathText", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }

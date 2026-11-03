@@ -17,6 +17,16 @@
       "bytes": 340
     },
     {
+      "path": "ConversionFixture.cs",
+      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
+      "bytes": 2120
+    },
+    {
+      "path": "ConversionVerification.cs",
+      "sha256": "70ae0c80b8f723b525d96db7176f89c9241cf6f5f95f99b829093824006f8eea",
+      "bytes": 2388
+    },
+    {
       "path": "Example.csproj",
       "sha256": "6db3b7364007a4c051ce9df4b2986a8a1e5162ee90262db7d706a926dc15e0aa",
       "bytes": 868
@@ -63,8 +73,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "d209fc36fe0b9ec9ac710d7c04f48499806f55fcf6bd68a1a753b64999e28098",
-      "bytes": 5459
+      "sha256": "e3d9f3b3c5812f58118c5593c7a297720dc640dbcc5b7eb025bd5c9ad3429fa2",
+      "bytes": 1320
     },
     {
       "path": "README.txt",

@@ -37,6 +37,16 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleFixtures.cs",
+      "sha256": "cf08e6589864e1b0b22e78d010484188d0229ce4f98aa4e178eaace3c3698f9d",
+      "bytes": 1211
+    },
+    {
+      "path": "ExampleVerification.cs",
+      "sha256": "73800a69c9c7422860400a6578d6c126592bcd8e3ee5fd520468038112121bee",
+      "bytes": 3686
+    },
+    {
       "path": "Fonts/NotoSans-Regular.ttf",
       "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
       "bytes": 569208
@@ -68,8 +78,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "9f370d9e9f16fbacb8db34d9ded46a35797d3417645a34418043a211f4740e48",
-      "bytes": 6071
+      "sha256": "bfd6f0ee8f19206d5a9196a1d54a72a2fdb9ecf533a57496767d0d0f25752a44",
+      "bytes": 2578
     },
     {
       "path": "README.txt",

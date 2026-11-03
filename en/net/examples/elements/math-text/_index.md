@@ -32,7 +32,7 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add Math Text**
 
@@ -40,10 +40,7 @@ Create a math shape containing a fraction and the Pythagorean formula.
 
 ```csharp
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -73,12 +70,7 @@ internal static partial class Program
 
         mathParagraph.Add(mathBlock);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(Maths(p).Count == 2, "AddMathText: semantic check 1 failed.");
-        });
-        Context.Pass("elements/math-text/block-001", "AddMathText", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -88,11 +80,8 @@ internal static partial class Program
 Locate a shape that contains a math paragraph on the slide.
 
 ```csharp
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -121,12 +110,7 @@ internal static partial class Program
             Context.Require(mathParagraph.Count == 1 && fraction != null, "Accessed existing fraction.");
         }
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(Maths(p).Count == 1, "AccessMathText: semantic check 1 failed.");
-        });
-        Context.Pass("elements/math-text/block-002", "AccessMathText", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -136,11 +120,7 @@ internal static partial class Program
 Delete a math shape from the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -157,12 +137,7 @@ internal static partial class Program
 
         slide.Shapes.Remove(mathShape);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<IAutoShape>().Any(s => s.TextFrame?.Paragraphs.Any(q => q.Portions.Any(t => t is MathPortion)) == true), "RemoveMathText: semantic check 1 failed.");
-        });
-        Context.Pass("elements/math-text/block-003", "RemoveMathText", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -172,11 +147,7 @@ internal static partial class Program
 Set font properties for a math portion.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -194,13 +165,7 @@ internal static partial class Program
         // The paragraph default is persisted for its mathematical content.
         mathShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(Maths(p).Count == 1, "FormatMathText: semantic check 1 failed.");
-            Context.Require(p.Slides[0].Shapes.OfType<IAutoShape>().First(s => s.TextFrame.Paragraphs.Any(q => q.Portions.Any(t => t is MathPortion))).TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight == 20, "FormatMathText: semantic check 2 failed.");
-        });
-        Context.Pass("elements/math-text/block-004", "FormatMathText", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

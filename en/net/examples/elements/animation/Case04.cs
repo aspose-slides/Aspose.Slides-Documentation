@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.Animation;
 
 internal static partial class Program
@@ -19,11 +15,6 @@ internal static partial class Program
         sequence.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
         sequence.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Timeline.MainSequence.Count == 2 && ((IAutoShape)p.Slides[0].Timeline.MainSequence[0].TargetShape).ShapeType == ShapeType.Rectangle && ((IAutoShape)p.Slides[0].Timeline.MainSequence[1].TargetShape).ShapeType == ShapeType.Ellipse, "SequenceAnimations: semantic check 1 failed.");
-        });
-        Context.Pass("elements/animation/block-004", "SequenceAnimations", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

@@ -33,7 +33,7 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Modern Comment**
 
@@ -41,8 +41,6 @@ Create a comment authored by a user and save the presentation.
 
 ```csharp
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using System.Drawing;
@@ -59,12 +57,7 @@ internal static partial class Program
 
         presentation.Save("modern_comment.pptx", SaveFormat.Pptx);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.CommentAuthors.Count == 1 && p.CommentAuthors[0].Comments.Count == 1 && p.CommentAuthors[0].Comments[0].Text == "Note", "AddModernComment: semantic check 1 failed.");
-        });
-        Context.Pass("elements/comment/block-001", "AddModernComment", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -75,10 +68,7 @@ Read a modern comment from an existing presentation.
 
 ```csharp
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -90,12 +80,7 @@ internal static partial class Program
         var comment = (IModernComment)author.Comments[0];
         Console.WriteLine($"Author: {author.Name}, Comment: {comment.Text}, Position: {comment.Position}");
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.CommentAuthors[0].Comments[0] is IModernComment && p.CommentAuthors[0].Comments[0].Text == "Note", "AccessModernComment: semantic check 1 failed.");
-        });
-        Context.Pass("elements/comment/block-002", "AccessModernComment", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -105,9 +90,6 @@ internal static partial class Program
 Remove a comment and save the updated file.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
@@ -123,12 +105,7 @@ internal static partial class Program
 
         presentation.Save("modern_comment_removed.pptx", SaveFormat.Pptx);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.CommentAuthors[0].Comments.Count == 0, "RemoveModernComment: semantic check 1 failed.");
-        });
-        Context.Pass("elements/comment/block-003", "RemoveModernComment", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -139,8 +116,6 @@ Add replies to a parent modern comment.
 
 ```csharp
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using System.Drawing;
@@ -163,12 +138,7 @@ internal static partial class Program
 
         presentation.Save("modern_comment_replies.pptx", SaveFormat.Pptx);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.CommentAuthors[0].Comments.Count == 3 && p.CommentAuthors[0].Comments[1].ParentComment == p.CommentAuthors[0].Comments[0] && p.CommentAuthors[0].Comments[2].ParentComment == p.CommentAuthors[0].Comments[0], "ReplyToModernComment: semantic check 1 failed.");
-        });
-        Context.Pass("elements/comment/block-004", "ReplyToModernComment", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

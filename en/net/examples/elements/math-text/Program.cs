@@ -75,37 +75,6 @@ internal static partial class Program
         }
     }
 
-    private static string Seed(string kind)
-    {
-        string directory = Path.Combine(Context.OutputRoot, "inputs");
-        Directory.CreateDirectory(directory);
-        string path = Path.Combine(directory, CurrentCase + ".pptx");
-        using var seed = new Presentation();
-        var slide = seed.Slides[0];
-        if (kind == "control")
-        {
-            var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
-            control.Properties["Value"] = "Text";
-        }
-        if (kind == "comment")
-        {
-            var author = seed.CommentAuthors.AddAuthor("User", "U1");
-            author.Comments.AddModernComment("Note", slide, null, new System.Drawing.PointF(100, 100), new DateTime(2026, 1, 1));
-        }
-        if (kind == "master")
-        {
-            // Add two explicitly unused masters; retain the used original at index zero.
-            using var other = new Presentation();
-            other.Masters[0].Name = "Unused1";
-            seed.Masters.AddClone(other.Masters[0]);
-            other.Masters[0].Name = "Unused2";
-            seed.Masters.AddClone(other.Masters[0]);
-            // Keep the existing used master, remove both explicit unused references in the case.
-        }
-        seed.Save(path, kind == "control" ? SaveFormat.Pptm : SaveFormat.Pptx);
-        return path;
-    }
-
     private static string MathFixture()
     {
         string directory = Path.Combine(Context.OutputRoot, "inputs"); Directory.CreateDirectory(directory);

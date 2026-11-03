@@ -15,19 +15,11 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("protection-signatures/pdf-security/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("protection-signatures/pdf-security/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
+    private static Task<int> Main(string[] args) => RunChecked(args);
 
-    private static void RunExample()
+    private static void SaveProtectedPdf()
     {
         using (var original = new Presentation())
         {
@@ -47,30 +39,5 @@ internal static class Program
         Require(new FileInfo("protected.pdf").Length > 100, "PDF export is empty.");
         Require(Hash("original.pptx") == originalHash, "Original changed.");
         Report(new { exported = true, original_unchanged = true });
-    }
-
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-    private static IAutoShape Label(IBaseSlide slide, string text, float y = 50)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, y, 560, 90);
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 24;
-        return shape;
-    }
-    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
-    }
-    private static void Render(ISlide slide, string output)
-    {
-        using var image = slide.GetImage(new Size(640, 360));
-        image.Save(output, Aspose.Slides.ImageFormat.Png);
     }
 }

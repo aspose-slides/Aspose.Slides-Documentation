@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/ink",
   "archive": "example.zip",
-  "archive_sha256": "890c282c99de7f3930c5cb5f3a09c513e8b4adc35c354337a0c46c7d6a15fe2d",
+  "archive_sha256": "6f312193145b1357be9a443f679bb8b27e99bf0812f382cf6090747cd889bc2c",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -21,13 +21,18 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "c8c8a47410047cd4e71e650c9f00e64bf865f699d55d43ed8153e0a6f3aa3fc1",
-      "bytes": 1226
+      "sha256": "1a7d21141702e159fd8a3d874846e0fe25bb49b5eff0598f3644b16c91cafa4b",
+      "bytes": 643
     },
     {
       "path": "Case02.cs",
-      "sha256": "220dc2d29c720967f09b6cfdb9ac774e4c44b5ddfac93c6f406642acb7e61692",
-      "bytes": 804
+      "sha256": "63e9ade3cd11eaddcf68e5b6e38c0cc64bd3dc148a0c963f86832e5c25a40ed7",
+      "bytes": 430
+    },
+    {
+      "path": "CaseVerification.cs",
+      "sha256": "ebc34c9925804051ddb4163c74f6635204fcad8836981c92dc2fc30f5065a05e",
+      "bytes": 989
     },
     {
       "path": "Example.csproj",
@@ -71,8 +76,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "ab9b997cd7e799a5713734cdba762869d49b4acc6196e2e1915e28c976a43299",
-      "bytes": 5993
+      "sha256": "61910015a5e11c7a78005f19bb4a58b015b6ff8fcd5bac2b63be836049b4236a",
+      "bytes": 3547
     },
     {
       "path": "README.txt",
@@ -86,8 +91,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "9cb90a3ba957ffaf6d2a24a2fa2de3e0e7059f28116590f29a3a5ad4320c7363",
-      "bytes": 3042
+      "sha256": "4eee3257306d248bd462a93e7ac54994977501ce6f271741e55de2c07bc77079",
+      "bytes": 3194
     },
     {
       "path": "fixture-provenance.json",

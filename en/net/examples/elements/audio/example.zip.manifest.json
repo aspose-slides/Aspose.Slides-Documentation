@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/audio",
   "archive": "example.zip",
-  "archive_sha256": "59cb95742f1fc21eb3f7a3a484c8400f22e7f28c743ab0cb9c0539c6435e2ad8",
+  "archive_sha256": "14d32ac18fae7ba660aa61ab2e39015ebec1564651e48b201de5f7c18767dcdc",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,23 +16,28 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "e8e097724099954776ec465447b2e8aafef51ea03cac8c9627348c04e8057507",
-      "bytes": 943
+      "sha256": "9e0225671d477504d80c38298ab0724975243f152886154f44116680ff8c8dc8",
+      "bytes": 472
     },
     {
       "path": "Case02.cs",
-      "sha256": "c885c7c0ebd3458291855a09e7eefd37d52748f954645cc77e96df064dda6d6a",
-      "bytes": 955
+      "sha256": "f2eba01144553fc9c7d04772657dd233dd38f15cce3b17d31b66fb4ce3a9ed3f",
+      "bytes": 545
     },
     {
       "path": "Case03.cs",
-      "sha256": "6ad41c64c976804259433b97fcb91913bdabf3e036e0868f241a9ac52c31fd22",
-      "bytes": 886
+      "sha256": "a6377b7419d9d6c484d89533a2cc6cf612a9afe3b2cc2e2a5959c5137d9be3db",
+      "bytes": 496
     },
     {
       "path": "Case04.cs",
-      "sha256": "e67a46c4991ae682ee2dfad974a7250b20f2137707b3b57d095e24f90aa6a30f",
-      "bytes": 977
+      "sha256": "6381b84219139310479241fba5544837a3029bf340137b065c66f9e11e51df7e",
+      "bytes": 538
+    },
+    {
+      "path": "CaseVerification.cs",
+      "sha256": "437f8fefa763f37a9a7ee11e1a81b928e877d569b1763836d302d131b0a3ecac",
+      "bytes": 1742
     },
     {
       "path": "Example.csproj",
@@ -76,8 +81,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "8761cd18262dc7f9f22f9c8173e44672d5b0601b3242d3886592bce190597604",
-      "bytes": 6065
+      "sha256": "4c677c0f8093dbd6ced61f37dfc775f020d770e0df97c03f2f2736c6a30ee300",
+      "bytes": 3619
     },
     {
       "path": "README.txt",
@@ -91,8 +96,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "80bfa22c34cede5f0ac69ac69a2dfa8d2ef065f5b13287f013adf1a94b879aab",
-      "bytes": 3083
+      "sha256": "d4cf18e1bb0f38eadab2d52b8473c4c11cee1311db08597332f43df0edec4710",
+      "bytes": 3237
     },
     {
       "path": "fixture-provenance.json",

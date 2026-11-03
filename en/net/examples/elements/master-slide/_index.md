@@ -34,18 +34,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Master Slide**
 
 This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using System.Drawing;
 
 internal static partial class Program
@@ -72,12 +68,7 @@ internal static partial class Program
         // Assign the layout slide to the first slide in the presentation.
         presentation.Slides[0].LayoutSlide = layoutSlide;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].LayoutSlide.MasterSlide.Shapes.OfType<IAutoShape>().Any(s => s.TextFrame.Text == "Acme"), "AddMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-001", "AddMasterSlide", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -94,11 +85,7 @@ internal static partial class Program
 You can access master slides using the `Presentation.Masters` collection. Here’s how to retrieve and work with them:
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -112,12 +99,7 @@ internal static partial class Program
         // Change the background type.
         firstMasterSlide.Background.Type = BackgroundType.OwnBackground;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Masters[0].Background.Type == BackgroundType.OwnBackground, "AccessMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-002", "AccessMasterSlide", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -127,11 +109,7 @@ internal static partial class Program
 Master slides can be removed either by index or by reference.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -146,12 +124,7 @@ internal static partial class Program
         var firstMasterSlide = presentation.Masters[1];
         presentation.Masters.Remove(firstMasterSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.Masters.Count == 1 && p.Slides[0].LayoutSlide.MasterSlide == p.Masters[0], "RemoveMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-003", "RemoveMasterSlide", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -161,11 +134,7 @@ internal static partial class Program
 Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -178,12 +147,7 @@ internal static partial class Program
         // Remove all unused master slides (even those marked as Preserve).
         presentation.Masters.RemoveUnused(ignorePreserveField: true);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Masters.Count == 1 && p.Slides[0].LayoutSlide.MasterSlide == p.Masters[0], "RemoveUnusedMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-004", "RemoveUnusedMasterSlide", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

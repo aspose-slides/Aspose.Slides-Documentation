@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.Animation;
 
 internal static partial class Program
@@ -18,11 +14,6 @@ internal static partial class Program
         // Access the first animation effect.
         var effect = slide.Timeline.MainSequence[0];
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Timeline.MainSequence.Count == 1 && p.Slides[0].Timeline.MainSequence[0].Type == EffectType.Fade, "AccessAnimation: semantic check 1 failed.");
-        });
-        Context.Pass("elements/animation/block-002", "AccessAnimation", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

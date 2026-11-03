@@ -1,8 +1,5 @@
-using System;
 using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.DOM.Ole;
 
 internal static partial class Program
@@ -20,11 +17,6 @@ internal static partial class Program
         var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
         oleFrame.SetEmbeddedData(newDataInfo);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IOleObjectFrame>().Single().EmbeddedData.EmbeddedFileData.SequenceEqual(File.ReadAllBytes(Context.Input("Picture.png"))), "UpdateOleObjectData: semantic check 1 failed.");
-        });
-        Context.Pass("elements/ole-object/block-004", "UpdateOleObjectData", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

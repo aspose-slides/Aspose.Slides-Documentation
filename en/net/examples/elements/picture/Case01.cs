@@ -1,6 +1,4 @@
-using System;
 using System.IO;
-using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
@@ -23,11 +21,6 @@ internal static partial class Program
 
         presentation.Save("picture.pptx", SaveFormat.Pptx);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IPictureFrame>().Single().PictureFormat.Picture.Image.BinaryData.SequenceEqual(File.ReadAllBytes(Context.Input("Picture.png"))), "AddPicture: semantic check 1 failed.");
-        });
-        Context.Pass("elements/picture/block-001", "AddPicture", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }

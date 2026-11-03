@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -18,11 +14,6 @@ internal static partial class Program
         connector.StartShapeConnectedTo = shape1;
         connector.EndShapeConnectedTo = shape2;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IConnector>().Single().StartShapeConnectedTo != null && p.Slides[0].Shapes.OfType<IConnector>().Single().EndShapeConnectedTo != null, "ReconnectShapes: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-004", "ReconnectShapes", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

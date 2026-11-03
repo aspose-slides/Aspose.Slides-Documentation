@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using System.Drawing;
@@ -23,11 +21,6 @@ internal static partial class Program
 
         presentation.Save("modern_comment_replies.pptx", SaveFormat.Pptx);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.CommentAuthors[0].Comments.Count == 3 && p.CommentAuthors[0].Comments[1].ParentComment == p.CommentAuthors[0].Comments[0] && p.CommentAuthors[0].Comments[2].ParentComment == p.CommentAuthors[0].Comments[0], "ReplyToModernComment: semantic check 1 failed.");
-        });
-        Context.Pass("elements/comment/block-004", "ReplyToModernComment", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

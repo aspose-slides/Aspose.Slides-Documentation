@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "protection-signatures/digital-signatures",
   "archive": "example.zip",
-  "archive_sha256": "0c2cb891287b5e2e67b19d4ad23a67e16e98709a67951d67a802dd1cf51afc52",
+  "archive_sha256": "3c78ad46a90142c899132a93dccd2712cc8d14be8319802086f42cb51c341ff7",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -30,6 +30,16 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleFixtures.cs",
+      "sha256": "3caa8622dce936134ce420c33b771da27e9b98cc6e6df0f62b0be0e89b101fe9",
+      "bytes": 797
+    },
+    {
+      "path": "ExampleVerification.cs",
+      "sha256": "15847ea58296391438483d4dcaa23378ede9143f8872cfcb7687f8ded5c79c41",
+      "bytes": 1716
+    },
+    {
       "path": "Fonts/NotoSans-Regular.ttf",
       "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
       "bytes": 569208
@@ -51,8 +61,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "e95c98ba99a6e21619e23ac6272a6fd4cde6d055ee12fcca259d02d954659a07",
-      "bytes": 5053
+      "sha256": "45b274a7f7e8245590e16f9fbcfda8fe63c05e704bd9cb0d67f4055df685f1d8",
+      "bytes": 3599
     },
     {
       "path": "README.txt",
@@ -61,8 +71,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "586f2e28847dc58880460bf5895ca34535c353680e6dcd487b3b98925671af41",
-      "bytes": 2024
+      "sha256": "7f48468c881823dcd19c2ff18e6edb3234dd6086e4324d2798d87ae513cd1e53",
+      "bytes": 2333
     },
     {
       "path": "global.json",

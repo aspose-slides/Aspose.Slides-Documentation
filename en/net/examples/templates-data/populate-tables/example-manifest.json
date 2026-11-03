@@ -37,6 +37,11 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleSupport.cs",
+      "sha256": "4f56fd8645cdaae32716aab76b9bb1dca79722ef27c629b8ffc84ec1a942b1f9",
+      "bytes": 2624
+    },
+    {
       "path": "Fixtures/records.csv",
       "sha256": "7270dbd094d581b6fede570cc541ede6d94cbf4d7af4b38bd87b37740df1a397",
       "bytes": 82
@@ -73,8 +78,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "0f997f6edd41f52e58a98d7950873af80aed4141db2dc30709f06dbe708d1bc7",
-      "bytes": 5498
+      "sha256": "0f5fdfd44f1a66cd6f726e4bcfc2c0189c3f82580b8777077abeeba7eb235a5e",
+      "bytes": 3268
     },
     {
       "path": "README.txt",

@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
 internal static partial class Program
@@ -17,11 +13,6 @@ internal static partial class Program
         // Remove transition by setting none.
         slide.SlideShowTransition.Type = TransitionType.None;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.Slides[0].SlideShowTransition.Type == TransitionType.None, "RemoveSlideTransition: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide-transition/block-003", "RemoveSlideTransition", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }

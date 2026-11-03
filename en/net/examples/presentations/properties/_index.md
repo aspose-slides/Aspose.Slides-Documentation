@@ -34,6 +34,8 @@ The code creates its own synthetic input. Use a compatible stable SDK with the i
 
 GetPresentationInfo reads the file format and encryption state before a full load. The editing block changes selected built-in values and sets custom string, integer, Boolean, date and floating-point values. The final block reads each custom value with its matching typed overload.
 
+The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+
 ```csharp
 using System.Threading.Tasks;
 using System;
@@ -46,18 +48,8 @@ using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("presentations/properties/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("presentations/properties/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
-
     private static void RunExample()
     {
         DateTime reviewDate = new DateTime(2026, 10, 1, 12, 0, 0, DateTimeKind.Utc);
@@ -100,30 +92,6 @@ internal static class Program
         }
         Require(Hash("input.pptx") == inputHash, "Original metadata file changed.");
         Report(new { built_in_properties = true, string_value = true, integer_value = true, boolean_value = true, date_value = true, numeric_value = true, unrelated_retained = true, content_retained = true, input_format = "Pptx", original_unchanged = true });
-    }
-
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static IAutoShape Label(ISlide slide, string text)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
-        shape.Name = "content-" + text;
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
-        return shape;
-    }
-
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
-    private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
     }
 }
 ```

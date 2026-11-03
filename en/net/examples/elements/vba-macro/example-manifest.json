@@ -20,18 +20,23 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "702241bfa73dc94c7d46c47bf58adb03cf5140651d01ebcb6e296bca6436bef4",
-      "bytes": 913
+      "sha256": "9c5736b8770db54daf322b9474697089ecb6c7f8887e52ed396e1acc3b4898aa",
+      "bytes": 416
     },
     {
       "path": "Case02.cs",
-      "sha256": "b98606e8a6b863be74a0f982f28e78890fca88668426386dbb80f44142ea0782",
-      "bytes": 963
+      "sha256": "ec06df585cba1650a881dffa7df495b8d449d1d79dde395b02dbb344038fb136",
+      "bytes": 479
     },
     {
       "path": "Case03.cs",
-      "sha256": "7ba59abe0ed85afa1f8e9218d149bfe560044038e2e4b02e7b46dd13a249bc2c",
-      "bytes": 915
+      "sha256": "3a4b797d5545b0ed139f502f69607082187c2726bd00fe39b04f163239fc3405",
+      "bytes": 473
+    },
+    {
+      "path": "CaseVerification.cs",
+      "sha256": "85a4a8a39f2f49d1c8c3c82055e225cbd241574ca00fc689672634960ae91a08",
+      "bytes": 1442
     },
     {
       "path": "Example.csproj",
@@ -80,8 +85,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "a37386155b4a3db492f9c7c8ed61f4dae917c9f27dc2de86f57988cda1ef86c2",
-      "bytes": 6034
+      "sha256": "bd9318f08b70d9308b0412971e033cc46da54fa71d70fe98e73a50583c02262b",
+      "bytes": 3588
     },
     {
       "path": "README.txt",

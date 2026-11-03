@@ -54,17 +54,9 @@ using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("protection-signatures/passwords/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("protection-signatures/passwords/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
+    private static Task<int> Main(string[] args) => RunChecked(args);
 
     private static bool Rejected(string path, string? password)
     {
@@ -76,7 +68,7 @@ internal static class Program
         catch (InvalidPasswordException) { return true; }
     }
 
-    private static void RunExample()
+    private static void ProtectPresentation()
     {
         const string password = "reader-demo";
         using (var original = new Presentation())
@@ -106,41 +98,6 @@ internal static class Program
         Require(Hash("original.pptx") == originalHash, "Original was changed.");
         Report(new { encrypted = true, correct_password = true, wrong_rejected = wrongRejected, missing_rejected = missingRejected, encryption_removed = true, original_unchanged = true });
     }
-
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-    private static IAutoShape Label(IBaseSlide slide, string text, float y = 50)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, y, 560, 90);
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 24;
-        return shape;
-    }
-    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
-    }
-    private static void Render(ISlide slide, string output)
-    {
-        using var image = slide.GetImage(new Size(640, 360));
-        image.Save(output, Aspose.Slides.ImageFormat.Png);
-    }
-
-    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
-    private static string[] SavedText(string file)
-    {
-        using var archive = ZipFile.OpenRead(file);
-        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
-        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
-            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
-    }
-
 }
 ```
 
@@ -150,7 +107,7 @@ Extract the download into an empty directory and run:
 
 ```text
 dotnet restore Example.sln
-dotnet run --project Example.csproj --configuration Release --no-restore -- --mode evaluation -- --mode evaluation -- --mode evaluation
+dotnet run --project Example.csproj --configuration Release --no-restore -- --mode evaluation
 ```
 
 The code writes "original.pptx", "encrypted.pptx", "decrypted.pptx", plus "result.json". Checks stop execution on an unexpected result; inspect visual outputs as well as the recorded data.

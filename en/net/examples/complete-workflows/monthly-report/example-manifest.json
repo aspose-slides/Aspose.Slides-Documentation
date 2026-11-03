@@ -32,6 +32,11 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleSupport.cs",
+      "sha256": "fdf9b636de2aab26e8f3eeb26188b6254171f1b64abdd4b033385ae94b1b313f",
+      "bytes": 3956
+    },
+    {
       "path": "Fixtures/sales.json",
       "sha256": "40b218ebaaadd52e6c39cae92c2136cdf86cea21c19b4dfea4c6d67d6af8bcfe",
       "bytes": 152
@@ -63,8 +68,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "e7ca2f27864841f476de0da4bc57c2e48a0fd6666d5bc62327860ee0a5f286eb",
-      "bytes": 8155
+      "sha256": "cc51ba24a99d689bea1010c5c81bcf0b19aa544ba5bc17611932208e1ab5fd1c",
+      "bytes": 4565
     },
     {
       "path": "README.txt",

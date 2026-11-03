@@ -47,6 +47,16 @@
       "bytes": 745
     },
     {
+      "path": "GifFixture.cs",
+      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
+      "bytes": 2120
+    },
+    {
+      "path": "GifVerification.cs",
+      "sha256": "067b16d14a6c511038e90f8d246adce07542e77f62860a16f2ffb0b7fac8bfd3",
+      "bytes": 2412
+    },
+    {
       "path": "global.json",
       "sha256": "546b7a626451526a3d390b862254cb0d15f62042ad1b4e40eccbb44168ba8f7c",
       "bytes": 108
@@ -63,8 +73,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "85f247534b01fa596074f612bf498ff7537e6580b529f90db6e17ca13811e54c",
-      "bytes": 4978
+      "sha256": "5dfd935c94268d8baa94961c93c297cb4f93b835ad3ec6c0468e931b125f797b",
+      "bytes": 905
     },
     {
       "path": "README.txt",

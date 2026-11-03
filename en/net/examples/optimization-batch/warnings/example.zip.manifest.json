@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "optimization-batch/warnings",
   "archive": "example.zip",
-  "archive_sha256": "7fbc31caa8b185d4f3ab6b8d358eedfe5fcbd12a990579f7271f1ec48c908750",
+  "archive_sha256": "2c007320c44e2b65cb8449b92731e5206fb4112ee7080d66ee18f966705a3010",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -35,6 +35,11 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleVerification.cs",
+      "sha256": "ff4a896b1d95d2fb25cea56f4a4f7c0820251d85539a528e27db59e7739d8dbf",
+      "bytes": 2710
+    },
+    {
       "path": "Fonts/NotoSans-Regular.ttf",
       "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
       "bytes": 569208
@@ -61,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "5133ee4e568aa38caba1823bd851cf83193b4389e405740b231ec00b45da5781",
-      "bytes": 4362
+      "sha256": "3fd714cee4bf567ec1f361d2865b95cbb339f010f3bb2cb3ee142827f514ed3d",
+      "bytes": 2277
     },
     {
       "path": "README.txt",
@@ -71,8 +76,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "46691dd729828be8265e4e3612528e4206904508b56c40109c703d01a22b3cdf",
-      "bytes": 2302
+      "sha256": "ce889ebee0388259376ca97e823fe73d9979a2001e89f2ef01f69b73312ba52b",
+      "bytes": 2459
     },
     {
       "path": "global.json",

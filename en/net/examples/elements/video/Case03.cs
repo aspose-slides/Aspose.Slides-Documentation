@@ -1,8 +1,5 @@
-using System;
 using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -17,11 +14,6 @@ internal static partial class Program
         // Remove the video frame.
         slide.Shapes.Remove(videoFrame);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<IVideoFrame>().Any(), "RemoveVideo: semantic check 1 failed.");
-        });
-        Context.Pass("elements/video/block-003", "RemoveVideo", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }

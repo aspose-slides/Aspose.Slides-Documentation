@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "conversion-rendering/pdf",
   "archive": "example.zip",
-  "archive_sha256": "ca3f2cbaa1814ef1fa909ed4f66fb007c7a1fb9cb9cb34e2af58bea169f67f15",
+  "archive_sha256": "93eb1feb39643aaa7a4e0b5f2d12d2f5255df4d5a59159b4aeb01df817965409",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -13,6 +13,16 @@
       "path": ".vscode/tasks.json",
       "sha256": "d0a29e1562d692a5308f05898f5410257b3940720747e7d72f206e1cc4833a2a",
       "bytes": 340
+    },
+    {
+      "path": "ConversionFixture.cs",
+      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
+      "bytes": 2120
+    },
+    {
+      "path": "ConversionVerification.cs",
+      "sha256": "f368139c5a1772b022c0ef8a6e1211cf4c9d2884c22bcf998e9e521aaa0466fe",
+      "bytes": 2378
     },
     {
       "path": "Example.csproj",
@@ -56,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "36aa99a498ac0561941c5d47ca92b36198529e0c4a586543cf01a9d420c0a21e",
-      "bytes": 5389
+      "sha256": "47a335ec99a07b792c78d1ffc739bb81feaa229deb2c99d9764cbed57ec38e65",
+      "bytes": 1220
     },
     {
       "path": "README.txt",
@@ -66,8 +76,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "257e1851ff75645e962b2e668424526703e8d3d6f80825915b9bea62fa644238",
-      "bytes": 2141
+      "sha256": "2b049c06324d46046cc6473d5d71236c89931952fa59a5128adf6e2998a4d068",
+      "bytes": 2456
     },
     {
       "path": "global.json",

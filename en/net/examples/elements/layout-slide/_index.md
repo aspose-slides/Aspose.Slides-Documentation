@@ -33,18 +33,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Layout Slide**
 
 You can create a custom layout slide to define reusable formatting. For example, you might add a text box that appears on all slides using this layout.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -65,12 +61,7 @@ internal static partial class Program
         presentation.Slides.AddEmptySlide(layoutSlide);
         presentation.Slides.AddEmptySlide(layoutSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.LayoutSlides.Any(l => l.Name == "Main layout") && p.Slides.Count == 3 && p.Slides[1].LayoutSlide.Name == "Main layout" && p.Slides[2].LayoutSlide.Name == "Main layout", "AddLayoutSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/layout-slide/block-001", "AddLayoutSlide", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -87,11 +78,7 @@ internal static partial class Program
 Layout slides can be accessed by index or by layout type (e.g., `Blank`, `Title`, `SectionHeader`, etc.).
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -105,12 +92,7 @@ internal static partial class Program
         // Access a layout slide by type.
         var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.LayoutSlides.Count > 0 && p.LayoutSlides.GetByType(SlideLayoutType.Blank) != null, "AccessLayoutSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/layout-slide/block-002", "AccessLayoutSlide", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -120,11 +102,7 @@ internal static partial class Program
 You can remove a specific layout slide if it's no longer needed.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -136,12 +114,7 @@ internal static partial class Program
         var blankLayoutSlide = presentation.LayoutSlides.Add(presentation.Masters[0], SlideLayoutType.Blank, "Unused");
         presentation.LayoutSlides.Remove(blankLayoutSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.LayoutSlides.Any(l => l.Name == "Unused"), "RemoveLayoutSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/layout-slide/block-003", "RemoveLayoutSlide", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -151,11 +124,7 @@ internal static partial class Program
 To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -166,12 +135,7 @@ internal static partial class Program
         // Automatically removes all layout slides not referenced by any slide.
         presentation.LayoutSlides.RemoveUnused();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.LayoutSlides.Count == p.Slides.Select(s => s.LayoutSlide).Distinct().Count(), "RemoveUnusedLayoutSlides: semantic check 1 failed.");
-        });
-        Context.Pass("elements/layout-slide/block-004", "RemoveUnusedLayoutSlides", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```
@@ -181,11 +145,7 @@ internal static partial class Program
 You can duplicate a layout slide using the `AddClone` method.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -200,12 +160,7 @@ internal static partial class Program
         var clonedLayoutSlide = presentation.LayoutSlides.AddClone(blankLayoutSlide);
         clonedLayoutSlide.Name = "Clone";
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-005", p =>
-        {
-            Context.Require(p.LayoutSlides.Any(l => l.Name == "Clone"), "CloneLayoutSlides: semantic check 1 failed.");
-        });
-        Context.Pass("elements/layout-slide/block-005", "CloneLayoutSlides", "save-reopen-structure");
+        VerifyCase05(presentation);
     }
 }
 ```

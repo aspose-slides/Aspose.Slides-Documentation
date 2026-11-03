@@ -34,6 +34,8 @@ The code creates its own synthetic input. Use a compatible stable SDK with the i
 
 Both MemoryStream and FileStream are reset to position zero before loading. The caller keeps its streams alive until the Presentation is disposed, then copies the saved bytes with ToArray. The final reopen happens after the editing streams have been disposed.
 
+The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+
 ```csharp
 using System.Threading.Tasks;
 using System;
@@ -46,18 +48,8 @@ using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("presentations/streams/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("presentations/streams/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
-
     private static void RunExample()
     {
         byte[] inputBytes;
@@ -98,30 +90,6 @@ internal static class Program
         File.WriteAllBytes("output.pptx", editedBytes);
         Require(Hash("input.pptx") == originalHash, "Input bytes changed.");
         Report(new { bytes_reopened = true, streams_owned_by_caller = true, position_reset = true, original_unchanged = true });
-    }
-
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static IAutoShape Label(ISlide slide, string text)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
-        shape.Name = "content-" + text;
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
-        return shape;
-    }
-
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
-    private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
     }
 }
 ```

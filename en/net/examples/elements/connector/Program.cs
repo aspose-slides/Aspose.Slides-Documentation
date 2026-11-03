@@ -26,7 +26,6 @@ internal static partial class Program
         context.Prerequisite(selected == null || cases.Any(item => item.Id == selected), "Unknown action. Use one of: " + string.Join(", ", cases.Select(item => item.Id)));
         foreach (var item in cases.Where(item => selected == null || item.Id == selected))
         {
-            CurrentCase = item.Id;
             context.BeginAction("elements/connector/" + item.Id);
             item.Run();
         }
@@ -34,7 +33,6 @@ internal static partial class Program
     });
 
     private static ExampleContext Context = null!;
-    private static string CurrentCase = "";
 
     private static void RoundTrip(Presentation presentation, string name, Action<Presentation> verify, SaveFormat format = SaveFormat.Pptx)
     {
@@ -74,51 +72,4 @@ internal static partial class Program
                 }
         }
     }
-
-    private static string Seed(string kind)
-    {
-        string directory = Path.Combine(Context.OutputRoot, "inputs");
-        Directory.CreateDirectory(directory);
-        string path = Path.Combine(directory, CurrentCase + ".pptx");
-        using var seed = new Presentation();
-        var slide = seed.Slides[0];
-        if (kind == "control")
-        {
-            var control = slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
-            control.Properties["Value"] = "Text";
-        }
-        if (kind == "comment")
-        {
-            var author = seed.CommentAuthors.AddAuthor("User", "U1");
-            author.Comments.AddModernComment("Note", slide, null, new System.Drawing.PointF(100, 100), new DateTime(2026, 1, 1));
-        }
-        if (kind == "master")
-        {
-            // Add two explicitly unused masters; retain the used original at index zero.
-            using var other = new Presentation();
-            other.Masters[0].Name = "Unused1";
-            seed.Masters.AddClone(other.Masters[0]);
-            other.Masters[0].Name = "Unused2";
-            seed.Masters.AddClone(other.Masters[0]);
-            // Keep the existing used master, remove both explicit unused references in the case.
-        }
-        seed.Save(path, kind == "control" ? SaveFormat.Pptm : SaveFormat.Pptx);
-        return path;
-    }
-
-    private static string MathFixture()
-    {
-        string directory = Path.Combine(Context.OutputRoot, "inputs"); Directory.CreateDirectory(directory);
-        string path = Path.Combine(directory, CurrentCase + ".pptx");
-        using var seed = new Presentation();
-        var shape = seed.Slides[0].Shapes.AddMathShape(50, 50, 200, 80);
-        ((Aspose.Slides.MathText.MathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph
-            .Add(new Aspose.Slides.MathText.MathBlock(new Aspose.Slides.MathText.MathematicalText("x").Divide("y")));
-        seed.Save(path, SaveFormat.Pptx); return path;
-    }
-
-    private static Aspose.Slides.MathText.IMathParagraph Maths(Presentation presentation) =>
-        ((Aspose.Slides.MathText.MathPortion)presentation.Slides[0].Shapes.OfType<IAutoShape>()
-            .First(s => s.TextFrame.Paragraphs.Any(q => q.Portions.Any(t => t is Aspose.Slides.MathText.MathPortion)))
-            .TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 }

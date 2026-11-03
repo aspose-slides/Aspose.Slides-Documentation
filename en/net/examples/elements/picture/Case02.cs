@@ -1,8 +1,6 @@
-using System;
 using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -21,11 +19,6 @@ internal static partial class Program
         // Access the first picture frame on the slide.
         var pictureFrame = slide.Shapes.OfType<PictureFrame>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IPictureFrame>().Single().Width == 40 && p.Slides[0].Shapes.OfType<IPictureFrame>().Single().Height == 40, "AccessPicture: semantic check 1 failed.");
-        });
-        Context.Pass("elements/picture/block-002", "AccessPicture", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

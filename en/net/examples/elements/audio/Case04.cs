@@ -1,8 +1,5 @@
-using System;
 using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -17,11 +14,6 @@ internal static partial class Program
         // Play automatically when the slide appears.
         audioFrame.PlayMode = AudioPlayModePreset.Auto;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IAudioFrame>().Single().PlayMode == AudioPlayModePreset.Auto, "SetAudioPlayback: semantic check 1 failed.");
-        });
-        Context.Pass("elements/audio/block-004", "SetAudioPlayback", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

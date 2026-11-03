@@ -8,7 +8,7 @@ keywords:
 - add group shape
 - access group shape
 - remove group shape
-- ungroup shapes
+- move a shape out of a group
 - code example
 - PowerPoint
 - OpenDocument
@@ -16,10 +16,10 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Manage grouped shapes in Aspose.Slides for .NET: create, nest, align, reorder, and style group shapes with C# examples in PPT, PPTX, and ODP presentations."
+description: "Create, access and remove shape groups, and move a shape out of its group with Aspose.Slides for .NET C# examples."
 ---
 
-Examples for creating groups of shapes, accessing them, ungrouping, and removal using **Aspose.Slides for .NET**.
+Create, access and remove shape groups with **Aspose.Slides for .NET**. Move an individual shape out of its group.
 
 ## Download and run
 
@@ -32,18 +32,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Group Shape**
 
 Create a group containing two basic shapes.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -56,12 +52,7 @@ internal static partial class Program
         group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
         group.Shapes.AddAutoShape(ShapeType.Ellipse, 60, 0, 50, 50);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IGroupShape>().Single().Shapes.Count == 2, "AddGroupShape: semantic check 1 failed.");
-        });
-        Context.Pass("elements/group-shape/block-001", "AddGroupShape", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -71,11 +62,8 @@ internal static partial class Program
 Retrieve the first group shape from a slide.
 
 ```csharp
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -89,12 +77,7 @@ internal static partial class Program
 
         var firstGroup = slide.Shapes.OfType<IGroupShape>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IGroupShape>().Single().Shapes.Count == 1, "AccessGroupShape: semantic check 1 failed.");
-        });
-        Context.Pass("elements/group-shape/block-002", "AccessGroupShape", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -104,11 +87,7 @@ internal static partial class Program
 Delete a group shape from the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -121,26 +100,19 @@ internal static partial class Program
 
         slide.Shapes.Remove(group);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<IGroupShape>().Any(), "RemoveGroupShape: semantic check 1 failed.");
-        });
-        Context.Pass("elements/group-shape/block-003", "RemoveGroupShape", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
 
-## **Ungroup Shapes**
+<a id="ungroup-shapes"></a>
 
-Move shapes out of a group container.
+## **Move a Shape Out of a Group**
+
+Clone a shape onto the slide and remove the original from its group. The group stays on the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -156,12 +128,7 @@ internal static partial class Program
         slide.Shapes.AddClone(rect);
         group.Shapes.Remove(rect);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IGroupShape>().Single().Shapes.Count == 0 && p.Slides[0].Shapes.OfType<IAutoShape>().Any(s => s.ShapeType == ShapeType.Rectangle), "UngroupShapes: semantic check 1 failed.");
-        });
-        Context.Pass("elements/group-shape/block-004", "UngroupShapes", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

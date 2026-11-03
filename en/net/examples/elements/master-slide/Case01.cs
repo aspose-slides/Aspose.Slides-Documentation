@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using System.Drawing;
 
 internal static partial class Program
@@ -29,11 +25,6 @@ internal static partial class Program
         // Assign the layout slide to the first slide in the presentation.
         presentation.Slides[0].LayoutSlide = layoutSlide;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].LayoutSlide.MasterSlide.Shapes.OfType<IAutoShape>().Any(s => s.TextFrame.Text == "Acme"), "AddMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-001", "AddMasterSlide", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }

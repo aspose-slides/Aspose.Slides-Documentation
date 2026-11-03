@@ -36,18 +36,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Slide**
 
 To add a new slide, you must first select a layout. In this example, we use the `Blank` layout and add an empty slide to the presentation.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -62,12 +58,7 @@ internal static partial class Program
         // Add a new empty slide using the selected layout.
         presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides.Count == 2, "AddSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-001", "AddSlide", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -81,11 +72,7 @@ internal static partial class Program
 You can access slides using their index, or find a slide’s index based on a reference. This is useful for iterating through or modifying specific slides.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -106,12 +93,7 @@ internal static partial class Program
         var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
         var secondSlideByIndex = presentation.Slides[secondSlideIndex];
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides.Count == 2, "AccessSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-002", "AccessSlide", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -121,11 +103,7 @@ internal static partial class Program
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -141,12 +119,7 @@ internal static partial class Program
         // The cloned slide index is 1 (second slide in the presentation).
         var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.Slides.Count == 2, "CloneSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-003", "CloneSlide", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -156,11 +129,7 @@ internal static partial class Program
 You can change the order of slides by moving one to a new index. In this case, we move a cloned slide to the first position.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -177,12 +146,7 @@ internal static partial class Program
         // Move the cloned slide to the first position (others shift down).
         presentation.Slides.Reorder(index: 0, clonedSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides.Count == 2 && p.Slides[0].Name == "Clone", "ReorderSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-004", "ReorderSlide", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```
@@ -192,11 +156,7 @@ internal static partial class Program
 To remove a slide, simply reference it and call `Remove`. This example adds a second slide and then removes the original, leaving only the new one.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -212,12 +172,7 @@ internal static partial class Program
         var firstSlide = presentation.Slides[0];
         presentation.Slides.Remove(firstSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-005", p =>
-        {
-            Context.Require(p.Slides.Count == 1, "RemoveSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-005", "RemoveSlide", "save-reopen-structure");
+        VerifyCase05(presentation);
     }
 }
 ```

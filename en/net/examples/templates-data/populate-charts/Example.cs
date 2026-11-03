@@ -4,88 +4,110 @@ using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json;
-using Microsoft.VisualBasic.FileIO;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
-using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
+
+internal sealed record SalesData(string[] Categories, string[] Series, double[][] Values);
 
 internal static class Example
 {
-    public static ExampleContext Context = null!;
-    public static void Setup() { Directory.CreateDirectory("output"); }
-    public static string ExpectedText(string value) => Context.IsLicensed || value.Length<=5 ? value : value[..5]+"... text has been truncated due to evaluation version limitation.";
-    public static string Choice(string licensed,string evaluation) => Context.IsLicensed ? licensed : evaluation;
-    public static void VerifySavedText(string path,string shapeName,string expected)
+    private const string ChartName = "Sales";
+
+    internal static SalesData ReadSales(string path) =>
+        JsonSerializer.Deserialize<SalesData>(File.ReadAllText(path))
+        ?? throw new InvalidDataException("The sales fixture must contain chart data.");
+
+    internal static void CreateTemplate(string path)
     {
-        using var zip=System.IO.Compression.ZipFile.OpenRead(path);
-        foreach(var entry in zip.Entries.Where(e=>e.FullName.StartsWith("ppt/slides/slide",StringComparison.Ordinal)&&e.FullName.EndsWith(".xml",StringComparison.Ordinal)))
-        {
-            using var stream=entry.Open();var document=System.Xml.Linq.XDocument.Load(stream);
-            foreach(var shape in document.Descendants().Where(e=>e.Name.LocalName=="sp"))
-            {
-                if(!shape.Descendants().Any(e=>e.Name.LocalName=="cNvPr"&&(string?)e.Attribute("name")==shapeName))continue;
-                string stored=string.Concat(shape.Descendants().Where(e=>e.Name.LocalName=="t").Select(e=>e.Value));
-                Require(stored==expected,"Saved XML text differs from the intended transformation.");return;
-            }
-        }
-        throw new InvalidDataException("Named saved shape is absent.");
+        using var presentation = new Presentation();
+        var chart = presentation.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 40, 130, 620, 290);
+        chart.Name = ChartName;
+        presentation.Save(path, SaveFormat.Pptx);
     }
 
-    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
-    public static string Hash(byte[] data)=>Convert.ToHexString(SHA256.HashData(data)).ToLowerInvariant();
-    public static string HashFile(string path)=>Hash(File.ReadAllBytes(path));
-    public static void Result(object checks)
-    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
-    public static void Json(string path,object value)
-    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
-    public static IAutoShape Text(IShapeCollection shapes,string name,string value,float x=35,float y=35,float width=600,float height=70)
+    internal static IChart FindSalesChart(Presentation presentation) =>
+        presentation.Slides[0].Shapes.OfType<IChart>().Single(chart => chart.Name == ChartName);
+
+    internal static void SavePreview(Presentation presentation, string path)
     {
-        var shape=shapes.AddAutoShape(ShapeType.Rectangle,x,y,width,height);
-        shape.Name=name; shape.TextFrame.Text=value;
-        shape.FillFormat.FillType=FillType.Solid; shape.FillFormat.SolidFillColor.Color=Color.White;
-        foreach(var para in shape.TextFrame.Paragraphs) foreach(var portion in para.Portions)
-        { portion.PortionFormat.LatinFont=new FontData("Noto Sans"); portion.PortionFormat.FontHeight=20; portion.PortionFormat.FillFormat.FillType=FillType.Solid; portion.PortionFormat.FillFormat.SolidFillColor.Color=Color.FromArgb(35,65,100); }
-        return shape;
+        using var image = presentation.Slides[0].GetImage(new Size(800, 450));
+        image.Save(path, Aspose.Slides.ImageFormat.Png);
     }
-    public static IEnumerable<IShape> Walk(IShapeCollection shapes)
-    { foreach(IShape shape in shapes){yield return shape;if(shape is IGroupShape group)foreach(var child in Walk(group.Shapes))yield return child;} }
-    public static IEnumerable<ITextFrame> Frames(ISlide slide)
+
+    internal static void VerifyAndReport(ExampleContext context, string actionId, SalesData sales, string outputFolder)
     {
-        foreach(var shape in Walk(slide.Shapes))
-        { if(shape is IAutoShape auto)yield return auto.TextFrame;
-          if(shape is ITable table)for(int r=0;r<table.Rows.Count;r++)for(int c=0;c<table.Columns.Count;c++)yield return table[c,r].TextFrame; }
+        using var report = new Presentation(Path.Combine(outputFolder, "report.pptx"));
+        IChartData chartData = FindSalesChart(report).ChartData;
+        context.Require(chartData.Categories.Count == sales.Categories.Length, "Category count differs.");
+        context.Require(chartData.Series.Count == sales.Series.Length, "Series count differs.");
+
+        for (int category = 0; category < sales.Categories.Length; category++)
+        {
+            context.Require(chartData.Categories[category].Value.ToString() == sales.Categories[category],
+                "Category differs.");
+        }
+
+        for (int column = 0; column < sales.Series.Length; column++)
+        {
+            var series = chartData.Series[column];
+            context.Require(series.Name.ToString() == sales.Series[column], "Series name differs.");
+            context.Require(series.DataPoints.Count == sales.Categories.Length, "Data point count differs.");
+
+            for (int category = 0; category < sales.Categories.Length; category++)
+            {
+                double expected = sales.Values[column][category];
+                var chartValue = series.DataPoints[category].Value.Data;
+                var workbookValue = chartData.ChartDataWorkbook.GetCell(0, category + 1, column + 1).Value;
+                context.Require(Convert.ToDouble(chartValue, CultureInfo.InvariantCulture) == expected,
+                    "Chart value differs.");
+                context.Require(Convert.ToDouble(workbookValue, CultureInfo.InvariantCulture) == expected,
+                    "Workbook value differs.");
+            }
+        }
+
+        using (var workbook = chartData.ReadWorkbookStream())
+        using (var file = File.Create(Path.Combine(outputFolder, "workbook.xlsx")))
+        {
+            workbook.CopyTo(file);
+        }
+
+        var preview = PortableImage.Decode(File.ReadAllBytes(Path.Combine(outputFolder, "preview.png")));
+        context.Require(preview.Width > 0 && preview.Height > 0, "Empty PNG output.");
+
+        if (context.IsLicensed)
+        {
+            context.Require(chartData.Series.Count == 2, "Licensed assertion differs: checks.series_count");
+            context.Require(chartData.Categories.Count == 2, "Licensed assertion differs: checks.category_count");
+        }
+
+        var result = new
+        {
+            checks = new
+            {
+                series_count = chartData.Series.Count,
+                category_count = chartData.Categories.Count,
+                all_values_checked = true,
+                embedded_workbook_checked = true,
+            },
+        };
+        File.WriteAllText(Path.Combine(outputFolder, "result.json"),
+            JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true }));
+
+        var checks = context.IsLicensed
+            ? new Dictionary<string, bool>
+            {
+                ["licensed-checks-series_count"] = true,
+                ["licensed-checks-category_count"] = true,
+                ["licensed-checks-all_values_checked"] = true,
+                ["licensed-checks-embedded_workbook_checked"] = true,
+            }
+            : new Dictionary<string, bool>
+            {
+                ["evaluation-semantic-effect"] = true,
+                ["evaluation-valid-output"] = true,
+            };
+        context.Pass(actionId, checks);
     }
-    public static T Named<T>(ISlide slide,string name) where T:class,IShape
-    { var found=Walk(slide.Shapes).Where(s=>s.Name==name).ToArray(); if(found.Length!=1 || found[0] is not T typed)throw new InvalidDataException("Expected one named shape: "+name);return typed; }
-    public static void Render(Presentation p,string path)
-    { using var image=p.Slides[0].GetImage(new Size(800,450));image.Save(path,Aspose.Slides.ImageFormat.Png); }
-    public static byte[] Png(int width,int height,Color color) => PortableImage.Png(width,height,color);
-    public static List<string[]> Csv(string text,int columns)
-    {
-        using var parser=new TextFieldParser(new StringReader(text));parser.SetDelimiters(",");parser.HasFieldsEnclosedInQuotes=true;parser.TrimWhiteSpace=false;
-        var rows=new List<string[]>();while(!parser.EndOfData){var row=parser.ReadFields()!;if(row.Length!=columns)throw new InvalidDataException("CSV field count differs.");rows.Add(row);}return rows;
-    }
-    public static string CsvCell(string text)=>"\""+text.Replace("\"","\"\"")+"\"";
-    public static string SafeOutput(string folder,string filename)
-    {
-        string root=Path.GetFullPath(folder)+Path.DirectorySeparatorChar;
-        string path=Path.GetFullPath(Path.Combine(folder,filename));
-        if(!path.StartsWith(root,StringComparison.OrdinalIgnoreCase))throw new InvalidDataException("Output escapes its directory.");return path;
-    }
-    public static IChart Chart(ISlide slide,string name)
-    { var chart=slide.Shapes.AddChart(ChartType.ClusteredColumn,40,130,620,290);chart.Name=name;return chart; }
-    public static void ChartData(IChart chart,string[] categories,string[] series,double[][] values)
-    {
-        var data=chart.ChartData;var book=data.ChartDataWorkbook;data.Series.Clear();data.Categories.Clear();book.Clear(0);
-        for(int r=0;r<categories.Length;r++)data.Categories.Add(book.GetCell(0,r+1,0,categories[r]));
-        for(int c=0;c<series.Length;c++)
-        {var item=data.Series.Add(book.GetCell(0,0,c+1,series[c]),ChartType.ClusteredColumn);
-         for(int r=0;r<categories.Length;r++)item.DataPoints.AddDataPointForBarSeries(book.GetCell(0,r+1,c+1,values[c][r]));}
-    }
-    public static bool Throws(Action action)
-    {try{action();return false;}catch(InvalidDataException){return true;}}
 }

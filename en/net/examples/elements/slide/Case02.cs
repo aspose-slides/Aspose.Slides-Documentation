@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -23,11 +19,6 @@ internal static partial class Program
         var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
         var secondSlideByIndex = presentation.Slides[secondSlideIndex];
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides.Count == 2, "AccessSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide/block-002", "AccessSlide", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

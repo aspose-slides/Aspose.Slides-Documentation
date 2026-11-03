@@ -105,20 +105,4 @@ internal static partial class Program
         seed.Save(path, kind == "control" ? SaveFormat.Pptm : SaveFormat.Pptx);
         return path;
     }
-
-    private static string MathFixture()
-    {
-        string directory = Path.Combine(Context.OutputRoot, "inputs"); Directory.CreateDirectory(directory);
-        string path = Path.Combine(directory, CurrentCase + ".pptx");
-        using var seed = new Presentation();
-        var shape = seed.Slides[0].Shapes.AddMathShape(50, 50, 200, 80);
-        ((Aspose.Slides.MathText.MathPortion)shape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph
-            .Add(new Aspose.Slides.MathText.MathBlock(new Aspose.Slides.MathText.MathematicalText("x").Divide("y")));
-        seed.Save(path, SaveFormat.Pptx); return path;
-    }
-
-    private static Aspose.Slides.MathText.IMathParagraph Maths(Presentation presentation) =>
-        ((Aspose.Slides.MathText.MathPortion)presentation.Slides[0].Shapes.OfType<IAutoShape>()
-            .First(s => s.TextFrame.Paragraphs.Any(q => q.Portions.Any(t => t is Aspose.Slides.MathText.MathPortion)))
-            .TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
 }

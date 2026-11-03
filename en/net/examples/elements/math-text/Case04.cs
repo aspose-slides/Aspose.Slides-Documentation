@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -20,12 +16,6 @@ internal static partial class Program
         // The paragraph default is persisted for its mathematical content.
         mathShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(Maths(p).Count == 1, "FormatMathText: semantic check 1 failed.");
-            Context.Require(p.Slides[0].Shapes.OfType<IAutoShape>().First(s => s.TextFrame.Paragraphs.Any(q => q.Portions.Any(t => t is MathPortion))).TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight == 20, "FormatMathText: semantic check 2 failed.");
-        });
-        Context.Pass("elements/math-text/block-004", "FormatMathText", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

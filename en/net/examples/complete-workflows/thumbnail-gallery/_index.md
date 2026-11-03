@@ -31,6 +31,8 @@ The program generates its own original presentation/template fixture. JSON input
 
 ## Complete project source
 
+The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+
 ```csharp
 using System.Threading.Tasks;
 using System;
@@ -45,18 +47,8 @@ using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 using Aspose.Slides.Vba;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("complete-workflows/thumbnail-gallery/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("complete-workflows/thumbnail-gallery/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
-
     private static void RunExample()
     {
         using (var input = Deck("<Planning & Review>", "<Planning & Review>", "Результаты")) input.Save("презентация.pptx", SaveFormat.Pptx);
@@ -70,58 +62,13 @@ internal static class Program
             items.Add(new { slide = i + 1, title, thumbnail = file });
             html.Append($"""<figure><img width="320" height="180" src="{file}" alt="Slide {i + 1}"><figcaption>{i + 1}. {WebUtility.HtmlEncode(title)}</figcaption></figure>""");
         }
-        html.Append("</body></html>"); File.WriteAllText("gallery.html", html.ToString());
+        html.Append("</body></html>");
+        string galleryHtml = html.ToString();
+        File.WriteAllText("gallery.html", galleryHtml);
         File.WriteAllText("gallery.json", JsonSerializer.Serialize(items, new JsonSerializerOptions { WriteIndented = true }));
-        Require(html.ToString().Contains(WebUtility.HtmlEncode(Context.ExpectedText("<Planning & Review>"))), "HTML labels must be escaped.");
-        Require(!html.ToString().Contains("<Planning", StringComparison.Ordinal), "Raw label HTML remains.");
+        Require(galleryHtml.Contains(WebUtility.HtmlEncode(Context.ExpectedText("<Planning & Review>"))), "HTML labels must be escaped.");
+        Require(!galleryHtml.Contains("<Planning", StringComparison.Ordinal), "Raw label HTML remains.");
         Report(new { slides = items.Count, unique_filenames = true, escaped_labels = true });
-    }
-
-    private static Presentation Deck(params string[] titles)
-    {
-        var deck = new Presentation();
-        deck.SlideSize.SetSize(960, 540, SlideSizeScaleType.DoNotScale);
-        var layout = deck.LayoutSlides.GetByType(SlideLayoutType.Blank);
-        for (int i = 0; i < titles.Length; i++)
-        {
-            var slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(layout);
-            Label(slide, titles[i], "Title", 40, 30, 880, 80);
-        }
-        return deck;
-    }
-
-    private static IAutoShape Label(ISlide slide, string value, string name, float x, float y, float w, float h)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, w, h);
-        shape.Name = name;
-        shape.FillFormat.FillType = FillType.Solid;
-        shape.FillFormat.SolidFillColor.Color = Color.AliceBlue;
-        shape.LineFormat.FillFormat.FillType = FillType.NoFill;
-        shape.TextFrame.Text = value;
-        shape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Normal;
-        foreach (var paragraph in shape.TextFrame.Paragraphs)
-        foreach (var portion in paragraph.Portions)
-        {
-            portion.PortionFormat.FontHeight = 24;
-            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
-            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-        }
-        return shape;
-    }
-
-    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name is "Title" or "Total" or "Units").Select(s => s.TextFrame?.Text));
-    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path)));
-    private static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
-    private static void Preview(Presentation deck, string path)
-    {
-        using var image = deck.Slides[0].GetImage(new Size(640, 360));
-        image.Save(path, Aspose.Slides.ImageFormat.Png);
-    }
-    private static void Report(object value)
-    {
-        string json = JsonSerializer.Serialize(value, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json); Console.WriteLine(json);
     }
 }
 ```

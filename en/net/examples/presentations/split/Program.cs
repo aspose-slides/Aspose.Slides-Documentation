@@ -9,18 +9,8 @@ using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context = context;
-        context.BeginAction("presentations/split/block-001");
-        RunExample();
-        await Task.CompletedTask;
-        context.Pass("presentations/split/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
-    });
-
     private static string SafeName(string value)
     {
         char[] invalid = Path.GetInvalidFileNameChars();
@@ -76,29 +66,5 @@ internal static class Program
         Require(sectionPaths.All(p => Path.GetFullPath(p).StartsWith(Path.GetFullPath("outputs") + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase)), "Output escaped its directory.");
         Require(Hash("input.pptx") == inputHash, "Input changed.");
         Report(new { individual_files = 3, range_slides = 2, section_files = 2, first_last_verified = true, duplicate_names_safe = true, invalid_rejected = invalidRejected, empty_rejected = emptyRejected, original_unchanged = true });
-    }
-
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static IAutoShape Label(ISlide slide, string text)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
-        shape.Name = "content-" + text;
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
-        return shape;
-    }
-
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
-    private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
     }
 }

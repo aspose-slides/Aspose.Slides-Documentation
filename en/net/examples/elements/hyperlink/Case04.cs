@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -22,11 +18,6 @@ internal static partial class Program
         // This mimics how PowerPoint safely updates hyperlinks.
         textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<IAutoShape>().Any(s => s.TextFrame?.Paragraphs.Any(q => q.Portions.Any(t => t.PortionFormat.HyperlinkClick?.ExternalUrl == "https://new.example.com")) == true), "UpdateHyperlink: semantic check 1 failed.");
-        });
-        Context.Pass("elements/hyperlink/block-004", "UpdateHyperlink", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }

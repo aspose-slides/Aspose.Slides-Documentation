@@ -8,7 +8,7 @@ keywords:
 - add slide transition
 - access slide transition
 - remove slide transition
-- transition duration
+- slide advance timing
 - code example
 - PowerPoint
 - OpenDocument
@@ -16,7 +16,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Master slide transitions in Aspose.Slides for .NET: add, customize, and sequence effects and durations with C# examples for PPT, PPTX, and ODP presentations."
+description: "Add, read and remove slide transitions, and set slide advance timing with Aspose.Slides for .NET C# examples."
 ---
 
 This article demonstrates applying slide transition effects and timings with **Aspose.Slides for .NET**.
@@ -32,18 +32,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add a Slide Transition**
 
 Apply a fade transition effect to the first slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
 internal static partial class Program
@@ -56,12 +52,7 @@ internal static partial class Program
         // Apply a fade transition.
         slide.SlideShowTransition.Type = TransitionType.Fade;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].SlideShowTransition.Type == TransitionType.Fade, "AddSlideTransition: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide-transition/block-001", "AddSlideTransition", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -71,11 +62,7 @@ internal static partial class Program
 Read the transition type currently assigned to a slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
 internal static partial class Program
@@ -90,12 +77,7 @@ internal static partial class Program
         // Access the transition type.
         var type = slide.SlideShowTransition.Type;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].SlideShowTransition.Type == TransitionType.Push, "AccessSlideTransition: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide-transition/block-002", "AccessSlideTransition", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -105,11 +87,7 @@ internal static partial class Program
 Clear any transition effect by setting the type to `None`.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
 
 internal static partial class Program
@@ -124,26 +102,19 @@ internal static partial class Program
         // Remove transition by setting none.
         slide.SlideShowTransition.Type = TransitionType.None;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.Slides[0].SlideShowTransition.Type == TransitionType.None, "RemoveSlideTransition: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide-transition/block-003", "RemoveSlideTransition", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
 
-## **Set Transition Duration**
+<a id="set-transition-duration"></a>
 
-Specify how long the slide is displayed before advancing automatically.
+## **Set Slide Advance Timing**
+
+Set the slide advance time to two seconds and allow a click to advance the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -155,12 +126,7 @@ internal static partial class Program
         slide.SlideShowTransition.AdvanceOnClick = true;
         slide.SlideShowTransition.AdvanceAfterTime = 2000; // in milliseconds
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].SlideShowTransition.AdvanceOnClick && p.Slides[0].SlideShowTransition.AdvanceAfterTime == 2000, "SetTransitionDuration: semantic check 1 failed.");
-        });
-        Context.Pass("elements/slide-transition/block-004", "SetTransitionDuration", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

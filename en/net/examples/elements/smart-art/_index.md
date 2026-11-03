@@ -32,18 +32,14 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim with the included `Program.cs` and bootstrap. Checks run before saving and after reopening the result.
+Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
 
 ## **Add SmartArt**
 
 Insert a SmartArt graphic using one of the built-in layouts.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -55,12 +51,7 @@ internal static partial class Program
 
         var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-001", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<ISmartArt>().Single().Layout == SmartArtLayoutType.BasicProcess, "AddSmartArt: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-001", "AddSmartArt", "save-reopen-structure");
+        VerifyCase01(presentation);
     }
 }
 ```
@@ -70,11 +61,8 @@ internal static partial class Program
 Retrieve the first SmartArt object on a slide.
 
 ```csharp
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -88,12 +76,7 @@ internal static partial class Program
 
         var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<ISmartArt>().Single().AllNodes.Count > 0, "AccessSmartArt: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-002", "AccessSmartArt", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }
 ```
@@ -103,11 +86,7 @@ internal static partial class Program
 Delete a SmartArt shape from the slide.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -121,12 +100,7 @@ internal static partial class Program
 
         slide.Shapes.Remove(smartArt);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<ISmartArt>().Any(), "RemoveSmartArt: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-003", "RemoveSmartArt", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }
 ```
@@ -136,11 +110,7 @@ internal static partial class Program
 Update the layout type of an existing SmartArt graphic.
 
 ```csharp
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.SmartArt;
 
 internal static partial class Program
@@ -154,12 +124,7 @@ internal static partial class Program
 
         smartArt.Layout = SmartArtLayoutType.VerticalPictureList;
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-004", p =>
-        {
-            Context.Require(p.Slides[0].Shapes.OfType<ISmartArt>().Single().Layout == SmartArtLayoutType.VerticalPictureList, "ChangeSmartArtLayout: semantic check 1 failed.");
-        });
-        Context.Pass("elements/smart-art/block-004", "ChangeSmartArtLayout", "save-reopen-structure");
+        VerifyCase04(presentation);
     }
 }
 ```

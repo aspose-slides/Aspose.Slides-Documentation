@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "conversion-rendering/animated-gif",
   "archive": "example.zip",
-  "archive_sha256": "b9f382d49fb99c526fd66bc1710a768dd2c639f43d21decb03b97a9ce12a57ea",
+  "archive_sha256": "0c86d90cf3e8c3f47ecab286c708ae793fdc1f191d9ed24f9d3664f04a7a110d",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -45,6 +45,16 @@
       "bytes": 745
     },
     {
+      "path": "GifFixture.cs",
+      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
+      "bytes": 2120
+    },
+    {
+      "path": "GifVerification.cs",
+      "sha256": "067b16d14a6c511038e90f8d246adce07542e77f62860a16f2ffb0b7fac8bfd3",
+      "bytes": 2412
+    },
+    {
       "path": "NuGet.Config",
       "sha256": "f545a7e2ea14ac53cdfb91217cae67b8ff14275313f6298f9a3331d205b6c948",
       "bytes": 217
@@ -56,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "85f247534b01fa596074f612bf498ff7537e6580b529f90db6e17ca13811e54c",
-      "bytes": 4978
+      "sha256": "5dfd935c94268d8baa94961c93c297cb4f93b835ad3ec6c0468e931b125f797b",
+      "bytes": 905
     },
     {
       "path": "README.txt",
@@ -66,8 +76,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "11138f52f6691ec346f7e933d602f97b5b811d39eb7f033585f21fc3f80f0c54",
-      "bytes": 2154
+      "sha256": "c96db703186165f001ab12ddc4fface77eceb00bb207de70499d18580c17f7ec",
+      "bytes": 2454
     },
     {
       "path": "global.json",

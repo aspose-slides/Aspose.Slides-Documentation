@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -15,11 +11,6 @@ internal static partial class Program
 
         slide.Shapes.Remove(connector);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.OfType<IConnector>().Any(), "RemoveConnector: semantic check 1 failed.");
-        });
-        Context.Pass("elements/connector/block-003", "RemoveConnector", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }

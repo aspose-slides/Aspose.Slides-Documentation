@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "fonts-text/custom-fonts",
   "archive": "example.zip",
-  "archive_sha256": "db267f42597dbb244a6a74b6b6c1ffa5915bdd3d4c2c47874f67eb8c1723e62b",
+  "archive_sha256": "95d878bbd653bc0421a8c80e4d766a40e0353792e30ada035e99ce12704b0383",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -30,6 +30,16 @@
       "bytes": 11655
     },
     {
+      "path": "ExampleFixtures.cs",
+      "sha256": "d805daae1eb2d81b38e20e94e3ef41aef30b26475c982c75bb56027edbc52bf6",
+      "bytes": 2647
+    },
+    {
+      "path": "ExampleVerification.cs",
+      "sha256": "96677a734c13edb0c4f8a8da89e34045c786509ea214f0dc8a1d2661d96f6655",
+      "bytes": 1681
+    },
+    {
       "path": "Fonts/NotoSans-Regular.ttf",
       "sha256": "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5",
       "bytes": 569208
@@ -51,8 +61,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "af29e7810198a755a9aa375ce9bd983b635708c1a37b9e5b3ce1cb7e4102b3f6",
-      "bytes": 6379
+      "sha256": "3a7ca50ba3de68be5cd55fdf334f157256a1b9bb17c438bd0a8746d92ec327d3",
+      "bytes": 3109
     },
     {
       "path": "README.txt",
@@ -61,8 +71,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "261c02a2be706950c921d55fc7adb14fc1da4171a4f9ee70fb1ec8ccb92e9f73",
-      "bytes": 1994
+      "sha256": "d02b8acb4cc8ec47197b92e1b9d06ce0daecfad6335ef5696ac481df5ec36bd6",
+      "bytes": 2304
     },
     {
       "path": "global.json",

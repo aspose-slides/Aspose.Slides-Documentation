@@ -1,8 +1,5 @@
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -20,11 +17,6 @@ internal static partial class Program
 
         shapesToRemove.ForEach(shape => slide.Shapes.Remove(shape));
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(!p.Slides[0].Shapes.Any(s => s.Name == "DemoText"), "RemoveTextBox: semantic check 1 failed.");
-        });
-        Context.Pass("elements/text-box/block-003", "RemoveTextBox", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }

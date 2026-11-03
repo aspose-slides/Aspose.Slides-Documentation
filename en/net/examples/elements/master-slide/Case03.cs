@@ -1,8 +1,4 @@
-using System;
-using System.IO;
-using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
@@ -17,11 +13,6 @@ internal static partial class Program
         var firstMasterSlide = presentation.Masters[1];
         presentation.Masters.Remove(firstMasterSlide);
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-003", p =>
-        {
-            Context.Require(p.Masters.Count == 1 && p.Slides[0].LayoutSlide.MasterSlide == p.Masters[0], "RemoveMasterSlide: semantic check 1 failed.");
-        });
-        Context.Pass("elements/master-slide/block-003", "RemoveMasterSlide", "save-reopen-structure");
+        VerifyCase03(presentation);
     }
 }

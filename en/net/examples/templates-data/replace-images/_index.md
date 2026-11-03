@@ -16,7 +16,7 @@ For the complete data assertions, set `ASPOSE_LICENSE_PATH` to your own valid li
 the visible helper loads it when supplied. Evaluation mode may truncate text or add watermarks.
 
 ```text
-dotnet restore Example.csproj 
+dotnet restore Example.csproj
 dotnet run --project Example.csproj --configuration Release --no-restore
 ```
 
@@ -26,6 +26,8 @@ license loading, serialization and assertions; it is part of the runnable projec
 All presentation inputs are generated from original synthetic data. Results go to `output/`.
 
 ## Example
+
+The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
 
 ```csharp
 using System.Threading.Tasks;
@@ -43,42 +45,8 @@ using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 
-internal static class Program
+internal static partial class Program
 {
-    private static ExampleContext Context = null!;
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async ctx =>
-    {
-        Context = ctx;
-        Example.Context = ctx;
-        ctx.BeginAction("templates-data/replace-images/block-001");
-        RunExample();
-        string path=File.Exists("output/result.json")?"output/result.json":"result.json";
-        using var result=JsonDocument.Parse(File.ReadAllText(path));
-        var checks=new System.Collections.Generic.Dictionary<string,bool>();
-        if(ctx.IsLicensed)
-        {
-            using var expected=JsonDocument.Parse("{\"checks.frame_geometry_preserved\":true,\"checks.portrait_and_landscape_checked\":true}");
-            foreach(var field in expected.RootElement.EnumerateObject())
-            {
-                var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
-                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
-                checks["licensed-"+field.Name.Replace('.','-')]=true;
-            }
-        }
-        else
-        {
-            var values=result.RootElement.TryGetProperty("checks",out var nested)?nested:result.RootElement;
-            foreach(var field in values.EnumerateObject())if(field.Value.ValueKind==JsonValueKind.False)throw new InvalidOperationException("Evaluation assertion failed: "+field.Name);
-            checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;
-        }
-        foreach(string pdf in Directory.GetFiles(".","*.pdf",SearchOption.AllDirectories))ctx.Require(File.ReadAllBytes(pdf).AsSpan(0,5).SequenceEqual(System.Text.Encoding.ASCII.GetBytes("%PDF-")),"Invalid PDF output.");
-        foreach(string png in Directory.GetFiles(".","*.png",SearchOption.AllDirectories)){var image=PortableImage.Decode(File.ReadAllBytes(png));ctx.Require(image.Width>0&&image.Height>0,"Empty PNG output.");}
-        ctx.Pass("templates-data/replace-images/block-001",checks);
-        await Task.CompletedTask;
-    });
-
-
-    private static byte[] Fit(byte[] bytes,int width,int height,bool crop) => PortableImage.Fit(bytes,width,height,crop);
     private static void RunExample()
     {
         Example.Setup();byte[] portrait=Example.Png(100,240,Color.DarkOrange),landscape=Example.Png(260,100,Color.Teal);
@@ -91,20 +59,19 @@ internal static class Program
             p.Save("output/template.pptx",SaveFormat.Pptx);
         }
         bool preserved=true;
-        foreach(var fixture in new[]{("portrait",portrait),("landscape",landscape)})
+        foreach(var fixture in new[] { (Name: "portrait", Bytes: portrait), (Name: "landscape", Bytes: landscape) })
         {
             using var p=new Presentation("output/template.pptx");
             foreach(string name in new[]{"Contain","Crop"})
             {var frame=Example.Named<IPictureFrame>(p.Slides[0],name);var position=(frame.X,frame.Y,frame.Width,frame.Height);
-             frame.PictureFormat.Picture.Image=p.Images.AddImage(Fit(fixture.Item2,500,400,name=="Crop"));
+             frame.PictureFormat.Picture.Image=p.Images.AddImage(PortableImage.Fit(fixture.Bytes, 500, 400, crop: name == "Crop"));
              preserved&=position==(frame.X,frame.Y,frame.Width,frame.Height);}
-            p.Save("output/"+fixture.Item1+".pptx",SaveFormat.Pptx);Example.Render(p,"output/"+fixture.Item1+"-preview.png");
-            using var reopened=new Presentation("output/"+fixture.Item1+".pptx");
+            p.Save("output/"+fixture.Name+".pptx",SaveFormat.Pptx);Example.Render(p,"output/"+fixture.Name+"-preview.png");
+            using var reopened=new Presentation("output/"+fixture.Name+".pptx");
             Example.Require(Example.Named<IPictureFrame>(reopened.Slides[0],"Contain").Width==250,"Frame size changed.");
         }
         Example.Require(preserved,"Frame geometry changed.");Example.Result(new{frame_geometry_preserved=true,portrait_and_landscape_checked=true});
     }
-
 }
 ```
 

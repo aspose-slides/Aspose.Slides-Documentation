@@ -1,8 +1,5 @@
-using System;
-using System.IO;
 using System.Linq;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 using Aspose.Slides.MathText;
 
 internal static partial class Program
@@ -31,11 +28,6 @@ internal static partial class Program
             Context.Require(mathParagraph.Count == 1 && fraction != null, "Accessed existing fraction.");
         }
 
-        // Validate the in-memory operation and its persisted result independently.
-        RoundTrip(presentation, "block-002", p =>
-        {
-            Context.Require(Maths(p).Count == 1, "AccessMathText: semantic check 1 failed.");
-        });
-        Context.Pass("elements/math-text/block-002", "AccessMathText", "save-reopen-structure");
+        VerifyCase02(presentation);
     }
 }

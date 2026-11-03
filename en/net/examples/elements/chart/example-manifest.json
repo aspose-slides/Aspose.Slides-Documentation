@@ -21,23 +21,28 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "338c174aeb59d0ded7db6b45ef0ba169842341d2b9dcf9db09abc9bd0a1646dc",
-      "bytes": 817
+      "sha256": "1d6bf26cba642252ba2f22e065b50a3512c409477299f3606a8a4ec4de2a1218",
+      "bytes": 206
     },
     {
       "path": "Case02.cs",
-      "sha256": "2c38282c54c4f427f1365a9e42c93a603a541c79404d66037158e45867589594",
-      "bytes": 881
+      "sha256": "e2e328a67e2b501323553ab7aa4684da4066c20549efcdb173fdb5ac64c404ef",
+      "bytes": 348
     },
     {
       "path": "Case03.cs",
-      "sha256": "d7b17f728cb9c94824bb0dc942c162c1e86ff23f4a49aeed5fa04d6d0d80b957",
-      "bytes": 808
+      "sha256": "1e03bc3aa40bb985c19bb1ac4b1fcdca9b1d9e24c04ee5d08a41923b1a18c18b",
+      "bytes": 253
     },
     {
       "path": "Case04.cs",
-      "sha256": "43242c02d698b76ca0973526d7a8947b658e119918fd864cb15575f38b01a564",
-      "bytes": 944
+      "sha256": "91efb02043e88ababfdb3d3f476936785f8d4dbea895370ddc770068a98f1bfb",
+      "bytes": 314
+    },
+    {
+      "path": "ChartVerification.cs",
+      "sha256": "873ec82f9ecf4682b775252ff468897ac62180a7263946fbd09b9554545b7f7e",
+      "bytes": 2902
     },
     {
       "path": "Example.csproj",
@@ -86,8 +91,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "77fb1149dfd3c81b322958ac46d392adfcb58dc0f09067f292cdc2503724d58c",
-      "bytes": 6065
+      "sha256": "0d61df9b22e3a182bb2b99e9ba90c70fcdf0e6c59f2635c20269bea12546876c",
+      "bytes": 2014
     },
     {
       "path": "README.txt",

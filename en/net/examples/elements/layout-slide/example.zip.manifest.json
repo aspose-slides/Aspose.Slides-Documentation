@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/layout-slide",
   "archive": "example.zip",
-  "archive_sha256": "5e215d2d2ad861ce4a6141579ac97f414459b4606421189a2e9e3a95ae600822",
+  "archive_sha256": "70db9b7c53bcd2ba3f48ae3b4376a7839e6ea84e86fdc7d540568698fdf7c939",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,28 +16,33 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "049ac29d28c609b4f90d1907af0677874688705f23d389bece53e3043be3cd0b",
-      "bytes": 1397
+      "sha256": "76e24e49a6fde257b899dcf2353fea3ddc21658ea7c1d9610696399716a05a34",
+      "bytes": 855
     },
     {
       "path": "Case02.cs",
-      "sha256": "a4c90cfe1b928d0abe2723a2c63329c424b0880942715dad8d772dc182ff85c4",
-      "bytes": 908
+      "sha256": "9a6e0556b2d1de9091ce1c5462c15cb7c909833b6bab0fac76cecb5c46daa32a",
+      "bytes": 446
     },
     {
       "path": "Case03.cs",
-      "sha256": "eb7c3160eae801c0fe1e2d7acf23910c26063d4d0bc030385e9d32ad27c7faa0",
-      "bytes": 856
+      "sha256": "faa373863b6e76af9a793bc00617bcf7514d5f3e9407ea5789c91eefd8d44efb",
+      "bytes": 433
     },
     {
       "path": "Case04.cs",
-      "sha256": "000a3c5a0d6c2d827c822a02d238912723329bfde8e24c3fecd3b5bafd5390f7",
-      "bytes": 801
+      "sha256": "15d454c2368906df7bb3ee0dbbc5f7a5b738c790039023bbdb24e1c958dd1343",
+      "bytes": 330
     },
     {
       "path": "Case05.cs",
-      "sha256": "b512f71b78511f5fe21fdddc18b6be4fb3e62bbce0ae33ff890972c8ad1de9da",
-      "bytes": 975
+      "sha256": "0856a6ab56bff945190e7bda2bd3088ba07478dcbb8df08ab4a35d10a3549d17",
+      "bytes": 554
+    },
+    {
+      "path": "CaseVerification.cs",
+      "sha256": "ae839ab4192199a71f92404b108242ca9752d7a6a8f5491d690f28112e10a80a",
+      "bytes": 2215
     },
     {
       "path": "Example.csproj",
@@ -76,8 +81,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "94f15782d22cf4787f9c9b5718c41849325d16a963e42d637d8a68f01558a5ec",
-      "bytes": 6107
+      "sha256": "d576e37bda6b9582787e3463382b584a6d28480b83a09c9cf601765179ddf0c9",
+      "bytes": 3661
     },
     {
       "path": "README.txt",
@@ -91,8 +96,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "8421a1cbeb5e45534a6a9d7e1075c01b1833ac6bc2c21d1cc745b710bef46fdd",
-      "bytes": 3314
+      "sha256": "696fc745ab9dd306d3c12f5e662bb5fe4149b457ce3007f5f42dc930b4c184b9",
+      "bytes": 3467
     },
     {
       "path": "fixture-provenance.json",
