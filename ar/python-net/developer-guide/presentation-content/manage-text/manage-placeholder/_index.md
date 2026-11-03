@@ -1,50 +1,50 @@
 ---
-title: "إدارة مكوّنات نائب العرض التقديمي في بايثون"
-linktitle: "إدارة المكوّنات النائبة"
+title: إدارة العناصر النائبة في العروض التقديمية باستخدام Python
+linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/python-net/manage-placeholder/
 keywords:
-- مكوّن نائب
-- مكوّن نائب نص
-- مكوّن نائب صورة
-- مكوّن نائب مخطط
-- مكوّن نائب محتوى
+- عنصر نائب
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- عنصر نائب محتوى
 - نص إرشادي
 - PowerPoint
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية فحص وتعديل مكوّنات نائب النص، الصورة، المخطط، ومكوّنات نائب المحتوى وفهم وراثة المكوّنات النائبة مع Aspose.Slides للبايثون عبر .NET."
+description: "تعلم كيفية فحص وتحرير عناصر النائب النصية، والصورية، والمخططة، ومحتوى، وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للغة Python عبر .NET."
 ---
 ## **نظرة عامة**
 
-المكوّن النائب هو شكل يحتفظ بموقع لنوع معين من المحتوى في قالب عرض تقديمي. من الأمثلة الشائعة العناوين، النص الأساسي، الصورة، المخطط، ومكوّنات المحتوى العامة. على عكس الشكل العادي، يمكن للمكوّن النائب أن يرث موقعه وحجمه والتنسيق وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
+العنصر النائب هو شكل يحتجز موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. الأمثلة الشائعة هي العنوان، النص الأساسي، الصورة، المخطط، والعناصر النائبة العامة للمحتوى. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موضعه وحجمه وتنسيقه وإعدادات أخرى من شريحة التخطيط أو الشريحة الرئيسية.
 
-Aspose.Slides يكشف معلومات المكوّن النائب عبر الخاصية [Shape.placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/placeholder/). تُعيد الخاصية كائن [Placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholder/) أو `None` للشكل العادي. استخدم [Placeholder.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholder/type/) لتحديد ما يُقصد بالمكوّن النائب.
+Aspose.Slides تُظهر معلومات العنصر النائب من خلال خاصية [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). تُعيد الخاصية كائنًا من نوع [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) أو `None` لشكل عادي. استخدم [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) لتحديد ما يُقصد أن يحتويه العنصر النائب.
 
-فئة الشكل لا تزال مهمة بعد معرفة نوع المكوّن النائب:
+لا يزال فئة الشكل مهمة بعد معرفة نوع العنصر النائب:
 
-- مكوّن نائب نص، صورة، مخطط أو محتوى فارغ يُمثَّل عادةً بـ [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/).
-- مكوّن نائب صورة مملوء يمكن تمثيله بـ [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/).
-- مكوّن نائب مخطط مملوء يمكن تمثيله بـ [Chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/).
-- مكوّن نائب محتوى يمكن أن يحتوي على عدة أنواع من المحتوى. تحقق من كل من [Placeholder.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholder/type/) وفئة الشكل في وقت التشغيل بدلاً من الافتراض أن كل المكوّنات النائبة هي [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/).
+- عادةً ما يُمثَّل العنصر النائب الفارغ للنص أو الصورة أو المخطط أو المحتوى بواسطة [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- يمكن تمثيل العنصر النائب المملوء للصورة بواسطة [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- يمكن تمثيل العنصر النائب المملوء للمخطط بواسطة [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- يمكن للعنصر النائب للمحتوى أن يحتوي على عدة أنواع من المحتوى. تحقق من كل من [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) وفئة الشكل في وقت التشغيل بدلاً من افتراض أن كل عنصر نائب هو [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholder/type/) يصف دور المكوّن النائب؛ لكنه لا يضمن فئة الشكل في وقت التشغيل. يجب دائماً إجراء فحص نوع قبل الوصول إلى خصائص النص أو الصورة أو المخطط أو الجدول أو الوسائط.
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) يصف دور العنصر النائب؛ لكنه لا يضمن فئة الشكل في وقت التشغيل. استخدم دائمًا فحص النوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
 {{% /alert %}}
 
-## **فهم توريث المكوّن النائب**
+## **فهم وراثة العنصر النائب**
 
-المكوّنات النائبة تشكل هرمًا:
+العناصر النائبة تُشكِّل هرمية:
 
-1. الشريحة الرئيسية تُعرِّف الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات مكوّنات نائب على مستوى الماستر.
-2. شريحة التخطيط تُحدد الترتيب المستخدم من قبل شريحة أو أكثر عادية ويمكن أن ترث من الماستر.
-3. الشريحة العادية تحتوي على المكوّنات النائبة لتلك الشريحة ويمكن أن ترث من تخطيطها.
+1. تحدد الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات العناصر النائبة على مستوى الرئيسي.
+2. تحدد شريحة التخطيط الترتيب المستخدم من قبل شريحة أو أكثر عادية ويمكنها أن ترث من الرئيسي.
+3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكنها أن ترث من تخطيطها.
 
-استدعِ [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) للانتقال بمستوى واحد أعلى في هذا الهرم. عادةً ما تُعيد شريحة النائب مكوّن نائب التخطيط؛ ومكوّن نائب التخطيط يمكن أن يُعيد مكوّن نائب الماستر. تُعيد الطريقة `None` عندما لا يكون للشكل مكوّن نائب أساسي.
+استدعِ [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) للانتقال مستوى واحد أعلى في هذه الهرمية. عادةً ما تُعيد العنصر النائب للشريحة عنصره النائب في التخطيط؛ ويمكن لعنصر النائب في التخطيط أن يُعيد عنصره النائب الرئيسي. تُعيد الطريقة `None` عندما لا يكون للشكل عنصر نائب أساسي.
 
-المثال التالي يسرد المكوّنات النائبة في الشريحة الأولى ويبلغ عن مكوّناتها النائبة الأساسية:
+المثال التالي يُسرد العناصر النائبة في الشريحة الأولى ويُبلغ عن عناصرها النائبة الأساسية:
 
 ```python
 import aspose.slides as slides
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-تحرير مكوّن نائب على شريحة عادية يُنشئ أو يُغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الماستر المتعلق يمكن أن يؤثر على جميع الشرائح التي ما زالت ترث ذلك الإعداد. الشكل العادي المحلي لا يمتلك مكوّن نائب أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+تحرير عنصر نائب في شريحة عادية ينشئ أو يغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الرئيسي المرتبط يمكن أن يؤثر على جميع الشرائح التي لا تزال ترث هذا الإعداد. لا يمتلك الشكل العادي المحلي عنصرًا نائبًا أساسيًا ولا يبدأ في الوراثة لمجرد أنه يش Occupy نفس الإحداثيات.
 
-## **تغيير النص في مكوّن نائب**
+## **إزالة حالة العنصر النائب**
 
-مكوّنات نائب العنوان، العنوان‑المركز، العنوان الثانوي، النص الأساسي، والنص عادةً ما تدعم النص. تحقق من وجود [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) قبل استخدام خاصية [text_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/text_frame/).
+عند تعديل قالب، استخدم [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) للحفاظ على كائن موجود كشكل عادي. تصبح خاصية [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) الخاصة به `None`، لكن الشكل يبقى في مجموعة الشرائح. بالمقابل، يحذف [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) الشكل من تلك المجموعة.
 
-هذا المثال يحدث أول مكوّن نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
+المثال التالي يتطلب ملف `template.pptx` يحتوي على شريحة واحدة على الأقل وعنصر نائب نص غير فارغ في الشريحة الأولى. استخدم عنصرًا نائبًا مع تنسيق موروث من تخطيطه أو رئيسه لتلاحظ تأثير إزالة تلك العلاقة. يتحقق المثال من بقاء الشكل نفسه، يستدعي الطريقة مرة أخرى على الشكل الآن العادي، ويحفظ النتيجة.
+
+{{% alert color="warning" title="Warning" %}}
+إزالة حالة العنصر النائب لا يحافظ تلقائيًا على إعدادات المظهر الموروثة. المثال أدناه يترك هذه الإعدادات دون تغيير عمدًا، لذا قد يبدو المخرج مختلفًا. يمكن أن يصبح الشكل الذي يتم وراثة موضعه وحجمه بالكامل صفرًا في الإحداثيات والأبعاد بعد الاستدعاء ويصبح غير مرئي رغم بقاءه في المجموعة.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # استدعاء الطريقة على شكل عادي لا يؤثر.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+بالنسبة إلى عنصر نائب مطابق، تُطبع جميع الفحوصات الثلاثة `True`. يبقى النص، لكن موضع الحجم والدوران والخط ومحاذاة الفقرة وهوامش إطار النص والتثبيت العمودي والتعبئة وإعدادات الخط قد تتغير عندما تُزال علاقة العنصر النائب. على سبيل المثال، قد يعود تنسيق العنوان الموروث إلى تنسيق النص العادي. انظر [Slide Layout](/slides/ar/python-net/slide-layout/) لمزيد من المعلومات حول التخطيطات.
+
+لحفظ المظهر المقصود، التقط الموضع والحجم والدوران المحسوبين قبل الاستدعاء، وانسخ قيم التنسيق الفعّال المطلوبة إلى متغيرات منفصلة. استرجع تلك القيم عبر [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), و[LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). لا تعتمد على الاحتفاظ فقط بكائنات التنسيق الفعّال، لأن قيم تنسيق النص الخاصة بها قد تتغير بعد إزالة العلاقة. طبّق القيم الملتقطة صراحةً على الشكل العادي لاحقًا، بما في ذلك عائلة الخط، الحجم، النمط، اللون، إعدادات الفقرة، إعدادات إطار النص، التعبئة، والخط المستخدم في القالب الخاص بك.
+
+قد تحتاج هندسة الشكل الموروثة أيضًا إلى تعيين صريح عبر [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). بالنسبة لعنصر نائب نص مستطيل، يعني ذلك تعيين [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); قد لا يعيد استعادة التعبئة والخط فقط الشكل المستطيل المرئي. القوالب التي تحتوي على تأثيرات إضافية أو تنسيقات أكثر تعقيدًا تتطلب معالجة تلك الإعدادات أيضًا.
+
+## **تغيير النص في عنصر نائب**
+
+عادةً ما تدعم عناصر النائب للعنوان، العنوان المركزي، العنوان الفرعي, النص الأساسي, وعناصر النائب النصية النص. تحقق من وجود [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) قبل استخدام خاصية [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
+
+هذا المثال يحدّث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-هذا النمط يتجنب معاملة مكوّنات نائب الصورة أو المخطط أو الجدول أو الوسائط ككائنات [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/). كما يحدد المكوّن النائب حسب الغرض بدلاً من الاعتماد على فهرس الشكل الهش.
+هذا النمط يتجنب معالجة عناصر النائب للصورة أو المخطط أو الجدول أو الوسائط ككائنات [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). كما يحدد العنصر النائب وفقًا للغرض بدلاً من الاعتماد على فهرس شكل هش.
 
-## **تعيين نص إرشادي على تخطيط**
+## **تعيين نص التلميح في التخطيط**
 
-نص الإرشاد هو التعليمات المعروضة في مكوّن نائب فارغ أثناء التصميم، مثل *Click to add title*. عين نص إرشادي مخصص على مكوّن نائب التخطيط بدلًا من محاولة الوصول إليه عبر مجموعة الأشكال في شريحة عادية. يمكن الوصول إلى التخطيط عبر [Slide.layout_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/layout_slide/) وت iterating على [LayoutSlide.shapes](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/shapes/).
+نص التلميح هو التعليمات التي تظهر أثناء التصميم في عنصر نائب فارغ، مثل *انقر لإضافة عنوان*. عيّن نص تلميح مخصص على عنصر النائب في التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. يمكن الوصول إلى التخطيط عبر [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) وتكرار عبر [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-المثال التالي يغيّر نصوص الإرشاد للعنوان والعنوان الثانوي على التخطيط المستخدم في الشريحة الأولى:
+المثال التالي يغيّر تلميحات العنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نص الإرشاد ليس محتوى شريحة عادي. إنه مخصص للمكوّنات النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى حقيقي، لا يُظهر النص الإرشادي بعد ذلك. تغيير الإرشاد لا يستبدل النص الموجود على الشرائح التي تستخدم التخطيط.
+نص التلميح ليس محتوى شريحة عادي. إنه مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يزود المستخدم أو البرنامج محتوىً حقيقيًا، لا يُظهر التلميح بعد ذلك. تغيير التلميح لا يستبدل أيضًا النص الموجود على الشرائح التي تستخدم هذا التخطيط.
 
-## **تحديث مكوّن نائب صورة**
+## **تحديث عنصر نائب صورة**
 
 هناك حالتان للتعامل معهما:
 
-- إذا كان مكوّن نائب الصورة مملوءًا بالفعل ومُمثلًا بـ [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/)، استبدل الصورة عبر [PictureFillFormat.picture](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picturefillformat/picture/) و[Picture.image](https://reference.aspose.com/slides/ar/python-net/aspose.slides/picture/image/).
-- إذا كان لا يزال مكوّنًا نائبًا فارغًا، أضف إطار صورة عند إحداثيات المكوّن النائب باستخدام [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_picture_frame/) وأزل المكوّن الفارغ.
+- إذا كان عنصر النائب للصورة مملوءًا بالفعل ومُمثَّلًا بـ [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), استبدل الصورة عبر [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) و[Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- إذا كان لا يزال عنصر نائب فارغًا, أضف إطار صورة عند إحداثيات العنصر النائب باستخدام [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) وأزل العنصر النائب الفارغ.
 
 المثال التالي يدعم الحالتين ويحفظ العرض التقديمي:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-البديل الذي يُنشأ لمكوّن نائب فارغ هو إطار صورة محلي، وليس مكوّنًا نائبًا جديدًا، لأن [Shape.placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/placeholder/) للقراءة فقط. يحتفظ بالموقع المحجوز لكنه لم يعد يرث سلوك المكوّن النائب. إذا كانت علاقة المكوّن النائب ضرورية، قم بإعداد وتعبئة المكوّن النائب في PowerPoint أولاً، ثم حدث [PictureFrame](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
+الاستبدال الذي يُنشأ لعناصر النائب الفارغة هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا, لأن خاصية [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) للقراءة فقط. يحتفظ بالموضع المحجوز لكنه لا يرث سلوك العنصر النائب بعد الآن. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، فاحضر واملا العنصر النائب في PowerPoint أولاً, ثم حدّث [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
 
-للشفافية في الصورة، الاقتصاص، وتأثيرات الصورة الأخرى، راجع [Manage Picture Frames](/slides/ar/python-net/picture-frame/). هذه العمليات تخص إطار الصورة أو تعبئة الصورة، لا بيانات المكوّن النائب.
+للشفافية الصورة، القص, وغيرها من التأثيرات الخاصة بالصورة, راجع [Manage Picture Frames](/slides/ar/python-net/picture-frame/). تلك العمليات تنتمي إلى إطار الصورة أو تعبئة الصورة, لا إلى بيانات العنصر النائب.
 
-## **العمل مع مكوّنات نائب المخطط والمحتوى**
+## **العمل مع مخططات وعناصر نائب المحتوى**
 
-مكوّن نائب مخطط مملوء يمكن تمثيله بـ [Chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/). هذا المثال يجد مثل هذا المخطط عبر كل من نوع المكوّن النائب وفئة الشكل في وقت التشغيل، يغيّر عنوانه، ويحفظ الملف:
+يمكن تمثيل عنصر نائب مخطط مملوء بواسطة [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). يجد هذا المثال مثل هذا المخطط عبر كل من نوع العنصر النائب وفئة التنفيذ, يغيّر عنوانه, ويحفظ الملف:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-مكوّن نائب محتوى عام عادةً ما يكون له [PlaceholderType.OBJECT](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/). في PowerPoint يعمل كمنطلق لعدة أنواع من المحتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد تعبئته، تحقق من فئة الشكل الفعلية لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تكشف عن [PlaceholderType.CHART](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/)، [PlaceholderType.TABLE](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/), أو [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholdertype/).
+عادةً ما يكون للعنصر النائب العام للمحتوى قيمة [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). في PowerPoint يعمل كمنطلق لعدة أنواع من المحتوى, بما في ذلك المخططات والجدول والرسوم البيانية والصور والوسائط. بعد ملئه, افحص فئة الشكل الفعلية لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), أو [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides لا يحول مكوّن نائب [AutoShape](https://reference.aspose.com/slides/ar/python-net/aspose.slides/autoshape/) فارغ إلى [Chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/) بمجرد تغيير [Placeholder.type](https://reference.aspose.com/slides/ar/python-net/aspose.slides/placeholder/type/); النوع للقراءة فقط. لملء مخطط أو منطقة محتوى فارغة برمجيًا، أضف الكائن المطلوب عند إحداثيات المكوّن النائب ثم أزل المكوّن الفارغ. المثال التالي يفعل ذلك لمخطط:
+لا تقوم Aspose.Slides بتحويل عنصر نائب [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) فارغ إلى [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) فقط عن طريق تغيير [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); النوع للقراءة فقط. لملء مخطط فارغ أو منطقة محتوى برمجيًا, أضف الكائن المطلوب عند إحداثيات العنصر النائب ثم أزل العنصر النائب الفارغ. المثال التالي يفعل ذلك لمخطط:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-المخطط المضاف هو مخطط محلي عادي. يشغل مساحة المكوّن النائب لكنه لا يرث من مكوّن نائب التخطيط. استخدم مقالات إدارة المخططات المخصصة [/slides/ar/python-net/powerpoint-charts/] عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
+المخطط المضاف هو مخطط محلي عادي. يشغل مساحة العنصر النائب لكنه لا يرث من عنصر النائب في التخطيط. استخدم [chart management articles](/slides/ar/python-net/powerpoint-charts/) عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات دفتر العمل.
 
-## **مثال كامل: تحديث نص أو محتوى صورة**
+## **مثال كامل: تحديث محتوى النص أو الصورة**
 
-المثال التالي من البداية إلى النهاية يفتح قالبًا، يبحث في الشريحة الأولى عن مكوّن نائب للعنوان أو الصورة، يتحقق من نوع المكوّن النائب والشكل، يحدّث المحتوى المناسب، ويحفظ الناتج. يتجنب المثال الافتراض القسري لفهرس الشكل أو معاملة كل مكوّن نائب كفئة شكل واحدة:
+المثال الكامل التالي يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب للعنوان أو الصورة, يتحقق من نوعي العنصر النائب والشكل, يحدّث المحتوى المناسب, ويحفظ الناتج. يتجنب المثال عمدًا افتراض فهرس شكل أو معاملة كل عنصر نائب كفئة شكل واحدة:
 
 ```python
 import aspose.slides as slides
@@ -274,16 +322,16 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("placeholder-content-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**ما هو المكوّن النائب الأساسي؟**
+**ما هو العنصر النائب الأساسي؟**
 
-المكوّن النائب الأساسي هو الشكل المقابل على التخطيط أو الماستر الذي يرث منه مكوّن نائب آخر. استخدم [Shape.get_base_placeholder](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/get_base_placeholder/) لاسترجاعه. الشكل المحلي العادي يُعيد `None` لأنه ليس جزءًا من هرم المكوّنات النائبة.
+العناصر النائب الأساسي هو الشكل المقابل في التخطيط أو الرئيسي الذي يَرث منه عنصر نائب آخر. استخدم [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) لاسترجاعه. يعيد الشكل العادي المحلي `None` لأنه ليس جزءًا من هرمية العناصر النائبة.
 
-**هل يمكنني تغيير جميع عناوين الشرائح من خلال تحرير مكوّن نائب التخطيط؟**
+**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تحرير عنصر نائب في التخطيط؟**
 
-يمكنك تغيير التنسيق الوراثي أو نص الإرشاد عبر التخطيط، لكن محتوى العناوين الحالي مخزن على الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض التقديمي بالكامل، قم بتكرار الشرائح وتحديث كل مكوّن نائب للعنوان.
+يمكنك تغيير التنسيق الموروث أو نص التلميح عبر التخطيط, لكن محتوى العنوان الحالي يُخزن في الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض التقديمي كله, كرر عبر الشرائح وقم بتحديث كل عنصر نائب للعنوان.
 
-**كيف أدير مكوّنات نائب التاريخ ورقم الشريحة والرأس وتذييل الصفحة؟**
+**كيف يمكنني إدارة عناصر النائب للتاريخ، رقم الشريحة، الرأس، والتذييل؟**
 
-استخدم مديري الرأس والتذييل في النطاق المناسب (شريحة، تخطيط، ماستر، ملاحظات أو كتيب). راجع [Manage Presentation Header and Footer](/slides/ar/python-net/presentation-header-and-footer/) للحصول على أمثلة كاملة.
+استخدم مديري الرأس والتذييل في نطاق الشريحة أو التخطيط أو الرئيسي أو الملاحظات أو النشرات المناسب. راجع [Manage Presentation Header and Footer](/slides/ar/python-net/presentation-header-and-footer/) للحصول على أمثلة كاملة.

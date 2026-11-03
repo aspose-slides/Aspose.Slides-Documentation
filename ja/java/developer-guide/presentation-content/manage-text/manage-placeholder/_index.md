@@ -1,6 +1,6 @@
 ---
-title: Java でのプレゼンテーション プレースホルダーの管理
-linktitle: プレースホルダーの管理
+title: Java でプレゼンテーション プレースホルダーを管理する
+linktitle: プレースホルダーを管理する
 type: docs
 weight: 10
 url: /ja/java/manage-placeholder/
@@ -15,36 +15,36 @@ keywords:
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、テキスト、画像、チャート、コンテンツ プレースホルダーの検査と編集方法を学び、プレースホルダーの継承を理解します。"
+description: "Java 用 Aspose.Slides を使用して、テキスト、画像、チャート、コンテンツ プレースホルダーの検査と編集方法を学び、プレースホルダー継承を理解します。"
 ---
 ## **概要**
 
-プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保するシェイプです。代表的な例として、タイトル、本文、画像、グラフ、汎用コンテンツのプレースホルダーがあります。通常のシェイプとは異なり、プレースホルダーはレイアウト スライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
+プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を予約するシェイプです。代表的な例として、タイトル、本文、画像、グラフ、汎用コンテンツのプレースホルダーがあります。普通のシェイプとは異なり、プレースホルダーはレイアウトスライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
 
-Aspose.Slides は、[IShape.getPlaceholder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) メソッドを通じてプレースホルダー情報を提供します。このメソッドは、通常のシェイプの場合は `null`、プレースホルダーの場合は [IPlaceholder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholder/) オブジェクトを返します。プレースホルダーが何を保持することを意図しているかは、[IPlaceholder.getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholder/) で確認してください。
+Aspose.Slides はプレースホルダー情報を [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) メソッドで提供します。このメソッドは通常のシェイプの場合は `null`、プレースホルダーの場合は [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) オブジェクトを返します。プレースホルダーが何を保持することを想定しているかは [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) で判定します。
 
-プレースホルダーのタイプが分かった後でもシェイプ インターフェイスは重要です。
+プレースホルダーの種類が分かった後でも、シェイプ インターフェイスは重要です：
 
-- 空のテキスト、画像、グラフ、コンテンツのプレースホルダーは通常、[IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) で表されます。
-- 画像が設定されたプレースホルダーは [IPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipictureframe/) で表されます。
-- グラフが設定されたプレースホルダーは [IChart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/) で表されます。
-- コンテンツ プレースホルダーはさまざまな種類のコンテンツを保持できます。すべてのプレースホルダーが [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) であると想定せず、[IPlaceholder.getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholder/) と実行時シェイプ インターフェイスの両方を確認してください。
+- 空のテキスト、画像、グラフ、またはコンテンツ プレースホルダーは一般的に [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) で表されます。
+- 内容が設定された画像プレースホルダーは [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) で表されます。
+- 内容が設定されたグラフプレースホルダーは [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) で表されます。
+- コンテンツ プレースホルダーはさまざまな種類のコンテンツを保持できます。すべてのプレースホルダーが [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) であると仮定せず、[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) と実行時のシェイプ インターフェイスの両方を確認してください。
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholder/) はプレースホルダーの役割を示しますが、シェイプの実行時型を保証するものではありません。テキスト、画像、グラフ、テーブル、メディア固有のメンバーにアクセスする前に、必ず型チェックを行ってください。
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) はプレースホルダーの役割を示しますが、シェイプの実行時型を保証するものではありません。テキスト、画像、グラフ、テーブル、またはメディア固有のメンバーにアクセスする前に必ず型チェックを行ってください。
 {{% /alert %}}
 
-## **プレースホルダー 継承の理解**
+## **プレースホルダー継承の理解**
 
-プレースホルダーは階層構造を持ちます。
+プレースホルダーは階層を形成します：
 
-1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスターレベルのプレースホルダーも定義します。
+1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスター レベルのプレースホルダーも定義します。
 2. レイアウトスライドは 1 つまたは複数の通常スライドで使用される配置を定義し、マスターから継承できます。
 3. 通常スライドはそのスライド用のプレースホルダーを保持し、レイアウトから継承できます。
 
-[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) を呼び出すと、階層の1つ上のプレースホルダーに移動できます。スライドのプレースホルダーは通常、レイアウトプレースホルダーを返し、レイアウトプレースホルダーはマスタープレースホルダーを返す可能性があります。シェイプに基底プレースホルダーがない場合は `null` が返ります。
+[IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) を呼び出すと、階層を 1 レベル上に移動できます。スライドのプレースホルダーは通常、レイアウト プレースホルダーを返し、レイアウト プレースホルダーはマスター プレースホルダーを返すことがあります。シェイプにベース プレースホルダーが存在しない場合、このメソッドは `null` を返します。
 
-次の例は、最初のスライドのプレースホルダーを列挙し、それらの基底プレースホルダーを報告します。
+以下の例は最初のスライド上のプレースホルダーを列挙し、ベース プレースホルダーを報告します：
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-通常スライド上のプレースホルダーを編集すると、そのスライド固有のローカル上書きが作成または変更されます。関連するレイアウトまたはマスターを編集すると、まだ継承設定を持つすべてのスライドに影響を与えます。通常のローカル シェイプは基底プレースホルダーを持たず、同じ座標に配置されただけで継承が開始されることはありません。
+通常スライドのプレースホルダーを編集すると、そのスライド用のローカル上書きが作成または変更されます。関連するレイアウトやマスターを編集すると、まだその設定を継承しているすべてのスライドに影響します。ローカルの普通シェイプはベース プレースホルダーを持たず、同じ座標にあるだけで継承が開始されるわけではありません。
+
+## **プレースホルダーのステータスを削除する**
+
+テンプレートを調整する際は、[IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) を使用して既存オブジェクトを普通のシェイプとして保持します。その [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) メソッドは `null` を返しますが、シェイプはスライドのコレクションに残ります。これに対し、[IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) はコレクションからシェイプ自体を削除します。
+
+以下の例は、少なくとも 1 枚のスライドと最初のスライドに空でないテキスト プレースホルダーがある `template.pptx` を前提としています。レイアウトまたはマスターから継承された書式設定を持つプレースホルダーを使用して、プレースホルダー関係を削除したときの効果を確認します。例は同じシェイプが残ることを確認し、普通シェイプになった後に再度メソッドを呼び出し、結果を保存します。
+
+{{% alert color="warning" title="Warning" %}}
+プレースホルダーのステータスを削除しても、継承された外観設定が自動的に保持されるわけではありません。以下の例は意図的に設定を変更せずに残しているため、出力が異なる場合があります。位置とサイズが完全に継承されているシェイプは、呼び出し後に座標と寸法が 0 になることがあり、コレクションに残っていても見えなくなります。
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // 通常のシェイプに対してメソッドを呼び出しても効果はありません。
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+一致するプレースホルダーについては、3 つのチェックすべてが `true` を出力します。テキストは残りますが、継承された位置、サイズ、回転、フォント、段落の配置、テキスト フレームの余白、垂直アンカー、塗りつぶし、線の設定はプレースホルダー関係が削除されると変わる可能性があります。たとえば、継承されたタイトル書式は普通のテキスト書式にフォールバックします。レイアウトの詳細は [スライド レイアウト](/slides/ja/java/slide-layout/) を参照してください。
+
+意図した外観を保持するには、呼び出し前に解決された位置、サイズ、回転を取得し、必要な有効書式値を別の変数にコピーします。これらの値は [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--)、[IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--)、[ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--)、[IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--)、[ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) から取得してください。有効書式オブジェクトだけに依存しないでください。関係が削除された後にテキスト書式の値が変わる可能性があります。取得したフォントファミリ、サイズ、スタイル、カラー、段落設定、テキスト フレーム設定、塗りつぶし、線の設定などを普通シェイプに明示的に適用します。
+
+継承されたシェイプのジオメトリも [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-) を使用して明示的に設定する必要があります。矩形テキスト プレースホルダーの場合、[ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle) を設定します。塗りつぶしと線だけを復元しても、見える矩形が復元されないことがあります。追加エフェクトや複雑な書式設定を持つテンプレートでは、これらの設定も同様に処理する必要があります。
 
 ## **プレースホルダー内のテキストを変更する**
 
-タイトル、センタードタイトル、サブタイトル、本文、テキスト プレースホルダーは通常テキストをサポートします。テキストを取得する前に、シェイプが [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) であるか確認し、[getTextFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) メソッドを使用してください。
+タイトル、センタリングタイトル、サブタイトル、本文、テキスト プレースホルダーは通常テキストをサポートします。使用前に [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) であることを確認し、[getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) メソッドを使用してください。
 
-この例は、最初のスライドの最初のタイトル プレースホルダーを更新し、結果を保存します。
+この例は最初のスライド上の最初のタイトル プレースホルダーを更新し、結果を保存します：
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-このパターンは、画像、グラフ、テーブル、メディア プレースホルダーを [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) にキャストすることを回避します。また、脆弱なシェイプ インデックスに依存せず、目的別にプレースホルダーを識別します。
+このパターンは画像、グラフ、テーブル、メディア プレースホルダーを [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) にキャストすることを回避します。また、脆弱なシェイプインデックスに依存せず、目的でプレースホルダーを識別します。
 
-## **レイアウト上のプロンプト テキストを設定する**
+## **レイアウトにプロンプトテキストを設定する**
 
-プロンプト テキストは、空のプレースホルダーに表示されるデザイン時の指示です（例: *Click to add title*）。通常スライドのシェイプ コレクションを介して取得しようとせず、レイアウト プレースホルダーにカスタム プロンプト テキストを設定してください。[ISlide.getLayoutSlide](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islide/) でレイアウトにアクセスし、[ILayoutSlide.getShapes](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ibaseslide/) が返すコレクションを走査します。
+プロンプトテキストは、*クリックしてタイトルを追加* のように空のプレースホルダーに表示されるデザイン時の指示です。通常スライドのシェイプ コレクションを介さず、レイアウト プレースホルダーにカスタム プロンプトテキストを設定してください。[ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) でレイアウトを取得し、[ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/) が返すコレクションを走査します。
 
-次の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します。
+以下の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します：
 
 ```java
 import com.aspose.slides.*;
@@ -171,16 +233,16 @@ try {
 }
 ```
 
-プロンプト テキストは通常スライドのコンテンツではなく、PowerPoint などの編集アプリケーションで空のプレースホルダーに表示されるものです。ユーザーまたはプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。プロンプトを変更しても、そのレイアウトを使用しているスライド上の既存テキストは置き換わりません。
+プロンプトテキストは通常スライドのコンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに対して表示される指示です。ユーザーまたはプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。プロンプトを変更しても、そのレイアウトを使用しているスライド上の既存テキストは置き換えられません。
 
 ## **画像プレースホルダーを更新する**
 
-処理すべきケースは 2 つあります。
+処理すべきケースは 2 つあります：
 
-- 画像プレースホルダーがすでに設定されていて [IPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipictureframe/) で表されている場合は、[IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipicturefillformat/) と [ISlidesPicture.setImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidespicture/) を使用して画像を置き換えます。
-- まだ空のプレースホルダーである場合は、[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapecollection/) でプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
+- 画像プレースホルダーがすでに内容を持ち、[IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) で表されている場合は、[IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) と [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) で画像を置き換えます。
+- まだ空のプレースホルダーである場合は、[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) でプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
 
-次の例は両方のケースに対応し、プレゼンテーションを保存します。
+次の例は両方のケースをサポートし、プレゼンテーションを保存します：
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-空のプレースホルダーに対して作成された置き換えはローカルの画像フレームであり、新しいプレースホルダーではありません。これは、[IShape.getPlaceholder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) にセッターがないためです。位置は確保されたままですが、プレースホルダー固有の継承動作は失われます。プレースホルダーとの関係を保持する必要がある場合は、まず PowerPoint でプレースホルダーを用意してから、Aspose.Slides で生成された [IPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ipictureframe/) を更新してください。
+空のプレースホルダー用に作成された置き換えはローカルの画像フレームであり、新しいプレースホルダーではありません。これは [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) にセッターがないためです。位置は予約されたままですが、プレースホルダー固有の動作は継承されなくなります。プレースホルダー関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを用意・設定し、Aspose.Slides で生成された [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) を更新してください。
 
-画像の透過、トリミング、その他画像固有の効果については、[Manage Picture Frames](/slides/ja/java/picture-frame/) を参照してください。これらの操作は画像フレームまたは画像塗りつぶしに対して行い、プレースホルダーのメタデータには関係しません。
+画像の透過、トリミング、その他の画像固有効果については [画像フレームの管理](/slides/ja/java/picture-frame/) を参照してください。これらの操作は画像フレームまたは画像塗りつぶしに対して行われ、プレースホルダーのメタデータには関係しません。
 
-## **グラフおよびコンテンツ プレースホルダーの操作**
+## **チャートとコンテンツプレースホルダーの操作**
 
-設定済みのグラフプレースホルダーは [IChart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/) で表されます。この例は、プレースホルダータイプと実行時インターフェイスの両方でグラフを検索し、タイトルを変更してファイルを保存します。
+内容が設定されたチャート プレースホルダーは [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) で表されます。この例はプレースホルダーの種類と実行時インターフェイスの両方でチャートを検索し、タイトルを変更してファイルを保存します：
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-汎用コンテンツ プレースホルダーは通常、[PlaceholderType.Object](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/) を持ちます。PowerPoint では、グラフ、テーブル、ダイアグラム、画像、メディアなど、複数のコンテンツ タイプのランチャーとして機能します。コンテンツが設定された後は、実際のシェイプ インターフェイスを調べて何が含まれているかを判断してください。専用レイアウトは [PlaceholderType.Chart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Table](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Picture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Media](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Diagram](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholdertype/) も公開できます。
+汎用コンテンツ プレースホルダーは通常 [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) を持ちます。PowerPoint では、チャート、テーブル、ダイアグラム、画像、メディアなど複数のコンテンツタイプの起動点として機能します。内容が設定された後は、実際のシェイプ インターフェイスを調べて何が含まれているかを判断してください。特化したレイアウトは [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/)、[PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) を公開することがあります。
 
-Aspose.Slides は、[IPlaceholder.getType](https://reference.aspose.com/slides/ja/java/com.aspose.slides/placeholder/) を変更しただけで、空の [IAutoShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iautoshape/) プレースホルダーを [IChart](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichart/) に変換しません。インターフェイスを通して型を変更することはできません。空のグラフやコンテンツ領域をプログラムで埋めるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。次の例はグラフに対してそれを行います。
+Aspose.Slides は [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) を変更しただけで、空の [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) プレースホルダーを [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) に変換しません。インターフェイスを通して型を変更することはできません。空のチャートやコンテンツ領域をプログラムで埋めるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。次の例はチャートについてそれを実行します：
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-追加されたグラフはローカルの通常グラフであり、プレースホルダー領域を占有しますが、レイアウト プレースホルダーからは継承しません。カテゴリ、系列、ブックデータを置き換える必要がある場合は、専用の [chart management articles](/slides/ja/java/powerpoint-charts/) を参照してください。
+追加されたチャートは普通のローカルチャートです。プレースホルダーの領域を占有しますが、レイアウトプレースホルダーからは継承しません。カテゴリ、系列、ブックデータの置き換えが必要な場合は、専用の [チャート管理記事](/slides/ja/java/powerpoint-charts/) を参照してください。
 
-## **完全例: テキストまたは画像コンテンツの更新**
+## **完全な例: テキストまたは画像コンテンツを更新する**
 
-次のエンドツーエンド例は、テンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーとシェイプの型を確認して適切なコンテンツを更新し、出力を保存します。この例はシェイプ インデックスに依存したり、すべてのプレースホルダーを同じインターフェイスにキャストしたりしないよう意図的に設計されています。
+次のエンドツーエンド例はテンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーとシェイプの種類を確認して、適切なコンテンツを更新し、出力を保存します。この例はシェイプインデックスに依存したり、すべてのプレースホルダーを同じインターフェイスにキャストしたりしないように意図的に設計されています：
 
 ```java
 import com.aspose.slides.*;
@@ -365,14 +427,14 @@ try {
 
 ## **FAQ**
 
-**基底プレースホルダーとは何ですか？**
+**ベースプレースホルダーとは何ですか？**
 
-基底プレースホルダーは、別のプレースホルダーが継承するレイアウトまたはマスター上の対応シェイプです。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishape/) を使用して取得します。通常のローカル シェイプはプレースホルダー階層の一部ではないため、`null` が返ります。
+ベースプレースホルダーとは、別のプレースホルダーが継承するレイアウトまたはマスター上の対応するシェイプです。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) で取得できます。普通のローカルシェイプはプレースホルダー階層の一部ではないため `null` を返します。
 
-**レイアウト プレースホルダーを編集してすべてのスライドのタイトルを変更できますか？**
+**レイアウトプレースホルダーを編集してすべてのスライドタイトルを変更できますか？**
 
-レイアウトを介して継承された書式やプロンプトテキストは変更できますが、実際のタイトル コンテンツは通常スライドに保存されています。プレゼンテーション全体のタイトル テキストを置き換えるには、スライドを走査して各タイトル プレースホルダーを更新してください。
+レイアウトを介して継承された書式設定やプロンプトテキストは変更できますが、実際のタイトルコンテンツは通常のスライドに保存されています。プレゼンテーション全体のタイトルテキストを置き換えるには、スライドを走査して各タイトル プレースホルダーを更新する必要があります。
 
-**日付、スライド番号、ヘッダー、フッターのプレースホルダーはどう管理しますか？**
+**日付、スライド番号、ヘッダー、フッタープレースホルダーはどのように管理しますか？**
 
-適切なスライド、レイアウト、マスター、ノート、ハンドアウトのスコープでヘッダーおよびフッター マネージャーを使用します。完全なサンプルは [Manage Presentation Header and Footer](/slides/ja/java/presentation-header-and-footer/) を参照してください。
+適切なスライド、レイアウト、マスター、ノート、ハンドアウトのスコープでヘッダーおよびフッターマネージャーを使用します。完全な例については [プレゼンテーションのヘッダーとフッターの管理](/slides/ja/java/presentation-header-and-footer/) を参照してください。

@@ -6,43 +6,43 @@ weight: 10
 url: /de/php-java/manage-placeholder/
 keywords:
 - Platzhalter
-- Textplatzhalter
-- Bildplatzhalter
-- Diagrammplatzhalter
-- Inhaltsplatzhalter
-- Hinweistext
+- Text‑Platzhalter
+- Bild‑Platzhalter
+- Diagramm‑Platzhalter
+- Inhalts‑Platzhalter
+- Aufforderungstext
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Text-, Bild-, Diagramm- und Inhaltsplatzhalter inspizieren und bearbeiten und die Platzhaltervererbung mit Aspose.Slides für PHP via Java verstehen."
+description: "Erfahren Sie, wie Sie Text‑, Bild‑, Diagramm‑ und Inhalts‑Platzhalter prüfen und bearbeiten und die Platzhalter‑Vererbung mit Aspose.Slides für PHP via Java verstehen."
 ---
 ## **Übersicht**
 
 Ein Platzhalter ist eine Form, die eine Position für eine bestimmte Art von Inhalt in einer Präsentationsvorlage reserviert. Häufige Beispiele sind Titel‑, Text‑, Bild‑, Diagramm‑ und allgemeine Inhaltsplatzhalter. Im Gegensatz zu einer normalen Form kann ein Platzhalter seine Position, Größe, Formatierung und andere Einstellungen von einer Layout‑Folien‑ oder Master‑Folien‑Vorlage erben.
 
-Aspose.Slides stellt Platzhalterinformationen über die [Shape::getPlaceholder](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/getplaceholder/)‑Methode bereit. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholder/)‑Objekt zurück oder `null` für eine normale Form. Verwenden Sie [Placeholder::getType](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholder/gettype/), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
+Aspose.Slides stellt Platzhalterinformationen über die [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/)‑Methode bereit. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/)‑Objekt oder `null` für eine normale Form zurück. Verwenden Sie [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
 
-Die Formklasse bleibt nach Kenntnis des Platzhaltertyps wichtig:
+Die Formklasse ist nach dem Erkennen des Platzhaltertyps weiterhin relevant:
 
-- Ein leerer Text‑, Bild‑, Diagramm‑ oder Inhaltsplatzhalter wird üblicherweise durch ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) dargestellt.
-- Ein gefüllter Bildplatzhalter kann durch ein [PictureFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/pictureframe/) dargestellt werden.
-- Ein gefüllter Diagrammplatzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/) dargestellt werden.
-- Ein Inhaltsplatzhalter kann mehrere Arten von Inhalt enthalten. Prüfen Sie sowohl [Placeholder::getType](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholder/gettype/) als auch die Laufzeit‑Formklasse, anstatt anzunehmen, dass jeder Platzhalter ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) ist.
+- Ein leerer Text‑, Bild‑, Diagramm‑ oder Inhaltsplatzhalter wird üblicherweise durch ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) dargestellt.
+- Ein ausgefüllter Bildplatzhalter kann durch ein [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) dargestellt werden.
+- Ein ausgefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) dargestellt werden.
+- Ein Inhaltsplatzhalter kann verschiedene Arten von Inhalt enthalten. Prüfen Sie sowohl [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) als auch die Laufzeit‑Formklasse, anstatt anzunehmen, dass jeder Platzhalter ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ist.
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder::getType](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholder/gettype/) beschreibt die Rolle eines Platzhalters; sie garantiert nicht die Laufzeit‑Formklasse. Überprüfen Sie stets den Typ, bevor Sie auf text‑, bild‑, diagramm‑, tabellen‑ oder medienspezifische Mitglieder zugreifen.
+[Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) beschreibt die Rolle eines Platzhalters; sie garantiert nicht die Laufzeit‑Klasse der Form. Verwenden Sie stets eine Typprüfung, bevor Sie auf text‑, bild‑, diagramm‑, tabellen‑ oder medienspezifische Member zugreifen.
 {{% /alert %}}
 
-## **Verstehen der Platzhaltervererbung**
+## **Verstehen der Platzhalter‑Vererbung**
 
 Platzhalter bilden eine Hierarchie:
 
-1. Eine Master‑Folien definiert wiederverwendbare Stile und in einigen Fällen Master‑Platzhalter.
-2. Eine Layout‑Folien definiert das Layout, das von einer oder mehreren normalen Folien verwendet wird, und kann vom Master erben.
-3. Eine normale Folie enthält die Platzhalter für diese Folie und kann vom zugehörigen Layout erben.
+1. Eine Master‑Folien‑Vorlage definiert wiederverwendbare Stile und in manchen Fällen Master‑Platzhalter.
+2. Eine Layout‑Folien‑Vorlage definiert die Anordnung, die von einer oder mehreren normalen Folien verwendet wird, und kann vom Master erben.
+3. Eine normale Folie enthält die Platzhalter für diese Folie und kann von ihrem Layout erben.
 
-Rufen Sie [Shape::getBasePlaceholder](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/getbaseplaceholder/) auf, um eine Ebene in dieser Hierarchie nach oben zu gehen. Ein Folien‑Platzhalter liefert normalerweise seinen Layout‑Platzhalter; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode gibt `null` zurück, wenn die Form keinen Basis‑Platzhalter hat.
+Rufen Sie [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) auf, um eine Ebene die Hierarchie hinaufzusteigen. Ein Folien‑Platzhalter gibt normalerweise seinen Layout‑Platzhalter zurück; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode gibt `null` zurück, wenn die Form keinen Basis‑Platzhalter hat.
 
 Das folgende Beispiel listet die Platzhalter der ersten Folie auf und gibt deren Basis‑Platzhalter aus:
 
@@ -97,9 +97,85 @@ try {
 
 Das Bearbeiten eines Platzhalters auf einer normalen Folie erstellt oder ändert eine lokale Überschreibung für diese Folie. Das Bearbeiten des zugehörigen Layouts oder Masters kann alle Folien beeinflussen, die diese Einstellung noch erben. Eine lokale gewöhnliche Form hat keinen Basis‑Platzhalter und beginnt nicht zu erben, nur weil sie dieselben Koordinaten belegt.
 
+## **Entfernen des Platzhalter‑Status**
+
+Beim Anpassen einer Vorlage verwenden Sie [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/), um ein vorhandenes Objekt als gewöhnliche Form zu erhalten. Seine [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/)‑Methode gibt `null` zurück, aber die Form bleibt in der Folien‑Sammlung. Im Gegensatz dazu löscht [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) die Form aus dieser Sammlung.
+
+Das folgende Beispiel erfordert `template.pptx` mit mindestens einer Folie und einem nicht leeren Text‑Platzhalter auf der ersten Folie. Verwenden Sie einen Platzhalter mit vom Layout oder Master geerbter Formatierung, um die Wirkung des Entfernens dieser Beziehung zu sehen. Das Beispiel prüft, dass dieselbe Form erhalten bleibt, ruft die Methode erneut auf der nun gewöhnlichen Form auf und speichert das Ergebnis.
+
+{{% alert color="warning" title="Warning" %}}
+Das Entfernen des Platzhalter‑Status bewahrt nicht automatisch vererbte Anzeigeeinstellungen. Das untenstehende Beispiel lässt diese Einstellungen bewusst unverändert, sodass die Ausgabe anders aussehen kann. Eine Form, deren Position und Größe vollständig geerbt wurden, kann nach dem Aufruf Null‑Koordinaten und -Abmessungen besitzen und unsichtbar werden, obwohl sie in der Sammlung verbleibt.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // Aufruf der Methode auf einer gewöhnlichen Form hat keine Wirkung.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Für einen passenden Platzhalter geben alle drei Prüfungen `true` zurück. Der Text bleibt erhalten, aber vererbte Position, Größe, Drehung, Schriftart, Absatz‑Ausrichtung, Text‑Frame‑Ränder, vertikale Verankerung, Füll‑ und Linien‑Einstellungen können sich ändern, wenn die Platzhalter‑Beziehung entfernt wird. Beispielsweise kann die vererbte Titelformatierung auf die reguläre Textformatierung zurückfallen. Siehe [Slide Layout](/slides/de/php-java/slide-layout/) für weitere Informationen zu Layouts.
+
+Um das beabsichtigte Aussehen zu bewahren, erfassen Sie die aufgelöste Position, Größe und Drehung vor dem Aufruf und kopieren Sie die erforderlichen effektiven Formatierungswerte in separate Variablen. Rufen Sie diese Werte über [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/) und [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/) ab. Verlassen Sie sich nicht nur auf die effektiven Format‑Objekte, da deren Text‑Formatierungswerte nach dem Entfernen der Beziehung geändert werden können. Wenden Sie die erfassten Werte anschließend explizit auf die gewöhnliche Form an, einschließlich Schriftfamilie, Größe, Stil, Farbe, Absatz‑Einstellungen, Text‑Frame‑Einstellungen, Füll‑ und Linien‑Eigenschaften Ihrer Vorlage.
+
+Vererbte Formgeometrie muss möglicherweise ebenfalls explizit über [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType) zugewiesen werden. Für einen rechteckigen Text‑Platzhalter bedeutet dies, [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) zuzuweisen; das Wiederherstellen nur von Füll‑ und Linien‑Eigenschaften stellt das sichtbare Rechteck nicht wieder her. Vorlagen mit zusätzlichen Effekten oder komplexeren Formatierungen erfordern ebenfalls die Behandlung dieser Einstellungen.
+
 ## **Text in einem Platzhalter ändern**
 
-Titel‑, zentrierte Titel‑, Untertitel‑, Text‑ und Inhaltsplatzhalter unterstützen in der Regel Text. Prüfen Sie, ob es sich um ein [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/) handelt, bevor Sie dessen [getTextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/gettextframe/)‑Methode verwenden.
+Titel‑, zentrierte‑Titel‑, Untertitel‑, Text‑ und Text‑Platzhalter unterstützen normalerweise Text. Prüfen Sie auf ein [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), bevor Sie dessen [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/)‑Methode verwenden.
 
 Dieses Beispiel aktualisiert den ersten Titel‑Platzhalter auf der ersten Folie und speichert das Ergebnis:
 
@@ -147,13 +223,13 @@ try {
 }
 ```
 
-Dieses Muster vermeidet die Behandlung von Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhaltern als [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/)-Objekte. Es identifiziert den Platzhalter außerdem nach Zweck, anstatt sich auf einen fragilen Form‑Index zu verlassen.
+Dieses Muster vermeidet das Behandeln von Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhaltern als [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)-Objekte. Es identifiziert den Platzhalter zudem nach Zweck statt nach einem fragilen Form‑Index.
 
-## **Hinweistext auf einem Layout festlegen**
+## **Aufforderungstext auf einem Layout festlegen**
 
-Hinweistext ist die Entwurfs‑Anweisung, die in einem leeren Platzhalter angezeigt wird, z. B. *Klicken Sie, um Titel hinzuzufügen*. Legen Sie benutzerdefinierten Hinweistext im Layout‑Platzhalter fest, anstatt zu versuchen, ihn über die Formsammlung einer normalen Folie zu erreichen. Greifen Sie über [Slide::getLayoutSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die Sammlung, die von [BaseSlide::getShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseslide/#getShapes) zurückgegeben wird.
+Aufforderungstext ist die Design‑Zeit‑Anweisung, die in einem leeren Platzhalter angezeigt wird, z. B. *Klicken, um Titel hinzuzufügen*. Legen Sie benutzerdefinierten Aufforderungstext am Layout‑Platzhalter fest, anstatt zu versuchen, ihn über die Form‑Sammlung einer normalen Folie zu erreichen. Greifen Sie über [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die Sammlung, die [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) zurückgibt.
 
-Das folgende Beispiel ändert die Titel‑ und Untertitel‑Hinweise im Layout, das von der ersten Folie verwendet wird:
+Das folgende Beispiel ändert die Titel‑ und Untertitel‑Aufforderungen im Layout, das von der ersten Folie verwendet wird:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -195,14 +271,14 @@ try {
 }
 ```
 
-Hinweistext ist kein normaler Folieninhalt. Er ist für leere Platzhalter in Bearbeitungsprogrammen wie PowerPoint gedacht. Sobald ein Benutzer oder ein Programm echten Inhalt bereitstellt, wird der Hinweis nicht mehr angezeigt. Das Ändern eines Hinweises ersetzt zudem nicht den bestehenden Text auf Folien, die das Layout verwenden.
+Aufforderungstext ist kein normaler Folien‑Inhalt. Er ist für leere Platzhalter in Bearbeitungs‑Anwendungen wie PowerPoint gedacht. Sobald ein Benutzer oder ein Programm echten Inhalt liefert, wird die Aufforderung nicht mehr angezeigt. Das Ändern einer Aufforderung ersetzt zudem keinen bestehenden Text auf Folien, die das Layout verwenden.
 
-## **Bildplatzhalter aktualisieren**
+## **Ein Bild‑Platzhalter aktualisieren**
 
 Es gibt zwei zu behandelnde Fälle:
 
-- Wenn der Bildplatzhalter bereits gefüllt ist und durch ein [PictureFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/pictureframe/) dargestellt wird, ersetzen Sie das Bild über [PictureFillFormat::getPicture](https://reference.aspose.com/slides/de/php-java/aspose.slides/picturefillformat/getpicture/) und [SlidesPicture::setImage](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidespicture/setimage/).
-- Wenn er noch ein leerer Platzhalter ist, fügen Sie mit [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/shapecollection/addpictureframe/) an den Koordinaten des Platzhalters einen Bildrahmen ein und entfernen Sie den leeren Platzhalter.
+- Wenn der Bild‑Platzhalter bereits gefüllt ist und durch ein [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) dargestellt wird, ersetzen Sie das Bild über [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) und [Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage).
+- Ist er noch ein leerer Platzhalter, fügen Sie an den Koordinaten des Platzhalters einen Bildrahmen mit [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) hinzu und entfernen Sie den leeren Platzhalter.
 
 Das nächste Beispiel unterstützt beide Fälle und speichert die Präsentation:
 
@@ -261,13 +337,13 @@ try {
 }
 ```
 
-Der für einen leeren Platzhalter erstellte Ersatz ist ein lokaler Bildrahmen, kein neuer Platzhalter, weil [Shape::getPlaceholder](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/getplaceholder/) keinen Setter bereitstellt. Er bewahrt die reservierte Position, erbt jedoch kein platzhalterspezifisches Verhalten mehr. Wenn das Beibehalten der Platzhalterbeziehung essenziell ist, bereiten Sie den Platzhalter zuerst in PowerPoint vor und füllen Sie ihn, dann aktualisieren Sie den resultierenden [PictureFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/pictureframe/) mit Aspose.Slides.
+Der Ersatz, der für einen leeren Platzhalter erstellt wird, ist ein lokaler Bildrahmen, kein neuer Platzhalter, weil [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) keinen Setter bietet. Er behält die reservierte Position bei, erbt jedoch nicht länger das platzhalterspezifische Verhalten. Wenn das Beibehalten der Platzhalter‑Beziehung wichtig ist, bereiten Sie den Platzhalter zunächst in PowerPoint vor und aktualisieren dann den resultierenden [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) mit Aspose.Slides.
 
-Für Bildtransparenz, Zuschneiden und andere bild‑spezifische Effekte siehe [Manage Picture Frames](/slides/de/php-java/picture-frame/). Diese Vorgänge betreffen den Bildrahmen bzw. den Bildfüllungs‑Effekt, nicht die Platzhalter‑Metadaten.
+Für Bild‑Transparenz, Zuschneiden und andere bild‑spezifische Effekte siehe [Manage Picture Frames](/slides/de/php-java/picture-frame/). Diese Vorgänge betreffen den Bildrahmen oder die Bild‑Füllung, nicht die Platzhalter‑Metadaten.
 
-## **Arbeiten mit Diagramm‑ und Inhaltsplatzhaltern**
+## **Arbeiten mit Diagramm‑ und Inhalts‑Platzhaltern**
 
-Ein gefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/) dargestellt werden. Dieses Beispiel findet ein solches Diagramm sowohl anhand des Platzhaltertyps als auch der Laufzeit‑Klasse, ändert dessen Titel und speichert die Datei:
+Ein gefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) dargestellt werden. Dieses Beispiel findet ein solches Diagramm sowohl nach Platzhaltertyp als auch nach Laufzeit‑Klasse, ändert dessen Titel und speichert die Datei:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -314,9 +390,9 @@ try {
 }
 ```
 
-Ein allgemeiner Inhaltsplatzhalter hat üblicherweise [PlaceholderType::Object](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/). In PowerPoint fungiert er als Starter für mehrere Inhaltstypen, darunter Diagramme, Tabellen, Diagramme, Bilder und Medien. Nachdem er gefüllt wurde, prüfen Sie die tatsächliche Formklasse, um zu erfahren, was er enthält. Spezialisierte Layouts können außerdem [PlaceholderType::Chart](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/) oder [PlaceholderType::Diagram](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholdertype/) aufweisen.
+Ein allgemeiner Inhalts‑Platzhalter hat normalerweise [PlaceholderType::Object](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/). In PowerPoint dient er als Starter für mehrere Inhaltsarten, darunter Diagramme, Tabellen, Diagramme, Bilder und Medien. Nachdem er gefüllt wurde, prüfen Sie die tatsächliche Formklasse, um zu erfahren, was er enthält. Spezialisierte Layouts können zudem [PlaceholderType::Chart](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) oder [PlaceholderType::Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) aussetzen.
 
-Aspose.Slides wandelt einen leeren [AutoShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/autoshape/)‑Platzhalter nicht allein durch Ändern von [Placeholder::getType](https://reference.aspose.com/slides/de/php-java/aspose.slides/placeholder/gettype/) in ein [Chart](https://reference.aspose.com/slides/de/php-java/aspose.slides/chart/) um; der Typ kann über die Klasse nicht geändert werden. Um ein leeres Diagramm‑ oder Inhaltsfeld programmgesteuert zu füllen, fügen Sie das erforderliche Objekt an den Koordinaten des Platzhalters ein und entfernen anschließend den leeren Platzhalter. Das folgende Beispiel demonstriert dies für ein Diagramm:
+Aspose.Slides konvertiert einen leeren [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)‑Platzhalter nicht in ein [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) allein durch Ändern von [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/); der Typ kann über die Klasse nicht geändert werden. Um programmgesteuert ein leeres Diagramm‑ oder Inhalts‑Feld zu füllen, fügen Sie das erforderliche Objekt an den Koordinaten des Platzhalters ein und entfernen anschließend den leeren Platzhalter. Das folgende Beispiel macht dies für ein Diagramm:
 
 ```php
 use aspose\slides\ChartType;
@@ -365,11 +441,11 @@ try {
 }
 ```
 
-Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die dedizierten [chart management articles](/slides/de/php-java/powerpoint-charts/), wenn Sie Kategorien, Serien oder Arbeitsblattdaten austauschen müssen.
+Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die speziellen [chart management articles](/slides/de/php-java/powerpoint-charts/), wenn Sie Kategorien, Serien oder Arbeitsmappendaten ersetzen müssen.
 
-## **Vollständiges Beispiel: Text‑ oder Bildinhalt aktualisieren**
+## **Komplettes Beispiel: Text‑ oder Bild‑Inhalt aktualisieren**
 
-Das folgende End‑zu‑Ende‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft die Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel vermeidet bewusst Annahmen über einen Form‑Index und behandelt nicht jeden Platzhalter als dieselbe Klasse.
+Das folgende End‑zu‑Ende‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft die Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel vermeidet bewusst Annahmen über einen Form‑Index oder die Behandlung jedes Platzhalters als gleiche Klasse.
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -438,12 +514,12 @@ try {
 
 **Was ist ein Basis‑Platzhalter?**
 
-Ein Basis‑Platzhalter ist die entsprechende Form auf dem Layout oder Master, von der ein anderer Platzhalter erbt. Verwenden Sie [Shape::getBasePlaceholder](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/getbaseplaceholder/), um ihn abzurufen. Eine gewöhnliche lokale Form gibt `null` zurück, weil sie nicht Teil der Platzhalter‑Hierarchie ist.
+Ein Basis‑Platzhalter ist die entsprechende Form im Layout oder Master, von der ein anderer Platzhalter erbt. Verwenden Sie [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/), um ihn abzurufen. Eine gewöhnliche lokale Form gibt `null` zurück, weil sie nicht Teil der Platzhalter‑Hierarchie ist.
 
 **Kann ich alle Folientitel ändern, indem ich einen Layout‑Platzhalter bearbeite?**
 
-Sie können über ein Layout vererbte Formatierungen oder Hinweistexte ändern, aber vorhandene Titelinhalte sind auf den normalen Folien gespeichert. Um den eigentlichen Titeltext in einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren Sie jeden Titel‑Platzhalter.
+Sie können über ein Layout geerbte Formatierung oder den Aufforderungstext ändern, aber vorhandene Titel‑Inhalte werden auf den normalen Folien gespeichert. Um den tatsächlichen Titel‑Text einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren jeden Titel‑Platzhalter.
 
-**Wie verwalte ich Datums‑, Folien‑Nummer‑, Kopf‑ und Fußzeilen‑Platzhalter?**
+**Wie verwalte ich Datums‑, Folien‑Nummer‑, Kopf‑ und Fuß‑Platzhalter?**
 
-Verwenden Sie die Header‑ und Footer‑Manager im jeweiligen Folien‑, Layout‑, Master‑, Notiz‑ oder Handzettel‑Bereich. Siehe [Manage Presentation Header and Footer](/slides/de/php-java/presentation-header-and-footer/) für vollständige Beispiele.
+Verwenden Sie die Kopf‑ und Fuß‑Manager im jeweiligen Folien‑, Layout‑, Master‑, Notiz‑ oder Handout‑Umfang. Siehe [Manage Presentation Header and Footer](/slides/de/php-java/presentation-header-and-footer/) für umfassende Beispiele.

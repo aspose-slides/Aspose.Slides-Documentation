@@ -1,50 +1,50 @@
 ---
-title: Beheer presentatiesplaatsvervullers in Python
-linktitle: Beheer plaatsvervullers
+title: Beheer presentatie‑placeholders in Python
+linktitle: Beheer placeholders
 type: docs
 weight: 10
 url: /nl/python-net/manage-placeholder/
 keywords:
-- plaatsvervuller
-- tekstplaatsvervuller
-- afbeeldingsplaatsvervuller
-- diagramplaatsvervuller
-- inhoudplaatsvervuller
-- prompttekst
+- placeholder
+- tekst‑placeholder
+- afbeeldings‑placeholder
+- diagram‑placeholder
+- inhouds‑placeholder
+- prompt‑tekst
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Leer hoe u tekst-, afbeelding-, diagram- en inhoudsplaatsvervullers kunt inspecteren en bewerken en begrijp de erfenis van plaatsvervullers met Aspose.Slides voor Python via .NET."
+description: "Leer hoe je tekst‑, afbeelding‑, diagram‑ en inhouds‑placeholders kunt inspecteren en bewerken en begrijp placeholder‑erfelijkheid met Aspose.Slides voor Python via .NET."
 ---
 ## **Overzicht**
 
-Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel, body, afbeelding, diagram en algemene inhouds‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een lay‑outdia of masterslide.
+Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatie‑sjabloon. Veelvoorkomende voorbeelden zijn titel, hoofdtekst, afbeelding, diagram en algemene inhouds‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een lay‑out‑slide of master‑slide.
 
-Aspose.Slides biedt placeholder‑informatie via de [Shape.placeholder]‑eigenschap. Deze eigenschap retourneert een [Placeholder]‑object of `None` voor een gewone vorm. Gebruik [Placeholder.type] om te bepalen wat de placeholder moet bevatten.
+Aspose.Slides stelt placeholder‑informatie beschikbaar via de [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) eigenschap. Deze eigenschap retourneert een [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) object of `None` voor een normale vorm. Gebruik [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) om te bepalen wat de placeholder moet bevatten.
 
-De vormklasse blijft van belang nadat u het placeholder‑type kent:
+De vormklasse blijft relevant nadat je het placeholder‑type kent:
 
-- Een lege tekst‑, afbeelding‑, diagram‑ of inhouds‑placeholder wordt meestal weergegeven door een [AutoShape].
-- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame].
-- Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart].
-- Een inhouds‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.type] als de runtime‑vormklasse in plaats van aan te nemen dat elke placeholder een [AutoShape] is.
+- Een lege tekst‑, afbeelding-, diagram‑ of inhouds‑placeholder wordt doorgaans weergegeven door een [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Een ingevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Een ingevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Een inhouds‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) als de runtime‑vormklasse in plaats van aan te nemen dat elke placeholder een [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) is.
 
-{{% alert color="warning" title="Warning" %}}
-[Placeholder.type] beschrijft de rol van een placeholder; het garandeert niet de runtime‑klasse van de vorm. Gebruik altijd een type‑check voordat u toegang krijgt tot tekst-, afbeelding-, diagram-, tabel‑ of media‑specifieke leden.
+{{% alert color="warning" title="Waarschuwing" %}}
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) beschrijft de rol van een placeholder; het garandeert niet de runtime‑klasse van de vorm. Gebruik altijd een type‑check voordat je tekst, afbeelding, diagram, tabel of media‑specifieke leden benadert.
 {{% /alert %}}
 
-## **Begrijp Placeholder‑Erfenis**
+## **Begrijp de erfelijkheid van placeholders**
 
 Placeholders vormen een hiërarchie:
 
-1. Een master‑dia definieert herbruikbare stijlen en, in sommige gevallen, master‑level placeholders.
-2. Een lay‑outdia definieert de indeling die wordt gebruikt door een of meer normale dia's en kan van de master erven.
-3. Een normale dia bevat de placeholders voor die dia en kan van zijn lay‑out erven.
+1. Een master‑slide definieert herbruikbare stijlen en, in sommige gevallen, master‑niveau placeholders.
+2. Een lay‑out‑slide definieert de indeling die wordt gebruikt door één of meer normale slides en kan erven van de master.
+3. Een normale slide bevat de placeholders voor die slide en kan erven van zijn lay‑out.
 
-Roep [Shape.get_base_placeholder] aan om één niveau hoger in deze hiërarchie te gaan. Een dia‑placeholder retourneert normaal gesproken zijn lay‑outplaceholder; een lay‑outplaceholder kan zijn master‑placeholder retourneren. De methode retourneert `None` wanneer de vorm geen basis‑placeholder heeft.
+Roep [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) aan om één niveau hoger in deze hiërarchie te gaan. Een slide‑placeholder geeft normaal zijn lay‑out‑placeholder terug; een lay‑out‑placeholder kan zijn master‑placeholder retourneren. De methode retourneert `None` wanneer de vorm geen basis‑placeholder heeft.
 
-Het volgende voorbeeld geeft een lijst weer van placeholders op de eerste dia en meldt hun basis‑placeholders:
+Het volgende voorbeeld geeft de placeholders op de eerste slide weer en meldt hun basis‑placeholders:
 
 ```python
 import aspose.slides as slides
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Een placeholder op een normale dia bewerken creëert of wijzigt een lokale override voor die dia. Het bewerken van de gerelateerde lay‑out of master kan alle dia's beïnvloeden die die instelling nog erven. Een gewone lokale vorm heeft geen basis‑placeholder en begint niet te erven alleen omdat hij dezelfde coördinaten beslaat.
+Een placeholder op een normale slide bewerken creëert of wijzigt een lokale overschrijving voor die slide. Het bewerken van de gerelateerde lay‑out of master kan alle slides beïnvloeden die nog steeds die instelling erven. Een gewone lokale vorm heeft geen basis‑placeholder en begint niet te erven alleen omdat hij dezelfde coördinaten inneemt.
 
-## **Tekst Wijzigen in een Placeholder**
+## **Placeholderstatus verwijderen**
 
-Titel‑, gecentreerde‑titel‑, ondertitel‑, body‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op een [AutoShape] voordat u de [text_frame]‑eigenschap gebruikt.
+Wanneer je een sjabloon aanpast, gebruik [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) om een bestaand object als een gewone vorm te behouden. Zijn [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) eigenschap wordt `None`, maar de vorm blijft in de collectie van de slide staan. In tegenstelling tot [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) verwijdert dit de vorm uit die collectie.
 
-Dit voorbeeld werkt de eerste titel‑placeholder op de eerste dia bij en slaat het resultaat op:
+Het volgende voorbeeld vereist `template.pptx` met ten minste één slide en een niet‑lege tekst‑placeholder op de eerste slide. Gebruik een placeholder met opmaak die is geërfd van zijn lay‑out of master om het effect van het verwijderen van die relatie te zien. Het voorbeeld controleert dat dezelfde vorm behouden blijft, roept de methode opnieuw aan op de nu gewone vorm en slaat het resultaat op.
+
+{{% alert color="warning" title="Waarschuwing" %}}
+Het verwijderen van de placeholderstatus behoudt niet automatisch geërfde weergave‑instellingen. Het onderstaande voorbeeld laat die instellingen expres onveranderd, zodat de uitvoer er anders uit kan zien. Een vorm waarvan positie en grootte volledig geërfd zijn, kan na de oproep nul‑coördinaten en afmetingen hebben en onzichtbaar worden, hoewel hij in de collectie blijft.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Het aanroepen van de methode op een gewone vorm heeft geen effect.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Voor een overeenkomstige placeholder geven alle drie de controles `True` terug. De tekst blijft, maar geërfde positie, grootte, rotatie, lettertype, alinea‑uitlijning, tekst‑frame‑marges, verticale verankering, opvulling en lijneigenschappen kunnen wijzigen wanneer de placeholder‑relatie wordt verwijderd. Zo kan geërfde titelopmaak terugvallen op gewone tekstopmaak. Zie [Slide Layout](/slides/nl/python-net/slide-layout/) voor meer over lay‑outs.
+
+Om de beoogde weergave te behouden, leg de berekende positie, grootte en rotatie vast vóór de oproep, en kopieer de benodigde effectieve opmaakwaarden naar afzonderlijke variabelen. Haal die waarden op via [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), en [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Vertrouw niet alleen op de effectieve‑format‑objecten, want hun tekst‑opmaak kan veranderen na het verwijderen van de relatie. Pas de vastgelegde waarden expliciet toe op de gewone vorm daarna, inclusief lettertype‑familie, grootte, stijl, kleur, alinea‑instellingen, tekst‑frame‑instellingen, opvulling en lijn die in je sjabloon worden gebruikt.
+
+Geërfde vormgeometrie moet mogelijk ook expliciet worden toegewezen via [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Voor een rechthoekige tekst‑placeholder betekent dit dat je [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/) toewijst; alleen de opvulling en lijn herstellen, herstelt mogelijk niet de zichtbare rechthoek. Sjablonen met extra effecten of complexere opmaak vereisen die instellingen ook.
+
+## **Tekst wijzigen in een placeholder**
+
+Titel-, gecentreerde‑titel‑, ondertitel‑, hoofdtekst‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op een [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) vóór gebruik van de [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) eigenschap.
+
+Dit voorbeeld werkt de eerste titel‑placeholder op de eerste slide bij en slaat het resultaat op:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dit patroon voorkomt dat afbeelding‑, diagram‑, tabel‑ of media‑placeholders worden behandeld als [AutoShape]‑objecten. Het identificeert ook de placeholder op basis van doel in plaats van te vertrouwen op een fragiele vorm‑index.
+Dit patroon voorkomt dat afbeelding‑, diagram‑, tabel‑ of media‑placeholders worden behandeld als [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) objecten. Het identificeert bovendien de placeholder op basis van het doel in plaats van te vertrouwen op een fragiele vorm‑index.
 
-## **Prompttekst Instellen op een Lay‑out**
+## **Prompttekst instellen op een lay‑out**
 
-Prompttekst is de ontwerp‑tijd instructie die wordt weergegeven in een lege placeholder, zoals *Klik om titel toe te voegen*. Stel aangepaste prompttekst in op de lay‑outplaceholder in plaats van te proberen deze te bereiken via de vormcollectie van een normale dia. Benader de lay‑out via [Slide.layout_slide] en iteratie over [LayoutSlide.shapes].
+Prompttekst is de ontwerpinstructie die wordt getoond in een lege placeholder, zoals *Klik om titel toe te voegen*. Stel aangepaste prompttekst in op de lay‑out‑placeholder in plaats van te proberen deze via de vorm‑collectie van een normale slide te bereiken. Benader de lay‑out via [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) en doorloop [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de lay‑out die door de eerste dia wordt gebruikt:
+Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de lay‑out die door de eerste slide wordt gebruikt:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Prompttekst is geen normale dia‑inhoud. Het is bedoeld voor lege placeholders in bewerkingsapplicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud levert, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt ook niet de bestaande tekst op dia's die de lay‑out gebruiken.
+Prompttekst is geen normale slide‑inhoud. Ze is bedoeld voor lege placeholders in bewerkingsprogramma’s zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer getoond. Het wijzigen van een prompt vervangt bovendien niet de bestaande tekst op slides die de lay‑out gebruiken.
 
-## **Een Afbeeldings‑Placeholder Bijwerken**
+## **Afbeeldings‑placeholder bijwerken**
 
-Er zijn twee gevallen om af te handelen:
+Er zijn twee gevallen om te behandelen:
 
-- Als de afbeelding‑placeholder al is gevuld en wordt weergegeven door een [PictureFrame], vervang de afbeelding via [PictureFillFormat.picture] en [Picture.image].
-- Als het nog een lege placeholder is, voeg een picture‑frame toe op de coördinaten van de placeholder met [ShapeCollection.add_picture_frame] en verwijder de lege placeholder.
+- Als de afbeelding‑placeholder al is gevuld en wordt weergegeven door een [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), vervang je de afbeelding via [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) en [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Als het nog een lege placeholder is, voeg je een picture‑frame toe op de coördinaten van de placeholder met [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) en verwijder je de lege placeholder.
 
 Het volgende voorbeeld ondersteunt beide gevallen en slaat de presentatie op:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De vervanging die voor een lege placeholder wordt gemaakt, is een lokaal picture‑frame, geen nieuwe placeholder, omdat [Shape.placeholder] alleen‑lees is. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, bereid en vul de placeholder eerst in PowerPoint, en werk vervolgens het resulterende [PictureFrame] bij met Aspose.Slides.
+De vervanging die voor een lege placeholder wordt gemaakt, is een lokaal picture‑frame, geen nieuwe placeholder, omdat [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) alleen‑lezen is. Het behoudt de gereserveerde positie maar erft geen placeholder‑specifiek gedrag meer. Als het behouden van de placeholder‑relatie cruciaal is, bereid en vul dan eerst de placeholder in PowerPoint, en werk vervolgens het resulterende [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) bij met Aspose.Slides.
 
-Voor afbeeldings‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/python-net/picture-frame/). Die bewerkingen behoren tot het picture‑frame of picture‑fill, niet tot placeholder‑metadata.
+Voor afbeeldings‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/python-net/picture-frame/). Deze bewerkingen behoren tot het picture‑frame of picture‑fill, niet tot placeholder‑metadata.
 
-## **Werken met Diagram‑ en Inhouds‑Placeholders**
+## **Werken met diagram‑ en inhouds‑placeholders**
 
-Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart]. Dit voorbeeld vindt zo’n diagram door zowel placeholder‑type als runtime‑klasse, wijzigt de titel en slaat het bestand op:
+Een ingevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Dit voorbeeld zoekt zo’n diagram via zowel placeholder‑type als runtime‑klasse, wijzigt de titel en slaat het bestand op:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Een algemene inhouds‑placeholder heeft meestal [PlaceholderType.OBJECT]. In PowerPoint fungeert deze als een lanceerder voor verschillende inhoudstypen, inclusief diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat deze is gevuld, inspecteer de feitelijke vormklasse om te zien wat erin zit. Gespecialiseerde lay‑outs kunnen ook [PlaceholderType.CHART], [PlaceholderType.TABLE], [PlaceholderType.PICTURE], [PlaceholderType.MEDIA] of [PlaceholderType.DIAGRAM] blootleggen.
+Een algemene inhouds‑placeholder heeft meestal [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). In PowerPoint fungeert hij als een lanceerder voor verschillende inhoudstypen, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat hij is gevuld, inspecteer je de daadwerkelijke vormklasse om te zien wat hij bevat. Gespecialiseerde lay‑outs kunnen ook [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), of [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/) blootstellen.
 
-Aspose.Slides zet een lege [AutoShape]‑placeholder niet om in een [Chart] alleen door [Placeholder.type] te wijzigen; het type is alleen‑lees. Om programmatically een lege diagram‑ of inhouds‑zone te vullen, voeg het benodigde object toe op de coördinaten van de placeholder en verwijder vervolgens de lege placeholder. Het volgende voorbeeld doet dat voor een diagram:
+Aspose.Slides zet een lege [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) placeholder niet om in een [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) door simpelweg [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) te wijzigen; het type is alleen‑lezen. Om programmatically een leeg diagram of inhoudsgebied te vullen, voeg je het vereiste object toe op de coördinaten van de placeholder en verwijder je vervolgens de lege placeholder. Het volgende voorbeeld doet dat voor een diagram:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het toegevoegde diagram is een gewoon lokaal diagram. Het bezet het gebied van de placeholder maar erft niet van de lay‑outplaceholder. Gebruik de speciale [chart management articles](/slides/nl/python-net/powerpoint-charts/) wanneer u de categorieën, series of werkboek‑data moet vervangen.
+Het toegevoegde diagram is een gewone lokale chart. Het beslaat het gebied van de placeholder maar erft niet van de lay‑out‑placeholder. Gebruik de toegewijde [chart management articles](/slides/nl/python-net/powerpoint-charts/) wanneer je de categorieën, series of workbook‑data moet vervangen.
 
-## **Volledig Voorbeeld: Tekst of Afbeeldingsinhoud Bijwerken**
+## **Volledig voorbeeld: tekst‑ of afbeeldingsinhoud bijwerken**
 
-Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt op de eerste dia naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vormtypen, werkt de juiste inhoud bij en slaat de output op. Het voorbeeld vermijdt opzettelijk het aannemen van een vorm‑index of het behandelen van elke placeholder als dezelfde vormklasse.
+Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt in de eerste slide naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vormtypes, werkt de juiste inhoud bij en slaat de output op. Het voorbeeld vermijdt bewust het aannemen van een vorm‑index of het behandelen van elke placeholder als dezelfde vormklasse.
 
 ```python
 import aspose.slides as slides
@@ -278,12 +326,12 @@ with slides.Presentation("template.pptx") as presentation:
 
 **Wat is een basis‑placeholder?**
 
-Een basis‑placeholder is de overeenkomstige vorm op de lay‑out of master waarvan een andere placeholder erft. Gebruik [Shape.get_base_placeholder] om deze op te halen. Een gewone lokale vorm geeft `None` terug omdat ze geen deel uitmaakt van de placeholder‑hiërarchie.
+Een basis‑placeholder is de bijbehorende vorm op de lay‑out of master waarvan een andere placeholder erft. Gebruik [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) om deze op te halen. Een gewone lokale vorm geeft `None` terug omdat zij geen deel uitmaakt van de placeholder‑hiërarchie.
 
-**Kan ik alle diatitels wijzigen door een lay‑outplaceholder te bewerken?**
+**Kan ik alle slide‑titels wijzigen door een lay‑out‑placeholder te bewerken?**
 
-U kunt geërfde opmaak of prompttekst wijzigen via een lay‑out, maar bestaande titelinhoud is opgeslagen op de normale dia's. Om de daadwerkelijke titeltekst in een hele presentatie te vervangen, iterereert u over de dia's en werkt u elke titel‑placeholder bij.
+Je kunt geërfde opmaak of prompttekst wijzigen via een lay‑out, maar de bestaande titelinhoud staat opgeslagen op de normale slides. Om de feitelijke titeltekst in een hele presentatie te vervangen, doorloop je de slides en werk je elke titel‑placeholder bij.
 
-**Hoe beheer ik datum-, dia‑nummer-, header‑ en footer‑placeholders?**
+**Hoe beheer ik datum‑, slide‑nummer‑, header‑ en footer‑placeholders?**
 
-Gebruik de header‑ en footermanagers op het juiste niveau: dia, lay‑out, master, notities of handout. Zie [Manage Presentation Header and Footer](/slides/nl/python-net/presentation-header-and-footer/) voor volledige voorbeelden.
+Gebruik de header‑ en footer‑managers op het juiste niveau (slide, lay‑out, master, notities of handout). Zie [Manage Presentation Header and Footer](/slides/nl/python-net/presentation-header-and-footer/) voor volledige voorbeelden.

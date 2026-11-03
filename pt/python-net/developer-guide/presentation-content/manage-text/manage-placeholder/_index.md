@@ -1,50 +1,50 @@
 ---
-title: Gerenciar Espaços Reservados de Apresentação em Python
-linktitle: Gerenciar Espaços Reservados
+title: Gerenciar placeholders de apresentação no Python
+linktitle: Gerenciar placeholders
 type: docs
 weight: 10
 url: /pt/python-net/manage-placeholder/
 keywords:
-- espaço reservado
-- espaço reservado de texto
-- espaço reservado de imagem
-- espaço reservado de gráfico
-- espaço reservado de conteúdo
-- texto de prompt
+- marcador
+- marcador de texto
+- marcador de imagem
+- marcador de gráfico
+- marcador de conteúdo
+- texto de sugestão
 - PowerPoint
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aprenda a inspecionar e editar espaços reservados de texto, imagem, gráfico e conteúdo e a entender a herança de espaços reservados com Aspose.Slides para Python via .NET."
+description: "Aprenda a inspecionar e editar placeholders de texto, imagem, gráfico e conteúdo e a entender a herança de placeholders com Aspose.Slides para Python via .NET."
 ---
 ## **Visão geral**
 
-Um espaço reservado é uma forma que reserva uma posição para um tipo específico de conteúdo em um modelo de apresentação. Exemplos comuns são título, corpo, imagem, gráfico e espaços reservados de conteúdo de uso geral. Ao contrário de uma forma comum, um espaço reservado pode herdar sua posição, tamanho, formatação e outras configurações de um slide de layout ou slide mestre.
+Um placeholder é uma forma que reserva uma posição para um tipo específico de conteúdo em um modelo de apresentação. Exemplos comuns são placeholder de título, corpo, imagem, gráfico e placeholders de conteúdo de uso geral. Ao contrário de uma forma comum, um placeholder pode herdar sua posição, tamanho, formatação e outras configurações de um slide de layout ou slide mestre.
 
-Aspose.Slides expõe informações de espaço reservado através da propriedade [Shape.placeholder](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/placeholder/). A propriedade devolve um objeto [Placeholder](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholder/) ou `None` para uma forma normal. Use [Placeholder.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholder/type/) para determinar o que o espaço reservado deve conter.
+Aspose.Slides expõe informações de placeholder através da propriedade [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). A propriedade retorna um objeto [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) ou `None` para uma forma normal. Use [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) para determinar o que o placeholder deve conter.
 
-A classe da forma ainda importa depois de conhecer o tipo de espaço reservado:
+A classe da forma ainda importa depois de conhecer o tipo de placeholder:
 
-- Um espaço reservado vazio de texto, imagem, gráfico ou conteúdo costuma ser representado por um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/).
-- Um espaço reservado de imagem preenchido pode ser representado por um [PictureFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pictureframe/).
-- Um espaço reservado de gráfico preenchido pode ser representado por um [Chart](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/).
-- Um espaço reservado de conteúdo pode conter vários tipos de conteúdo. Verifique tanto [Placeholder.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholder/type/) quanto a classe da forma em tempo de execução, em vez de assumir que todo espaço reservado é um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/).
+- Um placeholder vazio de texto, imagem, gráfico ou conteúdo é comumente representado por um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Um placeholder de imagem preenchido pode ser representado por um [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Um placeholder de gráfico preenchido pode ser representado por um [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Um placeholder de conteúdo pode conter vários tipos de conteúdo. Verifique tanto [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) quanto a classe da forma em tempo de execução em vez de assumir que todo placeholder é um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholder/type/) descreve o papel de um espaço reservado; ele não garante a classe da forma em tempo de execução. Sempre faça uma verificação de tipo antes de acessar membros específicos de texto, imagem, gráfico, tabela ou mídia.
+O [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) descreve o papel de um placeholder; ele não garante a classe em tempo de execução da forma. Sempre use uma verificação de tipo antes de acessar membros específicos de texto, imagem, gráfico, tabela ou mídia.
 {{% /alert %}}
 
-## **Entender a Herança de Espaços Reservados**
+## **Compreender a herança de placeholders**
 
-Os espaços reservados formam uma hierarquia:
+Os placeholders formam uma hierarquia:
 
-1. Um slide mestre define estilos reutilizáveis e, em alguns casos, espaços reservados de nível mestre.
+1. Um slide mestre define estilos reutilizáveis e, em alguns casos, placeholders de nível mestre.
 2. Um slide de layout define o arranjo usado por um ou mais slides normais e pode herdar do mestre.
-3. Um slide normal contém os espaços reservados desse slide e pode herdar do seu layout.
+3. Um slide normal contém os placeholders desse slide e pode herdar de seu layout.
 
-Chame [Shape.get_base_placeholder](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/get_base_placeholder/) para subir um nível nessa hierarquia. Um espaço reservado de slide normalmente devolve seu espaço reservado de layout; um espaço reservado de layout pode devolver seu espaço reservado mestre. O método devolve `None` quando a forma não tem espaço reservado base.
+Chame [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) para subir um nível nessa hierarquia. Um placeholder de slide normalmente retorna seu placeholder de layout; um placeholder de layout pode retornar seu placeholder mestre. O método retorna `None` quando a forma não tem placeholder base.
 
-O exemplo a seguir lista os espaços reservados no primeiro slide e relata seus espaços reservados base:
+O exemplo a seguir lista os placeholders no primeiro slide e relata seus placeholders base:
 
 ```python
 import aspose.slides as slides
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Editar um espaço reservado em um slide normal cria ou altera uma sobrescrita local para esse slide. Editar o layout ou mestre relacionado pode afetar todos os slides que ainda herdarem essa configuração. Uma forma ordinária local não tem espaço reservado base e não começa a herdar apenas porque ocupa as mesmas coordenadas.
+Editar um placeholder em um slide normal cria ou altera uma sobrescrita local para esse slide. Editar o layout ou mestre relacionado pode afetar todos os slides que ainda herdarem essa configuração. Uma forma ordinária local não tem placeholder base e não começa a herdar apenas porque ocupa as mesmas coordenadas.
 
-## **Alterar Texto em um Espaço Reservado**
+## **Remover o status de placeholder**
 
-Títulos, títulos centralizados, subtítulos, corpo e espaços reservados de texto normalmente suportam texto. Verifique se é um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) antes de usar sua propriedade [text_frame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/text_frame/).
+Ao adaptar um modelo, use [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) para manter um objeto existente como uma forma comum. Sua propriedade [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) torna‑se `None`, mas a forma permanece na coleção do slide. Em contraste, [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) exclui a forma dessa coleção.
 
-Este exemplo atualiza o primeiro espaço reservado de título no primeiro slide e salva o resultado:
+O exemplo a seguir requer `template.pptx` com ao menos um slide e um placeholder de texto não vazio no primeiro slide. Use um placeholder com formatação herdada do layout ou mestre para ver o efeito de remover esse relacionamento. O exemplo verifica se a mesma forma permanece, chama o método novamente na forma agora comum e salva o resultado.
+
+{{% alert color="warning" title="Warning" %}}
+Remover o status de placeholder não preserva automaticamente as configurações de aparência herdadas. O exemplo abaixo deixa deliberadamente essas configurações inalteradas, portanto a saída pode parecer diferente. Uma forma cuja posição e tamanho são totalmente herdados pode ficar com coordenadas e dimensões zero após a chamada e tornar‑se invisível, embora permaneça na coleção.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Chamar o método em uma forma comum não tem efeito.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Para um placeholder correspondente, as três verificações imprimem `True`. O texto permanece, mas posição, tamanho, rotação, fonte, alinhamento de parágrafo, margens do quadro de texto, ancoragem vertical, preenchimento e configurações de linha herdadas podem mudar quando o relacionamento de placeholder é removido. Por exemplo, a formatação herdada de título pode voltar à formatação de texto comum. Veja [Layout de Slide](/slides/pt/python-net/slide-layout/) para mais informações sobre layouts.
+
+Para preservar a aparência desejada, capture a posição, tamanho e rotação resolvidos antes da chamada e copie os valores de formatação efetiva necessários em variáveis separadas. Recupere esses valores através de [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/) e [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Não confie apenas nos objetos de formatação efetiva, pois seus valores de formatação de texto podem mudar após a remoção do relacionamento. Aplique explicitamente os valores capturados à forma comum depois, incluindo família, tamanho, estilo e cor da fonte, configurações de parágrafo, configurações do quadro de texto, preenchimento e linha usados pelo seu modelo.
+
+A geometria da forma herdada pode precisar ser atribuída explicitamente através de [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Para um placeholder de texto retangular, isso significa atribuir [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); restaurar apenas o preenchimento e a linha pode não restaurar o retângulo visível. Modelos com efeitos adicionais ou formatação mais complexa exigem que essas configurações também sejam tratadas.
+
+## **Alterar texto em um placeholder**
+
+Placeholders de título, título centralizado, subtítulo, corpo e texto normalmente suportam texto. Verifique se é um [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) antes de usar sua propriedade [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
+
+Este exemplo atualiza o primeiro placeholder de título no primeiro slide e salva o resultado:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Esse padrão evita tratar espaços reservados de imagem, gráfico, tabela ou mídia como objetos [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/). Ele também identifica o espaço reservado por finalidade em vez de depender de um índice de forma frágil.
+Esse padrão evita tratar placeholders de imagem, gráfico, tabela ou mídia como objetos [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Também identifica o placeholder por finalidade em vez de depender de um índice de forma frágil.
 
-## **Definir Texto de Prompt em um Layout**
+## **Definir texto de sugestão em um layout**
 
-Texto de prompt é a instrução exibida em tempo de design em um espaço reservado vazio, como *Clique para adicionar título*. Defina um texto de prompt personalizado no espaço reservado do layout em vez de tentar alcançá‑lo através da coleção de formas de um slide normal. Acesse o layout via [Slide.layout_slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slide/layout_slide/) e itere sobre [LayoutSlide.shapes](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslide/shapes/).
+O texto de sugestão é a instrução exibida em tempo de design em um placeholder vazio, como *Clique para adicionar título*. Defina texto de sugestão personalizado no placeholder do layout em vez de tentar alcançá‑lo através da coleção de formas de um slide normal. Acesse o layout por meio de [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) e itere sobre [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-O exemplo a seguir altera os prompts de título e subtítulo no layout usado pelo primeiro slide:
+O exemplo a seguir altera as sugestões de título e subtítulo no layout usado pelo primeiro slide:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Texto de prompt não é conteúdo de slide normal. Ele destina‑se a espaços reservados vazios em aplicações de edição como o PowerPoint. Quando um usuário ou programa fornece conteúdo real, o prompt deixa de ser exibido. Alterar um prompt também não substitui o texto existente nos slides que utilizam o layout.
+Texto de sugestão não é conteúdo de slide normal. Destina‑se a placeholders vazios em aplicativos de edição como o PowerPoint. Quando um usuário ou programa fornece conteúdo real, a sugestão deixa de ser exibida. Alterar a sugestão também não substitui texto existente em slides que utilizam o layout.
 
-## **Atualizar um Espaço Reservado de Imagem**
+## **Atualizar um placeholder de imagem**
 
-Existem dois casos a tratar:
+Existem dois casos a serem tratados:
 
-- Se o espaço reservado de imagem já estiver preenchido e representado por um [PictureFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pictureframe/), substitua a imagem através de [PictureFillFormat.picture](https://reference.aspose.com/slides/pt/python-net/aspose.slides/picturefillformat/picture/) e [Picture.image](https://reference.aspose.com/slides/pt/python-net/aspose.slides/picture/image/).
-- Se ainda for um espaço reservado vazio, adicione um quadro de imagem nas coordenadas do espaço reservado com [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/add_picture_frame/) e remova o espaço reservado vazio.
+- Se o placeholder de imagem já estiver preenchido e representado por um [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), substitua a imagem através de [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) e [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Se ainda for um placeholder vazio, adicione um quadro de imagem nas coordenadas do placeholder com [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) e remova o placeholder vazio.
 
 O próximo exemplo suporta ambos os casos e salva a apresentação:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A substituição criada para um espaço reservado vazio é um quadro de imagem local, não um novo espaço reservado, porque [Shape.placeholder](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/placeholder/) é somente leitura. Ele mantém a posição reservada, mas não herda mais o comportamento específico de espaço reservado. Se manter a relação de espaço reservado for essencial, prepare e preencha o espaço reservado no PowerPoint primeiro, então atualize o [PictureFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pictureframe/) resultante com Aspose.Slides.
+A substituição criada para um placeholder vazio é um quadro de imagem local, não um novo placeholder, porque [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) é somente leitura. Ele mantém a posição reservada, mas não herda mais o comportamento específico de placeholder. Se manter o relacionamento de placeholder for essencial, prepare e preencha o placeholder no PowerPoint primeiro, então atualize o [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) resultante com Aspose.Slides.
 
-Para transparência de imagem, recorte e outros efeitos específicos de imagem, veja [Manage Picture Frames](/slides/pt/python-net/picture-frame/). Essas operações pertencem ao quadro de imagem ou ao preenchimento de imagem, não aos metadados do espaço reservado.
+Para transparência de imagem, recorte e outros efeitos específicos de imagem, veja [Gerenciar quadros de imagem](/slides/pt/python-net/picture-frame/). Essas operações pertencem ao quadro de imagem ou ao preenchimento da imagem, não aos metadados do placeholder.
 
-## **Trabalhar com Espaços Reservados de Gráfico e Conteúdo**
+## **Trabalhar com placeholders de gráfico e de conteúdo**
 
-Um espaço reservado de gráfico preenchido pode ser representado por um [Chart](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/). Este exemplo encontra tal gráfico tanto pelo tipo de espaço reservado quanto pela classe em tempo de execução, altera seu título e salva o arquivo:
+Um placeholder de gráfico preenchido pode ser representado por um [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Este exemplo encontra tal gráfico tanto pelo tipo de placeholder quanto pela classe em tempo de execução, altera seu título e salva o arquivo:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Um espaço reservado de conteúdo geral costuma ter [PlaceholderType.OBJECT](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/). No PowerPoint ele funciona como um lançador para vários tipos de conteúdo, incluindo gráficos, tabelas, diagramas, imagens e mídia. Depois de preenchido, inspecione a classe real da forma para saber o que contém. Layouts especializados também podem expor [PlaceholderType.CHART](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/), ou [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholdertype/).
+Um placeholder de conteúdo geral costuma ter [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). No PowerPoint ele funciona como um lançador para vários tipos de conteúdo, incluindo gráficos, tabelas, diagramas, imagens e mídia. Após ser preenchido, inspecione a classe real da forma para descobrir o que contém. Layouts especializados também podem expor [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), ou [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides não converte um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) vazio em um [Chart](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/) apenas alterando [Placeholder.type](https://reference.aspose.com/slides/pt/python-net/aspose.slides/placeholder/type/); o tipo é somente leitura. Para preencher programaticamente uma área vazia de gráfico ou conteúdo, adicione o objeto necessário nas coordenadas do espaço reservado e, em seguida, remova o espaço reservado vazio. O exemplo a seguir faz isso para um gráfico:
+Aspose.Slides não converte um placeholder vazio de [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) em um [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) apenas alterando [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); o tipo é somente leitura. Para preencher programaticamente uma área de gráfico ou conteúdo vazia, adicione o objeto necessário nas coordenadas do placeholder e então remova o placeholder vazio. O exemplo a seguir faz isso para um gráfico:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-O gráfico adicionado é um gráfico local ordinário. Ele ocupa a área do espaço reservado, mas não herda do espaço reservado de layout. Use os artigos dedicados de [chart management](/slides/pt/python-net/powerpoint-charts/) quando precisar substituir categorias, séries ou dados da planilha.
+O gráfico adicionado é um gráfico local comum. Ele ocupa a área do placeholder, mas não herda do placeholder do layout. Use os [artigos de gerenciamento de gráficos](/slides/pt/python-net/powerpoint-charts/) quando precisar substituir categorias, séries ou dados da pasta de trabalho.
 
-## **Exemplo Completo: Atualizar Texto ou Imagem**
+## **Exemplo completo: atualizar conteúdo de texto ou imagem**
 
-O exemplo end‑to‑end a seguir abre um modelo, procura no primeiro slide por um espaço reservado de título ou imagem, verifica os tipos de espaço reservado e de forma, atualiza o conteúdo apropriado e salva a saída. O exemplo evita deliberadamente assumir um índice de forma ou tratar todo espaço reservado como a mesma classe de forma.
+O exemplo completo a seguir abre um modelo, procura no primeiro slide por um placeholder de título ou de imagem, verifica os tipos de placeholder e de forma, atualiza o conteúdo apropriado e salva o resultado. O exemplo evita deliberadamente assumir um índice de forma ou tratar todo placeholder como a mesma classe de forma.
 
 ```python
 import aspose.slides as slides
@@ -274,16 +322,16 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("placeholder-content-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**O que é um espaço reservado base?**
+**O que é um placeholder base?**
 
-Um espaço reservado base é a forma correspondente no layout ou mestre da qual outro espaço reservado herda. Use [Shape.get_base_placeholder](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/get_base_placeholder/) para recuperá‑lo. Uma forma local ordinária devolve `None` porque não faz parte da hierarquia de espaços reservados.
+Um placeholder base é a forma correspondente no layout ou mestre da qual outro placeholder herda. Use [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) para recuperá‑lo. Uma forma local comum retorna `None` porque não faz parte da hierarquia de placeholders.
 
-**Posso mudar todos os títulos dos slides editando um espaço reservado de layout?**
+**Posso mudar todos os títulos dos slides editando um placeholder de layout?**
 
-Você pode mudar a formatação ou o texto de prompt herdados através de um layout, mas o conteúdo de título existente está armazenado nos slides normais. Para substituir o texto real do título em toda a apresentação, itere sobre os slides e atualize cada espaço reservado de título.
+Você pode mudar a formatação ou o texto de sugestão herdados através de um layout, mas o conteúdo real do título já está armazenado nos slides normais. Para substituir o texto do título em toda a apresentação, itere sobre os slides e atualize cada placeholder de título.
 
-**Como gerencio espaços reservados de data, número do slide, cabeçalho e rodapé?**
+**Como administro placeholders de data, número do slide, cabeçalho e rodapé?**
 
-Use os gerenciadores de cabeçalho e rodapé no escopo apropriado de slide, layout, mestre, notas ou folheto. Veja [Manage Presentation Header and Footer](/slides/pt/python-net/presentation-header-and-footer/) para exemplos completos.
+Use os gerenciadores de cabeçalho e rodapé no escopo adequado de slide, layout, mestre, notas ou folhetos. Veja [Gerenciar cabeçalho e rodapé da apresentação](/slides/pt/python-net/presentation-header-and-footer/) para exemplos completos.

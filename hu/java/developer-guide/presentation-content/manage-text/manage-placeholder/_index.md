@@ -1,50 +1,50 @@
 ---
-title: Prezentációs helykitöltők kezelése Java-ban
-linktitle: Helykitöltők kezelése
+title: Prezentáció helyőrzők kezelése Java-ban
+linktitle: Helyőrzők kezelése
 type: docs
 weight: 10
 url: /hu/java/manage-placeholder/
 keywords:
-- helykitöltő
-- szöveghelykitöltő
-- képhelykitöltő
-- diagramhelykitöltő
-- tartalomhelykitöltő
-- prompt szöveg
+- helyőrző
+- szöveghelyőrző
+- képhelyőrző
+- diagramhelyőrző
+- tartalomhelyőrző
+- utasító szöveg
 - PowerPoint
 - prezentáció
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan vizsgálhatja és szerkesztheti a szöveg-, kép-, diagram- és tartalomhelykitöltőket, valamint hogyan értheti meg a helykitöltő öröklődést az Aspose.Slides for Java segítségével."
+description: "Ismerje meg, hogyan vizsgálhatja és szerkesztheti a szöveg-, kép-, diagram- és tartalomhelyőrzőket, valamint értheti meg a helyőrző öröklődést az Aspose.Slides for Java segítségével."
 ---
 ## **Áttekintés**
 
-A helykitöltő egy alakzat, amely egy adott típusú tartalom számára fenntart helyet egy prezentációs sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános célú tartalomhelykitöltők. Egy egyszerű alakzattól eltérően a helykitöltő örökölheti a pozícióját, méretét, formázását és egyéb beállításait egy elrendezési vagy fődia (master) diáról.
+A helyőrző egy alakzat, amely helyet tart fenn egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, törzs, kép, diagram és általános célú tartalomhelyőrzők. Egy szokásos alakzattól eltérően a helyőrző örökölheti pozícióját, méretét, formázását és egyéb beállításait egy elrendezési diától vagy mester diától.
 
-Az Aspose.Slides a helykitöltő információkat a [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholder/) objektumot ad vissza, vagy `null`‑t egy normál alakzatra. Használja az [IPlaceholder.getType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholder/) metódust annak meghatározásához, hogy a helykitöltő milyen tartalomra van szánva.
+Az Aspose.Slides a helyőrző információkat a [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) objektumot ad vissza, vagy `null`‑t egy normál alakzatra. Használja az [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) metódust annak meghatározására, hogy a helyőrző milyen típusú tartalmat vár.
 
-Az alakzat interfész továbbra is fontos, miután ismeri a helykitöltő típusát:
+Az alakzat‑interfész továbbra is fontos, miután ismeri a helyőrző típusát:
 
-- Egy üres szöveg-, kép-, diagram- vagy tartalomhelykitöltő általában egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) által van reprezentálva.
-- Egy kitöltött képhelykitöltő reprezentálható egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) segítségével.
-- Egy kitöltött diagramhelykitöltő reprezentálható egy [IChart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/) segítségével.
-- Egy tartalomhelykitöltő többféle tartalmat is tartalmazhat. Ellenőrizze mind az [IPlaceholder.getType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholder/) metódust, mind a futási időbeli alakzat interfészt, ahelyett, hogy azt feltételezné, hogy minden helykitöltő egy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/).
+- Egy üres szöveg‑, kép‑, diagram‑ vagy tartalomhelyőrző általában egy [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) segítségével jelenik meg.
+- Egy kitöltött képhelyőrző reprezentálható egy [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) által.
+- Egy kitöltött diagramhelyőrző reprezentálható egy [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) által.
+- Egy tartalomhelyőrző többféle tartalmat is tartalmazhat. Ellenőrizze mind az [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/), mind a futás‑idő alakzat‑interfészt, ahelyett, hogy feltételezné, hogy minden helyőrző egy [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholder/) leírja a helykitöltő szerepét; ez nem garantálja az alakzat futásidejű típusát. Mindig végezzen típusellenőrzést, mielőtt szöveghez, képhez, diagramhoz, táblához vagy média‑specifikus tagokhoz férne hozzá.
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) leírja a helyőrző szerepét; nem garantálja az alakzat futás‑idő típusát. Mindig végezzen típusellenőrzést, mielőtt szöveget, képet, diagramot, táblázatot vagy média‑specifikus tagot érne el.
 {{% /alert %}}
 
-## **A helykitöltő öröklődés megértése**
+## **A helyőrző öröklődésének megértése**
 
-A helykitöltők hierarchiát alkotnak:
+A helyőrzők hierarchiát alkotnak:
 
-1. A mesterdia (master slide) újrahasználható stílusokat határoz meg, és bizonyos esetekben mester szintű helykitöltőket is.
-2. Az elrendezési dia (layout slide) meghatározza a elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mesterdától.
-3. Egy normál dia tartalmazza a helykitöltőket az adott diára, és örökölhet az elrendezéséből.
+1. Egy mesterdia definiál újrahasználható stílusokat és bizonyos esetekben mester‑szintű helyőrzőket.
+2. Egy elrendezési dia határozza meg az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
+3. Egy normál dia tartalmazza a saját helyőrzőit, és örökölhet az elrendezésétől.
 
-Hívja meg az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) metódust, hogy egy szinttel feljebb lépjen ebben a hierarchiában. Egy diahelykitöltő általában visszaadja az elrendezési helykitöltőt; egy elrendezési helykitöltő visszaadhatja a mesterhelykitöltőt. A metódus `null`‑t ad vissza, ha az alakzatnak nincs bázishelykitöltője.
+Hívja meg az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) metódust a hierarchiában egy szinttel feljebb lépéshez. Egy diahelyőrző általában visszaadja az elrendezési helyőrzőt; egy elrendezési helyőrző visszaadhatja a mester helyőrzőt. A metódus `null`‑t ad vissza, ha az alakzatnak nincs alap‑helyőrzője.
 
-Az alábbi példa felsorolja az első diához tartozó helykitöltőket, és jelentést készít azok bázishelykitöltőiről:
+Az alábbi példa felsorolja az első dián található helyőrzőket, és megjeleníti azok alap‑helyőrzőit:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-Egy helykitöltő szerkesztése egy normál dián lokális felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy mester szerkesztése hatással lehet az összes olyan diára, amely még örökli ezt a beállítást. Egy lokális egyszerű alakzatnak nincs bázishelykitöltője, és nem kezd el örökölni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+Egy helyőrző szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít ahhoz a diához. A kapcsolódó elrendezés vagy mester szerkesztése minden olyan diára hat, amely még örökli ezt a beállítást. Egy helyi szokásos alakzatnak nincs alap‑helyőrzője, és nem kezd el örökölni csak azért, mert ugyanazokat a koordinátákat foglalja el.
 
-## **Szöveg módosítása egy helykitöltőben**
+## **Helyőrző állapot eltávolítása**
 
-A cím, középre igazított cím, alcím, törzs és szöveghelykitöltők általában támogatják a szöveget. Ellenőrizze, hogy [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) van‑e jelen, mielőtt a [getTextFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) metódust használná.
+Sablon módosításakor használja az [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) metódust, hogy a meglévő objektumot egyszerű alakzattá konvertálja. A [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) metódusa `null`‑t ad vissza, de az alakzat a dia gyűjteményében marad. Ezzel szemben az [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) eltávolítja az alakzatot a gyűjteményből.
 
-Ez a példa frissíti az első címhelykitöltőt az első dián, és elmenti az eredményt:
+Az alábbi példa egy `template.pptx` fájlt igényel, amely legalább egy diát és egy nem üres szöveg‑helyőrzőt tartalmaz az első dián. Használjon egy olyan helyőrzőt, amelynek formázása öröklődik az elrendezésből vagy a mestertől, hogy lássa a kapcsolat eltávolításának hatását. A példa ellenőrzi, hogy ugyanaz az alakzat megmarad‑e, újból meghívja a metódust a most már szokásos alakzaton, és elmenti az eredményt.
+
+{{% alert color="warning" title="Warning" %}}
+A helyőrző állapot eltávolítása nem őrzi meg automatikusan az örökölt megjelenési beállításokat. Az alábbi példa szándékosan változatlanul hagyja ezeket a beállításokat, ezért a kimenet másként nézhet ki. Egy olyan alakzat, amelynek pozíciója és mérete teljesen öröklődött, a hívás után nulla koordinátákat és méreteket kaphat, és láthatatlanná válhat, bár továbbra is a gyűjteményben marad.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // A metódus hívása egy szokásos alakzatra nem jár semmilyen hatással.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Egy megfelelő helyőrző esetén mindhárom ellenőrzés `true`‑t ad ki. A szöveg megmarad, de az örökölt pozíció, méret, forgatás, betűtípus, bekezdés‑igazítás, szövegkeret‑margók, függőleges rögzítés, kitöltés és vonal beállítások változhatnak, amikor a helyőrző kapcsolatot eltávolítják. Például az örökölt címformázás visszatérhet a szokásos szövegformázáshoz. További információért tekintse meg a [Slide Layout](/slides/hu/java/slide-layout/) oldalt.
+
+A kívánt megjelenés megőrzéséhez a hívás előtt rögzítse a feloldott pozíciót, méretet és forgatást, és másolja a szükséges hatékony formázási értékeket külön változókba. Szerezze be ezeket az értékeket az [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) , [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--) , [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--) , [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--) és [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) metódusokkal. Ne csak a hatékony‑formátum objektumokra támaszkodjon, mivel azok szöveg‑formázási értékei a kapcsolat eltávolítása után megváltozhatnak. Alkalmazza a rögzített értékeket a szokásos alakzatra a betűcsalád, méret, stílus, szín, bekezdés‑beállítások, szövegkeret‑beállítások, kitöltés és vonal explicit alkalmazásával.
+
+Az örökölt alakzat‑geometria is lehet, hogy explicit módon kell, hogy hozzárendelje az [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-) segítségével. Egy négyzetes szöveg‑helyőrző esetén ez a [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle) hozzárendelését jelenti; csak a kitöltés és vonal visszaállítása nem biztos, hogy helyreállítja a látható négyszöget. További hatásokkal vagy összetettebb formázással rendelkező sablonok esetén ezeket a beállításokat is kezelni kell.
+
+## **Szöveg módosítása egy helyőrzőben**
+
+A cím, középre igazított cím, alcím, törzs és szöveg‑helyőrzők általában támogatják a szöveget. Ellenőrizze, hogy az alakzat egy [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/), mielőtt a [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) metódust hívná.
+
+Ez a példa frissíti az első címhelyőrzőt az első dián, és elmenti az eredményt:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-Ez a minta elkerüli a kép, diagram, tábla vagy média helykitöltők [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/)-ra való átkonvertálását. Emellett a helykitöltőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzat indexre támaszkodna.
+Ez a minta elkerüli a kép, diagram, táblázat vagy média‑helyőrzők [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) típusra való castelését. Emellett a helyőrzőt a célja szerint azonosítja, a törékeny alakzat‑indexre való támaszkodás helyett.
 
-## **Útmutató szöveg beállítása egy elrendezésen**
+## **Prompt szöveg beállítása egy elrendezésen**
 
-Az útmutató szöveg egy üres helykitöltőben megjelenő tervezési időbeli utasítás, például *Kattintson a cím hozzáadásához*. Állítson be egyedi útmutató szöveget az elrendezési helykitöltőn, ahelyett, hogy egy normál dia alakzatelémén keresztül próbálná elérni. Az elrendezéshez az [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islide/) segítségével férhet hozzá, majd iteráljon a [ILayoutSlide.getShapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ibaseslide/) által visszaadott gyűjteményen.
+A prompt szöveg egy tervezési időben megjelenő utasítás, amely egy üres helyőrzőben látható, például *Click to add title*. Állítson be egyedi prompt szöveget az elrendezési helyőrzőn, ahelyett, hogy a normál dia alakzatgyűjteményén keresztül próbálna elérni. Az elrendezést az [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) metódussal érheti el, és iteráljon a [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/) által visszaadott gyűjteményen.
 
-Az alábbi példa megváltoztatja a cím és az alcím útmutató szövegét az első dián használt elrendezésen:
+Az alábbi példa módosítja a cím‑ és alcím‑promptokat az első dián használt elrendezésen:
 
 ```java
 import com.aspose.slides.*;
@@ -171,14 +233,14 @@ try {
 }
 ```
 
-Az útmutató szöveg nem normál dia tartalom. Üres helykitöltőkre szánták szerkesztőalkalmazásokban, például a PowerPointban. Miután egy felhasználó vagy program valós tartalmat ad meg, az útmutató már nem jelenik meg. Az útmutató módosítása nem cseréli le a meglévő szöveget azokra a diákra, amelyek az elrendezést használják.
+A prompt szöveg nem normál dia‑tartalom. Üres helyőrzők szerkesztői alkalmazásokban (például PowerPoint) való használatra szánt. Amint a felhasználó vagy egy program valódi tartalmat ad meg, a prompt már nem jelenik meg. A prompt megváltoztatása nem felülírja a már létező szöveget azokra a diákra, amelyek az elrendezést használják.
 
-## **Képhelykitöltő frissítése**
+## **Képhelyőrző frissítése**
 
 Két esetet kell kezelni:
 
-- Ha a képhelykitöltő már kitöltött és egy [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) reprezentálja, cserélje le a képet az [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) és az [ISlidesPicture.setImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidespicture/) segítségével.
-- Ha még üres helykitöltő, adjon hozzá egy képkeretet a helykitöltő koordinátáihoz az [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/) segítségével, majd távolítsa el az üres helykitöltőt.
+- Ha a képhelyőrző már ki van töltve, és egy [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) reprezentálja, cserélje ki a képet az [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) és az [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) segítségével.
+- Ha még egy üres helyőrző, adjon hozzá egy képkeretet a helyőrző koordinátáihoz az [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) segítségével, és távolítsa el az üres helyőrzőt.
 
 A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Az üres helykitöltőhöz létrehozott csere egy lokális képkeret, nem új helykitöltő, mivel az [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) nem biztosít beállítót. Megőrzi a fenntartott pozíciót, de már nem örököl helykitöltő‑specifikus viselkedést. Ha a helykitöltő kapcsolat megtartása létfontosságú, először PowerPointban készítse elő és töltse fel a helykitöltőt, majd frissítse a kapott [IPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) objektumot az Aspose.Slides‑el.
+Az üres helyőrzőhöz létrehozott csere egy helyi képkeret, nem egy új helyőrző, mivel az [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) nem biztosít beállítót. Megtartja a fenntartott pozíciót, de már nem örököl helyőrző‑specifikus viselkedést. Ha a helyőrző kapcsolat megőrzése létfontosságú, először készítse elő és töltse fel a helyőrzőt PowerPoint‑ban, majd frissítse a keletkezett [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) objektumot az Aspose.Slides‑kel.
 
-Kép átlátszósága, vágása és egyéb képspecifikus hatások leírását lásd a [Manage Picture Frames](/slides/hu/java/picture-frame/) cikkben. Ezek a műveletek a képkerethez vagy a kép kitöltéséhez tartoznak, nem a helykitöltő metaadataihoz.
+A kép átlátszósága, körülvágása és egyéb kép‑specifikus hatások tekintetében lásd a [Manage Picture Frames](/slides/hu/java/picture-frame/) cikket. Ezek a műveletek a képkeretre vagy a képtöltésre vonatkoznak, nem a helyőrző metaadatokra.
 
-## **Diagram és tartalomhelykitöltők kezelése**
+## **Diagram‑ és tartalomhelyőrzők kezelése**
 
-Egy kitöltött diagramhelykitöltő egy [IChart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/) által reprezentálható. Ez a példa mind a helykitöltő típus, mind a futásidejű interfész alapján megtalálja az ilyen diagramot, megváltoztatja a címét, majd elmenti a fájlt:
+Egy kitöltött diagramhelyőrző egy [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) segítségével jeleníthető meg. Ez a példa a diagramot a helyőrző típusa és a futás‑idő interfész alapján találja meg, módosítja a címét, és elmenti a fájlt:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Egy általános tartalomhelykitöltő általában a [PlaceholderType.Object](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/) értékkel rendelkezik. A PowerPointban ez többféle tartalomtípus (diagramok, táblák, diagramok, képek, média) indítására szolgál. Kitöltés után vizsgálja meg a tényleges alakzat interfészt, hogy megtudja, mit tartalmaz. Speciális elrendezések szintén kiterjeszthetik a [PlaceholderType.Chart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/), vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholdertype/) típusokat.
+Egy általános tartalomhelyőrző általában a [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) típusú. PowerPointban ez több tartalomtípus indítását teszi lehetővé, beleértve diagramokat, táblázatokat, diagramokat, képeket és médiát. Miután kitöltötték, vizsgálja meg a tényleges alakzat‑interfészt, hogy megtudja, mit tartalmaz. Speciális elrendezések is kiterjeszthetik a [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) típusokra.
 
-Az Aspose.Slides nem konvertál egy üres [IAutoShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iautoshape/) helykitöltőt [IChart](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ichart/)-ra pusztán az [IPlaceholder.getType](https://reference.aspose.com/slides/hu/java/com.aspose.slides/placeholder/) megváltoztatásával; a típust a felület nem engedi módosítani. Egy üres diagram vagy tartalomterület programozott feltöltéséhez adja hozzá a szükséges objektumot a helykitöltő koordinátáihoz, majd távolítsa el az üres helykitöltőt. A következő példa ezt végzi diagram esetén:
+Az Aspose.Slides nem konvertál egy üres [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) helyőrzőt [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) objektummá csak az [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) módosításával; a típust az interfészen keresztül nem lehet megváltoztatni. Egy üres diagram vagy tartalomterület programozott kitöltéséhez adja hozzá a szükséges objektumot a helyőrző koordinátáihoz, majd távolítsa el az üres helyőrzőt. A következő példa ezt végzi egy diagram esetén:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-A hozzáadott diagram egy egyszerű lokális diagram. Elfoglalja a helykitöltő területét, de nem örököl az elrendezési helykitöltőből. Használja a dedikált [chart management articles](/slides/hu/java/powerpoint-charts/) anyagokat, ha kategóriákat, sorozatokat vagy munkafüzet‑adatokat kell cserélnie.
+A hozzáadott diagram egy szokásos helyi diagram. Elfoglalja a helyőrző területét, de nem örököl az elrendezési helyőrzőtől. Használja a dedikált [chart management articles](/slides/hu/java/powerpoint-charts/) oldalt, ha cserélni kell a kategóriákat, sorozatokat vagy munkafüzet‑adatokat.
 
 ## **Teljes példa: Szöveg vagy kép tartalom frissítése**
 
-Az alábbi end‑to‑end példa megnyit egy sablont, keres az első dián cím vagy kép helykitöltőt, ellenőrzi a helykitöltő és alakzat típusokat, frissíti a megfelelő tartalmat, majd elmenti a kimenetet. A példa szándékosan elkerüli a formaindex feltételezését vagy minden helykitöltő ugyanarra az interfészre való átkonvertálását.
+Az alábbi vég‑végi példa megnyit egy sablont, az első dián keres egy cím‑ vagy képhelyőrzőt, ellenőrzi a helyőrző és alakzat típusát, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan kerüli el a formaindex vagy minden helyőrző ugyanazon interfészre való castelésének feltételezését.
 
 ```java
 import com.aspose.slides.*;
@@ -365,14 +427,14 @@ try {
 
 ## **GYIK**
 
-**Mi a bázishelykitöltő?**
+**Mi az a base placeholder?**
 
-A bázishelykitöltő a megfelelő alakzat az elrendezésen vagy a mesteren, amelyből egy másik helykitöltő örököl. Használja az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishape/) metódust a lekéréséhez. Egy egyszerű lokális alakzat `null`‑t ad vissza, mert nem része a helykitöltő hierarchiának.
+A base placeholder az elrendezésen vagy a mesteron lévő megfelelő alakzat, amelyről egy másik helyőrző örököl. Használja az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) metódust a lekéréséhez. Egy szokásos helyi alakzat `null`‑t ad vissza, mert nem része a helyőrző‑hierarchiának.
 
-**Módosíthatom az összes dia címét egy elrendezéshelykitöltő szerkesztésével?**
+**Módosíthatom az összes dia címét egy elrendezés‑helyőrző szerkesztésével?**
 
-Az örökölt formázást vagy útmutató szöveget elrendezésen keresztül módosíthatja, de a meglévő cím tartalom a normál diákon van tárolva. A valós cím szöveg cseréjéhez egy prezentációban iteráljon a diákon, és frissítse minden címhelykitöltőt.
+Az örökölt formázást vagy prompt szöveget módosíthatja egy elrendezésen, de a meglévő cím tartalom a normál diákon tárolódik. A tényleges cím szöveg cseréjéhez egy prezentációban iteráljon a diákon, és frissítse minden cím‑helyőrzőt.
 
-**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc helykitöltőket?**
+**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc helyőrzőket?**
 
-Használja a fejléc‑ és láblécke‑kezelőket a megfelelő dia, elrendezés, mester, jegyzet vagy kiosztás szintjén. Lásd a [Manage Presentation Header and Footer](/slides/hu/java/presentation-header-and-footer/) cikket a teljes példákért.
+Használja a fej‑ és lábléc kezelőket az adott dia, elrendezés, mester, jegyzet vagy segédlet szintjén. Lásd a [Manage Presentation Header and Footer](/slides/hu/java/presentation-header-and-footer/) oldalt a teljes példákért.

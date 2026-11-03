@@ -16,23 +16,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Pelajari cara memeriksa dan mengedit placeholder teks, gambar, diagram, dan konten serta memahami pewarisan placeholder dengan Aspose.Slides untuk Python melalui Java."
+description: "Pelajari cara memeriksa dan mengedit placeholder teks, gambar, diagram, dan konten serta memahami pewarisan placeholder dengan Aspose.Slides untuk Python via Java."
 ---
-## **Ringkasan**
+## **Gambaran Umum**
 
-Placeholder adalah bentuk yang menyimpan posisi untuk jenis konten tertentu dalam templat presentasi. Contoh umum meliputi placeholder judul, isi, gambar, diagram, dan placeholder konten umum. Tidak seperti bentuk biasa, placeholder dapat mewarisi posisi, ukuran, pemformatan, dan pengaturan lainnya dari slide tata letak atau slide master.
+Placeholder adalah bentuk yang memesan posisi untuk jenis konten tertentu dalam templat presentasi. Contoh umum meliputi placeholder judul, badan, gambar, diagram, dan placeholder konten serbaguna. Tidak seperti bentuk biasa, placeholder dapat mewarisi posisi, ukuran, pemformatan, dan pengaturan lainnya dari slide tata letak atau slide master.
 
-Aspose.Slides menyediakan informasi placeholder melalui metode [Shape.getPlaceholder](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getPlaceholder). Metode ini mengembalikan objek [Placeholder](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholder/) atau `None` untuk bentuk biasa. Gunakan [Placeholder.getType](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholder/#getType) untuk menentukan apa yang dimaksudkan untuk ditempatkan dalam placeholder.
+Aspose.Slides mengekspose informasi placeholder melalui metode [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). Metode ini mengembalikan objek [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) atau `None` untuk bentuk normal. Gunakan [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) untuk menentukan apa yang dimaksudkan untuk diisi oleh placeholder.
 
-Tipe bentuk tetap penting setelah Anda mengetahui tipe placeholder:
+Tipe bentuk masih penting setelah Anda mengetahui tipe placeholder:
 
-- Placeholder teks, gambar, diagram, atau konten yang kosong biasanya direpresentasikan oleh [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/).
-- Placeholder gambar yang sudah terisi dapat direpresentasikan oleh [PictureFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/pictureframe/).
-- Placeholder diagram yang sudah terisi dapat direpresentasikan oleh [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/).
-- Placeholder konten dapat berisi beberapa jenis konten. Periksa baik [Placeholder.getType](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholder/#getType) maupun tipe bentuk pada waktu berjalan alih‑alih mengasumsikan bahwa setiap placeholder adalah [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/).
+- Placeholder teks, gambar, diagram, atau konten yang kosong biasanya direpresentasikan oleh sebuah [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Placeholder gambar yang sudah terisi dapat direpresentasikan oleh sebuah [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Placeholder diagram yang sudah terisi dapat direpresentasikan oleh sebuah [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Placeholder konten dapat berisi beberapa jenis konten. Periksa baik [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) maupun tipe bentuk runtime alih-alih mengasumsikan setiap placeholder adalah sebuah [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholder/#getType) menjelaskan peran placeholder; hal ini tidak menjamin tipe bentuk pada waktu berjalan. Selalu lakukan pemeriksaan tipe sebelum mengakses anggota teks, gambar, diagram, tabel, atau media khusus.
+{{% alert color="warning" title="Peringatan" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) menjelaskan peran placeholder; itu tidak menjamin tipe runtime bentuk. Selalu lakukan pemeriksaan tipe sebelum mengakses anggota teks, gambar, diagram, tabel, atau media tertentu.
 {{% /alert %}}
 
 ## **Memahami Pewarisan Placeholder**
@@ -40,13 +40,12 @@ Tipe bentuk tetap penting setelah Anda mengetahui tipe placeholder:
 Placeholder membentuk hierarki:
 
 1. Slide master mendefinisikan gaya yang dapat digunakan kembali dan, dalam beberapa kasus, placeholder tingkat master.
-2. Slide tata letak mendefinisikan susunan yang digunakan oleh satu atau lebih slide biasa dan dapat mewarisi dari master.
-3. Slide biasa berisi placeholder untuk slide tersebut dan dapat mewarisi dari tata letaknya.
+2. Slide tata letak mendefinisikan susunan yang digunakan oleh satu atau lebih slide normal dan dapat mewarisi dari master.
+3. Slide normal berisi placeholder untuk slide tersebut dan dapat mewarisi dari tata letaknya.
 
-Panggil [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getBasePlaceholder) untuk naik satu tingkat dalam hierarki ini. Placeholder slide biasanya mengembalikan placeholder tata letaknya; placeholder tata letak dapat mengembalikan placeholder masternya. Metode ini mengembalikan `None` ketika bentuk tidak memiliki placeholder dasar.
+Panggil [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) untuk naik satu tingkat dalam hierarki ini. Sebuah placeholder slide biasanya mengembalikan placeholder tata letaknya; sebuah placeholder tata letak dapat mengembalikan placeholder masternya. Metode ini mengembalikan `None` ketika bentuk tidak memiliki placeholder dasar.
 
-Contoh berikut menampilkan placeholder pada slide pertama dan melaporkan placeholder dasarnya:
-
+Contoh berikut mencantumkan placeholder pada slide pertama dan melaporkan placeholder dasarnya:
 ```python
 import jpype
 import asposeslides
@@ -84,14 +83,75 @@ finally:
     presentation.dispose()
 ```
 
-Mengedit placeholder pada slide biasa membuat atau mengubah penimpaan lokal untuk slide tersebut. Mengedit tata letak atau master terkait dapat memengaruhi semua slide yang masih mewarisi pengaturan itu. Bentuk biasa lokal tidak memiliki placeholder dasar dan tidak mulai mewarisi hanya karena menempati koordinat yang sama.
+Mengedit placeholder pada slide normal membuat atau mengubah penimpaan lokal untuk slide tersebut. Mengedit tata letak atau master terkait dapat memengaruhi semua slide yang masih mewarisi pengaturan tersebut. Sebuah bentuk biasa lokal tidak memiliki placeholder dasar dan tidak mulai mewarisi hanya karena menempati koordinat yang sama.
+
+## **Menghapus Status Placeholder**
+
+Saat menyesuaikan templat, gunakan [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) untuk mempertahankan objek yang ada sebagai bentuk biasa. Metode [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder)‑nya mengembalikan `None`, tetapi bentuk tetap berada dalam koleksi slide. Sebaliknya, [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) menghapus bentuk dari koleksi tersebut.
+
+Contoh berikut memerlukan `template.pptx` dengan setidaknya satu slide dan placeholder teks yang tidak kosong pada slide pertama. Gunakan placeholder dengan pemformatan yang diwarisi dari tata letak atau master untuk melihat efek menghapus hubungan tersebut. Contoh memeriksa bahwa bentuk yang sama tetap ada, memanggil metode lagi pada bentuk yang kini biasa, dan menyimpan hasilnya.
+
+{{% alert color="warning" title="Peringatan" %}}
+Menghapus status placeholder tidak secara otomatis mempertahankan pengaturan tampilan yang diwarisi. Contoh di bawah sengaja membiarkan pengaturan tersebut tidak berubah, sehingga output mungkin terlihat berbeda. Sebuah bentuk yang posisinya dan ukurannya sepenuhnya diwarisi dapat memiliki koordinat dan dimensi nol setelah pemanggilan dan menjadi tidak terlihat meskipun tetap berada dalam koleksi.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Memanggil metode pada bentuk biasa tidak memberikan efek.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Untuk placeholder yang cocok, ketiga pemeriksaan mencetak `True`. Teks tetap, tetapi posisi, ukuran, rotasi, font, perataan paragraf, margin bingkai teks, penempatan vertikal, pengisian, dan pengaturan garis yang diwarisi dapat berubah ketika hubungan placeholder dihapus. Misalnya, pemformatan judul yang diwarisi dapat kembali ke pemformatan teks biasa. Lihat [Tata Letak Slide](/slides/id/python-java/slide-layout/) untuk informasi lebih lanjut tentang tata letak.
+
+Untuk mempertahankan tampilan yang diinginkan, tangkap posisi, ukuran, dan rotasi yang sudah diselesaikan sebelum pemanggilan, dan salin nilai pemformatan efektif yang diperlukan ke variabel terpisah. Dapatkan nilai tersebut melalui [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective), dan [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Jangan bergantung hanya pada objek format‑efektif, karena nilai pemformatan teksnya dapat berubah setelah hubungan dihapus. Terapkan secara eksplisit nilai yang ditangkap ke bentuk biasa setelahnya, termasuk keluarga font, ukuran, gaya, warna, pengaturan paragraf, pengaturan bingkai teks, isi, dan garis yang digunakan oleh templat Anda.
+
+Geometri bentuk yang diwarisi mungkin juga perlu ditetapkan secara eksplisit melalui [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Untuk placeholder teks persegi panjang, ini berarti menetapkan [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); mengembalikan hanya isi dan garis mungkin tidak mengembalikan persegi panjang yang terlihat. Templat dengan efek tambahan atau pemformatan yang lebih kompleks memerlukan pengaturan tersebut ditangani juga.
 
 ## **Mengubah Teks dalam Placeholder**
 
-Placeholder judul, judul‑tengah, subjudul, isi, dan teks biasanya mendukung teks. Periksa apakah bentuk adalah [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/) sebelum menggunakan metode [getTextFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/#getTextFrame).
+Placeholder judul, judul‑terpusat, subjudul, badan, dan teks biasanya mendukung teks. Periksa adanya [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) sebelum menggunakan metode [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame).
 
 Contoh ini memperbarui placeholder judul pertama pada slide pertama dan menyimpan hasilnya:
-
 ```python
 import jpype
 import asposeslides
@@ -128,16 +188,15 @@ finally:
     presentation.dispose()
 ```
 
-Pola ini menghindari memperlakukan placeholder gambar, diagram, tabel, atau media sebagai [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/). Ini juga mengidentifikasi placeholder berdasarkan tujuan alih‑alih mengandalkan indeks bentuk yang rapuh.
+Pola ini menghindari memperlakukan placeholder gambar, diagram, tabel, atau media sebagai [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Ini juga mengidentifikasi placeholder berdasarkan tujuan alih‑alih mengandalkan indeks bentuk yang rapuh.
 
 ## **Menetapkan Teks Prompt pada Tata Letak**
 
-Teks prompt adalah instruksi desain‑waktu yang ditampilkan dalam placeholder kosong, seperti *Klik untuk menambah judul*. Tetapkan teks prompt khusus pada placeholder tata letak daripada mencoba mencapainya melalui koleksi bentuk slide biasa. Akses tata letak melalui [Slide.getLayoutSlide](https://reference.aspose.com/slides/id/python-java/aspose.slides/slide/#getLayoutSlide) dan iterasi koleksi yang dikembalikan oleh [BaseSlide.getShapes](https://reference.aspose.com/slides/id/python-java/aspose.slides/baseslide/#getShapes).
+Teks prompt adalah instruksi desain‑time yang ditampilkan dalam placeholder kosong, seperti *Click to add title*. Tetapkan teks prompt khusus pada placeholder tata letak daripada mencoba mengaksesnya melalui koleksi bentuk slide normal. Akses tata letak melalui [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) dan iterasi koleksi yang dikembalikan oleh [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
 Contoh berikut mengubah prompt judul dan subjudul pada tata letak yang digunakan oleh slide pertama:
-
 ```python
-import jpype
+import jpide
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -168,17 +227,16 @@ finally:
     presentation.dispose()
 ```
 
-Teks prompt bukan konten slide biasa. Itu ditujukan untuk placeholder kosong dalam aplikasi penyunting seperti PowerPoint. Setelah pengguna atau program menambahkan konten nyata, prompt tidak lagi ditampilkan. Mengubah prompt juga tidak menggantikan teks yang sudah ada pada slide yang menggunakan tata letak tersebut.
+Teks prompt bukan konten slide normal. Itu dimaksudkan untuk placeholder kosong dalam aplikasi penyuntingan seperti PowerPoint. Setelah pengguna atau program memberikan konten nyata, prompt tidak lagi ditampilkan. Mengubah prompt juga tidak menggantikan teks yang sudah ada pada slide yang menggunakan tata letak tersebut.
 
 ## **Memperbarui Placeholder Gambar**
 
 Ada dua kasus yang harus ditangani:
 
-- Jika placeholder gambar sudah terisi dan direpresentasikan oleh [PictureFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/pictureframe/), ganti gambar melalui [PictureFillFormat.getPicture](https://reference.aspose.com/slides/id/python-java/aspose.slides/picturefillformat/#getPicture) dan [Picture.setImage](https://reference.aspose.com/slides/id/python-java/aspose.slides/picture/#setImage).
-- Jika masih berupa placeholder kosong, tambahkan bingkai gambar pada koordinat placeholder dengan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/shapecollection/#addPictureFrame) dan hapus placeholder kosong tersebut.
+- Jika placeholder gambar sudah terisi dan direpresentasikan oleh sebuah [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), ganti gambar melalui [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) dan [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Jika masih merupakan placeholder kosong, tambahkan bingkai gambar pada koordinat placeholder dengan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) dan hapus placeholder kosong.
 
 Contoh berikut mendukung kedua kasus dan menyimpan presentasi:
-
 ```python
 from pathlib import Path
 
@@ -219,14 +277,13 @@ finally:
     presentation.dispose()
 ```
 
-Pengganti yang dibuat untuk placeholder kosong adalah bingkai gambar lokal, bukan placeholder baru, karena [Shape.getPlaceholder](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getPlaceholder) tidak menyediakan pengatur. Itu mempertahankan posisi yang dicadangkan tetapi tidak lagi mewarisi perilaku khusus placeholder. Jika mempertahankan hubungan placeholder penting, persiapkan dan isi placeholder di PowerPoint terlebih dahulu, lalu perbarui [PictureFrame](https://reference.aspose.com/slides/id/python-java/aspose.slides/pictureframe/) yang dihasilkan dengan Aspose.Slides.
+Penggantian yang dibuat untuk placeholder kosong adalah bingkai gambar lokal, bukan placeholder baru, karena [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) tidak menyediakan setter. Itu mempertahankan posisi yang dipesan tetapi tidak lagi mewarisi perilaku spesifik placeholder. Jika mempertahankan hubungan placeholder penting, siapkan dan isi placeholder di PowerPoint terlebih dahulu, kemudian perbarui [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) yang dihasilkan dengan Aspose.Slides.
 
-Untuk transparansi gambar, pemotongan, dan efek khusus gambar lainnya, lihat [Manage Picture Frames](/slides/id/python-java/picture-frame/). Operasi tersebut termasuk dalam bingkai gambar atau pengisian gambar, bukan metadata placeholder.
+Untuk transparansi gambar, pemotongan, dan efek khusus gambar lainnya, lihat [Kelola Bingkai Gambar](/slides/id/python-java/picture-frame/). Operasi tersebut berhubungan dengan bingkai gambar atau isi gambar, bukan dengan metadata placeholder.
 
 ## **Bekerja dengan Placeholder Diagram dan Konten**
 
-Placeholder diagram yang terisi dapat direpresentasikan oleh [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/). Contoh ini menemukan diagram tersebut dengan memeriksa baik tipe placeholder maupun tipe bentuk pada waktu berjalan, mengubah judulnya, dan menyimpan file:
-
+Placeholder diagram yang terisi dapat direpresentasikan oleh sebuah [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Contoh ini menemukan diagram tersebut berdasarkan tipe placeholder dan tipe runtime, mengubah judulnya, dan menyimpan berkas:
 ```python
 import jpype
 import asposeslides
@@ -260,10 +317,9 @@ finally:
     presentation.dispose()
 ```
 
-Placeholder konten umum biasanya memiliki [PlaceholderType.Object](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Object). Di PowerPoint ia berfungsi sebagai peluncur untuk beberapa tipe konten, termasuk diagram, tabel, diagram alur, gambar, dan media. Setelah diisi, periksa tipe bentuk sebenarnya untuk mengetahui apa yang terkandung di dalamnya. Tata letak khusus juga dapat mengekspos [PlaceholderType.Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Media), atau [PlaceholderType.Diagram](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholdertype/#Diagram).
+Placeholder konten umum biasanya memiliki [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). Di PowerPoint ia berfungsi sebagai peluncur untuk beberapa jenis konten, termasuk diagram, tabel, diagram, gambar, dan media. Setelah terisi, periksa tipe bentuk sebenarnya untuk mengetahui apa yang dikandungnya. Tata letak khusus juga dapat menampilkan [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media), atau [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides tidak mengubah placeholder [AutoShape](https://reference.aspose.com/slides/id/python-java/aspose.slides/autoshape/) yang kosong menjadi [Chart](https://reference.aspose.com/slides/id/python-java/aspose.slides/chart/) hanya dengan mengubah [Placeholder.getType](https://reference.aspose.com/slides/id/python-java/aspose.slides/placeholder/#getType); tipe tidak dapat diubah melalui API. Untuk mengisi area diagram atau konten kosong secara programatik, tambahkan objek yang diperlukan pada koordinat placeholder lalu hapus placeholder kosong. Contoh berikut melakukan hal itu untuk diagram:
-
+Aspose.Slides tidak mengonversi placeholder [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) yang kosong menjadi [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) hanya dengan mengubah [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); tipe tidak dapat diubah melalui API. Untuk mengisi area diagram atau konten kosong secara programatik, tambahkan objek yang diperlukan pada koordinat placeholder dan kemudian hapus placeholder kosong. Contoh berikut melakukannya untuk sebuah diagram:
 ```python
 import jpype
 import asposeslides
@@ -300,12 +356,11 @@ finally:
     presentation.dispose()
 ```
 
-Diagram yang ditambahkan adalah diagram lokal biasa. Ia menempati area placeholder tetapi tidak mewarisi dari placeholder tata letak. Gunakan artikel manajemen diagram khusus [chart management articles](/slides/id/python-java/powerpoint-charts/) ketika Anda perlu mengganti kategori, seri, atau data workbook‑nya.
+Diagram yang ditambahkan adalah diagram lokal biasa. Ia menempati area placeholder tetapi tidak mewarisi dari placeholder tata letak. Gunakan [artikel manajemen diagram](/slides/id/python-java/powerpoint-charts/) yang khusus ketika Anda perlu mengganti kategori, seri, atau data buku kerja diagram tersebut.
 
-## **Contoh Lengkap: Memperbarui Teks atau Konten Gambar**
+## **Contoh Lengkap: Memperbarui Konten Teks atau Gambar**
 
-Contoh end‑to‑end berikut membuka templat, mencari slide pertama untuk placeholder judul atau gambar, memeriksa tipe placeholder dan bentuk, memperbarui konten yang sesuai, dan menyimpan hasilnya. Contoh ini sengaja menghindari asumsi indeks bentuk atau memperlakukan setiap placeholder sebagai tipe yang sama.
-
+Contoh end‑to‑end berikut membuka sebuah templat, mencari slide pertama untuk placeholder judul atau gambar, memeriksa tipe placeholder dan bentuk, memperbarui konten yang sesuai, dan menyimpan output. Contoh ini sengaja menghindari asumsi indeks bentuk atau memperlakukan setiap placeholder sebagai tipe yang sama.
 ```python
 from pathlib import Path
 
@@ -359,12 +414,12 @@ finally:
 
 **Apa itu placeholder dasar?**
 
-Placeholder dasar adalah bentuk yang sesuai pada tata letak atau master dari mana placeholder lain mewarisi. Gunakan [Shape.getBasePlaceholder](https://reference.aspose.com/slides/id/python-java/aspose.slides/shape/#getBasePlaceholder) untuk mengambilnya. Bentuk lokal biasa mengembalikan `None` karena tidak termasuk dalam hierarki placeholder.
+Placeholder dasar adalah bentuk yang sesuai pada tata letak atau master yang menjadi sumber pewarisan bagi placeholder lain. Gunakan [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) untuk mengambilnya. Sebuah bentuk lokal biasa mengembalikan `None` karena tidak termasuk dalam hierarki placeholder.
 
-**Apakah saya dapat mengubah semua judul slide dengan mengedit placeholder tata letak?**
+**Bisakah saya mengubah semua judul slide dengan mengedit placeholder tata letak?**
 
-Anda dapat mengubah pemformatan atau teks prompt yang diwarisi melalui tata letak, tetapi konten judul yang ada disimpan pada slide biasa. Untuk mengganti teks judul sebenarnya di seluruh presentasi, iterasi semua slide dan perbarui masing‑masing placeholder judul.
+Anda dapat mengubah pemformatan yang diwarisi atau teks prompt melalui tata letak, tetapi konten judul yang ada disimpan pada slide normal. Untuk mengganti teks judul sebenarnya di seluruh presentasi, iterasikan slide‑slide dan perbarui setiap placeholder judul.
 
 **Bagaimana cara mengelola placeholder tanggal, nomor‑slide, header, dan footer?**
 
-Gunakan pengelola header dan footer pada tingkat slide, tata letak, master, catatan, atau handout yang sesuai. Lihat [Manage Presentation Header and Footer](/slides/id/python-java/presentation-header-and-footer/) untuk contoh lengkap.
+Gunakan manajer header dan footer pada lingkup slide, tata letak, master, catatan, atau handout yang sesuai. Lihat [Kelola Header dan Footer Presentasi](/slides/id/python-java/presentation-header-and-footer/) untuk contoh lengkap.

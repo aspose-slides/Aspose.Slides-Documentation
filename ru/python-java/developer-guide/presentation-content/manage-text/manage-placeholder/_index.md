@@ -1,51 +1,51 @@
 ---
-title: Управление заполнителями презентации в Python
-linktitle: Управление заполнителями
+title: Управление плейсхолдерами презентации в Python
+linktitle: Управление плейсхолдерами
 type: docs
 weight: 10
 url: /ru/python-java/manage-placeholder/
 keywords:
-- заполнитель
-- текстовый заполнитель
-- заполнитель изображения
-- заполнитель диаграммы
-- заполнитель содержимого
-- текст подсказки
+- плейсхолдер
+- текстовый плейсхолдер
+- плейсхолдер изображения
+- плейсхолдер диаграммы
+- плейсхолдер контента
+- подсказочный текст
 - PowerPoint
 - презентация
 - Python
 - Java
 - Aspose.Slides
-description: "Узнайте, как просматривать и изменять текстовые, графические, диаграммные и содержательные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Python через Java."
+description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и контентные плейсхолдеры, а также понять наследование плейсхолдеров с помощью Aspose.Slides для Python через Java."
 ---
 ## **Обзор**
 
-Заполнитель – это фигура, которая резервирует позицию для определенного типа содержимого в шаблоне презентации. Распространенные примеры включают заголовок, основное содержание, изображение, диаграмму и универсальные заполнители содержимого. В отличие от обычной фигуры, заполнитель может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑макета или слайда‑шаблона.
+Плейсхолдер — это фигура, резервирующая позицию для определённого типа контента в шаблоне презентации. Распространённые примеры — заголовок, основной текст, изображение, диаграмма и универсальные плейсхолдеры контента. В отличие от обычной фигуры, плейсхолдер может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑макета или слайда‑шаблона.
 
-Aspose.Slides предоставляет информацию о заполнителях через метод [Shape.getPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#getPlaceholder). Метод возвращает объект [Placeholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholder/) или `None` для обычной фигуры. Используйте [Placeholder.getType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholder/#getType), чтобы определить, какое содержимое предназначено для заполнителя.
+Aspose.Slides предоставляет информацию о плейсхолдерах через метод [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). Метод возвращает объект [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) или `None` для обычной фигуры. Используйте [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType), чтобы определить, какой тип контента предполагается в плейсхолдере.
 
-Тип фигуры все равно важен после того, как вы узнали тип заполнителя:
+Тип фигуры всё равно важен после того, как известен тип плейсхолдера:
 
-- Пустой текстовый, изображенный, диаграммный или содержательный заполнитель обычно представлен объектом [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/).
-- Заполненный заполнитель изображения может быть представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pictureframe/).
-- Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chart/).
-- Заполнитель содержимого может содержать несколько видов контента. Проверьте как [Placeholder.getType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholder/#getType), так и тип фигуры во время выполнения, вместо предположения, что каждый заполнитель является [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/).
+- Пустой текстовый, графический, диаграммный или контентный плейсхолдер обычно представляется [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Заполненный графический плейсхолдер может быть представлен [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Заполненный диаграммный плейсхолдер может быть представлен [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Контентный плейсхолдер может содержать несколько видов контента. Проверяйте одновременно [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) и тип фигуры во время выполнения, а не предполагая, что каждый плейсхолдер — это [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholder/#getType) описывает роль заполнителя; он не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к тексту, изображению, диаграмме, таблице или медиа‑специфическим членам.
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) описывает роль плейсхолдера; он не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед обращением к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
 {{% /alert %}}
 
-## **Понимание наследования заполнителей**
+## **Понимание наследования плейсхолдеров**
 
-Заполнители образуют иерархию:
+Плейсхолдеры образуют иерархию:
 
-1. Слайд‑шаблон определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня шаблона.
-2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от шаблона.
-3. Обычный слайд содержит заполнители для этого слайда и может наследовать от его макета.
+1. Слайд‑шаблон определяет переиспользуемые стили и, в некоторых случаях, плейсхолдеры уровня шаблона.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследоваться от шаблона.
+3. Обычный слайд содержит плейсхолдеры данного слайда и может наследоваться от своего макета.
 
-Вызовите [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#getBasePlaceholder), чтобы перейти на один уровень выше в этой иерархии. Заполнитель слайда обычно возвращает свой заполнитель макета; заполнитель макета может вернуть свой заполнитель шаблона. Метод возвращает `None`, когда у фигуры нет базового заполнителя.
+Вызовите [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder), чтобы перейти на один уровень выше в этой иерархии. Плейсхолдер слайда обычно возвращает свой плейсхолдер макета; плейсхолдер макета может вернуть свой плейсхолдер шаблона. Метод возвращает `None`, если у фигуры нет базового плейсхолдера.
 
-Следующий пример выводит список заполнителей на первом слайде и показывает их базовые заполнители:
+Следующий пример перечисляет плейсхолдеры на первом слайде и выводит их базовые плейсхолдеры:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование связанного макета или шаблона может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать просто потому, что занимает те же координаты.
+Редактирование плейсхолдера на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование соответствующего макета или шаблона может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычная локальная фигура не имеет базового плейсхолдера и не начинает наследоваться только потому, что занимает те же координаты.
 
-## **Изменение текста в заполнителе**
+## **Удаление статуса плейсхолдера**
 
-Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и текста обычно поддерживают текст. Проверьте, является ли фигура [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) перед тем как использовать её метод [getTextFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/#getTextFrame).
+При адаптации шаблона используйте [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder), чтобы сохранить существующий объект как обычную фигуру. Его метод [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) возвращает `None`, но фигура остаётся в коллекции слайда. В отличие от этого, [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) удаляет фигуру из этой коллекции.
 
-Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
+Следующий пример требует файл `template.pptx` с по крайней мере одним слайдом и непустым текстовым плейсхолдером на первом слайде. Используйте плейсхолдер с форматированием, унаследованным от его макета или шаблона, чтобы увидеть эффект удаления этой связи. Пример проверяет, что та же фигура остаётся, снова вызывает метод для теперь уже обычной фигуры и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Удаление статуса плейсхолдера не сохраняет автоматически унаследованные параметры отображения. В примере ниже эти параметры намеренно оставлены без изменений, поэтому результат может выглядеть иначе. Фигура, чья позиция и размер полностью унаследованы, может после вызова иметь координаты и размеры, равные нулю, и стать невидимой, хотя останется в коллекции.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Вызов метода для обычной фигуры не оказывает влияния.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Для соответствующего плейсхолдера все три проверки выводят `True`. Текст сохраняется, но унаследованные позиция, размер, поворот, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальное привязывание, параметры заливки и линий могут измениться после удаления связи. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. См. [Slide Layout](/slides/ru/python-java/slide-layout/) для подробностей о макетах.
+
+Чтобы сохранить желаемый внешний вид, зафиксируйте разрешённые позицию, размер и поворот до вызова и скопируйте необходимые эффективные значения форматирования в отдельные переменные. Получите эти значения через [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) и [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Не полагайтесь только на объекты эффективного форматирования, так как их значения могут измениться после удаления связи. Явно применяйте зафиксированные значения к обычной фигуре позже, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованную геометрию фигуры также может потребоваться задать явно через [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Для прямоугольного текстового плейсхолдера это означает присвоение [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); восстановление только заливки и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют обработки и этих параметров.
+
+## **Изменение текста в плейсхолдере**
+
+Заголовок, центрированный заголовок, подзаголовок, основной текст и текстовые плейсхолдеры обычно поддерживают текст. Проверяйте наличие [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) перед использованием его метода [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame).
+
+Этот пример обновляет первый заголовочный плейсхолдер на первом слайде и сохраняет результат:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-Этот шаблон позволяет избежать обработки заполнителей изображений, диаграмм, таблиц или медиа как [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/). Он также определяет заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
+Такой подход избегает обработки графических, диаграммных, табличных или медиа‑плейсхолдеров как [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Он также идентифицирует плейсхолдер по назначению, а не полагается на хрупкий индекс фигуры.
 
-## **Установка текста подсказки в макете**
+## **Установка подсказочного текста в макете**
 
-Текст подсказки — это инструкция, отображаемая в пустом заполнителе в режиме дизайна, например *Click to add title*. Установите пользовательский текст подсказки в заполнителе макета, а не пытайтесь получить его через коллекцию фигур обычного слайда. Доступ к макету осуществляется через [Slide.getLayoutSlide](https://reference.aspose.com/slides/ru/python-java/aspose.slides/slide/#getLayoutSlide), а затем перебирается коллекция, возвращаемая [BaseSlide.getShapes](https://reference.aspose.com/slides/ru/python-java/aspose.slides/baseslide/#getShapes).
+Подсказочный текст — это инструктивное сообщение, отображаемое в пустом плейсхолдере во время разработки, например *Click to add title*. Устанавливайте собственный подсказочный текст в плейсхолдере макета, а не пробуйте получить его через обычную коллекцию фигур слайда. Доступ к макету осуществляется через [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) и перебор коллекции, возвращаемой [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
-Следующий пример меняет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
+Следующий пример изменяет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
 
 ```python
 import jpype
@@ -168,14 +230,14 @@ finally:
     presentation.dispose()
 ```
 
-Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых заполнителей в приложениях редактирования, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка более не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих этот макет.
+Подсказочный текст — это не обычный контент слайда. Он предназначен для пустых плейсхолдеров в редакторах, таких как PowerPoint. После того как пользователь или программа вставит реальный контент, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
-## **Обновление заполнителя изображения**
+## **Обновление графического плейсхолдера**
 
-Существует два случая, которые нужно обработать:
+Есть два сценария:
 
-- Если заполнитель изображения уже заполнен и представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pictureframe/), замените изображение через [PictureFillFormat.getPicture](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picturefillformat/#getPicture) и [Picture.setImage](https://reference.aspose.com/slides/ru/python-java/aspose.slides/picture/#setImage).
-- Если он всё ещё пустой, добавьте рамку изображения в координатах заполнителя с помощью [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shapecollection/#addPictureFrame) и удалите пустой заполнитель.
+- Если графический плейсхолдер уже заполнен и представлен [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), замените изображение через [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) и [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Если это всё ещё пустой плейсхолдер, добавьте графический кадр в координаты плейсхолдера с помощью [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) и удалите пустой плейсхолдер.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-Замена, созданная для пустого заполнителя, представляет собой локальную рамку изображения, а не новый заполнитель, потому что [Shape.getPlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#getPlaceholder) не предоставляет сеттера. Она сохраняет зарезервированную позицию, но более не наследует поведение, специфичное для заполнителя. Если сохранение отношения заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, а затем обновите полученный [PictureFrame](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pictureframe/) с помощью Aspose.Slides.
+Замена, созданная для пустого плейсхолдера, — это локальный графический кадр, а не новый плейсхолдер, потому что [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) не предоставляет сеттер. Он сохраняет зарезервированную позицию, но более не наследует поведение, специфичное для плейсхолдера. Если сохранение связи плейсхолдера критично, подготовьте и заполните плейсхолдер в PowerPoint заранее, а затем обновите полученный [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) через Aspose.Slides.
 
-Для прозрачности изображения, обрезки и других эффектов, специфичных для изображений, см. [Manage Picture Frames](/slides/ru/python-java/picture-frame/). Эти операции относятся к рамке изображения или заливке изображения, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для графики, см. [Manage Picture Frames](/slides/ru/python-java/picture-frame/). Эти операции относятся к графическому кадру или заполнению изображения, а не к метаданным плейсхолдера.
 
-## **Работа с заполнителями диаграмм и содержимого**
+## **Работа с диаграммами и контентными плейсхолдерами**
 
-Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chart/). Этот пример находит такую диаграмму по типу заполнителя и типу фигуры во время выполнения, меняет её заголовок и сохраняет файл:
+Заполненный диаграммный плейсхолдер может быть представлен [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Этот пример находит такую диаграмму по типу плейсхолдера и типу фигуры во время выполнения, меняет её заголовок и сохраняет файл:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Общий заполнитель содержимого обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Object). В PowerPoint он служит запускателем для нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте фактический тип фигуры, чтобы узнать, что она содержит. Специализированные макеты также могут раскрывать типы [PlaceholderType.Chart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Media) или [PlaceholderType.Diagram](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholdertype/#Diagram).
+Общий контентный плейсхолдер обычно имеет [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). В PowerPoint он служит запускателем для нескольких типов контента, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проанализируйте фактический тип фигуры, чтобы узнать, что она содержит. Специализированные макеты могут также раскрывать [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) или [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides не преобразует пустой заполнитель [AutoShape](https://reference.aspose.com/slides/ru/python-java/aspose.slides/autoshape/) в [Chart](https://reference.aspose.com/slides/ru/python-java/aspose.slides/chart/) простым изменением [Placeholder.getType](https://reference.aspose.com/slides/ru/python-java/aspose.slides/placeholder/#getType); тип нельзя изменить через API. Чтобы программно заполнить пустую диаграмму или область содержимого, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
+Aspose.Slides не преобразует пустой [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) плейсхолдер в [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) лишь изменением [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); тип нельзя изменить через API. Чтобы программно заполнить пустую диаграмму или область контента, добавьте требуемый объект в координаты плейсхолдера, а затем удалите пустой плейсхолдер. Следующий пример делает это для диаграммы:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Добавленная диаграмма — обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от заполнителя макета. Используйте специальные статьи по управлению диаграммами [chart management articles](/slides/ru/python-java/powerpoint-charts/), когда необходимо заменить её категории, серии или данные рабочей книги.
+Добавленная диаграмма — обычная локальная диаграмма. Она занимает область плейсхолдера, но не наследует свойства от макетного плейсхолдера. Используйте специализированные [chart management articles](/slides/ru/python-java/powerpoint-charts/) при необходимости заменить категории, серии или данные книги.
 
 ## **Полный пример: обновление текста или изображения**
 
-Следующий сквозной пример открывает шаблон, ищет на первом слайде заполнитель заголовка или изображения, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример сознательно избегает предположения о индексе фигуры и обращения к каждому заполнителю как к одному типу:
+Следующий сквозной пример открывает шаблон, ищет на первом слайде либо заголовочный, либо графический плейсхолдер, проверяет типы плейсхолдера и фигуры, обновляет соответствующий контент и сохраняет результат. Пример намеренно избегает предположений о индексе фигуры или о том, что каждый плейсхолдер имеет одинаковый тип.
 
 ```python
 from pathlib import Path
@@ -357,14 +419,14 @@ finally:
 
 ## **FAQ**
 
-**Что такое базовый заполнитель?**
+**Что такое базовый плейсхолдер?**
 
-Базовый заполнитель — это соответствующая фигура на макете или шаблоне, от которой наследуется другой заполнитель. Используйте [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/python-java/aspose.slides/shape/#getBasePlaceholder), чтобы получить его. Обычная локальная фигура возвращает `None`, потому что она не является частью иерархии заполнителей.
+Базовый плейсхолдер — это соответствующая фигура на макете или шаблоне, от которой наследуется другой плейсхолдер. Используйте [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder), чтобы получить его. Обычная локальная фигура возвращает `None`, потому что она не является частью иерархии плейсхолдеров.
 
-**Могу ли я изменить все заголовки слайдов, отредактировав заполнитель макета?**
+**Могу ли я изменить все заголовки слайдов, редактируя плейсхолдер макета?**
 
-Вы можете изменить наследуемое форматирование или текст подсказки через макет, но фактическое содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовка во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
+Вы можете изменить унаследованное форматирование или подсказочный текст через макет, но существующее содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, пройдите по всем слайдам и обновите каждый заголовочный плейсхолдер.
 
-**Как управлять заполнителями даты, номера слайда, заголовка и нижнего колонтитула?**
+**Как управлять плейсхолдерами даты, номера слайда, верхнего и нижнего колонтитулов?**
 
-Используйте менеджеры заголовков и нижних колонтитулов в соответствующей области: слайд, макет, шаблон, заметки или раздаточный материал. Смотрите [Manage Presentation Header and Footer](/slides/ru/python-java/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры верхних и нижних колонтитулов в соответствующей области — слайде, макете, шаблоне, нотах или раздаточных листах. См. [Manage Presentation Header and Footer](/slides/ru/python-java/presentation-header-and-footer/) для полных примеров.

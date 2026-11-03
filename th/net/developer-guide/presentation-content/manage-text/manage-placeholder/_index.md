@@ -5,47 +5,47 @@ type: docs
 weight: 10
 url: /th/net/manage-placeholder/
 keywords:
-- ตัวแสดงตำแหน่ง
-- placeholder ข้อความ
-- placeholder รูปภาพ
-- placeholder แผนภูมิ
-- placeholder เนื้อหา
-- ข้อความเชิญ
+- ตัวแทนตำแหน่ง
+- ตัวแทนตำแหน่งข้อความ
+- ตัวแทนตำแหน่งภาพ
+- ตัวแทนตำแหน่งแผนภูมิ
+- ตัวแทนตำแหน่งเนื้อหา
+- ข้อความ Prompt
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "เรียนรู้วิธีตรวจสอบและแก้ไข placeholder ประเภทข้อความ, รูปภาพ, แผนภูมิ และเนื้อหา พร้อมทำความเข้าใจการสืบทอดของ placeholder ด้วย Aspose.Slides สำหรับ .NET."
+description: "เรียนรู้วิธีการตรวจสอบและแก้ไขตัวแทนตำแหน่งข้อความ, ภาพ, แผนภูมิและเนื้อหาและทำความเข้าใจการสืบทอดตัวแทนตำแหน่งด้วย Aspose.Slides สำหรับ .NET."
 ---
 ## **ภาพรวม**
 
-Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับประเภทเนื้อหาเฉพาะในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder สำหรับหัวเรื่อง, เนื้อหา, รูปภาพ, แผนภูมิ, และ placeholder เนื้อหาทั่วไปอื่น ๆ แตกต่างจากรูปทรงทั่วไป placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบ, และการตั้งค่าอื่น ๆ จากสไลด์เลย์เอาต์หรือสไลด์มาสเตอร์ได้
+Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับประเภทเนื้อหาเฉพาะในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ Placeholder ของหัวเรื่อง, เนื้อหา, รูปภาพ, แผนภูมิ, และ Placeholder เนื้อหาทั่วไป ไม่เหมือนรูปทรงทั่วไป Placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบและการตั้งค่าอื่น ๆ จากสไลด์เลเอาท์หรือสไลด์มาสเตอร์ได้
 
-Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านคุณสมบัติ [IShape.Placeholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/placeholder/) ซึ่งจะคืนค่าอ็อบเจ็กต์ [IPlaceholder](https://reference.aspose.com/slides/th/net/aspose.slides/iplaceholder/) หรือ `null` สำหรับรูปทรงปกติ ใช้ [IPlaceholder.Type](https://reference.aspose.com/slides/th/net/aspose.slides/iplaceholder/type/) เพื่อกำหนดว่าตัว placeholder มีวัตถุประสงค์เพื่อบรรจุอะไร
+Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านคุณสมบัติ [IShape.Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) ค่าของคุณสมบัตินี้จะคืนออบเจกต์ [IPlaceholder](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/) หรือ `null` สำหรับรูปทรงปกติ ใช้ [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/) เพื่อกำหนดว่าผู้เล่นตำแหน่งนี้ตั้งใจจะบรรจุอะไร
 
-อินเทอร์เฟซของรูปทรงยังคงสำคัญหลังจากคุณทราบประเภทของ placeholder:
+อินเทอร์เฟซรูปทรงยังคงสำคัญหลังจากคุณรู้ประเภทของ placeholder:
 
-- Placeholder ที่ว่างเปล่าสำหรับข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหาอื่น ๆ มักจะแทนด้วย [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/)  
-- Placeholder รูปภาพที่มีข้อมูลแล้วอาจแทนด้วย [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/)  
-- Placeholder แผนภูมิที่มีข้อมูลแล้วอาจแทนด้วย [IChart](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/)  
-- Placeholder เนื้อหาอาจบรรจุหลายประเภท ตรวจสอบทั้ง [IPlaceholder.Type](https://reference.aspose.com/slides/th/net/aspose.slides/iplaceholder/type/) และอินเทอร์เฟซรูปแบบระหว่างการทำงานแทนการสันนิษฐานว่า placeholder ทุกตัวเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/)
+- Placeholder ของข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหาที่ว่างเปล่ามักจะแสดงเป็น [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+- Placeholder รูปภาพที่มีเนื้อหาแล้วสามารถแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/).
+- Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแสดงเป็น [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/).
+- Placeholder เนื้อหาอาจบรรจุหลายประเภทของเนื้อหา ตรวจสอบทั้ง [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/) และอินเทอร์เฟซรูปทรงในขณะรันไทม์แทนการสันนิษฐานว่า placeholder ทุกตัวเป็น [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.Type](https://reference.aspose.com/slides/th/net/aspose.slides/iplaceholder/type/) บรรยายบทบาทของ placeholder; มันไม่ได้รับประกันประเภทของรูปทรงในเวลารันไทม์ ควรตรวจสอบประเภทก่อนเข้าถึงสมาชิกของข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่ออื่น ๆ เสมอ
+[IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/) บรรยายบทบาทของ placeholder; ไม่รับประกันประเภทของรูปทรงในขณะรันไทม์ ควรตรวจสอบประเภทเสมอก่อนเข้าถึงสมาชิกที่เกี่ยวกับข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่อ
 {{% /alert %}}
 
 ## **ทำความเข้าใจการสืบทอด Placeholder**
 
-Placeholder มีลำดับชั้นดังนี้:
+Placeholder สร้างเป็นลำดับชั้น:
 
-1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และในบางกรณีอาจมี placeholder ระดับมาสเตอร์
-2. สไลด์เลย์เอาต์กำหนดการจัดวางที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์ได้
-3. สไลด์ปกติประกอบด้วย placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลย์เอาต์ของมัน
+1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และในบางกรณี placeholder ระดับมาสเตอร์.
+2. สไลด์เลเอาท์กำหนดการจัดวางที่ใช้โดยสไลด์ปกติโดยหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์.
+3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลเอาท์ของมัน.
 
-เรียกใช้ [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/getbaseplaceholder/) เพื่อย้ายขึ้นหนึ่งระดับในลำดับชั้นนี้ สไลด์ placeholder ปกติจะคืนค่า placeholder ของเลย์เอาต์; placeholder ของเลย์เอาต์อาจคืนค่า placeholder ของมาสเตอร์ วิธีนี้จะคืนค่า `null` เมื่อรูปทรงไม่มี base placeholder
+เรียกใช้ [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/getbaseplaceholder/) เพื่อย้ายขึ้นหนึ่งระดับในลำดับชั้นนี้ Placeholder ของสไลด์โดยทั่วไปจะคืน Placeholder ของเลเอาท์; Placeholder ของเลเอาท์สามารถคืน Placeholder ของมาสเตอร์ได้ วิธีการนี้จะคืนค่า `null` เมื่อรูปทรงไม่มี base placeholder.
 
-ตัวอย่างต่อไปนี้แสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของแต่ละรายการ:
+ตัวอย่างต่อไปนี้แสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของพวกมัน:
 
 ```csharp
 using System;
@@ -81,11 +81,66 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการทับซ้อนในระดับท้องถิ่นสำหรับสไลด์นั้น การแก้ไขเลย์เออต์หรือมาสเตอร์ที่เกี่ยวข้องสามารถส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งคินั้น รูปทรงปกติที่เป็นรูปแบบท้องถิ่นไม่มี base placeholder และจะไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน
+การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการแทนที่เฉพาะท้องถิ่นสำหรับสไลด์นั้น การแก้ไขเลเอาท์หรือมาสเตอร์ที่เกี่ยวข้องสามารถส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งคินั้น รูปทรงปกติทั่วไปไม่มี base placeholder และไม่เริ่มสืบทอดเพียงเพราะว่าตำแหน่งเดียวกัน
+
+## **ลบสถานะ Placeholder**
+
+เมื่อปรับแต่งเทมเพลต, ให้ใช้ [IShape.RemovePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/removeplaceholder/) เพื่อเก็บออบเจกต์ที่มีอยู่ให้เป็นรูปทรงปกติ คุณสมบัติ [Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) จะกลายเป็น `null` แต่รูปทรงยังคงอยู่ในคอลเลกชันของสไลด์ ในทางตรงกันข้าม, [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) จะลบรูปทรงออกจากคอลเลกชันนั้น.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var slide = presentation.Slides[0];
+var found = false;
+
+for (var index = 0; index < slide.Shapes.Count; index++)
+{
+    if (slide.Shapes[index] is not IAutoShape shape || 
+        shape.Placeholder == null || 
+        string.IsNullOrEmpty(shape.TextFrame?.Text))
+    {
+        continue;
+    }
+
+    var shapeCount = slide.Shapes.Count;
+    shape.RemovePlaceholder();
+
+    Console.WriteLine($"Placeholder removed: {shape.Placeholder == null}");
+    Console.WriteLine($"Same shape retained: {ReferenceEquals(slide.Shapes[index], shape)}");
+    Console.WriteLine($"Shape count unchanged: {slide.Shapes.Count == shapeCount}");
+
+    // การเรียกเมธอดบนรูปทรงปกติจะไม่มีผล
+    shape.RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation.Save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No nonempty text placeholder was found on the first slide.");
+}
+```
+
+{{% alert color="warning" title="Warning" %}}
+การลบสถานะ placeholder ไม่ได้ทำให้การตั้งค่าลักษณะที่สืบทอดโดยอัตโนมัติยังคงอยู่ ตัวอย่างด้านล่างตั้งใจปล่อยให้การตั้งค่าเหล่านั้นไม่เปลี่ยนแปลง ดังนั้นผลลัพธ์อาจดูแตกต่าง รูปทรงที่ตำแหน่งและขนาดสืบทอดมาทั้งหมดอาจมีพิกัดและมิติเป็นศูนย์หลังจากเรียกและกลายเป็นไม่มองเห็น แม้ว่ายังคงอยู่ในคอลเลกชัน
+{{% /alert %}}
+
+สำหรับ placeholder ที่ตรงกัน การตรวจสอบทั้งสามกรณีจะแสดงผลเป็น `True` ข้อความคงอยู่ แต่ตำแหน่ง, ขนาด, การหมุน, ฟอนต์, การจัดย่อหน้า, ระยะขอบของ text‑frame, การยืดแนวตั้ง, การเติมและการตั้งค่าเส้นที่สืบทอดอาจเปลี่ยนเมื่อความสัมพันธ์ของ placeholder ถูกลบ ตัวอย่างเช่น การฟอร์แมตหัวเรื่องที่สืบทอดอาจย้อนกลับไปเป็นฟอร์แมตข้อความปกติ ดู [Slide Layout](/slides/th/net/slide-layout/) เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับเลเอาท์
+
+เพื่อรักษาลักษณะที่ต้องการ ให้บันทึกตำแหน่ง, ขนาดและการหมุนที่ได้แก้ไขก่อนเรียกเมธอด และคัดลอกค่าการฟอร์แมตที่มีผลจริงที่จำเป็นไปยังตัวแปรแยกต่างหาก ดึงค่าดังกล่าวผ่าน [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/), [IParagraphFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/geteffective/), [IFillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/geteffective/), และ [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/). อย่าพึ่งพาแค่วัตถุ effective‑format เนื่องจากค่าการฟอร์แมตข้อความอาจเปลี่ยนหลังจากความสัมพันธ์ถูกลบ นำค่าที่บันทึกไว้ไปใช้กับรูปทรงปกติโดยชัดเจนหลังจากนั้น รวมถึงตระกูลฟอนต์, ขนาด, สไตล์, สี, การตั้งค่าข้อความย่อย, การตั้งค่า text‑frame, การเติมและเส้นที่ใช้ในเทมเพลตของคุณ
+
+การกำหนดเรขาคณิตของรูปทรงที่สืบทอดอาจต้องกำหนดอย่างชัดเจนผ่าน [IGeometryShape.ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/shapetype/). สำหรับ placeholder ข้อความสี่เหลี่ยมจัตุรัส หมายถึงการกำหนด [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype/); การฟื้นฟูเพียงการเติมและเส้นอาจไม่ทำให้สี่เหลี่ยมที่มองเห็นได้กลับคืนเทมเพลตที่มีเอฟเฟกต์เพิ่มเติมหรือฟอร์แมตที่ซับซ้อนต้องจัดการการตั้งค่าเหล่านั้นด้วยเช่นกัน
 
 ## **เปลี่ยนข้อความใน Placeholder**
 
-Placeholder สำหรับหัวเรื่อง, หัวเรื่องกึ่งกลาง, ชื่อรอง, เนื้อหา, และข้อความทั่วไปมักสนับสนุนข้อความ ตรวจสอบว่ามันเป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ก่อนที่จะใช้คุณสมบัติ [TextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/textframe/)
+หัวเรื่อง, centered‑title, subtitle, body, และ placeholder ที่เป็นข้อความมักจะสนับสนุนข้อความ ตรวจสอบว่ามี [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ก่อนใช้คุณสมบัติ [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) ของมัน
 
 ตัวอย่างนี้อัปเดต placeholder ของหัวเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
 
@@ -122,13 +177,13 @@ titleShape.TextFrame.Text = "Quarterly Business Review";
 presentation.Save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-รูปแบบนี้หลีกเลี่ยงการแคสต์ placeholder ของรูปภาพ, แผนภูมิ, ตาราง หรือสื่อให้เป็น [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) อีกทั้งยังระบุ placeholder ตามจุดประสงค์แทนการพึ่งพาดัชนีรูปทรงที่เปราะบาง
+รูปแบบนี้หลีกเลี่ยงการแคสต์ placeholder ของรูปภาพ, แผนภูมิ, ตาราง หรือสื่อให้เป็น [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) อีกทั้งยังระบุ placeholder ตามวัตถุประสงค์แทนการพึ่งพาดัชนีรูปทรงที่เปราะบาง
 
-## **ตั้งข้อความแจ้งเตือนบนเลย์เอาต์**
+## **ตั้งข้อความ Prompt บนเลเอาท์**
 
-ข้อความแจ้งเตือน (prompt text) คือคำแนะนำที่แสดงใน placeholder ที่ว่างเปล่า เช่น *คลิกเพื่อเพิ่มหัวเรื่อง* ควรตั้งข้อความแจ้งเตือนแบบกำหนดเองบน placeholder ของเลย์เอาต์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลย์เอาต์ผ่าน [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/) แล้ววนลูปผ่าน [ILayoutSlide.Shapes](https://reference.aspose.com/slides/th/net/aspose.slides/ibaseslide/shapes/)
+Prompt text คือคำแนะนำในช่วงการออกแบบที่แสดงใน placeholder ว่างเปล่า เช่น *Click to add title* ตั้งข้อความ Prompt ที่กำหนดเองบน placeholder ของเลเอาท์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลเอาท์ผ่าน [ISlide.LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/islide/layoutslide/) และวนลูปผ่าน [ILayoutSlide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/shapes/)
 
-ตัวอย่างต่อไปนี้เปลี่ยนข้อความแจ้งเตือนของหัวเรื่องและชื่อรองบนเลย์เอาต์ที่ใช้โดยสไลด์แรก:
+ตัวอย่างต่อไปนี้เปลี่ยน Prompt ของหัวเรื่องและ subtitle บนเลเอาท์ที่ใช้โดยสไลด์แรก:
 
 ```csharp
 using System;
@@ -160,16 +215,16 @@ foreach (var shape in layoutSlide.Shapes)
 presentation.Save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
 ```
 
-ข้อความแจ้งเตือนไม่ใช่เนื้อหาของสไลด์ปกติ มันออกแบบมาสำหรับ placeholder ที่ว่างเปล่าในแอปพลิเคชันการแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริงแล้วข้อความแจ้งเตือนจะหายไป การเปลี่ยนข้อความแจ้งเตือนยังไม่ทำให้ข้อความเดิมบนสไลด์ที่ใช้เลย์เออต์นั้นถูกแทนที่
+Prompt text ไม่ได้เป็นเนื้อหาของสไลด์ปกติ มันตั้งใจให้กับ placeholder ว่างเปล่าในโปรแกรมแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริง Prompt จะไม่แสดงอีกต่อไป การเปลี่ยน Prompt ก็ไม่ทำให้ข้อความที่มีอยู่บนสไลด์ที่ใช้เลเอาท์นั้นถูกแทนที่
 
-## **อัปเดต Placeholder รูปภาพ**
+## **อัปเดต Picture Placeholder**
 
-มีสองกรณีให้จัดการ:
+มีสองกรณีที่ต้องจัดการ:
 
-- หาก placeholder รูปภาพถูกเติมแล้วและแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) ให้แทนที่ภาพผ่าน [IPictureFillFormat.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/ipicturefillformat/picture/) และ [ISlidesPicture.Image](https://reference.aspose.com/slides/th/net/aspose.slides/islidespicture/image/)
-- หากยังเป็น placeholder ว่างเปล่า ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/addpictureframe/) แล้วลบ placeholder ที่ว่างออก
+- หาก picture placeholder มีเนื้อหาแล้วและแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), ให้แทนที่ภาพผ่าน [IPictureFillFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picture/) และ [ISlidesPicture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/).
+- หากยังเป็น placeholder ว่าง, ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) แล้วลบ placeholder ว่างออก
 
-ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกการนำเสนอ:
+ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกงานนำเสนอ:
 
 ```csharp
 using System;
@@ -211,13 +266,13 @@ else
 presentation.Save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-การแทนที่ที่สร้างสำหรับ placeholder ที่ว่างเปล่าเป็น picture frame ท้องถิ่น ไม่ได้เป็น placeholder ใหม่ เนื่องจาก [IShape.Placeholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/placeholder/) เป็นแบบอ่านอย่างเดียว มันรักษาตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder หากต้องการรักษาความสัมพันธ์กับ placeholder อย่างสำคัญ ให้เตรียมและเติม placeholder ใน PowerPoint ก่อน แล้วจึงอัปเดต [IPictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides
+การแทนที่ที่สร้างสำหรับ placeholder ว่างเป็น picture frame ภายในท้องถิ่น ไม่ใช่ placeholder ใหม่ เนื่องจาก [IShape.Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) เป็นแบบอ่าน‑อย่างเดียว มันเก็บตำแหน่งที่สงวนไว้ไว้ แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder หากการรักษาความสัมพันธ์ของ placeholder มีความสำคัญให้เตรียมและเติม placeholder ใน PowerPoint ก่อน แล้วจึงอัปเดต [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides
 
-สำหรับการปรับความโปร่งใสของภาพ, การครอป, และเอฟเฟ็กต์อื่น ๆ ของรูปภาพ ดูบทความ [Manage Picture Frames](/slides/th/net/picture-frame/) การดำเนินการเหล่านี้เป็นของ picture frame หรือ picture fill ไม่ใช่ของเมทาดาต้า placeholder
+สำหรับความโปร่งใสของภาพ, การครอปและเอฟเฟกต์เฉพาะของรูปภาพอื่น ๆ ดูที่ [Manage Picture Frames](/slides/th/net/picture-frame/). การดำเนินการเหล่านั้นเป็นของ picture frame หรือ picture fill ไม่ใช่เมทาดาต้า placeholder
 
-## **ทำงานกับ Placeholder ของแผนภูมิและเนื้อหา**
+## **ทำงานกับ Chart และ Content Placeholder**
 
-Placeholder ของแผนภูมิที่ถูกเติมแล้วสามารถแสดงเป็น [IChart](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/) ตัวอย่างนี้ค้นหาแผนภูมิที่ตรงตามประเภท placeholder และอินเทอร์เฟซระหว่างการทำงาน, เปลี่ยนหัวเรื่อง, แล้วบันทึกไฟล์:
+Placeholder ของแผนภูมิที่มีเนื้อหาแล้วสามารถแสดงเป็น [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/). ตัวอย่างนี้ค้นหาแผนภูมินั้นโดยอ้างอิงทั้งประเภท placeholder และอินเทอร์เฟซรันไทม์, เปลี่ยนชื่อแผนภูมิและบันทึกไฟล์:
 
 ```csharp
 using System;
@@ -248,9 +303,9 @@ placeholderChart.ChartTitle.AddTextFrameForOverriding("Quarterly Revenue");
 presentation.Save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-Placeholder เนื้อหาทั่วไปมักมี [PlaceholderType.Object](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/) ใน PowerPoint จะทำหน้าที่เป็นตัวเริ่มสำหรับหลายประเภทเนื้อหา เช่น แผนภูมิ, ตาราง, ไดอะแกรม, รูปภาพ, และสื่อ หลังจากถูกเติมแล้วให้ตรวจสอบอินเทอร์เฟซรูปทรงจริงเพื่อทราบว่ามีอะไรบ้าง เลย์เอาต์เฉพาะยังอาจเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/th/net/aspose.slides/placeholdertype/)
+Content placeholder ทั่วไปมักมี [PlaceholderType.Object](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/). ใน PowerPoint มันทำหน้าที่เป็นตัวเปิดสำหรับหลายประเภทของเนื้อหา รวมถึงแผนภูมิ, ตาราง, แผนผัง, รูปภาพและสื่อ หลังจากที่ถูกเติมแล้ว ให้ตรวจสอบอินเทอร์เฟซรูปทรงจริงเพื่อดูว่ามันบรรจุอะไรไว้เลเอาท์พิเศษบางอย่างอาจเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/).
 
-Aspose.Slides ไม่ได้แปลง placeholder ของ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/) ที่ว่างเปล่าให้เป็น [IChart](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichart/) เพียงแค่เปลี่ยน [IPlaceholder.Type](https://reference.aspose.com/slides/th/net/aspose.slides/iplaceholder/type/) ; ประเภทเป็นแบบอ่านอย่างเดียว เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาที่ว่างเปล่าโดยโปรแกรมmatically ให้เพิ่มอ็อบเจ็กต์ที่พิกัดของ placeholder แล้วลบ placeholder ที่ว่างออก ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
+Aspose.Slides ไม่ได้แปลง placeholder ของ [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) ที่ว่างเป็น [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) เพียงโดยการเปลี่ยน [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/); ประเภทนั้นเป็นแบบอ่าน‑อย่างเดียว เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาที่ว่างโดยโปรแกรมให้เพิ่มออบเจกต์ที่ต้องการที่พิกัดของ placeholder แล้วลบ placeholder ว่างออก ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
 
 ```csharp
 using System;
@@ -283,11 +338,11 @@ slide.Shapes.Remove(targetPlaceholder);
 presentation.Save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
 ```
 
-แผนภูมิที่เพิ่มเข้ามาเป็นแผนภูมิท้องถิ่นทั่วไป มันใช้พื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลย์เอาต์ ใช้บทความการจัดการแผนภูมิที่เฉพาะเจาะจง [/slides/th/net/powerpoint-charts/] เมื่อคุณต้องการแทนที่ประเภท, ชุดข้อมูล, หรือข้อมูลเวิร์กบุ๊คของแผนภูมิ
+แผนภูมิที่เพิ่มขึ้นเป็นแผนภูมิท้องถิ่นทั่วไป มันครอบคลุมพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลเอาท์ ใช้บทความการจัดการแผนภูมิที่อุทิศเฉพาะ [chart management articles](/slides/th/net/powerpoint-charts/) เมื่อคุณต้องการแทนที่หมวดหมู่, ชุดข้อมูลหรือข้อมูลเวิร์กบุ๊กของมัน
 
-## **ตัวอย่างสมบูรณ์: อัปเดตข้อความหรือเนื้อหารูปภาพ**
+## **ตัวอย่างเต็ม: อัปเดตข้อความหรือภาพเนื้อหา**
 
-ตัวอย่างต่อไปนี้เป็นการทำงานแบบครบวงจร เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ของหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสม, และบันทึกผลลัพธ์ ตัวอย่างนี้หลีกเลี่ยงการสันนิษฐานว่าดัชนีรูปทรงหรือการแคสต์ทุก placeholder เป็นอินเทอร์เฟซเดียวกัน:
+ตัวอย่าง end‑to‑end นี้เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ของหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภท placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสมและบันทึกผลลัพธ์ ตัวอย่างตั้งใจหลีกเลี่ยงการสันนิษฐานดัชนีรูปทรงหรือการแคสต์ placeholder ทุกตัวเป็นอินเทอร์เฟซเดียวกัน:
 
 ```csharp
 using System;
@@ -345,14 +400,14 @@ presentation.Save("placeholder-content-updated.pptx", SaveFormat.Pptx);
 
 ## **คำถามที่พบบ่อย**
 
-**Placeholder ฐานคืออะไร?**
+**อะไรคือ base placeholder?**
 
-Placeholder ฐานคือรูปทรงที่สอดคล้องบนเลย์เอ็ตหรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดมาจากนั้น ใช้ [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/getbaseplaceholder/) เพื่อดึงค่า รูปทรงท้องถิ่นทั่วไปจะคืนค่า `null` เนื่องจากไม่ได้เป็นส่วนหนึ่งของลำดับชั้น placeholder
+Base placeholder คือรูปทรงที่ตรงกันบนเลเอาท์หรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดมาจาก ใช้ [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/getbaseplaceholder/) เพื่อดึงมัน รูปทรงท้องถิ่นทั่วไปจะคืน `null` เพราะไม่ได้เป็นส่วนหนึ่งของลำดับชั้น placeholder
 
-**ฉันสามารถเปลี่ยนหัวเรื่องทั้งหมดของสไลด์โดยแก้ไข placeholder ของเลย์เออต์ได้หรือไม่?**
+**ฉันสามารถเปลี่ยนหัวเรื่องสไลด์ทั้งหมดโดยการแก้ไข layout placeholder ได้หรือไม่?**
 
-คุณสามารถเปลี่ยนการจัดรูปแบบหรือข้อความแจ้งเตือนที่สืบทอดผ่านเลย์เอ็ตได้ แต่เนื้อหาหัวเรื่องที่มีอยู่จริงถูกจัดเก็บบนสไลด์ปกติ หากต้องการแทนที่ข้อความหัวเรื่องจริงทั่วทั้งงานนำเสนอ ต้องวนลูปผ่านสไลด์และอัปเดตแต่ละ placeholder ของหัวเรื่อง
+คุณสามารถเปลี่ยนการฟอร์แมตที่สืบทอดหรือข้อความ Prompt ผ่านเลเอาท์ได้ แต่เนื้อหาหัวเรื่องที่มีอยู่ถูกเก็บไว้บนสไลด์ปกติ เพื่อแทนที่ข้อความหัวเรื่องจริง ๆ ทั่วทั้งงานนำเสนอ ให้วนลูปผ่านสไลด์และอัปเดตแต่ละ placeholder ของหัวเรื่อง
 
-**ฉันจะจัดการ placeholder ของวันที่, เลขสไลด์, ส่วนหัว, และส่วนท้ายอย่างไร?**
+**ฉันจะจัดการ placeholder ของวันที่, หมายเลขสไลด์, ส่วนหัวและส่วนท้ายอย่างไร?**
 
-ใช้ตัวจัดการส่วนหัวและส่วนท้ายในระดับสไลด์, เลย์เอ็ต, มาสเตอร์, โน้ต, หรือสไลด์แจกจ่าย ตามที่ระบุในบทความ [Manage Presentation Header and Footer](/slides/th/net/presentation-header-and-footer/) สำหรับตัวอย่างครบถ้วน
+ใช้ตัวจัดการส่วนหัวและส่วนท้ายในสโคปของสไลด์, เลเอาท์, มาสเตอร์, โน้ตหรือแฮนด์เอาต์ที่เหมาะสม ดูที่ [Manage Presentation Header and Footer](/slides/th/net/presentation-header-and-footer/) สำหรับตัวอย่างครบถ้วน.

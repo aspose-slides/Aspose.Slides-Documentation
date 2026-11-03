@@ -5,47 +5,47 @@ type: docs
 weight: 10
 url: /pl/nodejs-java/manage-placeholder/
 keywords:
-- placeholder
+- symbol zastępczy
 - placeholder tekstowy
 - placeholder obrazu
 - placeholder wykresu
-- placeholder zawartości
+- placeholder treści
 - tekst podpowiedzi
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstu, obrazu, wykresu i zawartości oraz zrozumieć dziedziczenie placeholderów przy użyciu Aspose.Slides dla Node.js w Javie."
+description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstowe, obrazowe, wykresów i treści oraz zrozumieć dziedziczenie placeholderów przy użyciu Aspose.Slides dla Node.js przez Java."
 ---
 ## **Przegląd**
 
-Placeholder to kształt, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowe przykłady to placeholdery tytułu, treści, obrazu, wykresu oraz ogólnego przeznaczenia. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu głównego.
+Placeholder jest kształtem, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowymi przykładami są placeholdery tytułu, treści, obrazu, wykresu oraz ogólnego przeznaczenia. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu master.
 
-Aspose.Slides udostępnia informacje o placeholderze poprzez metodę [Shape.getPlaceholder](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getPlaceholder). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholder/) lub `null` dla zwykłego kształtu. Użyj [Placeholder.getType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholder/#getType), aby określić, co placeholder ma zawierać.
+Aspose.Slides udostępnia informacje o placeholderach poprzez metodę [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/) lub `null` dla zwykłego kształtu. Użyj [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), aby określić, co placeholder ma zawierać.
 
 Klasa kształtu nadal ma znaczenie po poznaniu typu placeholdera:
 
-- Pusty placeholder tekstu, obrazu, wykresu lub zawartości jest zwykle reprezentowany przez [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/).
-- Wypełniony placeholder obrazu może być reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/).
-- Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/).
-- Placeholder zawartości może zawierać kilka rodzajów treści. Sprawdź zarówno [Placeholder.getType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholder/#getType), jak i klasę kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/).
+- Pusty placeholder tekstowy, obrazu, wykresu lub treści jest zwykle reprezentowany przez [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+- Wypełniony placeholder obrazu może być reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
+- Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/).
+- Placeholder treści może zawierać różne rodzaje treści. Sprawdź zarówno [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), jak i klasę kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholder/#getType) opisuje rolę placeholdera; nie gwarantuje on rzeczywistego typu kształtu w czasie wykonania. Zawsze używaj sprawdzania typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub mediów.
+[Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) opisuje rolę placeholdera; nie gwarantuje on typu kształtu w czasie wykonywania. Zawsze sprawdzaj typ przed dostępem do tekstu, obrazu, wykresu, tabeli lub elementów specyficznych dla mediów.
 {{% /alert %}}
 
 ## **Zrozumienie dziedziczenia placeholderów**
 
 Placeholdery tworzą hierarchię:
 
-1. Slajd główny definiuje wielokrotnie używalne style i, w niektórych przypadkach, placeholdery na poziomie master.
+1. Slajd master definiuje style wielokrotnego użytku i, w niektórych przypadkach, placeholdery poziomu master.
 2. Slajd układu definiuje rozmieszczenie używane przez jeden lub więcej zwykłych slajdów i może dziedziczyć z mastera.
 3. Zwykły slajd zawiera placeholdery dla tego slajdu i może dziedziczyć z jego układu.
 
-Wywołaj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getBasePlaceholder), aby przesunąć się o jeden poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca placeholder układu; placeholder układu może zwrócić placeholder mastera. Metoda zwraca `null`, gdy kształt nie ma bazowego placeholdera.
+Wywołaj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder), aby przejść jeden poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca placeholder układu; placeholder układu może zwrócić placeholder master. Metoda zwraca `null`, gdy kształt nie ma bazowego placeholdera.
 
-Poniższy przykład wymienia placeholdery na pierwszym slajdzie i raportuje ich bazowe placeholdery:
+Poniższy przykład wypisuje placeholdery na pierwszym slajdzie i raportuje ich bazowe placeholdery:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -106,11 +106,77 @@ try {
 }
 ```
 
-Edycja placeholdera na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub mastera może mieć wpływ na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma bazowego placeholdera i nie zaczyna dziedziczyć jedynie dlatego, że zajmuje te same współrzędne.
+Edytowanie placeholdera na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edytowanie powiązanego układu lub mastera może wpływać na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma bazowego placeholdera i nie zaczyna dziedziczyć jedynie dlatego, że zajmuje te same współrzędne.
 
-## **Zmiana tekstu w placeholderze**
+## **Usunięcie statusu placeholdera**
 
-Placeholdery tytułu, tytułu wyśrodkowanego, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy jest to [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/#getTextFrame).
+Podczas dostosowywania szablonu użyj [Shape.removePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#removePlaceholder), aby zachować istniejący obiekt jako zwykły kształt. Jego metoda [getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) zwraca `null`, ale kształt pozostaje w kolekcji slajdu. Natomiast [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#remove) usuwa kształt z tej kolekcji.
+
+Poniższy przykład wymaga pliku `template.pptx` zawierającego co najmniej jeden slajd oraz niepusty placeholder tekstowy na pierwszym slajdzie. Użyj placeholdera, którego formatowanie jest dziedziczone z układu lub mastera, aby zobaczyć efekt usunięcia tego powiązania. Przykład sprawdza, że ten sam kształt pozostaje, ponownie wywołuje metodę na teraz zwykłym kształcie i zapisuje wynik.
+
+{{% alert color="warning" title="Warning" %}}
+Usunięcie statusu placeholdera nie zachowuje automatycznie dziedziczonych ustawień wyglądu. Poniższy przykład celowo pozostawia te ustawienia niezmienione, więc wynik może wyglądać inaczej. Kształt, którego pozycja i rozmiar są w pełni dziedziczone, może po wywołaniu mieć współrzędne i wymiary równe zero i stać się niewidoczny, mimo że pozostaje w kolekcji.
+{{% /alert %}}
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+    let found = false;
+
+    for (let index = 0; index < shapes.size(); index++) {
+        const shape = shapes.get_Item(index);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || textFrame == null) {
+            continue;
+        }
+
+        const text = textFrame.getText();
+        if (text == null || text.length === 0) {
+            continue;
+        }
+
+        const shapeCount = shapes.size();
+        shape.removePlaceholder();
+
+        console.log("Placeholder removed: " + (shape.getPlaceholder() == null));
+        const retainedShape = shapes.get_Item(index);
+        console.log("Same shape retained: " + shape.equals(retainedShape));
+        console.log("Shape count unchanged: " + (shapes.size() === shapeCount));
+
+        // Wywołanie metody na zwykłym kształcie nie ma efektu.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Dla pasującego placeholdera wszystkie trzy sprawdzenia zwracają `true`. Tekst pozostaje, ale dziedziczone pozycja, rozmiar, obrót, czcionka, wyrównanie akapitu, marginesy ramki tekstowej, kotwiczenie pionowe, wypełnienie i ustawienia linii mogą się zmienić po usunięciu powiązania placeholdera. Na przykład dziedziczone formatowanie tytułu może powrócić do zwykłego formatowania tekstu. Zobacz [Slide Layout](/slides/pl/nodejs-java/slide-layout/) po więcej informacji o układach.
+
+Aby zachować zamierzony wygląd, przed wywołaniem przechwyć rozwiązaną pozycję, rozmiar i obrót oraz skopiuj wymagane wartości formatowania efektywnego do oddzielnych zmiennych. Pobierz te wartości przez [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getEffective) i [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective). Nie polegaj wyłącznie na obiektach formatów efektywnych, ponieważ ich wartości formatowania tekstu mogą ulec zmianie po usunięciu powiązania. Następnie wyraźnie zastosuj przechwycone wartości do zwykłego kształtu, w tym rodzinę czcionki, rozmiar, styl, kolor, ustawienia akapitu, ustawienia ramki tekstowej, wypełnienie i linię używaną w szablonie.
+
+Dziedziczona geometria kształtu może również wymagać jawnego przypisania poprzez [GeometryShape.setShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setShapeType). Dla prostokątnego placeholdera tekstowego oznacza to przypisanie [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/#Rectangle); przywrócenie jedynie wypełnienia i linii może nie odtworzyć widzialnego prostokąta. Szablony z dodatkowymi efektami lub bardziej złożonym formatowaniem wymagają również obsługi tych ustawień.
+
+## **Zmienianie tekstu w placeholderze**
+
+Placeholdery tytułu, wyśrodkowanego tytułu, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy kształt jest [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
 Ten przykład aktualizuje pierwszy placeholder tytułu na pierwszym slajdzie i zapisuje wynik:
 
@@ -154,11 +220,11 @@ try {
 }
 ```
 
-Ten wzorzec unika traktowania placeholderów obrazu, wykresu, tabeli lub mediów jako obiektów [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/). Identyfikuje również placeholder według przeznaczenia, zamiast polegać na kruchym indeksie kształtu.
+Ten wzorzec unika traktowania placeholderów obrazu, wykresu, tabeli lub mediów jako obiektów [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/). Identyfikuje także placeholder według przeznaczenia, zamiast polegać na kruchym indeksie kształtu.
 
-## **Ustawianie tekstu podpowiedzi w układzie**
+## **Ustawienie tekstu podpowiedzi w układzie**
 
-Tekst podpowiedzi to instrukcja wyświetlana w pustym placeholderze w czasie projektowania, np. *Kliknij, aby dodać tytuł*. Ustaw własny tekst podpowiedzi na placeholderze układu, zamiast próbować dotrzeć do niego przez kolekcję kształtów zwykłego slajdu. Uzyskaj dostęp do układu za pomocą [Slide.getLayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getLayoutSlide) i iteruj po kolekcji zwróconej przez [BaseSlide.getShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseslide/#getShapes).
+Tekst podpowiedzi to instrukcja wyświetlana w pustym placeholderze w czasie projektowania, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi na placeholderze układu, zamiast próbować dotrzeć do niego przez kolekcję kształtów zwykłego slajdu. Uzyskaj dostęp do układu poprzez [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getLayoutSlide) i iteruj po kolekcji zwróconej przez [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes).
 
 Poniższy przykład zmienia podpowiedzi tytułu i podtytułu w układzie używanym przez pierwszy slajd:
 
@@ -199,14 +265,14 @@ try {
 }
 ```
 
-Tekst podpowiedzi nie jest zwykłą treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edytorskich, takich jak PowerPoint. Gdy użytkownik lub program dostarczy rzeczywistą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach korzystających z tego układu.
+Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edytujących, takich jak PowerPoint. Gdy użytkownik lub program wprowadzi rzeczywistą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach korzystających z tego układu.
 
 ## **Aktualizacja placeholdera obrazu**
 
 Istnieją dwa przypadki do obsłużenia:
 
-- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/), zamień obraz poprzez [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#getPicture) oraz [Picture.setImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picture/#setImage).
-- Jeśli nadal jest to pusty placeholder, dodaj ramkę obrazu w współrzędnych placeholdera za pomocą [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) i usuń pusty placeholder.
+- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), zamień obraz przy użyciu [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#getPicture) oraz [Picture.setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage).
+- Jeśli nadal jest pustym placeholderem, dodaj ramkę obrazu w współrzędnych placeholdera przy użyciu [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) i usuń pusty placeholder.
 
 Następny przykład obsługuje oba przypadki i zapisuje prezentację:
 
@@ -262,13 +328,13 @@ try {
 }
 ```
 
-Zastąpienie utworzone dla pustego placeholdera jest lokalną ramką obrazu, a nie nowym placeholderem, ponieważ [Shape.getPlaceholder](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getPlaceholder) nie udostępnia settera. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli zachowanie relacji placeholdera jest istotne, przygotuj i wypełnij placeholder w PowerPoint najpierw, a potem zaktualizuj wynikową [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
+Zastępstwo utworzone dla pustego placeholdera jest lokalną ramką obrazu, nie nowym placeholderem, ponieważ [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) nie udostępnia settera. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli zachowanie powiązania placeholdera jest kluczowe, przygotuj i wypełnij placeholder w PowerPoint, a następnie zaktualizuj powstały [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
 
-Aby uzyskać przezroczystość obrazu, przycinanie i inne efekty specyficzne dla obrazu, zobacz [Manage Picture Frames](/slides/pl/nodejs-java/picture-frame/). Te operacje należą do ramki obrazu lub wypełnienia obrazu, a nie do metadanych placeholdera.
+W sprawie przezroczystości obrazu, przycinania i innych efektów specyficznych dla obrazu, zobacz [Manage Picture Frames](/slides/pl/nodejs-java/picture-frame/). Operacje te dotyczą ramki obrazu lub wypełnienia obrazu, a nie metadanych placeholdera.
 
-## **Praca z placeholderami wykresów i zawartości**
+## **Praca z placeholderami wykresów i treści**
 
-Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i klasie wykonawczej, zmienia jego tytuł i zapisuje plik:
+Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i klasie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,9 +372,9 @@ try {
 }
 ```
 
-Ogólny placeholder zawartości zazwyczaj ma [PlaceholderType.Object](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Object). W PowerPoint działa jako uruchamiacz dla kilku typów zawartości, w tym wykresów, tabel, diagramów, obrazów i mediów. Po jego wypełnieniu należy sprawdzić rzeczywistą klasę kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą również udostępniać [PlaceholderType.Chart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Media) lub [PlaceholderType.Diagram](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholdertype/#Diagram).
+Ogólny placeholder treści zwykle ma typ [PlaceholderType.Object](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Object). W PowerPoint działa jako uruchamiacz dla różnych typów treści, w tym wykresów, tabel, diagramów, obrazów i mediów. Po wypełnieniu, sprawdź rzeczywistą klasę kształtu, aby dowiedzieć się, co zawiera. Specjalne układy mogą również udostępniać [PlaceholderType.Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Media) lub [PlaceholderType.Diagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides nie konwertuje pustego placeholdera [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) w [Chart](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chart/) jedynie przez zmianę [Placeholder.getType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/placeholder/#getType); typ nie może być zmieniony przez obiekt. Aby programowo wypełnić pusty obszar wykresu lub zawartości, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
+Aspose.Slides nie konwertuje pustego placeholdera [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) na [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) jedynie poprzez zmianę [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType); typ nie może być zmieniony przez obiekt. Aby wypełnić pusty wykres lub obszar treści programowo, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -357,11 +423,11 @@ try {
 }
 ```
 
-Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Korzystaj z dedykowanych [artykułów o zarządzaniu wykresami](/slides/pl/nodejs-java/powerpoint-charts/), gdy potrzebujesz zamienić kategorie, serie lub dane skoroszytu.
+Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Korzystaj z dedykowanych [chart management articles](/slides/pl/nodejs-java/powerpoint-charts/) gdy potrzebujesz zamienić kategorie, serie lub dane z skoroszytu.
 
-## **Pełny przykład: aktualizacja tekstu lub obrazu**
+## **Pełny przykład: aktualizacja treści tekstowej lub obrazowej**
 
-Poniższy przykład końcowy otwiera szablon, przeszukuje pierwszy slajd w poszukiwaniu placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub traktowania każdego placeholdera jako tego samego typu.
+Poniższy przykład end‑to‑end otwiera szablon, przeszukuje pierwszy slajd w poszukiwaniu placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub traktowania każdego placeholdera jako tego samego typu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -428,16 +494,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Najczęściej zadawane pytania**
 
-**Co to jest bazowy placeholder?**
+**Czym jest podstawowy placeholder?**
 
-Bazowy placeholder to odpowiedni kształt na układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/#getBasePlaceholder), aby go pobrać. Zwykły lokalny kształt zwróci `null`, ponieważ nie jest częścią hierarchii placeholderów.
+Podstawowy placeholder to odpowiadający mu kształt w układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder), aby go pobrać. Zwykły lokalny kształt zwraca `null`, ponieważ nie jest częścią hierarchii placeholderów.
 
-**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder układu?**
+**Czy mogę zmienić wszystkie tytuły slajdów poprzez edycję placeholdera w układzie?**
 
-Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułów jest przechowywana na zwykłych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, przeiteruj slajdy i zaktualizuj każdy placeholder tytułu.
+Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułów jest przechowywana na normalnych slajdach. Aby zastąpić faktyczny tekst tytułu w całej prezentacji, iteruj po slajdach i aktualizuj każdy placeholder tytułu.
 
 **Jak zarządzać placeholderami daty, numeru slajdu, nagłówka i stopki?**
 
-Użyj menedżerów nagłówka i stopki w odpowiednim zakresie: slajd, układ, master, notatki lub materiały rozdawnicze. Zobacz [Manage Presentation Header and Footer](/slides/pl/nodejs-java/presentation-header-and-footer/) po pełne przykłady.
+Użyj menedżerów nagłówka i stopki w odpowiednim zakresie: slajdu, układu, mastera, notatek lub wersji drukowanej. Zobacz [Manage Presentation Header and Footer](/slides/pl/nodejs-java/presentation-header-and-footer/) po pełne przykłady.

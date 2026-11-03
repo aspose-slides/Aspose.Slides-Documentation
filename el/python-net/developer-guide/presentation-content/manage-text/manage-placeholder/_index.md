@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση Συμβόλων Κράτησης Παρουσίασης σε Python
-linktitle: Διαχείριση Συμβόλων Κράτησης
+title: Διαχείριση Συμπληρωματών Παρουσίασης σε Python
+linktitle: Διαχείριση Συμπληρωματών
 type: docs
 weight: 10
 url: /el/python-net/manage-placeholder/
@@ -15,36 +15,36 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς να επιθεωρείτε και να επεξεργάζεστε σύμβολα κράτησης κειμένου, εικόνας, διαγράμματος και περιεχομένου και να κατανοήσετε την κληρονομικότητα των συμβόλων κράτησης με το Aspose.Slides για Python μέσω .NET."
+description: "Μάθετε πώς να εξετάζετε και να επεξεργάζεστε τα σύμβολα κράτησης κειμένου, εικόνας, διαγράμματος και περιεχομένου και να κατανοείτε την κληρονομικότητα των placeholder με το Aspose.Slides για Python μέσω .NET."
 ---
 ## **Επισκόπηση**
 
-Ένα placeholder είναι ένα σχήμα που διατηρεί θέση για ένα συγκεκριμένο είδος περιεχομένου σε ένα πρότυπο παρουσίασης. Κοινά παραδείγματα είναι placeholders τίτλου, σώματος, εικόνας, διαγράμματος και γενικού σκοπού. Σε αντίθεση με ένα κανονικό σχήμα, ένα placeholder μπορεί να κληρονομήσει τη θέση, το μέγεθος, τη μορφοποίηση και άλλες ρυθμίσεις από μια διαφάνεια διάταξης ή από μια κύρια διαφάνεια.
+Ένα placeholder είναι ένα σχήμα που κρατά μια θέση για ένα συγκεκριμένο είδος περιεχομένου σε ένα πρότυπο παρουσίασης. Συνηθισμένα παραδείγματα είναι οι placeholders τίτλου, κειμένου, εικόνας, διαγράμματος και γενικού σκοπού. Σε αντίθεση με ένα συνηθισμένο σχήμα, ένα placeholder μπορεί να κληρονομήσει τη θέση, το μέγεθος, τη μορφοποίηση και άλλες ρυθμίσεις του από μια διαφάνεια διάταξης ή κύρια διαφάνεια.
 
-Aspose.Slides εκθέτει τις πληροφορίες του placeholder μέσω της ιδιότητας [Shape.placeholder](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/placeholder/). Η ιδιότητα επιστρέφει ένα αντικείμενο [Placeholder](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholder/) ή `None` για ένα κανονικό σχήμα. Χρησιμοποιήστε το [Placeholder.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholder/type/) για να προσδιορίσετε τι προορίζεται να περιέχει το placeholder.
+Το Aspose.Slides εκθέτει πληροφορίες placeholder μέσω της ιδιότητας [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). Η ιδιότητα επιστρέφει ένα αντικείμενο [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) ή `None` για ένα κανονικό σχήμα. Χρησιμοποιήστε το [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) για να καθορίσετε τι προορίζεται να περιέχει το placeholder.
 
-Η κλάση του σχήματος εξακολουθεί να είναι σημαντική αφού γνωρίζετε τον τύπο του placeholder:
+Η κλάση του σχήματος παραμένει σημαντική αφού γνωρίζετε τον τύπο του placeholder:
 
-- Ένα κενό placeholder κειμένου, εικόνας, διαγράμματος ή περιεχομένου αντιπροσωπεύεται συνήθως από ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
-- Ένα γεμάτο placeholder εικόνας μπορεί να αντιπροσωπεύεται από ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/).
-- Ένα γεμάτο placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [Chart](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/).
-- Ένα placeholder περιεχομένου μπορεί να περιέχει πολλαπλά είδη περιεχομένου. Ελέγξτε τόσο το [Placeholder.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholder/type/) όσο και την κλάση του σχήματος σε χρόνο εκτέλεσης, αντί να υποθέτετε ότι κάθε placeholder είναι ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/).
+- Ένας κενός placeholder κειμένου, εικόνας, διαγράμματος ή περιεχομένου συνήθως αντιπροσωπεύεται από ένα [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Ένας γεμάτος placeholder εικόνας μπορεί να αντιπροσωπεύεται από ένα [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Ένας γεμάτος placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Ένας placeholder περιεχομένου μπορεί να περιέχει διάφορα είδη περιεχομένου. Ελέγξτε τόσο το [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) όσο και την κλάση σχήματος χρόνου εκτέλεσης αντί να υποθέτετε ότι κάθε placeholder είναι ένα [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholder/type/) περιγράφει τον ρόλο του placeholder· δεν εγγυάται την κλάση του σχήματος σε χρόνο εκτέλεσης. Πάντα κάντε έλεγχο τύπου πριν αποκτήσετε πρόσβαση σε μέλη κειμένου, εικόνας, διαγράμματος, πίνακα ή πολυμέσων.
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) περιγράφει το ρόλο ενός placeholder· δεν εγγυάται την κλάση σχήματος χρόνου εκτέλεσης. Πάντα να κάνετε έλεγχο τύπου πριν αποκτήσετε πρόσβαση σε κείμενο, εικόνα, διάγραμμα, πίνακα ή ειδικά μέλη πολυμέσων.
 {{% /alert %}}
 
-## **Κατανόηση Κληρονομικότητας Συμβόλων Κράτησης**
+## **Κατανόηση Κληρονόμησης Placeholder**
 
-Τα placeholders σχηματίζουν μια ιεραρχία:
+Τα placeholders δημιουργούν μια ιεραρχία:
 
-1. Μια κύρια διαφάνεια ορίζει επαναχρησιμοποιήσιμα στυλ και, σε ορισμένες περιπτώσεις, placeholders επιπέδου master.
-2. Μια διαφάνεια διάταξης ορίζει τη διάταξη που χρησιμοποιείται από μία ή περισσότερες κανονικές διαφάνειες και μπορεί να κληρονομήσει από το master.
+1. Μια κύρια διαφάνεια ορίζει επαναχρησιμοποιήσιμα στυλ και, σε ορισμένες περιπτώσεις, placeholders σε επίπεδο master.
+2. Μια διαφάνεια διάταξης ορίζει τη διάταξη που χρησιμοποιείται από μία ή περισσότερες κανονικές διαφάνειες και μπορεί να κληρονομήσει από την κύρια διαφάνεια.
 3. Μια κανονική διαφάνεια περιέχει τα placeholders για εκείνη τη διαφάνεια και μπορεί να κληρονομήσει από τη διάταξή της.
 
-Καλέστε το [Shape.get_base_placeholder](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/get_base_placeholder/) για να μεταβείτε ένα επίπεδο πάνω στην ιεραρχία. Ένα placeholder διαφάνειας συνήθως επιστρέφει το αντίστοιχο placeholder της διάταξης· ένα placeholder διάταξης μπορεί να επιστρέψει το αντίστοιχο placeholder του master. Η μέθοδος επιστρέφει `None` όταν το σχήμα δεν έχει βασικό placeholder.
+Καλέστε το [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) για να μετακινηθείτε ένα επίπεδο προς τα πάνω σε αυτή την ιεραρχία. Ένα placeholder διαφάνειας συνήθως επιστρέφει το placeholder της διάταξής του· ένα placeholder διάταξης μπορεί να επιστρέψει το placeholder του master. Η μέθοδος επιστρέφει `None` όταν το σχήμα δεν έχει βασικό placeholder.
 
-Το παρακάτω παράδειγμα παραθέτει τα placeholders στην πρώτη διαφάνεια και αναφέρει τα βασικά τους placeholders:
+Το παρακάτω παράδειγμα απαριθμεί τα placeholders στην πρώτη διαφάνεια και αναφέρει τα βασικά τους placeholders:
 
 ```python
 import aspose.slides as slides
@@ -71,11 +71,59 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Η επεξεργασία ενός placeholder σε μια κανονική διαφάνεια δημιουργεί ή τροποποιεί μια τοπική παρακάμψη για εκείνη τη διαφάνεια. Η επεξεργασία της σχετικής διάταξης ή του master μπορεί να επηρεάσει όλες τις διαφάνειες που εξακολουθούν να κληρονομούν αυτή τη ρύθμιση. Ένα τοπικό κανονικό σχήμα δεν έχει βασικό placeholder και δεν αρχίζει να κληρονομεί απλώς επειδή καταλαμβάνει τις ίδιες συντεταγμένες.
+Η επεξεργασία ενός placeholder σε μια κανονική διαφάνεια δημιουργεί ή αλλάζει μια τοπική αντικατάσταση για εκείνη τη διαφάνεια. Η επεξεργασία της σχετιζόμενης διάταξης ή master μπορεί να επηρεάσει όλες τις διαφάνειες που εξακολουθούν να κληρονομούν αυτή τη ρύθμιση. Ένα τοπικό κανονικό σχήμα δεν έχει βασικό placeholder και δεν αρχίζει να κληρονομεί μόνο επειδή καταλαμβάνει τις ίδιες συντεταγμένες.
+
+## **Κατάργηση Κατάστασης Placeholder**
+
+Κατά την προσαρμογή ενός προτύπου, χρησιμοποιήστε το [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) για να διατηρήσετε ένα υπάρχον αντικείμενο ως κανονικό σχήμα. Η ιδιότητα [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) του γίνεται `None`, αλλά το σχήμα παραμένει στη συλλογή της διαφάνειας. Αντίθετα, το [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) διαγράφει το σχήμα από αυτή τη συλλογή.
+
+Το παρακάτω παράδειγμα απαιτεί το `template.pptx` με τουλάχιστον μία διαφάνεια και ένα μη κενό placeholder κειμένου στην πρώτη διαφάνεια. Χρησιμοποιήστε ένα placeholder με μορφοποίηση που κληρονομείται από τη διάταξη ή το master για να δείτε το αποτέλεσμα της κατάργησης της σχέσης. Το παράδειγμα ελέγχει ότι το ίδιο σχήμα παραμένει, καλεί ξανά τη μέθοδο στο πλέον κανονικό σχήμα και αποθηκεύει το αποτέλεσμα.
+
+{{% alert color="warning" title="Warning" %}}
+Η κατάργηση της κατάστασης placeholder δεν διατηρεί αυτόματα τις κληρονομημένες ρυθμίσεις εμφάνισης. Το παρακάτω παράδειγμα αφήνει σκόπιμα αυτές τις ρυθμίσεις αμετάβλητες, οπότε η έξοδος μπορεί να φαίνεται διαφορετικά. Ένα σχήμα του οποίου η θέση και το μέγεθος κληρονομούνται πλήρως μπορεί να έχει μηδενικές συντεταγμένες και διαστάσεις μετά την κλήση και να γίνει αόρατο παρόλο που παραμένει στη συλλογή.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Καλώντας τη μέθοδο σε ένα κανονικό σχήμα δεν έχει καμία επίδραση.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Για ένα ταιριαστό placeholder, και οι τρεις έλεγχοι εκτυπώνουν `True`. Το κείμενο παραμένει, αλλά η κληρονομημένη θέση, μέγεθος, περιστροφή, γραμματοσειρά, στοίχιση παραγράφου, περιθώρια πλαισίου κειμένου, κατακόρυφη αγκύρωση, γεμίσματα και ρυθμίσεις γραμμής μπορεί να αλλάξουν όταν η σχέση του placeholder αφαιρεθεί. Για παράδειγμα, η κληρονομημένη μορφοποίηση τίτλου μπορεί να επανέλθει σε απλή μορφοποίηση κειμένου. Δείτε το [Slide Layout](/slides/el/python-net/slide-layout/) για περισσότερα σχετικά με τις διατάξεις.
+
+Για να διατηρήσετε την προοριζόμενη εμφάνιση, καταγράψτε τη λύση θέση, μέγεθος και περιστροφή πριν την κλήση, και αντιγράψτε τις απαιτούμενες τιμές αποτελεσματικής μορφοποίησης σε ξεχωριστές μεταβλητές. Ανακτήστε αυτές τις τιμές μέσω των [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), και [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Μην βασίζεστε μόνο στα αντικείμενα αποτελεσματικής μορφοποίησης, καθώς οι τιμές μορφοποίησης κειμένου τους μπορούν να αλλάξουν μετά την αφαίρεση της σχέσης. Εφαρμόστε ρητά τις καταγεγραμμένες τιμές στο κανονικό σχήμα μετά, συμπεριλαμβανομένης της οικογένειας γραμματοσειράς, μεγέθους, στυλ, χρώματος, ρυθμίσεων παραγράφου, ρυθμίσεων πλαισίου κειμένου, γεμίσματος και γραμμής που χρησιμοποιεί το πρότυπό σας.
+
+Η κληρονομημένη γεωμετρία σχήματος μπορεί επίσης να χρειάζεται να οριστεί ρητά μέσω του [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Για ένα ορθογώνιο placeholder κειμένου, αυτό σημαίνει την ανάθεση του [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); η αποκατάσταση μόνο του γεμίσματος και της γραμμής ίσως να μην επαναφέρει το ορατό ορθογώνιο. Τα πρότυπα με επιπλέον εφέ ή πιο σύνθετη μορφοποίηση απαιτούν επίσης τη διαχείριση αυτών των ρυθμίσεων.
 
 ## **Αλλαγή Κειμένου σε Placeholder**
 
-Τα placeholders τίτλου, κεντραρισμένου τίτλου, υπότιτλου, σώματος και κειμένου υποστηρίζουν κανονικά κείμενο. Ελέγξτε αν είναι ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) πριν χρησιμοποιήσετε την ιδιότητα [text_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/text_frame/).
+Τα placeholders τίτλου, κεντραρισμένου τίτλου, υποτίτλου, σώματος και κειμένου συνήθως υποστηρίζουν κείμενο. Ελέγξτε για [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) πριν χρησιμοποιήσετε την ιδιότητά του [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
 
 Αυτό το παράδειγμα ενημερώνει το πρώτο placeholder τίτλου στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα:
 
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Αυτό το μοτίβο αποφεύγει να αντιμετωπίζει placeholders εικόνας, διαγράμματος, πίνακα ή πολυμέσων ως αντικείμενα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/). Επιπλέον, προσδιορίζει το placeholder με βάση τον σκοπό του αντί να βασίζεται σε ευπαθή θέση σχήματος.
+Αυτό το μοτίβο αποτρέπει την αντιμετώπιση των placeholders εικόνας, διαγράμματος, πίνακα ή πολυμέσων ως αντικείμενα [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Επιπλέον, προσδιορίζει το placeholder με βάση τον σκοπό του αντί να εξαρτάται από έναν ευαίσθητο δείκτη σχήματος.
 
 ## **Ορισμός Κειμένου Prompt σε Διάταξη**
 
-Το κείμενο prompt είναι η εντολή κατά το σχεδιασμό που εμφανίζεται σε ένα κενό placeholder, π.χ. *Click to add title*. Ορίστε προσαρμοσμένο κείμενο prompt στο placeholder της διάταξης αντί να προσπαθήσετε να το προσεγγίσετε μέσω της συλλογής σ Shapes μιας κανονικής διαφάνειας. Προσπελάστε τη διάταξη μέσω του [Slide.layout_slide](https://reference.aspose.com/slides/el/python-net/aspose.slides/slide/layout_slide/) και επαναλάβετε τα [LayoutSlide.shapes](https://reference.aspose.com/slides/el/python-net/aspose.slides/baseslide/shapes/).
+Το κείμενο prompt είναι η οδηγία κατά το σχεδιασμό που εμφανίζεται σε ένα κενό placeholder, όπως *Click to add title*. Ορίστε προσαρμοσμένο κείμενο prompt στο placeholder της διάταξης αντί να προσπαθήσετε να το προσεγγίσετε μέσω της συλλογής σχήματος μιας κανονικής διαφάνειας. Πρόσβαση στη διάταξη μέσω του [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) και επαναλάβετε πάνω από τα [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-Το παρακάτω παράδειγμα αλλάζει τα prompts τίτλου και υπότιτλου στη διάταξη που χρησιμοποιείται από την πρώτη διαφάνεια:
+Το παρακάτω παράδειγμα αλλάζει τα prompts τίτλου και υποτίτλου στη διάταξη που χρησιμοποιείται από την πρώτη διαφάνεια:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το κείμενο prompt δεν αποτελεί κανονικό περιεχόμενο διαφάνειας. Προορίζεται για κενά placeholders σε εφαρμογές επεξεργασίας όπως το PowerPoint. Μόλις ένας χρήστης ή πρόγραμμα παρέχει πραγματικό περιεχόμενο, το prompt δεν εμφανίζεται πλέον. Η αλλαγή ενός prompt επίσης δεν αντικαθιστά υπάρχον κείμενο στις διαφάνειες που χρησιμοποιούν τη διάταξη.
+Το κείμενο prompt δεν είναι κανονικό περιεχόμενο διαφάνειας. Προορίζεται για κενά placeholders σε εφαρμογές επεξεργασίας όπως το PowerPoint. Μόλις ένας χρήστης ή πρόγραμμα παρέχει πραγματικό περιεχόμενο, το prompt δεν εμφανίζεται πλέον. Η αλλαγή ενός prompt επίσης δεν αντικαθιστά το υπάρχον κείμενο στις διαφάνειες που χρησιμοποιούν τη διάταξη.
 
 ## **Ενημέρωση Placeholder Εικόνας**
 
-Υπάρχουν δύο περιπτώσεις προς διαχείριση:
+Υπάρχουν δύο περιπτώσεις που πρέπει να αντιμετωπιστούν:
 
-- Αν το placeholder εικόνας είναι ήδη γεμάτο και αντιπροσωπεύεται από ένα [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/), αντικαταστήστε την εικόνα μέσω του [PictureFillFormat.picture](https://reference.aspose.com/slides/el/python-net/aspose.slides/picturefillformat/picture/) και του [Picture.image](https://reference.aspose.com/slides/el/python-net/aspose.slides/picture/image/).
-- Αν είναι ακόμη κενό placeholder, προσθέστε ένα picture frame στις συντεταγμένες του placeholder με το [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_picture_frame/) και αφαιρέστε το κενό placeholder.
+- Εάν το placeholder εικόνας είναι ήδη γεμάτο και αντιπροσωπεύεται από ένα [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), αντικαταστήστε την εικόνα μέσω του [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) και του [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Εάν παραμένει κενό placeholder, προσθέστε ένα picture frame στις συντεταγμένες του placeholder με το [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) και αφαιρέστε το κενό placeholder.
 
 Το επόμενο παράδειγμα υποστηρίζει και τις δύο περιπτώσεις και αποθηκεύει την παρουσίαση:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Η αντικατάσταση που δημιουργείται για ένα κενό placeholder είναι ένα τοπικό picture frame, όχι ένα νέο placeholder, επειδή η ιδιότητα [Shape.placeholder](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/placeholder/) είναι μόνο για ανάγνωση. Διατηρεί τη δεσμευμένη θέση αλλά δεν κληρονομεί πλέον τη συμπεριφορά του placeholder. Εάν η διατήρηση της σχέσης του placeholder είναι κρίσιμη, προετοιμάστε και γεμίστε το placeholder στο PowerPoint πρώτα, έπειτα ενημερώστε το προκύπτον [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) με το Aspose.Slides.
+Η αντικατάσταση που δημιουργείται για ένα κενό placeholder είναι ένα τοπικό picture frame, όχι ένα νέο placeholder, επειδή το [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) είναι μόνο για ανάγνωση. Διατηρεί τη δεσμευμένη θέση αλλά δεν κληρονομεί πλέον τη συμπεριφορά που σχετίζεται με το placeholder. Εάν η διατήρηση της σχέσης του placeholder είναι απαραίτητη, προετοιμάστε και γεμίστε το placeholder στο PowerPoint πρώτα, έπειτα ενημερώστε το προκύπτον [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) με το Aspose.Slides.
 
-Για διαφάνεια εικόνας, περικοπή και άλλα εφέ ειδικά για εικόνες, δείτε το άρθρο [Manage Picture Frames](/slides/el/python-net/picture-frame/). Αυτές οι λειτουργίες ανήκουν στο picture frame ή στο picture fill, όχι στα μεταδεδομένα του placeholder.
+Για διαφάνεια εικόνας, περικοπή και άλλα εφέ ειδικά για εικόνες, δείτε το [Manage Picture Frames](/slides/el/python-net/picture-frame/). Αυτές οι λειτουργίες ανήκουν στο picture frame ή στο picture fill, όχι στα μεταδεδομένα του placeholder.
 
-## **Εργασία με Placeholders Διαγράμματος και Περιεχομένου**
+## **Εργασία με Placeholder Διαγράμματος και Περιεχομένου**
 
-Ένα γεμάτο placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [Chart](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/). Αυτό το παράδειγμα βρίσκει ένα τέτοιο διάγραμμα με βάση τόσο τον τύπο του placeholder όσο και την κλάση χρόνου εκτέλεσης, αλλάζει τον τίτλο του και αποθηκεύει το αρχείο:
+Ένα γεμάτο placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Αυτό το παράδειγμα εντοπίζει τέτοιο διάγραμμα και μέσω του τύπου placeholder και της κλάσης χρόνου εκτέλεσης, αλλάζει τον τίτλο του και αποθηκεύει το αρχείο:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ένα γενικό placeholder περιεχομένου συνήθως έχει [PlaceholderType.OBJECT](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/). Στο PowerPoint λειτουργεί ως εκκινητής για πολλαπλούς τύπους περιεχομένου, όπως διαγράμματα, πίνακες, διαγράμματα ροής, εικόνες και πολυμέσα. Αφού γεμίσει, εξετάστε την πραγματική κλάση σχήματος για να μάθετε τι περιέχει. Εξειδικευμένες διατάξεις μπορούν επίσης να εκθέτουν [PlaceholderType.CHART](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/), ή [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholdertype/).
+Ένα γενικό placeholder περιεχομένου συνήθως έχει [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). Στο PowerPoint λειτουργεί ως εκκινήτης για πολλούς τύπους περιεχομένου, όπως διαγράμματα, πίνακες, διαγράμματα, εικόνες και πολυμέσα. Αφού γεμίσει, εξετάστε την πραγματική κλάση σχήματος για να μάθετε τι περιέχει. Εξειδικευμένες διατάξεις μπορούν επίσης να εμφανίζουν [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), ή [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Το Aspose.Slides δεν μετατρέπει ένα κενό placeholder [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) σε ένα [Chart](https://reference.aspose.com/slides/el/python-net/aspose.slides.charts/chart/) απλώς αλλάζοντας το [Placeholder.type](https://reference.aspose.com/slides/el/python-net/aspose.slides/placeholder/type/); ο τύπος είναι μόνο για ανάγνωση. Για να γεμίσετε προγραμματιστικά ένα κενό διάγραμμα ή περιοχή περιεχομένου, προσθέστε το απαιτούμενο αντικείμενο στις συντεταγμένες του placeholder και στη συνέχεια αφαιρέστε το κενό placeholder. Το παρακάτω παράδειγμα το κάνει για ένα διάγραμμα:
+Το Aspose.Slides δεν μετατρέπει ένα κενό placeholder [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) σε [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) απλώς αλλάζοντας το [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); ο τύπος είναι μόνο για ανάγνωση. Για να γεμίσετε ένα κενό διάγραμμα ή περιοχή περιεχομένου προγραμματιστικά, προσθέστε το απαιτούμενο αντικείμενο στις συντεταγμένες του placeholder και έπειτα αφαιρέστε το κενό placeholder. Το παρακάτω παράδειγμα το κάνει για ένα διάγραμμα:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το προστιθέμενο διάγραμμα είναι ένα απλό τοπικό διάγραμμα. Καλύπτει την περιοχή του placeholder αλλά δεν κληρονομεί από το placeholder της διάταξης. Χρησιμοποιήστε τα ειδικά άρθρα διαχείρισης διαγραμμάτων [chart management articles](/slides/el/python-net/powerpoint-charts/) όταν χρειάζεται να αντικαταστήσετε τις κατηγορίες, τις σειρές ή τα δεδομένα του βιβλίου εργασίας.
+Το προστιθέμενο διάγραμμα είναι ένα κανονικό τοπικό διάγραμμα. Καταλαμβάνει την περιοχή του placeholder αλλά δεν κληρονομεί από το placeholder της διάταξης. Χρησιμοποιήστε τα εξειδικευμένα [chart management articles](/slides/el/python-net/powerpoint-charts/) όταν χρειάζεται να αντικαταστήσετε τις κατηγορίες, τις σειρές ή τα δεδομένα του φύλλου εργασίας.
 
 ## **Πλήρες Παράδειγμα: Ενημέρωση Κειμένου ή Περιεχομένου Εικόνας**
 
-Το παρακάτω ολοκληρωμένο παράδειγμα ανοίγει ένα πρότυπο, ψάχνει την πρώτη διαφάνεια για είτε placeholder τίτλου είτε εικόνας, ελέγχει τους τύπους του placeholder και του σχήματος, ενημερώνει το κατάλληλο περιεχόμενο και αποθηκεύει το αποτέλεσμα. Το παράδειγμα αποφεύγει σκόπιμα να υποθέτει θέση σχήματος ή να αντιμετωπίζει κάθε placeholder ως την ίδια κλάση σχήματος.
+Το παρακάτω ολοκληρωμένο παράδειγμα ανοίγει ένα πρότυπο, αναζητεί στην πρώτη διαφάνεια είτε ένα placeholder τίτλου είτε εικόνας, ελέγχει τους τύπους του placeholder και του σχήματος, ενημερώνει το κατάλληλο περιεχόμενο και αποθηκεύει το αποτέλεσμα. Το παράδειγμα σκόπιμα αποφεύγει την υπόθεση ενός δείκτη σχήματος ή την αντιμετώπιση κάθε placeholder ως της ίδιας κλάσης σχήματος:
 
 ```python
 import aspose.slides as slides
@@ -278,12 +326,12 @@ with slides.Presentation("template.pptx") as presentation:
 
 **Τι είναι ένα βασικό placeholder;**
 
-Ένα βασικό placeholder είναι το αντίστοιχο σχήμα στη διάταξη ή στο master από το οποίο κληρονομεί ένα άλλο placeholder. Χρησιμοποιήστε το [Shape.get_base_placeholder](https://reference.aspose.com/slides/el/python-net/aspose.slides/shape/get_base_placeholder/) για να το ανακτήσετε. Ένα κανονικό τοπικό σχήμα επιστρέφει `None` επειδή δεν αποτελεί μέρος της ιεραρχίας των placeholders.
+Ένα βασικό placeholder είναι το αντίστοιχο σχήμα στη διάταξη ή στο master από το οποίο κληρονομεί ένα άλλο placeholder. Χρησιμοποιήστε το [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) για να το ανακτήσετε. Ένα κανονικό τοπικό σχήμα επιστρέφει `None` επειδή δεν αποτελεί μέρος της ιεραρχίας του placeholder.
 
-**Μπορώ να αλλάξω όλους τους τίτλους των διαφανειών επεξεργαζόμενος ένα placeholder της διάταξης;**
+**Μπορώ να αλλάξω όλους τους τίτλους των διαφανειών επεξεργάζομαι ένα placeholder διάταξης;**
 
-Μπορείτε να αλλάξετε την κληρονομημένη μορφοποίηση ή το κείμενο prompt μέσω μιας διάταξης, αλλά το υπάρχον περιεχόμενο τίτλου αποθηκεύεται στις κανονικές διαφάνειες. Για να αντικαταστήσετε τον πραγματικό τίτλο σε ολόκληρη την παρουσίαση, επαναλάβετε τις διαφάνειες και ενημερώστε κάθε placeholder τίτλου.
+Μπορείτε να αλλάξετε τη κληρονομημένη μορφοποίηση ή το κείμενο prompt μέσω μιας διάταξης, αλλά το υπάρχον περιεχόμενο τίτλου αποθηκεύεται στις κανονικές διαφάνειες. Για να αντικαταστήσετε το πραγματικό κείμενο τίτλου σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και ενημερώστε κάθε placeholder τίτλου.
 
-**Πώς διαχειρίζομαι placeholders ημερομηνίας, αριθμού διαφάνειας, κεφαλίδας και υποσέλιδου;**
+**Πώς διαχειρίζομαι τα placeholders ημερομηνίας, αριθμού διαφάνειας, κεφαλίδας και υποσέλιδου;**
 
-Χρησιμοποιήστε τους διαχειριστές κεφαλίδας και υποσέλιδου στο αντίστοιχο επίπεδο (διαφάνεια, διάταξη, master, σημειώσεις ή φυλλάδιο). Δείτε το άρθρο [Manage Presentation Header and Footer](/slides/el/python-net/presentation-header-and-footer/) για πλήρη παραδείγματα.
+Χρησιμοποιήστε τους διαχειριστές κεφαλίδας και υποσέλιδου στο κατάλληλο επίπεδο διαφάνειας, διάταξης, master, σημειώσεων ή εγχειριδίου. Δείτε το [Manage Presentation Header and Footer](/slides/el/python-net/presentation-header-and-footer/) για πλήρη παραδείγματα.

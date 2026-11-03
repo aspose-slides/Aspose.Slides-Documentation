@@ -1,41 +1,41 @@
 ---
-title: Gestire i segnaposti della presentazione in Python
+title: Gestire i segnaposti di presentazione in Python
 linktitle: Gestire i segnaposti
 type: docs
 weight: 10
 url: /it/python-java/manage-placeholder/
 keywords:
 - segnaposto
-- segnaposto testo
+- segnaposto di testo
 - segnaposto immagine
 - segnaposto grafico
-- segnaposto contenuto
-- testo di suggerimento
+- segnaposto di contenuto
+- testo di prompt
 - PowerPoint
 - presentazione
 - Python
 - Java
 - Aspose.Slides
-description: "Scopri come ispezionare e modificare i segnaposti di testo, immagine, grafico e contenuto e comprendere l'eredità dei segnaposti con Aspose.Slides per Python tramite Java."
+description: "Impara a ispezionare e modificare segnaposti di testo, immagine, grafico e contenuto e a comprendere l’eredità dei segnaposti con Aspose.Slides per Python tramite Java."
 ---
 ## **Panoramica**
 
-Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono titolo, corpo, immagine, grafico e segnaposti di contenuto generico. A differenza di una forma ordinaria, un segnaposto può ereditare la posizione, le dimensioni, la formattazione e altre impostazioni da una diapositiva layout o da una diapositiva master.
+Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuti di uso generale. A differenza di una forma ordinaria, un segnaposto può ereditare posizione, dimensione, formattazione e altre impostazioni da una diapositiva layout o da una diapositiva master.
 
-Aspose.Slides espone le informazioni sui segnaposti tramite il metodo [Shape.getPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/#getPlaceholder). Il metodo restituisce un oggetto [Placeholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholder/) o `None` per una forma normale. Usa [Placeholder.getType](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholder/#getType) per determinare a cosa è destinato il segnaposto.
+Aspose.Slides espone le informazioni sui segnaposti tramite il metodo [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). Il metodo restituisce un oggetto [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) o `None` per una forma normale. Utilizza [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) per determinare cosa il segnaposto è destinato a contenere.
 
-Il tipo di forma è ancora rilevante dopo aver conosciuto il tipo di segnaposto:
+Il tipo di forma rimane importante dopo aver conosciuto il tipo di segnaposto:
 
-- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/).
-- Un segnaposto immagine popolato può essere rappresentato da un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/).
-- Un segnaposto grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/it/python-java/aspose.slides/chart/).
-- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [Placeholder.getType](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholder/#getType) sia il tipo di forma a runtime invece di presumere che ogni segnaposto sia un [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/).
+- Un segnaposto vuoto per testo, immagine, grafico o contenuto è comunemente rappresentato da un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Un segnaposto immagine già popolato può essere rappresentato da un [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Un segnaposto grafico già popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) sia il tipo di forma a runtime invece di presumere che ogni segnaposto sia un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Avviso" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholder/#getType) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Utilizza sempre un controllo del tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Usa sempre un controllo di tipo prima di accedere a testo, immagine, grafico, tabella o membri specifici dei media.
 {{% /alert %}}
 
-## **Comprendere l'eredità dei segnaposti**
+## **Comprendere l’Ereditarietà dei Segnaposti**
 
 I segnaposti formano una gerarchia:
 
@@ -43,9 +43,9 @@ I segnaposti formano una gerarchia:
 2. Una diapositiva layout definisce la disposizione usata da una o più diapositive normali e può ereditare dal master.
 3. Una diapositiva normale contiene i segnaposti per quella diapositiva e può ereditare dal suo layout.
 
-Chiama [Shape.getBasePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/#getBasePlaceholder) per spostarti di un livello verso l'alto nella gerarchia. Un segnaposto diapositiva di solito restituisce il suo segnaposto layout; un segnaposto layout può restituire il suo segnaposto master. Il metodo restituisce `None` quando la forma non ha un segnaposto base.
+Chiama [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) per spostarti un livello più in alto nella gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto di layout; un segnaposto di layout può restituire il suo segnaposto master. Il metodo restituisce `None` quando la forma non ha un segnaposto di base.
 
-L'esempio seguente elenca i segnaposti nella prima diapositiva e riporta i loro segnaposti base:
+L’esempio seguente elenca i segnaposti nella prima diapositiva e segnala i loro segnaposti di base:
 
 ```python
 import jpype
@@ -84,11 +84,73 @@ finally:
     presentation.dispose()
 ```
 
-Modificare un segnaposto su una diapositiva normale crea o modifica una sovrascrittura locale per quella diapositiva. Modificare il relativo layout o master può influenzare tutte le diapositive che ancora ereditano quell'impostazione. Una forma ordinaria locale non ha segnaposto base e non inizia a ereditare solo perché occupa le stesse coordinate.
+Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influenzare tutte le diapositive che ereditano ancora quell’impostazione. Una forma ordinaria locale non ha un segnaposto di base e non inizia a ereditare solo perché occupa le stesse coordinate.
 
-## **Modificare il testo in un segnaposto**
+## **Rimuovere lo Stato di Segnaposto**
 
-I segnaposti titolo, titolo centrato, sottotitolo, corpo e testo normalmente supportano il testo. Verifica la presenza di un [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/) prima di usare il suo metodo [getTextFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/#getTextFrame).
+Durante l’adattamento di un modello, utilizza [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) per mantenere un oggetto esistente come forma ordinaria. Il suo metodo [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) restituisce `None`, ma la forma rimane nella collezione della diapositiva. Al contrario, [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) elimina la forma da quella collezione.
+
+L’esempio seguente richiede `template.pptx` con almeno una diapositiva e un segnaposto di testo non vuoto nella prima diapositiva. Usa un segnaposto con formattazione ereditata dal suo layout o master per vedere l’effetto della rimozione di quella relazione. L’esempio verifica che la stessa forma rimanga, chiama nuovamente il metodo sulla forma ora ordinaria e salva il risultato.
+
+{{% alert color="warning" title="Warning" %}}
+Rimuovere lo stato di segnaposto non preserva automaticamente le impostazioni di aspetto ereditate. L’esempio qui sotto lascia deliberatamente tali impostazioni inalterate, quindi l’output potrebbe apparire diverso.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Chiamare il metodo su una forma ordinaria non ha alcun effetto.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Per un segnaposto corrispondente, tutti e tre i controlli stampano `True`. Il testo rimane, ma posizione, dimensione, rotazione, carattere, allineamento del paragrafo, margini del riquadro di testo, ancoraggio verticale, riempimento e impostazioni di linea ereditate possono cambiare quando la relazione del segnaposto viene rimossa. Per esempio, la formattazione del titolo ereditata può tornare alla formattazione di testo ordinario. Vedi [Slide Layout](/slides/it/python-java/slide-layout/) per ulteriori informazioni sui layout.
+
+Per conservare l’aspetto desiderato, cattura posizione, dimensione e rotazione risolte prima della chiamata e copia i valori di formattazione effettiva richiesti in variabili separate. Recupera tali valori tramite [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) e [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Non fare affidamento solo sugli oggetti effective-format, perché i loro valori di formattazione del testo possono cambiare dopo la rimozione della relazione. Applica esplicitamente i valori catturati alla forma ordinaria successivamente, includendo famiglia, dimensione, stile, colore del carattere, impostazioni del paragrafo, impostazioni del riquadro di testo, riempimento e linea usati dal tuo modello.
+
+La geometria della forma ereditata potrebbe dover essere assegnata esplicitamente tramite [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Per un segnaposto di testo rettangolare, ciò significa assegnare [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); ripristinare solo il riempimento e la linea potrebbe non ripristinare il rettangolo visibile. I modelli con effetti aggiuntivi o formattazioni più complesse richiedono la gestione di tali impostazioni.
+
+## **Modificare il Testo in un Segnaposto**
+
+I segnaposti di titolo, titolo centrato, sottotitolo, corpo e testo supportano normalmente il testo. Verifica la presenza di un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) prima di utilizzare il suo metodo [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame).
 
 Questo esempio aggiorna il primo segnaposto titolo nella prima diapositiva e salva il risultato:
 
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-Questo schema evita di trattare segnaposti immagine, grafico, tabella o media come [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/). Identifica inoltre il segnaposto per scopo invece di fidarsi di un indice di forma fragile.
+Questo modello evita di trattare segnaposti immagine, grafico, tabella o media come un [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Identifica inoltre il segnaposto per scopo invece di basarsi su un indice di forma fragile.
 
-## **Impostare il testo di prompt su un layout**
+## **Impostare il Testo di Prompt su un Layout**
 
-Il testo di prompt è l'istruzione mostrata in fase di progettazione in un segnaposto vuoto, ad esempio *Fare clic per aggiungere il titolo*. Imposta un testo di prompt personalizzato sul segnaposto layout invece di provare a raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout tramite [Slide.getLayoutSlide](https://reference.aspose.com/slides/it/python-java/aspose.slides/slide/#getLayoutSlide) e itera sulla collezione restituita da [BaseSlide.getShapes](https://reference.aspose.com/slides/it/python-java/aspose.slides/baseslide/#getShapes).
+Il testo di prompt è l’istruzione di design‑time mostrata in un segnaposto vuoto, ad esempio *Fare clic per aggiungere titolo*. Imposta il testo di prompt personalizzato sul segnaposto del layout anziché tentare di raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout tramite [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) e itera sulla collezione restituita da [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
-L'esempio seguente modifica i prompt titolo e sottotitolo sul layout usato dalla prima diapositiva:
+L’esempio seguente modifica i prompt di titolo e sottotitolo sul layout usato dalla prima diapositiva:
 
 ```python
 import jpype
@@ -168,14 +230,14 @@ finally:
     presentation.dispose()
 ```
 
-Il testo di prompt non è contenuto normale della diapositiva. È destinato ai segnaposti vuoti nelle applicazioni di editing come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non è più visualizzato. Modificare un prompt non sostituisce nemmeno il testo esistente sulle diapositive che usano quel layout.
+Il testo di prompt non è contenuto normale della diapositiva. È destinato a segnaposti vuoti nelle applicazioni di editing come PowerPoint. Una volta che un utente o un programma fornisce contenuti reali, il prompt non viene più visualizzato. Modificare un prompt non sostituisce nemmeno il testo esistente sulle diapositive che usano quel layout.
 
-## **Aggiornare un segnaposto immagine**
+## **Aggiornare un Segnaposto Immagine**
 
 Ci sono due casi da gestire:
 
-- Se il segnaposto immagine è già popolato e rappresentato da un [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/), sostituisci l'immagine tramite [PictureFillFormat.getPicture](https://reference.aspose.com/slides/it/python-java/aspose.slides/picturefillformat/#getPicture) e [Picture.setImage](https://reference.aspose.com/slides/it/python-java/aspose.slides/picture/#setImage).
-- Se è ancora un segnaposto vuoto, aggiungi un picture frame alle coordinate del segnaposto con [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/shapecollection/#addPictureFrame) e rimuovi il segnaposto vuoto.
+- Se il segnaposto immagine è già popolato e rappresentato da un [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), sostituisci l’immagine tramite [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) e [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Se è ancora un segnaposto vuoto, aggiungi un riquadro immagine alle coordinate del segnaposto con [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) e rimuovi il segnaposto vuoto.
 
 Il prossimo esempio supporta entrambi i casi e salva la presentazione:
 
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-La sostituzione creata per un segnaposto vuoto è un picture frame locale, non un nuovo segnaposto, perché [Shape.getPlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/#getPlaceholder) non fornisce un setter. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione di segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, poi aggiorna il [PictureFrame](https://reference.aspose.com/slides/it/python-java/aspose.slides/pictureframe/) risultante con Aspose.Slides.
+La sostituzione creata per un segnaposto vuoto è un riquadro immagine locale, non un nuovo segnaposto, perché [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) non fornisce un setter. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione del segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, quindi aggiorna il [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) risultante con Aspose.Slides.
 
-Per trasparenza dell'immagine, ritaglio e altri effetti specifici dell'immagine, consulta [Gestire i picture frame](/slides/it/python-java/picture-frame/). Queste operazioni appartengono al picture frame o al picture fill, non ai metadati del segnaposto.
+Per trasparenza dell’immagine, ritaglio e altri effetti specifici dell’immagine, vedi [Manage Picture Frames](/slides/it/python-java/picture-frame/). tali operazioni appartengono al riquadro immagine o al riempimento immagine, non ai metadati del segnaposto.
 
-## **Lavorare con segnaposti grafico e contenuto**
+## **Lavorare con Segnaposti Grafico e Contenuto**
 
-Un segnaposto grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/it/python-java/aspose.slides/chart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per tipo a runtime, ne modifica il titolo e salva il file:
+Un segnaposto grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Questo esempio trova un grafico di questo tipo controllando sia il tipo di segnaposto sia il tipo di forma a runtime, ne modifica il titolo e salva il file:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Un segnaposto di contenuto generale di solito ha [PlaceholderType.Object](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint funge da avviatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispeziona il tipo di forma reale per apprendere cosa contiene. Layout specializzati possono anche esporre [PlaceholderType.Chart](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Media) o [PlaceholderType.Diagram](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholdertype/#Diagram).
+Un segnaposto di contenuto generale di solito ha [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint funge da lanciatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispeziona il tipo di forma reale per capire cosa contiene. Layout specializzati possono anche esporre [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) o [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides non converte un segnaposto [AutoShape](https://reference.aspose.com/slides/it/python-java/aspose.slides/autoshape/) vuoto in un [Chart](https://reference.aspose.com/slides/it/python-java/aspose.slides/chart/) semplicemente cambiando [Placeholder.getType](https://reference.aspose.com/slides/it/python-java/aspose.slides/placeholder/#getType); il tipo non può essere modificato tramite l'API. Per riempire programmaticamente un'area grafico o contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. L'esempio seguente lo fa per un grafico:
+Aspose.Slides non converte un segnaposto [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) vuoto in un [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) semplicemente cambiando [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); il tipo non può essere modificato tramite l’API. Per riempire programmaticamente un’area grafico o contenuto vuota, aggiungi l’oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. L’esempio seguente fa ciò per un grafico:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto layout. Usa gli articoli dedicati alla [gestione dei grafici](/slides/it/python-java/powerpoint-charts/) quando devi sostituire categorie, serie o dati del workbook.
+Il grafico aggiunto è un grafico locale ordinario. Occupia l’area del segnaposto ma non eredita dal segnaposto layout. Usa gli articoli dedicati alla gestione dei [chart](/slides/it/python-java/powerpoint-charts/) quando devi sostituire categorie, serie o dati del workbook.
 
-## **Esempio completo: aggiornare testo o contenuto immagine**
+## **Esempio Completo: Aggiornare Testo o Immagine**
 
-L'esempio end‑to‑end seguente apre un modello, ricerca nella prima diapositiva un segnaposto titolo o immagine, controlla i tipi di segnaposto e di forma, aggiorna il contenuto appropriato e salva il risultato. L'esempio evita deliberatamente di presumere un indice di forma o di trattare ogni segnaposto come dello stesso tipo.
+L’esempio end‑to‑end seguente apre un modello, cerca nella prima diapositiva un segnaposto titolo o immagine, controlla i tipi di segnaposto e di forma, aggiorna il contenuto appropriato e salva il risultato. L’esempio evita deliberatamente di presumere un indice di forma o di trattare tutti i segnaposti come lo stesso tipo.
 
 ```python
 from pathlib import Path
@@ -357,14 +419,14 @@ finally:
 
 ## **FAQ**
 
-**Che cos'è un segnaposto base?**
+**Che cos’è un segnaposto di base?**
 
-Un segnaposto base è la forma corrispondente sul layout o sul master da cui un altro segnaposto eredita. Usa [Shape.getBasePlaceholder](https://reference.aspose.com/slides/it/python-java/aspose.slides/shape/#getBasePlaceholder) per recuperarlo. Una forma locale ordinaria restituisce `None` perché non fa parte della gerarchia dei segnaposti.
+Un segnaposto di base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) per recuperarlo. Una forma locale ordinaria restituisce `None` perché non fa parte della gerarchia dei segnaposti.
 
-**Posso cambiare tutti i titoli delle diapositive modificando un segnaposto layout?**
+**Posso modificare tutti i titoli delle diapositive modificando un segnaposto layout?**
 
-Puoi modificare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo reale del titolo su tutta la presentazione, itera sulle diapositive e aggiorna ciascun segnaposto titolo.
+Puoi cambiare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto reale del titolo è memorizzato sulle diapositive normali. Per sostituire il testo del titolo in tutta la presentazione, itera sulle diapositive e aggiorna ogni segnaposto titolo.
 
 **Come gestisco i segnaposti data, numero diapositiva, intestazione e piè di pagina?**
 
-Usa i gestori di intestazione e piè di pagina nella diapositiva, nel layout, nel master, nelle note o nella raccolta di manuali appropriata. Vedi [Gestire intestazione e piè di pagina della presentazione](/slides/it/python-java/presentation-header-and-footer/) per esempi completi.
+Usa i gestori di intestazione e piè di pagina nello scope appropriato (diapositiva, layout, master, note o handout). Vedi [Manage Presentation Header and Footer](/slides/it/python-java/presentation-header-and-footer/) per esempi completi.

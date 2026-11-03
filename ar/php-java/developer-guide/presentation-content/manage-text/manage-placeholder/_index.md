@@ -1,50 +1,50 @@
 ---
-title: إدارة أماكن العنصر النائب في العرض التقديمي باستخدام PHP
-linktitle: إدارة الأماكن النائبة
+title: إدارة العناصر النائبة في العروض التقديمية باستخدام PHP
+linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/php-java/manage-placeholder/
 keywords:
 - عنصر نائب
-- عنصر نائب نص
+- عنصر نائب نصي
 - عنصر نائب صورة
 - عنصر نائب مخطط
 - عنصر نائب محتوى
-- نص إرشادي
+- نص موجه
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "تعرف على كيفية فحص وتحرير أماكن النص، الصورة، المخطط، والمحتوى وفهم وراثة الأماكن النائبة باستخدام Aspose.Slides للـ PHP عبر Java."
+description: "تعرف على كيفية فحص وتعديل عناصر النائب للنص والصورة والمخطط والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للـ PHP عبر Java."
 ---
 ## **نظرة عامة**
 
-المكان المخصص هو شكل يحجز موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. أمثلة شائعة هي العنوان، النص الأساسي، الصورة، المخطط، ومواقع محتوى عامة. على عكس الشكل العادي، يمكن للمكان المخصص أن يرث موقعه، حجمه، تنسيقه، وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
+العنصر النائب هو شكل يحفظ موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. الأمثلة الشائعة هي العنونة، النص الأساسي، الصورة، المخطط، والعناصر النائبة للمحتوى ذات الاستخدام العام. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موضعه وحجمه وتنسيقه وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
 
-Aspose.Slides تُظهر معلومات المكان المخصص من خلال طريقة [Shape::getPlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getplaceholder/) . تُرجع الطريقة كائنًا من نوع [Placeholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholder/) أو `null` للشكل العادي. استخدم [Placeholder::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholder/gettype/) لتحديد ما يُقصد أن يحتويه المكان المخصص.
+Aspose.Slides تُظهر معلومات العنصر النائب عبر طريقة [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) . تُرجع الطريقة كائنًا من نوع [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/) أو `null` لشكل عادي. استخدم [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) لتحديد ما يُقصد أن يحتويه العنصر النائب.
 
-فئة الشكل لا تزال مهمة بعد معرفة نوع المكان المخصص:
+ما زال فصل الشكل مهمًا بعد معرفة نوع العنصر النائب:
 
-- عادةً ما يُمثَّل مكان مخصص فارغ للنص أو الصورة أو المخطط أو المحتوى بواسطة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
-- يمكن تمثيل مكان مخصص للصورة المملوء بواسطة [PictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pictureframe/).
-- يمكن تمثيل مكان مخصص للمخطط المملوء بواسطة [Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/).
-- يمكن لمكان مخصص للمحتوى أن يحتوي على عدة أنواع من المحتوى. تحقق من كلٍ من [Placeholder::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholder/gettype/) وفئة الشكل وقت التشغيل بدلاً من افتراض أن كل مكان مخصص هو [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/).
+- عادةً ما يُمثَّل العنصر النائب الفارغ للنص أو الصورة أو المخطط أو المحتوى بواسطة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+- يمكن تمثيل عنصر نائب الصورة المعبأ بـ [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
+- يمكن تمثيل عنصر نائب المخطط المعبأ بـ [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/).
+- يمكن للعنصر النائب للمحتوى أن يحتوي عدة أنواع من المحتوى. تحقق من كلٍ من [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) وفصل الشكل أثناء التنفيذ بدلاً من الافتراض أن كل عنصر نائب هو [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholder/gettype/) يصف دور المكان المخصص؛ لكنه لا يضمن فئة الشكل وقت التشغيل. استخدم دائمًا فحص النوع قبل الوصول إلى الأعضاء الخاصة بالنص أو الصورة أو المخطط أو الجدول أو الوسائط.
+[Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) يصف دور العنصر النائب؛ فهو لا يضمن فصل الشكل أثناء التنفيذ. يجب دائمًا إجراء فحص للنوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
 {{% /alert %}}
 
-## **فهم وراثة الأماكن المخصصة**
+## **فهم وراثة العنصر النائب**
 
-تشكّل الأماكن المخصصة تسلسلاً هرميًا:
+العناصر النائبة تُكوّن تسلسلًا هرميًا:
 
-1. تحدد الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات، الأماكن المخصصة على مستوى الرئيسي.
-2. تحدد شريحة التخطيط الترتيب المستخدم بواسطة شريحة أو أكثر عادية ويمكنها أن ترث من الرئيسي.
-3. تحتوي الشريحة العادية على الأماكن المخصصة لتلك الشريحة ويمكنها أن ترث من تخطيطها.
+1. تحدد الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات، العناصر النائبة على مستوى الرئيسي.
+2. تحدد شريحة التخطيط الترتيب المستخدم من قبل شريحة أو أكثر عادية ويمكنها وراثة ذلك من الشريحة الرئيسية.
+3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكنها وراثة ذلك من تخطيطها.
 
-استدعِ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) للانتقال مستوى واحد أعلى في هذا التسلسل. عادةً ما تُعيد شريحة المكان المخصص مكان التخطيط الخاص بها؛ يمكن لمكان التخطيط أن يُعيد مكان الرئيسي. تُرجع الطريقة `null` عندما لا يكون للشكل مكان أساسي.
+استدعِ [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) للانتقال مستوىً واحدًا أعلى في هذا التسلسل. عادةً ما تُعيد العنصر النائب للشريحة عنصره النائب في التخطيط؛ ويمكن لعنصر النائب في التخطيط أن يُعيد عنصره النائب في الشريحة الرئيسية. تُرجع الطريقة `null` عندما لا يمتلك الشكل عنصرًا نائبا أساسيًا.
 
-القائمة التالية تُظهر الأماكن المخصصة في الشريحة الأولى وتُبلغ عن أماكنها الأساسية:
+المثال التالي يسرد العناصر النائبة في الشريحة الأولى ويعرض عناصرها النائبة الأساسية:
 
 ```php
 use aspose\slides\Presentation;
@@ -95,13 +95,89 @@ try {
 }
 ```
 
-تعديل مكان مخصص في شريحة عادية يخلق أو يغيّر تجاوزًا محليًا لتلك الشريحة. تعديل التخطيط أو الرئيسي المرتبط يمكن أن يؤثر على جميع الشرائح التي لا تزال ترث ذلك الإعداد. الشكل العادي المحلي ليس له مكان أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+تحرير عنصر نائب على شريحة عادية ينشئ أو يغير تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الشريحة الرئيسية المرتبط يمكن أن يؤثر على جميع الشرائـح التي لا تزال وراثة تلك الإعدادات. الشكل العادي المحلي ليس له عنصر نائب أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
 
-## **تغيير النص في مكان مخصص**
+## **إزالة حالة العنصر النائب**
 
-عادةً ما تدعم أماكن العنوان، العنوان‑المتمركز، العنوان الفرعي، النص الأساسي، والنصوص النصية النص. تحقق من وجود [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/gettextframe/).
+عند تعديل قالب، استخدم [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/) لإبقاء كائن موجود كشكل عادي. تُرجع طريقة [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) القيمة `null`، لكن الشكل يبقى في مجموعة الشرائح. وعلى النقيض من ذلك، يقوم [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) بحذف الشكل من تلك المجموعة.
 
-يقوم هذا المثال بتحديث أول مكان مخصص للعنوان في الشريحة الأولى ويُحفظ النتيجة:
+المثال التالي يتطلب `template.pptx` يحتوي على شريحة واحدة على الأقل وعنصر نائب نص غير فارغ في الشريحة الأولى. استخدم عنصرًا نائبًا مع تنسيق موروث من تخطيطه أو رئيسه لملاحظة تأثير إزالة تلك العلاقة. يتحقق المثال من بقاء نفس الشكل، ثم يستدعي الطريقة مرة أخرى على الشكل العادي الآن، ويحفظ النتيجة.
+
+{{% alert color="warning" title="Warning" %}}
+إزالة حالة العنصر النائب لا تحافظ تلقائيًا على إعدادات المظهر الموروثة. المثال أدناه يترك تلك الإعدادات دون تغيير عمدًا، لذا قد يبدو الناتج مختلفًا. الشكل الذي يتم وراثة موضعه وحجمه بالكامل قد يصبح إحداثياته وأبعادها صفرًا بعد الاستدعاء ويصبح غير مرئي رغم أنه لا يزال في المجموعة.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // استدعاء الطريقة على شكل عادي لا يؤثر.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+بالنسبة إلى عنصر نائب مطابق، جميع الفحوصات الثلاثة تطبع `true`. يبقى النص، لكن الموضع والحجم والدوران والخط ومحاذاة الفقرة وهوامش إطار النص والتثبيت العمودي وتعبئة الخط وإعدادات الخط قد تتغير عند إزالة علاقة العنصر النائب. على سبيل المثال، قد يعود تنسيق العنوان الموروث إلى تنسيق النص العادي. راجع [Slide Layout](/slides/ar/php-java/slide-layout/) للمزيد حول التخطيطات.
+
+للحفاظ على المظهر المقصود، احفظ الموضع والحجم والدوران المحلولين قبل الاستدعاء، وانسخ قيم التنسيق الفعّال المطلوبة إلى متغيرات منفصلة. استرجع تلك القيم عبر [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/), و[LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/). لا تعتمد على الاحتفاظ فقط بكائنات التنسيق الفعّال، لأن قيم تنسيق النص قد تتغير بعد إزالة العلاقة. طبّق القيم المحفوظة صراحةً على الشكل العادي بعد ذلك، بما في ذلك عائلة الخط، الحجم، النمط، اللون، إعدادات الفقرة، إعدادات إطار النص، التعبئة، والخط المستخدم في القالب.
+
+قد تحتاج هندسة الشكل الموروثة إلى تعيين صريح عبر [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType). بالنسبة إلى عنصر نائب نصي مستطيل، يعني ذلك تعيين [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/); قد لا يعيد استعادة التعبئة والخط فقط المستطيل المرئي. القوالب التي تحتوي على تأثيرات إضافية أو تنسيقات أكثر تعقيدًا تتطلب معالجة تلك الإعدادات كذلك.
+
+## **تغيير النص في عنصر نائب**
+
+عادةً ما تدعم عناصر النائب للعنوان، والعنوان المركزي، والعنوان الفرعي، والنص الأساسي، والعناصر النائبة للنص النص. تحقق من وجود [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/).
+
+يقوم هذا المثال بتحديث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -147,13 +223,13 @@ try {
 }
 ```
 
-هذا النمط يتجنب معالجة أماكن الصورة، المخطط، الجدول، أو الوسائط على أنها كائنات [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/). كما يحدد المكان المخصص حسب الغرض بدلاً من الاعتماد على فهرس الشكل الهش.
+هذا النمط يتجنب معاملة العناصر النائبة للصور أو المخططات أو الجداول أو الوسائط ككائنات [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). كما أنه يحدد العنصر النائب وفقًا للغرض بدلاً من الاعتماد على فهرس شكل ضعيف.
 
-## **تعيين نص إرشادي على التخطيط**
+## **تعيين نص الموجه في التخطيط**
 
-نص الإرشاد هو التعليمات التي تُظهر عند التصميم في مكان مخصص فارغ، مثل *انقر لإضافة عنوان*. عيّن نصًا إرشاديًا مخصصًا على مكان المخصص في التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة الأشكال في الشريحة العادية. احصل على التخطيط عبر [Slide::getLayoutSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slide/#getLayoutSlide) وتكرَّر عبر المجموعة التي تُعيدها [BaseSlide::getShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseslide/#getShapes).
+نص الموجه هو التعليمات المعروضة في مرحلة التصميم داخل عنصر نائب فارغ، مثل *انقر لإضافة عنوان*. عيّن نص موجه مخصص على عنصر النائب في التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال شريحة عادية. يمكن الوصول إلى التخطيط عبر [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getLayoutSlide) وتكرار المجموعة التي تُعيدها [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes).
 
-المثال التالي يغيّر نصوص الإرشاد للعنوان والعنوان الفرعي في التخطيط المُستخدم من قبل الشريحة الأولى:
+المثال التالي يغيّر نصوص الموجه للعنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -195,14 +271,14 @@ try {
 }
 ```
 
-نص الإرشاد ليس محتوى شريحة عادية. يُقصد به الأماكن المخصصة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوىً حقيقيًا، لا يُظهر الإرشاد بعد ذلك. تغيير الإرشاد لا يستبدل النص الموجود على الشرائح التي تستخدم التخطيط أيضًا.
+نص الموجه ليس محتوى شريحة عادي. فهو مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى حقيقي، لا يُعرض الموجه بعد ذلك. تغيير الموجه لا يستبدل أيضًا النص الموجود في الشرائح التي تستخدم التخطيط.
 
-## **تحديث مكان مخصص للصورة**
+## **تحديث عنصر نائب الصورة**
 
-هناك حالتان يجب التعامل معهما:
+هناك حالتان للتعامل معهما:
 
-- إذا كان مكان المخصص للصورة مُملوءًا بالفعل ومُمثلًا بـ [PictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pictureframe/)، استبدل الصورة عبر [PictureFillFormat::getPicture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/picturefillformat/getpicture/) و[SlidesPicture::setImage](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidespicture/setimage/).
-- إذا كان لا يزال مكانًا مخصصًا فارغًا، أضف إطار صورة في إحداثيات المكان المخصص باستخدام [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/addpictureframe/) واحذف المكان المخصص الفارغ.
+- إذا كان عنصر نائب الصورة مُعبأ بالفعل ومُمثَّلاً بـ [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), استبدل الصورة عبر [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) و[Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage).
+- إذا كان لا يزال عنصرًا نائبًا فارغًا، أضف إطار صورة في إحداثيات العنصر النائب باستخدام [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) ثم احذف العنصر النائب الفارغ.
 
 المثال التالي يدعم الحالتين ويحفظ العرض التقديمي:
 
@@ -261,13 +337,13 @@ try {
 }
 ```
 
-البديل المُنشأ لمكان مخصص فارغ هو إطار صورة محلي، ليس مكانًا مخصصًا جديدًا، لأن [Shape::getPlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getplaceholder/) لا يوفر مُحددًا. يحتفظ بالموقع المحجوز لكن لا يرث سلوك المكان المخصص بعد الآن. إذا كان الحفاظ على علاقة المكان المخصص أمرًا أساسيًا، فاحضر واملأ المكان المخصص في PowerPoint أولاً، ثم حدّث [PictureFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
+الاستبدال الذي يُنشأ لعنصر نائب فارغ هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا، لأن [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) لا يوفر مُحدِّدًا. يحتفظ بالموقع المحجوز لكنه لم يعد يورّث سلوك العنصر النائب. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، فقم بإعداد وتعبئة العنصر النائب في PowerPoint أولاً، ثم حدّث [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
 
-لشفافية الصورة، الاقتصاص، وتأثيرات الصورة الأخرى، انظر [Manage Picture Frames](/slides/ar/php-java/picture-frame/). تلك العمليات تنتمي إلى إطار الصورة أو تعبئة الصورة، لا إلى بيانات تعريف المكان المخصص.
+لشفافية الصورة، والقص، وغيرها من التأثيرات الخاصة بالصورة، راجع [Manage Picture Frames](/slides/ar/php-java/picture-frame/). تلك العمليات تتعلق بإطار الصورة أو تعبئة الصورة، وليس ببيانات العنصر النائب.
 
-## **العمل مع أماكن مخصصة للمخططات والمحتوى**
+## **العمل مع العناصر النائبة للمخطط والمحتوى**
 
-يمكن تمثيل مكان مخصص للمخطط المملوء بـ [Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/). هذا المثال يجد مثل هذا المخطط من خلال نوع المكان المخصص وفئة الشكل وقت التشغيل، يغيّر عنوانه، ويحفظ الملف:
+يمكن تمثيل عنصر نائب المخطط المعبأ بـ [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/). يجد هذا المثال مثل هذا المخطط حسب نوع العنصر النائب وفصل أثناء التنفيذ، يغيّر عنوانه، ويحفظ الملف:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -314,9 +390,9 @@ try {
 }
 ```
 
-عادةً ما يكون للمكان المخصص العام للمحتوى القيمة [PlaceholderType::Object](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/). في PowerPoint يعمل كقائمة تشغيل لعدة أنواع من المحتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد ملئه، افحص فئة الشكل الفعلية لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType::Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/)، [PlaceholderType::Table](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/), أو [PlaceholderType::Diagram](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholdertype/).
+عادةً ما يكون للعنصر النائب للمحتوى العام [PlaceholderType::Object](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/). في PowerPoint يعمل كمانِّـل للعديد من أنواع المحتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد أن يتم تعبئته، فحص فصل الشكل الفعلي لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تعرض [PlaceholderType::Chart](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), أو [PlaceholderType::Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/).
 
-Aspose.Slides لا تُحوِّل مكانًا مخصصًا فارغًا من نوع [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) إلى [Chart](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/) بمجرد تغيير [Placeholder::getType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/placeholder/gettype/); لا يمكن تغيير النوع عبر الفئة. لملء مخطط أو منطقة محتوى فارغة برمجيًا، أضف الكائن المطلوب في إحداثيات المكان المخصص ثم احذف المكان المخصص الفارغ. المثال التالي يفعل ذلك لمخطط:
+لا يقوم Aspose.Slides بتحويل عنصر نائب فارغ من نوع [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) إلى [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) مجرد تغيير [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/); لا يمكن تغيير النوع عبر الفصل. لتعبئة مخطط فارغ أو منطقة محتوى برمجيًا، أضف الكائن المطلوب عند إحداثيات العنصر النائب ثم احذف العنصر النائب الفارغ. المثال التالي يوضح ذلك لمخطط:
 
 ```php
 use aspose\slides\ChartType;
@@ -365,11 +441,11 @@ try {
 }
 ```
 
-المخطط المضاف هو مخطط محلي عادي. يشغل مساحة المكان المخصص لكنه لا يرث من مكان التخطيط. استخدم مقالات إدارة المخططات المتخصصة [/slides/ar/php-java/powerpoint-charts/] عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
+المخطط المضاف هو مخطط محلي عادي. يشغل مساحة العنصر النائب لكنه لا يرث من عنصر نائب التخطيط. استخدم مقالات إدارة المخططات المخصصة [chart management articles](/slides/ar/php-java/powerpoint-charts/) عندما تحتاج إلى استبدال فئاته أو سلاسله أو بيانات المصنف.
 
-## **مثال كامل: تحديث نص أو محتوى صورة**
+## **مثال كامل: تحديث محتوى النص أو الصورة**
 
-المثال التالي من الطرف إلى الطرف يفتح قالبًا، يبحث في الشريحة الأولى عن مكان مخصص للعنوان أو الصورة، يتحقق من نوعي المكان المخصص والشكل، يحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال افتراض فهرس شكل أو معالجة كل مكان مخصص كفئة واحدة:
+المثال الشامل التالي يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب للعنوان أو الصورة، يتحقق من نوع العنصر النائب والشكل، يحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال عمدًا افتراض فهرس شكل أو معاملة كل عنصر نائب كذات الفصل.
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -434,16 +510,16 @@ try {
 }
 ```
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**ما هو المكان المخصص الأساسي؟**
+**ما هو العنصر النائب الأساسي؟**
 
-المكان المخصص الأساسي هو الشكل المقابل على التخطيط أو الرئيسي الذي يرث منه مكان مخصص آخر. استخدم [Shape::getBasePlaceholder](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/getbaseplaceholder/) لاسترداده. الشكل المحلي العادي يُعيد `null` لأنه ليس جزءًا من تسلسل الأماكن المخصصة.
+العنصر النائب الأساسي هو الشكل المقابل في التخطيط أو الشريحة الرئيسية الذي يرث منه عنصر نائب آخر. استخدم [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) لاسترجاعه. الشكل العادي المحلي يُعيد `null` لأنه ليس جزءًا من تسلسل العناصر النائبة.
 
-**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تعديل مكان مخصص في التخطيط؟**
+**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تحرير عنصر نائب في التخطيط؟**
 
-يمكنك تغيير التنسيق الموروث أو نص الإرشاد من خلال التخطيط، لكن محتوى العنوان الموجود يُحفظ على الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض بأكمله، ينبغي iterate (التكرار) على الشرائح وتحديث كل مكان مخصص للعنوان.
+يمكنك تغيير التنسيق الموروث أو نص الموجه عبر التخطيط، لكن محتوى العنوان الحالي يُخزن في الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض التقديمي، كرّر عبر الشرائح وقم بتحديث كل عنصر نائب للعنوان.
 
-**كيف أدير أماكن المخصصة للتاريخ، رقم الشريحة، الرأس، والتذييل؟**
+**كيف أُدِير عناصر النائب لل تاريخ، ورقم الشريحة، والرأس، وتذييل الصفحة؟**
 
-استخدم أدوات إدارة الرأس والتذييل في النطاق المناسب—الشريحة، التخطيط، الرئيسي، الملاحظات، أو الملخص. راجع [Manage Presentation Header and Footer](/slides/ar/php-java/presentation-header-and-footer/) للحصول على أمثلة كاملة.
+استخدم مديرات الرأس والتذييل في نطاق الشريحة، التخطيط، الرئيسي، الملاحظات أو النسخة المطبوعة المناسب. راجع [Manage Presentation Header and Footer](/slides/ar/php-java/presentation-header-and-footer/) للأمثلة الكاملة.

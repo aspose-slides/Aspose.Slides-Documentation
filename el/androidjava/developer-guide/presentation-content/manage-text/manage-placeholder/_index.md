@@ -1,51 +1,51 @@
 ---
-title: Διαχείριση Συμβόλων Κράτησης Παρουσιάσης σε Android
-linktitle: Διαχείριση Συμβόλων Κράτησης
+title: "Διαχείριση Placeholder Παρουσίασης σε Android"
+linktitle: "Διαχείριση Placeholder"
 type: docs
 weight: 10
 url: /el/androidjava/manage-placeholder/
 keywords:
-- σύμβολο κράτησης
-- σύμβολο κειμένου
-- σύμβολο εικόνας
-- σύμβολο διαγράμματος
-- σύμβολο περιεχομένου
-- κείμενο προτροπής
-- PowerPoint
-- παρουσίαση
-- Android
-- Java
-- Aspose.Slides
-description: "Μάθετε πώς να εξετάζετε και να επεξεργάζεστε σύμβολα κειμένου, εικόνας, διαγράμματος και περιεχομένου και να κατανοείτε την κληρονομικότητα των συμβόλων με το Aspose.Slides για Android μέσω Java."
+- "θέση κράτησης"
+- "placeholder κειμένου"
+- "placeholder εικόνας"
+- "placeholder γραφήματος"
+- "placeholder περιεχομένου"
+- "κείμενο προτροπής"
+- "PowerPoint"
+- "παρουσίαση"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "Μάθετε πώς να ελέγχετε και να επεξεργάζεστε placeholders κειμένου, εικόνας, γραφήματος και περιεχομένου και να κατανοείτε την κληρονόμηση των placeholders με το Aspose.Slides για Android μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Ένας σύμβολο κράτησης (placeholder) είναι ένα σχήμα που διατηρεί μια θέση για έναν συγκεκριμένο τύπο περιεχομένου σε ένα πρότυπο παρουσίασης. Συνηθισμένα παραδείγματα είναι οι σύμβολα τίτλου, σώματος, εικόνας, διαγράμματος και γενικής χρήσης περιεχομένου. Σε αντίθεση με ένα κανονικό σχήμα, ένας σύμβολο κράτησης μπορεί να κληρονομήσει τη θέση, το μέγεθος, τη μορφοποίηση και άλλες ρυθμίσεις του από μια διαφάνεια διάταξης ή κύρια διαφάνεια.
+Ένα placeholder είναι ένα σχήμα που κρατά μια θέση για ένα συγκεκριμένο είδος περιεχομένου σε ένα πρότυπο παρουσίασης. Συνηθισμένα παραδείγματα είναι τα placeholder τίτλου, σώματος, εικόνας, γραφήματος και γενικής χρήσης περιεχομένου. Σε αντίθεση με ένα συνηθισμένο σχήμα, ένα placeholder μπορεί να κληρονομήσει τη θέση, το μέγεθος, τη μορφοποίηση και άλλες ρυθμίσεις από μια διαφάνεια διάταξης ή από την κύρια διαφάνεια.
 
-Το Aspose.Slides αποκαλύπτει πληροφορίες συμβόλων κράτησης μέσω της μεθόδου [IShape.getPlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/). Η μέθοδος επιστρέφει ένα αντικείμενο [IPlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholder/) ή `null` για ένα κανονικό σχήμα. Χρησιμοποιούντε [IPlaceholder.getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholder/) για να καθορίσετε τι προορίζεται να περιέχει ο σύμβολο κράτησης.
+Aspose.Slides εμφανίζει πληροφορίες placeholder μέσω της μεθόδου [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/). Η μέθοδος επιστρέφει ένα αντικείμενο [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) ή `null` για ένα κανονικό σχήμα. Χρησιμοποιήστε [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) για να καθορίσετε τι προορίζεται να περιέχει το placeholder.
 
-Η διεπαφή σχήματος παραμένει σημαντική μετά την γνώση του τύπου του συμβόλου κράτησης:
+Η διεπαφή σχήματος εξακολουθεί να έχει σημασία αφού γνωρίζετε τον τύπο του placeholder:
 
-- Ένα κενό σύμβολο κειμένου, εικόνας, διαγράμματος ή περιεχομένου συνήθως αντιπροσωπεύεται από ένα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/).
-- Ένα συμπληρωμένο σύμβολο εικόνας μπορεί να αντιπροσωπεύεται από ένα [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/).
-- Ένα συμπληρωμένο σύμβολο διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/).
-- Ένα σύμβολο περιεχομένου μπορεί να περιέχει διάφορους τύπους περιεχομένου. Ελέγξτε τόσο το [IPlaceholder.getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholder/) όσο και τη διεπαφή σχήματος χρόνου εκτέλεσης, αντί να υποθέτετε ότι κάθε σύμβολο είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/).
+- Ένα κενό placeholder κειμένου, εικόνας, γραφήματος ή περιεχομένου συνήθως αναπαρίσταται από ένα [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+- Ένα γεμάτο placeholder εικόνας μπορεί να αναπαριστάται από ένα [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/).
+- Ένα γεμάτο placeholder γραφήματος μπορεί να αναπαριστάται από ένα [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/).
+- Ένα placeholder περιεχομένου μπορεί να περιέχει διάφορους τύπους περιεχομένου. Ελέγξτε τόσο το [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) όσο και τη διεπαφή σχήματος χρόνου εκτέλεσης αντί να υποθέτετε ότι κάθε placeholder είναι ένα [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholder/) περιγράφει τον ρόλο του συμβόλου κράτησης· δεν εγγυάται τον τύπο σχήματος χρόνου εκτέλεσης. Πάντα χρησιμοποιείτε έλεγχο τύπου πριν αποκτήσετε πρόσβαση σε μέλη κειμένου, εικόνας, διαγράμματος, πίνακα ή πολυμέσων.
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) περιγράφει το ρόλο του placeholder· δεν εγγυάται τον τύπο του σχήματος χρόνου εκτέλεσης. Πάντα χρησιμοποιήστε έναν έλεγχο τύπου πριν αποκτήσετε πρόσβαση σε μέλη κειμένου, εικόνας, γραφήματος, πίνακα ή ειδικά για πολυμέσα.
 {{% /alert %}}
 
-## **Κατανόηση Κληρονομικότητας Συμβόλων Κράτησης**
+## **Κατανόηση Κληρονόμησης Placeholder**
 
-Τα σύμβολα κράτησης δημιουργούν μια ιεραρχία:
+Τα placeholders σχηματίζουν μια ιεραρχία:
 
-1. Μια κύρια διαφάνεια ορίζει επαναχρησιμοποιήσιμα στυλ και, σε ορισμένες περιπτώσεις, σύμβολα κράτησης επιπέδου κύριας διαφάνειας.
+1. Μια κύρια διαφάνεια ορίζει επαναχρησιμοποιήσιμα στυλ και, σε ορισμένες περιπτώσεις, placeholders επιπέδου master.
 2. Μια διαφάνεια διάταξης ορίζει τη διάταξη που χρησιμοποιείται από μία ή περισσότερες κανονικές διαφάνειες και μπορεί να κληρονομήσει από την κύρια διαφάνεια.
-3. Μια κανονική διαφάνεια περιέχει τα σύμβολα κράτησης για εκείνη τη διαφάνεια και μπορεί να κληρονομήσει από τη διάταξή της.
+3. Μια κανονική διαφάνεια περιέχει τα placeholders για εκείνη τη διαφάνεια και μπορεί να κληρονομήσει από τη διάταξή της.
 
-Καλέστε το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) για να μεταβείτε ένα επίπεδο υψηλότερα σε αυτήν την ιεραρχία. Ένα σύμβολο διαφάνειας συνήθως επιστρέφει το σύμβολο διάταξης· ένα σύμβολο διάταξης μπορεί να επιστρέψει το σύμβολο κύριας διαφάνειας. Η μέθοδος επιστρέφει `null` όταν το σχήμα δεν έχει βασικό σύμβολο.
+Καλείτε το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) για να μετακινηθείτε ένα επίπεδο πάνω στην ιεραρχία. Ένα placeholder διαφάνειας συνήθως επιστρέφει το placeholder της διάταξης· ένα placeholder διάταξης μπορεί να επιστρέψει το placeholder της κύριας διαφάνειας. Η μέθοδος επιστρέφει `null` όταν το σχήμα δεν έχει base placeholder.
 
-Το παρακάτω παράδειγμα παραθέτει τα σύμβολα κράτησης στην πρώτη διαφάνεια και αναφέρει τα βασικά τους σύμβολα:
+Το ακόλουθο παράδειγμα καταγράφει τα placeholders στην πρώτη διαφάνεια και αναφέρει τα base placeholders τους:
 
 ```java
 import com.aspose.slides.*;
@@ -86,13 +86,75 @@ try {
 }
 ```
 
-Η επεξεργασία ενός συμβόλου κράτησης σε κανονική διαφάνεια δημιουργεί ή τροποποιεί μια τοπική αντικατάσταση για εκείνη τη διαφάνεια. Η επεξεργασία της σχετικής διάταξης ή κύριας διαφάνειας μπορεί να επηρεάσει όλες τις διαφάνειες που εξακολουθούν να κληρονομούν αυτήν τη ρύθμιση. Ένα τοπικό κανονικό σχήμα δεν έχει βασικό σύμβολο και δεν αρχίζει να κληρονομεί μόνο επειδή καταλαμβάνει τις ίδιες συντεταγμένες.
+Η επεξεργασία ενός placeholder σε κανονική διαφάνεια δημιουργεί ή αλλάζει μια τοπική αντικατάσταση για εκείνη τη διαφάνεια. Η επεξεργασία της σχετικής διάταξης ή της κύριας διαφάνειας μπορεί να επηρεάσει όλες τις διαφάνειες που εξακολουθούν να κληρονομούν αυτή τη ρύθμιση. Ένα τοπικό συνηθισμένο σχήμα δεν έχει base placeholder και δεν αρχίζει να κληρονομεί μόνο επειδή καταλαμβάνει τις ίδιες συντεταγμένες.
 
-## **Αλλαγή Κειμένου σε Σύμβολο Κράτησης**
+## **Κατάργηση Κατάστασης Placeholder**
 
-Τα σύμβολα τίτλου, κεντραρισμένου τίτλου, υπότιτλου, σώματος και κειμένου υποστηρίζουν συνήθως κείμενο. Ελέγξτε για [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) πριν χρησιμοποιήσετε τη μέθοδο [getTextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/).
+Κατά την προσαρμογή ενός προτύπου, χρησιμοποιήστε το [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) για να κρατήσετε ένα υπάρχον αντικείμενο ως συνηθισμένο σχήμα. Η μέθοδος [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) του επιστρέφει `null`, αλλά το σχήμα παραμένει στη συλλογή της διαφάνειας. Αντίθετα, το [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) διαγράφει το σχήμα από αυτή τη συλλογή.
 
-Το παρακάτω παράδειγμα ενημερώνει το πρώτο σύμβολο τίτλου στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα:
+Το ακόλουθο παράδειγμα απαιτεί το `template.pptx` με τουλάχιστον μία διαφάνεια και ένα μη κενό placeholder κειμένου στην πρώτη διαφάνεια. Χρησιμοποιήστε ένα placeholder με μορφοποίηση κληρονομική από τη διάταξη ή την κύρια διαφάνεια για να δείτε το αποτέλεσμα της αφαίρεσης αυτής της σχέσης. Το παράδειγμα ελέγχει ότι το ίδιο σχήμα παραμένει, καλεί ξανά τη μέθοδο στο πλέον συνηθισμένο σχήμα και αποθηκεύει το αποτέλεσμα.
+
+{{% alert color="warning" title="Warning" %}}
+Η αφαίρεση της κατάστασης placeholder δεν διατηρεί αυτόματα τις κληρονομικές ρυθμίσεις εμφάνισης. Το παρακάτω παράδειγμα αφήνει σκόπιμα αυτές τις ρυθμίσεις αμετάβλητες, έτσι το αποτέλεσμα μπορεί να φαίνεται διαφορετικό. Ένα σχήμα του οποίου η θέση και το μέγεθος κληρονομούνται πλήρως μπορεί να έχει μηδενικές συντεταγμένες και διαστάσεις μετά την κλήση και να γίνει αόρατο, ακόμη και αν παραμένει στη συλλογή.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Η κλήση της μεθόδου σε ένα συνηθισμένο σχήμα δεν έχει αποτέλεσμα.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Για ένα αντιστοιχισμένο placeholder, και οι τρεις έλεγχοι εμφανίζουν `true`. Το κείμενο παραμένει, αλλά η κληρονομική θέση, το μέγεθος, η περιστροφή, η γραμματοσειρά, η στοίχιση παραγράφου, τα περιθώρια του text-frame, η κάθετη αρδίνωση, οι ρυθμίσεις γεμίσματος και γραμμής μπορούν να αλλάξουν όταν η σχέση του placeholder αφαιρεθεί. Για παράδειγμα, η κληρονομική μορφοποίηση τίτλου μπορεί να επιστρέψει στην μορφοποίηση απλού κειμένου. Δείτε το [Slide Layout](/slides/el/androidjava/slide-layout/) για περισσότερα σχετικά με τις διατάξεις.
+
+Για να διατηρήσετε την επιθυμητή εμφάνιση, καταγράψτε τη λύση θέση, το μέγεθος και την περιστροφή πριν την κλήση και αντιγράψτε τις απαιτούμενες τιμές αποτελεσματικής μορφοποίησης σε ξεχωριστές μεταβλητές. Ανακτήστε αυτές τις τιμές μέσω των [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), και [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--). Μην βασίζεστε μόνο στα αντικείμενα effective-format, διότι οι τιμές μορφοποίησης κειμένου τους μπορούν να αλλάξουν μετά την αφαίρεση της σχέσης. Εφαρμόστε ρητά τις καταγεγραμμένες τιμές στο συνηθισμένο σχήμα μετά, συμπεριλαμβανομένης της οικογένειας γραμματοσειράς, του μεγέθους, του στυλ, του χρώματος, των ρυθμίσεων παραγράφου, των ρυθμίσεων text-frame, του γεμίσματος και της γραμμής που χρησιμοποιούνται από το πρότυπό σας.
+
+Η κληρονομική γεωμετρία του σχήματος μπορεί επίσης να χρειαστεί να οριστεί ρητά μέσω του [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-). Για ένα ορθογώνιο placeholder κειμένου, αυτό σημαίνει την ανάθεση του [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle). Η αποκατάσταση μόνο του γεμίσματος και της γραμμής μπορεί να μην αποκαταστήσει το ορατό ορθογώνιο. Τα πρότυπα με πρόσθετα εφέ ή πιο σύνθετη μορφοποίηση απαιτούν επίσης τη διαχείριση αυτών των ρυθμίσεων.
+
+## **Αλλαγή Κειμένου σε Placeholder**
+
+Τα placeholders τίτλου, κεντραρισμένου τίτλου, υποτίτλου, σώματος και κειμένου υποστηρίζουν συνήθως κείμενο. Ελέγξτε για το [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) πριν χρησιμοποιήσετε τη μέθοδο [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+
+Αυτό το παράδειγμα ενημερώνει το πρώτο placeholder τίτλου στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα:
 
 ```java
 import com.aspose.slides.*;
@@ -131,13 +193,13 @@ try {
 }
 ```
 
-Αυτό το μοτίβο αποφεύγει τη μετατροπή (casting) συμβόλων εικόνας, διαγράμματος, πίνακα ή πολυμέσων σε [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/). Επίσης προσδιορίζει το σύμβολο με βάση τον σκοπό του αντί να βασίζεται σε έναν ευαίσθητο δείκτη σχήματος.
+Αυτό το πρότυπο αποφεύγει την ανάθεση τύπου (casting) των placeholders εικόνας, γραφήματος, πίνακα ή πολυμέσων σε [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Επίσης, αναγνωρίζει το placeholder με βάση τον σκοπό του αντί να βασίζεται σε έναν ευαίσθητο δείκτη σχήματος.
 
-## **Ορισμός Κειμένου Προτροπής σε Διάταξη**
+## **Ορισμός Κειμένου Υποδείγματος σε Διάταξη**
 
-Το κείμενο προτροπής είναι η οδηγία κατά το σχεδιασμό που εμφανίζεται σε ένα κενό σύμβολο, όπως *Κάντε κλικ για να προσθέσετε τίτλο*. Ορίστε προσαρμοσμένο κείμενο προτροπής στο σύμβολο διάταξης αντί να προσπαθείτε να το προσπελάσετε μέσω της συλλογής σχημάτων μιας κανονικής διαφάνειας. Πρόσβαση στη διάταξη μέσω του [ISlide.getLayoutSlide](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islide/) και επανάληψη στην συλλογή που επιστρέφει το [ILayoutSlide.getShapes](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ibaseslide/).
+Το κείμενο prompt είναι η οδηγία κατά τη διάρκεια του σχεδιασμού που εμφανίζεται σε ένα κενό placeholder, όπως *Κάντε κλικ για προσθήκη τίτλου*. Ορίστε προσαρμοσμένο κείμενο prompt στο placeholder της διάταξης αντί να προσπαθήσετε να το προσεγγίσετε μέσω της συλλογής σ shapes μιας κανονικής διαφάνειας. Πρόσβαση στη διάταξη μέσω του [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) και επαναλάβετε τη συλλογή που επιστρέφει το [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/).
 
-Το παρακάτω παράδειγμα αλλάζει τις προτροπές τίτλου και υπότιτλου στη διάταξη που χρησιμοποιείται από την πρώτη διαφάνεια:
+Το ακόλουθο παράδειγμα αλλάζει τα prompts τίτλου και υποτίτλου στη διάταξη που χρησιμοποιείται από την πρώτη διαφάνεια:
 
 ```java
 import com.aspose.slides.*;
@@ -172,14 +234,14 @@ try {
 }
 ```
 
-Το κείμενο προτροπής δεν αποτελεί κανονικό περιεχόμενο της διαφάνειας. Προορίζεται για κενά σύμβολα σε εφαρμογές επεξεργασίας όπως το PowerPoint. Μόλις ένας χρήστης ή πρόγραμμα παρέχει πραγματικό περιεχόμενο, η προτροπή δεν εμφανίζεται πλέον. Η αλλαγή μιας προτροπής επίσης δεν αντικαθιστά το υπάρχον κείμενο στις διαφάνειες που χρησιμοποιούν τη διάταξη.
+Το κείμενο prompt δεν είναι κανονικό περιεχόμενο διαφάνειας. Προορίζεται για κενά placeholders σε εφαρμογές επεξεργασίας όπως το PowerPoint. Μόλις ένας χρήστης ή πρόγραμμα παρέχει πραγματικό περιεχόμενο, το prompt δεν εμφανίζεται πλέον. Η αλλαγή ενός prompt επίσης δεν αντικαθιστά το υπάρχον κείμενο στις διαφάνειες που χρησιμοποιούν τη διάταξη.
 
-## **Ενημέρωση Συμβόλου Εικόνας**
+## **Ενημέρωση Placeholder Εικόνας**
 
-Υπάρχουν δύο περιπτώσεις που πρέπει να διαχειριστείτε:
+Υπάρχουν δύο περιπτώσεις που πρέπει να αντιμετωπιστούν:
 
-- Εάν το σύμβολο εικόνας είναι ήδη συμπληρωμένο και αντιπροσωπεύεται από ένα [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/), αντικαταστήστε την εικόνα μέσω του [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipicturefillformat/) και του [ISlidesPicture.setImage](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/islidespicture/).
-- Εάν παραμένει κενό σύμβολο, προσθέστε ένα πλαίσιο εικόνας στις συντεταγμένες του συμβόλου με το [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/) και αφαιρέστε το κενό σύμβολο.
+- Εάν το placeholder εικόνας είναι ήδη γεμάτο και αναπαρίσταται από ένα [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), αντικαταστήστε την εικόνα μέσω του [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) και του [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/).
+- Εάν παραμένει κενό placeholder, προσθέστε ένα picture frame στις συντεταγμένες του placeholder με το [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) και αφαιρέστε το κενό placeholder.
 
 Το επόμενο παράδειγμα υποστηρίζει και τις δύο περιπτώσεις και αποθηκεύει την παρουσίαση:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Η αντικατάσταση που δημιουργείται για ένα κενό σύμβολο είναι ένα τοπικό πλαίσιο εικόνας, όχι ένα νέο σύμβολο, επειδή το [IShape.getPlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) δεν παρέχει setter. Διατηρεί τη δεσμευμένη θέση αλλά δεν κληρονομεί πλέον τη συμπεριφορά που σχετίζεται με το σύμβολο. Εάν η διατήρηση της σχέσης του συμβόλου είναι απαραίτητη, προετοιμάστε και συμπληρώστε το σύμβολο στο PowerPoint πρώτα, και στη συνέχεια ενημερώστε το προκύπτον [IPictureFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ipictureframe/) με το Aspose.Slides.
+Η αντικατάσταση που δημιουργείται για ένα κενό placeholder είναι ένα τοπικό picture frame, όχι ένα νέο placeholder, επειδή το [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) δεν παρέχει setter. Διατηρεί τη δεσμευμένη θέση αλλά δεν κληρονομεί πλέον τη συμπεριφορά συγκεκριμένη για placeholder. Εάν η διατήρηση της σχέσης placeholder είναι σημαντική, προετοιμάστε και γεμίστε το placeholder στο PowerPoint πρώτα, κατόπιν ενημερώστε το αποτέλεσμα [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) με το Aspose.Slides.
 
-Για διαφάνεια εικόνας, περικοπή και άλλες ειδικές επιδράσεις εικόνας, δείτε το [Manage Picture Frames](/slides/el/androidjava/picture-frame/). Αυτές οι λειτουργίες ανήκουν στο πλαίσιο εικόνας ή στη γέμιση εικόνας, όχι στα μεταδεδομένα του συμβόλου.
+Για διαφάνεια εικόνας, περικοπή και άλλα εφέ ειδικά για εικόνες, δείτε το [Manage Picture Frames](/slides/el/androidjava/picture-frame/). αυτές οι λειτουργίες ανήκουν στο picture frame ή στο picture fill, όχι στα μετα-δεδομένα του placeholder.
 
-## **Εργασία με Σύμβολα Διαγράμματος και Περιεχομένου**
+## **Δουλειά με Placeholder Γραφήματος και Περιεχομένου**
 
-Ένα συμπληρωμένο σύμβολο διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/). Αυτό το παράδειγμα εντοπίζει τέτοιο διάγραμμα τόσο με βάση τον τύπο του συμβόλου όσο και τη διεπαφή χρόνου εκτέλεσης, αλλάζει τον τίτλο του και αποθηκεύει το αρχείο:
+Ένα γεμάτο placeholder γραφήματος μπορεί να αναπαριστάται από ένα [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/). Αυτό το παράδειγμα εντοπίζει τέτοιο γράφημα τόσο με βάση τον τύπο του placeholder όσο και τη διεπαφή χρόνου εκτέλεσης, αλλάζει τον τίτλο του και αποθηκεύει το αρχείο:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Ένα γενικό σύμβολο περιεχομένου συνήθως έχει [PlaceholderType.Object](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/). Στο PowerPoint λειτουργεί ως εκκινητής για διάφορους τύπους περιεχομένου, όπως διαγράμματα, πίνακες, διαγράμματα ροής, εικόνες και πολυμέσα. Αφού συμπληρωθεί, εξετάστε τη συγκεκριμένη διεπαφή σχήματος για να μάθετε τι περιέχει. Εξειδικευμένες διατάξεις μπορούν επίσης να εκθέτουν [PlaceholderType.Chart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/), ή [PlaceholderType.Diagram](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholdertype/).
+Ένα γενικό placeholder περιεχομένου συνήθως έχει το [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/). Στο PowerPoint λειτουργεί ως εκκινητής για πολλαπλούς τύπους περιεχομένου, όπως γραφήματα, πίνακες, διαγράμματα, εικόνες και πολυμέσα. Αφού γεμίσει, ελέγξτε τη πραγματική διεπαφή σχήματος για να μάθετε τι περιέχει. Εξειδικευμένες διατάξεις μπορούν επίσης να εμφανίζουν [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), ή [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides δεν μετατρέπει ένα κενό σύμβολο [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) σε [IChart](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ichart/) απλώς αλλάζοντας το [IPlaceholder.getType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/placeholder/); ο τύπος δεν μπορεί να αλλάξει μέσω της διεπαφής. Για να γεμίσετε προγραμματιστικά ένα κενό διάγραμμα ή περιοχή περιεχομένου, προσθέστε το απαιτούμενο αντικείμενο στις συντεταγμένες του συμβόλου και, στη συνέχεια, αφαιρέστε το κενό σύμβολο. Το παρακάτω παράδειγμα το κάνει για ένα διάγραμμα:
+Το Aspose.Slides δεν μετατρέπει ένα κενό placeholder [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) σε ένα [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) απλώς αλλάζοντας το [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/); ο τύπος δεν μπορεί να αλλάξει μέσω της διεπαφής. Για να γεμίσετε ένα κενό γράφημα ή περιοχή περιεχομένου προγραμματιστικά, προσθέστε το απαιτούμενο αντικείμενο στις συντεταγμένες του placeholder και στη συνέχεια αφαιρέστε το κενό placeholder. Το παρακάτω παράδειγμα το κάνει για ένα γράφημα:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Το προστιθέμενο διάγραμμα είναι ένα συνηθισμένο τοπικό διάγραμμα. Καταλαμβάνει την περιοχή του συμβόλου αλλά δεν κληρονομεί από το σύμβολο διάταξης. Χρησιμοποιήστε τα ειδικά [chart management articles](/slides/el/androidjava/powerpoint-charts/) όταν χρειάζεται να αντικαταστήσετε τις κατηγορίες, τις σειρές ή τα δεδομένα βιβλίου εργασίας του.
+Το προστεθειμένο γράφημα είναι ένα συνηθισμένο τοπικό γράφημα. Καταλαμβάνει την περιοχή του placeholder αλλά δεν κληρονομεί από το placeholder της διάταξης. Χρησιμοποιήστε τα ειδικά [άρθρα διαχείρισης γραφημάτων](/slides/el/androidjava/powerpoint-charts/) όταν χρειάζεται να αντικαταστήσετε τις κατηγορίες, τις σειρές ή τα δεδομένα του βιβλίου εργασίας.
 
 ## **Πλήρες Παράδειγμα: Ενημέρωση Κειμένου ή Περιεχομένου Εικόνας**
 
-Το παρακάτω εν κατακμή παράδειγμα ανοίγει ένα πρότυπο, αναζητά στην πρώτη διαφάνεια είτε σύμβολο τίτλου είτε σύμβολο εικόνας, ελέγχει τους τύπους του συμβόλου και του σχήματος, ενημερώνει το κατάλληλο περιεχόμενο και αποθηκεύει το αποτέλεσμα. Το παράδειγμα αποφεύγει σκόπιμα την υπόθεση δείκτη σχήματος ή τη μετατροπή (casting) κάθε συμβόλου στην ίδια διεπαφή.
+Το παρακάτω ολοκληρωμένο παράδειγμα ανοίγει ένα πρότυπο, αναζητά στην πρώτη διαφάνεια είτε ένα placeholder τίτλου είτε εικόνας, ελέγχει τους τύπους του placeholder και του σχήματος, ενημερώνει το κατάλληλο περιεχόμενο και αποθηκεύει το αποτέλεσμα. Το παράδειγμα αποφεύγει σκόπιμα να υποθέτει δείκτη σχήματος ή να κάνει casting σε κάθε placeholder στην ίδια διεπαφή.
 
 ```java
 import com.aspose.slides.*;
@@ -362,16 +424,16 @@ try {
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Τι είναι ένα βασικό σύμβολο κράτησης;**
+**Τι είναι ένα base placeholder;**
 
-Ένα βασικό σύμβολο κράτησης είναι το αντίστοιχο σχήμα στη διάταξη ή την κύρια διαφάνεια από το οποίο κληρονομεί ένα άλλο σύμβολο. Χρησιμοποιήστε το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/) για να το ανακτήσετε. Ένα συνηθισμένο τοπικό σχήμα επιστρέφει `null` επειδή δεν αποτελεί μέρος της ιεραρχίας των συμβόλων.
+Ένα base placeholder είναι το αντίστοιχο σχήμα στη διάταξη ή στην κύρια διαφάνεια από το οποίο κληρονομεί ένα άλλο placeholder. Χρησιμοποιήστε το [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) για να το ανακτήσετε. Ένα συνηθισμένο τοπικό σχήμα επιστρέφει `null` επειδή δεν αποτελεί μέρος της ιεραρχίας του placeholder.
 
-**Μπορώ να αλλάξω όλους τους τίτλους διαφανειών επεξεργαζόμενο ένα σύμβολο διάταξης;**
+**Μπορώ να αλλάξω όλους τους τίτλους των διαφανειών επεξεργάζόμενος ένα placeholder διάταξης;**
 
-Μπορείτε να αλλάξετε τη κληρονομημένη μορφοποίηση ή το κείμενο προτροπής μέσω μιας διάταξης, αλλά το υπάρχον κείμενο τίτλου αποθηκεύεται στις κανονικές διαφάνειες. Για να αντικαταστήσετε τον πραγματικό τίτλο σε ολόκληρη την παρουσίαση, επαναλάβετε τις διαφάνειες και ενημερώστε το κάθε σύμβολο τίτλου.
+Μπορείτε να αλλάξετε τη κληρονομική μορφοποίηση ή το κείμενο prompt μέσω μιας διάταξης, αλλά το υπάρχον περιεχόμενο τίτλου αποθηκεύεται στις κανονικές διαφάνειες. Για να αντικαταστήσετε το πραγματικό κείμενο του τίτλου σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και ενημερώστε κάθε placeholder τίτλου.
 
-**Πώς διαχειρίζομαι τα σύμβολα ημερομηνίας, αριθμού διαφάνειας, κεφαλίδας και υποσέλιδου;**
+**Πώς διαχειρίζομαι placeholders ημερομηνίας, αριθμού διαφάνειας, κεφαλίδας και υποσέλιδου;**
 
-Χρησιμοποιήστε τους διαχειριστές κεφαλίδας και υποσέλιδου στο κατάλληλο επίπεδο (διαφάνεια, διάταξη, κύρια, σημειώσεις ή φυλλάδιο). Δείτε το [Manage Presentation Header and Footer](/slides/el/androidjava/presentation-header-and-footer/) για πλήρη παραδείγματα.
+Χρησιμοποιήστε τους διαχειριστές κεφαλίδας και υποσέλιδου στο κατάλληλο επίπεδο διαφάνειας, διάταξη, master, σημειώσεις ή φυλλάδια. Δείτε το [Διαχείριση Κεφαλίδας και Υποσέλιδου Παρουσίασης](/slides/el/androidjava/presentation-header-and-footer/) για πλήρη παραδείγματα.

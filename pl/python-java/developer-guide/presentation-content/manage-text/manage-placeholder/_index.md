@@ -1,51 +1,51 @@
 ---
-title: Zarządzanie placeholderami prezentacji w Pythonie
-linktitle: Zarządzanie placeholderami
+title: Zarządzanie polami zastępczymi prezentacji w Pythonie
+linktitle: Zarządzaj polami zastępczymi
 type: docs
 weight: 10
 url: /pl/python-java/manage-placeholder/
 keywords:
-- symbol zastępczy
-- placeholder tekstowy
-- placeholder obrazu
-- placeholder wykresu
-- placeholder treści
+- pole zastępcze
+- pole zastępcze tekstu
+- pole zastępcze obrazu
+- pole zastępcze wykresu
+- pole zastępcze zawartości
 - tekst podpowiedzi
 - PowerPoint
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstu, obrazu, wykresu i treści oraz zrozumieć dziedziczenie placeholderów przy użyciu Aspose.Slides dla Pythona poprzez Java."
+description: "Dowiedz się, jak przeglądać i edytować pola zastępcze tekstu, obrazu, wykresu i zawartości oraz zrozumieć dziedziczenie pól zastępczych przy użyciu Aspose.Slides dla Pythona poprzez Javę."
 ---
 ## **Przegląd**
 
-Placeholder to kształt, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowymi przykładami są tytuł, ciało, obraz, wykres i ogólne placeholdery treści. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu master.
+Pola zastępcze to kształty, które rezerwują pozycję dla określonego rodzaju treści w szablonie prezentacji. Popularne przykłady to tytuł, treść, obraz, wykres oraz ogólne pola zastępcze zawartości. W przeciwieństwie do zwykłego kształtu, pole zastępcze może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu nadrzędnego.
 
-Aspose.Slides udostępnia informacje o placeholderach poprzez metodę [Shape.getPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getPlaceholder). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholder/) lub `None` dla zwykłego kształtu. Użyj [Placeholder.getType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholder/#getType), aby określić, co placeholder ma zawierać.
+Aspose.Slides udostępnia informacje o polach zastępczych za pośrednictwem metody [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) albo `None` dla zwykłego kształtu. Użyj [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) aby określić, co pole zastępcze ma zawierać.
 
-Typ kształtu nadal ma znaczenie po poznaniu typu placeholdera:
+Typ kształtu nadal ma znaczenie po określeniu typu pola zastępczego:
 
-- Pusty placeholder tekstu, obrazu, wykresu lub treści jest zwykle reprezentowany przez [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/).
-- Wypełniony placeholder obrazu może być reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/).
-- Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/).
-- Placeholder treści może zawierać różne rodzaje treści. Sprawdzaj zarówno [Placeholder.getType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholder/#getType), jak i typ kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/).
+- Puste miejsce na tekst, obraz, wykres lub zawartość jest zazwyczaj reprezentowane przez [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Wypełnione pole zastępcze obrazu może być reprezentowane przez [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Wypełnione pole zastępcze wykresu może być reprezentowane przez [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Pole zawartości może zawierać kilka rodzajów treści. Sprawdź zarówno [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) jak i typ kształtu w czasie wykonywania zamiast zakładać, że każde pole zastępcze jest [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholder/#getType) opisuje rolę placeholdera; nie gwarantuje on typu kształtu w czasie wykonywania. Zawsze sprawdzaj typ przed dostępem do elementów specyficznych dla tekstu, obrazu, wykresu, tabeli lub multimediów.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) opisuje rolę pola zastępczego; nie gwarantuje typu kształtu w czasie wykonywania. Zawsze używaj sprawdzania typu przed dostępem do tekstu, obrazu, wykresu, tabeli lub elementów multimedialnych.
 {{% /alert %}}
 
-## **Zrozumienie dziedziczenia placeholderów**
+## **Zrozumienie dziedziczenia pól zastępczych**
 
-Placeholdery tworzą hierarchię:
+Placeholders tworzą hierarchię:
 
-1. Slajd master definiuje style wielokrotnego użytku i, w niektórych przypadkach, placeholdery na poziomie master.
-2. Slajd układu definiuje rozmieszczenie używane przez jeden lub więcej zwykłych slajdów i może dziedziczyć po masterze.
-3. Zwykły slajd zawiera placeholdery dla tego slajdu i może dziedziczyć po swoim układzie.
+1. Slajd nadrzędny definiuje style wielokrotnego użytku i, w niektórych przypadkach, pola zastępcze na poziomie nadrzędnym.
+2. Slajd układu definiuje układ używany przez jeden lub więcej zwykłych slajdów i może dziedziczyć z nadrzędnego.
+3. Zwykły slajd zawiera pola zastępcze dla tego slajdu i może dziedziczyć z jego układu.
 
-Wywołaj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getBasePlaceholder), aby przejść jeden poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca placeholder układu; placeholder układu może zwrócić placeholder master. Metoda zwraca `None`, gdy kształt nie ma podstawowego placeholdera.
+Wywołaj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) aby przejść o jeden poziom wyżej w tej hierarchii. Pole zastępcze slajdu zazwyczaj zwraca swoje pole zastępcze układu; pole zastępcze układu może zwrócić swoje pole nadrzędne. Metoda zwraca `None`, gdy kształt nie ma bazowego pola zastępczego.
 
-Poniższy przykład wyświetla placeholdery na pierwszym slajdzie i raportuje ich podstawowe placeholdery:
+Poniższy przykład wymienia pola zastępcze na pierwszym slajdzie i zgłasza ich bazowe pola:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-Edycja placeholdera na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub mastera może wpływać na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma podstawowego placeholdera i nie zaczyna dziedziczyć tylko dlatego, że zajmuje te same współrzędne.
+Edycja pola zastępczego na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie tego slajdu. Edycja powiązanego układu lub slajdu nadrzędnego może wpłynąć na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma bazowego pola zastępczego i nie zaczyna dziedziczyć tylko dlatego, że zajmuje te same współrzędne.
 
-## **Zmiana tekstu w placeholderze**
+## **Usunięcie statusu pola zastępczego**
 
-Placeholdery typu tytuł, tytuł‑środkowy, podtytuł, ciało i tekst zazwyczaj obsługują tekst. Sprawdź, czy kształt jest [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/#getTextFrame).
+Podczas dostosowywania szablonu, użyj [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) aby zachować istniejący obiekt jako zwykły kształt. Jego metoda [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) zwraca `None`, ale kształt pozostaje w kolekcji slajdu. W przeciwieństwie do tego, [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) usuwa kształt z tej kolekcji.
 
-Ten przykład aktualizuje pierwszy placeholder tytułu na pierwszym slajdzie i zapisuje wynik:
+Poniższy przykład wymaga pliku `template.pptx` z co najmniej jednym slajdem i niepustym polem tekstowym na pierwszym slajdzie. Użyj pola zastępczego z formatowaniem dziedziczonym z jego układu lub slajdu nadrzędnego, aby zobaczyć efekt usunięcia tej relacji. Przykład sprawdza, że ten sam kształt pozostaje, wywołuje metodę ponownie na teraz zwykłym kształcie i zapisuje wynik.
+
+{{% alert color="warning" title="Warning" %}}
+Usunięcie statusu pola zastępczego nie zachowuje automatycznie dziedziczonych ustawień wyglądu. Poniższy przykład celowo pozostawia te ustawienia niezmienione, więc wynik może wyglądać inaczej. Kształt, którego pozycja i rozmiar są całkowicie dziedziczone, może po wywołaniu mieć zerowe współrzędne i wymiary i stać się niewidoczny, mimo że pozostaje w kolekcji.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Wywołanie metody na zwykłym kształcie nie ma efektu.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Dla pasującego pola zastępczego wszystkie trzy sprawdzenia zwracają `True`. Tekst pozostaje, ale dziedziczone pozycja, rozmiar, obrót, czcionka, wyrównanie akapitu, marginesy ramki tekstu, pionowe kotwiczenie, wypełnienie i ustawienia linii mogą się zmienić po usunięciu relacji pola zastępczego. Na przykład, dziedziczone formatowanie tytułu może powrócić do zwykłego formatowania tekstu. Zobacz [Układ slajdu](/slides/pl/python-java/slide-layout/) po więcej o układach.
+
+Aby zachować zamierzony wygląd, przechwyć wyliczoną pozycję, rozmiar i obrót przed wywołaniem i skopiuj wymagane efektywne wartości formatowania do oddzielnych zmiennych. Pobierz te wartości za pomocą [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective), i [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Nie polegaj wyłącznie na obiektach efektownego formatu, ponieważ ich wartości formatowania tekstu mogą się zmienić po usunięciu relacji. Zastosuj wyraźnie przechwycone wartości do zwykłego kształtu później, w tym rodzinę czcionki, rozmiar, styl, kolor, ustawienia akapitu, ustawienia ramki tekstu, wypełnienie i linię używaną w szablonie.
+
+Może być konieczne także explicite przypisanie dziedziczonej geometrii kształtu poprzez [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Dla prostokątnego pola tekstowego oznacza to przypisanie [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); przywrócenie jedynie wypełnienia i linii może nie przywrócić widocznego prostokąta. Szablony z dodatkowymi efektami lub bardziej złożonym formatowaniem również wymagają obsługi tych ustawień.
+
+## **Zmienianie tekstu w polu zastępczym**
+
+Tytułowe, wyśrodkowane tytuły, podtytuły, treść i pola tekstowe zazwyczaj obsługują tekst. Sprawdź, czy jest to [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame).
+
+Poniższy przykład aktualizuje pierwsze pole tytułowe na pierwszym slajdzie i zapisuje wynik:
 
 ```python
 import jpype
@@ -128,11 +190,11 @@ finally:
     presentation.dispose()
 ```
 
-Ten wzorzec unika traktowania placeholderów obrazu, wykresu, tabeli lub multimediów jako [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/). Identifikuje także placeholder po przeznaczeniu, zamiast polegać na kruchym indeksie kształtu.
+Ten wzorzec unika traktowania pól zastępczych obrazu, wykresu, tabeli lub multimediów jako [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Identyfikuje ono pole zastępcze według przeznaczenia zamiast polegać na kruchej indeksacji kształtu.
 
-## **Ustawienie tekstu podpowiedzi w układzie**
+## **Ustawianie tekstu podpowiedzi w układzie**
 
-Tekst podpowiedzi to instrukcja wyświetlana w pustym placeholderze w czasie projektowania, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi w placeholderze układu, zamiast próbować dotrzeć do niego przez kolekcję kształtów zwykłego slajdu. Uzyskaj dostęp do układu przez [Slide.getLayoutSlide](https://reference.aspose.com/slides/pl/python-java/aspose.slides/slide/#getLayoutSlide) i iteruj po kolekcji zwróconej przez [BaseSlide.getShapes](https://reference.aspose.com/slides/pl/python-java/aspose.slides/baseslide/#getShapes).
+Tekst podpowiedzi to instrukcja wyświetlana w czasie projektowania w pustym polu zastępczym, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi w polu zastępczym układu, zamiast próbować dotrzeć do niego przez kolekcję kształtów zwykłego slajdu. Uzyskaj dostęp do układu poprzez [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide), i iteruj po kolekcji zwróconej przez [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
 Poniższy przykład zmienia podpowiedzi tytułu i podtytułu w układzie używanym przez pierwszy slajd:
 
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edycyjnych, takich jak PowerPoint. Po tym, jak użytkownik lub program dostarczy rzeczywistą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach, które używają tego układu.
+Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych pól zastępczych w aplikacjach edycyjnych, takich jak PowerPoint. Gdy użytkownik lub program dostarczy rzeczywistą treść, podpowiedź nie jest już wyświetlana. Zmiana podpowiedzi nie zastępuje również istniejącego tekstu na slajdach wykorzystujących dany układ.
 
-## **Aktualizacja placeholdera obrazu**
+## **Aktualizacja pola zastępczego obrazu**
 
-Obsługiwane są dwa przypadki:
+Istnieją dwa przypadki do obsłużenia:
 
-- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/), zamień obraz przy użyciu [PictureFillFormat.getPicture](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picturefillformat/#getPicture) i [Picture.setImage](https://reference.aspose.com/slides/pl/python-java/aspose.slides/picture/#setImage).
-- Jeśli jest nadal pustym placeholderem, dodaj ramkę obrazu w współrzędnych placeholdera przy użyciu [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shapecollection/#addPictureFrame) i usuń pusty placeholder.
+- Jeśli pole zastępcze obrazu jest już wypełnione i reprezentowane przez [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), zamień obraz za pomocą [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) i [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Jeśli jest nadal pustym polem zastępczym, dodaj ramkę obrazu w współrzędnych pola za pomocą [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) i usuń puste pole zastępcze.
 
-Kolejny przykład obsługuje oba przypadki i zapisuje prezentację:
+Następny przykład obsługuje oba przypadki i zapisuje prezentację:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-Zamiennik utworzony dla pustego placeholdera jest lokalną ramką obrazu, a nie nowym placeholderem, ponieważ [Shape.getPlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getPlaceholder) nie udostępnia setter‑a. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli utrzymanie relacji placeholdera jest istotne, przygotuj i wypełnij placeholder w PowerPoint, a następnie zaktualizuj powstały [PictureFrame](https://reference.aspose.com/slides/pl/python-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
+Zastąpienie utworzone dla pustego pola jest lokalną ramką obrazu, a nie nowym polem zastępczym, ponieważ [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) nie udostępnia settera. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla pola zastępczego. Jeśli zachowanie relacji pola jest kluczowe, najpierw przygotuj i wypełnij pole w PowerPoint, a następnie zaktualizuj powstały [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
 
-W celu uzyskania przezroczystości obrazu, przycinania i innych efektów specyficznych dla obrazu, zobacz [Manage Picture Frames](/slides/pl/python-java/picture-frame/). Operacje te dotyczą ramki obrazu lub wypełnienia obrazu, a nie metadanych placeholdera.
+W celu uzyskania przezroczystości obrazu, przycinania i innych efektów specyficznych dla obrazu, zobacz [Zarządzanie ramkami obrazów](/slides/pl/python-java/picture-frame/). Te operacje dotyczą ramki obrazu lub wypełnienia obrazu, a nie metadanych pola zastępczego.
 
-## **Praca z placeholderami wykresów i treści**
+## **Praca z polami zastępczymi wykresów i zawartości**
 
-Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i typie runtime, zmienia jego tytuł i zapisuje plik:
+Wypełnione pole zastępcze wykresu może być reprezentowane przez [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie pola, jak i typie kształtu w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Ogólny placeholder treści zazwyczaj ma typ [PlaceholderType.Object](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Object). W PowerPoint działa jako uruchamiacz dla wielu typów treści, w tym wykresów, tabel, diagramów, obrazów i multimediów. Po wypełnieniu, sprawdź rzeczywisty typ kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą także eksponować [PlaceholderType.Chart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Media) lub [PlaceholderType.Diagram](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholdertype/#Diagram).
+Ogólne pole zawartości zazwyczaj ma [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). W PowerPoint działa jako uruchamiacz dla kilku typów zawartości, w tym wykresów, tabel, diagramów, obrazów i mediów. Po jego wypełnieniu, sprawdź rzeczywisty typ kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą również eksponować [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) lub [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides nie konwertuje pustego placeholdera [AutoShape](https://reference.aspose.com/slides/pl/python-java/aspose.slides/autoshape/) na [Chart](https://reference.aspose.com/slides/pl/python-java/aspose.slides/chart/) jedynie poprzez zmianę [Placeholder.getType](https://reference.aspose.com/slides/pl/python-java/aspose.slides/placeholder/#getType); typ nie może być zmieniony przez API. Aby wypełnić pusty obszar wykresu lub treści programowo, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
+Aspose.Slides nie konwertuje pustego [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) w [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) jedynie zmieniając [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); typu nie można zmienić za pośrednictwem API. Aby wypełnić pusty obszar wykresu lub zawartości programowo, dodaj wymagany obiekt w współrzędnych pola zastępczego, a następnie usuń puste pole. Poniższy przykład robi to dla wykresu:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Skorzystaj z dedykowanych artykułów o zarządzaniu wykresami [chart management articles](/slides/pl/python-java/powerpoint-charts/), gdy potrzebujesz zastąpić kategorie, serie lub dane skoroszytu.
+Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar pola zastępczego, ale nie dziedziczy z pola układu. Skorzystaj z dedykowanych [artykuły o zarządzaniu wykresami](/slides/pl/python-java/powerpoint-charts/) gdy musisz zastąpić jego kategorie, serie lub dane skoroszytu.
 
-## **Pełny przykład: aktualizacja tekstu lub obrazu**
+## **Pełny przykład: aktualizacja treści tekstowej lub obrazowej**
 
-Poniższy przykład end‑to‑end otwiera szablon, przeszukuje pierwszy slajd w poszukiwaniu placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład świadomie unika zakładania indeksu kształtu lub traktowania każdego placeholdera jako tego samego typu.
+Poniższy kompleksowy przykład otwiera szablon, przeszukuje pierwszy slajd pod kątem pola tytułowego lub obrazu, sprawdza typy pola i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub traktowania każdego pola zastępczego jako tego samego typu.
 
 ```python
 from pathlib import Path
@@ -357,14 +419,14 @@ finally:
 
 ## **FAQ**
 
-**Czym jest podstawowy placeholder?**
+**Czym jest bazowe pole zastępcze?**
 
-Podstawowy placeholder to odpowiadający mu kształt w układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/pl/python-java/aspose.slides/shape/#getBasePlaceholder), aby go pobrać. Zwykły lokalny kształt zwraca `None`, ponieważ nie jest częścią hierarchii placeholderów.
+Bazowe pole zastępcze to odpowiedni kształt w układzie lub slajdzie nadrzędnym, z którego inne pole dziedziczy. Użyj [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) aby je pobrać. Zwykły lokalny kształt zwraca `None`, ponieważ nie jest częścią hierarchii pól zastępczych.
 
-**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder w układzie?**
+**Czy mogę zmienić wszystkie tytuły slajdów, edytując pole zastępcze układu?**
 
-Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na normalnych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i aktualizuj każdy placeholder tytułu.
+Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na zwykłych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i zaktualizuj każde pole tytułowe.
 
-**Jak zarządzać placeholderami daty, numeru slajdu, nagłówka i stopki?**
+**Jak zarządzać polami zastępczymi daty, numeru slajdu, nagłówka i stopki?**
 
-Użyj menedżerów nagłówka i stopki na odpowiednim poziomie: slajd, układ, master, notatki lub rozdanie. Zobacz [Manage Presentation Header and Footer](/slides/pl/python-java/presentation-header-and-footer/) po pełne przykłady.
+Użyj menedżerów nagłówka i stopki na odpowiednim slajdzie, układzie, slajdzie nadrzędnym, notatkach lub wyciągu. Zobacz [Zarządzanie nagłówkiem i stopką prezentacji](/slides/pl/python-java/presentation-header-and-footer/) po pełne przykłady.

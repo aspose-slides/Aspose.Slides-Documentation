@@ -9,43 +9,43 @@ keywords:
 - текстовый заполнитель
 - заполнитель изображения
 - заполнитель диаграммы
-- заполнитель контента
+- заполнитель содержимого
 - текст подсказки
 - PowerPoint
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Узнайте, как инспектировать и редактировать текстовые, рисунковые, диаграммные и контентные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Android на Java."
+description: "Узнайте, как просматривать и редактировать текстовые, рисунковые, диаграммные и содержательные заполнители, а также понять наследование заполнителей с Aspose.Slides для Android на Java."
 ---
 ## **Обзор**
 
-Заполнитель — это фигура, зарезервирующая позицию для определённого типа содержимого в шаблоне презентации. Типичными примерами являются заголовок, основной текст, рисунок, диаграмма и универсальные заполнитель‑контент. В отличие от обычной фигуры, заполнитель может наследовать позицию, размер, форматирование и другие параметры от макетного или мастер‑слайда.
+Заполнитель — это фигура, которая резервирует позицию для определённого типа содержимого в шаблоне презентации. Частыми примерами являются заголовок, основной текст, рисунок, диаграмма и универсальные заполняющие элементы содержимого. В отличие от обычной фигуры, заполнитель может наследовать своё положение, размер, форматирование и другие настройки от слайда‑макета или слайда‑образца.
 
-Aspose.Slides предоставляет информацию о заполняющих элементах через метод [IShape.getPlaceholder](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholder/) или `null` для обычной фигуры. Используйте [IPlaceholder.getType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholder/), чтобы определить, какое содержимое предполагается в заполнителе.
+Aspose.Slides раскрывает информацию о заполнителях через метод [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) или `null` для обычной фигуры. Используйте [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/), чтобы определить, что заполнитель предназначен содержать.
 
-Интерфейс фигуры всё равно важен после того, как известен тип заполнителя:
+Интерфейс фигуры всё ещё имеет значение после того, как вы узнали тип заполнителя:
 
-- Пустой текстовый, рисунковый, диаграммный или контентный заполнитель обычно представлен объектом [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/).
-- Заполненный рисунковый заполнитель может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframe/).
-- Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/).
-- Контентный заполнитель может содержать несколько типов содержимого. Проверяйте как [IPlaceholder.getType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholder/), так и интерфейс фигуры во время выполнения, вместо предположения, что каждый заполнитель — это [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/).
+- Пустой текстовый, рисунковый, диаграммный или заполняющий элемент обычно представляется как [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+- Заполненный заполнитель рисунка может быть представлен как [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/).
+- Заполненный заполнитель диаграммы может быть представлен как [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/).
+- Заполнитель содержимого может содержать несколько видов контента. Проверяйте как [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/), так и интерфейс фигуры во время выполнения, вместо того чтобы предполагать, что каждый заполнитель является [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholder/) описывает роль заполнителя; она не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к текстовым, рисунковым, диаграммным, табличным или медиа‑специфичным членам.
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) описывает роль заполнителя; он не гарантирует тип фигуры во время выполнения. Всегда выполняйте проверку типа перед обращением к членам, специфичным для текста, рисунка, диаграммы, таблицы или медиа.
 {{% /alert %}}
 
 ## **Понимание наследования заполнителей**
 
 Заполнители образуют иерархию:
 
-1. Мастер‑слайд определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня мастера.
-2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от мастера.
-3. Обычный слайд содержит заполнители для этого слайда и может наследовать от своего макета.
+1. Слайд‑образец определяет переиспользуемые стили и, в некоторых случаях, заполняющие элементы уровня образца.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследоваться от образца.
+3. Обычный слайд содержит заполнители для этого слайда и может наследовать их от своего макета.
 
-Вызовите [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/), чтобы подняться на один уровень вверх по этой иерархии. Заполнитель обычного слайда обычно возвращает заполнитель своего макета; заполнитель макета может вернуть заполнитель мастера. Метод возвращает `null`, когда у фигуры нет базового заполнителя.
+Вызовите [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), чтобы подняться на один уровень вверх по этой иерархии. Заполнитель слайда обычно возвращает свой заполнитель макета; заполнитель макета может возвращать свой заполнитель образца. Метод возвращает `null`, если у фигуры нет базового заполнителя.
 
-Ниже приведён пример, который перечисляет заполнители на первом слайде и выводит их базовые заполнители:
+Следующий пример выводит список заполнителей на первом слайде и сообщает их базовые заполнители:
 
 ```java
 import com.aspose.slides.*;
@@ -86,13 +86,75 @@ try {
 }
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование соответствующего макета или мастера может затронуть все слайды, которые всё ещё наследуют эту настройку. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать лишь потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование соответствующего макета или образца может повлиять на все слайды, которые всё ещё наследуют данную настройку. Локальная обычная фигура не имеет базового заполнителя и не начинает наследовать только потому, что занимает те же координаты.
+
+## **Удаление статуса заполнителя**
+
+При адаптации шаблона используйте [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--), чтобы оставить существующий объект как обычную фигуру. Его метод [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) возвращает `null`, но фигура остаётся в коллекции слайда. В отличие от этого, [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) удаляет фигуру из этой коллекции.
+
+Следующий пример требует `template.pptx` с как минимум одним слайдом и непустым текстовым заполнителем на первом слайде. Используйте заполнитель с форматированием, унаследованным от его макета или образца, чтобы увидеть эффект удаления этой связи. Пример проверяет, что та же фигура остаётся, вновь вызывает метод для теперь уже обычной фигуры и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Вызов метода на обычной фигуре не имеет эффекта.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Для соответствующего заполнителя все три проверки выводят `true`. Текст остаётся, но унаследованные положение, размер, вращение, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальная привязка, заливка и параметры линии могут измениться после удаления связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. Смотрите [Макет слайда](/slides/ru/androidjava/slide-layout/) для получения дополнительной информации о макетах.
+
+Чтобы сохранить задуманное отображение, зафиксируйте вычисленные позицию, размер и вращение до вызова и скопируйте необходимые эффективные значения форматирования в отдельные переменные. Получайте эти значения через [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), и [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--). Не полагайтесь только на объекты эффективного форматирования, потому что их значения текстового форматирования могут измениться после удаления связи. Явно примените зафиксированные значения к обычной фигуре после этого, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованную геометрию фигур также может потребоваться явно задать через [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-). Для прямоугольного текстового заполнителя это означает назначить [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle); восстановление только заливки и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют обработки этих настроек тоже.
 
 ## **Изменение текста в заполнителе**
 
-Заполнители заголовков, центрированных заголовков, подзаголовков, основного текста и текста обычно поддерживают текст. Проверьте, является ли фигура [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/), прежде чем использовать её метод [getTextFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/).
+Заголовки, центрированные заголовки, подзаголовки, основной текст и текстовые заполнители обычно поддерживают текст. Проверяйте наличие [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) перед использованием его метода [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
-Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
+Следующий пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
 
 ```java
 import com.aspose.slides.*;
@@ -131,13 +193,13 @@ try {
 }
 ```
 
-Такой подход позволяет избежать приведения рисунков, диаграмм, таблиц или медиа‑заполнителей к типу [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
+Этот шаблон избегает приведения типов у заполнителей рисунков, диаграмм, таблиц или медиа к [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
 
-## **Установление текста‑подсказки в макете**
+## **Установка текста подсказки в макете**
 
-Текст‑подсказка — это инструкционная надпись, отображаемая в пустом заполнителе в режиме дизайна, например *Click to add title*. Устанавливайте пользовательскую подсказку в заполнителе макета, а не через коллекцию фигур обычного слайда. Доступ к макету получайте через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/) и перебирайте коллекцию, возвращаемую [ILayoutSlide.getShapes](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseslide/).
+Текст подсказки — это инструкция, отображаемая в пустом заполнителе во время проектирования, например *Click to add title*. Устанавливайте пользовательскую подсказку в заполнителе макета, а не пытаясь достать её через коллекцию фигур обычного слайда. Получите доступ к макету через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) и пройдите по коллекции, возвращаемой [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/).
 
-Следующий пример изменяет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
+Следующий пример меняет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
 
 ```java
 import com.aspose.slides.*;
@@ -172,14 +234,14 @@ try {
 }
 ```
 
-Текст‑подсказка — это не обычное содержимое слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа задают реальное содержимое, подсказка больше не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
+Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых заполнителей в приложениях редактирования, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка больше не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
 ## **Обновление заполнителя рисунка**
 
-Существуют два варианта обработки:
+Существует два случая, которые нужно обработать:
 
-- Если рисунковый заполнитель уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipicturefillformat/) и [ISlidesPicture.setImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidespicture/).
-- Если это всё ещё пустой заполнитель, добавьте рисунковый кадр в координатах заполнителя с помощью [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapecollection/) и удалите пустой заполнитель.
+- Если заполнитель рисунка уже заполнен и представлен как [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) и [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/).
+- Если это всё ещё пустой заполнитель, добавьте рамку рисунка в координатах заполнителя с помощью [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Созданная замена для пустого заполнителя — это локальный рисунковый кадр, а не новый заполнитель, поскольку [IShape.getPlaceholder](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/) не предоставляет сеттера. Он сохраняет зарезервированную позицию, но больше не наследует поведение заполнителя. Если сохранение связи с заполнителем критично, сначала подготовьте и заполните заполнитель в PowerPoint, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipictureframe/) с помощью Aspose.Slides.
+Созданная замена для пустого заполнителя представляет собой локальную рамку рисунка, а не новый заполнитель, поскольку [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) не предоставляет сеттера. Она сохраняет зарезервированную позицию, но более не наследует поведение, характерное для заполнителей. Если сохранение связи заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) с помощью Aspose.Slides.
 
-Для прозрачности изображения, обрезки и других эффектов, специфичных для рисунка, смотрите статью [Manage Picture Frames](/slides/ru/androidjava/picture-frame/). Эти операции относятся к рисунковому кадру или заливке, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для рисунка, смотрите [Управление рамками изображений](/slides/ru/androidjava/picture-frame/). Эти операции относятся к рамке рисунка или заполнению рисунка, а не к метаданным заполнителя.
 
-## **Работа с диаграммными и контентными заполнителями**
+## **Работа с заполнителями диаграмм и содержимого**
 
-Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/). Пример ниже находит такую диаграмму по типу заполнителя и интерфейсу во время выполнения, меняет её заголовок и сохраняет файл:
+Заполненный заполнитель диаграммы может быть представлен как [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/). Этот пример находит такую диаграмму по типу заполнителя и интерфейсу во время выполнения, меняет её заголовок и сохраняет файл:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Общий контентный заполнитель обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/). В PowerPoint он выступает как средство запуска для нескольких типов содержимого, включая диаграммы, таблицы, схемы, рисунки и медиа. После заполнения исследуйте реальный интерфейс фигуры, чтобы узнать, что именно она содержит. Специализированные макеты могут также раскрывать типы [PlaceholderType.Chart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/), или [PlaceholderType.Diagram](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholdertype/).
+Обычный заполнитель содержимого обычно имеет [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/). В PowerPoint он служит запускателем для нескольких типов содержимого, включая диаграммы, таблицы, схемы, рисунки и медиа. После заполнения изучите фактический интерфейс фигуры, чтобы понять, что она содержит. Специализированные макеты могут также раскрывать [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), или [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides не преобразует пустой [IAutoShape](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichart/) простым изменением [IPlaceholder.getType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/placeholder/); тип нельзя изменить через интерфейс. Чтобы программно заполнить пустую диаграмму или область контента, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Пример ниже делает это для диаграммы:
+Aspose.Slides не преобразует пустой [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) заполнитель в [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) лишь изменением [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/); тип нельзя изменить через интерфейс. Чтобы программно заполнить пустую диаграмму или область содержимого, добавьте необходимый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует от заполнителя макета. При необходимости заменить категории, серии или данные книги используйте специализированные статьи по управлению [диаграммами](/slides/ru/androidjava/powerpoint-charts/).
+Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от заполнителя макета. Используйте специализированные [статьи по управлению диаграммами](/slides/ru/androidjava/powerpoint-charts/), когда нужно заменить её категории, серии или данные книги.
 
 ## **Полный пример: обновление текста или изображения**
 
-Ниже приведён сквозной пример, который открывает шаблон, ищет на первом слайде заполнитель заголовка или рисунка, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример намеренно избегает предположений о индексе фигуры или приведения всех заполнителей к единому интерфейсу.
+Следующий сквозной пример открывает шаблон, ищет на первом слайде либо заполнитель заголовка, либо заполнитель рисунка, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример преднамеренно избегает предположений о индексе фигуры или приведения каждого заполнителя к одному и тому же интерфейсу.
 
 ```java
 import com.aspose.slides.*;
@@ -366,12 +428,12 @@ try {
 
 **Что такое базовый заполнитель?**
 
-Базовый заполнитель — это соответствующая фигура на макете или мастер‑слайде, от которой наследуется другой заполнитель. Используйте [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/) для получения его. Обычная локальная фигура возвращает `null`, поскольку она не входит в иерархию заполнителей.
+Базовый заполнитель — это соответствующая фигура на макете или образце, от которой наследуется другой заполнитель. Используйте [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/), чтобы получить его. Обычная локальная фигура возвращает `null`, поскольку она не является частью иерархии заполнителей.
 
-**Могу ли я изменить все заголовки слайдов, отредактировав заполнитель в макете?**
+**Могу ли я изменить все заголовки слайдов, редактируя заполнитель макета?**
 
-Вы можете изменить наследуемое форматирование или текст‑подсказку через макет, но фактическое содержимое заголовков хранится в обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, переберите слайды и обновите каждый заполнитель заголовка.
+Вы можете изменить унаследованное форматирование или текст подсказки через макет, но фактическое содержимое заголовков хранится в обычных слайдах. Чтобы заменить реальный текст заголовка во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
 
-**Как управлять заполнителями даты, номера слайда, верхнего и нижнего колонтитулов?**
+**Как управлять заполнителями даты, номера слайда, колонтитула и нижнего колонтитула?**
 
-Используйте менеджеры верхних и нижних колонтитулов в контексте соответствующего слайда, макета, мастера, заметок или раздаточного листа. См. статью [Manage Presentation Header and Footer](/slides/ru/androidjava/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры колонтитулов и нижних колонтитулов в соответствующем слайде, макете, образце, заметках или раздаточных материалах. Смотрите [Manage Presentation Header and Footer](/slides/ru/androidjava/presentation-header-and-footer/) для полных примеров.

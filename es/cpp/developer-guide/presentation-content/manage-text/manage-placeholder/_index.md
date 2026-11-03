@@ -1,6 +1,6 @@
 ---
 title: Gestionar marcadores de posición de presentaciones en C++
-linktitle: Gestionar marcadores
+linktitle: Gestionar marcadores de posición
 type: docs
 weight: 10
 url: /es/cpp/manage-placeholder/
@@ -10,41 +10,41 @@ keywords:
 - marcador de posición de imagen
 - marcador de posición de gráfico
 - marcador de posición de contenido
-- texto de indicación
+- texto de sugerencia
 - PowerPoint
 - presentación
 - C++
 - Aspose.Slides
-description: "Aprenda a inspeccionar y editar marcadores de posición de texto, imagen, gráfico y contenido, y a comprender la herencia de marcadores de posición con Aspose.Slides para C++."
+description: "Aprende a inspeccionar y editar marcadores de posición de texto, imagen, gráfico y contenido, y comprende la herencia de marcadores de posición con Aspose.Slides para C++."
 ---
 ## **Visión general**
 
-Un marcador de posición es una forma que reserva una posición para un tipo particular de contenido en una plantilla de presentación. Los ejemplos más comunes son marcadores de título, cuerpo, imagen, gráfico y marcadores de contenido de propósito general. A diferencia de una forma ordinaria, un marcador de posición puede heredar su posición, tamaño, formato y otras configuraciones de una diapositiva de diseño o de una diapositiva maestra.
+Un marcador de posición es una forma que reserva una posición para un tipo particular de contenido en una plantilla de presentación. Los ejemplos más comunes son los marcadores de posición de título, cuerpo, imagen, gráfico y contenido de propósito general. A diferencia de una forma ordinaria, un marcador de posición puede heredar su posición, tamaño, formato y otros ajustes de una diapositiva de diseño o de una diapositiva maestra.
 
-Aspose.Slides expone la información del marcador de posición a través del método [IShape::get_Placeholder](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/get_placeholder/). El método devuelve un objeto [IPlaceholder](https://reference.aspose.com/slides/es/cpp/aspose.slides/iplaceholder/) o `nullptr` para una forma normal. Utilice [IPlaceholder::get_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/iplaceholder/get_type/) para determinar qué se pretende que contenga el marcador de posición.
+Aspose.Slides expone la información de los marcadores de posición mediante el método [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/). El método devuelve un objeto [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) o `nullptr` para una forma normal. Use [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) para determinar lo que se pretende que contenga el marcador de posición.
 
-La interfaz de forma sigue siendo importante después de conocer el tipo de marcador de posición:
+El interfaz de la forma sigue siendo importante después de conocer el tipo de marcador de posición:
 
-- Un marcador de posición vacío de texto, imagen, gráfico o contenido suele estar representado por un [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/).
-- Un marcador de posición de imagen poblado puede estar representado por un [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/).
-- Un marcador de posición de gráfico poblado puede estar representado por un [IChart](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/ichart/).
-- Un marcador de posición de contenido puede contener varios tipos de contenido. Verifique tanto [IPlaceholder::get_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/iplaceholder/get_type/) como la interfaz de forma en tiempo de ejecución en lugar de asumir que cada marcador de posición es un [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/).
+- Un marcador de posición vacío de texto, imagen, gráfico o contenido se representa normalmente mediante un [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Un marcador de posición de imagen poblado puede representarse mediante un [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Un marcador de posición de gráfico poblado puede representarse mediante un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Un marcador de posición de contenido puede contener varios tipos de contenido. Compruebe tanto [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) como la interfaz de forma en tiempo de ejecución en lugar de asumir que cada marcador de posición es un [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/iplaceholder/get_type/) describe el papel de un marcador de posición; no garantiza el tipo en tiempo de ejecución de la forma. Siempre use una verificación de tipo antes de acceder a los miembros específicos de texto, imagen, gráfico, tabla o medios.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) describe el rol de un marcador de posición; no garantiza el tipo de forma en tiempo de ejecución. Siempre realice una comprobación de tipo antes de acceder a miembros específicos de texto, imagen, gráfico, tabla o multimedia.
 {{% /alert %}}
 
 ## **Comprender la herencia de marcadores de posición**
 
 Los marcadores de posición forman una jerarquía:
 
-1. Una diapositiva maestra define estilos reutilizables y, en algunos casos, marcadores de posición a nivel de maestro.
+1. Una diapositiva maestra define estilos reutilizables y, en algunos casos, marcadores de posición a nivel maestro.
 2. Una diapositiva de diseño define la disposición utilizada por una o más diapositivas normales y puede heredar de la maestra.
-3. Una diapositiva normal contiene los marcadores de posición para esa diapositiva y puede heredar de su diseño.
+3. Una diapositiva normal contiene los marcadores de posición de esa diapositiva y puede heredar de su diseño.
 
-Llame a [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/getbaseplaceholder/) para subir un nivel en esta jerarquía. Un marcador de posición de diapositiva normalmente devuelve su marcador de posición de diseño; un marcador de posición de diseño puede devolver su marcador de posición maestro. El método devuelve `nullptr` cuando la forma no tiene un marcador de posición base.
+Utilice [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) para subir un nivel en esta jerarquía. Un marcador de posición de diapositiva normalmente devuelve su marcador de posición de diseño; un marcador de posición de diseño puede devolver su marcador de posición maestro. El método devuelve `nullptr` cuando la forma no tiene un marcador de posición base.
 
-El siguiente ejemplo enumera los marcadores de posición en la primera diapositiva e informa de sus marcadores de posición base:
+El siguiente ejemplo enumera los marcadores de posición de la primera diapositiva y muestra sus marcadores de posición base:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,11 +97,88 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Editar un marcador de posición en una diapositiva normal crea o cambia una sobrescritura local para esa diapositiva. Editar el diseño o maestro relacionado puede afectar a todas las diapositivas que todavía heredan esa configuración. Una forma ordinaria local no tiene marcador de posición base y no comienza a heredar solo porque ocupa las mismas coordenadas.
+Editar un marcador de posición en una diapositiva normal crea o modifica una anulación local para esa diapositiva. Editar el diseño o la maestra relacionados puede afectar a todas las diapositivas que todavía heredan ese ajuste. Una forma ordinaria local no tiene marcador de posición base y no comienza a heredar solo porque ocupa las mismas coordenadas.
+
+## **Eliminar el estado de marcador de posición**
+
+Al adaptar una plantilla, utilice [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) para mantener un objeto existente como una forma ordinaria. Su método [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) devuelve `nullptr`, pero la forma sigue en la colección de la diapositiva. En contraste, [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) elimina la forma de esa colección.
+
+El siguiente ejemplo requiere `template.pptx` con al menos una diapositiva y un marcador de posición de texto no vacío en la primera diapositiva. Utilice un marcador de posición con formato heredado de su diseño o maestra para observar el efecto de eliminar esa relación. El ejemplo verifica que la misma forma permanezca, llama al método nuevamente sobre la forma ahora ordinaria y guarda el resultado.
+
+{{% alert color="warning" title="Warning" %}}
+La eliminación del estado de marcador de posición no preserva automáticamente los ajustes de apariencia heredados. El ejemplo a continuación deja deliberadamente esos ajustes sin cambios, por lo que la salida puede verse diferente. Una forma cuya posición y tamaño son totalmente heredados puede quedar con coordenadas y dimensiones cero después de la llamada y volverse invisible aunque siga en la colección.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Llamar al método sobre una forma ordinaria no tiene efecto.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Para un marcador de posición coincidente, los tres controles imprimen `True`. El texto permanece, pero la posición, tamaño, rotación, fuente, alineación de párrafo, márgenes del marco de texto, anclaje vertical, relleno y ajustes de línea heredados pueden cambiar cuando se elimina la relación del marcador de posición. Por ejemplo, el formato de título heredado puede volver al formato de texto ordinario. Consulte [Slide Layout](/slides/es/cpp/slide-layout/) para obtener más información sobre los diseños.
+
+Para preservar la apariencia prevista, capture la posición, tamaño y rotación resueltos antes de la llamada y copie los valores de formato efectivo necesarios en variables independientes. Obtenga esos valores mediante [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), y [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). No confíe únicamente en los objetos de formato efectivo, ya que sus valores de formato de texto pueden cambiar después de que se elimine la relación. Aplique explícitamente los valores capturados a la forma ordinaria posteriormente, incluyendo la familia, tamaño, estilo, color de la fuente, ajustes de párrafo, ajustes del marco de texto, relleno y línea usados por su plantilla.
+
+La geometría heredada de la forma también puede necesitar asignarse explícitamente mediante [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Para un marcador de posición de texto rectangular, esto significa asignar [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); restaurar solo el relleno y la línea puede no restaurar el rectángulo visible. Las plantillas con efectos adicionales o formato más complejo requieren que dichos ajustes también se gestionen.
 
 ## **Cambiar texto en un marcador de posición**
 
-Los marcadores de posición de título, título centrado, subtítulo, cuerpo y texto normalmente admiten texto. Verifique que sea un [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) antes de usar su método [get_TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/get_textframe/).
+Los marcadores de posición de título, título centrado, subtítulo, cuerpo y texto normalmente admiten texto. Verifique la presencia de [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) antes de usar su método [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/).
 
 Este ejemplo actualiza el primer marcador de posición de título en la primera diapositiva y guarda el resultado:
 
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Este patrón evita convertir a [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) los marcadores de posición de imagen, gráfico, tabla o medios. Además identifica el marcador de posición por su propósito en lugar de depender de un índice de forma frágil.
+Este patrón evita convertir marcadores de posición de imagen, gráfico, tabla o multimedia a [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). También identifica el marcador de posición por su propósito en lugar de depender de un índice de forma frágil.
 
-## **Establecer texto de indicación en un diseño**
+## **Establecer texto de sugerencia en un diseño**
 
-El texto de indicación es la instrucción en tiempo de diseño que se muestra en un marcador de posición vacío, como *Haga clic para añadir título*. Establezca texto de indicación personalizado en el marcador de posición del diseño en lugar de intentar alcanzarlo a través de la colección de formas de una diapositiva normal. Acceda al diseño mediante [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/islide/get_layoutslide/) y recorra [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/es/cpp/aspose.slides/ibaseslide/get_shapes/).
+El texto de sugerencia es la instrucción en tiempo de diseño que se muestra en un marcador de posición vacío, como *Haz clic para añadir título*. Establezca un texto de sugerencia personalizado en el marcador de posición del diseño en lugar de intentar alcanzarlo a través de la colección de formas de una diapositiva normal. Acceda al diseño mediante [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) e itere sobre [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
-El siguiente ejemplo cambia las indicaciones de título y subtítulo en el diseño utilizado por la primera diapositiva:
+El siguiente ejemplo cambia los textos de sugerencia de título y subtítulo en el diseño utilizado por la primera diapositiva:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,14 +293,14 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-El texto de indicación no es contenido normal de diapositiva. Está destinado a marcadores de posición vacíos en aplicaciones de edición como PowerPoint. Una vez que un usuario o programa proporciona contenido real, la indicación ya no se muestra. Cambiar una indicación tampoco reemplaza el texto existente en las diapositivas que utilizan el diseño.
+El texto de sugerencia no es contenido normal de la diapositiva. Está destinado a marcadores de posición vacíos en aplicaciones de edición como PowerPoint. Cuando un usuario o programa proporciona contenido real, la sugerencia deja de mostrarse. Cambiar una sugerencia tampoco sustituye el texto existente en las diapositivas que usan el diseño.
 
 ## **Actualizar un marcador de posición de imagen**
 
 Hay dos casos a manejar:
 
-- Si el marcador de posición de imagen ya está poblado y representado por un [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/), reemplace la imagen mediante [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipicturefillformat/get_picture/) y [ISlidesPicture::set_Image](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidespicture/set_image/).
-- Si sigue siendo un marcador de posición vacío, añada un marco de imagen en las coordenadas del marcador de posición con [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishapecollection/addpictureframe/) y elimine el marcador de posición vacío.
+- Si el marcador de posición de imagen ya está poblado y representado por un [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), reemplace la imagen mediante [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) y [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Si sigue siendo un marcador de posición vacío, añada un marco de imagen en las coordenadas del marcador de posición con [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) y elimine el marcador de posición vacío.
 
 El siguiente ejemplo admite ambos casos y guarda la presentación:
 
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-El reemplazo creado para un marcador de posición vacío es un marco de imagen local, no un nuevo marcador de posición, porque [IShape::get_Placeholder](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/get_placeholder/) es de solo lectura. Conserva la posición reservada pero ya no hereda el comportamiento específico del marcador de posición. Si es esencial mantener la relación del marcador de posición, prepare y rellene el marcador de posición en PowerPoint primero, luego actualice el [IPictureFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipictureframe/) resultante con Aspose.Slides.
+La sustitución creada para un marcador de posición vacío es un marco de imagen local, no un nuevo marcador de posición, porque [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) es de solo lectura. Conserva la posición reservada pero ya no hereda el comportamiento específico del marcador de posición. Si es esencial mantener la relación del marcador de posición, prepare y rellene el marcador de posición en PowerPoint primero, y luego actualice el [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) resultante con Aspose.Slides.
 
-Para la transparencia de imágenes, recorte y otros efectos específicos de imágenes, vea [Manage Picture Frames](/slides/es/cpp/picture-frame/). Estas operaciones pertenecen al marco de imagen o al relleno de imagen, no a los metadatos del marcador de posición.
+Para la transparencia de imágenes, recorte y otros efectos específicos de la imagen, consulte [Manage Picture Frames](/slides/es/cpp/picture-frame/). esas operaciones pertenecen al marco de imagen o al relleno de imagen, no a los metadatos del marcador de posición.
 
-## **Trabajar con marcadores de posición de gráfico y de contenido**
+## **Trabajar con marcadores de posición de gráfico y contenido**
 
-Un marcador de posición de gráfico poblado puede estar representado por un [IChart](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/ichart/). Este ejemplo encuentra dicho gráfico tanto por tipo de marcador de posición como por interfaz en tiempo de ejecución, cambia su título y guarda el archivo:
+Un marcador de posición de gráfico poblado puede representarse mediante un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Este ejemplo encuentra dicho gráfico tanto por tipo de marcador de posición como por interfaz en tiempo de ejecución, cambia su título y guarda el archivo:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Un marcador de posición de contenido general suele tener [PlaceholderType::Object](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/). En PowerPoint actúa como un lanzador para varios tipos de contenido, incluidos gráficos, tablas, diagramas, imágenes y medios. Después de que se haya poblado, inspeccione la interfaz de forma real para saber qué contiene. Los diseños especializados también pueden exponer [PlaceholderType::Chart](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/), o [PlaceholderType::Diagram](https://reference.aspose.com/slides/es/cpp/aspose.slides/placeholdertype/).
+Un marcador de posición de contenido general suele tener [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). En PowerPoint actúa como lanzador para varios tipos de contenido, incluyendo gráficos, tablas, diagramas, imágenes y multimedia. Después de haber sido poblado, inspeccione la interfaz de forma real para saber qué contiene. Los diseños especializados también pueden exponer [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), o [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/).
 
-Aspose.Slides no convierte un marcador de posición vacío de [IAutoShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/iautoshape/) en un [IChart](https://reference.aspose.com/slides/es/cpp/aspose.slides.charts/ichart/) simplemente cambiando [IPlaceholder::get_Type](https://reference.aspose.com/slides/es/cpp/aspose.slides/iplaceholder/get_type/); el tipo es de solo lectura. Para rellenar programáticamente un área de gráfico o contenido vacío, añada el objeto requerido en las coordenadas del marcador de posición y luego elimine el marcador de posición vacío. El siguiente ejemplo hace eso para un gráfico:
+Aspose.Slides no convierte un marcador de posición vacío de [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) en un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) simplemente cambiando [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); el tipo es de solo lectura. Para rellenar un gráfico o área de contenido vacía programáticamente, añada el objeto necesario en las coordenadas del marcador de posición y luego elimine el marcador de posición vacío. El siguiente ejemplo hace eso para un gráfico:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-El gráfico añadido es un gráfico local ordinario. Ocupa el área del marcador de posición pero no hereda del marcador de posición del diseño. Use los [artículos de gestión de gráficos](/slides/es/cpp/powerpoint-charts/) cuando necesite reemplazar sus categorías, series o datos del libro de trabajo.
+El gráfico añadido es un gráfico local ordinario. Ocupa el área del marcador de posición pero no hereda del marcador de posición del diseño. Utilice los artículos dedicados a la gestión de gráficos [chart management articles](/slides/es/cpp/powerpoint-charts/) cuando necesite reemplazar sus categorías, series o datos del libro de trabajo.
 
 ## **Ejemplo completo: actualizar texto o contenido de imagen**
 
-El siguiente ejemplo de extremo a extremo abre una plantilla, busca en la primera diapositiva un marcador de posición de título o de imagen, verifica los tipos de marcador de posición y de forma, actualiza el contenido correspondiente y guarda el resultado. El ejemplo evita deliberadamente asumir un índice de forma o convertir cada marcador de posición a la misma interfaz.
+El siguiente ejemplo completo abre una plantilla, busca en la primera diapositiva un marcador de posición de título o de imagen, verifica los tipos de marcador de posición y de forma, actualiza el contenido correspondiente y guarda el resultado. El ejemplo evita deliberadamente asumir un índice de forma o convertir todos los marcadores de posición a la misma interfaz.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -495,12 +572,12 @@ presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 
 **¿Qué es un marcador de posición base?**
 
-Un marcador de posición base es la forma correspondiente en el diseño o maestro del que otro marcador de posición hereda. Utilice [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/getbaseplaceholder/) para obtenerlo. Una forma local ordinaria devuelve `nullptr` porque no forma parte de la jerarquía de marcadores de posición.
+Un marcador de posición base es la forma correspondiente en el diseño o la maestra de la que otro marcador de posición hereda. Utilice [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) para obtenerlo. Una forma local ordinaria devuelve `nullptr` porque no forma parte de la jerarquía de marcadores de posición.
 
 **¿Puedo cambiar todos los títulos de diapositiva editando un marcador de posición de diseño?**
 
-Puede cambiar el formato heredado o el texto de indicación a través de un diseño, pero el contenido de título existente se almacena en las diapositivas normales. Para reemplazar el texto real del título en toda la presentación, recorra las diapositivas y actualice cada marcador de posición de título.
+Puede cambiar el formato heredado o el texto de sugerencia mediante un diseño, pero el contenido del título existente se almacena en las diapositivas normales. Para reemplazar el texto real del título en toda la presentación, itere sobre las diapositivas y actualice cada marcador de posición de título.
 
 **¿Cómo gestiono los marcadores de posición de fecha, número de diapositiva, encabezado y pie de página?**
 
-Utilice los gestores de encabezado y pie de página en la diapositiva, diseño, maestro, notas o alcance de folleto correspondiente. Consulte [Gestionar encabezado y pie de página de la presentación](/slides/es/cpp/presentation-header-and-footer/) para obtener ejemplos completos.
+Utilice los gestores de encabezado y pie de página en la diapositiva, diseño, maestra, notas o alcance de folletos correspondiente. Consulte [Manage Presentation Header and Footer](/slides/es/cpp/presentation-header-and-footer/) para obtener ejemplos completos.

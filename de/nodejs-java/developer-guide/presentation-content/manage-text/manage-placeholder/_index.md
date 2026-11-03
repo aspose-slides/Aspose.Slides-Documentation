@@ -20,32 +20,32 @@ description: "Erfahren Sie, wie Sie Text-, Bild-, Diagramm- und Inhaltsplatzhalt
 ---
 ## **Übersicht**
 
-Ein Platzhalter ist eine Form, die in einer Präsentationsvorlage eine Position für eine bestimmte Art von Inhalt reserviert. Häufige Beispiele sind Titel-, Text-, Bild-, Diagramm- und allgemeine Inhaltsplatzhalter. Im Gegensatz zu einer normalen Form kann ein Platzhalter seine Position, Größe, Formatierung und andere Einstellungen von einer Layout‑Folie oder einer Masterfolie erben.
+Ein Platzhalter ist eine Form, die eine Position für eine bestimmte Art von Inhalt in einer Präsentationsvorlage reserviert. Häufige Beispiele sind Titel, Text, Bild, Diagramm und allgemein verwendbare Inhaltsplatzhalter. Im Gegensatz zu einer normalen Form kann ein Platzhalter seine Position, Größe, Formatierung und andere Einstellungen von einer Layout‑Folie oder einer Master‑Folie erben.
 
-Aspose.Slides stellt Platzhalterinformationen über die Methode [Shape.getPlaceholder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#getPlaceholder) zur Verfügung. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholder/)‑Objekt zurück oder `null` für eine normale Form. Verwenden Sie [Placeholder.getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholder/#getType), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
+Aspose.Slides stellt Platzhalterinformationen über die Methode [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) bereit. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/)‑Objekt oder `null` für eine normale Form zurück. Verwenden Sie [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
 
-Die Formklasse bleibt auch nach Kenntnis des Platzhaltertyps relevant:
+Die Formklasse bleibt wichtig, nachdem Sie den Platzhaltertyp kennen:
 
-- Ein leerer Text-, Bild-, Diagramm- oder Inhaltsplatzhalter wird in der Regel durch ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) dargestellt.
-- Ein befüllter Bildplatzhalter kann durch einen [PictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pictureframe/) dargestellt werden.
-- Ein befüllter Diagrammplatzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/) dargestellt werden.
-- Ein Inhaltsplatzhalter kann mehrere Arten von Inhalten enthalten. Prüfen Sie sowohl [Placeholder.getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholder/#getType) als auch die Laufzeit‑Formklasse, anstatt anzunehmen, dass jeder Platzhalter ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) ist.
+- Ein leerer Text‑, Bild‑, Diagramm‑ oder Inhalts‑Platzhalter wird häufig durch ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) dargestellt.
+- Ein ausgefüllter Bild‑Platzhalter kann durch ein [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) dargestellt werden.
+- Ein ausgefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) dargestellt werden.
+- Ein Inhalts‑Platzhalter kann verschiedene Arten von Inhalt enthalten. Prüfen Sie sowohl [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), als auch die Laufzeit‑Formklasse, anstatt anzunehmen, dass jeder Platzhalter ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ist.
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholder/#getType) beschreibt die Rolle eines Platzhalters; sie garantiert nicht den Laufzeit‑Typ der Form. Verwenden Sie immer eine Typprüfung, bevor Sie auf Text-, Bild-, Diagramm-, Tabellen- oder medienspezifische Mitglieder zugreifen.
+[Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) beschreibt die Rolle eines Platzhalters; sie garantiert nicht den Laufzeittyp der Form. Verwenden Sie stets eine Typprüfung, bevor Sie auf Text-, Bild-, Diagramm-, Tabellen- oder medien‑spezifische Member zugreifen.
 {{% /alert %}}
 
 ## **Verstehen der Platzhaltervererbung**
 
 Platzhalter bilden eine Hierarchie:
 
-1. Eine Masterfolie definiert wiederverwendbare Stile und, in einigen Fällen, Master‑Platzhalter.
-2. Eine Layout‑Folie definiert das Layout, das von einer oder mehreren normalen Folien verwendet wird, und kann vom Master erben.
+1. Eine Master‑Folie definiert wiederverwendbare Stile und, in einigen Fällen, Master‑Platzhalter.
+2. Eine Layout‑Folie definiert die Anordnung, die von einer oder mehreren normalen Folien verwendet wird, und kann vom Master erben.
 3. Eine normale Folie enthält die Platzhalter für diese Folie und kann von ihrem Layout erben.
 
-Rufen Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#getBasePlaceholder) auf, um eine Ebene höher in dieser Hierarchie zu wechseln. Ein Folienplatzhalter gibt normalerweise seinen Layout‑Platzhalter zurück; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode liefert `null`, wenn die Form keinen Basis‑Platzhalter hat.
+Rufen Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder) auf, um eine Ebene in dieser Hierarchie nach oben zu gehen. Ein Folien‑Platzhalter gibt normalerweise seinen Layout‑Platzhalter zurück; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode liefert `null`, wenn die Form keinen Basis‑Platzhalter hat.
 
-Das folgende Beispiel listet die Platzhalter auf der ersten Folie auf und gibt deren Basis‑Platzhalter aus:
+Das folgende Beispiel listet die Platzhalter auf der ersten Folie auf und gibt ihre Basis‑Platzhalter aus:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -108,9 +108,75 @@ try {
 
 Das Bearbeiten eines Platzhalters auf einer normalen Folie erstellt oder ändert eine lokale Überschreibung für diese Folie. Das Bearbeiten des zugehörigen Layouts oder Masters kann alle Folien beeinflussen, die diese Einstellung noch erben. Eine lokale normale Form hat keinen Basis‑Platzhalter und beginnt nicht zu erben, nur weil sie dieselben Koordinaten einnimmt.
 
+## **Platzhalterstatus entfernen**
+
+Beim Anpassen einer Vorlage verwenden Sie [Shape.removePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#removePlaceholder), um ein vorhandenes Objekt als normale Form zu behalten. Seine [getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder)-Methode gibt `null` zurück, aber die Form bleibt in der Folien‑Sammlung. Im Gegensatz dazu löscht [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#remove) die Form aus dieser Sammlung.
+
+Das folgende Beispiel erfordert `template.pptx` mit mindestens einer Folie und einem nicht leeren Text‑Platzhalter auf der ersten Folie. Verwenden Sie einen Platzhalter mit vom Layout oder Master geerbter Formatierung, um die Auswirkung des Entfernens dieser Beziehung zu sehen. Das Beispiel prüft, dass dieselbe Form erhalten bleibt, ruft die Methode erneut auf der nun normalen Form auf und speichert das Ergebnis.
+
+{{% alert color="warning" title="Warning" %}}
+Das Entfernen des Platzhalterstatus bewahrt die geerbten Anzeigeeinstellungen nicht automatisch. Das nachstehende Beispiel lässt diese Einstellungen absichtlich unverändert, sodass die Ausgabe anders aussehen kann. Eine Form, deren Position und Größe vollständig geerbt sind, kann nach dem Aufruf Null‑Koordinaten und -Abmessungen haben und unsichtbar werden, obwohl sie in der Sammlung verbleibt.
+{{% /alert %}}
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+    let found = false;
+
+    for (let index = 0; index < shapes.size(); index++) {
+        const shape = shapes.get_Item(index);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || textFrame == null) {
+            continue;
+        }
+
+        const text = textFrame.getText();
+        if (text == null || text.length === 0) {
+            continue;
+        }
+
+        const shapeCount = shapes.size();
+        shape.removePlaceholder();
+
+        console.log("Placeholder removed: " + (shape.getPlaceholder() == null));
+        const retainedShape = shapes.get_Item(index);
+        console.log("Same shape retained: " + shape.equals(retainedShape));
+        console.log("Shape count unchanged: " + (shapes.size() === shapeCount));
+
+        // Aufruf der Methode auf einer normalen Form hat keine Wirkung.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Für einen passenden Platzhalter geben alle drei Prüfungen `true` aus. Der Text bleibt erhalten, aber geerbte Position, Größe, Drehung, Schriftart, Absatzausrichtung, Textrahmen‑Abstände, vertikale Verankerung, Füll‑ und Linieneinstellungen können sich ändern, wenn die Platzhalter‑Beziehung entfernt wird. Zum Beispiel kann die geerbte Titel‑Formatierung zurück zu einer normalen Text‑Formatierung fallen. Siehe [Folienlayout](/slides/de/nodejs-java/slide-layout/) für weitere Informationen zu Layouts.
+
+Um das gewünschte Aussehen zu bewahren, erfassen Sie vor dem Aufruf die aufgelöste Position, Größe und Drehung und kopieren die erforderlichen effektiven Formatierungswerte in separate Variablen. Rufen Sie diese Werte über [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getEffective) und [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective) ab. Verlassen Sie sich nicht ausschließlich auf die effektiven Formatobjekte, da deren Textformatierungswerte nach dem Entfernen der Beziehung ändern können. Wenden Sie die erfassten Werte anschließend explizit auf die normale Form an, einschließlich Schriftfamilie, Größe, Stil, Farbe, Absatz‑Einstellungen, Text‑Rahmen‑Einstellungen, Füll‑ und Linien‑Einstellungen, die in Ihrer Vorlage verwendet werden.
+
+Geerbte Formgeometrie muss möglicherweise ebenfalls explizit über [GeometryShape.setShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setShapeType) zugewiesen werden. Für einen rechteckigen Text‑Platzhalter bedeutet das, [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/#Rectangle) zuzuweisen; das Wiederherstellen von nur Füll‑ und Linien‑Eigenschaften stellt das sichtbare Rechteck nicht wieder her. Vorlagen mit zusätzlichen Effekten oder komplexerer Formatierung erfordern ebenfalls die Behandlung dieser Einstellungen.
+
 ## **Text in einem Platzhalter ändern**
 
-Titel-, zentrierte‑Titel-, Untertitel-, Text‑ und Inhaltsplatzhalter unterstützen normalerweise Text. Prüfen Sie, ob es sich um ein [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/) handelt, bevor Sie dessen [getTextFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/#getTextFrame)‑Methode verwenden.
+Titel, zentrierter Titel, Untertitel, Text‑ und Inhalts‑Platzhalter unterstützen normalerweise Text. Prüfen Sie auf ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/), bevor Sie dessen [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame)‑Methode verwenden.
 
 Dieses Beispiel aktualisiert den ersten Titel‑Platzhalter auf der ersten Folie und speichert das Ergebnis:
 
@@ -154,13 +220,13 @@ try {
 }
 ```
 
-Dieses Muster vermeidet, Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhalter als [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/)‑Objekte zu behandeln. Es identifiziert den Platzhalter außerdem nach seiner Zweckbestimmung, anstatt sich auf einen fragilen Form‑Index zu verlassen.
+Dieses Muster vermeidet, Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhalter als [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)‑Objekte zu behandeln. Es identifiziert den Platzhalter außerdem nach Zweck statt sich auf einen anfälligen Form‑Index zu verlassen.
 
-## **Hinweistext auf einem Layout festlegen**
+## **Aufforderungstext für ein Layout festlegen**
 
-Hinweistext ist die Anweisung zur Entwurfszeit, die in einem leeren Platzhalter angezeigt wird, z. B. *Klicken, um Titel hinzuzufügen*. Legen Sie benutzerdefinierten Hinweistext am Layout‑Platzhalter fest, anstatt zu versuchen, ihn über die Form‑Sammlung einer normalen Folie zu erreichen. Greifen Sie über [Slide.getLayoutSlide](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die Sammlung, die von [BaseSlide.getShapes](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseslide/#getShapes) zurückgegeben wird.
+Der Hinweistext ist die Entwurfs‑Anweisung, die in einem leeren Platzhalter angezeigt wird, z. B. *Klicken Sie, um einen Titel hinzuzufügen*. Legen Sie benutzerdefinierten Hinweistext auf dem Layout‑Platzhalter fest, anstatt zu versuchen, ihn über die Form‑Sammlung einer normalen Folie zu erreichen. Greifen Sie über [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die über [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes) zurückgegebene Sammlung.
 
-Das folgende Beispiel ändert die Titel‑ und Untertitel‑Hinweise im Layout, das von der ersten Folie verwendet wird:
+Das folgende Beispiel ändert den Titel‑ und Untertitel‑Hinweis auf dem Layout, das von der ersten Folie verwendet wird:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -199,15 +265,14 @@ try {
 }
 ```
 
-Hinweistext ist kein normaler Folieninhalt. Er ist für leere Platzhalter in Bearbeitungsanwendungen wie PowerPoint gedacht. Sobald ein Benutzer oder ein Programm echten Inhalt bereitstellt, wird der Hinweis nicht mehr angezeigt. Das Ändern eines Hinweises ersetzt außerdem nicht den vorhandenen Text auf Folien, die das Layout verwenden.
+Hinweistext ist kein normaler Folieninhalt. Er ist für leere Platzhalter in Bearbeitungs‑Anwendungen wie PowerPoint gedacht. Sobald ein Benutzer oder Programm echten Inhalt bereitstellt, wird der Hinweis nicht mehr angezeigt. Das Ändern eines Hinweises ersetzt zudem nicht den vorhandenen Text auf Folien, die das Layout verwenden.
 
-## **Ein Bild‑Platzhalter aktualisieren**
+## **Ein Bildplatzhalter aktualisieren**
 
-Es gibt zwei zu behandelnde Fälle:
+Es gibt zwei Fälle zu behandeln:
 
-- Wenn der Bild‑Platzhalter bereits befüllt ist und durch ein [PictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pictureframe/) dargestellt wird, ersetzen Sie das Bild über [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/picturefillformat/#getPicture) und [Picture.setImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/picture/#setImage).
-
-- Wenn es noch ein leerer Platzhalter ist, fügen Sie an den Koordinaten des Platzhalters einen Bildrahmen mit [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) hinzu und entfernen Sie den leeren Platzhalter.
+- Wenn der Bild‑Platzhalter bereits gefüllt ist und durch ein [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) dargestellt wird, ersetzen Sie das Bild über [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#getPicture) und [Picture.setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage).
+- Wenn es noch ein leerer Platzhalter ist, fügen Sie an den Koordinaten des Platzhalters einen Bildrahmen mit [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) hinzu und entfernen Sie den leeren Platzhalter.
 
 Das nächste Beispiel unterstützt beide Fälle und speichert die Präsentation:
 
@@ -263,13 +328,13 @@ try {
 }
 ```
 
-Der Ersatz, der für einen leeren Platzhalter erstellt wird, ist ein lokaler Bildrahmen, kein neuer Platzhalter, weil [Shape.getPlaceholder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#getPlaceholder) keinen Setter bietet. Er behält die reservierte Position bei, erbt jedoch nicht mehr das platzhalterspezifische Verhalten. Wenn das Beibehalten der Platzhalterbeziehung wichtig ist, erstellen und füllen Sie den Platzhalter zunächst in PowerPoint und aktualisieren anschließend das resultierende [PictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/pictureframe/) mit Aspose.Slides.
+Der Ersatz, der für einen leeren Platzhalter erstellt wird, ist ein lokaler Bildrahmen, kein neuer Platzhalter, da [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) keinen Setter bereitstellt. Er behält die reservierte Position bei, erbt jedoch kein platzhalter‑spezifisches Verhalten mehr. Wenn das Beibehalten der Platzhalter‑Beziehung wichtig ist, erstellen und füllen Sie den Platzhalter zuerst in PowerPoint und aktualisieren anschließend das resultierende [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) mit Aspose.Slides.
 
-Für Bildtransparenz, Zuschneiden und andere bildbezogene Effekte siehe [Manage Picture Frames](/slides/de/nodejs-java/picture-frame/). Diese Vorgänge betreffen den Bildrahmen oder das Bildfüllformat, nicht die Metadaten des Platzhalters.
+Für Bildtransparenz, Zuschneiden und andere bildspezifische Effekte siehe [Bildrahmen verwalten](/slides/de/nodejs-java/picture-frame/). Diese Vorgänge betreffen den Bildrahmen oder das Bild‑Füllformat, nicht die Platzhalter‑Metadaten.
 
-## **Arbeiten mit Diagramm‑ und Inhaltsplatzhaltern**
+## **Arbeiten mit Diagramm- und Inhaltsplatzhaltern**
 
-Ein befüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/) dargestellt werden. Dieses Beispiel findet ein solches Diagramm sowohl nach Platzhaltertyp als auch nach Laufzeitklasse, ändert dessen Titel und speichert die Datei:
+Ein gefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) dargestellt werden. Dieses Beispiel findet ein solches Diagramm sowohl nach Platzhaltertyp als auch nach Laufzeitklasse, ändert dessen Titel und speichert die Datei:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -307,9 +372,9 @@ try {
 }
 ```
 
-Ein allgemeiner Inhaltsplatzhalter hat in der Regel [PlaceholderType.Object](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungiert er als Auslöser für mehrere Inhaltstypen, darunter Diagramme, Tabellen, Diagramme, Bilder und Medien. Nachdem er befüllt wurde, prüfen Sie die tatsächliche Formklasse, um zu erfahren, was er enthält. Spezialisierte Layouts können zudem [PlaceholderType.Chart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Media) oder [PlaceholderType.Diagram](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholdertype/#Diagram) bereitstellen.
+Ein allgemeiner Inhalts‑Platzhalter hat normalerweise [PlaceholderType.Object](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Object). In PowerPoint dient er als Startpunkt für mehrere Inhaltstypen, einschließlich Diagrammen, Tabellen, Diagrammen, Bildern und Medien. Nach dem Befüllen prüfen Sie die tatsächliche Formklasse, um zu erfahren, was sie enthält. Spezialisierte Layouts können auch [PlaceholderType.Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Media) oder [PlaceholderType.Diagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Diagram) bereitstellen.
 
-Aspose.Slides wandelt einen leeren [AutoShape](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/autoshape/)‑Platzhalter nicht einfach durch Ändern von [Placeholder.getType](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/placeholder/#getType) in ein [Chart](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chart/) um; der Typ kann nicht über das Objekt geändert werden. Um ein leeres Diagramm‑ oder Inhaltsbereich programmgesteuert zu füllen, fügen Sie das erforderliche Objekt an den Koordinaten des Platzhalters hinzu und entfernen anschließend den leeren Platzhalter. Das folgende Beispiel erledigt das für ein Diagramm:
+Aspose.Slides wandelt einen leeren [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/)‑Platzhalter nicht einfach in ein [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) um, indem man [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) ändert; der Typ kann nicht über das Objekt geändert werden. Um ein leeres Diagramm‑ oder Inhaltsfeld programmgesteuert zu füllen, fügen Sie das erforderliche Objekt an den Koordinaten des Platzhalters hinzu und entfernen anschließend den leeren Platzhalter. Das folgende Beispiel erledigt dies für ein Diagramm:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -358,11 +423,11 @@ try {
 }
 ```
 
-Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die speziellen [chart management articles](/slides/de/nodejs-java/powerpoint-charts/), wenn Sie dessen Kategorien, Reihen oder Arbeitsblattdaten ersetzen müssen.
+Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die speziellen [Diagramm‑Verwaltungsartikel](/slides/de/nodejs-java/powerpoint-charts/), wenn Sie dessen Kategorien, Reihen oder Arbeitsmappendaten ersetzen müssen.
 
-## **Vollständiges Beispiel: Text‑ oder Bildinhalt aktualisieren**
+## **Komplettes Beispiel: Text- oder Bildinhalt aktualisieren**
 
-Das folgende End‑zu‑Ende‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft die Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel vermeidet bewusst die Annahme eines Form‑Indexes oder das Behandeln jedes Platzhalters als dieselbe Klasse.
+Das folgende End‑zu‑Ende‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft die Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel vermeidet bewusst die Annahme eines Form‑Index oder die Behandlung jedes Platzhalters als dieselbe Klasse.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -433,12 +498,12 @@ try {
 
 **Was ist ein Basis‑Platzhalter?**
 
-Ein Basis‑Platzhalter ist die entsprechende Form auf dem Layout oder Master, von dem ein anderer Platzhalter erbt. Verwenden Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shape/#getBasePlaceholder), um ihn abzurufen. Eine gewöhnliche lokale Form gibt `null` zurück, weil sie nicht Teil der Platzhalterhierarchie ist.
+Ein Basis‑Platzhalter ist die entsprechende Form auf dem Layout oder Master, von dem ein anderer Platzhalter erbt. Verwenden Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder), um ihn abzurufen. Eine normale lokale Form gibt `null` zurück, weil sie nicht Teil der Platzhalter‑Hierarchie ist.
 
 **Kann ich alle Folientitel ändern, indem ich einen Layout‑Platzhalter bearbeite?**
 
-Sie können über ein Layout die vererbte Formatierung oder den Hinweistext ändern, aber der vorhandene Titelinhalt ist auf den normalen Folien gespeichert. Um den tatsächlichen Titeltext in einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren jeden Titel‑Platzhalter.
+Sie können über ein Layout vererbte Formatierungen oder Hinweistexte ändern, aber vorhandene Titelinhalte werden auf den normalen Folien gespeichert. Um den tatsächlichen Titeltext in einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren jeden Titel‑Platzhalter.
 
-**Wie verwalte ich Datums‑, Folien‑Nummer‑, Kopf‑ und Fußzeilen‑Platzhalter?**
+**Wie verwalte ich Datum-, Folien‑Nummer‑, Kopf‑ und Fußzeilen‑Platzhalter?**
 
-Verwenden Sie die Kopf‑ und Fußzeilen‑Manager im jeweiligen Folien‑, Layout‑, Master‑, Notizen‑ oder Handout‑Umfang. Siehe [Manage Presentation Header and Footer](/slides/de/nodejs-java/presentation-header-and-footer/) für vollständige Beispiele.
+Verwenden Sie die Kopf‑ und Fußzeilen‑Manager im entsprechenden Folien‑, Layout‑, Master‑, Notizen‑ oder Handout‑Umfang. Siehe [Verwalten von Präsentations‑Kopf‑ und Fußzeilen](/slides/de/nodejs-java/presentation-header-and-footer/) für komplette Beispiele.

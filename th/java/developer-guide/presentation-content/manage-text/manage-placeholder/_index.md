@@ -1,50 +1,50 @@
 ---
-title: จัดการ Placeholder ของการนำเสนอใน Java
+title: จัดการ Placeholder ของงานนำเสนอใน Java
 linktitle: จัดการ Placeholder
 type: docs
 weight: 10
 url: /th/java/manage-placeholder/
 keywords:
-- ตัวแทนตำแหน่ง
-- ตัวแทนตำแหน่งข้อความ
-- ตัวแทนตำแหน่งรูปภาพ
-- ตัวแทนตำแหน่งแผนภูมิ
-- ตัวแทนตำแหน่งเนื้อหา
-- ข้อความแจ้งเตือน
+- ตัวเก็บตำแหน่ง
+- ตัวเก็บตำแหน่งข้อความ
+- ตัวเก็บตำแหน่งรูปภาพ
+- ตัวเก็บตำแหน่งแผนภูมิ
+- ตัวเก็บตำแหน่งเนื้อหา
+- ข้อความ Prompt
 - PowerPoint
 - การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีตรวจสอบและแก้ไข placeholder ของข้อความ, รูปภาพ, แผนภูมิ, และเนื้อหา พร้อมทำความเข้าใจการสืบทอดของ placeholder ด้วย Aspose.Slides สำหรับ Java."
+description: "เรียนรู้วิธีตรวจสอบและแก้ไข placeholder ของข้อความ, รูปภาพ, แผนภูมิและเนื้อหา และทำความเข้าใจการสืบทอดของ placeholder ด้วย Aspose.Slides สำหรับ Java."
 ---
 ## **ภาพรวม**
 
-Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับประเภทของเนื้อหาที่กำหนดในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder สำหรับหัวเรื่อง, เนื้อหา, รูปภาพ, แผนภูมิ, และ placeholder สำหรับเนื้อหาทั่วไป ต่างจากรูปทรงทั่วไป placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบและการตั้งค่าอื่น ๆ จากสไลด์เลย์เอาต์หรือสไลด์มาสเตอร์ได้
+Placeholder คือรูปร่างที่สงวนพื้นที่ไว้สำหรับชนิดเนื้อหาที่เฉพาะเจาะจงในแม่แบบการนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder สำหรับหัวเรื่อง, เนื้อความ, รูปภาพ, แผนภูมิ และ placeholder เนื้อหาทั่วไปอื่น ๆ แตกต่างจากรูปร่างธรรมดา placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบและการตั้งค่าอื่น ๆ จากสไลด์เลเอาต์หรือสไลด์มาสเตอร์ได้
 
-Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านเมธอด [IShape.getPlaceholder](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เมธอดนี้จะคืนค่าอ็อบเจ็กต์ [IPlaceholder](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholder/) หรือ `null` สำหรับรูปทรงปกติ ใช้ [IPlaceholder.getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholder/) เพื่อตรวจสอบว่า placeholder มีจุดประสงค์เพื่อบรรจุสิ่งใด
+Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านเมธอด [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) เมธอดจะคืนค่าอ็อบเจกต์ [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) หรือ `null` สำหรับรูปร่างปกติ ใช้ [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) เพื่อตรวจสอบว่า placeholder มีจุดมุ่งหมายเพื่อเก็บอะไร
 
-รูปแบบของรูปทรงยังคงสำคัญหลังจากคุณรู้ประเภทของ placeholder:
+อินเทอร์เฟซของรูปร่างยังคงสำคัญหลังจากคุณทราบประเภทของ placeholder:
 
-- Placeholder สำหรับข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหาที่ว่างเปล่ามักจะแสดงเป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/).
-- Placeholder รูปภาพที่เติมข้อมูลแล้วสามารถแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/).
-- Placeholder แผนภูมิที่เติมข้อมูลแล้วสามารถแสดงเป็น [IChart](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/).
-- Placeholder เนื้อหาอาจบรรจุหลายประเภทของเนื้อหา ตรวจสอบทั้ง [IPlaceholder.getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholder/) และอินเทอร์เฟซรูปทรงในช่วงเวลารันไทม์แทนการสันนิษฐานว่า placeholder ทั้งหมดเป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/).
+- Placeholder ที่ว่างเปล่าสำหรับข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหาทั่วไปมักจะแสดงเป็น [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)  
+- Placeholder รูปภาพที่มีเนื้อหาแล้วอาจแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/)  
+- Placeholder แผนภูมิที่มีเนื้อหาแล้วอาจแสดงเป็น [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/)  
+- Placeholder เนื้อหาอาจมีหลายชนิดของเนื้อหา ตรวจสอบทั้ง [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) และอินเทอร์เฟซของรูปร่างในเวลา runtime แทนการสันนิษฐานว่า placeholder ทั้งหมดเป็น [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholder/) บรรยายบทบาทของ placeholder; ไม่รับประกันประเภทของรูปทรงในช่วงเวลารันไทม์ ควรตรวจสอบประเภทเสมอก่อนเข้าถึงสมาชิกที่เกี่ยวกับข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่อ
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) บรรยายบทบาทของ placeholder; มันไม่ได้รับประกันประเภทของรูปร่างใน runtime. ควรตรวจสอบประเภทก่อนเข้าถึงสมาชิกที่เฉพาะสำหรับข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่อ.
 {{% /alert %}}
 
 ## **ทำความเข้าใจการสืบทอด Placeholder**
 
-Placeholder สร้างเป็นลำดับชั้น:
+Placeholder มีลำดับชั้นดังนี้:
 
-1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และในบางกรณี placeholder ระดับมาสเตอร์
-2. สไลด์เลย์เอาต์กำหนดการจัดเรียงที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์ และสามารถสืบทอดจากมาสเตอร์ได้
-3. สไลด์ปกติมี placeholder สำหรับสไลด์นั้นและสามารถสืบทอดจากเลย์เอาต์ของมัน
+1. สไลด์มาสเตอร์กำหนดสไตล์ที่สามารถนำกลับมาใช้ได้และในบางกรณีกำหนด placeholder ระดับมาสเตอร์.  
+2. สไลด์เลเอาต์กำหนดการจัดวางที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์.  
+3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลเอาต์ของมัน.
 
-ใช้เมธอด [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เพื่อย้ายขึ้นหนึ่งระดับในลำดับชั้นนี้ โดยทั่วไป placeholder ของสไลด์จะคืนค่า placeholder ของเลย์เอาต์; placeholder ของเลย์เอาต์อาจคืนค่า placeholder ของมาสเตอร์ เมธอดนี้จะคืนค่า `null` เมื่อรูปทรงไม่มี base placeholder
+เรียก [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) เพื่อย้ายขึ้นหนึ่งระดับในลำดับชั้นนี้. placeholder ของสไลด์มักจะคืนค่า placeholder ของเลเอาต์; placeholder ของเลเอาต์อาจคืนค่า placeholder ของมาสเตอร์. เมธอดจะคืนค่า `null` เมื่อรูปร่างไม่มี base placeholder.
 
-ตัวอย่างต่อไปนี้แสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของพวกมัน:
+ตัวอย่างต่อไปจะแสดงรายชื่อ placeholder บนสไลด์แรกและรายงาน base placeholder ของพวกมัน:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการแทนที่ในระดับท้องถิ่นสำหรับสไลด์นั้น การแก้ไขเลย์เอาต์หรือมาสเตอร์ที่เกี่ยวข้องอาจส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งค่านั้น รูปทรงปกติในระดับท้องถิ่นไม่มี base placeholder และไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน
+การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการแทนที่เฉพาะสไลด์นั้น. การแก้ไขเลเอาต์หรือมาสเตอร์ที่เกี่ยวข้องอาจมีผลกับสไลด์ทั้งหมดที่ยังสืบทอดการตั้งค่านั้น. รูปร่างปกติที่เป็นท้องถิ่นไม่มี base placeholder และจะไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน.
+
+## **ลบสถานะ Placeholder**
+
+เมื่อปรับแต่งแม่แบบ ให้ใช้ [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) เพื่อทำให้วัตถุที่มีอยู่กลายเป็นรูปร่างปกติ. เมธอด [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) จะคืนค่า `null` แต่รูปร่างจะยังคงอยู่ในคอลเล็กชันของสไลด์. ในทางตรงข้าม [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) จะลบรูปร่างออกจากคอลเล็กชันนั้น.
+
+ตัวอย่างต่อไปต้องการไฟล์ `template.pptx` ที่มีอย่างน้อยหนึ่งสไลด์และ placeholder ข้อความที่ไม่ว่างบนสไลด์แรก. ใช้ placeholder ที่สืบทอดการจัดรูปแบบจากเลเอาต์หรือมาสเตอร์เพื่อดูผลของการลบความสัมพันธ์นั้น. ตัวอย่างจะตรวจสอบว่ารูปร่างเดียวกันยังคงอยู่, เรียกเมธอดอีกครั้งบนรูปร่างที่กลายเป็นปกติ, แล้วบันทึกผลลัพธ์.
+
+{{% alert color="warning" title="Warning" %}}
+การลบสถานะ placeholder ไม่ได้ทำให้การตั้งค่าการแสดงผลที่สืบทอดโดยอัตโนมัติคงอยู่. ตัวอย่างด้านล่างจึงตั้งค่าเหล่านั้นไว้อย่างไม่เปลี่ยนแปลง, ดังนั้นผลลัพธ์อาจดูแตกต่าง. รูปร่างที่ตำแหน่งและขนาดสืบทอดทั้งหมดอาจมีพิกัดและมิติศูนย์หลังการเรียกและกลายเป็นไม่มองเห็นแม้ว่าจะยังอยู่ในคอลเล็กชัน.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // การเรียกเมธอดบนรูปร่างปกติไม่มีผลใด ๆ.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+สำหรับ placeholder ที่ตรงกัน ทั้งสามการตรวจสอบจะพิมพ์ `true`. ข้อความจะคงอยู่, แต่ตำแหน่ง, ขนาด, การหมุน, ฟอนต์, การจัดย่อหน้า, ระยะขอบของ text‑frame, การยึดแนวตั้ง, การเติมสีและการตั้งค่าเส้นอาจเปลี่ยนเมื่อความสัมพันธ์ของ placeholder ถูกลบ. ตัวอย่างเช่น การจัดรูปแบบหัวเรื่องที่สืบทอดอาจกลับไปใช้การจัดรูปแบบข้อความปกติ. ดูเพิ่มเติมใน [Slide Layout](/slides/th/java/slide-layout/) สำหรับข้อมูลเกี่ยวกับเลเอาต์.
+
+เพื่อคงลักษณะที่ต้องการ ให้บันทึกตำแหน่ง, ขนาดและการหมุนที่ได้รับการคำนวณแล้วก่อนการเรียก, แล้วคัดลอกค่าการจัดรูปแบบที่มีผลจริงลงในตัวแปรแยกต่างหาก. ดึงค่าดังกล่าวผ่าน [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), และ [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--). อย่าอาศัยแค่วัตถุ effective‑format เนื่องจากค่าการจัดรูปแบบข้อความอาจเปลี่ยนหลังจากความสัมพันธ์ถูกตัด. นำค่าที่บันทึกไว้ไปใช้กับรูปร่างปกติหลังจากนั้นอย่างชัดเจน, รวมถึงฟอนต์ (family, size, style, color), ตั้งค่าการจัดย่อหน้า, การตั้งค่า text‑frame, การเติมสีและเส้นที่ใช้ในแม่แบบของคุณ.
+
+รูปร่างเรขาคณิตที่สืบทอดอาจต้องกำหนดโดยชัดเจนผ่าน [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-). สำหรับ placeholder ข้อความแบบสี่เหลี่ยม ให้กำหนด [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle); การคืนค่าเฉพาะการเติมสีและเส้นอาจไม่ทำให้สี่เหลี่ยมที่มองเห็นกลับมา. เทมเพลตที่มีเอฟเฟกต์เพิ่มเติมหรือการจัดรูปแบบที่ซับซ้อนต้องจัดการการตั้งค่าเหล่านั้นเช่นกัน.
 
 ## **เปลี่ยนข้อความใน Placeholder**
 
-Placeholder สำหรับหัวเรื่อง, หัวเรื่องกึ่งกลาง, หัวเรื่องย่อย, เนื้อหา, และข้อความมักรองรับข้อความ ตรวจสอบว่าเป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ก่อนใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ของมัน
+Placeholder สำหรับหัวเรื่อง, centered‑title, subtitle, body และข้อความมักสนับสนุนข้อความ. ตรวจสอบว่ารูปร่างเป็น [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ก่อนใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
 
-ตัวอย่างนี้อัปเดต placeholder หัวเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปอัปเดต placeholder หัวเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-รูปแบบนี้หลีกเลี่ยงการแคสท์ placeholder ของรูปภาพ, แผนภูมิ, ตาราง หรือสื่อเป็น [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/). นอกจากนี้ยังระบุ placeholder ตามวัตถุประสงค์แทนการพึ่งพาดัชนีรูปทรงที่เปราะบาง
+รูปแบบนี้หลีกเลี่ยงการแคสท์ placeholder รูปภาพ, แผนภูมิ, ตาราง หรือสื่อเป็น [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). นอกจากนี้ยังระบุ placeholder ตามวัตถุประสงค์แทนการพึ่งพาดัชนีรูปร่างที่เปราะบาง.
 
-## **ตั้งข้อความ Prompt บนเลย์เอาต์**
+## **ตั้งค่าข้อความ Prompt บน Layout**
 
-Prompt text คือคำแนะนำในช่วงออกแบบที่แสดงใน placeholder ที่ว่างเปล่า เช่น *Click to add title* ตั้งข้อความ prompt แบบกำหนดเองบน placeholder ของเลย์เอาต์แทนที่จะพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลย์เอาต์ผ่าน [ISlide.getLayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) และทำการวนซ้ำคอลเลกชันที่ส่งกลับมาจาก [ILayoutSlide.getShapes](https://reference.aspose.com/slides/th/java/com.aspose.slides/ibaseslide/)
+ข้อความ Prompt คือคำสั่งแบบออกแบบที่แสดงใน placeholder ว่าง เช่น *Click to add title*. ตั้งค่าข้อความ Prompt ที่กำหนดเองบน placeholder ของเลเอาต์แทนการพยายามเข้าถึงผ่านคอลเล็กชันรูปร่างของสไลด์ปกติ. เข้าถึงเลเอาต์ผ่าน [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) และวนลูปคอลเล็กชันที่คืนโดย [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/).
 
-ตัวอย่างต่อไปนี้เปลี่ยน prompt ของหัวเรื่องและหัวเรื่องย่อยบนเลย์เอาต์ที่ใช้โดยสไลด์แรก:
+ตัวอย่างต่อไปเปลี่ยน Prompt ของหัวเรื่องและหัวเรื่องย่อยบนเลเอาต์ที่ใช้โดยสไลด์แรก:
 
 ```java
 import com.aspose.slides.*;
@@ -171,16 +233,16 @@ try {
 }
 ```
 
-Prompt text ไม่ใช่เนื้อหาของสไลด์ปกติ มันมีไว้สำหรับ placeholder ที่ว่างเปล่าในแอปพลิเคชันแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริงแล้ว prompt จะไม่แสดงอีก การเปลี่ยน prompt ยังไม่ได้แทนที่ข้อความที่มีอยู่บนสไลด์ที่ใช้เลย์เอาต์นั้น
+Prompt ไม่ใช่เนื้อหาในสไลด์ปกติ. มันมีจุดประสงค์สำหรับ placeholder ว่างในแอปพลิเคชันแก้ไขเช่น PowerPoint. เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริงแล้ว Prompt จะไม่แสดงอีก. การเปลี่ยน Prompt ก็ไม่ได้แทนที่ข้อความที่มีอยู่บนสไลด์ที่ใช้เลเอาต์นั้น.
 
-## **อัปเดต Picture Placeholder**
+## **อัปเดต Placeholder รูปภาพ**
 
-There are two cases to handle:
+มีสองกรณีที่ต้องจัดการ:
 
-- หาก picture placeholder ถูกเติมข้อมูลแล้วและแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/), ให้ทดแทนภาพผ่าน [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) และ [ISlidesPicture.setImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/islidespicture/).
-- หากยังคงเป็น placeholder ที่ว่างเปล่า, ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/) และลบ placeholder ที่ว่างเปล่าออก
+- หาก placeholder รูปภาพมีเนื้อหาแล้วและแสดงเป็น [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), ให้แทนที่รูปภาพผ่าน [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) และ [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/).  
+- หากยังเป็น placeholder ว่าง, ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) แล้วลบ placeholder ที่ว่างออก.
 
-ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกงานนำเสนอ:
+ตัวอย่างต่อไปรองรับทั้งสองกรณีและบันทึกการนำเสนอ:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-การแทนที่ที่สร้างสำหรับ placeholder ที่ว่างเปล่าเป็น picture frame ในระดับท้องถิ่น, ไม่ใช่ placeholder ใหม่, เนื่องจาก [IShape.getPlaceholder](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) ไม่มี setter. มันจะคงตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder. หากต้องการรักษาความสัมพันธ์ของ placeholder ไว้, จำเป็นต้องเตรียมและเติม placeholder ใน PowerPoint ก่อน แล้วจึงอัปเดต [IPictureFrame](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides
+การแทนที่ที่สร้างสำหรับ placeholder ว่างเป็น picture frame เฉพาะท้องถิ่น, ไม่ได้เป็น placeholder ใหม่, เนื่องจาก [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) ไม่มี setter. มันรักษาตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder อีกต่อไป. หากต้องการคงความสัมพันธ์ของ placeholder ไว้, ให้เตรียมและเติม placeholder ใน PowerPoint ก่อน, แล้วอัปเดต [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides.
 
-สำหรับความโปร่งแสงของภาพ, การครอบภาพ, และเอฟเฟกต์เฉพาะของรูปภาพอื่น ๆ ดูที่ [Manage Picture Frames](/slides/th/java/picture-frame/). การดำเนินการเหล่านั้นเป็นของ picture frame หรือ picture fill ไม่ใช่เมตาดาต้า placeholder
+สำหรับความโปร่งใสของภาพ, การครอปและเอฟเฟกต์อื่น ๆ ของรูปภาพ, ดูที่ [Manage Picture Frames](/slides/th/java/picture-frame/). การดำเนินการเหล่านั้นเป็นของ picture frame หรือ picture fill, ไม่ใช่ของเมตาดาต้า placeholder.
 
-## **ทำงานกับ Chart และ Content Placeholder**
+## **ทำงานกับ Placeholder แผนภูมิและเนื้อหา**
 
-Placeholder ของแผนภูมิที่เติมข้อมูลแล้วสามารถแสดงเป็น [IChart](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/). ตัวอย่างนี้ค้นหาแผนภูมินั้นโดยใช้ทั้งประเภท placeholder และอินเทอร์เฟซในช่วงเวลารันไทม์, เปลี่ยนหัวเรื่องของมันและบันทึกไฟล์:
+Placeholder แผนภูมิที่มีเนื้อหาแล้วอาจแสดงเป็น [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/). ตัวอย่างนี้ค้นหาแผนภูมิที่ตรงตามประเภท placeholder และอินเทอร์เฟซ runtime, เปลี่ยนหัวเรื่อง, แล้วบันทึกไฟล์:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Placeholder เนื้อหาทั่วไปมักมีค่า [PlaceholderType.Object](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/). ใน PowerPoint มันทำหน้าที่เป็นตัวเรียกหลายประเภทของเนื้อหา, รวมถึงแผนภูมิ, ตาราง, แผนผัง, รูปภาพ, และสื่อ. หลังจากที่ถูกเติมข้อมูลแล้ว, ให้ตรวจสอบอินเทอร์เฟซรูปทรงจริงเพื่อทราบว่ามีอะไรบ้าง. เลย์เอาต์พิเศษอาจเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholdertype/)
+Placeholder เนื้อหาทั่วไปมักมี [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/). ใน PowerPoint ทำหน้าที่เป็นตัวเปิดหลายประเภทของเนื้อหา, รวมถึงแผนภูมิ, ตาราง, ไดอาแกรม, รูปภาพ และสื่อ. หลังจากที่มันถูกเติมแล้ว, ตรวจสอบอินเทอร์เฟซของรูปร่างจริงเพื่อทราบว่ามีอะไรอยู่. เลเอาต์เฉพาะบางอย่างอาจเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides ไม่ได้แปลง placeholder ของ [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ที่ว่างเปล่าเป็น [IChart](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/) เพียงแค่เปลี่ยน [IPlaceholder.getType](https://reference.aspose.com/slides/th/java/com.aspose.slides/placeholder/); ประเภทไม่สามารถเปลี่ยนได้ผ่านอินเทอร์เฟซ. เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาที่ว่างเปล่าโดยโปรแกรม, ให้เพิ่มอ็อบเจ็กต์ที่ต้องการที่พิกัดของ placeholder แล้วลบ placeholder ที่ว่างเปล่าออก. ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
+Aspose.Slides ไม่ได้แปลง placeholder [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ที่ว่างให้เป็น [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) เพียงแค่เปลี่ยน [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/); ประเภทไม่สามารถเปลี่ยนผ่านอินเทอร์เฟซได้. เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาเปล่าโดยโปรแกรม, ให้เพิ่มอ็อบเจกต์ที่จำเป็นที่พิกัดของ placeholder แล้วลบ placeholder ว่างออก. ตัวอย่างต่อไปทำเช่นนั้นสำหรับแผนภูมิ:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-แผนภูมิที่เพิ่มเข้ามาเป็นแผนภูมิทั่วไปในระดับท้องถิ่น. มันครอบพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลย์เอาต์. ใช้บทความการจัดการแผนภูมิที่เกี่ยวข้อง [chart management articles](/slides/th/java/powerpoint-charts/) เมื่อจำเป็นต้องแทนที่ประเภท, ชุดข้อมูล, หรือข้อมูลใน workbook ของมัน
+แผนภูมิที่เพิ่มขึ้นเป็นแผนภูมิท้องถิ่นธรรมดา. มันครอบพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลเอาต์. ใช้บทความจัดการแผนภูมิที่เฉพาะเจาะจง [chart management articles](/slides/th/java/powerpoint-charts/) เมื่อคุณต้องการแทนที่ประเภท, ชุดข้อมูล หรือข้อมูลเวิร์กบุ๊กของแผนภูมิ.
 
-## **ตัวอย่างสมบูรณ์: อัปเดตข้อความหรือเนื้อหาภาพ**
+## **ตัวอย่างครบถ้วน: อัปเดตข้อความหรือเนื้อหาภาพ**
 
-ตัวอย่างแบบ End-to-End ต่อไปนี้เปิดเทมเพลต, ค้นหาสไลด์แรกเพื่อหา placeholder ของหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสม, และบันทึกผลลัพธ์. ตัวอย่างนี้ตั้งใจหลีกเลี่ยงการสันนิษฐานดัชนีรูปทรงหรือการแคสท์ทุก placeholder เป็นอินเทอร์เฟซเดียวกัน
+ตัวอย่างต่อไปเป็นการทำขั้นตอนครบวงจร: เปิดแม่แบบ, ค้นหาสไลด์แรกเพื่อหา placeholder ที่เป็นหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปร่าง, อัปเดตเนื้อหาที่เหมาะสม, แล้วบันทึกผลลัพธ์. ตัวอย่างตั้งใจหลีกเลี่ยงการสันนิษฐานดัชนีรูปร่างหรือการแคสท์ทุก placeholder ไปยังอินเทอร์เฟซเดียวกัน.
 
 ```java
 import com.aspose.slides.*;
@@ -363,16 +425,16 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Base placeholder คืออะไร?**
+**Placeholder ฐานคืออะไร?**
 
-Base placeholder คือรูปทรงที่สอดคล้องบนเลย์เอาต์หรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดจาก ใช้ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เพื่อดึงคืน. ค่ารูปทรงท้องถิ่นทั่วไปจะคืนค่า `null` เนื่องจากไม่เป็นส่วนหนึ่งของลำดับชั้น placeholder
+Placeholder ฐานคือรูปร่างที่สอดคล้องบนเลเอ็ตหรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดจากมัน. ใช้ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) เพื่อดึงคืนค่า. รูปร่างท้องถิ่นปกติจะคืนค่า `null` เพราะไม่ได้เป็นส่วนหนึ่งของลำดับชั้น placeholder.
 
-**ฉันสามารถเปลี่ยนหัวข้อสไลด์ทั้งหมดโดยแก้ไข layout placeholder ได้หรือไม่?**
+**ฉันสามารถเปลี่ยนหัวเรื่องทั้งหมดของสไลด์โดยแก้ไข placeholder ของเลเอ็ตได้หรือไม่?**
 
-คุณสามารถเปลี่ยนการจัดรูปแบบที่สืบทอดหรือข้อความ prompt ผ่านเลย์เอาต์ได้ แต่เนื้อหาหัวเรื่องที่มีอยู่ถูกเก็บบนสไลด์ปกติ เพื่อแทนที่ข้อความหัวเรื่องจริงทั่วงานนำเสนอ, ให้วนซ้ำสไลด์และอัปเดต placeholder ของหัวเรื่องแต่ละอัน
+คุณสามารถเปลี่ยนการจัดรูปแบบหรือข้อความ Prompt ที่สืบทอดผ่านเลเอ็ตได้, แต่เนื้อหาหัวเรื่องที่มีอยู่จะถูกเก็บไว้บนสไลด์ปกติ. หากต้องการแทนที่ข้อความหัวเรื่องจริงทั่วทั้งงานนำเสนอ, ให้วนลูปสไลด์และอัปเดตแต่ละ placeholder ของหัวเรื่อง.
 
-**ฉันจะจัดการ placeholder ของวันที่, เลขสไลด์, ส่วนหัว, และส่วนล่างอย่างไร?**
+**ฉันจะจัดการ placeholder ของวัน/เวลา, หมายเลขสไลด์, ส่วนหัวและส่วนท้ายอย่างไร?**
 
-ใช้ตัวจัดการส่วนหัวและส่วนล่างในสไลด์, เลย์เอาต์, มาสเตอร์, โน้ต หรือ handout ที่เหมาะสม. ดูตัวอย่างเต็มที่ [Manage Presentation Header and Footer](/slides/th/java/presentation-header-and-footer/)
+ใช้ตัวจัดการส่วนหัวและส่วนท้ายในสโคปที่เหมาะสม (สไลด์, เลเอ็ต, มาสเตอร์, โน้ต หรือแฮนด์เอาต์). ดูที่ [Manage Presentation Header and Footer](/slides/th/java/presentation-header-and-footer/) สำหรับตัวอย่างสมบูรณ์.

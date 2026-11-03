@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Yer Tutucularını Yönet
+title: C++'ta Sunum Yer Tutucularını Yönetme
 linktitle: Yer Tutucuları Yönet
 type: docs
 weight: 10
@@ -10,41 +10,41 @@ keywords:
 - resim yer tutucu
 - çizelge yer tutucu
 - içerik yer tutucu
-- istem metni
+- ipucu metni
 - PowerPoint
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile metin, resim, çizelge ve içerik yer tutucularını nasıl inceleyeceğinizi ve düzenleyeceğinizi ve yer tutucu mirasını nasıl anlayacağınızı öğrenin."
+description: "Aspose.Slides for C++ ile metin, resim, çizelge ve içerik yer tutucularını incelemeyi ve düzenlemeyi, ayrıca yer tutucu mirasını anlamayı öğrenin."
 ---
-## **Overview**
+## **Genel Bakış**
 
-Yer tutucu, bir sunum şablonunda belirli bir içerik türü için bir konumu rezerve eden bir şekildir. Yaygın örnekler başlık, gövde, resim, çizelge ve genel amaçlı içerik yer tutucularıdır. Olağan bir şekilden farklı olarak, bir yer tutucu konumunu, boyutunu, biçimlendirmesini ve diğer ayarlarını bir düzen slaytından veya ana slayttan devralabilir.
+Yer tutucu, bir sunum şablonunda belirli bir içerik türü için konum ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, çizelge ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, yer tutucu konum, boyut, biçimlendirme ve diğer ayarları bir düzen slaytı ya da ana slayttan devralabilir.
 
-Aspose.Slides, yer tutucu bilgilerini [IShape::get_Placeholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/get_placeholder/) yöntemi aracılığıyla sunar. Bu yöntem normal bir şekil için `nullptr` döndürür ve bir [IPlaceholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iplaceholder/) nesnesi döndürür. Yer tutucunun ne içermesi gerektiğini belirlemek için [IPlaceholder::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iplaceholder/get_type/) kullanın.
+Aspose.Slides, yer tutucu bilgilerini [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) yöntemi aracılığıyla sunar. Yöntem, normal bir şekil için `nullptr` dönen bir [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) nesnesi döndürür. Yer tutucunun ne tür içerik barındırması gerektiğini belirlemek için [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) kullanın.
 
 Şekil arayüzü, yer tutucu türünü öğrendikten sonra da önemlidir:
 
-- Boş bir metin, resim, çizelge veya içerik yer tutucusu genellikle bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) ile temsil edilir.
-- Dolu bir resim yer tutucusu bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ile temsil edilebilir.
-- Dolu bir çizelge yer tutucusu bir [IChart](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/) ile temsil edilebilir.
-- Bir içerik yer tutucusu çeşitli içerik türlerini barındırabilir. Her yer tutucunun bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olduğunu varsaymak yerine hem [IPlaceholder::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iplaceholder/get_type/) hem de çalışma zamanı şekil arayüzünü kontrol edin.
+- Boş bir metin, resim, çizelge veya içerik yer tutucu genellikle bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) ile temsil edilir.
+- Dolu bir resim yer tutucu, bir [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) ile temsil edilebilir.
+- Dolu bir çizelge yer tutucu, bir [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) ile temsil edilebilir.
+- İçerik yer tutucu, çeşitli içerik türleri barındırabilir. Her yer tutucunun bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) olduğunu varsaymak yerine hem [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) hem de çalışma zamanındaki şekil arayüzünü kontrol edin.
 
-{{% alert color="warning" title="Uyarı" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iplaceholder/get_type/) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanı türünü garanti etmez. Metin, resim, çizelge, tablo veya medya‑özel üyelerine erişmeden önce her zaman bir tür kontrolü yapın.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanı tipini garanti etmez. Metin, resim, çizelge, tablo veya medya‑özel üyelerine erişmeden önce her zaman bir tip kontrolü yapın.
 {{% /alert %}}
 
-## **Understand Placeholder Inheritance**
+## **Yer Tutucu Mirasını Anlamak**
 
 Yer tutucular bir hiyerarşi oluşturur:
 
-1. Bir ana slayt yeniden kullanılabilir stilleri ve bazı durumlarda ana‑seviye yer tutucuları tanımlar.
-2. Bir düzen slaytı bir veya daha fazla normal slayt tarafından kullanılan yerleşimi tanımlar ve ana slayttan devralabilir.
-3. Bir normal slayt, o slayt için yer tutucuları içerir ve düzeninden devralabilir.
+1. Bir ana slayt, yeniden kullanılabilir stilleri ve bazı durumlarda ana‑seviye yer tutucuları tanımlar.
+2. Bir düzen slaytı, bir ya da daha fazla normal slayt için kullanılan düzeni tanımlar ve ana slayttan devralabilir.
+3. Normal bir slayt, o slayt için yer tutucuları içerir ve düzeninden devralabilir.
 
-Bu hiyerarşide bir seviye yukarı çıkmak için [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/getbaseplaceholder/) yöntemini çağırın. Bir slayt yer tutucusu normalde düzen yer tutucusunu döndürür; bir düzen yer tutucusu ana yer tutucusunu döndürebilir. Şeklin temel yer tutucusu yoksa yöntem `nullptr` döndürür.
+Bu hiyerarşide bir seviye yukarı gitmek için [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) çağrın. Normalde bir slayt yer tutucusu, düzen yer tutucusunu; bir düzen yer tutucusu da ana yer tutucusunu döndürür. Şeklin temel yer tutucusu yoksa yöntem `nullptr` döndürür.
 
-Aşağıdaki örnek, ilk slayttaki yer tutucuları listeler ve temel yer tutucularını raporlar:
+Aşağıdaki örnek, ilk slayttaki yer tutucuları listeler ve temel yer tutucularını rapor eder:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,11 +97,88 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili düzen ya da ana slaytı düzenlemek, hâlâ bu ayarı devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve aynı koordinatları kapladığı için devralmaya başlamaz.
+Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili düzen ya da ana slaytı düzenlemek, hâlâ bu ayarı devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve aynı koordinatları kullandığı için otomatik olarak miras almaya başlamaz.
 
-## **Change Text in a Placeholder**
+## **Yer Tutucu Durumunu Kaldırma**
 
-Başlık, ortalanmış‑başlık, alt‑başlık, gövde ve metin yer tutucuları genellikle metni destekler. Metin çerçevesine erişmeden önce [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olup olmadığını kontrol edin ve ardından [get_TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/get_textframe/) yöntemini kullanın.
+Bir şablonu uyarlarken, mevcut nesneyi normal bir şekil olarak tutmak için [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) kullanın. Bunun [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) yöntemi `nullptr` döndürür, ancak şekil slayt koleksiyonunda kalır. Buna karşılık, [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) şekli o koleksiyondan siler.
+
+Aşağıdaki örnek, en az bir slaytı ve ilk slaytta boş olmayan bir metin yer tutucusu bulunan bir `template.pptx` dosyasını gerektirir. Düzen ya da ana slayttan devralınan biçimlendirmeye sahip bir yer tutucu kullanarak ilişkinin kaldırılmasının etkisini görün. Örnek, aynı şeklin kaldığını doğrular, yöntemi artık normal bir şekil üzerinde yeniden çağırır ve sonucu kaydeder.
+
+{{% alert color="warning" title="Warning" %}}
+Yer tutucu durumunu kaldırmak, devralınan görünüm ayarlarını otomatik olarak korumaz. Aşağıdaki örnek bu ayarları bilerek değiştirmeden bırakır, bu nedenle çıktı farklı görünebilir. Pozisyon ve boyutu tamamen devralan bir şekil, çağrı sonrası sıfır koordinat ve boyuta sahip olabilir ve koleksiyonda kalmasına rağmen görünmez hâle gelir.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Normal bir şekil üzerinde yöntemi çağırmak hiçbir etki yapmaz.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Eşleşen bir yer tutucu için üç kontrol de `True` yazdırır. Metin kalır, ancak devralınan pozisyon, boyut, dönüş, yazı tipi, paragraf hizalaması, metin‑çerçeve kenar boşlukları, dikey sabitleme, doldurma ve kenar ayarları yer tutucu ilişkisi kaldırıldığında değişebilir. Örneğin, devralınan başlık biçimlendirmesi normal metin biçimlendirmesine geri dönebilir. Düzenler hakkında daha fazla bilgi için [Slide Layout](/slides/tr/cpp/slide-layout/) sayfasına bakın.
+
+İstenen görünümü korumak için, çağrıdan önce çözümlenmiş pozisyon, boyut ve dönüş değerlerini yakalayın ve gerekli etkili biçimlendirme değerlerini ayrı değişkenlere kopyalayın. Bu değerleri [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/) ve [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) aracılığıyla alın. Yalnızca etkili‑format nesnelerine güvenmeyin; ilişki kaldırıldıktan sonra metin‑biçimlendirme değerleri değişebilir. Yakalanan değerleri daha sonra normal şekle açıkça uygulayın; şablonunuzun kullandığı yazı tipi ailesi, boyutu, stili, rengi, paragraf ayarları, metin‑çerçeve ayarları, doldurma ve kenar ayarlarını da içermelidir.
+
+Devralınan şekil geometrisi, ayrıca [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/) ile açıkça atanmalıdır. Dikdörtgen bir metin yer tutucu için bu, [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/) atanması anlamına gelir; yalnızca doldurma ve kenarı geri yüklemek görünür dikdörtgeni sağlamaz. Ek efektlere veya daha karmaşık biçimlendirmelere sahip şablonlar da bu ayarların ayrıca ele alınmasını gerektirir.
+
+## **Yer Tutucudaki Metni Değiştirme**
+
+Başlık, ortalanmış‑başlık, altbaşlık, gövde ve metin yer tutucuları normalde metin destekler. [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) olup olmadığını kontrol edin ve ardından [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) yöntemini kullanın.
 
 Bu örnek, ilk slayttaki ilk başlık yer tutucusunu günceller ve sonucu kaydeder:
 
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Bu desen, resim, çizelge, tablo veya medya yer tutucularını [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olarak dökmekten kaçınır. Ayrıca, kırılgan bir şekil indeksine dayanmadan yer tutucuyu amacına göre tanımlar.
+Bu desen, resim, çizelge, tablo veya medya yer tutucularını [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) olarak dönüştürmekten kaçınır. Ayrıca yer tutucuyu, kırılgan bir şekil indeksine dayanmak yerine amacına göre tanımlar.
 
-## **Set Prompt Text on a Layout**
+## **Düzen Üzerinde İpucu Metni Ayarlama**
 
-İstem metni, boş bir yer tutucuda görünen tasarım zamanı talimatıdır; örneğin *Başlık eklemek için tıklayın*. İstem metnini normal bir slaytın şekil koleksiyonundan almaya çalışmak yerine, düzen yer tutucusunda özel bir istem metni ayarlayın. Düzeni, [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/get_layoutslide/) ile erişin ve [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslide/get_shapes/) üzerinde döngü oluşturun.
+İpucu metni, boş bir yer tutucuda gösterilen tasarım‑zamanı talimatıdır; örneğin *Click to add title*. Normal bir slaytın şekil koleksiyonundan ulaşmaya çalışmak yerine, düzen yer tutucusu üzerinde özel ipucu metni ayarlayın. Düzeni, [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) aracılığıyla alın ve [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/) üzerinde yineleyin.
 
-Aşağıdaki örnek, ilk slayt tarafından kullanılan düzen üzerindeki başlık ve alt‑başlık istemlerini değiştirir:
+Aşağıdaki örnek, ilk slaytın kullandığı düzen üzerindeki başlık ve altbaşlık ipuçlarını değiştirir:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-İstem metni normal slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Bir kullanıcı veya program gerçek içerik sağladığında, istem artık gösterilmez. Bir istemi değiştirmek, düzeni kullanan slaytlardaki mevcut metni değiştirmez.
+İpucu metni normal slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Bir kullanıcı ya da program gerçek içerik sağladığında ipucu artık gösterilmez. Bir ipucunu değiştirmek, düzeni kullanan slaytlardaki mevcut metni değiştirmez.
 
-## **Update a Picture Placeholder**
+## **Resim Yer Tutucusunu Güncelleme**
 
 İki durum ele alınmalıdır:
 
-- Resim yer tutucusu zaten doluysa ve bir [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) ile temsil ediliyorsa, resmi [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/get_picture/) ve [ISlidesPicture::set_Image](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidespicture/set_image/) aracılığıyla değiştirin.
-- Hâlâ boş bir yer tutucusuysa, [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addpictureframe/) ile yer tutucunun koordinatlarına bir resim çerçevesi ekleyin ve boş yer tutucusunu kaldırın.
+- Resim yer tutucusu zaten doluysa ve bir [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) ile temsil ediliyorsa, resmi [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) ve [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) aracılığıyla değiştirin.
+- Hâlâ boş bir yer tutucuysa, yer tutucunun koordinatlarında [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) ile bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
 
-Sonraki örnek her iki durumu da destekler ve sunumu kaydeder:
+Aşağıdaki örnek her iki durumu da destekler ve sunumu kaydeder:
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Boş bir yer tutucu için oluşturulan değişim, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [IShape::get_Placeholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/get_placeholder/) yalnızca okunabilir. Rezerv edilen konumu tutar ancak artık yer tutucu‑özel davranışı devralmaz. Yer tutucu ilişkisini korumak önemliyse, önce PowerPoint’te yer tutucuyu hazırlayıp doldurun, ardından Aspose.Slides ile ortaya çıkan [IPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) güncelleyin.
+Boş bir yer tutucu için oluşturulan değiştirme, yer tutucu ilişkisini artık devralmadığı için yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) yalnızca okunur. Rezerv edilen konumu korur ancak yer tutucu‑özel davranışı kaybolur. Yer tutucu ilişkisi kritikse, önce PowerPoint’te yer tutucuyu hazırlayıp doldurun, ardından Aspose.Slides ile oluşan [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) güncelleyin.
 
-Görsel şeffaflığı, kırpma ve diğer resim‑özel etkiler için [Resim Çerçevelerini Yönet](/slides/tr/cpp/picture-frame/) bölümüne bakın. Bu işlemler resim çerçevesi veya resim doldurmasıyla ilgilidir, yer tutucu meta verisiyle değil.
+Resim şeffaflığı, kırpma ve diğer resim‑özel etkiler için [Manage Picture Frames](/slides/tr/cpp/picture-frame/) sayfasına bakın. Bu işlemler resim çerçevesi veya resim doldurmasıyla ilgilidir, yer tutucu meta verisiyle değil.
 
-## **Work with Chart and Content Placeholders**
+## **Çizelge ve İçerik Yer Tutucularıyla Çalışma**
 
-Dolu bir çizelge yer tutucusu bir [IChart](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/) ile temsil edilebilir. Bu örnek, hem yer tutucu türüne hem de çalışma zamanı arayüzüne göre böyle bir çizelgeyi bulur, başlığını değiştirir ve dosyayı kaydeder:
+Dolu bir çizelge yer tutucusu bir [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) ile temsil edilebilir. Bu örnek, hem yer tutucu tipine hem de çalışma zamanı arayüzüne göre böyle bir çizelgeyi bulur, başlığını değiştirir ve dosyayı kaydeder:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Genel bir içerik yer tutucusu genellikle [PlaceholderType::Object](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/) değerine sahiptir. PowerPoint’te, çizelgeler, tablolar, diyagramlar, resimler ve medya gibi çeşitli içerik türlerini başlatan bir başlatıcı görevi görür. Doldurulduktan sonra, gerçekte ne içerdiğini öğrenmek için şekil arayüzünü inceleyin. Özelleştirilmiş düzenler ayrıca [PlaceholderType::Chart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/), veya [PlaceholderType::Diagram](https://reference.aspose.com/slides/tr/cpp/aspose.slides/placeholdertype/) sağlayabilir.
+Genel bir içerik yer tutucusu genellikle [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) tipindedir. PowerPoint’te bu, çizelgeler, tablolar, diyagramlar, resimler ve medyalar gibi çeşitli içerik türleri için bir başlatıcı görevi görür. Doldurulduktan sonra, gerçek şekil arayüzünü inceleyerek ne içerdiğini öğrenin. Özelleştirilmiş düzenler ayrıca [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) veya [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) tiplerini ortaya çıkarabilir.
 
-Aspose.Slides, [IPlaceholder::get_Type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iplaceholder/get_type/) değerini değiştirerek boş bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) yer tutucusunu bir [IChart](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichart/) içine dönüştürmez; tür salt okunurdur. Boş bir çizelge veya içerik alanını programlı olarak doldurmak için, gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bunu bir çizelge için yapar:
+Aspose.Slides, [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) değerini değiştirerek boş bir [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) yer tutucusunu bir [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) haline getirmez; tip yalnızca okunur. Boş bir çizelge ya da içerik alanını programatik olarak doldurmak için gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bunu bir çizelge için yapar:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-Eklenen çizelge sıradan yerel bir çizelgedir. Yer tutucunun alanını kaplar ancak düzen yer tutucusundan devralmaz. Kategorilerini, serilerini veya çalışma kitabı verilerini değiştirmek gerektiğinde ilgili [çizelge yönetimi makalelerini](/slides/tr/cpp/powerpoint-charts/) kullanın.
+Eklenen çizelge normal bir yerel çizelgedir. Yer tutucunun alanını kaplar ancak düzen yer tutucusundan devralmaz. Kategorileri, serileri veya çalışma kitabı verilerini değiştirmek gerektiğinde ilgili [chart management articles](/slides/tr/cpp/powerpoint-charts/) bölümlerini kullanın.
 
-## **Complete Example: Update Text or Image Content**
+## **Tam Örnek: Metin ya da Görsel İçeriğini Güncelleme**
 
-Aşağıdaki uçtan uca örnek bir şablonu açar, ilk slaytta bir başlık veya resim yer tutucusu arar, yer tutucu ve şekil türlerini denetler, uygun içerği günceller ve çıktıyı kaydeder. Örnek, şekil indeksini varsaymaktan veya her yer tutucuyu aynı arayüze dökmekten kaçınır.
+Aşağıdaki uçtan‑uza örnek bir şablonu açar, ilk slaytta bir başlık ya da resim yer tutucusunu arar, yer tutucu ve şekil tiplerini kontrol eder, uygun içeriği günceller ve çıktıyı kaydeder. Örnek, şekil indeksi varsaymak ya da tüm yer tutucuları aynı arayüze dönüştürmekten kaçınır.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -491,16 +568,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **SSS**
 
-**What is a base placeholder?**
+**Temel bir yer tutucu nedir?**
 
-Temel yer tutucu, başka bir yer tutucunun devraldığı düzen ya da ana slayttaki karşılık gelen şekildir. Onu almak için [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/getbaseplaceholder/) kullanın. Normal bir yerel şekil `nullptr` döndürür çünkü yer tutucu hiyerarşisinin bir parçası değildir.
+Temel yer tutucu, başka bir yer tutucunun devraldığı düzen ya da ana slayttaki karşılık gelen şekildir. Onu almak için [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) kullanın. Normal bir yerel şekil, hiyerarşinin bir parçası olmadığı için `nullptr` döndürür.
 
-**Can I change all slide titles by editing a layout placeholder?**
+**Tüm slayt başlıklarını bir düzen yer tutucusunu düzenleyerek değiştirebilir miyim?**
 
-Düzen üzerinden devralınan biçimlendirme veya istem metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda saklanır. Tüm sunumdaki gerçek başlık metinlerini değiştirmek için slaytlar üzerinde döngü oluşturup her başlık yer tutucusunu güncelleyin.
+Bir düzen üzerinden devralınan biçimlendirme veya ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içerikleri normal slaytlarda saklanır. Sunum genelinde gerçek başlık metnini değiştirmek için slaytları döngüyle gezip her başlık yer tutucusunu güncelleyin.
 
-**How do I manage date, slide-number, header, and footer placeholders?**
+**Tarih, slayt‑numarası, başlık ve altbilgi yer tutucularını nasıl yönetirim?**
 
-İlgili slayt, düzen, ana, not veya el ilanı kapsamındaki başlık ve dipnot yöneticilerini kullanın. Tam örnekler için [Sunum Başlık ve Dipnotlarını Yönet](/slides/tr/cpp/presentation-header-and-footer/) bölümüne bakın.
+Uygun slayt, düzen, ana, not veya dağıtım kapsamındaki başlık ve altbilgi yöneticilerini kullanın. Ayrıntılı örnekler için [Manage Presentation Header and Footer](/slides/tr/cpp/presentation-header-and-footer/) sayfasına bakın.

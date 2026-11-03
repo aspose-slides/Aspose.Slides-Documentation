@@ -1,51 +1,51 @@
 ---
-title: จัดการ Placeholder ของการนำเสนอด้วย Python
+title: จัดการ Placeholder ของการนำเสนอใน Python
 linktitle: จัดการ Placeholder
 type: docs
 weight: 10
 url: /th/python-java/manage-placeholder/
 keywords:
-  - ตัวจัดตำแหน่ง
-  - ตัวจัดตำแหน่งข้อความ
-  - ตัวจัดตำแหน่งภาพ
-  - ตัวจัดตำแหน่งแผนภูมิ
-  - ตัวจัดตำแหน่งเนื้อหา
-  - ข้อความ Prompt
-  - PowerPoint
-  - การนำเสนอ
-  - Python
-  - Java
-  - Aspose.Slides
-description: "เรียนรู้วิธีการตรวจสอบและแก้ไขตัวจัดตำแหน่งข้อความ, รูปภาพ, แผนภูมิ และเนื้อหา, รวมถึงทำความเข้าใจการสืบทอดของตัวจัดตำแหน่งด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
+- ตำแหน่งที่จอง
+- ตำแหน่งที่จองข้อความ
+- ตำแหน่งที่จองภาพ
+- ตำแหน่งที่จองแผนภูมิ
+- ตำแหน่งที่จองเนื้อหา
+- ข้อความเชิญ
+- PowerPoint
+- การนำเสนอ
+- Python
+- Java
+- Aspose.Slides
+description: "เรียนรู้วิธีตรวจสอบและแก้ไข placeholder ข้อความ, รูปภาพ, แผนภูมิและเนื้อหาและเข้าใจการสืบทอดของ placeholder ด้วย Aspose.Slides สำหรับ Python ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับประเภทเนื้อหาที่กำหนดในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder สำหรับหัวเรื่อง, เนื้อหา, รูปภาพ, แผนภูมิ และ placeholder เนื้อหาทั่วไป ไม่เหมือนรูปทรงทั่วไป placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบ และการตั้งค่าอื่น ๆ จากสไลด์เลเอาต์หรือสไลด์มาสเตอร์ได้
+Placeholder คือรูปร่างที่สงวนตำแหน่งสำหรับประเภทเนื้อหาเฉพาะในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ ตัวจารร์, เนื้อหา, รูปภาพ, แผนภูมิ, และ placeholder เนื้อหาทั่วไป ไม่เหมือนรูปร่างปกติ placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบ และการตั้งค่าอื่น ๆ จากสไลด์เลเอาต์หรือสไลด์มาสเตอร์ได้
 
-Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านเมธอด [Shape.getPlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getPlaceholder) เมธอดนี้จะคืนค่าอ็อบเจกต์ [Placeholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholder/) หรือ `None` สำหรับรูปทรงปกติ ใช้ [Placeholder.getType](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholder/#getType) เพื่อตรวจสอบ placeholder นั้นตั้งใจจะบรรจุอะไร
+Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านเมธอด [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) เมธอดจะคืนค่าอ็อบเจ็กต์ [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) หรือ `None` สำหรับรูปร่างปกติ ใช้งาน [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) เพื่อกำหนดว่า placeholder มีจุดประสงค์เพื่อบรรจุอะไร
 
-ประเภทของรูปทรงยังคงสำคัญหลังจากคุณทราบประเภทของ placeholder:
+ประเภทของรูปร่างยังคงมีความสำคัญหลังจากคุณรู้ประเภทของ placeholder:
 
-- Placeholder ที่ว่างเปล่าสำหรับข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหามักจะแสดงเป็น [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/).
-- Placeholder รูปภาพที่มีเนื้อหาแล้วสามารถแสดงเป็น [PictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/pictureframe/).
-- Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแสดงเป็น [Chart](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/).
-- Placeholder เนื้อหาอาจบรรจุหลายประเภทของเนื้อหา ตรวจสอบทั้ง [Placeholder.getType](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholder/#getType) และประเภทของรูปทรงขณะรันไทม์ แทนการสันนิษฐานว่า placeholder ทุกอันเป็น [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/).
+- Placeholder ของข้อความ, รูปภาพ, แผนภูมิ, หรือเนื้อหาที่ว่างเปล่ามักจะแสดงด้วย [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Placeholder รูปภาพที่มีเนื้อหาแล้วสามารถแสดงด้วย [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแสดงด้วย [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Placeholder เนื้อหาอาจบรรจุหลายประเภทของเนื้อหา ตรวจสอบทั้ง [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) และประเภทของรูปร่างในเวลาเรียกใช้ แทนการสมมติว่า placeholder ทุกตัวเป็น [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholder/#getType) อธิบายบทบาทของ placeholder; แต่ไม่ได้รับประกันประเภทของรูปทรงขณะรันไทม์ ควรตรวจสอบประเภทเสมอก่อนเข้าถึงสมาชิกที่เกี่ยวกับข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่อ.
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) อธิบายบทบาทของ placeholder; มันไม่ได้รับประกันประเภทของรูปร่างในเวลาเรียกใช้ ควรตรวจสอบประเภทเสมอก่อนเข้าถึงสมาชิกที่เกี่ยวกับข้อความ, รูปภาพ, แผนภูมิ, ตาราง, หรือสื่อ
 {{% /alert %}}
 
 ## **ทำความเข้าใจการสืบทอด Placeholder**
 
-Placeholder มีโครงสร้างลำดับขั้น:
+Placeholder สร้างลำดับชั้น:
 
-1. สไลด์มาสเตอร์กำหนดสไตล์ที่สามารถนำกลับใช้ได้และในบางกรณี placeholder ระดับมาสเตอร์.
-2. สไลด์เลเอาต์กำหนดการจัดวางที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์.
-3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลเอาต์ของมัน.
+1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และในบางกรณี placeholder ระดับมาสเตอร์
+2. สไลด์เลเอาต์กำหนดการจัดวางที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์
+3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลเอาต์ของมัน
 
-ใช้เมธอด [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) เพื่อขึ้นหนึ่งระดับในลำดับชั้นนี้ placeholder ของสไลด์ปกติจะคืนค่า placeholder ของเลเอาต์; placeholder ของเลเออต์อาจคืนค่า placeholder ของมาสเตอร์ เมธอดจะคืนค่า `None` เมื่อรูปทรงไม่มี base placeholder.
+เรียกใช้ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) เพื่อเลื่อนระดับหนึ่งขึ้นในลำดับชั้นนี้ Placeholder ของสไลด์โดยทั่วไปจะคืนค่า placeholder ของเลเอาต์; placeholder ของเลเอาต์สามารถคืนค่า placeholder ของมาสเตอร์ได้ เมธอดจะคืนค่า `None` เมื่อรูปร่างไม่มี base placeholder
 
-ตัวอย่างต่อไปนี้จะแสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของพวกมัน:
+ตัวอย่างต่อไปนี้แสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของแต่ละรายการ:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการแทนที่ในระดับท้องถิ่นสำหรับสไลด์นั้น การแก้ไขเลเอาต์หรือมาสเตอร์ที่เกี่ยวข้องสามารถส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งคีนั้น รูปทรงปกติทั่วไปในระดับท้องถิ่นไม่มี base placeholder และจะไม่ได้เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน.
+การแก้ไข placeholder บนสไลด์ปกติสร้างหรือเปลี่ยนการแทนที่แบบโลคัลสำหรับสไลด์นั้น การแก้ไขเลเอาต์หรือมาสเตอร์ที่เกี่ยวข้องสามารถส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งค่านั้น รูปร่างปกติแบบโลคัลไม่มี base placeholder และไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน
+
+## **ลบสถานะ Placeholder**
+
+เมื่อปรับเทมเพลต ใช้ [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) เพื่อเก็บอ็อบเจ็กต์ที่มีอยู่เป็นรูปร่างปกติ เมธอด [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) จะคืนค่า `None` แต่รูปร่างยังคงอยู่ในคอลเลกชันของสไลด์ ในทางกลับกัน [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) จะลบรูปร่างออกจากคอลเลกชันนั้น
+
+ตัวอย่างต่อไปนี้ต้องมีไฟล์ `template.pptx` อย่างน้อยหนึ่งสไลด์และ placeholder ข้อความที่ไม่ว่างบนสไลด์แรก ใช้ placeholder ที่มีการจัดรูปแบบสืบทอดจากเลเอาต์หรือมาสเตอร์เพื่อดูผลของการลบความสัมพันธ์ ตัวอย่างตรวจสอบว่ารูปร่างเดียวกันยังคงอยู่, เรียกเมธอดอีกครั้งบนรูปร่างที่ตอนนี้เป็นปกติ, แล้วบันทึกผลลัพธ์
+
+{{% alert color="warning" title="Warning" %}}
+การลบสถานะ placeholder ไม่ได้รักษาการตั้งค่าการแสดงผลที่สืบทอดโดยอัตโนมัติ ตัวอย่างด้านล่างตั้งใจทิ้งการตั้งค่าเหล่านั้นไว้โดยไม่เปลี่ยนแปลง ดังนั้นผลลัพธ์อาจดูต่างออกไป รูปร่างที่ตำแหน่งและขนาดสืบทอดทั้งหมดอาจมีพิกัดและมิตศูนย์หลังจากเรียกและกลายเป็นไม่มองเห็นได้แม้ว่าจะยังคงอยู่ในคอลเลกชัน
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # การเรียกเมธอดบนรูปร่างปกติจะไม่มีผล
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+สำหรับ placeholder ที่ตรงกัน การตรวจสอบทั้งสามจะพิมพ์ `True` ข้อความยังคงอยู่ แต่ตำแหน่ง, ขนาด, การหมุน, ฟอนต์, การจัดย่อหน้า, ระยะขอบของ text‑frame, การยึดแนวตั้ง, การเติมสีและการตั้งค่าเส้นที่สืบทอดอาจเปลี่ยนเมื่อความสัมพันธ์ของ placeholder ถูกลบ ตัวอย่างเช่น การจัดรูปแบบหัวเรื่องที่สืบทอดอาจย้อนกลับไปเป็นการจัดรูปแบบข้อความปกติ ดู [เลเอาต์สไลด์](/slides/th/python-java/slide-layout/) เพื่อข้อมูลเพิ่มเติมเกี่ยวกับเลเอาต์
+
+เพื่อรักษาลักษณะที่ตั้งใจไว้ ให้จับตำแหน่ง, ขนาดและการหมุนที่ได้ก่อนเรียกเมธอด และคัดลอกค่าการจัดรูปแบบที่มีประสิทธิผลที่ต้องการไปยังตัวแปรแยกต่างหาก ดึงค่าดังกล่าวผ่าน [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) และ [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) อย่าพึ่งพาแค่วัตถุ effective‑format เท่านั้น เพราะค่าการจัดรูปแบบข้อความอาจเปลี่ยนหลังจากความสัมพันธ์ถูกลบ ให้นำค่าที่จับได้ไปใช้กับรูปร่างปกติอย่างชัดเจนหลังจากนั้น รวมถึงครอบครัวฟอนต์, ขนาด, สไตล์, สี, การตั้งค่ย่อหน้า, การตั้งค่า text‑frame, การเติมสีและเส้นที่ใช้ในเทมเพลตของคุณ
+
+เรขาคณิตของรูปร่างที่สืบทอดอาจต้องกำหนดอย่างชัดเจนผ่าน [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType) สำหรับ placeholder ข้อความสี่เหลี่ยมผืนผ้า นั่นหมายถึงการกำหนดค่า [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); การคืนค่าเฉพาะการเติมสีและเส้นอาจไม่ทำให้สี่เหลี่ยมที่มองเห็นได้กลับมาเท่าเดิม เทมเพลตที่มีเอฟเฟกต์เพิ่มเติมหรือการจัดรูปแบบที่ซับซ้อนกว่าต้องจัดการการตั้งค่าเหล่านั้นด้วย
 
 ## **เปลี่ยนข้อความใน Placeholder**
 
-Placeholder สำหรับหัวเรื่อง, หัวเรื่องกึ่งกลาง, หัวเรื่องรอง, เนื้อหา, และข้อความส่วนใหญ่สนับสนุนข้อความ ตรวจสอบว่าเป็น [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) ก่อนใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/#getTextFrame) ของมัน.
+Title, centered‑title, subtitle, body, และ placeholder ข้อความโดยทั่วไปรองรับข้อความ ตรวจสอบให้มี [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ก่อนใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame)
 
-ตัวอย่างนี้อัปเดต placeholder หัวเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
+ตัวอย่างนี้อัปเดต placeholder ชื่อเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-รูปแบบนี้ช่วยหลีกเลี่ยงการพิจารณา placeholder ของรูปภาพ, แผนภูมิ, ตาราง หรือสื่อเป็น [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) อีกทั้งยังระบุ placeholder ตามวัตถุประสงค์แทนพึ่งพาดัชนีรูปทรงที่เปราะบาง.
+รูปแบบนี้หลีกเลี่ยงการถือว่า picture, chart, table หรือ media placeholder เป็น [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) อีกทั้งยังระบุ placeholder ตามวัตถุประสงค์แทนการพึ่งพาดัชนีรูปร่างที่เปราะบาง
 
-## **กำหนดข้อความ Prompt บนเลเอาต์**
+## **ตั้งข้อความ Prompt บนเลเอาต์**
 
-ข้อความ Prompt คือคำสั่งในเวลาการออกแบบที่แสดงใน placeholder ว่าง เช่น *คลิกเพื่อเพิ่มหัวเรื่อง* ให้กำหนดข้อความ Prompt ที่กำหนดเองบน placeholder ของเลเอาต์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลเอาต์ผ่าน [Slide.getLayoutSlide](https://reference.aspose.com/slides/th/python-java/aspose.slides/slide/#getLayoutSlide) และวนลูปคอลเลกชันที่คืนค่าจาก [BaseSlide.getShapes](https://reference.aspose.com/slides/th/python-java/aspose.slides/baseslide/#getShapes).
+Prompt text คือคำแนะนำที่แสดงในเวลาออกแบบใน placeholder ว่าง เช่น *Click to add title* ตั้งข้อความ Prompt ที่กำหนดเองบน placeholder ของเลเอาต์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปร่างของสไลด์ปกติ เข้าถึงเลเอาต์ผ่าน [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) และวนลูปคอลเลกชันที่คืนค่ามาจาก [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes)
 
-ตัวอย่างต่อไปนี้จะเปลี่ยน Prompt ของหัวเรื่องและหัวเรื่องรองบนเลเอาต์ที่ใช้โดยสไลด์แรก:
+ตัวอย่างต่อไปนี้เปลี่ยน prompt ของชื่อเรื่องและหัวข้อรองบนเลเอาต์ที่ใช้โดยสไลด์แรก:
 
 ```python
 import jpype
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-ข้อความ Prompt ไม่ใช่เนื้อหาสไลด์ปกติ มันมีจุดประสงค์สำหรับ placeholder ว่างในแอปพลิเคชันการแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริง Prompt จะไม่แสดงอีกต่อไป การเปลี่ยน Prompt ยังไม่แทนที่ข้อความที่มีอยู่ในสไลด์ที่ใช้เลเอต์นั้น.
+Prompt text ไม่ใช่เนื้อหาสไลด์ปกติ มันตั้งใจสำหรับ placeholder ว่างในแอปพลิเคชันการแก้ไขเช่น PowerPoint เมื่อลูกค้า หรือโปรแกรมใส่เนื้อหาจริงแล้ว prompt จะไม่แสดงอีก การเปลี่ยน prompt ยังไม่ได้แทนที่ข้อความที่มีอยู่บนสไลด์ที่ใช้เลเอาต์นั้น
 
-## **อัพเดท Placeholder รูปภาพ**
+## **อัปเดต Picture Placeholder**
 
 มีสองกรณีที่ต้องจัดการ:
 
-- หาก placeholder รูปภาพมีเนื้อหาแล้วและแสดงเป็น [PictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/pictureframe/), ให้แทนที่รูปภาพผ่าน [PictureFillFormat.getPicture](https://reference.aspose.com/slides/th/python-java/aspose.slides/picturefillformat/#getPicture) และ [Picture.setImage](https://reference.aspose.com/slides/th/python-java/aspose.slides/picture/#setImage).
-- หากยังเป็น placeholder ว่าง ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/shapecollection/#addPictureFrame) และลบ placeholder ว่างนั้น.
+- หาก picture placeholder มีเนื้อหาแล้วและแสดงด้วย [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) ให้แทนที่รูปภาพผ่าน [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) และ [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage)
+- หากยังเป็น placeholder ว่าง ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) และลบ placeholder ว่างออก
 
-ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกพรีเซนเทชัน:
+ตัวอย่างต่อไปสนับสนุนทั้งสองกรณีและบันทึกงานนำเสนอ:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-การแทนที่ที่สร้างสำหรับ placeholder ว่างเป็น picture frame ระดับท้องถิ่น ไม่ใช่ placeholder ใหม่ เนื่องจาก [Shape.getPlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getPlaceholder) ไม่มีตัวเซตเตอร์ มันจะคงตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder หากต้องการรักษาความสัมพันธ์ของ placeholder ไว้ จำเป็นต้องเตรียมและเติมข้อมูล placeholder ใน PowerPoint ก่อน แล้วอัปเดต [PictureFrame](https://reference.aspose.com/slides/th/python-java/aspose.slides/pictureframe/) ที่ได้ด้วย Aspose.Slides.
+การแทนที่ที่สร้างสำหรับ placeholder ว่างเป็น picture frame แบบโลคัล ไม่ใช่ placeholder ใหม่ เพราะ [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) ไม่ให้ setter มันเก็บตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder หากต้องการรักษาความสัมพันธ์ของ placeholder เป็นสิ่งสำคัญ ให้เตรียมและเติม placeholder ใน PowerPoint ก่อน แล้วอัปเดต [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) ที่ได้ด้วย Aspose.Slides
 
-สำหรับความโปร่งแสงของภาพ, การครอป, และเอฟเฟกต์เฉพาะของรูปภาพอื่น ๆ ดูที่ [Manage Picture Frames](/slides/th/python-java/picture-frame/). การดำเนินการเหล่านั้นเป็นของ picture frame หรือ picture fill ไม่ใช่เมตาดาต้า placeholder.
+สำหรับความโปร่งใสของรูปภาพ, การครอป, และเอฟเฟกต์เฉพาะของรูปภาพอื่น ๆ ดู [จัดการเฟรมรูปภาพ](/slides/th/python-java/picture-frame/) การดำเนินการเหล่านี้เป็นของ picture frame หรือ picture fill ไม่ใช่ของ metadata ของ placeholder
 
 ## **ทำงานกับ Chart และ Content Placeholder**
 
-Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแสดงเป็น [Chart](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/). ตัวอย่างนี้ค้นหา chart ดังกล่าวโดยใช้ทั้งประเภท placeholder และประเภทรูปทรงขณะรันไทม์, เปลี่ยนหัวเรื่องของมัน, และบันทึกไฟล์:
+Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแสดงด้วย [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) ตัวอย่างนี้ค้นหาแผนภูมินั้นโดยทั้งประเภท placeholder และประเภทรูปร่างในเวลาเรียกใช้ เปลี่ยนชื่อเรื่องและบันทึกไฟล์:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Content placeholder ทั่วไปมักมีค่า [PlaceholderType.Object](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Object). ใน PowerPoint มันทำหน้าที่เป็นตัวเปิดให้กับหลายประเภทของเนื้อหา เช่น แผนภูมิ, ตาราง, ไดอะแกรม, รูปภาพ, และสื่อ หลังจากที่มันถูกเติมแล้ว ให้ตรวจสอบประเภทของรูปทรงจริงเพื่อทราบว่ามีอะไรบ้าง เลเยาต์พิเศษสามารถเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Media), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholdertype/#Diagram).
+Placeholder เนื้อหาทั่วไปโดยทั่วไปมี [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object) ใน PowerPoint มันทำหน้าที่เป็นตัวเปิดสำหรับหลายประเภทของเนื้อหา รวมถึงแผนภูมิ, ตาราง, ไดอะแกรม, รูปภาพ, และสื่อ หลังจากถูกเติมแล้ว ให้ตรวจสอบประเภทของรูปร่างจริงเพื่อทราบว่าเก็บอะไรไว้เลเอาต์พิเศษบางอย่างยังอาจเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram)
 
-Aspose.Slides ไม่ได้แปลง placeholder [AutoShape](https://reference.aspose.com/slides/th/python-java/aspose.slides/autoshape/) ที่ว่างเป็น [Chart](https://reference.aspose.com/slides/th/python-java/aspose.slides/chart/) เพียงแค่เปลี่ยน [Placeholder.getType](https://reference.aspose.com/slides/th/python-java/aspose.slides/placeholder/#getType); ประเภทไม่สามารถเปลี่ยนได้ผ่าน API เพื่อเติม chart หรือพื้นที่เนื้อหาที่ว่างโดยอัตโนมัติ ให้เพิ่มอ็อบเจกต์ที่ต้องการที่พิกัดของ placeholder แล้วลบ placeholder ที่ว่าง ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับ chart:
+Aspose.Slides ไม่ได้แปลง placeholder [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ว่างให้เป็น [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) เพียงแค่เปลี่ยน [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); ไม่สามารถเปลี่ยนประเภทผ่าน API ได้ เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาว่างแบบโปรแกรม ให้เพิ่มอ็อบเจ็กต์ที่ต้องการที่พิกัดของ placeholder แล้วลบ placeholder ว่าง ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Chart ที่เพิ่มเป็น chart ท้องถิ่นธรรมดา มันครอบคลุมพื้นที่ของ placeholder แต่ไม่ได้สืบทอดจาก placeholder ของเลเอต์ ใช้บทความ [chart management articles](/slides/th/python-java/powerpoint-charts/) ที่แยกไว้เมื่อจำเป็นต้องแทนที่หมวดหมู่, ซีรีส์, หรือข้อมูลเวิร์กบุ๊กของมัน.
+แผนภูมิที่เพิ่มเข้ามาเป็นแผนภูมิโลคัลทั่วไป มันครอบคลุมพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลเอาต์ ใช้ [บทความการจัดการแผนภูมิ](/slides/th/python-java/powerpoint-charts/) เมื่อจำเป็นต้องแทนที่ประเภท, ชุดข้อมูล หรือข้อมูลสมุดงานของแผนภูมิ
 
-## **ตัวอย่างสมบูรณ์: อัปเดตข้อความหรือเนื้อหารูปภาพ**
+## **ตัวอย่างเต็ม: อัปเดตข้อความหรือเนื้อหารูปภาพ**
 
-ตัวอย่างครบวงจรต่อไปนี้เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ของหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสม, และบันทึกผลลัพธ์ ตัวอย่างตั้งใจหลีกเลี่ยงการสันนิษฐานว่ามีดัชนีรูปทรงหรือการพิจารณา placeholder ทุกอันเป็นประเภทเดียวกัน.
+ตัวอย่างแบบครบวงจรต่อไปนี้เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ชื่อเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปร่าง, อัปเดตเนื้อหาที่เหมาะสม, และบันทึกผลลัพธ์. ตัวอย่างนี้ตั้งใจหลีกเลี่ยงการสมมติอินเด็กซ์ของรูปร่างหรือการถือว่า placeholder ทุกตัวเป็นประเภทเดียวกัน.
 
 ```python
 from pathlib import Path
@@ -357,14 +419,14 @@ finally:
 
 ## **คำถามที่พบบ่อย**
 
-**Placeholder ฐานคืออะไร?**
+**Placeholder พื้นฐานคืออะไร?**
 
-Placeholder ฐานคือรูปทรงที่สอดคล้องบนเลเอาต์หรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดจากมัน ใช้ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/th/python-java/aspose.slides/shape/#getBasePlaceholder) เพื่อดึงค่า Placeholder ฐาน รูปทรงทั่วไประดับท้องถิ่นจะคืนค่า `None` เนื่องจากไม่ได้อยู่ในโครงสร้างลำดับของ placeholder.
+Placeholder พื้นฐานคือรูปร่างที่สอดคล้องบนเลเออต์หรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดจากนั้น ใช้ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) เพื่อดึงคืน มรูปร่างโลคัลปกติจะคืนค่า `None` เพราะไม่เป็นส่วนหนึ่งของลำดับชั้น placeholder
 
-**ฉันสามารถเปลี่ยนหัวเรื่องของสไลด์ทั้งหมดโดยแก้ไข layout placeholder ได้ไหม?**
+**ฉันสามารถเปลี่ยนหัวเรื่องทั้งหมดของสไลด์โดยการแก้ไข layout placeholder ได้หรือไม่?**
 
-คุณสามารถเปลี่ยนการจัดรูปแบบที่สืบทอดหรือข้อความ Prompt ผ่านเลเอตได้ แต่เนื้อหาหัวเรื่องที่มีอยู่จะเก็บอยู่ในสไลด์ปกติ เพื่อแทนที่ข้อความหัวเรื่องจริงในพรีเซนเทชันทั้งหมด ให้วนลูปสไลด์และอัปเดต placeholder ของหัวเรื่องแต่ละอัน.
+คุณสามารถเปลี่ยนการจัดรูปแบบหรือข้อความ Prompt ที่สืบทอดผ่านเลเอาต์ได้ แต่เนื้อหาหัวเรื่องที่มีอยู่ถูกเก็บไว้บนสไลด์ปกติ การแทนที่ข้อความหัวเรื่องจริงในงานนำเสนอทั้งหมดต้องวนลูปสไลด์และอัปเดตแต่ละ placeholder ของหัวเรื่อง
 
-**ฉันจะจัดการ placeholder ของวันที่, หมายเลขสไลด์, ส่วนหัว, และส่วนท้ายอย่างไร?**
+**ฉันจัดการ placeholder ของวันที่, หมายเลขสไลด์, ส่วนหัวและส่วนท้ายอย่างไร?**
 
-ใช้ตัวจัดการส่วนหัวและส่วนท้ายในสไลด์, เลเอต, มาสเตอร์, โน้ต, หรือสรุปที่เหมาะสม ดูที่ [Manage Presentation Header and Footer](/slides/th/python-java/presentation-header-and-footer/) สำหรับตัวอย่างครบถ้วน.
+ใช้ผู้จัดการส่วนหัวและส่วนท้ายในระดับสไลด์, เลเอาต์, มาสเตอร์, โน้ต หรือแจกจ่ายตามความต้องการ ดู [Manage Presentation Header and Footer](/slides/th/python-java/presentation-header-and-footer/) สำหรับตัวอย่างครบถ้วน

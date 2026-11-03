@@ -1,6 +1,6 @@
 ---
-title: Gestisci i segnaposto della presentazione in Python
-linktitle: Gestisci i segnaposto
+title: Gestire i segnaposti della presentazione in Python
+linktitle: Gestire i segnaposti
 type: docs
 weight: 10
 url: /it/python-net/manage-placeholder/
@@ -15,36 +15,36 @@ keywords:
 - presentazione
 - Python
 - Aspose.Slides
-description: "Scopri come ispezionare e modificare i segnaposto di testo, immagine, grafico e contenuto e comprendere l'ereditarietà dei segnaposto con Aspose.Slides per Python tramite .NET."
+description: "Scopri come ispezionare e modificare i segnaposti di testo, immagine, grafico e contenuto e comprendere l'ereditarietà dei segnaposti con Aspose.Slides per Python tramite .NET."
 ---
 ## **Panoramica**
 
-Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono titolo, corpo, immagine, grafico e segnaposto di contenuto a uso generico. A differenza di una forma ordinaria, un segnaposto può ereditare posizione, dimensione, formattazione e altre impostazioni da una diapositiva layout o master.
+Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuto di uso generale. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva layout o da una diapositiva master.
 
-Aspose.Slides espone le informazioni sui segnaposto tramite la proprietà [Shape.placeholder](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/placeholder/). La proprietà restituisce un oggetto [Placeholder](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholder/) o `None` per una forma normale. Usa [Placeholder.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholder/type/) per determinare cosa il segnaposto è destinato a contenere.
+Aspose.Slides espone le informazioni del segnaposto tramite la proprietà [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). La proprietà restituisce un oggetto [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) oppure `None` per una forma normale. Usa [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) per determinare cosa è destinato a contenere il segnaposto.
 
-La classe della forma è comunque importante dopo aver conosciuto il tipo di segnaposto:
+La classe della forma è ancora rilevante dopo aver conosciuto il tipo di segnaposto:
 
-- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
-- Un segnaposto immagine popolato può essere rappresentato da un [PictureFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/pictureframe/).
-- Un segnaposto grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chart/).
-- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [Placeholder.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholder/type/) sia la classe della forma a runtime invece di supporre che ogni segnaposto sia un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/).
+- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Un segnaposto di immagine popolato può essere rappresentato da un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Un segnaposto di grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) sia la classe della forma a runtime invece di presumere che ogni segnaposto sia un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Avviso" %}}
-[Placeholder.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholder/type/) descrive il ruolo di un segnaposto; non garantisce la classe della forma a runtime. Usa sempre un controllo di tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) descrive il ruolo di un segnaposto; non garantisce la classe della forma a runtime. Utilizza sempre un controllo di tipo prima di accedere a membri testuali, immagine, grafico, tabella o specifici dei media.
 {{% /alert %}}
 
-## **Comprendere l'ereditarietà dei segnaposto**
+## **Comprendere l'ereditarietà dei segnaposti**
 
-I segnaposto formano una gerarchia:
+I segnaposti formano una gerarchia:
 
-1. Una diapositiva master definisce stili riutilizzabili e, in alcuni casi, segnaposto a livello master.
-2. Una diapositiva layout definisce la disposizione usata da una o più diapositive normali e può ereditare dal master.
-3. Una diapositiva normale contiene i segnaposto per quella diapositiva e può ereditare dal suo layout.
+1. Una diapositiva master definisce stili riutilizzabili e, in alcuni casi, segnaposti a livello master.
+2. Una diapositiva layout definisce la disposizione utilizzata da una o più diapositive normali e può ereditare dal master.
+3. Una diapositiva normale contiene i segnaposti per quella diapositiva e può ereditare dal suo layout.
 
-Chiama [Shape.get_base_placeholder](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/get_base_placeholder/) per spostarti di un livello verso l'alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto di layout; un segnaposto di layout può restituire il suo segnaposto master. Il metodo restituisce `None` quando la forma non ha un segnaposto di base.
+Chiama [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) per spostarti un livello più in alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto layout; un segnaposto layout può restituire il suo segnaposto master. Il metodo restituisce `None` quando la forma non ha un segnaposto base.
 
-L'esempio seguente elenca i segnaposto nella prima diapositiva e riporta i loro segnaposto di base:
+Il seguente esempio elenca i segnaposti nella prima diapositiva e riporta i loro segnaposti base:
 
 ```python
 import aspose.slides as slides
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influire su tutte le diapositive che ereditano ancora quella impostazione. Una forma ordinaria locale non ha un segnaposto di base e non inizia a ereditare solo perché occupa le stesse coordinate.
+Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrizione locale per quella diapositiva. Modificare il layout o il master correlato può influire su tutte le diapositive che ancora ereditano quell'impostazione. Una forma locale ordinaria non ha un segnaposto base e non inizia a ereditare solo perché occupa le stesse coordinate.
+
+## **Rimuovere lo stato del segnaposto**
+
+Quando si adatta un modello, usa [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) per mantenere un oggetto esistente come forma ordinaria. La sua proprietà [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) diventa `None`, ma la forma rimane nella collezione della diapositiva. Al contrario, [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) elimina la forma da quella collezione.
+
+Il seguente esempio richiede `template.pptx` con almeno una diapositiva e un segnaposto di testo non vuoto sulla prima diapositiva. Usa un segnaposto con formattazione ereditata dal suo layout o master per vedere l'effetto della rimozione di quella relazione. L'esempio controlla che la stessa forma rimanga, richiama nuovamente il metodo sulla forma ora ordinaria e salva il risultato.
+
+{{% alert color="warning" title="Warning" %}}
+Rimuovere lo stato del segnaposto non preserva automaticamente le impostazioni di aspetto ereditate. L'esempio seguente lascia deliberatamente tali impostazioni inalterate, quindi l'output potrebbe apparire diverso. Una forma la cui posizione e dimensione sono interamente ereditate può avere coordinate e dimensioni pari a zero dopo la chiamata e diventare invisibile anche se rimane nella collezione.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Chiamare il metodo su una forma ordinaria non ha alcun effetto.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Per un segnaposto corrispondente, tutti e tre i controlli stampano `True`. Il testo rimane, ma la posizione, dimensione, rotazione, carattere, allineamento del paragrafo, margini del riquadro di testo, ancoraggio verticale, riempimento e impostazioni di linea ereditate possono cambiare quando la relazione del segnaposto viene rimossa. Ad esempio, la formattazione del titolo ereditata può tornare alla formattazione di testo ordinario. Vedi [Slide Layout](/slides/it/python-net/slide-layout/) per ulteriori informazioni sui layout.
+
+Per conservare l'aspetto previsto, acquisisci la posizione, dimensione e rotazione risolte prima della chiamata e copia i valori di formattazione effettiva richiesti in variabili separate. Recupera tali valori tramite [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), e [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Non fare affidamento solo sul mantenimento degli oggetti di formattazione effettiva, poiché i loro valori di formattazione del testo possono cambiare dopo la rimozione della relazione. Applica esplicitamente i valori acquisiti alla forma ordinaria successivamente, includendo la famiglia di caratteri, dimensione, stile, colore, impostazioni del paragrafo, impostazioni del riquadro di testo, riempimento e linea utilizzati dal tuo modello.
+
+La geometria della forma ereditata potrebbe dover essere assegnata esplicitamente tramite [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Per un segnaposto di testo rettangolare, ciò significa assegnare [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); ripristinare solo il riempimento e la linea potrebbe non ripristinare il rettangolo visibile. I modelli con effetti aggiuntivi o formattazione più complessa richiedono la gestione di tali impostazioni.
 
 ## **Modificare il testo in un segnaposto**
 
-I segnaposto di titolo, titolo centrato, sottotitolo, corpo e testo normalmente supportano il testo. Controlla la presenza di un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) prima di utilizzare la sua proprietà [text_frame](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/text_frame/).
+I segnaposti di titolo, titolo centrato, sottotitolo, corpo e testo supportano normalmente il testo. Verifica la presenza di [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) prima di utilizzare la sua proprietà [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
 
-Questo esempio aggiorna il primo segnaposto titolo nella prima diapositiva e salva il risultato:
+Questo esempio aggiorna il primo segnaposto di titolo sulla prima diapositiva e salva il risultato:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Questo modello evita di trattare segnaposto di immagine, grafico, tabella o media come oggetti [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/). Identifica inoltre il segnaposto per scopo invece di affidarsi a un indice di forma fragile.
+Questo modello evita di trattare i segnaposti di immagine, grafico, tabella o media come oggetti [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Identifica inoltre il segnaposto per scopo invece di fare affidamento su un indice di forma fragile.
 
-## **Impostare il testo di suggerimento su un layout**
+## **Impostare il testo prompt su un layout**
 
-Il testo di suggerimento è l'istruzione di design‑time visualizzata in un segnaposto vuoto, ad esempio *Click to add title*. Imposta il testo di suggerimento personalizzato sul segnaposto del layout anziché cercare di raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout tramite [Slide.layout_slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/layout_slide/) e itera su [LayoutSlide.shapes](https://reference.aspose.com/slides/it/python-net/aspose.slides/baseslide/shapes/).
+Il testo prompt è l'istruzione di progettazione visualizzata in un segnaposto vuoto, ad esempio *Fai clic per aggiungere il titolo*. Imposta un testo prompt personalizzato sul segnaposto del layout invece di cercare di accedervi tramite la raccolta di forme di una diapositiva normale. Accedi al layout tramite [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) e itera su [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-L'esempio seguente cambia i suggerimenti di titolo e sottotitolo sul layout utilizzato dalla prima diapositiva:
+Il seguente esempio cambia i prompt di titolo e sottotitolo sul layout utilizzato dalla prima diapositiva:
 
 ```python
 import aspose.slides as slides
@@ -130,16 +178,16 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il testo di suggerimento non è contenuto normale della diapositiva. È destinato ai segnaposto vuoti nelle applicazioni di editing come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il suggerimento non viene più visualizzato. Modificare un suggerimento inoltre non sostituisce il testo esistente sulle diapositive che usano il layout.
+Il testo prompt non è contenuto normale di diapositiva. È destinato ai segnaposti vuoti nelle applicazioni di modifica come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non viene più visualizzato. Modificare un prompt non sostituisce nemmeno il testo esistente sulle diapositive che usano il layout.
 
 ## **Aggiornare un segnaposto immagine**
 
 Ci sono due casi da gestire:
 
-- Se il segnaposto immagine è già popolato e rappresentato da un [PictureFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/pictureframe/), sostituisci l'immagine tramite [PictureFillFormat.picture](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/picture/) e [Picture.image](https://reference.aspose.com/slides/it/python-net/aspose.slides/picture/image/).
-- Se è ancora un segnaposto vuoto, aggiungi un frame immagine alle coordinate del segnaposto con [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/it/python-net/aspose.slides/shapecollection/add_picture_frame/) e rimuovi il segnaposto vuoto.
+- Se il segnaposto immagine è già popolato e rappresentato da un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), sostituisci l'immagine tramite [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) e [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Se è ancora un segnaposto vuoto, aggiungi un frame immagine alle coordinate del segnaposto con [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) e rimuovi il segnaposto vuoto.
 
-L'esempio successivo supporta entrambi i casi e salva la presentazione:
+Il prossimo esempio gestisce entrambi i casi e salva la presentazione:
 
 ```python
 import aspose.slides as slides
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La sostituzione creata per un segnaposto vuoto è un frame immagine locale, non un nuovo segnaposto, perché [Shape.placeholder](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/placeholder/) è di sola lettura. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione del segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, poi aggiorna il [PictureFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/pictureframe/) risultante con Aspose.Slides.
+La sostituzione creata per un segnaposto vuoto è un frame immagine locale, non un nuovo segnaposto, poiché [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) è di sola lettura. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione del segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, quindi aggiorna il risultato [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) con Aspose.Slides.
 
-Per trasparenza dell'immagine, ritaglio e altri effetti specifici dell'immagine, vedi [Manage Picture Frames](/slides/it/python-net/picture-frame/). Quelle operazioni appartengono al frame immagine o al riempimento immagine, non ai metadati del segnaposto.
+Per la trasparenza dell'immagine, il ritaglio e altri effetti specifici delle immagini, vedi [Manage Picture Frames](/slides/it/python-net/picture-frame/). tali operazioni appartengono al frame immagine o al riempimento dell'immagine, non ai metadati del segnaposto.
 
-## **Lavorare con segnaposto di grafico e contenuto**
+## **Lavorare con segnaposti grafico e contenuto**
 
-Un segnaposto grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per classe a runtime, ne cambia il titolo e salva il file:
+Un segnaposto di grafico popolato può essere rappresentato da un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per classe a runtime, cambia il suo titolo e salva il file:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Un segnaposto di contenuto generale solitamente ha [PlaceholderType.OBJECT](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/). In PowerPoint agisce da avviatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispeziona la classe della forma reale per capire cosa contiene. I layout specializzati possono anche esporre [PlaceholderType.CHART](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/), o [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholdertype/).
+Un segnaposto di contenuto generale solitamente ha [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). In PowerPoint funge da avviatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo essere stato popolato, ispeziona la classe reale della forma per capire cosa contiene. I layout specializzati possono anche esporre [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), o [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides non converte un segnaposto [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) vuoto in un [Chart](https://reference.aspose.com/slides/it/python-net/aspose.slides.charts/chart/) semplicemente modificando [Placeholder.type](https://reference.aspose.com/slides/it/python-net/aspose.slides/placeholder/type/); il tipo è di sola lettura. Per riempire programmaticamente un'area grafico o contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. L'esempio seguente lo fa per un grafico:
+Aspose.Slides non converte un segnaposto [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) vuoto in un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) semplicemente modificando [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); il tipo è di sola lettura. Per riempire programmaticamente un'area di grafico o contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto del layout. Usa gli articoli dedicati alla [chart management](/slides/it/python-net/powerpoint-charts/) quando devi sostituire categorie, serie o dati della cartella di lavoro.
+Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto del layout. Usa gli articoli dedicati alla [chart management](/slides/it/python-net/powerpoint-charts/) quando devi sostituire le sue categorie, serie o dati della cartella di lavoro.
 
-## **Esempio completo: aggiornare testo o contenuto immagine**
+## **Esempio completo: Aggiornare testo o contenuto immagine**
 
-L'esempio end‑to‑end seguente apre un modello, ricerca nella prima diapositiva un segnaposto titolo o immagine, verifica i tipi di segnaposto e forma, aggiorna il contenuto appropriato e salva il risultato. L'esempio evita deliberatamente di supporre un indice di forma o di trattare ogni segnaposto con la stessa classe di forma.
+Il seguente esempio end-to-end apre un modello, ricerca nella prima diapositiva un segnaposto di titolo o di immagine, verifica i tipi di segnaposto e forma, aggiorna il contenuto appropriato e salva l'output. L'esempio evita deliberatamente di presumere un indice di forma o di trattare ogni segnaposto come la stessa classe di forma.
 
 ```python
 import aspose.slides as slides
@@ -276,34 +324,14 @@ with slides.Presentation("template.pptx") as presentation:
 
 ## **FAQ**
 
-**Che cos'è un segnaposto di base?**
+**Cos'è un segnaposto base?**
 
-Un segnaposto di base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [Shape.get_base_placeholder](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/get_base_placeholder/) per recuperarlo. Una forma locale ordinaria restituisce `None` perché non fa parte della gerarchia dei segnaposto.
+Un segnaposto base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) per recuperarlo. Una forma locale ordinaria restituisce `None` perché non fa parte della gerarchia dei segnaposti.
 
-**Posso modificare tutti i titoli delle diapositive modificando un segnaposto layout?**
+**Posso cambiare tutti i titoli delle diapositive modificando un segnaposto del layout?**
 
-Puoi modificare la formattazione o il testo di suggerimento ereditato tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo del titolo su tutta la presentazione, itera le diapositive e aggiorna ogni segnaposto titolo.
+Puoi cambiare la formattazione ereditata o il testo prompt tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo del titolo effettivo in tutta la presentazione, itera sulle diapositive e aggiorna ciascun segnaposto di titolo.
 
-**Come gestisco i segnaposto data, numero diapositiva, intestazione e piè di pagina?**
+**Come gestisco i segnaposti di data, numero diapositiva, intestazione e piè di pagina?**
 
-Usa i manager di intestazione e piè di pagina nella diapositiva, layout, master, note o handout appropriati. Vedi [Manage Presentation Header and Footer](/slides/it/python-net/presentation-header-and-footer/) per esempi completi.
-
----
-title: Gestisci i segnaposto della presentazione in Python
-linktitle: Gestisci i segnaposto
-type: docs
-weight: 10
-url: /it/python-net/manage-placeholder/
-keywords:
-- segnaposto
-- segnaposto di testo
-- segnaposto immagine
-- segnaposto grafico
-- segnaposto contenuto
-- testo di suggerimento
-- PowerPoint
-- presentazione
-- Python
-- Aspose.Slides
-description: "Scopri come ispezionare e modificare i segnaposto di testo, immagine, grafico e contenuto e comprendere l'ereditarietà dei segnaposto con Aspose.Slides per Python tramite .NET."
----
+Utilizza i gestori di intestazione e piè di pagina nel contesto appropriato (diapositiva, layout, master, note o opuscoli). Vedi [Manage Presentation Header and Footer](/slides/it/python-net/presentation-header-and-footer/) per esempi completi.

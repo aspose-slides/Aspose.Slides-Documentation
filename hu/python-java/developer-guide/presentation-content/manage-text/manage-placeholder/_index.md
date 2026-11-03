@@ -1,5 +1,5 @@
 ---
-title: Prezentáció helykitöltők kezelése Pythonban
+title: Prezentáció helykitöltőinek kezelése Pythonban
 linktitle: Helykitöltők kezelése
 type: docs
 weight: 10
@@ -16,36 +16,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan ellenőrizheti és szerkesztheti a szöveg, kép, diagram és tartalom helykitöltőket, valamint hogyan értheti meg a helykitöltő öröklődést az Aspose.Slides Python (Java) verziójával."
+description: "Ismerje meg, hogyan lehet vizsgálni és szerkeszteni a szöveg-, kép-, diagram- és tartalomhelykitöltőket, valamint megérteni a helykitöltő öröklődést az Aspose.Slides Python (Java-on keresztül) segítségével."
 ---
 ## **Áttekintés**
 
-A helykitöltő egy alakzat, amely egy adott típusú tartalom számára foglal helyet egy prezentációs sablonban. Gyakori példák a cím, a szövegtörzs, a kép, a diagram és az általános célú tartalomhelykitöltők. A szokásos alakzattól eltérően a helykitöltő örökölheti pozícióját, méretét, formázását és egyéb beállításait egy elrendezés‑dia vagy alap‑dia alapján.
+A helykitöltő egy alakzat, amely helyet foglal egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános tartalom helykitöltői. A hétköznapi alakzattól eltérően a helykitöltő örökölheti pozícióját, méretét, formázását és egyéb beállításait az elrendezési vagy a mesterdiapozitról.
 
-Aspose.Slides a helykitöltő információkat a [Shape.getPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getPlaceholder) metóduson keresztül teszi elérhetővé. A metódus egy [Placeholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholder/) objektumot ad vissza, vagy `None`‑t egy normál alakzat esetén. Használja a [Placeholder.getType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholder/#getType) metódust az adott helykitöltő szándékolt tartalmának meghatározásához.
+Az Aspose.Slides a helykitöltő információkat a [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) metóduson keresztül teszi elérhetővé. A metódus egy [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) objektumot ad vissza, vagy `None`‑t egy normál alakzat esetén. Használja a [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) metódust annak meghatározásához, hogy milyen tartalmat szándékozik a helykitöltő tartalmazni.
 
 Az alakzat típusa továbbra is fontos, miután ismeri a helykitöltő típusát:
 
-- Egy üres szöveg-, kép-, diagram- vagy tartalomhelykitöltő általában egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) formában jelenik meg.
-- Egy kitöltött képhelykitöltő egy [PictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframe/) segítségével jeleníthető meg.
-- Egy kitöltött diagramhelykitöltő egy [Chart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/chart/) segítségével képviselhető.
-- Egy tartalomhelykitöltő többféle tartalmat is tartalmazhat. Ellenőrizze mind a [Placeholder.getType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholder/#getType), mind a futásidőbeni alakzat típust, ahelyett, hogy azt feltételezné, hogy minden helykitöltő egy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/).
+- Egy üres szöveg-, kép-, diagram- vagy tartalomhelykitöltő általában egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) segítségével jelenik meg.
+- Egy kitöltött képhelykitöltő egy [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) segítségével jeleníthető meg.
+- Egy kitöltött diagramhelykitöltő egy [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) segítségével jeleníthető meg.
+- Egy tartalomhelykitöltő többféle tartalmat is tartalmazhat. Ellenőrizze mind a [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType), mind a futásidejű alakzat típust, ahelyett, hogy feltételezné, hogy minden helykitöltő egy [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholder/#getType) leírja a helykitöltő szerepét; nem garantálja az alakzat futásidőbeni típusát. Mindig végezzen típusellenőrzést, mielőtt szöveg, kép, diagram, táblázat vagy média‑specifikus tagokhoz férne hozzá.
+A [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) leírja a helykitöltő szerepét; nem garantálja az alakzat futásidejű típusát. Mindig végezzen típusellenőrzést, mielőtt szöveghez, képhez, diagramhoz, táblához vagy média-specifikus tagokhoz férne hozzá.
 {{% /alert %}}
 
-## **A helykitöltő öröklődés megértése**
+## **A helykitöltő öröklődésének megértése**
 
 A helykitöltők hierarchiát alkotnak:
 
-1. Az alap‑dia (master slide) újrahasználható stílusokat definiál, és bizonyos esetekben alap‑szintű helykitöltőket is.
-2. Az elrendezés‑dia (layout slide) meghatározza az egy vagy több normál dia által használt elrendezést, és örökölhet az alaptól.
-3. Egy normál dia tartalmazza a saját helykitöltőit, és örökölhet az elrendezésétől.
+1. A mesterdia meghatározza az újrahasználható stílusokat, és egyes esetekben a mester‑szintű helykitöltőket.
+2. Az elrendezésdia meghatározza az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
+3. Egy normál dia tartalmazza az adott dia helykitöltőit, és örökölhet az elrendezéséből.
 
-A hierarchiában egy szinttel feljebb léphet a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) meghívásával. Egy diahelykitöltő normál esetben visszaadja az elrendezés‑helykitöltőjét; egy elrendezés‑helykitöltő visszaadhatja az alap‑helykitöltőjét. A metódus `None`‑t ad vissza, ha az alakzatnak nincs alap‑helykitöltője.
+Hívja meg a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) metódust a hierarchia egy szinttel feljebb lépéshez. Egy diahelykitöltő általában visszaadja az elrendezéshelykitöltőt; egy elrendezéshelykitöltő visszaadhatja a mesterhelykitöltőt. A metódus `None`‑t ad vissza, ha az alakzatnak nincs alaphelykitöltője.
 
-A következő példa felsorolja az első dia helykitöltőit, és jelentést készít azok alap‑helykitöltőiről:
+A következő példa felsorolja az első dián található helykitöltőket, és jelentést készít azok alaphelykitöltőiről:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-Egy helykitöltő szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy alap szerkesztése minden olyan diára hatással lehet, amely még mindig örökli ezt a beállítást. Egy helyi, szokásos alakzatnak nincs alap‑helykitöltője, és nem kezd örökölni csak azért, mert ugyanazt a koordinátát foglalja.
+Egy helykitöltő szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy mester szerkesztése befolyásolhatja az összes olyan diát, amely még mindig örökli ezt a beállítást. Egy helyi szokásos alakzatnak nincs alaphelykitöltője, és nem kezd örökölni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+
+## **Helykitöltő állapot eltávolítása**
+
+Sablon módosításakor használja a [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) metódust, hogy egy meglévő objektumot szokásos alakzatként tartson meg. Ennek a [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) metódusa `None`‑t ad vissza, de az alakzat a dia gyűjteményében marad. Ezzel szemben a [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) eltávolítja az alakzatot a gyűjteményből.
+
+A következő példa `template.pptx`‑et igényel, amely legalább egy diával és egy nem üres szöveges helykitöltővel rendelkezik az első dián. Használjon egy helykitöltőt, amely formázását az elrendezéséből vagy a mestertől örökli, hogy lássa a kapcsolat eltávolításának hatását. A példa ellenőrzi, hogy az ugyanaz az alakzat megmarad, újból meghívja a metódust a most már szokásos alakzaton, és elmenti az eredményt.
+
+{{% alert color="warning" title="Warning" %}}
+A helykitöltő állapotának eltávolítása nem őrzi meg automatikusan az örökölt megjelenési beállításokat. Az alábbi példa szándékosan változatlanul hagyja ezeket a beállításokat, így a kimenet eltérőnek tűnhet. Egy olyan alakzat, amelynek pozíciója és mérete teljesen örökölt, a hívás után null koordinátákkal és méretekkel rendelkezhet, és láthatatlanná válhat, pedig a gyűjteményben marad.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpacte.isJVMStarted():
+    jpacte.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # A metódus hívása egy szokásos alakzaton nincs hatása.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Egy megfelelő helykitöltő esetén mindhárom ellenőrzés `True`‑t ír ki. A szöveg megmarad, de az örökölt pozíció, méret, forgatás, betűtípus, bekezdés igazítása, szövegkeret margók, vertikális rögzítés, kitöltés és vonal beállítások változhatnak, amikor a helykitöltő kapcsolatot eltávolítják. Például az örökölt címformázás visszaeshet a szokásos szövegformázásra. További információért lásd a [Slide Layout](/slides/hu/python-java/slide-layout/) oldalt.
+
+A kívánt megjelenés megőrzéséhez a hívás előtt rögzítse a kiszámolt pozíciót, méretet és forgatást, majd másolja a szükséges hatékony formázási értékeket külön változókba. Szerezze be ezeket az értékeket a [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) és [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) metódusokon keresztül. Ne csak a hatékony formátumobjektumokra támaszkodjon, mivel a szövegformázási értékeik megváltozhatnak a kapcsolat eltávolítása után. Alkalmazza kifejezetten a rögzített értékeket a szokásos alakzatra később, beleértve a betűcsaládot, méretet, stílust, színt, bekezdés beállításokat, szövegkeret beállításokat, kitöltést és a sablon által használt vonalat.
+
+Az örökölt alakzatgeometriát is explicit módon kell hozzárendelni a [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType) segítségével. Egy téglalap alakú szöveghelykitöltő esetén ez azt jelenti, hogy a [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle) értéket kell beállítani; csak a kitöltés és vonal helyreállítása nem feltétlenül állítja vissza a látható téglalapot. További hatásokkal vagy összetettebb formázással rendelkező sablonok esetén ezeket a beállításokat is kezelni kell.
 
 ## **Szöveg módosítása egy helykitöltőben**
 
-A cím, középre igazított cím, alcím, szövegtörzs és szöveghelykitöltők általában támogatják a szöveget. Ellenőrizze, hogy [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)‑e, mielőtt a [getTextFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/#getTextFrame) metódusát használná.
+A cím, középre igazított cím, alcím, törzs és szöveghelykitöltők általában támogatják a szöveget. A [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ellenőrzése után használja a [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) metódust.
 
-Ez a példa frissíti az első dia első címhelykitöltőjét, majd elmenti az eredményt:
+Ez a példa frissíti az első címsor helykitöltőt az első dián, és elmenti az eredményt:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-Ez a minta elkerüli, hogy a kép, diagram, táblázat vagy média helykitöltőket [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/)‑ként kezelje. Emellett a helykitöltőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzat‑indexre támaszkodna.
+Ez a minta elkerüli, hogy a kép-, diagram-, tábla- vagy médiahelykitöltőket [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)‑ként kezelje. Emellett a helykitöltőt célja alapján azonosítja, ahelyett, hogy egy törékeny alakzat indexre támaszkodna.
 
 ## **Prompt szöveg beállítása egy elrendezésen**
 
-A prompt szöveg a tervezési időben megjelenő utasítás egy üres helykitöltőben, például *Kattintson a cím hozzáadásához*. Állítson be egyedi prompt szöveget az elrendezéshelykitöltőn, ahelyett, hogy a normál dia alakzategyűjteményén keresztül próbálna elérni. Az elrendezéshez a [Slide.getLayoutSlide](https://reference.aspose.com/slides/hu/python-java/aspose.slides/slide/#getLayoutSlide) metódussal férhet hozzá, és iteráljon a [BaseSlide.getShapes](https://reference.aspose.com/slides/hu/python-java/aspose.slides/baseslide/#getShapes) által visszaadott gyűjteményen.
+A prompt szöveg a tervezési időben megjelenő utasítás egy üres helykitöltőben, például *Kattintson a cím hozzáadásához*. Egyedi prompt szöveget a elrendezéshelykitöltőn állítson be, ahelyett, hogy a normál dia alakzategyűjteményén keresztül próbálná elérni. Az elrendezést a [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) segítségével érheti el, és iteráljon a [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) által visszaadott gyűjteményen.
 
-A következő példa módosítja a cím és alcím prompt szövegét az első dia által használt elrendezésen:
+A következő példa megváltoztatja a cím és alcím promptjait az első dia által használt elrendezésen:
 
 ```python
 import jpype
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-A prompt szöveg nem normál dia tartalom. Üres helykitöltőkhöz készült szerkesztőalkalmazásokban, például a PowerPointban. Amint a felhasználó vagy egy program valós tartalmat biztosít, a prompt többé nem jelenik meg. A prompt módosítása nem cseréli le a meglévő szöveget azokat a diákat használó elrendezéseken.
+A prompt szöveg nem a normál dia tartalom. Üres helykitöltőkhöz van tervezve szerkesztőalkalmazásokban, például a PowerPointban. Amint egy felhasználó vagy program valós tartalmat ad meg, a prompt már nem jelenik meg. A prompt módosítása nem is cseréli le a már létező szöveget az elrendezést használó diáknál.
 
-## **Képhelykitöltő frissítése**
+## **Kép helykitöltő frissítése**
 
 Két esetet kell kezelni:
 
-- Ha a képhelykitöltő már ki van töltve és egy [PictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframe/) reprezentálja, cserélje ki a képet a [PictureFillFormat.getPicture](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picturefillformat/#getPicture) és a [Picture.setImage](https://reference.aspose.com/slides/hu/python-java/aspose.slides/picture/#setImage) metódusokkal.
-- Ha még üres helykitöltő, adjon hozzá egy képkeretet a helykitöltő koordinátáihoz a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shapecollection/#addPictureFrame) segítségével, és távolítsa el az üres helykitöltőt.
+- Ha a képhelykitöltő már ki van töltve és egy [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) képviseli, cserélje le a képet a [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) és a [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage) segítségével.
+- Ha még üres helykitöltő, adjon hozzá egy képkeretet a helykitöltő koordinátáiban a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) segítségével, és távolítsa el az üres helykitöltőt.
 
-A következő példa mindkét esetet támogatja, és elmenti a bemutatót:
+A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-Az üres helykitöltőre létrehozott csere egy helyi képkeret, nem új helykitöltő, mivel a [Shape.getPlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getPlaceholder) nem biztosít beállítót. Megtartja a lefoglalt pozíciót, de már nem örököl a helykitöltőre jellemző viselkedést. Ha a helykitöltő kapcsolat megtartása létfontosságú, először készítse elő és töltse fel a helykitöltőt a PowerPointban, majd frissítse a keletkezett [PictureFrame](https://reference.aspose.com/slides/hu/python-java/aspose.slides/pictureframe/) objektumot az Aspose.Slides-szel.
+Az üres helykitöltőhöz létrehozott helyettesítés egy helyi képkeret, nem egy új helykitöltő, mivel a [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) nem biztosít beállítót. Megőrzi a lefoglalt pozíciót, de már nem örököl helykitöltő‑specifikus viselkedést. Ha a helykitöltő kapcsolat megtartása lényeges, először készítse és töltse fel a helykitöltőt a PowerPointban, majd frissítse az eredményül kapott [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) objektumot az Aspose.Slides‑szel.
 
-A kép átlátszóságához, vágásához és egyéb képre specifikus hatásokhoz lásd a [Képkeretek kezelése](/slides/hu/python-java/picture-frame/) oldalt. Ezek a műveletek a képkerethez vagy a képkitöltéshez tartoznak, nem a helykitöltő metaadatokhoz.
+A kép átlátszóságához, vágásához és egyéb kép‑specifikus hatásokhoz lásd a [Manage Picture Frames](/slides/hu/python-java/picture-frame/) cikket. Ezek a műveletek a képkerethez vagy képkitöltéshez tartoznak, nem a helykitöltő metaadataihoz.
 
-## **Diagram és tartalom helykitöltőkkel való munka**
+## **Diagram és tartalomhelykitöltők kezelése**
 
-Egy kitöltött diagramhelykitöltő egy [Chart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/chart/) segítségével jeleníthető meg. Ez a példa mind a helykitöltő típusa, mind a futásidőbeni típus alapján megtalálja az ilyen diagramot, módosítja a címét, és elmenti a fájlt:
+Egy kitöltött diagramhelykitöltő egy [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) segítségével jeleníthető meg. Ez a példa a helykitöltő típusa és a futásidejű típus alapján keresi meg az ilyen diagramot, megváltoztatja a címét, és elmenti a fájlt:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Egy általános tartalomhelykitöltő általában a [PlaceholderType.Object](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Object) típussal rendelkezik. A PowerPointban ez többféle tartalom típus indítójaként funkcionál, beleértve a diagramokat, táblázatokat, diagramokat, képeket és médiát. Miután kitöltötték, ellenőrizze a tényleges alakzat típust, hogy megtudja, mit tartalmaz. A specializált elrendezések szintén ki tudják mutatni a [PlaceholderType.Chart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Media) vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholdertype/#Diagram) típusokat.
+Általános tartalomhelykitöltő általában a [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object) típussal rendelkezik. PowerPointban ez többféle tartalomtípus indítójaként működik, beleértve a diagramokat, táblákat, diagrammákat, képeket és médiát. Miután kitöltötték, vizsgálja meg a tényleges alakzat típusát, hogy megtudja, mit tartalmaz. Speciális elrendezések szintén ki tudják mutatni a [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram) típusokat.
 
-Az Aspose.Slides nem alakítja át egy üres [AutoShape](https://reference.aspose.com/slides/hu/python-java/aspose.slides/autoshape/) helykitöltőt [Chart](https://reference.aspose.com/slides/hu/python-java/aspose.slides/chart/) objektummá a [Placeholder.getType](https://reference.aspose.com/slides/hu/python-java/aspose.slides/placeholder/#getType) módosításával; a típust az API-val nem lehet megváltoztatni. Egy üres diagram vagy tartalomterület programozott feltöltéséhez adja hozzá a szükséges objektumot a helykitöltő koordinátáihoz, majd távolítsa el az üres helykitöltőt. A következő példa ezt egy diagramra alkalmazza:
+Az Aspose.Slides nem konvertál egy üres [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) helykitöltőt [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) -é csak a [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) módosításával; a típust az API-val nem lehet megváltoztatni. Egy üres diagram vagy tartalmi terület programozott kitöltéséhez adja hozzá a szükséges objektumot a helykitöltő koordinátáihoz, majd távolítsa el az üres helykitöltőt. A következő példa ezt egy diagramra alkalmazza:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-A hozzáadott diagram egy egyszerű helyi diagram. Elfoglalja a helykitöltő területét, de nem örököl az elrendezés‑helykitöltőtől. Használja a dedikált [diagramkezelési cikkeket](/slides/hu/python-java/powerpoint-charts/) amikor a kategóriák, sorozatok vagy munkafüzet adatainak cseréjére van szükség.
+A hozzáadott diagram egy szokásos helyi diagram. Elfoglalja a helykitöltő területét, de nem örököl az elrendezés helykitöltőjétől. Használja a dedikált [chart management articles](/slides/hu/python-java/powerpoint-charts/) cikkeket, amikor a kategóriákat, sorozatokat vagy munkafüzet adatokat kell cserélni.
 
 ## **Teljes példa: Szöveg vagy kép tartalom frissítése**
 
-A következő végponttól‑végpontig tartó példa megnyit egy sablont, az első dián keres egy cím- vagy képhelykitöltőt, ellenőrzi a helykitöltő és az alakzat típusát, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan kerül el egy alakzat index feltételezését vagy azt, hogy minden helykitöltőt ugyanannak a típusnak tekint.
+A következő vég‑végi példa megnyit egy sablont, az első dián keres egy címet vagy képhelykitöltőt, ellenőrzi a helykitöltő és az alakzat típusát, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan elkerüli a alakzat index feltételezését vagy minden helykitöltő egyforma típusúként való kezelést.
 
 ```python
 from pathlib import Path
@@ -355,16 +417,16 @@ finally:
     presentation.dispose()
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Mi az a alap‑helykitöltő?**
+**Mi a bázishelykitöltő?**
 
-Az alap‑helykitöltő az elrendezésen vagy alapon (master) lévő megfelelő alakzat, amelyből egy másik helykitöltő örököl. Használja a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/hu/python-java/aspose.slides/shape/#getBasePlaceholder) metódust a lekérdezéséhez. Egy szokásos helyi alakzat `None`‑t ad vissza, mert nem része a helykitöltő hierarchiának.
+A bázishelykitöltő az elrendezésen vagy a mesteren lévő megfelelő alakzat, amelyből egy másik helykitöltő örököl. Használja a [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) metódust a lekéréséhez. Egy szokásos helyi alakzat `None`‑t ad vissza, mivel nem része a helykitöltő hierarchiának.
 
-**Meg tudom változtatni az összes diárcímét egy elrendezéshelykitöltő szerkesztésével?**
+**Meg tudom változtatni az összes dia címét egy elrendezéshelykitöltő szerkesztésével?**
 
-Az örökölt formázást vagy a prompt szöveget egy elrendezésen keresztül megváltoztathatja, de a meglévő cím tartalom a normál diákon van tárolva. A tényleges cím szövegének egy prezentációban való cseréjéhez iterálja a diákat, és frissítse minden címhelykitöltőt.
+Az elrendezésben módosíthatja az örökölt formázást vagy a prompt szöveget, de a meglévő címtartalom a normál diákban van tárolva. A prezentációban a tényleges cím szövegének cseréjéhez iteráljon a diákon, és frissítse minden címhelykitöltőt.
 
-**Hogyan kezeljem a dátum, dia‑szám, fejléc és lábléc helykitöltőket?**
+**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc helykitöltőket?**
 
-Használja a fej- és lábléc kezelőket a megfelelő dia, elrendezés, alap (master), jegyzet vagy szórólap tartományban. Lásd a [Prezentáció fej- és láblécének kezelése](/slides/hu/python-java/presentation-header-and-footer/) oldalt a teljes példákért.
+Használja a fejléc- és lábléc kezelőket a megfelelő dián, elrendezésen, mesteren, jegyzeten vagy kiadványon. Lásd a [Manage Presentation Header and Footer](/slides/hu/python-java/presentation-header-and-footer/) oldalt a teljes példákért.
