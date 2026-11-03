@@ -13,8 +13,9 @@ internal static partial class Program
         var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
         var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
-        var newData = File.ReadAllBytes(Context.Input("Picture.png"));
-        var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
+        // Replace the PDF payload with a small PNG.
+        var pngData = File.ReadAllBytes(Context.Input("Picture.png"));
+        var newDataInfo = new OleEmbeddedDataInfo(pngData, "png");
         oleFrame.SetEmbeddedData(newDataInfo);
 
         VerifyCase04(presentation);

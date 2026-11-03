@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "application-integration/docker",
   "archive": "example.zip",
-  "archive_sha256": "c98470a6e1f6cdf495d56cec43d444cdc955a703b20b0e77eb11121afe738383",
+  "archive_sha256": "c715194ecb319ef0d0c7ddbe53b10f8cd68a5dddf1f73e3d4776be22d8088a27",
   "members": [
     {
       "path": ".dockerignore",
@@ -36,13 +36,13 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "90b0d9c81993b8b8810ffc47b79d080a5e1c89ee78158073c5bb003634c435a9",
-      "bytes": 5106
+      "sha256": "997d220bdd28c34c2e0c51dcd6570e1b2370ed09effdca2be4e09d129d572a0b",
+      "bytes": 5601
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -66,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "d4b16176f5113246f1cc79cab621c9e9c9736e20874bb6ec7372b08f0ede6798",
-      "bytes": 6444
+      "sha256": "794adaef845be220fee5546d641f9c057bc340ae0828d3f8531e6e825e4edc54",
+      "bytes": 7070
     },
     {
       "path": "README.txt",
@@ -76,7 +76,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "ed9e199c73664a2a356bb7aedc9d8203a5045ce5103bcf7020a11c9a168cd253",
+      "sha256": "8a173e1bc00db357bc76f47ef18b4818938a4f1ca0bff27c849eed6596f76356",
       "bytes": 2493
     },
     {

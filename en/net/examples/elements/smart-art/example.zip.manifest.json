@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/smart-art",
   "archive": "example.zip",
-  "archive_sha256": "d4bdfcbf65a096841104ce1dc4de9cf37f5670af8d3b855872dedea6d0ecd81e",
+  "archive_sha256": "2610d6357a053036b1ecb9ddc8371ebbf05768ca14fb2c6eb771e9097f237d65",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,13 +16,13 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "d9fe36b59ad735b03623ad94b34b5882fea79b43b74de685405f06c92bf161f5",
-      "bytes": 366
+      "sha256": "9cbeb0b1279838c0dd7c88885cac5f7b55e40d1641208b4b93ae2427b8dde528",
+      "bytes": 351
     },
     {
       "path": "Case02.cs",
-      "sha256": "f3f030d5569f3a2846a357edab4db6c4e071c9b8bf6bb8f22a7167f68ea6365e",
-      "bytes": 456
+      "sha256": "2a041d06d7207a1fc375dfc8b39625a838ac3ebd3ba12a5c255a88e6421994b4",
+      "bytes": 441
     },
     {
       "path": "Case03.cs",
@@ -91,7 +91,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "b6431ed12009609d420919cef2f8723b5bb0ba0fb5ec4df34ec3f3daa8d96ad9",
+      "sha256": "64e8dd8dcf3160f10aa93df4cd9351bfd57e047cb125e9821176236ddbcbf4d0",
       "bytes": 3107
     },
     {

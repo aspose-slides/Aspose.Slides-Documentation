@@ -21,9 +21,9 @@ description: "Add and manage hyperlinks in Aspose.Slides for .NET: link text, sh
 
 This article demonstrates adding, accessing, removing, and updating hyperlinks on shapes using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -36,7 +36,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Hyperlink**
 
-Create a rectangle shape with a hyperlink pointing to an external website.
+Create a hyperlink on the text portion inside a rectangle shape.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -70,9 +70,10 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
 shape.TextFrame.Text = "Aspose";
 
 var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
-textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+var portionFormat = textPortion.PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
-var hyperlink = shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkClick;
+var hyperlink = portionFormat.HyperlinkClick;
 Console.WriteLine(hyperlink.ExternalUrl);
 
 presentation.Save("hyperlink-02.pptx", SaveFormat.Pptx);
@@ -93,9 +94,10 @@ var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
 shape.TextFrame.Text = "Aspose";
 
 var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
-textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+var portionFormat = textPortion.PortionFormat;
+portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
-textPortion.PortionFormat.HyperlinkClick = null;
+portionFormat.HyperlinkClick = null;
 
 presentation.Save("hyperlink-03.pptx", SaveFormat.Pptx);
 ```
@@ -117,9 +119,7 @@ shape.TextFrame.Text = "Aspose";
 var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
 textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://old.example.com");
 
-// Changing a hyperlink inside existing text should be done via
-// HyperlinkManager rather than setting the property directly.
-// This mimics how PowerPoint safely updates hyperlinks.
+// Update the target of the existing text hyperlink through its manager.
 textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://new.example.com");
 
 presentation.Save("hyperlink-04.pptx", SaveFormat.Pptx);

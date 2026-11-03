@@ -21,9 +21,9 @@ description: "Add, read and remove slide transitions, and set slide advance timi
 
 This article demonstrates applying slide transition effects and timings with **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -46,7 +46,6 @@ using Aspose.Slides.SlideShow;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-// Apply a fade transition.
 slide.SlideShowTransition.Type = TransitionType.Fade;
 
 presentation.Save("slide-transition-01.pptx", SaveFormat.Pptx);
@@ -69,7 +68,7 @@ slide.SlideShowTransition.Type = TransitionType.Push;
 
 // Access the transition type.
 var type = slide.SlideShowTransition.Type;
-Console.WriteLine(type);
+Console.WriteLine($"Transition: {type}");
 
 presentation.Save("slide-transition-02.pptx", SaveFormat.Pptx);
 ```
@@ -88,7 +87,6 @@ var slide = presentation.Slides[0];
 
 slide.SlideShowTransition.Type = TransitionType.Fade;
 
-// Remove transition by setting none.
 slide.SlideShowTransition.Type = TransitionType.None;
 
 presentation.Save("slide-transition-03.pptx", SaveFormat.Pptx);
@@ -98,7 +96,7 @@ presentation.Save("slide-transition-03.pptx", SaveFormat.Pptx);
 
 ## **Set Slide Advance Timing**
 
-Set the slide advance time to two seconds and allow a click to advance the slide.
+Allow a click to advance the slide, or advance automatically after 2,000 milliseconds. Setting the advance-after time also enables timed advance in the supported SDK.
 
 ```csharp
 using Aspose.Slides.Export;

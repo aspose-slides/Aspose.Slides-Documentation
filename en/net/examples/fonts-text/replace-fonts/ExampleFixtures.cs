@@ -1,33 +1,26 @@
-using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using Aspose.Slides;
-using Aspose.Slides.Export;
-using Aspose.Slides.Warnings;
 
 internal static partial class Program
 {
-    private static void PrepareFonts(bool includeOtherScripts)
+    private static void LoadVerifiedFonts(params string[] requiredFontFiles)
     {
         Directory.CreateDirectory("fonts");
-        using var client = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
+        using var client = new HttpClient
+        {
+            Timeout = TimeSpan.FromMinutes(2)
+        };
         var fonts = new (string Name, string Url, string Hash)[]
         {
             ("NotoSans-Regular.ttf", "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSans/NotoSans-Regular.ttf", "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"),
             ("NotoNaskhArabic-Regular.ttf", "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoNaskhArabic/NotoNaskhArabic-Regular.ttf", "2f4b88e6ee50fa82c617e2d1d4ba18281cb1c6cd71c3af3ec64970c23995db4b"),
             ("NotoSansCJKsc-Regular.otf", "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf", "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"),
         };
-        foreach (var font in includeOtherScripts ? fonts : fonts.Take(1))
+        foreach (var font in fonts.Where(font => requiredFontFiles.Contains(font.Name)))
         {
             string path = Path.Combine("fonts", font.Name);
             if (!File.Exists(path) || Hash(path) != font.Hash)
@@ -38,6 +31,7 @@ internal static partial class Program
                 File.WriteAllBytes(path, bytes);
             }
         }
+
         FontsLoader.ClearCache();
         FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
     }

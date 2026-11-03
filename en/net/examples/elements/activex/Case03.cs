@@ -5,14 +5,11 @@ internal static partial class Program
 {
     static void Case03()
     {
-        using var presentation = new Presentation(Seed("control"));
+        using var presentation = new Presentation();
         var slide = presentation.Slides[0];
+        slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-        if (slide.Controls.Count > 0)
-        {
-            // Remove the first ActiveX control.
-            slide.Controls.RemoveAt(0);
-        }
+        slide.Controls.RemoveAt(0);
 
         presentation.Save("removed_activex.pptm", SaveFormat.Pptm);
 

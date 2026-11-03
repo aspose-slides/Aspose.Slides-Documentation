@@ -8,7 +8,7 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
         using var audioStream = File.OpenRead(Context.Input("tone.wav"));
-        
+
         var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
         // Play automatically when the slide appears.

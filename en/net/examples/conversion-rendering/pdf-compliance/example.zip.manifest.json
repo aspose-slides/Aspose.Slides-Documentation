@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "conversion-rendering/pdf-compliance",
   "archive": "example.zip",
-  "archive_sha256": "56280f686fc1df96a7e086606ec68d829f9d70458fe42cc8cdd5b1ce3090d8a4",
+  "archive_sha256": "2928f565f7adb4cd863b068e8f4063db9829dde5039073bc338c0e7e0e51cfbe",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "ConversionFixture.cs",
-      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
-      "bytes": 2120
+      "sha256": "56decb7070ab0e59b6a1f4ac291237db43645b7585bd35647c4165a9a7c6ee90",
+      "bytes": 1598
     },
     {
       "path": "ConversionVerification.cs",
@@ -66,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "e3d9f3b3c5812f58118c5593c7a297720dc640dbcc5b7eb025bd5c9ad3429fa2",
-      "bytes": 1320
+      "sha256": "d22031ae607a6ed50fdabb5380440f7cdf03a2c272fe0f32b294ca30c68c87d2",
+      "bytes": 1267
     },
     {
       "path": "README.txt",
@@ -76,7 +76,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "e32a68bcc992da8e18c205d6abfe863a1c0a85414ac38bffcef21d4e4d5f2864",
+      "sha256": "4041f53fe1839352680597012238121bb631d9d0dc127a7d903f6aa60ba682be",
       "bytes": 2478
     },
     {

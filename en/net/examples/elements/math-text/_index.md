@@ -21,9 +21,9 @@ description: "Explore Aspose.Slides for .NET MathematicalText examples: create a
 
 This article demonstrates working with mathematical text shapes and formatting equations using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -40,7 +40,6 @@ Create a math shape containing a fraction and the Pythagorean formula.
 
 ```csharp
 using Aspose.Slides.Export;
-using System;
 using Aspose.Slides;
 using Aspose.Slides.MathText;
 
@@ -58,14 +57,14 @@ var fraction = new MathematicalText("x").Divide("y");
 mathParagraph.Add(new MathBlock(fraction));
 
 // Add equation: c² = a² + b²
-var mathBlock = new MathematicalText("c")
+var pythagoreanEquation = new MathematicalText("c")
     .SetSuperscript("2")
     .Join("=")
     .Join(new MathematicalText("a").SetSuperscript("2"))
     .Join("+")
     .Join(new MathematicalText("b").SetSuperscript("2"));
 
-mathParagraph.Add(mathBlock);
+mathParagraph.Add(pythagoreanEquation);
 
 presentation.Save("math-text-01.pptx", SaveFormat.Pptx);
 ```
@@ -83,13 +82,14 @@ using Aspose.Slides.MathText;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var shape = slide.Shapes.AddMathShape(50, 50, 200, 80);
-var seed = (MathPortion)shape.TextFrame.Paragraphs[0].Portions[0];
-seed.MathParagraph.Add(new MathBlock(new MathematicalText("x").Divide("y")));
+// Seed a fraction before searching all shapes and text portions.
+var mathShape = slide.Shapes.AddMathShape(50, 50, 200, 80);
+var fractionPortion = (MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0];
+fractionPortion.MathParagraph.Add(new MathBlock(new MathematicalText("x").Divide("y")));
 
 // Read the first math portion from the slide.
 var mathPortion = slide.Shapes.OfType<IAutoShape>()
-    .SelectMany(item => item.TextFrame.Paragraphs)
+    .SelectMany(textShape => textShape.TextFrame.Paragraphs)
     .SelectMany(paragraph => paragraph.Portions)
     .OfType<MathPortion>()
     .First();
@@ -133,12 +133,13 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var mathShape = slide.Shapes.AddMathShape(50, 50, 100, 50);
-var mathParagraph = ((MathPortion)mathShape.TextFrame.Paragraphs[0].Portions[0]).MathParagraph;
+var paragraph = mathShape.TextFrame.Paragraphs[0];
+var mathParagraph = ((MathPortion)paragraph.Portions[0]).MathParagraph;
 var fraction = new MathematicalText("x").Divide("y");
 mathParagraph.Add(new MathBlock(fraction));
 
 // The paragraph default is persisted for its mathematical content.
-mathShape.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 20;
 
 presentation.Save("math-text-04.pptx", SaveFormat.Pptx);
 ```

@@ -5,7 +5,6 @@ internal static partial class Program
     static void Case01()
     {
         using var presentation = new Presentation();
-        
         var masterSlide = presentation.Masters[0];
 
         // Create a layout slide with a blank layout type and a custom name.

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "protection-signatures/pdf-security",
   "archive": "example.zip",
-  "archive_sha256": "b5a9abe787834d98726b83ee9ce1a4ed1d74e8950737ee8864e3c2147279822e",
+  "archive_sha256": "971a9f1e41abbf96cc9aed0363aa87915b6b604c703388ac91675b540f96e71b",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -26,18 +26,18 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleFixtures.cs",
-      "sha256": "3caa8622dce936134ce420c33b771da27e9b98cc6e6df0f62b0be0e89b101fe9",
-      "bytes": 797
+      "sha256": "d495dc317f50a0c4478333952627b2e225e4305b06d555d236bb7b7d838cdca0",
+      "bytes": 381
     },
     {
       "path": "ExampleVerification.cs",
-      "sha256": "57a05184c532a287c8729fd1cf02336f1fa00231a81d850ec6fc8e50edf72092",
-      "bytes": 1510
+      "sha256": "c9d8bab0a2e332122202940effbd0fcc29b0f98c978ef17704ddc7ca698713c0",
+      "bytes": 1203
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -61,8 +61,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "7ea89c00f47beb21b7ecce7dce3bfe8d1ef8e1f747c1b825a9f111cea8c35933",
-      "bytes": 1469
+      "sha256": "379a17eacbd447ec9e32aea6f9c23178e3d37f4b3ec60efe9364f6591792b48a",
+      "bytes": 1129
     },
     {
       "path": "README.txt",
@@ -71,7 +71,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "05102c7cbe529fedcd2e8844c470aec512c34ef0b9fa1eea3147765c8643ad26",
+      "sha256": "0f3216c1f0680b95ece39b73d83dda6f03c5af7652182b3ceaaed35d574ee04f",
       "bytes": 2318
     },
     {

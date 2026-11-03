@@ -17,9 +17,9 @@ internal static partial class Program
 
         // Set text formatting.
         var paragraph = textBox.TextFrame.Paragraphs[0];
-        var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
-        textFormat.FillFormat.FillType = FillType.Solid;
-        textFormat.FillFormat.SolidFillColor.Color = Color.Black;
+        var textFill = paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat;
+        textFill.FillType = FillType.Solid;
+        textFill.SolidFillColor.Color = Color.Black;
 
         // Assign the actual text content.
         textBox.TextFrame.Text = "Text";

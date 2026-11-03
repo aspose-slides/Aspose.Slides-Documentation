@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "presentations/split",
   "archive": "example.zip",
-  "archive_sha256": "3142cf44d3207749c45bc8c0fceb5acc653835902d10d14a39d05b1f81395c9b",
+  "archive_sha256": "518843f242e0389ce4c60ff518099518a575d2b4d7d246972eeb0459e74550d0",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -56,8 +56,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "e49ce80eaacbc1fa93ac5f9e17a3170e3e2e312fbf5092ff68652773c2be470d",
-      "bytes": 4059
+      "sha256": "72dd8bf3b2ea832cf0889971814e3462dc5596328ac7707926642c41cb1a7497",
+      "bytes": 4330
     },
     {
       "path": "README.txt",
@@ -66,7 +66,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "b03cbe1c91401de4be6052b1b2ee0d5987243dc40cf1bdcb37e8c14663fc3b14",
+      "sha256": "9a6bdc7e8c404c5d68f9013c6a73cf9d45c6e2bd3b215d58422c0506eca618fc",
       "bytes": 2124
     },
     {

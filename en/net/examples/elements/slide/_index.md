@@ -25,9 +25,9 @@ This article provides a series of examples that demonstrate how to work with sli
 
 Each example below includes a brief explanation followed by a code snippet in C#.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -78,14 +78,10 @@ using var presentation = new Presentation();
 var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
 presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-// Access slides by index.
-var firstSlide = presentation.Slides[0];
 var secondSlide = presentation.Slides[1];
-
-// Get slide index from a reference, then access it by index.
 var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
-var secondSlideByIndex = presentation.Slides[secondSlideIndex];
-Console.WriteLine(secondSlideByIndex.SlideNumber);
+Console.WriteLine($"Zero-based index: {secondSlideIndex}");
+Console.WriteLine($"Slide number: {secondSlide.SlideNumber}");
 
 presentation.Save("slide-02.pptx", SaveFormat.Pptx);
 ```
@@ -95,6 +91,7 @@ presentation.Save("slide-02.pptx", SaveFormat.Pptx);
 This example demonstrates how to clone an existing slide. The cloned slide is automatically added to the end of the slide collection.
 
 ```csharp
+using System;
 using Aspose.Slides.Export;
 using Aspose.Slides;
 
@@ -107,6 +104,7 @@ var clonedSlide = presentation.Slides.AddClone(sourceSlide: firstSlide);
 
 // The cloned slide index is 1 (second slide in the presentation).
 var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
+Console.WriteLine($"Clone index: {clonedSlideIndex}");
 
 presentation.Save("slide-03.pptx", SaveFormat.Pptx);
 ```
@@ -122,7 +120,6 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var firstSlide = presentation.Slides[0];
 
-// Add a clone of the first slide (created by default).
 var clonedSlide = presentation.Slides.AddClone(firstSlide);
 
 clonedSlide.Name = "Clone";
@@ -145,7 +142,8 @@ using var presentation = new Presentation();
 
 // Add a new empty slide in addition to the default first slide.
 var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-var secondSlide = presentation.Slides.AddEmptySlide(layout: blankLayout);
+var survivingSlide = presentation.Slides.AddEmptySlide(layout: blankLayout);
+survivingSlide.Name = "Survivor";
 
 // Remove the first slide; only the newly added slide will remain.
 var firstSlide = presentation.Slides[0];

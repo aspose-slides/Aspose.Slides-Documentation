@@ -22,9 +22,9 @@ description: "Manage slide sections in Aspose.Slides for .NET: create, rename, r
 
 Examples for managing presentation sections—add, access, remove, and rename them programmatically using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -68,15 +68,14 @@ presentation.Sections.AddSection("My Section", slide);
 
 // Access a section by index.
 var section = presentation.Sections[0];
-var sectionName = section.Name;
-Console.WriteLine(sectionName);
+Console.WriteLine(section.Name);
 
 presentation.Save("section-02.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove a Section**
 
-Delete a previously added section.
+Remove the section returned when it was added, while keeping its starting slide.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -87,7 +86,7 @@ var slide = presentation.Slides[0];
 
 var section = presentation.Sections.AddSection("Temporary Section", slide);
 
-// Remove the first section.
+// Remove the section returned when it was added; keep its slide.
 presentation.Sections.RemoveSection(section);
 
 presentation.Save("section-03.pptx", SaveFormat.Pptx);
@@ -104,9 +103,7 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-presentation.Sections.AddSection("Old Name", slide);
-
-var section = presentation.Sections[0];
+var section = presentation.Sections.AddSection("Old Name", slide);
 section.Name = "New Name";
 
 presentation.Save("section-04.pptx", SaveFormat.Pptx);

@@ -21,9 +21,9 @@ description: "Work with SmartArt in Aspose.Slides for .NET: create, edit, conver
 
 This article demonstrates how to add SmartArt graphics, access them, remove them, and change layouts using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -46,14 +46,14 @@ using Aspose.Slides.SmartArt;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
 presentation.Save("smart-art-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Access SmartArt**
 
-Retrieve the first SmartArt object on a slide.
+Retrieve the first SmartArt object on the slide and report its node count.
 
 ```csharp
 using System;
@@ -65,10 +65,10 @@ using Aspose.Slides.SmartArt;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var smartArt = slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
+slide.Shapes.AddSmartArt(50, 50, 400, 300, SmartArtLayoutType.BasicProcess);
 
 var firstSmartArt = slide.Shapes.OfType<ISmartArt>().First();
-Console.WriteLine(firstSmartArt.AllNodes.Count);
+Console.WriteLine($"Node count: {firstSmartArt.AllNodes.Count}");
 
 presentation.Save("smart-art-02.pptx", SaveFormat.Pptx);
 ```

@@ -6,12 +6,16 @@ internal static partial class Program
     {
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
-        
-        double[] widths = { 80, 80 };
-        double[] heights = { 30, 30 };
-        var table = slide.Shapes.AddTable(50, 50, widths, heights);
 
-        table.MergeCells(table[0, 0], table[1, 1], false);
+        double[] columnWidths = { 80, 80 };
+        double[] rowHeights = { 30, 30 };
+        var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
+
+        var topLeftCell = table[0, 0];
+        var bottomRightCell = table[1, 1];
+
+        // Merge the full 2-by-2 rectangle without splitting any cells.
+        table.MergeCells(topLeftCell, bottomRightCell, allowSplitting: false);
 
         VerifyCase04(presentation);
     }

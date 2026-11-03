@@ -20,9 +20,9 @@ description: "Work with pictures in Aspose.Slides for .NET: insert, crop, compre
 
 This article demonstrates how to insert and access pictures from in-memory images using **Aspose.Slides for .NET**. The examples below create an image in memory, place it on a slide, and then retrieve it.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -35,11 +35,10 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Picture**
 
-This code loads the small authored PNG into a memory stream, and inserts it as a picture frame on the first slide.
+This code decodes the small authored PNG into a byte array and inserts it as a picture frame on the first slide.
 
 ```csharp
 using System;
-using System.IO;
 using Aspose.Slides.Export;
 using Aspose.Slides;
 
@@ -47,12 +46,12 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 // Load the small authored PNG into memory without platform-specific drawing.
-using var imageStream = new MemoryStream(Convert.FromBase64String(
+var pngData = Convert.FromBase64String(
     "iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAAMElEQVR4nO3NQQkAAAgEsItoJiOa" +
-    "yBKCn8H+S02/iFgsFovFYrFYLBaLxWKxWHxnAfyWQZeVYs/3AAAAAElFTkSuQmCC"));
+    "yBKCn8H+S02/iFgsFovFYrFYLBaLxWKxWHxnAfyWQZeVYs/3AAAAAElFTkSuQmCC");
 
 // Add the image to the presentation.
-var image = presentation.Images.AddImage(imageStream);
+var image = presentation.Images.AddImage(pngData);
 
 // Insert a picture frame showing the image on the first slide.
 slide.Shapes.AddPictureFrame(ShapeType.Rectangle,
@@ -67,7 +66,6 @@ This example ensures a slide contains a picture frame and then accesses the firs
 
 ```csharp
 using System;
-using System.IO;
 using Aspose.Slides.Export;
 using System.Linq;
 using Aspose.Slides;
@@ -76,16 +74,16 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 // Use a small PNG as the example image.
-using var imageStream = new MemoryStream(Convert.FromBase64String(
+var pngData = Convert.FromBase64String(
     "iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAAMElEQVR4nO3NQQkAAAgEsItoJiOa" +
-    "yBKCn8H+S02/iFgsFovFYrFYLBaLxWKxWHxnAfyWQZeVYs/3AAAAAElFTkSuQmCC"));
+    "yBKCn8H+S02/iFgsFovFYrFYLBaLxWKxWHxnAfyWQZeVYs/3AAAAAElFTkSuQmCC");
 
 // Add the image to the presentation.
-var image = presentation.Images.AddImage(imageStream);
+var image = presentation.Images.AddImage(pngData);
 slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
 
 // Access the first picture frame on the slide.
-var pictureFrame = slide.Shapes.OfType<PictureFrame>().First();
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().First();
 Console.WriteLine(pictureFrame.Width);
 
 presentation.Save("picture-02.pptx", SaveFormat.Pptx);

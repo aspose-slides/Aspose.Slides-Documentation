@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "application-integration/background-worker",
   "archive": "example.zip",
-  "archive_sha256": "ec269245cef873a78c3100ad1b818e39c3858f9157c2aee4710e480658455f6e",
+  "archive_sha256": "8b1fea6550c86058ee5b0320f17e62865f2d6dee3d097be7be4cd0693a8f639c",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -26,13 +26,13 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "30ef0d6eb2236630996c9e12d227c4af4098ae16d5a241fbc01fce377f89f5ea",
-      "bytes": 6410
+      "sha256": "ce587c3f63562192ee7d7dba0c9a2b68a8d06e9b25de4eaf850d29ac38fdc589",
+      "bytes": 6446
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -56,8 +56,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "62f50882016d5d7b8ea16900fcc909a9cba70ff264a53b2f0ce6ae539dc1e96f",
-      "bytes": 9339
+      "sha256": "8775c373d50f774a2c814af50e92af3737b8c35313f11bb779f0a7ee4f1205ee",
+      "bytes": 10146
     },
     {
       "path": "README.txt",
@@ -66,8 +66,8 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "58b47e879c35542fd9a3ad8b8647d61982189f00647114b824326e91d331b12a",
-      "bytes": 2257
+      "sha256": "a2f78bc9553e1360818b7b4183c6c7042448c06bfefb08137ae3b8faaa5c40d7",
+      "bytes": 2258
     },
     {
       "path": "global.json",

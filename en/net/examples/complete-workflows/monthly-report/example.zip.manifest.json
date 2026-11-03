@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "complete-workflows/monthly-report",
   "archive": "example.zip",
-  "archive_sha256": "72b103105276262fa95ccb650c41a9cde183ed66e208e30fccac97f4e2221a65",
+  "archive_sha256": "f53da74eab9d5c7055213fd0a08aa59da62949486717889018454bc3f0ddf00a",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -26,13 +26,13 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "fdf9b636de2aab26e8f3eeb26188b6254171f1b64abdd4b033385ae94b1b313f",
-      "bytes": 3956
+      "sha256": "d8346fe7448c6e3dc6fdaffc0b0056ed00f036b508a19f12ee5cf5b3a7fc0c44",
+      "bytes": 3957
     },
     {
       "path": "Fixtures/sales.json",
@@ -61,8 +61,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "cc51ba24a99d689bea1010c5c81bcf0b19aa544ba5bc17611932208e1ab5fd1c",
-      "bytes": 4565
+      "sha256": "411b64a2a8cf3e2787757a54f51ce87a59972cb23a38b79be6929cd23f6a1507",
+      "bytes": 5695
     },
     {
       "path": "README.txt",
@@ -71,7 +71,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "4c854196adf15841da5daf7612035f89c6cc4764faed57b36a9c237b82c92521",
+      "sha256": "77715765b8d7bf8dc65c2e8184f1dade39180f89af81e78e436f8829f6b843a0",
       "bytes": 2455
     },
     {

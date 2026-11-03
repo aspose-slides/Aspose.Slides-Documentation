@@ -21,9 +21,9 @@ description: "Control slide headers and footers with Aspose.Slides for .NET: add
 
 This article demonstrates how to add footers and update date and time placeholders using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -44,16 +44,17 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+var headerFooter = slide.HeaderFooterManager;
 
-slide.HeaderFooterManager.SetFooterVisibility(isVisible: true);
-slide.HeaderFooterManager.SetFooterText("Foot");
+headerFooter.SetFooterVisibility(isVisible: true);
+headerFooter.SetFooterText("Foot");
 
 presentation.Save("header-footer-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Update Date and Time**
 
-Modify the date and time placeholder on a slide.
+Show the date/time placeholder and set its text to Today. This is fixed text, not an automatically updating date.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -61,9 +62,10 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
+var headerFooter = slide.HeaderFooterManager;
 
-slide.HeaderFooterManager.SetDateTimeVisibility(isVisible: true);
-slide.HeaderFooterManager.SetDateTimeText("Today");
+headerFooter.SetDateTimeVisibility(isVisible: true);
+headerFooter.SetDateTimeText("Today");
 
 presentation.Save("header-footer-02.pptx", SaveFormat.Pptx);
 ```

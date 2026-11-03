@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "ai/translate",
   "archive": "example.zip",
-  "archive_sha256": "f5d177b1b82d1308207338c11c7e44a2910d02c03fa27da38b15751b1b0c139c",
+  "archive_sha256": "3856fc11bda4df3bc862cce25a9a858e824c296e56efc34540652d4338ad8be3",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -26,13 +26,13 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "310b363ecc1b207c57f9902c227b12a7f5f4d687229f17345bec393de652bb57",
-      "bytes": 4731
+      "sha256": "1a552130cea022dd62d2134fa56652d527c95e8925cf489d036ee98f2dfd5c97",
+      "bytes": 4947
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -56,8 +56,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "d78a554032f1b7a5997124d7caf37ada6547f4854bacd7649449ae3d1b7b06bf",
-      "bytes": 3509
+      "sha256": "fed3ca3d5ed7a1bff0269a9e55225323696efc65b1d4d37d72ebf4f8e799edc2",
+      "bytes": 3500
     },
     {
       "path": "README.txt",
@@ -66,7 +66,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "5d70da6ff93caac7400e14f2ca640427b7558b4e9563a1f6f5aa73b4cb0c29f6",
+      "sha256": "11ed557fee8ef7fd58f30654b466d387e601920d8b1637f00b9e6d6bd2757bd4",
       "bytes": 2126
     },
     {

@@ -9,8 +9,8 @@ internal static partial class Program
 
         var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
-        slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "Old";
-        slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "New";
+        notesSlide.NotesTextFrame.Text = "Old";
+        notesSlide.NotesTextFrame.Text = "New";
 
         VerifyCase04(presentation);
     }

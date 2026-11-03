@@ -8,175 +8,106 @@ description: "Runnable C# example for export presentations to html using Aspose.
 
 Classic HTML uses SVG-based slide output and can scale to its container. HTML5 has presentation navigation and supported shape/transition animation. Serve the generated HTML together with its supporting asset folders; the example keeps HTML5 images and styles external. The HTML5 copy contains only visible slides so its navigation matches the exported deck. Click its first slide to play the title fade; each visible slide has a title effect and fade transition. In this SDK, generated navigation can remain disabled after a slide without animations, so verify mixed animated/static decks before hosting them. Generated HTML5 also references public JavaScript CDNs; offline hosting must provide those dependencies. The export flags do not add effects to a deck without them.
 
-## Run the example
+<span id="run-the-example"></span>
 
-[Download the complete project](example.zip). It includes the solution, source, SDK settings, package configuration and required fixtures. The code creates its own four-slide input with a hidden slide, speaker notes, a table, chart and picture.
-
-This download uses Aspose.Slides.NET6.CrossPlatform 26.10.0, bundled Noto Sans fonts and original portable PNG fixtures. Open the supplied solution with a compatible stable SDK; the current .NET 10 LTS is recommended. Evaluation runs without a license; unrestricted assertions use your authorized license. See [setup and prerequisites](/slides/net/examples/getting-started/) for native dependencies and tool selection.
-
-```text
-dotnet run --project Example.csproj --configuration Release
-```
-
-## Complete C# example
+## **Complete C# example**
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
-The copied program writes its files under `example-output` by default.
+The copied program writes its files in the current working directory.
 
 ```csharp
-using System.Buffers.Binary;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO.Compression;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Text;
-using System.Threading.Tasks;
 using System;
+using System.Linq;
+using Aspose.Slides;
 using Aspose.Slides.Animation;
-using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 using Aspose.Slides.SlideShow;
-using Aspose.Slides;
 
 internal static class Program
 {
-    private static Task<int> Main() => RunChecked();
-
-    private static void ExportHtml(bool licensed)
-    {
-        using var source = CreateSource(licensed);
-        source.Save("source.pptx", SaveFormat.Pptx);
-        source.Save("classic.html", SaveFormat.Html, new HtmlOptions { HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new ResponsiveHtmlController()) });
-        using var web = new Presentation("source.pptx");
-        for (int i = web.Slides.Count - 1; i >= 0; i--)
-            if (web.Slides[i].Hidden) web.Slides.RemoveAt(i);
-        web.Slides[0].Timeline.MainSequence[0].Timing.TriggerType = EffectTriggerType.OnClick;
-        foreach (var slide in web.Slides)
-        {
-            slide.SlideShowTransition.Type = TransitionType.Fade;
-            if (slide.Timeline.MainSequence.Count == 0)
-                slide.Timeline.MainSequence.AddEffect(slide.Shapes.OfType<IAutoShape>().Single(s => s.Name == "RecipeTitle"), EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-        }
-        web.Save("slides.html", SaveFormat.Html5, new Html5Options { AnimateShapes = true, AnimateTransitions = true, EmbedImages = false });
-        Report(new { classic_html = File.Exists("classic.html"), html5 = File.Exists("slides.html"), asset_files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*", SearchOption.AllDirectories).Length });
-    }
-
-    private static Presentation CreateSource(bool licensed)
-    {
-        var deck = new Presentation();
-        deck.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
-        var layout = deck.LayoutSlides.GetByType(SlideLayoutType.Blank);
-        string[] labels = licensed ? new[] { "Alpha", "Bravo", "Charlie", "Hidden" } : new[] { "Alpha", "Bravo", "C", "Hide" };
-        for (int i = 0; i < labels.Length; i++)
-        {
-            var slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(layout);
-            var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20, 580, 55);
-            shape.Name = "RecipeTitle";
-            shape.TextFrame.Text = labels[i];
-            shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("Noto Sans");
-            shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 26;
-            slide.NotesSlideManager.AddNotesSlide().NotesTextFrame.Text = licensed ? "Speaker note " + labels[i] : labels[i];
-            slide.Hidden = i == 3;
-        }
-        var table = deck.Slides[0].Shapes.AddTable(30, 100, new double[] { 140, 100 }, new double[] { 35, 35 });
-        table[0, 0].TextFrame.Text = "Product";
-        table[1, 0].TextFrame.Text = "Units";
-        table[0, 1].TextFrame.Text = "Pens";
-        table[1, 1].TextFrame.Text = "12";
-        deck.Slides[1].Shapes.AddChart(ChartType.ClusteredColumn, 30, 100, 400, 220);
-        var image = deck.Images.AddImage(PortableImage.Png(100,60,Color.CornflowerBlue));
-        deck.Slides[2].Shapes.AddPictureFrame(ShapeType.Rectangle,50,120,200,120,image);
-        deck.Slides[0].Timeline.MainSequence.AddEffect(deck.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "RecipeTitle"), EffectType.Fade, EffectSubtype.None, EffectTriggerType.AfterPrevious);
-        deck.Slides[0].SlideShowTransition.Type = TransitionType.Fade;
-        return deck;
-    }
-
-    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(ctx =>
-    {
-        ExportHtml(ctx.IsLicensed);
-        return Task.CompletedTask;
-    });
-
-    private static void Report(object values)
-    {
-        string json = JsonSerializer.Serialize(values, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
-    }
-}
-
-// Original deterministic fixture pixels and a small portable 8-bit PNG codec.
-// No operating-system bitmap engine or external image/font download is used.
-internal static class PortableImage
-{
-    public sealed record Pixels(int Width, int Height, byte[] Rgba);
-
-    public static byte[] Png(int width, int height, Color color)
-    {
-        byte[] pixels = new byte[checked(width * height * 4)];
-        for (int y=0;y<height;y++) for(int x=0;x<width;x++)
-        {
-            double dx=(x-width/2.0)/(width/4.0),dy=(y-height/2.0)/(height/4.0);
-            Color c=dx*dx+dy*dy<=1?Color.White:color; int i=(y*width+x)*4;
-            pixels[i]=c.R;pixels[i+1]=c.G;pixels[i+2]=c.B;pixels[i+3]=255;
-        }
-        return Encode(new Pixels(width,height,pixels));
-    }
-
-    public static byte[] Encode(Pixels image)
-    {
-        using var output=new MemoryStream();output.Write(new byte[]{137,80,78,71,13,10,26,10});
-        byte[] header=new byte[13];BinaryPrimitives.WriteInt32BigEndian(header.AsSpan(0,4),image.Width);BinaryPrimitives.WriteInt32BigEndian(header.AsSpan(4,4),image.Height);header[8]=8;header[9]=6;Chunk(output,"IHDR",header);
-        using var compressed=new MemoryStream();using(var z=new ZLibStream(compressed,System.IO.Compression.CompressionLevel.Optimal,true))for(int y=0;y<image.Height;y++){z.WriteByte(0);z.Write(image.Rgba,y*image.Width*4,image.Width*4);}
-        Chunk(output,"IDAT",compressed.ToArray());Chunk(output,"IEND",Array.Empty<byte>());return output.ToArray();
-    }
-
-    private static void Chunk(Stream stream,string type,byte[] data)
-    {
-        byte[] name=Encoding.ASCII.GetBytes(type),size=new byte[4];BinaryPrimitives.WriteInt32BigEndian(size,data.Length);stream.Write(size);stream.Write(name);stream.Write(data);
-        uint crc=0xffffffff;foreach(byte value in name)crc=Crc(crc,value);foreach(byte value in data)crc=Crc(crc,value);BinaryPrimitives.WriteUInt32BigEndian(size,crc^0xffffffff);stream.Write(size);
-    }
-
-    private static uint Crc(uint crc,byte value){crc^=value;for(int i=0;i<8;i++)crc=(crc&1)!=0?0xedb88320^(crc>>1):crc>>1;return crc;}
-}
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    private static void Main()
     {
         string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
         if (!string.IsNullOrWhiteSpace(licensePath))
             new License().SetLicense(licensePath);
 
-        string start = Environment.CurrentDirectory;
-        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
-        try
+        using var source = CreateSource();
+        source.Save("source.pptx", SaveFormat.Pptx);
+        var classicOptions = new HtmlOptions
         {
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
-            Console.WriteLine("Output: " + output);
-            return 0;
-        }
-        finally
+            HtmlFormatter = HtmlFormatter.CreateCustomFormatter(new ResponsiveHtmlController())
+        };
+        source.Save("classic.html", SaveFormat.Html, classicOptions);
+        using var visibleSlides = new Presentation("source.pptx");
+        for (int i = visibleSlides.Slides.Count - 1; i >= 0; i--)
         {
-            Environment.CurrentDirectory = start;
+            if (visibleSlides.Slides[i].Hidden)
+                visibleSlides.Slides.RemoveAt(i);
         }
-    }
-}
 
-internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
+        foreach (var slide in visibleSlides.Slides)
+        {
+            var title = slide.Shapes.OfType<IAutoShape>().Single(shape => shape.Name == "RecipeTitle");
+            slide.Timeline.MainSequence.AddEffect(title, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            slide.SlideShowTransition.Type = TransitionType.Fade;
+        }
+
+        var html5Options = new Html5Options
+        {
+            AnimateShapes = true,
+            AnimateTransitions = true,
+            EmbedImages = false
+        };
+        visibleSlides.Save("slides.html", SaveFormat.Html5, html5Options);
+        Console.WriteLine("Open classic.html or slides.html with its generated assets.");
+    }
+
+    private static Presentation CreateSource()
+    {
+        var presentation = new Presentation();
+        presentation.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
+        var blank = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+        string[] labels = ["Alpha", "Bravo", "C", "Hide"];
+        for (int i = 0; i < labels.Length; i++)
+        {
+            var slide = i == 0 ? presentation.Slides[0] : presentation.Slides.AddEmptySlide(blank);
+            AddTitle(slide, labels[i]);
+            slide.Hidden = i == labels.Length - 1;
+        }
+
+        var table = presentation.Slides[0].Shapes.AddTable(30, 100, [140, 100], [35, 35]);
+        table[0, 0].TextFrame.Text = "Item";
+        table[1, 0].TextFrame.Text = "Units";
+        table[0, 1].TextFrame.Text = "Pens";
+        table[1, 1].TextFrame.Text = "12";
+        byte[] imageBytes = SampleImage();
+        var image = presentation.Images.AddImage(imageBytes);
+        presentation.Slides[2].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 120, 200, 120, image);
+        return presentation;
+    }
+
+    private static IAutoShape AddTitle(ISlide slide, string text)
+    {
+        var title = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 20, 580, 55);
+        title.Name = "RecipeTitle";
+        title.TextFrame.Text = text;
+        title.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 26;
+        return title;
+    }
+
+    // Original blue-and-white fixture; no image library or download is needed.
+    private static byte[] SampleImage() => Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAAAI0lEQVR4nGNImfr2PymYgWoaQIAoDdgATg34AHVsIMsPhDAAMPMqpQBAkJ0AAAAASUVORK5CYII=");
+}
 ```
 
-## Expected result
+## **Expected result**
 
-The program writes "classic.html", "slides.html" in the printed output directory, plus the synthetic source.pptx and a result.json summary. Inspect the rendered/exported files with the viewer appropriate to the format. Input generation is visible in CreateSource; replace it with opening your own presentation when adapting the example.
+Open `classic.html` for the responsive export, or `slides.html` for three visible slides with click-triggered title fades and slide transitions. Keep its generated image, script and style resources together. The HTML5 viewer also uses its documented CDN resources, so browser playback requires access to those URLs.
 
 Continue with the [detailed guide](/slides/net/convert-powerpoint-to-html/).
 
 
-## Open and run the complete project
+## **Open and run the complete project**
 
 [Download the complete project](example.zip), extract it and open `Example.sln`, or run:
 
@@ -194,6 +125,5 @@ with your authorized `ASPOSE_LICENSE_PATH`. No license is included.
 
 Inputs are copied from `Fixtures` into a separate output workspace. The program prints
 the absolute output path; `execution.json` records the actual runtime and verified action.
-The portable PNG helper creates original synthetic pixels without a Windows bitmap engine.
 See [setup and prerequisites](/slides/net/examples/getting-started/) for native libraries,
 fonts, IDE settings and the .NET 8/9 runtime support boundary of 2026-11-10.

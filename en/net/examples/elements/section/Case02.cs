@@ -1,3 +1,4 @@
+using System;
 using Aspose.Slides;
 
 internal static partial class Program
@@ -11,7 +12,7 @@ internal static partial class Program
 
         // Access a section by index.
         var section = presentation.Sections[0];
-        var sectionName = section.Name;
+        Console.WriteLine(section.Name);
 
         VerifyCase02(presentation);
     }

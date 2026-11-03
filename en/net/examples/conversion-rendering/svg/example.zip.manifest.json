@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "conversion-rendering/svg",
   "archive": "example.zip",
-  "archive_sha256": "8b61858aa8251385b7ab19af82533b1059a536daf95f19daebe80307bfad52ac",
+  "archive_sha256": "81372261a7bc1150a26f1a380810d40d87537a38b0a7c3919019a0e34a25a39e",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "ConversionFixture.cs",
-      "sha256": "9b9a066a7b7efc1cb566d97814b170e039638999cac53aa7919889b3a281fec9",
-      "bytes": 2120
+      "sha256": "1600b14e00396a0a0810ad992e4316c3ddb0df7512105bb4b49cefe46447a346",
+      "bytes": 1229
     },
     {
       "path": "ConversionVerification.cs",
@@ -66,8 +66,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "b1e3308ab43c8b6db8c0bcc20199da89e591750d78a2470dc57403cd86c4d50c",
-      "bytes": 725
+      "sha256": "53d837ae35d0e0ee998f8f250f39aa3b5d3ea360e0a4707f37ccc1f53663f257",
+      "bytes": 606
     },
     {
       "path": "README.txt",
@@ -76,7 +76,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "22c72f42cb3a27e7280a3af9daf61c2bdeb9e35755da9b7a3bf50fb7c1470a79",
+      "sha256": "018e3dd12b5cf4e8da6311f4f66b6db2460550a3bc76b971445ed39da1f0fe5b",
       "bytes": 2448
     },
     {

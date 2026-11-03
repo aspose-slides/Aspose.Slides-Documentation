@@ -1,3 +1,4 @@
+using System;
 using Aspose.Slides;
 
 internal static partial class Program
@@ -13,6 +14,7 @@ internal static partial class Program
 
         // The cloned slide index is 1 (second slide in the presentation).
         var clonedSlideIndex = presentation.Slides.IndexOf(clonedSlide);
+        Console.WriteLine($"Clone index: {clonedSlideIndex}");
 
         VerifyCase03(presentation);
     }

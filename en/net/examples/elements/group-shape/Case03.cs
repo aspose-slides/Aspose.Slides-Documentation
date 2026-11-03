@@ -8,6 +8,7 @@ internal static partial class Program
         var slide = presentation.Slides[0];
 
         var group = slide.Shapes.AddGroupShape();
+        group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
         slide.Shapes.Remove(group);
 

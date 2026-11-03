@@ -14,9 +14,9 @@ internal static partial class Program
 
         var parentComment = author.Comments.AddModernComment("Root", slide, null, new PointF(100, 100), new DateTime(2026, 1, 1));
         var reply1 = author.Comments.AddModernComment("One", slide, null, new PointF(110, 100), new DateTime(2026, 1, 1));
+        reply1.ParentComment = parentComment;
         var reply2 = author.Comments.AddModernComment("Two", slide, null, new PointF(120, 100), new DateTime(2026, 1, 1));
 
-        reply1.ParentComment = parentComment;
         reply2.ParentComment = parentComment;
 
         presentation.Save("modern_comment_replies.pptx", SaveFormat.Pptx);

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "content-extraction/chart-data",
   "archive": "example.zip",
-  "archive_sha256": "7e25c65e0b40cac1f6bfed47fa70ccf1ba0e021b0878f41ba6e2e7808b368167",
+  "archive_sha256": "c83dcd62e5d2aff19f308865975fc3c5176092cccd26927ee9cec4c4b4725e21",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "Example.cs",
-      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
-      "bytes": 6126
+      "sha256": "23e6c2d1f6dcd88aa06e6beb2f059b0f0fae936ad0154604a1a6c145671d1db2",
+      "bytes": 2182
     },
     {
       "path": "Example.csproj",
@@ -36,13 +36,13 @@
     },
     {
       "path": "ExampleFixtures.cs",
-      "sha256": "161ddde93e437aa3532fa0f51b8a1c84f91892932f3209a405314826495c1816",
-      "bytes": 989
+      "sha256": "477c4e4352a28c92b7484c234e4fc01da8af75457877d0664e0c264697cb8c4c",
+      "bytes": 846
     },
     {
       "path": "ExampleVerification.cs",
-      "sha256": "5d55cbdd190899686b9e51fd9eb2648446085d5c12cce19f7813dbca96a1bd48",
-      "bytes": 3500
+      "sha256": "486bc199b0a1a6a38341a5681f86c3b83a90b8cc50e9facfabc0021d43a46a3d",
+      "bytes": 3502
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -71,8 +71,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "f810f4b3358d27e7a1cc1907bce0cec017ba3787afc86cff1ce3e3c21f1fd9ee",
-      "bytes": 1952
+      "sha256": "8428b4b104834905545315ead70e08b6c87c7373c7ade1524cf82db4d9c44e0b",
+      "bytes": 2600
     },
     {
       "path": "README.txt",
@@ -81,7 +81,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "7ab3f440d29ff7a7eeecd50fe56e6859135018fde5cdb6fc29088536a4616674",
+      "sha256": "a6295f9a53becee013df4648e1029ea36f41d48a7077ac57966606d2a2ec4f49",
       "bytes": 2596
     },
     {

@@ -8,7 +8,7 @@ description: "Download, restore, build and run complete Aspose.Slides for .NET e
 
 Each [example](/slides/net/examples/) has a complete project download, including the examples in **Elements**. Extract the whole ZIP into a writable directory. Keep the included configuration, source, fixtures and fonts together.
 
-## Copy a C# example
+## **Copy a C# example**
 
 Create a console project and install the same Aspose.Slides package used by the downloads.
 
@@ -22,13 +22,13 @@ Replace the contents of `Program.cs` with one copied block, then run `dotnet run
 
 Use the ZIP when you want the solution, IDE profiles, and the additional checks that run with the download.
 
-## Install a supported SDK
+## **Install a supported SDK**
 
 Install the current [.NET 10 LTS SDK](https://dotnet.microsoft.com/download/dotnet/10.0) for your operating system and processor. An SDK includes the build tools and runtime; a runtime alone cannot build a project. Use an IDE version that supports your installed SDK.
 
 These projects target `net8.0` with C# 12. The included `global.json` accepts stable SDKs from 8.0.100 onward; it does not require that exact SDK. Explicit major runtime roll-forward allows the application to run on .NET 10 when .NET 8 is absent. The target remains the same whichever SDK builds it. .NET 8 and 9 reach end of support on **November 10, 2026**; use .NET 10 for new installations. See Microsoft's [support policy](https://dotnet.microsoft.com/platform/support/policy) and [.NET 10 operating systems](https://github.com/dotnet/core/blob/main/release-notes/10.0/supported-os.md).
 
-## Open and run
+## **Open and run**
 
 | Environment | Steps |
 | --- | --- |
@@ -47,7 +47,7 @@ An ordinary `dotnet run --project Example.csproj -c Release` also restores and b
 
 The initial restore needs HTTPS access to NuGet.org. The project-local `NuGet.Config` selects that public source so unrelated machine feeds do not block the examples. Package versions are specified in the project; consumer restore is not locked. Offline runs are possible after packages and any separately documented resources have been acquired.
 
-## Native dependencies and fonts
+## **Native dependencies and fonts**
 
 The downloads use **Aspose.Slides.NET6.CrossPlatform 26.10.0**. This package does not require PowerPoint or `libgdiplus`. Its platform requirements and the chosen .NET runtime's OS requirements both apply. See [Aspose.Slides system requirements](/slides/net/system-requirements/) and the [cross-platform package guide](/slides/net/net6/).
 
@@ -69,9 +69,11 @@ Alpine/musl, native Windows ARM64 and older glibc environments require a differe
 
 Noto Sans and its OFL license are included and loaded by the example. Arabic/CJK font examples document their additional downloads. The Docker example supplies its own Linux dependency setup. Use each article's prerequisites for AI, certificates and host services.
 
-## Evaluation and licensed runs
+## **Evaluation and licensed runs**
 
-The default is evaluation mode when no license is configured. It produces real output with the SDK's evaluation watermark and text restrictions. The checks account for these restrictions without removing the watermark. A successful evaluation run does not promise unrestricted output or full text read-back.
+The downloaded projects use evaluation mode when no license is configured. They produce real output with the SDK's evaluation watermark and text restrictions. Their checks account for these restrictions. Follow each article's expected output when reading evaluation results.
+
+Copied programs use the license setup shown in their own code. A program that reads `ASPOSE_LICENSE_PATH` applies the license from that path. The short Elements programs use evaluation mode by default. To adapt them for licensed output, apply your license before creating a presentation. See the [licensing guide](/slides/net/licensing/).
 
 For unrestricted operations, supply an authorized license covering the package release through `ASPOSE_LICENSE_PATH`, or use:
 
@@ -81,15 +83,15 @@ dotnet run --project Example.csproj -c Release -- --mode licensed --license /pat
 
 Explicit `--mode evaluation` ignores license settings. Do not add licenses, API credentials or certificate private keys to the downloaded project. AI examples require their documented licensed mode, model configuration and explicit network opt-in. An actionable missing-prerequisite message does not count as an AI operation passing.
 
-## Outputs and results
+## **Outputs and results**
 
-The application prints its absolute output directory. By default it uses an `output` workspace beside the built application. Supply `--output DIRECTORY` to select another location. Fixtures are copied into this workspace; the originals in the download remain unchanged. Repeated runs can replace files in that selected output directory.
+The downloaded application prints its absolute output directory. By default it uses an `output` workspace beside the built application. Supply `--output DIRECTORY` to select another location. Fixtures are copied into this workspace. Repeated runs can replace files in that selected output directory. Copied programs use the paths shown in their code and article.
 
 `execution.json` records the actions, semantic checks, evaluation/licensed mode and actual runtime used. Exit code **0** means the selected functional checks passed, **1** means a failure, and **2** means an unmet prerequisite. Elements projects run every displayed recipe in sequence; the source for each recipe is included separately.
 
 Application integration examples have additional entry points. Follow their article commands for API self-tests, background-worker self-tests and container verification. Starting a service alone does not prove a request or conversion succeeded.
 
-## Troubleshoot the first build
+## **Troubleshoot the first build**
 
 | Symptom | Resolution |
 | --- | --- |

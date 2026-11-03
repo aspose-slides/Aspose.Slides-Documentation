@@ -28,18 +28,18 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleFixtures.cs",
-      "sha256": "d805daae1eb2d81b38e20e94e3ef41aef30b26475c982c75bb56027edbc52bf6",
-      "bytes": 2647
+      "sha256": "52826c94d88706c9b122e3cfcae1275173c0af4695bd58540ecc53cdf4c21b22",
+      "bytes": 2398
     },
     {
       "path": "ExampleVerification.cs",
-      "sha256": "55435c69ea88d618831e6fbb4c705c2a9f318e0da389baa8c548b86a1507c386",
-      "bytes": 1680
+      "sha256": "d3d23dfa6783a533846a094f5240833d4e33de09152b6d7f2c48ed76126c63c0",
+      "bytes": 1416
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -68,8 +68,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "afb99ec9bbfa086c27001391839476a930b2f9420b6600c3506e10c3a84f7d32",
-      "bytes": 3320
+      "sha256": "d15924042cc08f059a35aa5b84b0afdb9f52e5bb908f8be45885585dfe73a543",
+      "bytes": 3033
     },
     {
       "path": "README.txt",

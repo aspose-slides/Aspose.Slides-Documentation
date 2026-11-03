@@ -6,9 +6,10 @@ internal static partial class Program
     {
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
+        var headerFooter = slide.HeaderFooterManager;
 
-        slide.HeaderFooterManager.SetDateTimeVisibility(isVisible: true);
-        slide.HeaderFooterManager.SetDateTimeText("Today");
+        headerFooter.SetDateTimeVisibility(isVisible: true);
+        headerFooter.SetDateTimeText("Today");
 
         VerifyCase02(presentation);
     }

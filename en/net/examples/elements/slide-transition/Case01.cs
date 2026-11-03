@@ -8,7 +8,6 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
-        // Apply a fade transition.
         slide.SlideShowTransition.Type = TransitionType.Fade;
 
         VerifyCase01(presentation);

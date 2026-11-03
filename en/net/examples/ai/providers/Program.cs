@@ -1,21 +1,15 @@
 using System;
-using System.Collections.Concurrent;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 using Aspose.Slides;
 using Aspose.Slides.AI;
-using Aspose.Slides.Export;
 
 internal static partial class Program
 {
     private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
-
     private static async Task<int> RunExample(string[] args)
     {
         try
@@ -29,14 +23,15 @@ internal static partial class Program
             {
                 using var defaultHttp = Http("default");
                 using var defaultClient = new AsposeAIWebClient(defaultHttp);
-                using IPresentation deck = await new SlidesAIAgent(defaultClient).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
-                VerifyGenerated(deck, "default-generated.pptx");
+                using IPresentation generatedPresentation = await new SlidesAIAgent(defaultClient).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
+                SaveAndInspectGenerated(generatedPresentation, "default-generated.pptx");
                 completed++;
             }
+
             using var configuredHttp = Http("configured");
             using var configuredClient = new OpenAICompatibleWebClient(model, key, baseUrl, configuredHttp);
             using IPresentation configuredDeck = await new SlidesAIAgent(configuredClient).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
-            VerifyGenerated(configuredDeck, "configured-generated.pptx");
+            SaveAndInspectGenerated(configuredDeck, "configured-generated.pptx");
             completed++;
             Require(Requests.Any(r => r.Provider == "configured" && r.StatusCode == 200), "Configured provider did not return a model response.");
             Report(new { providers_checked = completed, configured_provider_succeeded = true, reopened_text_matches = true, requests = Requests.ToArray() });

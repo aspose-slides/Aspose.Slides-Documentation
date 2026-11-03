@@ -1,11 +1,7 @@
-using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
@@ -14,18 +10,26 @@ internal static partial class Program
     private static string SafeName(string value)
     {
         char[] invalid = Path.GetInvalidFileNameChars();
-        string clean = new string(value.Select(c => invalid.Contains(c) || c == '/' || c == '\\' ? '_' : c).ToArray()).Trim().TrimEnd('.');
+        string clean = new string (value.Select(c => invalid.Contains(c) || c == '/' || c == '\\' ? '_' : c).ToArray()).Trim().TrimEnd('.');
         return string.IsNullOrWhiteSpace(clean) ? "section" : clean;
     }
 
     private static void SaveSelection(Presentation input, int[] indices, string output)
     {
-        if (indices.Length == 0) throw new ArgumentException("Select at least one slide.", nameof(indices));
-        if (indices.Any(i => i < 0 || i >= input.Slides.Count)) throw new ArgumentOutOfRangeException(nameof(indices));
+        if (indices.Length == 0)
+            throw new ArgumentException("Select at least one slide.", nameof(indices));
+        if (indices.Any(i => i < 0 || i >= input.Slides.Count))
+            throw new ArgumentOutOfRangeException(nameof(indices));
         using var result = new Presentation();
         result.Slides.RemoveAt(0);
-        foreach (int index in indices) result.Slides.AddClone(input.Slides[index]);
+        foreach (int index in indices)
+            result.Slides.AddClone(input.Slides[index]);
         result.Save(output, SaveFormat.Pptx);
+    }
+
+    private static void SaveAndVerifySelection(Presentation input, int[] indices, string output)
+    {
+        SaveSelection(input, indices, output);
         using var reopened = new Presentation(output);
         Require(reopened.Slides.Count == indices.Length, "Wrong split count.");
         Require(reopened.Slides.Select(Text).SequenceEqual(indices.Select(i => Text(input.Slides[i]))), "Wrong split content/order.");
@@ -37,29 +41,47 @@ internal static partial class Program
         using (var created = new Presentation())
         {
             var blank = created.LayoutSlides.GetByType(SlideLayoutType.Blank);
-            for (int i = 0; i < 3; i++) Label(i == 0 ? created.Slides[0] : created.Slides.AddEmptySlide(blank), "S" + (i + 1));
+            for (int i = 0; i < 3; i++)
+                Label(i == 0 ? created.Slides[0] : created.Slides.AddEmptySlide(blank), "S" + (i + 1));
             created.Sections.AddSection("Part/One", created.Slides[0]);
             created.Sections.AddSection("Part/One", created.Slides[1]); // Duplicate names are valid input here.
             created.Save("input.pptx", SaveFormat.Pptx);
         }
+
         string inputHash = Hash("input.pptx");
         using var input = new Presentation("input.pptx");
-        for (int i = 0; i < input.Slides.Count; i++) SaveSelection(input, new[] { i }, $"outputs/slide-{i + 1:D2}.pptx");
-        SaveSelection(input, new[] { 1, 2 }, "outputs/range-2-3.pptx");
+        for (int i = 0; i < input.Slides.Count; i++)
+            SaveAndVerifySelection(input, new[] { i }, $"outputs/slide-{i + 1:D2}.pptx");
+        SaveAndVerifySelection(input, new[] { 1, 2 }, "outputs/range-2-3.pptx");
         var sectionPaths = new List<string>();
         for (int i = 0; i < input.Sections.Count; i++)
         {
             var section = input.Sections[i];
             int[] indices = section.GetSlidesListOfSection().Select(slide => input.Slides.IndexOf(slide)).ToArray();
             string filename = $"outputs/section-{i + 1:D2}-{SafeName(section.Name)}.pptx";
-            SaveSelection(input, indices, filename);
+            SaveAndVerifySelection(input, indices, filename);
             sectionPaths.Add(filename); // Numeric prefix prevents duplicate/sanitized-name collisions.
         }
+
         bool invalidRejected = false, emptyRejected = false;
-        try { SaveSelection(input, new[] { 3 }, "outputs/invalid.pptx"); }
-        catch (ArgumentOutOfRangeException) { invalidRejected = true; }
-        try { SaveSelection(input, Array.Empty<int>(), "outputs/empty.pptx"); }
-        catch (ArgumentException) { emptyRejected = true; }
+        try
+        {
+            SaveAndVerifySelection(input, new[] { 3 }, "outputs/invalid.pptx");
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            invalidRejected = true;
+        }
+
+        try
+        {
+            SaveAndVerifySelection(input, Array.Empty<int>(), "outputs/empty.pptx");
+        }
+        catch (ArgumentException)
+        {
+            emptyRejected = true;
+        }
+
         Require(invalidRejected && emptyRejected, "Invalid selections were accepted.");
         Require(!File.Exists("outputs/invalid.pptx") && !File.Exists("outputs/empty.pptx"), "Invalid selections produced files.");
         Require(sectionPaths.Distinct(StringComparer.OrdinalIgnoreCase).Count() == 2, "Section filenames collide.");

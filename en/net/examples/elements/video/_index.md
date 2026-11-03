@@ -26,9 +26,9 @@ The checks verify embedded MP4 bytes and playback settings. Actual playback also
 
 For the copied blocks, pass an MP4 file as the first argument, for example `dotnet run -- video.mp4`. You can use your own MP4 or the [sample video](Fixtures/video.mp4).
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -41,7 +41,9 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Video Frame**
 
-Insert an empty video frame onto a slide.
+Embed the supplied MP4 in a video frame. Pass its path as the program argument; a missing file produces a readable message.
+
+Use `dotnet run -- video.mp4` with the [sample MP4](Fixtures/video.mp4) or your own file.
 
 ```csharp
 using System;
@@ -56,12 +58,20 @@ if (args.Length != 1)
     return;
 }
 
+var videoPath = args[0];
+if (!File.Exists(videoPath))
+{
+    Console.WriteLine($"Video file not found: {videoPath}");
+    return;
+}
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 // Add a video.
-var video = presentation.Videos.AddVideo(File.ReadAllBytes(args[0]));
-var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
+var videoData = File.ReadAllBytes(videoPath);
+var video = presentation.Videos.AddVideo(videoData);
+slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
 
 presentation.Save("video-01.pptx", SaveFormat.Pptx);
 ```
@@ -69,6 +79,8 @@ presentation.Save("video-01.pptx", SaveFormat.Pptx);
 ## **Access a Video Frame**
 
 Retrieve the first video frame added to a slide.
+
+Use `dotnet run -- video.mp4` with the [sample MP4](Fixtures/video.mp4) or your own file.
 
 ```csharp
 using System;
@@ -84,11 +96,19 @@ if (args.Length != 1)
     return;
 }
 
+var videoPath = args[0];
+if (!File.Exists(videoPath))
+{
+    Console.WriteLine($"Video file not found: {videoPath}");
+    return;
+}
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var video = presentation.Videos.AddVideo(File.ReadAllBytes(args[0]));
-var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
+var videoData = File.ReadAllBytes(videoPath);
+var video = presentation.Videos.AddVideo(videoData);
+slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
 
 // Access the first video frame on the slide.
 var firstVideo = slide.Shapes.OfType<IVideoFrame>().First();
@@ -101,6 +121,8 @@ presentation.Save("video-02.pptx", SaveFormat.Pptx);
 
 Delete a video frame from the slide.
 
+Use `dotnet run -- video.mp4` with the [sample MP4](Fixtures/video.mp4) or your own file.
+
 ```csharp
 using System;
 using System.IO;
@@ -114,10 +136,18 @@ if (args.Length != 1)
     return;
 }
 
+var videoPath = args[0];
+if (!File.Exists(videoPath))
+{
+    Console.WriteLine($"Video file not found: {videoPath}");
+    return;
+}
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var video = presentation.Videos.AddVideo(File.ReadAllBytes(args[0]));
+var videoData = File.ReadAllBytes(videoPath);
+var video = presentation.Videos.AddVideo(videoData);
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
 
 // Remove the video frame.
@@ -130,6 +160,8 @@ presentation.Save("video-03.pptx", SaveFormat.Pptx);
 
 Configure the video to play automatically when the slide is displayed.
 
+Use `dotnet run -- video.mp4` with the [sample MP4](Fixtures/video.mp4) or your own file.
+
 ```csharp
 using System;
 using System.IO;
@@ -143,10 +175,18 @@ if (args.Length != 1)
     return;
 }
 
+var videoPath = args[0];
+if (!File.Exists(videoPath))
+{
+    Console.WriteLine($"Video file not found: {videoPath}");
+    return;
+}
+
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var video = presentation.Videos.AddVideo(File.ReadAllBytes(args[0]));
+var videoData = File.ReadAllBytes(videoPath);
+var video = presentation.Videos.AddVideo(videoData);
 var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
 
 // Configure the video to play automatically.

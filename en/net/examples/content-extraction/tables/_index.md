@@ -8,156 +8,114 @@ description: "Extract table grids from slides and nested groups as JSON and CSV,
 
 Extract table grids from slides and nested groups as JSON and CSV, preserving identifiers, Unicode and merged-cell coordinates.
 
-## Run the example
+<span id="run-the-example"></span>
 
-Download the [complete project](example.zip), extract it, and run it with the .NET 8 SDK.
-The project pins Aspose.Slides.NET6.CrossPlatform 26.10.0. The complete project uses portable image fixtures and the CrossPlatform package.
-For the complete data assertions, set `ASPOSE_LICENSE_PATH` to your own valid license;
-the visible helper loads it when supplied. Evaluation mode may truncate text or add watermarks.
-
-```text
-dotnet restore Example.csproj
-dotnet run --project Example.csproj --configuration Release --no-restore
-```
-
-The download contains [Program.cs](Program.cs), [Example.cs](Example.cs), the project,
-dependency lock, and any JSON/CSV input. The helper source contains fixture generation,
-license loading, serialization and assertions; it is part of the runnable project.
-All presentation inputs are generated from original synthetic data. Results go to `output/`.
-
-## Example
+## **Example**
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
-The copied program writes its files under `example-output` by default.
+The copied program writes its files under `output/` in the current working directory.
 
 ```csharp
-using System.Buffers.Binary;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.IO.Compression;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
 using System.Text;
-using System.Threading.Tasks;
-using System;
-using Aspose.Slides.Charts;
-using Aspose.Slides.DOM.Ole;
-using Aspose.Slides.Export;
+using System.Text.Json;
 using Aspose.Slides;
-using Microsoft.VisualBasic.FileIO;
+using Aspose.Slides.Export;
 
 internal static class Program
 {
-    private static Task<int> Main() => RunChecked();
-
-    private sealed record Cell(int Row,int Column,int FirstRow,int FirstColumn,int RowSpan,int ColumnSpan,bool Merged,string? Text);
-
-    private sealed record TableData(int Slide,string Shape,Cell[] Cells);
-
-    private static void ExtractTables()
-    {
-        CreateInput();
-        using var input=new Presentation("output/input.pptx");var tables=new List<TableData>();var csv=new StringBuilder("Slide,Shape,Row,Column,Text\n");
-        for(int i=0;i<input.Slides.Count;i++)foreach(var table in Example.Walk(input.Slides[i].Shapes).OfType<ITable>())
-        {var cells=new List<Cell>();for(int r=0;r<table.Rows.Count;r++)for(int c=0;c<table.Columns.Count;c++)
-         {var cell=table[c,r];bool coveredByMergedCell = cell.IsMergedCell&&(cell.FirstRowIndex!=r||cell.FirstColumnIndex!=c);string? text=coveredByMergedCell?null:cell.TextFrame.Text;
-          cells.Add(new(r,c,cell.FirstRowIndex,cell.FirstColumnIndex,cell.RowSpan,cell.ColSpan,cell.IsMergedCell,text));
-          csv.AppendLine(string.Join(",",i+1,Example.CsvCell(table.Name),r,c,Example.CsvCell(text??"")));}
-         tables.Add(new(i+1,table.Name,cells.ToArray()));}
-        Example.Json("output/tables.json",tables);File.WriteAllText("output/tables.csv",csv.ToString(),new UTF8Encoding(false));
-        VerifyExtraction(tables, csv);
-    }
-
-    private static void CreateInput()
-    {
-        Example.Setup();using(var p=new Presentation())
-        {var group=p.Slides[0].Shapes.AddGroupShape();var table=group.Shapes.AddTable(30,30,new double[]{200,160,200},new double[]{45,45,45});table.Name="Source table";
-         table[0,0].TextFrame.Text="Customer";table[1,0].TextFrame.Text="Detail";table.MergeCells(table[1,0],table[2,0],false);
-         table[0,1].TextFrame.Text=Example.Choice("Acme, Inc.","A,β");table[1,1].TextFrame.Text="東京";table[2,1].TextFrame.Text=Example.Choice("\"Quoted\"","\"Q\"");table[0,2].TextFrame.Text=Example.Choice("Résumé","é");p.Save("output/input.pptx",SaveFormat.Pptx);}
-    }
-
-    private static ExampleContext Context = null!;
-
-    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async ctx =>
-    {
-        Context = ctx;
-        Example.Context = ctx;
-        ExtractTables();
-        await Task.CompletedTask;
-    });
-
-    private static void VerifyExtraction(List<TableData> tables, StringBuilder csv)
-    {
-        var rows=Example.Csv(csv.ToString(),5);var extracted=tables.Single().Cells;
-        Example.Require(extracted.Single(c=>c.Row==1&&c.Column==0).Text==Example.Choice("Acme, Inc.","A,β")&&extracted.Single(c=>c.Row==1&&c.Column==1).Text=="東京","Values/Unicode lost.");
-        Example.Require(extracted.Single(c=>c.Row==0&&c.Column==2).Text==null&&extracted.Single(c=>c.Row==0&&c.Column==1).ColumnSpan==2,"Merged-cell representation differs.");
-        Example.Require(rows.Any(r=>r[4]==Example.Choice("\"Quoted\"","\"Q\""))&&rows.Count==10,"CSV quoting or grid size differs.");
-        Example.Result(new{tables=1,grid_cells=9,merged_coverage_explicit=true,unicode_and_csv_quoting_checked=true,group_traversal_checked=true});
-    }
-}
-
-internal static class Example
-{
-    public static ExampleContext Context = null!;
-
-    public static void Setup() { Directory.CreateDirectory("output"); }
-
-    public static string Choice(string licensed,string evaluation) => Context.IsLicensed ? licensed : evaluation;
-
-    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
-
-    public static void Result(object checks)
-    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
-
-    public static void Json(string path,object value)
-    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
-
-    public static IEnumerable<IShape> Walk(IShapeCollection shapes)
-    { foreach(IShape shape in shapes){yield return shape;if(shape is IGroupShape group)foreach(var child in Walk(group.Shapes))yield return child;} }
-
-    public static List<string[]> Csv(string text,int columns)
-    {
-        using var parser=new TextFieldParser(new StringReader(text));parser.SetDelimiters(",");parser.HasFieldsEnclosedInQuotes=true;parser.TrimWhiteSpace=false;
-        var rows=new List<string[]>();while(!parser.EndOfData){var row=parser.ReadFields()!;if(row.Length!=columns)throw new InvalidDataException("CSV field count differs.");rows.Add(row);}return rows;
-    }
-
-    public static string CsvCell(string text)=>"\""+text.Replace("\"","\"\"")+"\"";
-}
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    private static void Main()
     {
         string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
         if (!string.IsNullOrWhiteSpace(licensePath))
             new License().SetLicense(licensePath);
 
-        string start = Environment.CurrentDirectory;
-        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
-        try
+        Directory.CreateDirectory("output");
+        ExtractTables();
+    }
+
+    private sealed record Cell(int Row, int Column, int FirstRow, int FirstColumn, int RowSpan, int ColumnSpan, bool Merged, string? Text);
+    private sealed record TableData(int Slide, string Shape, Cell[] Cells);
+    private static bool IsMergedAnchor(ICell cell, int row, int column) => !cell.IsMergedCell || cell.FirstRowIndex == row && cell.FirstColumnIndex == column;
+    private static void ExtractTables()
+    {
+        CreateInput();
+        using var input = new Presentation("output/input.pptx");
+        var tables = new List<TableData>();
+        var csv = new StringBuilder("Slide,Shape,Row,Column,Text\n");
+        for (int slideIndex = 0; slideIndex < input.Slides.Count; slideIndex++)
         {
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
-            Console.WriteLine("Output: " + output);
-            return 0;
+            foreach (var table in Walk(input.Slides[slideIndex].Shapes).OfType<ITable>())
+            {
+                var cells = new List<Cell>();
+                for (int row = 0; row < table.Rows.Count; row++)
+                {
+                    for (int column = 0; column < table.Columns.Count; column++)
+                    {
+                        var cell = table[column, row]; // Aspose indexes column first, then row.
+                        string? text = IsMergedAnchor(cell, row, column) ? cell.TextFrame.Text : null;
+                        var record = new Cell(row, column, cell.FirstRowIndex, cell.FirstColumnIndex, cell.RowSpan, cell.ColSpan, cell.IsMergedCell, text);
+                        cells.Add(record);
+                        csv.AppendLine(string.Join(",", slideIndex + 1, CsvCell(table.Name), record.Row, record.Column, CsvCell(record.Text ?? "")));
+                    }
+                }
+
+                tables.Add(new TableData(slideIndex + 1, table.Name, cells.ToArray()));
+            }
         }
-        finally
+
+        Json("output/tables.json", tables);
+        File.WriteAllText("output/tables.csv", csv.ToString(), new UTF8Encoding(false));
+        Console.WriteLine("Results: " + Path.GetFullPath("output"));
+    }
+
+    private static void CreateInput()
+    {
+        using var presentation = new Presentation();
+        var group = presentation.Slides[0].Shapes.AddGroupShape();
+        var table = group.Shapes.AddTable(30, 30, [200, 160, 200], [45, 45, 45]);
+        table.Name = "Source table";
+        table[0, 0].TextFrame.Text = "Name";
+        table[1, 0].TextFrame.Text = "Info";
+        table.MergeCells(table[1, 0], table[2, 0], false);
+        table[0, 1].TextFrame.Text = "A,β";
+        table[1, 1].TextFrame.Text = "東京";
+        table[2, 1].TextFrame.Text = "\"Q\"";
+        table[0, 2].TextFrame.Text = "é";
+        presentation.Save("output/input.pptx", SaveFormat.Pptx);
+    }
+
+    private static IEnumerable<IShape> Walk(IShapeCollection shapes)
+    {
+        foreach (var shape in shapes)
         {
-            Environment.CurrentDirectory = start;
+            yield return shape;
+            if (shape is IGroupShape group)
+            {
+                foreach (var child in Walk(group.Shapes))
+                    yield return child;
+            }
         }
     }
-}
 
-internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
+    private static void Json(string path, object value)
+    {
+        string json = JsonSerializer.Serialize(value, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(path, json, new UTF8Encoding(false));
+    }
+
+    private static string CsvCell(string text) => "\"" + text.Replace("\"", "\"\"") + "\"";
+}
 ```
 
-## Expected result and checks
+## **Expected result and checks**
 
-The program writes its semantic checks to `output/result.json` and throws if a required
-result differs. Expected check values are:
+`output/tables.json` retains all nine zero-based grid coordinates. The merged anchor has a column span of two; its covered cell has JSON null text, represented as a blank CSV field in `output/tables.csv`. CSV fields quote commas, quotes and Unicode correctly.
+
+The downloaded project writes its verification checks to `output/result.json`. The following values describe the ZIP’s checks; the copied program does not write this report:
 
 ```json
 {
@@ -171,13 +129,13 @@ result differs. Expected check values are:
 
 Rows and columns in each table are zero-based; slide numbers are one-based. JSON records every grid position and the anchor/extent of merged regions. Covered cells use null text, preventing duplicated merged-cell content. CSV uses blank text for those covered positions; consult JSON for merge structure.
 
-## Learn more
+## **Learn more**
 
-- [Manage Presentation Tables in .NET](https://docs.aspose.com/slides/net/manage-table/)
-- [Manage Table Cells in Presentations in .NET](https://docs.aspose.com/slides/net/manage-cells/)
+- [Manage Presentation Tables in .NET](/slides/net/manage-table/)
+- [Manage Table Cells in Presentations in .NET](/slides/net/manage-cells/)
 
 
-## Open and run the complete project
+## **Open and run the complete project**
 
 [Download the complete project](example.zip), extract it and open `Example.sln`, or run:
 
@@ -195,6 +153,5 @@ with your authorized `ASPOSE_LICENSE_PATH`. No license is included.
 
 Inputs are copied from `Fixtures` into a separate output workspace. The program prints
 the absolute output path; `execution.json` records the actual runtime and verified action.
-The portable PNG helper creates original synthetic pixels without a Windows bitmap engine.
 See [setup and prerequisites](/slides/net/examples/getting-started/) for native libraries,
 fonts, IDE settings and the .NET 8/9 runtime support boundary of 2026-11-10.

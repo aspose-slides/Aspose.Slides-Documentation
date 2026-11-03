@@ -8,356 +8,186 @@ description: "Complete runnable C# application for process presentations in a ba
 
 The .NET Worker Service snapshots an input folder of PPTX files and queues jobs through a bounded channel. Two consumers each own and dispose a presentation. Every input receives a succeeded, failed or cancelled entry in the final manifest; a corrupt file does not stop later jobs. The loader explicitly requires PPTX rather than treating an arbitrary text file as another supported input format.
 
-## Prerequisites
+## **Prerequisites**
 
 Use a current supported .NET10 SDK/runtime and the supplied flexible SDK settings; no exact patch is required.
 
-## Complete application
+## **Complete application**
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
 Use an ASP.NET Core project, or add a framework reference to `Microsoft.AspNetCore.App`.
 The copied program writes its files under `example-output` by default.
 
+Add the `Microsoft.Extensions.Hosting` package alongside Aspose.Slides. Run without arguments for three valid generated inputs and one corrupt input, or use `dotnet run -- INPUT_FOLDER OUTPUT_FOLDER`. Press Ctrl+C for graceful shutdown. The bounded queue has two consumers; a separate gate serializes native SDK conversion. A validated temporary PDF is atomically moved to its final path.
+
 ```csharp
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+using System;
 using System.IO;
 using System.Linq;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Text.Json;
+using System.Threading;
 using System.Threading.Channels;
 using System.Threading.Tasks;
-using System.Threading;
-using System;
-using Aspose.Slides.Export;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 internal static class Program
 {
-    private static readonly SemaphoreSlim SdkGate = new(1);
-
-    private static async Task RunExample(string[] args)
+    private static async Task Main(string[] args)
     {
-        if (args.Contains("--self-test"))
+        var licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+        var inputDirectory = Path.GetFullPath(args.Length > 0 ? args[0] : "example-output/input");
+        var outputDirectory = Path.GetFullPath(args.Length > 1 ? args[1] : "example-output/output");
+        if (args.Length == 0)
+            CreateSampleInputs(inputDirectory);
+        if (!Directory.Exists(inputDirectory))
         {
-            await VerifyWorkerRuns();
+            Console.Error.WriteLine("Pass an existing PPTX input folder, or omit arguments to generate sample inputs.");
             return;
         }
-        if(args.Length==0)PrepareInput("input");
-        string input = args.Length > 0 ? Path.GetFullPath(args[0],LaunchDirectory) : "input";
-        Context.Prerequisite(Directory.Exists(input),"The input folder does not exist. Pass a real PPTX input folder, or run without folder arguments for the synthetic local batch.");
-        string output = args.Length > 1 ? Path.GetFullPath(args[1],LaunchDirectory) : "output";
-        await Run(input, output, stopAfter: 0);
-        var processed=JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync(Path.Combine(output,"manifest.json")))!;
-        Context.Require(processed.Length>0&&processed.All(j=>j.State is "succeeded" or "failed" or "cancelled"),"Every queued input needs a final outcome.");
-    }
 
-    private static async Task Run(string input, string output, int stopAfter, bool stopDuringActive = false)
-    {
-        Directory.CreateDirectory(output);
+        Directory.CreateDirectory(outputDirectory);
         var builder = Host.CreateApplicationBuilder();
-        builder.Services.AddSingleton(new WorkSettings(input, output, stopAfter, stopDuringActive));
+        builder.Services.AddSingleton(new WorkSettings(inputDirectory, outputDirectory));
         builder.Services.AddHostedService<ConversionWorker>();
         using var host = builder.Build();
         await host.RunAsync();
+        Console.WriteLine("Job outcomes: " + Path.Combine(outputDirectory, "manifest.json"));
     }
 
-    private sealed record WorkSettings(string Input, string Output, int StopAfter, bool StopDuringActive);
-
+    private sealed record WorkSettings(string Input, string Output);
     private sealed record JobResult(string Name, string State, string? Error);
-
-    private sealed class ConversionWorker : BackgroundService
+    private sealed class ConversionWorker(WorkSettings settings, IHostApplicationLifetime lifetime) : BackgroundService
     {
-        private readonly WorkSettings settings;
-        private readonly IHostApplicationLifetime lifetime;
-        public ConversionWorker(WorkSettings settings, IHostApplicationLifetime lifetime) { this.settings = settings; this.lifetime = lifetime; }
-
+        // Two queue consumers may be active; only one enters the native SDK at a time.
+        private static readonly SemaphoreSlim SdkGate = new(1);
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            string[] paths = Directory.GetFiles(settings.Input, "*.pptx").OrderBy(p => p, StringComparer.Ordinal).ToArray();
-            var results = new ConcurrentDictionary<string, JobResult>(paths.Select(p => new System.Collections.Generic.KeyValuePair<string, JobResult>(p, new JobResult(Path.GetFileName(p), "pending", null))));
+            var paths = Directory.GetFiles(settings.Input, "*.pptx").OrderBy(path => path, StringComparer.Ordinal).ToArray();
+            var results = new ConcurrentDictionary<string, JobResult>(paths.Select(path => new KeyValuePair<string, JobResult>(path, new(Path.GetFileName(path), "pending", null))));
             var queue = Channel.CreateBounded<string>(new BoundedChannelOptions(2) { FullMode = BoundedChannelFullMode.Wait, SingleWriter = true, SingleReader = false });
-            int completed = 0;
-            int active = 0;
-            int sdkActive = 0;
-            int maximumSdkActive = 0;
-            int maximumActive = 0;
-            int activeCancellationRequested = 0;
-            using var linked = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
-
             async Task Consume()
             {
                 try
                 {
-                    await foreach (string path in queue.Reader.ReadAllAsync(linked.Token))
-                    {
-                        linked.Token.ThrowIfCancellationRequested();
-                        int running = Interlocked.Increment(ref active);
-                        int previous;
-                        do { previous = maximumActive; } while (running > previous && Interlocked.CompareExchange(ref maximumActive, running, previous) != previous);
-                        string destination = Path.Combine(settings.Output, Path.GetFileNameWithoutExtension(path) + ".pdf");
-                        var interrupt = new InterruptionTokenSource();
-                        using var registration = linked.Token.Register(interrupt.Interrupt);
-                        try
-                        {
-                            await SdkGate.WaitAsync(linked.Token);
-                            int sdkRunning = Interlocked.Increment(ref sdkActive);
-                            int previousSdk;
-                            do { previousSdk = maximumSdkActive; } while (sdkRunning > previousSdk && Interlocked.CompareExchange(ref maximumSdkActive, sdkRunning, previousSdk) != previousSdk);
-                            try
-                            {
-                                if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
-                                await Task.Run(() =>
-                                {
-                                    using var presentation = new Presentation(path, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interrupt.Token });
-                                    if (settings.StopDuringActive)
-                                    {
-                                        _ = Task.Run(async () =>
-                                        {
-                                            await Task.Delay(20);
-                                            Interlocked.Exchange(ref activeCancellationRequested, 1);
-                                            linked.Cancel();
-                                            lifetime.StopApplication();
-                                        });
-                                    }
-                                    presentation.Save(destination, SaveFormat.Pdf);
-                                    linked.Token.ThrowIfCancellationRequested();
-                                });
-                            }
-                            finally
-                            {
-                                Interlocked.Decrement(ref sdkActive);
-                                SdkGate.Release();
-                            }
-                            linked.Token.ThrowIfCancellationRequested();
-                            using (var pdf = File.OpenRead(destination))
-                            {
-                                var header = new byte[5];
-                                Require(pdf.Length > 500 && pdf.Read(header, 0, header.Length) == 5 && System.Text.Encoding.ASCII.GetString(header) == "%PDF-", "Conversion did not produce a PDF.");
-                            }
-                            results[path] = new JobResult(Path.GetFileName(path), "succeeded", null);
-                        }
-                        catch (Exception) when (linked.IsCancellationRequested)
-                        {
-                            if (File.Exists(destination)) File.Delete(destination);
-                            results[path] = new JobResult(Path.GetFileName(path), "cancelled", null);
-                        }
-                        catch (Exception error)
-                        {
-                            if (File.Exists(destination)) File.Delete(destination);
-                            results[path] = new JobResult(Path.GetFileName(path), "failed", error.GetType().Name);
-                        }
-                        finally { Interlocked.Decrement(ref active); }
-                        if (settings.StopAfter > 0 && Interlocked.Increment(ref completed) >= settings.StopAfter)
-                        {
-                            linked.Cancel();
-                            lifetime.StopApplication();
-                        }
-                    }
+                    await foreach (var path in queue.Reader.ReadAllAsync(stoppingToken))
+                        results[path] = await ConvertOne(path, stoppingToken);
                 }
-                catch (OperationCanceledException) { }
+                catch (OperationCanceledException)
+                {
+                }
             }
 
-            Task[] consumers = Enumerable.Range(0, 2).Select(_ => Consume()).ToArray();
+            var consumers = new[]
+            {
+                Consume(),
+                Consume()
+            };
             try
             {
-                foreach (string path in paths) await queue.Writer.WriteAsync(path, linked.Token);
+                foreach (var path in paths)
+                    await queue.Writer.WriteAsync(path, stoppingToken);
             }
-            catch (OperationCanceledException) { }
-            finally { queue.Writer.TryComplete(); }
+            catch (OperationCanceledException)
+            {
+            }
+            finally
+            {
+                queue.Writer.TryComplete();
+            }
+
             await Task.WhenAll(consumers);
-            foreach (string path in paths)
-                if (results[path].State == "pending") results[path] = new JobResult(Path.GetFileName(path), "cancelled", "not_started_before_shutdown");
-            Require(maximumActive <= 2 && active == 0, "Worker concurrency or disposal failed.");
-            Require(maximumSdkActive <= 1 && sdkActive == 0, "Worker SDK concurrency or disposal failed.");
-            string manifest = JsonSerializer.Serialize(results.Values.OrderBy(r => r.Name), new JsonSerializerOptions { WriteIndented = true });
+            // Shutdown must also account for inputs never taken from the queue.
+            foreach (var path in paths)
+                if (results[path].State == "pending")
+                    results[path] = new(Path.GetFileName(path), "cancelled", "not_started_before_shutdown");
+            var manifest = JsonSerializer.Serialize(results.Values.OrderBy(result => result.Name), new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(Path.Combine(settings.Output, "manifest.json"), manifest, CancellationToken.None);
-            await File.WriteAllTextAsync(Path.Combine(settings.Output, "metrics.json"), JsonSerializer.Serialize(new { queue_capacity = 2, maximum_active = maximumActive, active_cancellation_requested = activeCancellationRequested != 0, sdk_concurrency_bound = 1, maximum_sdk_active = maximumSdkActive, sdk_active = sdkActive }), CancellationToken.None);
             lifetime.StopApplication();
         }
-    }
 
-    private static ExampleContext Context = null!;
-
-    private static string LaunchDirectory = "";
-
-    private static Task<int> Main(string[] args)
-    {
-        LaunchDirectory=Environment.CurrentDirectory;
-        return ExampleBootstrap.RunAsync(args, async context =>
+        private async Task<JobResult> ConvertOne(string sourcePath, CancellationToken cancellation)
         {
-            Context=context;
-            string actionId=context.Arguments.Contains("--self-test")?"application-integration/background-worker/block-001":"application-integration/background-worker/process-folder";
-            await RunExample(context.Arguments);
-            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
-        });
-    }
+            var name = Path.GetFileName(sourcePath);
+            var destination = Path.Combine(settings.Output, Path.GetFileNameWithoutExtension(sourcePath) + ".pdf");
+            var temporaryPath = destination + "." + Guid.NewGuid().ToString("N") + ".partial";
+            var interruption = new InterruptionTokenSource();
+            using var registration = cancellation.Register(interruption.Interrupt);
+            try
+            {
+                await SdkGate.WaitAsync(cancellation);
+                try
+                {
+                    if (PresentationFactory.Instance.GetPresentationInfo(sourcePath).LoadFormat != LoadFormat.Pptx)
+                        return new(name, "failed", "Expected PPTX content.");
+                    await Task.Run(() =>
+                    {
+                        using var presentation = new Presentation(sourcePath, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interruption.Token });
+                        presentation.Save(temporaryPath, SaveFormat.Pdf);
+                    });
+                }
+                finally
+                {
+                    SdkGate.Release();
+                }
 
-    private static void VerifyResult(string actionId)
-    {
-        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
-        using var expected=JsonDocument.Parse("{\"mixed_jobs\":4,\"successful_jobs\":3,\"failed_jobs\":1,\"shutdown_accounted_for_every_job\":true,\"cancellation_recorded\":true,\"queue_capacity\":2,\"concurrency\":2,\"active_conversion_cancelled\":true,\"partial_output_removed\":true}");
-        var checks=new System.Collections.Generic.Dictionary<string,bool>();
-        foreach(var field in expected.RootElement.EnumerateObject())
-        {
-            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
-            string wanted=field.Value.ToString();
-            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
-            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+                cancellation.ThrowIfCancellationRequested();
+                using (var pdf = File.OpenRead(temporaryPath))
+                {
+                    var header = new byte[5];
+                    if (pdf.Length <= 500 || pdf.Read(header, 0, header.Length) != 5 || !header.AsSpan().SequenceEqual("%PDF-"u8))
+                        return new(name, "failed", "Conversion did not produce a valid PDF.");
+                }
+
+                cancellation.ThrowIfCancellationRequested();
+                File.Move(temporaryPath, destination, overwrite: true);
+                return new(name, "succeeded", null);
+            }
+            catch (Exception) when (cancellation.IsCancellationRequested)
+            {
+                return new(name, "cancelled", null);
+            }
+            catch (Exception error)
+            {
+                return new(name, "failed", error.GetType().Name);
+            }
+            finally
+            {
+                if (File.Exists(temporaryPath))
+                    File.Delete(temporaryPath);
+            }
         }
-        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
     }
 
-    private static void PrepareInput(string folder)
+    private static void CreateSampleInputs(string directory)
     {
-        Directory.CreateDirectory(folder);
-        for (int i = 1; i <= 3; i++)
+        Directory.CreateDirectory(directory);
+        foreach (var name in new[]
+        {
+            "01-first",
+            "02-second",
+            "04-after-error"
+        }
+
+        )
         {
             using var presentation = new Presentation();
-            presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 100).TextFrame.Text = "Worker item " + i;
-            presentation.Save(Path.Combine(folder, i + "-valid.pptx"), SaveFormat.Pptx);
+            presentation.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 600, 80).TextFrame.Text = name;
+            presentation.Save(Path.Combine(directory, name + ".pptx"), SaveFormat.Pptx);
         }
-        File.WriteAllText(Path.Combine(folder, "4-corrupt.pptx"), "This is not a presentation.");
-    }
 
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static void PrepareActiveInput()
-    {
-        Directory.CreateDirectory("active-input");
-        using var presentation = new Presentation();
-        var layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-        for (int i = 0; i < 120; i++)
-        {
-            var slide = i == 0 ? presentation.Slides[0] : presentation.Slides.AddEmptySlide(layout);
-            slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 100).TextFrame.Text = "Active conversion page " + i;
-        }
-        presentation.Save("active-input/active.pptx", SaveFormat.Pptx);
-    }
-
-    private static async Task VerifyWorkerRuns()
-    {
-        PrepareInput("input");
-        await Run("input", "normal-output", stopAfter: 0);
-        var complete = JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync("normal-output/manifest.json"))!;
-        Require(complete.Length == 4 && complete.Count(j => j.State == "succeeded") == 3 && complete.Count(j => j.State == "failed") == 1, "Mixed inputs need three successes and one explicit failure.");
-        await Run("input", "shutdown-output", stopAfter: 1);
-        var stopped = JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync("shutdown-output/manifest.json"))!;
-        Require(stopped.Length == 4 && stopped.All(j => j.State != "pending") && stopped.Any(j => j.State == "cancelled"), "Shutdown must account for every job.");
-        PrepareActiveInput();
-        await Run("active-input", "active-output", stopAfter: 0, stopDuringActive: true);
-        var activeStopped = JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync("active-output/manifest.json"))!;
-        using var metrics = JsonDocument.Parse(await File.ReadAllTextAsync("active-output/metrics.json"));
-        Require(activeStopped.Length == 1 && activeStopped[0].State == "cancelled" && !File.Exists("active-output/active.pdf"), "Cancelled active conversion must not be recorded successful or retain an output.");
-        Require(metrics.RootElement.GetProperty("active_cancellation_requested").GetBoolean(), "The stop request must reach active conversion.");
-        var sdkObservations = new System.Collections.Generic.List<object>();
-        foreach (string phase in new[] { "normal-output", "shutdown-output", "active-output" })
-        {
-            using var sdkMetrics = JsonDocument.Parse(await File.ReadAllTextAsync(Path.Combine(phase, "metrics.json")));
-            var observed = sdkMetrics.RootElement;
-            Require(observed.GetProperty("sdk_concurrency_bound").GetInt32() == 1 && observed.GetProperty("maximum_sdk_active").GetInt32() == 1 && observed.GetProperty("sdk_active").GetInt32() == 0, "Every worker phase must finish with SDK concurrency one and no active SDK instance.");
-            sdkObservations.Add(new { phase, metrics = observed.Clone() });
-        }
-        string sdkJson = JsonSerializer.Serialize(new { sdk_concurrency_bound = 1, maximum_sdk_active = 1, sdk_active = 0, runs = sdkObservations });
-        await File.WriteAllTextAsync("sdk-concurrency.json", sdkJson);
-        Console.WriteLine(sdkJson);
-        string json = JsonSerializer.Serialize(new { mixed_jobs = complete.Length, successful_jobs = 3, failed_jobs = 1, shutdown_accounted_for_every_job = true, cancellation_recorded = true, active_conversion_cancelled = true, partial_output_removed = true, queue_capacity = 2, concurrency = 2 });
-        await File.WriteAllTextAsync("result.json", json);
-        Console.WriteLine(json);
+        File.WriteAllText(Path.Combine(directory, "03-corrupt.pptx"), "This is not a presentation.");
     }
 }
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(string[] args, Func<ExampleContext, Task> run)
-    {
-        string start = Environment.CurrentDirectory;
-        string output = Path.Combine(start, "example-output");
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        string? mode = null;
-        var recipeArgs = new List<string>();
-
-        try
-        {
-            for (int i = 0; i < args.Length; i++)
-            {
-                string option = args[i];
-                if (option is not ("--output" or "--license" or "--mode"))
-                {
-                    recipeArgs.Add(option);
-                    continue;
-                }
-                if (++i == args.Length)
-                    throw new ExamplePrerequisiteException("Supply a value for " + option);
-                if (option == "--output")
-                    output = Path.GetFullPath(args[i], start);
-                else if (option == "--license")
-                    licensePath = args[i];
-                else
-                    mode = args[i];
-            }
-
-            mode ??= string.IsNullOrWhiteSpace(licensePath) ? "evaluation" : "licensed";
-            if (mode is not ("evaluation" or "licensed"))
-                throw new ExamplePrerequisiteException("Use --mode evaluation or --mode licensed.");
-            if (mode == "licensed")
-            {
-                if (string.IsNullOrWhiteSpace(licensePath))
-                    throw new ExamplePrerequisiteException("Set ASPOSE_LICENSE_PATH to a valid Aspose.Slides license.");
-                var license = new License();
-                license.SetLicense(Path.GetFullPath(licensePath, start));
-                if (!license.IsLicensed())
-                    throw new ExamplePrerequisiteException("The supplied license could not be applied.");
-            }
-
-            Directory.CreateDirectory(output);
-            Console.WriteLine("Output: " + output);
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, mode, recipeArgs.ToArray()));
-            return 0;
-        }
-        catch (ExamplePrerequisiteException error)
-        {
-            Console.Error.WriteLine(error.Message);
-            return 2;
-        }
-        finally
-        {
-            Environment.CurrentDirectory = start;
-        }
-    }
-}
-
-internal sealed class ExampleContext(string output, string mode, string[] arguments)
-{
-    public string OutputRoot { get; } = output;
-    public string Mode { get; } = mode;
-    public bool IsLicensed => Mode == "licensed";
-    public string[] Arguments { get; } = arguments;
-
-    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
-        ? text
-        : text[..5] + "... text has been truncated due to evaluation version limitation.";
-
-    public void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    public void Prerequisite(bool condition, string message)
-    {
-        if (!condition) throw new ExamplePrerequisiteException(message);
-    }
-}
-
-internal sealed class ExamplePrerequisiteException(string message) : Exception(message);
 ```
 
-## Run and verify
+## **Run and verify**
 
 ```text
 dotnet run --project Example.csproj --configuration Release -- --self-test
@@ -370,7 +200,7 @@ The verification run writes result.json plus "normal-output/manifest.json", "nor
 Read the [detailed Docker guide](/slides/net/how-to-run-aspose-slides-in-docker/) for package and native-library choices when adapting Linux hosting.
 
 
-## Download, prerequisites and run
+## **Download, prerequisites and run**
 
 [Download the complete project](example.zip) and open `Example.sln`. The stable
 net8.0/C#12 project accepts compatible installed release SDKs and explicitly runs

@@ -14,7 +14,6 @@ using Microsoft.Extensions.Hosting;
 internal static partial class Program
 {
     private static readonly SemaphoreSlim SdkGate = new(1);
-
     private static async Task RunExample(string[] args)
     {
         if (args.Contains("--self-test"))
@@ -22,14 +21,16 @@ internal static partial class Program
             await VerifyWorkerRuns();
             return;
         }
-        if(args.Length==0)PrepareInput("input");
-        string input = args.Length > 0 ? Path.GetFullPath(args[0],LaunchDirectory) : "input";
-        Context.Prerequisite(Directory.Exists(input),"The input folder does not exist. Pass a real PPTX input folder, or run without folder arguments for the synthetic local batch.");
-        string output = args.Length > 1 ? Path.GetFullPath(args[1],LaunchDirectory) : "output";
+
+        if (args.Length == 0)
+            PrepareInput("input");
+        string input = args.Length > 0 ? Path.GetFullPath(args[0], LaunchDirectory) : "input";
+        Context.Prerequisite(Directory.Exists(input), "The input folder does not exist. Pass a real PPTX input folder, or run without folder arguments for the synthetic local batch.");
+        string output = args.Length > 1 ? Path.GetFullPath(args[1], LaunchDirectory) : "output";
         await Run(input, output, stopAfter: 0);
-        var processed=JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync(Path.Combine(output,"manifest.json")))!;
-        Context.Require(processed.Length>0&&processed.All(j=>j.State is "succeeded" or "failed" or "cancelled"),"Every queued input needs a final outcome.");
-        Context.Pass("application-integration/background-worker/process-folder","real Generic Host batch completed","every input accounted for");
+        var processed = JsonSerializer.Deserialize<JobResult[]>(await File.ReadAllTextAsync(Path.Combine(output, "manifest.json")))!;
+        Context.Require(processed.Length > 0 && processed.All(j => j.State is "succeeded" or "failed" or "cancelled"), "Every queued input needs a final outcome.");
+        Context.Pass("application-integration/background-worker/process-folder", "real Generic Host batch completed", "every input accounted for");
     }
 
     private static async Task Run(string input, string output, int stopAfter, bool stopDuringActive = false)
@@ -43,14 +44,16 @@ internal static partial class Program
     }
 
     private sealed record WorkSettings(string Input, string Output, int StopAfter, bool StopDuringActive);
-
     private sealed record JobResult(string Name, string State, string? Error);
-
     private sealed class ConversionWorker : BackgroundService
     {
         private readonly WorkSettings settings;
         private readonly IHostApplicationLifetime lifetime;
-        public ConversionWorker(WorkSettings settings, IHostApplicationLifetime lifetime) { this.settings = settings; this.lifetime = lifetime; }
+        public ConversionWorker(WorkSettings settings, IHostApplicationLifetime lifetime)
+        {
+            this.settings = settings;
+            this.lifetime = lifetime;
+        }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
@@ -64,7 +67,6 @@ internal static partial class Program
             int maximumActive = 0;
             int activeCancellationRequested = 0;
             using var linked = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
-
             async Task Consume()
             {
                 try
@@ -74,8 +76,13 @@ internal static partial class Program
                         linked.Token.ThrowIfCancellationRequested();
                         int running = Interlocked.Increment(ref active);
                         int previous;
-                        do { previous = maximumActive; } while (running > previous && Interlocked.CompareExchange(ref maximumActive, running, previous) != previous);
+                        do
+                        {
+                            previous = maximumActive;
+                        }
+                        while (running > previous && Interlocked.CompareExchange(ref maximumActive, running, previous) != previous);
                         string destination = Path.Combine(settings.Output, Path.GetFileNameWithoutExtension(path) + ".pdf");
+                        string temporaryPath = destination + "." + Guid.NewGuid().ToString("N") + ".partial";
                         var interrupt = new InterruptionTokenSource();
                         using var registration = linked.Token.Register(interrupt.Interrupt);
                         try
@@ -83,10 +90,15 @@ internal static partial class Program
                             await SdkGate.WaitAsync(linked.Token);
                             int sdkRunning = Interlocked.Increment(ref sdkActive);
                             int previousSdk;
-                            do { previousSdk = maximumSdkActive; } while (sdkRunning > previousSdk && Interlocked.CompareExchange(ref maximumSdkActive, sdkRunning, previousSdk) != previousSdk);
+                            do
+                            {
+                                previousSdk = maximumSdkActive;
+                            }
+                            while (sdkRunning > previousSdk && Interlocked.CompareExchange(ref maximumSdkActive, sdkRunning, previousSdk) != previousSdk);
                             try
                             {
-                                if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx) throw new InvalidDataException("Expected PPTX content.");
+                                if (PresentationFactory.Instance.GetPresentationInfo(path).LoadFormat != LoadFormat.Pptx)
+                                    throw new InvalidDataException("Expected PPTX content.");
                                 await Task.Run(() =>
                                 {
                                     using var presentation = new Presentation(path, new LoadOptions { LoadFormat = LoadFormat.Pptx, InterruptionToken = interrupt.Token });
@@ -100,7 +112,8 @@ internal static partial class Program
                                             lifetime.StopApplication();
                                         });
                                     }
-                                    presentation.Save(destination, SaveFormat.Pdf);
+
+                                    presentation.Save(temporaryPath, SaveFormat.Pdf);
                                     linked.Token.ThrowIfCancellationRequested();
                                 });
                             }
@@ -109,25 +122,34 @@ internal static partial class Program
                                 Interlocked.Decrement(ref sdkActive);
                                 SdkGate.Release();
                             }
+
                             linked.Token.ThrowIfCancellationRequested();
-                            using (var pdf = File.OpenRead(destination))
+                            using (var pdf = File.OpenRead(temporaryPath))
                             {
                                 var header = new byte[5];
                                 Require(pdf.Length > 500 && pdf.Read(header, 0, header.Length) == 5 && System.Text.Encoding.ASCII.GetString(header) == "%PDF-", "Conversion did not produce a PDF.");
                             }
+
+                            File.Move(temporaryPath, destination, overwrite: true);
                             results[path] = new JobResult(Path.GetFileName(path), "succeeded", null);
                         }
                         catch (Exception) when (linked.IsCancellationRequested)
                         {
-                            if (File.Exists(destination)) File.Delete(destination);
+                            if (File.Exists(temporaryPath))
+                                File.Delete(temporaryPath);
                             results[path] = new JobResult(Path.GetFileName(path), "cancelled", null);
                         }
                         catch (Exception error)
                         {
-                            if (File.Exists(destination)) File.Delete(destination);
+                            if (File.Exists(temporaryPath))
+                                File.Delete(temporaryPath);
                             results[path] = new JobResult(Path.GetFileName(path), "failed", error.GetType().Name);
                         }
-                        finally { Interlocked.Decrement(ref active); }
+                        finally
+                        {
+                            Interlocked.Decrement(ref active);
+                        }
+
                         if (settings.StopAfter > 0 && Interlocked.Increment(ref completed) >= settings.StopAfter)
                         {
                             linked.Cancel();
@@ -135,19 +157,29 @@ internal static partial class Program
                         }
                     }
                 }
-                catch (OperationCanceledException) { }
+                catch (OperationCanceledException)
+                {
+                }
             }
 
             Task[] consumers = Enumerable.Range(0, 2).Select(_ => Consume()).ToArray();
             try
             {
-                foreach (string path in paths) await queue.Writer.WriteAsync(path, linked.Token);
+                foreach (string path in paths)
+                    await queue.Writer.WriteAsync(path, linked.Token);
             }
-            catch (OperationCanceledException) { }
-            finally { queue.Writer.TryComplete(); }
+            catch (OperationCanceledException)
+            {
+            }
+            finally
+            {
+                queue.Writer.TryComplete();
+            }
+
             await Task.WhenAll(consumers);
             foreach (string path in paths)
-                if (results[path].State == "pending") results[path] = new JobResult(Path.GetFileName(path), "cancelled", "not_started_before_shutdown");
+                if (results[path].State == "pending")
+                    results[path] = new JobResult(Path.GetFileName(path), "cancelled", "not_started_before_shutdown");
             Require(maximumActive <= 2 && active == 0, "Worker concurrency or disposal failed.");
             Require(maximumSdkActive <= 1 && sdkActive == 0, "Worker SDK concurrency or disposal failed.");
             string manifest = JsonSerializer.Serialize(results.Values.OrderBy(r => r.Name), new JsonSerializerOptions { WriteIndented = true });

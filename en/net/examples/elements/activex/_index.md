@@ -21,9 +21,9 @@ This article demonstrates how to add, access, remove, and configure ActiveX cont
 
 The checks verify stored controls and properties. Opening or executing ActiveX controls requires a compatible Windows host and its security permissions.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -56,29 +56,25 @@ presentation.Save("add_activex.pptm", SaveFormat.Pptm);
 
 ## **Access an ActiveX Control**
 
-Read information from the first ActiveX control on the slide.
+Create a control with a known Value, then read that property from the first control by index.
 
 ```csharp
 using System;
 using Aspose.Slides.Export;
-using System.Linq;
 using Aspose.Slides;
 
 using var presentation = new Presentation();
 
-var initialControl = presentation.Slides[0].Controls.AddControl(
-    ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
-initialControl.Properties["Value"] = "Text";
-
 var slide = presentation.Slides[0];
+var controls = slide.Controls;
 
-// Access the first ActiveX control.
-var control = slide.Controls.FirstOrDefault();
-if (control != null)
-{
-    Console.WriteLine($"Control Name: {control.Name}");
-    Console.WriteLine($"Value: {control.Properties["Value"]}");
-}
+// Seed one control so index 0 is available for the access example.
+var addedControl = controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
+addedControl.Properties["Value"] = "Text";
+
+var control = controls[0];
+Console.WriteLine($"Control Name: {control.Name}");
+Console.WriteLine($"Value: {control.Properties["Value"]}");
 
 presentation.Save("activex-02.pptm", SaveFormat.Pptm);
 ```
@@ -93,17 +89,10 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 
-var initialControl = presentation.Slides[0].Controls.AddControl(
-    ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
-initialControl.Properties["Value"] = "Text";
-
 var slide = presentation.Slides[0];
+slide.Controls.AddControl(ControlType.WindowsMediaPlayer, 50, 50, 100, 50);
 
-if (slide.Controls.Count > 0)
-{
-    // Remove the first ActiveX control.
-    slide.Controls.RemoveAt(0);
-}
+slide.Controls.RemoveAt(0);
 
 presentation.Save("removed_activex.pptm", SaveFormat.Pptm);
 ```

@@ -11,9 +11,10 @@ internal static partial class Program
         shape.TextFrame.Text = "Aspose";
 
         var textPortion = shape.TextFrame.Paragraphs[0].Portions[0];
-        textPortion.PortionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
+        var portionFormat = textPortion.PortionFormat;
+        portionFormat.HyperlinkClick = new Hyperlink("https://www.aspose.com");
 
-        textPortion.PortionFormat.HyperlinkClick = null;
+        portionFormat.HyperlinkClick = null;
 
         VerifyCase03(presentation);
     }

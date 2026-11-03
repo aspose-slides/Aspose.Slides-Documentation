@@ -29,13 +29,13 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "3b39dbbd13a847bacc19f9f3e057ce284d93b5144b52772a16e9bf73c02f131c",
-      "bytes": 5793
+      "sha256": "24b4f67d595518e1584ccf77315d464822371bc4246187630563fa2090f1f90d",
+      "bytes": 5894
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -64,8 +64,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "6c9f8e79ce5cfe3625ec52a212280e1f8cb3f9dbb82a0d6e36bef7966d0dae08",
-      "bytes": 5075
+      "sha256": "88c3fc0930ee4cc97c921d44f2289103f69933819c8d6e4d8d77d474caf06466",
+      "bytes": 6078
     },
     {
       "path": "Properties/launchSettings.json",

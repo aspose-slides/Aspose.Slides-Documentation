@@ -1,24 +1,16 @@
 using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Net.Http;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Warnings;
 
 internal static partial class Program
 {
     private static Task<int> Main(string[] args) => RunChecked(args);
-
     private static void SignPresentation()
     {
         using var rsa = RSA.Create(2048);
@@ -31,28 +23,33 @@ internal static partial class Program
             Label(original.Slides[0], "Signed example");
             original.Save("original.pptx", SaveFormat.Pptx);
         }
+
         string originalHash = Hash("original.pptx");
         using (var sign = new Presentation("original.pptx"))
         {
             sign.DigitalSignatures.Add(new DigitalSignature(certificate) { Comments = "Disposable example signature" });
             sign.Save("signed.pptx", SaveFormat.Pptx);
         }
+
         using (var signed = new Presentation("signed.pptx"))
         {
             Require(signed.DigitalSignatures.Count == 1 && signed.DigitalSignatures[0].IsValid, "Saved signature is invalid.");
             Require(signed.DigitalSignatures[0].Certificate.Thumbprint == certificate.Thumbprint, "Unexpected signer.");
         }
+
         File.Copy("signed.pptx", "tampered.pptx", true);
         using (var archive = ZipFile.Open("tampered.pptx", ZipArchiveMode.Update))
         {
             var slide = archive.GetEntry("ppt/slides/slide1.xml") ?? throw new InvalidOperationException("Slide XML missing.");
             string xml;
-            using (var reader = new StreamReader(slide.Open())) xml = reader.ReadToEnd();
+            using (var reader = new StreamReader(slide.Open()))
+                xml = reader.ReadToEnd();
             Require(xml.Contains("Signed example", StringComparison.Ordinal), "Fixture marker missing.");
             slide.Delete();
             using var writer = new StreamWriter(archive.CreateEntry("ppt/slides/slide1.xml").Open(), new UTF8Encoding(false));
             writer.Write(xml.Replace("Signed example", "Changed example", StringComparison.Ordinal));
         }
+
         using (var tampered = new Presentation("tampered.pptx"))
             Require(tampered.DigitalSignatures.Count == 1 && !tampered.DigitalSignatures[0].IsValid, "Tampering was accepted.");
         using var chain = new X509Chain();

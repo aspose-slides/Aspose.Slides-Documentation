@@ -20,18 +20,18 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "9c5736b8770db54daf322b9474697089ecb6c7f8887e52ed396e1acc3b4898aa",
-      "bytes": 416
+      "sha256": "69b87e63191c29886a5c49000fc5415e59962f62313df18409d9c80dd14d21c8",
+      "bytes": 468
     },
     {
       "path": "Case02.cs",
-      "sha256": "ec06df585cba1650a881dffa7df495b8d449d1d79dde395b02dbb344038fb136",
-      "bytes": 479
+      "sha256": "d3585f81211917271a8a7514483fd41ac9d76bceae2994f2f68d7f24a0885875",
+      "bytes": 531
     },
     {
       "path": "Case03.cs",
-      "sha256": "3a4b797d5545b0ed139f502f69607082187c2726bd00fe39b04f163239fc3405",
-      "bytes": 473
+      "sha256": "a7d760294eb8ba72b3e3a68919603b3fb28c7b72741ad26da89864cc7917e9de",
+      "bytes": 525
     },
     {
       "path": "CaseVerification.cs",

@@ -10,7 +10,7 @@ internal static partial class Program
         using var audioStream = File.OpenRead(Context.Input("tone.wav"));
 
         // Embed the complete packaged PCM WAV tone.
-        var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+        slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
         VerifyCase01(presentation);
     }

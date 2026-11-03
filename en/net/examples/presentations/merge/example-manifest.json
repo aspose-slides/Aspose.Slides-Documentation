@@ -18,8 +18,8 @@
     },
     {
       "path": "destination-design.png",
-      "sha256": "80a94f622912801b28ab3f08329bd084424a206478ea835dca25b940b38c1eee",
-      "bytes": 2664
+      "sha256": "4e1209a399c8186f087dbe9086cb85a60de15586278b14c954f849015ef00b81",
+      "bytes": 2622
     },
     {
       "path": "Example.csproj",
@@ -68,8 +68,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "a65550827c01da2f95ca8f30eaf9e71cfcf7340f08fc3ecc4956055f74549f19",
-      "bytes": 3574
+      "sha256": "b0d8e84d420919ba343af3583d74f681d5fbc0d533f07bd8728c133da7180ef8",
+      "bytes": 3661
     },
     {
       "path": "README.txt",
@@ -78,13 +78,13 @@
     },
     {
       "path": "source-design-blue.png",
-      "sha256": "b1fe16ddc5fbaff165dc5e37899733034522f074af7bc547c29e35ad2fabee40",
-      "bytes": 2555
+      "sha256": "19b3cb9bd665be98424ad47b128892feaf6304de4c76706b05ea12b13f847ed8",
+      "bytes": 2498
     },
     {
       "path": "source-design-green.png",
-      "sha256": "d44c426ef2537d848a340e7c9fcdfce104a0545c8c2be8eff3641f8d43520e52",
-      "bytes": 2532
+      "sha256": "d55be278bbeb055ab594ba130005dc1a75dcdc955912f96456d916522b66206c",
+      "bytes": 2513
     }
   ]
 }

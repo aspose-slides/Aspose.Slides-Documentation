@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Ink;
@@ -9,14 +10,17 @@ internal static partial class Program
         using var presentation = new Presentation(Context.Input("ink.pptx"));
         var slide = presentation.Slides[0];
 
-        var inkShape = slide.Shapes.OfType<Ink>().First();
-        inkShape.CustomData.Tags["kind"] = "Ink";
-        var tags = inkShape.CustomData.Tags;
-        if (tags.Count > 0)
+        var inkShape = slide.Shapes.OfType<Ink>().FirstOrDefault();
+        if (inkShape == null)
         {
-            var tagName = tags.GetNameByIndex(0);
-            Context.Require(tags[tagName] == "Ink", "Read the known Ink tag value.");
+            Console.WriteLine("No ink shape was found on the first slide.");
+            return;
         }
+
+        var tags = inkShape.CustomData.Tags;
+        tags["kind"] = "Ink";
+        Console.WriteLine($"kind: {tags["kind"]}");
+        Context.Require(tags["kind"] == "Ink", "Read the known Ink tag value.");
 
         VerifyCase01(presentation);
     }

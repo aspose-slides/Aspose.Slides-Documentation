@@ -19,11 +19,11 @@ keywords:
 description: "Add, access, remove, and title PowerPoint charts with Aspose.Slides for .NET C# examples."
 ---
 
-Add, access, remove, and title charts with **Aspose.Slides for .NET**. Each case receives the first slide of a new presentation.
+Add, access, remove, and title charts with **Aspose.Slides for .NET**. Each copied program creates its own presentation and uses its first slide. The download passes a slide to each case method.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -36,7 +36,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Chart**
 
-This method adds a simple area chart to the first slide.
+Add an Area chart to the first slide.
 
 ```csharp
 using Aspose.Slides.Export;

@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using Aspose.Slides;
 
 internal static partial class Program
@@ -9,13 +8,11 @@ internal static partial class Program
         using var presentation = new Presentation(Seed("control"));
         var slide = presentation.Slides[0];
 
-        // Access the first ActiveX control.
-        var control = slide.Controls.FirstOrDefault();
-        if (control != null)
-        {
-            Console.WriteLine($"Control Name: {control.Name}");
-            Console.WriteLine($"Value: {control.Properties["Value"]}");
-        }
+        // The seed presentation contains one control with a known Value property.
+        var controls = slide.Controls;
+        var control = controls[0];
+        Console.WriteLine($"Control Name: {control.Name}");
+        Console.WriteLine($"Value: {control.Properties["Value"]}");
 
         VerifyCase02(presentation);
     }

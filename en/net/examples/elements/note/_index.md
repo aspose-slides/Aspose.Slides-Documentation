@@ -23,9 +23,9 @@ description: "Work with slide notes in Aspose.Slides for .NET: add, read, edit, 
 
 This article demonstrates how to add, read, remove, and update notes slides using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -48,14 +48,14 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var notesSlide = slide.NotesSlideManager.AddNotesSlide();
-slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "Note";
+notesSlide.NotesTextFrame.Text = "Note";
 
 presentation.Save("note-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Access a Notes Slide**
 
-Read text from an existing notes slide.
+Create known notes, then retrieve them through the slide’s notes manager.
 
 ```csharp
 using System;
@@ -68,7 +68,9 @@ var slide = presentation.Slides[0];
 var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
 notesSlide.NotesTextFrame.Text = "Note";
-var notes = notesSlide.NotesTextFrame.Text;
+// Retrieve the seeded notes through the slide manager.
+var existingNotes = slide.NotesSlideManager.NotesSlide;
+var notes = existingNotes.NotesTextFrame.Text;
 Console.WriteLine(notes);
 
 presentation.Save("note-02.pptx", SaveFormat.Pptx);
@@ -85,7 +87,7 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var notesSlide = slide.NotesSlideManager.AddNotesSlide();
+slide.NotesSlideManager.AddNotesSlide();
 
 slide.NotesSlideManager.RemoveNotesSlide();
 
@@ -105,8 +107,8 @@ var slide = presentation.Slides[0];
 
 var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
-slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "Old";
-slide.NotesSlideManager.NotesSlide.NotesTextFrame.Text = "New";
+notesSlide.NotesTextFrame.Text = "Old";
+notesSlide.NotesTextFrame.Text = "New";
 
 presentation.Save("note-04.pptx", SaveFormat.Pptx);
 ```

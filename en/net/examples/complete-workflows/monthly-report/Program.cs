@@ -1,72 +1,112 @@
-using System.IO.Compression;
-using System.Threading.Tasks;
 using System;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Drawing;
-using System.Security.Cryptography;
 using System.Text.Json;
 using Aspose.Slides;
-using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
-using Aspose.Slides.Vba;
+using Aspose.Slides.Charts;
 
 internal static partial class Program
 {
     private static void RunExample()
     {
-        var records = JsonDocument.Parse(File.ReadAllText("sales.json")).RootElement.EnumerateArray().ToArray();
-        double total = records.Sum(r => r.GetProperty("units").GetDouble());
-        Require(records.All(r => r.GetProperty("units").GetDouble() >= 0), "Units must be nonnegative.");
-        using (var template = Deck("Monthly report: {{month}}", "{{product}}"))
-        {
-            Label(template.Slides[0], "{{total}}", "Total", 40, 120, 350, 60);
-            Label(template.Slides[1], "{{units}}", "Units", 40, 150, 500, 80);
-            template.Save("template.pptx", SaveFormat.Pptx);
-        }
-        string original = Hash("template.pptx");
+        var salesJson = File.ReadAllText("sales.json");
+        using var salesDocument = JsonDocument.Parse(salesJson);
+        var sales = salesDocument.RootElement.EnumerateArray().Select(row => new ProductSales(row.GetProperty("product").GetString()!, row.GetProperty("units").GetDouble())).ToArray();
+        Require(sales.All(row => row.Units >= 0), "Units must be nonnegative.");
+
+        var totalUnits = sales.Sum(row => row.Units);
+        CreateTemplate();
+        var originalHash = Hash("template.pptx");
         using var report = new Presentation("template.pptx");
-        var search = new TextSearchOptions { CaseSensitive = true };
-        foreach (var shape in report.Slides[0].Shapes.OfType<IAutoShape>().Where(shape => shape.Name is "Title" or "Total"))
+        var searchOptions = new TextSearchOptions
         {
-            shape.TextFrame.ReplaceText("{{month}}", "October", search, null);
-            shape.TextFrame.ReplaceText("{{total}}", "Total units: " + total, search, null);
+            CaseSensitive = true
+        };
+        foreach (var shape in report.Slides[0].Shapes.OfType<IAutoShape>())
+        {
+            shape.TextFrame.ReplaceText("{{month}}", "October", searchOptions, null);
+            shape.TextFrame.ReplaceText("{{total}}", "Total units: " + totalUnits, searchOptions, null);
         }
-        var chart = report.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 410, 120, 500, 340);
-        chart.ChartData.Series.Clear(); chart.ChartData.Categories.Clear();
-        var book = chart.ChartData.ChartDataWorkbook; book.Clear(0);
-        var series = chart.ChartData.Series.Add(book.GetCell(0, 0, 1, "Units"), chart.Type);
-        var table = report.Slides[0].Shapes.AddTable(40, 220, new double[] { 210, 120 }, Enumerable.Repeat(36.0, records.Length + 1).ToArray());
-        table[0, 0].TextFrame.Text = "Product"; table[1, 0].TextFrame.Text = "Units";
-        var detailTemplate = report.Slides[1];
-        for (int i = 0; i < records.Length; i++)
+
+        AddSalesChart(report.Slides[0], sales);
+        AddSummaryTable(report.Slides[0], sales);
+        AddProductDetails(report, sales, searchOptions);
+        Require(!report.Slides.Any(slide => slide.Shapes.OfType<IAutoShape>().Any(shape => shape.TextFrame.Text.Contains("{{"))), "A template placeholder remains unfilled.");
+
+        report.Save("monthly-report.pptx", SaveFormat.Pptx);
+        report.Save("monthly-report.pdf", SaveFormat.Pdf);
+        VerifyMonthlyReport(sales, totalUnits, originalHash);
+    }
+
+    private sealed record ProductSales(string Product, double Units);
+    private static void CreateTemplate()
+    {
+        using var template = CreateDeck("Monthly report: {{month}}", "{{product}}");
+        AddLabel(template.Slides[0], "{{total}}", "Total", 40, 120, 350, 60);
+        AddLabel(template.Slides[1], "{{units}}", "Units", 40, 150, 500, 80);
+        template.Save("template.pptx", SaveFormat.Pptx);
+    }
+
+    private static void AddSalesChart(ISlide summary, ProductSales[] sales)
+    {
+        var chart = summary.Shapes.AddChart(ChartType.ClusteredColumn, 410, 120, 500, 340);
+        chart.ChartData.Series.Clear();
+        chart.ChartData.Categories.Clear();
+        var workbook = chart.ChartData.ChartDataWorkbook;
+        workbook.Clear(0);
+        var series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Units"), chart.Type);
+        for (var index = 0; index < sales.Length; index++)
         {
-            string product = records[i].GetProperty("product").GetString()!;
-            double units = records[i].GetProperty("units").GetDouble();
-            chart.ChartData.Categories.Add(book.GetCell(0, i + 1, 0, product));
-            series.DataPoints.AddDataPointForBarSeries(book.GetCell(0, i + 1, 1, units));
-            table[0, i + 1].TextFrame.Text = product; table[1, i + 1].TextFrame.Text = units.ToString(System.Globalization.CultureInfo.InvariantCulture);
-            var detail = report.Slides.AddClone(detailTemplate);
-            foreach (var shape in detail.Shapes.OfType<IAutoShape>().Where(shape => shape.Name is "Title" or "Units"))
+            chart.ChartData.Categories.Add(workbook.GetCell(0, index + 1, 0, sales[index].Product));
+            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, index + 1, 1, sales[index].Units));
+        }
+    }
+
+    private static void AddSummaryTable(ISlide summary, ProductSales[] sales)
+    {
+        var rowHeights = Enumerable.Repeat(36.0, sales.Length + 1).ToArray();
+        var table = summary.Shapes.AddTable(40, 220, new double[] { 210, 120 }, rowHeights);
+        table[0, 0].TextFrame.Text = "Product";
+        table[1, 0].TextFrame.Text = "Units";
+        for (var index = 0; index < sales.Length; index++)
+        {
+            table[0, index + 1].TextFrame.Text = sales[index].Product;
+            table[1, index + 1].TextFrame.Text = sales[index].Units.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        }
+    }
+
+    private static void AddProductDetails(Presentation report, ProductSales[] sales, TextSearchOptions searchOptions)
+    {
+        var detailTemplate = report.Slides[1];
+        foreach (var product in sales)
+        {
+            var detailSlide = report.Slides.AddClone(detailTemplate);
+            foreach (var shape in detailSlide.Shapes.OfType<IAutoShape>())
             {
-                shape.TextFrame.ReplaceText("{{product}}", product, search, null);
-                shape.TextFrame.ReplaceText("{{units}}", units.ToString(System.Globalization.CultureInfo.InvariantCulture), search, null);
+                shape.TextFrame.ReplaceText("{{product}}", product.Product, searchOptions, null);
+                shape.TextFrame.ReplaceText("{{units}}", product.Units.ToString(System.Globalization.CultureInfo.InvariantCulture), searchOptions, null);
             }
         }
+
+        // Clone all detail slides before removing their template.
         report.Slides.RemoveAt(1);
-        report.Save("monthly-report.pptx", SaveFormat.Pptx); report.Save("monthly-report.pdf", SaveFormat.Pdf);
+    }
+
+    private static void VerifyMonthlyReport(ProductSales[] sales, double totalUnits, string originalHash)
+    {
         using var reopened = new Presentation("monthly-report.pptx");
-        Require(reopened.Slides.Count == records.Length + 1, "Wrong report size.");
+        Require(reopened.Slides.Count == sales.Length + 1, "Wrong report size.");
         var savedChart = reopened.Slides[0].Shapes.OfType<IChart>().Single();
-        Require(savedChart.ChartData.Series[0].DataPoints.Sum(p => Convert.ToDouble(p.Value.Data)) == total, "Chart values do not reconcile.");
+        Require(savedChart.ChartData.Series[0].DataPoints.Sum(p => Convert.ToDouble(p.Value.Data)) == totalUnits, "Chart values do not reconcile.");
         Require(!reopened.Slides.Any(s => Text(s).Contains("{{")), "Unfilled marker remains.");
         string[] savedText = SavedText("monthly-report.pptx");
         Require(!savedText.Any(text => text.Contains("{{", StringComparison.Ordinal)), "A persisted template marker remains.");
-        Require(savedText.Contains("Monthly report: October") && savedText.Contains("Total units: " + total), "Persisted summary differs.");
-        foreach (var record in records) Require(savedText.Contains(record.GetProperty("product").GetString()!) && savedText.Contains(record.GetProperty("units").GetDouble().ToString(System.Globalization.CultureInfo.InvariantCulture)), "Persisted detail data differs.");
-        Require(Hash("template.pptx") == original, "Template was overwritten.");
+        Require(savedText.Contains("Monthly report: October") && savedText.Contains("Total units: " + totalUnits), "Persisted summary differs.");
+        foreach (var record in sales)
+            Require(savedText.Contains(record.Product) && savedText.Contains(record.Units.ToString(System.Globalization.CultureInfo.InvariantCulture)), "Persisted detail data differs.");
+        Require(Hash("template.pptx") == originalHash, "Template was overwritten.");
         Preview(reopened, "preview.png");
-        Report(new { records = records.Length, total, slides = reopened.Slides.Count, input_preserved = true });
+        Report(new { records = sales.Length, total = totalUnits, slides = reopened.Slides.Count, input_preserved = true });
     }
 }

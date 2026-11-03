@@ -30,7 +30,7 @@ internal static partial class Program
     private static IAutoShape Label(ISlide slide, string text)
     {
         var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
-        shape.Name = "content-" + text;
+        shape.Name = "content-title";
         shape.TextFrame.Text = text;
         shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
         return shape;

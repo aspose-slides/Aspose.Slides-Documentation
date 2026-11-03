@@ -22,9 +22,9 @@ This article demonstrates how to add, access, and remove VBA macros using **Aspo
 
 The checks verify VBA source and macro-enabled presentation storage. Executing VBA requires a compatible application and its macro security permissions.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -48,7 +48,11 @@ using var presentation = new Presentation();
 presentation.VbaProject = new VbaProject();
 
 var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+module.SourceCode = """
+    Sub Test()
+        MsgBox "Hi"
+    End Sub
+    """;
 
 presentation.Save("vba-macro-01.pptm", SaveFormat.Pptm);
 ```
@@ -67,10 +71,14 @@ using var presentation = new Presentation();
 presentation.VbaProject = new VbaProject();
 
 var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+module.SourceCode = """
+    Sub Test()
+        MsgBox "Hi"
+    End Sub
+    """;
 
 var firstModule = presentation.VbaProject.Modules[0];
-Console.WriteLine(firstModule.Name);
+Console.WriteLine($"Module: {firstModule.Name}");
 
 presentation.Save("vba-macro-02.pptm", SaveFormat.Pptm);
 ```
@@ -88,7 +96,11 @@ using var presentation = new Presentation();
 presentation.VbaProject = new VbaProject();
 
 var module = presentation.VbaProject.Modules.AddEmptyModule("Module");
-module.SourceCode = "Sub Test()\n MsgBox \"Hi\" \nEnd Sub";
+module.SourceCode = """
+    Sub Test()
+        MsgBox "Hi"
+    End Sub
+    """;
 
 presentation.VbaProject.Modules.Remove(module);
 

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "templates-data/populate-tables",
   "archive": "example.zip",
-  "archive_sha256": "8c05c3296ba985f51b851e3cb457338c01c8017ba7bd6a0ffe932ab8dbc292f9",
+  "archive_sha256": "cc560d7b7dfd04cecdf1402a5f03443e532e4877cfcf920c3e84cbfaf5431f5e",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "Example.cs",
-      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
-      "bytes": 6126
+      "sha256": "6dcf2fc5aabea4c4d4623b91f3107d5e8327c62b95a9150b10456520e51630fd",
+      "bytes": 2697
     },
     {
       "path": "Example.csproj",
@@ -71,8 +71,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "0f5fdfd44f1a66cd6f726e4bcfc2c0189c3f82580b8777077abeeba7eb235a5e",
-      "bytes": 3268
+      "sha256": "da8939fee2fd86c550c68f56f7934071e781003126e05312aeca88215a77b1e7",
+      "bytes": 4311
     },
     {
       "path": "README.txt",
@@ -81,7 +81,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "cc276811021b3e2089dbfc14dbe5a724ca32ce36e57d34f5739ec684ae6d1ea7",
+      "sha256": "5718c83d9c4d1f882252e910b01acf397dc594b6f2f6076cb20c915378d98bb9",
       "bytes": 2745
     },
     {

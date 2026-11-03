@@ -21,9 +21,9 @@ description: "Create, access and remove shape groups, and move a shape out of it
 
 Create, access and remove shape groups with **Aspose.Slides for .NET**. Move an individual shape out of its group.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -86,6 +86,7 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var group = slide.Shapes.AddGroupShape();
+group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
 slide.Shapes.Remove(group);
 
@@ -106,11 +107,11 @@ using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
 var group = slide.Shapes.AddGroupShape();
-var rect = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
+var rectangle = group.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
 
-// Move shape out of the group.
-slide.Shapes.AddClone(rect);
-group.Shapes.Remove(rect);
+// Clone the rectangle onto the slide, then remove its original from the group.
+slide.Shapes.AddClone(rectangle);
+group.Shapes.Remove(rectangle);
 
 presentation.Save("group-shape-04.pptx", SaveFormat.Pptx);
 ```

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/ole-object",
   "archive": "example.zip",
-  "archive_sha256": "326f6e955202e42b27de2c78fbaf5e52ca88cb322eed6b53702e554ab5da8652",
+  "archive_sha256": "baea9e38d5d202745e93d3becd667bc5a330fe4eadd1410e71db2d11dbb0f1e2",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,13 +16,13 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "9cae89cb35520fe27850ff56893acf7974c94b01c6cc9e8f16c0bc26c32a025d",
-      "bytes": 494
+      "sha256": "6d830aa7393fcfa5ce342ffab7dc52c6a1ee89b6ef5f2b4d31fdfc024d3b9110",
+      "bytes": 479
     },
     {
       "path": "Case02.cs",
-      "sha256": "e087fc9cec6f54736b0ef571673240869009240c0fe6f1c7db04eba4a9876eab",
-      "bytes": 590
+      "sha256": "4882f70204ecf48870a2d17fe2166248dac5b6515cbeae021fd122d641a08fc9",
+      "bytes": 575
     },
     {
       "path": "Case03.cs",
@@ -31,8 +31,8 @@
     },
     {
       "path": "Case04.cs",
-      "sha256": "8aae2aecba8fcc98ffe88edb4e50113f48935ffde7796d7ad0b8115f56522a76",
-      "bytes": 680
+      "sha256": "eddb6132109ba106536dc985769957310b36de72abf75366de692e3a7548ed0d",
+      "bytes": 733
     },
     {
       "path": "CaseVerification.cs",
@@ -101,7 +101,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "123451257e053c76641655d904fea5e7a54064bd7b1a37f1482b7466388279a3",
+      "sha256": "4fd2f498082570fce0c0114881556536fcd7f7bdb3a89e7d7d03126f422b41ef",
       "bytes": 3419
     },
     {

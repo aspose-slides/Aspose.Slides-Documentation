@@ -9,7 +9,7 @@ internal static partial class Program
 
         var section = presentation.Sections.AddSection("Temporary Section", slide);
 
-        // Remove the first section.
+        // Remove the section returned when it was added; keep its slide.
         presentation.Sections.RemoveSection(section);
 
         VerifyCase03(presentation);

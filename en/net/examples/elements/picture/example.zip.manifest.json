@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/picture",
   "archive": "example.zip",
-  "archive_sha256": "def379a39bb42a08441cc333e3dc495034fbb397535d1571fa511c3ad957cd75",
+  "archive_sha256": "c49bfac6c4a2f17c7e52ea9319f4fd6ab17cf5f2e4fa35342267ffdf04463edd",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,13 +16,13 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "0a09bd09c913632046d2dcbd60fa2fa6f5253d66c4c5334d31aa88ae182ddcee",
-      "bytes": 825
+      "sha256": "a0850af4c386ee269b05bcac573b202976e84af12c84315d144921ca6174db1f",
+      "bytes": 793
     },
     {
       "path": "Case02.cs",
-      "sha256": "7a3acefad57b677244beb2bc0907de41923c8a8d03a63b8ed9192cb293a09cfb",
-      "bytes": 765
+      "sha256": "8bc67d072bef29c6c8b3aba14e8839c30194646e5d71ffaa8c257afef1635dea",
+      "bytes": 734
     },
     {
       "path": "CaseVerification.cs",
@@ -86,7 +86,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "7e32f05a22e653e5be1bd4c43abe2aa2877a5c78fd3c856594297e6409612863",
+      "sha256": "74f5c31cfa956fb252ca1300bbe2b01bc84cacf70fa1f08b38ea0fab698a3bb9",
       "bytes": 2897
     },
     {

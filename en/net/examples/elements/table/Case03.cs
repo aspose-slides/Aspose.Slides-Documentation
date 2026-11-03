@@ -7,9 +7,9 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
-        double[] widths = { 80, 80 };
-        double[] heights = { 30, 30 };
-        var table = slide.Shapes.AddTable(50, 50, widths, heights);
+        double[] columnWidths = { 80, 80 };
+        double[] rowHeights = { 30, 30 };
+        var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
         slide.Shapes.Remove(table);
 

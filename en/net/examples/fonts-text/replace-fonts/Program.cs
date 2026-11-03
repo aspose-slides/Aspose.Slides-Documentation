@@ -1,27 +1,14 @@
 using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.IO.Compression;
 using System.Linq;
-using System.Net.Http;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Warnings;
 
 internal static partial class Program
 {
     private static Task<int> Main(string[] args) => RunChecked(args);
-
     private static void ReplaceFonts()
     {
-        PrepareFonts(false);
+        LoadVerifiedFonts("NotoSans-Regular.ttf");
         try
         {
             using (var source = new Presentation())
@@ -35,6 +22,7 @@ internal static partial class Program
                 defaultText.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.LatinFont = new FontData("Arial");
                 source.Save("input.pptx", SaveFormat.Pptx);
             }
+
             string inputHash = Hash("input.pptx");
             using (var editable = new Presentation("input.pptx"))
             {
@@ -43,6 +31,7 @@ internal static partial class Program
                 editable.FontsManager.ReplaceFont(new FontData("Arial"), new FontData("Noto Sans"));
                 editable.Save("output.pptx", SaveFormat.Pptx);
             }
+
             using (var result = new Presentation("output.pptx"))
             {
                 var a = result.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "explicit");
@@ -52,9 +41,13 @@ internal static partial class Program
                 Require(a.TextFrame.Text == Context.ExpectedText("Explicit font") && b.TextFrame.Text == Context.ExpectedText("Paragraph default"), "Text changed.");
                 Render(result.Slides[0], "preview.png");
             }
+
             Require(Hash("input.pptx") == inputHash, "Original changed.");
             Report(new { explicit_replaced = true, paragraph_default_replaced = true, saved_text_retained = true, original_unchanged = true });
         }
-        finally { FontsLoader.ClearCache(); }
+        finally
+        {
+            FontsLoader.ClearCache();
+        }
     }
 }

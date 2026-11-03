@@ -1,4 +1,3 @@
-using System;
 using Aspose.Slides;
 using Aspose.Slides.MathText;
 
@@ -20,14 +19,14 @@ internal static partial class Program
         mathParagraph.Add(new MathBlock(fraction));
 
         // Add equation: c² = a² + b²
-        var mathBlock = new MathematicalText("c")
+        var pythagoreanEquation = new MathematicalText("c")
             .SetSuperscript("2")
             .Join("=")
             .Join(new MathematicalText("a").SetSuperscript("2"))
             .Join("+")
             .Join(new MathematicalText("b").SetSuperscript("2"));
 
-        mathParagraph.Add(mathBlock);
+        mathParagraph.Add(pythagoreanEquation);
 
         VerifyCase01(presentation);
     }

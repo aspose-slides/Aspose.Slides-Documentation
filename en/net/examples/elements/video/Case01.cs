@@ -10,7 +10,7 @@ internal static partial class Program
 
         // Add a video.
         var video = presentation.Videos.AddVideo(File.ReadAllBytes(Context.Input("video.mp4")));
-        var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
+        slide.Shapes.AddVideoFrame(50, 50, 320, 240, video);
 
         VerifyCase01(presentation);
     }

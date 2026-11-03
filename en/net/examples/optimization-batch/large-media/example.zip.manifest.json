@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "optimization-batch/large-media",
   "archive": "example.zip",
-  "archive_sha256": "2be48c9f9d8f314f3c03a70b2ba2f07b550869fa11dc5ed0c7f36480d17d3c05",
+  "archive_sha256": "dead5258ab209f9e8e32c3d61fc09f16f44253270c15cf3ab690ca2790092ac8",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "Example.cs",
-      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
-      "bytes": 6126
+      "sha256": "b530a7d9d8e2e7160b9cc31b5ae9f5a6ce43860c567b232ae048d9bf983f79fc",
+      "bytes": 7156
     },
     {
       "path": "Example.csproj",
@@ -31,18 +31,18 @@
     },
     {
       "path": "ExampleBootstrap.cs",
-      "sha256": "1ff0cf841c1b6b1ac6199daea8ad97fb3e5aaeea491dad9317c4e3e8257f20f9",
-      "bytes": 11655
+      "sha256": "ac70fa9486d90482eaeee6b6dec62a07ce76adc9a3e19782fb69b8a42c97e046",
+      "bytes": 12407
     },
     {
       "path": "ExampleFixtures.cs",
-      "sha256": "2d2e6292030f96dd6c0e52bc7adccdf2f7b466c1d20501bcfe0bab64817c60d7",
-      "bytes": 1259
+      "sha256": "0d8754d593ea85b56f22d6a5b517c14c6b08e6236dec0173a804dc8b23316d32",
+      "bytes": 1055
     },
     {
       "path": "ExampleVerification.cs",
-      "sha256": "a338e243556bc0592ddb8d16afd06d1089ef919333e52b53ae2cbd03fe2505d0",
-      "bytes": 2719
+      "sha256": "28a01800136ac41ad9414076bde1e8d873f785e112f322801479124e9950e918",
+      "bytes": 2547
     },
     {
       "path": "Fonts/NotoSans-Regular.ttf",
@@ -66,13 +66,13 @@
     },
     {
       "path": "PortableImage.cs",
-      "sha256": "1ff56269e28daf566e009e41a33cd406ed793745b97ef80bde6313b2c3bbda39",
-      "bytes": 5750
+      "sha256": "297677544e7955e5716cf449f3478aac9f162ffb3c6ea386677269dba0ab25bb",
+      "bytes": 8017
     },
     {
       "path": "Program.cs",
-      "sha256": "9cb752850add0cde980b725d12f78007babe48ae65cf3db2fe4bc82ea3642e7f",
-      "bytes": 2751
+      "sha256": "e7a383988ff6753b9e0283e3562fa455ce94119377e590445015c2ad505169fe",
+      "bytes": 2638
     },
     {
       "path": "README.txt",
@@ -81,7 +81,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "40d1f53376b236b57169f44877317d53128012e97cbd8d0604b38f043501ad2a",
+      "sha256": "fc55c09ade760b6eab1085535d10ceed47b327e6ffc0a34d25343d1eb853e8c8",
       "bytes": 2619
     },
     {

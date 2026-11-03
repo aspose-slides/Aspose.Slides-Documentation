@@ -1,18 +1,14 @@
-using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 internal static partial class Program
 {
     private const string WatermarkTag = "example-watermark:";
-
+    private static bool IsApplicationWatermark(IShape shape) => shape.AlternativeText.StartsWith(WatermarkTag, StringComparison.Ordinal);
     private static void MarkText(Presentation presentation)
     {
         foreach (var slide in presentation.Slides)
@@ -44,7 +40,7 @@ internal static partial class Program
     {
         foreach (var slide in presentation.Slides)
             for (int i = slide.Shapes.Count - 1; i >= 0; i--)
-                if (slide.Shapes[i].AlternativeText.StartsWith(WatermarkTag, StringComparison.Ordinal))
+                if (IsApplicationWatermark(slide.Shapes[i]))
                     slide.Shapes.RemoveAt(i);
     }
 
@@ -66,6 +62,7 @@ internal static partial class Program
             using var rendered = slide.GetImage(new Size(150, 50));
             rendered.Save("watermark.png", Aspose.Slides.ImageFormat.Png);
         }
+
         using (var created = new Presentation())
         {
             created.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
@@ -74,6 +71,7 @@ internal static partial class Program
             Label(second, "Second layout");
             created.Save("input.pptx", SaveFormat.Pptx);
         }
+
         string inputHash = Hash("input.pptx");
         using (var text = new Presentation("input.pptx"))
         {
@@ -82,24 +80,27 @@ internal static partial class Program
             using var preview = text.Slides[0].GetImage(new Size(640, 360));
             preview.Save("preview-text.png", Aspose.Slides.ImageFormat.Png);
         }
+
         using (var image = new Presentation("text-watermark.pptx"))
         {
             MarkImage(image);
             image.Save("image-watermark.pptx", SaveFormat.Pptx);
             for (int i = 0; i < image.Slides.Count; i++)
             {
-                Require(image.Slides[i].Shapes.Count(s => s.AlternativeText.StartsWith(WatermarkTag, StringComparison.Ordinal)) == 2, "A watermark is missing.");
+                Require(image.Slides[i].Shapes.Count(IsApplicationWatermark) == 2, "A watermark is missing.");
                 using var preview = image.Slides[i].GetImage(new Size(640, 360));
                 preview.Save($"preview-image-{i + 1}.png", Aspose.Slides.ImageFormat.Png);
             }
+
             RemoveOurWatermarks(image);
             image.Save("removed.pptx", SaveFormat.Pptx);
         }
+
         using (var original = new Presentation("input.pptx"))
         using (var removed = new Presentation("removed.pptx"))
         {
             Require(removed.Slides.Count == original.Slides.Count, "Slide count changed.");
-            Require(removed.Slides.All(s => !s.Shapes.Any(x => x.AlternativeText.StartsWith(WatermarkTag, StringComparison.Ordinal))), "A tagged application watermark remains.");
+            Require(removed.Slides.All(s => !s.Shapes.Any(IsApplicationWatermark)), "A tagged application watermark remains.");
             for (int i = 0; i < original.Slides.Count; i++)
             {
                 Require(ApplicationShapes(removed.Slides[i]).Count() == ApplicationShapes(original.Slides[i]).Count(), "Original shape count changed.");
@@ -107,6 +108,7 @@ internal static partial class Program
                 Require(ApplicationShapes(removed.Slides[i]).Select(s => s.Name).SequenceEqual(ApplicationShapes(original.Slides[i]).Select(s => s.Name)), "Original shape identities changed.");
             }
         }
+
         Require(Hash("input.pptx") == inputHash, "The source was overwritten.");
         Report(new { slides = 2, text_and_image_applied = true, multiple_layouts_rendered = true, originals_retained = true, tagged_removal_only = true, original_unchanged = true });
     }

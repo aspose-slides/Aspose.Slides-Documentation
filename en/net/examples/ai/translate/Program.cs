@@ -1,12 +1,9 @@
 using System;
-using System.Collections.Concurrent;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 using Aspose.Slides;
 using Aspose.Slides.AI;
@@ -31,15 +28,16 @@ internal static partial class Program
                 using var image = original.Slides[0].GetImage(new Size(640, 360));
                 image.Save("original.png", Aspose.Slides.ImageFormat.Png);
             }
+
             byte[] originalHash = System.Security.Cryptography.SHA256.HashData(File.ReadAllBytes("original.pptx"));
-            using var deck = new Presentation("original.pptx");
-            double originalX = deck.Slides[0].Shapes[0].X;
+            using var targetPresentation = new Presentation("original.pptx");
+            double originalX = targetPresentation.Slides[0].Shapes[0].X;
             using var http = Http("default");
             using var client = new AsposeAIWebClient(http);
-            await new SlidesAIAgent(client).TranslateAsync(deck, "Spanish");
-            string translated = AllText(deck);
+            await new SlidesAIAgent(client).TranslateAsync(targetPresentation, "Spanish");
+            string translated = AllText(targetPresentation);
             Require(translated.Contains("hola", StringComparison.OrdinalIgnoreCase) && translated.Contains("buen", StringComparison.OrdinalIgnoreCase) && translated.Contains("gracias", StringComparison.OrdinalIgnoreCase), "Expected Spanish shape, group and table text.");
-            deck.Save("translated.pptx", SaveFormat.Pptx);
+            targetPresentation.Save("translated.pptx", SaveFormat.Pptx);
             using var reopened = new Presentation("translated.pptx");
             Require(AllText(reopened) == translated, "Translated text changed after reopening.");
             Require(reopened.Slides[0].Shapes[0].X == originalX, "Shape position changed.");

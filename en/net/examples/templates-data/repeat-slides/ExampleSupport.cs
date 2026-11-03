@@ -28,11 +28,15 @@ internal static partial class Program
         var checks=new System.Collections.Generic.Dictionary<string,bool>();
         if(ctx.IsLicensed)
         {
+            using var customerData = JsonDocument.Parse(File.ReadAllText("customers.json"));
+            int expectedSlideCount = customerData.RootElement.GetArrayLength();
             using var expected=JsonDocument.Parse("{\"checks.slide_count\":2,\"checks.order_preserved\":true,\"checks.no_template_slide\":true,\"checks.no_state_leak\":true,\"checks.semantic_repeatability\":true,\"checks.duplicate_name_rejected\":true}");
             foreach(var field in expected.RootElement.EnumerateObject())
             {
                 var actual=result.RootElement;foreach(string part in field.Name.Split('.'))actual=actual.GetProperty(part);
-                ctx.Require(actual.ToString()==field.Value.ToString(),"Licensed assertion differs: "+field.Name);
+                string expectedValue = field.Name == "checks.slide_count"
+                    ? expectedSlideCount.ToString(CultureInfo.InvariantCulture) : field.Value.ToString();
+                ctx.Require(actual.ToString()==expectedValue,"Licensed assertion differs: "+field.Name);
                 checks["licensed-"+field.Name.Replace('.','-')]=true;
             }
         }

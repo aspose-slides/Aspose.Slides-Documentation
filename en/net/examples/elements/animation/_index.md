@@ -21,9 +21,9 @@ description: "Explore Aspose.Slides for .NET animation examples: add, sequence, 
 
 This article demonstrates how to create simple animations and manage their sequence using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -48,7 +48,6 @@ var slide = presentation.Slides[0];
 
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-// Fade effect.
 slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
 presentation.Save("animation-01.pptx", SaveFormat.Pptx);
@@ -67,11 +66,12 @@ using Aspose.Slides.Animation;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+var sequence = slide.Timeline.MainSequence;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+sequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
 // Access the first animation effect.
-var effect = slide.Timeline.MainSequence[0];
+var effect = sequence[0];
 Console.WriteLine(effect.Type);
 
 presentation.Save("animation-02.pptx", SaveFormat.Pptx);
@@ -89,18 +89,19 @@ using Aspose.Slides.Animation;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+var sequence = slide.Timeline.MainSequence;
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var effect = sequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
 // Remove the effect.
-slide.Timeline.MainSequence.Remove(effect);
+sequence.Remove(effect);
 
 presentation.Save("animation-03.pptx", SaveFormat.Pptx);
 ```
 
 ## **Sequence Animations**
 
-Add multiple effects and demonstrate the order in which animations occur.
+Animate the rectangle first, then the ellipse. Each flies in from the bottom and waits for its own click.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -110,12 +111,12 @@ using Aspose.Slides.Animation;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-var shape2 = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 200, 50, 100, 100);
+var rectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
+var ellipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 200, 50, 100, 100);
 
 var sequence = slide.Timeline.MainSequence;
-sequence.AddEffect(shape1, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
-sequence.AddEffect(shape2, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+sequence.AddEffect(rectangle, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+sequence.AddEffect(ellipse, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
 
 presentation.Save("animation-04.pptx", SaveFormat.Pptx);
 ```

@@ -23,9 +23,9 @@ Use **Aspose.Slides for .NET** to set and read tags on an existing ink shape or 
 
 For the copied blocks, pass the path to a PPTX with ink on its first slide, for example `dotnet run -- ink.pptx`. You can use your own deck or the [sample input](Fixtures/ink.pptx).
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -40,7 +40,9 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Set and Read an Ink Tag**
 
-Set a tag on the first ink shape and read back the known tag value.
+Set the kind tag on the first ink shape and read that same named tag. Existing tags are preserved. If the first slide has no ink, the program prints a message and exits without saving.
+
+Pass a PPTX with ink on its first slide, such as the [sample input](Fixtures/ink.pptx), using `dotnet run -- ink.pptx`.
 
 ```csharp
 using System;
@@ -59,21 +61,25 @@ if (args.Length != 1)
 using var presentation = new Presentation(args[0]);
 var slide = presentation.Slides[0];
 
-var inkShape = slide.Shapes.OfType<Ink>().First();
-inkShape.CustomData.Tags["kind"] = "Ink";
-var tags = inkShape.CustomData.Tags;
-if (tags.Count > 0)
+var inkShape = slide.Shapes.OfType<Ink>().FirstOrDefault();
+if (inkShape == null)
 {
-    var tagName = tags.GetNameByIndex(0);
-    Console.WriteLine($"{tagName}: {tags[tagName]}");
+    Console.WriteLine("No ink shape was found on the first slide.");
+    return;
 }
+
+var tags = inkShape.CustomData.Tags;
+tags["kind"] = "Ink";
+Console.WriteLine($"kind: {tags["kind"]}");
 
 presentation.Save("ink-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove Ink**
 
-Delete an ink shape from the slide if one exists.
+Delete the first ink shape while preserving other shapes. If no ink exists on the first slide, print a message and exit without saving.
+
+Pass a PPTX with ink on its first slide, such as the [sample input](Fixtures/ink.pptx), using `dotnet run -- ink.pptx`.
 
 ```csharp
 using System;
@@ -92,10 +98,14 @@ if (args.Length != 1)
 using var presentation = new Presentation(args[0]);
 var slide = presentation.Slides[0];
 
-if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
+var inkShape = slide.Shapes.OfType<Ink>().FirstOrDefault();
+if (inkShape == null)
 {
-    slide.Shapes.Remove(ink);
+    Console.WriteLine("No ink shape was found on the first slide.");
+    return;
 }
+
+slide.Shapes.Remove(inkShape);
 
 presentation.Save("ink-02.pptx", SaveFormat.Pptx);
 ```

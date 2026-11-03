@@ -23,8 +23,8 @@
     },
     {
       "path": "Example.cs",
-      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
-      "bytes": 6126
+      "sha256": "f8b2f5d54d3a0a3b1b09c72a9678caa129d61e57e4e373495d258c6bbbfb4f07",
+      "bytes": 3916
     },
     {
       "path": "Example.csproj",
@@ -43,8 +43,8 @@
     },
     {
       "path": "ExampleSupport.cs",
-      "sha256": "4b98aabab7744bcaec556be720fc27712d39b31d66deb0c22d707914ab9e81ca",
-      "bytes": 2593
+      "sha256": "4c4eb7b24e9fb2f20e2b2d924117738dbfd4275a0ea21cddd2703acdf2f41a15",
+      "bytes": 2937
     },
     {
       "path": "Fixtures/customers.json",
@@ -83,8 +83,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "cdf40e7f568511553bccd0222ce5bd8fbc3cfc0fc1aee466da260f727b7f1df5",
-      "bytes": 3112
+      "sha256": "446183da32b8232daa342efdc26b58b00b2fc3417281d19fb11b7383450ffa7f",
+      "bytes": 4794
     },
     {
       "path": "README.txt",

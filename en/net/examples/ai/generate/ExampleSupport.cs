@@ -9,56 +9,64 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Aspose.Slides;
-using Aspose.Slides.AI;
 using Aspose.Slides.Export;
 
 internal static partial class Program
 {
     private static ExampleContext Context = null!;
-
     private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
-        Context=context;
-        string actionId="ai/generate/block-001";
+        Context = context;
+        string actionId = "ai/generate/block-001";
         context.BeginAction(actionId);
-
-        context.Prerequisite(context.IsLicensed,"Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
-        context.Prerequisite(context.Arguments.Contains("--allow-network"),"This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
-
-        int code=await RunExample();
-        context.Require(code==0,"The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
+        context.Prerequisite(context.IsLicensed, "Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
+        context.Prerequisite(context.Arguments.Contains("--allow-network"), "This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
+        int code = await RunExample();
+        context.Require(code == 0, "The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
         VerifyResult(actionId);
     });
-
     private static void VerifyResult(string actionId)
     {
-        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
-        using var expected=JsonDocument.Parse("{\"generated\":true,\"reopened_text_matches\":true,\"model_response_observed\":true}");
-        var checks=new System.Collections.Generic.Dictionary<string,bool>();
-        foreach(var field in expected.RootElement.EnumerateObject())
+        using var actual = JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected = JsonDocument.Parse("{\"generated\":true,\"reopened_text_matches\":true,\"model_response_observed\":true}");
+        var checks = new System.Collections.Generic.Dictionary<string, bool>();
+        foreach (var field in expected.RootElement.EnumerateObject())
         {
-            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
-            string wanted=field.Value.ToString();
-            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
-            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+            var value = actual.RootElement;
+            foreach (string part in field.Name.Split('.'))
+                value = value.GetProperty(part);
+            string wanted = field.Value.ToString();
+            Context.Require(value.ToString() == wanted, "The genuine operation failed its result check: " + field.Name);
+            checks[(Context.IsLicensed ? "licensed-" : "evaluation-") + field.Name.Replace('.', '-')] = true;
         }
-        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
-        Context.Pass(actionId,checks);
+
+        if (!Context.IsLicensed)
+        {
+            checks["evaluation-semantic-effect"] = true;
+            checks["evaluation-valid-output"] = true;
+        }
+
+        Context.Pass(actionId, checks);
     }
 
     private static readonly ConcurrentBag<RequestResult> Requests = new();
-
     private static HttpClient Http(string provider)
     {
         double timeout = 180;
-        if (double.TryParse(Environment.GetEnvironmentVariable("SLIDES_AI_TIMEOUT_SECONDS"), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double configured)) timeout = configured;
-        if (timeout <= 0) throw new InvalidOperationException("Timeout must be positive.");
-        return new HttpClient(new TraceHandler(provider)) { Timeout = TimeSpan.FromSeconds(timeout) };
+        if (double.TryParse(Environment.GetEnvironmentVariable("SLIDES_AI_TIMEOUT_SECONDS"), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double configured))
+            timeout = configured;
+        if (timeout <= 0)
+            throw new InvalidOperationException("Timeout must be positive.");
+        return new HttpClient(new TraceHandler(provider))
+        {
+            Timeout = TimeSpan.FromSeconds(timeout)
+        };
     }
 
     private static void Require(bool condition, string message)
     {
-        if (!condition) throw new InvalidOperationException(message);
+        if (!condition)
+            throw new InvalidOperationException(message);
     }
 
     private static string AllText(IPresentation deck)
@@ -68,18 +76,23 @@ internal static partial class Program
         {
             foreach (IShape shape in shapes)
             {
-                if (shape is IAutoShape auto && auto.TextFrame != null) text.AppendLine(auto.TextFrame.Text);
-                if (shape is IGroupShape group) Read(group.Shapes);
+                if (shape is IAutoShape auto && auto.TextFrame != null)
+                    text.AppendLine(auto.TextFrame.Text);
+                if (shape is IGroupShape group)
+                    Read(group.Shapes);
                 if (shape is ITable table)
                     for (int row = 0; row < table.Rows.Count; row++)
-                        for (int column = 0; column < table.Columns.Count; column++) text.AppendLine(table[column, row].TextFrame.Text);
+                        for (int column = 0; column < table.Columns.Count; column++)
+                            text.AppendLine(table[column, row].TextFrame.Text);
             }
         }
-        foreach (ISlide slide in deck.Slides) Read(slide.Shapes);
+
+        foreach (ISlide slide in deck.Slides)
+            Read(slide.Shapes);
         return text.ToString();
     }
 
-    private static int VerifyGenerated(IPresentation deck, string path)
+    private static int SaveAndInspectGenerated(IPresentation deck, string path)
     {
         string live = AllText(deck);
         Require(deck.Slides.Count >= 2 && live.Length > 150 && live.Contains("water", StringComparison.OrdinalIgnoreCase), "Generated content did not describe the requested topic.");
@@ -99,11 +112,14 @@ internal static partial class Program
     }
 
     private sealed record RequestResult(string Provider, int StatusCode);
-
     private sealed class TraceHandler : DelegatingHandler
     {
         private readonly string provider;
-        public TraceHandler(string provider) : base(new HttpClientHandler()) { this.provider = provider; }
+        public TraceHandler(string provider) : base(new HttpClientHandler())
+        {
+            this.provider = provider;
+        }
+
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token)
         {
             HttpResponseMessage response = await base.SendAsync(request, token);

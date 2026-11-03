@@ -8,7 +8,7 @@ description: "Complete runnable C# project to generate a monthly report using As
 
 Build a monthly report from a small JSON dataset and an original branded template. The project populates an editable chart/table, repeats a detail slide for every product and delivers PPTX plus PDF. It checks that chart totals reconcile to the source and preserves the template.
 
-## Download and run
+## **Download and run**
 
 Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
 
@@ -19,7 +19,7 @@ dotnet run --project Example.csproj -- --mode evaluation
 Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
-## Inputs and execution
+## **Inputs and execution**
 
 [Download the complete project](example.zip), including its original inputs, all source and pinned dependencies. The project uses bundled Noto Sans and the flexible SDK policy described in the setup guide. Set `ASPOSE_LICENSE_PATH` to your license file; unrestricted content checks require a valid license. See [licensing](/slides/net/licensing/). No PowerPoint installation is required.
 
@@ -29,95 +29,125 @@ dotnet run --project Example.csproj --configuration Release
 
 The program generates its own original presentation/template fixture. JSON inputs, when present, are included in the download. All output files are separate from those inputs.
 
-## Complete project source
+## **Complete project source**
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
 The copied program writes its files under `example-output` by default.
 
+The complete program embeds its three sales records and generates its template. It creates a summary chart and table from the same product data, then clones one detail slide per product. Negative units stop the program before report assembly.
+
 ```csharp
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO.Compression;
+using System;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Security.Cryptography;
+using System.Drawing;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System;
-using Aspose.Slides.Charts;
-using Aspose.Slides.Export;
-using Aspose.Slides.Vba;
 using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Charts;
 
 internal static class Program
 {
-    private static void RunExample()
+    private static void Main()
     {
-        var records = JsonDocument.Parse(File.ReadAllText("sales.json")).RootElement.EnumerateArray().ToArray();
-        double total = records.Sum(r => r.GetProperty("units").GetDouble());
-        Require(records.All(r => r.GetProperty("units").GetDouble() >= 0), "Units must be nonnegative.");
-        using (var template = Deck("Monthly report: {{month}}", "{{product}}"))
+        var licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+        var outputDirectory = Directory.CreateDirectory("example-output").FullName;
+        const string salesJson = """[{"product":"Pens","units":12},{"product":"Notebooks","units":8},{"product":"Folders","units":5}]""";
+        using var salesDocument = JsonDocument.Parse(salesJson);
+        var sales = salesDocument.RootElement.EnumerateArray().Select(row => new ProductSales(row.GetProperty("product").GetString()!, row.GetProperty("units").GetDouble())).ToArray();
+        if (sales.Any(row => row.Units < 0))
         {
-            Label(template.Slides[0], "{{total}}", "Total", 40, 120, 350, 60);
-            Label(template.Slides[1], "{{units}}", "Units", 40, 150, 500, 80);
-            template.Save("template.pptx", SaveFormat.Pptx);
+            Console.Error.WriteLine("Units must be nonnegative.");
+            return;
         }
-        string original = Hash("template.pptx");
-        using var report = new Presentation("template.pptx");
-        var search = new TextSearchOptions { CaseSensitive = true };
-        foreach (var shape in report.Slides[0].Shapes.OfType<IAutoShape>().Where(shape => shape.Name is "Title" or "Total"))
+
+        var totalUnits = sales.Sum(row => row.Units);
+        CreateTemplate();
+        using var report = new Presentation("example-output/template.pptx");
+        var searchOptions = new TextSearchOptions
         {
-            shape.TextFrame.ReplaceText("{{month}}", "October", search, null);
-            shape.TextFrame.ReplaceText("{{total}}", "Total units: " + total, search, null);
-        }
-        var chart = report.Slides[0].Shapes.AddChart(ChartType.ClusteredColumn, 410, 120, 500, 340);
-        chart.ChartData.Series.Clear(); chart.ChartData.Categories.Clear();
-        var book = chart.ChartData.ChartDataWorkbook; book.Clear(0);
-        var series = chart.ChartData.Series.Add(book.GetCell(0, 0, 1, "Units"), chart.Type);
-        var table = report.Slides[0].Shapes.AddTable(40, 220, new double[] { 210, 120 }, Enumerable.Repeat(36.0, records.Length + 1).ToArray());
-        table[0, 0].TextFrame.Text = "Product"; table[1, 0].TextFrame.Text = "Units";
-        var detailTemplate = report.Slides[1];
-        for (int i = 0; i < records.Length; i++)
+            CaseSensitive = true
+        };
+        foreach (var shape in report.Slides[0].Shapes.OfType<IAutoShape>())
         {
-            string product = records[i].GetProperty("product").GetString()!;
-            double units = records[i].GetProperty("units").GetDouble();
-            chart.ChartData.Categories.Add(book.GetCell(0, i + 1, 0, product));
-            series.DataPoints.AddDataPointForBarSeries(book.GetCell(0, i + 1, 1, units));
-            table[0, i + 1].TextFrame.Text = product; table[1, i + 1].TextFrame.Text = units.ToString(System.Globalization.CultureInfo.InvariantCulture);
-            var detail = report.Slides.AddClone(detailTemplate);
-            foreach (var shape in detail.Shapes.OfType<IAutoShape>().Where(shape => shape.Name is "Title" or "Units"))
-            {
-                shape.TextFrame.ReplaceText("{{product}}", product, search, null);
-                shape.TextFrame.ReplaceText("{{units}}", units.ToString(System.Globalization.CultureInfo.InvariantCulture), search, null);
-            }
+            shape.TextFrame.ReplaceText("{{month}}", "October", searchOptions, null);
+            shape.TextFrame.ReplaceText("{{total}}", "Total units: " + totalUnits, searchOptions, null);
         }
-        report.Slides.RemoveAt(1);
-        report.Save("monthly-report.pptx", SaveFormat.Pptx); report.Save("monthly-report.pdf", SaveFormat.Pdf);
-        using var reopened = new Presentation("monthly-report.pptx");
-        Require(reopened.Slides.Count == records.Length + 1, "Wrong report size.");
-        var savedChart = reopened.Slides[0].Shapes.OfType<IChart>().Single();
-        Require(savedChart.ChartData.Series[0].DataPoints.Sum(p => Convert.ToDouble(p.Value.Data)) == total, "Chart values do not reconcile.");
-        Require(!reopened.Slides.Any(s => Text(s).Contains("{{")), "Unfilled marker remains.");
-        string[] savedText = SavedText("monthly-report.pptx");
-        Require(!savedText.Any(text => text.Contains("{{", StringComparison.Ordinal)), "A persisted template marker remains.");
-        Require(savedText.Contains("Monthly report: October") && savedText.Contains("Total units: " + total), "Persisted summary differs.");
-        foreach (var record in records) Require(savedText.Contains(record.GetProperty("product").GetString()!) && savedText.Contains(record.GetProperty("units").GetDouble().ToString(System.Globalization.CultureInfo.InvariantCulture)), "Persisted detail data differs.");
-        Require(Hash("template.pptx") == original, "Template was overwritten.");
-        Preview(reopened, "preview.png");
-        Report(new { records = records.Length, total, slides = reopened.Slides.Count, input_preserved = true });
+
+        AddSalesChart(report.Slides[0], sales);
+        AddSummaryTable(report.Slides[0], sales);
+        AddProductDetails(report, sales, searchOptions);
+        if (report.Slides.Any(slide => slide.Shapes.OfType<IAutoShape>().Any(shape => shape.TextFrame.Text.Contains("{{"))))
+        {
+            Console.Error.WriteLine("A template placeholder remains unfilled.");
+            return;
+        }
+
+        report.Save("example-output/monthly-report.pptx", SaveFormat.Pptx);
+        report.Save("example-output/monthly-report.pdf", SaveFormat.Pdf);
+        using var savedReport = new Presentation("example-output/monthly-report.pptx");
+        Preview(savedReport, "example-output/preview.png");
+        Console.WriteLine($"Saved {savedReport.Slides.Count} slides for {sales.Length} products; total units: {totalUnits}.");
+        Console.WriteLine("Output: " + outputDirectory);
     }
 
-    private static ExampleContext Context = null!;
-
-    private static Task<int> Main() => ExampleBootstrap.RunAsync(async context =>
+    private sealed record ProductSales(string Product, double Units);
+    private static void CreateTemplate()
     {
-        Context = context;
-        RunExample();
-        await Task.CompletedTask;
-    });
+        using var template = CreateReportTemplate("Monthly report: {{month}}", "{{product}}");
+        AddLabel(template.Slides[0], "{{total}}", "Total", 40, 120, 350, 60);
+        AddLabel(template.Slides[1], "{{units}}", "Units", 40, 150, 500, 80);
+        template.Save("example-output/template.pptx", SaveFormat.Pptx);
+    }
 
-    private static Presentation Deck(params string[] titles)
+    private static void AddSalesChart(ISlide summary, ProductSales[] sales)
+    {
+        var chart = summary.Shapes.AddChart(ChartType.ClusteredColumn, 410, 120, 500, 340);
+        chart.ChartData.Series.Clear();
+        chart.ChartData.Categories.Clear();
+        var workbook = chart.ChartData.ChartDataWorkbook;
+        workbook.Clear(0);
+        var series = chart.ChartData.Series.Add(workbook.GetCell(0, 0, 1, "Units"), chart.Type);
+        for (var index = 0; index < sales.Length; index++)
+        {
+            chart.ChartData.Categories.Add(workbook.GetCell(0, index + 1, 0, sales[index].Product));
+            series.DataPoints.AddDataPointForBarSeries(workbook.GetCell(0, index + 1, 1, sales[index].Units));
+        }
+    }
+
+    private static void AddSummaryTable(ISlide summary, ProductSales[] sales)
+    {
+        var rowHeights = Enumerable.Repeat(36.0, sales.Length + 1).ToArray();
+        var table = summary.Shapes.AddTable(40, 220, new double[] { 210, 120 }, rowHeights);
+        table[0, 0].TextFrame.Text = "Product";
+        table[1, 0].TextFrame.Text = "Units";
+        for (var index = 0; index < sales.Length; index++)
+        {
+            table[0, index + 1].TextFrame.Text = sales[index].Product;
+            table[1, index + 1].TextFrame.Text = sales[index].Units.ToString(System.Globalization.CultureInfo.InvariantCulture);
+        }
+    }
+
+    private static void AddProductDetails(Presentation report, ProductSales[] sales, TextSearchOptions searchOptions)
+    {
+        var detailTemplate = report.Slides[1];
+        foreach (var product in sales)
+        {
+            var detailSlide = report.Slides.AddClone(detailTemplate);
+            foreach (var shape in detailSlide.Shapes.OfType<IAutoShape>())
+            {
+                shape.TextFrame.ReplaceText("{{product}}", product.Product, searchOptions, null);
+                shape.TextFrame.ReplaceText("{{units}}", product.Units.ToString(System.Globalization.CultureInfo.InvariantCulture), searchOptions, null);
+            }
+        }
+
+        // Clone all detail slides before removing their template.
+        report.Slides.RemoveAt(1);
+    }
+
+    private static Presentation CreateReportTemplate(params string[] titles)
     {
         var deck = new Presentation();
         deck.SlideSize.SetSize(960, 540, SlideSizeScaleType.DoNotScale);
@@ -125,12 +155,13 @@ internal static class Program
         for (int i = 0; i < titles.Length; i++)
         {
             var slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(layout);
-            Label(slide, titles[i], "Title", 40, 30, 880, 80);
+            AddLabel(slide, titles[i], "Title", 40, 30, 880, 80);
         }
+
         return deck;
     }
 
-    private static IAutoShape Label(ISlide slide, string value, string name, float x, float y, float w, float h)
+    private static IAutoShape AddLabel(ISlide slide, string value, string name, float x, float y, float w, float h)
     {
         var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, w, h);
         shape.Name = name;
@@ -140,89 +171,26 @@ internal static class Program
         shape.TextFrame.Text = value;
         shape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Normal;
         foreach (var paragraph in shape.TextFrame.Paragraphs)
-        foreach (var portion in paragraph.Portions)
-        {
-            portion.PortionFormat.FontHeight = 24;
-            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
-            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-        }
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.PortionFormat.FontHeight = 24;
+                portion.PortionFormat.LatinFont = new FontData("Noto Sans");
+                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+            }
+
         return shape;
     }
-
-    private static string Text(ISlide slide) => string.Join(" ", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name is "Title" or "Total" or "Units").Select(s => s.TextFrame?.Text));
-
-    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path)));
-
-    private static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
 
     private static void Preview(Presentation deck, string path)
     {
         using var image = deck.Slides[0].GetImage(new Size(640, 360));
         image.Save(path, Aspose.Slides.ImageFormat.Png);
     }
-
-    private static void Report(object value)
-    {
-        string json = JsonSerializer.Serialize(value, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json); Console.WriteLine(json);
-    }
-
-    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
-
-    private static string[] SavedText(string file)
-    {
-        using var archive = ZipFile.OpenRead(file);
-        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
-        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
-            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
-    }
 }
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
-    {
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        if (!string.IsNullOrWhiteSpace(licensePath))
-            new License().SetLicense(licensePath);
-
-        string start = Environment.CurrentDirectory;
-        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
-        try
-        {
-            File.WriteAllText(Path.Combine(output, "sales.json"), """
-                [
-                  {
-                    "product": "Pens",
-                    "units": 12
-                  },
-                  {
-                    "product": "Notebooks",
-                    "units": 8
-                  },
-                  {
-                    "product": "Folders",
-                    "units": 5
-                  }
-                ]
-                """ + "\n");
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
-            Console.WriteLine("Output: " + output);
-            return 0;
-        }
-        finally
-        {
-            Environment.CurrentDirectory = start;
-        }
-    }
-}
-
-internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
-## Expected outputs
+## **Expected outputs**
 
 The project writes monthly-report.pptx, monthly-report.pdf, preview.png and result.json. Reopen the PPTX/PDF or gallery and inspect its content before adapting the code to a real dataset. Production applications should validate external inputs and choose their own output paths and credentials.
 

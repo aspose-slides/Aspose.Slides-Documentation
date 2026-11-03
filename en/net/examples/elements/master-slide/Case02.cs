@@ -1,3 +1,4 @@
+using System;
 using Aspose.Slides;
 
 internal static partial class Program
@@ -5,9 +6,9 @@ internal static partial class Program
     static void Case02()
     {
         using var presentation = new Presentation();
-
         // Access the first master slide.
         var firstMasterSlide = presentation.Masters[0];
+        Console.WriteLine($"Master index: 0; layouts: {firstMasterSlide.LayoutSlides.Count}");
 
         // Change the background type.
         firstMasterSlide.Background.Type = BackgroundType.OwnBackground;

@@ -8,267 +8,158 @@ description: "Runnable C# example to configure an ai provider, with a complete p
 
 Run the same generation request through the default Aspose client and a caller-configured OpenAI-compatible endpoint. The complete project reads the endpoint, model identifier, API key and timeout from environment variables and saves separate editable results.
 
-## Prerequisites and input
+## **Prerequisites and input**
 
 Use a current supported .NET10 SDK/runtime and the supplied flexible SDK settings; no exact patch is required.
 
 The example uses only synthetic prompts and creates its input presentation where needed. Generation and translation contact the selected model service. Set `SLIDES_AI_BASE_URL`, `SLIDES_AI_MODEL` and `SLIDES_AI_API_KEY` for your compatible service. Optional `SLIDES_AI_TIMEOUT_SECONDS` controls the HTTP timeout. Use `--configured-only` after `--` when running only that provider.
 
 
-## Complete C# example
+## **Complete C# example**
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
 Set `ASPOSE_LICENSE_PATH` and run `dotnet run -- --mode licensed --allow-network` to make the model call. Configure the provider as described on this page.
 The copied program writes its files under `example-output` by default.
 
+The copied program requires an authorized Aspose.Slides license in `ASPOSE_LICENSE_PATH` and explicit `--allow-network` consent. Missing either prevents all model requests. Set `SLIDES_AI_TIMEOUT_SECONDS` to change the 180-second timeout. Run the copied file with `dotnet run -- --allow-network`; generation requires service access and may take time. The program reports error types without printing credentials. Set `SLIDES_AI_BASE_URL`, `SLIDES_AI_MODEL`, and `SLIDES_AI_API_KEY` for your OpenAI-compatible service. `dotnet run -- --allow-network` runs the default and configured providers; add `--configured-only` to call only your configured provider.
+
 ```csharp
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Drawing;
+using System;
 using System.IO;
 using System.Linq;
+using System.Drawing;
 using System.Net.Http;
-using System.Text.Json;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
-using System;
+using Aspose.Slides;
 using Aspose.Slides.AI;
 using Aspose.Slides.Export;
-using Aspose.Slides;
 
 internal static class Program
 {
-    private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
-
-    private static async Task<int> RunExample(string[] args)
+    private static async Task<int> Main(string[] args)
     {
+        var licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (string.IsNullOrWhiteSpace(licensePath) || !args.Contains("--allow-network"))
+        {
+            Console.Error.WriteLine("Set ASPOSE_LICENSE_PATH to an authorized license and pass --allow-network. No request was sent.");
+            return 2;
+        }
+
+        var timeoutSeconds = 180.0;
+        var timeoutSetting = Environment.GetEnvironmentVariable("SLIDES_AI_TIMEOUT_SECONDS");
+        if (timeoutSetting != null && (!double.TryParse(timeoutSetting, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out timeoutSeconds) || !double.IsFinite(timeoutSeconds) || timeoutSeconds <= 0))
+        {
+            Console.Error.WriteLine("SLIDES_AI_TIMEOUT_SECONDS must be a finite positive number.");
+            return 2;
+        }
+
         try
         {
-            string baseUrl = Required("SLIDES_AI_BASE_URL");
-            string model = Required("SLIDES_AI_MODEL");
-            string key = Required("SLIDES_AI_API_KEY");
-            bool configuredOnly = args.Contains("--configured-only");
-            int completed = 0;
+            var license = new License();
+            license.SetLicense(licensePath);
+            if (!license.IsLicensed())
+            {
+                Console.Error.WriteLine("The license was not applied. No request was sent.");
+                return 2;
+            }
+
+            Directory.CreateDirectory("example-output");
+            using var http = new HttpClient
+            {
+                Timeout = TimeSpan.FromSeconds(timeoutSeconds)
+            };
+            var configuredOnly = args.Contains("--configured-only");
+            var baseUrl = Environment.GetEnvironmentVariable("SLIDES_AI_BASE_URL");
+            var model = Environment.GetEnvironmentVariable("SLIDES_AI_MODEL");
+            var apiKey = Environment.GetEnvironmentVariable("SLIDES_AI_API_KEY");
+            if (string.IsNullOrWhiteSpace(baseUrl) || string.IsNullOrWhiteSpace(model) || string.IsNullOrWhiteSpace(apiKey))
+            {
+                Console.Error.WriteLine("Set SLIDES_AI_BASE_URL, SLIDES_AI_MODEL, and SLIDES_AI_API_KEY. No request was sent.");
+                return 2;
+            }
+
             if (!configuredOnly)
             {
-                using var defaultHttp = Http("default");
-                using var defaultClient = new AsposeAIWebClient(defaultHttp);
-                using IPresentation deck = await new SlidesAIAgent(defaultClient).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
-                VerifyGenerated(deck, "default-generated.pptx");
-                completed++;
+                using var defaultHttp = new HttpClient
+                {
+                    Timeout = http.Timeout
+                };
+                using var defaultProvider = new AsposeAIWebClient(defaultHttp);
+                var defaultAgent = new SlidesAIAgent(defaultProvider);
+                using var defaultPresentation = await defaultAgent.GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
+                if (!SaveEditablePresentation(defaultPresentation, "example-output/default-generated.pptx"))
+                    return 1;
             }
-            using var configuredHttp = Http("configured");
-            using var configuredClient = new OpenAICompatibleWebClient(model, key, baseUrl, configuredHttp);
-            using IPresentation configuredDeck = await new SlidesAIAgent(configuredClient).GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
-            VerifyGenerated(configuredDeck, "configured-generated.pptx");
-            completed++;
-            Require(Requests.Any(r => r.Provider == "configured" && r.StatusCode == 200), "Configured provider did not return a model response.");
-            Report(new { providers_checked = completed, configured_provider_succeeded = true, reopened_text_matches = true, requests = Requests.ToArray() });
+
+            using var configuredProvider = new OpenAICompatibleWebClient(model, apiKey, baseUrl, http);
+            var configuredAgent = new SlidesAIAgent(configuredProvider);
+            using var configuredPresentation = await configuredAgent.GeneratePresentationAsync(Prompt, PresentationContentAmountType.Brief);
+            if (!SaveEditablePresentation(configuredPresentation, "example-output/configured-generated.pptx"))
+                return 1;
             return 0;
+        }
+        catch (OperationCanceledException)
+        {
+            Console.Error.WriteLine("The AI request timed out or was cancelled.");
+            return 4;
+        }
+        catch (HttpRequestException)
+        {
+            Console.Error.WriteLine("The AI service rejected the request or could not be reached. Check provider settings and authorization.");
+            return 3;
         }
         catch (Exception error)
         {
-            int exit = error is OperationCanceledException ? 4 : error is HttpRequestException ? 3 : 2;
-            File.WriteAllText("error.json", JsonSerializer.Serialize(new { error_type = error.GetType().Name, requests = Requests.ToArray(), exit_code = exit }));
-            Console.Error.WriteLine("AI example failed: " + error.GetType().Name + ". Check configuration and provider access.");
-            return exit;
+            Console.Error.WriteLine("AI operation failed: " + error.GetType().Name + ". Check the license and service configuration.");
+            return 2;
         }
     }
 
-    private static ExampleContext Context = null!;
-
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
-    {
-        Context=context;
-        string actionId=context.Arguments.Contains("--configured-only")?"ai/providers/configured-only":"ai/providers/block-001";
-
-        context.Prerequisite(context.IsLicensed,"Real AI generation/translation requires an authorized license covering this release. Use --mode licensed with --license PATH or ASPOSE_LICENSE_PATH; evaluation performs no model call.");
-        context.Prerequisite(context.Arguments.Contains("--allow-network"),"This recipe contacts a real model service. Add --allow-network only for a service you are authorized to use; no model or credentials are included.");
-        foreach(string name in new[]{"SLIDES_AI_BASE_URL","SLIDES_AI_MODEL","SLIDES_AI_API_KEY"})context.Prerequisite(!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable(name)),"Set "+name+" for your authorized configured provider. No requests were sent.");
-
-        int code=await RunExample(context.Arguments);
-        context.Require(code==0,"The real AI operation failed. See error.json for the error type and observed HTTP statuses; credentials are never written.");
-        VerifyResult(actionId);
-    });
-
-    private static void VerifyResult(string actionId)
-    {
-        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
-        using var expected=JsonDocument.Parse("{\"providers_checked\":2,\"configured_provider_succeeded\":true,\"reopened_text_matches\":true}");
-        var checks=new System.Collections.Generic.Dictionary<string,bool>();
-        foreach(var field in expected.RootElement.EnumerateObject())
-        {
-            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
-            string wanted=field.Value.ToString();
-            if(actionId.EndsWith("/configured-only",StringComparison.Ordinal)&&field.Name=="providers_checked")wanted="1";
-            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
-            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
-        }
-        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
-    }
-
-    private static readonly ConcurrentBag<RequestResult> Requests = new();
-
-    private static string Required(string name)
-    {
-        string? value = Environment.GetEnvironmentVariable(name);
-        if (string.IsNullOrWhiteSpace(value)) throw new InvalidOperationException("Set " + name + " before running this example.");
-        return value;
-    }
-
-    private static HttpClient Http(string provider)
-    {
-        double timeout = 180;
-        if (double.TryParse(Environment.GetEnvironmentVariable("SLIDES_AI_TIMEOUT_SECONDS"), System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out double configured)) timeout = configured;
-        if (timeout <= 0) throw new InvalidOperationException("Timeout must be positive.");
-        return new HttpClient(new TraceHandler(provider)) { Timeout = TimeSpan.FromSeconds(timeout) };
-    }
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static string AllText(IPresentation deck)
+    private const string Prompt = "Create a short English presentation about the water cycle. Cover evaporation, condensation and precipitation. Use ordinary text slides with a title and a short paragraph. No charts, tables or images. For every section in the JSON, use the integer 0 for its type field instead of a type name. Return raw JSON without Markdown code fences or commentary.";
+    private static string ReadPresentationText(IPresentation deck)
     {
         var text = new StringBuilder();
         void Read(IShapeCollection shapes)
         {
             foreach (IShape shape in shapes)
             {
-                if (shape is IAutoShape auto && auto.TextFrame != null) text.AppendLine(auto.TextFrame.Text);
-                if (shape is IGroupShape group) Read(group.Shapes);
+                if (shape is IAutoShape auto && auto.TextFrame != null)
+                    text.AppendLine(auto.TextFrame.Text);
+                if (shape is IGroupShape group)
+                    Read(group.Shapes);
                 if (shape is ITable table)
                     for (int row = 0; row < table.Rows.Count; row++)
-                        for (int column = 0; column < table.Columns.Count; column++) text.AppendLine(table[column, row].TextFrame.Text);
+                        for (int column = 0; column < table.Columns.Count; column++)
+                            text.AppendLine(table[column, row].TextFrame.Text);
             }
         }
-        foreach (ISlide slide in deck.Slides) Read(slide.Shapes);
+
+        foreach (ISlide slide in deck.Slides)
+            Read(slide.Shapes);
         return text.ToString();
     }
 
-    private static int VerifyGenerated(IPresentation deck, string path)
+    private static bool SaveEditablePresentation(IPresentation generated, string outputPath)
     {
-        string live = AllText(deck);
-        Require(deck.Slides.Count >= 2 && live.Length > 150 && live.Contains("water", StringComparison.OrdinalIgnoreCase), "Generated content did not describe the requested topic.");
-        deck.Save(path, SaveFormat.Pptx);
-        using var reopened = new Presentation(path);
-        Require(reopened.Slides.Count == deck.Slides.Count && AllText(reopened) == live, "Generated editable text changed after reopening.");
-        using var image = reopened.Slides[0].GetImage(new Size(640, 360));
-        image.Save(Path.ChangeExtension(path, ".png"), Aspose.Slides.ImageFormat.Png);
-        return reopened.Slides.Count;
-    }
-
-    private static void Report(object result)
-    {
-        string json = JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
-    }
-
-    private sealed record RequestResult(string Provider, int StatusCode);
-
-    private sealed class TraceHandler : DelegatingHandler
-    {
-        private readonly string provider;
-        public TraceHandler(string provider) : base(new HttpClientHandler()) { this.provider = provider; }
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken token)
+        var generatedText = ReadPresentationText(generated);
+        generated.Save(outputPath, SaveFormat.Pptx);
+        using var reopened = new Presentation(outputPath);
+        if (reopened.Slides.Count == 0 || ReadPresentationText(reopened) != generatedText)
         {
-            HttpResponseMessage response = await base.SendAsync(request, token);
-            Requests.Add(new RequestResult(provider, (int)response.StatusCode));
-            return response;
+            Console.Error.WriteLine("The generated text was not retained after reopening.");
+            return false;
         }
+
+        using var preview = reopened.Slides[0].GetImage(new Size(640, 360));
+        preview.Save(Path.ChangeExtension(outputPath, ".png"), Aspose.Slides.ImageFormat.Png);
+        Console.WriteLine($"Saved editable presentation: {outputPath}, {reopened.Slides.Count} slides.");
+        return true;
     }
 }
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(string[] args, Func<ExampleContext, Task> run)
-    {
-        string start = Environment.CurrentDirectory;
-        string output = Path.Combine(start, "example-output");
-        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
-        string? mode = null;
-        var recipeArgs = new List<string>();
-
-        try
-        {
-            for (int i = 0; i < args.Length; i++)
-            {
-                string option = args[i];
-                if (option is not ("--output" or "--license" or "--mode"))
-                {
-                    recipeArgs.Add(option);
-                    continue;
-                }
-                if (++i == args.Length)
-                    throw new ExamplePrerequisiteException("Supply a value for " + option);
-                if (option == "--output")
-                    output = Path.GetFullPath(args[i], start);
-                else if (option == "--license")
-                    licensePath = args[i];
-                else
-                    mode = args[i];
-            }
-
-            mode ??= string.IsNullOrWhiteSpace(licensePath) ? "evaluation" : "licensed";
-            if (mode is not ("evaluation" or "licensed"))
-                throw new ExamplePrerequisiteException("Use --mode evaluation or --mode licensed.");
-            if (mode == "licensed")
-            {
-                if (string.IsNullOrWhiteSpace(licensePath))
-                    throw new ExamplePrerequisiteException("Set ASPOSE_LICENSE_PATH to a valid Aspose.Slides license.");
-                var license = new License();
-                license.SetLicense(Path.GetFullPath(licensePath, start));
-                if (!license.IsLicensed())
-                    throw new ExamplePrerequisiteException("The supplied license could not be applied.");
-            }
-
-            Directory.CreateDirectory(output);
-            Console.WriteLine("Output: " + output);
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, mode, recipeArgs.ToArray()));
-            return 0;
-        }
-        catch (ExamplePrerequisiteException error)
-        {
-            Console.Error.WriteLine(error.Message);
-            return 2;
-        }
-        finally
-        {
-            Environment.CurrentDirectory = start;
-        }
-    }
-}
-
-internal sealed class ExampleContext(string output, string mode, string[] arguments)
-{
-    public string OutputRoot { get; } = output;
-    public string Mode { get; } = mode;
-    public bool IsLicensed => Mode == "licensed";
-    public string[] Arguments { get; } = arguments;
-
-    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
-        ? text
-        : text[..5] + "... text has been truncated due to evaluation version limitation.";
-
-    public void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    public void Prerequisite(bool condition, string message)
-    {
-        if (!condition) throw new ExamplePrerequisiteException(message);
-    }
-}
-
-internal sealed class ExamplePrerequisiteException(string message) : Exception(message);
 ```
 
-## Run and inspect the downloaded project
+## **Run and inspect the downloaded project**
 
 ```text
 dotnet run --project Example.csproj --configuration Release
@@ -276,14 +167,14 @@ dotnet run --project Example.csproj --configuration Release
 
 The program writes "default-generated.pptx", "default-generated.png", "configured-generated.pptx", "configured-generated.png" and a result.json summary in the current directory. Open the PPTX files to edit their text and review the PNG previews at normal size. The source and the generated output are kept separate. Wording varies between model responses; successful execution checks structure and saved text, not a byte-identical deck.
 
-## Limitations
+## **Limitations**
 
 Provide a compatible service you are authorized to use and its real model identifier. The compatible client is an adapter, not a bundled AI model. Service authentication, request limits and model fees belong to the chosen provider. The program reports configuration, HTTP and cancellation failures without printing keys; --configured-only skips the default-service demonstration.
 
 Continue with the [detailed guide](/slides/net/ai/generator/).
 
 
-## Download, prerequisites and run
+## **Download, prerequisites and run**
 
 [Download the complete project](example.zip) and open `Example.sln`. The stable
 net8.0/C#12 project accepts compatible installed release SDKs and explicitly runs

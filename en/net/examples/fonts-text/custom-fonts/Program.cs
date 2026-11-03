@@ -1,16 +1,8 @@
 using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Net.Http;
 using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.Json;
-using System.Text.RegularExpressions;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
@@ -18,10 +10,10 @@ using Aspose.Slides.Warnings;
 internal static partial class Program
 {
     private static Task<int> Main(string[] args) => RunChecked(args);
-
     private sealed class WarningLog : IWarningCallback
     {
         public List<string> Messages { get; } = new List<string>();
+
         public ReturnAction Warning(IWarningInfo warning)
         {
             Messages.Add(warning.Description);
@@ -31,7 +23,7 @@ internal static partial class Program
 
     private static void LoadCustomFonts()
     {
-        PrepareFonts(true);
+        LoadVerifiedFonts("NotoSans-Regular.ttf", "NotoNaskhArabic-Regular.ttf", "NotoSansCJKsc-Regular.otf");
         try
         {
             using (var source = new Presentation())
@@ -41,6 +33,7 @@ internal static partial class Program
                 text.TextFrame.Paragraphs[0].Portions[0].PortionFormat.LatinFont = new FontData("Missing Example Font 42");
                 source.Save("input.pptx", SaveFormat.Pptx);
             }
+
             var log = new WarningLog();
             using var presentation = new Presentation("input.pptx", new LoadOptions { WarningCallback = log });
             byte[] loaded = presentation.FontsManager.GetFontBytes(new FontData("Noto Sans"), FontStyleType.Regular);
@@ -59,6 +52,9 @@ internal static partial class Program
             File.WriteAllText("warnings.txt", string.Join(Environment.NewLine, log.Messages));
             Report(new { loaded_font_bytes_match = true, warning_received = true, substitution_rule = true, arabic_cjk_fallback = true });
         }
-        finally { FontsLoader.ClearCache(); }
+        finally
+        {
+            FontsLoader.ClearCache();
+        }
     }
 }

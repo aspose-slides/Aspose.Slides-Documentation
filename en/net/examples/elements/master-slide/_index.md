@@ -23,9 +23,9 @@ Master slides form the top level of the slide inheritance hierarchy in PowerPoin
 
 This article demonstrates how to create, modify, and manage master slides using Aspose.Slides for .NET.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -38,7 +38,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Master Slide**
 
-This example shows how to create a new master slide by cloning the default one. It then adds a company name banner to all slides through layout inheritance.
+This example shows how to create a new master slide by cloning the default one. It adds an Acme banner to the cloned master, assigns that master to a layout, and applies the layout to the first slide.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -52,11 +52,12 @@ var defaultMasterSlide = presentation.Masters[0];
 var newMasterSlide = presentation.Masters.AddClone(defaultMasterSlide);
 
 // Add a banner with company name to the top of the master slide.
-var textBox = newMasterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
-textBox.TextFrame.Text = "Acme";
-textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
-textBox.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
-textBox.FillFormat.FillType = FillType.NoFill;
+var banner = newMasterSlide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 0, y: 0, width: 720, height: 25);
+banner.TextFrame.Text = "Acme";
+var textFill = banner.TextFrame.Paragraphs[0].ParagraphFormat.DefaultPortionFormat.FillFormat;
+textFill.FillType = FillType.Solid;
+textFill.SolidFillColor.Color = Color.Black;
+banner.FillFormat.FillType = FillType.NoFill;
 
 // Assign the new master slide to a layout slide.
 var layoutSlide = presentation.LayoutSlides[0];
@@ -77,9 +78,10 @@ presentation.Save("master-slide-01.pptx", SaveFormat.Pptx);
 
 ## **Access a Master Slide**
 
-You can access master slides using the `Presentation.Masters` collection. Here’s how to retrieve and work with them:
+You can access master slides using the [Presentation.Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) collection. This program reports the first master’s index and layout count, then edits its background type:
 
 ```csharp
+using System;
 using Aspose.Slides.Export;
 using Aspose.Slides;
 
@@ -87,6 +89,7 @@ using var presentation = new Presentation();
 
 // Access the first master slide.
 var firstMasterSlide = presentation.Masters[0];
+Console.WriteLine($"Master index: 0; layouts: {firstMasterSlide.LayoutSlides.Count}");
 
 // Change the background type.
 firstMasterSlide.Background.Type = BackgroundType.OwnBackground;
@@ -108,22 +111,21 @@ using var donor = new Presentation();
 donor.Masters[0].Name = "Unused1";
 presentation.Masters.AddClone(donor.Masters[0]);
 donor.Masters[0].Name = "Unused2";
-presentation.Masters.AddClone(donor.Masters[0]);
+var secondUnusedMaster = presentation.Masters.AddClone(donor.Masters[0]);
 
 
 // Remove the first explicitly unused master by index.
 presentation.Masters.RemoveAt(1);
 
 // Remove a master slide by reference.
-var firstMasterSlide = presentation.Masters[1];
-presentation.Masters.Remove(firstMasterSlide);
+presentation.Masters.Remove(secondUnusedMaster);
 
 presentation.Save("master-slide-03.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove Unused Master Slides**
 
-Some presentations contain master slides that are not in use. Removing these slides can help reduce file size.
+Remove masters that no slide uses. Setting ignorePreserveField to true also removes unused masters marked Preserve; it does not remove the master used by the first slide.
 
 ```csharp
 using Aspose.Slides.Export;

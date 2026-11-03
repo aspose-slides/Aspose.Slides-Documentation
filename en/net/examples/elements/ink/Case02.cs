@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Ink;
@@ -9,10 +10,14 @@ internal static partial class Program
         using var presentation = new Presentation(Context.Input("ink.pptx"));
         var slide = presentation.Slides[0];
 
-        if (slide.Shapes.FirstOrDefault(s => s is Ink) is Ink ink)
+        var inkShape = slide.Shapes.OfType<Ink>().FirstOrDefault();
+        if (inkShape == null)
         {
-            slide.Shapes.Remove(ink);
+            Console.WriteLine("No ink shape was found on the first slide.");
+            return;
         }
+
+        slide.Shapes.Remove(inkShape);
 
         VerifyCase02(presentation);
     }

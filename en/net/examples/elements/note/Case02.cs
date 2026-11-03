@@ -10,7 +10,9 @@ internal static partial class Program
         var notesSlide = slide.NotesSlideManager.AddNotesSlide();
 
         notesSlide.NotesTextFrame.Text = "Note";
-        var notes = notesSlide.NotesTextFrame.Text;
+        // Retrieve the seeded notes through the slide manager.
+        var existingNotes = slide.NotesSlideManager.NotesSlide;
+        var notes = existingNotes.NotesTextFrame.Text;
         Context.Require(notes == "Note", "Accessed expected notes text.");
 
         VerifyCase02(presentation);

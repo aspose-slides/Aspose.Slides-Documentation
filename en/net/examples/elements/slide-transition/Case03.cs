@@ -10,7 +10,6 @@ internal static partial class Program
 
         slide.SlideShowTransition.Type = TransitionType.Fade;
 
-        // Remove transition by setting none.
         slide.SlideShowTransition.Type = TransitionType.None;
 
         VerifyCase03(presentation);

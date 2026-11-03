@@ -13,156 +13,80 @@ keywords:
 
 Create a presentation, edit a saved copy, and verify that the original file is unchanged.
 
-## Download and run
+## **Input and prerequisites**
 
-Download [the complete project](example.zip) and open **Example.sln** in a compatible IDE. Automatic NuGet restore should run when it opens. The project accepts supported installed release SDKs instead of requiring one exact patch. [Setup and supported environments](/slides/net/examples/getting-started/) explains native libraries, fonts and the SDK/runtime distinction.
+The copied program generates its own input. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native dependencies. Evaluation output includes the SDK watermark and text limits.
 
-```text
-dotnet run --project Example.csproj -- --mode evaluation
-```
+## **Example**
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
-
-
-## Input and prerequisites
-
-The code creates its own synthetic input. Use a compatible stable SDK with the included Aspose.Slides.NET6.CrossPlatform 26.10.0 project; .NET 10 LTS is recommended. Evaluation mode performs the recipe without a license and retains the SDK watermark and text limits. Licensed mode additionally checks unrestricted content using your authorized license.
-
-[Download the complete project](example.zip), including the solution, source, configuration and bundled fonts. No license is distributed.
-
-## Example
-
-The first using block saves the original. The second opens that file, changes its editable text, and saves to a different name. Reopening both files checks the result rather than treating Save as verification.
+The first using block saves the original. The second opens that file, changes its editable text, and saves to a different name. The final block reopens the edited copy and prints its text. The download also checks that the original file is unchanged.
 
 Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
-The copied program writes its files under `example-output` by default.
+The copied program writes its files in the current working directory.
 
 ```csharp
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
-using System.Threading.Tasks;
 using System;
-using Aspose.Slides.Export;
+using System.Linq;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
 internal static class Program
 {
-    private static void RunExample()
-    {
-        using (var created = new Presentation())
-        {
-            created.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
-            Label(created.Slides[0], "Quarterly results");
-            created.Save("original.pptx", SaveFormat.Pptx);
-        }
-        string originalHash = Hash("original.pptx");
-        using (var editable = new Presentation("original.pptx"))
-        {
-            editable.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).TextFrame.Text = "Updated results";
-            editable.Save("edited.pptx", SaveFormat.Pptx);
-        }
-        using (var result = new Presentation("edited.pptx"))
-        {
-            Require(result.Slides.Count == 1, "Unexpected slide count.");
-            Require(Text(result.Slides[0]) == Context.ExpectedText("Updated results"), "Edited text did not survive saving.");
-            using var image = result.Slides[0].GetImage(new Size(640, 360));
-            image.Save("preview.png", Aspose.Slides.ImageFormat.Png);
-        }
-        Require(Hash("original.pptx") == originalHash, "The input was overwritten.");
-        using (var original = new Presentation("original.pptx"))
-            Require(Text(original.Slides[0]) == Context.ExpectedText("Quarterly results"), "Original content changed.");
-        Report(new { slide_count = 1, edited_text = Context.ExpectedText("Updated results"), original_unchanged = true });
-    }
-
-    private static ExampleContext Context = null!;
-
-    private static Task<int> Main() => ExampleBootstrap.RunAsync(async context =>
-    {
-        Context = context;
-        RunExample();
-        await Task.CompletedTask;
-    });
-
-    private static void Require(bool condition, string message)
-    {
-        if (!condition) throw new InvalidOperationException(message);
-    }
-
-    private static IAutoShape Label(ISlide slide, string text)
-    {
-        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
-        shape.Name = "content-" + text;
-        shape.TextFrame.Text = text;
-        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
-        return shape;
-    }
-
-    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
-
-    private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
-
-    private static void Report(object checks)
-    {
-        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText("result.json", json);
-        Console.WriteLine(json);
-    }
-}
-
-internal static class ExampleBootstrap
-{
-    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    private static void Main()
     {
         string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
         if (!string.IsNullOrWhiteSpace(licensePath))
             new License().SetLicense(licensePath);
 
-        string start = Environment.CurrentDirectory;
-        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
-        try
+        const string originalPath = "original.pptx";
+        const string editedPath = "edited.pptx";
+        const string titleName = "ReportTitle";
+        using (var created = new Presentation())
         {
-            Environment.CurrentDirectory = output;
-            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
-            Console.WriteLine("Output: " + output);
-            return 0;
+            var title = created.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
+            title.Name = titleName;
+            title.TextFrame.Text = "Input";
+            created.Save(originalPath, SaveFormat.Pptx);
         }
-        finally
+
+        using (var editable = new Presentation(originalPath))
         {
-            Environment.CurrentDirectory = start;
+            var title = editable.Slides[0].Shapes.OfType<IAutoShape>().Single(shape => shape.Name == titleName);
+            title.TextFrame.Text = "Edit";
+            editable.Save(editedPath, SaveFormat.Pptx);
+        }
+
+        using (var result = new Presentation(editedPath))
+        {
+            var title = result.Slides[0].Shapes.OfType<IAutoShape>().Single(shape => shape.Name == titleName);
+            Console.WriteLine($"{editedPath}: {title.TextFrame.Text}");
         }
     }
 }
-
-internal sealed record ExampleContext(string OutputRoot, bool IsLicensed)
-{
-    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
-        ? text
-        : text[..5] + "... text has been truncated due to evaluation version limitation.";
-}
 ```
 
-## Run and check the result
+<span id="run-and-check-the-result"></span>
 
-Extract the project into an empty working directory, restore its packages, then run it:
+## **Download and run**
+
+[Download the complete project](example.zip), extract it, and open `Example.sln` or run the following commands.
 
 ```text
-dotnet restore Example.csproj
-dotnet run --project Example.csproj --configuration Release --no-restore
+dotnet restore Example.sln
+dotnet run --project Example.csproj --configuration Release --no-restore -- --mode evaluation
 ```
 
-The example writes "original.pptx", "edited.pptx", "preview.png" and "result.json". It reopens the generated presentation files and checks the expected data. A failed check raises an exception; successful checks are recorded in "result.json".
+The downloaded project writes "original.pptx", "edited.pptx", "preview.png" and "result.json". It reopens the generated presentation files and checks the expected data. A failed check raises an exception; successful checks are recorded in "result.json".
+
+Use `--mode licensed` with your authorized `ASPOSE_LICENSE_PATH` for unrestricted checks. The project prints its output directory.
 
 
-## Output previews
+## **Output previews**
 
 ![preview](preview.png)
 
 
-## Practical limits
+## **Practical limits**
 
 Dispose each Presentation after its last use. Saving to a new file does not update the source file. For a single slide operation, see the Elements examples.
 

@@ -11,7 +11,7 @@ internal static partial class Program
 
         var pdfData = File.ReadAllBytes(Context.Input("doc.pdf"));
         var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-        var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+        slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
         VerifyCase01(presentation);
     }

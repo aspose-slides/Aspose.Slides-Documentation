@@ -1,3 +1,4 @@
+using System;
 using Aspose.Slides;
 
 internal static partial class Program
@@ -11,13 +12,10 @@ internal static partial class Program
         var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
         presentation.Slides.AddEmptySlide(layout: blankLayout);
 
-        // Access slides by index.
-        var firstSlide = presentation.Slides[0];
         var secondSlide = presentation.Slides[1];
-
-        // Get slide index from a reference, then access it by index.
         var secondSlideIndex = presentation.Slides.IndexOf(secondSlide);
-        var secondSlideByIndex = presentation.Slides[secondSlideIndex];
+        Console.WriteLine($"Zero-based index: {secondSlideIndex}");
+        Console.WriteLine($"Slide number: {secondSlide.SlideNumber}");
 
         VerifyCase02(presentation);
     }

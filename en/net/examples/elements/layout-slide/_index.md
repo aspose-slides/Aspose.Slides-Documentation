@@ -22,9 +22,9 @@ description: "Master layout slides in Aspose.Slides for .NET: choose, apply, and
 
 This article demonstrates how to work with **Layout Slides** in Aspose.Slides for .NET. A layout slide defines the design and formatting inherited by normal slides. You can add, access, clone, and remove layout slides, as well as clean up unused ones to reduce presentation size.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -61,10 +61,7 @@ presentation.Slides.AddEmptySlide(layoutSlide);
 presentation.Save("layout-slide-01.pptx", SaveFormat.Pptx);
 ```
 
-> 💡 **Note 1:** Layout slides act as templates for individual slides. You can define common elements once and reuse them across many slides.
-
-> 💡 **Note 2:** When you add shapes or text to a layout slide, all slides based on that layout will display this shared content automatically.
-> The screenshot below shows two slides, each inheriting a text box from the same layout slide.
+The two added slides inherit the text box from Main layout, as shown below. The default first slide keeps its original layout.
 
 ![Slides Inheriting Layout Content](layout-slide-result.png)
 
@@ -81,17 +78,18 @@ using var presentation = new Presentation();
 
 // Access a layout slide by index.
 var firstLayoutSlide = presentation.LayoutSlides[0];
+Console.WriteLine($"Index 0: {firstLayoutSlide.Name}");
 
 // Access a layout slide by type.
 var blankLayoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-Console.WriteLine(blankLayoutSlide.Name);
+Console.WriteLine($"Blank layout: {blankLayoutSlide.Name}");
 
 presentation.Save("layout-slide-02.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove a Layout Slide**
 
-You can remove a specific layout slide if it's no longer needed.
+Create and remove an unused layout. It is safe to remove because no normal slide references it.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -99,16 +97,16 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 
-// Get a layout slide by type and remove it.
-var blankLayoutSlide = presentation.LayoutSlides.Add(presentation.Masters[0], SlideLayoutType.Blank, "Unused");
-presentation.LayoutSlides.Remove(blankLayoutSlide);
+// This new layout is safe to remove because no slide uses it.
+var unusedLayout = presentation.LayoutSlides.Add(presentation.Masters[0], SlideLayoutType.Blank, "Unused");
+presentation.LayoutSlides.Remove(unusedLayout);
 
 presentation.Save("layout-slide-03.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove Unused Layout Slides**
 
-To reduce the presentation size, you may want to remove layout slides that are not used by any normal slides.
+Keep the first slide’s active layout, add a named unused layout, then remove layouts that no normal slide references.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -116,7 +114,11 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 
-// Automatically removes all layout slides not referenced by any slide.
+var activeLayout = presentation.Slides[0].LayoutSlide;
+activeLayout.Name = "Active layout";
+presentation.LayoutSlides.Add(presentation.Masters[0], SlideLayoutType.Blank, "Unused layout");
+
+// Keep the referenced active layout and remove unreferenced layouts.
 presentation.LayoutSlides.RemoveUnused();
 
 presentation.Save("layout-slide-04.pptx", SaveFormat.Pptx);

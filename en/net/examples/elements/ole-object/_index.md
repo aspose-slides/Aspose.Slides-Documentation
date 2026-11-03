@@ -21,9 +21,9 @@ description: "Handle OLE objects in Aspose.Slides for .NET: insert, link, update
 
 This article demonstrates embedding a file as an OLE object and updating its data using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -36,7 +36,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add an OLE Object**
 
-Embed a PDF file into the presentation.
+Generate a PDF payload in memory from the blank presentation, then embed it in an OLE frame. No PDF file is required.
 
 ```csharp
 using System.IO;
@@ -47,18 +47,20 @@ using Aspose.Slides.DOM.Ole;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+// Create the PDF payload in memory from the blank presentation.
 using var pdfStream = new MemoryStream();
 presentation.Save(pdfStream, SaveFormat.Pdf);
-byte[] pdfData = pdfStream.ToArray();
+
+var pdfData = pdfStream.ToArray();
 var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
 presentation.Save("ole-object-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Access an OLE Object**
 
-Retrieve the first OLE object frame on a slide.
+Generate a PDF payload in memory, embed it, then retrieve the first OLE frame and print its file extension. No input file is required.
 
 ```csharp
 using System;
@@ -71,11 +73,13 @@ using Aspose.Slides.DOM.Ole;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+// Create the PDF payload in memory from the blank presentation.
 using var pdfStream = new MemoryStream();
 presentation.Save(pdfStream, SaveFormat.Pdf);
-byte[] pdfData = pdfStream.ToArray();
+
+var pdfData = pdfStream.ToArray();
 var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
-var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
+slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
 var firstOleFrame = slide.Shapes.OfType<IOleObjectFrame>().First();
 Console.WriteLine(firstOleFrame.EmbeddedData.EmbeddedFileExtension);
@@ -85,7 +89,7 @@ presentation.Save("ole-object-02.pptx", SaveFormat.Pptx);
 
 ## **Remove an OLE Object**
 
-Delete an embedded OLE object from the slide.
+Generate and embed a PDF payload in memory, then remove its OLE frame. No input file is required.
 
 ```csharp
 using System.IO;
@@ -96,9 +100,11 @@ using Aspose.Slides.DOM.Ole;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+// Create the PDF payload in memory from the blank presentation.
 using var pdfStream = new MemoryStream();
 presentation.Save(pdfStream, SaveFormat.Pdf);
-byte[] pdfData = pdfStream.ToArray();
+
+var pdfData = pdfStream.ToArray();
 var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
 var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
@@ -109,7 +115,7 @@ presentation.Save("ole-object-03.pptx", SaveFormat.Pptx);
 
 ## **Update OLE Object Data**
 
-Replace the data embedded in an existing OLE object.
+Generate and embed a PDF payload in memory, then replace its data with the included small PNG. Both payloads are created by the program; no input files are required.
 
 ```csharp
 using System;
@@ -121,16 +127,19 @@ using Aspose.Slides.DOM.Ole;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
+// Create the PDF payload in memory from the blank presentation.
 using var pdfStream = new MemoryStream();
 presentation.Save(pdfStream, SaveFormat.Pdf);
-byte[] pdfData = pdfStream.ToArray();
+
+var pdfData = pdfStream.ToArray();
 var dataInfo = new OleEmbeddedDataInfo(pdfData, "pdf");
 var oleFrame = slide.Shapes.AddOleObjectFrame(20, 20, 50, 50, dataInfo);
 
-var newData = Convert.FromBase64String(
+// Replace the PDF payload with a small PNG.
+var pngData = Convert.FromBase64String(
     "iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAAMElEQVR4nO3NQQkAAAgEsItoJiOa" +
     "yBKCn8H+S02/iFgsFovFYrFYLBaLxWKxWHxnAfyWQZeVYs/3AAAAAElFTkSuQmCC");
-var newDataInfo = new OleEmbeddedDataInfo(newData, "png");
+var newDataInfo = new OleEmbeddedDataInfo(pngData, "png");
 oleFrame.SetEmbeddedData(newDataInfo);
 
 presentation.Save("ole-object-04.pptx", SaveFormat.Pptx);

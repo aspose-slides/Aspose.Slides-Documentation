@@ -7,7 +7,6 @@ internal static partial class Program
         using var presentation = new Presentation();
         var firstSlide = presentation.Slides[0];
 
-        // Add a clone of the first slide (created by default).
         var clonedSlide = presentation.Slides.AddClone(firstSlide);
 
         clonedSlide.Name = "Clone";

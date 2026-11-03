@@ -22,9 +22,9 @@ In Aspose.Slides, a **text box** is represented by an `AutoShape`. Nearly any sh
 
 This guide explains how to add, access, and remove text boxes programmatically.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -56,9 +56,9 @@ textBox.LineFormat.FillFormat.FillType = FillType.NoFill;
 
 // Set text formatting.
 var paragraph = textBox.TextFrame.Paragraphs[0];
-var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
-textFormat.FillFormat.FillType = FillType.Solid;
-textFormat.FillFormat.SolidFillColor.Color = Color.Black;
+var textFill = paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat;
+textFill.FillType = FillType.Solid;
+textFill.SolidFillColor.Color = Color.Black;
 
 // Assign the actual text content.
 textBox.TextFrame.Text = "Text";
@@ -70,28 +70,30 @@ presentation.Save("text-box-01.pptx", SaveFormat.Pptx);
 
 ## **Access Text Boxes by Content**
 
-To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
+Find text-bearing auto shapes whose text contains Slide, using a case-sensitive ordinal comparison. The fixture includes matching text, unrelated text, and a connector.
 
 ```csharp
+using System.Linq;
 using System;
 using Aspose.Slides.Export;
 using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-marker.Name = "DemoText";
-marker.TextFrame.Text = "Slide";
+// Seed matching and unrelated text, plus a shape with no text frame.
+var matchingText = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+matchingText.Name = "DemoText";
+matchingText.TextFrame.Text = "Slide";
+var unrelatedText = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 120, 150, 50);
+unrelatedText.TextFrame.Text = "Other";
+slide.Shapes.AddConnector(ShapeType.Line, 50, 190, 150, 0);
 
-foreach (var shape in slide.Shapes)
+const string keyword = "Slide";
+foreach (var textShape in slide.Shapes.OfType<IAutoShape>())
 {
-    // Only AutoShapes can contain editable text.
-    if (shape is AutoShape autoShape && autoShape.Name == "DemoText")
+    if (textShape.TextFrame?.Text.Contains(keyword, StringComparison.Ordinal) == true)
     {
-        if (autoShape.TextFrame.Text.Contains("Slide"))
-        {
-            Console.WriteLine(autoShape.TextFrame.Text);
-        }
+        Console.WriteLine(textShape.TextFrame.Text);
     }
 }
 
@@ -100,26 +102,36 @@ presentation.Save("text-box-02.pptx", SaveFormat.Pptx);
 
 ## **Remove Text Boxes by Content**
 
-This example finds and deletes all text boxes on the first slide that contain a specific keyword:
+Delete all text-bearing auto shapes on the first slide whose text contains Slide, using a case-sensitive ordinal comparison. Unrelated text and the connector remain.
 
 ```csharp
+using System;
 using Aspose.Slides.Export;
 using System.Linq;
 using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-marker.Name = "DemoText";
-marker.TextFrame.Text = "Slide";
+// Seed matching and unrelated text, plus a shape with no text frame.
+var matchingText = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+matchingText.Name = "DemoText";
+matchingText.TextFrame.Text = "Slide";
+var unrelatedText = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 120, 150, 50);
+unrelatedText.TextFrame.Text = "Other";
+slide.Shapes.AddConnector(ShapeType.Line, 50, 190, 150, 0);
 
-var shapesToRemove = slide.Shapes
-    .Where(s => s is AutoShape autoShape && autoShape.Name == "DemoText" && autoShape.TextFrame.Text.Contains("Slide"))
+const string keyword = "Slide";
+var matchingShapes = slide.Shapes.OfType<IAutoShape>()
+    .Where(textShape => textShape.TextFrame?.Text.Contains(keyword, StringComparison.Ordinal) == true)
     .ToList();
 
-shapesToRemove.ForEach(shape => slide.Shapes.Remove(shape));
+// Snapshot the matches before changing the slide's shape collection.
+foreach (var textShape in matchingShapes)
+{
+    slide.Shapes.Remove(textShape);
+}
 
 presentation.Save("text-box-03.pptx", SaveFormat.Pptx);
 ```
 
-> 💡 **Tip:** Always create a copy of the shape collection before modifying it during iteration to avoid collection modification errors.
+> 💡 **Tip:** Snapshot the matching shapes before removing them, so iteration does not modify the collection being enumerated.

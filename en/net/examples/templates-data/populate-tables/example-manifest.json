@@ -18,8 +18,8 @@
     },
     {
       "path": "Example.cs",
-      "sha256": "46f959571cfd39f861ce129eaff403bf43c59e04031d4f20e1dd7b82e979e30e",
-      "bytes": 6126
+      "sha256": "6dcf2fc5aabea4c4d4623b91f3107d5e8327c62b95a9150b10456520e51630fd",
+      "bytes": 2697
     },
     {
       "path": "Example.csproj",
@@ -78,8 +78,8 @@
     },
     {
       "path": "Program.cs",
-      "sha256": "0f5fdfd44f1a66cd6f726e4bcfc2c0189c3f82580b8777077abeeba7eb235a5e",
-      "bytes": 3268
+      "sha256": "da8939fee2fd86c550c68f56f7934071e781003126e05312aeca88215a77b1e7",
+      "bytes": 4311
     },
     {
       "path": "README.txt",

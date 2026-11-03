@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/layout-slide",
   "archive": "example.zip",
-  "archive_sha256": "70db9b7c53bcd2ba3f48ae3b4376a7839e6ea84e86fdc7d540568698fdf7c939",
+  "archive_sha256": "5c7ea14175977438c47bbd94c4cf507801b60ff589f312c8dadbbc4e2e27dec7",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,28 +16,28 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "76e24e49a6fde257b899dcf2353fea3ddc21658ea7c1d9610696399716a05a34",
-      "bytes": 855
+      "sha256": "c5d3b4597baa23c9e708873f8cc6c711fc77a52bf303c221fc5c48309392020f",
+      "bytes": 846
     },
     {
       "path": "Case02.cs",
-      "sha256": "9a6e0556b2d1de9091ce1c5462c15cb7c909833b6bab0fac76cecb5c46daa32a",
-      "bytes": 446
+      "sha256": "025d2e9ea44356aed7ae4b7862a6aa063b79d4ea3ea6a59f889d069bed080151",
+      "bytes": 576
     },
     {
       "path": "Case03.cs",
-      "sha256": "faa373863b6e76af9a793bc00617bcf7514d5f3e9407ea5789c91eefd8d44efb",
-      "bytes": 433
+      "sha256": "02c0fbde2fbdbe808348e0661652c98f625426a8fa8968590a7e7b410fc14fb8",
+      "bytes": 434
     },
     {
       "path": "Case04.cs",
-      "sha256": "15d454c2368906df7bb3ee0dbbc5f7a5b738c790039023bbdb24e1c958dd1343",
-      "bytes": 330
+      "sha256": "08df2d7c5401d447aa0d062f274bdce1eee23a91ce177d87b715cd1ddf9b9228",
+      "bytes": 532
     },
     {
       "path": "Case05.cs",
-      "sha256": "0856a6ab56bff945190e7bda2bd3088ba07478dcbb8df08ab4a35d10a3549d17",
-      "bytes": 554
+      "sha256": "763f56b9b5e4e99b041d2f567e168902d1e8d05e9503a2d1c019bc9caa6df556",
+      "bytes": 537
     },
     {
       "path": "CaseVerification.cs",
@@ -96,7 +96,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "696fc745ab9dd306d3c12f5e662bb5fe4149b457ce3007f5f42dc930b4c184b9",
+      "sha256": "2b2fe710b389341a140d88d272519e1430c2bcf237ebc947d27bcbb23a2c05fa",
       "bytes": 3467
     },
     {

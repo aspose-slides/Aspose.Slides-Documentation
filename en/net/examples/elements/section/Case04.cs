@@ -7,9 +7,7 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
-        presentation.Sections.AddSection("Old Name", slide);
-
-        var section = presentation.Sections[0];
+        var section = presentation.Sections.AddSection("Old Name", slide);
         section.Name = "New Name";
 
         VerifyCase04(presentation);

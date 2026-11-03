@@ -21,9 +21,9 @@ description: "Work with tables in Aspose.Slides for .NET: create, format, merge 
 
 Examples for adding tables, accessing them, removing them, and merging cells using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -45,9 +45,9 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-double[] widths = { 80, 80 };
-double[] heights = { 30, 30 };
-var table = slide.Shapes.AddTable(50, 50, widths, heights);
+double[] columnWidths = { 80, 80 };
+double[] rowHeights = { 30, 30 };
+slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
 presentation.Save("table-01.pptx", SaveFormat.Pptx);
 ```
@@ -65,9 +65,9 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-double[] widths = { 80, 80 };
-double[] heights = { 30, 30 };
-var table = slide.Shapes.AddTable(50, 50, widths, heights);
+double[] columnWidths = { 80, 80 };
+double[] rowHeights = { 30, 30 };
+slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
 // Access first table on slide.
 var firstTable = slide.Shapes.OfType<ITable>().First();
@@ -87,9 +87,9 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-double[] widths = { 80, 80 };
-double[] heights = { 30, 30 };
-var table = slide.Shapes.AddTable(50, 50, widths, heights);
+double[] columnWidths = { 80, 80 };
+double[] rowHeights = { 30, 30 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
 slide.Shapes.Remove(table);
 
@@ -98,7 +98,7 @@ presentation.Save("table-03.pptx", SaveFormat.Pptx);
 
 ## **Merge Table Cells**
 
-Merge adjacent cells of a table into a single cell.
+Merge the rectangle from the top-left to the bottom-right cell, covering all four cells. These fixture cells are empty. The false flag disallows splitting cells; it is not a text-retention option.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -107,11 +107,15 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-double[] widths = { 80, 80 };
-double[] heights = { 30, 30 };
-var table = slide.Shapes.AddTable(50, 50, widths, heights);
+double[] columnWidths = { 80, 80 };
+double[] rowHeights = { 30, 30 };
+var table = slide.Shapes.AddTable(50, 50, columnWidths, rowHeights);
 
-table.MergeCells(table[0, 0], table[1, 1], false);
+var topLeftCell = table[0, 0];
+var bottomRightCell = table[1, 1];
+
+// Merge the full 2-by-2 rectangle without splitting any cells.
+table.MergeCells(topLeftCell, bottomRightCell, allowSplitting: false);
 
 presentation.Save("table-04.pptx", SaveFormat.Pptx);
 ```

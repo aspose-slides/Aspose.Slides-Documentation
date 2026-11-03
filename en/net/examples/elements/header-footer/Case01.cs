@@ -6,9 +6,10 @@ internal static partial class Program
     {
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
+        var headerFooter = slide.HeaderFooterManager;
 
-        slide.HeaderFooterManager.SetFooterVisibility(isVisible: true);
-        slide.HeaderFooterManager.SetFooterText("Foot");
+        headerFooter.SetFooterVisibility(isVisible: true);
+        headerFooter.SetFooterText("Foot");
 
         VerifyCase01(presentation);
     }

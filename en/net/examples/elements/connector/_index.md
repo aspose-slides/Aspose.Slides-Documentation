@@ -21,9 +21,9 @@ description: "Learn how to add, route, and style connectors between shapes using
 
 This article demonstrates how to connect shapes with connectors and change their targets using **Aspose.Slides for .NET**.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -36,7 +36,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add a Connector**
 
-Insert a connector shape between two points on the slide.
+Add an unattached bent connector to the slide. The last example attaches its endpoints to shapes.
 
 ```csharp
 using Aspose.Slides.Export;
@@ -45,7 +45,7 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
 presentation.Save("connector-01.pptx", SaveFormat.Pptx);
 ```
@@ -100,12 +100,12 @@ using Aspose.Slides;
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
 
-var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
-var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
+var startShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 50, 50);
+var endShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 50, 50);
 var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
-connector.StartShapeConnectedTo = shape1;
-connector.EndShapeConnectedTo = shape2;
+connector.StartShapeConnectedTo = startShape;
+connector.EndShapeConnectedTo = endShape;
 
 presentation.Save("connector-04.pptx", SaveFormat.Pptx);
 ```

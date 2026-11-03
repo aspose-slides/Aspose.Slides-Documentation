@@ -22,9 +22,9 @@ description: "Discover Aspose.Slides for .NET audio examples: insert, play, trim
 
 This article demonstrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.
 
-Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks. The copied code runs in evaluation mode. For licensed output, apply your license before creating a presentation, as described in the [licensing guide](/slides/net/licensing/).
 
-## Download and run
+## **Download and run**
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
 
@@ -37,7 +37,7 @@ The download includes every case below, its fixture helpers and inputs. `Program
 
 ## **Add an Audio Frame**
 
-Insert an empty audio frame that can later hold embedded sound data.
+Embed the short PCM WAV tone included in the program. No audio file is required.
 
 ```csharp
 using System;
@@ -47,13 +47,16 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-using var audioStream = new MemoryStream(Convert.FromBase64String(
+// Small PCM WAV fixture; no audio file is required.
+const string wavBase64 =
     "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
     "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
-    "Rlhuh5+zwcjGvA=="));
+    "Rlhuh5+zwcjGvA==";
+var wavData = Convert.FromBase64String(wavBase64);
+using var audioStream = new MemoryStream(wavData);
 
 // Embed a short PCM WAV tone.
-var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
 presentation.Save("audio-01.pptx", SaveFormat.Pptx);
 ```
@@ -71,10 +74,13 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-using var audioStream = new MemoryStream(Convert.FromBase64String(
+// Small PCM WAV fixture; no audio file is required.
+const string wavBase64 =
     "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
     "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
-    "Rlhuh5+zwcjGvA=="));
+    "Rlhuh5+zwcjGvA==";
+var wavData = Convert.FromBase64String(wavBase64);
+using var audioStream = new MemoryStream(wavData);
 
 slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
@@ -97,10 +103,13 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-using var audioStream = new MemoryStream(Convert.FromBase64String(
+// Small PCM WAV fixture; no audio file is required.
+const string wavBase64 =
     "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
     "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
-    "Rlhuh5+zwcjGvA=="));
+    "Rlhuh5+zwcjGvA==";
+var wavData = Convert.FromBase64String(wavBase64);
+using var audioStream = new MemoryStream(wavData);
 
 var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
@@ -122,10 +131,13 @@ using Aspose.Slides;
 
 using var presentation = new Presentation();
 var slide = presentation.Slides[0];
-using var audioStream = new MemoryStream(Convert.FromBase64String(
+// Small PCM WAV fixture; no audio file is required.
+const string wavBase64 =
     "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
     "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
-    "Rlhuh5+zwcjGvA=="));
+    "Rlhuh5+zwcjGvA==";
+var wavData = Convert.FromBase64String(wavBase64);
+using var audioStream = new MemoryStream(wavData);
 
 var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 

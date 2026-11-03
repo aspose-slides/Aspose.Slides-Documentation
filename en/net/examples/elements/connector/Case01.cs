@@ -7,7 +7,7 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
-        var connector = slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
+        slide.Shapes.AddConnector(ShapeType.BentConnector2, 0, 0, 100, 100);
 
         VerifyCase01(presentation);
     }

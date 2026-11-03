@@ -8,11 +8,12 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
+        var sequence = slide.Timeline.MainSequence;
         var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
-        slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+        sequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
         // Access the first animation effect.
-        var effect = slide.Timeline.MainSequence[0];
+        var effect = sequence[0];
 
         VerifyCase02(presentation);
     }

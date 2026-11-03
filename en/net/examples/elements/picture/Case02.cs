@@ -10,14 +10,14 @@ internal static partial class Program
         var slide = presentation.Slides[0];
 
         // A valid packaged PNG supplies a deterministic editable picture.
-        using var imageStream = new MemoryStream(File.ReadAllBytes(Context.Input("Picture.png")));
+        var pngData = File.ReadAllBytes(Context.Input("Picture.png"));
 
         // Add the image to the presentation.
-        var image = presentation.Images.AddImage(imageStream);
+        var image = presentation.Images.AddImage(pngData);
         slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, 40, 40, image);
 
         // Access the first picture frame on the slide.
-        var pictureFrame = slide.Shapes.OfType<PictureFrame>().First();
+        var pictureFrame = slide.Shapes.OfType<IPictureFrame>().First();
 
         VerifyCase02(presentation);
     }

@@ -7,7 +7,7 @@ internal static partial class Program
         using var presentation = new Presentation();
         var slide = presentation.Slides[0];
 
-        var notesSlide = slide.NotesSlideManager.AddNotesSlide();
+        slide.NotesSlideManager.AddNotesSlide();
 
         slide.NotesSlideManager.RemoveNotesSlide();
 

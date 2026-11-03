@@ -10,7 +10,6 @@ internal static partial class Program
 
         var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 100, 100);
 
-        // Fade effect.
         slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
         VerifyCase01(presentation);

@@ -1,25 +1,18 @@
 using System.Buffers.Binary;
 using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Net.Http;
 using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.Json;
-using System.Text.RegularExpressions;
 using Aspose.Slides;
-using Aspose.Slides.Export;
-using Aspose.Slides.Warnings;
 
 internal static partial class Program
 {
     private static ExampleContext Context = null!;
-
     private static Task<int> RunChecked(string[] args) => ExampleBootstrap.RunAsync(args, async context =>
     {
         Context = context;
@@ -28,14 +21,16 @@ internal static partial class Program
         await Task.CompletedTask;
         context.Pass("fonts-text/embed-fonts/block-001", "recipe semantic assertions", "source inputs preserved", "documented output generated");
     });
-
     // EOT fields follow https://www.w3.org/submissions/EOT/; this checks actual font bytes, not only a family name.
     private static void ValidateEmbeddedPayload(string path, byte[] sourceFont, bool full)
     {
         using var archive = ZipFile.OpenRead(path);
         var entries = archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/fonts/", StringComparison.Ordinal) && entry.FullName.EndsWith(".fntdata", StringComparison.Ordinal)).ToArray();
         Require(entries.Length == 1, "Expected one real embedded font payload.");
-        using var stream = entries[0].Open(); using var memory = new MemoryStream(); stream.CopyTo(memory); byte[] eot = memory.ToArray();
+        using var stream = entries[0].Open();
+        using var memory = new MemoryStream();
+        stream.CopyTo(memory);
+        byte[] eot = memory.ToArray();
         Require(eot.Length > 1000 && BinaryPrimitives.ReadUInt32LittleEndian(eot.AsSpan(0, 4)) == eot.Length, "Embedded EOT size is invalid.");
         uint dataSize = BinaryPrimitives.ReadUInt32LittleEndian(eot.AsSpan(4, 4));
         Require(dataSize > 1000 && dataSize < eot.Length && BinaryPrimitives.ReadUInt16LittleEndian(eot.AsSpan(34, 2)) == 0x504c, "Embedded EOT payload/header is invalid.");
@@ -52,11 +47,11 @@ internal static partial class Program
 
     private static void Require(bool condition, string message)
     {
-        if (!condition) throw new InvalidOperationException(message);
+        if (!condition)
+            throw new InvalidOperationException(message);
     }
 
     private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
-
     private static void Report(object checks)
     {
         string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });

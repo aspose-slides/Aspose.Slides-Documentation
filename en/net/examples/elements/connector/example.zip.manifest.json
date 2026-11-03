@@ -2,7 +2,7 @@
   "schema_version": 1,
   "article_id": "elements/connector",
   "archive": "example.zip",
-  "archive_sha256": "e6d23cebb68fd3236681a5e502c895253cc99f3e6b7b42df5de24117d909f2b6",
+  "archive_sha256": "a1658ebacf04892a7744f2dc3ee75c3338914eba7437aec003a60b3acdf594f8",
   "members": [
     {
       "path": ".vscode/launch.json",
@@ -16,8 +16,8 @@
     },
     {
       "path": "Case01.cs",
-      "sha256": "6630d624bb4bf007bb466a54acc8888c3f1ae96936d3c22c2fabe9bb2834c071",
-      "bytes": 329
+      "sha256": "83bb9a66032526bff9a806447d16a43c2c8e75073e3e65517e1ebf0466609f31",
+      "bytes": 313
     },
     {
       "path": "Case02.cs",
@@ -31,8 +31,8 @@
     },
     {
       "path": "Case04.cs",
-      "sha256": "d1df109740c22266f34afc37d09f35d715dbb74d066f4bc5b7c6c2df9cf8caef",
-      "bytes": 598
+      "sha256": "014d6a3a8d73a507a7babc5b17c9de9820ded699ddd8034c4fb53f628645ac21",
+      "bytes": 610
     },
     {
       "path": "CaseVerification.cs",
@@ -91,7 +91,7 @@
     },
     {
       "path": "example-manifest.json",
-      "sha256": "c8791199c2c110cbfee6d6ea2797ab3bec3596a003ae76a47335f4c22fde95c2",
+      "sha256": "c6b629c301146376165321958860f84eee04f34f71e47d6c464c7ca6cbd8b1b0",
       "bytes": 3108
     },
     {
