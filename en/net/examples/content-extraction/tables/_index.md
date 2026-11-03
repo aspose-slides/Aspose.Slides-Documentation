@@ -27,25 +27,31 @@ All presentation inputs are generated from original synthetic data. Results go t
 
 ## Example
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System.Threading.Tasks;
-using System;
+using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
+using Aspose.Slides;
+using Microsoft.VisualBasic.FileIO;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private sealed record Cell(int Row,int Column,int FirstRow,int FirstColumn,int RowSpan,int ColumnSpan,bool Merged,string? Text);
 
@@ -64,7 +70,88 @@ internal static partial class Program
         Example.Json("output/tables.json",tables);File.WriteAllText("output/tables.csv",csv.ToString(),new UTF8Encoding(false));
         VerifyExtraction(tables, csv);
     }
+
+    private static void CreateInput()
+    {
+        Example.Setup();using(var p=new Presentation())
+        {var group=p.Slides[0].Shapes.AddGroupShape();var table=group.Shapes.AddTable(30,30,new double[]{200,160,200},new double[]{45,45,45});table.Name="Source table";
+         table[0,0].TextFrame.Text="Customer";table[1,0].TextFrame.Text="Detail";table.MergeCells(table[1,0],table[2,0],false);
+         table[0,1].TextFrame.Text=Example.Choice("Acme, Inc.","A,β");table[1,1].TextFrame.Text="東京";table[2,1].TextFrame.Text=Example.Choice("\"Quoted\"","\"Q\"");table[0,2].TextFrame.Text=Example.Choice("Résumé","é");p.Save("output/input.pptx",SaveFormat.Pptx);}
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ExtractTables();
+        await Task.CompletedTask;
+    });
+
+    private static void VerifyExtraction(List<TableData> tables, StringBuilder csv)
+    {
+        var rows=Example.Csv(csv.ToString(),5);var extracted=tables.Single().Cells;
+        Example.Require(extracted.Single(c=>c.Row==1&&c.Column==0).Text==Example.Choice("Acme, Inc.","A,β")&&extracted.Single(c=>c.Row==1&&c.Column==1).Text=="東京","Values/Unicode lost.");
+        Example.Require(extracted.Single(c=>c.Row==0&&c.Column==2).Text==null&&extracted.Single(c=>c.Row==0&&c.Column==1).ColumnSpan==2,"Merged-cell representation differs.");
+        Example.Require(rows.Any(r=>r[4]==Example.Choice("\"Quoted\"","\"Q\""))&&rows.Count==10,"CSV quoting or grid size differs.");
+        Example.Result(new{tables=1,grid_cells=9,merged_coverage_explicit=true,unicode_and_csv_quoting_checked=true,group_traversal_checked=true});
+    }
 }
+
+internal static class Example
+{
+    public static ExampleContext Context = null!;
+
+    public static void Setup() { Directory.CreateDirectory("output"); }
+
+    public static string Choice(string licensed,string evaluation) => Context.IsLicensed ? licensed : evaluation;
+
+    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
+
+    public static void Result(object checks)
+    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static void Json(string path,object value)
+    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static IEnumerable<IShape> Walk(IShapeCollection shapes)
+    { foreach(IShape shape in shapes){yield return shape;if(shape is IGroupShape group)foreach(var child in Walk(group.Shapes))yield return child;} }
+
+    public static List<string[]> Csv(string text,int columns)
+    {
+        using var parser=new TextFieldParser(new StringReader(text));parser.SetDelimiters(",");parser.HasFieldsEnclosedInQuotes=true;parser.TrimWhiteSpace=false;
+        var rows=new List<string[]>();while(!parser.EndOfData){var row=parser.ReadFields()!;if(row.Length!=columns)throw new InvalidDataException("CSV field count differs.");rows.Add(row);}return rows;
+    }
+
+    public static string CsvCell(string text)=>"\""+text.Replace("\"","\"\"")+"\"";
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
 ## Expected result and checks

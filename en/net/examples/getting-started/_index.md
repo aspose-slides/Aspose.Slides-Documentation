@@ -8,6 +8,20 @@ description: "Download, restore, build and run complete Aspose.Slides for .NET e
 
 Each [example](/slides/net/examples/) has a complete project download, including the examples in **Elements**. Extract the whole ZIP into a writable directory. Keep the included configuration, source, fixtures and fonts together.
 
+## Copy a C# example
+
+Create a console project and install the same Aspose.Slides package used by the downloads.
+
+```text
+dotnet new console -n SlidesExample
+cd SlidesExample
+dotnet add package Aspose.Slides.NET6.CrossPlatform --version 26.10.0
+```
+
+Replace the contents of `Program.cs` with one copied block, then run `dotnet run`. Each block has its own entry point. The API and worker examples also use the ASP.NET Core shared framework. Follow the article for any input file, service, or runtime configuration the example uses.
+
+Use the ZIP when you want the solution, IDE profiles, and the additional checks that run with the download.
+
 ## Install a supported SDK
 
 Install the current [.NET 10 LTS SDK](https://dotnet.microsoft.com/download/dotnet/10.0) for your operating system and processor. An SDK includes the build tools and runtime; a runtime alone cannot build a project. Use an IDE version that supports your installed SDK.
@@ -86,4 +100,4 @@ Application integration examples have additional entry points. Follow their arti
 | Wrong font or missing glyph | Keep the supplied `Fonts` folder and acquire any additional fonts required by that article. |
 | Exit code 2 | Read the named prerequisite in the console and `execution.json`; supply it and rerun that action. |
 
-The repository's [.NET example workflow](https://github.com/aspose-slides/Aspose.Slides-Documentation/actions/workflows/examples-net.yml) restores, builds and runs fresh evaluation downloads on native Windows, Linux x64/ARM64 and macOS x64/ARM64 runners. Its results distinguish functional passes from expected prerequisite diagnostics for AI configuration or an unavailable Docker engine; a diagnostic does not verify that operation. It does not upload private licenses or AI credentials.
+The repository's [.NET example workflow](https://github.com/aspose-slides/Aspose.Slides-Documentation/actions/workflows/examples-net.yml) compiles each copied block in its own project. It also restores, builds and runs fresh evaluation downloads on native Windows, Linux x64/ARM64 and macOS x64/ARM64 runners. Its results distinguish functional passes from expected prerequisite diagnostics for AI configuration or an unavailable Docker engine; a diagnostic does not verify that operation. It does not upload private licenses or AI credentials.

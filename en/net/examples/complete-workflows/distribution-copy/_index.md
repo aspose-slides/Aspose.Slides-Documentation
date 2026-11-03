@@ -16,7 +16,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Inputs and execution
@@ -31,23 +31,25 @@ The program generates its own original presentation/template fixture. JSON input
 
 ## Complete project source
 
-The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
 
 ```csharp
-using System.Threading.Tasks;
-using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Drawing;
 using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 using Aspose.Slides.Vba;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
     private static void RunExample()
     {
@@ -81,7 +83,91 @@ internal static partial class Program
         Preview(reopened, "preview.png");
         Report(new { notes_removed = true, comments_removed = true, macros_removed = true, custom_properties_removed = true, input_preserved = true });
     }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> Main() => ExampleBootstrap.RunAsync(async context =>
+    {
+        Context = context;
+        RunExample();
+        await Task.CompletedTask;
+    });
+
+    private static Presentation Deck(params string[] titles)
+    {
+        var deck = new Presentation();
+        deck.SlideSize.SetSize(960, 540, SlideSizeScaleType.DoNotScale);
+        var layout = deck.LayoutSlides.GetByType(SlideLayoutType.Blank);
+        for (int i = 0; i < titles.Length; i++)
+        {
+            var slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(layout);
+            Label(slide, titles[i], "Title", 40, 30, 880, 80);
+        }
+        return deck;
+    }
+
+    private static IAutoShape Label(ISlide slide, string value, string name, float x, float y, float w, float h)
+    {
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, w, h);
+        shape.Name = name;
+        shape.FillFormat.FillType = FillType.Solid;
+        shape.FillFormat.SolidFillColor.Color = Color.AliceBlue;
+        shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+        shape.TextFrame.Text = value;
+        shape.TextFrame.TextFrameFormat.AutofitType = TextAutofitType.Normal;
+        foreach (var paragraph in shape.TextFrame.Paragraphs)
+        foreach (var portion in paragraph.Portions)
+        {
+            portion.PortionFormat.FontHeight = 24;
+            portion.PortionFormat.LatinFont = new FontData("Noto Sans");
+            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+        }
+        return shape;
+    }
+
+    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path)));
+
+    private static void Require(bool value, string message) { if (!value) throw new InvalidOperationException(message); }
+
+    private static void Preview(Presentation deck, string path)
+    {
+        using var image = deck.Slides[0].GetImage(new Size(640, 360));
+        image.Save(path, Aspose.Slides.ImageFormat.Png);
+    }
+
+    private static void Report(object value)
+    {
+        string json = JsonSerializer.Serialize(value, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText("result.json", json); Console.WriteLine(json);
+    }
 }
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
 ## Expected outputs

@@ -27,30 +27,36 @@ All presentation inputs are generated from original synthetic data. Results go t
 
 ## Example
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System;
-using System.Collections.Generic;
+using System.Buffers.Binary;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
+using Aspose.Slides;
+using Microsoft.VisualBasic.FileIO;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private static void ProcessLargeMedia()
     {
@@ -71,13 +77,75 @@ internal static partial class Program
         };
         using(var p=new Presentation("output/input.pptx",options)){p.Save("output/processed.pptx",SaveFormat.Pptx);}
         watch.Stop();using(var exclusive=File.Open("output/input.pptx",FileMode.Open,FileAccess.ReadWrite,FileShare.None)){}
-        int remainingFiles=Directory.GetFiles(temp,"*",SearchOption.AllDirectories).Length;
+        int remainingFiles=Directory.GetFiles(temp,"*",System.IO.SearchOption.AllDirectories).Length;
         using var result=new Presentation("output/processed.pptx");byte[] actual=result.Slides[0].Shapes.OfType<IAudioFrame>().Single().EmbeddedAudio.BinaryData;
         Example.Require(Example.Hash(actual)==Example.HashFile("output/original.wav"),"Audio changed.");Example.Require(remainingFiles==0,"BLOB temporary files remain after disposal.");
         Example.Json("output/measurements.json",new{audio_bytes=actual.Length,baseline_working_set=baseline,process_peak_working_set=Process.GetCurrentProcess().PeakWorkingSet64,processing_elapsed_ms=watch.ElapsedMilliseconds,temp_files_after_disposal=remainingFiles,operating_system=System.Runtime.InteropServices.RuntimeInformation.OSDescription,runtime=System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription});
         Example.Result(new{media_bytes_preserved=true,input_unlocked_after_disposal=true,temp_files_cleaned=true,memory_measurement_recorded=true});
     }
+
+    private static void WriteWav(string path,int samples)
+    {
+        using var stream=File.Create(path);using var writer=new BinaryWriter(stream);
+        writer.Write(Encoding.ASCII.GetBytes("RIFF"));writer.Write(36+samples*2);writer.Write(Encoding.ASCII.GetBytes("WAVEfmt "));writer.Write(16);writer.Write((short)1);writer.Write((short)1);writer.Write(8000);writer.Write(16000);writer.Write((short)2);writer.Write((short)16);writer.Write(Encoding.ASCII.GetBytes("data"));writer.Write(samples*2);
+        var random=new Random(17);var buffer=new byte[65536];int remaining=samples*2;while(remaining>0){random.NextBytes(buffer);int count=Math.Min(buffer.Length,remaining);writer.Write(buffer,0,count);remaining-=count;}
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ProcessLargeMedia();
+        await Task.CompletedTask;
+    });
 }
+
+internal static class Example
+{
+    public static ExampleContext Context = null!;
+
+    public static void Setup() { Directory.CreateDirectory("output"); }
+
+    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
+
+    public static string Hash(byte[] data)=>System.Convert.ToHexString(SHA256.HashData(data)).ToLowerInvariant();
+
+    public static string HashFile(string path)=>Hash(File.ReadAllBytes(path));
+
+    public static void Result(object checks)
+    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static void Json(string path,object value)
+    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
 ## Expected result and checks

@@ -27,25 +27,31 @@ All presentation inputs are generated from original synthetic data. Results go t
 
 ## Example
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System.Threading.Tasks;
-using System;
+using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
+using Aspose.Slides;
+using Microsoft.VisualBasic.FileIO;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private sealed record TextItem(string Shape,string Text);
 
@@ -61,7 +67,91 @@ internal static partial class Program
         Example.Json("output/text.json",new{presentation=Example.HashFile("output/input.pptx"),include_hidden=true,slides=all});
         VerifyExtraction(all, visible);
     }
+
+    private static void CreateInput()
+    {
+        Example.Setup();using(var p=new Presentation())
+        {var slide=p.Slides[0];Example.Text(slide.Shapes,"Title",Example.Choice("Résumé – 東京","東京 β"));var group=slide.Shapes.AddGroupShape();Example.Text(group.Shapes,"Group text",Example.Choice("Grouped α","α"));var nested=group.Shapes.AddGroupShape();Example.Text(nested.Shapes,"Nested text",Example.Choice("Nested β","β"));Example.Text(slide.Shapes,"Empty","");slide.NotesSlideManager.AddNotesSlide().NotesTextFrame.Text=Example.Choice("Speaker notes ✓","✓");
+         var hidden=p.Slides.AddEmptySlide(p.LayoutSlides[0]);hidden.Hidden=true;Example.Text(hidden.Shapes,"Hidden text",Example.Choice("Hidden slide","Hide"));p.Save("output/input.pptx",SaveFormat.Pptx);}
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        ExtractTextAndNotes();
+        await Task.CompletedTask;
+    });
+
+    private static void VerifyExtraction(SlideText[] all, SlideText[] visible)
+    {
+        Example.Require(all.Length==2 && visible.Length==1 && all[1].Number==2,"Slide number/hidden policy differs.");
+        Example.Require(all[0].Text.Any(x=>x.Text==Example.Choice("Résumé – 東京","東京 β"))&&all[0].Text.Any(x=>x.Text==Example.Choice("Nested β","β"))&&all[0].Text.Any(x=>x.Text==""),"Unicode/group/empty text lost.");
+        Example.Require(all[0].Notes.Contains(Example.Choice("Speaker notes ✓","✓")),"Notes lost.");Example.Result(new{slides_including_hidden=2,visible_slides=1,unicode_groups_empty_and_notes_checked=true,one_based_numbering=true});
+    }
 }
+
+internal static class Example
+{
+    public static ExampleContext Context = null!;
+
+    public static void Setup() { Directory.CreateDirectory("output"); }
+
+    public static string Choice(string licensed,string evaluation) => Context.IsLicensed ? licensed : evaluation;
+
+    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
+
+    public static string Hash(byte[] data)=>Convert.ToHexString(SHA256.HashData(data)).ToLowerInvariant();
+
+    public static string HashFile(string path)=>Hash(File.ReadAllBytes(path));
+
+    public static void Result(object checks)
+    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static void Json(string path,object value)
+    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static IAutoShape Text(IShapeCollection shapes,string name,string value,float x=35,float y=35,float width=600,float height=70)
+    {
+        var shape=shapes.AddAutoShape(ShapeType.Rectangle,x,y,width,height);
+        shape.Name=name; shape.TextFrame.Text=value;
+        shape.FillFormat.FillType=FillType.Solid; shape.FillFormat.SolidFillColor.Color=Color.White;
+        foreach(var para in shape.TextFrame.Paragraphs) foreach(var portion in para.Portions)
+        { portion.PortionFormat.LatinFont=new FontData("Noto Sans"); portion.PortionFormat.FontHeight=20; portion.PortionFormat.FillFormat.FillType=FillType.Solid; portion.PortionFormat.FillFormat.SolidFillColor.Color=Color.FromArgb(35,65,100); }
+        return shape;
+    }
+
+    public static IEnumerable<IShape> Walk(IShapeCollection shapes)
+    { foreach(IShape shape in shapes){yield return shape;if(shape is IGroupShape group)foreach(var child in Walk(group.Shapes))yield return child;} }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
 ## Expected result and checks

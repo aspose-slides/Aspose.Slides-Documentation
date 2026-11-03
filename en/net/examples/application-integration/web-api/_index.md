@@ -14,26 +14,29 @@ Use a current supported .NET10 SDK/runtime and the supplied flexible SDK setting
 
 ## Complete application
 
-The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Use an ASP.NET Core project, or add a framework reference to `Microsoft.AspNetCore.App`.
+The copied program writes its files under `example-output` by default.
 
 ```csharp
-using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
+using System.Net;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
-using Aspose.Slides;
+using System.Threading;
+using System;
 using Aspose.Slides.Export;
+using Aspose.Slides;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 
-internal static partial class Program
+internal static class Program
 {
     private const int RequestLimit = 8 * 1024 * 1024;
 
@@ -62,7 +65,6 @@ internal static partial class Program
         if (!selfTest)
         {
             await app.StartAsync();
-            Context.Pass("application-integration/web-api/serve", "real loopback Kestrel listener started");
             await app.WaitForShutdownAsync();
             return;
         }
@@ -137,7 +139,176 @@ internal static partial class Program
             Slots.Release();
         }
     }
+
+    private static ExampleContext Context = null!;
+
+    private static string LaunchDirectory = "";
+
+    private static Task<int> Main(string[] args)
+    {
+        LaunchDirectory=Environment.CurrentDirectory;
+        return ExampleBootstrap.RunAsync(args, async context =>
+        {
+            Context=context;
+            string actionId=context.Arguments.Contains("--self-test")?"application-integration/web-api/block-001":"application-integration/web-api/serve";
+            await RunExample(context.Arguments);
+            if(context.Arguments.Contains("--self-test"))VerifyResult(actionId);
+        });
+    }
+
+    private static void VerifyResult(string actionId)
+    {
+        using var actual=JsonDocument.Parse(File.ReadAllText("result.json"));
+        using var expected=JsonDocument.Parse("{\"valid_responses\":3,\"invalid_rejected\":true,\"oversized_rejected\":true,\"cancellation_observed\":true,\"temporary_workspaces_cleaned\":true,\"concurrency_bound\":2,\"sdk_concurrency_bound\":1,\"maximum_sdk_active\":1}");
+        var checks=new System.Collections.Generic.Dictionary<string,bool>();
+        foreach(var field in expected.RootElement.EnumerateObject())
+        {
+            var value=actual.RootElement;foreach(string part in field.Name.Split('.'))value=value.GetProperty(part);
+            string wanted=field.Value.ToString();
+            Context.Require(value.ToString()==wanted,"The genuine operation failed its result check: "+field.Name);
+            checks[(Context.IsLicensed?"licensed-":"evaluation-")+field.Name.Replace('.','-')]=true;
+        }
+        if(!Context.IsLicensed){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+    }
+
+    private static byte[] Fixture(int slides)
+    {
+        using var presentation = new Presentation();
+        var layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+        for (int i = 0; i < slides; i++)
+        {
+            var slide = i == 0 ? presentation.Slides[0] : presentation.Slides.AddEmptySlide(layout);
+            slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 500, 100).TextFrame.Text = "API Alpha " + (i + 1);
+        }
+        using var bytes = new MemoryStream();
+        presentation.Save(bytes, SaveFormat.Pptx);
+        return bytes.ToArray();
+    }
+
+    private static async Task Verify(string address)
+    {
+        using var client = new HttpClient { BaseAddress = new Uri(address), Timeout = TimeSpan.FromSeconds(90) };
+        byte[] input = Fixture(2);
+        await File.WriteAllBytesAsync("input.pptx", input);
+        var simultaneous = await Task.WhenAll(Enumerable.Range(0, 3).Select(async i =>
+        {
+            using var response = await client.PostAsync("/convert", new ByteArrayContent(input));
+            byte[] pdf = await response.Content.ReadAsByteArrayAsync();
+            Require(response.StatusCode == HttpStatusCode.OK && response.Content.Headers.ContentType?.MediaType == "application/pdf", "Expected a PDF response.");
+            Require(pdf.Length > 500 && System.Text.Encoding.ASCII.GetString(pdf, 0, 5) == "%PDF-", "Expected PDF bytes.");
+            await File.WriteAllBytesAsync("response-" + i + ".pdf", pdf);
+            return true;
+        }));
+        using var invalid = await client.PostAsync("/convert", new ByteArrayContent(new byte[] { 1, 2, 3 }));
+        Require(invalid.StatusCode == HttpStatusCode.BadRequest && (await invalid.Content.ReadAsStringAsync()).Contains("invalid_presentation"), "Invalid upload needs a stable 400 response.");
+        using var oversized = await client.PostAsync("/convert", new ByteArrayContent(new byte[RequestLimit + 1]));
+        Require((int)oversized.StatusCode == 413, "Oversized upload must be rejected.");
+        using var cancellation = new CancellationTokenSource();
+        var pending = client.PostAsync("/convert", new ByteArrayContent(Fixture(100)), cancellation.Token);
+        for (int i = 0; i < 500 && Volatile.Read(ref active) == 0; i++) await Task.Delay(2);
+        Require(Volatile.Read(ref active) > 0, "Cancellation test must reach presentation processing.");
+        cancellation.Cancel();
+        bool cancelled = false;
+        try { using var unused = await pending; } catch (OperationCanceledException) { cancelled = true; }
+        for (int i = 0; i < 1000 && Volatile.Read(ref active) > 0; i++) await Task.Delay(5);
+        Require(cancelled && active == 0 && Workspaces.IsEmpty, "Cancellation must clean its workspace.");
+        Require(maximumActive <= 2, "Concurrency bound exceeded.");
+        Require(maxSdkActive == 1 && nativeActive == 0, "The SDK conversion section must finish with maximum concurrency one.");
+        string json = JsonSerializer.Serialize(new { valid_responses = simultaneous.Length, invalid_rejected = true, oversized_rejected = true, cancellation_observed = true, temporary_workspaces_cleaned = Workspaces.IsEmpty, maximum_active = maximumActive, concurrency_bound = 2, sdk_concurrency_bound = 1, maximum_sdk_active = maxSdkActive });
+        await File.WriteAllTextAsync("result.json", json);
+        Console.WriteLine(json);
+    }
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
 }
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(string[] args, Func<ExampleContext, Task> run)
+    {
+        string start = Environment.CurrentDirectory;
+        string output = Path.Combine(start, "example-output");
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        string? mode = null;
+        var recipeArgs = new List<string>();
+
+        try
+        {
+            for (int i = 0; i < args.Length; i++)
+            {
+                string option = args[i];
+                if (option is not ("--output" or "--license" or "--mode"))
+                {
+                    recipeArgs.Add(option);
+                    continue;
+                }
+                if (++i == args.Length)
+                    throw new ExamplePrerequisiteException("Supply a value for " + option);
+                if (option == "--output")
+                    output = Path.GetFullPath(args[i], start);
+                else if (option == "--license")
+                    licensePath = args[i];
+                else
+                    mode = args[i];
+            }
+
+            mode ??= string.IsNullOrWhiteSpace(licensePath) ? "evaluation" : "licensed";
+            if (mode is not ("evaluation" or "licensed"))
+                throw new ExamplePrerequisiteException("Use --mode evaluation or --mode licensed.");
+            if (mode == "licensed")
+            {
+                if (string.IsNullOrWhiteSpace(licensePath))
+                    throw new ExamplePrerequisiteException("Set ASPOSE_LICENSE_PATH to a valid Aspose.Slides license.");
+                var license = new License();
+                license.SetLicense(Path.GetFullPath(licensePath, start));
+                if (!license.IsLicensed())
+                    throw new ExamplePrerequisiteException("The supplied license could not be applied.");
+            }
+
+            Directory.CreateDirectory(output);
+            Console.WriteLine("Output: " + output);
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, mode, recipeArgs.ToArray()));
+            return 0;
+        }
+        catch (ExamplePrerequisiteException error)
+        {
+            Console.Error.WriteLine(error.Message);
+            return 2;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed class ExampleContext(string output, string mode, string[] arguments)
+{
+    public string OutputRoot { get; } = output;
+    public string Mode { get; } = mode;
+    public bool IsLicensed => Mode == "licensed";
+    public string[] Arguments { get; } = arguments;
+
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
+
+    public void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    public void Prerequisite(bool condition, string message)
+    {
+        if (!condition) throw new ExamplePrerequisiteException(message);
+    }
+}
+
+internal sealed class ExamplePrerequisiteException(string message) : Exception(message);
 ```
 
 ## Run and verify

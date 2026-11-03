@@ -14,22 +14,25 @@ Use a current supported .NET10 SDK/runtime and the supplied flexible SDK setting
 
 ## Complete application
 
-The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+Start a Linux Docker engine before running this example. The program creates the container build files.
+The copied program writes its files under `example-output` by default.
 
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
 using System.Text.Json;
+using System.Text;
 using System.Threading.Tasks;
-using Aspose.Slides;
+using System;
 using Aspose.Slides.Export;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
     private static async Task Convert(string input)
     {
@@ -52,7 +55,7 @@ internal static partial class Program
         await Docker("version","--format","{{.Server.Version}}");
         string engine=(await Docker("info","--format","{{.OSType}}")).Trim();
         Context.Prerequisite(engine.Equals("linux",StringComparison.OrdinalIgnoreCase),"A Linux container engine is required; Docker reports "+engine+". Switch Docker Desktop to Linux containers or use a compatible Linux engine before running this example.");
-        string project=ProjectRoot(),input=Path.GetFullPath("container-input"),output=Path.GetFullPath("container-output");Directory.CreateDirectory(input);Directory.CreateDirectory(output);
+        string input=Path.GetFullPath("container-input"),output=Path.GetFullPath("container-output");Directory.CreateDirectory(input);Directory.CreateDirectory(output);
         using(var p=new Presentation())
         {
             for(int i=0;i<2;i++)
@@ -64,7 +67,16 @@ internal static partial class Program
             p.Save(Path.Combine(input,"source.pptx"),SaveFormat.Pptx);
         }
         byte[] before=SHA256.HashData(File.ReadAllBytes(Path.Combine(input,"source.pptx")));
-        const string image="slides-examples-converter:26.10.0-net10";await Docker("build","--tag",image,project);
+        const string image = "slides-standalone-converter:26.10.0";
+        DirectoryInfo build = CreateBuildContext();
+        try
+        {
+            await Docker("build", "--tag", image, build.FullName);
+        }
+        finally
+        {
+            build.Delete(recursive: true);
+        }
         var args=new System.Collections.Generic.List<string>{"run","--rm","--network","none","--mount","type=bind,source="+input+",target=/input,readonly","--mount","type=bind,source="+output+",target=/output"};
         if(OperatingSystem.IsLinux())
         {
@@ -87,7 +99,223 @@ internal static partial class Program
         string id=(await Docker("image","inspect","--format","{{.Id}}",image)).Trim();
         await File.WriteAllTextAsync("result.json",JsonSerializer.Serialize(new{linux=true,slides=2,fixture_text_retained=true,full_text_retained=Context.IsLicensed&&result.GetProperty("full_text_retained").GetBoolean(),input_unchanged=true,no_license_in_image=true,networking_disabled=true,image_id=id,runtime=result.GetProperty("runtime").GetString()}));
     }
+
+    private static ExampleContext Context=null!;
+
+    private static string? runtimeLicense;
+
+    private static string? runtimeInput;
+
+    private static Task<int> Main(string[] args)
+    {
+        string? path=Value(args,"--license")??Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        runtimeLicense=string.IsNullOrWhiteSpace(path)?null:Path.GetFullPath(path);
+        string? input=Value(args,"--input");runtimeInput=string.IsNullOrWhiteSpace(input)?null:Path.GetFullPath(input);
+        return ExampleBootstrap.RunAsync(args,async context=>
+        {
+            Context=context;
+            bool verify=context.Arguments.Contains("--verify-container")||Value(context.Arguments,"--input")==null;
+            string actionId=verify?"application-integration/docker/block-001":"application-integration/docker/convert-file";
+            if(verify)await VerifyContainer();
+            else await Convert(runtimeInput!);
+            using var result=JsonDocument.Parse(File.ReadAllText("result.json"));
+            var root=result.RootElement;
+            if(verify)context.Require(root.GetProperty("slides").GetInt32()==2&&root.GetProperty("fixture_text_retained").GetBoolean(),"The synthetic two-slide text fixture must survive conversion.");
+            context.Require(root.GetProperty("input_unchanged").GetBoolean(),"Input bytes changed.");
+            if(context.IsLicensed)context.Require(root.GetProperty("full_text_retained").GetBoolean(),"Licensed full text changed.");
+            var checks=new System.Collections.Generic.Dictionary<string,bool>();
+            if(verify&&context.IsLicensed)
+            {
+                foreach(string field in new[]{"linux","full_text_retained","input_unchanged","no_license_in_image","networking_disabled"}){context.Require(root.GetProperty(field).GetBoolean(),"Container check failed: "+field);checks["licensed-"+field]=true;}
+                checks["licensed-slides"]=true;
+            }
+            else if(verify){checks["evaluation-semantic-effect"]=true;checks["evaluation-valid-output"]=true;}
+            else{checks["input slide count retained"]=true;checks["input bytes unchanged"]=true;checks["valid PDF and preview"]=true;}
+        });
+    }
+
+    private static string AllText(IPresentation p)=>string.Join(" ",p.Slides.SelectMany(s=>s.Shapes.OfType<IAutoShape>()).Select(s=>s.TextFrame.Text));
+
+    private static DirectoryInfo CreateBuildContext()
+    {
+        string? sourcePath = null;
+        for (var directory = new DirectoryInfo(AppContext.BaseDirectory); directory != null; directory = directory.Parent)
+        {
+            string path = Path.Combine(directory.FullName, "Program.cs");
+            if (!File.Exists(path)) continue;
+            sourcePath = path;
+            break;
+        }
+        if (sourcePath is null)
+            throw new ExamplePrerequisiteException("Save this example as Program.cs in your .NET console project and run it there.");
+
+        var build = Directory.CreateTempSubdirectory("slides-docker-");
+        File.Copy(sourcePath, Path.Combine(build.FullName, "Program.cs"));
+        File.WriteAllText(Path.Combine(build.FullName, "Example.csproj"), """
+            <Project Sdk="Microsoft.NET.Sdk">
+              <PropertyGroup>
+                <OutputType>Exe</OutputType>
+                <TargetFramework>net8.0</TargetFramework>
+                <RollForward>Major</RollForward>
+                <Nullable>enable</Nullable>
+              </PropertyGroup>
+              <ItemGroup>
+                <PackageReference Include="Aspose.Slides.NET6.CrossPlatform" Version="26.10.0" />
+              </ItemGroup>
+            </Project>
+            """);
+        File.WriteAllText(Path.Combine(build.FullName, "Dockerfile"), """
+            FROM mcr.microsoft.com/dotnet/sdk:10.0.403-noble AS build
+            WORKDIR /src
+            COPY Example.csproj ./
+            RUN dotnet restore Example.csproj
+            COPY Program.cs ./
+            RUN dotnet publish Example.csproj --no-restore --configuration Release --output /app /p:UseAppHost=false
+
+            FROM mcr.microsoft.com/dotnet/runtime:10.0.14-noble
+            RUN apt-get update && apt-get install -y --no-install-recommends libfontconfig1 fonts-dejavu-core libicu74 && rm -rf /var/lib/apt/lists/*
+            WORKDIR /app
+            COPY --from=build /app ./
+            USER $APP_UID
+            ENTRYPOINT ["dotnet", "Example.dll"]
+            """);
+        return build;
+    }
+
+    private static Task<string> Docker(params string[] args)=>RunProcess("docker",args);
+
+    private static async Task<string> RunProcess(string executable, params string[] args)
+    {
+        var start = new ProcessStartInfo(executable)
+        {
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+        };
+        foreach (string argument in args)
+            start.ArgumentList.Add(argument);
+
+        Process process;
+        try
+        {
+            process = Process.Start(start) ?? throw new InvalidOperationException();
+        }
+        catch (System.ComponentModel.Win32Exception)
+        {
+            throw new ExamplePrerequisiteException(
+                "Install Docker Desktop or a compatible Linux engine and start it before container verification.");
+        }
+
+        using (process)
+        {
+            Task<string> stdout = process.StandardOutput.ReadToEndAsync();
+            Task<string> stderr = process.StandardError.ReadToEndAsync();
+            await process.WaitForExitAsync();
+            string output = await stdout;
+            string error = await stderr;
+
+            if (executable == "docker" && args[0] == "build")
+                await File.WriteAllTextAsync("docker-build.log", output + error);
+            if (process.ExitCode != 0)
+            {
+                if (executable == "docker" && args[0] is "version" or "info")
+                    throw new ExamplePrerequisiteException(
+                        "Docker engine is unavailable. Start a Linux container engine and retry.");
+                throw new InvalidOperationException(executable + " operation failed: " + error);
+            }
+
+            Console.WriteLine(output);
+            return output;
+        }
+    }
+
+    private static string? Value(string[] args,string name){int i=Array.IndexOf(args,name);return i>=0&&i+1<args.Length?args[i+1]:null;}
 }
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(string[] args, Func<ExampleContext, Task> run)
+    {
+        string start = Environment.CurrentDirectory;
+        string output = Path.Combine(start, "example-output");
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        string? mode = null;
+        var recipeArgs = new List<string>();
+
+        try
+        {
+            for (int i = 0; i < args.Length; i++)
+            {
+                string option = args[i];
+                if (option is not ("--output" or "--license" or "--mode"))
+                {
+                    recipeArgs.Add(option);
+                    continue;
+                }
+                if (++i == args.Length)
+                    throw new ExamplePrerequisiteException("Supply a value for " + option);
+                if (option == "--output")
+                    output = Path.GetFullPath(args[i], start);
+                else if (option == "--license")
+                    licensePath = args[i];
+                else
+                    mode = args[i];
+            }
+
+            mode ??= string.IsNullOrWhiteSpace(licensePath) ? "evaluation" : "licensed";
+            if (mode is not ("evaluation" or "licensed"))
+                throw new ExamplePrerequisiteException("Use --mode evaluation or --mode licensed.");
+            if (mode == "licensed")
+            {
+                if (string.IsNullOrWhiteSpace(licensePath))
+                    throw new ExamplePrerequisiteException("Set ASPOSE_LICENSE_PATH to a valid Aspose.Slides license.");
+                var license = new License();
+                license.SetLicense(Path.GetFullPath(licensePath, start));
+                if (!license.IsLicensed())
+                    throw new ExamplePrerequisiteException("The supplied license could not be applied.");
+            }
+
+            Directory.CreateDirectory(output);
+            Console.WriteLine("Output: " + output);
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, mode, recipeArgs.ToArray()));
+            return 0;
+        }
+        catch (ExamplePrerequisiteException error)
+        {
+            Console.Error.WriteLine(error.Message);
+            return 2;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed class ExampleContext(string output, string mode, string[] arguments)
+{
+    public string OutputRoot { get; } = output;
+    public string Mode { get; } = mode;
+    public bool IsLicensed => Mode == "licensed";
+    public string[] Arguments { get; } = arguments;
+
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
+
+    public void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    public void Prerequisite(bool condition, string message)
+    {
+        if (!condition) throw new ExamplePrerequisiteException(message);
+    }
+}
+
+internal sealed class ExamplePrerequisiteException(string message) : Exception(message);
 ```
 
 ## Dockerfile

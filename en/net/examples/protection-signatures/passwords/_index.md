@@ -21,7 +21,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Input and prerequisites
@@ -36,27 +36,30 @@ All presentation input is created by the code from original synthetic data.
 
 The program creates its own unencrypted input, encrypts a separate copy, and verifies that missing or incorrect passwords are rejected. It then opens the encrypted file with the known password, removes encryption, and saves a new copy. The password shown is only for the synthetic fixture.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System.Threading.Tasks;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private static bool Rejected(string path, string? password)
     {
@@ -98,6 +101,83 @@ internal static partial class Program
         Require(Hash("original.pptx") == originalHash, "Original was changed.");
         Report(new { encrypted = true, correct_password = true, wrong_rejected = wrongRejected, missing_rejected = missingRejected, encryption_removed = true, original_unchanged = true });
     }
+
+    private static IAutoShape Label(IBaseSlide slide, string text, float y = 50)
+    {
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, y, 560, 90);
+        shape.TextFrame.Text = text;
+        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 24;
+        return shape;
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async context =>
+    {
+        Context = context;
+        ProtectPresentation();
+        await Task.CompletedTask;
+    });
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
+
+    private static void Report(object checks)
+    {
+        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText("result.json", json);
+        Console.WriteLine(json);
+    }
+
+    private static void Render(ISlide slide, string output)
+    {
+        using var image = slide.GetImage(new Size(640, 360));
+        image.Save(output, Aspose.Slides.ImageFormat.Png);
+    }
+
+    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
+    private static string[] SavedText(string file)
+    {
+        using var archive = ZipFile.OpenRead(file);
+        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
+            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
+    }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed)
+{
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
 }
 ```
 

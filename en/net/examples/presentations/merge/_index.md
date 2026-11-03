@@ -21,7 +21,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Input and prerequisites
@@ -34,21 +34,22 @@ The code creates its own synthetic input. Use a compatible stable SDK with the i
 
 The program creates two three-slide presentations with distinct master backgrounds, notes and sections. AddClone(sourceSlide) retains the source design in this fixture. Its layout overload places the green source slide on a blue destination layout. Removing the destination's default slide avoids an unexpected blank first slide.
 
-The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
 
 ```csharp
-using System.Threading.Tasks;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Export;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
     private static void RunExample()
     {
@@ -102,15 +103,106 @@ internal static partial class Program
         Require(Hash("blue.pptx") == blueHash && Hash("green.pptx") == greenHash, "A source file changed.");
         Report(new { merged_slides = 6, selected_slides = 2, order_verified = true, source_masters_retained = true, destination_layout_applied = true, notes_retained = true, originals_unchanged = true });
     }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> Main() => ExampleBootstrap.RunAsync(async context =>
+    {
+        Context = context;
+        RunExample();
+        await Task.CompletedTask;
+    });
+
+    private static void CreateDeck(string path, string prefix, Color color)
+    {
+        using var deck = new Presentation();
+        deck.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
+        deck.Masters[0].Background.Type = BackgroundType.OwnBackground;
+        deck.Masters[0].Background.FillFormat.FillType = FillType.Solid;
+        deck.Masters[0].Background.FillFormat.SolidFillColor.Color = color;
+        var blank = deck.LayoutSlides.GetByType(SlideLayoutType.Blank);
+        for (int i = 0; i < 3; i++)
+        {
+            ISlide slide = i == 0 ? deck.Slides[0] : deck.Slides.AddEmptySlide(blank);
+            Label(slide, prefix + (i + 1));
+            slide.NotesSlideManager.AddNotesSlide().NotesTextFrame.Text = "Notes for " + prefix + (i + 1);
+        }
+        deck.Sections.AddSection("Opening", deck.Slides[0]);
+        deck.Sections.AddSection("Details", deck.Slides[1]);
+        deck.Save(path, SaveFormat.Pptx);
+    }
+
+    private static void CheckOrder(string path, params string[] expected)
+    {
+        using var result = new Presentation(path);
+        Require(result.Slides.Count == expected.Length, "Extra or missing slide in " + path);
+        Require(result.Slides.Select(Text).SequenceEqual(expected), "Wrong slide order in " + path);
+    }
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    private static IAutoShape Label(ISlide slide, string text)
+    {
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 80, 540, 100);
+        shape.Name = "content-" + text;
+        shape.TextFrame.Text = text;
+        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 28;
+        return shape;
+    }
+
+    private static string Text(ISlide slide) => string.Join("|", slide.Shapes.OfType<IAutoShape>().Where(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).Select(s => s.TextFrame.Text));
+
+    private static string Hash(string file) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(file)));
+
+    private static void Report(object checks)
+    {
+        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText("result.json", json);
+        Console.WriteLine(json);
+    }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed)
+{
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
 }
 ```
 
 ## Run and check the result
 
-Extract the project into an empty working directory, restore its locked packages, then run it:
+Extract the project into an empty working directory, restore its packages, then run it:
 
 ```text
-dotnet restore Example.csproj --locked-mode
+dotnet restore Example.csproj
 dotnet run --project Example.csproj --configuration Release --no-restore
 ```
 

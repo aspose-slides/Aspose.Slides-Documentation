@@ -20,44 +20,40 @@ dotnet run --project Example.csproj --configuration Release
 
 ## Complete C# example
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+
 ```csharp
+using System;
 using System.Drawing;
-using System.IO;
-using System.Threading.Tasks;
+using Aspose.Slides;
 using Aspose.Slides.Export;
+using Aspose.Slides.SlideShow;
 
-internal static partial class Program
+using var presentation = new Presentation();
+var first = presentation.Slides[0];
+var second = presentation.Slides.AddEmptySlide(first.LayoutSlide);
+
+first.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 60, 350, 140)
+    .TextFrame.Text = "First";
+second.Shapes.AddAutoShape(ShapeType.Ellipse, 100, 90, 350, 140)
+    .TextFrame.Text = "Next";
+first.SlideShowTransition.Type = TransitionType.Fade;
+second.SlideShowTransition.Type = TransitionType.Fade;
+
+var options = new GifOptions
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    FrameSize = new Size(320, 180),
+    DefaultDelay = 1000,
+    TransitionFps = 10
+};
 
-    private static void ExportGif(bool licensed)
-    {
-        using var presentation = CreateSource(licensed);
-        var options = new GifOptions
-        {
-            FrameSize = new Size(320, 180),
-            DefaultDelay = 1000,
-            TransitionFps = 10
-        };
-
-        presentation.Save("source.pptx", SaveFormat.Pptx);
-        const string gifPath = "slides.gif";
-        presentation.Save(gifPath, SaveFormat.Gif, options);
-
-        Report(new
-        {
-            gif_created = File.Exists(gifPath),
-            frame_width = options.FrameSize.Width,
-            frame_height = options.FrameSize.Height,
-            slide_delay_ms = options.DefaultDelay
-        });
-    }
-}
+presentation.Save("slides.gif", SaveFormat.Gif, options);
+Console.WriteLine("Saved slides.gif");
 ```
 
 ## Expected result
 
-The program writes "slides.gif" in the printed output directory, plus the synthetic source.pptx and a result.json summary. Inspect the rendered/exported files with the viewer appropriate to the format. Input generation is visible in CreateSource; replace it with opening your own presentation when adapting the example.
+The copied program writes `slides.gif` in the working directory. The downloaded project writes the GIF, `source.pptx`, and `result.json` in its printed output directory. Open the GIF in an image viewer to check its frames and timing.
 
 Continue with the [detailed guide](/slides/net/convert-powerpoint-to-animated-gif/).
 

@@ -27,30 +27,36 @@ All presentation inputs are generated from original synthetic data. Results go t
 
 ## Example
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System;
-using System.Collections.Generic;
+using System.Buffers.Binary;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Drawing;
 using System.Globalization;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System;
 using Aspose.Slides.Charts;
 using Aspose.Slides.DOM.Ole;
 using Aspose.Slides.Export;
 using Aspose.Slides.LowCode;
 using Aspose.Slides.Warnings;
+using Aspose.Slides;
+using Microsoft.VisualBasic.FileIO;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private sealed class Progress : IProgressCallback
     {
@@ -78,7 +84,80 @@ internal static partial class Program
         Example.Json("output/progress.json",new{complete=fullProgress.Values,cancelled=cancellationProgress.Values,cancellation_requested=cancellationProgress.Requested,operation_stopped=stopped,operation_canceled_exception=exceptionObserved});
         Example.Result(new{progress_observed=true,cancellation_requested=true,operation_stopped=true,partial_output_removed=true,input_unlocked=true});
     }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async ctx =>
+    {
+        Context = ctx;
+        Example.Context = ctx;
+        SaveWithProgress();
+        await Task.CompletedTask;
+    });
 }
+
+internal static class Example
+{
+    public static ExampleContext Context = null!;
+
+    public static void Setup() { Directory.CreateDirectory("output"); }
+
+    public static void Require(bool value,string message) { if(!value) throw new InvalidOperationException(message); }
+
+    public static void Result(object checks)
+    { File.WriteAllText("output/result.json",JsonSerializer.Serialize(new {checks},new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static void Json(string path,object value)
+    { File.WriteAllText(path,JsonSerializer.Serialize(value,new JsonSerializerOptions{WriteIndented=true}),new UTF8Encoding(false)); }
+
+    public static IAutoShape Text(IShapeCollection shapes,string name,string value,float x=35,float y=35,float width=600,float height=70)
+    {
+        var shape=shapes.AddAutoShape(ShapeType.Rectangle,x,y,width,height);
+        shape.Name=name; shape.TextFrame.Text=value;
+        shape.FillFormat.FillType=FillType.Solid; shape.FillFormat.SolidFillColor.Color=Color.White;
+        foreach(var para in shape.TextFrame.Paragraphs) foreach(var portion in para.Portions)
+        { portion.PortionFormat.LatinFont=new FontData("Noto Sans"); portion.PortionFormat.FontHeight=20; portion.PortionFormat.FillFormat.FillType=FillType.Solid; portion.PortionFormat.FillFormat.SolidFillColor.Color=Color.FromArgb(35,65,100); }
+        return shape;
+    }
+
+    public static IChart Chart(ISlide slide,string name)
+    { var chart=slide.Shapes.AddChart(ChartType.ClusteredColumn,40,130,620,290);chart.Name=name;return chart; }
+
+    public static void ChartData(IChart chart,string[] categories,string[] series,double[][] values)
+    {
+        var data=chart.ChartData;var book=data.ChartDataWorkbook;data.Series.Clear();data.Categories.Clear();book.Clear(0);
+        for(int r=0;r<categories.Length;r++)data.Categories.Add(book.GetCell(0,r+1,0,categories[r]));
+        for(int c=0;c<series.Length;c++)
+        {var item=data.Series.Add(book.GetCell(0,0,c+1,series[c]),ChartType.ClusteredColumn);
+         for(int r=0;r<categories.Length;r++)item.DataPoints.AddDataPointForBarSeries(book.GetCell(0,r+1,c+1,values[c][r]));}
+    }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed);
 ```
 
 ## Expected result and checks

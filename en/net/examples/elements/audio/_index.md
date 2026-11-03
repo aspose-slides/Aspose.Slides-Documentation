@@ -22,6 +22,8 @@ description: "Discover Aspose.Slides for .NET audio examples: insert, play, trim
 
 This article demonstrates how to embed audio frames and control playback with **Aspose.Slides for .NET**. The following examples show basic audio operations.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+
 ## Download and run
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
@@ -33,30 +35,27 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
-
 ## **Add an Audio Frame**
 
 Insert an empty audio frame that can later hold embedded sound data.
 
 ```csharp
+using System;
 using System.IO;
+using Aspose.Slides.Export;
 using Aspose.Slides;
 
-internal static partial class Program
-{
-    static void Case01()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        using var audioStream = File.OpenRead(Context.Input("tone.wav"));
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+using var audioStream = new MemoryStream(Convert.FromBase64String(
+    "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
+    "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
+    "Rlhuh5+zwcjGvA=="));
 
-        // Embed the complete packaged PCM WAV tone.
-        var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+// Embed a short PCM WAV tone.
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
-        VerifyCase01(presentation);
-    }
-}
+presentation.Save("audio-01.pptx", SaveFormat.Pptx);
 ```
 
 ## **Access an Audio Frame**
@@ -64,26 +63,26 @@ internal static partial class Program
 This code retrieves the first audio frame on a slide.
 
 ```csharp
+using System;
 using System.IO;
+using Aspose.Slides.Export;
 using System.Linq;
 using Aspose.Slides;
 
-internal static partial class Program
-{
-    static void Case02()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        using var audioStream = File.OpenRead(Context.Input("tone.wav"));
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+using var audioStream = new MemoryStream(Convert.FromBase64String(
+    "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
+    "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
+    "Rlhuh5+zwcjGvA=="));
 
-        slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
-        // Access the first audio frame on the slide.
-        var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
+// Access the first audio frame on the slide.
+var firstAudio = slide.Shapes.OfType<IAudioFrame>().First();
+Console.WriteLine(firstAudio.EmbeddedAudio.BinaryData.Length);
 
-        VerifyCase02(presentation);
-    }
-}
+presentation.Save("audio-02.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove an Audio Frame**
@@ -91,25 +90,24 @@ internal static partial class Program
 Delete a previously added audio frame.
 
 ```csharp
+using System;
 using System.IO;
+using Aspose.Slides.Export;
 using Aspose.Slides;
 
-internal static partial class Program
-{
-    static void Case03()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        using var audioStream = File.OpenRead(Context.Input("tone.wav"));
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+using var audioStream = new MemoryStream(Convert.FromBase64String(
+    "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
+    "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
+    "Rlhuh5+zwcjGvA=="));
 
-        var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
-        // Remove the audio frame.
-        slide.Shapes.Remove(audioFrame);
+// Remove the audio frame.
+slide.Shapes.Remove(audioFrame);
 
-        VerifyCase03(presentation);
-    }
-}
+presentation.Save("audio-03.pptx", SaveFormat.Pptx);
 ```
 
 ## **Set Audio Playback**
@@ -117,23 +115,22 @@ internal static partial class Program
 Configure the audio frame to play automatically when the slide appears.
 
 ```csharp
+using System;
 using System.IO;
+using Aspose.Slides.Export;
 using Aspose.Slides;
 
-internal static partial class Program
-{
-    static void Case04()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        using var audioStream = File.OpenRead(Context.Input("tone.wav"));
-        
-        var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+using var audioStream = new MemoryStream(Convert.FromBase64String(
+    "UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAmK6+x8e/sJuCalRD" +
+    "OjlAT2N7lKq8xsjBs5+HblhGOzg+TF93kKe5xMjDtqOLc1tJPDg8SVtzi6O2w8jEuaeQd19MPjg7" +
+    "Rlhuh5+zwcjGvA=="));
 
-        // Play automatically when the slide appears.
-        audioFrame.PlayMode = AudioPlayModePreset.Auto;
+var audioFrame = slide.Shapes.AddAudioFrameEmbedded(50, 50, 100, 100, audioStream);
 
-        VerifyCase04(presentation);
-    }
-}
+// Play automatically when the slide appears.
+audioFrame.PlayMode = AudioPlayModePreset.Auto;
+
+presentation.Save("audio-04.pptx", SaveFormat.Pptx);
 ```

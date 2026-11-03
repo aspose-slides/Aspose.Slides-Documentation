@@ -21,7 +21,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Input and prerequisites
@@ -34,76 +34,74 @@ The code creates its own synthetic input. Use a compatible stable SDK with the i
 
 Both MemoryStream and FileStream are reset to position zero before loading. The caller keeps its streams alive until the Presentation is disposed, then copies the saved bytes with ToArray. The final reopen happens after the editing streams have been disposed.
 
-The code below shows the main operation. The runnable download includes [ExampleSupport.cs](ExampleSupport.cs) with the entry point and supporting code.
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
 
 ```csharp
-using System.Threading.Tasks;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-internal static partial class Program
+byte[] originalBytes;
+using (var presentation = new Presentation())
+using (var output = new MemoryStream())
 {
-    private static void RunExample()
-    {
-        byte[] inputBytes;
-        using (var created = new Presentation())
-        using (var output = new MemoryStream())
-        {
-            Label(created.Slides[0], "Stream input");
-            created.Save(output, SaveFormat.Pptx);
-            inputBytes = output.ToArray(); // Independent bytes survive stream disposal.
-        }
-        File.WriteAllBytes("input.pptx", inputBytes);
-        string originalHash = Hash("input.pptx");
-        byte[] editedBytes;
-        using (var input = new MemoryStream(inputBytes))
-        using (var output = new MemoryStream())
-        {
-            input.Position = input.Length; // A reused stream need not be positioned at its start.
-            input.Position = 0;            // Explicitly reset before passing it to the reader.
-            using (var editable = new Presentation(input))
-            {
-                editable.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name.StartsWith("content-", StringComparison.Ordinal)).TextFrame.Text = "Stream output";
-                editable.Save(output, SaveFormat.Pptx);
-            }
-            Require(input.CanRead && output.CanWrite, "Caller-owned streams unexpectedly closed.");
-            editedBytes = output.ToArray();
-        }
-        using (var returnedInput = new MemoryStream(editedBytes))
-        using (var afterDisposal = new Presentation(returnedInput))
-            Require(Text(afterDisposal.Slides[0]) == Context.ExpectedText("Stream output"), "Returned bytes are not independent.");
-        using (var file = File.OpenRead("input.pptx"))
-        {
-            file.Position = Math.Min(10, file.Length);
-            file.Position = 0;
-            using (var loaded = new Presentation(file))
-                Require(Text(loaded.Slides[0]) == Context.ExpectedText("Stream input"), "File stream did not load correctly.");
-            Require(file.CanRead, "The caller must retain ownership of the file stream.");
-        }
-        File.WriteAllBytes("output.pptx", editedBytes);
-        Require(Hash("input.pptx") == originalHash, "Input bytes changed.");
-        Report(new { bytes_reopened = true, streams_owned_by_caller = true, position_reset = true, original_unchanged = true });
-    }
+    var shape = presentation.Slides[0].Shapes.AddAutoShape(
+        ShapeType.Rectangle, 50, 80, 350, 80);
+    shape.TextFrame.Text = "Input";
+    presentation.Save(output, SaveFormat.Pptx);
+    originalBytes = output.ToArray();
 }
+File.WriteAllBytes("input.pptx", originalBytes);
+
+byte[] editedBytes;
+using (var input = new MemoryStream(originalBytes))
+using (var output = new MemoryStream())
+{
+    input.Position = input.Length; // Simulate a stream used by the caller.
+    input.Position = 0;
+    using (var presentation = new Presentation(input))
+    {
+        var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+        shape.TextFrame.Text = "Edit";
+        presentation.Save(output, SaveFormat.Pptx);
+    }
+
+    // The caller still owns both streams after disposing the presentation.
+    if (!input.CanRead || !output.CanWrite)
+        throw new InvalidOperationException("A caller-owned stream was closed.");
+    editedBytes = output.ToArray();
+}
+
+// The copied bytes survive disposal of the editing streams.
+using (var input = new MemoryStream(editedBytes))
+using (var presentation = new Presentation(input))
+{
+    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+    Console.WriteLine($"Reopened edited text: {shape.TextFrame.Text}");
+}
+
+using (var input = File.OpenRead("input.pptx"))
+{
+    input.ReadByte();
+    input.Position = 0;
+    using var presentation = new Presentation(input);
+    Console.WriteLine($"Loaded {presentation.Slides.Count} slide from a file stream.");
+}
+
+File.WriteAllBytes("output.pptx", editedBytes);
 ```
 
-## Run and check the result
+## Run the downloaded project
 
-Extract the project into an empty working directory, restore its locked packages, then run it:
+Extract the project into an empty working directory, restore its packages, then run it:
 
 ```text
-dotnet restore Example.csproj --locked-mode
+dotnet restore Example.csproj
 dotnet run --project Example.csproj --configuration Release --no-restore
 ```
 
-The example writes "input.pptx", "output.pptx" and "result.json". It reopens the generated presentation files and checks the expected data. A failed check raises an exception; successful checks are recorded in "result.json".
+The copied program writes `input.pptx` and `output.pptx` in the working directory. The downloaded project also writes `result.json`. It reopens the generated presentation files and checks the expected data. A failed check raises an exception; successful checks are recorded in "result.json".
 
 
 ## Practical limits

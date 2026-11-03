@@ -21,14 +21,29 @@ REQUIRED={'Program.cs','Example.csproj','Example.sln','ExampleBootstrap.cs','glo
 GENERATED={'bin','obj','output','.git','.vs','.idea','__pycache__'}
 SECRET_EXTENSIONS={'.lic','.pfx','.p12','.pem','.key'}
 CATALOG=json.loads((Path(__file__).with_name('catalog.json')).read_text(encoding='utf-8'))
+C_SHARP_FENCE = re.compile(r"^[ \t]*```(?:csharp|cs|c#)[ \t]*\n(.*?)^[ \t]*```[ \t]*$", re.M | re.S | re.I)
 
 
 def validate_catalog(catalog):
+    version = catalog.get("schema_version")
+    standalone = catalog.get("standalone_snippets")
+    if type(version) is not int or not (
+        version == 1 and (standalone is None or standalone is False)
+        or version == 2 and standalone is True
+    ):
+        raise ValueError("Unsupported example catalog schema")
     articles=catalog['articles'];elements={name:row for name,row in articles.items() if name.startswith('elements/')}
     actual={'article_count':len(articles),'original_block_count':sum(len(row['actions']) for row in articles.values()),'elements_article_count':len(elements),'elements_block_count':sum(len(row['actions']) for row in elements.values())}
     expected={'article_count':77,'original_block_count':143,'elements_article_count':24,'elements_block_count':90}
     if actual!=expected or any(catalog.get(key)!=value for key,value in expected.items()):raise ValueError('Collection catalog denominator differs')
     if sum(len(row.get('legacy_downloads',[])) for row in articles.values())!=16 or catalog.get('legacy_download_count')!=16:raise ValueError('Legacy download denominator differs')
+    if version == 2:
+        for article, row in articles.items():
+            if len(row.get("sources", [])) != len(row["actions"]):
+                raise ValueError("Missing download source identities for " + article)
+            hashes = row.get("snippet_sha256", [])
+            if len(hashes) != len(row["actions"]) or any(not re.fullmatch("[a-f0-9]{64}", value) for value in hashes):
+                raise ValueError("Missing printed source identities for " + article)
 
 
 validate_catalog(CATALOG)
@@ -136,9 +151,19 @@ def validate_source(folder,data,manifest):
         blocks=re.findall(r'```(?:csharp|cs|c#)\s*\n(.*?)```',text,re.S)
         canonical=lambda code:code.replace('\r\n','\n').strip()
         code_files={canonical(archive.read(n).decode('utf-8-sig')) for n in archive.namelist() if n.endswith('.cs')}
-        if not blocks or any(canonical(block) not in code_files for block in blocks):errors.append('Printed C# differs from a compiled source file')
         known=CATALOG['articles'].get(manifest['article_id'])
-        if known and (len(blocks)!=len(known['actions']) or any(canonical(block)!=canonical(archive.read(name).decode('utf-8-sig')) for block,name in zip(blocks,known['sources']))):errors.append('Printed C# recipe count or order differs from the collection mapping')
+        if CATALOG.get("standalone_snippets"):
+            # The clipboard programs are independently compiled from the page.
+            # The archive keeps its own source files and execution checks.
+            clipboard_blocks = C_SHARP_FENCE.findall(text)
+            hashes = [sha(block.encode()) for block in clipboard_blocks]
+            if not known or hashes != known["snippet_sha256"] or not all(block.strip() for block in clipboard_blocks):
+                errors.append("Printed C# differs from the standalone recipe mapping")
+            if known and any(name not in archive.namelist() for name in known["sources"]):
+                errors.append("Download source mapping is incomplete")
+        else:
+            if not blocks or any(canonical(block) not in code_files for block in blocks):errors.append('Printed C# differs from a compiled source file')
+            if known and (len(blocks)!=len(known['actions']) or any(canonical(block)!=canonical(archive.read(name).decode('utf-8-sig')) for block,name in zip(blocks,known['sources']))):errors.append('Printed C# recipe count or order differs from the collection mapping')
         for name in known.get('legacy_downloads',[]) if known else []:
             alias=folder/str(safe_member(name))
             if not alias.is_file() or alias.read_bytes()!=data:errors.append('Legacy download alias differs from the current archive: '+name)

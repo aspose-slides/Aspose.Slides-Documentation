@@ -21,7 +21,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Input and prerequisites
@@ -36,27 +36,30 @@ The regular Noto Sans font and its OFL notice are included and its SHA-256 is ch
 
 The fixture uses separate Arabic, mixed-direction and Chinese text frames. RightToLeft controls the Arabic paragraphs; explicit font families supply the glyphs. Chinese text wraps in a narrow frame and uses normal autofit. The example checks saved Unicode strings and the measured paragraph width and height, then produces a preview for visual review.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System.Threading.Tasks;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private static void FormatMultilingualText()
     {
@@ -101,6 +104,108 @@ internal static partial class Program
         }
         finally { FontsLoader.ClearCache(); }
     }
+
+    private static void PrepareFonts(bool includeOtherScripts)
+    {
+        Directory.CreateDirectory("fonts");
+        using var client = new HttpClient { Timeout = TimeSpan.FromMinutes(2) };
+        var fonts = new (string Name, string Url, string Hash)[]
+        {
+            ("NotoSans-Regular.ttf", "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoSans/NotoSans-Regular.ttf", "b85c38ecea8a7cfb39c24e395a4007474fa5a4fc864f6ee33309eb4948d232d5"),
+            ("NotoNaskhArabic-Regular.ttf", "https://raw.githubusercontent.com/notofonts/noto-fonts/ffebf8c1ee449e544955a7e813c54f9b73848eac/hinted/ttf/NotoNaskhArabic/NotoNaskhArabic-Regular.ttf", "2f4b88e6ee50fa82c617e2d1d4ba18281cb1c6cd71c3af3ec64970c23995db4b"),
+            ("NotoSansCJKsc-Regular.otf", "https://raw.githubusercontent.com/notofonts/noto-cjk/f8d157532fbfaeda587e826d4cd5b21a49186f7c/Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf", "2c76254f6fc379fddfce0a7e84fb5385bb135d3e399294f6eeb6680d0365b74b"),
+        };
+        foreach (var font in includeOtherScripts ? fonts : fonts.Take(1))
+        {
+            string path = Path.Combine("fonts", font.Name);
+            if (!File.Exists(path) || Hash(path) != font.Hash)
+            {
+                string bundled = Path.Combine(AppContext.BaseDirectory, "Fonts", font.Name);
+                byte[] bytes = File.Exists(bundled) ? File.ReadAllBytes(bundled) : client.GetByteArrayAsync(font.Url).GetAwaiter().GetResult();
+                Require(Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant() == font.Hash, "Downloaded font hash differs: " + font.Name);
+                File.WriteAllBytes(path, bytes);
+            }
+        }
+        FontsLoader.ClearCache();
+        FontsLoader.LoadExternalFonts(new[] { Path.GetFullPath("fonts") });
+    }
+
+    private static IAutoShape Label(IBaseSlide slide, string text, float y = 50)
+    {
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, y, 560, 90);
+        shape.TextFrame.Text = text;
+        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 24;
+        return shape;
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async context =>
+    {
+        Context = context;
+        FormatMultilingualText();
+        await Task.CompletedTask;
+    });
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
+
+    private static void Report(object checks)
+    {
+        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText("result.json", json);
+        Console.WriteLine(json);
+    }
+
+    private static void Render(ISlide slide, string output)
+    {
+        using var image = slide.GetImage(new Size(640, 360));
+        image.Save(output, Aspose.Slides.ImageFormat.Png);
+    }
+
+    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
+    private static string[] SavedText(string file)
+    {
+        using var archive = ZipFile.OpenRead(file);
+        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
+            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
+    }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed)
+{
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
 }
 ```
 

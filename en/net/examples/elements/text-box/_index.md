@@ -22,6 +22,8 @@ In Aspose.Slides, a **text box** is represented by an `AutoShape`. Nearly any sh
 
 This guide explains how to add, access, and remove text boxes programmatically.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+
 ## Download and run
 
 [Download the complete project](example.zip), extract it, and open `Example.sln` or run:
@@ -33,42 +35,35 @@ dotnet run --project Example.csproj -- --mode evaluation
 
 The download includes every case below, its fixture helpers and inputs. `Program.cs` runs all cases; use `--action block-001` to run one independently. Outputs and an action report are written to the printed output directory. No previous example or working-directory setup is required. Evaluation adds a watermark and can truncate read-back text; the short fixtures still have explicit structural checks. For full text and no watermark, use `--mode licensed --license PATH` with your own valid license. See the [setup guide](/slides/net/examples/getting-started/) for supported SDKs and native prerequisites.
 
-Each printed `CaseNN.cs` file is compiled verbatim. The download checks each case in `CaseVerification.cs` before saving and after reopening the result.
-
 ## **Add a Text Box**
 
 A text box is simply an `AutoShape` with no fill or border and some formatted text. Here's how to create one:
 
 ```csharp
+using Aspose.Slides.Export;
 using Aspose.Slides;
 using System.Drawing;
 
-internal static partial class Program
-{
-    static void Case01()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-        // Create a rectangle shape (defaults to filled with border and no text).
-        var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 50, y: 75, width: 150, height: 100);
+// Create a rectangle shape (defaults to filled with border and no text).
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x: 50, y: 75, width: 150, height: 100);
 
-        // Remove fill and border to make it look like a typical text box.
-        textBox.FillFormat.FillType = FillType.NoFill;
-        textBox.LineFormat.FillFormat.FillType = FillType.NoFill;
+// Remove fill and border to make it look like a typical text box.
+textBox.FillFormat.FillType = FillType.NoFill;
+textBox.LineFormat.FillFormat.FillType = FillType.NoFill;
 
-        // Set text formatting.
-        var paragraph = textBox.TextFrame.Paragraphs[0];
-        var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
-        textFormat.FillFormat.FillType = FillType.Solid;
-        textFormat.FillFormat.SolidFillColor.Color = Color.Black;
+// Set text formatting.
+var paragraph = textBox.TextFrame.Paragraphs[0];
+var textFormat = paragraph.ParagraphFormat.DefaultPortionFormat;
+textFormat.FillFormat.FillType = FillType.Solid;
+textFormat.FillFormat.SolidFillColor.Color = Color.Black;
 
-        // Assign the actual text content.
-        textBox.TextFrame.Text = "Text";
+// Assign the actual text content.
+textBox.TextFrame.Text = "Text";
 
-        VerifyCase01(presentation);
-    }
-}
+presentation.Save("text-box-01.pptx", SaveFormat.Pptx);
 ```
 
 > 💡 **Note:** Any `AutoShape` that contains a non-empty `TextFrame` can function as a text box.
@@ -78,33 +73,29 @@ internal static partial class Program
 To find all text boxes containing a specific keyword (e.g. "Slide"), iterate through the shapes and check their text:
 
 ```csharp
+using System;
+using Aspose.Slides.Export;
 using Aspose.Slides;
 
-internal static partial class Program
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+marker.Name = "DemoText";
+marker.TextFrame.Text = "Slide";
+
+foreach (var shape in slide.Shapes)
 {
-    static void Case02()
+    // Only AutoShapes can contain editable text.
+    if (shape is AutoShape autoShape && autoShape.Name == "DemoText")
     {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-        marker.Name = "DemoText";
-        marker.TextFrame.Text = "Slide";
-
-        foreach (var shape in slide.Shapes)
+        if (autoShape.TextFrame.Text.Contains("Slide"))
         {
-            // Only AutoShapes can contain editable text.
-            if (shape is AutoShape autoShape && autoShape.Name == "DemoText")
-            {
-                if (autoShape.TextFrame.Text.Contains("Slide"))
-                {
-                    Context.Require(autoShape.TextFrame.Text == "Slide", "Accessed the known text box.");
-                }
-            }
+            Console.WriteLine(autoShape.TextFrame.Text);
         }
-
-        VerifyCase02(presentation);
     }
 }
+
+presentation.Save("text-box-02.pptx", SaveFormat.Pptx);
 ```
 
 ## **Remove Text Boxes by Content**
@@ -112,28 +103,23 @@ internal static partial class Program
 This example finds and deletes all text boxes on the first slide that contain a specific keyword:
 
 ```csharp
+using Aspose.Slides.Export;
 using System.Linq;
 using Aspose.Slides;
 
-internal static partial class Program
-{
-    static void Case03()
-    {
-        using var presentation = new Presentation();
-        var slide = presentation.Slides[0];
-        var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
-        marker.Name = "DemoText";
-        marker.TextFrame.Text = "Slide";
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var marker = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 50);
+marker.Name = "DemoText";
+marker.TextFrame.Text = "Slide";
 
-        var shapesToRemove = slide.Shapes
-            .Where(s => s is AutoShape autoShape && autoShape.Name == "DemoText" && autoShape.TextFrame.Text.Contains("Slide"))
-            .ToList();
+var shapesToRemove = slide.Shapes
+    .Where(s => s is AutoShape autoShape && autoShape.Name == "DemoText" && autoShape.TextFrame.Text.Contains("Slide"))
+    .ToList();
 
-        shapesToRemove.ForEach(shape => slide.Shapes.Remove(shape));
+shapesToRemove.ForEach(shape => slide.Shapes.Remove(shape));
 
-        VerifyCase03(presentation);
-    }
-}
+presentation.Save("text-box-03.pptx", SaveFormat.Pptx);
 ```
 
 > 💡 **Tip:** Always create a copy of the shape collection before modifying it during iteration to avoid collection modification errors.

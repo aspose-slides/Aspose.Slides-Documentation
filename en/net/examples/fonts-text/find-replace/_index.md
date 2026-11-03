@@ -21,7 +21,7 @@ Download [the complete project](example.zip) and open **Example.sln** in a compa
 dotnet run --project Example.csproj -- --mode evaluation
 ```
 
-Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes that bootstrap, solution and editor profiles; the C# block below is Program.cs from the same archive.
+Evaluation mode needs no license and retains the SDK watermark/text limits. For full licensed checks, set ASPOSE_LICENSE_PATH to your authorized license and use --mode licensed. Fonts and synthetic fixtures needed by this recipe are included or acquired as documented. The supplied bootstrap prepares a separate output workspace and prints its absolute path. The complete download includes the bootstrap, solution and editor profiles.
 
 
 ## Input and prerequisites
@@ -36,27 +36,30 @@ All presentation input is created by the code from original synthetic data.
 
 An application-owned traversal selects the text frames to process. Replacement operates on each full frame, so a literal match can span text runs. This fixture includes a run-spanning match, grouped shape, table cell, master text, speaker notes and unrelated styled text. Notes are explicitly included.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+The copied program writes its files under `example-output` by default.
+
 ```csharp
-using System.Threading.Tasks;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.IO.Compression;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
+using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using Aspose.Slides;
+using System.Text;
+using System.Threading.Tasks;
+using System;
 using Aspose.Slides.Export;
 using Aspose.Slides.Warnings;
+using Aspose.Slides;
 
-internal static partial class Program
+internal static class Program
 {
-    private static Task<int> Main(string[] args) => RunChecked(args);
+    private static Task<int> Main() => RunChecked();
 
     private static IEnumerable<ITextFrame> Frames(IShapeCollection shapes)
     {
@@ -102,6 +105,126 @@ internal static partial class Program
         }
         VerifyOutput(originalHash);
     }
+
+    private static void CreateInput()
+    {
+        using (var source = new Presentation())
+        {
+            source.SlideSize.SetSize(640, 360, SlideSizeScaleType.DoNotScale);
+            var split = Label(source.Slides[0], "");
+            split.TextFrame.Paragraphs.Clear();
+            var paragraph = new Paragraph();
+            paragraph.Portions.Add(new Portion("OL"));
+            paragraph.Portions.Add(new Portion("D 2025"));
+            paragraph.Portions[0].PortionFormat.FontBold = NullableBool.True;
+            split.TextFrame.Paragraphs.Add(paragraph);
+            var group = source.Slides[0].Shapes.AddGroupShape();
+            var grouped = group.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 155, 200, 40);
+            grouped.TextFrame.Text = "OLD 2025";
+            var table = source.Slides[0].Shapes.AddTable(300, 155, new[] { 250.0 }, new[] { 40.0 });
+            table[0, 0].TextFrame.Text = "OLD 2025";
+            var masterText = Label(source.Masters[0], "OLD 2025", 310);
+            masterText.Height = 40;
+            source.Slides[0].NotesSlideManager.AddNotesSlide().NotesTextFrame.Text = "OLD 2025";
+            var keep = Label(source.Slides[0], "Keep this", 210);
+            keep.Name = "keep";
+            keep.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontBold = NullableBool.True;
+            source.Save("input.pptx", SaveFormat.Pptx);
+        }
+    }
+
+    private static IAutoShape Label(IBaseSlide slide, string text, float y = 50)
+    {
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, y, 560, 90);
+        shape.TextFrame.Text = text;
+        shape.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontHeight = 24;
+        return shape;
+    }
+
+    private static ExampleContext Context = null!;
+
+    private static Task<int> RunChecked() => ExampleBootstrap.RunAsync(async context =>
+    {
+        Context = context;
+        ReplacePresentationText();
+        await Task.CompletedTask;
+    });
+
+    private static void VerifyOutput(string originalHash)
+    {
+        using (var result = new Presentation("output.pptx"))
+        {
+            Require(AllFrames(result).Count(f => f.Text == Context.ExpectedText("NEW 2026")) == 5, "Changes were not saved.");
+            var keep = result.Slides[0].Shapes.OfType<IAutoShape>().Single(s => s.Name == "keep");
+            Require(keep.TextFrame.Text == Context.ExpectedText("Keep this") && keep.TextFrame.Paragraphs[0].Portions[0].PortionFormat.FontBold == NullableBool.True, "Unrelated text/format changed.");
+            Render(result.Slides[0], "preview.png");
+        }
+        string[] savedText = SavedText("output.pptx");
+        Require(savedText.Count(text => text == "NEW 2026") == 5, "Persisted replacement targets differ.");
+        Require(!savedText.Any(text => text.Contains("OLD", StringComparison.Ordinal) || text.Contains("2025", StringComparison.Ordinal)), "Persisted original marker remains.");
+        Require(Hash("input.pptx") == originalHash, "Original changed.");
+        Report(new { target_frames = 5, literal_and_regex = true, run_spanning = true, unrelated_format_retained = true, no_match_unchanged = true, original_unchanged = true });
+    }
+
+    private static void Require(bool condition, string message)
+    {
+        if (!condition) throw new InvalidOperationException(message);
+    }
+
+    private static string Hash(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
+
+    private static void Report(object checks)
+    {
+        string json = JsonSerializer.Serialize(new { checks }, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText("result.json", json);
+        Console.WriteLine(json);
+    }
+
+    private static void Render(ISlide slide, string output)
+    {
+        using var image = slide.GetImage(new Size(640, 360));
+        image.Save(output, Aspose.Slides.ImageFormat.Png);
+    }
+
+    // Inspect persisted OOXML independently; evaluation text getters remain explicitly limited.
+    private static string[] SavedText(string file)
+    {
+        using var archive = ZipFile.OpenRead(file);
+        System.Xml.Linq.XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+        return archive.Entries.Where(entry => entry.FullName.StartsWith("ppt/", StringComparison.Ordinal) && entry.FullName.EndsWith(".xml", StringComparison.Ordinal))
+            .SelectMany(entry => { using var stream = entry.Open(); return System.Xml.Linq.XDocument.Load(stream, System.Xml.Linq.LoadOptions.PreserveWhitespace).Descendants(drawing + "p").Select(paragraph => string.Concat(paragraph.Descendants(drawing + "t").Select(node => node.Value))).ToArray(); }).ToArray();
+    }
+}
+
+internal static class ExampleBootstrap
+{
+    public static async Task<int> RunAsync(Func<ExampleContext, Task> run)
+    {
+        string? licensePath = Environment.GetEnvironmentVariable("ASPOSE_LICENSE_PATH");
+        if (!string.IsNullOrWhiteSpace(licensePath))
+            new License().SetLicense(licensePath);
+
+        string start = Environment.CurrentDirectory;
+        string output = Directory.CreateDirectory(Path.Combine(start, "example-output")).FullName;
+        try
+        {
+            Environment.CurrentDirectory = output;
+            await run(new ExampleContext(output, !string.IsNullOrWhiteSpace(licensePath)));
+            Console.WriteLine("Output: " + output);
+            return 0;
+        }
+        finally
+        {
+            Environment.CurrentDirectory = start;
+        }
+    }
+}
+
+internal sealed record ExampleContext(string OutputRoot, bool IsLicensed)
+{
+    public string ExpectedText(string text) => IsLicensed || text.Length <= 5
+        ? text
+        : text[..5] + "... text has been truncated due to evaluation version limitation.";
 }
 ```
 

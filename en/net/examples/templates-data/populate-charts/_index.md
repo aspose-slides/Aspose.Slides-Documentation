@@ -15,76 +15,59 @@ Clear the template chart's existing data, add the labels and series names, and l
 to its workbook cell. [Program.cs](Program.cs) contains the chart update. [Example.cs](Example.cs)
 creates the synthetic template and verifies the saved report.
 
+Copy a C# block into `Program.cs` in a .NET project with `Aspose.Slides.NET6.CrossPlatform` installed. Each block is a complete program. Run one block at a time. The ZIP contains the IDE-ready project and its verification checks.
+
 ```csharp
 using System;
-using System.IO;
-using System.Threading.Tasks;
+using System.Text.Json;
 using Aspose.Slides;
 using Aspose.Slides.Charts;
 using Aspose.Slides.Export;
 
-internal static class Program
-{
-    private const string ActionId = "templates-data/populate-charts/block-001";
-
-    private static Task<int> Main(string[] args) => ExampleBootstrap.RunAsync(args, RunExample);
-
-    private static Task RunExample(ExampleContext context)
+const string json = """
     {
-        context.BeginAction(ActionId);
-        var sales = Example.ReadSales(Path.Combine(context.OutputRoot, "sales.json"));
-        string outputFolder = Path.Combine(context.OutputRoot, "output");
-        Directory.CreateDirectory(outputFolder);
-
-        string templatePath = Path.Combine(outputFolder, "template.pptx");
-        string reportPath = Path.Combine(outputFolder, "report.pptx");
-        Example.CreateTemplate(templatePath);
-
-        using (var presentation = new Presentation(templatePath))
-        {
-            IChart chart = Example.FindSalesChart(presentation);
-            PopulateChart(chart, sales);
-            presentation.Save(reportPath, SaveFormat.Pptx);
-            Example.SavePreview(presentation, Path.Combine(outputFolder, "preview.png"));
-        }
-
-        Example.VerifyAndReport(context, ActionId, sales, outputFolder);
-        return Task.CompletedTask;
+      "Categories": ["Jan", "Feb", "Mar"],
+      "Series": ["Pens", "Paper"],
+      "Values": [[12, 18, 15], [9, 14, 17]]
     }
+    """;
+var sales = JsonSerializer.Deserialize<SalesData>(json)
+    ?? throw new InvalidOperationException("Sales data is missing.");
 
-    private static void PopulateChart(IChart chart, SalesData sales)
+using var presentation = new Presentation();
+var chart = presentation.Slides[0].Shapes.AddChart(
+    ChartType.ClusteredColumn, 50, 50, 560, 320);
+var data = chart.ChartData;
+var workbook = data.ChartDataWorkbook;
+const int worksheet = 0;
+
+data.Series.Clear();
+data.Categories.Clear();
+workbook.Clear(worksheet);
+
+for (int row = 0; row < sales.Categories.Length; row++)
+    data.Categories.Add(workbook.GetCell(worksheet, row + 1, 0, sales.Categories[row]));
+
+for (int column = 0; column < sales.Series.Length; column++)
+{
+    var name = workbook.GetCell(worksheet, 0, column + 1, sales.Series[column]);
+    var series = data.Series.Add(name, ChartType.ClusteredColumn);
+    for (int row = 0; row < sales.Categories.Length; row++)
     {
-        IChartData chartData = chart.ChartData;
-        IChartDataWorkbook workbook = chartData.ChartDataWorkbook;
-        const int worksheetIndex = 0;
-
-        chartData.Series.Clear();
-        chartData.Categories.Clear();
-        workbook.Clear(worksheetIndex);
-
-        // Column zero holds the category labels. Row zero holds the series names.
-        for (int category = 0; category < sales.Categories.Length; category++)
-        {
-            chartData.Categories.Add(workbook.GetCell(worksheetIndex, category + 1, 0, sales.Categories[category]));
-        }
-
-        for (int column = 0; column < sales.Series.Length; column++)
-        {
-            var seriesName = workbook.GetCell(worksheetIndex, 0, column + 1, sales.Series[column]);
-            var series = chartData.Series.Add(seriesName, ChartType.ClusteredColumn);
-            for (int category = 0; category < sales.Categories.Length; category++)
-            {
-                var value = workbook.GetCell(worksheetIndex, category + 1, column + 1, sales.Values[column][category]);
-                series.DataPoints.AddDataPointForBarSeries(value);
-            }
-        }
+        var value = workbook.GetCell(worksheet, row + 1, column + 1, sales.Values[column][row]);
+        series.DataPoints.AddDataPointForBarSeries(value);
     }
 }
+
+presentation.Save("report.pptx", SaveFormat.Pptx);
+Console.WriteLine("Saved report.pptx");
+
+internal sealed record SalesData(string[] Categories, string[] Series, double[][] Values);
 ```
 
 ## Expected result and checks
 
-The program writes its semantic checks to `output/result.json` and throws if a required
+The copied program writes `report.pptx` using the inline JSON. The downloaded project writes its semantic checks to `output/result.json` and throws if a required
 result differs. Expected check values are:
 
 ```json
@@ -96,7 +79,7 @@ result differs. Expected check values are:
 }
 ```
 
-The sample updates categories, series names and every data point explicitly. It reopens the saved PPTX and checks both chart values and workbook cells. It also exports the embedded workbook for inspection. The example reads its sales data from a JSON fixture.
+Both versions update the category labels, series names, and chart data points. The downloaded project reads sales data from a JSON fixture, checks the saved chart and workbook, and exports the workbook for inspection.
 
 ## Learn more
 

@@ -68,6 +68,8 @@ jobs:
         run: dotnet --info
       - name: Restore, build and run fresh downloads
         run: python tools/examples-net/verify.py --out artifacts/examples.json --work-root "${{ runner.temp }}/fresh examples" --require-runtime-major 10 --require-architecture "${{ runner.arch }}" --workers 2
+      - name: Build each copied C# block in a fresh project
+        run: python tools/examples-net/verify_snippets.py --out artifacts/copied-snippets.json --work-root "${{ runner.temp }}/pasted snippets" --workers 2
       - name: Preserve result and diagnostic logs
         if: always()
         uses: actions/upload-artifact@v4
@@ -75,6 +77,7 @@ jobs:
           name: examples-net-${{ matrix.runner }}
           path: |
             artifacts/examples.json
+            artifacts/copied-snippets.json
             ${{ runner.temp }}/fresh examples/**/*.log
           if-no-files-found: warn
           retention-days: 14
