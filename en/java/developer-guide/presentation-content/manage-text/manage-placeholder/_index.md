@@ -88,6 +88,68 @@ try {
 
 Editing a placeholder on a normal slide creates or changes a local override for that slide. Editing the related layout or master can affect all slides that still inherit that setting. A local ordinary shape has no base placeholder and does not begin inheriting merely because it occupies the same coordinates.
 
+## **Remove Placeholder Status**
+
+When adapting a template, use [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) to keep an existing object as an ordinary shape. Its [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) method returns `null`, but the shape remains in the slide's collection. In contrast, [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) deletes the shape from that collection.
+
+The following example requires `template.pptx` with at least one slide and a nonempty text placeholder on the first slide. Use a placeholder with formatting inherited from its layout or master to see the effect of removing that relationship. The example checks that the same shape remains, calls the method again on the now ordinary shape, and saves the result.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Calling the method on an ordinary shape has no effect.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+For a matching placeholder, all three checks print `true`. The text remains, but inherited position, size, rotation, font, paragraph alignment, text-frame margins, vertical anchoring, fill, and line settings can change when the placeholder relationship is removed. For example, inherited title formatting can fall back to ordinary text formatting. See [Slide Layout](/slides/java/slide-layout/) for more about layouts.
+
+To preserve the intended appearance, capture the resolved position, size, and rotation before the call, and copy the required effective formatting values into separate variables. Retrieve those values through [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), and [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--). Do not rely on retaining only the effective-format objects, because their text-formatting values can change after the relationship is removed. Explicitly apply the captured values to the ordinary shape afterward, including the font family, size, style, color, paragraph settings, text-frame settings, fill, and line used by your template.
+
+Inherited shape geometry may also need to be assigned explicitly through [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-). For a rectangular text placeholder, this means assigning [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle); restoring only the fill and line may not restore the visible rectangle. Templates with additional effects or more complex formatting require those settings to be handled as well.
+
 ## **Change Text in a Placeholder**
 
 Title, centered-title, subtitle, body, and text placeholders normally support text. Check for [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) before using its [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) method.
