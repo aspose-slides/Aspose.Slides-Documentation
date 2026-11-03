@@ -16,36 +16,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Pelajari cara memeriksa dan menyunting placeholder teks, gambar, diagram, dan konten serta memahami pewarisan placeholder dengan Aspose.Slides untuk Android melalui Java."
+description: "Pelajari cara memeriksa dan mengedit placeholder teks, gambar, diagram, dan konten serta memahami pewarisan placeholder dengan Aspose.Slides untuk Android melalui Java."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Placeholder adalah sebuah bentuk (shape) yang memesan posisi untuk jenis konten tertentu dalam template presentasi. Contoh umum meliputi placeholder judul, isi, gambar, diagram, dan placeholder konten serbaguna. Tidak seperti bentuk biasa, placeholder dapat mewarisi posisi, ukuran, pemformatan, dan pengaturan lain dari slide tata letak atau slide master.
+Placeholder adalah bentuk yang menyimpan posisi untuk jenis konten tertentu dalam templat presentasi. Contoh umum adalah placeholder judul, isi, gambar, diagram, dan placeholder konten serbaguna. Tidak seperti bentuk biasa, placeholder dapat mewarisi posisi, ukuran, pemformatan, dan pengaturan lainnya dari slide tata letak atau slide master.
 
-Aspose.Slides mengekspor informasi placeholder melalui metode [IShape.getPlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) . Metode ini mengembalikan objek [IPlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholder/) atau `null` untuk bentuk biasa. Gunakan [IPlaceholder.getType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholder/) untuk menentukan apa yang dimaksudkan placeholder tersebut.
+Aspose.Slides mengungkapkan informasi placeholder melalui metode [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/). Metode tersebut mengembalikan objek [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) atau `null` untuk bentuk normal. Gunakan [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) untuk menentukan apa yang dimaksudkan placeholder tersebut untuk berisi.
 
-Antarmuka bentuk tetap penting setelah Anda mengetahui tipe placeholder:
+Antarmuka shape tetap penting setelah Anda mengetahui jenis placeholder:
 
-- Placeholder teks, gambar, diagram, atau konten kosong biasanya direpresentasikan oleh sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/).
-- Placeholder gambar yang telah terisi dapat direpresentasikan oleh sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/).
-- Placeholder diagram yang telah terisi dapat direpresentasikan oleh sebuah [IChart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ichart/).
-- Placeholder konten dapat berisi beberapa jenis konten. Periksa baik [IPlaceholder.getType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholder/) maupun antarmuka bentuk runtime alih‑alih mengasumsikan setiap placeholder adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/).
+- Placeholder teks, gambar, diagram, atau konten yang kosong biasanya direpresentasikan oleh sebuah [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+- Placeholder gambar yang telah terisi dapat direpresentasikan oleh sebuah [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/).
+- Placeholder diagram yang telah terisi dapat direpresentasikan oleh sebuah [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/).
+- Placeholder konten dapat berisi beberapa jenis konten. Periksa baik [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) maupun antarmuka shape pada runtime alih-alih mengasumsikan bahwa setiap placeholder adalah sebuah [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
-{{% alert color="warning" title="Peringatan" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholder/) menjelaskan peran placeholder; ia tidak menjamin tipe runtime bentuk. Selalu lakukan pemeriksaan tipe sebelum mengakses anggota teks, gambar, diagram, tabel, atau media‑spesifik.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) menjelaskan peran placeholder; tidak menjamin tipe runtime shape. Selalu lakukan pemeriksaan tipe sebelum mengakses anggota teks, gambar, diagram, tabel, atau media.
 {{% /alert %}}
 
 ## **Memahami Pewarisan Placeholder**
 
 Placeholder membentuk hierarki:
 
-1. Slide master mendefinisikan gaya yang dapat digunakan kembali dan, dalam beberapa kasus, placeholder pada tingkat master.
+1. Slide master menentukan gaya yang dapat digunakan kembali dan, dalam beberapa kasus, placeholder tingkat master.
 2. Slide tata letak menentukan susunan yang digunakan oleh satu atau lebih slide normal dan dapat mewarisi dari master.
 3. Slide normal berisi placeholder untuk slide tersebut dan dapat mewarisi dari tata letaknya.
 
-Panggil [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) untuk naik satu tingkat dalam hierarki ini. Placeholder slide biasanya mengembalikan placeholder tata letaknya; placeholder tata letak dapat mengembalikan placeholder masternya. Metode ini mengembalikan `null` ketika bentuk tidak memiliki placeholder dasar.
+Panggil [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) untuk naik satu tingkat dalam hierarki ini. Sebuah placeholder slide biasanya mengembalikan placeholder tata letaknya; sebuah placeholder tata letak dapat mengembalikan placeholder masternya. Metode ini mengembalikan `null` ketika shape tidak memiliki placeholder dasar.
 
-Contoh berikut mencantumkan placeholder pada slide pertama dan melaporkan placeholder dasarnya:
+Contoh berikut mencantumkan placeholder pada slide pertama dan melaporkan placeholder dasar mereka:
 
 ```java
 import com.aspose.slides.*;
@@ -86,11 +86,73 @@ try {
 }
 ```
 
-Mengedit placeholder pada slide normal membuat atau mengubah penimpaan lokal untuk slide tersebut. Mengedit tata letak atau master yang terkait dapat memengaruhi semua slide yang masih mewarisi pengaturan itu. Sebuah bentuk biasa lokal tidak memiliki placeholder dasar dan tidak mulai mewarisi hanya karena berada pada koordinat yang sama.
+Mengedit placeholder pada slide normal membuat atau mengubah override lokal untuk slide tersebut. Mengedit tata letak atau master yang terkait dapat memengaruhi semua slide yang masih mewarisi pengaturan itu. Sebuah shape lokal biasa tidak memiliki placeholder dasar dan tidak mulai mewarisi hanya karena berada pada koordinat yang sama.
+
+## **Menghapus Status Placeholder**
+
+Saat menyesuaikan templat, gunakan [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) untuk menjaga objek yang ada tetap sebagai shape biasa. Metode [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) mengembalikan `null`, tetapi shape tetap berada dalam koleksi slide. Sebaliknya, [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) menghapus shape dari koleksi tersebut.
+
+Contoh berikut memerlukan `template.pptx` dengan setidaknya satu slide dan placeholder teks yang tidak kosong pada slide pertama. Gunakan placeholder dengan pemformatan yang diwarisi dari tata letaknya atau master untuk melihat efek menghapus hubungan tersebut. Contoh memeriksa bahwa shape yang sama tetap ada, memanggil metode lagi pada shape yang kini biasa, dan menyimpan hasilnya.
+
+{{% alert color="warning" title="Warning" %}}
+Menghapus status placeholder tidak secara otomatis mempertahankan pengaturan penampilan yang diwarisi. Contoh di bawah sengaja membiarkan pengaturan tersebut tidak berubah, sehingga output mungkin tampak berbeda. Sebuah shape yang posisinya dan ukurannya sepenuhnya diwarisi dapat memiliki koordinat dan dimensi nol setelah pemanggilan dan menjadi tidak terlihat meskipun tetap berada dalam koleksi.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Memanggil metode pada shape biasa tidak berpengaruh.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk placeholder yang cocok, ketiga pemeriksaan mencetak `true`. Teks tetap ada, tetapi posisi, ukuran, rotasi, font, perataan paragraf, margin bingkai teks, penahan vertikal, pengisian, dan pengaturan garis yang diwarisi dapat berubah ketika hubungan placeholder dihapus. Misalnya, pemformatan judul yang diwarisi dapat kembali ke pemformatan teks biasa. Lihat [Slide Layout](/slides/id/androidjava/slide-layout/) untuk informasi lebih lanjut tentang tata letak.
+
+Untuk mempertahankan tampilan yang dimaksud, tangkap posisi, ukuran, dan rotasi yang telah diselesaikan sebelum pemanggilan, dan salin nilai pemformatan efektif yang diperlukan ke dalam variabel terpisah. Dapatkan nilai tersebut melalui [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), dan [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--). Jangan hanya mengandalkan objek format‑efektif, karena nilai pemformatan teksnya dapat berubah setelah hubungan dihapus. Terapkan secara eksplisit nilai yang ditangkap ke shape biasa setelahnya, termasuk keluarga font, ukuran, gaya, warna, pengaturan paragraf, pengaturan bingkai teks, pengisian, dan garis yang digunakan oleh templat Anda.
+
+Geometri shape yang diwarisi mungkin juga perlu ditetapkan secara eksplisit melalui [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-). Untuk placeholder teks persegi panjang, ini berarti menetapkan [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle); mengembalikan hanya pengisian dan garis mungkin tidak mengembalikan persegi panjang yang terlihat. Templat dengan efek tambahan atau pemformatan yang lebih kompleks memerlukan pengaturan tersebut ditangani juga.
 
 ## **Mengubah Teks dalam Placeholder**
 
-Placeholder judul, judul‑tengah, subjudul, isi, dan teks biasanya mendukung teks. Periksa apakah bentuk adalah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) sebelum menggunakan metode [getTextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/)‑nya.
+Placeholder judul, judul‑tengah, subjudul, isi, dan teks biasanya mendukung teks. Periksa keberadaan [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) sebelum menggunakan metode [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) miliknya.
 
 Contoh ini memperbarui placeholder judul pertama pada slide pertama dan menyimpan hasilnya:
 
@@ -131,11 +193,11 @@ try {
 }
 ```
 
-Pola ini menghindari casting placeholder gambar, diagram, tabel, atau media menjadi [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/). Ia juga mengidentifikasi placeholder berdasarkan tujuan alih‑alih mengandalkan indeks bentuk yang rapuh.
+Pola ini menghindari casting placeholder gambar, diagram, tabel, atau media ke [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Ia juga mengidentifikasi placeholder berdasarkan tujuan alih-alih bergantung pada indeks shape yang rapuh.
 
 ## **Mengatur Teks Prompt pada Tata Letak**
 
-Teks prompt adalah instruksi waktu‑desain yang ditampilkan dalam placeholder kosong, seperti *Klik untuk menambahkan judul*. Atur teks prompt khusus pada placeholder tata letak daripada mencoba mencapainya melalui koleksi bentuk slide normal. Akses tata letak melalui [ISlide.getLayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/) dan iterasi koleksi yang dikembalikan oleh [ILayoutSlide.getShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibaseslide/).
+Teks prompt adalah instruksi desain‑time yang ditampilkan dalam placeholder kosong, seperti *Click to add title*. Atur teks prompt khusus pada placeholder tata letak daripada mencoba mengaksesnya melalui koleksi shape slide biasa. Akses tata letak melalui [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) dan iterasi koleksi yang dikembalikan oleh [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/).
 
 Contoh berikut mengubah prompt judul dan subjudul pada tata letak yang digunakan oleh slide pertama:
 
@@ -172,14 +234,14 @@ try {
 }
 ```
 
-Teks prompt bukan konten slide normal. Ia dimaksudkan untuk placeholder kosong dalam aplikasi pengeditan seperti PowerPoint. Setelah pengguna atau program menyediakan konten nyata, prompt tidak lagi ditampilkan. Mengubah prompt juga tidak menggantikan teks yang sudah ada pada slide yang menggunakan tata letak tersebut.
+Teks prompt bukan konten slide biasa. Itu dimaksudkan untuk placeholder kosong dalam aplikasi pengeditan seperti PowerPoint. Setelah pengguna atau program menyediakan konten nyata, prompt tidak lagi ditampilkan. Mengubah prompt juga tidak menggantikan teks yang ada pada slide yang menggunakan tata letak tersebut.
 
 ## **Memperbarui Placeholder Gambar**
 
-Ada dua kasus yang perlu ditangani:
+Ada dua kasus yang harus ditangani:
 
-- Jika placeholder gambar sudah terisi dan direpresentasikan oleh sebuah [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/), ganti gambar melalui [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipicturefillformat/) dan [ISlidesPicture.setImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidespicture/).
-- Jika masih merupakan placeholder kosong, tambahkan sebuah picture frame pada koordinat placeholder menggunakan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapecollection/) dan hapus placeholder kosong tersebut.
+- Jika placeholder gambar sudah terisi dan direpresentasikan oleh sebuah [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), ganti gambar melalui [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) dan [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/).
+- Jika masih berupa placeholder kosong, tambahkan bingkai gambar pada koordinat placeholder dengan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) dan hapus placeholder kosong.
 
 Contoh berikut mendukung kedua kasus dan menyimpan presentasi:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Pengganti yang dibuat untuk placeholder kosong adalah picture frame lokal, bukan placeholder baru, karena [IShape.getPlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) tidak menyediakan setter. Ia mempertahankan posisi yang dipesan namun tidak lagi mewarisi perilaku khusus placeholder. Jika mempertahankan hubungan placeholder sangat penting, siapkan dan isi placeholder di PowerPoint terlebih dahulu, lalu perbarui [IPictureFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipictureframe/) yang dihasilkan dengan Aspose.Slides.
+Penggantian yang dibuat untuk placeholder kosong adalah bingkai gambar lokal, bukan placeholder baru, karena [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) tidak menyediakan setter. Ia mempertahankan posisi yang dipesan tetapi tidak lagi mewarisi perilaku khusus placeholder. Jika mempertahankan hubungan placeholder penting, siapkan dan isi placeholder di PowerPoint terlebih dahulu, lalu perbarui [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) yang dihasilkan dengan Aspose.Slides.
 
-Untuk transparansi gambar, pemotongan, dan efek gambar lainnya, lihat [Manage Picture Frames](/slides/id/androidjava/picture-frame/). Operasi tersebut termasuk dalam picture frame atau picture fill, bukan dalam metadata placeholder.
+Untuk transparansi gambar, pemotongan, dan efek khusus gambar lainnya, lihat [Manage Picture Frames](/slides/id/androidjava/picture-frame/). Operasi tersebut merupakan bagian dari bingkai gambar atau pengisian gambar, bukan metadata placeholder.
 
 ## **Bekerja dengan Placeholder Diagram dan Konten**
 
-Placeholder diagram yang telah terisi dapat direpresentasikan oleh sebuah [IChart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ichart/). Contoh ini menemukan diagram tersebut berdasarkan tipe placeholder dan antarmuka runtime, mengubah judulnya, dan menyimpan file:
+Placeholder diagram yang telah terisi dapat direpresentasikan oleh sebuah [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/). Contoh ini menemukan diagram tersebut berdasarkan jenis placeholder dan antarmuka runtime, mengubah judulnya, dan menyimpan file:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Placeholder konten umum biasanya memiliki [PlaceholderType.Object](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/). Di PowerPoint ia berfungsi sebagai peluncur untuk berbagai tipe konten, termasuk diagram, tabel, diagram alur, gambar, dan media. Setelah terisi, periksa antarmuka bentuk aktual untuk mengetahui apa yang dikandungnya. Tata letak khusus juga dapat mengekspos [PlaceholderType.Chart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/), atau [PlaceholderType.Diagram](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholdertype/).
+Placeholder konten umum biasanya memiliki [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/). Di PowerPoint ia berfungsi sebagai peluncur untuk beberapa jenis konten, termasuk diagram, tabel, diagram, gambar, dan media. Setelah diisi, inspeksi antarmuka shape aktual untuk mengetahui apa yang dikandungnya. Tata letak khusus juga dapat mengekspos [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), atau [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides tidak mengonversi placeholder [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) kosong menjadi [IChart](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ichart/) hanya dengan mengubah [IPlaceholder.getType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/placeholder/); tipe tidak dapat diubah melalui antarmuka. Untuk mengisi area diagram atau konten kosong secara programatis, tambahkan objek yang dibutuhkan pada koordinat placeholder dan kemudian hapus placeholder kosong. Contoh berikut melakukannya untuk sebuah diagram:
+Aspose.Slides tidak mengubah placeholder [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) yang kosong menjadi [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) hanya dengan mengubah [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/); tipe tidak dapat diubah melalui antarmuka. Untuk mengisi area diagram atau konten kosong secara programatik, tambahkan objek yang diperlukan pada koordinat placeholder lalu hapus placeholder kosong. Contoh berikut melakukan hal itu untuk diagram:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Diagram yang ditambahkan adalah diagram lokal biasa. Ia menempati area placeholder tetapi tidak mewarisi dari placeholder tata letak. Gunakan artikel khusus manajemen diagram [/slides/id/androidjava/powerpoint-charts/] ketika Anda perlu mengganti kategori, seri, atau data workbook‑nya.
+Diagram yang ditambahkan adalah diagram lokal biasa. Ia menempati area placeholder tetapi tidak mewarisi dari placeholder tata letak. Gunakan artikel [chart management articles](/slides/id/androidjava/powerpoint-charts/) ketika Anda perlu mengganti kategori, seri, atau data workbook-nya.
 
-## **Contoh Lengkap: Memperbarui Teks atau Konten Gambar**
+## **Contoh Lengkap: Memperbarui Konten Teks atau Gambar**
 
-Contoh end‑to‑end berikut membuka sebuah templat, mencari slide pertama untuk placeholder judul atau gambar, memeriksa tipe placeholder dan bentuk, memperbarui konten yang sesuai, dan menyimpan output. Contoh ini sengaja menghindari asumsi indeks bentuk atau casting setiap placeholder ke antarmuka yang sama.
+Contoh end‑to‑end berikut membuka templat, mencari slide pertama untuk placeholder judul atau gambar, memeriksa jenis placeholder dan shape, memperbarui konten yang sesuai, dan menyimpan output. Contoh sengaja menghindari asumsi indeks shape atau casting setiap placeholder ke antarmuka yang sama.
 
 ```java
 import com.aspose.slides.*;
@@ -366,12 +428,12 @@ try {
 
 **Apa itu placeholder dasar?**
 
-Placeholder dasar adalah bentuk yang bersesuaian pada tata letak atau master dari mana placeholder lain mewarisi. Gunakan [IShape.getBasePlaceholder](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) untuk mengambilnya. Sebuah bentuk lokal biasa mengembalikan `null` karena tidak termasuk dalam hierarki placeholder.
+Placeholder dasar adalah shape yang bersesuaian pada tata letak atau master dari mana placeholder lain mewarisi. Gunakan [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) untuk mengambilnya. Sebuah shape lokal biasa mengembalikan `null` karena tidak termasuk dalam hierarki placeholder.
 
 **Apakah saya dapat mengubah semua judul slide dengan mengedit placeholder tata letak?**
 
-Anda dapat mengubah pemformatan atau teks prompt yang diwariskan melalui tata letak, tetapi konten judul yang ada disimpan pada slide normal. Untuk mengganti teks judul aktual di seluruh presentasi, iterasi slide‑slide dan perbarui setiap placeholder judul.
+Anda dapat mengubah pemformatan atau teks prompt yang diwarisi melalui tata letak, tetapi konten judul yang ada disimpan pada slide normal. Untuk mengganti teks judul aktual di seluruh presentasi, iterasi slide dan perbarui setiap placeholder judul.
 
 **Bagaimana cara mengelola placeholder tanggal, nomor‑slide, header, dan footer?**
 
-Gunakan manajer header dan footer pada skop slide, tata letak, master, catatan, atau handout yang tepat. Lihat [Manage Presentation Header and Footer](/slides/id/androidjava/presentation-header-and-footer/) untuk contoh lengkap.
+Gunakan pengelola header dan footer pada tingkat slide, tata letak, master, catatan, atau handout yang sesuai. Lihat [Manage Presentation Header and Footer](/slides/id/androidjava/presentation-header-and-footer/) untuk contoh lengkap.

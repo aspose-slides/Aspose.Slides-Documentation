@@ -9,29 +9,29 @@ keywords:
 - текстовый заполнитель
 - заполнитель изображения
 - заполнитель диаграммы
-- заполнитель контента
-- подсказка текста
+- заполнитель содержимого
+- текст подсказки
 - PowerPoint
 - презентация
 - Java
 - Aspose.Slides
-description: "Узнайте, как просматривать и редактировать заполнители текста, изображения, диаграмм и контента, а также понять наследование заполнителей с помощью Aspose.Slides для Java."
+description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и содержательные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Java."
 ---
 ## **Обзор**
 
-Заполнитель — это объект, который резервирует позицию для определённого типа содержимого в шаблоне презентации. Часто встречающиеся примеры — заполнители заголовка, основного текста, изображения, диаграммы и универсального контента. В отличие от обычного объекта, заполнитель может наследовать своё положение, размер, форматирование и другие параметры от слайда‑разметки или главного слайда.
+Заполнитель — это фигура, резервирующая позицию для определённого типа содержимого в шаблоне презентации. Часто встречающиеся примеры — заполнители заголовка, основного текста, изображения, диаграммы и универсального содержимого. В отличие от обычной фигуры, заполнитель может наследовать своё положение, размер, форматирование и другие параметры от слайда‑макета или главного слайда.
 
-Aspose.Slides предоставляет информацию о заполнителе через метод [IShape.getPlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholder/) или `null` для обычного объекта. Используйте [IPlaceholder.getType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholder/) для определения того, какой контент предполагается в заполнителе.
+Aspose.Slides предоставляет информацию о заполнителе через метод [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) или `null` для обычной фигуры. Используйте [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/), чтобы определить, какой тип содержимого ожидает заполнитель.
 
-Интерфейс объекта всё равно важен после того, как вы узнали тип заполнителя:
+Интерфейс фигуры остаётся важным после того, как вы узнали тип заполнителя:
 
-- Пустой заполнитель текста, изображения, диаграммы или контента обычно представлен объектом [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/).
-- Заполненный заполнитель изображения может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/).
-- Заполненный заполнитель диаграммы может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/).
-- Заполнитель контента может содержать несколько видов контента. Проверяйте как [IPlaceholder.getType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholder/), так и интерфейс объекта во время выполнения, вместо того чтобы предполагать, что каждый заполнитель — это [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/).
+- Пустой текстовый, графический, диаграммный или универсальный заполнитель обычно представлен объектом [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+- Заполненный графический заполнитель может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/).
+- Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/).
+- Универсальный заполнитель может содержать несколько типов содержимого. Проверяйте как [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/), так и интерфейс фигуры во время выполнения, а не предполагаете, что каждый заполнитель — это [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
 
-{{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholder/) описывает роль заполнителя; он не гарантирует тип объекта во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
+{{% alert color="warning" title="Предупреждение" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) описывает роль заполнителя; он не гарантирует тип формы во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
 {{% /alert %}}
 
 ## **Понимание наследования заполнителей**
@@ -39,12 +39,12 @@ Aspose.Slides предоставляет информацию о заполни�
 Заполнители образуют иерархию:
 
 1. Главный слайд определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня мастера.
-2. Слайд‑разметка определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать его от мастера.
-3. Обычный слайд содержит заполнители для этого слайда и может наследовать их от своей разметки.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от мастера.
+3. Обычный слайд содержит заполнители для данного слайда и может наследовать от своего макета.
 
-Вызовите [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) для перехода на один уровень выше в этой иерархии. Заполнитель обычного слайда, как правило, возвращает свой заполнитель разметки; заполнитель разметки может вернуть заполнитель мастера. Метод возвращает `null`, когда объект не имеет базового заполнителя.
+Вызовите [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), чтобы перейти на один уровень выше в этой иерархии. Заполнитель обычного слайда обычно возвращает заполнитель своего макета; заполнитель макета может вернуть заполнитель мастера. Метод возвращает `null`, когда у фигуры нет базового заполнителя.
 
-Ниже приведён пример, перечисляющий заполнители на первом слайде и выводящий их базовые заполнители:
+Следующий пример перечисляет заполнители на первом слайде и выводит их базовые заполнители:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Изменение связанной разметки или мастера может повлиять на все слайды, которые продолжают наследовать эту настройку. Обычный локальный объект не имеет базового заполнителя и не начинает наследовать просто потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование соответствующего макета или мастера может повлиять на все слайды, которые продолжают наследовать этот параметр. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать только потому, что занимает те же координаты.
 
-## **Изменение текста в заполнителе**
+## **Удалить статус заполнителя**
 
-Заполнители заголовка, централизованного заголовка, подзаголовка, основного текста и текста обычно поддерживают текст. Проверьте, является ли объект [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/), перед тем как использовать его метод [getTextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/).
+При адаптации шаблона используйте [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) — чтобы сохранить существующий объект как обычную фигуру. Его метод [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) возвращает `null`, но фигура остаётся в коллекции слайда. В отличие от этого, [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) удаляет фигуру из этой коллекции.
 
-В этом примере обновляется первый заполнитель заголовка на первом слайде и сохраняется результат:
+Следующий пример требует файл `template.pptx` с минимум одним слайдом и непустым текстовым заполнителем на первом слайде. Используйте заполнитель с форматированием, наследованным от его макета или мастера, чтобы увидеть эффект удаления этой связи. Пример проверяет, что та же фигура остаётся, снова вызывает метод на теперь уже обычной фигуре и сохраняет результат.
+
+{{% alert color="warning" title="Предупреждение" %}}
+Удаление статуса заполнителя не сохраняет автоматически унаследованные параметры внешнего вида. Пример ниже умышленно оставляет эти параметры без изменений, поэтому итоговый файл может выглядеть иначе. Фигура, чьё положение и размер полностью унаследованы, может получить нулевые координаты и размеры после вызова и стать невидимой, хотя остаётся в коллекции.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Вызов метода на обычной фигуре не имеет эффекта.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Для соответствующего заполнителя все три проверки выводят `true`. Текст сохраняется, но унаследованные положение, размер, поворот, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальная привязка, заливка и параметры линии могут измениться после удаления связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. Смотрите [Макет слайда](/slides/ru/java/slide-layout/) для более подробной информации о макетах.
+
+Чтобы сохранить желаемый внешний вид, зафиксируйте разрешённые положение, размер и поворот до вызова и скопируйте необходимые эффективные значения форматирования в отдельные переменные. Получать их можно через [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), и [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--). Не полагайтесь только на объекты эффективного форматирования, потому что их значения могут измениться после удаления связи. Явно примените зафиксированные значения к обычной фигуре после этого, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованная геометрия фигуры также может потребовать явного назначения через [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-). Для прямоугольного текстового заполнителя это означает назначить [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle); восстановление только заливки и линии может не вернуть видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют обработки и этих параметров.
+
+## **Изменить текст в заполнителе**
+
+Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и обычного текста обычно поддерживают текст. Перед использованием метода [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) проверьте, является ли фигура [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+
+Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-Такой подход избегает приведения заполнителей изображений, диаграмм, таблиц или медиа к объекту [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/). Он также определяет заполнитель по назначению, а не полагается на хрупкий индекс объекта.
+Такой подход избегает приведения заполнителей изображения, диаграммы, таблицы или медиа к [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
 
-## **Установка текста‑подсказки в разметке**
+## **Установить текст‑подсказку в макете**
 
-Текст‑подсказка — это инструктивный текст, отображаемый в пустом заполнителе во время разработки, например *Click to add title*. Устанавливайте пользовательский текст‑подсказки в заполнителе разметки, а не пытаясь получить его через коллекцию объектов обычного слайда. Доступ к разметке осуществляется через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islide/), после чего перебирайте коллекцию, возвращаемую [ILayoutSlide.getShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseslide/).
+Текст‑подсказка — это сообщение, отображаемое в пустом заполнителе в режиме проектирования, например *Щёлкните, чтобы добавить заголовок*. Задавайте собственный текст‑подсказку в заполнителе макета, а не пытаясь достать его через обычную коллекцию фигур слайда. Доступ к макету получаете через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) и перебираете коллекцию, возвращаемую [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/).
 
-В примере ниже меняются подсказки заголовка и подзаголовка в разметке, используемой первым слайдом:
+Следующий пример меняет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
 
 ```java
 import com.aspose.slides.*;
@@ -171,14 +233,14 @@ try {
 }
 ```
 
-Текст‑подсказка — это не обычное содержимое слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих эту разметку.
+Текст‑подсказка — это не обычное содержимое слайда. Он предназначен для пустых заполнителей в приложениях редактирования, таких как PowerPoint. Как только пользователь или программа добавляют реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет уже существующий текст на слайдах, использующих этот макет.
 
-## **Обновление заполнителя изображения**
+## **Обновить графический заполнитель**
 
-Есть два сценария:
+Существуют два варианта обработки:
 
-- Если заполнитель изображения уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipicturefillformat/) и [ISlidesPicture.setImage](https://reference.aspose.com/slides/ru/java/com.aspose.slides/islidespicture/).
-- Если это ещё пустой заполнитель, добавьте объект изображения по координатам заполнителя через [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishapecollection/) и удалите пустой заполнитель.
+- Если графический заполнитель уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) и [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/).
+- Если это всё ещё пустой заполнитель, добавьте графический кадр в координаты заполнителя с помощью [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Созданная замена для пустого заполнителя представляет собой локальный объект изображения, а не новый заполнитель, поскольку [IShape.getPlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) не предоставляет сеттер. Он сохраняет зарезервированную позицию, но более не наследует поведение, специфичное для заполнителя. Если важно сохранить связь с заполнителем, сначала подготовьте и заполните заполнитель в PowerPoint, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ipictureframe/) через Aspose.Slides.
+Замена, созданная для пустого заполнителя, представляет собой локальный графический кадр, а не новый заполнитель, потому что [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) не предоставляет сеттер. Он сохраняет зарезервированную позицию, но больше не наследует поведение заполнителя. Если сохранение связи заполнителя критично, подготовьте и заполните заполнитель в PowerPoint заранее, затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) с помощью Aspose.Slides.
 
-Для изменения прозрачности изображения, обрезки и других эффектов, специфичных для изображения, смотрите раздел [Manage Picture Frames](/slides/ru/java/picture-frame/). Эти операции относятся к объекту изображения или его заливке, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для картинок, см. [Управление рамками изображений](/slides/ru/java/picture-frame/). Эти операции относятся к графическому кадру или заливке изображения, а не к метаданным заполнителя.
 
-## **Работа с заполнителями диаграмм и контента**
+## **Работа с заполнителями диаграмм и содержимого**
 
-Заполненный заполнитель диаграммы может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/). В этом примере поиск такой диаграммы осуществляется как по типу заполнителя, так и по интерфейсу во время выполнения, меняется её заголовок и сохраняется файл:
+Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/). Этот пример ищет такую диаграмму по типу заполнителя и интерфейсу во время выполнения, меняет её заголовок и сохраняет файл:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Общий заполнитель контента обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/). В PowerPoint он выступает в роли запуска для нескольких типов контента, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте фактический интерфейс объекта, чтобы узнать, что он содержит. Специализированные разметки могут также использовать [PlaceholderType.Chart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/), или [PlaceholderType.Diagram](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholdertype/).
+Универсальный заполнитель содержимого обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/). В PowerPoint он служит запуском для разных типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте реальный интерфейс фигуры, чтобы понять, что она содержит. Специальные макеты могут также раскрывать типы [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), или [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides не преобразует пустой заполнитель [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iautoshape/) в объект [IChart](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ichart/) простым изменением [IPlaceholder.getType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/placeholder/); тип изменить через интерфейс нельзя. Чтобы программно заполнить пустую диаграмму или область контента, добавьте необходимый объект по координатам заполнителя и затем удалите пустой заполнитель. В следующем примере показано, как это сделать для диаграммы:
+Aspose.Slides не преобразует пустой [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) лишь изменением [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/); тип нельзя изменить через интерфейс. Чтобы программно заполнить пустую диаграмму или область содержимого, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует её из разметки. При необходимости заменять категории, серии или данные книги используйте специализированные статьи по управлению [диаграммами](/slides/ru/java/powerpoint-charts/).
+Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует параметры от макета заполнителя. Для замены её категорий, рядов или данных рабочей книги используйте специальные [статьи по управлению диаграммами](/slides/ru/java/powerpoint-charts/).
 
 ## **Полный пример: обновление текста или изображения**
 
-Ниже приведён сквозной пример, который открывает шаблон, ищет на первом слайде заполнитель заголовка или изображения, проверяет типы заполнителя и объекта, обновляет соответствующее содержимое и сохраняет результат. Пример преднамеренно избегает предположений о индексе объекта и приведения всех заполнителей к одному интерфейсу.
+Следующий сквозной пример открывает шаблон, ищет на первом слайде либо заполнитель заголовка, либо графический, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример сознательно избегает предположений о индексе фигуры или приведения всех заполнителей к одному интерфейсу.
 
 ```java
 import com.aspose.slides.*;
@@ -367,12 +429,12 @@ try {
 
 **Что такое базовый заполнитель?**
 
-Базовый заполнитель — это соответствующий объект на разметке или мастере, от которого наследуется другой заполнитель. Используйте [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) для его получения. Обычный локальный объект возвращает `null`, поскольку он не является частью иерархии заполнителей.
+Базовый заполнитель — это соответствующая фигура на макете или в мастере, от которой другой заполнитель наследует параметры. Используйте [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/), чтобы получить его. Обычная локальная фигура возвращает `null`, потому что она не является частью иерархии заполнителей.
 
-**Могу ли я изменить все заголовки слайдов, редактируя заполнитель разметки?**
+**Можно ли изменить все заголовки слайдов, редактируя заполнитель макета?**
 
-Вы можете изменить наследуемое форматирование или текст‑подсказку через разметку, но фактическое содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, переберите слайды и обновите каждый заполнитель заголовка.
+Можно изменить унаследованное форматирование или текст‑подсказку через макет, но фактическое содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовка во всей презентации, переберите слайды и обновите каждый заполнитель заголовка.
 
-**Как управлять заполнителями даты, номера слайда, верхнего и нижнего колонтитулов?**
+**Как управлять заполнителями даты, номера слайда, заголовка и колонтитула?**
 
-Используйте менеджеры верхних и нижних колонтитулов в соответствующей области — слайд, разметка, мастер, заметки или раздача. См. раздел [Manage Presentation Header and Footer](/slides/ru/java/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры заголовков и колонтитулов на соответствующем уровне — слайда, макета, мастера, заметок или раздаточного листа. Смотрите [Управление заголовками и колонтитулами презентации](/slides/ru/java/presentation-header-and-footer/) для полных примеров.

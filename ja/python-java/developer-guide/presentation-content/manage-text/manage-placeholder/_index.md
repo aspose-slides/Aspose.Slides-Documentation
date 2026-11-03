@@ -1,51 +1,51 @@
 ---
-title: Pythonでプレゼンテーションのプレースホルダーを管理する
-linktitle: プレースホルダーを管理する
+title: "Python でプレゼンテーション プレースホルダーを管理する"
+linktitle: "プレースホルダーを管理"
 type: docs
 weight: 10
 url: /ja/python-java/manage-placeholder/
 keywords:
-- プレースホルダー
-- テキストプレースホルダー
-- 画像プレースホルダー
-- チャートプレースホルダー
-- コンテンツプレースホルダー
-- プロンプトテキスト
-- PowerPoint
-- プレゼンテーション
-- Python
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Python via Java を使用して、テキスト、画像、チャート、コンテンツのプレースホルダーを検査・編集し、プレースホルダーの継承を理解する方法を学びます。"
+- "プレースホルダー"
+- "テキスト プレースホルダー"
+- "画像 プレースホルダー"
+- "チャート プレースホルダー"
+- "コンテンツ プレースホルダー"
+- "プロンプト テキスト"
+- "PowerPoint"
+- "プレゼンテーション"
+- "Python"
+- "Java"
+- "Aspose.Slides"
+description: "Aspose.Slides for Python via Java を使用して、テキスト、画像、チャート、コンテンツ プレースホルダーを検査・編集し、プレースホルダー継承を理解する方法を学びます。"
 ---
 ## **概要**
 
-プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保するシェイプです。一般的な例として、タイトル、本文、画像、チャート、汎用コンテンツのプレースホルダーがあります。通常のシェイプとは異なり、プレースホルダーはレイアウトスライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
+プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保する形状です。一般的な例として、タイトル、本文、画像、チャート、汎用コンテンツのプレースホルダーがあります。通常の形状とは異なり、プレースホルダーはレイアウト スライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
 
-Aspose.Slides は、[Shape.getPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getPlaceholder) メソッドを通じてプレースホルダー情報を提供します。このメソッドは通常のシェイプの場合は `None`、それ以外の場合は [Placeholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholder/) オブジェクトを返します。[Placeholder.getType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholder/#getType) を使用して、プレースホルダーが何を保持することを意図しているかを判断してください。
+Aspose.Slides は、[Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) メソッドを通じてプレースホルダー情報を提供します。このメソッドは、通常の形状の場合は `None` を返し、[Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) オブジェクトを返します。[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) を使用して、プレースホルダーが何を保持することを意図しているかを判断します。
 
-プレースホルダータイプを把握した後でも、シェイプタイプは重要です：
+形状のタイプは、プレースホルダーのタイプを把握した後も重要です:
 
-- 空のテキスト、画像、チャート、またはコンテンツのプレースホルダーは通常、[AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) で表されます。
-- 画像が設定されたプレースホルダーは [PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) で表されます。
-- チャートが設定されたプレースホルダーは [Chart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/) で表されます。
-- コンテンツプレースホルダーは複数の種類のコンテンツを含むことができます。すべてのプレースホルダーが [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) であると想定せず、[Placeholder.getType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholder/#getType) と実行時のシェイプタイプの両方を確認してください。
+- 空のテキスト、画像、チャート、またはコンテンツ プレースホルダーは、一般に [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) で表されます。
+- 内容が入った画像プレースホルダーは [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) で表されます。
+- 内容が入ったチャートプレースホルダーは [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) で表されます。
+- コンテンツ プレースホルダーはさまざまな種類のコンテンツを含めることができます。すべてのプレースホルダーが [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) であると仮定せず、[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) と実行時の形状タイプの両方を確認してください。
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholder/#getType) はプレースホルダーの役割を示しますが、シェイプの実行時タイプを保証するものではありません。テキスト、画像、チャート、テーブル、またはメディア固有のメンバーにアクセスする前に、必ずタイプチェックを行ってください。
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) はプレースホルダーの役割を示しますが、形状の実行時タイプを保証するものではありません。テキスト、画像、チャート、テーブル、またはメディア固有のメンバーにアクセスする前に、必ずタイプチェックを行ってください。
 {{% /alert %}}
 
-## **プレースホルダーの継承を理解する**
+## **プレースホルダー継承の理解**
 
-プレースホルダーは階層を形成します：
+プレースホルダーは階層を形成します:
 
-1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスターレベルのプレースホルダーも定義します。
-2. レイアウトスライドは1枚以上の通常スライドで使用される配置を定義し、マスターから継承することができます。
-3. 通常スライドはそのスライド用のプレースホルダーを保持し、レイアウトから継承することができます。
+1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスター レベルのプレースホルダーも定義します。
+2. レイアウトスライドは、1 つ以上の通常スライドで使用される配置を定義し、マスターから継承することができます。
+3. 通常スライドはそのスライドのプレースホルダーを保持し、レイアウトから継承することができます。
 
-[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) を呼び出すと、この階層で1レベル上のプレースホルダーに移動できます。スライドのプレースホルダーは通常、レイアウトのプレースホルダーを返し、レイアウトのプレースホルダーはマスターのプレースホルダーを返すことがあります。シェイプにベースプレースホルダーがない場合、このメソッドは `None` を返します。
+[Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) を呼び出すと、この階層で 1 レベル上のプレースホルダーに移動します。スライドのプレースホルダーは通常レイアウトのプレースホルダーを返し、レイアウトのプレースホルダーはマスターのプレースホルダーを返すことができます。形状にベースプレースホルダーが存在しない場合、メソッドは `None` を返します。
 
-以下の例は最初のスライド上のプレースホルダーを列挙し、そのベースプレースホルダーを報告します：
+以下の例は、最初のスライド上のプレースホルダーを列挙し、それらのベースプレースホルダーを報告します:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-通常スライド上でプレースホルダーを編集すると、そのスライド用のローカルオーバーライドが作成または変更されます。関連するレイアウトやマスターを編集すると、その設定を継承しているすべてのスライドに影響を与える可能性があります。ローカルの通常シェイプはベースプレースホルダーを持たず、同じ座標にあるだけで継承が開始されるわけではありません。
+通常スライド上のプレースホルダーを編集すると、そのスライド用のローカル上書きが作成または変更されます。関連するレイアウトやマスターを編集すると、その設定を継承しているすべてのスライドに影響を与える可能性があります。ローカルの普通の形状はベースプレースホルダーを持たず、同じ座標を占めているだけで継承が開始されるわけではありません。
 
-## **プレースホルダー内のテキストを変更する**
+## **プレースホルダーのステータスを削除**
 
-タイトル、センタリングされたタイトル、サブタイトル、本文、およびテキストプレースホルダーは通常テキストをサポートします。これらのシェイプが [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) であるかを確認し、[getTextFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/#getTextFrame) メソッドを使用してください。
+テンプレートを調整する際は、[Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) を使用して、既存のオブジェクトを普通の形状として保持します。その [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) メソッドは `None` を返しますが、形状はスライドのコレクションに残ります。対照的に、[ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) はそのコレクションから形状を削除します。
 
-この例は最初のスライド上の最初のタイトルプレースホルダーを更新し、結果を保存します：
+以下の例は、少なくとも 1 枚のスライドと最初のスライドに空でないテキスト プレースホルダーがある `template.pptx` が必要です。レイアウトまたはマスターから継承された書式設定を持つプレースホルダーを使用して、関係を削除したときの効果を確認してください。この例は同じ形状が残っていることをチェックし、普通の形状になった後にメソッドを再度呼び出し、結果を保存します。
+
+{{% alert color="warning" title="Warning" %}}
+プレースホルダーのステータスを削除しても、継承された外観設定が自動的に保持されるわけではありません。以下の例では意図的にそれらの設定を変更せずに残しています。そのため、出力が異なる見た目になる可能性があります。位置とサイズが完全に継承されている形状は、呼び出し後に座標と寸法がゼロになり、コレクションに残っていても見えなくなることがあります。
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpave.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # 通常の形状に対してこのメソッドを呼び出しても効果はありません。
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+対応するプレースホルダーが 3 つのチェックすべてで `True` を出力します。テキストは残りますが、位置、サイズ、回転、フォント、段落配置、テキストフレームの余白、垂直位置揃え、塗りつぶし、線の設定など、継承された設定はプレースホルダー関係を削除すると変更される可能性があります。例えば、継承されたタイトル書式は通常のテキスト書式にフォールバックします。レイアウトの詳細については、[Slide Layout](/slides/ja/python-java/slide-layout/) を参照してください。
+
+意図した外観を保持するには、呼び出し前に解決された位置、サイズ、回転を取得し、必要な有効書式の値を別々の変数にコピーします。これらの値は、[PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective)、[ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective)、[TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective)、[FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective)、および [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) を介して取得してください。効果的な書式オブジェクトだけを保持することに頼ってはいけません。なぜなら、プレースホルダー関係が削除された後にそれらのテキスト書式値が変わる可能性があるからです。取得した値を普通の形状に明示的に適用し、フォント ファミリ、サイズ、スタイル、色、段落設定、テキストフレーム設定、塗りつぶし、線など、テンプレートで使用されている書式をすべて反映させます。
+
+継承された形状のジオメトリも、[GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType) を使用して明示的に割り当てる必要がある場合があります。矩形テキスト プレースホルダーの場合、[ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle) を割り当てることを意味します。塗りつぶしと線だけを復元しても、見える矩形が復元されないことがあります。追加効果やより複雑な書式設定を持つテンプレートでは、これらの設定も処理する必要があります。
+
+## **プレースホルダー内のテキストを変更**
+
+タイトル、センタリングタイトル、サブタイトル、本文、テキスト プレースホルダーは通常テキストをサポートします。[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) かどうかを確認し、[getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) メソッドを使用してください。
+
+この例は、最初のスライドの最初のタイトル プレースホルダーを更新し、結果を保存します:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-このパターンは、画像、チャート、テーブル、またはメディアのプレースホルダーを [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) として扱うことを防ぎます。また、壊れやすいシェイプインデックスに依存するのではなく、目的に応じてプレースホルダーを識別します。
+このパターンは、画像、チャート、テーブル、またはメディア プレースホルダーを [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) として扱うことを防ぎます。また、形状インデックスに依存せず、目的でプレースホルダーを識別します。
 
-## **レイアウト上でプロンプトテキストを設定する**
+## **レイアウト上でプロンプト テキストを設定**
 
-プロンプトテキストは、空のプレースホルダーに表示されるデザイン時の指示で、例えば *Click to add title* のようなものです。通常スライドのシェイプコレクションから取得しようとせず、レイアウトプレースホルダーにカスタムプロンプトテキストを設定してください。[Slide.getLayoutSlide](https://reference.aspose.com/slides/ja/python-java/aspose.slides/slide/#getLayoutSlide) でレイアウトにアクセスし、[BaseSlide.getShapes](https://reference.aspose.com/slides/ja/python-java/aspose.slides/baseslide/#getShapes) が返すコレクションをイテレートします。
+プロンプト テキストは、空のプレースホルダーに表示されるデザイン時の指示で、例: *Click to add title* のようなものです。レイアウト プレースホルダーにカスタム プロンプト テキストを設定し、通常スライドの形状コレクションを経由して取得しようとしないでください。[Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) を使用してレイアウトにアクセスし、[BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) が返すコレクションを反復処理します。
 
-以下の例は最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します：
+以下の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します:
 
 ```python
 import jpype
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-プロンプトテキストは通常のスライドコンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに表示されることを意図しています。ユーザーやプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。また、プロンプトを変更しても、レイアウトを使用しているスライド上の既存テキストは置き換わりません。
+プロンプト テキストは通常のスライド コンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに対して表示されることを意図しています。ユーザーまたはプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。プロンプトを変更しても、レイアウトを使用しているスライド上の既存テキストは置き換えられません。
 
-## **画像プレースホルダーを更新する**
+## **画像プレースホルダーを更新**
 
-扱うケースは2つあります：
+以下の 2 ケースを処理します:
 
-- 画像プレースホルダーが既に設定されており、[PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) で表されている場合は、[PictureFillFormat.getPicture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picturefillformat/#getPicture) と [Picture.setImage](https://reference.aspose.com/slides/ja/python-java/aspose.slides/picture/#setImage) を使用して画像を置き換えます。
-- まだ空のプレースホルダーである場合は、[ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shapecollection/#addPictureFrame) を使用してプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
+- 画像プレースホルダーがすでに埋められており、[PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) で表されている場合は、[PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) と [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage) を使用して画像を置き換えます。
+- まだ空のプレースホルダーの場合は、[ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) を使用してプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
 
-次の例は両方のケースをサポートし、プレゼンテーションを保存します：
+次の例は両方のケースに対応し、プレゼンテーションを保存します:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-空のプレースホルダーに対して作成された置換は新しいプレースホルダーではなくローカルの画像フレームです。これは [Shape.getPlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getPlaceholder) にセッターがないためです。予約された位置は保持されますが、プレースホルダー固有の動作は継承されなくなります。プレースホルダーの関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを用意して設定し、その後 Aspose.Slides で生成された [PictureFrame](https://reference.aspose.com/slides/ja/python-java/aspose.slides/pictureframe/) を更新してください。
+空のプレースホルダー用に作成された置換はローカルの画像フレームであり、新しいプレースホルダーではありません。なぜなら、[Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) はセッターを提供しないからです。予約された位置は保持されますが、プレースホルダー固有の動作は継承されなくなります。プレースホルダー関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを準備して埋め込み、次に Aspose.Slides で結果の [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) を更新してください。
 
-画像の透過、クロッピング、その他画像固有の効果については、[Manage Picture Frames](/slides/ja/python-java/picture-frame/) を参照してください。これらの操作はプレースホルダーのメタデータではなく、画像フレームまたは画像塗りつぶしに関するものです。
+画像の透明度、クロッピング、その他の画像固有効果については、[Manage Picture Frames](/slides/ja/python-java/picture-frame/) を参照してください。これらの操作は画像フレームまたは画像塗りつぶしに属し、プレースホルダー メタデータには属しません。
 
-## **チャートおよびコンテンツプレースホルダーの操作**
+## **チャートおよびコンテンツ プレースホルダーの操作**
 
-設定されたチャートプレースホルダーは [Chart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/) で表されます。この例はプレースホルダータイプと実行時タイプの両方で該当チャートを見つけ、タイトルを変更し、ファイルを保存します：
+内容が入ったチャート プレースホルダーは [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) で表されます。この例は、プレースホルダータイプと実行時タイプの両方でそのチャートを見つけ、タイトルを変更し、ファイルを保存します:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-汎用コンテンツプレースホルダーは通常、[PlaceholderType.Object](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Object) を持ちます。PowerPoint では、チャート、テーブル、ダイアグラム、画像、メディアなど、複数のコンテンツタイプの起動点として機能します。プレースホルダーが設定された後は、実際のシェイプタイプを調べて何が含まれているかを確認してください。特化したレイアウトでは、[PlaceholderType.Chart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Chart)、[PlaceholderType.Table](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Table)、[PlaceholderType.Picture](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Picture)、[PlaceholderType.Media](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Media)、[PlaceholderType.Diagram](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholdertype/#Diagram) を公開することもあります。
+一般的なコンテンツ プレースホルダーは通常 [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object) を持ちます。PowerPoint では、チャート、テーブル、ダイアグラム、画像、メディアなど、複数のコンテンツ タイプの起動装置として機能します。内容が入った後は、実際の形状タイプを調べて何が含まれているかを判断してください。特化されたレイアウトは、[PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart)、[PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table)、[PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture)、[PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media)、または [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram) を公開することがあります。
 
-Aspose.Slides は、[Placeholder.getType](https://reference.aspose.com/slides/ja/python-java/aspose.slides/placeholder/#getType) を変更しただけで空の [AutoShape](https://reference.aspose.com/slides/ja/python-java/aspose.slides/autoshape/) プレースホルダーを [Chart](https://reference.aspose.com/slides/ja/python-java/aspose.slides/chart/) に変換することはできません。タイプは API では変更できません。空のチャートやコンテンツ領域にプログラムでデータを入れるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。次の例はチャートに対してそれを行います。
+Aspose.Slides は、[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) を変更するだけで、空の [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) プレースホルダーを [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) に変換しません。API ではタイプを変更できません。空のチャートまたはコンテンツ領域をプログラムで埋めるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。以下の例はチャートに対してそれを行います:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-追加されたチャートは普通のローカルチャートです。プレースホルダーの領域を占有しますが、レイアウトプレースホルダーから継承はしません。カテゴリ、系列、またはブックデータを置き換える必要がある場合は、専用の [chart management articles](/slides/ja/python-java/powerpoint-charts/) を使用してください。
+追加されたチャートは普通のローカルチャートです。プレースホルダー領域を占有しますが、レイアウト プレースホルダーから継承しません。カテゴリ、系列、またはブックデータを置き換える必要がある場合は、専用の [chart management articles](/slides/ja/python-java/powerpoint-charts/) を使用してください。
 
-## **完全な例: テキストまたは画像コンテンツの更新**
+## **完全な例：テキストまたは画像コンテンツの更新**
 
-以下のエンドツーエンドの例では、テンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーとシェイプのタイプを確認して、適切なコンテンツを更新し、出力を保存します。この例は、シェイプインデックスを想定したり、すべてのプレースホルダーを同じタイプとして扱うことを避けるよう意図的に設計されています。
+以下のエンドツーエンド例はテンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーと形状のタイプを確認し、適切なコンテンツを更新して出力を保存します。この例は形状インデックスを仮定したり、すべてのプレースホルダーを同じタイプとみなしたりしないよう意図的に作られています。
 
 ```python
 from pathlib import Path
@@ -355,16 +417,16 @@ finally:
     presentation.dispose()
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**ベースプレースホルダーとは何ですか？**
+**ベース プレースホルダーとは何ですか？**
 
-ベースプレースホルダーは、別のプレースホルダーが継承するレイアウトまたはマスター上の対応するシェイプです。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/python-java/aspose.slides/shape/#getBasePlaceholder) を使用して取得できます。通常のローカルシェイプはプレースホルダー階層の一部ではないため、`None` を返します。
+ベース プレースホルダーは、レイアウトまたはマスター上の対応する形状で、別のプレースホルダーが継承する元になります。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) を使用して取得してください。普通のローカル形状はプレースホルダー階層の一部ではないため `None` を返します。
 
-**レイアウトプレースホルダーを編集してすべてのスライドタイトルを変更できますか？**
+**レイアウト プレースホルダーを編集してすべてのスライドタイトルを変更できますか？**
 
-レイアウトを通じて継承された書式設定やプロンプトテキストは変更できますが、既存のタイトルコンテンツは通常のスライドに保存されています。プレゼンテーション全体のタイトルテキストを置き換えるには、スライドを繰り返し処理し、各タイトルプレースホルダーを更新してください。
+レイアウトを介して継承された書式設定やプロンプト テキストは変更できますが、既存のタイトル コンテンツは通常スライドに保存されています。プレゼンテーション全体の実際のタイトル テキストを置き換えるには、スライドを反復処理して各タイトル プレースホルダーを更新してください。
 
-**日付、スライド番号、ヘッダー、フッターペースホルダーはどのように管理しますか？**
+**日付、スライド番号、ヘッダー、フッターのプレースホルダーはどのように管理しますか？**
 
-対象となるスライド、レイアウト、マスター、ノート、ハンドアウトのスコープでヘッダーおよびフッターマネージャーを使用してください。完全な例については、[Manage Presentation Header and Footer](/slides/ja/python-java/presentation-header-and-footer/) を参照してください。
+適切なスライド、レイアウト、マスター、ノート、またはハンドアウトのスコープでヘッダーおよびフッター マネージャーを使用します。完全な例については、[Manage Presentation Header and Footer](/slides/ja/python-java/presentation-header-and-footer/) を参照してください。

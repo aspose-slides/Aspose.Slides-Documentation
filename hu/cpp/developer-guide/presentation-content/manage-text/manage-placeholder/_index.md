@@ -1,5 +1,5 @@
 ---
-title: Diavetítések helyőrzőinek kezelése C++-ban
+title: Prezentáció helyőrzők kezelése C++-ban
 linktitle: Helyőrzők kezelése
 type: docs
 weight: 10
@@ -10,42 +10,41 @@ keywords:
 - képhelyőrző
 - diagramhelyőrző
 - tartalomhelyőrző
-- utasító szöveg
+- prompt szöveg
 - PowerPoint
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Ismerje meg, hogyan ellenőrizheti és szerkesztheti a szöveg, kép, diagram és tartalom helyőrzőket, valamint hogyan értheti meg a helyőrző öröklődést az Aspose.Slides for C++ segítségével."
+description: "Ismerkedjen meg a szöveg-, kép-, diagram- és tartalomhelyőrzők megtekintésével és szerkesztésével, valamint a helyőrző öröklődés megértésével az Aspose.Slides for C++ segítségével."
 ---
 ## **Áttekintés**
 
-A helyőrző olyan alakzat, amely helyet foglal egy adott típusú tartalom számára egy bemutató sablonban. Gyakori példák a cím, törzs, kép, diagram és általános célú tartalomhelyőrzők. Egy szokásos alakzattól eltérően a helyőrző örökölheti pozícióját, méretét, formázását és egyéb beállításait egy elrendezés vagy mester dia alapján.
+A helyőrző egy alakzat, amely egy adott típusú tartalom számára tartalék pozíciót biztosít egy bemutató sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános célú tartalom helyőrzői. Egy szokásos alakzattal ellentétben a helyőrző örökölheti a pozícióját, méretét, formázását és egyéb beállításait egy elrendezés diáról vagy a fődiasablonról.
 
-Aspose.Slides a helyőrző információkat a [IShape::get_Placeholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_placeholder/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iplaceholder/) objektumot ad vissza, vagy `nullptr`-t egy normál alakzat esetén. Használja a [IPlaceholder::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iplaceholder/get_type/) metódust annak meghatározásához, hogy a helyőrző milyen tartalomra van szánva.
+Az Aspose.Slides a helyőrző információkat a [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) objektumot vagy `nullptr`-t ad vissza egy normál alakzat esetén. Használja a [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) metódust a helyőrző tartalmának meghatározásához.
 
-Az alakzat interfész továbbra is fontos, miután megismerte a helyőrző típusát:
+Az alakzati interfész továbbra is fontos, miután ismeri a helyőrző típusát:
 
-- Egy üres szöveg, kép, diagram vagy tartalomhelyőrző általában egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) által van reprezentálva.
-- Egy kitöltött képhelyőrző egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) segítségével képviselhető.
-- Egy kitöltött diagramhelyőrző egy [IChart](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichart/) által van ábrázolva.
-- Egy tartalomhelyőrző többféle tartalmat is tartalmazhat. Ellenőrizze mind a [IPlaceholder::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iplaceholder/get_type/) értékét, mind a futási időben elérhető alakzat interfészt, ahelyett, hogy feltételezné, hogy minden helyőrző egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/).
+- Egy üres szöveg, kép, diagram vagy tartalom helyőrző általában egy [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) segítségével van ábrázolva.
+- Egy kitöltött kép helyőrzőt egy [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) képviselhet.
+- Egy kitöltött diagram helyőrzőt egy [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) képviselhet.
+- Egy tartalom helyőrző többféle tartalmat is tartalmazhat. Ellenőrizze mind az [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) és a futásidejű alakzati interfészt is, ahelyett, hogy azt feltételezné, minden helyőrző egy [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) lenne.
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iplaceholder/get_type/) leírja a helyőrző szerepét; nem garantálja az alakzat futási időbeli típusát. Mindig végezzen típusellenőrzést, mielőtt szöveg, kép, diagram, táblázat vagy média‑specifikus tagokhoz férne hozzá.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) leírja a helyőrző szerepét; nem garantálja az alakzat futásidejű típusát. Mindig végezzen típusellenőrzést a szöveg, kép, diagram, táblázat vagy média-specifikus tagok elérése előtt.
 {{% /alert %}}
 
-## **A helyőrzők öröklődésének megértése**
+## **A helyőrző öröklődés megértése**
 
 A helyőrzők hierarchiát alkotnak:
 
-1. A mester dia határozza meg a újra felhasználható stílusokat, és bizonyos esetekben a mester szintű helyőrzőket.
-2. Az elrendezés dia határozza meg a kiosztást, amelyet egy vagy több normál dia használ, és örökölhet a mesterből.
-3. Egy normál dia a saját helyőrzőit tartalmazza, és örökölhet az elrendezéséből.
+1. A fődia (master slide) újrahasználható stílusokat határoz meg, és bizonyos esetekben fődia-szintű helyőrzőket is tartalmaz.
+2. Egy elrendezés dia (layout slide) meghatározza az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a fődiától.
+3. Egy normál dia tartalmazza az adott dia helyőrzőit, és örökölhet az elrendezéséből.
 
-Hívja meg a [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/getbaseplaceholder/) metódust, hogy egy szinttel feljebb lépjen ebben a hierarchiában. Egy diahelyőrző általában visszaadja az elrendezéshelyőrzőjét; egy elrendezéshelyőrző visszaadhatja a mesterhelyőrzőjét. A metódus `nullptr`-t ad vissza, ha az alakzatnak nincs alaphelyőrzője.
+Hívja meg a [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) metódust, hogy egy szinttel feljebb lépjen ebben a hierarchiában. Egy dia helyőrző általában visszaadja az elrendezés helyőrzőjét; egy elrendezés helyőrző visszaadhatja a fődia helyőrzőjét. A metódus `nullptr`-t ad vissza, ha az alakzatnak nincs alaphelyőrzője.
 
 A következő példa felsorolja az első dián lévő helyőrzőket, és jelentést készít azok alaphelyőrzőiről:
-
 ```c++
 #include <DOM/IPlaceholder.h>
 #include <DOM/IShape.h>
@@ -97,14 +96,88 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Egy helyőrző szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít a dián. A kapcsolódó elrendezés vagy mester szerkesztése minden olyan diát befolyásolhat, amely még örökli azt a beállítást. Egy helyi szokásos alakzatnak nincs alaphelyőrzője, és nem kezd el öröklődni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+Egy helyőrző szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy fődia szerkesztése minden olyan diára hatással lehet, amely továbbra is örökli ezt a beállítást. Egy helyi szokásos alakzat nem rendelkezik alaphelyőrzővel, és nem kezd el örökölni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+
+## **A helyőrző állapot eltávolítása**
+
+Sablon módosításakor használja a [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) metódust, hogy egy meglévő objektumot szokásos alakzattá konvertáljon. Az [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) metódusa `nullptr`-t ad vissza, de az alakzat megmarad a dia gyűjteményében. Ezzel szemben a [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) törli az alakzatot a gyűjteményből.
+
+A következő példa `template.pptx` fájlt igényel, amely legalább egy diával és egy nem üres szöveg helyőrzővel rendelkezik az első dián. Használjon egy helyőrzőt, amelynek formázása az elrendezésből vagy a fődiából öröklődik, hogy lássa a kapcsolat eltávolításának hatását. A példa ellenőrzi, hogy ugyanaz az alakzat megmarad-e, újra meghívja a metódust a most már szokásos alakzaton, és elmenti az eredményt.
+{{% alert color="warning" title="Warning" %}}
+A helyőrző állapotának eltávolítása nem őrzi meg automatikusan az örökölt megjelenési beállításokat. Az alábbi példa szándékosan változatlanul hagyja ezeket a beállításokat, ezért a kimenet másként nézhet ki. Egy teljesen örökölt pozícióval és mérettel rendelkező alakzat a hívás után null koordinátákat és méreteket kaphat, és láthatatlanná válhat, még ha a gyűjteményben marad is.
+{{% /alert %}}
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // A metódus hívása egy szokásos alakzaton nincs hatása.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Egy megfelelõ helyőrző esetén mindhárom ellenőrzés `True` értéket ad. A szöveg megmarad, de az örökölt pozíció, méret, forgatás, betűtípus, bekezdésigazítás, szövegkeret margók, vertikális horgonyzás, kitöltés és vonal beállítások megváltozhatnak a helyőrző kapcsolat eltávolítása után. Például az örökölt címformázás visszatérhet az egyszerû szövegformázáshoz. Lásd a [Slide Layout](/slides/hu/cpp/slide-layout/) oldalt a elrendezésekkel kapcsolatban.
+
+Az eredeti megjelenés megőrzéséhez a hívás előtt mentse el a kiszámolt pozíciót, méretet és forgatást, és másolja a szükséges tényleges formázási értékeket külön változókba. Ezeket az értékeket a [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), és [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) metódusokkal szerezheti meg. Ne csak a tényleges formátumobjektumokra támaszkodjon, mert a szövegformázási értékek a kapcsolat eltávolítása után megváltozhatnak. Alkalmazza expliciten a mentett értékeket a szokásos alakzatra, beleértve a betűcsaládot, méretet, stílust, színt, bekezdésbeállításokat, szövegkeret beállításokat, kitöltést és vonalat, amelyet a sablonja használ.
+
+Az örökölt alakzat geometriai adatait is explicit módon kell beállítani a [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/) segítségével. Egy téglalap alakú szöveg helyőrző esetén ez azt jelenti, hogy a [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/) értéket kell beállítani; csak a kitöltés és a vonal visszaállítása nem biztos, hogy a látható téglalapot helyreállítja. A további effektusokkal vagy összetettebb formázással rendelkező sablonok esetén ezeket a beállításokat is kezelni kell.
 
 ## **Szöveg módosítása egy helyőrzőben**
 
-A cím, középre igazított cím, alcím, törzs és szöveghelyőrzők általában támogatják a szöveget. Ellenőrizze, hogy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) van‑e jelen, mielőtt a [get_TextFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/get_textframe/) metódust használja.
+A cím, középre igazított cím, alcím, törzs és szöveg helyőrzők általában támogatják a szöveget. Ellenőrizze, hogy [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) van-e jelen, mielőtt a [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) metódusát használja.
 
-Ez a példa frissíti az első címhelyőrzőt az első dián, és elmenti az eredményt:
-
+Ez a példa frissíti az első cím helyőrzőt az első dián, és elmenti az eredményt:
 ```c++
 #include <DOM/IAutoShape.h>
 #include <DOM/IPlaceholder.h>
@@ -157,14 +230,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Ez a minta elkerüli a kép, diagram, táblázat vagy médiahelyőrzők [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/)-re való átkasztását. Emellett a helyőrzőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzat indexre támaszkodna.
+Ez a minta elkerüli a kép, diagram, táblázat vagy média helyőrzők [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) típusra való átalakítását. Emellett a helyőrzőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzat indexre támaszkodna.
 
-## **Útmutató szöveg beállítása egy elrendezésen**
+## **Prompt szöveg beállítása egy elrendezésen**
 
-Az útmutató szöveg egy üres helyőrzőben megjelenő tervezési időbeli utasítás, például *Kattintson a cím hozzáadásához*. Állítson be saját útmutató szöveget az elrendezéshelyőrzőn, ahelyett, hogy egy normál dia alakzatelmélyítésén keresztül próbálná elérni. Az elrendezéshez a [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islide/get_layoutslide/) segítségével férhet hozzá, majd iteráljon a [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseslide/get_shapes/) gyűjteményén.
+A prompt szöveg egy tervezési időben megjelenő utasítás, amely egy üres helyőrzőben jelenik meg, például *Kattintson a cím hozzáadásához*. Állítson be egyedi prompt szöveget az elrendezés helyőrzőjére, ahelyett hogy a normál dia alakzatgyűjteményén keresztül próbálná elérni. Az elrendezéshez a [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) segítségével férhet hozzá, és iteráljon a [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/) elemein.
 
-A következő példa megváltoztatja a cím és az alcím útmutató szövegét az első dia által használt elrendezésen:
-
+A következő példa módosítja az első dián használt elrendezés cím és alcím promptjait:
 ```c++
 #include <DOM/IAutoShape.h>
 #include <DOM/ILayoutSlide.h>
@@ -216,17 +288,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Az útmutató szöveg nem normál dia tartalom. A PowerPointhez hasonló szerkesztőalkalmazásokban üres helyőrzők számára szolgál utasításként. Amint a felhasználó vagy egy program valós tartalmat biztosít, az útmutató már nem jelenik meg. Az útmutató megváltoztatása nem írja felül a már létező szöveget azokban a diákban, amelyek az elrendezést használják.
+A prompt szöveg nem normál dia tartalom. Üres helyőrzőknek szól a PowerPoint-hoz hasonló szerkesztő alkalmazásokban. Amint egy felhasználó vagy program valós tartalmat ad meg, a prompt már nem jelenik meg. A prompt módosítása nem helyettesíti a már meglévő szöveget azokat a diákon, amelyek az elrendezést használják.
 
-## **Képhelyőrző frissítése**
+## **Kép helyőrző frissítése**
 
 Két esetet kell kezelni:
 
-- Ha a képhelyőrző már ki van töltve, és egy [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) reprezentálja, cserélje a képet a [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipicturefillformat/get_picture/) és a [ISlidesPicture::set_Image](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidespicture/set_image/) segítségével.
-- Ha még üres helyőrző, adjon hozzá egy képkockát a helyőrző koordinátáihoz a [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapecollection/addpictureframe/) metódussal, majd távolítsa el az üres helyőrzőt.
+- Ha a kép helyőrző már ki van töltve és egy [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) képviseli, cserélje ki a képet a [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) és a [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) metódusokkal.
+- Ha még üres helyőrző, adjon hozzá egy képkeretet a helyőrző koordinátáihoz a [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) segítségével, és távolítsa el az üres helyőrzőt.
 
 A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
-
 ```c++
 #include <DOM/IImageCollection.h>
 #include <DOM/IPictureFillFormat.h>
@@ -290,14 +361,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Az üres helyőrzőhöz létrehozott helyettesítő egy helyi képkocka, nem új helyőrző, mivel a [IShape::get_Placeholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/get_placeholder/) csak olvasható. Megőrzi a lefoglalt pozíciót, de már nem örököl helyőrző‑specifikus viselkedést. Ha a helyőrzőkapcsolat megtartása lényeges, először készítse el és töltse fel a helyőrzőt PowerPointben, majd frissítse a kapott [IPictureFrame](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ipictureframe/) objektumot az Aspose.Slides segítségével.
+Az üres helyőrzőhöz létrehozott csere egy helyi képkeret, nem egy új helyőrző, mivel az [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) csak olvasható. Megőrzi a lefoglalt pozíciót, de már nem örököl a helyőrző-specifikus viselkedést. Ha a helyőrző kapcsolat megtartása lényeges, először készítse elő és töltse ki a helyőrzőt a PowerPointban, majd frissítse a keletkezett [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) objektumot az Aspose.Slides segítségével.
 
-Képakárás, átlátszóság és egyéb kép‑specifikus effektusok tekintetében lásd a [Manage Picture Frames](/slides/hu/cpp/picture-frame/) cikket. Ezek a műveletek a képkockára vagy a képkitöltésre vonatkoznak, nem a helyőrző metaadataira.
+A kép áttetszőségére, vágására és egyéb kép-specifikus hatásokra vonatkozó információkért lásd a [Manage Picture Frames](/slides/hu/cpp/picture-frame/) szekciót. Ezek a műveletek a képkerethez vagy a kép kitöltéséhez tartoznak, nem a helyőrző metaadatokhoz.
 
-## **Diagram és tartalomhelyőrzők kezelése**
+## **Diagram és tartalom helyőrzők kezelése**
 
-Egy kitöltött diagramhelyőrző egy [IChart](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichart/) által van reprezentálva. Ez a példa a helyőrző típusa és a futási időbeli interfész alapján keresi meg a diagramot, módosítja a címét, majd elmenti a fájlt:
-
+Egy kitöltött diagram helyőrző egy [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) képviselheti. Ez a példa megtalálja az ilyen diagramot a helyőrző típus és a futásidő interfész alapján, megváltoztatja a címét, és elmenti a fájlt:
 ```c++
 #include <DOM/IChart.h>
 #include <DOM/Chart/IChartTitle.h>
@@ -346,10 +416,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Az általános tartalomhelyőrző általában a [PlaceholderType::Object](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/) értékkel rendelkezik. PowerPointben ez többféle tartalomtípus (diagramok, táblázatok, diagramok, képek, média) indítását teszi lehetővé. Kitöltés után vizsgálja meg a tényleges alakzat interfészt, hogy megtudja, mit tartalmaz. Specializált elrendezések a [PlaceholderType::Chart](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/) vagy [PlaceholderType::Diagram](https://reference.aspose.com/slides/hu/cpp/aspose.slides/placeholdertype/) típusokat is kiexponálhatja.
+Egy általános tartalom helyőrző általában a [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) értékkel rendelkezik. A PowerPoint-ban ez egy indítóként működik többféle tartalomtípushoz, beleértve a diagramokat, táblázatokat, diagramokat, képeket és médiát. Kitöltés után ellenőrizze a tényleges alakzati interfészt, hogy megtudja, mit tartalmaz. A speciális elrendezések is a [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), vagy [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) típusokat felfedhetik.
 
-Az Aspose.Slides nem alakítja át egy üres [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) helyőrzőt egy [IChart](https://reference.aspose.com/slides/hu/cpp/aspose.slides.charts/ichart/) objektummá csak a [IPlaceholder::get_Type](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iplaceholder/get_type/) módosításával; a típus csak olvasható. Üres diagram vagy tartalom terület programozott feltöltéséhez adja hozzá a szükséges objektumot a helyőrző koordinátáihoz, majd távolítsa el az üres helyőrzőt. A következő példa ezt mutatja be egy diagram esetén:
-
+Aspose.Slides nem alakítja át egy üres [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) helyőrzőt [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) típusúvá pusztán az [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) módosításával; a típus csak olvasható. Egy üres diagram vagy tartalom terület programozott kitöltéséhez adja hozzá a szükséges objektumot a helyőrző koordinátáihoz, majd távolítsa el az üres helyőrzőt. A következő példa ezt egy diagramra alkalmazza:
 ```c++
 #include <DOM/Chart/ChartType.h>
 #include <DOM/IChart.h>
@@ -405,12 +474,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-A hozzáadott diagram egy szokásos helyi diagram. Elfoglalja a helyőrző területét, de nem örököl az elrendezéshelyőrzőtől. Használja a dedikált [chart management articles](/slides/hu/cpp/powerpoint-charts/) útmutatót, ha cserélni kell a kategóriákat, sorozatokat vagy munkafüzet adatokat.
+A hozzáadott diagram egy szokásos helyi diagram. Elfoglalja a helyőrző területét, de nem örököl az elrendezés helyőrzőjétől. Használja a dedikált [chart management articles](/slides/hu/cpp/powerpoint-charts/) cikkeket, ha a kategóriákat, sorozatokat vagy munkafüzet adatokat kell cserélni.
 
 ## **Teljes példa: Szöveg vagy kép tartalom frissítése**
 
-Az alábbi végponttól‑végpontig tartó példa megnyit egy sablont, megkeresi az első dián a cím vagy kép helyőrzőt, ellenőrzi a helyőrző és az alakzat típusát, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan kerülőleg kerül a formaindex feltételezését vagy minden helyőrző egyforma interfészre történő átkasztását.
-
+A következő teljes példa megnyit egy sablont, az első dián keres egy cím vagy kép helyőrzőt, ellenőrzi a helyőrző és alakzat típusait, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan elkerüli a formaindex feltételezését vagy minden helyőrző ugyanarra az interfészre való átkonvertálását.
 ```c++
 #include <DOM/IAutoShape.h>
 #include <DOM/IImageCollection.h>
@@ -491,16 +559,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Mi az az alaphelyőrző?**
+**Mi az alaphelyőrző?**
 
-Az alaphelyőrző a megfelelő elrendezésen vagy mesteren lévő alakzat, amelyből egy másik helyőrző örököl. Használja a [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishape/getbaseplaceholder/) metódust a lekéréséhez. Egy szokásos helyi alakzat `nullptr`‑t ad vissza, mert nem része a helyőrzőhierarchiának.
+Az alaphelyőrző az elrendezésen vagy a fődián található megfelelő alakzat, amelyből egy másik helyőrző örököl. Használja a [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) metódust a lekérdezéshez. Egy szokásos helyi alakzat `nullptr`-t ad vissza, mivel nem része a helyőrző hierarchiának.
 
-**Módosíthatom‑e az összes dia címét egy elrendezéshelyőrző szerkesztésével?**
+**Módosíthatom az összes dia címét egy elrendezés helyőrzőjének szerkesztésével?**
 
-Az elrendezésen keresztül megváltoztathatja az örökölt formázást vagy az útmutató szöveget, de a meglévő cím tartalmak a normál diákon vannak tárolva. A cím szövegének tényleges cseréjéhez végig kell iterálni a diákon, és mindegyik címhelyőrzőt frissíteni kell.
+A formázást vagy a prompt szöveget egy elrendezésen keresztül módosíthatja, de a meglévő cím tartalom a normál diákon van tárolva. A valódi cím szöveg cseréjéhez a prezentáción belül iteráljon a diákon, és frissítse az egyes cím helyőrzőket.
 
-**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc helyőrzőket?**
+**Hogyan kezelem a dátum, dia-szám, fejléc és lábléc helyőrzőket?**
 
-Használja a fejléc‑ és lábléc‑kezelőket a megfelelő diák, elrendezés, mester, jegyzet vagy előadás környezetben. Tekintse meg a [Manage Presentation Header and Footer](/slides/hu/cpp/presentation-header-and-footer/) cikket a teljes példákért.
+Használja a fejléc és lábléc kezelőket a megfelelő dia, elrendezés, fődia, jegyzet vagy kézbesítési környezetben. Lásd a [Manage Presentation Header and Footer](/slides/hu/cpp/presentation-header-and-footer/) oldalt a teljes példákért.

@@ -1,40 +1,40 @@
 ---
-title: Gestire i segnaposti di presentazione in C++
+title: Gestire i segnaposti della presentazione in C++
 linktitle: Gestire i segnaposti
 type: docs
 weight: 10
 url: /it/cpp/manage-placeholder/
 keywords:
 - segnaposto
-- segnaposto testo
+- segnaposto di testo
 - segnaposto immagine
 - segnaposto grafico
-- segnaposto contenuto
+- segnaposto di contenuto
 - testo di prompt
 - PowerPoint
 - presentazione
 - C++
 - Aspose.Slides
-description: "Impara a ispezionare e modificare segnaposti di testo, immagine, grafico e contenuto e a comprendere l'ereditarietà dei segnaposti con Aspose.Slides per C++."
+description: "Impara a ispezionare e modificare i segnaposti di testo, immagine, grafico e contenuto e a comprendere l’eredità dei segnaposti con Aspose.Slides per C++."
 ---
 ## **Panoramica**
 
-Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuto generico. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva layout o master.
+Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuto generico. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva layout o da una diapositiva master.
 
-Aspose.Slides espone le informazioni sui segnaposti attraverso il metodo [IShape::get_Placeholder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_placeholder/). Il metodo restituisce un oggetto [IPlaceholder](https://reference.aspose.com/slides/it/cpp/aspose.slides/iplaceholder/) o `nullptr` per una forma normale. Utilizza [IPlaceholder::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/iplaceholder/get_type/) per determinare cosa il segnaposto è destinato a contenere.
+Aspose.Slides espone le informazioni sui segnaposti tramite il metodo [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/). Il metodo restituisce un oggetto [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) o `nullptr` per una forma normale. Utilizzare [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) per determinare cosa il segnaposto è destinato a contenere.
 
-L'interfaccia della forma è ancora importante dopo aver conosciuto il tipo di segnaposto:
+L'interfaccia della forma è ancora rilevante dopo aver conosciuto il tipo di segnaposto:
 
-- Un segnaposto vuoto per testo, immagine, grafico o contenuto è comunemente rappresentato da un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/).
-- Un segnaposto immagine popolato può essere rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipictureframe/).
-- Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichart/).
-- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [IPlaceholder::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/iplaceholder/get_type/) sia l'interfaccia della forma a runtime invece di presumere che ogni segnaposto sia un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/).
+- Un segnaposto vuoto di testo, immagine, grafico o contenuto è solitamente rappresentato da un [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Un segnaposto immagine popolato può essere rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Verificare sia [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) sia l'interfaccia della forma a runtime invece di assumere che ogni segnaposto sia un [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/iplaceholder/get_type/) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Usa sempre un controllo di tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Utilizzare sempre un controllo del tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
 {{% /alert %}}
 
-## **Comprendere l'Ereditarietà dei Segnaposti**
+## **Comprendere l'Eredità dei Segnaposti**
 
 I segnaposti formano una gerarchia:
 
@@ -42,9 +42,9 @@ I segnaposti formano una gerarchia:
 2. Una diapositiva layout definisce la disposizione usata da una o più diapositive normali e può ereditare dal master.
 3. Una diapositiva normale contiene i segnaposti per quella diapositiva e può ereditare dal suo layout.
 
-Chiama [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/getbaseplaceholder/) per spostarti di un livello verso l'alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto layout; un segnaposto layout può restituire il suo segnaposto master. Il metodo restituisce `nullptr` quando la forma non ha un segnaposto base.
+Chiamare [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) per spostarsi di un livello verso l’alto nella gerarchia. Un segnaposto diapositiva restituisce normalmente il suo segnaposto layout; un segnaposto layout può restituire il suo segnaposto master. Il metodo restituisce `nullptr` quando la forma non ha un segnaposto di base.
 
-Il seguente esempio elenca i segnaposti nella prima diapositiva e segnala i loro segnaposti base:
+Il seguente esempio elenca i segnaposti sulla prima diapositiva e restituisce i loro segnaposti di base:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influenzare tutte le diapositive che ereditano ancora tale impostazione. Una forma locale ordinaria non ha un segnaposto base e non inizia a ereditare solo perché occupa le stesse coordinate.
+Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influenzare tutte le diapositive che ereditano ancora quella impostazione. Una forma ordinaria locale non ha un segnaposto di base e non inizia a ereditare semplicemente perché occupa le stesse coordinate.
+
+## **Rimuovere lo Stato di Segnaposto**
+
+Quando si adatta un modello, utilizzare [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) per mantenere un oggetto esistente come forma ordinaria. Il suo metodo [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) restituisce `nullptr`, ma la forma rimane nella collezione della diapositiva. Al contrario, [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) elimina la forma da quella collezione.
+
+Il seguente esempio richiede `template.pptx` con almeno una diapositiva e un segnaposto di testo non vuoto sulla prima diapositiva. Utilizzare un segnaposto con formattazione ereditata dal suo layout o master per vedere l’effetto della rimozione di tale relazione. L’esempio verifica che la stessa forma rimanga, chiama nuovamente il metodo sulla forma ora ordinaria e salva il risultato.
+
+{{% alert color="warning" title="Warning" %}}
+Rimuovere lo stato di segnaposto non preserva automaticamente le impostazioni di aspetto ereditate. L’esempio seguente lascia deliberatamente tali impostazioni inalterate, quindi l’output potrebbe apparire diverso. Una forma la cui posizione e dimensione sono interamente ereditate può avere coordinate e dimensioni zero dopo la chiamata e diventare invisibile pur continuando a far parte della collezione.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Chiamare il metodo su una forma ordinaria non ha alcun effetto.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Per un segnaposto corrispondente, tutti e tre i controlli stampano `True`. Il testo rimane, ma posizione, dimensione, rotazione, carattere, allineamento del paragrafo, margini del riquadro di testo, ancoraggio verticale, riempimento e impostazioni della linea ereditate possono cambiare quando la relazione di segnaposto viene rimossa. Ad esempio, la formattazione del titolo ereditata può tornare alla formattazione di testo ordinario. Vedere [Slide Layout](/slides/it/cpp/slide-layout/) per ulteriori dettagli sui layout.
+
+Per preservare l’aspetto previsto, acquisire la posizione, dimensione e rotazione risolte prima della chiamata e copiare i valori di formattazione efficace richiesti in variabili separate. Recuperare tali valori tramite [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/) e [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). Non fare affidamento solo sugli oggetti di formattazione efficace, poiché i loro valori di formattazione del testo possono cambiare dopo la rimozione della relazione. Applicare esplicitamente i valori acquisiti alla forma ordinaria successivamente, includendo famiglia, dimensione, stile, colore del carattere, impostazioni del paragrafo, impostazioni del riquadro di testo, riempimento e linea utilizzati nel modello.
+
+Anche la geometria della forma ereditata può dover essere assegnata esplicitamente tramite [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Per un segnaposto di testo rettangolare, ciò significa assegnare [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); ripristinare solo il riempimento e la linea potrebbe non ripristinare il rettangolo visibile. I modelli con effetti aggiuntivi o formattazioni più complesse richiedono la gestione di tali impostazioni.
 
 ## **Modificare il Testo in un Segnaposto**
 
-I segnaposti titolo, titolo centrato, sottotitolo, corpo e testo normalmente supportano il testo. Verifica la presenza di un [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) prima di utilizzare il suo metodo [get_TextFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/get_textframe/).
+I segnaposti titolo, titolo centrato, sottotitolo, corpo e testo supportano normalmente il testo. Verificare la presenza di [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) prima di usare il suo metodo [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/).
 
-Questo esempio aggiorna il primo segnaposto titolo nella prima diapositiva e salva il risultato:
+Questo esempio aggiorna il primo segnaposto titolo sulla prima diapositiva e salva il risultato:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Questo modello evita il casting di segnaposti immagine, grafico, tabella o media a [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/). Inoltre identifica il segnaposto per scopo anziché fare affidamento su un indice di forma fragile.
+Questo modello evita di effettuare cast di segnaposti immagine, grafico, tabella o media a [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Identifica inoltre il segnaposto per scopo invece di affidarsi a un indice di forma fragile.
 
 ## **Impostare il Testo di Prompt su un Layout**
 
-Il testo di prompt è l'istruzione di design-time mostrata in un segnaposto vuoto, ad esempio *Click to add title*. Imposta un testo di prompt personalizzato sul segnaposto layout anziché cercare di raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout attraverso [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/get_layoutslide/) e itera su [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/it/cpp/aspose.slides/ibaseslide/get_shapes/).
+Il testo di prompt è l’istruzione di progettazione visualizzata in un segnaposto vuoto, ad esempio *Fare clic per aggiungere un titolo*. Impostare un testo di prompt personalizzato sul segnaposto layout anziché tentare di accedervi tramite la collezione forme di una diapositiva normale. Accedere al layout tramite [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) e iterare su [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
-Il seguente esempio modifica i prompt di titolo e sottotitolo sul layout usato dalla prima diapositiva:
+Il seguente esempio modifica i prompt titolo e sottotitolo sul layout usato dalla prima diapositiva:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,14 +293,14 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Il testo di prompt non è contenuto normale della diapositiva. È destinato a segnaposti vuoti nelle applicazioni di editing come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non viene più mostrato. Modificare un prompt non sostituisce nemmeno il testo esistente sulle diapositive che usano il layout.
+Il testo di prompt non è contenuto normale della diapositiva. È destinato a segnaposti vuoti nelle applicazioni di modifica come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non viene più visualizzato. Modificare un prompt non sostituisce nemmeno il testo esistente su diapositive che usano il layout.
 
 ## **Aggiornare un Segnaposto Immagine**
 
 Ci sono due casi da gestire:
 
-- Se il segnaposto immagine è già popolato e rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipictureframe/), sostituisci l'immagine attraverso [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipicturefillformat/get_picture/) e [ISlidesPicture::set_Image](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidespicture/set_image/).
-- Se è ancora un segnaposto vuoto, aggiungi un frame immagine alle coordinate del segnaposto con [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishapecollection/addpictureframe/) e rimuovi il segnaposto vuoto.
+- Se il segnaposto immagine è già popolato e rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), sostituire l’immagine attraverso [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) e [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Se è ancora un segnaposto vuoto, aggiungere un riquadro immagine alle coordinate del segnaposto con [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) e rimuovere il segnaposto vuoto.
 
 Il prossimo esempio supporta entrambi i casi e salva la presentazione:
 
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-La sostituzione creata per un segnaposto vuoto è un frame immagine locale, non un nuovo segnaposto, perché [IShape::get_Placeholder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/get_placeholder/) è di sola lettura. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se è essenziale conservare la relazione di segnaposto, prepara e popola il segnaposto in PowerPoint prima, quindi aggiorna il [IPictureFrame](https://reference.aspose.com/slides/it/cpp/aspose.slides/ipictureframe/) risultante con Aspose.Slides.
+La sostituzione creata per un segnaposto vuoto è un riquadro immagine locale, non un nuovo segnaposto, perché [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) è di sola lettura. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione di segnaposto è essenziale, preparare e popolare il segnaposto in PowerPoint prima, quindi aggiornare il [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) risultante con Aspose.Slides.
 
-Per trasparenza dell'immagine, ritaglio e altri effetti specifici dell'immagine, consulta [Manage Picture Frames](/slides/it/cpp/picture-frame/). Queste operazioni appartengono al frame immagine o al riempimento immagine, non ai metadati del segnaposto.
+Per trasparenza dell’immagine, ritaglio e altri effetti specifici dell’immagine, vedere [Manage Picture Frames](/slides/it/cpp/picture-frame/). tali operazioni appartengono al riquadro immagine o al riempimento immagine, non ai metadati del segnaposto.
 
 ## **Lavorare con Segnaposti Grafico e Contenuto**
 
-Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per interfaccia a runtime, ne modifica il titolo e salva il file:
+Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per interfaccia a runtime, ne modifica il titolo e salva il file:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Un segnaposto di contenuto generico solitamente ha [PlaceholderType::Object](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/). In PowerPoint agisce come avviatore per vari tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispeziona l'effettiva interfaccia della forma per capire cosa contiene. Layout specializzati possono anche esporre [PlaceholderType::Chart](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/), o [PlaceholderType::Diagram](https://reference.aspose.com/slides/it/cpp/aspose.slides/placeholdertype/).
+Un segnaposto di contenuto generale ha solitamente [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). In PowerPoint funge da lanciatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispezionare l’interfaccia reale della forma per capire cosa contiene. I layout specializzati possono anche esporre [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) o [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/).
 
-Aspose.Slides non converte un segnaposto vuoto [IAutoShape](https://reference.aspose.com/slides/it/cpp/aspose.slides/iautoshape/) in un [IChart](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichart/) modificando semplicemente [IPlaceholder::get_Type](https://reference.aspose.com/slides/it/cpp/aspose.slides/iplaceholder/get_type/); il tipo è di sola lettura. Per riempire programmaticamente un'area grafico o contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
+Aspose.Slides non converte un segnaposto [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) vuoto in un [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) semplicemente cambiando [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); il tipo è di sola lettura. Per riempire programmaticamente un grafico o un’area di contenuto vuota, aggiungere l’oggetto necessario alle coordinate del segnaposto e poi rimuovere il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto layout. Usa gli articoli dedicati alla [chart management articles](/slides/it/cpp/powerpoint-charts/) quando devi sostituire categorie, serie o dati del workbook.
+Il grafico aggiunto è un grafico locale ordinario. Occupa l’area del segnaposto ma non eredita dal segnaposto layout. Utilizzare gli articoli dedicati alla gestione dei grafici [chart management articles](/slides/it/cpp/powerpoint-charts/) quando è necessario sostituire categorie, serie o dati della cartella di lavoro.
 
-## **Esempio Completo: Aggiornare Contenuto Testo o Immagine**
+## **Esempio Completo: Aggiornare Testo o Contenuto Immagine**
 
-Il seguente esempio end-to-end apre un modello, cerca nella prima diapositiva un segnaposto titolo o immagine, verifica i tipi di segnaposto e forma, aggiorna il contenuto appropriato e salva l'output. L'esempio evita deliberatamente di presumere un indice di forma o di castare ogni segnaposto alla stessa interfaccia.
+Il seguente esempio end‑to‑end apre un modello, ricerca la prima diapositiva per un segnaposto titolo o immagine, verifica i tipi di segnaposto e di forma, aggiorna il contenuto appropriato e salva il risultato. L’esempio evita deliberatamente di presumere un indice di forma o di effettuare cast di tutti i segnaposti alla stessa interfaccia.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -493,14 +570,14 @@ presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Che cos'è un segnaposto base?**
+**Che cos'è un segnaposto di base?**
 
-Un segnaposto base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/it/cpp/aspose.slides/ishape/getbaseplaceholder/) per recuperarlo. Una forma locale ordinaria restituisce `nullptr` perché non fa parte della gerarchia dei segnaposti.
+Un segnaposto di base è la forma corrispondente sul layout o sul master da cui un altro segnaposto eredita. Utilizzare [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) per recuperarlo. Una forma locale ordinaria restituisce `nullptr` perché non fa parte della gerarchia dei segnaposti.
 
 **Posso cambiare tutti i titoli delle diapositive modificando un segnaposto layout?**
 
-Puoi modificare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto reale del titolo è memorizzato sulle diapositive normali. Per sostituire il testo del titolo in tutta la presentazione, itera sulle diapositive e aggiorna ciascun segnaposto titolo.
+È possibile modificare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto effettivo del titolo è memorizzato sulle diapositive normali. Per sostituire il testo del titolo su tutta la presentazione, iterare le diapositive e aggiornare ciascun segnaposto titolo.
 
-**Come gestisco i segnaposti data, numero-diapositive, intestazione e piè di pagina?**
+**Come gestisco i segnaposti data, numero diapositiva, intestazione e piè di pagina?**
 
-Usa i gestori di intestazione e piè di pagina nello scopo appropriato (diapositiva, layout, master, note o dispense). Vedi [Manage Presentation Header and Footer](/slides/it/cpp/presentation-header-and-footer/) per esempi completi.
+Utilizzare i gestori di intestazione e piè di pagina nello scopo appropriato (diapositiva, layout, master, note o dispense). Vedere [Manage Presentation Header and Footer](/slides/it/cpp/presentation-header-and-footer/) per esempi completi.

@@ -1,51 +1,51 @@
 ---
-title: Beheer presentatie‑placeholders in JavaScript
-linktitle: Beheer placeholders
+title: Beheer presentatieplaceholders in JavaScript
+linktitle: Beheer Placeholders
 type: docs
 weight: 10
 url: /nl/nodejs-java/manage-placeholder/
 keywords:
-- placeholder
-- tekst‑placeholder
-- afbeelding‑placeholder
-- diagram‑placeholder
-- inhouds‑placeholder
+- plaatsaanduiding
+- tekstplaatsaanduiding
+- afbeeldingsplaatsaanduiding
+- diagramplaatsaanduiding
+- inhoudsplaatsaanduiding
 - prompttekst
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe u tekst‑, afbeelding‑, diagram‑ en inhouds‑placeholders kunt inspecteren en bewerken en de placeholder‑erfenis begrijpt met Aspose.Slides voor Node.js via Java."
+description: "Leer hoe u tekst-, afbeelding-, diagram- en inhoudsplaceholders kunt inspecteren en bewerken en hoe u placeholder‑erfenis begrijpt met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Een placeholder is een vorm die een positie reserveert voor een bepaald soort inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel, lichaam, afbeelding, diagram en algemene inhouds‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een lay‑outrij of masterslide.
+Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel, inhoud, afbeelding, diagram en algemene inhouds‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een lay‑out‑dia of master‑dia.
 
-Aspose.Slides geeft placeholder‑informatie weer via de [Shape.getPlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getPlaceholder)‑methode. De methode retourneert een [Placeholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholder/)‑object of `null` voor een normale vorm. Gebruik [Placeholder.getType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholder/#getType) om te bepalen wat de placeholder moet bevatten.
+Aspose.Slides maakt placeholder‑informatie beschikbaar via de [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) methode. De methode retourneert een [Placeholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/) object of `null` voor een normale vorm. Gebruik [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) om te bepalen wat de placeholder bedoeld is te bevatten.
 
-De vormklasse blijft van belang nadat je het placeholder‑type kent:
+De vormklasse blijft relevant nadat u het placeholder‑type kent:
 
-- Een lege tekst-, afbeelding‑, diagram‑ of inhouds‑placeholder wordt meestal weergegeven door een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/).
-- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/).
-- Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chart/).
-- Een inhouds‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.getType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholder/#getType) als de runtime‑vormklasse in plaats van aan te nemen dat elke placeholder een [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) is.
+- Een lege tekst‑, afbeelding‑, diagram‑ of inhouds‑placeholder wordt meestal weergegeven door een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+- Een ingevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
+- Een ingevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/).
+- Een inhouds‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) als de runtime‑vormklasse in plaats van aan te nemen dat elke placeholder een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) is.
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholder/#getType) beschrijft de rol van een placeholder; het garandeert niet het runtime‑type van de vorm. Gebruik altijd een type‑check voordat je tekst, afbeelding, diagram, tabel of media‑specifieke leden benadert.
+[Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) beschrijft de rol van een placeholder; het garandeert niet het runtime‑type van de vorm. Gebruik altijd een type‑check voordat u tekst, afbeelding, diagram, tabel of media‑specifieke leden benadert.
 {{% /alert %}}
 
-## **Placeholder‑erfenis begrijpen**
+## **Begrijp Placeholder‑erfenis**
 
 Placeholders vormen een hiërarchie:
 
-1. Een masterslide definieert herbruikbare stijlen en, in sommige gevallen, placeholders op masterniveau.
-2. Een lay‑outrij definieert de indeling die door één of meer normale slides wordt gebruikt en kan erven van de master.
-3. Een normale slide bevat de placeholders voor die slide en kan erven van zijn lay‑outrij.
+1. Een master‑dia definieert herbruikbare stijlen en, in sommige gevallen, master‑niveau placeholders.
+2. Een lay‑out‑dia definieert de indeling die wordt gebruikt door een of meer normale dia's en kan erven van de master.
+3. Een normale dia bevat de placeholders voor die dia en kan erven van de lay‑out.
 
-Roep [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) aan om een niveau hoger in deze hiërarchie te gaan. Een slide‑placeholder retourneert normaal zijn lay‑outrij‑placeholder; een lay‑outrij‑placeholder kan zijn master‑placeholder retourneren. De methode retourneert `null` wanneer de vorm geen basis‑placeholder heeft.
+Roep [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder) aan om één niveau hoger in deze hiërarchie te gaan. Een dia‑placeholder retourneert normaal zijn lay‑out‑placeholder; een lay‑out‑placeholder kan zijn master‑placeholder retourneren. De methode retourneert `null` wanneer de vorm geen basis‑placeholder heeft.
 
-Het volgende voorbeeld geeft een lijst van placeholders op de eerste slide en meldt hun basis‑placeholders:
+Het volgende voorbeeld geeft de placeholders op de eerste dia weer en rapporteert hun basis‑placeholders:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -106,13 +106,79 @@ try {
 }
 ```
 
-Een placeholder op een normale slide bewerken creëert of wijzigt een lokale override voor die slide. Het bewerken van de gerelateerde lay‑outrij of master kan alle slides beïnvloeden die nog steeds die instelling erven. Een gewone lokale vorm heeft geen basis‑placeholder en begint niet met erven alleen omdat hij dezelfde coördinaten inneemt.
+Een placeholder bewerken op een normale dia maakt een lokale overschrijving voor die dia aan of wijzigt deze. Het bewerken van de bijbehorende lay‑out of master kan alle dia's beïnvloeden die die instelling nog steeds erven. Een lokale gewone vorm heeft geen basis‑placeholder en begint niet met erven alleen omdat hij dezelfde coördinaten beslaat.
 
-## **Tekst in een placeholder wijzigen**
+## **Placeholder‑status Verwijderen**
 
-Titel‑, gecentreerde‑titel‑, ondertitel‑, lichaam‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) voordat je de [getTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/#getTextFrame)‑methode gebruikt.
+Wanneer u een sjabloon aanpast, gebruikt u [Shape.removePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#removePlaceholder) om een bestaand object als gewone vorm te behouden. De [getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) methode retourneert `null`, maar de vorm blijft in de collectie van de dia. In tegenstelling tot [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#remove) wordt de vorm uit die collectie verwijderd.
 
-Dit voorbeeld werkt de eerste titel‑placeholder op de eerste slide bij en slaat het resultaat op:
+Het volgende voorbeeld vereist `template.pptx` met minstens één dia en een niet‑lege tekst‑placeholder op de eerste dia. Gebruik een placeholder met opmaak die is geërfd van de lay‑out of master om het effect van het verwijderen van die relatie te zien. Het voorbeeld controleert dat dezelfde vorm blijft bestaan, roept de methode opnieuw aan op de nu gewone vorm, en slaat het resultaat op:
+
+{{% alert color="warning" title="Warning" %}}
+Het verwijderen van placeholder‑status behoudt niet automatisch de geërfde weergave‑instellingen. Het onderstaande voorbeeld laat die instellingen bewust onaangepast, waardoor de uitvoer er anders kan uitzien. Een vorm waarvan positie en grootte volledig geërfd zijn, kan na de aanroep nul‑coördinaten en afmetingen hebben en onzichtbaar worden, ook al blijft hij in de collectie.
+{{% /alert %}}
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+    let found = false;
+
+    for (let index = 0; index < shapes.size(); index++) {
+        const shape = shapes.get_Item(index);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || textFrame == null) {
+            continue;
+        }
+
+        const text = textFrame.getText();
+        if (text == null || text.length === 0) {
+            continue;
+        }
+
+        const shapeCount = shapes.size();
+        shape.removePlaceholder();
+
+        console.log("Placeholder removed: " + (shape.getPlaceholder() == null));
+        const retainedShape = shapes.get_Item(index);
+        console.log("Same shape retained: " + shape.equals(retainedShape));
+        console.log("Shape count unchanged: " + (shapes.size() === shapeCount));
+
+        // Het aanroepen van de methode op een gewone vorm heeft geen effect.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Voor een overeenkomende placeholder geven alle drie de controles `true` terug. De tekst blijft behouden, maar geërfde positie, grootte, rotatie, lettertype, alinea‑uitlijning, marges van het tekstkader, verticale verankering, opvulling en lijnafspraken kunnen veranderen wanneer de placeholder‑relatie wordt verwijderd. Bijvoorbeeld, geërfde titelopmaak kan terugvallen op gewone tekstopmaak. Zie [Slide Layout](/slides/nl/nodejs-java/slide-layout/) voor meer over lay‑outs.
+
+Om de beoogde weergave te behouden, legt u de berekende positie, grootte en rotatie vast vóór de aanroep, en kopieert u de benodigde effectieve opmaak‑waarden naar afzonderlijke variabelen. Haal die waarden op via [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getEffective), en [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective). Vertrouw niet alleen op de effectieve‑opmaakobjecten, want hun tekst‑opmaakwaarden kunnen wijzigen nadat de relatie is verwijderd. Pas de vastgelegde waarden expliciet toe op de gewone vorm achteraf, inclusief lettertypefamilie, grootte, stijl, kleur, alinea‑instellingen, tekstkader‑instellingen, opvulling en lijn die door uw sjabloon worden gebruikt.
+
+Geërfde vormgeometrie moet mogelijk ook expliciet worden toegewezen via [GeometryShape.setShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setShapeType). Voor een rechthoekige tekst‑placeholder betekent dit het toewijzen van [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/#Rectangle); alleen de opvulling en lijn herstellen, herstelt mogelijk niet de zichtbare rechthoek. Sjablonen met extra effecten of meer complexe opmaak vereisen dat die instellingen ook worden afgehandeld.
+
+## **Tekst Wijzigen in een Placeholder**
+
+Titel-, gecentreerde‑titel-, ondertitel-, body‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) voordat u de [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame) methode gebruikt.
+
+Dit voorbeeld werkt de eerste titel‑placeholder op de eerste dia bij en slaat het resultaat op:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,13 +220,13 @@ try {
 }
 ```
 
-Dit patroon voorkomt dat afbeelding‑, diagram‑, tabel‑ of media‑placeholders worden behandeld als [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/)‑objecten. Het identificeert de placeholder bovendien op basis van doel in plaats van te vertrouwen op een fragiele vorm‑index.
+Dit patroon voorkomt dat afbeelding‑, diagram‑, tabel‑ of media‑placeholders als [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) objecten worden behandeld. Het identificeert de placeholder ook op basis van doel in plaats van te vertrouwen op een kwetsbare vorm‑index.
 
-## **Prompt‑tekst instellen op een lay‑outrij**
+## **Prompt‑tekst Instellen op een Lay‑out**
 
-Prompt‑tekst is de ontwerp‑tijd instructie die wordt weergegeven in een lege placeholder, zoals *Klik om een titel toe te voegen*. Stel aangepaste prompt‑tekst in op de lay‑outrij‑placeholder in plaats van te proberen deze via de vorm‑collectie van een normale slide te bereiken. Benader de lay‑outrij via [Slide.getLayoutSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getLayoutSlide) en iterate over de collectie die wordt geretourneerd door [BaseSlide.getShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslide/#getShapes).
+Prompt‑tekst is de ontwerpinstructie die wordt weergegeven in een lege placeholder, zoals *Click to add title*. Stel aangepaste prompt‑tekst in op de lay‑out‑placeholder in plaats van te proberen deze te bereiken via de vormcollectie van een normale dia. Benader de lay‑out via [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getLayoutSlide) en itereren over de collectie die wordt geretourneerd door [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes).
 
-Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de lay‑outrij die door de eerste slide wordt gebruikt:
+Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de lay‑out die door de eerste dia wordt gebruikt:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -199,14 +265,14 @@ try {
 }
 ```
 
-Prompt‑tekst is geen normale slide‑inhoud. Het is bedoeld voor lege placeholders in bewerkings‑applicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt ook niet de bestaande tekst op slides die de lay‑outrij gebruiken.
+Prompt‑tekst is geen normale dia‑inhoud. Het is bedoeld voor lege placeholders in bewerkingsapplicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt ook niet de bestaande tekst op dia’s die de lay‑out gebruiken.
 
-## **Een afbeelding‑placeholder bijwerken**
+## **Afbeeldings‑placeholder Bijwerken**
 
-Er zijn twee gevallen te behandelen:
+Er zijn twee gevallen om af te handelen:
 
-- Als de afbeelding‑placeholder al gevuld is en wordt weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/), vervang de afbeelding via [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picturefillformat/#getPicture) en [Picture.setImage](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/picture/#setImage).
-- Als het nog een lege placeholder is, voeg een picture frame toe op de coördinaten van de placeholder met [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) en verwijder de lege placeholder.
+- Als de afbeelding‑placeholder al is gevuld en wordt weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), vervang dan de afbeelding via [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#getPicture), en [Picture.setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage).
+- Als het nog een lege placeholder is, voeg dan een afbeelding‑frame toe op de coördinaten van de placeholder met [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) en verwijder de lege placeholder.
 
 Het volgende voorbeeld ondersteunt beide gevallen en slaat de presentatie op:
 
@@ -262,13 +328,13 @@ try {
 }
 ```
 
-De vervanging die voor een lege placeholder wordt gemaakt, is een lokaal picture frame, geen nieuwe placeholder, omdat [Shape.getPlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getPlaceholder) geen setter biedt. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, bereid en vul de placeholder eerst in PowerPoint, en werk vervolgens het resulterende [PictureFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/pictureframe/) bij met Aspose.Slides.
+De vervanging die voor een lege placeholder wordt gemaakt, is een lokaal picture‑frame, geen nieuwe placeholder, omdat [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) geen setter biedt. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, bereid en vul dan eerst de placeholder in PowerPoint voor, en werk daarna het resulterende [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) bij met Aspose.Slides.
 
-Voor beeld‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/nodejs-java/picture-frame/). Die bewerkingen behoren tot het picture frame of picture fill, niet tot placeholder‑metadata.
+Voor beeld‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/nodejs-java/picture-frame/). Die bewerkingen behoren tot het picture‑frame of picture‑fill, niet tot placeholder‑metadata.
 
-## **Werken met diagram‑ en inhouds‑placeholders**
+## **Werken met Diagram‑ en Inhouds‑placeholders**
 
-Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chart/). Dit voorbeeld zoekt zo’n diagram op basis van zowel placeholder‑type als runtime‑klasse, wijzigt de titel en slaat het bestand op:
+Een ingevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/). Dit voorbeeld vindt zo’n diagram op basis van zowel placeholder‑type als runtime‑klasse, wijzigt de titel, en slaat het bestand op:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,9 +372,9 @@ try {
 }
 ```
 
-Een algemene inhouds‑placeholder heeft meestal [PlaceholderType.Object](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungeert hij als een lanceerder voor verschillende inhoudstypen, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat hij is gevuld, inspecteer je de daadwerkelijke vormklasse om te weten wat erin zit. Gespecialiseerde lay‑outrijen kunnen ook [PlaceholderType.Chart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Media) of [PlaceholderType.Diagram](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholdertype/#Diagram) blootleggen.
+Een algemene inhouds‑placeholder heeft meestal [PlaceholderType.Object](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungeert deze als startpunt voor verschillende inhoudstypen, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat hij is gevuld, inspecteer je de werkelijke vorm‑klasse om te ontdekken wat hij bevat. Gespecialiseerde lay‑outs kunnen ook [PlaceholderType.Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Media), of [PlaceholderType.Diagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Diagram) blootleggen.
 
-Aspose.Slides converteert geen lege [AutoShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/autoshape/) placeholder naar een [Chart](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chart/) alleen door [Placeholder.getType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/placeholder/#getType) te wijzigen; het type kan niet via het object worden aangepast. Om een leeg diagram of een inhoudsgebied programmatisch te vullen, voeg je het benodigde object toe op de coördinaten van de placeholder en verwijder je vervolgens de lege placeholder. Het volgende voorbeeld doet dit voor een diagram:
+Aspose.Slides zet een lege [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) placeholder niet om in een [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) enkel door [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) te wijzigen; het type kan niet via het object worden aangepast. Om een lege diagram‑ of inhouds‑ruimte programmatisch te vullen, voeg het vereiste object toe op de coördinaten van de placeholder en verwijder daarna de lege placeholder. Het volgende voorbeeld doet dat voor een diagram:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -357,11 +423,11 @@ try {
 }
 ```
 
-Het toegevoegde diagram is een gewone lokaal diagram. Het neemt het gebied van de placeholder in, maar erft niet van de lay‑outrij‑placeholder. Gebruik de toegewijde [chart management articles](/slides/nl/nodejs-java/powerpoint-charts/) wanneer je de categorieën, series of workbook‑data moet vervangen.
+Het toegevoegde diagram is een gewone lokale diagram. Het beslaat het gebied van de placeholder maar erft niet van de lay‑out‑placeholder. Gebruik de speciale [chart management articles](/slides/nl/nodejs-java/powerpoint-charts/) wanneer u de categorieën, series of werkboekgegevens moet vervangen.
 
-## **Volledig voorbeeld: Tekst of afbeeldingsinhoud bijwerken**
+## **Compleet Voorbeeld: Tekst‑ of Afbeeldings‑inhoud Bijwerken**
 
-Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt in de eerste slide naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vormtypes, werkt de juiste inhoud bij en slaat de output op. Het voorbeeld vermijdt bewust aannames over een vorm‑index of het behandelen van elke placeholder als dezelfde klasse.
+Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt in de eerste dia naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vorm‑typen, werkt de juiste inhoud bij, en slaat de uitvoer op. Het voorbeeld vermijdt opzettelijk de veronderstelling van een vorm‑index of het behandelen van elke placeholder als dezelfde klasse.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -432,12 +498,12 @@ try {
 
 **Wat is een basis‑placeholder?**
 
-Een basis‑placeholder is de overeenkomstige vorm op de lay‑outrij of master waarvan een andere placeholder erft. Gebruik [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#getBasePlaceholder) om deze op te halen. Een gewone lokale vorm retourneert `null` omdat hij geen deel uitmaakt van de placeholder‑hiërarchie.
+Een basis‑placeholder is de overeenkomstige vorm op de lay‑out of master waarvan een andere placeholder erft. Gebruik [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder) om deze op te halen. Een gewone lokale vorm retourneert `null` omdat hij geen deel uitmaakt van de placeholder‑hiërarchie.
 
-**Kan ik alle slide‑titels wijzigen door een lay‑outrij‑placeholder aan te passen?**
+**Kan ik alle dia‑titels wijzigen door een lay‑out‑placeholder te bewerken?**
 
-Je kunt geërfde opmaak of prompt‑tekst wijzigen via een lay‑outrij, maar bestaande titelinhoud staat opgeslagen op de normale slides. Om de werkelijke titeltekst in een hele presentatie te vervangen, iterate je over de slides en werk je elke titel‑placeholder bij.
+U kunt geërfde opmaak of prompt‑tekst wijzigen via een lay‑out, maar bestaande titelinhoud wordt opgeslagen op de normale dia's. Om de werkelijke titeltekst in een hele presentatie te vervangen, iterateer over de dia's en werk elke titel‑placeholder bij.
 
-**Hoe beheer ik datum‑, slide‑nummer‑, header‑ en footer‑placeholders?**
+**Hoe beheer ik datum-, dia‑nummer-, header‑ en footer‑placeholders?**
 
-Gebruik de header‑ en footer‑managers op het juiste niveau: slide, lay‑outrij, master, notities of hand-out. Zie [Manage Presentation Header and Footer](/slides/nl/nodejs-java/presentation-header-and-footer/) voor volledige voorbeelden.
+Gebruik de header‑ en footer‑managers op de juiste dia-, lay‑out-, master‑, notitie‑ of handout‑scope. Zie [Manage Presentation Header and Footer](/slides/nl/nodejs-java/presentation-header-and-footer/) voor volledige voorbeelden.

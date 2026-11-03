@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Yer Tutucularını Yönet
+title: Java’da Sunum Yer Tutucularını Yönetin
 linktitle: Yer Tutucuları Yönet
 type: docs
 weight: 10
@@ -10,41 +10,41 @@ keywords:
 - görsel yer tutucu
 - grafik yer tutucu
 - içerik yer tutucu
-- ipucu metni
+- prompt metni
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile metin, resim, grafik ve içerik yer tutucularını nasıl inceleyeceğinizi ve düzenleyeceğinizi ve yer tutucu mirasını nasıl anlayacağınızı öğrenin."
+description: "Aspose.Slides for Java ile metin, görsel, grafik ve içerik yer tutucularını incelemeyi ve düzenlemeyi ve yer tutucu kalıtımını anlamayı öğrenin."
 ---
 ## **Genel Bakış**
 
-Bir yer tutucu, bir sunum şablonunda belirli bir içerik türü için bir konum ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, grafik ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, bir yer tutucu konumunu, boyutunu, biçimlendirmesini ve diğer ayarlarını bir yerleşim slaytından veya ana slayttan devralabilir.
+Yer tutucu, bir sunum şablonunda belirli bir içerik türü için konum ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, grafik ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, yer tutucu konumunu, boyutunu, biçimlendirmesini ve diğer ayarlarını bir yerleşim slaytından veya ana slayttan devralabilir.
 
-Aspose.Slides, yer tutucu bilgilerini [IShape.getPlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) yöntemiyle sunar. Yöntem, normal bir şekil için `null` ya da bir [IPlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholder/) nesnesi döndürür. Yer tutucunun ne içerdiğini belirlemek için [IPlaceholder.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholder/) kullanın.
+Aspose.Slides, yer tutucu bilgilerini [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) yöntemi aracılığıyla ortaya çıkarır. Bu yöntem normal bir şekil için `null` döndüren bir [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) nesnesi döndürür. Yer tutucunun neyi içermesi amaçlandığını belirlemek için [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) kullanın.
 
-Şekil arabirimi, yer tutucu türünü öğrendikten sonra hâlâ önemlidir:
+Şekil arayüzü, yer tutucu türünü öğrendikten sonra da önemlidir:
 
-- Boş bir metin, resim, grafik veya içerik yer tutucusu genellikle bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) ile temsil edilir.
-- Dolu bir resim yer tutucusu bir [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/) ile temsil edilebilir.
-- Dolu bir grafik yer tutucusu bir [IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichart/) ile temsil edilebilir.
-- Bir içerik yer tutucusu birçok içerik türü içerebilir. Her yer tutucunun bir [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) olduğunu varsaymak yerine hem [IPlaceholder.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholder/) hem de çalışma zamanı şekil arabirimini kontrol edin.
+- Boş bir metin, resim, grafik veya içerik yer tutucu genellikle bir [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) ile temsil edilir.
+- Dolu bir resim yer tutucu bir [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) ile temsil edilebilir.
+- Dolu bir grafik yer tutucu bir [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) ile temsil edilebilir.
+- Bir içerik yer tutucu birden fazla içerik türü içerebilir. Her yer tutucunun bir [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) olduğunu varsaymak yerine hem [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) hem de çalışma zamanındaki şekil arayüzünü kontrol edin.
 
-{{% alert color="warning" title="Uyarı" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholder/) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanı türünü garanti etmez. Metin, resim, grafik, tablo veya medya‑özel üyelerine erişmeden önce her zaman bir tür kontrolü yapın.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) bir yer tutucunun rolünü açıklar; şeklin çalışma zamanı türünü garanti etmez. Metin, resim, grafik, tablo veya medya spesifik üyelerine erişmeden önce her zaman tür kontrolü yapın.
 {{% /alert %}}
 
-## **Yer Tutucu Mirasını Anlayın**
+## **Yer Tutucu Mirasını Anlamak**
 
 Yer tutucular bir hiyerarşi oluşturur:
 
-1. Bir ana slayt, yeniden kullanılabilir stiller ve bazı durumlarda ana‑seviye yer tutucular tanımlar.
-2. Bir yerleşim slaytı, bir veya daha fazla normal slaytın kullandığı düzeni tanımlar ve ana slayttan devralabilir.
-3. Bir normal slayt, o slayt için yer tutucuları içerir ve yerleşiminden devralabilir.
+1. Bir ana slayt, yeniden kullanılabilir stilleri ve bazı durumlarda ana düzeyde yer tutucuları tanımlar.
+2. Bir yerleşim slaytı, bir veya daha fazla normal slayt tarafından kullanılan düzeni tanımlar ve ana slayttan devralabilir.
+3. Normal bir slayt, o slayt için yer tutucuları içerir ve yerleşiminden devralabilir.
 
-Bu hiyerarşide bir seviye yukarı çıkmak için [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) çağırın. Bir slayt yer tutucusu genellikle yerleşim yer tutucusunu döndürür; bir yerleşim yer tutucusu ana yer tutucusunu döndürebilir. Şeklin temel bir yer tutucusu yoksa yöntem `null` döndürür.
+Bu hiyerarşide bir seviye yukarı çıkmak için [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) yöntemini çağırın. Bir slayt yer tutucu genellikle yerleşim yer tutucusunu döndürür; bir yerleşim yer tutucu ise ana yer tutucusunu döndürebilir. Şeklin temel yer tutucusu olmadığında yöntem `null` döndürür.
 
-Aşağıdaki örnek, ilk slayttaki yer tutucuları listeler ve temel yer tutucularını rapor eder:
+İlk slayttaki yer tutucuları listeleyen ve temel yer tutucularını raporlayan aşağıdaki örnek:
 
 ```java
 import com.aspose.slides.*;
@@ -85,11 +85,73 @@ try {
 }
 ```
 
-Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili yerleşim ya da ana slaytı düzenlemek, hâlâ bu ayarı devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel bir yer tutucusu yoktur ve aynı koordinatları kullandığı için miras almaya başlamaz.
+Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili yerleşim veya ana slaytı düzenlemek, bu ayarı hâlâ devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve aynı koordinatları kapladığı için otomatik olarak devralmaya başlamaz.
 
-## **Yer Tutucuda Metni Değiştir**
+## **Yer Tutucu Durumunu Kaldırma**
 
-Başlık, ortalanmış‑başlık, alt‑başlık, gövde ve metin yer tutucuları genellikle metni destekler. Kullanım öncesinde [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) olup olmadığını kontrol edin ve ardından [getTextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) yöntemini kullanın.
+Bir şablonu uyarlarken, mevcut bir nesneyi normal bir şekil olarak tutmak için [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) kullanın. Bunun [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) yöntemi `null` döndürür, ancak şekil slaytın koleksiyonunda kalır. Buna karşılık, [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) şekli o koleksiyondan siler.
+
+Aşağıdaki örnek, en az bir slaytı ve ilk slaytta boş olmayan bir metin yer tutucusu bulunan `template.pptx` dosyasını gerektirir. Etkiyi görmek için yerleşim veya ana slayttan miras alınan biçimlendirmeye sahip bir yer tutucu kullanın. Örnek, aynı şeklin kalmasını kontrol eder, yöntemi artık normal bir şekil üzerinde tekrar çağırır ve sonucu kaydeder.
+
+{{% alert color="warning" title="Warning" %}}
+Yer tutucu durumunu kaldırmak, kalıtlama ayarlarının otomatik olarak korunmasını sağlamaz. Aşağıdaki örnek bu ayarları kasıtlı olarak değiştirmeden bırakır, bu nedenle çıktı farklı görünebilir. Pozisyon ve boyutu tamamen miras alan bir şekil, çağrı sonrası sıfır koordinat ve boyuta sahip olabilir ve koleksiyonda kalmasına rağmen görünmez hâle gelebilir.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Normal bir şekil üzerinde yöntemi çağırmak hiçbir etki yapmaz.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Uygun bir yer tutucu için, üç kontrol de `true` yazdırır. Metin kalır, ancak miras alınan konum, boyut, dönüş, yazı tipi, paragraf hizalaması, metin çerçevesi kenar boşlukları, dikey tutturma, doldurma ve çizgi ayarları yer tutucu ilişkisi kaldırıldığında değişebilir. Örneğin, miras alınan başlık biçimlendirmesi normal metin biçimlendirmesine geri dönebilir. Yerleşimler hakkında daha fazla bilgi için [Slide Layout](/slides/tr/java/slide-layout/) sayfasına bakın.
+
+İstenen görünümü korumak için, çağrıdan önce çözülen konum, boyut ve dönüşü yakalayın ve gerekli etkili biçimleme değerlerini ayrı değişkenlere kopyalayın. Bu değerleri [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), ve [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) aracılığıyla alın. Yalnızca etkili‑format nesnelerini tutmaya güvenmeyin, çünkü ilişki kaldırıldıktan sonra metin‑biçimlendirme değerleri değişebilir. Yakalanan değerleri daha sonra normal şekle açıkça uygulayın; buna şablonunuzdaki yazı tipi ailesi, boyutu, stili, rengi, paragraf ayarları, metin‑çerçeve ayarları, doldurma ve çizgi dahildir.
+
+Miras alınan şekil geometrisi de [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-) aracılığıyla açıkça atanabilir. Dikdörtgen bir metin yer tutucu için bu, [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle) atanması anlamına gelir; yalnızca doldurma ve çizgiyi geri yüklemek görünür dikdörtgeni geri getirmeyebilir. Ek efektler veya daha karmaşık biçimlendirmeye sahip şablonlar, bu ayarların da işlenmesini gerektirir.
+
+## **Yer Tutucuda Metni Değiştirme**
+
+Başlık, ortalanmış‑başlık, alt‑başlık, gövde ve metin yer tutucuları normalde metni destekler. [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) olup olmadığını kontrol edin, ardından [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) yöntemini kullanın.
 
 Bu örnek, ilk slayttaki ilk başlık yer tutucusunu günceller ve sonucu kaydeder:
 
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-Bu desen, resim, grafik, tablo veya medya yer tutucularını [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) olarak dönüştürmekten kaçınır. Ayrıca, kırılgan bir şekil indeksine güvenmek yerine yer tutucuyu amacına göre tanımlar.
+Bu desen, resim, grafik, tablo veya medya yer tutucularını [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/)‘e dönüştürmekten kaçınır. Ayrıca yer tutucuyu kırılgan bir şekil indeksine dayanmak yerine amacına göre tanımlar.
 
-## **Bir Yerleşimde İpucu Metni Ayarla**
+## **Yerleşimde İpucu Metni Ayarlama**
 
-İpucu metni, boş bir yer tutucuda gösterilen tasarım‑zamanı talimatıdır; örneğin *Başlık eklemek için tıklayın*. İpucu metnini normal bir slaytın şekil koleksiyonundan almaya çalışmak yerine yerleşim yer tutucusunda özelleştirin. Yerleşime [ISlide.getLayoutSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) ile erişin ve [ILayoutSlide.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ibaseslide/) tarafından döndürülen koleksiyonu döngüye alın.
+İpucu metni, boş bir yer tutucuda gösterilen tasarım zamanı talimatıdır; örneğin *Başlık eklemek için tıklayın*. Normal bir slaydın şekil koleksiyonundan ulaşmaya çalışmak yerine, yerleşim yer tutucusunda özel ipucu metni ayarlayın. Yerleşime, [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) ile erişin ve [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/) tarafından döndürülen koleksiyonu döngüyle gezinin.
 
-Aşağıdaki örnek, ilk slayt tarafından kullanılan yerleşimdeki başlık ve alt‑başlık ipuçlarını değiştirir:
+Aşağıdaki örnek, ilk slayt tarafından kullanılan yerleşimde başlık ve alt‑başlık ipuçlarını değiştirir:
 
 ```java
 import com.aspose.slides.*;
@@ -171,16 +233,16 @@ try {
 }
 ```
 
-İpucu metni normal slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Kullanıcı ya da program gerçek içerik sağladığında ipucu artık gösterilmez. Bir ipucu değiştirmek, yerleşimi kullanan slaytlardaki mevcut metni değiştirmez.
+İpucu metni normal slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Bir kullanıcı veya program gerçek içeriği sağladığında, ipucu artık gösterilmez. Bir ipucunu değiştirmek, yerleşimi kullanan slaytlardaki mevcut metni değiştirmez.
 
-## **Resim Yer Tutucusunu Güncelle**
+## **Resim Yer Tutucusunu Güncelleme**
 
-Ele alınacak iki durum vardır:
+İki durum ele alınmalıdır:
 
-- Resim yer tutucusu zaten doluysa ve bir [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/) ile temsil ediliyorsa, resmi [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipicturefillformat/) ve [ISlidesPicture.setImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidespicture/) ile değiştirin.
-- Hâlâ boş bir yer tutucuysa, [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/) ile yer tutucunun koordinatlarında bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
+- Resim yer tutucu zaten doldurulmuş ve bir [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) ile temsil ediliyorsa, resmi [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) ve [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) kullanarak değiştirin.
+- Eğer hâlâ boş bir yer tutucu ise, [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) ile yer tutucunun koordinatlarında bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
 
-Aşağıdaki örnek her iki durumu da destekler ve sunumu kaydeder:
+Sonraki örnek her iki durumu da destekler ve sunumu kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Boş bir yer tutucu için oluşturulan değiştirme, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [IShape.getPlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) bir ayarlayıcı sağlamaz. Rezerv edilmiş konumu korur ancak artık yer tutucu‑özel davranışı devralmaz. Yer tutucu ilişkisini korumak kritikse, önce PowerPoint’te yer tutucuyu hazırlayıp doldurun, ardından Aspose.Slides ile ortaya çıkan [IPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipictureframe/) güncelleyin.
+Boş bir yer tutucu için oluşturulan değiştirme, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) bir ayarlayıcı içermez. Ayrılan konumu korur ancak yer tutucu‑özel davranışı artık devralmaz. Yer tutucu ilişkisini korumak kritikse, önce PowerPoint'te yer tutucuyu hazırlayıp doldurun, ardından ortaya çıkan [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) Aspose.Slides ile güncelleyin.
 
-Görsel şeffaflığı, kırpma ve diğer resim‑özel etkiler için [Resim Çerçevelerini Yönet](/slides/tr/java/picture-frame/) bölümüne bakın. Bu işlemler resim çerçevesi ya da resim doldurmasıyla ilgilidir, yer tutucu meta verileriyle değil.
+Görünürlük, kırpma ve diğer resim‑özel etkiler için [Manage Picture Frames](/slides/tr/java/picture-frame/) sayfasına bakın. Bu işlemler resim çerçevesi veya resim doldurmasıyla ilgilidir, yer tutucu meta verisiyle değil.
 
 ## **Grafik ve İçerik Yer Tutucularıyla Çalışma**
 
-Dolu bir grafik yer tutucusu bir [IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichart/) ile temsil edilebilir. Bu örnek, hem yer tutucu türüne hem de çalışma zamanı arabirimine göre bir grafik bulur, başlığını değiştirir ve dosyayı kaydeder:
+Dolu bir grafik yer tutucu bir [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) ile temsil edilebilir. Bu örnek, yer tutucu türü ve çalışma zamanı arayüzü ile böyle bir grafiği bulur, başlığını değiştirir ve dosyayı kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Genel bir içerik yer tutucusu genellikle [PlaceholderType.Object](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/) tipindedir. PowerPoint’te bu, grafik, tablo, diyagram, resim ve medya gibi çeşitli içerik türlerinin başlatıcısı olarak çalışır. İçerik doldurulduktan sonra, ne içerdiğini öğrenmek için gerçek şekil arabirimini inceleyin. Özelleştirilmiş yerleşimler ayrıca [PlaceholderType.Chart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/), veya [PlaceholderType.Diagram](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholdertype/) tiplerini ortaya koyabilir.
+Genel bir içerik yer tutucusu genellikle [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) değerine sahiptir. PowerPoint'te bu, grafikler, tablolar, diyagramlar, resimler ve medya gibi çeşitli içerik türleri için bir başlatıcı görevi görür. Doldurulduktan sonra, ne içerdiğini öğrenmek için gerçek şekil arayüzünü inceleyin. Özel yerleşimler ayrıca [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), veya [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) değerlerini ortaya koyabilir.
 
-Aspose.Slides, bir boş [IAutoShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iautoshape/) yer tutucusunu yalnızca [IPlaceholder.getType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/placeholder/) değiştirerek bir [IChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichart/) tipine dönüştürmez; tip arabirim üzerinden değiştirilemez. Boş bir grafik veya içerik alanını programatik olarak doldurmak için, gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bir grafik için bunu yapar:
+Aspose.Slides, yalnızca [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) değiştirerek boş bir [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) yer tutucusunu bir [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/)‘a dönüştürmez; tür arayüz üzerinden değiştirilemez. Boş bir grafik veya içerik alanını programlı olarak doldurmak için, gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bir grafik için bunu yapar:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Eklenen grafik, yerel bir standart grafiktir. Yer tutucunun alanını doldurur ancak yerleşim yer tutucusundan miras almaz. Kategorileri, serileri veya çalışma kitabı verilerini değiştirmek gerektiğinde özel [grafik yönetimi makalelerini](/slides/tr/java/powerpoint-charts/) kullanın.
+Eklenti grafik, normal bir yerel grafiktir. Yer tutucunun alanını kaplar ancak yerleşim yer tutucusundan devralmaz. Kategorileri, serileri veya çalışma kitabı verilerini değiştirmek gerektiğinde özel [chart management articles](/slides/tr/java/powerpoint-charts/) sayfalarını kullanın.
 
-## **Tam Örnek: Metin veya Görüntü İçeriğini Güncelle**
+## **Tam Örnek: Metin veya Görsel İçeriği Güncelleme**
 
-Aşağıdaki uçtan uca örnek bir şablonu açar, ilk slaytta bir başlık ya da resim yer tutucusunu arar, yer tutucu ve şekil türlerini kontrol eder, uygun içeriği günceller ve çıktıyı kaydeder. Örnek, şekil indeksi varsaymak ya da her yer tutucuyu aynı arabirime dönüştürmekten kaçınmak için tasarlanmıştır:
+Aşağıdaki uçtan uca örnek bir şablonu açar, ilk slaytta bir başlık veya resim yer tutucusunu arar, yer tutucu ve şekil türlerini kontrol eder, uygun içeriği günceller ve çıktıyı kaydeder. Örnek, şekil indeksini varsaymaktan veya her yer tutucuyu aynı arayüze dönüştürmekten kasıtlı olarak kaçınır.
 
 ```java
 import com.aspose.slides.*;
@@ -367,12 +429,12 @@ try {
 
 **Temel yer tutucu nedir?**
 
-Temel bir yer tutucu, başka bir yer tutucunun miras aldığı yerleşim ya da ana slayttaki karşılık gelen şekildir. Onu elde etmek için [IShape.getBasePlaceholder](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) kullanın. Normal bir yerel şekil, yer tutucu hiyerarşisinin bir parçası olmadığı için `null` döndürür.
+Temel bir yer tutucu, başka bir yer tutucunun devraldığı yerleşim veya ana üzerindeki karşılık gelen şekildir. Onu almak için [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) kullanın. Normal bir yerel şekil, yer tutucu hiyerarşisinin bir parçası olmadığından `null` döndürür.
 
-**Bir yer tutucu düzenleyerek tüm slayt başlıklarını değiştirebilir miyim?**
+**Tüm slayt başlıklarını bir yerleşim yer tutucusunu düzenleyerek değiştirebilir miyim?**
 
-Bir yerleşim aracılığıyla devralınan biçimlendirme ya da ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda depolanır. Sunum genelinde gerçek başlık metnini değiştirmek için slaytlar üzerinden döngüye girip her başlık yer tutucusunu güncelleyin.
+Bir yerleşim üzerinden miras alınan biçimlendirmeyi veya ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda depolanır. Sunum boyunca gerçek başlık metnini değiştirmek için slaytları döngüyle gezip her başlık yer tutucusunu güncelleyin.
 
-**Tarih, slayt numarası, başlık ve alt bilgi yer tutucularını nasıl yönetirim?**
+**Tarih, slayt‑numarası, üstbilgi ve altbilgi yer tutucularını nasıl yönetirim?**
 
-Uygun slayt, yerleşim, ana, notlar veya el ilanı kapsamındaki başlık ve alt bilgi yöneticilerini kullanın. Tam örnekler için [Sunum Başlık ve Alt Bilgilerini Yönet](/slides/tr/java/presentation-header-and-footer/) bölümüne bakın.
+Uygun slayt, yerleşim, ana, notlar veya el ilanı kapsamındaki üstbilgi ve altbilgi yöneticilerini kullanın. Tam örnekler için [Manage Presentation Header and Footer](/slides/tr/java/presentation-header-and-footer/) sayfasına bakın.

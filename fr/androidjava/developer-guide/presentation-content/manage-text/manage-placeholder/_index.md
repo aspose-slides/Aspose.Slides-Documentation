@@ -16,36 +16,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez comment inspecter et modifier les espaces réservés de texte, d'image, de graphique et de contenu et comprendre l'héritage des espaces réservés avec Aspose.Slides pour Android via Java."
+description: "Découvrez comment inspecter et modifier les espaces réservés de texte, d'image, de graphique et de contenu, et comprendre l'héritage des espaces réservés avec Aspose.Slides pour Android via Java."
 ---
 ## **Vue d'ensemble**
 
-Un espace réservé est une forme qui réserve une position pour un type particulier de contenu dans un modèle de présentation. Les exemples courants sont les espaces réservés de titre, de corps, d'image, de graphique et de contenu à usage général. Contrairement à une forme ordinaire, un espace réservé peut hériter de sa position, de sa taille, de son formatage et d’autres paramètres d’une diapositive de mise en page ou d’une diapositive maître.
+Un espace réservé est une forme qui réserve une position pour un type particulier de contenu dans un modèle de présentation. Les exemples courants sont les espaces réservés de titre, de corps, d'image, de graphique et les espaces réservés de contenu à usage général. Contrairement à une forme ordinaire, un espace réservé peut hériter de sa position, de sa taille, de son formatage et d'autres paramètres d'une diapositive de disposition ou d'une diapositive maîtresse.
 
-Aspose.Slides expose les informations d’espace réservé via la méthode [IShape.getPlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/). La méthode renvoie un objet [IPlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholder/) ou `null` pour une forme normale. Utilisez [IPlaceholder.getType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholder/) pour déterminer ce que l’espace réservé est censé contenir.
+Aspose.Slides expose les informations d'espace réservé via la méthode [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/). La méthode renvoie un objet [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) ou `null` pour une forme normale. Utilisez [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) pour déterminer ce que l'espace réservé est censé contenir.
 
-L’interface de forme reste importante une fois que vous connaissez le type d’espace réservé :
+L'interface de forme reste pertinente après avoir connu le type d'espace réservé :
 
-- Un espace réservé vide de texte, d’image, de graphique ou de contenu est généralement représenté par un [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/).
-- Un espace réservé d’image rempli peut être représenté par un [IPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipictureframe/).
-- Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ichart/).
-- Un espace réservé de contenu peut contenir plusieurs types de contenu. Vérifiez à la fois [IPlaceholder.getType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholder/) et l’interface de forme d’exécution au lieu de supposer que chaque espace réservé est un [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/).
+- Un espace réservé de texte, d'image, de graphique ou de contenu vide est généralement représenté par un [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+- Un espace réservé d'image rempli peut être représenté par un [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/).
+- Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/).
+- Un espace réservé de contenu peut contenir plusieurs types de contenu. Vérifiez à la fois [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) et l'interface de forme d'exécution au lieu de supposer que chaque espace réservé est un [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
-{{% alert color="warning" title="Avertissement" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholder/) décrit le rôle d’un espace réservé ; il ne garantit pas le type d’exécution de la forme. Utilisez toujours une vérification de type avant d’accéder aux membres spécifiques texte, image, graphique, tableau ou média.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) décrit le rôle d'un espace réservé ; il ne garantit pas le type d'exécution de la forme. Effectuez toujours une vérification de type avant d'accéder aux membres spécifiques au texte, à l'image, au graphique, au tableau ou aux médias.
 {{% /alert %}}
 
 ## **Comprendre l'héritage des espaces réservés**
 
 Les espaces réservés forment une hiérarchie :
 
-1. Une diapositive maître définit des styles réutilisables et, dans certains cas, des espaces réservés au niveau du maître.
-2. Une diapositive de mise en page définit la disposition utilisée par une ou plusieurs diapositives normales et peut hériter du maître.
-3. Une diapositive normale contient les espaces réservés pour cette diapositive et peut hériter de sa mise en page.
+1. Une diapositive maîtresse définit des styles réutilisables et, dans certains cas, des espaces réservés au niveau du maître.
+2. Une diapositive de disposition définit la mise en page utilisée par une ou plusieurs diapositives normales et peut hériter du maître.
+3. Une diapositive normale contient les espaces réservés pour cette diapositive et peut hériter de sa disposition.
 
-Appelez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) pour monter d’un niveau dans cette hiérarchie. Un espace réservé de diapositive renvoie normalement son espace réservé de mise en page ; un espace réservé de mise en page peut renvoyer son espace réservé maître. La méthode renvoie `null` lorsqu’une forme n’a aucun espace réservé de base.
+Appelez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) pour remonter d'un niveau dans cette hiérarchie. Un espace réservé de diapositive renvoie normalement son espace réservé de disposition ; un espace réservé de disposition peut renvoyer son espace réservé maître. La méthode renvoie `null` lorsque la forme n'a aucun espace réservé de base.
 
-L’exemple suivant répertorie les espaces réservés sur la première diapositive et indique leurs espaces réservés de base :
+L'exemple suivant répertorie les espaces réservés sur la première diapositive et indique leurs espaces réservés de base :
 
 ```java
 import com.aspose.slides.*;
@@ -86,11 +86,73 @@ try {
 }
 ```
 
-Modifier un espace réservé sur une diapositive normale crée ou modifie une substitution locale pour cette diapositive. Modifier la mise en page ou le maître associé peut affecter toutes les diapositives qui héritent encore de ce réglage. Une forme ordinaire locale n’a aucun espace réservé de base et ne commence pas à hériter simplement parce qu’elle occupe les mêmes coordonnées.
+Modifier un espace réservé sur une diapositive normale crée ou modifie une substitution locale pour cette diapositive. Modifier la disposition ou le maître associé peut affecter toutes les diapositives qui héritent encore de ce paramètre. Une forme ordinaire locale n'a pas d'espace réservé de base et ne commence pas à hériter simplement parce qu'elle occupe les mêmes coordonnées.
 
-## **Modifier le texte d’un espace réservé**
+## **Supprimer le statut d'espace réservé**
 
-Les espaces réservés de titre, de titre centré, de sous-titre, de corps et de texte prennent normalement en charge le texte. Vérifiez la présence d’un [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/) avant d’utiliser sa méthode [getTextFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/).
+Lors de l'adaptation d'un modèle, utilisez [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) pour conserver un objet existant en tant que forme ordinaire. Sa méthode [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) renvoie `null`, mais la forme reste dans la collection de la diapositive. En revanche, [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) supprime la forme de cette collection.
+
+L'exemple suivant nécessite `template.pptx` contenant au moins une diapositive et un espace réservé de texte non vide sur la première diapositive. Utilisez un espace réservé dont le formatage est hérité de sa disposition ou de son maître pour voir l'effet de la suppression de cette relation. L'exemple vérifie que la même forme demeure, appelle à nouveau la méthode sur la forme désormais ordinaire, et enregistre le résultat.
+
+{{% alert color="warning" title="Warning" %}}
+Supprimer le statut d'espace réservé ne préserve pas automatiquement les paramètres d'apparence hérités. L'exemple ci‑dessous laisse délibérément ces paramètres inchangés, de sorte que la sortie peut sembler différente. Une forme dont la position et la taille sont entièrement héritées peut avoir des coordonnées et des dimensions nulles après l'appel et devenir invisible même si elle reste dans la collection.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Appeler la méthode sur une forme ordinaire n'a aucun effet.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pour un espace réservé correspondant, les trois vérifications affichent `true`. Le texte reste, mais la position, la taille, la rotation, la police, l'alignement des paragraphes, les marges du cadre de texte, l'ancrage vertical, le remplissage et les paramètres de ligne hérités peuvent changer lorsque la relation d'espace réservé est supprimée. Par exemple, le formatage hérité du titre peut revenir au formatage de texte ordinaire. Voir [Slide Layout](/slides/fr/androidjava/slide-layout/) pour plus d'informations sur les dispositions.
+
+Pour conserver l'apparence prévue, capturez la position, la taille et la rotation résolues avant l'appel, et copiez les valeurs de formatage effectif requises dans des variables séparées. Récupérez ces valeurs via [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), et [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--). Ne vous fiez pas uniquement aux objets de format effectif, car leurs valeurs de formatage de texte peuvent changer après la suppression de la relation. Appliquez explicitement les valeurs capturées à la forme ordinaire par la suite, y compris la famille de police, la taille, le style, la couleur, les paramètres de paragraphe, les paramètres du cadre de texte, le remplissage et la ligne utilisés par votre modèle.
+
+La géométrie de forme héritée peut également devoir être assignée explicitement via [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-). Pour un espace réservé de texte rectangulaire, cela signifie assigner [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle) ; ne restaurer que le remplissage et la ligne peut ne pas restaurer le rectangle visible. Les modèles avec des effets supplémentaires ou un formatage plus complexe nécessitent également la prise en compte de ces paramètres.
+
+## **Modifier le texte d'un espace réservé**
+
+Les espaces réservés de titre, de titre centré, de sous‑titre, de corps et de texte prennent généralement en charge le texte. Vérifiez la présence de [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) avant d'utiliser sa méthode [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
 Cet exemple met à jour le premier espace réservé de titre sur la première diapositive et enregistre le résultat :
 
@@ -131,13 +193,13 @@ try {
 }
 ```
 
-Ce modèle évite de convertir les espaces réservés d’image, de graphique, de tableau ou de média en [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/). Il identifie également l’espace réservé par son objectif au lieu de s’appuyer sur un indice de forme fragile.
+Ce modèle évite de caster les espaces réservés d'image, de graphique, de tableau ou de média en [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). Il identifie également l'espace réservé par son objectif plutôt que de dépendre d'un index de forme fragile.
 
-## **Définir le texte d’invite sur une mise en page**
+## **Définir le texte d'invite sur une disposition**
 
-Le texte d’invite est l’instruction affichée en mode conception dans un espace réservé vide, par exemple *Cliquez pour ajouter un titre*. Définissez un texte d’invite personnalisé sur l’espace réservé de la mise en page plutôt que d’essayer d’y accéder via la collection de formes d’une diapositive normale. Accédez à la mise en page via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islide/) et parcourez la collection renvoyée par [ILayoutSlide.getShapes](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ibaseslide/).
+Le texte d'invite est l'instruction affichée en mode conception dans un espace réservé vide, par exemple *Cliquez pour ajouter un titre*. Définissez un texte d'invite personnalisé sur l'espace réservé de la disposition plutôt que d'essayer d'y accéder via la collection de formes d'une diapositive normale. Accédez à la disposition via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) et parcourez la collection renvoyée par [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/).
 
-L’exemple suivant modifie les invites de titre et de sous-titre sur la mise en page utilisée par la première diapositive :
+L'exemple suivant modifie les invites de titre et de sous‑titre sur la disposition utilisée par la première diapositive :
 
 ```java
 import com.aspose.slides.*;
@@ -172,16 +234,16 @@ try {
 }
 ```
 
-Le texte d’invite n’est pas un contenu de diapositive normal. Il est destiné aux espaces réservés vides dans les applications d’édition comme PowerPoint. Une fois qu’un utilisateur ou un programme fournit du contenu réel, l’invite n’est plus affichée. Modifier une invite ne remplace pas non plus le texte existant sur les diapositives qui utilisent la mise en page.
+Le texte d'invite n'est pas un contenu de diapositive normal. Il est destiné aux espaces réservés vides dans les applications d'édition comme PowerPoint. Une fois qu'un utilisateur ou un programme fournit du contenu réel, l'invite n'est plus affichée. Modifier une invite ne remplace pas non plus le texte existant sur les diapositives qui utilisent la disposition.
 
-## **Mettre à jour un espace réservé d’image**
+## **Mettre à jour un espace réservé d'image**
 
 Il y a deux cas à gérer :
 
-- Si l’espace réservé d’image est déjà rempli et représenté par un [IPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipictureframe/), remplacez l’image via [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipicturefillformat/) et [ISlidesPicture.setImage](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islidespicture/).
-- S’il s’agit encore d’un espace réservé vide, ajoutez un cadre d’image aux coordonnées de l’espace réservé avec [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishapecollection/) et supprimez l’espace réservé vide.
+- Si l'espace réservé d'image est déjà rempli et représenté par un [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/), remplacez l'image via [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) et [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/).
+- S'il s'agit toujours d'un espace réservé vide, ajoutez un cadre d'image aux coordonnées de l'espace réservé avec [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) et supprimez l'espace réservé vide.
 
-L’exemple suivant prend en charge les deux cas et enregistre la présentation :
+L'exemple suivant prend en charge les deux cas et enregistre la présentation :
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Le remplacement créé pour un espace réservé vide est un cadre d’image local, pas un nouvel espace réservé, car [IShape.getPlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) ne fournit pas de mutateur. Il conserve la position réservée mais n’hérite plus du comportement spécifique à l’espace réservé. Si conserver la relation d’espace réservé est essentiel, préparez et remplissez d’abord l’espace réservé dans PowerPoint, puis mettez à jour le [IPictureFrame](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipictureframe/) résultant avec Aspose.Slides.
+Le remplacement créé pour un espace réservé vide est un cadre d'image local, pas un nouvel espace réservé, car [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) ne fournit pas de setter. Il conserve la position réservée mais n'hérite plus du comportement spécifique à l'espace réservé. Si la conservation de la relation d'espace réservé est essentielle, préparez et remplissez l'espace réservé dans PowerPoint d'abord, puis mettez à jour le [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) résultant avec Aspose.Slides.
 
-Pour la transparence d’image, le recadrage et d’autres effets spécifiques aux images, voir [Manage Picture Frames](/slides/fr/androidjava/picture-frame/). Ces opérations appartiennent au cadre d’image ou au remplissage d’image, pas aux métadonnées de l’espace réservé.
+Pour la transparence d'image, le recadrage et d'autres effets spécifiques aux images, voir [Manage Picture Frames](/slides/fr/androidjava/picture-frame/). Ces opérations appartiennent au cadre d'image ou au remplissage d'image, pas aux métadonnées de l'espace réservé.
 
 ## **Travailler avec les espaces réservés de graphique et de contenu**
 
-Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ichart/). Cet exemple trouve un tel graphique à la fois par le type d’espace réservé et par l’interface d’exécution, modifie son titre et enregistre le fichier :
+Un espace réservé de graphique rempli peut être représenté par un [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/). Cet exemple trouve un tel graphique à la fois par le type d'espace réservé et par l'interface d'exécution, modifie son titre et enregistre le fichier :
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Un espace réservé de contenu général possède généralement [PlaceholderType.Object](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/). Dans PowerPoint, il agit comme un lanceur pour plusieurs types de contenu, y compris graphiques, tableaux, diagrammes, images et médias. Après qu’il a été rempli, examinez l’interface de forme réelle pour savoir ce qu’il contient. Les mises en page spécialisées peuvent également exposer [PlaceholderType.Chart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/), ou [PlaceholderType.Diagram](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholdertype/).
+Un espace réservé de contenu général possède généralement [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/). Dans PowerPoint, il agit comme un lanceur pour plusieurs types de contenu, y compris les graphiques, les tableaux, les diagrammes, les images et les médias. Après qu'il a été rempli, inspectez l'interface de forme réelle pour savoir ce qu'il contient. Les dispositions spécialisées peuvent également exposer [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), ou [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides ne convertit pas un espace réservé vide [IAutoShape](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/iautoshape/) en [IChart](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ichart/) simplement en modifiant [IPlaceholder.getType](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/placeholder/); le type ne peut pas être modifié via l’interface. Pour remplir programatiquement un graphique ou une zone de contenu vide, ajoutez l’objet requis aux coordonnées de l’espace réservé puis supprimez l’espace réservé vide. L’exemple suivant fait cela pour un graphique :
+Aspose.Slides ne convertit pas un espace réservé vide [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) en [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) simplement en modifiant [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/); le type ne peut pas être changé via l'interface. Pour remplir un graphique ou une zone de contenu vide programmatique, ajoutez l'objet requis aux coordonnées de l'espace réservé puis supprimez l'espace réservé vide. L'exemple suivant fait cela pour un graphique :
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Le graphique ajouté est un graphique local ordinaire. Il occupe la zone de l’espace réservé mais n’hérite pas de l’espace réservé de la mise en page. Utilisez les [chart management articles](/slides/fr/androidjava/powerpoint-charts/) dédiés lorsque vous devez remplacer ses catégories, séries ou données de classeur.
+Le graphique ajouté est un graphique local ordinaire. Il occupe la zone de l'espace réservé mais n'hérite pas de l'espace réservé de la disposition. Utilisez les [chart management articles](/slides/fr/androidjava/powerpoint-charts/) dédiés lorsque vous devez remplacer ses catégories, séries ou données du classeur.
 
-## **Exemple complet : Mettre à jour le texte ou le contenu image**
+## **Exemple complet : mettre à jour le texte ou le contenu image**
 
-L’exemple complet suivant ouvre un modèle, recherche la première diapositive pour un espace réservé de titre ou d’image, vérifie les types d’espace réservé et de forme, met à jour le contenu approprié et enregistre le résultat. L’exemple évite délibérément de supposer un indice de forme ou de convertir chaque espace réservé en la même interface.
+L'exemple de bout en bout suivant ouvre un modèle, recherche la première diapositive pour un espace réservé de titre ou d'image, vérifie les types d'espace réservé et de forme, met à jour le contenu approprié et enregistre le résultat. L'exemple évite délibérément de supposer un index de forme ou de caster chaque espace réservé à la même interface.
 
 ```java
 import com.aspose.slides.*;
@@ -364,14 +426,14 @@ try {
 
 ## **FAQ**
 
-**Qu'est-ce qu'un espace réservé de base ?**
+**Qu’est‑ce qu’un espace réservé de base ?**
 
-Un espace réservé de base est la forme correspondante sur la mise en page ou le maître dont hérite un autre espace réservé. Utilisez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ishape/) pour le récupérer. Une forme locale ordinaire renvoie `null` car elle ne fait pas partie de la hiérarchie des espaces réservés.
+Un espace réservé de base est la forme correspondante sur la disposition ou le maître dont un autre espace réservé hérite. Utilisez [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) pour le récupérer. Une forme locale ordinaire renvoie `null` car elle ne fait pas partie de la hiérarchie des espaces réservés.
 
-**Puis-je modifier tous les titres de diapositives en modifiant un espace réservé de mise en page ?**
+**Puis‑je modifier tous les titres de diapositives en modifiant un espace réservé de disposition ?**
 
-Vous pouvez modifier le formatage hérité ou le texte d’invite via une mise en page, mais le contenu du titre existant est stocké sur les diapositives normales. Pour remplacer le texte réel des titres dans une présentation, parcourez les diapositives et mettez à jour chaque espace réservé de titre.
+Vous pouvez modifier le formatage hérité ou le texte d'invite via une disposition, mais le contenu réel des titres est stocké sur les diapositives normales. Pour remplacer le texte du titre dans toute la présentation, parcourez les diapositives et mettez à jour chaque espace réservé de titre.
 
-**Comment gérer les espaces réservés de date, numéros de diapositive, en‑tête et pied de page ?**
+**Comment gérer les espaces réservés de date, numéro de diapositive, en‑tête et pied de page ?**
 
-Utilisez les gestionnaires d’en‑tête et de pied de page au niveau de la diapositive, de la mise en page, du maître, des notes ou du livret appropriés. Consultez [Manage Presentation Header and Footer](/slides/fr/androidjava/presentation-header-and-footer/) pour des exemples complets.
+Utilisez les gestionnaires d’en‑tête et de pied de page au niveau de la diapositive, de la disposition, du maître, des notes ou du fascicule approprié. Consultez [Manage Presentation Header and Footer](/slides/fr/androidjava/presentation-header-and-footer/) pour des exemples complets.

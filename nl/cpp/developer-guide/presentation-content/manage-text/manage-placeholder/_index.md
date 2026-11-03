@@ -1,50 +1,50 @@
 ---
-title: "Beheer van placeholders in C++"
-linktitle: "Beheer placeholders"
+title: Beheer Presentatie‑placeholders in C++
+linktitle: Beheer Placeholders
 type: docs
 weight: 10
 url: /nl/cpp/manage-placeholder/
 keywords:
 - placeholder
-- tekstplaceholder
-- afbeeldingsplaceholder
-- grafiekplaceholder
-- inhoudplaceholder
-- prompttekst
+- tekst‑placeholder
+- afbeelding‑placeholder
+- diagram‑placeholder
+- inhouds‑placeholder
+- prompt‑tekst
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe je tekst-, afbeelding-, grafiek- en inhoudsplaceholders kunt inspecteren en bewerken en de erfelijkheid van placeholders kunt begrijpen met Aspose.Slides voor C++."
+description: "Leer hoe u tekst‑, afbeelding‑, diagram‑ en inhouds‑placeholders kunt inspecteren en bewerken en hoe u placeholder‑erfenis begrijpt met Aspose.Slides voor C++."
 ---
 ## **Overzicht**
 
-Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel‑, tekst‑, afbeelding‑, grafiek‑ en algemene inhouds‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een layout‑slide of master‑slide.
+Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel, tekst, afbeelding, diagram en algemene content‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een layout‑dia of master‑dia.
 
-Aspose.Slides maakt placeholder‑informatie beschikbaar via de [IShape::get_Placeholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_placeholder/) methode. De methode retourneert een [IPlaceholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iplaceholder/) object of `nullptr` voor een normale vorm. Gebruik [IPlaceholder::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iplaceholder/get_type/) om te bepalen wat de placeholder zou moeten bevatten.
+Aspose.Slides biedt placeholder‑informatie via de [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/)‑methode. De methode retourneert een [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/)‑object of `nullptr` voor een gewone vorm. Gebruik [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) om te bepalen wat de placeholder moet bevatten.
 
 De vorm‑interface blijft relevant nadat je het placeholder‑type kent:
 
-- Een lege tekst‑, afbeelding‑, grafiek‑ of inhoud‑placeholder wordt doorgaans weergegeven door een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/).
-- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/).
-- Een gevulde grafiek‑placeholder kan worden weergegeven door een [IChart](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/).
-- Een inhouds‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [IPlaceholder::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iplaceholder/get_type/) als de runtime‑vorminterface in plaats van aan te nemen dat elke placeholder een [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) is.
+- Een lege tekst‑, afbeelding‑, diagram‑ of content‑placeholder wordt meestal weergegeven door een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Een gevulde diagram‑placeholder kan worden weergegeven door een [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Een content‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) als de runtime‑vorminterface in plaats van aan te nemen dat elke placeholder een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) is.
 
-{{% alert color="warning" title="Waarschuwing" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iplaceholder/get_type/) beschrijft de rol van een placeholder; het garandeert niet het runtime‑type van de vorm. Gebruik altijd een type‑check voordat je tekst, afbeelding, grafiek, tabel of media‑specifieke leden benadert.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) beschrijft de rol van een placeholder; het garandeert niet het runtime‑type van de vorm. Gebruik altijd een type‑check voordat je tekst-, afbeelding-, diagram‑, tabel‑ of media‑specifieke leden benadert.
 {{% /alert %}}
 
-## **Begrijp placeholder‑erfenis**
+## **Begrijp Placeholder‑Erfenis**
 
 Placeholders vormen een hiërarchie:
 
-1. Een master‑slide definieert herbruikbare stijlen en, in sommige gevallen, master‑level placeholders.
-2. Een layout‑slide definieert de indeling die door één of meer normale slides wordt gebruikt en kan erven van de master.
-3. Een normale slide bevat de placeholders voor die slide en kan erven van zijn layout.
+1. Een master‑dia definieert herbruikbare stijlen en, in sommige gevallen, master‑level placeholders.
+2. Een layout‑dia definieert de indeling die door één of meer normale dia’s wordt gebruikt en kan erven van de master.
+3. Een normale dia bevat de placeholders voor die dia en kan erven van zijn layout.
 
-Roep [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getbaseplaceholder/) aan om één niveau hoger in deze hiërarchie te gaan. Een slide‑placeholder retourneert normaal zijn layout‑placeholder; een layout‑placeholder kan zijn master‑placeholder retourneren. De methode geeft `nullptr` terug wanneer de vorm geen basis‑placeholder heeft.
+Roep [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) aan om een niveau hoger in deze hiërarchie te gaan. Een dia‑placeholder retourneert normaal zijn layout‑placeholder; een layout‑placeholder kan zijn master‑placeholder retourneren. De methode retourneert `nullptr` wanneer de vorm geen basis‑placeholder heeft.
 
-Het volgende voorbeeld geeft een lijst van placeholders op de eerste slide weer en meldt hun basis‑placeholders:
+Het volgende voorbeeld geeft een overzicht van de placeholders op de eerste dia en meldt hun basishouders:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Een placeholder op een normale slide bewerken creëert of wijzigt een lokale overschrijving voor die slide. Het bewerken van de bijbehorende layout of master kan alle slides beïnvloeden die die instelling nog steeds erven. Een locale gewone vorm heeft geen basis‑placeholder en begint niet te erven alleen omdat hij dezelfde coördinaten bezet.
+Een placeholder op een normale dia bewerken creëert of wijzigt een lokale overschrijving voor die dia. Het bewerken van de gerelateerde layout of master kan alle dia’s beïnvloeden die die instelling nog erven. Een gewone lokale vorm heeft geen basis‑placeholder en begint niet te erven alleen omdat hij dezelfde coördinaten gebruikt.
 
-## **Tekst wijzigen in een placeholder**
+## **Placeholder‑status Verwijderen**
 
-Titel-, gecentreerde‑titel-, subtitel‑, tekst‑ en inhouds‑placeholders ondersteunen normaal gesproken tekst. Controleer op [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) voordat je de [get_TextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/get_textframe/) methode gebruikt.
+Wanneer je een sjabloon aanpast, gebruik je [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) om een bestaand object als een gewone vorm te behouden. Zijn [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/)‑methode retourneert `nullptr`, maar de vorm blijft in de collectie van de dia staan. In tegenstelling tot [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) die de vorm uit die collectie verwijdert.
 
-Dit voorbeeld werkt de eerste titel‑placeholder op de eerste slide bij en slaat het resultaat op:
+Het volgende voorbeeld vereist `template.pptx` met minstens één dia en een niet‑lege tekst‑placeholder op de eerste dia. Gebruik een placeholder met opmaak geërfd van zijn layout of master om het effect van het verwijderen van die relatie te zien. Het voorbeeld controleert dat dezelfde vorm blijft, roept de methode opnieuw aan op de nu gewone vorm, en slaat het resultaat op.
+
+{{% alert color="warning" title="Warning" %}}
+Het verwijderen van de placeholder‑status behoudt de geërfde weergave‑instellingen niet automatisch. Het voorbeeld laat die instellingen bewust onveranderd, dus de output kan er anders uitzien. Een vorm waarvan positie en grootte volledig geërfd zijn, kan na de oproep nul‑coördinaten en afmetingen hebben en onzichtbaar worden, ook al blijft hij in de collectie.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Het aanroepen van de methode op een gewone vorm heeft geen effect.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Voor een overeenkomende placeholder geven alle drie controles `True` terug. De tekst blijft, maar geërfde positie, grootte, rotatie, lettertype, alinea‑uitlijning, marges van het tekstkader, verticale verankering, vulling en lijneigenschappen kunnen wijzigen wanneer de placeholder‑relatie wordt verwijderd. Bijvoorbeeld, geërfde titelopmaak kan terugvallen op gewone tekstopmaak. Zie [Slide Layout](/slides/nl/cpp/slide-layout/) voor meer over layouts.
+
+Om de beoogde weergave te behouden, leg je de berekende positie, grootte en rotatie vast vóór de aanroep, en kopieer je de benodigde effectieve opmaakwaarden naar afzonderlijke variabelen. Haal die waarden op via [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), en [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). Vertrouw niet alleen op de effectieve‑formatobjecten, want hun tekst‑opmaakwaarden kunnen veranderen nadat de relatie is verwijderd. Pas de vastgelegde waarden expliciet toe op de gewone vorm daarna, inclusief lettertype‑familie, -grootte, -stijl, -kleur, alinea‑instellingen, tekstkader‑instellingen, vulling en lijn die door jouw sjabloon worden gebruikt.
+
+Geërfde vorm‑geometrie moet mogelijk ook expliciet worden toegewezen via [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Voor een rechthoekige tekst‑placeholder betekent dit het toewijzen van [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); alleen de vulling en lijn herstellen kan de zichtbare rechthoek niet herstellen. Sjablonen met extra effecten of complexere opmaak vereisen die instellingen eveneens te behandelen.
+
+## **Tekst Wijzigen in een Placeholder**
+
+Titel‑, gecentreerde‑titel‑, ondertitel‑, body‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op een [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) voordat je zijn [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/)‑methode gebruikt.
+
+Dit voorbeeld werkt de eerste titel‑placeholder op de eerste dia bij en slaat het resultaat op:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Dit patroon vermijdt het casten van afbeelding-, grafiek-, tabel‑ of media‑placeholders naar [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/). Het identificeert de placeholder ook op basis van het doel in plaats van te vertrouwen op een fragiele vorm‑index.
+Dit patroon voorkomt het casten van afbeelding‑, diagram‑, tabel‑ of media‑placeholders naar [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Het identificeert bovendien de placeholder op basis van het doel in plaats van te vertrouwen op een fragiele vorm‑index.
 
-## **Prompt‑tekst instellen op een layout**
+## **Prompttekst Instellen op een Layout**
 
-Prompt‑tekst is de instructie tijdens het ontwerp die wordt weergegeven in een lege placeholder, zoals *Klik om een titel toe te voegen*. Stel aangepaste prompt‑tekst in op de layout‑placeholder in plaats van te proberen deze te benaderen via de vorm‑collectie van een normale slide. Toegang tot de layout krijg je via [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/get_layoutslide/) en je kunt itereren over [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ibaseslide/get_shapes/).
+Prompttekst is de ontwerp‑tijd instructie die in een lege placeholder wordt weergegeven, bijvoorbeeld *Klik om titel toe te voegen*. Stel aangepaste prompttekst in op de layout‑placeholder in plaats van deze via de vormcollectie van een normale dia te benaderen. Toegang tot de layout krijg je via [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) en itereren over [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
-Het volgende voorbeeld wijzigt de titel‑ en subtitel‑prompts op de layout die wordt gebruikt door de eerste slide:
+Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de layout die door de eerste dia wordt gebruikt:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,14 +293,14 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Prompt‑tekst is geen normale slide‑inhoud. Het is bedoeld voor lege placeholders in bewerkingsprogramma's zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt ook niet de bestaande tekst op slides die de layout gebruiken.
+Prompttekst is geen gewone dia‑inhoud. Het is bedoeld voor lege placeholders in bewerkings‑applicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt bovendien geen bestaande tekst op dia’s die de layout gebruiken.
 
-## **Een afbeelding‑placeholder bijwerken**
+## **Een Afbeelding‑Placeholder Bijwerken**
 
 Er zijn twee gevallen om te behandelen:
 
-- Als de afbeelding‑placeholder al gevuld is en wordt weergegeven door een [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/), vervang de afbeelding via [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipicturefillformat/get_picture/) en [ISlidesPicture::set_Image](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidespicture/set_image/).
-- Als het nog een lege placeholder is, voeg dan een afbeelding‑frame toe op de coördinaten van de placeholder met [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapecollection/addpictureframe/) en verwijder de lege placeholder.
+- Als de afbeelding‑placeholder al gevuld is en wordt weergegeven door een [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), vervang dan de afbeelding via [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) en [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Als het nog een lege placeholder is, voeg dan een afbeelding‑frame toe op de coördinaten van de placeholder met [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) en verwijder de lege placeholder.
 
 Het volgende voorbeeld ondersteunt beide gevallen en slaat de presentatie op:
 
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-De vervanging die voor een lege placeholder wordt gemaakt is een lokaal afbeelding‑frame, geen nieuwe placeholder, omdat [IShape::get_Placeholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/get_placeholder/) alleen‑lezen is. Het behoudt de gereserveerde positie maar erft niet meer het placeholder‑specifieke gedrag. Als het behouden van de placeholder‑relatie essentieel is, maak en vul de placeholder eerst in PowerPoint, en werk vervolgens het resulterende [IPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipictureframe/) bij met Aspose.Slides.
+De vervanging die voor een lege placeholder wordt aangemaakt is een lokaal afbeelding‑frame, geen nieuwe placeholder, omdat [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) alleen‑lezen is. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, bereid en vul de placeholder eerst in PowerPoint, en werk vervolgens het resulterende [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) bij met Aspose.Slides.
 
-Voor afbeeldings‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/cpp/picture-frame/). Deze bewerkingen behoren tot het afbeelding‑frame of de afbeelding‑vulling, niet tot de placeholder‑metadata.
+Voor transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/cpp/picture-frame/). Die bewerkingen behoren tot het afbeelding‑frame of de afbeelding‑vulling, niet tot placeholder‑metadata.
 
-## **Werken met grafiek‑ en inhouds‑placeholders**
+## **Werken met Diagram‑ en Inhoud‑Placeholders**
 
-Een gevulde grafiek‑placeholder kan worden weergegeven door een [IChart](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/). Dit voorbeeld vindt zo'n grafiek zowel via het placeholder‑type als de runtime‑interface, wijzigt de titel en slaat het bestand op:
+Een gevulde diagram‑placeholder kan worden weergegeven door een [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Dit voorbeeld zoekt zo’n diagram via zowel placeholder‑type als runtime‑interface, wijzigt de titel en slaat het bestand op:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Een algemene inhouds‑placeholder heeft meestal [PlaceholderType::Object](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/). In PowerPoint fungeert deze als een starter voor verschillende inhoudstypen, waaronder grafieken, tabellen, diagrammen, afbeeldingen en media. Nadat deze is gevuld, inspecteer je de feitelijke vorm‑interface om te weten wat het bevat. Gespecialiseerde lay‑outs kunnen ook [PlaceholderType::Chart](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/) of [PlaceholderType::Diagram](https://reference.aspose.com/slides/nl/cpp/aspose.slides/placeholdertype/) blootleggen.
+Een algemene inhoud‑placeholder heeft meestal [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). In PowerPoint fungeert hij als launcher voor verschillende inhoudstypen, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat hij is gevuld, inspecteer je de daadwerkelijke vorm‑interface om te weten wat hij bevat. Gespecialiseerde layouts kunnen ook [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), of [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) blootleggen.
 
-Aspose.Slides converteert een lege [IAutoShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iautoshape/) placeholder niet naar een [IChart](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichart/) alleen door [IPlaceholder::get_Type](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iplaceholder/get_type/) te wijzigen; het type is alleen‑lezen. Om een lege grafiek‑ of inhouds‑gebied programmatically te vullen, voeg je het vereiste object toe op de coördinaten van de placeholder en verwijder je vervolgens de lege placeholder. Het volgende voorbeeld doet dit voor een grafiek:
+Aspose.Slides converteert een lege [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) placeholder niet naar een [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) door alleen [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) te wijzigen; het type is alleen‑lezen. Om een leeg diagram of een leeg inhoudsgebied programmatisch te vullen, voeg je het benodigde object toe op de coördinaten van de placeholder en verwijder je daarna de lege placeholder. Het volgende voorbeeld doet dat voor een diagram:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-De toegevoegde grafiek is een gewone locale grafiek. Hij neemt het gebied van de placeholder in beslag maar erft niet van de layout‑placeholder. Gebruik de speciale [chart management articles](/slides/nl/cpp/powerpoint-charts/) wanneer je de categorieën, series of werkboek‑gegevens moet vervangen.
+Het toegevoegde diagram is een gewone lokale diagram. Het neemt het gebied van de placeholder in, maar erft niet van de layout‑placeholder. Gebruik de speciale [chart management articles](/slides/nl/cpp/powerpoint-charts/) wanneer je de categorieën, series of werkmapgegevens moet vervangen.
 
-## **Volledig voorbeeld: Tekst‑ of afbeeldingsinhoud bijwerken**
+## **Volledig Voorbeeld: Tekst of Afbeeldinginhoud Bijwerken**
 
-Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt de eerste slide op een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vorm‑types, werkt de relevante inhoud bij en slaat de output op. Het voorbeeld vermijdt opzettelijk het aannemen van een vorm‑index of het casten van elke placeholder naar dezelfde interface.
+Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt op de eerste dia naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vorm‑types, werkt de geschikte inhoud bij en slaat het resultaat op. Het voorbeeld vermijdt opzettelijk het aannemen van een vorm‑index of het casten van elke placeholder naar dezelfde interface.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -495,12 +572,12 @@ presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 
 **Wat is een basis‑placeholder?**
 
-Een basis‑placeholder is de overeenkomstige vorm op de layout of master waarvan een andere placeholder erft. Gebruik [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/getbaseplaceholder/) om deze op te halen. Een gewone locale vorm retourneert `nullptr` omdat hij geen deel uitmaakt van de placeholder‑hiërarchie.
+Een basis‑placeholder is de overeenkomstige vorm op de layout of master waarvan een andere placeholder erft. Gebruik [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) om deze op te halen. Een gewone lokale vorm retourneert `nullptr` omdat ze geen deel uitmaakt van de placeholder‑hiërarchie.
 
-**Kan ik alle slide‑titels wijzigen door een layout‑placeholder te bewerken?**
+**Kan ik alle dia‑titels wijzigen door een layout‑placeholder te bewerken?**
 
-Je kunt geërfde opmaak of prompt‑tekst wijzigen via een layout, maar bestaande titelinhoud staat opgeslagen op de normale slides. Om de werkelijke titeltekst in een hele presentatie te vervangen, moet je over de slides itereren en elke titel‑placeholder bijwerken.
+Je kunt geërfde opmaak of prompttekst wijzigen via een layout, maar bestaande titelinhoud wordt opgeslagen op de normale dia’s. Om de daadwerkelijke titeltekst door een hele presentatie heen te vervangen, doorloop je de dia’s en werk je elke titel‑placeholder bij.
 
-**Hoe beheer ik datum-, slide‑nummer-, header‑ en footer‑placeholders?**
+**Hoe beheer ik datum‑, dia‑nummer‑, header‑ en footer‑placeholders?**
 
-Gebruik de header‑ en footer‑managers op de juiste slide-, layout‑, master‑, notities‑ of handout‑scope. Zie [Manage Presentation Header and Footer](/slides/nl/cpp/presentation-header-and-footer/) voor volledige voorbeelden.
+Gebruik de header‑ en footer‑managers op het juiste niveau (dia, layout, master, notities of hand-out). Zie [Manage Presentation Header and Footer](/slides/nl/cpp/presentation-header-and-footer/) voor volledige voorbeelden.

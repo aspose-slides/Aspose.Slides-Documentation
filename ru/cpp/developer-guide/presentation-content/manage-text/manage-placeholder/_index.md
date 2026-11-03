@@ -9,42 +9,42 @@ keywords:
 - текстовый заполнитель
 - заполнитель изображения
 - заполнитель диаграммы
-- заполнитель содержимого
-- подсказочный текст
+- заполнитель контента
+- текст подсказки
 - PowerPoint
 - презентация
 - C++
 - Aspose.Slides
-description: "Узнайте, как просматривать и изменять текстовые, графические, диаграммные и содержательные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для C++."
+description: "Узнайте, как просматривать и редактировать текстовые, изображения, диаграммы и контентные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для C++."
 ---
 ## **Обзор**
 
-Заполнитель — это объект, который резервирует позицию для определённого типа содержимого в шаблоне презентации. Распространённые примеры: заполнитель заголовка, основного текста, изображения, диаграммы и универсальный заполнитель содержимого. В отличие от обычного объекта, заполнитель может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑макета или мастер‑слайда.
+Заполнитель — это фигура, которая резервирует позицию для определённого типа содержимого в шаблоне презентации. Распространёнными примерами являются заполнитель заголовка, основного текста, изображения, диаграммы и заполнитель общего назначения. В отличие от обычной фигуры, заполнитель может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑шаблона или шаблона‑маски.
 
-Aspose.Slides предоставляет информацию о заполнителях через метод [IShape::get_Placeholder](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/get_placeholder/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iplaceholder/) или `nullptr` для обычного объекта. Используйте [IPlaceholder::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iplaceholder/get_type/) чтобы определить, какое содержимое предполагается в заполнителе.
+Aspose.Slides предоставляет информацию о заполнителе через метод [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/). Метод возвращает объект [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) или `nullptr` для обычной фигуры. Используйте [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) для определения того, что должен содержать заполнитель.
 
-Интерфейс объекта всё ещё имеет значение после того как вы узнали тип заполнителя:
+Интерфейс фигуры всё ещё важен после того, как вы определили тип заполнителя:
 
-- Пустой текстовый, графический, диаграммный или контент‑заполнитель обычно представлен объектом [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/).
-- Заполненный графический заполнитель может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipictureframe/).
-- Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/).
-- Контент‑заполнитель может содержать несколько типов содержимого. Проверьте как [IPlaceholder::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iplaceholder/get_type/), так и интерфейс объекта во время выполнения, вместо того чтобы предполагать, что каждый заполнитель — это [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/).
+- Пустой текстовый, изображений, диаграммный или контентный заполнитель обычно представлен объектом [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Заполненный заполнитель изображения может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Заполненный заполнитель диаграммы может быть представлен объектом [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Заполнитель контента может содержать несколько видов содержимого. Проверяйте как [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/), так и интерфейс фигуры во время выполнения, вместо того чтобы предполагать, что каждый заполнитель — это [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iplaceholder/get_type/) описывает роль заполнителя; он не гарантирует тип объекта во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) описывает роль заполнителя; она не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к тексту, изображению, диаграмме, таблице или медиа‑специфичным членам.
 {{% /alert %}}
 
 ## **Понимание наследования заполнителей**
 
 Заполнители образуют иерархию:
 
-1. Мастер‑слайд определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня мастера.
-2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от мастера.
-3. Обычный слайд содержит заполнители для данного слайда и может наследовать от своего макета.
+1. Шаблон‑маска определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня маски.
+2. Слайд‑шаблон определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от маски.
+3. Обычный слайд содержит заполнители для данного слайда и может наследовать от своего шаблона‑шаблона.
 
-Вызовите [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/getbaseplaceholder/) чтобы подняться на один уровень выше в этой иерархии. Заполнитель слайда обычно возвращает свой заполнитель макета; заполнитель макета может вернуть свой заполнитель мастера. Метод возвращает `nullptr`, когда у объекта нет базового заполнителя.
+Вызовите [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) для перехода на один уровень выше в этой иерархии. Заполнитель слайда обычно возвращает свой заполнитель шаблона; заполнитель шаблона может вернуть свой заполнитель маски. Метод возвращает `nullptr`, когда у фигуры нет базового заполнителя.
 
-В следующем примере перечисляются заполнители на первом слайде и выводятся их базовые заполнители:
+Следующий пример перечисляет заполнители на первом слайде и выводит их базовые заполнители:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование связанного макета или мастера может затронуть все слайды, которые всё ещё наследуют эту настройку. Обычный локальный объект не имеет базового заполнителя и не начинает наследовать лишь потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование связанного шаблона‑шаблона или маски может повлиять на все слайды, которые ещё наследуют этот параметр. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать только потому, что занимает те же координаты.
 
-## **Изменение текста в заполнителе**
+## **Удаление статуса заполнителя**
 
-Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и текстовые заполнители обычно поддерживают ввод текста. Проверьте, является ли объект [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/), прежде чем вызывать его метод [get_TextFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/get_textframe/).
+При адаптации шаблона используйте [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) чтобы сохранить существующий объект как обычную фигуру. Его метод [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) возвращает `nullptr`, но фигура остаётся в коллекции слайда. В отличие от этого, [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) удаляет фигуру из этой коллекции.
 
-В этом примере обновляется первый заполнитель заголовка на первом слайде и сохраняется результат:
+Следующий пример требует файл `template.pptx` как минимум с одним слайдом и непустым текстовым заполняющим элементом на первом слайде. Используйте заполнитель с форматированием, унаследованным от его шаблона‑шаблона или маски, чтобы увидеть эффект удаления этой связи. Пример проверяет, что та же фигура остаётся, снова вызывает метод для теперь уже обычной фигуры и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Удаление статуса заполнителя автоматически не сохраняет унаследованные параметры внешнего вида. Ниже приведённый пример преднамеренно оставляет эти настройки без изменений, поэтому результат может выглядеть иначе. Фигура, позиция и размер которой полностью унаследованы, может после вызова иметь нулевые координаты и размеры и стать невидимой, хотя остаётся в коллекции.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Вызов метода на обычной фигуре не оказывает эффекта.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Для совпадающего заполнителя все три проверки выводят `True`. Текст остаётся, но унаследованные позиция, размер, вращение, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальная привязка, параметры заливки и линии могут измениться при удалении связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. См. [Slide Layout](/slides/ru/cpp/slide-layout/) для более подробной информации о шаблонах‑шаблонах.
+
+Чтобы сохранить ожидаемый вид, зафиксируйте вычисленные позицию, размер и вращение до вызова и скопируйте необходимые эффективные значения форматирования в отдельные переменные. Получите эти значения через [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), и [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). Не полагайтесь только на объекты эффективного форматирования, поскольку их параметры текстового форматирования могут измениться после удаления связи. Явно примените зафиксированные значения к обычной фигуре впоследствии, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованная геометрия фигуры также может потребовать явного назначения через [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Для прямоугольного текстового заполнителя это означает назначение [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); восстановление только заливки и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют обработки этих параметров также.
+
+## **Изменение текста в заполнитель**
+
+Заголовок, центрированный‑заголовок, подзаголовок, основной текст и текстовые заполнители обычно поддерживают текст. Проверьте наличие [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) перед использованием его метода [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/).
+
+Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Этот подход избегает приведения графических, диаграммных, табличных или медиа‑заполнителей к [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс объекта.
+Этот подход избегает приведения заполнителей изображения, диаграммы, таблицы или медиа к [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Он также определяет заполнитель по назначению, а не опирается на хрупкий индекс фигуры.
 
-## **Установить подсказочный текст на макете**
+## **Установить текст подсказки в макете**
 
-Подсказочный текст — это инструкция, отображаемая в пустом заполнителе во время разработки, например *Нажмите, чтобы добавить заголовок*. Устанавливайте пользовательский подсказочный текст непосредственно на заполнитель макета, а не пытаясь достучаться до него через коллекцию объектов обычного слайда. Получите макет через [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/get_layoutslide/) и пройдите по коллекции [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ibaseslide/get_shapes/).
+Текст подсказки — это инструкция времени разработки, отображаемая в пустом заполнителе, например *Щелкните, чтобы добавить заголовок*. Установите пользовательский текст подсказки в заполнитель макета, а не пытайтесь получить его через коллекцию фигур обычного слайда. Доступ к макету осуществляется через [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) и перебором [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
-В следующем примере изменяются подсказки заголовка и подзаголовка на макете, используемом первым слайдом:
+Следующий пример меняет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,14 +293,14 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Подсказочный текст не является обычным содержимым слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа вставляют реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
+Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка больше не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
-## **Обновление заполняющего изображения**
+## **Обновление заполнителя изображения**
 
-Есть два случая, которые необходимо обработать:
+Существует два сценария обработки:
 
-- Если графический заполнитель уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipicturefillformat/get_picture/) и [ISlidesPicture::set_Image](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islidespicture/set_image/).
-- Если он всё ещё пустой, добавьте графический объект в координаты заполнителя с помощью [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishapecollection/addpictureframe/) и удалите пустой заполнитель.
+- Если заполнитель изображения уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) и [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Если это всё ещё пустой заполнитель, добавьте кадр изображения в координатах заполнителя с помощью [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Замена, созданная для пустого заполнителя, представляет собой локальный графический объект, а не новый заполнитель, поскольку [IShape::get_Placeholder](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/get_placeholder/) только для чтения. Он сохраняет зарезервированную позицию, но более не наследует поведение заполнителя. Если сохранение связи с заполнителем критично, подготовьте и заполните заполнитель в PowerPoint, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ipictureframe/) с помощью Aspose.Slides.
+Созданная замена для пустого заполнителя представляет собой локальный кадр изображения, а не новый заполнитель, потому что [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) только для чтения. Он сохраняет зарезервированную позицию, но более не наследует поведение, специфичное для заполнителя. Если сохранение связи заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) с помощью Aspose.Slides.
 
-Для прозрачности изображения, обрезки и других графических эффектов см. [Manage Picture Frames](/slides/ru/cpp/picture-frame/). Эти операции относятся к графическому объекту или заливке изображения, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для изображений, см. [Manage Picture Frames](/slides/ru/cpp/picture-frame/). Эти операции относятся к кадру изображения или заливке изображения, а не к метаданным заполнителя.
 
-## **Работа с диаграммными и контентными заполнителями**
+## **Работа с заполнителями диаграмм и контента**
 
-Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/). Этот пример находит такую диаграмму по типу заполнителя и интерфейсу во время выполнения, изменяет её заголовок и сохраняет файл:
+Заполненный заполнитель диаграммы может быть представлен объектом [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Этот пример находит такую диаграмму по типу заполнителя и интерфейсу во время выполнения, меняет её заголовок и сохраняет файл:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Общий контент‑заполнитель обычно имеет тип [PlaceholderType::Object](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/). В PowerPoint он служит запускателем для различных типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте фактический интерфейс объекта, чтобы узнать, что именно он содержит. Специализированные макеты могут также предоставлять типы [PlaceholderType::Chart](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/), или [PlaceholderType::Diagram](https://reference.aspose.com/slides/ru/cpp/aspose.slides/placeholdertype/).
+Обычный заполнитель контента обычно имеет тип [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). В PowerPoint он служит запускателем нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения изучайте фактический интерфейс фигуры, чтобы понять, что она содержит. Специализированные макеты могут также раскрывать типы [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), или [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/).
 
-Aspose.Slides не преобразует пустой заполнитель [IAutoShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/ru/cpp/aspose.slides.charts/ichart/) простым изменением [IPlaceholder::get_Type](https://reference.aspose.com/slides/ru/cpp/aspose.slides/iplaceholder/get_type/); тип только для чтения. Чтобы программно заполнить пустую диаграмму или область контента, добавьте необходимый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
+Aspose.Slides не преобразует пустой заполнитель [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) простым изменением [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); тип доступен только для чтения. Чтобы программно заполнить пустую диаграмму или область контента, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-Добавленная диаграмма — обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от заполняющего макета. Используйте специализированные статьи по управлению диаграммами [/slides/ru/cpp/powerpoint-charts/] при необходимости заменить категории, серии или данные книги.
+Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует от заполнителя макета. Используйте специализированные [chart management articles](/slides/ru/cpp/powerpoint-charts/) при необходимости заменить её категории, серии или данные рабочей книги.
 
-## **Полный пример: обновление текста или изображения**
+## **Полный пример: обновление текстового или графического содержимого**
 
-В следующем сквозном примере открывается шаблон, ищется первый слайд для заполнителя заголовка или изображения, проверяются типы заполнителя и объекта, обновляется соответствующее содержимое и сохраняется результат. Пример намеренно избегает предположения о индексе объекта и приведения каждого заполнителя к одному интерфейсу.
+Следующий сквозной пример открывает шаблон, ищет на первом слайде заполнитель заголовка или изображения, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример преднамеренно избегает предположений о индексе фигуры или приведения каждого заполнителя к одному интерфейсу.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -491,16 +568,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **Вопросы и ответы**
+## **FAQ**
 
 **Что такое базовый заполнитель?**
 
-Базовый заполнитель — это соответствующий объект на макете или мастере, от которого другой заполнитель наследует свойства. Используйте [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ishape/getbaseplaceholder/) чтобы получить его. Обычный локальный объект возвращает `nullptr`, потому что он не является частью иерархии заполнителей.
+Базовый заполнитель — это соответствующая фигура в шаблоне‑шаблоне или маске, от которой другой заполнитель наследует параметры. Используйте [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) для его получения. Обычная локальная фигура возвращает `nullptr`, потому что она не является частью иерархии заполнителей.
 
-**Можно ли изменить все заголовки слайдов, отредактировав заполнитель макета?**
+**Можно ли изменить все заголовки слайдов, редактируя заполнитель шаблона‑шаблона?**
 
-Можно изменить наследуемое форматирование или подсказочный текст через макет, но фактическое содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
+Вы можете изменить унаследованное форматирование или текст подсказки через шаблон‑шаблон, но фактическое содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
 
 **Как управлять заполнителями даты, номера слайда, верхнего и нижнего колонтитулов?**
 
-Используйте менеджеры колонтитулов на соответствующем уровне — слайд, макет, мастер, заметки или раздаточная версия. См. [Manage Presentation Header and Footer](/slides/ru/cpp/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры верхних и нижних колонтитулов в соответствующей области слайда, шаблона‑шаблона, маски, заметок или раздаточного листа. См. [Manage Presentation Header and Footer](/slides/ru/cpp/presentation-header-and-footer/) для полных примеров.

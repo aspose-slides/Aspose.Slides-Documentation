@@ -1,50 +1,50 @@
 ---
 title: C++ でプレゼンテーションのプレースホルダーを管理する
-linktitle: プレースホルダーの管理
+linktitle: プレースホルダーを管理する
 type: docs
 weight: 10
 url: /ja/cpp/manage-placeholder/
 keywords:
 - プレースホルダー
-- テキストプレースホルダー
-- 画像プレースホルダー
-- チャートプレースホルダー
-- コンテンツプレースホルダー
-- プロンプトテキスト
+- テキスト プレースホルダー
+- 画像 プレースホルダー
+- グラフ プレースホルダー
+- コンテンツ プレースホルダー
+- プロンプト テキスト
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ を使用して、テキスト、画像、チャート、コンテンツ プレースホルダーを検査・編集し、プレースホルダーの継承を理解する方法を学びます。"
+description: "Aspose.Slides for C++ を使用して、テキスト、画像、グラフ、コンテンツのプレースホルダーを検査および編集し、プレースホルダーの継承を理解する方法を学びます。"
 ---
 ## **概要**
 
-プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保する図形です。一般的な例として、タイトル、本文、画像、チャート、汎用コンテンツのプレースホルダーがあります。普通の図形とは異なり、プレースホルダーはレイアウトスライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
+プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保するシェイプです。代表的な例として、タイトル、本文、画像、グラフ、汎用コンテンツのプレースホルダーがあります。通常のシェイプとは異なり、プレースホルダーはレイアウトスライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
 
-Aspose.Slides はプレースホルダー情報を [IShape::get_Placeholder](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/get_placeholder/) メソッドで公開します。このメソッドは [IPlaceholder](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iplaceholder/) オブジェクトを返すか、通常の図形の場合は `nullptr` を返します。プレースホルダーが何を保持することを意図しているかは [IPlaceholder::get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iplaceholder/get_type/) で判定します。
+Aspose.Slides は、[IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) メソッドを通じてプレースホルダー情報を公開します。このメソッドは通常のシェイプに対しては `nullptr` を返す [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) オブジェクトを返します。プレースホルダーが何を保持することを想定しているかは、[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) で確認してください。
 
-プレースホルダーの種類が分かった後でも、図形インターフェイスは依然として重要です。
+プレースホルダーの種類が分かっても、シェイプ インターフェイスは依然として重要です。
 
-- 空のテキスト、画像、チャート、またはコンテンツプレースホルダーは通常、[IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) で表されます。
-- 内容が設定された画像プレースホルダーは [IPictureFrame](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ipictureframe/) で表されます。
-- 内容が設定されたチャートプレースホルダーは [IChart](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichart/) で表されます。
-- コンテンツプレースホルダーはさまざまな種類のコンテンツを保持できます。すべてのプレースホルダーが [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であると仮定せず、[IPlaceholder::get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iplaceholder/get_type/) と実行時の図形インターフェイスの両方を確認してください。
+- 空のテキスト、画像、グラフ、またはコンテンツ プレースホルダーは、一般に [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) で表されます。
+- 内容が設定された画像プレースホルダーは、[IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) で表されます。
+- 内容が設定されたグラフプレースホルダーは、[IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) で表されます。
+- コンテンツ プレースホルダーは複数の種類のコンテンツを保持できます。[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) とランタイムのシェイプ インターフェイスの両方を確認し、すべてのプレースホルダーが [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) であると想定しないでください。
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iplaceholder/get_type/) はプレースホルダーの役割を示しますが、図形の実行時型を保証するものではありません。テキスト、画像、チャート、テーブル、メディア固有のメンバーにアクセスする前に、必ず型チェックを行ってください。
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) はプレースホルダーの役割を示しますが、シェイプのランタイム型を保証するものではありません。テキスト、画像、グラフ、テーブル、メディア固有のメンバーにアクセスする前に、必ず型チェックを行ってください。
 {{% /alert %}}
 
-## **プレースホルダーの継承を理解する**
+## **プレースホルダー 継承の理解**
 
-プレースホルダーは階層構造を持ちます。
+プレースホルダーは階層を形成します。
 
-1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスターレベルのプレースホルダーも定義します。
-2. レイアウトスライドは 1 つまたは複数の通常スライドで使用される配置を定義し、マスターから継承できます。
+1. マスタースライドは再利用可能なスタイルと、場合によってはマスターレベルのプレースホルダーを定義します。
+2. レイアウトスライドは 1 つ以上の通常スライドで使用される配置を定義し、マスターから継承できます。
 3. 通常スライドはそのスライド用のプレースホルダーを保持し、レイアウトから継承できます。
 
-この階層を上に 1 レベル移動するには [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishape/getbaseplaceholder/) を呼び出します。スライドのプレースホルダーは通常、レイアウトプレースホルダーを返し、レイアウトプレースホルダーはマスタープレースホルダーを返すことがあります。図形に基底プレースホルダーが存在しない場合は `nullptr` が返ります。
+[IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) を呼び出すと、この階層で 1 つ上のレベルに移動します。スライドのプレースホルダーは通常、レイアウトのプレースホルダーを返し、レイアウトのプレースホルダーはマスターのプレースホルダーを返すことができます。シェイプに基底プレースホルダーがない場合、メソッドは `nullptr` を返します。
 
-以下の例は、最初のスライド上のプレースホルダーを列挙し、それらの基底プレースホルダーを報告します。
+以下の例は、最初のスライド上のプレースホルダーを列挙し、それらの基底プレースホルダーを報告します：
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-通常スライド上でプレースホルダーを編集すると、そのスライドだけのローカル上書きが作成または変更されます。関連するレイアウトやマスターを編集すると、まだその設定を継承しているすべてのスライドに影響を与えます。ローカルの普通の図形は基底プレースホルダーを持たず、同じ座標にあるからといって継承が開始されるわけではありません。
+通常スライド上のプレースホルダーを編集すると、そのスライド用のローカル オーバーライドが作成または変更されます。関連するレイアウトやマスターを編集すると、まだその設定を継承しているすべてのスライドに影響が及びます。ローカルの通常シェイプは基底プレースホルダーを持たず、同じ座標に配置されているだけで継承が始まるわけではありません。
 
-## **プレースホルダー内のテキストを変更する**
+## **プレースホルダー ステータスの削除**
 
-タイトル、センタリングタイトル、サブタイトル、本文、テキストプレースホルダーは通常テキストをサポートします。`[IAutoShape]` かどうかを確認し、`[get_TextFrame]` メソッドを使用してください。
+テンプレートを変更する際は、[IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) を使用して、既存のオブジェクトを普通のシェイプとして残します。その [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) メソッドは `nullptr` を返しますが、シェイプはスライドのコレクションに残ります。これに対し、[IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) はコレクションからシェイプ自体を削除します。
 
-この例は、最初のスライド上の最初のタイトルプレースホルダーを更新し、結果を保存します。
+以下の例は、最初のスライドに少なくとも 1 枚のスライドと空でないテキスト プレースホルダーがある `template.pptx` を前提としています。レイアウトまたはマスターから継承された書式設定を持つプレースホルダーを使用して、関係を削除したときの影響を確認してください。例は同じシェイプが残っていることを確認し、普通のシェイプになった後にメソッドを再度呼び出し、結果を保存します。
+
+{{% alert color="warning" title="Warning" %}}
+プレースホルダー ステータスを削除しても、継承された外観設定が自動的に保持されるわけではありません。下の例は意図的にこれらの設定を変更せずに残しているため、出力が異なる見た目になる可能性があります。位置とサイズが完全に継承されていたシェイプは、呼び出し後に座標と寸法が 0 になることがあり、コレクション内に残っていても見えなくなることがあります。
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // 普通のシェイプに対してメソッドを呼び出しても効果はありません。
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+一致するプレースホルダーについては、3 つのチェックすべてが `True` を出力します。テキストは残りますが、位置、サイズ、回転、フォント、段落の配置、テキストフレームの余白、垂直アンカー、塗りつぶし、線の設定などの継承された属性は、プレースホルダー関係が削除されると変わる可能性があります。たとえば、継承されたタイトル書式は通常のテキスト書式に戻ります。レイアウトの詳細については [Slide Layout](/slides/ja/cpp/slide-layout/) を参照してください。
+
+意図した外観を維持するには、呼び出し前に解決済みの位置、サイズ、回転を取得し、必要な有効書式値を別々の変数にコピーします。これらの値は、[IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/)、[IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/)、[ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/)、[IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/)、[ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) で取得できます。有効書式オブジェクトだけに依存しないでください。関係を削除した後にテキスト書式の値が変わる可能性があります。取得した値を普通のシェイプに明示的に適用し、フォントファミリ、サイズ、スタイル、色、段落設定、テキストフレーム設定、塗りつぶし、線をテンプレートと同じように設定します。
+
+継承されたシェイプのジオメトリも、[IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/) を使用して明示的に割り当てる必要がある場合があります。矩形テキスト プレースホルダーの場合、[ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/) を設定することを意味します。塗りつぶしと線だけを復元しても、視覚的な矩形が復元されないことがあります。追加のエフェクトや複雑な書式設定を持つテンプレートでは、これらの設定も同様に処理する必要があります。
+
+## **プレースホルダー内のテキスト変更**
+
+タイトル、センタリングタイトル、サブタイトル、本文、テキスト プレースホルダーは通常テキストをサポートします。使用する前に [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) かどうかを確認し、[get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) メソッドを使用してください。
+
+この例は、最初のスライド上の最初のタイトル プレースホルダーを更新し、結果を保存します：
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-このパターンは画像、チャート、テーブル、メディアプレースホルダーを `[IAutoShape]` にキャストすることを防ぎます。また、脆弱な図形インデックスに依存せず、目的でプレースホルダーを特定します。
+このパターンは、画像、グラフ、テーブル、メディア プレースホルダーを [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) にキャストすることを回避します。また、脆弱なシェイプインデックスに依存せず、目的でプレースホルダーを特定します。
 
-## **レイアウト上でプロンプトテキストを設定する**
+## **レイアウト上のプロンプトテキスト設定**
 
-プロンプトテキストは、空のプレースホルダーに表示されるデザイン時の指示で、例として「クリックしてタイトルを追加」などがあります。通常スライドの図形コレクションを介さずに、レイアウトプレースホルダーにカスタムプロンプトテキストを設定してください。レイアウトは `[ISlide::get_LayoutSlide]` で取得し、`[IBaseSlide::get_Shapes]` を列挙します。
+プロンプトテキストは、空のプレースホルダーに表示されるデザイン時の指示で、例として *Click to add title* があります。通常スライドのシェイプコレクションを介さずに、レイアウト プレースホルダーにカスタム プロンプトテキストを設定してください。[ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) でレイアウトにアクセスし、[IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/) を反復処理します。
 
-以下の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します。
+以下の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します：
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-プロンプトテキストは通常スライドのコンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに対して表示されます。ユーザーまたはプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。また、プロンプトを変更しても、そのレイアウトを使用しているスライド上の既存テキストは置き換わりません。
+プロンプトテキストは通常スライドのコンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに表示される指示です。ユーザーまたはプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。プロンプトを変更しても、レイアウトを使用しているスライド上の既存テキストは置き換わりません。
 
-## **画像プレースホルダーを更新する**
+## **画像 プレースホルダーの更新**
 
-対処すべきケースは 2 つあります。
+処理すべきケースは 2 つあります。
 
-- 画像プレースホルダーがすでに設定されていて `[IPictureFrame]` で表されている場合、`[IPictureFillFormat::get_Picture]` と `[ISlidesPicture::set_Image]` を使って画像を置き換えます。
-- まだ空のプレースホルダーである場合、`[IShapeCollection::AddPictureFrame]` でプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
+- 画像プレースホルダーがすでに内容を持ち、[IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) で表されている場合は、[IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) と [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) を使って画像を置き換えます。
+- まだ空のプレースホルダーである場合は、[IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) でプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
 
-次の例は両方のケースに対応し、プレゼンテーションを保存します。
+次の例は両方のケースに対応し、プレゼンテーションを保存します：
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-空のプレースホルダー用に作成された置き換えはローカル画像フレームであり、新しいプレースホルダーではありません。`[IShape::get_Placeholder]` が読み取り専用であるためです。位置は保持されますが、プレースホルダー固有の継承動作は失われます。プレースホルダーとの関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを用意してから、Aspose.Slides で生成された `[IPictureFrame]` を更新してください。
+空のプレースホルダーに対して作成された置き換えはローカル 画像フレームであり、新しいプレースホルダーではありません。これは [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) が読み取り専用であるためです。位置は保持されますが、プレースホルダー固有の振る舞いは継承されなくなります。プレースホルダー関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを作成・設定し、Aspose.Slides で生成された [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) を更新してください。
 
-画像の透明度、トリミング、その他画像固有の効果については、[Manage Picture Frames](/slides/ja/cpp/picture-frame/) を参照してください。これらの操作は画像フレームまたは画像フィルに対して行い、プレースホルダーのメタデータには関係しません。
+画像の透明度、トリミング、その他画像固有の効果については、[Manage Picture Frames](/slides/ja/cpp/picture-frame/) を参照してください。これらの操作はプレースホルダーのメタデータではなく、画像フレームまたは画像塗りつぶしに対して行われます。
 
-## **チャートおよびコンテンツプレースホルダーの操作**
+## **グラフおよびコンテンツ プレースホルダーの操作**
 
-設定済みのチャートプレースホルダーは `[IChart]` で表されます。この例はプレースホルダーのタイプと実行時インターフェイスの両方でチャートを見つけ、タイトルを変更してファイルを保存します。
+内容が設定されたグラフ プレースホルダーは、[IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) で表されます。この例は、プレースホルダーの種類とランタイム インターフェイスの両方でグラフを検索し、タイトルを変更してファイルを保存します：
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-一般的なコンテンツプレースホルダーは通常 `[PlaceholderType::Object]` を持ちます。PowerPoint ではチャート、テーブル、ダイアグラム、画像、メディアなど複数のコンテンツタイプの起動点として機能します。内容が設定された後は、実際の図形インターフェイスを調べて何が含まれているかを判断してください。特化したレイアウトは `[PlaceholderType::Chart]`、`[PlaceholderType::Table]`、`[PlaceholderType::Picture]`、`[PlaceholderType::Media]`、`[PlaceholderType::Diagram]` を公開することもあります。
+汎用コンテンツ プレースホルダーは通常 [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) を持ちます。PowerPoint では、グラフ、テーブル、ダイアグラム、画像、メディアなど複数のコンテンツタイプのランチャーとして機能します。内容が設定された後は、実際のシェイプ インターフェイスを調べて何が含まれているかを判断してください。特化したレイアウトは、[PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)、[PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)、[PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)、[PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)、[PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) を公開することもあります。
 
-Aspose.Slides は空の `[IAutoShape]` プレースホルダーを `[IChart]` に単に `[IPlaceholder::get_Type]` を変更しただけで変換しません。タイプは読み取り専用です。空のチャートやコンテンツ領域をプログラムで埋めるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。以下の例はチャートに対してそれを実行します。
+Aspose.Slides は、[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) を変更するだけで、空の [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) プレースホルダーを [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) に変換しません。型は読み取り専用です。空のグラフやコンテンツ領域をプログラムで埋めるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。以下の例は、グラフに対してこれを実行します：
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-追加されたチャートは普通のローカルチャートです。プレースホルダーの領域を占有しますが、レイアウトプレースホルダーからは継承しません。カテゴリ、系列、ブックデータの置き換えが必要な場合は、専用の [chart management articles](/slides/ja/cpp/powerpoint-charts/) を参照してください。
+追加されたグラフは普通のローカル グラフです。プレースホルダーの領域を占有しますが、レイアウト プレースホルダーから継承はしません。カテゴリ、系列、ブックデータの置き換えが必要な場合は、専用の [chart management articles](/slides/ja/cpp/powerpoint-charts/) を使用してください。
 
-## **完全な例: テキストまたは画像コンテンツの更新**
+## **完全なサンプル: テキストまたは画像コンテンツの更新**
 
-以下のエンドツーエンド例はテンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーと図形のタイプを確認して適切なコンテンツを更新し、出力を保存します。この例は図形インデックスに依存したり、すべてのプレースホルダーを同一インターフェイスにキャストしたりしないよう意図的に設計されています。
+以下のエンドツーエンド例は、テンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーとシェイプの型を確認して適切なコンテンツを更新し、結果を保存します。この例はシェイプインデックスに依存したり、すべてのプレースホルダーを同じインターフェイスにキャストしたりすることを意図的に回避しています。
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -493,14 +570,14 @@ presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**基底プレースホルダーとは何ですか？**
+**ベース プレースホルダーとは何ですか？**
 
-基底プレースホルダーは、レイアウトまたはマスター上の対応する図形で、別のプレースホルダーが継承する元となります。`[IShape::GetBasePlaceholder]` を使用して取得します。普通のローカル図形はプレースホルダー階層の一部ではないため `nullptr` を返します。
+ベース プレースホルダーは、別のプレースホルダーが継承するレイアウトまたはマスター上の対応するシェイプです。取得するには [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) を使用します。通常のローカル シェイプはプレースホルダー階層の一部ではないため `nullptr` を返します。
 
-**レイアウトプレースホルダーを編集してすべてのスライドタイトルを変更できますか？**
+**レイアウト プレースホルダーを編集してすべてのスライド タイトルを変更できますか？**
 
-レイアウトを介して継承された書式設定やプロンプトテキストは変更できますが、既存のタイトルコンテンツは普通のスライドに保存されています。プレゼンテーション全体のタイトルテキストを置き換えるには、スライドを列挙し各タイトルプレースホルダーを個別に更新する必要があります。
+レイアウトを通じて継承された書式設定やプロンプトテキストは変更できますが、実際のタイトルコンテンツは通常スライドに保存されています。プレゼンテーション全体のタイトルテキストを置き換えるには、スライドを走査して各タイトル プレースホルダーを更新する必要があります。
 
-**日付、スライド番号、ヘッダー、フッターのプレースホルダーはどう管理しますか？**
+**日付、スライド番号、ヘッダー、フッターのプレースホルダーはどのように管理しますか？**
 
-対象となるスライド、レイアウト、マスター、ノート、ハンドアウトのスコープでヘッダーおよびフッターマネージャーを使用します。完全な例は [Manage Presentation Header and Footer](/slides/ja/cpp/presentation-header-and-footer/) を参照してください。
+適切なスライド、レイアウト、マスター、ノート、配布資料のスコープでヘッダーおよびフッターマネージャーを使用してください。完全な例については [Manage Presentation Header and Footer](/slides/ja/cpp/presentation-header-and-footer/) を参照してください。

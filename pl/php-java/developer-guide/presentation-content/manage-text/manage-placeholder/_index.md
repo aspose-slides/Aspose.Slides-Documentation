@@ -15,37 +15,36 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstowe, obrazkowe, wykresu i treści oraz zrozumieć dziedziczenie placeholderów przy użyciu Aspose.Slides dla PHP za pośrednictwem Javy."
+description: "Dowiedz się, jak sprawdzić i edytować placeholdery tekstowe, obrazkowe, wykresów i treści oraz zrozumieć dziedziczenie placeholderów przy użyciu Aspose.Slides dla PHP poprzez Javę."
 ---
 ## **Przegląd**
 
-Placeholder to kształt, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowe przykłady to tytuł, treść, obraz, wykres i ogólne placeholdery treści. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu głównego.
+Placeholder to kształt, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowe przykłady to tytuł, treść, obraz, wykres oraz ogólne placeholdery zawartości. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu master.
 
-Aspose.Slides udostępnia informacje o placeholderach za pośrednictwem metody [Shape::getPlaceholder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getplaceholder/). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholder/) lub `null` dla zwykłego kształtu. Użyj [Placeholder::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholder/gettype/), aby określić, co placeholder ma zawierać.
+Aspose.Slides udostępnia informacje o placeholderze poprzez metodę [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/). Metoda zwraca obiekt [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/) lub `null` dla zwykłego kształtu. Użyj [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/), aby określić, co placeholder ma zawierać.
 
 Klasa kształtu nadal ma znaczenie po poznaniu typu placeholdera:
 
-- Pusty placeholder tekstowy, obrazkowy, wykresu lub treści jest zazwyczaj reprezentowany przez [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/).
-- Wypełniony placeholder obrazu może być reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/).
-- Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/).
-- Placeholder treści może zawierać kilka rodzajów treści. Sprawdź zarówno [Placeholder::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholder/gettype/), jak i klasę kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/).
+- Pusty placeholder tekstowy, obrazkowy, wykresu lub treści jest zazwyczaj reprezentowany przez [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
+- Wypełniony placeholder obrazu może być reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/).
+- Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/).
+- Placeholder treści może zawierać kilka rodzajów zawartości. Sprawdź zarówno [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/), jak i klasę kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
-[Placeholder::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholder/gettype/) opisuje rolę placeholdera; nie gwarantuje klasy kształtu w czasie wykonywania. Zawsze używaj sprawdzania typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub mediów.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) opisuje rolę placeholdera; nie gwarantuje klasy kształtu w czasie wykonywania. Zawsze używaj sprawdzania typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub mediów.
 {{% /alert %}}
 
 ## **Zrozumienie dziedziczenia placeholderów**
 
 Placeholdery tworzą hierarchię:
 
-1. Slajd główny definiuje style wielokrotnego użytku i w niektórych przypadkach placeholdery na poziomie mastera.
-2. Slajd układu definiuje rozmieszczenie używane przez jeden lub więcej zwykłych slajdów i może dziedziczyć z mastera.
-3. Zwykły slajd zawiera placeholdery dla tego slajdu i może dziedziczyć z jego układu.
+1. Slajd master definiuje wielokrotnego użytku style i, w niektórych przypadkach, placeholdery na poziomie master.
+2. Slajd układu definiuje rozmieszczenie używane przez jeden lub więcej zwykłych slajdów i może dziedziczyć po masterze.
+3. Zwykły slajd zawiera placeholdery dla tego slajdu i może dziedziczyć po jego układzie.
 
-Wywołaj [Shape::getBasePlaceholder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getbaseplaceholder/), aby przejść o poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca swój placeholder układu; placeholder układu może zwrócić swój placeholder mastera. Metoda zwraca `null`, gdy kształt nie ma bazowego placeholdera.
+Wywołaj [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/), aby przejść o jeden poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca swój placeholder układu; placeholder układu może zwrócić swój placeholder master. Metoda zwraca `null`, gdy kształt nie ma bazowego placeholdera.
 
-Poniższy przykład wyświetla placeholdery na pierwszym slajdzie i podaje ich bazowe placeholdery:
-
+Poniższy przykład wypisuje placeholdery na pierwszym slajdzie i raportuje ich bazowe placeholdery:
 ```php
 use aspose\slides\Presentation;
 
@@ -97,12 +96,87 @@ try {
 
 Edycja placeholdera na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub mastera może wpłynąć na wszystkie slajdy, które nadal dziedziczą to ustawienie. Lokalny zwykły kształt nie ma bazowego placeholdera i nie zaczyna dziedziczyć jedynie dlatego, że zajmuje te same współrzędne.
 
-## **Zmienianie tekstu w placeholderze**
+## **Usuwanie statusu placeholdera**
 
-Placeholdery tytułu, wyśrodkowanego tytułu, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy jest to [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/gettextframe/).
+Podczas dostosowywania szablonu użyj [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/), aby zachować istniejący obiekt jako zwykły kształt. Jego metoda [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) zwraca `null`, ale kształt pozostaje w kolekcji slajdu. Natomiast [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) usuwa kształt z tej kolekcji.
+
+Poniższy przykład wymaga `template.pptx` z co najmniej jednym slajdem i niepustym placeholderem tekstowym na pierwszym slajdzie. Użyj placeholdera z formatowaniem dziedziczonym z jego układu lub mastera, aby zobaczyć efekt usunięcia tej relacji. Przykład sprawdza, że ten sam kształt pozostaje, wywołuje metodę ponownie na teraz zwykłym kształcie i zapisuje wynik.
+
+{{% alert color="warning" title="Warning" %}}
+Usunięcie statusu placeholdera nie zachowuje automatycznie odziedziczonych ustawień wyglądu. Poniższy przykład celowo pozostawia te ustawienia niezmienione, więc wynik może wyglądać inaczej. Kształt, którego pozycja i rozmiar są w pełni dziedziczone, może po wywołaniu mieć zerowe współrzędne i wymiary oraz stać się niewidzialny, mimo że pozostaje w kolekcji.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // Wywołanie tej metody na zwykłym kształcie nie ma efektu.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dla pasującego placeholdera wszystkie trzy sprawdzenia zwracają `true`. Tekst pozostaje, ale po usunięciu relacji placeholdera mogą ulec zmianie dziedziczone pozycja, rozmiar, rotacja, czcionka, wyrównanie akapitu, marginesy ramki tekstu, pionowe kotwiczenie, wypełnienie i ustawienia linii. Na przykład dziedziczone formatowanie tytułu może przejść do zwykłego formatowania tekstu. Zobacz [Układ slajdu](/slides/pl/php-java/slide-layout/) po więcej informacji o układach.
+
+Aby zachować zamierzony wygląd, przed wywołaniem przechwyć rozwiązaną pozycję, rozmiar i rotację oraz skopiuj wymagane wartości skutecznego formatowania do osobnych zmiennych. Pobierz te wartości za pomocą [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/), i [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/). Nie polegaj jedynie na obiektach formatowania skutecznego, ponieważ ich wartości formatowania tekstu mogą się zmienić po usunięciu relacji. Jawnie zastosuj przechwycone wartości do zwykłego kształtu później, w tym rodzinę czcionki, rozmiar, styl, kolor, ustawienia akapitu, ustawienia ramki tekstu, wypełnienie i linię używane w szablonie.
+
+Dziedziczona geometria kształtu może również wymagać jawnego ustawienia za pomocą [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType). Dla prostokątnego placeholdera tekstowego oznacza to przypisanie [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/); przywrócenie jedynie wypełnienia i linii może nie odtworzyć widocznego prostokąta. Szablony z dodatkowymi efektami lub bardziej złożonym formatowaniem wymagają również obsługi tych ustawień.
+
+## **Zmiana tekstu w placeholderze**
+
+Placeholdery tytułu, wyśrodkowanego tytułu, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy kształt jest [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/), zanim użyjesz jego metody [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/).
 
 Ten przykład aktualizuje pierwszy placeholder tytułu na pierwszym slajdzie i zapisuje wynik:
-
 ```php
 use aspose\slides\PlaceholderType;
 use aspose\slides\Presentation;
@@ -147,14 +221,13 @@ try {
 }
 ```
 
-Ten wzorzec unika traktowania placeholderów obrazu, wykresu, tabeli lub mediów jako obiektów [AutoShape]. Identyfikuje również placeholder po przeznaczeniu, zamiast polegać na kruchym indeksie kształtu.
+Ten wzorzec unika traktowania placeholderów obrazu, wykresu, tabeli lub mediów jako obiektów [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/). Identyfikuje także placeholder według przeznaczenia, zamiast polegać na kruchym indeksie kształtu.
 
-## **Ustawianie tekstu podpowiedzi na układzie**
+## **Ustaw tekst podpowiedzi na układzie**
 
-Tekst podpowiedzi to instrukcja wyświetlana w trybie projektowania w pustym placeholderze, np. *Kliknij, aby dodać tytuł*. Ustaw własny tekst podpowiedzi na placeholderze układu, zamiast próbować go uzyskać przez kolekcję kształtów zwykłego slajdu. Uzyskaj układ poprzez [Slide::getLayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/#getLayoutSlide) i iteruj po kolekcji zwróconej przez [BaseSlide::getShapes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseslide/#getShapes).
+Tekst podpowiedzi to instrukcja wyświetlana w czasie projektowania w pustym placeholderze, np. *Kliknij, aby dodać tytuł*. Ustaw własny tekst podpowiedzi na placeholderze układu zamiast próbować uzyskać go przez kolekcję kształtów zwykłego slajdu. Uzyskaj dostęp do układu przez [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getLayoutSlide), i iteruj po kolekcji zwróconej przez [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes).
 
 Poniższy przykład zmienia podpowiedzi tytułu i podtytułu w układzie używanym przez pierwszy slajd:
-
 ```php
 use aspose\slides\PlaceholderType;
 use aspose\slides\Presentation;
@@ -195,17 +268,16 @@ try {
 }
 ```
 
-Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edytujących, takich jak PowerPoint. Gdy użytkownik lub program dostarczy prawdziwą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach korzystających z tego układu.
+Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edytujących, takich jak PowerPoint. Gdy użytkownik lub program dostarczy rzeczywistą zawartość, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje również istniejącego tekstu na slajdach korzystających z tego układu.
 
 ## **Aktualizacja placeholdera obrazu**
 
-Są dwa przypadki do obsłużenia:
+Istnieją dwa przypadki do obsłużenia:
 
-- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/), zamień obraz przy użyciu [PictureFillFormat::getPicture](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/getpicture/) oraz [SlidesPicture::setImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidespicture/setimage/).
-- Jeśli jest to nadal pusty placeholder, dodaj ramkę obrazu w współrzędnych placeholdera za pomocą [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addpictureframe/) i usuń pusty placeholder.
+- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/), zastąp obraz za pomocą [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) i [Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage).
+- Jeśli jest nadal pustym placeholderem, dodaj ramkę obrazu w współrzędnych placeholdera przy użyciu [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) i usuń pusty placeholder.
 
-Następny przykład obsługuje oba przypadki i zapisuje prezentację:
-
+Kolejny przykład obsługuje oba przypadki i zapisuje prezentację:
 ```php
 use aspose\slides\PlaceholderType;
 use aspose\slides\Presentation;
@@ -261,14 +333,13 @@ try {
 }
 ```
 
-Zastępstwo utworzone dla pustego placeholdera jest lokalną ramką obrazu, nie nowym placeholderem, ponieważ [Shape::getPlaceholder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getplaceholder/) nie udostępnia setteru. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli zachowanie relacji placeholdera jest kluczowe, przygotuj i wypełnij placeholder w PowerPoint najpierw, a następnie zaktualizuj powstały [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
+Zastępstwo utworzone dla pustego placeholdera jest lokalną ramką obrazu, a nie nowym placeholderem, ponieważ [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) nie udostępnia metody ustawiającej. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli utrzymanie relacji placeholdera jest kluczowe, najpierw przygotuj i wypełnij placeholder w PowerPoint, a następnie zaktualizuj powstały [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) przy użyciu Aspose.Slides.
 
-W kwestii przeźroczystości obrazu, kadrowania i innych efektów specyficznych dla obrazu, zobacz [Manage Picture Frames](/slides/pl/php-java/picture-frame/). Te operacje należą do ramki obrazu lub wypełnienia obrazu, a nie do metadanych placeholdera.
+Aby uzyskać przezroczystość obrazu, przycinanie i inne efekty specyficzne dla obrazu, zobacz [Zarządzanie ramkami obrazu](/slides/pl/php-java/picture-frame/). Te operacje dotyczą ramki obrazu lub wypełnienia obrazu, a nie metadanych placeholdera.
 
 ## **Praca z placeholderami wykresów i treści**
 
-Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i klasie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
-
+Wypełniony placeholder wykresu może być reprezentowany przez [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i klasie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
 ```php
 use aspose\slides\PlaceholderType;
 use aspose\slides\Presentation;
@@ -314,10 +385,9 @@ try {
 }
 ```
 
-Ogólny placeholder treści zazwyczaj ma [PlaceholderType::Object](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/). W PowerPoint działa jako uruchamiacz dla kilku typów treści, w tym wykresów, tabel, diagramów, obrazów i mediów. Po wypełnieniu, sprawdź rzeczywistą klasę kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą także udostępniać [PlaceholderType::Chart](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/), lub [PlaceholderType::Diagram](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholdertype/).
+Ogólny placeholder treści zazwyczaj ma typ [PlaceholderType::Object](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/). W PowerPoint działa jako uruchamiacz dla kilku typów zawartości, w tym wykresów, tabel, diagramów, obrazów i mediów. Po jego wypełnieniu sprawdź rzeczywistą klasę kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą również udostępniać [PlaceholderType::Chart](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), lub [PlaceholderType::Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/).
 
-Aspose.Slides nie konwertuje pustego placeholdera [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) na [Chart] jedynie poprzez zmianę [Placeholder::getType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/placeholder/gettype/); typu nie można zmienić przez klasę. Aby programowo wypełnić pusty obszar wykresu lub treści, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
-
+Aspose.Slides nie konwertuje pustego placeholdera [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) na [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) jedynie poprzez zmianę [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/). Typ nie może być zmieniony przez klasę. Aby programowo wypełnić pusty obszar wykresu lub treści, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
 ```php
 use aspose\slides\ChartType;
 use aspose\slides\PlaceholderType;
@@ -365,12 +435,11 @@ try {
 }
 ```
 
-Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Skorzystaj z dedykowanych [chart management articles](/slides/pl/php-java/powerpoint-charts/), gdy potrzebujesz zastąpić jego kategorie, serie lub dane skoroszytu.
+Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Skorzystaj z dedykowanych [artykuły zarządzania wykresami](/slides/pl/php-java/powerpoint-charts/) po potrzebie zamiany jego kategorii, serii lub danych skoroszytu.
 
 ## **Pełny przykład: aktualizacja tekstu lub obrazu**
 
-Poniższy przykład end‑to‑end otwiera szablon, przeszukuje pierwszy slajd pod kątem placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika przyjmowania indeksu kształtu lub traktowania każdego placeholdera jako tej samej klasy.
-
+Poniższy przykładowy projekt od początku do końca otwiera szablon, przeszukuje pierwszy slajd pod kątem placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią zawartość i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub traktowania każdego placeholdera jako tej samej klasy.
 ```php
 use aspose\slides\PlaceholderType;
 use aspose\slides\Presentation;
@@ -436,14 +505,14 @@ try {
 
 ## **FAQ**
 
-**Czym jest bazowy placeholder?**
+**Co to jest bazowy placeholder?**
 
-Bazowy placeholder to odpowiadający mu kształt na układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [Shape::getBasePlaceholder](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/getbaseplaceholder/), aby go pobrać. Zwykły lokalny kształt zwraca `null`, ponieważ nie jest częścią hierarchii placeholderów.
+Bazowy placeholder to odpowiadający mu kształt na układzie lub masterze, z którego inny placeholder dziedziczy. Użyj [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/), aby go pobrać. Zwykły lokalny kształt zwraca `null`, ponieważ nie jest częścią hierarchii placeholderów.
 
-**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder w układzie?**
+**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder układu?**
 
-Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na normalnych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i zaktualizuj każdy placeholder tytułu.
+Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na zwykłych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i zaktualizuj każdy placeholder tytułu.
 
 **Jak zarządzać placeholderami daty, numeru slajdu, nagłówka i stopki?**
 
-Użyj menedżerów nagłówka i stopki w odpowiednim zakresie: slajd, układ, master, notatki lub materiały rozdawnicze. Zobacz [Manage Presentation Header and Footer](/slides/pl/php-java/presentation-header-and-footer/) po pełne przykłady.
+Użyj menedżerów nagłówka i stopki na odpowiednim poziomie: slajd, układ, master, notatki lub materiały rozdawnicze. Zobacz [Zarządzanie nagłówkiem i stopką prezentacji](/slides/pl/php-java/presentation-header-and-footer/) po pełne przykłady.

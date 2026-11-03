@@ -1,5 +1,5 @@
 ---
-title: Управление заполнителями презентаций в Python
+title: Управление заполнителями презентации в Python
 linktitle: Управление заполнителями
 type: docs
 weight: 10
@@ -7,42 +7,42 @@ url: /ru/python-net/manage-placeholder/
 keywords:
 - заполнитель
 - текстовый заполнитель
-- графический заполнитель
+- заполнитель изображения
 - заполнитель диаграммы
-- контентный заполнитель
-- подсказочный текст
+- заполнитель содержимого
+- текст подсказки
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и контентные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Python через .NET."
+description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и содержательные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Python через .NET."
 ---
 ## **Обзор**
 
-Заполнитель — это форма, резервирующая место для определённого типа содержимого в шаблоне презентации. Типичные примеры — заполнители заголовка, основного текста, изображения, диаграммы и заполнитель общего назначения. В отличие от обычной формы, заполнитель может наследовать своё положение, размер, форматирование и другие параметры от слайда‑раскладки или слайда‑шаблона.
+Заполнитель — это объект, который резервирует место для определённого типа содержимого в шаблоне презентации. Общие примеры: заголовок, основной текст, изображение, диаграмма и универсальный заполнитель содержимого. В отличие от обычного объекта, заполнитель может наследовать своё положение, размеры, форматирование и другие параметры от слайда‑макета или слайда‑шаблона.
 
-Aspose.Slides предоставляет информацию о заполнителе через свойство [Shape.placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/placeholder/). Это свойство возвращает объект [Placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholder/) или `None` для обычной формы. Используйте [Placeholder.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholder/type/) для определения того, что предполагается помещать в заполнитель.
+Aspose.Slides предоставляет информацию о заполнителе через свойство [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). Свойство возвращает объект [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) или `None` для обычного объекта. Используйте [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) — чтобы определить, какой тип содержимого ожидается в заполнителе.
 
-Класс формы всё равно важен после определения типа заполнителя:
+Класс объекта всё равно имеет значение после того, как вы узнали тип заполнителя:
 
-- Пустой текстовый, графический, диаграммный или контентный заполнитель обычно представлен объектом [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/).
-- Заполненный графический заполнитель может быть представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pictureframe/).
-- Заполненный диаграммный заполнитель может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chart/).
-- Контентный заполнитель может содержать несколько видов содержимого. Проверяйте как [Placeholder.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholder/type/), так и класс формы во время выполнения, а не делайте предположение, что каждый заполнитель — это [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/).
+- Пустой текстовый, изображений, диаграмм или общий заполнитель обычно представлен объектом [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Заполненный заполнитель изображения может быть представлен объектом [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Заполнитель содержимого может содержать несколько видов контента. Проверяйте как [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/), так и класс объекта во время выполнения, а не предполагаете, что каждый заполнитель — это [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholder/type/) описывает роль заполнителя; он не гарантирует класс формы во время выполнения. Всегда проверяйте тип перед обращением к членам, специфичным для текста, изображения, диаграммы, таблицы или мультимедиа.
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) описывает роль заполнителя; он не гарантирует класс объекта во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
 {{% /alert %}}
 
 ## **Понимание наследования заполнителей**
 
 Заполнители образуют иерархию:
 
-1. Слайд‑шаблон определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня шаблона.
-2. Слайд‑раскладка определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать параметры от шаблона.
-3. Обычный слайд содержит заполнители для данного слайда и может наследовать их от своей раскладки.
+1. Слайд‑шаблон определяет переиспользуемые стили и, в некоторых случаях, заполняющие объекты уровня шаблона.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследоваться от шаблона.
+3. Обычный слайд содержит заполнители для этого слайда и может наследоваться от своего макета.
 
-Вызовите [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) для перехода на один уровень выше по этой иерархии. Заполнитель обычного слайда обычно возвращает свой заполнитель‑раскладку; заполнитель раскладки может вернуть заполнитель‑шаблон. Метод возвращает `None`, когда у формы нет базового заполнителя.
+Вызовите [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) — чтобы перейти на один уровень выше в этой иерархии. Заполнитель обычного слайда обычно возвращает заполнитель своего макета; заполнитель макета может вернуть заполнитель шаблона. Метод возвращает `None`, когда у объекта нет базового заполнителя.
 
 В следующем примере перечисляются заполнители первого слайда и выводятся их базовые заполнители:
 
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или меняет локальное переопределение для этого слайда. Изменение соответствующей раскладки или шаблона может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычная локальная форма не имеет базового заполнителя и не начинает наследовать его только потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование связанного макета или шаблона может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычный локальный объект не имеет базового заполнителя и не начинает наследовать лишь потому, что занимает те же координаты.
 
-## **Изменение текста в заполнитель**
+## **Удаление статуса заполнителя**
 
-Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и текста обычно поддерживают текст. Перед использованием свойства [text_frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/text_frame/) проверяйте, что форма — это [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/).
+При адаптации шаблона используйте [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) — чтобы оставить существующий объект как обычный объект. Его свойство [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) становится `None`, но объект остаётся в коллекции слайда. В отличие от этого, [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) удаляет объект из этой коллекции.
 
-В этом примере обновляется первый заполнитель заголовка на первом слайде и сохраняется результат:
+В следующем примере требуется файл `template.pptx` с минимум одним слайдом и непустым текстовым заполнителем на первом слайде. Используйте заполнитель с форматированием, унаследованным от его макета или шаблона, чтобы увидеть эффект удаления этой связи. Пример проверяет, что тот же объект остаётся, снова вызывает метод для теперь уже обычного объекта и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Удаление статуса заполнителя не сохраняет автоматически унаследованные параметры внешнего вида. Ниже приведённый пример намеренно оставляет эти параметры без изменений, поэтому итоговый файл может выглядеть иначе. Объект, позиция и размеры которого полностью унаследованы, может после вызова иметь нулевые координаты и размеры и стать невидимым, хотя останется в коллекции.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Вызов метода для обычного объекта не оказывает эффекта.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Для соответствующего заполнителя все три проверки выводят `True`. Текст остаётся, но унаследованные позиция, размер, поворот, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальное привязывание, параметры заливки и линии могут измениться после удаления связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. Смотрите раздел [Slide Layout](/slides/ru/python-net/slide-layout/) для более подробной информации о макетах.
+
+Чтобы сохранить требуемый вид, зафиксируйте разрешённые позицию, размер и поворот до вызова и скопируйте необходимые эффективные значения форматирования в отдельные переменные. Получить эти значения можно через [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), и [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Не полагайтесь лишь на объекты эффективного форматирования, потому что их значения текстового форматирования могут измениться после удаления связи. Явно примените зафиксированные значения к обычному объекту позже, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованная геометрия объекта также может потребовать явного указания через [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Для прямоугольного текстового заполнителя это означает назначить [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); восстановление только заливки и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют аналогичной обработки этих параметров.
+
+## **Изменение текста в заполнителе**
+
+Заголовок, центрированный заголовок, подзаголовок, основной текст и текстовые заполнители обычно поддерживают текст. Проверьте, является ли объект [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/), прежде чем использовать его свойство [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
+
+Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Такой подход позволяет избежать обработки графических, диаграммных, табличных или мультимедийных заполнителей как объектов [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс формы.
+Такой подход исключает обработку заполнителей изображений, диаграмм, таблиц или медиа как объектов [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс объекта.
 
-## **Установка подсказочного текста в раскладке**
+## **Установка подсказки текста на макете**
 
-Подсказочный текст — это инструкция, отображаемая в пустом заполнителе во время разработки, например *Нажмите, чтобы добавить заголовок*. Устанавливайте собственный подсказочный текст в заполнитель раскладки, а не пытаясь достучаться до него через коллекцию форм обычного слайда. Доступ к раскладке осуществляется через [Slide.layout_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/layout_slide/) и перебор [LayoutSlide.shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides/baseslide/shapes/).
+Подсказка текста — это инструкция, отображаемая в пустом заполнителе во время разработки, например *Click to add title*. Устанавливайте пользовательскую подсказку на заполнителе макета, а не пытаясь достать её через обычную коллекцию объектов слайда. Доступ к макету получайте через [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) и перебирайте [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-В следующем примере изменяются подсказки заголовка и подзаголовка в раскладке, используемой первым слайдом:
+Следующий пример изменяет подсказки заголовка и подзаголовка на макете, используемом первым слайдом:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Подсказочный текст — это не обычное содержимое слайда. Он предназначен для пустых заполнителей в приложениях редактирования, таких как PowerPoint. Как только пользователь или программа задаёт реальное содержимое, подсказка больше не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих эту раскладку.
+Подсказка текста — это не обычное содержимое слайда. Она предназначена для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
-## **Обновление графического заполнителя**
+## **Обновление заполнителя изображения**
 
-Существует два случая:
+Существует два варианта обработки:
 
-- Если графический заполнитель уже заполнен и представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pictureframe/), замените изображение через [PictureFillFormat.picture](https://reference.aspose.com/slides/ru/python-net/aspose.slides/picturefillformat/picture/) и [Picture.image](https://reference.aspose.com/slides/ru/python-net/aspose.slides/picture/image/).
-- Если это всё ещё пустой заполнитель, добавьте графический фрейм в координаты заполнителя с помощью [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shapecollection/add_picture_frame/) и удалите пустой заполнитель.
+- Если заполнитель изображения уже заполнен и представлен объектом [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), замените изображение через [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) и [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Если это всё ещё пустой заполнитель, добавьте кадр изображения в координаты заполнителя с помощью [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Созданная для пустого заполнителя замена — это локальный графический фрейм, а не новый заполнитель, потому что свойство [Shape.placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/placeholder/) только для чтения. Он сохраняет зарезервированное положение, но больше не наследует поведение, специфичное для заполнителя. Если сохранение отношения заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, а затем обновите полученный [PictureFrame](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pictureframe/) с помощью Aspose.Slides.
+Замена, созданная для пустого заполнителя, представляет собой локальный кадр изображения, а не новый заполнитель, поскольку [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) только для чтения. Он сохраняет зарезервированное положение, но больше не наследует поведение, специфичное для заполнителя. Если сохранение связи заполнителя критично, сначала подготовьте и заполните заполнитель в PowerPoint, а затем обновите полученный [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) с помощью Aspose.Slides.
 
-Для управления прозрачностью изображения, кадрированием и другими эффектами, специфичными для графики, см. статью [Manage Picture Frames](/slides/ru/python-net/picture-frame/). Эти операции относятся к графическому фрейму или заливке, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для изображений, смотрите раздел [Manage Picture Frames](/slides/ru/python-net/picture-frame/). Эти операции относятся к кадру изображения или заливке изображения, а не к метаданным заполнителя.
 
-## **Работа с диаграммными и контентными заполнителями**
+## **Работа с заполнителями диаграмм и содержимого**
 
-Заполненный диаграммный заполнитель может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chart/). В этом примере найден такой график по типу заполнителя и классу во время выполнения, изменён его заголовок и сохранён файл:
+Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). В этом примере диаграмма находится одновременно по типу заполнителя и по классу во время выполнения, её заголовок меняется, а файл сохраняется:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Обычно контентный заполнитель имеет тип [PlaceholderType.OBJECT](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/). В PowerPoint он выступает как «лаунчер» для нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и мультимедиа. После заполнения проверьте фактический класс формы, чтобы узнать, что именно она содержит. Специальные раскладки могут также раскрывать типы [PlaceholderType.CHART](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/), или [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholdertype/).
+Общий заполнитель содержимого обычно имеет тип [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). В PowerPoint он служит запускателем для нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте фактический класс объекта, чтобы узнать, что в нём находится. Специфические макеты могут также использовать [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), или [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides не преобразует пустой заполнитель [AutoShape](https://reference.aspose.com/slides/ru/python-net/aspose.slides/autoshape/) в [Chart](https://reference.aspose.com/slides/ru/python-net/aspose.slides.charts/chart/) просто изменением [Placeholder.type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/placeholder/type/); тип только для чтения. Чтобы программно заполнить пустую диаграмму или область контента, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
+Aspose.Slides не преобразует пустой заполнитель [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) в [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) простой сменой [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); тип только для чтения. Чтобы программно заполнить пустую область диаграммы или содержимого, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от заполнителя раскладки. Используйте отдельные статьи по управлению диаграммами [chart management articles](/slides/ru/python-net/powerpoint-charts/), когда нужно заменить категории, серии или данные книги.
+Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует параметры от макета. Используйте специализированные статьи по управлению диаграммами ([chart management articles](/slides/ru/python-net/powerpoint-charts/)), когда требуется заменить категории, серии или данные из рабочей книги.
 
 ## **Полный пример: обновление текста или изображения**
 
-В следующем сквозном примере открывается шаблон, ищется первый слайд для заполняющего заголовка или графики, проверяются типы заполнителя и формы, обновляется соответствующее содержимое и сохраняется результат. Пример сознательно избегает предположений о индексе формы и о том, что каждый заполнитель — это один и тот же класс формы.
+Следующий сквозной пример открывает шаблон, ищет на первом слайде либо заполнитель заголовка, либо заполнитель изображения, проверяет типы заполнителя и объекта, обновляет соответствующее содержимое и сохраняет результат. Пример намеренно избегает предположений о индексе объекта и не рассматривает каждый заполнитель как объект одного и того же класса.
 
 ```python
 import aspose.slides as slides
@@ -278,12 +326,12 @@ with slides.Presentation("template.pptx") as presentation:
 
 **Что такое базовый заполнитель?**
 
-Базовый заполнитель — это соответствующая форма в раскладке или шаблоне, от которой наследуется другой заполнитель. Используйте [Shape.get_base_placeholder](https://reference.aspose.com/slides/ru/python-net/aspose.slides/shape/get_base_placeholder/) для получения его. Обычная локальная форма возвращает `None`, потому что она не входит в иерархию заполнителей.
+Базовый заполнитель — это соответствующий объект на макете или шаблоне, от которого другой заполнитель наследует параметры. Используйте [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) — чтобы получить его. Обычный локальный объект возвращает `None`, потому что не входит в иерархию заполнителей.
 
-**Можно ли изменить все заголовки слайдов, отредактировав заполнитель в раскладке?**
+**Могу ли я изменить все заголовки слайдов, отредактировав заполнитель макета?**
 
-Можно изменить наследуемое форматирование или подсказочный текст через раскладку, но фактическое содержимое заголовков хранится в обычных слайдах. Чтобы заменить реальный текст заголовка во всей презентации, переберите слайды и обновите каждый заполнитель заголовка.
+Через макет можно изменить унаследованное форматирование или текст подсказки, но существующее содержимое заголовков хранится на обычных слайдах. Чтобы заменить реальный текст заголовков по всей презентации, пройдите по всем слайдам и обновите каждый заполнитель заголовка.
 
-**Как управлять заполнителями даты, номера слайда, верхнего и нижнего колонтитулов?**
+**Как управлять заполнителями даты, номера слайда, колонтитула и нижнего колонтитула?**
 
-Используйте менеджеры верхних и нижних колонтитулов в соответствующем слайде, раскладке, шаблоне, заметках или раздаче. См. статью [Manage Presentation Header and Footer](/slides/ru/python-net/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры колонтитулов и нижних колонтитулов на уровне соответствующего слайда, макета, шаблона, заметок или раздаточного листа. См. раздел [Manage Presentation Header and Footer](/slides/ru/python-net/presentation-header-and-footer/) для полных примеров.

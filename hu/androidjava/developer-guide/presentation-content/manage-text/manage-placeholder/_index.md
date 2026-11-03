@@ -1,52 +1,51 @@
 ---
-title: Prezentáció placeholder-ek kezelése Androidon
-linktitle: Placeholder-ek kezelése
+title: Prezentáció helyőrzők kezelése Androidon
+linktitle: Helyőrzők kezelése
 type: docs
 weight: 10
 url: /hu/androidjava/manage-placeholder/
 keywords:
-- helykitöltő
-- szöveghelykitöltő
-- képhelykitöltő
-- diagramhelykitöltő
-- tartalomhelykitöltő
-- utasító szöveg
+- helyőrző
+- szöveghelyőrző
+- képhelyőrző
+- diagramhelyőrző
+- tartalomhelyőrző
+- prompt szöveg
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan ellenőrizheti és szerkesztheti a szöveg, kép, diagram és tartalom helykitöltőket, valamint hogyan értheti meg a placeholder öröklődést az Aspose.Slides for Android Java segítségével."
+description: "Ismerje meg, hogyan vizsgálja és szerkessze a szöveg-, kép-, diagram- és tartalomhelyőrzőket, valamint értsen meg a helyőrző öröklődést az Aspose.Slides for Android Java segítségével."
 ---
 ## **Áttekintés**
 
-A placeholder egy alakzat, amely helyet foglal egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános célú tartalomplaceholder-ek. A szokásos alakzattal ellentétben a placeholder örökölheti a pozícióját, méretét, formázását és egyéb beállításait egy elrendezés vagy mesterdia alapján.
+Az helyőrző egy alakzat, amely helyet tart fennt egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, törzs, kép, diagram és általános célú tartalomhelyőrzők. Egy szokásos alakzattól eltérően a helyőrző örökölheti pozícióját, méretét, formázását és egyéb beállításait egy elrendezési diáról vagy mesterdiáról.
 
-Az Aspose.Slides a placeholder információkat a [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) objektumot vagy `null`-t ad vissza egy normál alakzat esetén. Használd a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) metódust annak meghatározására, hogy a placeholder milyen tartalmat kell tartalmazzon.
+Az Aspose.Slides a helyőrző információkat a [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) metóduson keresztül teszi elérhetővé. A metódus egy [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) objektumot ad vissza, vagy `null`-t egy normál alakzat esetén. Használja a [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) metódust annak meghatározásához, hogy milyen tartalomra szánták a helyőrzőt.
 
-Az alakzat interfész még mindig fontos, miután ismered a placeholder típusát:
+Az alakzati interfész továbbra is fontos, miután ismeri a helyőrző típusát:
 
-- Egy üres szöveg, kép, diagram vagy tartalom placeholder általában egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) által van reprezentálva.
-- Egy feltöltött képpel rendelkező placeholder reprezentálható egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/).
-- Egy feltöltött diagram placeholder reprezentálható egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/).
-- Egy tartalom placeholder többféle tartalmat is tartalmazhat. Ellenőrizd mind a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) mind a futási időben lévő alakzat interfészt, ahelyett, hogy azt feltételeznéd, hogy minden placeholder egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/).
+- Egy üres szöveg, kép, diagram vagy tartalomhelyőrző általában egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) által van ábrázolva.
+- Egy kitöltött képhelyőrző egy [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) által ábrázolható.
+- Egy kitöltött diagramhelyőrző egy [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) által ábrázolható.
+- Egy tartalomhelyőrző többféle tartalmat is tartalmazhat. Ellenőrizze mind az [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) , mind a futásidejű alakzati interfészt, ahelyett, hogy feltételezné, hogy minden helyőrző egy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) .
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) leírja a placeholder szerepét; nem garantálja az alakzat futási időbeli típusát. Mindig végezz típusellenőrzést, mielőtt szöveghez, képhez, diagramhoz, táblához vagy média‑specifikus tagokhoz férnél hozzá.
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) leírja a helyőrző szerepét; nem garantálja az alakzat futásidejű típusát. Mindig végezzen típusellenőrzést, mielőtt szöveggel, képpel, diagrammal, táblával vagy médiára vonatkozó tagokhoz férne hozzá.
 {{% /alert %}}
 
-## **A placeholder öröklődés megértése**
+## **A helyőrző öröklődés megértése**
 
-A placeholder-ek hierarchiát alkotnak:
+A helyőrzők hierarchiát alkotnak:
 
-1. A mesterdia meghatározza az újrahasználható stílusokat, és bizonyos esetekben a mester szintű placeholder-eket.
-2. Az elrendezésdia meghatározza az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
-3. A normál dia tartalmazza az adott dia placeholder-eit, és örökölhet az elrendezéséből.
+1. A mesterdia meghatározza az újra felhasználható stílusokat, és bizonyos esetekben a mester szintű helyőrzőket.
+2. Az elrendezési dia meghatározza az elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
+3. Egy normál dia tartalmazza az adott dia helyőrzőit, és örökölhet az elrendezéséből.
 
-Hívd meg az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metódust, hogy egy szinttel feljebb lépj ebben a hierarchiában. Egy dia placeholder általában visszaadja az elrendezés placeholder‑ét; egy elrendezés placeholder visszaadhatja a mester placeholder‑ét. A metódus `null`‑t ad vissza, ha az alakzatnak nincs alapplaceholder‑je.
+Hívja meg a [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) metódust, hogy egy szinttel feljebb lépjen ebben a hierarchiában. Egy diahelyőrző általában visszaadja az elrendezési helyőrzőjét; egy elrendezési helyőrző visszaadhatja a mesterhelyőrzőjét. A metódus `null`-t ad vissza, ha az alakzatnak nincs alaphelyőrzője.
 
-A következő példában felsorolja az első dián lévő placeholder-eket, és jelentést készít azok alapplaceholder‑eiről:
-
+A következő példa felsorolja az első dián lévő helyőrzőket és jelentést készít azok alaphelyőrzőiről:
 ```java
 import com.aspose.slides.*;
 
@@ -86,14 +85,75 @@ try {
 }
 ```
 
-Egy placeholder szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít azon a dián. A kapcsolódó elrendezés vagy mester szerkesztése minden olyan diát befolyásolhat, amely még örökli ezt a beállítást. Egy helyi szokásos alakzatnak nincs alapplaceholder‑je, és nem kezd öröklődni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+Egy helyőrző szerkesztése egy normál dián helyi felülírást hoz létre vagy módosít az adott dián. A kapcsolódó elrendezés vagy mester szerkesztése hatással lehet minden olyan diára, amely még örökli ezt a beállítást. Egy helyi szokásos alakzatnak nincs alaphelyőrzője, és nem kezd öröklődni csak azért, mert ugyanazokat a koordinátákat foglalja el.
 
-## **Szöveg módosítása placeholder-ben**
+## **Helyőrző állapotának eltávolítása**
 
-A cím, középre igazított cím, alcím, törzs és szöveg placeholder-ek általában támogatják a szöveget. Ellenőrizd, hogy az alakzat [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/), mielőtt a [getTextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) metódusát használnád.
+Sablon módosításakor használja a [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) metódust, hogy egy meglévő objektumot szokásos alakzatként tartson meg. Az [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) metódusa `null`-t ad vissza, de az alakzat a dia gyűjteményében marad. Ezzel szemben a [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) törli az alakzatot a gyűjteményből.
 
-Ez a példa frissíti az első cím placeholder‑t az első dián, és elmenti az eredményt:
+A következő példához szükség van egy `template.pptx` fájlra, amely legalább egy diával és egy nem üres szöveghelyőrzővel rendelkezik az első dián. Használjon egy olyan helyőrzőt, amelynek formázása az elrendezésből vagy a mestertől öröklődik, hogy lássa a kapcsolat eltávolításának hatását. A példa ellenőrzi, hogy ugyanaz az alakzat megmarad, újra meghívja a metódust a most már szokásos alakzaton, és elmenti az eredményt.
 
+{{% alert color="warning" title="Warning" %}}
+A helyőrző állapotának eltávolítása nem őrzi meg automatikusan az örökölt megjelenési beállításokat. Az alábbi példa szándékosan változatlanul hagyja ezeket a beállításokat, ezért a kimenet másként nézhet ki. Egy olyan alakzat, amelynek pozíciója és mérete teljesen öröklődik, a hívás után nulla koordinátákkal és méretekkel rendelkezhet, és láthatatlanná válhat, még ha a gyűjteményben marad is.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // A metódus hívása egy szokásos alakzatra nincs hatással.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Egy egyező helyőrző esetén mindhárom ellenőrzés `true` értéket ad. A szöveg megmarad, de az örökölt pozíció, méret, forgatás, betűtípus, bekezdésigazítás, szövegkeret margók, vertikális rögzítés, kitöltés és vonal beállítások megváltozhatnak, amikor a helyőrző kapcsolatot eltávolítják. Például az örökölt címsor formázása visszatérhet a szokásos szövegformázáshoz. További információért az elrendezésekről lásd a [Slide Layout](/slides/hu/androidjava/slide-layout/) oldalt.
+
+Az eredeti megjelenés megőrzéséhez rögzítse a feloldott pozíciót, méretet és forgatást a hívás előtt, és másolja a szükséges tényleges formázási értékeket külön változókba. Szerezze be ezeket az értékeket a [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), és [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) metódusokon keresztül. Ne támaszkodjon kizárólag a tényleges formátum objektumok megtartására, mivel a szövegformázási értékeik megváltozhatnak a kapcsolat eltávolítása után. Alkalmazza kifeexplicit módon a rögzített értékeket a szokásos alakzatra később, beleértve a betűcsaládot, méretet, stílust, színt, bekezdésbeállításokat, szövegkeret beállításokat, kitöltést és vonalat, amelyet a sablonja használ.
+
+Az örökölt alakzatgeometria is explicit módon hozzárendelhető a [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-) metóduson keresztül. Egy téglalap alakú szöveghelyőrző esetén ez azt jelenti, hogy a [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle) értéket kell beállítani; csak a kitöltés és a vonal visszaállítása nem biztos, hogy helyreállítja a látható téglalapot. A további hatásokat vagy összetettebb formázást tartalmazó sablonok esetén ezeket a beállításokat is kezelni kell.
+
+## **Szöveg módosítása egy helyőrzőben**
+
+A cím, középre igazított cím, al-cím, törzs és szöveghelyőrzők általában támogatják a szöveget. Ellenőrizze, hogy [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) van-e jelen, mielőtt a [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) metódusát használja.
+
+Ez a példa frissíti az első címhelyőrzőt az első dián, és elmenti az eredményt:
 ```java
 import com.aspose.slides.*;
 
@@ -131,14 +191,13 @@ try {
 }
 ```
 
-Ez a minta elkerüli a kép, diagram, tábla vagy média placeholder-ek [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/)-re való átkonvertálását. Emellett a placeholder‑t a célja szerint azonosítja, ahelyett, hogy egy törékeny alakzat indexre hagyatkozna.
+Ez a minta elkerüli a kép, diagram, táblázat vagy média helyőrzők [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) típusra való átkonvertálását. Emellett a helyőrzőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzatindexre támaszkodna.
 
-## **Prompt szöveg beállítása elrendezésben**
+## **Prompt szöveg beállítása egy elrendezésen**
 
-A prompt szöveg egy tervezési időbeli utasítás, amely egy üres placeholder‑ben jelenik meg, például *Kattintson a cím hozzáadásához*. Egyedi prompt szöveget állíts be az elrendezés placeholder‑én, ahelyett, hogy a normál dia alakzatgyűjteményén keresztül próbálnád elérni. Az elrendezéshez férj hozzá az [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) metódussal, és iterálj a [ILayoutSlide.getShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseslide/) által visszaadott gyűjteményen.
+A prompt szöveg a tervezési időben megjelenő utasítás egy üres helyőrzőben, például *Kattintson a cím hozzáadásához*. Állítson be egyéni prompt szöveget az elrendezés helyőrzőjén, ahelyett, hogy a normál dia alakzategyűjteményén keresztül próbálna elérni. Az elrendezést a [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) metódussal érheti el, és iteráljon a [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/) által visszaadott gyűjteményen.
 
-A következő példa megváltoztatja a cím és az alcím prompt szövegeit az első dián használt elrendezésen:
-
+A következő példa megváltoztatja a cím és al-cím promptjait az első dián használt elrendezésen:
 ```java
 import com.aspose.slides.*;
 
@@ -172,17 +231,16 @@ try {
 }
 ```
 
-A prompt szöveg nem normál dia tartalom. Üres placeholder-ekben szerkesztőalkalmazások, például a PowerPoint számára szolgál utasításként. Amint a felhasználó vagy program valódi tartalmat ad meg, a prompt már nem jelenik meg. A prompt módosítása nem ír felül meglévő szöveget azokat a diákon, amelyek az elrendezést használják.
+A prompt szöveg nem normál dia tartalom. Üres helyőrzők számára van szánva szerkesztő alkalmazásokban, mint a PowerPoint. Amint egy felhasználó vagy program valós tartalmat ad meg, a prompt már nem jelenik meg. A prompt megváltoztatása nem helyettesíti a már létező szöveget az elrendezést használó diákon.
 
-## **Kép placeholder frissítése**
+## **Képhelyőrző frissítése**
 
 Két esetet kell kezelni:
 
-- Ha a kép placeholder már fel van töltve és egy [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) reprezentálja, cseréld le a képet a [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) és az [ISlidesPicture.setImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidespicture/) metódusokkal.
-- Ha még üres placeholder‑ről van szó, adj hozzá egy képkeretet a placeholder koordinátáihoz a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) segítségével, majd távolítsd el az üres placeholder‑t.
+- Ha a képhelyőrző már ki van töltve és egy [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) által van ábrázolva, cserélje ki a képet a [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) és a [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/) segítségével.
+- Ha még mindig egy üres helyőrző, adjon hozzá egy képkeretet a helyőrző koordinátáiban a [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) segítségével, és távolítsa el az üres helyőrzőt.
 
-A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
-
+A következő példa támogatja mindkét esetet, és elmenti a prezentációt:
 ```java
 import com.aspose.slides.*;
 import java.io.FileInputStream;
@@ -223,14 +281,13 @@ try {
 }
 ```
 
-Az üres placeholder számára létrehozott helyettesítés egy helyi képkeret, nem új placeholder, mivel az [IShape.getPlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) nem biztosít beállítót. Megtartja a lefoglalt pozíciót, de már nem örököl placeholder‑specifikus viselkedést. Ha a placeholder‑kapcsolat megtartása lényeges, előbb készítsd el és töltsd fel a placeholder‑t PowerPointban, majd frissítsd a kapott [IPictureFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipictureframe/) objektumot az Aspose.Slides‑kel.
+Az üres helyőrzőhöz létrehozott helyettesítés egy helyi képkeret, nem új helyőrző, mivel a [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) nem biztosít beállítót. Megőrzi a lefoglalt pozíciót, de már nem örökli a helyőrző-specifikus viselkedést. Ha a helyőrző kapcsolat megtartása lényeges, először készítse el és töltse fel a helyőrzőt a PowerPointban, majd frissítse a keletkezett [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) objektumot az Aspose.Slides segítségével.
 
-Képarányosság, vágás és egyéb kép‑specifikus hatások tekintetében lásd a [Manage Picture Frames](/slides/hu/androidjava/picture-frame/) cikket. Ezek a műveletek a képkerethez vagy a képkitöltéshez tartoznak, nem a placeholder metaadatokhoz.
+A kép átlátszóságával, vágásával és egyéb kép-specifikus effektusokkal kapcsolatban lásd a [Manage Picture Frames](/slides/hu/androidjava/picture-frame/) oldalt. Ezek a műveletek a képkerethez vagy a kép kitöltéséhez tartoznak, nem a helyőrző metaadataihoz.
 
-## **Diagram és tartalom placeholder-ek kezelése**
+## **Diagram és tartalomhelyőrzőkkel való munka**
 
-Egy feltöltött diagram placeholder reprezentálható egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/) segítségével. Ez a példa megtalálja az ilyen diagramot a placeholder típusa és a futási időbeli interfész alapján, módosítja a címét, majd elmenti a fájlt:
-
+Egy kitöltött diagramhelyőrző egy [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) segítségével ábrázolható. Ez a példa megtalálja az ilyen diagramot a helyőrző típusa és a futásidejű interfésze alapján, megváltoztatja a címét, és elmenti a fájlt:
 ```java
 import com.aspose.slides.*;
 
@@ -264,10 +321,9 @@ try {
 }
 ```
 
-Egy általános tartalom placeholder általában a [PlaceholderType.Object](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/) értékkel rendelkezik. A PowerPointban ez többféle tartalomtípus—diagramok, táblák, diagramok, képek és média—elindítására szolgál. Miután fel lett töltve, vizsgáld meg a tényleges alakzat interfészt, hogy megtudd, mit tartalmaz. Specializált elrendezések a [PlaceholderType.Chart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/), vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholdertype/) értékeket is fel tudnak mutatni.
+Egy általános tartalomhelyőrző általában a [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/) típussal rendelkezik. A PowerPointban ez többféle tartalomtípus indítójaként működik, többek között diagramok, táblázatok, diagramok, képek és média. Miután fel van töltve, ellenőrizze a tényleges alakzati interfészt, hogy megtudja, mit tartalmaz. Specializált elrendezések is kitethetik a [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), vagy [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/) típusokat.
 
-Az Aspose.Slides nem konvertál egy üres [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) placeholder‑t egy [IChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/) objektummá csupán a [IPlaceholder.getType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/placeholder/) módosításával; a típust a felület nem engedi megváltoztatni. Egy üres diagram vagy tartalomterület programból való kitöltéséhez add hozzá a szükséges objektumot a placeholder koordinátáihoz, majd távolítsd el az üres placeholder‑t. A következő példa ezt teszi egy diagram esetén:
-
+Aspose.Slides nem alakítja át egy üres [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) helyőrzőt egy [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) helyőrzővé csak az [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) módosításával; a típust nem lehet megváltoztatni az interfészen keresztül. Egy üres diagram vagy tartalmi terület programozott feltöltéséhez adja hozzá a szükséges objektumot a helyőrző koordinátáihoz, majd távolítsa el az üres helyőrzőt. A következő példa ezt egy diagramra alkalmazza:
 ```java
 import com.aspose.slides.*;
 
@@ -303,12 +359,11 @@ try {
 }
 ```
 
-A hozzáadott diagram egy egyszerű helyi diagram. Kitölti a placeholder területét, de nem örököl az elrendezés placeholder‑éből. Használd a dedikált [chart management articles](/slides/hu/androidjava/powerpoint-charts/) anyagot, ha cserélni kell a kategóriákat, sorozatokat vagy a munkafüzet adatokat.
+A hozzáadott diagram egy szokásos helyi diagram. Elfoglalja a helyőrző területét, de nem örököl az elrendezési helyőrzőből. Használja a dedikált [chart management articles](/slides/hu/androidjava/powerpoint-charts/) cikkeket, amikor cserélni kell a kategóriákat, sorozatokat vagy a munkafüzet adatokat.
 
 ## **Teljes példa: Szöveg vagy kép tartalom frissítése**
 
-A következő end‑to‑end példa megnyit egy sablont, keres az első dián cím vagy kép placeholder‑t, ellenőrzi a placeholder és az alakzat típusát, frissíti a megfelelő tartalmat, majd elmenti a kimenetet. A példa szándékosan kerüli a alakzat index feltételezését vagy minden placeholder közös interfészre való átkonvertálását.
-
+Az alábbi végponttól végpontig tartó példa megnyit egy sablont, keres az első dián egy cím vagy kép helyőrzőt, ellenőrzi a helyőrző és az alakzat típusát, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan kerüli a formaindex feltételezését vagy minden helyőrző ugyanarra az interfészre való átkonvertálását.
 ```java
 import com.aspose.slides.*;
 import java.io.FileInputStream;
@@ -364,14 +419,14 @@ try {
 
 ## **GYIK**
 
-**Mi az alap placeholder?**
+**Mi a bázis helyőrző?**
 
-Az alap placeholder az elrendezésen vagy mesterdión található megfelelő alakzat, amelyből egy másik placeholder örököl. Használd az [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metódust a lekéréséhez. Egy helyi szokásos alakzat `null`‑t ad vissza, mert nem része a placeholder hierarchiának.
+A bázis helyőrző az elrendezésen vagy a mesteren lévő megfelelő alakzat, amelyből egy másik helyőrző örököl. Használja a [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) metódust a lekéréséhez. Egy szokásos helyi alakzat `null`-t ad vissza, mivel nem része a helyőrző hierarchiának.
 
-**Meg tudom változtatni az összes dia címét egy elrendezés placeholder szerkesztésével?**
+**Módosíthatom-e az összes dia címét egy elrendezés helyőrzőjének szerkesztésével?**
 
-Az örökölt formázást vagy a prompt szöveget egy elrendezésen keresztül módosíthatod, de a meglévő cím tartalom a normál diákon van tárolva. A tényleges cím szövegének cseréjéhez iterálj a diákon, és frissítsd minden cím placeholder‑t.
+Az elrendezésen keresztül módosíthatja az örökölt formázást vagy a prompt szöveget, de a meglévő cím tartalom a normál diákon van tárolva. A tényleges cím szövegének cseréjéhez egy prezentációban, iteráljon a diákon és frissítse minden címhelyőrzőt.
 
-**Hogyan kezelem a dátum, dia‑szám, fejléc és lábléc placeholder‑eket?**
+**Hogyan kezelem a dátum, dia-szám, fejléc és lábléc helyőrzőket?**
 
-Használd a fejléc és lábléc kezelőket a megfelelő dián, elrendezésen, masteren, jegyzet vagy szórólap szintjén. Tekintsd meg a [Manage Presentation Header and Footer](/slides/hu/androidjava/presentation-header-and-footer/) cikket a teljes példákért.
+Használja a fejléc és lábléc kezelőket a megfelelő dia, elrendezés, mester, jegyzet vagy beszámoló tartományban. Lásd a [Manage Presentation Header and Footer](/slides/hu/androidjava/presentation-header-and-footer/) oldalt a teljes példákért.

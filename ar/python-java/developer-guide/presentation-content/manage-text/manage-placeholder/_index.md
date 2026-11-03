@@ -1,51 +1,51 @@
 ---
-title: إدارة العناصر النائبة في العروض التقديمية باستخدام Python
+title: إدارة عناصر النائب في العروض التقديمية بايثون
 linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
 url: /ar/python-java/manage-placeholder/
 keywords:
 - عنصر نائب
-- عنصر نائب للنص
-- عنصر نائب للصورة
-- عنصر نائب للمخطط
-- عنصر نائب للمحتوى
-- نص المطالبة
+- عنصر نائب نصي
+- عنصر نائب صورة
+- عنصر نائب مخطط
+- عنصر نائب محتوى
+- نص مطالبة
 - PowerPoint
 - عرض تقديمي
 - Python
 - Java
 - Aspose.Slides
-description: "تعرّف على كيفية فحص وتحرير العناصر النائبة للنص، الصورة، المخطط، والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للـ Python عبر Java."
+description: "تعرف على كيفية فحص وتحرير عناصر النائب النصية، والصور، والمخططات، والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للبايثون عبر جافا."
 ---
 ## **نظرة عامة**
 
-العنصر النائب هو شكل يحجز موقعًا لنوع معين من المحتوى في نموذج عرض تقديمي. من الأمثلة الشائعة العناوين، النص الرئيسي، الصورة، المخطط، والعناصر النائبة للمحتوى العام. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موقعه وحجمه وتنسيقه وإعدادات أخرى من شريحة التخطيط أو الشريحة الرئيسة.
+العنصر النائب هو شكل يحجز موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. من الأمثلة الشائعة: العنوان، النص الأساسي، الصورة، المخطط، وعناصر النائب العامة للأغراض. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موضعه وحجمه وتنسيقه وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
 
-Aspose.Slides يُظهر معلومات العنصر النائب عبر طريقة [Shape.getPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getPlaceholder). تُعيد الطريقة كائنًا من نوع [Placeholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholder/) أو `None` لشكل عادي. استخدم [Placeholder.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholder/#getType) لتحديد ما يُقصد للعنصر النائب أن يحتويه.
+تُظهر مكتبة Aspose.Slides معلومات العنصر النائب عبر الطريقة [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). تُعيد الطريقة كائن [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) أو `None` لشكل عادي. استخدم [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) لتحديد ما يُقصد بالعنصر النائب.
 
 لا يزال نوع الشكل مهمًا بعد معرفة نوع العنصر النائب:
 
-- يُمثل عنصر نائب فارغ للنص أو الصورة أو المخطط أو المحتوى عادةً بواسطة [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/).
-- يمكن تمثيل عنصر نائب الصورة المملوء بـ [PictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pictureframe/).
-- يمكن تمثيل عنصر نائب المخطط المملوء بـ [Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/).
-- يمكن لعناصر النائب للمحتوى أن تحتوي عدة أنواع من المحتوى. تحقق من كل من [Placeholder.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholder/#getType) ونوع الشكل وقت التنفيذ بدلاً من افتراض أن كل عنصر نائب هو [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/).
+- عنصر نائب فارغ للنص أو الصورة أو المخطط أو المحتوى يُمثَّل عادةً بواسطة [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- عنصر نائب صورة ممتلئ يمكن تمثيله بواسطة [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- عنصر نائب مخطط ممتلئ يمكن تمثيله بواسطة [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- عنصر نائب محتوى يمكن أن يحتوي على عدة أنواع من المحتوى. تحقق من كلٍ من [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) ونوع الشكل في وقت التشغيل بدلاً من افتراض أن كل عنصر نائب هو [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholder/#getType) يصف دور العنصر النائب؛ لكنه لا يضمن نوع الشكل وقت التنفيذ. دائمًا استخدم فحص النوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
+{{% alert color="warning" title="تحذير" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) يصف دور العنصر النائب؛ لكنه لا يضمن نوع الشكل في وقت التشغيل. احرص دائمًا على إجراء فحص للنوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو أعضاء الوسائط.
 {{% /alert %}}
 
-## **فهم توريث العنصر النائب**
+## **فهم وراثة العنصر النائب**
 
-العناصر النائبة تشكل تسلسلًا هرميًا:
+تشكل العناصر النائبة تسلسلًا هرميًا:
 
-1. الشريحة الرئيسة (master slide) تُعرّف الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات العناصر النائبة على مستوى الرئيس.
-2. شريحة التخطيط (layout slide) تُعرّف الترتيب المستخدم من قبل شريحة أو أكثر عادية ويمكن أن ترث من الرئيس.
-3. الشريحة العادية تحتوي على العناصر النائبة لتلك الشريحة ويمكن أن ترث من التخطيط الخاص بها.
+1. تحدد الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات، عناصر نائبة على مستوى الرئيس.
+2. تحدد شريحة التخطيط الترتيب المستخدم من قبل شريحة أو أكثر عادية ويمكن أن ترث من الرئيس.
+3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكن أن ترث من التخطيط الخاص بها.
 
-استدعِ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) للانتقال مستوى واحد أعلى في هذا التسلسل. عادةً ما تُعيد العنصر النائب للشريحة العنصر النائب لتخطيطها؛ ويمكن لعنصر نائب التخطيط أن يُعيد العنصر النائب للرئيس. تُعيد الطريقة `None` عندما لا يملك الشكل عنصرًا نائبًا أساسيًا.
+استدعِ [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) للانتقال بمستوى واحد أعلى في هذا التسلسل. العنصر النائب في الشريحة عادةً ما يُعيد العنصر النائب في التخطيط؛ ويمكن للعنصر النائب في التخطيط أن يُعيد العنصر النائب في الرئيس. تُعيد الطريقة `None` عندما لا يحتوي الشكل على عنصر نائب أساسي.
 
-المثال التالي يُدرج العناصر النائبة في الشريحة الأولى ويُبلغ عن عناصرها النائبة الأساسية:
+المثال التالي يسرد العناصر النائبة في الشريحة الأولى ويُظهر عناصرها النائبة الأساسية:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-تعديل عنصر نائب في شريحة عادية يخلق أو يغيّر تجاوزًا محليًا لتلك الشريحة. تعديل التخطيط أو الرئيس المرتبط يمكن أن يؤثر على جميع الشرائح التي لا تزال ترث هذا الإعداد. الشكل العادي المحلي لا يملك عنصرًا نائبًا أساسيًا ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+تحرير عنصر نائب في شريحة عادية يُنشئ أو يغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الرئيس المرتبط يمكن أن يؤثر على جميع الشرائح التي لا يزال يُورِثُها هذا الإعداد. الشكل العادي المحلي لا يمتلك عنصر نائب أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+
+## **إزالة حالة العنصر النائب**
+
+عند تعديل قالب، استخدم [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) لإبقاء الكائن الموجود كشكل عادي. تُعيد طريقة [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) `None`، لكن الشكل يظل في مجموعة الشرائح. وعلى النقيض، [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) يحذف الشكل من تلك المجموعة.
+
+المثال التالي يتطلب ملف `template.pptx` يحتوي على شريحة واحدة على الأقل وعنصر نائب نصي غير فارغ في الشريحة الأولى. استخدم عنصر نائب يُرث تنسيقه من التخطيط أو الرئيس لتُظهر تأثير إزالة العلاقة. يتحقق المثال من بقاء الشكل نفسه، ثم يستدعي الطريقة مرة أخرى على الشكل الآن العادي، ويحفظ النتيجة.
+
+{{% alert color="warning" title="تحذير" %}}
+إزالة حالة العنصر النائب لا تحافظ تلقائيًا على إعدادات المظهر الموروثة. المثال أدناه يترك تلك الإعدادات بدون تغيير عمدًا، لذا قد يختلف الناتج. الشكل الذي يُوارث موضعه وحجمه بالكامل قد يحصل على إحداثيات وأبعاد صفرية بعد الاستدعاء ويصبح غير مرئي رغم بقائه في المجموعة.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # استدعاء الطريقة على شكل عادي لا يؤثر.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+للعنصر النائب المطابق، تُظهر جميع الفحوصات الثلاثة القيمة `True`. يبقى النص، لكن موضعًا، حجمًا، دورانًا، خطًا، محاذاة الفقرة، هوامش إطار النص، تثبيتًا عموديًا، تعبئةً وخطًا قد تتغير عندما تُزال علاقة العنصر النائب. على سبيل المثال، قد يعود تنسيق العنوان الموروث إلى تنسيق نص عادي. راجع [تخطيط الشريحة](/slides/ar/python-java/slide-layout/) للمزيد عن التخطيطات.
+
+للحفاظ على المظهر المقصود، احجز الموضع، الحجم، والدوران المحسوبين قبل الاستدعاء، وانسخ قيم التنسيق الفعّال المطلوبة إلى متغيّرات منفصلة. احصل على تلك القيم عبر [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective)، [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective)، [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective)، [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective)، و[LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). لا تعتمد على الاحتفاظ فقط بكائنات التنسيق الفعّال، لأن قيم تنسيق النص قد تتغيّر بعد إزالة العلاقة. طبّق القيم الملتقطة صراحةً على الشكل العادي بعد ذلك، بما في ذلك عائلة الخط، الحجم، النمط، اللون، إعدادات الفقرة، إعدادات إطار النص، التعبئة والخط المستخدم في القالب.
+
+قد تحتاج أيضًا إلى تعيين هندسة الشكل الموروثة صراحةً عبر [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). بالنسبة لعنصر نائب نصي مستطيل، يعني ذلك تعيين [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle)؛ فاستعادة التعبئة والخط فقط قد لا تستعيد المستطيل المرئي. القوالب التي تحتوي على تأثيرات إضافية أو تنسيقات معقّدة تتطلب معالجة تلك الإعدادات أيضًا.
 
 ## **تغيير النص في العنصر النائب**
 
-العناوين، العنوان المركزي، العنوان الفرعي، النص الرئيسي، والعناصر النائبة للنص عادةً ما تدعم النص. تحقق من وجود [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/#getTextFrame).
+عادةً ما تدعم العناوين، العناوين المركزية، العناوين الفرعية، النص الأساسي، وعناصر النائب النصية النص. تحقّق من وجود [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame).
 
-هذا المثال يحدث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
+المثال التالي يُحدّث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
 
 ```python
 import jpype
@@ -128,16 +190,16 @@ finally:
     presentation.dispose()
 ```
 
-هذا النمط يتجنب التعامل مع الصور أو المخططات أو الجداول أو وسائط الإعلام كـ [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/). كما يحدد العنصر النائب بناءً على الغرض بدلاً من الاعتماد على فهرس الشكل الهش.
+هذا النمط يتجنّب معالجة العناصر النائبة للصور أو المخططات أو الجداول أو الوسائط كـ[AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). كما يحدد العنصر النائب حسب الغرض بدلًا من الاعتماد على فهرس الشكل الهش.
 
-## **ضبط نص المطالبة على التخطيط**
+## **تعيين نص المطالبة في التخطيط**
 
-نص المُطالبة هو التعليمات التي تُعرض في عنصر نائب فارغ أثناء التصميم، مثل *Click to add title*. اضبط نص مُطالبة مخصص على عنصر النائب في التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. للوصول إلى التخطيط استخدم [Slide.getLayoutSlide](https://reference.aspose.com/slides/ar/python-java/aspose.slides/slide/#getLayoutSlide) وتكرَّر على المجموعة التي تُعيدها [BaseSlide.getShapes](https://reference.aspose.com/slides/ar/python-java/aspose.slides/baseslide/#getShapes).
+نص المطالبة هو التعليمات التي تُظهر في عنصر نائب فارغ أثناء التصميم، مثل *انقر لإضافة عنوان*. عيّن نص مطالبة مخصص في عنصر نائب التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. وصل إلى التخطيط عبر [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) وتجوّل في المجموعة التي تُرجعها [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
-المثال التالي يغيّر نصوص العنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
+المثال التالي يغيّر مطالبة العنوان والعنوان الفرعي في التخطيط المُستخدم من قبل الشريحة الأولى:
 
 ```python
-import jpime
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -168,14 +230,14 @@ finally:
     presentation.dispose()
 ```
 
-نص المُطالبة ليس محتوى شريحة عادي. إنه مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوىً حقيقيًا، لا يعود نص المُطالبة معروضًا. كذلك تعديل نص المُطالبة لا يستبدل النص الموجود على الشرائح التي تستخدم هذا التخطيط.
+نص المطالبة ليس محتوى شريحة عادي. هو مخصص لعناصر نائب فارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوىً حقيقيًا، لا يُظهر النص المطالب به بعد ذلك. تغيير المطالبة لا يبدّل النص الموجود في الشرائح التي تستخدم التخطيط.
 
-## **تحديث العنصر النائب للصورة**
+## **تحديث عنصر نائب صورة**
 
-هناك حالتان يجب معالجتهما:
+هناك حالتان لمعالجتهما:
 
-- إذا كان عنصر نائب الصورة مُملوءًا بالفعل ومُمثَّلًا بـ [PictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pictureframe/)، استبدل الصورة عبر [PictureFillFormat.getPicture](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picturefillformat/#getPicture) و[Picture.setImage](https://reference.aspose.com/slides/ar/python-java/aspose.slides/picture/#setImage).
-- إذا كان لا يزال عنصرًا نائبًا فارغًا، أضف إطار صورة في إحداثيات العنصر النائب باستخدام [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shapecollection/#addPictureFrame) وأزل العنصر النائب الفارغ.
+- إذا كان عنصر نائب الصورة مُعبَّأ بالفعل ومُمثلًا بـ[PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/)، استبدل الصورة عبر [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) و[Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- إذا كان لا يزال عنصرًا نائبًا فارغًا، أضف إطار صورة في إحداثيات العنصر النائب باستخدام [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) واحذف العنصر النائب الفارغ.
 
 المثال التالي يدعم الحالتين ويحفظ العرض التقديمي:
 
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-الاستبدال المُنشأ لعناصر نائب فارغة هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا، لأن [Shape.getPlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getPlaceholder) لا يوفر طريقة ضبط. يظل يحتفظ بالموقع المحجوز لكنه لا يرث سلوك العنصر النائب بعد الآن. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، حضّر وامِلء العنصر النائب في PowerPoint أولًا، ثم حدّث [PictureFrame](https://reference.aspose.com/slides/ar/python-java/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
+الاستبدال المُنشأ لعنصر نائب فارغ هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا، لأن [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) لا يوفر مُعيّنًا. يحتفظ بالموقع المحجوز لكنه لم يعد يرث سلوك العنصر النائب. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، حضّر العنصر النائب واملأه في PowerPoint أولاً، ثم حدّث الـ[PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) الناتج باستخدام Aspose.Slides.
 
-للتعامل مع شفافية الصورة، القص، وغيرها من التأثيرات الخاصة بالصور، راجع [Manage Picture Frames](/slides/ar/python-java/picture-frame/). هذه العمليات تنتمي إلى إطار الصورة أو ملء الصورة، وليس إلى بيانات العنصر النائب.
+لشفافية الصورة، الاقتصاص، وتأثيرات الصورة الأخرى، راجع [إدارة إطارات الصور](/slides/ar/python-java/picture-frame/). تلك العمليات تنتمي إلى إطار الصورة أو تعبئة الصورة، لا إلى بيانات العنصر النائب.
 
-## **العمل مع العناصر النائبة للرسوم البيانية والمحتوى**
+## **العمل مع عناصر نائب المخطط والمحتوى**
 
-عنصر نائب المخطط المملوء يمكن تمثيله بـ [Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/). هذا المثال يجد مثل هذا المخطط بحسب نوع العنصر النائب ونوع الشكل وقت التنفيذ، يغيّر عنوانه، ويحفظ الملف:
+يمكن تمثيل عنصر نائب مخطط مُعبَّأ بـ[Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). يحدد هذا المثال مثل هذا المخطط حسب نوع العنصر النائب ونوع الشكل في وقت التشغيل، يغيّر عنوانه، ويحفظ الملف:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-عادةً ما يكون للعنصر النائب العام للمحتوى النوع [PlaceholderType.Object](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Object). في PowerPoint يعمل كمنطلق لعدة أنواع من المحتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد ملئه، تحقق من نوع الشكل الفعلي لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType.Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Chart)، [PlaceholderType.Table](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Table)، [PlaceholderType.Picture](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Picture)، [PlaceholderType.Media](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Media)، أو [PlaceholderType.Diagram](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholdertype/#Diagram).
+عادةً ما يكون عنصر نائب المحتوى من النوع [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). في PowerPoint يعمل كمنفّذ لعدة أنواع محتوى، بما في ذلك المخططات، الجداول، المخططات البيانية، الصور، والوسائط. بعد تعبئته، افحص نوع الشكل الفعلي لتعرف ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart)، [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table)، [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture)، [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media)، أو [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides لا يحول عنصر نائب فارغ من نوع [AutoShape](https://reference.aspose.com/slides/ar/python-java/aspose.slides/autoshape/) إلى [Chart](https://reference.aspose.com/slides/ar/python-java/aspose.slides/chart/) بمجرد تغيير [Placeholder.getType](https://reference.aspose.com/slides/ar/python-java/aspose.slides/placeholder/#getType)؛ لا يمكن تغيير النوع عبر الواجهة البرمجية. لملء مخطط فارغ أو مساحة محتوى برمجيًا، أضف الكائن المطلوب عند إحداثيات العنصر النائب ثم أزل العنصر النائب الفارغ. المثال التالي يفعل ذلك لمخطط:
+لا تقوم Aspose.Slides بتحويل عنصر نائب [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) فارغ إلى [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) بمجرد تغيير [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType)؛ لا يمكن تغيير النوع عبر الواجهة البرمجية. لملء مخطط أو منطقة محتوى فارغة برمجيًا، أضف الكائن المطلوب في إحداثيات العنصر النائب ثم احذف العنصر النائب الفارغ. المثال التالي يفعل ذلك لمخطط:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-المخطط المضاف هو مخطط محلي عادي. يشغل مساحة العنصر النائب لكنه لا يرث من عنصر نائب التخطيط. استخدم المقالات المتخصصة في إدارة المخططات [/slides/ar/python-java/powerpoint-charts/] عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
+المخطط المضاف هو مخطط محلي عادي. يشغل مساحة العنصر النائب لكنه لا يرث من عنصر نائب التخطيط. استخدم مقالات [إدارة المخططات](/slides/ar/python-java/powerpoint-charts/) عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
 
 ## **مثال كامل: تحديث النص أو محتوى الصورة**
 
-المثال التالي من البداية إلى النهاية يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب للعنوان أو الصورة، يفحص نوع العنصر النائب والنوع الفعلي للشكل، يُحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال الافتراض بأن فهرس الشكل ثابت أو التعامل مع كل عنصر نائب كنوع واحد:
+المثال التالي متكامل يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب عنوان أو صورة، يتحقق من أنواع العنصر النائب والشكل، يحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال افتراض فهرس الشكل أو المعاملة المتساوية لجميع العناصر النائبة.
 
 ```python
 from pathlib import Path
@@ -359,12 +421,12 @@ finally:
 
 **ما هو العنصر النائب الأساسي؟**
 
-العنصر النائب الأساسي هو الشكل المقابل على التخطيط أو الرئيس الذي يرث منه عنصر نائب آخر. استخدم [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ar/python-java/aspose.slides/shape/#getBasePlaceholder) لاسترجاعه. الشكل المحلي العادي يُعيد `None` لأنه ليس جزءًا من تسلسل العناصر النائبة.
+العنصر النائب الأساسي هو الشكل المقابل في التخطيط أو الرئيس الذي يرث منه عنصر نائب آخر. استخدم [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) لاسترجاعه. الشكل العادي المحلي يُعيد `None` لأنه ليس جزءًا من تسلسل العنصر النائب.
 
-**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تعديل عنصر نائب في التخطيط؟**
+**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تحرير عنصر نائب التخطيط؟**
 
-يمكنك تغيير التنسيق الموروث أو نص المُطالبة عبر التخطيط، لكن محتوى العناوين الموجود يُخزن على الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض بالكامل، يجب تكرار الشرائح وتحديث كل عنصر نائب للعنوان.
+يمكنك تعديل التنسيق الموروث أو نص المطالبة عبر التخطيط، لكن محتوى العنوان الفعلي يُخزن في الشرائح العادية. لاستبدال نص العنوان عبر العرض التقديمي بالكامل، تجوّل الشرائح وقم بتحديث كل عنصر نائب للعنوان.
 
-**كيف أدير عناصر نائب التاريخ، رقم الشريحة، الرأس، وتذييل الصفحة؟**
+**كيف أدير عناصر نائب التاريخ، رقم الشريحة، الرأس، والتذييل؟**
 
-استخدم مديري الرأس والتذييل في النطاق المناسب (شريحة، تخطيط، رئيس، ملاحظات أو نسخة مطبوعة). راجع [Manage Presentation Header and Footer](/slides/ar/python-java/presentation-header-and-footer/) للحصول على أمثلة كاملة.
+استخدم مديرات الرأس والتذييل في نطاق الشريحة، التخطيط، الرئيس، الملاحظات، أو النسخة الموزعة. راجع [إدارة رأس وتذييل العرض التقديمي](/slides/ar/python-java/presentation-header-and-footer/) للأمثلة الكاملة.

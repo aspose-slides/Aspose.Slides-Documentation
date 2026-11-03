@@ -10,39 +10,39 @@ keywords:
 - marcador de posición de imagen
 - marcador de posición de gráfico
 - marcador de posición de contenido
-- texto de sugerencia
+- texto de indicación
 - PowerPoint
 - presentación
 - Python
 - Aspose.Slides
-description: "Aprenda cómo inspeccionar y editar marcadores de posición de texto, imagen, gráfico y contenido, y comprender la herencia de marcadores de posición con Aspose.Slides para Python a través de .NET."
+description: "Aprenda a inspeccionar y editar marcadores de posición de texto, imagen, gráfico y contenido y a comprender la herencia de marcadores de posición con Aspose.Slides para Python a través de .NET."
 ---
 ## **Visión general**
 
-Un marcador de posición es una forma que reserva una posición para un tipo particular de contenido en una plantilla de presentación. Los ejemplos más comunes son marcadores de posición de título, cuerpo, imagen, gráfico y de contenido de uso general. A diferencia de una forma ordinaria, un marcador de posición puede heredar su posición, tamaño, formato y otras configuraciones de una diapositiva de diseño o de una diapositiva maestra.
+Un marcador de posición es una forma que reserva una posición para un tipo particular de contenido en una plantilla de presentación. Los ejemplos más comunes son los marcadores de título, cuerpo, imagen, gráfico y marcadores de contenido de uso general. A diferencia de una forma ordinaria, un marcador de posición puede heredar su posición, tamaño, formato y otros ajustes de una diapositiva de diseño o de una diapositiva maestra.
 
-Aspose.Slides expone la información de los marcadores de posición a través de la propiedad [Shape.placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/placeholder/). La propiedad devuelve un objeto [Placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholder/) o `None` para una forma normal. Utilice [Placeholder.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholder/type/) para determinar qué se pretende que contenga el marcador de posición.
+Aspose.Slides expone la información del marcador de posición a través de la propiedad [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). La propiedad devuelve un objeto [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) o `None` para una forma normal. Utilice [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) para determinar qué se pretende contener en el marcador de posición.
 
-La clase de la forma sigue siendo importante después de conocer el tipo de marcador de posición:
+La clase de forma sigue siendo importante después de conocer el tipo de marcador de posición:
 
-- Un marcador de posición vacío de texto, imagen, gráfico o contenido suele representarse mediante un [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/).
-- Un marcador de posición de imagen rellenado puede representarse mediante un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/).
-- Un marcador de posición de gráfico rellenado puede representarse mediante un [Chart](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chart/).
-- Un marcador de posición de contenido puede contener varios tipos de contenido. Compruebe tanto [Placeholder.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholder/type/) como la clase de forma en tiempo de ejecución en lugar de asumir que todo marcador de posición es un [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/).
+- Un marcador de posición vacío de texto, imagen, gráfico o contenido suele representarse mediante un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Un marcador de posición de imagen poblado puede representarse mediante un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Un marcador de posición de gráfico poblado puede representarse mediante un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Un marcador de posición de contenido puede contener varios tipos de contenido. Compruebe tanto [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) como la clase de forma en tiempo de ejecución en lugar de asumir que todo marcador de posición es un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Advertencia" %}}
-[Placeholder.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholder/type/) describe el papel de un marcador de posición; no garantiza la clase de forma en tiempo de ejecución. Siempre utilice una verificación de tipo antes de acceder a los miembros específicos de texto, imagen, gráfico, tabla o medios.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) describe el rol de un marcador de posición; no garantiza la clase de forma en tiempo de ejecución. Siempre realice una verificación de tipo antes de acceder a los miembros específicos de texto, imagen, gráfico, tabla o multimedia.
 {{% /alert %}}
 
 ## **Entender la herencia de marcadores de posición**
 
 Los marcadores de posición forman una jerarquía:
 
-1. Una diapositiva maestra define estilos reutilizables y, en algunos casos, marcadores de posición a nivel de maestra.
+1. Una diapositiva maestra define estilos reutilizables y, en algunos casos, marcadores de posición a nivel maestro.
 2. Una diapositiva de diseño define la disposición utilizada por una o más diapositivas normales y puede heredar de la maestra.
 3. Una diapositiva normal contiene los marcadores de posición para esa diapositiva y puede heredar de su diseño.
 
-Llame a [Shape.get_base_placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_base_placeholder/) para subir un nivel en esta jerarquía. Un marcador de posición de diapositiva normalmente devuelve su marcador de posición de diseño; un marcador de posición de diseño puede devolver su marcador de posición maestro. El método devuelve `None` cuando la forma no tiene un marcador de posición base.
+Llame a [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) para subir un nivel en esta jerarquía. Un marcador de posición de diapositiva normalmente devuelve su marcador de posición de diseño; un marcador de posición de diseño puede devolver su marcador de posición maestro. El método devuelve `None` cuando la forma no tiene un marcador de posición base.
 
 El siguiente ejemplo enumera los marcadores de posición en la primera diapositiva y muestra sus marcadores de posición base:
 
@@ -71,11 +71,59 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Editar un marcador de posición en una diapositiva normal crea o modifica una anulación local para esa diapositiva. Editar el diseño o la maestra relacionada puede afectar a todas las diapositivas que aún heredan esa configuración. Una forma ordinaria local no tiene marcador de posición base y no comienza a heredar simplemente porque ocupa las mismas coordenadas.
+Editar un marcador de posición en una diapositiva normal crea o modifica una anulación local para esa diapositiva. Editar el diseño o la maestra relacionados puede afectar a todas las diapositivas que aún heredan ese ajuste. Una forma ordinaria local no tiene marcador de posición base y no empieza a heredar solo por ocupar las mismas coordenadas.
+
+## **Eliminar el estado de marcador de posición**
+
+Al adaptar una plantilla, utilice [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) para mantener un objeto existente como una forma ordinaria. Su propiedad [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) pasa a ser `None`, pero la forma permanece en la colección de la diapositiva. En contraste, [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) elimina la forma de esa colección.
+
+El siguiente ejemplo requiere `template.pptx` con al menos una diapositiva y un marcador de posición de texto no vacío en la primera diapositiva. Use un marcador de posición con formato heredado de su diseño o maestra para ver el efecto de eliminar esa relación. El ejemplo verifica que la misma forma permanece, vuelve a llamar al método sobre la forma ya ordinaria y guarda el resultado.
+
+{{% alert color="warning" title="Warning" %}}
+Eliminar el estado de marcador de posición no preserva automáticamente los ajustes de apariencia heredados. El ejemplo a continuación deja deliberadamente esos ajustes sin cambios, por lo que la salida puede verse diferente. Una forma cuya posición y tamaño son completamente heredados puede quedar con coordenadas y dimensiones cero tras la llamada y volverse invisible aunque siga en la colección.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Llamar al método sobre una forma ordinaria no tiene efecto.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Para un marcador de posición coincidente, las tres comprobaciones devuelven `True`. El texto permanece, pero la posición, tamaño, rotación, fuente, alineación de párrafo, márgenes del marco de texto, anclaje vertical, relleno y ajustes de línea heredados pueden cambiar cuando se elimina la relación del marcador de posición. Por ejemplo, el formato de título heredado puede volver al formato de texto ordinario. Consulte [Slide Layout](/slides/es/python-net/slide-layout/) para obtener más información sobre los diseños.
+
+Para preservar la apariencia prevista, capture la posición, tamaño y rotación resueltos antes de la llamada y copie los valores de formato efectivo requeridos en variables separadas. Obtenga esos valores mediante [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), y [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). No confíe solo en los objetos de formato efectivo, ya que sus valores de formato de texto pueden cambiar tras eliminar la relación. Aplique explícitamente los valores capturados a la forma ordinaria después, incluyendo la familia, tamaño, estilo y color de fuente, los ajustes de párrafo, los ajustes del marco de texto, el relleno y la línea que usa su plantilla.
+
+La geometría de la forma heredada también puede necesitar asignarse explícitamente mediante [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Para un marcador de posición de texto rectangular, esto implica asignar [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); restaurar solo el relleno y la línea puede no restaurar el rectángulo visible. Las plantillas con efectos adicionales o formato más complejo requieren que esos ajustes también se gestionen.
 
 ## **Cambiar texto en un marcador de posición**
 
-Los marcadores de posición de título, título centrado, subtítulo, cuerpo y texto suelen admitir texto. Verifique si se trata de un [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) antes de usar su propiedad [text_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/text_frame/).
+Los marcadores de posición de título, título centrado, subtítulo, cuerpo y texto normalmente admiten texto. Verifique que sea un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) antes de usar su propiedad [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
 
 Este ejemplo actualiza el primer marcador de posición de título en la primera diapositiva y guarda el resultado:
 
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Este patrón evita tratar los marcadores de posición de imagen, gráfico, tabla o medios como objetos [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/). También identifica el marcador de posición por su finalidad en lugar de depender de un índice de forma frágil.
+Este patrón evita tratar marcadores de posición de imagen, gráfico, tabla o multimedia como objetos [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). También identifica el marcador de posición por su propósito en lugar de depender de un índice de forma frágil.
 
-## **Establecer texto de sugerencia en un diseño**
+## **Establecer texto de indicación en un diseño**
 
-El texto de sugerencia es la instrucción en tiempo de diseño que se muestra en un marcador de posición vacío, como *Haga clic para agregar título*. Establezca un texto de sugerencia personalizado en el marcador de posición del diseño en lugar de intentar acceder a él a través de la colección de formas de una diapositiva normal. Acceda al diseño mediante [Slide.layout_slide](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/layout_slide/) y recorra [LayoutSlide.shapes](https://reference.aspose.com/slides/es/python-net/aspose.slides/baseslide/shapes/).
+El texto de indicación es la instrucción en tiempo de diseño que se muestra en un marcador de posición vacío, como *Haga clic para añadir título*. Establezca texto de indicación personalizado en el marcador de posición del diseño en lugar de intentar alcanzarlo a través de la colección de formas de una diapositiva normal. Acceda al diseño mediante [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) e itere sobre [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-El siguiente ejemplo cambia las sugerencias de título y subtítulo en el diseño usado por la primera diapositiva:
+El siguiente ejemplo cambia las indicaciones de título y subtítulo en el diseño utilizado por la primera diapositiva:
 
 ```python
 import aspose.slides as slides
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El texto de sugerencia no es contenido normal de la diapositiva. Está destinado a marcadores de posición vacíos en aplicaciones de edición como PowerPoint. Una vez que un usuario o programa proporciona contenido real, la sugerencia deja de mostrarse. Cambiar una sugerencia tampoco sustituye el texto existente en las diapositivas que usan el diseño.
+El texto de indicación no es contenido de diapositiva normal. Está destinado a marcadores de posición vacíos en aplicaciones de edición como PowerPoint. Una vez que un usuario o programa suministra contenido real, la indicación deja de mostrarse. Cambiar una indicación tampoco sustituye el texto existente en las diapositivas que usan el diseño.
 
 ## **Actualizar un marcador de posición de imagen**
 
-Hay dos casos que abordar:
+Hay dos casos a tratar:
 
-- Si el marcador de posición de imagen ya está rellenado y se representa mediante un [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/), reemplace la imagen mediante [PictureFillFormat.picture](https://reference.aspose.com/slides/es/python-net/aspose.slides/picturefillformat/picture/) y [Picture.image](https://reference.aspose.com/slides/es/python-net/aspose.slides/picture/image/).
-- Si sigue siendo un marcador de posición vacío, añada un marco de imagen en las coordenadas del marcador de posición con [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/es/python-net/aspose.slides/shapecollection/add_picture_frame/) y elimine el marcador de posición vacío.
+- Si el marcador de posición de imagen ya está poblado y representado por un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), reemplace la imagen mediante [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) y [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Si sigue siendo un marcador de posición vacío, añada un marco de imagen en las coordenadas del marcador mediante [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) y elimine el marcador de posición vacío.
 
 El siguiente ejemplo admite ambos casos y guarda la presentación:
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El reemplazo creado para un marcador de posición vacío es un marco de imagen local, no un nuevo marcador de posición, porque [Shape.placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/placeholder/) es de solo lectura. Conserva la posición reservada pero ya no hereda el comportamiento específico del marcador de posición. Si es esencial mantener la relación del marcador de posición, prepare y rellene el marcador de posición en PowerPoint primero, y luego actualice el [PictureFrame](https://reference.aspose.com/slides/es/python-net/aspose.slides/pictureframe/) resultante con Aspose.Slides.
+El reemplazo creado para un marcador de posición vacío es un marco de imagen local, no un nuevo marcador de posición, porque [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) es de solo lectura. Conserva la posición reservada pero ya no hereda el comportamiento específico del marcador de posición. Si es esencial mantener la relación del marcador de posición, prepare y rellene el marcador en PowerPoint primero, y luego actualice el [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) resultante con Aspose.Slides.
 
-Para transparencia de imagen, recorte y otros efectos específicos de imágenes, consulte [Manage Picture Frames](/slides/es/python-net/picture-frame/). esas operaciones pertenecen al marco de imagen o al relleno de imagen, no a los metadatos del marcador de posición.
+Para la transparencia de imágenes, recorte y otros efectos específicos de la imagen, consulte [Manage Picture Frames](/slides/es/python-net/picture-frame/). esas operaciones pertenecen al marco de imagen o al relleno de imagen, no a los metadatos del marcador de posición.
 
 ## **Trabajar con marcadores de posición de gráfico y contenido**
 
-Un marcador de posición de gráfico rellenado puede representarse mediante un [Chart](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chart/). Este ejemplo encuentra dicho gráfico tanto por tipo de marcador de posición como por clase en tiempo de ejecución, cambia su título y guarda el archivo:
+Un marcador de posición de gráfico poblado puede representarse mediante un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Este ejemplo localiza dicho gráfico tanto por tipo de marcador de posición como por clase en tiempo de ejecución, cambia su título y guarda el archivo:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Un marcador de posición de contenido general suele tener [PlaceholderType.OBJECT](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/). En PowerPoint actúa como un lanzador para varios tipos de contenido, incluidos gráficos, tablas, diagramas, imágenes y medios. Después de que se haya rellenado, inspeccione la clase de forma real para saber qué contiene. Los diseños especializados también pueden exponer [PlaceholderType.CHART](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/), o [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholdertype/).
+Un marcador de posición de contenido general suele tener [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). En PowerPoint actúa como lanzador para varios tipos de contenido, incluidos gráficos, tablas, diagramas, imágenes y multimedia. Tras poblarlo, inspeccione la clase de forma real para saber qué contiene. Los diseños especializados también pueden exponer [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), o [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides no convierte un marcador de posición vacío de [AutoShape](https://reference.aspose.com/slides/es/python-net/aspose.slides/autoshape/) en un [Chart](https://reference.aspose.com/slides/es/python-net/aspose.slides.charts/chart/) simplemente cambiando [Placeholder.type](https://reference.aspose.com/slides/es/python-net/aspose.slides/placeholder/type/); el tipo es de solo lectura. Para rellenar programáticamente un área de gráfico o contenido vacía, añada el objeto necesario en las coordenadas del marcador de posición y luego elimine el marcador de posición vacío. El siguiente ejemplo hace eso para un gráfico:
+Aspose.Slides no convierte un marcador de posición vacío de [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) en un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) simplemente cambiando [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); el tipo es de solo lectura. Para rellenar programáticamente un área de gráfico o contenido vacío, añada el objeto necesario en las coordenadas del marcador y luego elimine el marcador vacío. El siguiente ejemplo lo hace para un gráfico:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-El gráfico añadido es un gráfico local ordinario. Ocupa el área del marcador de posición pero no hereda del marcador de posición de diseño. Utilice los artículos dedicados de [chart management articles](/slides/es/python-net/powerpoint-charts/) cuando necesite reemplazar sus categorías, series o datos del libro de trabajo.
+El gráfico añadido es un gráfico local ordinario. Ocupa el área del marcador de posición pero no hereda del marcador de posición del diseño. Utilice los artículos dedicados a la gestión de gráficos ([chart management articles](/slides/es/python-net/powerpoint-charts/)) cuando necesite reemplazar sus categorías, series o datos del libro de trabajo.
 
-## **Ejemplo completo: actualizar texto o contenido de imagen**
+## **Ejemplo completo: actualizar contenido de texto o imagen**
 
-El siguiente ejemplo completo abre una plantilla, busca en la primera diapositiva un marcador de posición de título o de imagen, comprueba los tipos de marcador de posición y de forma, actualiza el contenido correspondiente y guarda el resultado. El ejemplo evita deliberadamente asumir un índice de forma o tratar todos los marcadores de posición como la misma clase de forma.
+El siguiente ejemplo de extremo a extremo abre una plantilla, busca en la primera diapositiva un marcador de posición de título o de imagen, verifica los tipos de marcador de posición y de forma, actualiza el contenido correspondiente y guarda el resultado. El ejemplo evita deliberadamente suponer un índice de forma o tratar todos los marcadores de posición como la misma clase de forma.
 
 ```python
 import aspose.slides as slides
@@ -278,12 +326,12 @@ with slides.Presentation("template.pptx") as presentation:
 
 **¿Qué es un marcador de posición base?**
 
-Un marcador de posición base es la forma correspondiente en el diseño o la maestra de la que hereda otro marcador de posición. Utilice [Shape.get_base_placeholder](https://reference.aspose.com/slides/es/python-net/aspose.slides/shape/get_base_placeholder/) para recuperarlo. Una forma local ordinaria devuelve `None` porque no forma parte de la jerarquía de marcadores de posición.
+Un marcador de posición base es la forma correspondiente en el diseño o la maestra de la que otro marcador de posición hereda. Utilice [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) para recuperarlo. Una forma local ordinaria devuelve `None` porque no forma parte de la jerarquía de marcadores de posición.
 
 **¿Puedo cambiar todos los títulos de diapositiva editando un marcador de posición de diseño?**
 
-Puede cambiar el formato heredado o el texto de sugerencia mediante un diseño, pero el contenido del título existente se almacena en las diapositivas normales. Para sustituir el texto real del título en toda la presentación, recorra las diapositivas y actualice cada marcador de posición de título.
+Puede cambiar el formato heredado o el texto de indicación mediante un diseño, pero el contenido del título existente se almacena en las diapositivas normales. Para reemplazar el texto real del título en toda la presentación, itere sobre las diapositivas y actualice cada marcador de posición de título.
 
 **¿Cómo gestiono los marcadores de posición de fecha, número de diapositiva, encabezado y pie de página?**
 
-Utilice los administradores de encabezado y pie de página en la diapositiva, diseño, maestra, notas o alcance de folleto correspondiente. Consulte [Manage Presentation Header and Footer](/slides/es/python-net/presentation-header-and-footer/) para ejemplos completos.
+Utilice los gestores de encabezado y pie de página en el ámbito de la diapositiva, diseño, maestra, notas o folletos correspondiente. Consulte [Manage Presentation Header and Footer](/slides/es/python-net/presentation-header-and-footer/) para ejemplos completos.

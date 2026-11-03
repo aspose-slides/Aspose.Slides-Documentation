@@ -1,50 +1,50 @@
 ---
-title: Správa zástupných objektů prezentace v Java
-linktitle: Správa zástupných objektů
+title: Spravovat zástupné prvky prezentace v Java
+linktitle: Spravovat zástupné prvky
 type: docs
 weight: 10
 url: /cs/java/manage-placeholder/
 keywords:
-- zástupný objekt
-- zástupný objekt textu
-- zástupný objekt obrázku
-- zástupný objekt grafu
-- zástupný objekt obsahu
-- nápovědní text
+- zástupný prvek
+- textový zástupný prvek
+- obrázkový zástupný prvek
+- grafický zástupný prvek
+- obsahový zástupný prvek
+- výzva
 - PowerPoint
 - prezentace
 - Java
 - Aspose.Slides
-description: "Naučte se, jak prohlížet a upravovat zástupné objekty textu, obrázku, grafu a obsahu a pochopit dědičnost zástupných objektů pomocí Aspose.Slides pro Java."
+description: "Zjistěte, jak prozkoumat a upravit textové, obrázkové, grafické a obsahové zástupné prvky a pochopit dědičnost zástupných prvků pomocí Aspose.Slides pro Java."
 ---
 ## **Přehled**
 
-Zástupný objekt je tvar, který vyhrazuje pozici pro konkrétní typ obsahu v šabloně prezentace. Běžnými příklady jsou zástupné objekty pro název, tělo, obrázek, graf a obecné obsahové zástupné objekty. Na rozdíl od obyčejného tvaru může zástupný objekt dědit svou pozici, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
+Zástupný prvek je tvar, který rezervuje místo pro určitý typ obsahu v šabloně prezentace. Běžnými příklady jsou zástupné prvky pro nadpis, tělo, obrázek, graf a obecný obsah. Na rozdíl od běžného tvaru může zástupný prvek dědit svou polohu, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
 
-Aspose.Slides zpřístupňuje informace o zástupných objektech pomocí metody [IShape.getPlaceholder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/). Tato metoda vrací objekt [IPlaceholder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholder/) nebo `null` pro běžný tvar. Použijte [IPlaceholder.getType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholder/) k určení, co má zástupný objekt obsahovat.
+Aspose.Slides zpřístupňuje informace o zástupných prvcích prostřednictvím metody [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/). Metoda vrací objekt [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) nebo `null` pro běžný tvar. Použijte [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) k určení, co má zástupný prvek obsahovat.
 
-Rozhraní tvaru je i po zjištění typu zástupného objektu stále důležité:
+Rozhraní tvaru má stále význam poté, co znáte typ zástupného prvku:
 
-- Prázdný textový, obrázkový, grafický nebo obsahový zástupný objekt je obvykle reprezentován pomocí [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/).
-- Vyplněný zástupný objekt obrázku může být reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/).
-- Vyplněný zástupný objekt grafu může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/).
-- Obsahový zástupný objekt může obsahovat několik typů obsahu. Zkontrolujte jak [IPlaceholder.getType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholder/), tak rozhraní tvaru za běhu, místo aby se předpokládalo, že každý zástupný objekt je [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/).
+- Prázdný textový, obrázkový, grafický nebo obsahový zástupný prvek je obvykle reprezentován pomocí [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+- Vyplněný obrázkový zástupný prvek může být reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/).
+- Vyplněný grafický zástupný prvek může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/).
+- Obsahový zástupný prvek může obsahovat několik typů obsahu. Zkontrolujte jak [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/), tak runtime rozhraní tvaru, místo abyste předpokládali, že každý zástupný prvek je [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholder/) popisuje roli zástupného objektu; nezaručuje runtime typ tvaru. Vždy použijte kontrolu typu před přístupem k textovým, obrázkovým, grafovým, tabulkovým nebo mediálním členům.
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) popisuje roli zástupného prvku; nezaručuje runtime typ tvaru. Vždy proveďte kontrolu typu před přístupem k textovým, obrázkovým, grafickým, tabulkovým nebo mediálním členům.
 {{% /alert %}}
 
-## **Pochopit dědičnost zástupných objektů**
+## **Pochopení dědičnosti zástupných prvků**
 
-Zástupné objekty tvoří hierarchii:
+Zástupné prvky tvoří hierarchii:
 
-1. Hlavní snímek (master slide) definuje znovupoužitelné styly a v některých případech i zástupné objekty na úrovni masteru.
-2. Rozložení snímku (layout slide) určuje uspořádání použité jedním nebo více normálními snímky a může dědit z hlavního snímku.
-3. Normální snímek obsahuje zástupné objekty pro tento snímek a může dědit z jeho rozložení.
+1. Hlavní snímek (master slide) definuje opakovaně použitelné styly a v některých případech i zástupné prvky na úrovni hlavního snímku.
+2. Rozložení snímku (layout slide) určuje uspořádání použité jedním nebo více běžnými snímky a může dědit z hlavního snímku.
+3. Běžný snímek obsahuje zástupné prvky pro tento snímek a může dědit z jeho rozložení.
 
-Metodou [IShape.getBasePlaceholder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) můžete posunout o jednu úroveň výš v této hierarchii. Zástupný objekt snímku obvykle vrací svůj zástupný objekt rozložení; zástupný objekt rozložení může vrátit svůj master zástupný objekt. Metoda vrací `null`, pokud tvar nemá základní zástupný objekt.
+Zavolejte [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) pro přesun o jednu úroveň výše v této hierarchii. Zástupný prvek snímku obvykle vrací svůj zástupný prvek rozložení; zástupný prvek rozložení může vracet svůj hlavní zástupný prvek. Metoda vrací `null`, když tvar nemá základní zástupný prvek.
 
-Následující příklad vypíše zástupné objekty na prvním snímku a zobrazí jejich základní zástupné objekty:
+Následující příklad vypisuje zástupné prvky na prvním snímku a uvádí jejich základní zástupné prvky:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-Úprava zástupného objektu na normálním snímku vytvoří nebo změní lokální přepis pro tento snímek. Úprava souvisejícího rozložení nebo masteru může ovlivnit všechny snímky, které stále dědí toto nastavení. Lokální obyčejný tvar nemá základní zástupný objekt a nezačíná dědit jen proto, že zabírá stejné souřadnice.
+Úprava zástupného prvku na běžném snímku vytvoří nebo změní lokální přepsání pro tento snímek. Úprava souvisejícího rozložení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí toto nastavení. Běžný tvar nemá žádný základní zástupný prvek a nezačne dědit jen proto, že zabírá stejné souřadnice.
 
-## **Změnit text v zástupném objektu**
+## **Odstranění stavu zástupného prvku**
 
-Zástupné objekty pro název, centrální název, podnázev, tělo a text obvykle podporují text. Před použitím metody [getTextFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/) zkontrolujte, zda jde o [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/).
+Při úpravě šablony použijte [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) k zachování existujícího objektu jako běžného tvaru. Jeho metoda [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) vrací `null`, ale tvar zůstává v kolekci snímku. Naproti tomu [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) smaže tvar z této kolekce.
 
-Tento příklad aktualizuje první zástupný objekt názvu na prvním snímku a uloží výsledek:
+Následující příklad vyžaduje soubor `template.pptx` s alespoň jedním snímkem a neprázdným textovým zástupným prvkem na prvním snímku. Použijte zástupný prvek s formátováním zděděným z jeho rozložení nebo hlavního snímku, aby bylo patrné, jaký má efekt odstranění tohoto vztahu. Příklad kontroluje, že stejný tvar zůstává, znovu zavolá metodu na nyní běžném tvaru a uloží výsledek.
+
+{{% alert color="warning" title="Warning" %}}
+Odstranění stavu zástupného prvku automaticky neuchovává zděděná nastavení vzhledu. Níže uvedený příklad úmyslně nechává tato nastavení beze změny, takže výstup může vypadat odlišně. Tvar, jehož pozice a velikost jsou zcela zděděny, může po volání mít nulové souřadnice a rozměry a stát se neviditelným, i když zůstává v kolekci.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Volání metody na běžném tvaru nemá žádný efekt.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro odpovídající zástupný prvek všechny tři kontroly vrátí `true`. Text zůstane, ale zděděná pozice, velikost, rotace, písmo, zarovnání odstavce, okraje textového rámce, vertikální kotvení, výplň a nastavení čáry se mohou změnit, když je vztah zástupného prvku odstraněn. Například zděděné formátování nadpisu může přejít na běžné formátování textu. Více o rozloženích najdete v článku [Slide Layout](/slides/cs/java/slide-layout/).
+
+Pro zachování zamýšleného vzhledu zachyťte vypočtenou pozici, velikost a rotaci před voláním a zkopírujte požadované účinné formátovací hodnoty do samostatných proměnných. Tyto hodnoty načtěte pomocí [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), a [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--). Nespoléhejte se jen na objekty s účinným formátem, protože jejich hodnoty textového formátování se mohou po odstranění vztahu změnit. Výslovně aplikujte zachycené hodnoty na běžný tvar následně, včetně rodiny písma, velikosti, stylu, barvy, nastavení odstavce, nastavení textového rámce, výplně a čáry použité v šabloně.
+
+Zděděná geometrie tvaru může také vyžadovat explicitní přiřazení pomocí [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-). Pro obdélníkový textový zástupný prvek to znamená přiřadit [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle); obnovení pouze výplně a čáry nemusí obnovit viditelný obdélník. Šablony s dalšími efekty nebo složitějším formátováním vyžadují, aby byla tato nastavení také ošetřena.
+
+## **Změna textu ve zástupném prvku**
+
+Nadpis, centrovaný nadpis, podnadpis, tělo a textové zástupné prvky obvykle podporují text. Před použitím metody [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) zkontrolujte, zda se jedná o [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+
+Tento příklad aktualizuje první zástupný prvek nadpisu na prvním snímku a uloží výsledek:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-Tento vzor zabraňuje přetypování obrázkových, grafových, tabulkových nebo mediálních zástupných objektů na [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/). Také identifikuje zástupný objekt podle účelu místo spolehnutí se na křehký index tvaru.
+Tento vzor zabraňuje přetypování obrázkových, grafických, tabulkových nebo mediálních zástupných prvků na [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). Také identifikuje zástupný prvek podle účelu místo spoléhat na křehký index tvaru.
 
-## **Nastavit nápovědní text v rozvržení**
+## **Nastavení výzvy (prompt) textu v rozložení**
 
-Nápovědní text je instrukce během návrhu zobrazovaná v prázdném zástupném objektu, např. *Klikněte pro přidání názvu*. Nastavte vlastní nápovědní text na zástupném objektu rozložení místo pokusu o přístup přes kolekci tvarů normálního snímku. Přístup k rozložení získáte pomocí [ISlide.getLayoutSlide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islide/) a iterujte přes kolekci vrácenou metodou [ILayoutSlide.getShapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ibaseslide/).
+Výzva (prompt) text je návrhová instrukce zobrazovaná v prázdném zástupném prvku, například *Klikněte pro přidání nadpisu*. Nastavte vlastní výzvu v zástupném prvku rozložení místo toho, abyste se snažili dosáhnout na něj přes kolekci tvarů běžného snímku. Přístup k rozložení získáte pomocí [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) a iterujete přes kolekci vrácenou metodou [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/).
 
-Následující příklad mění nápovědy názvu a podnázvu v rozložení použitém pro první snímek:
+Následující příklad mění výzvu nadpisu a podnadpisu v rozložení použitém na prvním snímku:
 
 ```java
 import com.aspose.slides.*;
@@ -171,16 +233,16 @@ try {
 }
 ```
 
-Nápovědní text není běžný obsah snímku. Je určen pro prázdné zástupné objekty v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program zadá skutečný obsah, nápověda se již nezobrazuje. Změna nápovědy také nevyřadí existující text na snímcích, které používají dané rozložení.
+Výzva není běžný obsah snímku. Je určena pro prázdné zástupné prvky v editovacích aplikacích, jako je PowerPoint. Jakmile uživatel nebo program dodá skutečný obsah, výzva již není zobrazena. Změna výzvy také neodstraní existující text na snímcích, které používají dané rozložení.
 
-## **Aktualizovat zástupný objekt obrázku**
+## **Aktualizace obrázkového zástupného prvku**
 
-Existují dva případy, které je třeba ošetřit:
+Existují dva případy:
 
-- Pokud je zástupný objekt obrázku již vyplněn a reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/), nahraďte obrázek pomocí [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) a [ISlidesPicture.setImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidespicture/).
-- Pokud je stále prázdný zástupný objekt, přidejte obrázkový rám na souřadnice zástupného objektu pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/) a odstraňte prázdný zástupný objekt.
+- Pokud je obrázkový zástupný prvek již vyplněn a je reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), nahraďte obrázek pomocí [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) a [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/).
+- Pokud je stále prázdný zástupný prvek, přidejte obrázkový rámec na souřadnice zástupného prvku pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) a odstraňte prázdný zástupný prvek.
 
-Následující příklad podporuje oba případy a uloží prezentaci:
+Další příklad podporuje oba případy a ukládá prezentaci:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-Náhrada vytvořená pro prázdný zástupný objekt je lokální obrázkový rám, ne nový zástupný objekt, protože [IShape.getPlaceholder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) neposkytuje setter. Zachová vyhrazenou pozici, ale již nezdědí chování specifické pro zástupný objekt. Pokud je zachování vztahu zástupného objektu podstatné, připravte a vyplňte zástupný objekt nejprve v PowerPointu a poté aktualizujte výsledný [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) pomocí Aspose.Slides.
+Náhrada vytvořená pro prázdný zástupný prvek je lokální obrázkový rámec, nikoli nový zástupný prvek, protože [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) neposkytuje setter. Uchovává vyhrazenou polohu, ale již nedědí chování specifické pro zástupné prvky. Pokud je zachování vztahu zástupného prvku podstatné, připravte a vyplňte zástupný prvek v PowerPointu nejprve, pak aktualizujte vzniklý [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) pomocí Aspose.Slides.
 
-Pro průhlednost obrázku, ořezávání a další efekty specifické pro obrázek viz [Manage Picture Frames](/slides/cs/java/picture-frame/). Tyto operace patří k obrázkovému rámu nebo výplni obrázku, nikoli k metadatům zástupného objektu.
+Pro průhlednost obrázku, ořez a další efekty specifické pro obrázek viz [Manage Picture Frames](/slides/cs/java/picture-frame/). Tyto operace patří k obrázkovému rámci nebo výplni obrázku, nikoli k metadatům zástupného prvku.
 
-## **Práce s grafy a obsahovými zástupnými objekty**
+## **Práce s grafickými a obsahovými zástupnými prvky**
 
-Vyplněný zástupný objekt grafu může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/). Tento příklad najde takový graf jak podle typu zástupného objektu, tak podle rozhraní za běhu, změní jeho název a uloží soubor:
+Vyplněný grafický zástupný prvek může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/). Tento příklad najde takový graf podle typu zástupného prvku i runtime rozhraní, změní jeho nadpis a uloží soubor:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Obecný obsahový zástupný objekt má obvykle typ [PlaceholderType.Object](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po vyplnění prozkoumejte skutečné rozhraní tvaru, abyste zjistili, co obsahuje. Specializovaná rozložení mohou také poskytovat typy [PlaceholderType.Chart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/), nebo [PlaceholderType.Diagram](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholdertype/).
+Obecný obsahový zástupný prvek má obvykle [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po jeho vyplnění prozkoumejte skutečné rozhraní tvaru, abyste zjistili, co obsahuje. Speciální rozložení mohou také vystavit [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), nebo [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides nepřetvoří prázdný zástupný objekt [IAutoShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iautoshape/) na [IChart](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/) pouhým změněním [IPlaceholder.getType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/placeholder/); typ nelze změnit přes rozhraní. Pro naplnění prázdné oblasti grafu nebo obsahu programově přidejte požadovaný objekt na souřadnice zástupného objektu a poté odstraňte prázdný zástupný objekt. Následující příklad to provádí pro graf:
+Aspose.Slides nepřevádí prázdný [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) zástupný prvek na [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) pouhým změněním [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/); typ nelze změnit přes rozhraní. Pro naplnění prázdného grafu nebo obsahu programově přidejte požadovaný objekt na souřadnice zástupného prvku a poté odstraňte prázdný zástupný prvek. Následující příklad to dělá pro graf:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Přidaný graf je obyčejný lokální graf. Zaujímá oblast zástupného objektu, ale nedědí z rozložení zástupného objektu. Použijte specializované [chart management articles](/slides/cs/java/powerpoint-charts/), když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
+Přidaný graf je běžný lokální graf. Zabírá oblast zástupného prvku, ale nedědí z rozložení. Používejte specializované články o správě grafů [chart management articles](/slides/cs/java/powerpoint-charts/), když potřebujete nahradit kategorie, řady nebo data sešitu.
 
-## **Kompletní příklad: Aktualizovat text nebo obrázkový obsah**
+## **Úplný příklad: Aktualizace textu nebo obrázku**
 
-Následující kompletní příklad otevře šablonu, prohledá první snímek buď na zástupný objekt názvu nebo obrázku, zkontroluje typy zástupného objektu a tvaru, aktualizuje příslušný obsah a uloží výstup. Příklad úmyslně nevyužívá předpokladu o indexu tvaru ani nepřetypovává každý zástupný objekt na stejné rozhraní.
+Následující end-to-end příklad otevře šablonu, vyhledá na prvním snímku buď zástupný prvek nadpisu nebo obrázku, zkontroluje typy zástupného prvku i tvaru, aktualizuje odpovídající obsah a uloží výstup. Příklad úmyslně nepředpokládá index tvaru ani nepřetypovává každý zástupný prvek na stejné rozhraní.
 
 ```java
 import com.aspose.slides.*;
@@ -365,14 +427,14 @@ try {
 
 ## **Často kladené otázky**
 
-**Co je základní zástupný objekt?**
+**Co je základní (base) zástupný prvek?**
 
-Základní zástupný objekt je odpovídající tvar na rozložení nebo masteru, ze kterého další zástupný objekt dědí. Použijte [IShape.getBasePlaceholder](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishape/) k jeho získání. Běžný lokální tvar vrací `null`, protože není součástí hierarchie zástupných objektů.
+Základní zástupný prvek je odpovídající tvar v rozložení nebo hlavním snímku, ze kterého jiný zástupný prvek dědí. Použijte [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) k jeho získání. Běžný lokální tvar vrací `null`, protože není součástí hierarchie zástupných prvků.
 
-**Mohu změnit všechny názvy snímků úpravou zástupného objektu v rozložení?**
+**Mohu změnit všechny nadpisy snímků úpravou zástupného prvku v rozložení?**
 
-Můžete změnit zděděné formátování nebo nápovědní text pomocí rozložení, ale existující obsah názvu je uložen na normálních snímcích. Pro nahrazení skutečného textu názvu v celé prezentaci iterujte přes snímky a aktualizujte každý zástupný objekt názvu.
+Můžete změnit zděděné formátování nebo výzvu pomocí rozložení, ale existující text nadpisu je uložen na běžných snímcích. Pro nahrazení skutečného textu nadpisu v celé prezentaci iterujte přes snímky a aktualizujte každý zástupný prvek nadpisu.
 
-**Jak spravovat zástupné objekty data, čísla snímku, hlavičky a patičky?**
+**Jak spravovat zástupné prvky data, čísla snímku, záhlaví a zápatí?**
 
-Použijte správce hlaviček a patiček na příslušném úrovni snímku, rozložení, masteru, poznámek nebo podkladů. Viz [Manage Presentation Header and Footer](/slides/cs/java/presentation-header-and-footer/) pro kompletní příklady.
+Použijte správce záhlaví a zápatí v odpovídajícím rozsahu – snímek, rozložení, hlavní snímek, poznámky nebo výstřižky. Viz [Manage Presentation Header and Footer](/slides/cs/java/presentation-header-and-footer/) pro kompletní příklady.

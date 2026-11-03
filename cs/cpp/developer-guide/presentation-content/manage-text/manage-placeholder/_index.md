@@ -1,50 +1,50 @@
 ---
-title: Spravovat zástupce prezentace v C++
-linktitle: Spravovat zástupce
+title: Spravovat zástupné prvky prezentace v C++
+linktitle: Spravovat zástupné prvky
 type: docs
 weight: 10
 url: /cs/cpp/manage-placeholder/
 keywords:
-- zástupce
-- textový zástupce
-- obrázkový zástupce
-- grafový zástupce
-- obsahový zástupce
-- výzva text
+- zástupný prvek
+- textový zástupný prvek
+- obrázkový zástupný prvek
+- grafový zástupný prvek
+- obsahový zástupný prvek
+- výzva textu
 - PowerPoint
 - prezentace
 - C++
 - Aspose.Slides
-description: "Naučte se, jak prohlížet a upravovat textové, obrázkové, grafové a obsahové zástupce a pochopit dědičnost zástupců pomocí Aspose.Slides pro C++."
+description: "Naučte se, jak prozkoumat a upravit textové, obrázkové, grafické a obsahové zástupné prvky a pochopit dědičnost zástupných prvků pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Zástupce je tvar, který vyhrazuje pozici pro konkrétní typ obsahu v šabloně prezentace. Běžnými příklady jsou zástupci názvu, těla, obrázku, grafu a univerzální zástupci obsahu. Na rozdíl od obyčejného tvaru může zástupce zdědit svou pozici, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
+Zástupný prvek je tvar, který vyhrazuje pozici pro konkrétní typ obsahu v šabloně prezentace. Mezi běžné příklady patří zástupné prvky pro nadpis, tělo, obrázek, graf a obecný obsah. Na rozdíl od běžného tvaru může zástupný prvek dědit svou pozici, velikost, formátování a další nastavení z rozvržení snímku nebo hlavního snímku.
 
-Aspose.Slides zpřístupňuje informace o zástupcích prostřednictvím metody [IShape::get_Placeholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_placeholder/). Metoda vrací objekt [IPlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iplaceholder/) nebo `nullptr` pro běžný tvar. K určení, co je zástupce určen k obsahu, použijte [IPlaceholder::get_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iplaceholder/get_type/).
+Aspose.Slides poskytuje informace o zástupných prvcích prostřednictvím metody [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/). Metoda vrací objekt [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) nebo `nullptr` pro běžný tvar. Použijte [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) k určení, co má zástupný prvek obsahovat.
 
-Rozhraní tvaru je stále důležité poté, co znáte typ zástupce:
+Rozhraní tvaru i po zjištění typu zástupného prvku stále hraje roli:
 
-- Prázdný textový, obrázkový, grafový nebo obsahový zástupce je obvykle reprezentován jako [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
-- Vyplněný obrázkový zástupce může být reprezentován jako [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/).
-- Vyplněný grafový zástupce může být reprezentován jako [IChart](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/).
-- Obsahový zástupce může obsahovat několik typů obsahu. Zkontrolujte jak [IPlaceholder::get_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iplaceholder/get_type/), tak rozhraní tvaru v běhu, namísto předpokladu, že každý zástupce je [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
+- Prázdný textový, obrázkový, grafický nebo obsahový zástupný prvek je obvykle reprezentován pomocí [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Vyplněný obrázkový zástupný prvek může být reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Vyplněný grafický zástupný prvek může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Obsahový zástupný prvek může obsahovat několik typů obsahu. Zkontrolujte jak [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) tak rozhraní tvaru za běhu, místo předpokladu, že každý zástupný prvek je [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iplaceholder/get_type/) popisuje roli zástupce; nezaručuje runtime typ tvaru. Vždy proveďte kontrolu typu před přístupem k textovým, obrázkovým, grafovým, tabulkovým nebo mediálním členům.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) popisuje roli zástupného prvku; nezaručuje typ tvaru za běhu. Vždy použijte kontrolu typu před přístupem k textovým, obrázkovým, grafickým, tabulkovým nebo mediálním členům.
 {{% /alert %}}
 
-## **Pochopení dědičnosti zástupců**
+## **Pochopení dědičnosti zástupných prvků**
 
-Zástupci tvoří hierarchii:
+Zástupné prvky tvoří hierarchii:
 
-1. Hlavní snímek definuje znovupoužitelné styly a v některých případech zástupce na úrovni hlavního snímku.
-2. Rozložení snímku určuje uspořádání použité jedním nebo více běžnými snímky a může dědit z hlavního snímku.
-3. Běžný snímek obsahuje zástupce pro daný snímek a může dědit z jeho rozložení.
+1. Hlavní snímek (master slide) definuje opakovaně použitelné styly a v některých případech také zástupné prvky na úrovni hlavního snímku.
+2. Rozvržení snímku (layout slide) určuje uspořádání použité jedním nebo více běžnými snímky a může dědit z hlavního snímku.
+3. Běžný snímek obsahuje zástupné prvky pro daný snímek a může dědit ze svého rozvržení.
 
-Voláním [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) se posunete o jednu úroveň výše v této hierarchii. Zástupce snímku obvykle vrací svůj zástupce rozložení; zástupce rozložení může vrátit svůj hlavní zástupce. Metoda vrací `nullptr`, když tvar nemá základní zástupce.
+Zavolejte [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/), abyste se posunuli o jednu úroveň výš v této hierarchii. Zástupný prvek snímku obvykle vrátí svůj zástupný prvek rozvržení; zástupný prvek rozvržení může vrátit svůj hlavní zástupný prvek. Metoda vrací `nullptr`, pokud tvar nemá základní zástupný prvek.
 
-Níže uvedený příklad vypisuje zástupce na prvním snímku a uvádí jejich základní zástupce:
+Následující příklad vypíše zástupné prvky na prvním snímku a uvádí jejich základní zástupné prvky:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Úprava zástupce na běžném snímku vytvoří nebo změní lokální přepis pro tento snímek. Úprava souvisejícího rozložení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí toto nastavení. Běžný lokální tvar nemá základní zástupce a nezačíná dědit jen proto, že zabírá stejné souřadnice.
+Úprava zástupného prvku na běžném snímku vytvoří nebo změní lokální přepsání pro tento snímek. Úprava souvisejícího rozvržení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí toto nastavení. Lokální běžný tvar nemá základní zástupný prvek a nezačne dědit jen proto, že zaujímá stejné souřadnice.
 
-## **Změna textu v zástupci**
+## **Odstranění stavu zástupného prvku**
 
-Zástupci názvu, centrovaného názvu, podtitulku, těla a textu obvykle podporují text. Před použitím metody [get_TextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/get_textframe/) zkontrolujte, zda jde o [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/).
+Při úpravě šablony použijte [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) aby byl existující objekt zachován jako běžný tvar. Jeho metoda [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) vrací `nullptr`, ale tvar zůstává v kolekci snímku. Naopak [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) odstraní tvar z této kolekce.
 
-Tento příklad aktualizuje první zástupce názvu na prvním snímku a uloží výsledek:
+Následující příklad vyžaduje `template.pptx` s alespoň jedním snímkem a neprázdným textovým zástupným prvkem na prvním snímku. Použijte zástupný prvek s formátováním děděným z jeho rozvržení nebo hlavního snímku, abyste viděli vliv odebrání tohoto vztahu. Příklad kontroluje, že stejný tvar zůstává, zavolá metodu znovu na nyní běžný tvar a výsledek uloží.
+
+{{% alert color="warning" title="Warning" %}}
+Odstranění stavu zástupného prvku automaticky neuchovává děděná nastavení vzhledu. Níže uvedený příklad úmyslně ponechává tato nastavení nezměněna, takže výstup může vypadat odlišně. Tvar, jehož pozice a velikost jsou zcela zděděny, může po volání mít nulové souřadnice a rozměry a stát se neviditelným, i když zůstává v kolekci.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Volání metody na běžném tvaru nemá žádný efekt.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Pro odpovídající zástupný prvek všechny tři kontroly vrátí `True`. Text zůstane, ale pozice, velikost, rotace, písmo, zarovnání odstavců, okraje textového rámečku, vertikální kotvení, výplň a nastavení čáry mohou být po odebrání vztahu zástupného prvku změněny. Například děděné formátování nadpisu se může vrátit k běžnému formátování textu. Viz [Rozvržení snímku](/slides/cs/cpp/slide-layout/) pro více informací o rozvrzích.
+
+Aby byl zachován zamýšlený vzhled, zachyťte před voláním vypočtenou pozici, velikost a rotaci a zkopírujte požadované hodnoty efektivního formátování do samostatných proměnných. Získejte tyto hodnoty pomocí [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), a [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). Nespoléhejte se jen na objekty efektivního formátu, protože jejich hodnoty formátování textu se po odebrání vztahu mohou změnit. Výslovně aplikujte zachycené hodnoty na běžný tvar po provedení, včetně rodiny písma, velikosti, stylu, barvy, nastavení odstavce, nastavení textového rámečku, výplně a čáry použité ve vaší šabloně.
+
+Zděděná geometrie tvaru může také vyžadovat explicitní přiřazení pomocí [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Pro obdélníkový textový zástupný prvek to znamená přiřadit [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); obnovení pouze výplně a čáry nemusí obnovit viditelný obdélník. Šablony s dalšími efekty nebo složitějším formátováním také vyžadují, aby tato nastavení byla zpracována.
+
+## **Změna textu ve zástupném prvku**
+
+Zástupné prvky pro nadpis, centrovaný nadpis, podnadpis, tělo a text obvykle podporují text. Zkontrolujte [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/), než použijete jeho metodu [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/).
+
+Tento příklad aktualizuje první zástupný prvek nadpisu na prvním snímku a uloží výsledek:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Tento vzor se vyhýbá přetypování obrázkových, grafových, tabulkových nebo mediálních zástupců na [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/). Také identifikuje zástupce podle účelu namísto spoléhaní se na křehký index tvaru.
+Tento vzor se vyhýbá přetypování obrázkových, grafových, tabulkových nebo mediálních zástupných prvků na [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Také identifikuje zástupný prvek podle účelu místo spoléhaní se na křehký index tvaru.
 
-## **Nastavení výzvy (prompt) v rozložení**
+## **Nastavení výzvy (prompt) textu v rozvržení**
 
-Text výzvy je návrhový pokyn zobrazovaný v prázdném zástupci, například *Klikněte pro přidání názvu*. Nastavte vlastní text výzvy na zástupci rozložení místo pokusu o dosažení přes kolekci tvarů běžného snímku. Přistupte k rozložení pomocí [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islide/get_layoutslide/) a iterujte přes [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ibaseslide/get_shapes/).
+Výzva (prompt) text je návrhový pokyn zobrazený v prázdném zástupném prvku, například *Klikněte pro přidání nadpisu*. Nastavte vlastní výzvu na zástupném prvku rozvržení místo pokusu o dosažení přes kolekci tvarů běžného snímku. Přístup k rozvržení získáte pomocí [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) a iterujte přes [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
-Následující příklad mění výzvy názvu a podtitulku v rozložení použitém prvním snímkem:
+Následující příklad mění výzvy nadpisu a podnadpisu v rozvržení použitém prvním snímkem:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Text výzvy není běžný obsah snímku. Je určen pro prázdné zástupce v editovacích aplikacích, jako je PowerPoint. Jakmile uživatel nebo program poskytne skutečný obsah, výzva se již nezobrazuje. Změna výzvy také nenahrazuje existující text na snímcích, které rozložení používají.
+Výzva není běžný obsah snímku. Je určena pro prázdné zástupné prvky v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program poskytne skutečný obsah, výzva se již nezobrazuje. Změna výzvy také nenahrazuje existující text na snímcích, které rozvržení používají.
 
-## **Aktualizace obrázkového zástupce**
+## **Aktualizace obrázkového zástupného prvku**
 
-Existují dva případy k ošetření:
+Je třeba řešit dva případy:
 
-- Pokud je obrázkový zástupce již vyplněn a reprezentován jako [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/), nahraďte obrázek pomocí [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/get_picture/) a [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidespicture/set_image/).
-- Pokud je stále prázdný zástupce, přidejte obrázkový rámec na souřadnice zástupce pomocí [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addpictureframe/) a odstraňte prázdný zástupce.
+- Pokud je obrázkový zástupný prvek již vyplněn a je reprezentován pomocí [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), nahraďte obrázek pomocí [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) a [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Pokud je stále prázdný zástupný prvek, přidejte obrázkový rám na souřadnice zástupného prvku pomocí [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) a odstraňte prázdný zástupný prvek.
 
-Další příklad podporuje oba případy a ukládá prezentaci:
+Následující příklad podporuje oba případy a uloží prezentaci:
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Náhrada vytvořená pro prázdný zástupce je lokální obrázkový rámec, nikoli nový zástupce, protože [IShape::get_Placeholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/get_placeholder/) je jen pro čtení. Uchovává vyhrazenou pozici, ale již nedědí chování specifické pro zástupce. Pokud je zachování vztahu k zástupci podstatné, připravte a vyplňte zástupce v PowerPointu nejprve, pak aktualizujte výsledný [IPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) pomocí Aspose.Slides.
+Náhrada vytvořená pro prázdný zástupný prvek je lokální obrázkový rám, nikoli nový zástupný prvek, protože [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) je pouze pro čtení. Uchovává vyhrazenou pozici, ale již nepřebírá chování specifické pro zástupný prvek. Pokud je zachování vztahu zástupného prvku podstatné, připravte a vyplňte zástupný prvek v PowerPointu nejprve, pak aktualizujte vzniklý [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) pomocí Aspose.Slides.
 
-Pro průhlednost obrazu, oříznutí a další efekty specifické pro obrázek viz [Manage Picture Frames](/slides/cs/cpp/picture-frame/). Tyto operace patří k obrázkovému rámci nebo výplni obrázku, ne k metadatům zástupce.
+Pro průhlednost obrázku, ořezávání a další efekty specifické pro obrázek viz [Spravovat obrázkové rámy](/slides/cs/cpp/picture-frame/). Tyto operace patří k obrázkovému rámu nebo výplni obrázku, nikoli k metadatům zástupného prvku.
 
-## **Práce s grafovými a obsahovými zástupci**
+## **Práce s grafovými a obsahovými zástupnými prvky**
 
-Vyplněný grafový zástupce může být reprezentován jako [IChart](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/). Tento příklad najde takový graf podle typu zástupce i runtime rozhraní, změní jeho název a uloží soubor:
+Vyplněný grafový zástupný prvek může být reprezentován pomocí [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Tento příklad vyhledá takový graf jak podle typu zástupného prvku, tak rozhraní za běhu, změní jeho nadpis a uloží soubor:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Obecný obsahový zástupce má obvykle [PlaceholderType::Object](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po jeho vyplnění prozkoumejte skutečné rozhraní tvaru, abyste zjistili, co obsahuje. Specializovaná rozložení mohou také vystavovat [PlaceholderType::Chart](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/), nebo [PlaceholderType::Diagram](https://reference.aspose.com/slides/cs/cpp/aspose.slides/placeholdertype/).
+Obecný obsahový zástupný prvek obvykle má [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč několika typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po jeho vyplnění zkoumejte skutečné rozhraní tvaru, abyste zjistili, co obsahuje. Specializovaná rozvržení mohou také odhalit [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) nebo [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/).
 
-Aspose.Slides nepřemění prázdný [IAutoShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iautoshape/) zástupce na [IChart](https://reference.aspose.com/slides/cs/cpp/aspose.slides.charts/ichart/) pouhým změněním [IPlaceholder::get_Type](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iplaceholder/get_type/); typ je jen pro čtení. Pro naplnění prázdného grafu nebo oblasti obsahu programově přidejte požadovaný objekt na souřadnice zástupce a pak odstraňte prázdný zástupce. Následující příklad to provádí pro graf:
+Aspose.Slides nepřevádí prázdný [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) zástupný prvek na [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) pouhým změněním [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); typ je jen pro čtení. Pro programové vyplnění prázdné oblasti grafu nebo obsahu přidejte požadovaný objekt na souřadnice zástupného prvku a poté odstraňte prázdný zástupný prvek. Následující příklad to provádí pro graf:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-Přidaný graf je obyčejný lokální graf. Zabírá oblast zástupce, ale nedědí z rozložení zástupce. Použijte specializované články o správě grafů [chart management articles](/slides/cs/cpp/powerpoint-charts/), když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
+Přidaný graf je běžný lokální graf. Zaujímá oblast zástupného prvku, ale nezdědí vlastnosti z rozvržení zástupného prvku. Použijte věnované [články o správě grafů](/slides/cs/cpp/powerpoint-charts/) když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
 
-## **Kompletní příklad: Aktualizace textového nebo obrazového obsahu**
+## **Kompletní příklad: Aktualizace textového nebo obrázkového obsahu**
 
-Níže uvedený end-to-end příklad otevírá šablonu, hledá na prvním snímku buď název nebo obrázkový zástupce, kontroluje typy zástupce i tvaru, aktualizuje příslušný obsah a uloží výstup. Příklad úmyslně nevyužívá předpoklad indexu tvaru ani přetypování každého zástupce na stejné rozhraní.
+Následující kompletní příklad otevře šablonu, vyhledá na prvním snímku buď zástupný prvek nadpisu nebo obrázku, zkontroluje typy zástupného prvku a tvaru, aktualizuje příslušný obsah a výsledek uloží. Příklad úmyslně nevyužívá předpoklad o indexu tvaru ani nepřetypovává každý zástupný prvek na stejné rozhraní.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -491,16 +568,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Co je základní (base) zástupce?**
+**Co je základní zástupný prvek?**
 
-Základní zástupce je odpovídající tvar v rozložení nebo hlavním snímku, ze kterého další zástupce dědí. Použijte [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/getbaseplaceholder/) k jeho získání. Běžný lokální tvar vrací `nullptr`, protože není součástí hierarchie zástupců.
+Základní zástupný prvek je odpovídající tvar v rozvržení nebo hlavním snímku, ze kterého další zástupný prvek dědí. Použijte [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/), abyste jej získali. Běžný lokální tvar vrací `nullptr`, protože není součástí hierarchie zástupných prvků.
 
-**Mohu změnit všechny názvy snímků úpravou zástupce v rozložení?**
+**Mohu změnit všechny nadpisy snímků úpravou zástupného prvku v rozvržení?**
 
-Můžete změnit děděné formátování nebo text výzvy prostřednictvím rozložení, ale existující text názvu je uložen na běžných snímcích. Pro nahrazení skutečného textu názvu napříč prezentací iterujte přes snímky a aktualizujte každý název‑zástupce.
+Můžete změnit děděné formátování nebo výzvu pomocí rozvržení, ale existující obsah nadpisu je uložen na běžných snímcích. Pro nahrazení skutečného textu nadpisů v celé prezentaci iterujte po snímcích a aktualizujte každý zástupný prvek nadpisu.
 
-**Jak spravovat zástupce data, čísla snímku, záhlaví a zápatí?**
+**Jak spravovat zástupné prvky data, čísla snímku, záhlaví a zápatí?**
 
-Použijte správce záhlaví a zápatí na úrovni specifického snímku, rozložení, hlavního snímku, poznámek nebo podkladů. Viz [Manage Presentation Header and Footer](/slides/cs/cpp/presentation-header-and-footer/) pro kompletní příklady.
+Použijte správce záhlaví a zápatí na příslušném rozsahu – snímek, rozvržení, hlavní snímek, poznámky nebo výstřižky. Viz [Správa záhlaví a zápatí prezentace](/slides/cs/cpp/presentation-header-and-footer/) pro kompletní příklady.

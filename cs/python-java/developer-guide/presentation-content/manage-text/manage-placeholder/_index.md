@@ -1,14 +1,14 @@
 ---
-title: Správa placeholderů prezentace v Pythonu
-linktitle: Správa placeholderů
+title: Správa placeholderů v prezentaci v Pythonu
+linktitle: Spravovat placeholdery
 type: docs
 weight: 10
 url: /cs/python-java/manage-placeholder/
 keywords:
-- placeholder
+- zástupný prvek
 - textový placeholder
 - obrázkový placeholder
-- placeholder grafu
+- grafový placeholder
 - obsahový placeholder
 - výzva
 - PowerPoint
@@ -16,36 +16,36 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Naučte se, jak prozkoumat a upravit textové, obrázkové, grafické a obsahové placeholdery a pochopit dědičnost placeholderů pomocí Aspose.Slides pro Python přes Java."
+description: "Naučte se, jak prohlížet a upravovat textové, obrázkové, grafové a obsahové placeholdery a pochopit dědičnost placeholderů pomocí Aspose.Slides pro Python prostřednictvím Java."
 ---
 ## **Přehled**
 
-Placeholder je tvar, který vyhrazuje pozici pro konkrétní typ obsahu v šabloně prezentace. Časté příklady jsou placeholdery pro název, tělo, obrázek, graf a obecný obsah. Na rozdíl od běžného tvaru může placeholder zdědit svou pozici, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
+Placeholder je tvar, který rezervuje pozici pro konkrétní typ obsahu v šabloně prezentace. Běžnými příklady jsou titul, tělo, obrázek, graf a obecné placeholdery pro obsah. Na rozdíl od obyčejného tvaru může placeholder zdědit svou pozici, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
 
-Aspose.Slides zpřístupňuje informace o placeholderu prostřednictvím metody [Shape.getPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getPlaceholder). Tato metoda vrací objekt [Placeholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholder/) nebo `None` pro běžný tvar. Použijte [Placeholder.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholder/#getType), abyste určili, co má placeholder obsahovat.
+Aspose.Slides zpřístupňuje informace o placeholderu pomocí metody [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder). Metoda vrací objekt [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/) nebo `None` pro normální tvar. Použijte [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) k určení, co má placeholder obsahovat.
 
 Typ tvaru je i nadále důležitý, i když znáte typ placeholderu:
 
-- Prázdný textový, obrázkový, grafický nebo obsahový placeholder je běžně reprezentován pomocí [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/).
-- Naplněný obrázkový placeholder může být reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/).
-- Naplněný grafický placeholder může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/).
-- Obsahový placeholder může obsahovat několik druhů obsahu. Zkontrolujte jak [Placeholder.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholder/#getType), tak i typ tvaru za běhu, místo toho, abyste předpokládali, že každý placeholder je [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/).
+- Prázdný textový, obrázkový, grafový nebo obsahový placeholder je běžně reprezentován pomocí [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Vyplněný obrázkový placeholder může být reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Vyplněný grafový placeholder může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Obsahový placeholder může obsahovat několik typů obsahu. Zkontrolujte jak [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType), tak runtime typ tvaru, místo abyste předpokládali, že každý placeholder je [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholder/#getType) popisuje roli placeholderu; nezaručuje typ tvaru za běhu. Vždy použijte kontrolu typu před přístupem k textovým, obrázkovým, grafickým, tabulkovým nebo mediálním členům.
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) popisuje roli placeholderu; nezaručuje runtime typ tvaru. Před přístupem k textovým, obrázkovým, grafovým, tabulkovým nebo mediálním členům vždy proveďte kontrolu typu.
 {{% /alert %}}
 
-## **Pochopit dědičnost placeholderů**
+## **Pochopení dědičnosti placeholderů**
 
 Placeholdery tvoří hierarchii:
 
-1. Hlavní snímek definuje opakovaně použitelné styly a v některých případech placeholdery úrovně master.
-2. Rozložení snímku definuje uspořádání použité na jednom nebo více normálních snímcích a může dědit z hlavního snímku.
-3. Normální snímek obsahuje placeholdery pro daný snímek a může dědit ze svého rozložení.
+1. Hlavní snímek definuje znovupoužitelné styly a v některých případech placeholdery na úrovni hlavního snímku.
+2. Rozložení snímku definuje uspořádání použité jedním nebo více běžnými snímky a může dědit z hlavního snímku.
+3. Běžný snímek obsahuje placeholdery pro tento snímek a může dědit z jeho rozložení.
 
-Vyvolejte [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder), abyste se posunuli o úroveň výš v této hierarchii. Placeholder snímku obvykle vrací svůj placeholder rozložení; placeholder rozložení může vrátit svůj master placeholder. Metoda vrátí `None`, pokud tvar nemá základní placeholder.
+Zavolejte [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) pro posun o jednu úroveň výše v této hierarchii. Placeholder snímku obvykle vrací jeho placeholder rozložení; placeholder rozložení může vrátit jeho placeholder hlavního snímku. Metoda vrací `None`, pokud tvar nemá základní placeholder.
 
-Následující příklad uvádí placeholdery na první snímku a vykazuje jejich základní placeholdery:
+Následující příklad vypisuje placeholdery na první snímku a uvádí jejich základní placeholdery:
 
 ```python
 import jpype
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-Úprava placeholderu na normálním snímku vytvoří nebo změní místní přepis pro tento snímek. Úprava souvisejícího rozložení nebo masteru může ovlivnit všechny snímky, které stále dědí toto nastavení. Místní běžný tvar nemá základní placeholder a nezačne dědit jen proto, že zaujímá stejné souřadnice.
+Úprava placeholderu na běžném snímku vytvoří nebo změní lokální přepsání pro tento snímek. Úprava souvisejícího rozložení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí toto nastavení. Lokální obyčejný tvar nemá základní placeholder a nezačíná dědit jen proto, že obsazuje stejné souřadnice.
+
+## **Odstranění stavu placeholderu**
+
+Při úpravě šablony použijte [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder), aby existující objekt zůstal obyčejným tvarem. Jeho metoda [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) vrací `None`, ale tvar zůstává v kolekci snímku. Oproti tomu [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) smaže tvar z této kolekce.
+
+Následující příklad vyžaduje soubor `template.pptx` s alespoň jedním snímkem a neprázdným textovým placeholderem na prvním snímku. Použijte placeholder s formátováním zděděným z jeho rozložení nebo hlavního snímku, abyste viděli efekt odstranění tohoto vztahu. Příklad kontroluje, že stejný tvar zůstává, zavolá metodu znovu na nyní obyčejný tvar a výsledek uloží.
+
+{{% alert color="warning" title="Warning" %}}
+Odstranění stavu placeholderu automaticky neuchovává zděděná nastavení vzhledu. Níže uvedený příklad úmyslně nechává tato nastavení beze změny, takže výstup může vypadat odlišně. Tvar, jehož pozice a velikost jsou zcela zděděny, může po volání mít nulové souřadnice a rozměry a stát se neviditelným, i když zůstává v kolekci.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Volání metody na obyčejném tvaru nemá žádný efekt.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Pro odpovídající placeholder všechny tři kontroly vrátí `True`. Text zůstává, ale zděděná pozice, velikost, otáčení, písmo, zarovnání odstavců, okraje textového rámce, vertikální ukotvení, výplň a nastavení čáry se mohou změnit, když je vztah placeholderu odstraněn. Například zděděné formátování titulku může přejít na obyčejné formátování textu. Viz [Slide Layout](/slides/cs/python-java/slide-layout/) pro více informací o rozloženích.
+
+Pro zachování zamýšleného vzhledu zachyťte vypočtenou pozici, velikost a otáčení před voláním a zkopírujte požadované hodnoty efektivního formátování do samostatných proměnných. Získejte tyto hodnoty pomocí [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) a [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Nespoléhejte se jen na objekty efektivního formátu, protože jejich hodnoty textového formátování se po odstranění vztahu mohou změnit. Výslovně aplikujte zachycené hodnoty na obyčejný tvar poté, včetně rodiny písma, velikosti, stylu, barvy, nastavení odstavců, nastavení textového rámce, výplně a čáry použité ve vaší šabloně.
+
+Zděděná geometrie tvaru může také vyžadovat explicitní přiřazení přes [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Pro obdélníkový textový placeholder to znamená přiřadit [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); obnovení jen výplně a čáry nemusí obnovit viditelný obdélník. Šablony s doplňkovými efekty nebo složitějším formátováním vyžadují také ošetření těchto nastavení.
 
 ## **Změna textu v placeholderu**
 
-Placeholdery pro název, centrovaný název, podtitul, tělo a text obvykle podporují text. Ověřte, že jde o [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) před použitím jeho [getTextFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/#getTextFrame) metody.
+Titulky, centrované titulky, podtitulky, těla a textové placeholdery obvykle podporují text. Před použitím metody [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame) zkontrolujte, že se jedná o [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
 
-Tento příklad aktualizuje první placeholder názvu na první snímku a uloží výsledek:
+Tento příklad aktualizuje první titulkový placeholder na prvním snímku a výsledek uloží:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-Tento vzor zabraňuje zacházení s obrázkovými, grafickými, tabulkovými nebo mediálními placeholdery jako s [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/). Také identifikuje placeholder podle účelu místo spoléhaní se na křehký index tvaru.
+Tento vzor zabraňuje zpracování obrázkových, grafových, tabulkových nebo mediálních placeholderů jako [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Také identifikuje placeholder podle účelu místo spoléhaní se na křehký index tvaru.
 
-## **Nastavení textu výzvy v rozložení**
+## **Nastavení výzvy v rozložení**
 
-Text výzvy je instrukce při návrhu zobrazovaná v prázdném placeholderu, např. *Click to add title*. Nastavte vlastní text výzvy na placeholderu rozložení místo toho, abyste se snažili dosáhnout na něj přes kolekci tvarů normálního snímku. Přístup k rozložení získáte pomocí [Slide.getLayoutSlide](https://reference.aspose.com/slides/cs/python-java/aspose.slides/slide/#getLayoutSlide) a projděte kolekci vrácenou metodou [BaseSlide.getShapes](https://reference.aspose.com/slides/cs/python-java/aspose.slides/baseslide/#getShapes).
+Výzva je návrhový text zobrazený v prázdném placeholderu, např. *Klikněte pro přidání titulku*. Nastavte vlastní výzvu na placeholderu rozložení místo toho, abyste se snažili získat jeho tvar z běžné kolekce snímku. Přístup k rozložení získáte pomocí [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) a iterujte přes kolekci vrácenou metodou [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
-Následující příklad mění výzvy pro název a podtitul v rozložení použitém na první snímku:
+Následující příklad mění výzvy titulku a podtitulku v rozložení použitým na prvním snímku:
 
 ```python
 import jpype
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-Text výzvy není běžný obsah snímku. Je určen pro prázdné placeholdery v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program dodá skutečný obsah, výzva se již nezobrazuje. Změna výzvy také nenahrazuje existující text na snímcích, které používají dané rozložení.
+Výzva není běžným obsahem snímku. Je určena pro prázdné placeholdery v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program zadá skutečný obsah, výzva již není zobrazena. Změna výzvy také neodstraní existující text na snímcích, které rozložení používají.
 
 ## **Aktualizace obrázkového placeholderu**
 
-Existují dva případy, které je třeba řešit:
+Existují dva případy:
 
-- Pokud je obrázkový placeholder již naplněn a reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/), nahraďte obrázek pomocí [PictureFillFormat.getPicture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picturefillformat/#getPicture) a [Picture.setImage](https://reference.aspose.com/slides/cs/python-java/aspose.slides/picture/#setImage).
-- Pokud je stále prázdný placeholder, přidejte picture frame na souřadnice placeholderu pomocí [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shapecollection/#addPictureFrame) a odstraňte prázdný placeholder.
+- Pokud je obrázkový placeholder již vyplněn a reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), nahraďte obrázek pomocí [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) a [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Pokud je stále prázdný placeholder, přidejte obrázkový rámec na souřadnice placeholderu pomocí [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) a prázdný placeholder odstraňte.
 
-Následující příklad podporuje oba případy a uloží prezentaci:
+Další příklad podporuje oba případy a prezentaci uloží:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-Náhrada vytvořená pro prázdný placeholder je místní picture frame, nikoli nový placeholder, protože [Shape.getPlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getPlaceholder) nenabízí setter. Zachová vyhrazenou pozici, ale již nedědí chování specifické pro placeholder. Pokud je zachování vztahu k placeholderu podstatné, připravte a naplňte placeholder v PowerPointu nejprve, poté aktualizujte vzniklý [PictureFrame](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pictureframe/) pomocí Aspose.Slides.
+Náhrada vytvořená pro prázdný placeholder je lokální obrázkový rámec, nikoli nový placeholder, protože [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) nemá setter. Zachovává rezervovanou pozici, ale již nezdědí chování specifické pro placeholder. Pokud je zachování vztahu placeholderu podstatné, připravte a naplňte placeholder v PowerPointu nejprve, pak aktualizujte vzniklý [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) pomocí Aspose.Slides.
 
-Pro průhlednost obrázku, ořezávání a další efekty specifické pro obrázek, viz [Manage Picture Frames](/slides/cs/python-java/picture-frame/). Tyto operace patří k picture frame nebo picture fill, nikoli k metadatům placeholderu.
+Pro průhlednost obrázku, ořezání a další obrázkově specifické efekty viz [Manage Picture Frames](/slides/cs/python-java/picture-frame/). Tyto operace patří k obrázkovému rámci nebo výplni obrázku, nikoli k metadatům placeholderu.
 
-## **Práce s grafickými a obsahovými placeholdery**
+## **Práce s grafovými a obsahovými placeholdery**
 
-Naplněný grafický placeholder může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/). Tento příklad najde takový graf podle typu placeholderu i typu tvaru za běhu, změní jeho název a uloží soubor:
+Vyplněný grafový placeholder může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Tento příklad najde takový graf jak podle typu placeholderu, tak podle runtime typu, změní jeho titul a soubor uloží:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Obecný obsahový placeholder obvykle má typ [PlaceholderType.Object](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Object). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po naplnění zkontrolujte skutečný typ tvaru, abyste zjistili, co obsahuje. Specializovaná rozložení mohou také vystavit typy [PlaceholderType.Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Media) nebo [PlaceholderType.Diagram](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholdertype/#Diagram).
+Obecný obsahový placeholder má obvykle [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po jeho vyplnění zkontrolujte skutečný typ tvaru, abyste zjistili, co obsahuje. Specializovaná rozložení mohou také vystavit [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) nebo [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides nepřevádí prázdný [AutoShape](https://reference.aspose.com/slides/cs/python-java/aspose.slides/autoshape/) placeholder na [Chart](https://reference.aspose.com/slides/cs/python-java/aspose.slides/chart/) pouhým změněním [Placeholder.getType](https://reference.aspose.com/slides/cs/python-java/aspose.slides/placeholder/#getType); typ nelze změnit přes API. Pro programové naplnění prázdného grafu nebo obsahové oblasti přidejte požadovaný objekt na souřadnice placeholderu a poté odstraňte prázdný placeholder. Následující příklad to provádí pro graf:
+Aspose.Slides nepřevádí prázdný [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) placeholder na [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) pouhým změněním [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType); typ nelze změnit pomocí API. Pro naplnění prázdného grafu nebo obsahové oblasti programově přidejte požadovaný objekt na souřadnice placeholderu a poté prázdný placeholder odstraňte. Následující příklad to provádí pro graf:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Přidaný graf je běžný místní graf. Zabírá oblast placeholderu, ale nedědí z placeholderu rozložení. Použijte specializované články o správě grafů [chart management articles](/slides/cs/python-java/powerpoint-charts/), když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
+Přidaný graf je obyčejný lokální graf. Zabírá oblast placeholderu, ale nezdědí z placeholderu rozložení. Použijte specializované články o správě grafů [chart management articles](/slides/cs/python-java/powerpoint-charts/), když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
 
-## **Kompletní příklad: Aktualizace textového nebo obrazového obsahu**
+## **Kompletní příklad: Aktualizace textu nebo obrázku**
 
-Následující end-to-end příklad otevře šablonu, prohledá první snímek a najde buď placeholder názvu, nebo obrázku, zkontroluje typy placeholderu i tvaru, aktualizuje příslušný obsah a uloží výstup. Příklad úmyslně nevyužívá index tvaru ani nepřistupuje k placeholderům jako ke stejnému typu.
+Následující end‑to‑end příklad otevře šablonu, prohledá první snímek a najde buď titulkový, nebo obrázkový placeholder, zkontroluje typy placeholderu i tvaru, aktualizuje příslušný obsah a výsledek uloží. Příklad úmyslně nepředpokládá index tvaru ani nepracuje se všemi placeholdery jako se stejným typem.
 
 ```python
 from pathlib import Path
@@ -355,16 +417,16 @@ finally:
     presentation.dispose()
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Co je základní placeholder?**
 
-Základní placeholder je odpovídající tvar na rozložení nebo hlavním snímku, ze kterého jiný placeholder dědí. Použijte [Shape.getBasePlaceholder](https://reference.aspose.com/slides/cs/python-java/aspose.slides/shape/#getBasePlaceholder) pro jeho získání. Běžný místní tvar vrátí `None`, protože není součástí hierarchie placeholderů.
+Základní placeholder je odpovídající tvar v rozložení nebo hlavním snímku, ze kterého jiný placeholder dědí. Použijte [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) k jeho získání. Obyčejný lokální tvar vrací `None`, protože není součástí hierarchie placeholderů.
 
-**Mohu změnit všechny názvy snímků úpravou placeholderu v rozložení?**
+**Mohu změnit všechny titulky snímků úpravou placeholderu v rozložení?**
 
-Můžete změnit děděné formátování nebo text výzvy prostřednictvím rozložení, ale existující text názvu je uložen na normálních snímcích. Pro nahrazení skutečného textu názvu napříč prezentací musíte projít všechny snímky a aktualizovat každý placeholder názvu.
+Můžete změnit zděděné formátování nebo výzvu pomocí rozložení, ale existující text titulku je uložen na běžných snímcích. Pro nahrazení skutečného textu titulku v celé prezentaci iterujte přes snímky a aktualizujte každý titulkový placeholder.
 
-**Jak spravovat placeholdery data, čísla snímku, hlavičky a paty?**
+**Jak spravuji placeholdery pro datum, číslo snímku, záhlaví a zápatí?**
 
-Použijte správce hlaviček a pat pomocí příslušného rozsahu – snímku, rozložení, masteru, poznámek nebo výstřižků. Viz [Manage Presentation Header and Footer](/slides/cs/python-java/presentation-header-and-footer/) pro kompletní ukázky.
+Použijte správce záhlaví a zápatí na úrovni snímku, rozložení, hlavního snímku, poznámek nebo výstřižků. Viz [Manage Presentation Header and Footer](/slides/cs/python-java/presentation-header-and-footer/) pro kompletní příklady.

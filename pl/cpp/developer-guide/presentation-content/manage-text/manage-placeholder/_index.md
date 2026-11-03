@@ -1,50 +1,50 @@
 ---
-title: Zarządzanie placeholderami prezentacji w C++
-linktitle: Zarządzaj placeholderami
+title: Zarządzanie symbolami zastępczymi prezentacji w C++
+linktitle: Zarządzaj symbolami zastępczymi
 type: docs
 weight: 10
 url: /pl/cpp/manage-placeholder/
 keywords:
 - symbol zastępczy
-- placeholder tekstowy
-- placeholder obrazu
-- placeholder wykresu
-- placeholder zawartości
+- symbol zastępczy tekstu
+- symbol zastępczy obrazu
+- symbol zastępczy wykresu
+- symbol zastępczy treści
 - tekst podpowiedzi
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak przeglądać i edytować placeholdery tekstowe, obrazkowe, wykresów i zawartości oraz zrozumieć dziedziczenie placeholderów za pomocą Aspose.Slides dla C++."
+description: "Dowiedz się, jak przeglądać i edytować symbole zastępcze tekstu, obrazu, wykresu i treści oraz zrozumieć dziedziczenie symboli zastępczych przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Placeholder to kształt, który rezerwuje pozycję dla określonego rodzaju zawartości w szablonie prezentacji. Typowe przykłady to tytuł, treść, obraz, wykres oraz ogólne placeholdery zawartości. W przeciwieństwie do zwykłego kształtu, placeholder może dziedziczyć pozycję, rozmiar, formatowanie i inne ustawienia ze slajdu układu lub slajdu master.
+Symbol zastępczy jest kształtem, który rezerwuje pozycję dla określonego rodzaju treści w szablonie prezentacji. Typowymi przykładami są symbole zastępcze tytułu, treści, obrazu, wykresu oraz ogólnego przeznaczenia. W przeciwieństwie do zwykłego kształtu, symbol zastępczy może dziedziczyć swoją pozycję, rozmiar, formatowanie i inne ustawienia z slajdu układu lub slajdu głównego.
 
-Aspose.Slides udostępnia informacje o placeholderze poprzez metodę [IShape::get_Placeholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_placeholder/). Metoda zwraca obiekt [IPlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iplaceholder/) lub `nullptr` dla zwykłego kształtu. Użyj [IPlaceholder::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iplaceholder/get_type/), aby określić, co placeholder ma zawierać.
+Aspose.Slides udostępnia informacje o symbolu zastępczym poprzez metodę [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/). Metoda zwraca obiekt [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) lub `nullptr` dla zwykłego kształtu. Użyj [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) aby określić, co symbol zastępczy ma zawierać.
 
-Interfejs kształtu nadal ma znaczenie po poznaniu typu placeholdera:
+Interfejs kształtu nadal ma znaczenie po poznaniu typu symbolu zastępczego:
 
-- Pusty placeholder tekstowy, obrazkowy, wykresu lub zawartości jest zwykle reprezentowany przez [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/).
-- Wypełniony placeholder obrazu może być reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/).
-- Wypełniony placeholder wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/).
-- Placeholder zawartości może zawierać kilka rodzajów treści. Sprawdzaj zarówno [IPlaceholder::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iplaceholder/get_type/), jak i interfejs kształtu w czasie wykonywania, zamiast zakładać, że każdy placeholder jest [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/).
+- Pusty symbol zastępczy tekstu, obrazu, wykresu lub treści jest zazwyczaj reprezentowany przez [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
+- Wypełniony symbol zastępczy obrazu może być reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/).
+- Wypełniony symbol zastępczy wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/).
+- Symbol zastępczy treści może zawierać kilka rodzajów treści. Sprawdź zarówno [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) jak i interfejs kształtu w czasie wykonywania, zamiast zakładać, że każdy symbol zastępczy jest [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/).
 
-{{% alert color="warning" title="Ostrzeżenie" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iplaceholder/get_type/) opisuje rolę placeholdera; nie gwarantuje on typu kształtu w czasie wykonywania. Zawsze wykonuj sprawdzenie typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub multimediów.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) opisuje rolę symbolu zastępczego; nie gwarantuje on typu kształtu w czasie wykonywania. Zawsze używaj sprawdzania typu przed dostępem do członków specyficznych dla tekstu, obrazu, wykresu, tabeli lub multimediów.
 {{% /alert %}}
 
-## **Zrozumienie dziedziczenia placeholderów**
+## **Zrozum dziedziczenie symboli zastępczych**
 
-Placeholdery tworzą hierarchię:
+Symbole zastępcze tworzą hierarchię:
 
-1. Slajd master definiuje style wielokrotnego użytku i, w niektórych przypadkach, placeholdery na poziomie mastera.
-2. Slajd układu określa rozmieszczenie używane przez jeden lub więcej zwykłych slajdów i może dziedziczyć po masterze.
-3. Zwykły slajd zawiera placeholdery dla tego slajdu i może dziedziczyć po swoim układzie.
+1. Slajd nadrzędny definiuje style wielokrotnego użytku i, w niektórych przypadkach, symbole zastępcze na poziomie nadrzędnym.
+2. Slajd układu definiuje układ używany przez jeden lub więcej zwykłych slajdów i może dziedziczyć po slajdzie nadrzędnym.
+3. Zwykły slajd zawiera symbole zastępcze dla tego slajdu i może dziedziczyć po jego układzie.
 
-Wywołaj [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/), aby przejść o jeden poziom wyżej w tej hierarchii. Placeholder slajdu zazwyczaj zwraca swój placeholder układu; placeholder układu może zwrócić swój placeholder mastera. Metoda zwraca `nullptr`, gdy kształt nie ma bazowego placeholdera.
+Wywołaj [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/), aby przesunąć się o jeden poziom wyżej w tej hierarchii. Symbol zastępczy slajdu zazwyczaj zwraca swój symbol zastępczy układu; symbol zastępczy układu może zwrócić swój symbol nadrzędny. Metoda zwraca `nullptr`, gdy kształt nie ma podstawowego symbolu zastępczego.
 
-Poniższy przykład wymienia placeholdery na pierwszym slajdzie i raportuje ich bazowe placeholdery:
+Poniższy przykład wymienia symbole zastępcze na pierwszym slajdzie i raportuje ich podstawowe symbole zastępcze:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-Edycja placeholdera na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub mastera może wpłynąć na wszystkie slajdy, które nadal dziedziczą to ustawienie. Zwykły lokalny kształt nie ma bazowego placeholdera i nie zaczyna dziedziczyć jedynie dlatego, że zajmuje te same współrzędne.
+Edycja symbolu zastępczego na zwykłym slajdzie tworzy lub zmienia lokalne nadpisanie dla tego slajdu. Edycja powiązanego układu lub slajdu nadrzędnego może wpływać na wszystkie slajdy, które nadal dziedziczą to ustawienie. Lokalny zwykły kształt nie ma podstawowego symbolu zastępczego i nie zaczyna dziedziczyć wyłącznie dlatego, że zajmuje te same współrzędne.
 
-## **Zmienianie tekstu w placeholderze**
+## **Usuń status symbolu zastępczego**
 
-Placeholdery tytułu, tytułu wyśrodkowanego, podtytułu, treści i tekstowe zazwyczaj obsługują tekst. Sprawdź, czy kształt jest [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) przed użyciem jego metody [get_TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/get_textframe/).
+Podczas dostosowywania szablonu użyj [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) aby zachować istniejący obiekt jako zwykły kształt. Jego metoda [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) zwraca `nullptr`, ale kształt pozostaje w kolekcji slajdu. Natomiast [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) usuwa kształt z tej kolekcji.
 
-Poniższy przykład aktualizuje pierwszy placeholder tytułu na pierwszym slajdzie i zapisuje wynik:
+Poniższy przykład wymaga `template.pptx` z co najmniej jednym slajdem i niepustym symbolem zastępczym tekstu na pierwszym slajdzie. Użyj symbolu zastępczego z formatowaniem dziedziczonym z jego układu lub slajdu nadrzędnego, aby zobaczyć efekt usunięcia tej relacji. Przykład sprawdza, że ten sam kształt pozostaje, wywołuje metodę ponownie na teraz zwykłym kształcie i zapisuje wynik.
+
+{{% alert color="warning" title="Warning" %}}
+Usunięcie statusu symbolu zastępczego nie zachowuje automatycznie dziedziczonych ustawień wyglądu. Poniższy przykład celowo pozostawia te ustawienia niezmienione, więc wynik może wyglądać inaczej. Kształt, którego pozycja i rozmiar są całkowicie dziedziczone, może po wywołaniu mieć zerowe współrzędne i wymiary i stać się niewidzialny, mimo że pozostaje w kolekcji.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // Wywołanie metody na zwykłym kształcie nie ma efektu.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Dla pasującego symbolu zastępczego wszystkie trzy sprawdzenia wypisują `True`. Tekst pozostaje, ale dziedziczona pozycja, rozmiar, obrót, czcionka, wyrównanie akapitu, marginesy ramki tekstu, pionowe zakotwiczenie, wypełnienie i ustawienia linii mogą się zmienić po usunięciu relacji symbolu zastępczego. Na przykład dziedziczone formatowanie tytułu może powrócić do zwykłego formatowania tekstu. Zobacz [Slide Layout](/slides/pl/cpp/slide-layout/) po więcej informacji o układach.
+
+Aby zachować zamierzony wygląd, przed wywołaniem przechwyć wyliczoną pozycję, rozmiar i obrót i skopiuj wymagane wartości efektywnego formatowania do osobnych zmiennych. Pobierz te wartości poprzez [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), oraz [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). Nie polegaj wyłącznie na obiektach efektywnego formatowania, ponieważ ich wartości formatowania tekstu mogą się zmienić po usunięciu relacji. Zastosuj wyraźnie przechwycone wartości do zwykłego kształtu po zakończeniu, włączając rodzinę czcionki, rozmiar, styl, kolor, ustawienia akapitu, ustawienia ramki tekstu, wypełnienie i linię używaną w szablonie.
+
+Dziedziczoną geometrię kształtu może być również konieczne przypisanie explicite poprzez [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). Dla prostokątnego symbolu zastępczego tekstu oznacza to przypisanie [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); przywrócenie tylko wypełnienia i linii może nie przywrócić widocznego prostokąta. Szablony z dodatkowymi efektami lub bardziej złożonym formatowaniem wymagają również obsługi tych ustawień.
+
+## **Zmień tekst w symbolu zastępczym**
+
+Symbole zastępcze tytułu, tytułu wyśrodkowanego, podtytułu, treści i tekstu zazwyczaj obsługują tekst. Sprawdź, czy istnieje [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) zanim użyjesz jego metody [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/).
+
+Ten przykład aktualizuje pierwszy symbol zastępczy tytułu na pierwszym slajdzie i zapisuje wynik:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,11 +234,11 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Ten wzorzec unika rzutowania placeholderów obrazu, wykresu, tabeli lub multimediów na [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/). Identyfikuje również placeholder ze względu na przeznaczenie, zamiast polegać na kruchym indeksie kształtu.
+Ten wzorzec unika rzutowania symboli zastępczych obrazu, wykresu, tabeli lub multimediów do [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). Identyfikuje również symbol zastępczy według przeznaczenia, zamiast polegać na kruchym indeksie kształtu.
 
-## **Ustawianie tekstu podpowiedzi w układzie**
+## **Ustaw tekst podpowiedzi w układzie**
 
-Tekst podpowiedzi to instrukcja wyświetlana w pustym placeholderze w czasie projektowania, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi w placeholderze układu, zamiast próbować uzyskać go przez kolekcję kształtów zwykłego slajdu. Dostęp do układu uzyskaj poprzez [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/get_layoutslide/) i iteruj po [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ibaseslide/get_shapes/).
+Tekst podpowiedzi to instrukcja wyświetlana w czasie projektowania w pustym symbolu zastępczym, np. *Kliknij, aby dodać tytuł*. Ustaw niestandardowy tekst podpowiedzi w symbolu zastępczym układu zamiast próbować uzyskać go przez kolekcję kształtów zwykłego slajdu. Dostęp do układu uzyskaj poprzez [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) i iteruj po [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/).
 
 Poniższy przykład zmienia podpowiedzi tytułu i podtytułu w układzie używanym przez pierwszy slajd:
 
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-Tekst podpowiedzi nie jest normalną zawartością slajdu. Jest przeznaczony dla pustych placeholderów w aplikacjach edytorskich, takich jak PowerPoint. Gdy użytkownik lub program dostarczy prawdziwą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje istniejącego tekstu na slajdach korzystających z tego układu.
+Tekst podpowiedzi nie jest normalną treścią slajdu. Jest przeznaczony dla pustych symboli zastępczych w aplikacjach edytujących, takich jak PowerPoint. Gdy użytkownik lub program dostarczy prawdziwą treść, podpowiedź przestaje być wyświetlana. Zmiana podpowiedzi nie zastępuje również istniejącego tekstu na slajdach korzystających z tego układu.
 
-## **Aktualizacja placeholdera obrazu**
+## **Zaktualizuj symbol zastępczy obrazu**
 
 Istnieją dwa przypadki do obsłużenia:
 
-- Jeśli placeholder obrazu jest już wypełniony i reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/), zamień obraz za pomocą [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipicturefillformat/get_picture/) oraz [ISlidesPicture::set_Image](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidespicture/set_image/).
-- Jeśli jest to nadal pusty placeholder, dodaj ramkę obrazu w współrzędnych placeholdera przy użyciu [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addpictureframe/) i usuń pusty placeholder.
+- Jeśli symbol zastępczy obrazu jest już wypełniony i reprezentowany przez [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), zamień obraz poprzez [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) i [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/).
+- Jeśli jest nadal pustym symbolem zastępczym, dodaj ramkę obrazu na współrzędnych symbolu zastępczego za pomocą [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) i usuń pusty symbol.
 
-Kolejny przykład obsługuje oba przypadki i zapisuje prezentację:
+Następny przykład obsługuje oba przypadki i zapisuje prezentację:
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Zastąpienie utworzone dla pustego placeholdera jest lokalną ramką obrazu, a nie nowym placeholderem, ponieważ [IShape::get_Placeholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/get_placeholder/) jest tylko do odczytu. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla placeholdera. Jeśli zachowanie relacji placeholdera jest kluczowe, przygotuj i wypełnij placeholder w PowerPoint najpierw, a potem zaktualizuj powstały [IPictureFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipictureframe/) przy pomocy Aspose.Slides.
+Zastąpienie utworzone dla pustego symbolu zastępczego jest lokalną ramką obrazu, a nie nowym symbolem zastępczym, ponieważ [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) jest tylko do odczytu. Zachowuje zarezerwowaną pozycję, ale nie dziedziczy już zachowań specyficznych dla symbolu zastępczego. Jeśli utrzymanie relacji symbolu zastępczego jest istotne, najpierw przygotuj i wypełnij symbol w PowerPoint, a potem zaktualizuj powstały [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) za pomocą Aspose.Slides.
 
-Informacje o przezroczystości obrazu, przycinaniu i innych efektach specyficznych dla obrazu znajdziesz w artykule [Manage Picture Frames](/slides/pl/cpp/picture-frame/). Operacje te dotyczą ramki obrazu lub wypełnienia obrazu, a nie metadanych placeholdera.
+Aby uzyskać przezroczystość obrazu, kadrowanie i inne efekty specyficzne dla obrazu, zobacz [Manage Picture Frames](/slides/pl/cpp/picture-frame/). Te operacje należą do ramki obrazu lub wypełnienia obrazu, nie do metadanych symbolu zastępczego.
 
-## **Praca z placeholderami wykresów i zawartości**
+## **Praca z symbolami zastępczymi wykresów i treści**
 
-Wypełniony placeholder wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/). Ten przykład znajduje taki wykres zarówno po typie placeholdera, jak i po interfejsie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
+Wypełniony symbol zastępczy wykresu może być reprezentowany przez [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). Ten przykład znajduje taki wykres zarówno po typie symbolu zastępczego, jak i interfejsie w czasie wykonywania, zmienia jego tytuł i zapisuje plik:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-Ogólny placeholder zawartości zwykle ma typ [PlaceholderType::Object](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/). W PowerPoint działa jako uruchamiacz dla kilku typów zawartości, w tym wykresów, tabel, diagramów, obrazów i multimediów. Po jego wypełnieniu należy zbadać rzeczywisty interfejs kształtu, aby dowiedzieć się, co zawiera. Specjalne układy mogą również udostępniać [PlaceholderType::Chart](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/), lub [PlaceholderType::Diagram](https://reference.aspose.com/slides/pl/cpp/aspose.slides/placeholdertype/).
+Ogólny symbol zastępczy treści zwykle ma [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). W PowerPoint działa jako uruchamiacz dla kilku typów treści, w tym wykresów, tabel, diagramów, obrazów i multimediów. Po wypełnieniu, sprawdź rzeczywisty interfejs kształtu, aby dowiedzieć się, co zawiera. Specjalistyczne układy mogą również udostępniać [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), lub [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/).
 
-Aspose.Slides nie konwertuje pustego placeholdera [IAutoShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iautoshape/) w [IChart](https://reference.aspose.com/slides/pl/cpp/aspose.slides.charts/ichart/) jedynie przez zmianę [IPlaceholder::get_Type](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iplaceholder/get_type/); typ jest tylko do odczytu. Aby programowo wypełnić pusty obszar wykresu lub zawartości, dodaj wymagany obiekt w współrzędnych placeholdera, a następnie usuń pusty placeholder. Poniższy przykład robi to dla wykresu:
+Aspose.Slides nie konwertuje pustego [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) na [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) jedynie poprzez zmianę [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); typ jest tylko do odczytu. Aby wypełnić pusty obszar wykresu lub treści programowo, dodaj wymagany obiekt na współrzędnych symbolu zastępczego, a następnie usuń pusty symbol. Następujący przykład robi to dla wykresu:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar placeholdera, ale nie dziedziczy z placeholdera układu. Skorzystaj z dedykowanych artykułów o zarządzaniu wykresami [chart management articles](/slides/pl/cpp/powerpoint-charts/), gdy potrzebujesz zamienić kategorie, serie lub dane z arkusza.
+Dodany wykres jest zwykłym lokalnym wykresem. Zajmuje obszar symbolu zastępczego, ale nie dziedziczy po symbolu zastępczym układu. Użyj dedykowanych [chart management articles](/slides/pl/cpp/powerpoint-charts/) gdy potrzebujesz zamienić jego kategorie, serie lub dane skoroszytu.
 
-## **Pełny przykład: aktualizacja tekstu lub obrazu**
+## **Pełny przykład: aktualizacja treści tekstowej lub obrazowej**
 
-Poniższy przykład od początku do końca otwiera szablon, przeszukuje pierwszy slajd pod kątem placeholdera tytułu lub obrazu, sprawdza typy placeholdera i kształtu, aktualizuje odpowiednią zawartość i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub rzutowania każdego placeholdera na ten sam interfejs.
+Poniższy przykład od początku do końca otwiera szablon, przeszukuje pierwszy slajd pod kątem symbolu zastępczego tytułu lub obrazu, sprawdza typy symbolu i kształtu, aktualizuje odpowiednią treść i zapisuje wynik. Przykład celowo unika zakładania indeksu kształtu lub rzutowania każdego symbolu zastępczego na ten sam interfejs.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -493,14 +570,14 @@ presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Czym jest bazowy placeholder?**
+**Co to jest podstawowy symbol zastępczy?**
 
-Bazowy placeholder to odpowiadający mu kształt na układzie lub masterze, z którego dziedziczy inny placeholder. Użyj [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/getbaseplaceholder/), aby go pobrać. Zwykły lokalny kształt zwraca `nullptr`, ponieważ nie jest częścią hierarchii placeholderów.
+Podstawowy symbol zastępczy to odpowiadający kształt na układzie lub slajdzie nadrzędnym, z którego inny symbol dziedziczy. Użyj [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) aby go pobrać. Zwykły lokalny kształt zwraca `nullptr`, ponieważ nie jest częścią hierarchii symboli zastępczych.
 
-**Czy mogę zmienić wszystkie tytuły slajdów, edytując placeholder układu?**
+**Czy mogę zmienić wszystkie tytuły slajdów, edytując symbol zastępczy układu?**
 
-Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na normalnych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, iteruj po slajdach i zaktualizuj każdy placeholder tytułu.
+Możesz zmienić dziedziczone formatowanie lub tekst podpowiedzi poprzez układ, ale istniejąca treść tytułu jest przechowywana na zwykłych slajdach. Aby zastąpić rzeczywisty tekst tytułu w całej prezentacji, przeiteruj slajdy i zaktualizuj każdy symbol zastępczy tytułu.
 
-**Jak zarządzać placeholderami daty, numeru slajdu, nagłówka i stopki?**
+**Jak zarządzać symbolami zastępczymi daty, numeru slajdu, nagłówka i stopki?**
 
-Użyj menedżerów nagłówka i stopki w odpowiednim zakresie: slajd, układ, master, notatki lub wersja drukowana. Zobacz [Manage Presentation Header and Footer](/slides/pl/cpp/presentation-header-and-footer/) po pełne przykłady.
+Użyj menedżerów nagłówka i stopki w odpowiednim zakresie slajdu, układu, slajdu nadrzędnego, notatek lub materiałów rozdawniczych. Zobacz [Manage Presentation Header and Footer](/slides/pl/cpp/presentation-header-and-footer/) po pełne przykłady.

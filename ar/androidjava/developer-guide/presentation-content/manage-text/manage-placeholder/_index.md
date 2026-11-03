@@ -1,51 +1,51 @@
 ---
-title: إدارة عناصر النائب في العرض التقديمي على Android
-linktitle: إدارة العناصر النائبة
+title: إدارة المحتوى النائب في العروض التقديمية على Android
+linktitle: إدارة المحتويات النائبة
 type: docs
 weight: 10
 url: /ar/androidjava/manage-placeholder/
 keywords:
-- عنصر نائب
-- عنصر نائب نصي
-- عنصر نائب صورة
-- عنصر نائب مخطط
-- عنصر نائب محتوى
-- نص تلميح
+- محتوى نائب
+- محتوى نائب نصي
+- محتوى نائب صورة
+- محتوى نائب مخطط
+- محتوى نائب محتوى
+- نص موجه
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية فحص وتحرير العناصر النائبة للنص والصورة والمخطط والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides لنظام Android عبر Java."
+description: "تعلم كيفية فحص وتعديل المحتويات النائبة النصية والصورية والمخططية ومحتوى النائب وفهم وراثة المحتويات النائبة باستخدام Aspose.Slides لـ Android عبر Java."
 ---
 ## **نظرة عامة**
 
-العنصر النائب هو شكل يحجز موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. من الأمثلة الشائعة: العنوان، النص الأساسي، الصورة، المخطط، والعناصر النائبة العامة المحتوى. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موضعه وحجمه وتنسيقه وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
+المحتوى النائب هو شكل يحجز موضعًا لنوع معين من المحتوى في قالب عرض تقديمي. من الأمثلة الشائعة العناوين، النص الرئيسي، الصور، المخططات، ومحتويات النائب العامة. على عكس الشكل العادي، يمكن للمحتوى النائب أن يرث موقعه وحجمه وتنسيقه وإعداداته الأخرى من شريحة التخطيط أو الشريحة الرئيسية.
 
-Aspose.Slides يكشف معلومات العنصر النائب عبر طريقة [IShape.getPlaceholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/). تُعيد الطريقة كائنًا من نوع [IPlaceholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/) أو `null` لشكل عادي. استخدم طريقة [IPlaceholder.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/) لتحديد ما يُقصد أن يحتويه العنصر النائب.
+Aspose.Slides يعرض معلومات المحتوى النائب عبر طريقة [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/). تُعيد الطريقة كائنًا من نوع [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) أو `null` لشكل عادي. استخدم [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) لتحديد ما يُقصد بالمحتوى النائب.
 
-واجهة الشكل لا تزال مهمة بعد معرفة نوع العنصر النائب:
+لا يزال واجهة الشكل ذات أهمية بعد معرفة نوع المحتوى النائب:
 
-- عنصر نائب فارغ للنص أو الصورة أو المخطط أو المحتوى عادةً ما يُمثَّل بواسطة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
-- عنصر نائب صورة مُملوء يمكن تمثيله بواسطة [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/).
-- عنصر نائب مخطط مُملوء يمكن تمثيله بواسطة [IChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/).
-- عنصر نائب محتوى يمكن أن يحتوي عدة أنواع من المحتوى. تحقق من كلٍ من [IPlaceholder.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/) وواجهة الشكل في وقت التنفيذ بدلاً من افتراض أن كل عنصر نابٍ هو [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
+- عادةً ما يُمثَّل محتوى نصي، صورة، مخطط أو محتوى نائب فارغ بواسطة [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
+- يمكن تمثيل محتوى صورة مملوء بواسطة [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/).
+- يمكن تمثيل محتوى مخطط مملوء بواسطة [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/).
+- يمكن أن يحتوي محتوى نائب على عدة أنواع من المحتوى. تحقق من كلٍ من [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) وواجهة الشكل في وقت التشغيل بدلاً من الافتراض بأن كل محتوى نائب هو [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/) يصف دور العنصر النائب؛ لكنه لا يضمن نوع الشكل في وقت التنفيذ. استخدم دائمًا فحص النوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) يصف دور المحتوى النائب؛ لكنه لا يضمن نوع الشكل في وقت التشغيل. استخدم دائمًا فحص النوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
 {{% /alert %}}
 
-## **فهم وراثة العناصر النائبة**
+## **فهم وراثة المحتوى النائب**
 
-تشكل العناصر النائبة هرمية:
+المحتويات النائبة تشكل تسلسلًا هرميًا:
 
-1. تحدد الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات، العناصر النائبة على مستوى الرئيسية.
-2. تحدد شريحة التخطيط الترتيب المستخدم من قبل شريحة (شرائح) عادية واحدة أو أكثر ويمكن أن ترث من الرئيسية.
-3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكن أن ترث من تخطيطها.
+1. تُعرِّف الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات المحتويات النائبة على مستوى الرئيسي.
+2. تُعرِّف شريحة التخطيط الترتيب المستخدم من قِبل شريحة أو أكثر عادية ويمكنها الوراثة من الرئيسي.
+3. تحتوي الشريحة العادية على المحتويات النائبة لتلك الشريحة ويمكنها الوراثة من تخطيطها.
 
-استدعِ طريقة [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) للانتقال مستوىً واحدًا أعلى في هذه الهرمية. عادةً ما تُعيد عنصر نائب الشريحة عنصر نائب التخطيط؛ ويمكن أن يُعيد عنصر نائب التخطيط عنصر نائب الرئيسي. تُعيد الطريقة `null` عندما لا يحتوي الشكل على عنصر نائب أساسي.
+استدعِ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) للانتقال بمستوى واحد أعلى في هذا التسلسل. عادةً ما تُعيد شريحة محتوى نائب محتوى تخطيطها؛ ويمكن لمحتوى التخطيط إرجاع محتوى رئيسي. تُعيد الطريقة `null` عندما لا يكون للشكل محتوى نائب أساسي.
 
-المثال التالي يسرد العناصر النائبة في الشريحة الأولى ويظهر عناصرها النائبة الأساسية:
+المثال التالي يُدرج المحتويات النائبة في الشريحة الأولى ويُبلغ عن محتوياتها الأساسية:
 
 ```java
 import com.aspose.slides.*;
@@ -86,13 +86,75 @@ try {
 }
 ```
 
-تحرير عنصر نائب في شريحة عادية ينشئ أو يغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الرئيسي المرتبط يمكن أن يؤثر على جميع الشرائح التي لا تزال ترث هذا الإعداد. الشكل العادي المحلي ليس له عنصر نائب أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+تحرير محتوى نائب في شريحة عادية يُنشئ أو يُغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الرئيسي المرتبط يمكن أن يؤثر على جميع الشرائح التي ما زالت ترث ذلك الإعداد. لا يحتوي الشكل العادي المحلي على محتوى نائب أساسي ولا يبدأ بالوراثة لمجرد احتلاله نفس الإحداثيات.
 
-## **تغيير النص في العنصر النائب**
+## **إزالة حالة المحتوى النائب**
 
-عناصر النائب للعنوان، العنوان المركزي، العنوان الفرعي، النص الأساسي، والنص عادةً ما تدعم النص. تحقق من وجود [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/).
+عند تعديل قالب، استخدم [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) لإبقاء كائن موجود كشكل عادي. تُعيد طريقة [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) الخاصة به `null`، لكن الشكل يظل في مجموعة الشرائح. على النقيض، [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) يحذف الشكل من تلك المجموعة.
 
-هذا المثال يُحدِّث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
+المثال التالي يتطلب ملف `template.pptx` يحتوي على شريحة واحدة على الأقل ومحتوى نائب نصي غير فارغ في الشريحة الأولى. استخدم محتوى نائب بتنسيق مُورّث من تخطيطه أو رئيسه لرؤية تأثير إزالة تلك العلاقة. يتحقق المثال من بقاء الشكل نفسه، ثم يستدعي الطريقة مرة أخرى على الشكل الآن العادي، ويحفظ النتيجة.
+
+{{% alert color="warning" title="Warning" %}}
+إزالة حالة المحتوى النائب لا تحافظ تلقائيًا على إعدادات المظهر الموروثة. المثال أدناه يترك تلك الإعدادات دون تغيير عمدًا، لذا قد يختلف المخرج. الشكل الذي يتم وراثة موقعه وحجمه بالكامل قد يصبح إحداثياته وأبعاده صفرًا بعد الاستدعاء ويصبح غير مرئي رغم بقائه في المجموعة.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // استدعاء الطريقة على شكل عادي لا يؤثر.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+للمحتوى النائب المطابق، تُطبع جميع الفحوصات الثلاثة `true`. يبقى النص، لكن الموقع والحجم والدوران والخط ومحاذاة الفقرة وهوامش إطار النص والتثبيت الرأسي والتعبئة وإعدادات الخط قد تتغيّر عند إزالة علاقة المحتوى النائب. على سبيل المثال، قد يعود تنسيق العنوان الموروث إلى تنسيق النص العادي. راجع [Slide Layout](/slides/ar/androidjava/slide-layout/) لمزيد من المعلومات حول التخطيطات.
+
+للحفاظ على المظهر المقصود، احصل على الموقع والحجم والدوران المحسوبين قبل الاستدعاء، وانسخ قيم التنسيق الفعال المطلوبة إلى متغيّرات منفصلة. استرجع تلك القيم عبر [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), و[ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--). لا تعتمد فقط على كائنات التنسيق الفعال، لأن قيم تنسيق النص قد تتغيّر بعد إزالة العلاقة. طبّق القيم الملتقطة صراحةً على الشكل العادي لاحقًا، بما في ذلك عائلة الخط وحجمه ونمطه ولونه وإعدادات الفقرة وإعدادات إطار النص والتعبئة والخط المستخدم في القالب.
+
+قد تحتاج هندسة الشكل الموروثة إلى تعيين صريح عبر [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-). بالنسبة لمحتوى نائب نصي مستطيل، يعني ذلك تعيين [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle)؛ فاستعادة التعبئة والخط فقط قد لا يستعيد المستطيل المرئي. القوالب التي تحتوي على تأثيرات إضافية أو تنسيقات معقدة تتطلب معالجة تلك الإعدادات أيضًا.
+
+## **تغيير النص في المحتوى النائب**
+
+عادةً ما تدعم عناوين، عناوين مركزية، عناوين فرعية، نص الجسم ومحتويات النائب النصية النص. تحقق من وجود [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) قبل استخدام طريقة [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) الخاصة به.
+
+هذا المثال يُحدّث أول محتوى نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
 
 ```java
 import com.aspose.slides.*;
@@ -131,13 +193,13 @@ try {
 }
 ```
 
-هذا النمط يتجنب تحويل عناصر النائب للصور أو المخططات أو الجداول أو الوسائط إلى [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/). كما يُعرّف العنصر النائب حسب الغرض بدلاً من الاعتماد على فهرس الشكل الهش.
+هذا النمط يتجنب تحويل محتوى صورة أو مخطط أو جدول أو وسائط إلى [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/). كما يحدد المحتوى النائب بناءً على الغرض بدلاً من الاعتماد على فهرس شكل هش.
 
-## **تعيين نص التلميح في التخطيط**
+## **تعيين نص الموجه في التخطيط**
 
-نص التلميح هو التعليمات التصميمية التي تُعرض في عنصر نائب فارغ، مثل *Click to add title*. اضبط نص التلميح المخصص على عنصر نائب التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. وصول إلى التخطيط يتم عبر [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) وتكرار المجموعة التي تُعيدها [ILayoutSlide.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ibaseslide/).
+نص الموجه هو التعليمات التي تُعرض في محتوى نائب فارغ أثناء التصميم، مثل *Click to add title*. عيّن نص موجه مخصص في محتوى نائب التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال شريحة عادية. احصل على التخطيط عبر [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) وتجوّل في المجموعة التي تُعيدها [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/).
 
-المثال التالي يغيّر تلميحات العنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
+المثال التالي يغيّر نصي الموجه للعنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
 
 ```java
 import com.aspose.slides.*;
@@ -172,14 +234,14 @@ try {
 }
 ```
 
-نص التلميح ليس محتوى شريحة عادية. هو مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى فعلي، لم يعد التلميح يُعرض. تغيير التلميح لا يستبدل النص الموجود على الشرائح التي تستخدم التخطيط.
+نص الموجه ليس محتوى شريحة عادي. إنه مخصص لمحتويات النائب الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى حقيقي، يتوقف عرض الموجه. تغيير الموجه لا يستبدل النص الموجود على الشرائح التي تستخدم ذلك التخطيط.
 
-## **تحديث العنصر النائب للصور**
+## **تحديث محتوى نائب الصورة**
 
 هناك حالتان للتعامل معهما:
 
-- إذا كان عنصر نائب الصورة مُملوءًا بالفعل ومُمَثَّلًا بـ [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/)، استبدل الصورة عبر [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/) و[ISlidesPicture.setImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidespicture/).
-- إذا كان لا يزال عنصر نائب فارغًا، أضف إطار صورة عند إحداثيات العنصر النائب باستخدام [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapecollection/) وأزل العنصر النائب الفارغ.
+- إذا كان محتوى الصورة مُملوءًا بالفعل ومُمثلًا بـ [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/)، استبدل الصورة عبر [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) و[ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/).
+- إذا كان لا يزال محتوى نائب فارغًا، أضف إطار صورة في إحداثيات المحتوى النائب عبر [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) وأزل المحتوى النائب الفارغ.
 
 المثال التالي يدعم الحالتين ويحفظ العرض التقديمي:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-البديل المُنشأ لعنصر نائب فارغ هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا، لأن [IShape.getPlaceholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) لا يُوفّر مُعيّنًا. يحتفظ بالموقع المحجوز لكنه لا يرث سلوك العنصر النائب بعد الآن. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، حضِّر العنصر النائب في PowerPoint أولًا، ثم حدِّث الـ [IPictureFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipictureframe/) الناتج باستخدام Aspose.Slides.
+الاستبدال الذي يُنشأ لمحتوى نائب فارغ هو إطار صورة محلي، وليس محتوى نائب جديد، لأن [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) لا يوفر مُعيّنًا. يظل الموقع المحجوز لكنه لا يرث سلوك المحتوى النائب بعد الآن. إذا كانت علاقة المحتوى النائب ضرورية، حضّر المحتوى النائب في PowerPoint أولاً، ثم حدّث [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) الناتج عبر Aspose.Slides.
 
-للشفافية، الاقتصاص، وتأثيرات الصورة الأخرى، راجع [Manage Picture Frames](/slides/ar/androidjava/picture-frame/). تلك العمليات تنتمي إلى إطار الصورة أو تعبئة الصورة، لا إلى بيانات العنصر النائب.
+لشفافية الصورة والاقتصاص وغيرها من تأثيرات الصورة، راجع [Manage Picture Frames](/slides/ar/androidjava/picture-frame/). تلك العمليات تخص إطار الصورة أو تعبئة الصورة، لا بيانات تعريف المحتوى النائب.
 
-## **التعامل مع العناصر النائبة للمخططات والمحتوى**
+## **العمل مع محتويات النائب للمخطط والمحتوى**
 
-عنصر نائب المخطط المُملوء يمكن تمثيله بـ [IChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/). هذا المثال يجد مثل هذا المخطط عبر كلٍ من نوع العنصر النائب والواجهة في وقت التنفيذ، يغيّر عنوانه، ويحفظ الملف:
+يمكن تمثيل محتوى نائب مخطط مملوء بواسطة [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/). هذا المثال يجد مخططًا من هذا النوع عبر كلٍ من نوع المحتوى النائب والواجهة في وقت التشغيل، يغيّر عناوينه، ويحفظ الملف:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-العنصر النائب للمحتوى العام عادةً ما يكون من النوع [PlaceholderType.Object](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/). في PowerPoint يعمل كمنطلق لعدة أنواع محتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد ملئه، فحص واجهة الشكل الفعلية لتحديد ما يحتويه. التخطيطات المتخصصة يمكن أن تُظهر أيضًا [PlaceholderType.Chart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/)، [PlaceholderType.Table](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/), أو [PlaceholderType.Diagram](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholdertype/).
+عادةً ما يكون محتوى نائب عام من النوع [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/). في PowerPoint يعمل كمنطلق لعدة أنواع محتوى، بما في ذلك المخططات والجداول والرسوم التخطيطية والصور والوسائط. بعد أن يتم ملؤه، افحص الواجهة الفعلية للشكل لتعرف ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/)، [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), أو [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides لا يُحوِّل عنصر نائب فارغ من نوع [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى [IChart](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ichart/) بمجرد تغيير [IPlaceholder.getType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/placeholder/); لا يمكن تغيير النوع عبر الواجهة. لملء مخطط أو منطقة محتوى فارغة برمجيًا، أضف الكائن المطلوب عند إحداثيات العنصر النائب ثم أزل العنصر النائب الفارغ. المثال التالي يوضح ذلك لمخطط:
+Aspose.Slides لا يُحوِّل محتوى نائب [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) فارغ إلى [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) بمجرد تغيير [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/); لا يمكن تغيير النوع عبر الواجهة. لملء مخطط أو منطقة محتوى فارغة برمجيًا، أضف الكائن المطلوب في إحداثيات المحتوى النائب ثم أزل المحتوى النائب الفارغ. المثال التالي يفعل ذلك لمخطط:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-المخطط المضاف هو مخطط محلي عادي. يشغل مساحة العنصر النائب لكنه لا يرث من عنصر نائب التخطيط. استخدم مقالات إدارة المخططات المخصصة [/slides/ar/androidjava/powerpoint-charts/] عند الحاجة إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
+المخطط المضاف هو مخطط محلي عادي. يحتل مساحة المحتوى النائب لكنه لا يرث من محتوى النائب في التخطيط. استخدم مقالات إدارة المخططات المخصصة [chart management articles](/slides/ar/androidjava/powerpoint-charts/) عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
 
 ## **مثال كامل: تحديث النص أو محتوى الصورة**
 
-المثال الشامل التالي يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب للعنوان أو الصورة، يتحقق من نوع العنصر النائب والشكل، يُحدِّث المحتوى المناسب، ويحفظ الناتج. يتجنب المثال افتراض فهرس الشكل أو تحويل كل عنصر نائب إلى نفس الواجهة.
+المثال التالي من البداية إلى النهاية يفتح قالبًا، يبحث في الشريحة الأولى عن عنوان أو محتوى نائب صورة، يتحقق من نوع المحتوى النائب والشكل، يحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال الافتراض بشأن فهرس الشكل أو تحويل كل محتوى نائب إلى نفس الواجهة.
 
 ```java
 import com.aspose.slides.*;
@@ -364,14 +426,14 @@ try {
 
 ## **الأسئلة الشائعة**
 
-**ما هو العنصر النائب الأساسي؟**
+**ما هو المحتوى النائب الأساسي؟**
 
-العنصر النائب الأساسي هو الشكل المقابل على التخطيط أو الرئيسي الذي يرث منه عنصر نائب آخر. استخدم طريقة [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) لاسترجاعه. الشكل المحلي العادي يُعيد `null` لأنه ليس جزءًا من هرمية العناصر النائبة.
+المحتوى النائب الأساسي هو الشكل المقابل في التخطيط أو الرئيسي الذي يرث منه محتوى نائب آخر. استخدم [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) لاسترجاعه. يُعيد الشكل العادي المحلي `null` لأنه ليس جزءًا من تسلسل المحتوى النائب.
 
-**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تعديل عنصر نائب في التخطيط؟**
+**هل يمكنني تغيير جميع عناوين الشرائح عن طريق تحرير محتوى نائب التخطيط؟**
 
-يمكنك تغيير التنسيق الموروث أو نص التلميح عبر التخطيط، لكن محتوى العنوان الفعلي يُخزن في الشرائح العادية. لاستبدال نص العنوان عبر العرض التقديمي بالكامل، قم بتكرار الشرائح وتحديث كل عنصر نائب للعنوان.
+يمكنك تعديل التنسيق الموروث أو نص الموجه عبر التخطيط، لكن محتوى العنوان الموجود مخزن في الشرائح العادية. لاستبدال نص العنوان الفعلي عبر عرض تقديمي، تجول في الشرائح وقم بتحديث كل محتوى نائب للعنوان.
 
-**كيف أدير عناصر نائب التاريخ، رقم الشريحة، الرأس، والتذييل؟**
+**كيف أدير محتويات النائب لل تاريخ، رقم الشريحة، الرأس، والتذييل؟**
 
-استخدم مديري الرأس والتذييل في نطاق الشريحة، التخطيط، الرئيسي، الملاحظات، أو النشرات. راجع دليل [Manage Presentation Header and Footer](/slides/ar/androidjava/presentation-header-and-footer/) للحصول على أمثلة كاملة.
+استخدم مديري الرأس والتذييل في نطاق الشريحة المناسب، التخطيط، الرئيسي، الملاحظات أو النسخة المطبوعة. راجع [Manage Presentation Header and Footer](/slides/ar/androidjava/presentation-header-and-footer/) للحصول على أمثلة كاملة.

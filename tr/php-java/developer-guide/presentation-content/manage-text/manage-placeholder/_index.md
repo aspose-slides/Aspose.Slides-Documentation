@@ -1,5 +1,5 @@
 ---
-title: PHP'de Sunum Yer Tutucularını Yönetme
+title: PHP'de Sunum Yer Tutucularını Yönet
 linktitle: Yer Tutucuları Yönet
 type: docs
 weight: 10
@@ -7,42 +7,42 @@ url: /tr/php-java/manage-placeholder/
 keywords:
 - yer tutucu
 - metin yer tutucu
-- görsel yer tutucu
+- resim yer tutucu
 - grafik yer tutucu
 - içerik yer tutucu
-- ipucu metni
+- istem metni
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile metin, görsel, grafik ve içerik yer tutucularını incelemeyi ve düzenlemeyi öğrenin ve yer tutucu kalıtımını anlayın."
+description: "Aspose.Slides for PHP via Java ile metin, resim, grafik ve içerik yer tutucularını nasıl inceleyeceğinizi ve düzenleyeceğinizi ve yer tutucu kalıtımını anlayacağınızı öğrenin."
 ---
 ## **Genel Bakış**
 
-Yer tutucu, bir sunum şablonunda belirli bir içerik türü için konum ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, grafik ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, bir yer tutucu konumunu, boyutunu, biçimini ve diğer ayarlarını bir düzen slaytından ya da ana slayttan devralabilir.
+Yer tutucu, bir sunum şablonunda belirli bir içerik türü için bir konumu ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, grafik ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, yer tutucu konumunu, boyutunu, biçimlendirmesini ve diğer ayarlarını bir yerleşim slaytından veya ana slayttan devralabilir.
 
-Aspose.Slides, yer tutucu bilgilerini [Shape::getPlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getplaceholder/) yöntemiyle açığa çıkarır. Yöntem, normal bir şekil için `null` ya da bir [Placeholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholder/) nesnesi döndürür. Yer tutucunun ne içerdiğini belirlemek için [Placeholder::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholder/gettype/) yöntemini kullanın.
+Aspose.Slides, yer tutucu bilgilerini [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) yöntemiyle sunar. Bu yöntem, normal bir şekil için `null` dönen bir [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/) nesnesi döndürür. Yer tutucunun ne amaçladığını belirlemek için [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) kullanın.
 
-Yer tutucu tipini öğrendikten sonra şekil sınıfı hâlâ önemlidir:
+Şekil sınıfı, yer tutucu tipini öğrendikten sonra da önemlidir:
 
-- Boş bir metin, resim, grafik veya içerik yer tutucu genellikle bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ile temsil edilir.
-- Dolu bir resim yer tutucu bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) ile temsil edilebilir.
-- Dolu bir grafik yer tutucu bir [Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/) ile temsil edilebilir.
-- Bir içerik yer tutucu çeşitli içerik türleri içerebilir. Her yer tutucunun bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olduğunu varsaymak yerine hem [Placeholder::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholder/gettype/) hem de çalışma zamanı şekil sınıfını kontrol edin.
+- Boş bir metin, resim, grafik veya içerik yer tutucusu genellikle bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) ile temsil edilir.
+- Dolu bir resim yer tutucusu bir [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) ile temsil edilebilir.
+- Dolu bir grafik yer tutucusu bir [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) ile temsil edilebilir.
+- Bir içerik yer tutucusu birçok içerik türü içerebilir. Her yer tutucunun bir [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) olduğunu varsaymak yerine hem [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) hem de çalışma zamanındaki şekil sınıfını kontrol edin.
 
-{{% alert color="warning" title="Uyarı" %}}
-[Placeholder::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholder/gettype/) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanı sınıfını garanti etmez. Metin, resim, grafik, tablo veya medya-özel üyelerine erişmeden önce her zaman bir tip kontrolü yapın.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanındaki sınıfını garanti etmez. Metin, resim, grafik, tablo veya medya‑özel üyelerine erişmeden önce her zaman bir tip kontrolü yapın.
 {{% /alert %}}
 
-## **Yer Tutucu Kalıtımını Anlamak**
+## **Yer Tutucu Kalıtımını Anlayın**
 
 Yer tutucular bir hiyerarşi oluşturur:
 
-1. Ana slayt, yeniden kullanılabilir stilleri ve bazı durumlarda ana seviyesindeki yer tutucuları tanımlar.
-2. Düzen slaytı, bir veya daha fazla normal slayt tarafından kullanılan yerleşimi tanımlar ve ana slayttan devralabilir.
-3. Normal bir slayt, o slayt için yer tutucuları içerir ve düzeninden devralabilir.
+1. Bir ana slayt, yeniden kullanılabilir stilleri ve bazı durumlarda ana‑seviye yer tutucuları tanımlar.
+2. Bir yerleşim slaytı, bir veya daha fazla normal slayt tarafından kullanılan düzeni tanımlar ve ana slayttan kalıtım alabilir.
+3. Bir normal slayt, o slayt için yer tutucuları içerir ve yerleşiminden kalıtım alabilir.
 
-Bu hiyerarşide bir seviye yukarı çıkmak için [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) yöntemini çağırın. Bir slayt yer tutucu genellikle düzen yer tutucusunu döndürür; bir düzen yer tutucu ise ana yer tutucusunu döndürebilir. Şeklin temel yer tutucusu olmadığında yöntem `null` döndürür.
+Bu hiyerarşide bir seviye yukarı çıkmak için [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) çağırın. Bir slayt yer tutucusu genellikle yerleşim yer tutucusunu döndürür; bir yerleşim yer tutucusu ise ana yer tutucusunu döndürebilir. Şeklin temel yer tutucusu yoksa yöntem `null` döndürür.
 
 Aşağıdaki örnek, ilk slayttaki yer tutucuları listeler ve temel yer tutucularını rapor eder:
 
@@ -95,11 +95,87 @@ try {
 }
 ```
 
-Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili düzeni veya ana slaytı düzenlemek, bu ayarı hâlâ devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve yalnızca aynı koordinatları doldurması, kalıtıma başlamasını sağlamaz.
+Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili yerleşim ya da ana slaytı düzenlemek, hâlâ bu ayarı devralan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve yalnızca aynı koordinatları kapladığı için kalıtım başlamaz.
 
-## **Yer Tutucudaki Metni Değiştirme**
+## **Yer Tutucu Durumunu Kaldır**
 
-Başlık, ortalanmış başlık, alt başlık, gövde ve metin yer tutucuları normalde metni destekler. [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) olup olmadığını kontrol ettikten sonra [getTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/gettextframe/) yöntemini kullanın.
+Bir şablonu uyarlarken, mevcut bir nesneyi normal bir şekil olarak tutmak için [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/) kullanın. Bunun [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) yöntemi `null` döner, ancak şekil slayt koleksiyonunda kalır. Buna karşılık, [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) şekli o koleksiyondan siler.
+
+Aşağıdaki örnek, en az bir slaytı ve ilk slaytta boş olmayan bir metin yer tutucusu bulunan bir `template.pptx` gerektirir. Etkiyi görmek için, yerleşim ya da ana slayttan kalıtım alan bir yer tutucu kullanın. Örnek, aynı şeklin kalıp kaldığını kontrol eder, ardından şimdi normal bir şekil üzerine aynı yöntemi tekrar çağırır ve sonucu kaydeder.
+
+{{% alert color="warning" title="Warning" %}}
+Yer tutucu durumunu kaldırmak, kalıtılan görünüm ayarlarını otomatik olarak korumaz. Aşağıdaki örnek bu ayarları bilinçli olarak değiştirmeden bırakır, bu yüzden çıktı farklı görünebilir. Tamamen kalıtılan bir konum ve boyuta sahip bir şekil, çağrı sonrası sıfır koordinat ve boyuta sahip olabilir ve görünmez hâle gelse de koleksiyonda kalır.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // Normal bir şekil üzerinde yöntemi çağırmak hiçbir etki yapmaz.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Eşleşen bir yer tutucu için üç kontrol de `true` yazdırır. Metin kalır, ancak kalıtılan konum, boyut, dönüş, yazı tipi, paragraf hizalaması, metin‑çerçeve kenar boşlukları, dikey yerleşim, dolgu ve çizgi ayarları, yer tutucu ilişkisi kaldırıldığında değişebilir. Örneğin, kalıtılan başlık biçimlendirmesi normal metin biçimlendirmesine geri dönebilir. Daha fazla yerleşim bilgisi için [Slayt Düzeni](/slides/tr/php-java/slide-layout/) sayfasına bakın.
+
+İstenen görünümü korumak için, çağrıdan önce çözülmüş konum, boyut ve dönüşü yakalayın ve gerekli etkili biçimlendirme değerlerini ayrı değişkenlere kopyalayın. Bu değerleri [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/), ve [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/) aracılığıyla alın. Yalnızca etkili‑format nesnelerine güvenmeyin; metin‑biçimlendirme değerleri ilişki kaldırıldıktan sonra değişebilir. Yakalanan değerleri, yazı tipi ailesi, boyutu, stili, rengi, paragraf ayarları, metin‑çerçeve ayarları, dolgu ve çizgi gibi normal şekle açıkça uygulayın.
+
+Kalıtılan şekil geometrisi de [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType) ile açıkça atanabilir. Dikdörtgen bir metin yer tutucusu için bu, [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) atamayı gerektirir; yalnızca dolgu ve çizgiyi geri yüklemek görünür dikdörtgeni sağlamaz. Ek efektleri veya daha karmaşık biçimlendirmeleri olan şablonlarda bu ayarlar da ele alınmalıdır.
+
+## **Yer Tutucudaki Metni Değiştir**
+
+Başlık, ortalanmış‑başlık, alt‑başlık, gövde ve metin yer tutucuları normalde metin destekler. [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) olup olmadığını kontrol ettikten sonra [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) yöntemini kullanın.
 
 Bu örnek, ilk slayttaki ilk başlık yer tutucusunu günceller ve sonucu kaydeder:
 
@@ -147,13 +223,13 @@ try {
 }
 ```
 
-Bu desen, resim, grafik, tablo veya medya yer tutucularını [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) nesneleri olarak ele almayı önler. Ayrıca kırılgan bir şekil indeksine güvenmek yerine yer tutucuyu amacına göre tanımlar.
+Bu desen, resim, grafik, tablo veya medya yer tutucularını [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) nesnesi olarak ele almayı önler. Ayrıca, kırılgan bir şekil indeksine güvenmek yerine yer tutucuyu amacına göre tanımlamayı sağlar.
 
-## **Düzen Üzerinde İpucu Metni Ayarlama**
+## **Düzeni Üzerinde İpucu Metni Ayarla**
 
-İpucu metni, boş bir yer tutucuda tasarım zamanında gösterilen talimattır, örneğin *Başlık eklemek için tıklayın*. Normal bir slaytın şekil koleksiyonundan ulaşmaya çalışmak yerine düzen yer tutucusunda özel bir ipucu metni ayarlayın. Düzeni [Slide::getLayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/#getLayoutSlide) yöntemiyle alın ve [BaseSlide::getShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseslide/#getShapes) tarafından döndürülen koleksiyonu döngüyle gezinin.
+İpucu metni, boş bir yer tutucuda görüntülenen tasarım‑zamanı yönergesidir; örneğin *Başlık eklemek için tıklayın*. Bu metni normal bir slayttaki şekil koleksiyonundan almaya çalışmak yerine, yerleşim yer tutucusu üzerinde özelleştirin. Yerleşime, [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getLayoutSlide) aracılığıyla erişin ve [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) tarafından döndürülen koleksiyonu döngüye alın.
 
-Aşağıdaki örnek, ilk slaytın kullandığı düzen üzerindeki başlık ve alt başlık ipuçlarını değiştirir:
+Aşağıdaki örnek, ilk slaytın kullandığı yerleşimde başlık ve alt‑başlık ipuçlarını değiştirir:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -195,16 +271,16 @@ try {
 }
 ```
 
-İpucu metni normal bir slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarındaki boş yer tutucular için tasarlanmıştır. Bir kullanıcı ya da program gerçek içerik sağladığında ipucu artık gösterilmez. Bir ipucu değiştirmek, düzeni kullanan slaytlardaki mevcut metni de değiştirmez.
+İpucu metni normal bir slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Kullanıcı ya da program gerçek içerik sağladığında ipucu artık gösterilmez. Bir ipucu değiştirmek, yerleşimi kullanan slaytlardaki mevcut metni değiştirmez.
 
-## **Resim Yer Tutucusunu Güncelleme**
+## **Resim Yer Tutucusunu Güncelle**
 
-Ele alınacak iki durum vardır:
+İki durum ele alınmalıdır:
 
-- Resim yer tutucu zaten doldurulmuş ve bir [PictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) ile temsil ediliyorsa, görüntüyü [PictureFillFormat::getPicture](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/getpicture/) ve [SlidesPicture::setImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidespicture/setimage/) ile değiştirin.
-- Eğer hâlâ boş bir yer tutucuysa, [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addpictureframe/) ile yer tutucunun koordinatlarında bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
+- Resim yer tutucusu zaten doldurulmuş ve bir [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) ile temsil ediliyorsa, resmi [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) ve [Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage) üzerinden değiştirin.
+- Hâlâ boş bir yer tutucuysa, [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) ile yer tutucunun koordinatlarında bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
 
-Aşağıdaki örnek her iki durumu da destekler ve sunumu kaydeder:
+Bu iki durumu da destekleyen ve sunumu kaydeden örnek:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -261,13 +337,13 @@ try {
 }
 ```
 
-Boş bir yer tutucu için oluşturulan değiştirme, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [Shape::getPlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getplaceholder/) bir ayarlayıcı sağlamaz. Ayırılan konumu korur ancak artık yer tutucuya özgü davranışı devralmaz. Yer tutucu ilişkisinin korunması önemliyse, önce PowerPoint'te yer tutucuyu hazırlayıp doldurun, ardından sonucu Aspose.Slides ile güncelleyin.
+Boş bir yer tutucu için oluşturulan değiştirme, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) bir ayarlayıcı sağlamaz. Rezerv edilmiş konumu korur ancak artık yer tutucu‑özel davranışı devralmaz. Yer tutucu ilişkisinin sürdürülmesi kritikse, önce PowerPoint'te yer tutucuyu hazırlayıp doldurun, ardından Aspose.Slides ile elde edilen [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) güncelleyin.
 
-Görsel şeffaflığı, kırpma ve diğer resim-özel etkiler için [Manage Picture Frames](/slides/tr/php-java/picture-frame/) sayfasına bakın. Bu işlemler yer tutucu meta verilerine değil, resim çerçevesine veya resim doldurmaya aittir.
+Resim şeffaflığı, kırpma ve diğer resim‑özel efektler için [Resim Çerçevelerini Yönet](/slides/tr/php-java/picture-frame/) bölümüne bakın. Bu işlemler resim çerçevesi veya resim doldurmasıyla ilgilidir, yer tutucu meta verileriyle değil.
 
 ## **Grafik ve İçerik Yer Tutucularıyla Çalışma**
 
-Dolu bir grafik yer tutucu bir [Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/) ile temsil edilebilir. Bu örnek, yer tutucu tipine ve çalışma zamanı sınıfına göre böyle bir grafik bulur, başlığını değiştirir ve dosyayı kaydeder:
+Dolu bir grafik yer tutucusu bir [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) ile temsil edilebilir. Bu örnek, hem yer tutucu tipine hem de çalışma zamanındaki sınıfa göre bir grafik bulur, başlığını değiştirir ve dosyayı kaydeder:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -314,9 +390,9 @@ try {
 }
 ```
 
-Genel bir içerik yer tutucu genellikle [PlaceholderType::Object](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/) tipindedir. PowerPoint'te grafik, tablo, diyagram, resim ve medya gibi çeşitli içerik türlerini başlatan bir öğe gibi davranır. Doldurulduktan sonra, ne içerdiğini öğrenmek için gerçek şekil sınıfını inceleyin. Özelleştirilmiş düzenler ayrıca [PlaceholderType::Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/) veya [PlaceholderType::Diagram](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholdertype/) tiplerini ortaya çıkarabilir.
+Genel bir içerik yer tutucusu genellikle [PlaceholderType::Object](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) tipindedir. PowerPoint'te, grafik, tablo, diyagram, resim ve medya gibi çeşitli içerik türlerinin başlatıcısı olarak davranır. Doldurulduktan sonra, gerçekte ne içerdiğini öğrenmek için şekil sınıfını inceleyin. Özelleştirilmiş yerleşimler, ayrıca [PlaceholderType::Chart](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) veya [PlaceholderType::Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) tiplerini ortaya koyabilir.
 
-Aspose.Slides, yalnızca [Placeholder::getType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/placeholder/gettype/) değiştirerek boş bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) yer tutucuyu bir [Chart](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/) haline dönüştürmez; tip sınıf üzerinden değiştirilemez. Boş bir grafik veya içerik alanını programatik olarak doldurmak için gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bir grafik için bunu yapar:
+Aspose.Slides, bir boş [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) yer tutucusunu sadece [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) değiştirerek bir [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) haline dönüştürmez; tip sınıf üzerinden değiştirilemez. Boş bir grafik veya içerik alanını programlı olarak doldurmak için, gerekli nesneyi yer tutucunun koordinatlarına ekleyin ve ardından boş yer tutucuyu kaldırın. Aşağıdaki örnek bir grafik için bunu yapar:
 
 ```php
 use aspose\slides\ChartType;
@@ -365,11 +441,11 @@ try {
 }
 ```
 
-Eklenen grafik, sıradan bir yerel grafiktir. Yer tutucunun alanını kaplar ancak düzen yer tutucusundan devralmaz. Kategorilerini, serilerini veya çalışma kitabı verilerini değiştirmek gerektiğinde özel [chart management articles](/slides/tr/php-java/powerpoint-charts/) sayfalarını kullanın.
+Eklenen grafik, yerel bir normal grafiktir. Yer tutucunun alanını kaplar ancak yerleşim yer tutucusundan kalıtım almaz. Kategorileri, serileri veya çalışma kitabı verilerini değiştirmek gerektiğinde ilgili [grafik yönetimi makalelerine](/slides/tr/php-java/powerpoint-charts/) başvurun.
 
-## **Tam Örnek: Metin veya Görsel İçeriği Güncelleme**
+## **Tam Örnek: Metin veya Görüntü İçeriğini Güncelle**
 
-Aşağıdaki uçtan uca örnek bir şablon açar, ilk slaytta bir başlık veya resim yer tutucusunu arar, yer tutucu ve şekil tiplerini kontrol eder, uygun içeriği günceller ve çıktıyı kaydeder. Örnek, bilinçli olarak bir şekil indeksini varsaymaktan veya her yer tutucuyu aynı sınıf olarak ele almaktan kaçınır:
+Aşağıdaki uçtan‑uca örnek bir şablonu açar, ilk slaytta bir başlık ya da resim yer tutucusu arar, yer tutucu ve şekil tiplerini kontrol eder, ilgili içeriği günceller ve çıktıyı kaydeder. Örnek, şekil indeksine güvenmeyi ve her yer tutucuyu aynı sınıf olarak ele almayı kasıtlı olarak önler.
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -434,16 +510,16 @@ try {
 }
 ```
 
-## **SSS**
+## **FAQ**
 
 **Temel yer tutucu nedir?**
 
-Temel yer tutucu, başka bir yer tutucunun devraldığı düzen ya da ana üzerindeki karşılık gelen şekildir. Onu almak için [Shape::getBasePlaceholder](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/getbaseplaceholder/) yöntemini kullanın. Normal bir yerel şekil, yer tutucu hiyerarşisinin bir parçası olmadığından `null` döndürür.
+Temel yer tutucu, başka bir yer tutucunun kalıtım yaptığı yerleşim ya da ana slayttaki karşılık gelen şekildir. Onu elde etmek için [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) kullanın. Normal bir yerel şekil `null` döndürür çünkü yer tutucu hiyerarşisinin bir parçası değildir.
 
-**Tüm slayt başlıklarını bir düzen yer tutucusunu düzenleyerek değiştirebilir miyim?**
+**Tüm slayt başlıklarını bir yerleşim yer tutucusunu düzenleyerek değiştirebilir miyim?**
 
-Bir düzen üzerinden devralınan biçimlendirmeyi veya ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda depolanır. Sunum boyunca gerçek başlık metnini değiştirmek için slaytlar üzerinde döngü yapın ve her başlık yer tutucusunu güncelleyin.
+Bir yerleşim üzerinden kalıtılan biçimlendirmeyi veya ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda depolanır. Sunum genelinde gerçek başlık metnini değiştirmek için slaytları döngüye alıp her başlık yer tutucusunu güncellemeniz gerekir.
 
-**Tarih, slayt numarası, başlık ve altbilgi yer tutucularını nasıl yönetirim?**
+**Tarih, slayt‑numarası, başlık ve alt‑bilgi yer tutucularını nasıl yönetirim?**
 
-Uygun slayt, düzen, ana, not veya el ilanı kapsamında üstbilgi ve altbilgi yöneticilerini kullanın. Tam örnekler için [Manage Presentation Header and Footer](/slides/tr/php-java/presentation-header-and-footer/) sayfasına bakın.
+Uygun slayt, yerleşim, ana, not veya dağıtım kapsamındaki başlık ve alt‑bilgi yöneticilerini kullanın. Ayrıntılı örnekler için [Sunum Başlık ve Alt Bilgi Yönetimi](/slides/tr/php-java/presentation-header-and-footer/) sayfasına bakın.

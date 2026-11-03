@@ -1,50 +1,50 @@
 ---
-title: Java में प्रस्तुति प्लेसहोल्डर प्रबंधित करें
+title: जावा में प्रस्तुति प्लेसहोल्डर प्रबंधित करें
 linktitle: प्लेसहोल्डर प्रबंधित करें
 type: docs
 weight: 10
 url: /hi/java/manage-placeholder/
 keywords:
 - प्लेसहोल्डर
-- पाठ प्लेसहोल्डर
-- छवि प्लेसहोल्डर
+- टेक्स्ट प्लेसहोल्डर
+- इमेज प्लेसहोल्डर
 - चार्ट प्लेसहोल्डर
-- सामग्री प्लेसहोल्डर
+- कंटेंट प्लेसहोल्डर
 - प्रॉम्प्ट टेक्स्ट
-- PowerPoint
+- पावरपॉइंट
 - प्रस्तुति
-- Java
+- जावा
 - Aspose.Slides
-description: "Java के लिए Aspose.Slides के साथ पाठ, चित्र, चार्ट और सामग्री प्लेसहोल्डर का निरीक्षण और संपादन करना तथा प्लेसहोल्डर विरासत को समझना सीखें।"
+description: "Aspose.Slides for Java के साथ प्लेसहोल्डर की जांच और संपादन, तथा प्लेसहोल्डर विरासत को समझें।"
 ---
 ## **सारांश**
 
-एक placeholder वह shape होता है जो प्रस्तुति टेम्पलेट में किसी विशेष प्रकार की सामग्री के लिए एक स्थान सुरक्षित करता है। सामान्य उदाहरणों में शीर्षक, बॉडी, चित्र, चार्ट, और सामान्य‑उद्देश्यीय सामग्री placeholders शामिल हैं। एक सामान्य shape के विपरीत, एक placeholder अपनी स्थिति, आकार, फ़ॉर्मेटिंग और अन्य सेटिंग्स को लेआउट स्लाइड या मास्टर स्लाइड से विरासत में ले सकता है।
+प्लेसहोल्डर वह आकृति है जो प्रस्तुति टेम्पलेट में किसी विशिष्ट प्रकार की सामग्री के लिए स्थिति आरक्षित करती है। सामान्य उदाहरणों में शीर्षक, बॉडी, चित्र, चार्ट और सामान्य‑उद्देश्य सामग्री प्लेसहोल्डर शामिल हैं। सामान्य आकृति के विपरीत, प्लेसहोल्डर अपनी स्थिति, आकार, फ़ॉर्मेटिंग और अन्य सेटिंग्स को लेआउट स्लाइड या मास्टर स्लाइड से विरासत में प्राप्त कर सकता है।
 
-Aspose.Slides placeholder जानकारी को [IShape.getPlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) मेथड के माध्यम से उपलब्ध कराता है। यह मेथड एक [IPlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholder/) ऑब्जेक्ट या सामान्य shape के लिए `null` लौटाता है। यह निर्धारित करने के लिए कि placeholder में क्या रखना उद्देश्य है, [IPlaceholder.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholder/) का उपयोग करें।
+Aspose.Slides प्लेसहोल्डर जानकारी को [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) मेथड के माध्यम से उजागर करता है। यह मेथड एक [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) ऑब्जेक्ट लौटाता है या सामान्य आकृति के लिए `null`। प्लेसहोल्डर में क्या सामग्री रखी जानी है, यह निर्धारित करने के लिए [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) का उपयोग करें।
 
-placeholder प्रकार जानने के बाद shape इंटरफ़ेस अभी भी महत्वपूर्ण है:
+आकृति इंटरफ़ेस अभी भी महत्वपूर्ण है जब आप प्लेसहोल्डर प्रकार को जान लेते हैं:
 
-- एक खाली टेक्स्ट, चित्र, चार्ट, या सामग्री placeholder आमतौर पर एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) द्वारा प्रतिनिधित्व किया जाता है।
-- एक भरा हुआ चित्र placeholder एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) द्वारा प्रतिनिधित्व किया जा सकता है।
-- एक भरा हुआ चार्ट placeholder एक [IChart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/) द्वारा प्रतिनिधित्व किया जा सकता है।
-- एक सामग्री placeholder कई प्रकार की सामग्री रख सकता है। यह मानने के बजाय कि हर placeholder एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) है, दोनों [IPlaceholder.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholder/) और रन‑टाइम shape इंटरफ़ेस की जाँच करें।
+- एक खाली टेक्स्ट, चित्र, चार्ट, या कंटेंट प्लेसहोल्डर आमतौर पर एक [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) द्वारा प्रस्तुत किया जाता है।
+- एक भराया गया चित्र प्लेसहोल्डर [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) द्वारा प्रस्तुत किया जा सकता है।
+- एक भराया गया चार्ट प्लेसहोल्डर [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) द्वारा प्रस्तुत किया जा सकता है।
+- एक कंटेंट प्लेसहोल्डर कई प्रकार की सामग्री रख सकता है। प्रत्येक प्लेसहोल्डर को [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) मानने के बजाय, [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) और रनटाइम आकृति इंटरफ़ेस दोनों को जांचें।
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholder/) एक placeholder की भूमिका का वर्णन करता है; यह shape के रन‑टाइम प्रकार की गारंटी नहीं देता। टेक्स्ट, चित्र, चार्ट, टेबल या मीडिया‑विशिष्ट सदस्यों तक पहुँचने से पहले हमेशा प्रकार जाँच करें।
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) प्लेसहोल्डर की भूमिका का वर्णन करता है; यह आकृति के रनटाइम प्रकार की गारंटी नहीं देता। टेक्स्ट, चित्र, चार्ट, टेबल या मीडिया‑विशिष्ट सदस्यों तक पहुंचने से पहले हमेशा प्रकार जाँच का उपयोग करें।
 {{% /alert %}}
 
-## **Placeholder विरासत को समझें**
+## **प्लेसहोल्डर विरासत को समझें**
 
-Placeholders एक पदानुक्रम बनाते हैं:
+प्लेसहोल्डर एक पदानुक्रम बनाते हैं:
 
-1. एक मास्टर स्लाइड पुन: प्रयोग योग्य शैली निर्धारित करती है और कुछ मामलों में मास्टर‑लेवल placeholders को परिभाषित करती है।
-2. एक लेआउट स्लाइड एक या अधिक सामान्य स्लाइडों द्वारा उपयोग की जाने वाली व्यवस्था को परिभाषित करती है और मास्टर से विरासत में ले सकती है।
-3. एक सामान्य स्लाइड उस स्लाइड के placeholders को रखती है और अपने लेआउट से विरासत में ले सकती है।
+1. एक मास्टर स्लाइड पुन: उपयोग योग्य शैलियों को परिभाषित करती है और कुछ मामलों में मास्टर‑स्तर के प्लेसहोल्डर भी निर्धारित करती है।
+2. एक लेआउट स्लाइड एक या अधिक सामान्य स्लाइडों द्वारा उपयोग किए जाने वाले क्रम को परिभाषित करती है और मास्टर से विरासत में ले सकती है।
+3. एक सामान्य स्लाइड उस स्लाइड के प्लेसहोल्डर रखती है और अपने लेआउट से विरासत में ले सकती है।
 
-इस पदानुक्रम में एक स्तर ऊपर जाने के लिए [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) को कॉल करें। एक स्लाइड placeholder सामान्यतः अपना लेआउट placeholder लौटाता है; एक लेआउट placeholder अपना मास्टर placeholder लौटा सकता है। जब shape का कोई बेस placeholder नहीं होता तो मेथड `null` लौटाता है।
+इस पदानुक्रम में एक स्तर ऊपर जाने के लिए आप [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) को कॉल करें। एक स्लाइड प्लेसहोल्डर सामान्यतः अपना लेआउट प्लेसहोल्डर लौटाता है; एक लेआउट प्लेसहोल्डर अपना मास्टर प्लेसहोल्डर लौट सकता है। जब आकृति का कोई बेस प्लेसहोल्डर नहीं होता है तो यह मेथड `null` लौटाता है।
 
-निम्न उदाहरण पहले स्लाइड पर placeholders की सूची देता है और उनके बेस placeholders को रिपोर्ट करता है:
+निम्न उदाहरण पहले स्लाइड के प्लेसहोल्डर को सूचीबद्ध करता है और उनके बेस प्लेसहोल्डर को रिपोर्ट करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-सामान्य स्लाइड पर एक placeholder को संपादित करने से उस स्लाइड के लिए एक स्थानीय ओवरराइड बनता या बदलता है। संबंधित लेआउट या मास्टर को संपादित करने से सभी स्लाइडों पर प्रभाव पड़ सकता है जो अभी भी वह सेटिंग विरासत में लेती हैं। एक स्थानीय सामान्य shape का कोई बेस placeholder नहीं होता और केवल उसी निर्देशांक पर स्थित होने के कारण विरासत शुरू नहीं करता।
+सामान्य स्लाइड पर एक प्लेसहोल्डर को संपादित करने से उस स्लाइड के लिए स्थानीय ओवरराइड बनता या बदलता है। संबंधित लेआउट या मास्टर को संपादित करने से सभी स्लाइडों पर प्रभाव पड़ सकता है जो अभी भी वह सेटिंग विरासत में ले रहे हैं। एक स्थानीय सामान्य आकृति का कोई बेस प्लेसहोल्डर नहीं होता और केवल उसी निर्देशांक को भरणे के कारण विरासत नहीं शुरू करता।
 
-## **Placeholder में टेक्स्ट बदलें**
+## **प्लेसहोल्डर स्थिति हटाएँ**
 
-शीर्षक, केंद्रित‑शीर्षक, उपशीर्षक, बॉडी, और टेक्स्ट placeholders सामान्यतः टेक्स्ट का समर्थन करते हैं। इसका [getTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) मेथड उपयोग करने से पहले [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) की जाँच करें।
+किसी टेम्पलेट को अनुकूलित करते समय, मौजूदा ऑब्जेक्ट को सामान्य आकृति बनाए रखने के लिए आप [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) का उपयोग करें। इसकी [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) मेथड `null` लौटाती है, लेकिन आकृति स्लाइड के संग्रह में बनी रहती है। इसके विपरीत, [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) उस संग्रह से आकृति को हटा देता है।
 
-निम्न उदाहरण पहले स्लाइड पर पहले शीर्षक placeholder को अपडेट करता है और परिणाम सहेजता है:
+निम्न उदाहरण `template.pptx` आवश्यक है जिसमें कम से कम एक स्लाइड और पहले स्लाइड पर एक गैर‑खाली टेक्स्ट प्लेसहोल्डर हो। लेआउट या मास्टर से विरासत में मिली फ़ॉर्मेटिंग वाला प्लेसहोल्डर उपयोग करके उस संबंध को हटाने का प्रभाव देखें। उदाहरण जांचता है कि वही आकृति बनी रहती है, अब सामान्य आकृति पर फिर से मेथड को कॉल करता है, और परिणाम को सहेजता है।
+
+{{% alert color="warning" title="Warning" %}}
+प्लेसहोल्डर स्थिति हटाने से विरासत में मिली उपस्थिति सेटिंग्स स्वतः संरक्षित नहीं रहतीं। नीचे दिया गया उदाहरण जानबूझकर उन सेटिंग्स को अपरिवर्तित छोड़ता है, जिससे आउटपुट अलग दिख सकता है। पूरी तरह विरासत में मिली स्थिति और आकार वाली आकृति कॉल के बाद शून्य निर्देशांक और आयाम रख सकती है और संग्रह में रहने के बावजूद अदृश्य हो सकती है।
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // सामान्य आकृति पर इस मेथड को कॉल करने से कोई प्रभाव नहीं पड़ता।
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+समान प्लेसहोल्डर के लिए, सभी तीन जाँचें `true` प्रिंट करती हैं। टेक्स्ट बना रहता है, लेकिन प्लेसहोल्डर संबंध हटाने पर विरासत में मिली स्थिति, आकार, घूर्णन, फॉन्ट, पैरा ग्राफ़ संरेखण, टेक्स्ट‑फ़्रेम मार्जिन, वर्टिकल एंकरिंग, फ़िल और लाइन सेटिंग्स बदल सकती हैं। उदाहरण के तौर पर, विरासत में मिली शीर्षक फ़ॉर्मेटिंग सामान्य टेक्स्ट फ़ॉर्मेटिंग में वापस आ सकती है। लेआउट के बारे में अधिक जानकारी के लिए देखें [Slide Layout](/slides/hi/java/slide-layout/)।
+
+इच्छित उपस्थिति को संरक्षित करने के लिए, कॉल से पहले हल की गई स्थिति, आकार और घूर्णन को कैप्चर करें, और आवश्यक प्रभावी फ़ॉर्मेटिंग मानों को अलग वेरिएबल में कॉपी करें। इन मानों को [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) , [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--) , [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--) , [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--) , और [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--) के माध्यम से प्राप्त करें। केवल प्रभावी‑फ़ॉर्मेट ऑब्जेक्ट को ही रखने पर निर्भर न रहें, क्योंकि संबंध हटाने के बाद उनके टेक्स्ट‑फ़ॉर्मेटिंग मान बदल सकते हैं। बाद में इन कैप्चर किए गए मानों को सामान्य आकृति पर स्पष्ट रूप से लागू करें, जिसमें फ़ॉन्ट फैमिली, आकार, शैली, रंग, पैरा ग्राफ़ सेटिंग्स, टेक्स्ट‑फ़्रेम सेटिंग्स, फ़िल और लाइन शामिल हैं जो आपके टेम्पलेट द्वारा उपयोग किए जाते हैं।
+
+विरासत में मिली आकृति ज्यामिति को भी [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-) के माध्यम से स्पष्ट रूप से असाइन करना पड़ सकता है। आयताकार टेक्स्ट प्लेसहोल्डर के लिए, इसका अर्थ है [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle) को असाइन करना; केवल फ़िल और लाइन को पुनर्स्थापित करने से दिखाई देने वाला आयत नहीं बन सकता। अतिरिक्त प्रभावों या अधिक जटिल फ़ॉर्मेटिंग वाले टेम्पलेट्स को भी इन सेटिंग्स को संभालना आवश्यक है।
+
+## **प्लेसहोल्डर में टेक्स्ट बदलें**
+
+शीर्षक, केन्द्रित‑शीर्षक, उपशीर्षक, बॉडी और टेक्स्ट प्लेसहोल्डर सामान्यतः टेक्स्ट को सपोर्ट करते हैं। उनकी [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) मेथड का उपयोग करने से पहले [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) की जाँच करें।
+
+यह उदाहरण पहले स्लाइड के पहले शीर्षक प्लेसहोल्डर को अपडेट करता है और परिणाम को सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-यह पैटर्न चित्र, चार्ट, टेबल या मीडिया placeholders को [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) में कैस्ट करने से बचाता है। यह भी placeholder को उसके उद्देश्य से पहचानता है न कि अस्थिर shape इंडेक्स पर निर्भर होकर।
+यह पैटर्न चित्र, चार्ट, टेबल या मीडिया प्लेसहोल्डर को [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) में कास्ट करने से बचाता है। यह प्लेसहोल्डर को उसके उद्देश्य से पहचानता है बजाय एक नाज़ुक आकृति इंडेक्स पर निर्भर रहने के।
 
-## **लेआउट पर Prompt टेक्स्ट सेट करें**
+## **लेआउट पर प्रॉम्प्ट टेक्स्ट सेट करें**
 
-Prompt टेक्स्ट एक खाली placeholder में दिखाया गया डिजाइन‑टाइम निर्देश होता है, जैसे *Click to add title*। सामान्य स्लाइड के shape संग्रह के माध्यम से पहुँचने के बजाय लेआउट placeholder पर कस्टम prompt टेक्स्ट सेट करें। लेआउट को [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islide/) से प्राप्त करें और [ILayoutSlide.getShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ibaseslide/) द्वारा लौटाए गए संग्रह पर इटररेट करें।
+प्रॉम्प्ट टेक्स्ट एक डिज़ाइन‑टाइम निर्देश है जो खाली प्लेसहोल्डर में प्रदर्शित होता है, जैसे *Click to add title*। कस्टम प्रॉम्प्ट टेक्स्ट को लेआउट प्लेसहोल्डर पर सेट करें, न कि सामान्य स्लाइड के आकृति संग्रह के माध्यम से पहुँचा जाए। लेआउट तक पहुंचने के लिए [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) का उपयोग करें और [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/) द्वारा लौटाए गए संग्रह पर इटराइट करें।
 
-निम्न उदाहरण पहले स्लाइड द्वारा उपयोग किए गए लेआउट पर शीर्षक और उपशीर्षक prompts को बदलता है:
+निम्न उदाहरण पहले स्लाइड द्वारा उपयोग किए गए लेआउट पर शीर्षक और उपशीर्षक प्रॉम्प्ट को बदलता है:
 
 ```java
 import com.aspose.slides.*;
@@ -171,16 +233,16 @@ try {
 }
 ```
 
-Prompt टेक्स्ट सामान्य स्लाइड की सामग्री नहीं है। यह PowerPoint जैसे संपादन अनुप्रयोगों में खाली placeholders के लिए अभिप्रेत है। एक बार उपयोगकर्ता या प्रोग्राम वास्तविक सामग्री प्रदान कर देता है, तो prompt प्रदर्शित नहीं होता। Prompt बदलने से उन स्लाइडों पर मौजूदा टेक्स्ट प्रतिस्थापित नहीं होता जो उस लेआउट का उपयोग करती हैं।
+प्रॉम्प्ट टेक्स्ट सामान्य स्लाइड सामग्री नहीं है। यह PowerPoint जैसे संपादन अनुप्रयोगों में खाली प्लेसहोल्डर के लिए अभिप्रेत है। एक बार उपयोगकर्ता या प्रोग्राम वास्तविक सामग्री प्रदान करने पर प्रॉम्प्ट अब प्रदर्शित नहीं रहता। प्रॉम्प्ट बदलने से लेआउट का उपयोग करने वाली स्लाइडों पर मौजूदा टेक्स्ट भी नहीं बदलता।
 
-## **चित्र Placeholder को अपडेट करें**
+## **चित्र प्लेसहोल्डर को अपडेट करें**
 
-दो स्थितियों को संभालना है:
+निपटने के लिए दो मामलों हैं:
 
-- यदि चित्र placeholder पहले से ही भरा हुआ है और एक [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) द्वारा प्रतिनिधित्व किया गया है, तो [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/) और [ISlidesPicture.setImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/islidespicture/) के माध्यम से चित्र बदलें।
-- यदि यह अभी भी एक खाली placeholder है, तो [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishapecollection/) से placeholder के निर्देशांक पर एक picture frame जोड़ें और खाली placeholder को हटा दें।
+- यदि चित्र प्लेसहोल्डर पहले से भर चुका है और एक [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) द्वारा प्रस्तुत है, तो छवि को [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) और [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/) के माध्यम से बदलें।
+- यदि यह अभी भी एक खाली प्लेसहोल्डर है, तो प्लेसहोल्डर के निर्देशांक पर [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) के साथ एक चित्र फ्रेम जोड़ें और खाली प्लेसहोल्डर को हटा दें।
 
-अगला उदाहरण दोनों स्थितियों को सपोर्ट करता है और प्रस्तुति को सहेजता है:
+अगला उदाहरण दोनों मामलों का समर्थन करता है और प्रस्तुति को सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-खाली placeholder के लिए बनाया गया प्रतिस्थापन एक स्थानीय picture frame है, नया placeholder नहीं, क्योंकि [IShape.getPlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) में सेट्टर नहीं है। यह आरक्षित स्थान को रखता है लेकिन अब placeholder‑विशिष्ट व्यवहार विरासत में नहीं लेता। यदि placeholder संबंध को बनाए रखना आवश्यक है, तो पहले PowerPoint में placeholder तैयार और भरें, फिर Aspose.Slides से resultant [IPictureFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipictureframe/) को अपडेट करें।
+खाली प्लेसहोल्डर के लिए बनाया गया प्रतिस्थापन एक स्थानीय चित्र फ्रेम है, नया प्लेसहोल्डर नहीं, क्योंकि [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) सेट्टर प्रदान नहीं करता। यह आरक्षित स्थिति को बनाए रखता है लेकिन अब प्लेसहोल्डर‑विशिष्ट व्यवहार को विरासत में नहीं लेता। यदि प्लेसहोल्डर संबंध को बनाए रखना आवश्यक है, तो पहले PowerPoint में प्लेसहोल्डर तैयार और भरें, फिर Aspose.Slides के साथ resultant [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) को अपडेट करें।
 
-छवि पारदर्शिता, क्रॉपिंग और अन्य picture‑विशिष्ट प्रभावों के लिए, देखें [Manage Picture Frames](/slides/hi/java/picture-frame/)। ये ऑपरेशन picture frame या picture fill से संबंधित हैं, न कि placeholder मेटाडाटा से।
+छवि पारदर्शिता, क्रॉपिंग और अन्य चित्र‑विशिष्ट प्रभावों के लिए देखें [Manage Picture Frames](/slides/hi/java/picture-frame/)। ये ऑपरेशन्स चित्र फ्रेम या चित्र फ़िल से संबंधित हैं, न कि प्लेसहोल्डर मेटाडेटा से।
 
-## **चार्ट और सामग्री Placeholders के साथ काम करें**
+## **चार्ट और कंटेंट प्लेसहोल्डर के साथ कार्य करें**
 
-एक भरा हुआ चार्ट placeholder एक [IChart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/) द्वारा प्रतिनिधित्व किया जा सकता है। यह उदाहरण placeholder प्रकार और रन‑टाइम इंटरफ़ेस दोनों के आधार पर ऐसा चार्ट खोजता है, उसका शीर्षक बदलता है, और फ़ाइल सहेजता है:
+एक भराए गए चार्ट प्लेसहोल्डर को [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) द्वारा प्रस्तुत किया जा सकता है। यह उदाहरण प्लेसहोल्डर प्रकार और रनटाइम इंटरफ़ेस दोनों से ऐसे चार्ट को ढूंढता है, उसका शीर्षक बदलता है, और फ़ाइल को सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-एक सामान्य सामग्री placeholder आमतौर पर [PlaceholderType.Object](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/) रखता है। PowerPoint में यह कई सामग्री प्रकारों जैसे चार्ट, टेबल, डायग्राम, चित्र और मीडिया के लिए लॉन्चर के रूप में कार्य करता है। एक बार भरा जाने के बाद, वास्तविक shape इंटरफ़ेस की जाँच करके पता लगाएँ कि इसमें क्या है। विशिष्ट लेआउट भी [PlaceholderType.Chart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/), या [PlaceholderType.Diagram](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholdertype/) को उजागर कर सकते हैं।
+एक सामान्य कंटेंट प्लेसहोल्डर आमतौर पर [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) रखता है। PowerPoint में यह कई कंटेंट प्रकारों, जैसे चार्ट, टेबल, डायग्राम, चित्र और मीडिया के लिए लॉन्चर के रूप में कार्य करता है। एक बार भर जाने के बाद, वास्तविक आकृति इंटरफ़ेस की जाँच करें कि इसमें क्या है। विशेषीकृत लेआउट्स भी [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), या [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/) को उजागर कर सकते हैं।
 
-Aspose.Slides केवल [IPlaceholder.getType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/placeholder/) को बदलकर एक खाली [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) placeholder को [IChart](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ichart/) में परिवर्तित नहीं करता; इंटरफ़ेस के माध्यम से प्रकार को बदला नहीं जा सकता। एक खाली चार्ट या सामग्री क्षेत्र को प्रोग्रामmatically भरने के लिए, आवश्यक ऑब्जेक्ट को placeholder के निर्देशांक पर जोड़ें और फिर खाली placeholder को हटाएँ। निम्न उदाहरण चार्ट के लिए यह करता है:
+Aspose.Slides केवल [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) को बदलकर खाली [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) प्लेसहोल्डर को [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) में नहीं बदलता; इंटरफ़ेस के माध्यम से प्रकार नहीं बदला जा सकता। प्रोग्रामेटिक रूप से एक खाली चार्ट या कंटेंट एरिया भरने के लिए, प्लेसहोल्डर के निर्देशांक पर आवश्यक ऑब्जेक्ट जोड़ें और फिर खाली प्लेसहोल्डर को हटाएँ। निम्न उदाहरण चार्ट के लिए यह करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-जोड़ा गया चार्ट एक सामान्य स्थानीय चार्ट है। यह placeholder के क्षेत्र को घेरता है लेकिन लेआउट placeholder से विरासत नहीं लेता। जब आपको इसकी श्रेणियों, सीरीज़ या वर्कबुक डेटा को बदलना हो, तो समर्पित [chart management articles](/slides/hi/java/powerpoint-charts/) देखें।
+जोड़ा गया चार्ट एक सामान्य स्थानीय चार्ट है। यह प्लेसहोल्डर के क्षेत्र को घेरता है लेकिन लेआउट प्लेसहोल्डर से विरासत में नहीं लेता। यदि आपको इसकी श्रेणियां, सीरीज़ या वर्कबुक डेटा बदलने की आवश्यकता हो तो समर्पित [chart management articles](/slides/hi/java/powerpoint-charts/) का उपयोग करें।
 
 ## **पूर्ण उदाहरण: टेक्स्ट या इमेज सामग्री अपडेट करें**
 
-निम्न अंत‑से‑अंत उदाहरण एक टेम्पलेट खोलता है, पहले स्लाइड पर शीर्षक या चित्र placeholder खोजता है, placeholder और shape प्रकारों की जाँच करता है, उपयुक्त सामग्री अपडेट करता है, और आउटपुट सहेजता है। उदाहरण जानबूझकर shape इंडेक्स मानने या हर placeholder को समान इंटरफ़ेस में कास्ट करने से बचता है।
+निम्न अंत‑से‑अंत उदाहरण एक टेम्पलेट खोलता है, पहले स्लाइड में शीर्षक या चित्र प्लेसहोल्डर खोजता है, प्लेसहोल्डर और आकृति प्रकारों की जाँच करता है, उपयुक्त सामग्री अपडेट करता है, और आउटपुट सहेजता है। उदाहरण जानबूझकर यह मानने या सभी प्लेसहोल्डर को एक ही इंटरफ़ेस में कास्ट करने से बचता है।
 
 ```java
 import com.aspose.slides.*;
@@ -365,14 +427,14 @@ try {
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**एक बेस placeholder क्या है?**
+**बेस प्लेसहोल्डर क्या है?**
 
-एक बेस placeholder वह संबंधित shape है जो लेआउट या मास्टर पर मौजूद होता है जिससे दूसरा placeholder विरासत में लेता है। इसे प्राप्त करने के लिए [IShape.getBasePlaceholder](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) का उपयोग करें। एक सामान्य स्थानीय shape `null` लौटाता है क्योंकि वह placeholder पदानुक्रम का हिस्सा नहीं है।
+बेस प्लेसहोल्डर वह संबंधित आकृति है जो लेआउट या मास्टर पर होती है, जिससे दूसरा प्लेसहोल्डर विरासत में लेता है। इसे प्राप्त करने के लिए [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) का उपयोग करें। एक सामान्य स्थानीय आकृति `null` लौटाती है क्योंकि वह प्लेसहोल्डर पदानुक्रम का हिस्सा नहीं है।
 
-**क्या मैं लेआउट placeholder को संपादित करके सभी स्लाइड शीर्षक बदल सकता हूँ?**
+**क्या मैं लेआउट प्लेसहोल्डर को संपादित करके सभी स्लाइड शीर्षक बदल सकता हूँ?**
 
-आप लेआउट के माध्यम से विरासत में मिली फ़ॉर्मेटिंग या prompt टेक्स्ट बदल सकते हैं, लेकिन मौजूदा शीर्षक सामग्री सामान्य स्लाइडों पर संग्रहीत रहती है। पूरे प्रस्तुति में वास्तविक शीर्षक टेक्स्ट बदलने के लिए स्लाइडों पर इटररेट करें और प्रत्येक शीर्षक placeholder को अपडेट करें।
+आप लेआउट के माध्यम से विरासत में मिली फ़ॉर्मेटिंग या प्रॉम्प्ट टेक्स्ट को बदल सकते हैं, लेकिन मौजूदा शीर्षक सामग्री सामान्य स्लाइड्स में संग्रहीत होती है। प्रस्तुति में वास्तविक शीर्षक टेक्स्ट को बदलने के लिए, स्लाइड्स पर इटररेट करें और प्रत्येक शीर्षक प्लेसहोल्डर को अपडेट करें।
 
-**मैं तिथि, स्लाइड‑नंबर, हेडर और फुटर placeholders को कैसे प्रबंधित करूँ?**
+**मैं डेट, स्लाइड‑नंबर, हेडर, और फुटर प्लेसहोल्डर को कैसे प्रबंधित करूँ?**
 
-उपयुक्त स्लाइड, लेआउट, मास्टर, नोट्स या हैंडआउट स्कोप पर हेडर और फुटर मैनेजर्स का उपयोग करें। पूर्ण उदाहरणों के लिए देखें [Manage Presentation Header and Footer](/slides/hi/java/presentation-header-and-footer/).
+उपयुक्त स्लाइड, लेआउट, मास्टर, नोट्स या हैंडआउट स्कोप में हेडर और फुटर मैनेजर्स का उपयोग करें। पूर्ण उदाहरणों के लिए देखें [Manage Presentation Header and Footer](/slides/hi/java/presentation-header-and-footer/)।

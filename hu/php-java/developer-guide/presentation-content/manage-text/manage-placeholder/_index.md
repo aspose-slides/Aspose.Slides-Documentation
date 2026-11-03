@@ -1,50 +1,50 @@
 ---
-title: Prezentáció helyőrzőinek kezelése PHP-ben
-linktitle: Helyőrzők kezelése
+title: Prezentációhelykitöltők kezelése PHP-ben
+linktitle: Helykitöltők kezelése
 type: docs
 weight: 10
 url: /hu/php-java/manage-placeholder/
 keywords:
-- helyőrző
-- szöveg helyőrző
-- kép helyőrző
-- diagram helyőrző
-- tartalom helyőrző
-- utasító szöveg
+- helykitöltő
+- szöveghelykitöltő
+- képhelykitöltő
+- diagramhelykitöltő
+- tartalomhelykitöltő
+- prompt szöveg
 - PowerPoint
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Ismerje meg, hogyan ellenőrizheti és szerkesztheti a szöveg, kép, diagram és tartalom helyőrzőket, valamint értheti meg a helyőrző öröklődést az Aspose.Slides for PHP via Java segítségével."
+description: "Ismerje meg, hogyan lehet ellenőrizni és szerkeszteni a szöveg-, kép-, diagram- és tartalomhelykitöltőket, valamint megérteni a helykitöltő öröklődést az Aspose.Slides for PHP (Java) segítségével."
 ---
 ## **Áttekintés**
 
-A helyőrző egy alakzat, amely helyet foglal egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, törzs, kép, diagram és általános célú tartalomhelyőrzők. Egy szokásos alakzattól eltérően a helyőrző örökölheti pozícióját, méretét, formázását és egyéb beállításait egy elrendezési vagy fődia (master slide) beállításából.
+A helykitöltő olyan alakzat, amely helyet foglal egy adott típusú tartalom számára egy prezentációs sablonban. Gyakori példák a cím, a törzs, a kép, a diagram és az általános célú tartalomhelykitöltők. Egy szokásos alakzattól eltérően a helykitöltő örökölheti a pozícióját, méretét, formázását és egyéb beállításait egy elrendezési diáról vagy mester diáról.
 
-Az Aspose.Slides a helyőrző információkat a [Shape::getPlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getplaceholder/) metóduson keresztül teszi elérhetővé. A metódus egy [Placeholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholder/) objektumot vagy `null`‑t ad vissza egy normál alakzatra. A [Placeholder::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholder/gettype/) segítségével meghatározható, hogy milyen tartalomra szolgál a helyőrző.
+Az Aspose.Slides a helykitöltő információkat a [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) metóduson keresztül teszi elérhetővé. A metódus egy [Placeholder](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/) objektumot ad vissza, vagy `null`‑t egy normál alakzat esetén. Használja a [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) metódust annak meghatározásához, hogy a helykitöltő milyen tartalmat vár.
 
-A forma (shape) osztálya továbbra is fontos, miután ismerjük a helyőrző típusát:
+Az alakzat osztálya továbbra is fontos, miután ismeri a helykitöltő típusát:
 
-- Egy üres szöveg-, kép-, diagram- vagy tartalomhelyőrző általában egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) által van reprezentálva.
-- Egy már feltöltött képhelyőrző a [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) segítségével jelenik meg.
-- Egy már feltöltött diagramhelyőrző a [Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/) segítségével jelenik meg.
-- Egy tartalomhelyőrző többféle tartalmat is tartalmazhat. Ellenőrizze mind a [Placeholder::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholder/gettype/), mind a futási időben (runtime) lévő forma osztályát, ahelyett, hogy feltételezné, hogy minden helyőrző egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/).
+- Egy üres szöveg, kép, diagram vagy tartalomhelykitöltőt általában egy [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) reprezentál.
+- Egy már kitöltött képhelykitöltőt egy [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) képviselhet.
+- Egy már kitöltött diagramhelykitöltőt egy [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) képviselhet.
+- Egy tartalomhelykitöltő többféle tartalmat is tartalmazhat. Ellenőrizze a [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) és a futási időben lévő alakzat osztályát is, ahelyett, hogy feltételezné, hogy minden helykitöltő egy [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholder/gettype/) leírja egy helyőrző szerepét; ez nem garantálja a forma futási időbeli osztályát. Mindig végezzen típusellenőrzést szöveg, kép, diagram, táblázat vagy média specifikus tagok elérése előtt.
+A [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) leírja a helykitöltő szerepét; nem garantálja az alakzat futási időbeli osztályát. Mindig végezzen típusellenőrzést a szöveg, kép, diagram, táblázat vagy médiához kapcsolódó tagok elérése előtt.
 {{% /alert %}}
 
-## **A helyőrzők öröklődésének megértése**
+## **A helykitöltő öröklődés megértése**
 
-A helyőrzők hierarchiát alkotnak:
+A helykitöltők hierarchiát alkotnak:
 
-1. A fődia (master slide) definiálja az újrahasználható stílusokat, és egyes esetekben fődiai helyőrzőket is.
-2. Egy elrendezésdia (layout slide) határozza meg a elrendezést, amelyet egy vagy több normál dia használ, és örökölhet a fődiától.
-3. Egy normál dia tartalmazza a saját helyőrzőit, és örökölhet az elrendezésétől.
+1. A mester dia meghatározza az újrahasznosítható stílusokat, és egyes esetekben a mester szintű helykitöltőket.
+2. Az elrendezési dia meghatározza a kiosztást, amelyet egy vagy több normál dia használ, és örökölhet a mestertől.
+3. Egy normál dia tartalmazza az adott dia helykitöltőit, és örökölhet az elrendezéséből.
 
-A [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) meghívásával léphet egy szinttel feljebb ebben a hierarchiában. Egy diahelyőrző általában visszaadja az elrendezéshelyőrzőt; egy elrendezéshelyőrző visszaadhatja a fődiai helyőrzőt. A metódus `null`‑t ad, ha az alakzatnak nincs alaphelyőrzője.
+Hívja meg a [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) metódust a hierarchia egy szinttel feljebb lépéshez. Egy diahelykitöltő általában a saját elrendezési helykitöltőjét adja vissza; egy elrendezési helykitöltő visszaadhatja a mester helykitöltőjét. A metódus `null`‑t ad vissza, ha az alakzatnak nincs alaphelykitöltője.
 
-Az alábbi példa felsorolja az első dián lévő helyőrzőket, és jelentést készít azok alaphelyőrzőiről:
+A következő példa felsorolja az első dián lévő helykitöltőket, és jelentést készít az alaphelykitöltőikről:
 
 ```php
 use aspose\slides\Presentation;
@@ -95,13 +95,89 @@ try {
 }
 ```
 
-Egy normál dián lévő helyőrző szerkesztése helyi felülírást hoz létre vagy módosít arra a diára. A kapcsolódó elrendezés vagy fődia szerkesztése pedig az összes olyan diára hat, amely még örökli azt a beállítást. Egy helyi, egyszerű alakzatnak nincs alaphelyőrzője, és nem kezd örökölni csak azért, mert ugyanazokat a koordinátákat foglalja el.
+Egy normál dián lévő helykitöltő szerkesztése helyi felülírást hoz létre vagy módosít az adott dián. A kapcsolódó elrendezés vagy mester szerkesztése hatással lehet minden olyan diára, amely még örökli azt a beállítást. Egy helyi szokásos alakzatnak nincs alaphelykitöltője, és nem kezd el örökölni csak azért, mert ugyanazokban a koordinátákban helyezkedik el.
 
-## **Szöveg módosítása egy helyőrzőben**
+## **Helykitöltő állapot eltávolítása**
 
-A cím, középre igazított cím, alcím, törzs és szöveghelyőrzők általában támogatják a szöveget. Mielőtt a [getTextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/gettextframe/) metódust használná, ellenőrizze, hogy az alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/).
+Sablon testreszabásakor használja a [Shape::removePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/removeplaceholder/) metódust, hogy egy meglévő objektumot szokásos alakzattá tegye. Az [getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) metódusa `null`‑t ad vissza, de az alakzat a dia gyűjteményében marad. Ezzel szemben a [ShapeCollection::remove](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/remove/) törli az alakzatot a gyűjteményből.
 
-Ez a példa frissíti az első címhelyőrzőt az első dián, majd elmenti az eredményt:
+A következő példához szükség van egy `template.pptx` fájlra, amely legalább egy diával és egy nem üres szöveghelykitöltővel rendelkezik az első dián. Használjon egy olyan helykitöltőt, amelynek formázása az elrendezésről vagy a mesterről öröklődik, hogy lássa a kapcsolódás eltávolításának hatását. A példa ellenőrzi, hogy ugyanaz az alakzat megmarad, újra meghívja a metódust a most már szokásos alakzaton, és elmenti az eredményt.
+
+{{% alert color="warning" title="Warning" %}}
+A helykitöltő állapotának eltávolítása nem őrzi meg automatikusan az örökölt megjelenési beállításokat. Az alábbi példa szándékosan változatlanul hagyja ezeket a beállításokat, ezért a kimenet másképp nézhet ki. Egy teljesen örökölt pozícióval és mérettel rendelkező alakzat a hívás után nullához közelítő koordinátákat és méreteket kaphat, és láthatatlanná válhat, még ha a gyűjteményben marad is.
+{{% /alert %}}
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("template.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $found = false;
+
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (!java_instanceof($shape, $autoShapeClass)) {
+            continue;
+        }
+
+        $placeholder = $shape->getPlaceholder();
+        $textFrame = $shape->getTextFrame();
+        if (java_is_null($placeholder) || java_is_null($textFrame)) {
+            continue;
+        }
+
+        $textValue = $textFrame->getText();
+        if (java_is_null($textValue)) {
+            continue;
+        }
+        $text = java_values($textValue);
+        if ($text === "") {
+            continue;
+        }
+
+        $shape->removePlaceholder();
+
+        $placeholder = $shape->getPlaceholder();
+        $retainedShape = $slide->getShapes()->get_Item($shapeIndex);
+        $sameShapeValue = $shape->equals($retainedShape);
+        $sameShape = java_values($sameShapeValue);
+        $remainingCountValue = $slide->getShapes()->size();
+        $remainingCount = java_values($remainingCountValue);
+        echo "Placeholder removed: " . (java_is_null($placeholder) ? "true" : "false") . PHP_EOL;
+        echo "Same shape retained: " . ($sameShape ? "true" : "false") . PHP_EOL;
+        echo "Shape count unchanged: " . ($remainingCount === $shapeCount ? "true" : "false") . PHP_EOL;
+
+        // A metódus hívása egy szokásos alakzaton nem jár hatással.
+        $shape->removePlaceholder();
+        $found = true;
+        break;
+    }
+
+    if ($found) {
+        $presentation->save("placeholder-status-removed.pptx", SaveFormat::Pptx);
+    } else {
+        echo "No nonempty text placeholder was found on the first slide." . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Egy megfelelő helykitöltő esetén mindhárom ellenőrzés `true` értéket ad. A szöveg megmarad, de az örökölt pozíció, méret, forgatás, betűtípus, bekezdésigazítás, szövegkeret margók, függőleges rögzítés, kitöltés és vonalbeállítások megváltozhatnak, amikor a helykitöltő kapcsolatot eltávolítják. Például az örökölt címformázás visszaeshet a szokásos szövegformázásra. További információkért lásd a [Slide Layout](/slides/hu/php-java/slide-layout/) oldalt.
+
+A kívánt megjelenés megőrzéséhez a hívás előtt rögzítse a feloldott pozíciót, méretet és forgatást, és másolja a szükséges hatékony formázási értékeket külön változókba. Ezeket az értékeket a [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/geteffective/), [ParagraphFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/geteffective/), [TextFrameFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/geteffective/), [FillFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/geteffective/), és [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/geteffective/) metódusokkal szerezze be. Ne csak a hatékony formátumobjektumokra támaszkodjon, mivel a szövegformázási értékek a kapcsolat eltávolítása után megváltozhatnak. Az elkapott értékeket kifejezetten alkalmazza a szokásos alakzatra később, beleértve a betűcsaládot, méretet, stílust, színt, bekezdés beállításokat, szövegkeret beállításokat, kitöltést és vonalat, amelyet a sablonja használ.
+
+Az örökölt alakzateg geometria is explicit módon adható meg a [GeometryShape::setShapeType](https://reference.aspose.com/slides/php-java/aspose.slides/geometryshape/#setShapeType) segítségével. Egy négyszögletes szöveghelykitöltőnél ez azt jelenti, hogy a [ShapeType::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/) értéket kell beállítani; csak a kitöltés és vonal visszaállítása nem feltétlenül állítja vissza a látható négyzetet. Az extra effektusokkal vagy összetettebb formázással rendelkező sablonok esetén ezeket a beállításokat is kezelni kell.
+
+## **Szöveg módosítása egy helykitöltőben**
+
+A cím, a középre igazított cím, az alcím, a törzs és a szöveghelykitöltők általában támogatják a szöveget. Ellenőrizze a [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) létezését, mielőtt a [getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/gettextframe/) metódusát használja.
+
+A következő példa frissíti az első címhelykitöltőt az első dián, és elmenti az eredményt:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -147,13 +223,13 @@ try {
 }
 ```
 
-Ez a minta elkerüli, hogy kép-, diagram-, táblázat- vagy médiahelyőrzőket [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) objektumként kezeljen. Emellett a helyőrzőt a célja alapján azonosítja, ahelyett, hogy egy törékeny formaindexre támaszkodna.
+Ez a minta elkerüli, hogy a kép, diagram, táblázat vagy média helykitöltőket [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) objektumként kezelje. Emellett a helykitöltőt a célja alapján azonosítja, ahelyett, hogy egy törékeny alakzati indexre támaszkodna.
 
-## **Üzenetszöveg beállítása egy elrendezésen**
+## **Útmutató szöveg beállítása egy elrendezésen**
 
-Az üzenetszöveg (prompt text) a tervezési időben megjelenő instrukció egy üres helyőrzőben, például *Kattintson a cím hozzáadásához*. Az egyéni üzenetszöveget az elrendezéshelyőrzőre állítsa be, ne pedig egy normál dia alakzattárán keresztül próbálja elérni. Az elrendezést a [Slide::getLayoutSlide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slide/#getLayoutSlide) segítségével érheti el, és iteráljon a [BaseSlide::getShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/baseslide/#getShapes) által visszaadott gyűjteményen.
+A prompt szöveg egy tervezési időben megjelenő utasítás, amely egy üres helykitöltőben látható, például *Kattintson a cím hozzáadásához*. Állítson be egyedi prompt szöveget az elrendezési helykitöltőn, ahelyett, hogy egy normál dia alakzattárolóján keresztül próbálna meg elérni. Az elrendezést a [Slide::getLayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getLayoutSlide) segítségével érheti el, és iterálja végig a [BaseSlide::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/baseslide/#getShapes) által visszaadott gyűjteményt.
 
-Az alábbi példa megváltoztatja a cím és alcím üzeneteit az első dia által használt elrendezésen:
+A következő példa módosítja a cím és alcím prompt szövegeit az első dián használt elrendezésen:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -195,14 +271,14 @@ try {
 }
 ```
 
-Az üzenetszöveg nem normál dia tartalom. A PowerPoint-hoz hasonló szerkesztő alkalmazásokban üres helyőrzőkre szolgál. Amint a felhasználó vagy egy program valós tartalmat ad meg, az üzenet többé nem jelenik meg. Egy üzenet módosítása nem helyettesíti a már létező szöveget azokban a diákban, amelyek az elrendezést használják.
+A prompt szöveg nem szokásos dia tartalom. Üres helykitöltők szerkesztési alkalmazásokban, például a PowerPointban való használatra szolgál. Amint egy felhasználó vagy program valós tartalmat ad meg, a prompt már nem jelenik meg. A prompt módosítása nem cseréli le a már meglévő szöveget az elrendezést használó diákon.
 
-## **Kép helyőrző frissítése**
+## **Képhelykitöltő frissítése**
 
 Két esetet kell kezelni:
 
-- Ha a képhelyőrző már feltöltött és egy [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) képviseli, cserélje ki a képet a [PictureFillFormat::getPicture](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/getpicture/) és a [SlidesPicture::setImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slidespicture/setimage/) segítségével.
-- Ha még üres helyőrző, adjon hozzá egy képkeretet a helyőrző koordinátáihoz a [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addpictureframe/) segítségével, majd távolítsa el az üres helyőrzőt.
+- Ha a képhelykitöltő már ki van töltve és egy [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) reprezentálja, cserélje ki a képet a [PictureFillFormat::getPicture](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/getpicture/) és a [Picture::setImage](https://reference.aspose.com/slides/php-java/aspose.slides/picture/#setImage) segítségével.
+- Ha még üres helykitöltő, adjon hozzá egy képkeretet a helykitöltő koordinátáihoz a [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/addpictureframe/) segítségével, és távolítsa el az üres helykitöltőt.
 
 A következő példa mindkét esetet támogatja, és elmenti a prezentációt:
 
@@ -261,13 +337,13 @@ try {
 }
 ```
 
-Az üres helyőrzőhöz létrehozott cserélő egy helyi képkeret, nem új helyőrző, mivel a [Shape::getPlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getplaceholder/) nem biztosít beállítót. Megőrzi a lefoglalt pozíciót, de már nem örököl helyőrző-specifikus viselkedést. Ha a helyőrzőkapcsolat megőrzése lényeges, először hozzon létre és töltse ki a helyőrzőt PowerPointban, majd a kapott [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) objektumot frissítse az Aspose.Slides segítségével.
+Az üres helykitöltőhöz létrehozott helyettesítés egy helyi képkeret, nem egy új helykitöltő, mivel a [Shape::getPlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getplaceholder/) nem biztosít beállítót. Megőrzi a lefoglalt pozíciót, de már nem örököl a helykitöltő-specifikus viselkedést. Ha a helykitöltő kapcsolat megtartása lényeges, először készítse elő és töltse ki a helykitöltőt a PowerPointban, majd frissítse a kapott [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe/) objektumot az Aspose.Slides segítségével.
 
-Képátlátszóság, vágás és más kép-specifikus hatások esetén lásd a [Képkeretek kezelése](/slides/hu/php-java/picture-frame/) cikket. Ezek a műveletek a képkerethez vagy a kép kitöltéséhez (picture fill) tartoznak, nem a helyőrző metaadataihoz.
+Az átlátszóság, vágás és egyéb kép-specifikus hatások kezeléséhez lásd a [Manage Picture Frames](/slides/hu/php-java/picture-frame/) cikket. Ezek a műveletek a képkerethez vagy a kép kitöltéséhez tartoznak, nem pedig a helykitöltő metaadatokhoz.
 
-## **Diagram- és tartalomhelyőrzők kezelése**
+## **Diagram és tartalom helykitöltők kezelése**
 
-Egy feltöltött diagramhelyőrző a [Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/) segítségével jelenik meg. Ez a példa a diagramot mind a helyőrző típusa, mind a futási időbeli osztálya alapján megtalálja, megváltoztatja a címét, majd elmenti a fájlt:
+Egy kitöltött diagramhelykitöltő egy [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) segítségével ábrázolható. Ez a példa mind a helykitöltő típusa, mind a futási osztály alapján megtalál egy ilyen diagramot, megváltoztatja a címét, és elmenti a fájlt:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -314,9 +390,9 @@ try {
 }
 ```
 
-Egy általános tartalomhelyőrző általában a [PlaceholderType::Object](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/) értékkel rendelkezik. PowerPointban ez több tartalomtípus indítójaként működik, beleértve a diagramokat, táblázatokat, diagrammákat, képeket és médiát. Miután feltöltötték, ellenőrizze a tényleges formaosztályt, hogy megtudja, mit tartalmaz. Specializált elrendezések a [PlaceholderType::Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/), a [PlaceholderType::Table](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/), a [PlaceholderType::Picture](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/), a [PlaceholderType::Media](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/) vagy a [PlaceholderType::Diagram](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholdertype/) értékeket is kiexponálhatják.
+Egy általános tartalomhelykitöltő általában a [PlaceholderType::Object](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) típussal rendelkezik. PowerPointban ez többféle tartalomtípus indítójaként működik, beleértve a diagramokat, táblázatokat, diagrammákat, képeket és médiát. Miután fel lett töltve, ellenőrizze a tényleges alakzat osztályát, hogy megtudja, mit tartalmaz. Specializált elrendezések is ki tudják mutatni a [PlaceholderType::Chart](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) vagy [PlaceholderType::Diagram](https://reference.aspose.com/slides/php-java/aspose.slides/placeholdertype/) típusokat.
 
-Az Aspose.Slides nem alakít át egy üres [AutoShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/autoshape/) helyőrzőt [Chart](https://reference.aspose.com/slides/hu/php-java/aspose.slides/chart/) objektummá pusztán a [Placeholder::getType](https://reference.aspose.com/slides/hu/php-java/aspose.slides/placeholder/gettype/) módosításával; a típust az osztályon keresztül nem lehet megváltoztatni. Üres diagram vagy tartalom terület programozott feltöltéséhez adja hozzá a szükséges objektumot a helyőrző koordinátáihoz, majd távolítsa el az üres helyőrzőt. Az alábbi példa ezt végzi diagram esetén:
+Az Aspose.Slides nem alakítja át egy üres [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) helykitöltőt egy [Chart](https://reference.aspose.com/slides/php-java/aspose.slides/chart/) objektummá pusztán a [Placeholder::getType](https://reference.aspose.com/slides/php-java/aspose.slides/placeholder/gettype/) módosításával; a típust az osztályon keresztül nem lehet megváltoztatni. Egy üres diagram vagy tartalomterület programozott feltöltéséhez adja hozzá a szükséges objektumot a helykitöltő koordinátáihoz, majd távolítsa el az üres helykitöltőt. A következő példa ezt teszi meg egy diagram esetén:
 
 ```php
 use aspose\slides\ChartType;
@@ -365,11 +441,11 @@ try {
 }
 ```
 
-A hozzáadott diagram egy egyszerű helyi diagram. Elfoglalja a helyőrző területét, de nem örököl az elrendezés helyőrzőjétől. Használja a dedikált [diagramkezelő cikkeket](/slides/hu/php-java/powerpoint-charts/) amikor a kategóriák, sorozatok vagy munkafüzet adatok cseréje szükséges.
+Az hozzáadott diagram egy szokásos helyi diagram. Kitölti a helykitöltő területét, de nem örököl az elrendezési helykitöltőtől. Használja a dedikált [chart management articles](/slides/hu/php-java/powerpoint-charts/) cikkeket, amikor a kategóriákat, sorozatokat vagy munkafüzet adatokat kell cserélni.
 
 ## **Teljes példa: Szöveg vagy kép tartalom frissítése**
 
-Az alábbi végponttól végpontig tartó példa megnyit egy sablont, keres az első dián egy cím- vagy képhelyőrzőt, ellenőrzi a helyőrző és forma típusát, frissíti a megfelelő tartalmat, majd elmenti a kimenetet. A példa szándékosan elkerüli a formaindex feltételezését, illetve minden helyőrző egyenlő osztályként való kezelését.
+A következő végponttól végpontig tartó példa megnyit egy sablont, az első dián keres egy cím vagy kép helykitöltőt, ellenőrzi a helykitöltő és alakzat típusait, frissíti a megfelelő tartalmat, és elmenti a kimenetet. A példa szándékosan elkerüli egy alakzat index feltételezését vagy minden helykitöltő ugyanannak az osztálynak a tekintését:
 
 ```php
 use aspose\slides\PlaceholderType;
@@ -436,14 +512,14 @@ try {
 
 ## **GYIK**
 
-**Mi az a bázishelyőrző?**
+**Mi a alaphelykitöltő?**
 
-A bázishelyőrző a megfelelő alakzat az elrendezésen vagy a fődián, amelyből egy másik helyőrző örököl. A [Shape::getBasePlaceholder](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/getbaseplaceholder/) segítségével lekérhető. Egy egyszerű helyi alakzat `null`‑t ad vissza, mert nem része a helyőrzőhierarchiának.
+Az alaphelykitöltő az elrendezésen vagy a mesterben lévő megfelelő alakzat, amelyből egy másik helykitöltő örököl. Használja a [Shape::getBasePlaceholder](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getbaseplaceholder/) metódust a lekéréshez. Egy szokásos helyi alakzat `null`‑t ad vissza, mivel nem része a helykitöltő hierarchiájának.
 
-**Meg tudom változtatni az összes dia címsorát egy elrendezéshelyőrző szerkesztésével?**
+**Módosíthatom az összes diacímét egy elrendezés helykitöltőjének szerkesztésével?**
 
-Az örökölt formázást vagy az üzenetszöveget módosíthatja egy elrendezésen keresztül, de a meglévő cím tartalom a normál diákon van tárolva. A valódi cím szövegének cseréjéhez egy prezentációban iteráljon a diákon, és minden címhelyőrzőt frissítsen.
+Az öröklött formázást vagy a prompt szöveget módosíthatja egy elrendezésen keresztül, de a meglévő cím tartalmát a normál diák tárolják. A tényleges cím szövegének cseréjéhez egy prezentációban, iteráljon a diákon, és frissítse minden címhelykitöltőt.
 
-**Hogyan kezelem a dátum, dia szám, fejléc és lábléc helyőrzőket?**
+**Hogyan kezeljem a dátum, dia-szám, fejléc és lábléc helykitöltőket?**
 
-Használja a fejléc és lábléc kezelőket a megfelelő dia, elrendezés, fődia, jegyzet vagy kézjegy (handout) tartományban. Tekintse meg a [Prezentáció fejléc és lábléc kezelése](/slides/hu/php-java/presentation-header-and-footer/) oldalt a teljes példákért.
+Használja a fejléc és lábléc kezelőket a megfelelő dia, elrendezés, mester, jegyzet vagy kézjegy hatókörében. Lásd a [Manage Presentation Header and Footer](/slides/hu/php-java/presentation-header-and-footer/) oldalt a teljes példákért.

@@ -1,6 +1,6 @@
 ---
-title: Gestire i segnaposti della presentazione in Java
-linktitle: Gestire i segnaposti
+title: Gestire i segnaposto di presentazione in Java
+linktitle: Gestire i segnaposto
 type: docs
 weight: 10
 url: /it/java/manage-placeholder/
@@ -15,36 +15,36 @@ keywords:
 - presentazione
 - Java
 - Aspose.Slides
-description: "Scopri come ispezionare e modificare i segnaposti di testo, immagine, grafico e contenuto e comprendere l'eredità dei segnaposti con Aspose.Slides per Java."
+description: "Scopri come ispezionare e modificare segnaposto di testo, immagine, grafico e contenuto e comprendere l'eredità dei segnaposto con Aspose.Slides per Java."
 ---
 ## **Panoramica**
 
-Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono segnaposti per titolo, corpo, immagine, grafico e contenuti di uso generale. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva di layout o da una diapositiva master.
+Un segnaposto è una forma che riserva una posizione per un particolare tipo di contenuto in un modello di presentazione. Esempi comuni sono i segnaposto per titolo, corpo, immagine, grafico e contenuto di uso generale. A differenza di una forma ordinaria, un segnaposto può ereditare la sua posizione, dimensione, formattazione e altre impostazioni da una diapositiva di layout o da una diapositiva master.
 
-Aspose.Slides espone le informazioni sui segnaposti tramite il metodo [IShape.getPlaceholder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/). Il metodo restituisce un oggetto [IPlaceholder](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholder/) o `null` per una forma normale. Usa [IPlaceholder.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholder/) per determinare cosa il segnaposto è destinato a contenere.
+Aspose.Slides espone le informazioni sui segnaposto tramite il metodo [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/). Il metodo restituisce un oggetto [IPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) o `null` per una forma normale. Utilizza [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) per determinare cosa il segnaposto è destinato a contenere.
 
 L'interfaccia della forma è ancora importante dopo aver conosciuto il tipo di segnaposto:
 
-- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/).
-- Un segnaposto immagine popolato può essere rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipictureframe/).
-- Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichart/).
-- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Verifica sia [IPlaceholder.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholder/) sia l'interfaccia della forma al runtime anziché presumere che ogni segnaposto sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/).
+- Un segnaposto vuoto di testo, immagine, grafico o contenuto è comunemente rappresentato da un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+- Un segnaposto immagine popolato può essere rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/).
+- Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/).
+- Un segnaposto di contenuto può contenere diversi tipi di contenuto. Controlla sia [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) sia l'interfaccia della forma a runtime invece di presumere che ogni segnaposto sia un [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholder/) descrive il ruolo di un segnaposto; non garantisce il tipo di forma al runtime. Usa sempre un controllo di tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
+[IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/) descrive il ruolo di un segnaposto; non garantisce il tipo di forma a runtime. Usa sempre un controllo di tipo prima di accedere a membri specifici di testo, immagine, grafico, tabella o media.
 {{% /alert %}}
 
-## **Comprendere l'eredità dei segnaposti**
+## **Comprendere l'Ereditarietà dei Segnaposto**
 
-I segnaposti formano una gerarchia:
+I segnaposto formano una gerarchia:
 
-1. Una diapositiva master definisce stili riutilizzabili e, in alcuni casi, segnaposti a livello master.
-2. Una diapositiva di layout definisce la disposizione usata da una o più diapositive normali e può ereditare dal master.
-3. Una diapositiva normale contiene i segnaposti per quella diapositiva e può ereditare dal suo layout.
+1. Una diapositiva master definisce stili riutilizzabili e, in alcuni casi, segnaposto a livello master.
+2. Una diapositiva di layout definisce la disposizione utilizzata da una o più diapositive normali e può ereditare dal master.
+3. Una diapositiva normale contiene i segnaposto per quella diapositiva e può ereditare dal suo layout.
 
-Chiama [IShape.getBasePlaceholder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/) per spostarsi di un livello verso l'alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto di layout; un segnaposto di layout può restituire il suo segnaposto master. Il metodo restituisce `null` quando la forma non ha un segnaposto di base.
+Chiama [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) per spostarti di un livello verso l'alto in questa gerarchia. Un segnaposto di diapositiva normalmente restituisce il suo segnaposto di layout; un segnaposto di layout può restituire il suo segnaposto master. Il metodo restituisce `null` quando la forma non ha un segnaposto base.
 
-Il seguente esempio elenca i segnaposti nella prima diapositiva e riporta i loro segnaposti di base:
+Il seguente esempio elenca i segnaposto nella prima diapositiva e segnala i loro segnaposto base:
 
 ```java
 import com.aspose.slides.*;
@@ -85,13 +85,75 @@ try {
 }
 ```
 
-Modificare un segnaposto su una diapositiva normale crea o cambia una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influenzare tutte le diapositive che continuano a ereditare tale impostazione. Una forma locale ordinaria non ha un segnaposto di base e non inizia a ereditare solo perché occupa le stesse coordinate.
+Modificare un segnaposto su una diapositiva normale crea o modifica una sovrascrittura locale per quella diapositiva. Modificare il layout o il master correlato può influire su tutte le diapositive che ancora ereditano quella impostazione. Una forma locale ordinaria non ha un segnaposto base e non inizia a ereditare solo perché occupa le stesse coordinate.
 
-## **Modificare il testo in un segnaposto**
+## **Rimuovere lo Stato di Segnaposto**
 
-I segnaposti titolo, titolo centrato, sottotitolo, corpo e testo normalmente supportano il testo. Verifica la presenza di [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) prima di usare il suo [getTextFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) metodo.
+Quando si adatta un modello, usa [IShape.removePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#removePlaceholder--) per mantenere un oggetto esistente come una forma ordinaria. Il suo metodo [getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getPlaceholder--) restituisce `null`, ma la forma rimane nella collezione della diapositiva. Al contrario, [IShapeCollection.remove](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) elimina la forma da quella collezione.
 
-Questo esempio aggiorna il primo segnaposto titolo nella prima diapositiva e salva il risultato:
+Il seguente esempio richiede `template.pptx` con almeno una diapositiva e un segnaposto di testo non vuoto sulla prima diapositiva. Usa un segnaposto con formattazione ereditata dal suo layout o master per vedere l'effetto della rimozione di tale relazione. L'esempio verifica che la stessa forma rimanga, chiama nuovamente il metodo sulla forma ora ordinaria e salva il risultato.
+
+{{% alert color="warning" title="Warning" %}}
+Rimuovere lo stato di segnaposto non preserva automaticamente le impostazioni di aspetto ereditate. L'esempio seguente lascia deliberatamente quelle impostazioni invariate, quindi l'output potrebbe apparire diverso. Una forma la cui posizione e dimensione sono interamente ereditate può avere coordinate e dimensioni zero dopo la chiamata e diventare invisibile anche se rimane nella collezione.
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || 
+            textFrame == null || 
+            textFrame.getText() == null || 
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // Chiamare il metodo su una forma ordinaria non ha alcun effetto.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Per un segnaposto corrispondente, tutti e tre i controlli stampano `true`. Il testo rimane, ma la posizione, dimensione, rotazione, carattere, allineamento dei paragrafi, margini del riquadro di testo, ancoraggio verticale, riempimento e impostazioni di linea ereditate possono cambiare quando la relazione del segnaposto viene rimossa. Ad esempio, la formattazione del titolo ereditata può tornare alla formattazione del testo ordinario. Vedi [Slide Layout](/slides/it/java/slide-layout/) per ulteriori dettagli sui layout.
+
+Per preservare l'aspetto previsto, cattura la posizione, dimensione e rotazione risolte prima della chiamata e copia i valori di formattazione effettiva richiesti in variabili separate. Recupera tali valori tramite [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getEffective--), e [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--). Non fare affidamento sul mantenimento solo degli oggetti di formattazione effettiva, poiché i loro valori di formattazione del testo possono cambiare dopo la rimozione della relazione. Applica esplicitamente i valori catturati alla forma ordinaria successivamente, includendo la famiglia di caratteri, dimensione, stile, colore, impostazioni di paragrafo, impostazioni del riquadro di testo, riempimento e linea usati dal tuo modello.
+
+Anche la geometria della forma ereditata potrebbe dover essere assegnata esplicitamente tramite [IGeometryShape.setShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#setShapeType-int-). Per un segnaposto di testo rettangolare, ciò significa assegnare [ShapeType.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/#Rectangle); ripristinare solo il riempimento e la linea potrebbe non ripristinare il rettangolo visibile. I modelli con effetti aggiuntivi o formattazione più complessa richiedono che tali impostazioni vengano gestite anch'esse.
+
+## **Modificare il Testo in un Segnaposto**
+
+I segnaposto per titolo, titolo centrato, sottotitolo, corpo e testo normalmente supportano il testo. Verifica la presenza di [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) prima di usare il suo metodo [getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/).
+
+Questo esempio aggiorna il primo segnaposto di titolo sulla prima diapositiva e salva il risultato:
 
 ```java
 import com.aspose.slides.*;
@@ -130,13 +192,13 @@ try {
 }
 ```
 
-Questo schema evita di castare i segnaposti immagine, grafico, tabella o media a [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/). Identifica inoltre il segnaposto per scopo anziché fare affidamento su un indice di forma fragile.
+Questo schema evita di fare cast di segnaposto immagine, grafico, tabella o media a [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/). Identifica inoltre il segnaposto per scopo invece di fare affidamento su un indice di forma fragile.
 
-## **Impostare il testo di prompt su un layout**
+## **Impostare il Testo di Prompt su un Layout**
 
-Il testo di prompt è l'istruzione di design-time visualizzata in un segnaposto vuoto, ad esempio *Fai clic per aggiungere il titolo*. Imposta un testo di prompt personalizzato sul segnaposto del layout invece di cercare di raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout tramite [ISlide.getLayoutSlide](https://reference.aspose.com/slides/it/java/com.aspose.slides/islide/) e itera sulla collezione restituita da [ILayoutSlide.getShapes](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseslide/).
+Il testo di prompt è l'istruzione di design-time visualizzata in un segnaposto vuoto, ad esempio *Fare clic per aggiungere il titolo*. Imposta un testo di prompt personalizzato sul segnaposto del layout invece di cercare di raggiungerlo tramite la collezione di forme di una diapositiva normale. Accedi al layout tramite [ISlide.getLayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/islide/) e itera sulla collezione restituita da [ILayoutSlide.getShapes](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseslide/).
 
-Il seguente esempio modifica i prompt del titolo e del sottotitolo sul layout utilizzato dalla prima diapositiva:
+Il seguente esempio modifica i prompt di titolo e sottotitolo sul layout usato dalla prima diapositiva:
 
 ```java
 import com.aspose.slides.*;
@@ -171,14 +233,14 @@ try {
 }
 ```
 
-Il testo di prompt non è contenuto di diapositiva normale. È destinato ai segnaposti vuoti nelle applicazioni di modifica come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non è più visualizzato. Modificare un prompt non sostituisce neanche il testo esistente sulle diapositive che usano il layout.
+Il testo di prompt non è contenuto di una diapositiva normale. È destinato a segnaposto vuoti nelle applicazioni di editing come PowerPoint. Una volta che un utente o un programma fornisce contenuto reale, il prompt non viene più mostrato. Modificare un prompt non sostituisce nemmeno il testo esistente sulle diapositive che usano il layout.
 
-## **Aggiornare un segnaposto immagine**
+## **Aggiornare un Segnaposto Immagine**
 
 Ci sono due casi da gestire:
 
-- Se il segnaposto immagine è già popolato e rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipictureframe/), sostituisci l'immagine tramite [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipicturefillformat/) e [ISlidesPicture.setImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidespicture/).
-- Se è ancora un segnaposto vuoto, aggiungi un frame immagine alle coordinate del segnaposto con [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/) e rimuovi il segnaposto vuoto.
+- Se il segnaposto immagine è già popolato e rappresentato da un [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/), sostituisci l'immagine tramite [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) e [ISlidesPicture.setImage](https://reference.aspose.com/slides/java/com.aspose.slides/islidespicture/).
+- Se è ancora un segnaposto vuoto, aggiungi un riquadro immagine alle coordinate del segnaposto con [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/) e rimuovi il segnaposto vuoto.
 
 Il prossimo esempio supporta entrambi i casi e salva la presentazione:
 
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-La sostituzione creata per un segnaposto vuoto è un frame immagine locale, non un nuovo segnaposto, perché [IShape.getPlaceholder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/) non fornisce un setter. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se conservare la relazione del segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, quindi aggiorna il risultato [IPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipictureframe/) con Aspose.Slides.
+La sostituzione creata per un segnaposto vuoto è un riquadro immagine locale, non un nuovo segnaposto, perché [IShape.getPlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) non fornisce un setter. Mantiene la posizione riservata ma non eredita più il comportamento specifico del segnaposto. Se mantenere la relazione del segnaposto è essenziale, prepara e popola il segnaposto in PowerPoint prima, poi aggiorna il risultato [IPictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ipictureframe/) con Aspose.Slides.
 
-Per la trasparenza dell'immagine, il ritaglio e altri effetti specifici delle immagini, vedi [Gestire i frame immagine](/slides/it/java/picture-frame/). Quelle operazioni appartengono al frame immagine o al riempimento immagine, non ai metadati del segnaposto.
+Per la trasparenza dell'immagine, il ritaglio e altri effetti specifici dell'immagine, vedi [Manage Picture Frames](/slides/it/java/picture-frame/). Queste operazioni appartengono al riquadro immagine o al riempimento immagine, non ai metadati del segnaposto.
 
-## **Lavorare con segnaposti grafico e contenuto**
+## **Lavorare con Segnaposto Grafico e di Contenuto**
 
-Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichart/). Questo esempio trova un tale grafico sia tramite il tipo di segnaposto sia tramite l'interfaccia al runtime, ne modifica il titolo e salva il file:
+Un segnaposto grafico popolato può essere rappresentato da un [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/). Questo esempio trova tale grafico sia per tipo di segnaposto sia per interfaccia a runtime, ne cambia il titolo e salva il file:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Un segnaposto di contenuto generale solitamente ha [PlaceholderType.Object](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/). In PowerPoint funge da avviatore per diversi tipi di contenuto, inclusi grafici, tabelle, diagrammi, immagini e media. Dopo che è stato popolato, ispeziona l'effettiva interfaccia della forma per capire cosa contiene. Layout specializzati possono inoltre esporre [PlaceholderType.Chart](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/), o [PlaceholderType.Diagram](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholdertype/).
+Un segnaposto di contenuto generico solitamente ha [PlaceholderType.Object](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/). In PowerPoint funge da lanciatore per diversi tipi di contenuto, tra cui grafici, tabelle, diagrammi, immagini e media. Dopo essere stato popolato, ispeziona l'effettiva interfaccia della forma per capire cosa contiene. I layout specializzati possono anche esporre [PlaceholderType.Chart](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/), o [PlaceholderType.Diagram](https://reference.aspose.com/slides/java/com.aspose.slides/placeholdertype/).
 
-Aspose.Slides non converte un segnaposto [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/iautoshape/) vuoto in un [IChart](https://reference.aspose.com/slides/it/java/com.aspose.slides/ichart/) semplicemente cambiando [IPlaceholder.getType](https://reference.aspose.com/slides/it/java/com.aspose.slides/placeholder/); il tipo non può essere modificato tramite l'interfaccia. Per riempire programmaticamente un'area grafico o contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
+Aspose.Slides non converte un segnaposto vuoto [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) in un [IChart](https://reference.aspose.com/slides/java/com.aspose.slides/ichart/) semplicemente cambiando [IPlaceholder.getType](https://reference.aspose.com/slides/java/com.aspose.slides/placeholder/); il tipo non può essere modificato tramite l'interfaccia. Per riempire programmaticamente un'area grafico o di contenuto vuota, aggiungi l'oggetto richiesto alle coordinate del segnaposto e poi rimuovi il segnaposto vuoto. Il seguente esempio lo fa per un grafico:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto del layout. Usa gli articoli dedicati alla [gestione dei grafici](/slides/it/java/powerpoint-charts/) quando devi sostituire categorie, serie o dati della cartella di lavoro.
+Il grafico aggiunto è un grafico locale ordinario. Occupa l'area del segnaposto ma non eredita dal segnaposto del layout. Usa gli [articoli di gestione dei grafici](/slides/it/java/powerpoint-charts/) quando è necessario sostituire le sue categorie, serie o dati della cartella di lavoro.
 
-## **Esempio completo: Aggiornare contenuto testuale o immagine**
+## **Esempio Completo: Aggiornare Testo o Immagine**
 
-Il seguente esempio end-to-end apre un modello, cerca nella prima diapositiva un segnaposto titolo o immagine, verifica i tipi di segnaposto e forma, aggiorna il contenuto appropriato e salva l'output. L'esempio evita deliberatamente di presumere un indice di forma o di castare tutti i segnaposti alla stessa interfaccia.
+Il seguente esempio end-to-end apre un modello, cerca nella prima diapositiva un segnaposto di titolo o immagine, controlla i tipi di segnaposto e di forma, aggiorna il contenuto appropriato e salva l'output. L'esempio evita deliberatamente di presumere un indice di forma o di fare cast di tutti i segnaposto alla stessa interfaccia.
 
 ```java
 import com.aspose.slides.*;
@@ -365,14 +427,14 @@ try {
 
 ## **FAQ**
 
-**Che cos'è un segnaposto di base?**
+**Che cos'è un segnaposto base?**
 
-Un segnaposto di base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [IShape.getBasePlaceholder](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishape/) per recuperarlo. Una forma locale ordinaria restituisce `null` perché non fa parte della gerarchia dei segnaposti.
+Un segnaposto base è la forma corrispondente nel layout o nel master da cui un altro segnaposto eredita. Usa [IShape.getBasePlaceholder](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) per recuperarlo. Una forma locale ordinaria restituisce `null` perché non fa parte della gerarchia dei segnaposto.
 
 **Posso modificare tutti i titoli delle diapositive modificando un segnaposto di layout?**
 
-Puoi cambiare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo reale del titolo in tutta la presentazione, itera sulle diapositive e aggiorna ogni segnaposto titolo.
+Puoi cambiare la formattazione ereditata o il testo di prompt tramite un layout, ma il contenuto del titolo esistente è memorizzato sulle diapositive normali. Per sostituire il testo del titolo reale in tutta la presentazione, itera sulle diapositive e aggiorna ciascun segnaposto di titolo.
 
-**Come gestisco i segnaposti data, numero diapositiva, intestazione e piè di pagina?**
+**Come gestisco i segnaposto data, numero-di-diapositiva, intestazione e piè di pagina?**
 
-Usa i gestori di intestazione e piè di pagina nello scope appropriato di diapositiva, layout, master, note o handout. Vedi [Gestire intestazione e piè di pagina della presentazione](/slides/it/java/presentation-header-and-footer/) per esempi completi.
+Usa i gestori di intestazione e piè di pagina nello scope appropriato di diapositiva, layout, master, note o dispensa. Vedi [Manage Presentation Header and Footer](/slides/it/java/presentation-header-and-footer/) per esempi completi.

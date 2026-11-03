@@ -1,50 +1,50 @@
 ---
-title: مدیریت نگهدارنده‌های ارائه در C++
-linktitle: مدیریت نگهدارنده‌ها
+title: مدیریت محل‌نگه‌دارهای ارائه در C++
+linktitle: مدیریت محل‌نگه‌دارها
 type: docs
 weight: 10
 url: /fa/cpp/manage-placeholder/
 keywords:
-- نگهدارنده
-- نگهدارنده متن
-- نگهدارنده تصویر
-- نگهدارنده نمودار
-- نگهدارنده محتوا
+- محل‌نگه‌دار
+- محل‌نگه‌دار متن
+- محل‌نگه‌دار تصویر
+- محل‌نگه‌دار نمودار
+- محل‌نگه‌دار محتوا
 - متن راهنما
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "یاد بگیرید چگونه نگهدارنده‌های متن، تصویر، نمودار و محتوا را بررسی و ویرایش کنید و وراثت نگهدارنده‌ها را با Aspose.Slides برای C++ درک نمایید."
+description: "یاد بگیرید چگونه محل‌نگه‌دارهای متن، تصویر، نمودار و محتوا را بررسی و ویرایش کنید و وراثت محل‌نگه‌دارها را با Aspose.Slides برای C++ درک کنید."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-یک نگهدارنده (placeholder) یک شکل است که موقعیتی را برای نوع خاصی از محتوا در قالب ارائه رزرو می‌کند. مثال‌های رایج شامل نگهدارنده‌های عنوان، بدنه، تصویر، نمودار و نگهدارنده‌های محتوای عمومی هستند. برخلاف یک شکل عادی، یک نگهدارنده می‌تواند موقعیت، اندازه، قالب‌بندی و سایر تنظیمات خود را از اسلاید طرح‌بندی یا اسلاید اصلی به ارث ببرد.
+یک placeholder شکلی است که موقعیتی را برای نوع خاصی از محتوا در یک قالب ارائه ذخیره می‌کند. مثال‌های رایج شامل عنوان، متن اصلی، تصویر، نمودار و placeholderهای محتوای عمومی هستند. برخلاف یک شکل عادی، یک placeholder می‌تواند موقعیت، اندازه، قالب‌بندی و سایر تنظیمات خود را از یک اسلاید چیدمان یا اسلاید اصلی به ارث ببرد.
 
-Aspose.Slides اطلاعات نگهدارنده را از طریق متد [IShape::get_Placeholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_placeholder/) در دسترس می‌گذارد. این متد یک شیء [IPlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iplaceholder/) یا `nullptr` برای یک شکل عادی برمی‌گرداند. برای تعیین محتوای مورد انتظار نگهدارنده از [IPlaceholder::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iplaceholder/get_type/) استفاده کنید.
+Aspose.Slides اطلاعات placeholder را از طریق متد [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) در دسترس قرار می‌دهد. این متد یک شیء [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) یا `nullptr` برای یک شکل عادی برمی‌گرداند. برای تعیین منظور placeholder از [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) استفاده کنید.
 
-پس از این‌که نوع نگهدارنده را دانستید، رابط شکل همچنان مهم است:
+رابط شکل همچنان پس از دانستن نوع placeholder مهم است:
 
-- یک نگهدارنده خالی متن، تصویر، نمودار یا محتوا معمولاً توسط یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) نمایان می‌شود.
-- یک نگهدارنده تصویر پر شده می‌تواند توسط یک [IPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframe/) نمایان شود.
-- یک نگهدارنده نمودار پر شده می‌تواند توسط یک [IChart](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/) نمایان شود.
-- یک نگهدارنده محتوا می‌تواند انواع مختلفی از محتوا را در خود داشته باشد. به‌جای فرض اینکه هر نگهدارنده‌ای یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) است، هم [IPlaceholder::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iplaceholder/get_type/) و هم رابط شکل در زمان اجرا را بررسی کنید.
+- یک placeholder متن، تصویر، نمودار یا محتوا خالی معمولاً توسط یک [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) نمایش داده می‌شود.
+- یک placeholder تصویر پر شده می‌تواند توسط یک [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) نمایش داده شود.
+- یک placeholder نمودار پر شده می‌تواند توسط یک [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) نمایش داده شود.
+- یک placeholder محتوا می‌تواند شامل چندین نوع محتوا باشد. به جای فرض اینکه هر placeholder یک [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) است، هم [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) و هم رابط شکل زمان اجرا را بررسی کنید.
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iplaceholder/get_type/) توصیف‌کننده نقش یک نگهدارنده است؛ این تضمین نمی‌کند که نوع شکل در زمان اجرا همان باشد. همیشه قبل از دسترسی به اعضای متنی، تصویر، نمودار، جدول یا رسانه‌ای، یک بررسی نوع انجام دهید.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) نقش یک placeholder را توصیف می‌کند؛ اما نوع زمان اجرای شکل را تضمین نمی‌کند. همیشه قبل از دسترسی به اعضای متن، تصویر، نمودار، جدول یا رسانه، بررسی نوع را انجام دهید.
 {{% /alert %}}
 
-## **درک ارث‌بری نگهدارنده**
+## **درک ارث‌بری محل‌نما**
 
-نگهدارنده‌ها یک سلسله‌مراتب تشکیل می‌دهند:
+محل‌نماها یک سلسله‌مراتب تشکیل می‌دهند:
 
-1. یک اسلاید اصلی (master) سبک‌های قابل استفاده مجدد را تعریف می‌کند و در برخی موارد، نگهدارنده‌های سطح اصلی را نیز در بر می‌گیرد.
-2. یک اسلاید طرح‌بندی (layout) چیدمان استفاده‌شده توسط یک یا چند اسلاید عادی را تعریف می‌کند و می‌تواند از اسلاید اصلی ارث‌بری کند.
-3. یک اسلاید عادی شامل نگهدارنده‌های مربوط به آن اسلاید است و می‌تواند از طرح‌بندی خود ارث‌بری کند.
+1. یک اسلاید اصلی سبک‌های قابل استفاده مجدد و در برخی موارد placeholderهای سطح اصلی را تعریف می‌کند.
+2. یک اسلاید چیدمان ترتیب استفاده شده توسط یک یا چند اسلاید عادی را تعریف می‌کند و می‌تواند از اسلاید اصلی ارث بگیرد.
+3. یک اسلاید عادی placeholderهای مربوط به آن اسلاید را شامل می‌شود و می‌تواند از چیدمان خود ارث بگیرد.
 
-برای رفتن یک سطح بالا در این سلسله‌مراتب، متد [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) را فراخوانی کنید. یک نگهدارنده اسلاید معمولاً نگهدارنده طرح‌بندی خود را برمی‌گرداند؛ یک نگهدارنده طرح‌بندی می‌تواند نگهدارنده اصلی خود را برگرداند. این متد زمانی که شکل پایه‌ای نداشته باشد `nullptr` برمی‌گرداند.
+برای جابه‌جایی یک سطح بالا در این سلسله‌مراتب، متد [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) را فراخوانی کنید. یک placeholder اسلاید معمولاً placeholder چیدمان خود را برمی‌گرداند؛ یک placeholder چیدمان می‌تواند placeholder اصلی را برگرداند. این متد `nullptr` برمی‌گرداند وقتی شکلی placeholder پایه‌ای ندارید.
 
-مثال زیر نگهدارنده‌های اسلاید اول را فهرست می‌کند و پایهٔ هر یک را گزارش می‌دهد:
+مثال زیر placeholderهای اسلاید اول را فهرست می‌کند و placeholderهای پایه‌ای آن‌ها را گزارش می‌دهد:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-ویرایش یک نگهدارنده در یک اسلاید عادی، بازنویسی یا تغییر محلی برای آن اسلاید ایجاد می‌کند. ویرایش طرح‌بندی یا اسلاید اصلی مرتبط می‌تواند بر تمام اسلایدهایی که هنوز آن تنظیم را ارث می‌برند تأثیر بگذارد. یک شکل عادی محلی پایهٔ نگهدارنده‌ای ندارد و تنها به این دلیل که همان مختصات را در بر می‌گیرد، ارث‌بری شروع نمی‌کند.
+ویرایش یک placeholder در یک اسلاید عادی یک بازنویسی محلی برای آن اسلاید ایجاد یا تغییر می‌دهد. ویرایش چیدمان یا اسلاید اصلی مرتبط می‌تواند بر تمام اسلایدهایی که هنوز آن تنظیم را ارث می‌برند، تأثیر بگذارد. یک شکل عادی محلی placeholder پایه‌ای ندارد و صرفاً به دلیل قرار گرفتن در همان مختصات شروع به ارث‌بری نمی‌کند.
 
-## **تغییر متن در یک نگهدارنده**
+## **حذف وضعیت placeholder**
 
-نگهدارنده‌های عنوان، عنوان‌وسط‌چین، زیرنویس، بدنه و متن معمولاً از متن پشتیبانی می‌کنند. قبل از استفاده از متد [get_TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/get_textframe/)، وجود [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) را بررسی کنید.
+هنگامی که یک قالب را سازگار می‌کنید، از [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) استفاده کنید تا یک شیء موجود را به عنوان یک شکل عادی نگه دارید. متد [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) آن `nullptr` برمی‌گرداند، اما شکل در مجموعه اسلاید باقی می‌ماند. در مقابل، [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) شکل را از آن مجموعه حذف می‌کند.
 
-این مثال اولین نگهدارندهٔ عنوان در اسلاید اول را به‌روز می‌کند و نتیجه را ذخیره می‌نماید:
+مثال زیر به فایل `template.pptx` نیاز دارد که حداقل یک اسلاید و یک placeholder متن غیرخالی در اسلاید اول داشته باشد. برای مشاهده اثر حذف رابطه، از یک placeholder با قالب‌بندی ارث‌بری‌شده از چیدمان یا اسلاید اصلی استفاده کنید. مثال بررسی می‌کند که همان شکل باقی می‌ماند، دوباره متد را بر روی شکل الآن عادی فراخوانی می‌کند و نتیجه را ذخیره می‌سازد.
+
+{{% alert color="warning" title="Warning" %}}
+حذف وضعیت placeholder به‌طور خودکار تنظیمات ظاهر ارث‌بری‌شده را حفظ نمی‌کند. مثال زیر به‌ص knowingly تنظیمات را بدون تغییر می‌گذارد، بنابراین خروجی ممکن است متفاوت به‌نظر برسد. یک شکلی که موقعیت و اندازه‌اش به‌طور کامل ارث‌بری شده‌اند می‌تواند پس از فراخوانی مختصات و ابعاد صفر داشته باشد و حتی نامرئی شود، هرچند هنوز در مجموعه باقی می‌ماند.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // فراخوانی متد روی یک شکل عادی هیچ تأثیری ندارد.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+برای یک placeholder مطابق، هر سه بررسی `True` چاپ می‌شود. متن باقی می‌ماند، اما موقعیت، اندازه، چرخش، قلم، تراز پاراگراف، حاشیه‌های فریم متن، لنگر عمودی، پر کردن و تنظیمات خط می‌توانند هنگام حذف رابطه placeholder تغییر کنند. به‌عنوان مثال، قالب‌بندی عنوان ارث‌بری‌شده می‌تواند به قالب‌بندی متن عادی بازگردد. برای اطلاعات بیشتر درباره چیدمان‌ها، به [Slide Layout](/slides/fa/cpp/slide-layout/) مراجعه کنید.
+
+برای حفظ ظاهر موردنظر، موقعیت، اندازه و چرخش حل‌شده را قبل از فراخوانی ذخیره کنید و مقادیر قالب‌بندی مؤثر موردنیاز را در متغیرهای جداگانه کپی کنید. این مقادیر را از طریق [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/)، [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/)، [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/)، [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/) و [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) دریافت کنید. فقط به اشیای مؤثر قالب‌بندی اطمینان نکنید، زیرا مقادیر قالب‌بندی متن آن‌ها پس از حذف رابطه می‌تواند تغییر کند. پس از آن، مقادیر ذخیره‌شده را به شکل عادی اعمال کنید، شامل خانواده قلم، اندازه، سبک، رنگ، تنظیمات پاراگراف، تنظیمات فریم متن، پر کردن و خط مورد استفاده در قالب شما.
+
+شکلی که به‌صورت ارث‌بری دریافت می‌کند ممکن است نیاز به تعیین صریح از طریق [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/) داشته باشد. برای یک placeholder متن مستطیلی، این به معنای تخصیص [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/) است؛ تنها بازگرداندن پر کردن و خط ممکن است مستطیل قابل مشاهده را بازنشانی نکند. قالب‌هایی که اثرات اضافی یا قالب‌بندی پیچیده‌تر دارند نیز به‌همین تنظیمات نیاز دارند.
+
+## **تغییر متن در یک placeholder**
+
+Placeholderهای عنوان، عنوان‌متمرکز، زیرعنوان، متن اصلی و متن معمولاً از متن پشتیبانی می‌کنند. پیش از استفاده از متد [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) آن، از وجود [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) اطمینان حاصل کنید.
+
+این مثال اولین placeholder عنوان در اسلاید اول را به‌روزرسانی می‌کند و نتیجه را ذخیره می‌سازد:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-این الگو از تبدیل نگهدارنده‌های تصویر، نمودار، جدول یا رسانه به [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) جلوگیری می‌کند. همچنین نگهدارنده را بر اساس هدف شناسایی می‌کند به‌جای وابستگی به یک شاخص شکل ناپایدار.
+این الگو از تبدیل placeholderهای تصویر، نمودار، جدول یا رسانه به [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) جلوگیری می‌کند. همچنین placeholder را بر اساس هدف شناسایی می‌کند نه بر اساس یک شاخص شکننده شکل.
 
-## **تنظیم متن راهنمایی در یک طرح‌بندی**
+## **تنظیم متن راهنما در یک چیدمان**
 
-متن راهنمایی (Prompt text) دستور طراحی است که در یک نگهدارندهٔ خالی نمایش داده می‌شود، مانند *برای افزودن عنوان کلیک کنید*. متن راهنمای سفارشی را بر روی نگهدارندهٔ طرح‌بندی تنظیم کنید نه این‌که سعی کنید از مجموعهٔ شکل‌های اسلاید عادی به آن دسترسی پیدا کنید. طرح‌بندی را از طریق [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/get_layoutslide/) دریافت کنید و بر روی [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseslide/get_shapes/) تکرار کنید.
+متن راهنما (prompt text) دستور زمان طراحی است که در یک placeholder خالی نمایش داده می‌شود، مانند *برای افزودن عنوان کلیک کنید*. متن راهنمای سفارشی را بر روی placeholder چیدمان تنظیم کنید نه سعی در دسترسی به آن از طریق مجموعه شکل‌های اسلاید عادی. چیدمان را از طریق [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) دسترسی پیدا کنید و بر روی [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/) پیمایش کنید.
 
-مثال زیر متن راهنمایی عنوان و زیرنویس را در طرح‌بندی استفاده‌شده توسط اسلاید اول تغییر می‌دهد:
+مثال زیر متن راهنمای عنوان و زیرعنوان را در چیدمانی که اسلاید اول از آن استفاده می‌کند، تغییر می‌دهد:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-متن راهنمایی محتوای اسلاید عادی نیست. این متن برای نگهدارنده‌های خالی در برنامه‌های ویرایشی مانند PowerPoint در نظر گرفته شده است. هنگامی که کاربر یا برنامه محتوای واقعی را فراهم می‌کند، راهنمایی دیگر نمایش داده نمی‌شود. تغییر راهنمایی همچنین متن موجود در اسلایدهایی که از این طرح‌بندی استفاده می‌کنند را جایگزین نمی‌کند.
+متن راهنما محتوای عادی اسلاید نیست. برای placeholderهای خالی در برنامه‌های ویرایشی مانند PowerPoint در نظر گرفته شده است. هنگامی که یک کاربر یا برنامه محتوی واقعی را اضافه می‌کند، راهنما دیگر نمایش داده نمی‌شود. تغییر یک راهنما نیز متن موجود در اسلایدهایی که از آن چیدمان استفاده می‌کنند را جایگزین نمی‌کند.
 
-## **به‌روزرسانی یک نگهدارندهٔ تصویر**
+## **به‌روزرسانی یک placeholder تصویر**
 
-دو مورد برای پردازش وجود دارد:
+دو حالت برای رسیدگی وجود دارد:
 
-- اگر نگهدارندهٔ تصویر قبلاً پر شده باشد و توسط یک [IPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframe/) نمایان شود، تصویر را از طریق [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipicturefillformat/get_picture/) و [ISlidesPicture::set_Image](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidespicture/set_image/) جایگزین کنید.
-- اگر هنوز یک نگهدارندهٔ خالی باشد، یک چارچوب تصویر را در مختصات نگهدارنده با استفاده از [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addpictureframe/) اضافه کنید و نگهدارندهٔ خالی را حذف نمایید.
+- اگر placeholder تصویر قبلاً پر شده باشد و توسط یک [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) نمایش داده شود، تصویر را از طریق [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) و [ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) جایگزین کنید.
+- اگر هنوز یک placeholder خالی است، یک فریم تصویر را در مختصات placeholder با [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) اضافه کنید و placeholder خالی را حذف کنید.
 
-مثال بعدی هر دو مورد را پشتیبانی می‌کند و ارائه را ذخیره می‌نماید:
+مثال بعدی هر دو حالت را پشتیبانی می‌کند و ارائه را ذخیره می‌سازد:
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-جایگزینی که برای یک نگهدارندهٔ خالی ساخته می‌شود یک چارچوب تصویر محلی است، نه یک نگهدارندهٔ جدید، زیرا [IShape::get_Placeholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/get_placeholder/) فقط خواندنی است. این جایگزین موقعیت رزروشده را حفظ می‌کند اما دیگر رفتار خاص نگهدارنده را به ارث نمی‌برد. اگر حفظ رابطهٔ نگهدارنده ضروری است، ابتدا در PowerPoint آن را آماده و پر کنید، سپس [IPictureFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipictureframe/) حاصل را با Aspose.Slides به‌روزرسانی کنید.
+جایگزینی که برای یک placeholder خالی ساخته می‌شود، یک فریم تصویر محلی است، نه یک placeholder جدید، زیرا [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) فقط‑خواندنی است. موقعیت رزرو‌شده را حفظ می‌کند اما دیگر رفتار خاص placeholder را ارث نمی‌برد. اگر حفظ رابطه placeholder ضروری است، ابتدا placeholder را در PowerPoint آماده و پر کنید، سپس [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) حاصل را با Aspose.Slides به‌روزرسانی کنید.
 
-برای شفافیت تصویر، برش و سایر اثرات خاص تصویر، به [Manage Picture Frames](/slides/fa/cpp/picture-frame/) مراجعه کنید. این عملیات‌ها مربوط به چارچوب تصویر یا پرکنندهٔ تصویر هستند، نه به متادادهٔ نگهدارنده.
+برای شفافیت تصویر، برش و سایر اثرات مخصوص تصویر، به [Manage Picture Frames](/slides/fa/cpp/picture-frame/) مراجعه کنید. این عملیات‌ها به فریم تصویر یا پر کردن تصویر تعلق دارند، نه به متادیتاهای placeholder.
 
-## **کار با نگهدارنده‌های نمودار و محتوا**
+## **کار با placeholderهای نمودار و محتوا**
 
-یک نگهدارندهٔ نمودار پر شده می‌تواند توسط یک [IChart](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/) نمایان شود. این مثال با استفاده از نوع نگهدارنده و رابط زمان اجرا، چنین نموداری را پیدا می‌کند، عنوان آن را تغییر می‌دهد و فایل را ذخیره می‌کند:
+یک placeholder نمودار پر شده می‌تواند توسط یک [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) نمایش داده شود. این مثال چنین نموداری را با توجه به نوع placeholder و رابط زمان اجرا پیدا می‌کند، عنوان آن را تغییر می‌دهد و فایل را ذخیره می‌کند:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-یک نگهدارندهٔ محتوای عمومی معمولاً دارای [PlaceholderType::Object](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/) است. در PowerPoint این نگهدارنده به‌عنوان یک راه‌انداز برای انواع مختلف محتوا عمل می‌کند، از جمله نمودارها، جداول، دیاگرام‌ها، تصاویر و رسانه‌ها. پس از پر شدن، برای فهمیدن محتوا باید رابط شکل واقعی را بررسی کنید. طرح‌بندی‌های ویژه می‌توانند همچنین [PlaceholderType::Chart](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Table](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Media](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/)، یا [PlaceholderType::Diagram](https://reference.aspose.com/slides/fa/cpp/aspose.slides/placeholdertype/) را نشان دهند.
+یک placeholder محتوای عمومی معمولاً دارای [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) است. در PowerPoint به‌عنوان یک راه‌انداز برای چندین نوع محتوا عمل می‌کند، از جمله نمودارها، جدول‌ها، دیاگرام‌ها، تصاویر و رسانه‌ها. پس از پر شدن، رابط شکل واقعی را بررسی کنید تا بفهمید چه چیزی درون آن است. چیدمان‌های تخصصی می‌توانند همچنین [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) یا [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) را ارائه دهند.
 
-Aspose.Slides تنها با تغییر [IPlaceholder::get_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iplaceholder/get_type/) یک نگهدارندهٔ خالی [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) را به یک [IChart](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichart/) تبدیل نمی‌کند؛ نوع فقط خواندنی است. برای پر کردن برنامه‌ای یک ناحیهٔ خالی نمودار یا محتوا، شیء مورد نیاز را در مختصات نگهدارنده اضافه کنید و سپس نگهدارندهٔ خالی را حذف نمایید. مثال زیر این کار را برای یک نمودار انجام می‌دهد:
+Aspose.Slides یک placeholder خالی [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) را فقط با تغییر [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) به یک [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) تبدیل نمی‌کند؛ نوع فقط‑خواندنی است. برای پر کردن یک نمودار یا ناحیه محتوا به‌صورت برنامه‌نویسی، شیء موردنیاز را در مختصات placeholder اضافه کنید و سپس placeholder خالی را حذف کنید. مثال زیر این کار را برای یک نمودار انجام می‌دهد:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-نمودار اضافه‌شده یک نمودار محلی عادی است. این نمودار ناحیهٔ نگهدارنده را اشغال می‌کند اما از نگهدارندهٔ طرح‌بندی ارث نمی‌برد. هنگامی که نیاز به جایگزینی دسته‌ها، سری‌ها یا داده‌های کتاب کاری آن داشته باشید، از مقالات اختصاصی [chart management articles](/slides/fa/cpp/powerpoint-charts/) استفاده کنید.
+نمودار اضافه‌شده یک نمودار محلی عادی است. منطقه placeholder را اشغال می‌کند اما از placeholder چیدمان ارث نمی‌برد. هنگام نیاز به جایگزینی دسته‌ها، سری‌ها یا داده‌های کتاب کار، از مقالات اختصاصی مدیریت نمودارها ([chart management articles](/slides/fa/cpp/powerpoint-charts/)) استفاده کنید.
 
 ## **مثال کامل: به‌روزرسانی متن یا محتوای تصویر**
 
-مثال انتها به انتهای زیر یک قالب را باز می‌کند، اسلاید اول را برای یافتن نگهدارندهٔ عنوان یا تصویر جستجو می‌کند، نوع نگهدارنده و شکل را بررسی می‌نماید، محتوای مناسب را به‌روزرسانی می‌کند و خروجی را ذخیره می‌نماید. این مثال عمداً از فرض وجود شاخص شکل یا تبدیل همهٔ نگهدارنده‌ها به یک رابط واحد اجتناب می‌کند.
+مثال پایان‑به‑پایان زیر یک قالب را باز می‌کند، اسلاید اول را برای یافتن یک placeholder عنوان یا تصویر جستجو می‌کند، نوع placeholder و شکل را بررسی می‌کند، محتوای مناسب را به‌روزرسانی می‌کند و خروجی را ذخیره می‌سازد. این مثال عمدی است که از فرض وجود یک شاخص شکل یا تبدیل همه placeholderها به یک رابط یکسان خودداری می‌کند.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -491,16 +568,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**پایهٔ یک نگهدارنده چیست؟**
+**یک placeholder پایه چیست؟**
 
-یک پایهٔ نگهدارنده، شکل متناظر در طرح‌بندی یا اسلاید اصلی است که از آن یک نگهدارنده دیگر ارث می‌برد. برای به‌دست آوردن آن از [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getbaseplaceholder/) استفاده کنید. یک شکل محلی عادی `nullptr` برمی‌گرداند زیرا بخشی از سلسله‌مراتب نگهدارنده‌ها نیست.
+یک placeholder پایه شکل متناظر در چیدمان یا اسلاید اصلی است که از آن placeholder دیگری ارث می‌برد. برای به‌دست‌آوردن آن از [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) استفاده کنید. یک شکل محلی عادی `nullptr` برمی‌گرداند زیرا جز سلسله‌مراتب placeholder نیست.
 
-**آیا می‌توانم تمام عناوین اسلایدها را با ویرایش یک نگهدارندهٔ طرح‌بندی تغییر دهم؟**
+**آیا می‌توانم تمام عناوین اسلایدها را با ویرایش یک placeholder چیدمان تغییر دهم؟**
 
-می‌توانید قالب‌بندی یا متن راهنمایی ارث‌برده‌شده را از طریق یک طرح‌بندی تغییر دهید، اما محتوای عنوان موجود در اسلایدهای عادی ذخیره شده است. برای جایگزینی متن واقعی عنوان در تمام ارائه، بر تمام اسلایدها پیمایش کنید و هر نگهدارندهٔ عنوان را به‌روز کنید.
+می‌توانید قالب‌بندی یا متن راهنما را از طریق چیدمان تغییر دهید، اما محتوای واقعی عناوین در اسلایدهای عادی ذخیره شده‌اند. برای جایگزینی متن عناوین در سراسر ارائه، باید بر روی اسلایدها پیمایش کنید و هر placeholder عنوان را به‌روزرسانی کنید.
 
-**چگونه می‌توانم نگهدارنده‌های تاریخ، شماره‌اسلاید، سرصفحه و پاورقی را مدیریت کنم؟**
+**چگونه placeholderهای تاریخ، شماره اسلاید، سرصفحه و پاصفحه را مدیریت کنم؟**
 
-از مدیران سرصفحه و پاورقی در اسلاید، طرح‌بندی، اسلاید اصلی، یادداشت یا نسخهٔ توزیع مناسب استفاده کنید. برای مثال‌های کامل به [Manage Presentation Header and Footer](/slides/fa/cpp/presentation-header-and-footer/) مراجعه کنید.
+از مدیران سرصفحه و پاصفحه در محدوده اسلاید، چیدمان، اسلاید اصلی، یادداشت یا جزوه مناسب استفاده کنید. برای مثال‌های کامل به [Manage Presentation Header and Footer](/slides/fa/cpp/presentation-header-and-footer/) مراجعه کنید.

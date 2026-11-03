@@ -6,46 +6,46 @@ weight: 10
 url: /ru/nodejs-java/manage-placeholder/
 keywords:
 - заполнитель
-- заполнитель текста
+- текстовый заполнитель
 - заполнитель изображения
 - заполнитель диаграммы
-- заполнитель содержимого
+- заполнитель контента
 - текст подсказки
 - PowerPoint
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как просматривать и редактировать заполнители текста, изображения, диаграммы и содержимого, а также понимать наследование заполнителей с помощью Aspose.Slides для Node.js через Java."
+description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и контентные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для Node.js через Java."
 ---
 ## **Обзор**
 
-Заполнитель — это фигура, резервирующая позицию для определённого типа содержимого в шаблоне презентации. Распространённые примеры — заполнители заголовка, основного текста, изображения, диаграммы и общего назначения. В отличие от обычной фигуры, заполнитель может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑разметки или шаблона‑маски.
+Заполнитель — это фигура, резервирующая место для определённого типа содержимого в шаблоне презентации. Распространённые примеры — заполнители заголовка, основного текста, изображения, диаграммы и универсального контента. В отличие от обычной фигуры, заполнитель может наследовать своё положение, размер, форматирование и другие параметры от слайда‑макета или мастер‑слайда.
 
-Aspose.Slides предоставляет информацию о заполнителях через метод [Shape.getPlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getPlaceholder). Метод возвращает объект [Placeholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholder/) или `null` для обычной фигуры. Используйте [Placeholder.getType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholder/#getType), чтобы определить, что предполагается разместить в заполнителе.
+Aspose.Slides предоставляет информацию о заполнителе через метод [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder). Метод возвращает объект [Placeholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/) или `null` для обычной фигуры. Используйте [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), чтобы определить, что заполнитель предназначен содержать.
 
-Класс фигуры всё равно имеет значение после того, как известен тип заполнителя:
+Класс фигуры остаётся важным после определения типа заполнителя:
 
-- Пустой заполнитель текста, изображения, диаграммы или содержимого обычно представлен объектом [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/).
-- Заполненный заполнитель изображения может быть представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/).
-- Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chart/).
-- Заполнитель содержимого может включать несколько типов содержимого. Проверяйте как [Placeholder.getType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholder/#getType), так и класс фигуры во время выполнения, вместо предположения, что каждый заполнитель является [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/).
+- Пустой текстовый, графический, диаграммный или контентный заполнитель обычно представлен объектом [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
+- Заполненный графический заполнитель может быть представлен объектом [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/).
+- Заполненный диаграммный заполнитель может быть представлен объектом [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/).
+- Контентный заполнитель может содержать несколько видов содержимого. Проверяйте как [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType), так и класс фигуры во время выполнения, вместо того чтобы предполагать, что каждый заполнитель — это [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholder/#getType) описывает роль заполнителя; он не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
+[Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType) описывает роль заполнителя; он не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к членам текста, изображения, диаграммы, таблицы или медиа.
 {{% /alert %}}
 
 ## **Понимание наследования заполнителей**
 
 Заполнители образуют иерархию:
 
-1. Шаблон‑маска определяет переиспользуемые стили и, в некоторых случаях, заполняющие элементы уровня маски.
-2. Слайд‑разметка определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать его от маски.
-3. Обычный слайд содержит заполнители для данного слайда и может наследовать их от своей разметки.
+1. Мастер‑слайд определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня мастера.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от мастера.
+3. Обычный слайд содержит заполнители для данного слайда и может наследовать от своего макета.
 
-Вызовите [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder), чтобы переместиться на один уровень выше в этой иерархии. Заполнитель обычного слайда обычно возвращает свой заполнитель разметки; заполнитель разметки может вернуть свой заполнитель маски. Метод возвращает `null`, когда у фигуры нет базового заполнителя.
+Вызовите [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder), чтобы перейти на один уровень выше в этой иерархии. Заполнитель слайда обычно возвращает его макетный заполнитель; макетный заполнитель может вернуть мастер‑заполнитель. Метод возвращает `null`, когда у фигуры нет базового заполнителя.
 
-Следующий пример выводит список заполнителей на первом слайде и сообщает их базовые заполнители:
+В следующем примере перечислены заполнители первого слайда и их базовые заполнители:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -106,13 +106,79 @@ try {
 }
 ```
 
-Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Изменение соответствующей разметки или маски может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать просто потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или меняет локальное переопределение для этого слайда. Изменение соответствующего макета или мастера может повлиять на все слайды, которые ещё наследуют данную настройку. Обычная локальная фигура не имеет базового заполнителя и не начинает наследовать только потому, что занимает те же координаты.
+
+## **Удаление статуса заполнителя**
+
+При адаптации шаблона используйте [Shape.removePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#removePlaceholder), чтобы оставить существующий объект в виде обычной фигуры. Его метод [getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) возвращает `null`, но фигура остаётся в коллекции слайда. В отличие от этого, [ShapeCollection.remove](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#remove) удаляет фигуру из этой коллекции.
+
+В следующем примере требуется файл `template.pptx` минимум с одним слайдом и непустым текстовым заполнителем на первом слайде. Используйте заполнитель с форматированием, унаследованным от его макета или мастера, чтобы увидеть эффект удаления связи. Пример проверяет, что та же фигура остаётся, вызывает метод повторно для теперь уже обычной фигуры и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Удаление статуса заполнителя не сохраняет автоматически унаследованные параметры внешнего вида. Ниже приведённый пример намеренно оставляет эти параметры без изменений, поэтому вывод может выглядеть иначе. Фигура, позиция и размер которой полностью наследованы, может получить нулевые координаты и размеры после вызова и стать невидимой, хотя остаётся в коллекции.
+{{% /alert %}}
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapes = slide.getShapes();
+    let found = false;
+
+    for (let index = 0; index < shapes.size(); index++) {
+        const shape = shapes.get_Item(index);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null || textFrame == null) {
+            continue;
+        }
+
+        const text = textFrame.getText();
+        if (text == null || text.length === 0) {
+            continue;
+        }
+
+        const shapeCount = shapes.size();
+        shape.removePlaceholder();
+
+        console.log("Placeholder removed: " + (shape.getPlaceholder() == null));
+        const retainedShape = shapes.get_Item(index);
+        console.log("Same shape retained: " + shape.equals(retainedShape));
+        console.log("Shape count unchanged: " + (shapes.size() === shapeCount));
+
+        // Вызов метода на обычной фигуре не оказывает эффекта.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", aspose.slides.SaveFormat.Pptx);
+    } else {
+        console.log("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Для совпадающего заполнителя все три проверки выводят `true`. Текст остаётся, но унаследованные позиция, размер, вращение, шрифт, выравнивание абзаца, отступы текстового кадра, вертикальное привязка, заполнение и настройки линии могут измениться после удаления связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному текстовому форматированию. См. [Slide Layout](/slides/ru/nodejs-java/slide-layout/) для более подробной информации о макетах.
+
+Чтобы сохранить требуемый внешний вид, зафиксируйте расчётные позицию, размер и вращение до вызова и скопируйте необходимые эффективные параметры форматирования в отдельные переменные. Получайте эти значения через [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getEffective) и [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective). Не полагайтесь только на объекты эффективного форматирования, так как их значения могут измениться после удаления связи. Явно примените зафиксированные значения к обычной фигуре позже, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового кадра, заполнение и линию, используемые в вашем шаблоне.
+
+Унаследованная геометрия фигуры также может потребовать явного назначения через [GeometryShape.setShapeType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/geometryshape/#setShapeType). Для прямоугольного текстового заполнителя это означает назначение [ShapeType.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapetype/#Rectangle); восстановление только заполнения и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют также обработки этих настроек.
 
 ## **Изменение текста в заполнителе**
 
-Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и текста обычно поддерживают ввод текста. Проверьте, является ли фигура [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/), прежде чем использовать её метод [getTextFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/#getTextFrame).
+Заполнители заголовка, центрального заголовка, подзаголовка, тела и текста обычно поддерживают текст. Проверьте наличие [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) перед использованием его метода [getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#getTextFrame).
 
-Этот пример обновляет первый заполнитель заголовка на первом слайде и сохраняет результат:
+В этом примере обновляется первый заполнитель заголовка на первом слайде и сохраняется результат:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -154,13 +220,13 @@ try {
 }
 ```
 
-Такой подход избегает обращения к заполнителям изображения, диаграммы, таблицы или медиа как к объектам [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
+Такой подход избегает обработки заполнителей изображения, диаграммы, таблицы или медиа как объектов [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/). Он также идентифицирует заполнитель по назначению, а не полагается на хрупкий индекс фигуры.
 
 ## **Установка текста подсказки в макете**
 
-Текст подсказки — это инструкция во время дизайна, отображаемая в пустом заполнителе, например *Нажмите, чтобы добавить заголовок*. Устанавливайте собственный текст подсказки в заполнителе разметки, а не пытаясь достать его через коллекцию фигур обычного слайда. Доступ к разметке осуществляется через [Slide.getLayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/#getLayoutSlide), а затем перебирайте коллекцию, возвращённую [BaseSlide.getShapes](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/baseslide/#getShapes).
+Текст подсказки — это инструкция, отображаемая в пустом заполнителе во время проектирования, например *Нажмите, чтобы добавить заголовок*. Задавайте пользовательский текст подсказки в заполнителе макета, а не через обычную коллекцию фигур слайда. Получите макет через [Slide.getLayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#getLayoutSlide) и пройдитесь по коллекции, возвращаемой [BaseSlide.getShapes](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseslide/#getShapes).
 
-Следующий пример меняет подсказки заголовка и подзаголовка в разметке, используемой первым слайдом:
+В следующем примере изменяются подсказки заголовка и подзаголовка в макете, который используется первым слайдом:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -199,14 +265,14 @@ try {
 }
 ```
 
-Текст подсказки — это не обычное содержимое слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа предоставляют реальное содержимое, подсказка больше не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих эту разметку.
+Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа вставит реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
 ## **Обновление заполнителя изображения**
 
 Существует два варианта обработки:
 
-- Если заполнитель изображения уже заполнен и представлен объектом [PictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/), замените изображение через [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picturefillformat/#getPicture) и [Picture.setImage](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/picture/#setImage).
-- Если это всё ещё пустой заполнитель, добавьте объект изображения в координаты заполнителя с помощью [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) и удалите пустой заполнитель.
+- Если графический заполнитель уже заполнен и представлен объектом [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/), замените изображение через [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#getPicture) и [Picture.setImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picture/#setImage).
+- Если он всё ещё пустой, добавьте графический кадр в координаты заполнителя с помощью [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -262,13 +328,13 @@ try {
 }
 ```
 
-Замена, созданная для пустого заполнителя, представляет собой локальный объект [PictureFrame], а не новый заполнитель, поскольку [Shape.getPlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getPlaceholder) не предоставляет сеттер. Она сохраняет зарезервированную позицию, но больше не наследует поведение, специфичное для заполнителя. Если сохранение отношений заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, а затем обновите полученный [PictureFrame] с помощью Aspose.Slides.
+Замена, созданная для пустого заполнителя, представляет собой локальный графический кадр, а не новый заполнитель, потому что [Shape.getPlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getPlaceholder) не предоставляет сеттер. Она сохраняет зарезервированное положение, но более не наследует поведение, специфичное для заполнителя. Если сохранение связи заполнителя критично, подготовьте и заполните заполнитель в PowerPoint сначала, затем обновите полученный [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe/) с помощью Aspose.Slides.
 
-Для управления прозрачностью изображения, обрезкой и другими эффектами, специфичными для изображений, см. [Manage Picture Frames](/slides/ru/nodejs-java/picture-frame/). Эти операции относятся к объекту изображения или заливке, а не к метаданным заполнителя.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для изображения, см. [Manage Picture Frames](/slides/ru/nodejs-java/picture-frame/). Эти операции относятся к графическому кадру или заливке изображения, а не к метаданным заполнителя.
 
-## **Работа с заполнителями диаграмм и содержимого**
+## **Работа с заполнителями диаграмм и контента**
 
-Заполненный заполнитель диаграммы может быть представлен объектом [Chart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chart/). Этот пример ищет такую диаграмму как по типу заполнителя, так и по классу исполнения, меняет её заголовок и сохраняет файл:
+Заполненный диаграммный заполнитель может быть представлен объектом [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/). Этот пример находит такую диаграмму по типу заполнителя и классу во время выполнения, меняет её заголовок и сохраняет файл:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -306,9 +372,9 @@ try {
 }
 ```
 
-Обычный заполнитель содержимого обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Object). В PowerPoint он служит «запускателем» для нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте фактический класс фигуры, чтобы узнать, что она содержит. Специализированные разметки могут также экспонировать типы [PlaceholderType.Chart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Media) или [PlaceholderType.Diagram](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholdertype/#Diagram).
+Обычный контентный заполнитель обычно имеет [PlaceholderType.Object](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Object). В PowerPoint он выступает в роли запускателя для нескольких типов содержимого, включая диаграммы, таблицы, схемы, изображения и медиа. После заполнения проверьте реальный класс фигуры, чтобы узнать, что она содержит. Специализированные макеты могут также использовать [PlaceholderType.Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Media) или [PlaceholderType.Diagram](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholdertype/#Diagram).
 
-Aspose.Slides не преобразует пустой заполнитель [AutoShape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/autoshape/) в объект [Chart] лишь изменением [Placeholder.getType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/placeholder/#getType); тип нельзя изменить через объект. Чтобы программно заполнить пустую область диаграммы или содержимого, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
+Aspose.Slides не преобразует пустой [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) заполнитель в [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/) просто изменяя [Placeholder.getType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/placeholder/#getType); тип нельзя изменить через объект. Чтобы программно заполнить пустую диаграмму или область контента, добавьте требуемый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -357,11 +423,11 @@ try {
 }
 ```
 
-Добавленная диаграмма является обычной локальной диаграммой. Она занимает область заполнителя, но не наследует свойства заполнителя разметки. Используйте специальные статьи по управлению диаграммами [chart management articles](/slides/ru/nodejs-java/powerpoint-charts/), когда необходимо заменить её категории, серии или данные рабочей книги.
+Добавленная диаграмма — это обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от макетного заполнителя. При необходимости заменять категории, серии или данные книги используйте специализированные статьи по управлению диаграммами ([chart management articles](/slides/ru/nodejs-java/powerpoint-charts/)).
 
 ## **Полный пример: обновление текста или изображения**
 
-Следующий сквозной пример открывает шаблон, ищет на первом слайде заполнитель заголовка или изображения, проверяет типы заполнителя и фигуры, обновляет соответствующее содержимое и сохраняет результат. Пример сознательно избегает предположений о индексе фигуры и о том, что каждый заполнитель относится к одному классу.
+В следующем сквозном примере открывается шаблон, ищется первый слайд для заполнителя заголовка или изображения, проверяются типы заполнителя и фигуры, обновляется соответствующее содержимое и сохраняется результат. Пример намеренно избегает предположений о индексе фигуры или одинакового класса для всех заполнителей.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -428,16 +494,16 @@ try {
 }
 ```
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
 **Что такое базовый заполнитель?**
 
-Базовый заполнитель — это соответствующая фигура в разметке или маске, от которой другой заполнитель наследует свойства. Используйте [Shape.getBasePlaceholder](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/#getBasePlaceholder), чтобы получить его. Обычная локальная фигура возвращает `null`, потому что она не является частью иерархии заполнителей.
+Базовый заполнитель — это соответствующая фигура на макете или мастере, от которой наследуется другой заполнитель. Используйте [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getBasePlaceholder), чтобы получить его. Обычная локальная фигура возвращает `null`, потому что она не входит в иерархию заполнителей.
 
-**Могу ли я изменить все заголовки слайдов, отредактировав заполнитель в макете?**
+**Можно ли изменить все заголовки слайдов, редактируя заполнитель макета?**
 
-Вы можете изменить наследуемое форматирование или текст подсказки через макет, но существующее содержимое заголовков хранится в обычных слайдах. Чтобы заменить реальный текст заголовка во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
+Можно изменить унаследованное форматирование или текст подсказки через макет, но реальное содержимое заголовков хранится на обычных слайдах. Чтобы заменить фактический текст заголовков во всей презентации, пройдите по слайдам и обновите каждый заполнитель заголовка.
 
-**Как управлять заполнителями даты, номера слайда, верхнего и нижнего колонтитулов?**
+**Как управлять заполнителями даты, номера слайда, заголовка и нижнего колонтитула?**
 
-Используйте менеджеры верхних и нижних колонтитулов на соответствующем уровне — слайд, разметка, маска, заметки или раздача. См. [Manage Presentation Header and Footer](/slides/ru/nodejs-java/presentation-header-and-footer/) для полных примеров.
+Используйте менеджеры заголовка и нижнего колонтитула на соответствующем уровне — слайд, макет, мастер, заметки или раздаточный материал. См. [Manage Presentation Header and Footer](/slides/ru/nodejs-java/presentation-header-and-footer/) для полных примеров.

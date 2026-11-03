@@ -1,52 +1,51 @@
 ---
-title: Beheer presentatieplaceholders in Python
+title: Beheer presentatie-placeholders in Python
 linktitle: Beheer placeholders
 type: docs
 weight: 10
 url: /nl/python-java/manage-placeholder/
 keywords:
 - placeholder
-- tekstplaceholder
-- afbeeldingsplaceholder
-- diagramplaceholder
-- inhoudsplaceholder
-- prompttekst
+- tekst-placeholder
+- afbeelding-placeholder
+- diagram-placeholder
+- inhoud-placeholder
+- prompt-tekst
 - PowerPoint
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Leer hoe u tekst-, afbeelding-, diagram- en inhoudsplaceholders kunt inspecteren en bewerken en begrijp placeholder‑erfenis met Aspose.Slides voor Python via Java."
+description: "Leer hoe u tekst-, afbeelding-, diagram- en inhoud-placeholders kunt inspecteren en bewerken en begrijp de placeholder-erfenis met Aspose.Slides voor Python via Java."
 ---
 ## **Overzicht**
 
-Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel, inhoud, afbeelding, diagram en algemene inhoud‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een lay‑outdia of masterschijf.
+Een placeholder is een vorm die een positie reserveert voor een bepaald type inhoud in een presentatiesjabloon. Veelvoorkomende voorbeelden zijn titel-, tekst-, afbeelding-, diagram- en algemene content‑placeholders. In tegenstelling tot een gewone vorm kan een placeholder zijn positie, grootte, opmaak en andere instellingen erven van een layout‑slide of master‑slide.
 
-Aspose.Slides biedt placeholder‑informatie via de [Shape.getPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getPlaceholder)‑methode. De methode geeft een [Placeholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholder/)‑object terug of `None` voor een normale vorm. Gebruik [Placeholder.getType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholder/#getType) om te bepalen wat de placeholder moet bevatten.
+Aspose.Slides maakt placeholder‑informatie beschikbaar via de [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder)‑methode. De methode retourneert een [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/)‑object of `None` voor een normale vorm. Gebruik [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) om te bepalen wat de placeholder moet bevatten.
 
-Het vormtype blijft relevant nadat je het placeholder‑type kent:
+Het type vorm blijft belangrijk nadat u het placeholder‑type kent:
 
-- Een lege tekst‑, afbeelding‑, diagram‑ of inhoud‑placeholder wordt meestal vertegenwoordigd door een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/).
-- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/).
-- Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/).
-- Een inhoud‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.getType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholder/#getType) als het runtime‑vormtype in plaats van aan te nemen dat elke placeholder een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) is.
+- Een lege tekst‑, afbeelding‑, diagram‑ of content‑placeholder wordt doorgaans weergegeven door een [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/).
+- Een gevulde afbeelding‑placeholder kan worden weergegeven door een [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/).
+- Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/).
+- Een content‑placeholder kan verschillende soorten inhoud bevatten. Controleer zowel [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) als het runtime‑vormtype in plaats van aan te nemen dat elke placeholder een [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) is.
 
-{{% alert color="warning" title="Waarschuwing" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholder/#getType) beschrijft de rol van een placeholder; het garandeert niet het runtime‑vormtype van de vorm. Gebruik altijd een type‑check voordat je tekst-, afbeelding-, diagram-, tabel‑ of media‑specifieke leden benadert.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) beschrijft de rol van een placeholder; het garandeert niet het runtime‑type van de vorm. Gebruik altijd een type‑check voordat u toegang krijgt tot tekst-, afbeelding-, diagram-, tabel‑ of mediaspecifieke leden.
 {{% /alert %}}
 
 ## **Begrijp placeholder‑erfenis**
 
 Placeholders vormen een hiërarchie:
 
-1. Een masterschijf definieert herbruikbare stijlen en, in sommige gevallen, master‑level placeholders.
-2. Een lay‑outdia definieert de indeling die door één of meer normale dia's wordt gebruikt en kan erven van de master.
-3. Een normale dia bevat de placeholders voor die dia en kan erven van de lay‑out.
+1. Een master‑slide definieert herbruikbare stijlen en, in sommige gevallen, master‑niveau placeholders.
+2. Een layout‑slide definieert de indeling die wordt gebruikt door één of meer normale slides en kan erven van de master.
+3. Een normale slide bevat de placeholders voor die slide en kan erven van de layout.
 
-Roep [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) aan om een niveau hoger in deze hiërarchie te gaan. Een dia‑placeholder geeft normaal gesproken zijn lay‑out‑placeholder terug; een lay‑out‑placeholder kan zijn master‑placeholder teruggeven. De methode retourneert `None` wanneer de vorm geen basis‑placeholder heeft.
+Roep [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) aan om één niveau hoger in deze hiërarchie te gaan. Een slide‑placeholder retourneert normaal zijn layout‑placeholder; een layout‑placeholder kan zijn master‑placeholder retourneren. De methode levert `None` op wanneer de vorm geen basis‑placeholder heeft.
 
-Het volgende voorbeeld geeft een lijst van placeholders op de eerste dia en meldt hun basis‑placeholders:
-
+Het volgende voorbeeld geeft een lijst weer van placeholders op de eerste slide en rapporteert hun basis‑placeholders:
 ```python
 import jpype
 import asposeslides
@@ -84,14 +83,75 @@ finally:
     presentation.dispose()
 ```
 
-Een placeholder bewerken op een normale dia maakt een lokale override aan of wijzigt deze voor die dia. Het bewerken van de gerelateerde lay‑out of master kan alle dia's beïnvloeden die die instelling nog erven. Een gewone lokale vorm heeft geen basis‑placeholder en begint niet te erven alleen omdat hij dezelfde coördinaten inneemt.
+Het bewerken van een placeholder op een normale slide creëert of wijzigt een lokale override voor die slide. Het bewerken van de bijbehorende layout of master kan alle slides beïnvloeden die die instelling nog erven. Een lokale gewone vorm heeft geen basis‑placeholder en begint niet met erven alleen omdat het dezelfde coördinaten bezet.
+
+## **Verwijder placeholder‑status**
+
+Wanneer u een sjabloon aanpast, gebruikt u [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder) om een bestaand object als een gewone vorm te behouden. Zijn [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder)‑methode retourneert `None`, maar de vorm blijft in de collectie van de slide aanwezig. In tegenstelling tot [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) verwijdert dat de vorm uit die collectie.
+
+Het volgende voorbeeld vereist een `template.pptx` met minstens één slide en een niet‑lege tekst‑placeholder op de eerste slide. Gebruik een placeholder met opmaak die is geërfd van de layout of master om het effect van het verwijderen van die relatie te zien. Het voorbeeld controleert dat dezelfde vorm behouden blijft, roept de methode opnieuw aan op de nu gewone vorm, en slaat het resultaat op.
+
+{{% alert color="warning" title="Warning" %}}
+Het verwijderen van placeholder‑status behoudt niet automatisch de geërfde weergave‑instellingen. Het onderstaande voorbeeld laat die instellingen bewust onveranderd, waardoor de uitvoer er anders uit kan zien. Een vorm waarvan positie en grootte volledig geërfd zijn, kan na de oproep nul‑coördinaten en afmetingen hebben en onzichtbaar worden, hoewel hij in de collectie blijft.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Het aanroepen van de methode op een gewone vorm heeft geen effect.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Voor een overeenkomende placeholder geven alle drie de controles `True` weer. De tekst blijft behouden, maar geërfde positie, grootte, rotatie, lettertype, alineauslijning, marges van het tekstframe, verticale verankering, vul‑ en lijninstellingen kunnen wijzigen wanneer de placeholder‑relatie wordt verwijderd. Bijvoorbeeld kan geërfde titelopmaak terugvallen op gewone tekstopmaak. Zie [Slide Layout](/slides/nl/python-java/slide-layout/) voor meer over layouts.
+
+Om de gewenste weergave te behouden, moet u vóór de oproep de berekende positie, grootte en rotatie vastleggen en de benodigde effectieve opmaakwaarden naar afzonderlijke variabelen kopiëren. Haal die waarden op via [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) en [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective). Vertrouw niet alleen op de effectieve‑formaatobjecten, want hun tekst‑opmaakwaarden kunnen veranderen nadat de relatie is verwijderd. Pas de vastgelegde waarden expliciet toe op de gewone vorm daarna, inclusief lettertypefamilie, -grootte, -stijl, -kleur, alineainstellingen, tekstframe‑instellingen, vulling en lijn die in uw sjabloon worden gebruikt.
+
+Geërfde vormgeometrie moet mogelijk ook expliciet worden toegewezen via [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType). Voor een rechthoekige tekst‑placeholder betekent dit het toewijzen van [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); alleen de vulling en lijn herstellen, herstelt mogelijk niet de zichtbare rechthoek. Sjablonen met extra effecten of complexere opmaak vereisen ook die instellingen.
 
 ## **Tekst wijzigen in een placeholder**
 
-Titel‑, gecentreerde‑titel‑, ondertitel‑, body‑ en tekst‑placeholders ondersteunen normaal gesproken tekst. Controleer op een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) voordat je de [getTextFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/#getTextFrame)‑methode gebruikt.
+Titel‑, gecentreerde‑titel‑, ondertitel‑, tekst‑ en content‑placeholders ondersteunen doorgaans tekst. Controleer op een [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) voordat u zijn [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame)‑methode gebruikt.
 
-Dit voorbeeld werkt de eerste titel‑placeholder op de eerste dia bij en slaat het resultaat op:
-
+Dit voorbeeld werkt de eerste titel‑placeholder op de eerste slide bij en slaat het resultaat op:
 ```python
 import jpype
 import asposeslides
@@ -128,14 +188,13 @@ finally:
     presentation.dispose()
 ```
 
-Dit patroon voorkomt het behandelen van afbeelding‑, diagram‑, tabel‑ of media‑placeholders als een [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/). Het identificeert bovendien de placeholder op basis van doel in plaats van te vertrouwen op een kwetsbare vorm‑index.
+Dit patroon voorkomt dat afbeelding‑, diagram‑, tabel‑ of media‑placeholders worden behandeld als [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/). Het identificeert de placeholder ook op basis van het doel in plaats van te vertrouwen op een fragiele vorm‑index.
 
-## **Prompt‑tekst instellen op een lay‑out**
+## **Prompt‑tekst instellen op een layout**
 
-Prompt‑tekst is de ontwerptijd‑instructie die wordt weergegeven in een lege placeholder, bijvoorbeeld *Klik om titel toe te voegen*. Stel aangepaste prompt‑tekst in op de lay‑out‑placeholder in plaats van te proberen deze via de vormcollectie van een normale dia te bereiken. Toegang tot de lay‑out krijg je via [Slide.getLayoutSlide](https://reference.aspose.com/slides/nl/python-java/aspose.slides/slide/#getLayoutSlide) en je iterate over de collectie die wordt geretourneerd door [BaseSlide.getShapes](https://reference.aspose.com/slides/nl/python-java/aspose.slides/baseslide/#getShapes).
+Prompt‑tekst is de ontwerpinstructie die wordt weergegeven in een lege placeholder, bijvoorbeeld *Klik om titel toe te voegen*. Stel aangepaste prompt‑tekst in op de layout‑placeholder in plaats van te proberen deze via de shape‑collectie van een normale slide te bereiken. Toegang tot de layout verkrijgt u via [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) en u iterereert over de collectie die wordt geretourneerd door [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes).
 
-Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de lay‑out die door de eerste dia wordt gebruikt:
-
+Het volgende voorbeeld wijzigt de titel‑ en ondertitel‑prompts op de layout die door de eerste slide wordt gebruikt:
 ```python
 import jpype
 import asposeslides
@@ -168,17 +227,16 @@ finally:
     presentation.dispose()
 ```
 
-Prompt‑tekst is geen gewone dia‑inhoud. Het is bedoeld voor lege placeholders in bewerkingsapplicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud toevoegt, wordt de prompt niet meer weergegeven. Het wijzigen van een prompt vervangt bovendien niet de bestaande tekst op dia's die de lay‑out gebruiken.
+Prompt‑tekst is geen gewone slide‑inhoud. Het is bedoeld voor lege placeholders in bewerkingsapplicaties zoals PowerPoint. Zodra een gebruiker of programma echte inhoud levert, wordt de prompt niet meer getoond. Het wijzigen van een prompt vervangt bovendien niet de bestaande tekst op slides die de layout gebruiken.
 
 ## **Een afbeelding‑placeholder bijwerken**
 
 Er zijn twee gevallen om af te handelen:
 
-- Als de afbeelding‑placeholder al is gevuld en wordt weergegeven door een [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/), vervang dan de afbeelding via [PictureFillFormat.getPicture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/picturefillformat/#getPicture) en [Picture.setImage](https://reference.aspose.com/slides/nl/python-java/aspose.slides/picture/#setImage).
-- Als het nog een lege placeholder is, voeg dan een picture‑frame toe op de coördinaten van de placeholder met [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shapecollection/#addPictureFrame) en verwijder de lege placeholder.
+- Als de afbeelding‑placeholder al is gevuld en wordt weergegeven door een [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/), vervang dan de afbeelding via [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) en [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Als het nog een lege placeholder is, voeg dan een picture‑frame toe op de coördinaten van de placeholder met [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) en verwijder de lege placeholder.
 
 Het volgende voorbeeld ondersteunt beide gevallen en slaat de presentatie op:
-
 ```python
 from pathlib import Path
 
@@ -219,20 +277,19 @@ finally:
     presentation.dispose()
 ```
 
-De vervanging die voor een lege placeholder wordt aangemaakt, is een lokaal picture‑frame, geen nieuwe placeholder, omdat [Shape.getPlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getPlaceholder) geen setter biedt. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, bereid en vul de placeholder eerst in PowerPoint, en werk daarna het resulterende [PictureFrame](https://reference.aspose.com/slides/nl/python-java/aspose.slides/pictureframe/) bij met Aspose.Slides.
+De vervanging die wordt gemaakt voor een lege placeholder is een lokaal picture‑frame, geen nieuwe placeholder, omdat [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) geen setter biedt. Het behoudt de gereserveerde positie maar erft niet langer placeholder‑specifiek gedrag. Als het behouden van de placeholder‑relatie essentieel is, maak en vul de placeholder eerst in PowerPoint, en werk vervolgens het resulterende [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) bij met Aspose.Slides.
 
-Voor beeldtransparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/python-java/picture-frame/). Die bewerkingen behoren tot het picture‑frame of picture‑fill, niet tot placeholder‑metadata.
+Voor afbeeldings‑transparantie, bijsnijden en andere afbeelding‑specifieke effecten, zie [Manage Picture Frames](/slides/nl/python-java/picture-frame/). Die bewerkingen behoren tot het picture‑frame of picture‑fill, niet tot de placeholder‑metadata.
 
-## **Werken met diagram‑ en inhoud‑placeholders**
+## **Werken met diagram‑ en content‑placeholders**
 
-Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/). Dit voorbeeld vindt zo’n diagram via zowel placeholder‑type als runtime‑type, wijzigt de titel en slaat het bestand op:
-
+Een gevulde diagram‑placeholder kan worden weergegeven door een [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/). Dit voorbeeld vindt zo’n diagram via zowel placeholder‑type als runtime‑type, wijzigt de titel en slaat het bestand op:
 ```python
-import jpype
+import jpade
 import asposeslides
 
-if not jpype.isJVMStarted():
-    jpype.startJVM()
+if not jpade.isJVMStarted():
+    jpade.startJVM()
 
 from asposeslides.api import Presentation, Chart, PlaceholderType, SaveFormat
 
@@ -260,10 +317,9 @@ finally:
     presentation.dispose()
 ```
 
-Een algemene inhoud‑placeholder heeft meestal [PlaceholderType.Object](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungeert hij als starter voor verschillende inhoudstypen, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat hij is gevuld, inspecteer je het daadwerkelijke vormtype om te leren wat hij bevat. Gespecialiseerde lay‑outs kunnen ook [PlaceholderType.Chart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Media) of [PlaceholderType.Diagram](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholdertype/#Diagram) blootleggen.
+Een algemene content‑placeholder heeft meestal [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungeert deze als lanceer‑van verschillende content‑types, waaronder diagrammen, tabellen, diagrammen, afbeeldingen en media. Nadat deze is gevuld, inspecteert u het daadwerkelijke vorm‑type om te achterhalen wat deze bevat. Gespecialiseerde layouts kunnen ook [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) of [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram) blootleggen.
 
-Aspose.Slides zet een lege [AutoShape](https://reference.aspose.com/slides/nl/python-java/aspose.slides/autoshape/) placeholder niet om in een [Chart](https://reference.aspose.com/slides/nl/python-java/aspose.slides/chart/) door alleen [Placeholder.getType](https://reference.aspose.com/slides/nl/python-java/aspose.slides/placeholder/#getType) te wijzigen; het type kan via de API niet worden veranderd. Om een leeg diagram of inhoudsgebied programmatically te vullen, voeg je het benodigde object toe op de coördinaten van de placeholder en verwijder je daarna de lege placeholder. Het volgende voorbeeld doet dit voor een diagram:
-
+Aspose.Slides converteert een lege [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)‑placeholder niet naar een [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) alleen door [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) te wijzigen; het type kan via de API niet worden veranderd. Om een leeg diagram‑ of content‑gebied programmatisch te vullen, voegt u het benodigde object toe op de coördinaten van de placeholder en verwijdert u vervolgens de lege placeholder. Het volgende voorbeeld doet dat voor een diagram:
 ```python
 import jpype
 import asposeslides
@@ -300,12 +356,11 @@ finally:
     presentation.dispose()
 ```
 
-Het toegevoegde diagram is een gewone lokale diagram. Het neemt het gebied van de placeholder in beslag maar erft niet van de lay‑out‑placeholder. Gebruik de dedicated [chart management articles](/slides/nl/python-java/powerpoint-charts/) wanneer je de categorieën, series of werkmapgegevens moet vervangen.
+Het toegevoegde diagram is een gewone lokale chart. Het bezet het gebied van de placeholder maar erft niet van de layout‑placeholder. Gebruik de speciale [chart management articles](/slides/nl/python-java/powerpoint-charts/) wanneer u de categorieën, reeksen of werkboek‑data moet vervangen.
 
-## **Volledig voorbeeld: tekst‑ of afbeeldinginhoud bijwerken**
+## **Volledig voorbeeld: tekst‑ of afbeeldingsinhoud bijwerken**
 
-Het volgende end‑to‑end‑voorbeeld opent een sjabloon, zoekt op de eerste dia naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vormtypes, werkt de juiste inhoud bij en slaat de uitvoer op. Het voorbeeld vermijdt bewust aannames over vorm‑indexen of het behandelen van elke placeholder als hetzelfde type.
-
+Het volgende end‑to‑end voorbeeld opent een sjabloon, zoekt in de eerste slide naar een titel‑ of afbeelding‑placeholder, controleert de placeholder‑ en vorm‑types, werkt de juiste inhoud bij, en slaat de uitvoer op. Het voorbeeld vermijdt bewust het aannemen van een vorm‑index of het behandelen van elke placeholder als hetzelfde type.
 ```python
 from pathlib import Path
 
@@ -355,16 +410,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Veelgestelde vragen**
+## **FAQ**
 
 **Wat is een basis‑placeholder?**
 
-Een basis‑placeholder is de bijbehorende vorm op de lay‑out of master waarvan een andere placeholder erft. Gebruik [Shape.getBasePlaceholder](https://reference.aspose.com/slides/nl/python-java/aspose.slides/shape/#getBasePlaceholder) om deze op te halen. Een gewone lokale vorm retourneert `None` omdat hij geen deel uitmaakt van de placeholder‑hiërarchie.
+Een basis‑placeholder is de overeenkomende vorm op de layout of master waarvan een andere placeholder erft. Gebruik [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) om deze op te halen. Een gewone lokale vorm retourneert `None` omdat deze niet deel uitmaakt van de placeholder‑hiërarchie.
 
-**Kan ik alle diatitel wijzigen door een lay‑out‑placeholder te bewerken?**
+**Kan ik alle titels van slides wijzigen door een layout‑placeholder te bewerken?**
 
-Je kunt geërfde opmaak of prompt‑tekst wijzigen via een lay‑out, maar bestaande titelinhoud wordt opgeslagen op de normale dia's. Om de daadwerkelijke titeltekst door een hele presentatie heen te vervangen, iterate je over de dia's en werk je elke titel‑placeholder bij.
+U kunt geërfde opmaak of prompt‑tekst wijzigen via een layout, maar bestaande titelinhoud wordt opgeslagen op de normale slides. Om de daadwerkelijke titeltekst in een hele presentatie te vervangen, iterereert u over de slides en werkt u elke titel‑placeholder bij.
 
-**Hoe beheer ik datum‑, dia‑nummer‑, header‑ en voettekst‑placeholders?**
+**Hoe beheer ik datum-, slide‑nummer-, header‑ en footer‑placeholders?**
 
-Gebruik de header‑ en footer‑managers op het juiste niveau: dia, lay‑out, master, notities of handout. Zie [Manage Presentation Header and Footer](/slides/nl/python-java/presentation-header-and-footer/) voor volledige voorbeelden.
+Gebruik de header‑ en footer‑managers op de juiste slide‑, layout‑, master‑, notitie‑ of handout‑scope. Zie [Manage Presentation Header and Footer](/slides/nl/python-java/presentation-header-and-footer/) voor volledige voorbeelden.

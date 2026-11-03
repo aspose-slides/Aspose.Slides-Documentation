@@ -1,5 +1,5 @@
 ---
-title: إدارة عناصر النائب في العروض التقديمية بلغة C++
+title: إدارة عناصر النائب في العرض التقديمي بـ C++
 linktitle: إدارة العناصر النائبة
 type: docs
 weight: 10
@@ -10,41 +10,41 @@ keywords:
 - عنصر نائب صورة
 - عنصر نائب مخطط
 - عنصر نائب محتوى
-- نص إرشادي
+- نص توجيهي
 - PowerPoint
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تعلم كيفية فحص وتحرير عناصر النائب النصية، الصورة، المخطط، والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للغة C++."
+description: "تعلم كيفية فحص وتحرير عناصر النائب للنص، الصورة، المخطط، والمحتوى وفهم وراثة العناصر النائبة باستخدام Aspose.Slides للغة C++."
 ---
 ## **نظرة عامة**
 
-العنصر النائب هو شكل يحجز موقعًا لنوع معين من المحتوى في قالب عرض تقديمي. من الأمثلة الشائعة العناوين، الجسم، الصورة، المخطط، وعناصر المحتوى العامة. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موضعه وحجمه وتنسيقه وإعدادات أخرى من شريحة التخطيط أو الشريحة الرئيسية.
+العنصر النائب هو شكل يحتفظ بموقع لنوع معين من المحتوى في قالب عرض تقديمي. أمثلة شائعة هي العنوان، النص الأساسي، الصورة، المخطط، والعناصر النائبة للمحتوى العامة. على عكس الشكل العادي، يمكن للعنصر النائب أن يرث موقعه وحجمه وتنسيقه وإعدادات أخرى من شريحة تخطيط أو شريحة رئيسية.
 
-Aspose.Slides تطرح معلومات العنصر النائب من خلال طريقة [IShape::get_Placeholder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_placeholder/) . تُعيد الطريقة كائنًا من نوع [IPlaceholder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iplaceholder/) أو `nullptr` لشكل عادي. استخدم [IPlaceholder::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iplaceholder/get_type/) لتحديد ما يُقصد للعنصر النائب أن يحتويه.
+Aspose.Slides تعرض معلومات العنصر النائب من خلال طريقة [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) . ترجع الطريقة كائنًا من نوع [IPlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/) أو `nullptr` لشكل عادي. استخدم [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) لتحديد ما يُقصد أن يحتويه العنصر النائب.
 
-لا يزال واجهة الشكل ذات أهمية بعد معرفة نوع العنصر النائب:
+ما زال واجهة الشكل مهمة بعد معرفة نوع العنصر النائب:
 
-- عنصر نائب نص، صورة، مخطط أو محتوى فارغ يُمثَّل عادةً بـ [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) .
-- عنصر نائب صورة مُعبأ يمكن تمثيله بـ [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/) .
-- عنصر نائب مخطط مُعبأ يمكن تمثيله بـ [IChart](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichart/) .
-- عنصر نائب محتوى يمكن أن يحتوي عدة أنواع من المحتوى. افحص كلًّا من [IPlaceholder::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iplaceholder/get_type/) وواجهة الشكل في وقت التشغيل بدلاً من الافتراض بأن كل عنصر نائب هو [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) .
+- عادةً ما يُمثَّل العنصر النائب الفارغ للنص أو الصورة أو المخطط أو المحتوى بـ [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) .
+- يمكن تمثيل العنصر النائب المملوء للصورة بواسطة [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) .
+- يمكن تمثيل العنصر النائب المملوء للمخطط بواسطة [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) .
+- يمكن للعنصر النائب للمحتوى أن يحتوي على عدة أنواع من المحتوى. تحقق من كل من [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) وواجهة الشكل في وقت التشغيل بدلاً من افتراض أن كل عنصر نائب هو [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) .
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iplaceholder/get_type/) يصف دور العنصر النائب؛ لكنه لا يضمن نوع الشكل في وقت التشغيل. استخدم دائمًا فحص النوع قبل الوصول إلى الأعضاء المتخصصة في النص أو الصورة أو المخطط أو الجدول أو الوسائط.
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/) يصف دور العنصر النائب؛ لا يضمن نوع الشكل في وقت التشغيل. يجب دائمًا إجراء فحص للنوع قبل الوصول إلى النص أو الصورة أو المخطط أو الجدول أو الأعضاء الخاصة بالوسائط.
 {{% /alert %}}
 
 ## **فهم وراثة العنصر النائب**
 
-العناصر النائبة تُنشئ هيكلًا هرميًا:
+العناصر النائبة تشكل تسلسلًا هرميًا:
 
-1. تُعرّف الشريحة الرئيسية الأنماط القابلة لإعادة الاستخدام، وفي بعض الحالات العناصر النائبة على مستوى الرئيسي.
-2. تُعرّف شريحة التخطيط التوزيع الذي تُستخدمه شريحة أو أكثر عادية ويمكن أن ترث من الرئيسي.
-3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكن أن ترث من التخطيط الخاص بها.
+1. تحدد شريحة الماستر أنماطًا قابلة لإعادة الاستخدام، وفي بعض الحالات، عناصر نائبة على مستوى الماستر.
+2. تحدد شريحة التخطيط الترتيب المستخدم من قبل شريحة واحدة أو أكثر عادية ويمكن أن ترث من الماستر.
+3. تحتوي الشريحة العادية على العناصر النائبة لتلك الشريحة ويمكنها أن ترث من تخطيطها.
 
-استدعِ [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/getbaseplaceholder/) للتحرك بمستوى واحد أعلى في هذا الهرم. عادةً ما تُعيد شريحة العنصر النائب العنصر النائب في التخطيط؛ ويمكن لعناصر النائب في التخطيط أن تُعيد العنصر النائب في الرئيسي. تُعيد الطريقة `nullptr` عندما لا يكون للشكل عنصر نائب أساسي.
+استدعِ [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) للانتقال مستوى واحد أعلى في هذا التسلسل الهرمي. عادةً ما يُعيد العنصر النائب للشريحة العنصر النائب الخاص بالتخطيط؛ ويمكن للعنصر النائب للتخطيط أن يُعيد العنصر النائب للماستر. تُرجع الطريقة `nullptr` عندما لا يكون للشكل عنصر نائب أساسي.
 
-المثال التالي يسرد العناصر النائبة في الشريحة الأولى ويُبلغ عن عناصرها النائبة الأساسية:
+المثال التالي يسرد العناصر النائبة في الشريحة الأولى ويُبلغ عن العناصر النائبة الأساسية لها:
 
 ```c++
 #include <DOM/IPlaceholder.h>
@@ -97,13 +97,90 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-تحرير عنصر نائب في شريحة عادية يُنشئ أو يغيّر تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الرئيسي المتعلق يمكن أن يؤثر على جميع الشرائح التي لا تزال ترث ذلك الإعداد. الشكل العادي المحلي لا يملك عنصر نائب أساسي ولا يبدأ بالوراثة لمجرد أنه يشغل نفس الإحداثيات.
+تحرير عنصر نائب في شريحة عادية ينشئ أو يغير تجاوزًا محليًا لتلك الشريحة. تحرير التخطيط أو الماستر المرتبط قد يؤثر على جميع الشرائح التي لا تزال ترث هذا الإعداد. الشكل العادي المحلي لا يملك عنصرًا نائبًا أساسيًا ولا يبدأ في الوراثة لمجرد أنه يشغل نفس الإحداثيات.
+
+## **إزالة حالة العنصر النائب**
+
+عند تعديل قالب، استخدم [IShape::RemovePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/removeplaceholder/) لإبقاء كائن موجود كشكل عادي. تُعيد طريقة [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) القيمة `nullptr`، لكن الشكل يبقى في مجموعة الشرائح. على النقيض من ذلك، تحذف [IShapeCollection::Remove](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/remove/) الشكل من تلك المجموعة.
+
+المثال التالي يتطلب ملف `template.pptx` يحتوي على شريحة واحدة على الأقل وعنصر نائب نص غير فارغ في الشريحة الأولى. استخدم عنصر نائب بتنسيق موروث من تخطيطه أو ماستر لتلاحظ تأثير إزالة تلك العلاقة. يتحقق المثال من بقاء الشكل نفسه، يستدعي الطريقة مرة أخرى على الشكل العادي الآن، ويحفظ النتيجة.
+
+{{% alert color="warning" title="Warning" %}}
+إزالة حالة العنصر النائب لا يحافظ تلقائيًا على إعدادات المظهر الموروثة. المثال أدناه يترك تلك الإعدادات دون تغيير عمداً، لذا قد يبدو الناتج مختلفًا. الشكل الذي يتم وراثة موقعه وحجمه بالكامل قد يصبح إحداثياته وأبعاده صفرًا بعد الاستدعاء ويصبح غير مرئي رغم بقاءه في المجموعة.
+{{% /alert %}}
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto found = false;
+
+for (auto index = 0; index < slide->get_Shapes()->get_Count(); index++)
+{
+    auto currentShape = slide->get_Shape(index);
+    if (!ObjectExt::Is<IAutoShape>(currentShape))
+    {
+        continue;
+    }
+
+    auto shape = ExplicitCast<IAutoShape>(currentShape);
+    auto textFrame = shape->get_TextFrame();
+    if (shape->get_Placeholder() == nullptr || 
+        textFrame == nullptr || 
+        String::IsNullOrEmpty(textFrame->get_Text()))
+    {
+        continue;
+    }
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    shape->RemovePlaceholder();
+
+    Console::WriteLine(u"Placeholder removed: {0}", shape->get_Placeholder() == nullptr);
+    Console::WriteLine(u"Same shape retained: {0}", slide->get_Shape(index) == currentShape);
+    Console::WriteLine(u"Shape count unchanged: {0}", slide->get_Shapes()->get_Count() == shapeCount);
+
+    // استدعاء الطريقة على شكل عادي ليس له أي تأثير.
+    shape->RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation->Save(u"placeholder-status-removed.pptx", SaveFormat::Pptx);
+}
+else
+{
+    Console::WriteLine(u"No nonempty text placeholder was found on the first slide.");
+}
+```
+
+ في حال وجود عنصر نائب مطابق، تطبع الفحوصات الثلاثة القيمة `True`. يبقى النص، لكن قد تتغير المواقف الموروثة مثل الموقع، الحجم، الدوران، الخط، محاذاة الفقرة، هوامش إطار النص، التثبيت العمودي، التعبئة وإعدادات الخط عند إزالة علاقة العنصر النائب. على سبيل المثال، قد يعود تنسيق العنوان الموروث إلى تنسيق النص العادي. راجع [Slide Layout](/slides/ar/cpp/slide-layout/) للمزيد عن التخطيطات.
+
+للحفاظ على المظهر المقصود، احفظ الموقع، الحجم، والدوران المحسوبين قبل الاستدعاء، وانسخ قيم التنسيق الفعّال المطلوبة إلى متغيّرات منفصلة. استدعِ تلك القيم عبر [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/), [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/geteffective/), [IFillFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/geteffective/), و[ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/). لا تعتمد على الاحتفاظ فقط بكائنات التنسيق الفعّال، لأن قيم تنسيق النص قد تتغير بعد إزالة العلاقة. طبّق القيم الملتقطة صراحةً على الشكل العادي بعد ذلك، بما في ذلك عائلة الخط، الحجم، النمط، اللون، إعدادات الفقرة، إعدادات إطار النص، التعبئة، والخط المستخدم في القالب الخاص بك.
+
+قد تحتاج هندسة الشكل الموروثة أيضًا إلى تعيين صريح عبر [IGeometryShape::set_ShapeType](https://reference.aspose.com/slides/cpp/aspose.slides/igeometryshape/set_shapetype/). بالنسبة لعنصر نائب نص مستطيل، يعني ذلك تعيين [ShapeType::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/shapetype/); قد لا يؤدي استعادة التعبئة والخط فقط إلى استعادة المستطيل المرئي. القوالب التي تحتوي على تأثيرات إضافية أو تنسيق أكثر تعقيدًا تتطلب معالجة تلك الإعدادات أيضًا.
 
 ## **تغيير النص في عنصر نائب**
 
-عادةً ما تدعم عناوين، عناوين مُوسَّطة، عناوين فرعية، أجسام، وعناصر نصية النص. تحقق من وجود [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) قبل استخدام طريقة [get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/get_textframe/) الخاصة به.
+عادةً ما تدعم عناصر نائب العنوان، والعنوان الأوسط، والعنوان الفرعي، والنص الأساسي، والنص العادي النص. تحقق من وجود [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) قبل استخدام طريقة [get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/get_textframe/) .
 
-المثال التالي يحدّث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
+هذا المثال يحدث أول عنصر نائب للعنوان في الشريحة الأولى ويحفظ النتيجة:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -157,13 +234,13 @@ titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
 presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-هذا النمط يتجنب تحويل عناصر النائب للصور أو المخططات أو الجداول أو الوسائط إلى [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/). كما يحدد العنصر النائب حسب الغرض بدلاً من الاعتماد على فهرس شكل هش.
+هذا النمط يتجنب تحويل عناصر نائب الصورة أو المخطط أو الجدول أو الوسائط إلى [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/). كما يحدد العنصر النائب حسب الغرض بدلاً من الاعتماد على فهرس شكل هش.
 
-## **تعيين نص الإرشاد في التخطيط**
+## **تعيين نص التلميح في التخطيط**
 
-نص الإرشاد هو التعليمات المعروضة في عنصر نائب فارغ أثناء التصميم، مثل *انقر لإضافة عنوان*. عيّن نص إرشاد مخصص في عنصر النائب الخاص بالتخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. يمكنك الوصول إلى التخطيط عبر [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islide/get_layoutslide/) وتكرار [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ibaseslide/get_shapes/).
+نص التلميح هو التعليمات الخاصة بوقت التصميم المعروضة في عنصر نائب فارغ، مثل *انقر لإضافة عنوان*. عيّن نص تلميح مخصص على عنصر نائب التخطيط بدلاً من محاولة الوصول إليه عبر مجموعة أشكال الشريحة العادية. احصل على التخطيط عبر [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/islide/get_layoutslide/) وتكرّر عبر [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseslide/get_shapes/) .
 
-المثال التالي يغيّر نصي الإرشاد للعنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
+المثال التالي يغيّر تلميحات العنوان والعنوان الفرعي في التخطيط المستخدم من قبل الشريحة الأولى:
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -216,16 +293,16 @@ for (auto&& shape : layoutSlide->get_Shapes())
 presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-نص الإرشاد ليس محتوى شريحة عادي. إنه مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى فعلي، لم يعد نص الإرشاد معروضًا. تغيير نص الإرشاد لا يستبدل النص الموجود على الشرائح التي تستخدم ذلك التخطيط.
+نص التلميح ليس محتوى شريحة عادي. إنه مخصص للعناصر النائبة الفارغة في تطبيقات التحرير مثل PowerPoint. بمجرد أن يضيف المستخدم أو البرنامج محتوى حقيقي، لا يُعرض التلميح بعد ذلك. تغيير التلميح لا يستبدل أيضًا النص الموجود على الشرائح التي تستخدم هذا التخطيط.
 
 ## **تحديث عنصر نائب صورة**
 
 هناك حالتان للتعامل معهما:
 
-- إذا كان عنصر النائب للصورة مُعبأً بالفعل ومُمثَّلًا بـ [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/)، استبدل الصورة عبر [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipicturefillformat/get_picture/) و [ISlidesPicture::set_Image](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidespicture/set_image/) .
-- إذا كان لا يزال عنصرًا نائبًا فارغًا، أضف إطار صورة في إحداثيات العنصر النائب باستخدام [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapecollection/addpictureframe/) وأزل العنصر النائب الفارغ.
+- إذا كان عنصر نائب الصورة مملوءًا بالفعل وممثلاً بـ [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/), استبدل الصورة عبر [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/get_picture/) و[ISlidesPicture::set_Image](https://reference.aspose.com/slides/cpp/aspose.slides/islidespicture/set_image/) .
+- إذا كان لا يزال عنصرًا نائبًا فارغًا، أضف إطار صورة عند إحداثيات العنصر النائب باستخدام [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addpictureframe/) وأزل العنصر النائب الفارغ.
 
-المثال التالي يدعم الحالتين ويحفظ العرض التقديمي:
+المثال التالي يدعم الحالتين ويحفظ العرض:
 
 ```c++
 #include <DOM/IImageCollection.h>
@@ -290,13 +367,13 @@ else
 presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-الاستبدال المُنشأ لعنصر نائب فارغ هو إطار صورة محلي، وليس عنصر نائب جديد، لأن [IShape::get_Placeholder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/get_placeholder/) للقراءة فقط. فهو يحتفظ بالموقع المحجوز لكن لا يرث سلوك العنصر النائب بعد الآن. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، حضّر العنصر النائب واملأه في PowerPoint أولاً، ثم حدّث [IPictureFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipictureframe/) الناتج باستخدام Aspose.Slides.
+الإبدال الذي يُنشأ لعنصر نائب فارغ هو إطار صورة محلي، وليس عنصرًا نائبًا جديدًا، لأن [IShape::get_Placeholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_placeholder/) للقراءة فقط. يحتفظ بالموقع المحجوز لكنه لم يعد يرث سلوك العنصر النائب. إذا كان الحفاظ على علاقة العنصر النائب أمرًا أساسيًا، قم بإعداد وتعبئة العنصر النائب في PowerPoint أولاً، ثم حدّث [IPictureFrame](https://reference.aspose.com/slides/cpp/aspose.slides/ipictureframe/) الناتج باستخدام Aspose.Slides.
 
-لشفافية الصورة، القص، وغير ذلك من التأثيرات الخاصة بالصورة، راجع [Manage Picture Frames](/slides/ar/cpp/picture-frame/). تلك العمليات تنتمي إلى إطار الصورة أو تعبئة الصورة، لا إلى بيانات تعريف العنصر النائب.
+لشفافية الصورة، والاقتصاص، وغيرها من التأثيرات الخاصة بالصورة، راجع [Manage Picture Frames](/slides/ar/cpp/picture-frame/). تلك العمليات تخص إطار الصورة أو تعبئة الصورة، وليس بيانات تعريف العنصر النائب.
 
 ## **العمل مع عناصر نائب المخطط والمحتوى**
 
-يمكن تمثيل مخطط مُعبأ بواسطة [IChart](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichart/). هذا المثال يجد مثل هذا المخطط عبر كلٍ من نوع العنصر النائب والواجهة في وقت التشغيل، يغيّر عنوانه، ويحفظ الملف:
+يمكن تمثيل عنصر نائب مخطط مملوء بـ [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/). هذا المثال يبحث عن مثل هذا المخطط عبر نوع العنصر النائب والواجهة في وقت التشغيل، يغيّر عنوانه، ويحفظ الملف:
 
 ```c++
 #include <DOM/IChart.h>
@@ -346,9 +423,9 @@ placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenu
 presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-عادةً ما يكون عنصر نائب المحتوى العام له [PlaceholderType::Object](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/). في PowerPoint يعمل كمنطلق للعديد من أنواع المحتوى، بما في ذلك المخططات، الجداول، المخططات التوضيحية، الصور، والوسائط. بعد تعبئته، افحص واجهة الشكل الفعلية لمعرفة ما يحتويه. يمكن أن تكشف التخطيطات المتخصصة أيضًا عن [PlaceholderType::Chart](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/)، [PlaceholderType::Table](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/), أو [PlaceholderType::Diagram](https://reference.aspose.com/slides/ar/cpp/aspose.slides/placeholdertype/).
+عادةً ما يكون للعنصر النائب العام للمحتوى قيمة [PlaceholderType::Object](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/). في PowerPoint يعمل كمنقٍّ للعديد من أنواع المحتوى، بما في ذلك المخططات، الجداول، المخططات البيانية، الصور والوسائط. بعد تعبئته، افحص واجهة الشكل الفعلية لمعرفة ما يحتويه. يمكن للتخطيطات المتخصصة أيضًا أن تُظهر [PlaceholderType::Chart](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/), أو [PlaceholderType::Diagram](https://reference.aspose.com/slides/cpp/aspose.slides/placeholdertype/) .
 
-Aspose.Slides لا يحول عنصر نائب [IAutoShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iautoshape/) فارغ إلى [IChart](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichart/) بمجرد تغيير [IPlaceholder::get_Type](https://reference.aspose.com/slides/ar/cpp/aspose.slides/iplaceholder/get_type/); النوع للقراءة فقط. لملء مخطط أو مساحة محتوى فارغة برمجيًا، أضف الكائن المطلوب في إحداثيات العنصر النائب ثم أزل العنصر النائب الفارغ. المثال التالي يوضح ذلك لمخطط:
+Aspose.Slides لا يحول عنصر نائب فارغ من نوع [IAutoShape](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/) إلى [IChart](https://reference.aspose.com/slides/cpp/aspose.slides.charts/ichart/) بمجرد تغيير [IPlaceholder::get_Type](https://reference.aspose.com/slides/cpp/aspose.slides/iplaceholder/get_type/); النوع للقراءة فقط. لتعبئة مخطط فارغ أو مساحة محتوى برمجيًا، أضف الكائن المطلوب عند إحداثيات العنصر النائب ثم أزل العنصر النائب الفارغ. المثال التالي يقوم بذلك لمخطط:
 
 ```c++
 #include <DOM/Chart/ChartType.h>
@@ -405,11 +482,11 @@ shapes->Remove(targetPlaceholder);
 presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
 ```
 
-المخطط المُضاف هو مخطط محلي عادي. يحتل مساحة العنصر النائب لكنه لا يرث من عنصر النائب في التخطيط. استخدم مقالات إدارة المخططات المخصصة [chart management articles](/slides/ar/cpp/powerpoint-charts/) عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
+المخطط المضاف هو مخطط محلي عادي. يحتل مساحة العنصر النائب لكنه لا يرث من عنصر نائب التخطيط. استخدم مقالات إدارة المخططات المخصصة [chart management articles](/slides/ar/cpp/powerpoint-charts/) عندما تحتاج إلى استبدال الفئات أو السلاسل أو بيانات المصنف.
 
-## **مثال كامل: تحديث نص أو محتوى صورة**
+## **مثال كامل: تحديث محتوى النص أو الصورة**
 
-المثال التالي من البداية إلى النهاية يفتح قالبًا، يبحث في الشريحة الأولى عن عنوان أو عنصر نائب صورة، يتحقق من نوع العنصر النائب والشكل، يحدّث المحتوى المناسب، ويحفظ النتيجة. يتجنب المثال الافتراض بوجود فهرس شكل أو تحويل كل عنصر نائب إلى نفس الواجهة.
+المثال الشامل التالي يفتح قالبًا، يبحث في الشريحة الأولى عن عنصر نائب للعنوان أو الصورة، يتحقق من نوع العنصر النائب والشكل، يحدث المحتوى المناسب، ويحفظ المخرج. يتجنب المثال عمدًا افتراض فهرس شكل أو تحويل كل عنصر نائب إلى نفس الواجهة.
 
 ```c++
 #include <DOM/IAutoShape.h>
@@ -491,16 +568,16 @@ if (!updated)
 presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
 **ما هو العنصر النائب الأساسي؟**
 
-العنصر النائب الأساسي هو الشكل المقابل في التخطيط أو الرئيسي الذي يرث منه عنصر نائب آخر. استخدم [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/getbaseplaceholder/) لاسترجاعه. الشكل المحلي العادي يُعيد `nullptr` لأنه ليس جزءًا من هيكلية العناصر النائبة.
+العنصر النائب الأساسي هو الشكل المقابل على التخطيط أو الماستر الذي يرث منه عنصر نائب آخر. استخدم [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/getbaseplaceholder/) لاسترجاعه. الشكل العادي المحلي يُعيد `nullptr` لأنه ليس جزءًا من تسلسل العناصر النائبة.
 
 **هل يمكنني تغيير جميع عناوين الشرائح عن طريق تحرير عنصر نائب في التخطيط؟**
 
-يمكنك تغيير التنسيق الموروث أو نص الإرشاد عبر التخطيط، لكن محتوى العنوان الموجود يُخزن على الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض التقديمي كله، كرّر على الشرائح وقم بتحديث كل عنصر نائب للعنوان.
+يمكنك تغيير التنسيق الموروث أو نص التلميح عبر التخطيط، لكن محتوى العنوان الموجود يُخزن في الشرائح العادية. لاستبدال نص العنوان الفعلي عبر العرض بأكمله، كرّر على الشرائح وقم بتحديث كل عنصر نائب للعنوان.
 
-**كيف أدير عناصر نائب التاريخ ورقم الشريحة والرأس وتذييل الصفحة؟**
+**كيف أدير عناصر نائب التاريخ، رقم الشريحة، الرأس، والتذييل؟**
 
-استخدم مديري الرأس والتذييل في نطاق الشريحة، التخطيط، الرئيسي، الملاحظات أو كتيب اليد. راجع [Manage Presentation Header and Footer](/slides/ar/cpp/presentation-header-and-footer/) للحصول على أمثلة كاملة.
+استخدم مديري الرأس والتذييل في نطاق الشريحة المناسبة، التخطيط، الماستر، الملاحظات، أو الملاحظات الموزعة. راجع [Manage Presentation Header and Footer](/slides/ar/cpp/presentation-header-and-footer/) للحصول على أمثلة كاملة.

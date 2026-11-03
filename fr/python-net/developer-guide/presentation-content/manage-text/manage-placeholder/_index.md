@@ -15,23 +15,23 @@ keywords:
 - présentation
 - Python
 - Aspose.Slides
-description: "Apprenez à inspecter et modifier les espaces réservés de texte, d'image, de graphique et de contenu et à comprendre l'héritage des espaces réservés avec Aspose.Slides pour Python via .NET."
+description: "Apprenez à inspecter et modifier les espaces réservés de texte, d'image, de graphique et de contenu, et à comprendre l'héritage des espaces réservés avec Aspose.Slides pour Python via .NET."
 ---
 ## **Vue d'ensemble**
 
-Un espace réservé est une forme qui réserve une position pour un type particulier de contenu dans un modèle de présentation. Des exemples courants sont les espaces réservés de titre, de corps, d’image, de graphique et de contenu à usage général. Contrairement à une forme ordinaire, un espace réservé peut hériter de sa position, de sa taille, de son formatage et d’autres paramètres d’une diapositive de disposition ou d’une diapositive maître.
+Un espace réservé est une forme qui réserve une position pour un type particulier de contenu dans un modèle de présentation. Les exemples courants sont les espaces réservés de titre, corps, image, graphique et de contenu à usage général. Contrairement à une forme ordinaire, un espace réservé peut hériter de sa position, de sa taille, de son formatage et d’autres paramètres d’une diapositive de disposition ou d’une diapositive maître.
 
-Aspose.Slides expose les informations d’espace réservé via la propriété [Shape.placeholder](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/placeholder/). La propriété renvoie un objet [Placeholder](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholder/) ou `None` pour une forme normale. Utilisez [Placeholder.type](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholder/type/) pour déterminer ce que l’espace réservé est destiné à contenir.
+Aspose.Slides expose les informations d’espace réservé via la propriété [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). La propriété renvoie un objet [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) ou `None` pour une forme normale. Utilisez [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) pour déterminer ce que l’espace réservé est censé contenir.
 
-La classe de forme reste importante après avoir identifié le type d’espace réservé :
+La classe de forme reste importante après avoir connu le type d’espace réservé :
 
-- Un espace réservé de texte, d’image, de graphique ou de contenu vide est généralement représenté par un [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/).
-- Un espace réservé d’image rempli peut être représenté par un [PictureFrame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/pictureframe/).
-- Un espace réservé de graphique rempli peut être représenté par un [Chart](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/).
-- Un espace réservé de contenu peut contenir plusieurs types de contenu. Vérifiez à la fois [Placeholder.type](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholder/type/) et la classe de forme à l’exécution au lieu de supposer que chaque espace réservé est un [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/).
+- Un espace réservé vide de texte, d’image, de graphique ou de contenu est généralement représenté par un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Un espace réservé d’image déjà renseigné peut être représenté par un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Un espace réservé de graphique déjà renseigné peut être représenté par un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Un espace réservé de contenu peut contenir plusieurs types de contenu. Vérifiez à la fois [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) et la classe de forme d’exécution au lieu de supposer que chaque espace réservé est un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
-{{% alert color="warning" title="Avertissement" %}}
-[Placeholder.type](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholder/type/) décrit le rôle d’un espace réservé ; il ne garantit pas la classe de forme à l’exécution. Utilisez toujours une vérification de type avant d’accéder aux membres spécifiques texte, image, graphique, tableau ou média.
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) décrit le rôle d’un espace réservé ; il ne garantit pas la classe d’exécution de la forme. Utilisez toujours une vérification de type avant d’accéder aux membres texte, image, graphique, tableau ou média spécifiques.
 {{% /alert %}}
 
 ## **Comprendre l'héritage des espaces réservés**
@@ -39,10 +39,10 @@ La classe de forme reste importante après avoir identifié le type d’espace r
 Les espaces réservés forment une hiérarchie :
 
 1. Une diapositive maître définit des styles réutilisables et, dans certains cas, des espaces réservés au niveau maître.
-2. Une diapositive de mise en page définit la disposition utilisée par une ou plusieurs diapositives normales et peut hériter du maître.
-3. Une diapositive normale contient les espaces réservés pour cette diapositive et peut hériter de sa mise en page.
+2. Une diapositive de disposition définit l’agencement utilisé par une ou plusieurs diapositives normales et peut hériter du maître.
+3. Une diapositive normale contient les espaces réservés pour cette diapositive et peut hériter de sa disposition.
 
-Appelez [Shape.get_base_placeholder](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/get_base_placeholder/) pour remonter d’un niveau dans cette hiérarchie. Un espace réservé de diapositive renvoie normalement son espace réservé de mise en page ; un espace réservé de mise en page peut renvoyer son espace réservé maître. La méthode renvoie `None` lorsque la forme n’a aucun espace réservé de base.
+Appelez [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) pour remonter d’un niveau dans cette hiérarchie. Un espace réservé de diapositive renvoie normalement son espace réservé de disposition ; un espace réservé de disposition peut renvoyer son espace réservé maître. La méthode renvoie `None` lorsque la forme n’a pas d’espace réservé de base.
 
 L’exemple suivant répertorie les espaces réservés de la première diapositive et indique leurs espaces réservés de base :
 
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Modifier un espace réservé sur une diapositive normale crée ou modifie une surcharge locale pour cette diapositive. Modifier la mise en page ou le maître associé peut affecter toutes les diapositives qui héritent encore de ce paramètre. Une forme locale ordinaire n’a aucun espace réservé de base et ne commence pas à hériter simplement parce qu’elle occupe les mêmes coordonnées.
+Modifier un espace réservé sur une diapositive normale crée ou modifie une substitution locale pour cette diapositive. Modifier la disposition ou le maître associé peut affecter toutes les diapositives qui héritent encore de ce paramètre. Une forme ordinaire locale n’a aucun espace réservé de base et ne commence pas à hériter simplement parce qu’elle occupe les mêmes coordonnées.
 
-## **Modifier le texte d'un espace réservé**
+## **Supprimer le statut d'espace réservé**
 
-Les espaces réservés de titre, de titre centré, de sous‑titre, de corps et de texte prennent généralement en charge le texte. Vérifiez la présence d’un [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/) avant d’utiliser sa propriété [text_frame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/text_frame/).
+Lors de l’adaptation d’un modèle, utilisez [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) pour conserver un objet existant comme forme ordinaire. Sa propriété [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) devient `None`, mais la forme reste dans la collection de la diapositive. En revanche, [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) supprime la forme de cette collection.
 
-Cet exemple met à jour le premier espace réservé de titre de la première diapositive et enregistre le résultat :
+L’exemple suivant requiert `template.pptx` contenant au moins une diapositive et un espace réservé de texte non vide sur la première diapositive. Utilisez un espace réservé dont le formatage est hérité de sa disposition ou de son maître pour observer l’effet de la suppression de cette relation. L’exemple vérifie que la même forme subsiste, rappelle la méthode sur la forme maintenant ordinaire, puis enregistre le résultat.
+
+{{% alert color="warning" title="Warning" %}}
+Supprimer le statut d’espace réservé ne préserve pas automatiquement les paramètres d’apparence hérités. L’exemple ci‑dessous laisse délibérément ces paramètres inchangés, de sorte que le rendu peut différer. Une forme dont la position et la taille sont entièrement héritées peut se retrouver avec des coordonnées et dimensions nulles après l’appel et devenir invisible même si elle reste dans la collection.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Appeler la méthode sur une forme ordinaire n'a aucun effet.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Pour un espace réservé correspondant, les trois vérifications affichent `True`. Le texte persiste, mais la position, la taille, la rotation, la police, l’alignement de paragraphe, les marges du cadre texte, l’ancrage vertical, le remplissage et les paramètres de ligne hérités peuvent changer lorsque la relation d’espace réservé est supprimée. Par exemple, le formatage de titre hérité peut retomber sur le formatage de texte ordinaire. Consultez [Slide Layout](/slides/fr/python-net/slide-layout/) pour plus d’informations sur les dispositions.
+
+Pour conserver l’apparence prévue, capturez la position, la taille et la rotation résolues avant l’appel, puis copiez les valeurs de formatage effectif requises dans des variables séparées. Récupérez ces valeurs via [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), et [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Ne vous fiez pas uniquement aux objets de format effectif, car leurs valeurs de formatage de texte peuvent changer après la suppression de la relation. Appliquez explicitement les valeurs capturées à la forme ordinaire ensuite, y compris la famille, la taille, le style, la couleur de police, les paramètres de paragraphe, les paramètres du cadre texte, le remplissage et le trait utilisés par votre modèle.
+
+La géométrie de forme héritée peut également devoir être affectée explicitement via [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Pour un espace réservé de texte rectangulaire, cela signifie affecter [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); restaurer uniquement le remplissage et le trait peut ne pas restaurer le rectangle visible. Les modèles avec des effets supplémentaires ou un formatage plus complexe nécessitent également la prise en compte de ces paramètres.
+
+## **Modifier le texte dans un espace réservé**
+
+Les espaces réservés de titre, titre centré, sous‑titre, corps et texte prennent normalement en charge le texte. Vérifiez la présence d’un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) avant d’utiliser sa propriété [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/).
+
+Cet exemple met à jour le premier espace réservé de titre sur la première diapositive et enregistre le résultat :
 
 ```python
 import aspose.slides as slides
@@ -102,11 +150,11 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ce schéma évite de traiter les espaces réservés d’image, de graphique, de tableau ou média comme des objets [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/). Il identifie également l’espace réservé par son but au lieu de s’appuyer sur un indice de forme fragile.
+Ce modèle évite de traiter les espaces réservés d’image, de graphique, de tableau ou de média comme des objets [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/). Il identifie également l’espace réservé par son objectif au lieu de se baser sur un indice de forme fragile.
 
 ## **Définir le texte d'invite sur une mise en page**
 
-Le texte d’invite est l’instruction affichée en mode conception dans un espace réservé vide, par exemple *Cliquez pour ajouter un titre*. Définissez un texte d’invite personnalisé sur l’espace réservé de la mise en page plutôt que d’essayer d’y accéder via la collection de formes d’une diapositive normale. Accédez à la mise en page via [Slide.layout_slide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slide/layout_slide/) et parcourez [LayoutSlide.shapes](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/shapes/).
+Le texte d’invite est l’instruction affichée en mode conception dans un espace réservé vide, par exemple *Cliquez pour ajouter un titre*. Définissez un texte d’invite personnalisé sur l’espace réservé de la mise en page plutôt que d’essayer d’y accéder via la collection de formes d’une diapositive normale. Accédez à la mise en page via [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) et parcourez [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
 L’exemple suivant modifie les invites de titre et de sous‑titre sur la mise en page utilisée par la première diapositive :
 
@@ -130,14 +178,14 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Le texte d’invite n’est pas un contenu de diapositive normal. Il est destiné aux espaces réservés vides dans les applications d’édition telles que PowerPoint. Une fois qu’un utilisateur ou un programme fournit du contenu réel, l’invite n’est plus affichée. Modifier une invite ne remplace pas non plus le texte existant sur les diapositives qui utilisent la mise en page.
+Le texte d’invite n’est pas du contenu de diapositive normal. Il est destiné aux espaces réservés vides dans les applications de modification telles que PowerPoint. Une fois qu’un utilisateur ou un programme fournit du contenu réel, l’invite n’est plus affichée. Modifier une invite ne remplace pas non plus le texte existant sur les diapositives qui utilisent la mise en page.
 
 ## **Mettre à jour un espace réservé d'image**
 
-Il y a deux cas à gérer :
+Il existe deux cas à gérer :
 
-- Si l’espace réservé d’image est déjà rempli et représenté par un [PictureFrame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/pictureframe/), remplacez l’image via [PictureFillFormat.picture](https://reference.aspose.com/slides/fr/python-net/aspose.slides/picturefillformat/picture/) et [Picture.image](https://reference.aspose.com/slides/fr/python-net/aspose.slides/picture/image/).
-- S’il s’agit encore d’un espace réservé vide, ajoutez un cadre d’image aux coordonnées de l’espace réservé avec [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shapecollection/add_picture_frame/) et supprimez l’espace réservé vide.
+- Si l’espace réservé d’image est déjà renseigné et représenté par un [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), remplacez l’image via [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) et [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- S’il s’agit encore d’un espace réservé vide, ajoutez un cadre image aux coordonnées de l’espace réservé avec [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) et supprimez l’espace réservé vide.
 
 L’exemple suivant prend en charge les deux cas et enregistre la présentation :
 
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Le remplacement créé pour un espace réservé vide est un cadre d’image local, pas un nouvel espace réservé, car [Shape.placeholder](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/placeholder/) est en lecture seule. Il conserve la position réservée mais n’hérite plus du comportement spécifique à l’espace réservé. Si la conservation de la relation d’espace réservé est essentielle, préparez et remplissez l’espace réservé dans PowerPoint d’abord, puis mettez à jour le [PictureFrame](https://reference.aspose.com/slides/fr/python-net/aspose.slides/pictureframe/) résultant avec Aspose.Slides.
+Le remplacement créé pour un espace réservé vide est un cadre image local, pas un nouvel espace réservé, car [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) est en lecture seule. Il conserve la position réservée mais n’hérite plus du comportement propre aux espaces réservés. Si le maintien de la relation d’espace réservé est essentiel, préparez et remplissez d’abord l’espace réservé dans PowerPoint, puis mettez à jour le [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) résultant avec Aspose.Slides.
 
-Pour la transparence d’image, le recadrage et d’autres effets spécifiques aux images, consultez [Manage Picture Frames](/slides/fr/python-net/picture-frame/). Ces opérations appartiennent au cadre d’image ou au remplissage d’image, pas aux métadonnées d’espace réservé.
+Pour la transparence d’image, le recadrage et d’autres effets propres aux images, consultez [Manage Picture Frames](/slides/fr/python-net/picture-frame/). Ces opérations appartiennent au cadre image ou au remplissage image, pas aux métadonnées de l’espace réservé.
 
-## **Travailler avec les espaces réservés de graphique et de contenu**
+## **Travailler avec les espaces réservés de graphiques et de contenu**
 
-Un espace réservé de graphique rempli peut être représenté par un [Chart](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/). Cet exemple trouve un tel graphique à la fois par type d’espace réservé et par classe d’exécution, modifie son titre et enregistre le fichier :
+Un espace réservé de graphique renseigné peut être représenté par un [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Cet exemple trouve un tel graphique en fonction du type d’espace réservé et de la classe d’exécution, modifie son titre et enregistre le fichier :
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Un espace réservé de contenu général possède généralement [PlaceholderType.OBJECT](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/). Dans PowerPoint, il agit comme un lanceur pour plusieurs types de contenu, y compris les graphiques, tableaux, diagrammes, images et médias. Après l’avoir rempli, inspectez la classe de forme réelle pour savoir ce qu’il contient. Des mises en page spécialisées peuvent également exposer [PlaceholderType.CHART](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/), ou [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholdertype/).
+Un espace réservé de contenu général possède généralement [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). Dans PowerPoint, il agit comme un lanceur pour plusieurs types de contenu, notamment les graphiques, tableaux, diagrammes, images et médias. Après l’avoir renseigné, inspectez la classe réelle de la forme pour savoir ce qu’elle contient. Des dispositions spécialisées peuvent également exposer [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), ou [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides ne convertit pas un espace réservé [AutoShape](https://reference.aspose.com/slides/fr/python-net/aspose.slides/autoshape/) vide en un [Chart](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/) simplement en modifiant [Placeholder.type](https://reference.aspose.com/slides/fr/python-net/aspose.slides/placeholder/type/) ; le type est en lecture seule. Pour remplir programme­ment une zone de graphique ou de contenu vide, ajoutez l’objet requis aux coordonnées de l’espace réservé, puis supprimez l’espace réservé vide. L’exemple suivant le fait pour un graphique :
+Aspose.Slides ne convertit pas un [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) vide en [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) simplement en modifiant [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) ; le type est en lecture seule. Pour remplir programmatique un graphique ou une zone de contenu vide, ajoutez l’objet requis aux coordonnées de l’espace réservé puis supprimez l’espace réservé vide. L’exemple suivant montre cette opération pour un graphique :
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Le graphique ajouté est un graphique local ordinaire. Il occupe la zone de l’espace réservé mais n’hérite pas de l’espace réservé de mise en page. Utilisez les articles dédiés à la [chart management](/slides/fr/python-net/powerpoint-charts/) lorsque vous devez remplacer ses catégories, séries ou données de classeur.
+Le graphique ajouté est un graphique local ordinaire. Il occupe la zone de l’espace réservé mais n’hérite pas de la disposition de l’espace réservé. Utilisez les articles dédiés à la gestion des graphiques [chart management articles](/slides/fr/python-net/powerpoint-charts/) lorsque vous devez remplacer ses catégories, séries ou données de classeur.
 
-## **Exemple complet : mettre à jour le texte ou le contenu d’image**
+## **Exemple complet : mettre à jour le texte ou le contenu image**
 
-L’exemple de bout en bout suivant ouvre un modèle, recherche la première diapositive pour un espace réservé de titre ou d’image, vérifie les types d’espace réservé et de forme, met à jour le contenu approprié et enregistre le résultat. L’exemple évite délibérément de supposer un indice de forme ou de traiter chaque espace réservé comme la même classe de forme :
+L’exemple de bout en bout suivant ouvre un modèle, recherche la première diapositive pour un espace réservé de titre ou d’image, vérifie les types d’espace réservé et de forme, met à jour le contenu approprié et enregistre le résultat. L’exemple évite délibérément de supposer un indice de forme ou de traiter chaque espace réservé comme la même classe de forme.
 
 ```python
 import aspose.slides as slides
@@ -278,12 +326,12 @@ with slides.Presentation("template.pptx") as presentation:
 
 **Qu'est‑ce qu'un espace réservé de base ?**
 
-Un espace réservé de base est la forme correspondante sur la mise en page ou le maître dont hérite un autre espace réservé. Utilisez [Shape.get_base_placeholder](https://reference.aspose.com/slides/fr/python-net/aspose.slides/shape/get_base_placeholder/) pour le récupérer. Une forme locale ordinaire renvoie `None` car elle ne fait pas partie de la hiérarchie des espaces réservés.
+Un espace réservé de base est la forme correspondante sur la disposition ou le maître dont hérite un autre espace réservé. Utilisez [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) pour le récupérer. Une forme locale ordinaire renvoie `None` car elle ne fait pas partie de la hiérarchie d’espaces réservés.
 
-**Puis‑je modifier tous les titres de diapositives en modifiant un espace réservé de mise en page ?**
+**Puis‑je modifier tous les titres de diapositives en modifiant un espace réservé de disposition ?**
 
-Vous pouvez modifier le formatage hérité ou le texte d’invite via une mise en page, mais le texte de titre existant est stocké sur les diapositives normales. Pour remplacer le texte réel du titre dans toute la présentation, parcourez les diapositives et mettez à jour chaque espace réservé de titre.
+Vous pouvez modifier le formatage ou le texte d’invite hérité via une disposition, mais le contenu réel des titres est stocké sur les diapositives normales. Pour remplacer le texte des titres dans toute la présentation, parcourez les diapositives et mettez à jour chaque espace réservé de titre.
 
-**Comment gérer les espaces réservés de date, de numéro de diapositive, d'en‑tête et de pied de page ?**
+**Comment gérer les espaces réservés de date, numéro de diapositive, en‑tête et pied de page ?**
 
-Utilisez les gestionnaires d’en‑tête et de pied de page au niveau de la diapositive, de la mise en page, du maître, des notes ou du fascicule. Consultez [Manage Presentation Header and Footer](/slides/fr/python-net/presentation-header-and-footer/) pour des exemples complets.
+Utilisez les gestionnaires d’en‑tête et de pied de page au niveau de la diapositive, de la disposition, du maître, des notes ou du livret. Consultez [Manage Presentation Header and Footer](/slides/fr/python-net/presentation-header-and-footer/) pour des exemples complets.

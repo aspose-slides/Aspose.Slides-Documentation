@@ -10,40 +10,40 @@ keywords:
 - Bildplatzhalter
 - Diagrammplatzhalter
 - Inhaltsplatzhalter
-- Hinweistext
+- Aufforderungstext
 - PowerPoint
 - Präsentation
 - Python
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Text-, Bild-, Diagramm- und Inhaltsplatzhalter untersuchen und bearbeiten sowie die Platzhaltervererbung mit Aspose.Slides für Python via Java verstehen."
+description: "Erfahren Sie, wie Sie Text-, Bild-, Diagramm- und Inhaltsplatzhalter inspizieren und bearbeiten und das Erben von Platzhaltern mit Aspose.Slides für Python über Java verstehen."
 ---
-## **Überblick**
+## **Übersicht**
 
-Ein Platzhalter ist eine Form, die in einer Präsentationsvorlage eine Position für eine bestimmte Art von Inhalt reserviert. Häufige Beispiele sind Titel, Textkörper, Bild, Diagramm und allgemein nutzbare Inhaltsplatzhalter. Im Gegensatz zu einer gewöhnlichen Form kann ein Platzhalter seine Position, Größe, Formatierung und andere Einstellungen von einer Layout‑Folie oder einer Master‑Folie erben.
+Ein Platzhalter ist eine Form, die in einer Präsentationsvorlage eine Position für eine bestimmte Art von Inhalt reserviert. Häufige Beispiele sind Titel-, Text-, Bild-, Diagramm- und allgemeine Inhaltsplatzhalter. Im Gegensatz zu einer normalen Form kann ein Platzhalter seine Position, Größe, Formatierung und andere Einstellungen von einer Layout‑Folie oder einer Master‑Folie erben.
 
-Aspose.Slides stellt Platzhalterinformationen über die [Shape.getPlaceholder](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getPlaceholder)-Methode bereit. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholder/)‑Objekt oder `None` für eine normale Form zurück. Verwenden Sie [Placeholder.getType](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholder/#getType), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
+Aspose.Slides stellt Platzhalterinformationen über die Methode [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) bereit. Die Methode gibt ein [Placeholder](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/)‑Objekt oder `None` für eine normale Form zurück. Verwenden Sie [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType), um zu bestimmen, welchen Inhalt der Platzhalter enthalten soll.
 
-Der Formtyp bleibt nach Kenntnis des Platzhaltertyps relevant:
+Der Formtyp ist weiterhin relevant, nachdem Sie den Platzhaltertyp kennen:
 
-- Ein leerer Text‑, Bild‑, Diagramm‑ oder Inhaltsplatzhalter wird typischerweise durch ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/)-Objekt dargestellt.
-- Ein befüllter Bildplatzhalter kann durch ein [PictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframe/) repräsentiert werden.
-- Ein befüllter Diagrammplatzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/python-java/aspose.slides/chart/) dargestellt werden.
-- Ein Inhaltsplatzhalter kann mehrere Arten von Inhalten enthalten. Prüfen Sie sowohl [Placeholder.getType](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholder/#getType) als auch den Laufzeit‑Formtyp, anstatt davon auszugehen, dass jeder Platzhalter ein [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) ist.
+- Ein leerer Text‑, Bild‑, Diagramm‑ oder Inhaltsplatzhalter wird üblicherweise durch eine [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) repräsentiert.
+- Ein gefüllter Bildplatzhalter kann durch einen [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) dargestellt werden.
+- Ein gefüllter Diagrammplatzhalter kann durch ein [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) dargestellt werden.
+- Ein Inhaltsplatzhalter kann verschiedene Inhaltsarten enthalten. Prüfen Sie sowohl [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) als auch den Laufzeit‑Formtyp, anstatt anzunehmen, dass jeder Platzhalter eine [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ist.
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.getType](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholder/#getType) beschreibt die Rolle eines Platzhalters; sie garantiert nicht den Laufzeit‑Formtyp. Verwenden Sie stets eine Typprüfung, bevor Sie auf text‑, bild‑, diagramm‑, tabellen‑ oder medienspezifische Member zugreifen.
+[Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) beschreibt die Rolle eines Platzhalters; sie garantiert nicht den Laufzeit‑Formtyp. Verwenden Sie immer eine Typprüfung, bevor Sie auf Text‑, Bild‑, Diagramm‑, Tabellen‑ oder medienspezifische Mitglieder zugreifen.
 {{% /alert %}}
 
-## **Verstehen der Platzhaltervererbung**
+## **Verstehen von Platzhaltervererbung**
 
 Platzhalter bilden eine Hierarchie:
 
-1. Eine Master‑Folie definiert wiederverwendbare Stile und ggf. Master‑Platzhalter.
+1. Eine Master‑Folie definiert wiederverwendbare Stile und in manchen Fällen Master‑Platzhalter.
 2. Eine Layout‑Folie definiert die Anordnung, die von einer oder mehreren normalen Folien verwendet wird, und kann vom Master erben.
 3. Eine normale Folie enthält die Platzhalter für diese Folie und kann von ihrem Layout erben.
 
-Rufen Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getBasePlaceholder) auf, um eine Ebene in dieser Hierarchie nach oben zu gehen. Ein Folien‑Platzhalter gibt normalerweise seinen Layout‑Platzhalter zurück; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode liefert `None`, wenn die Form keinen Basis‑Platzhalter hat.
+Rufen Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder) auf, um eine Ebene in dieser Hierarchie nach oben zu gehen. Ein Folien‑Platzhalter liefert normalerweise seinen Layout‑Platzhalter; ein Layout‑Platzhalter kann seinen Master‑Platzhalter zurückgeben. Die Methode gibt `None` zurück, wenn die Form keinen Basis‑Platzhalter hat.
 
 Das folgende Beispiel listet die Platzhalter auf der ersten Folie auf und gibt deren Basis‑Platzhalter aus:
 
@@ -84,13 +84,75 @@ finally:
     presentation.dispose()
 ```
 
-Das Bearbeiten eines Platzhalters auf einer normalen Folie erstellt oder ändert eine lokale Überschreibung für diese Folie. Das Bearbeiten des zugehörigen Layouts oder Masters kann alle Folien beeinflussen, die diese Einstellung noch erben. Eine lokale gewöhnliche Form hat keinen Basis‑Platzhalter und beginnt nicht zu erben, nur weil sie dieselben Koordinaten belegt.
+Das Bearbeiten eines Platzhalters auf einer normalen Folie erzeugt oder ändert eine lokale Überschreibung für diese Folie. Das Bearbeiten des zugehörigen Layouts oder Masters kann alle Folien beeinflussen, die diese Einstellung noch erben. Eine lokale, gewöhnliche Form hat keinen Basis‑Platzhalter und beginnt nicht mit dem Erben, nur weil sie dieselben Koordinaten einnimmt.
+
+## **Platzhalterstatus entfernen**
+
+Beim Anpassen einer Vorlage verwenden Sie [Shape.removePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#removePlaceholder), um ein vorhandenes Objekt als gewöhnliche Form zu behalten. Seine [getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder)-Methode gibt `None` zurück, aber die Form bleibt in der Folien‑Sammlung. Im Gegensatz dazu löscht [ShapeCollection.remove](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#remove) die Form aus dieser Sammlung.
+
+Das folgende Beispiel erfordert `template.pptx` mit mindestens einer Folie und einem nicht leeren Text‑Platzhalter auf der ersten Folie. Verwenden Sie einen Platzhalter mit vom Layout oder Master geerbter Formatierung, um die Auswirkung des Entfernens dieser Beziehung zu sehen. Das Beispiel prüft, dass dieselbe Form erhalten bleibt, ruft die Methode erneut auf der nun gewöhnlichen Form auf und speichert das Ergebnis.
+
+{{% alert color="warning" title="Warning" %}}
+Das Entfernen des Platzhalterstatus bewahrt die geerbten Anzeigeeinstellungen nicht automatisch. Das untenstehende Beispiel lässt diese Einstellungen bewusst unverändert, sodass die Ausgabe unterschiedlich aussehen kann. Eine Form, deren Position und Größe vollständig geerbt sind, kann nach dem Aufruf null Koordinaten und Abmessungen haben und unsichtbar werden, obwohl sie in der Sammlung verbleibt.
+{{% /alert %}}
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import Presentation, AutoShape, SaveFormat
+
+presentation = Presentation("template.pptx")
+try:
+    slide = presentation.getSlides().get_Item(0)
+    found = False
+
+    for index in range(slide.getShapes().size()):
+        shape = slide.getShapes().get_Item(index)
+        if not isinstance(shape, AutoShape):
+            continue
+
+        text_frame = shape.getTextFrame()
+        if shape.getPlaceholder() is None or text_frame is None:
+            continue
+        text = text_frame.getText()
+        if text is None or len(text) == 0:
+            continue
+
+        shape_count = slide.getShapes().size()
+        shape.removePlaceholder()
+
+        print(f"Placeholder removed: {shape.getPlaceholder() is None}")
+        print(f"Same shape retained: {slide.getShapes().get_Item(index) == shape}")
+        print(f"Shape count unchanged: {slide.getShapes().size() == shape_count}")
+
+        # Der Aufruf der Methode auf einer gewöhnlichen Form hat keine Wirkung.
+        shape.removePlaceholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+finally:
+    presentation.dispose()
+```
+
+Für einen passenden Platzhalter geben alle drei Prüfungen `True` zurück. Der Text bleibt erhalten, aber vererbte Position, Größe, Drehung, Schriftart, Absatzausrichtung, Textfeld‑Abstände, vertikale Verankerung, Füll‑ und Linieneinstellungen können sich ändern, wenn die Platzhalter‑Beziehung entfernt wird. Beispielsweise kann die vererbte Titel‑Formatierung zur normalen Text‑Formatierung zurückfallen. Siehe [Folienlayout](/slides/de/python-java/slide-layout/) für weitere Informationen zu Layouts.
+
+Um das gewünschte Aussehen beizubehalten, erfassen Sie vor dem Aufruf die aufgelöste Position, Größe und Drehung und kopieren die erforderlichen effektiven Formatierungswerte in separate Variablen. Rufen Sie diese Werte über [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), [ParagraphFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getEffective), [TextFrameFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#getEffective), [FillFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getEffective) und [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) ab. Verlassen Sie sich nicht ausschließlich auf die effektiven Format-Objekte, da deren Textformatierungswerte nach dem Entfernen der Beziehung geändert werden können. Wenden Sie die erfassten Werte anschließend explizit auf die gewöhnliche Form an, einschließlich Schriftfamilie, Größe, Stil, Farbe, Absatz‑Einstellungen, Text‑Frame‑Einstellungen, Füllung und Linie, die in Ihrer Vorlage verwendet werden.
+
+Vererbte Formgeometrie muss möglicherweise ebenfalls explizit über [GeometryShape.setShapeType](https://reference.aspose.com/slides/python-java/aspose.slides/geometryshape/#setShapeType) zugewiesen werden. Für einen rechteckigen Text‑Platzhalter bedeutet dies die Zuweisung von [ShapeType.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/shapetype/#Rectangle); das Wiederherstellen von nur Füllung und Linie stellt das sichtbare Rechteck möglicherweise nicht wieder her. Vorlagen mit zusätzlichen Effekten oder komplexerer Formatierung erfordern ebenfalls die Behandlung dieser Einstellungen.
 
 ## **Text in einem Platzhalter ändern**
 
-Titel‑, zentrierte‑Titel‑, Untertitel‑, Text‑ und Inhaltsplatzhalter unterstützen normalerweise Text. Prüfen Sie vor der Verwendung von [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/) dessen [getTextFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/#getTextFrame)-Methode.
+Titel‑, zentrierte Titel‑, Untertitel‑, Text‑ und Inhalts‑Platzhalter unterstützen normalerweise Text. Prüfen Sie auf [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/), bevor Sie dessen [getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#getTextFrame)-Methode verwenden.
 
-Dieses Beispiel aktualisiert den ersten Titelplatzhalter auf der ersten Folie und speichert das Ergebnis:
+Dieses Beispiel aktualisiert den ersten Titel‑Platzhalter auf der ersten Folie und speichert das Ergebnis:
 
 ```python
 import jpype
@@ -128,13 +190,13 @@ finally:
     presentation.dispose()
 ```
 
-Dieses Muster vermeidet das Behandeln von Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhaltern als [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/). Es identifiziert den Platzhalter zudem nach Zweck statt anhand eines fragilen Form‑Index.
+Dieses Muster verhindert, dass Bild‑, Diagramm‑, Tabellen‑ oder Medien‑Platzhalter als [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) behandelt werden. Es identifiziert den Platzhalter außerdem nach Zweck, anstatt sich auf einen anfälligen Form‑Index zu verlassen.
 
-## **Prompt‑Text auf einem Layout festlegen**
+## **Aufforderungstext in einem Layout festlegen**
 
-Prompt‑Text ist die Design‑Zeit‑Anweisung, die in einem leeren Platzhalter angezeigt wird, z. B. *Klicken Sie, um Titel hinzuzufügen*. Legen Sie benutzerdefinierten Prompt‑Text auf dem Layout‑Platzhalter fest, anstatt zu versuchen, ihn über die Form‑Sammlung einer normalen Folie zu erreichen. Greifen Sie über [Slide.getLayoutSlide](https://reference.aspose.com/slides/de/python-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die Sammlung, die von [BaseSlide.getShapes](https://reference.aspose.com/slides/de/python-java/aspose.slides/baseslide/#getShapes) zurückgegeben wird.
+Aufforderungstext ist die Design‑Zeit‑Anweisung, die in einem leeren Platzhalter angezeigt wird, z. B. *Click to add title*. Setzen Sie benutzerdefinierten Aufforderungstext auf dem Layout‑Platzhalter, anstatt zu versuchen, über die Form‑Sammlung einer normalen Folie darauf zuzugreifen. Greifen Sie über [Slide.getLayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#getLayoutSlide) auf das Layout zu und iterieren Sie über die von [BaseSlide.getShapes](https://reference.aspose.com/slides/python-java/aspose.slides/baseslide/#getShapes) zurückgegebene Sammlung.
 
-Das folgende Beispiel ändert die Titel‑ und Untertitel‑Prompts im Layout, das von der ersten Folie verwendet wird:
+Das folgende Beispiel ändert die Titel‑ und Untertitel‑Aufforderungen im Layout, das von der ersten Folie verwendet wird:
 
 ```python
 import jpype
@@ -168,16 +230,16 @@ finally:
     presentation.dispose()
 ```
 
-Prompt‑Text ist kein normaler Folieninhalt. Er ist für leere Platzhalter in Bearbeitungs‑Apps wie PowerPoint gedacht. Sobald ein Benutzer oder ein Programm echten Inhalt liefert, wird der Prompt nicht mehr angezeigt. Das Ändern eines Prompts ersetzt zudem nicht den bereits vorhandenen Text auf Folien, die das Layout verwenden.
+Aufforderungstext ist kein normaler Folieninhalt. Er ist für leere Platzhalter in Bearbeitungs‑Anwendungen wie PowerPoint vorgesehen. Sobald ein Benutzer oder ein Programm echten Inhalt bereitstellt, wird die Aufforderung nicht mehr angezeigt. Das Ändern einer Aufforderung ersetzt ebenfalls nicht den bestehenden Text auf Folien, die das Layout verwenden.
 
-## **Ein Bild‑Platzhalter aktualisieren**
+## **Bild‑Platzhalter aktualisieren**
 
-Es gibt zwei Fälle zu behandeln:
+Es gibt zwei zu behandelnde Fälle:
 
-- Wenn der Bild‑Platzhalter bereits befüllt ist und durch ein [PictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframe/) repräsentiert wird, ersetzen Sie das Bild über [PictureFillFormat.getPicture](https://reference.aspose.com/slides/de/python-java/aspose.slides/picturefillformat/#getPicture) und [Picture.setImage](https://reference.aspose.com/slides/de/python-java/aspose.slides/picture/#setImage).
-- Wenn es noch ein leerer Platzhalter ist, fügen Sie ein Bild‑Frame an den Koordinaten des Platzhalters mit [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/shapecollection/#addPictureFrame) hinzu und entfernen Sie den leeren Platzhalter.
+- Wenn der Bild‑Platzhalter bereits gefüllt ist und durch einen [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) repräsentiert wird, ersetzen Sie das Bild über [PictureFillFormat.getPicture](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#getPicture) und [Picture.setImage](https://reference.aspose.com/slides/python-java/aspose.slides/picture/#setImage).
+- Wenn er noch ein leerer Platzhalter ist, fügen Sie einen Bildrahmen an den Koordinaten des Platzhalters mit [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/shapecollection/#addPictureFrame) hinzu und entfernen den leeren Platzhalter.
 
-Das nächste Beispiel unterstützt beide Fälle und speichert die Präsentation:
+Das folgende Beispiel unterstützt beide Fälle und speichert die Präsentation:
 
 ```python
 from pathlib import Path
@@ -219,13 +281,13 @@ finally:
     presentation.dispose()
 ```
 
-Der Ersatz, der für einen leeren Platzhalter erstellt wird, ist ein lokales Bild‑Frame, kein neuer Platzhalter, weil [Shape.getPlaceholder](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getPlaceholder) keinen Setter bereitstellt. Er behält die reservierte Position bei, erbt jedoch kein platzhalterspezifisches Verhalten mehr. Wenn die Beibehaltung der Platzhalter‑Beziehung wesentlich ist, sollten Sie den Platzhalter zunächst in PowerPoint vorbereiten und befüllen und anschließend das resultierende [PictureFrame](https://reference.aspose.com/slides/de/python-java/aspose.slides/pictureframe/) mit Aspose.Slides aktualisieren.
+Der für einen leeren Platzhalter erstellte Ersatz ist ein lokaler Bildrahmen, kein neuer Platzhalter, da [Shape.getPlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getPlaceholder) keinen Setter bereitstellt. Er behält die reservierte Position bei, erbt jedoch nicht mehr das platzhalterspezifische Verhalten. Wenn das Beibehalten der Platzhalter‑Beziehung entscheidend ist, bereiten Sie den Platzhalter zuerst in PowerPoint vor und füllen ihn, dann aktualisieren Sie das resultierende [PictureFrame](https://reference.aspose.com/slides/python-java/aspose.slides/pictureframe/) mit Aspose.Slides.
 
-Für Bild‑Transparenz, Zuschneiden und andere bild‑spezifische Effekte siehe [Manage Picture Frames](/slides/de/python-java/picture-frame/). Diese Vorgänge betreffen das Bild‑Frame bzw. den Bild‑Füllbereich, nicht die Platzhalter‑Metadaten.
+Für Bildtransparenz, Zuschneiden und andere bildspezifische Effekte siehe [Bildrahmen verwalten](/slides/de/python-java/picture-frame/). Diese Vorgänge betreffen den Bildrahmen oder das Bild‑Füllformat, nicht die Platzhalter‑Metadaten.
 
 ## **Arbeiten mit Diagramm‑ und Inhalts‑Platzhaltern**
 
-Ein befüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/de/python-java/aspose.slides/chart/) dargestellt werden. Dieses Beispiel findet ein solches Diagramm anhand sowohl des Platzhaltertyps als auch des Laufzeittyps, ändert dessen Titel und speichert die Datei:
+Ein gefüllter Diagramm‑Platzhalter kann durch ein [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/) repräsentiert werden. Dieses Beispiel findet ein solches Diagramm sowohl nach Platzhaltertyp als auch nach Laufzeit‑Typ, ändert dessen Titel und speichert die Datei:
 
 ```python
 import jpype
@@ -260,9 +322,9 @@ finally:
     presentation.dispose()
 ```
 
-Ein allgemeiner Inhalts‑Platzhalter hat normalerweise [PlaceholderType.Object](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint fungiert er als Launcher für mehrere Inhaltsarten, einschließlich Diagramme, Tabellen, Diagramme, Bilder und Medien. Nachdem er befüllt wurde, prüfen Sie den tatsächlichen Formtyp, um zu erfahren, was er enthält. Spezialisierte Layouts können auch [PlaceholderType.Chart](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Media) oder [PlaceholderType.Diagram](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholdertype/#Diagram) aufweisen.
+Ein allgemeiner Inhalts‑Platzhalter hat in der Regel [PlaceholderType.Object](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Object). In PowerPoint dient er als Launcher für mehrere Inhaltstypen, einschließlich Diagramme, Tabellen, Diagramme, Bilder und Medien. Nachdem er gefüllt wurde, untersuchen Sie den tatsächlichen Formtyp, um zu erfahren, was er enthält. Spezialisierte Layouts können auch [PlaceholderType.Chart](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Media) oder [PlaceholderType.Diagram](https://reference.aspose.com/slides/python-java/aspose.slides/placeholdertype/#Diagram) aus.
 
-Aspose.Slides konvertiert einen leeren [AutoShape](https://reference.aspose.com/slides/de/python-java/aspose.slides/autoshape/)‑Platzhalter nicht in ein [Chart](https://reference.aspose.com/slides/de/python-java/aspose.slides/chart/) allein durch Ändern von [Placeholder.getType](https://reference.aspose.com/slides/de/python-java/aspose.slides/placeholder/#getType); der Typ kann über die API nicht geändert werden. Um ein leeres Diagramm‑ oder Inhalts‑Gebiet programmgesteuert zu füllen, fügen Sie das gewünschte Objekt an den Koordinaten des Platzhalters hinzu und entfernen anschließend den leeren Platzhalter. Das folgende Beispiel erledigt dies für ein Diagramm:
+Aspose.Slides konvertiert einen leeren [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/)‑Platzhalter nicht in ein [Chart](https://reference.aspose.com/slides/python-java/aspose.slides/chart/), nur indem [Placeholder.getType](https://reference.aspose.com/slides/python-java/aspose.slides/placeholder/#getType) geändert wird; der Typ kann über die API nicht geändert werden. Um ein leeres Diagramm‑ oder Inhaltsfeld programmgesteuert zu füllen, fügen Sie das erforderliche Objekt an den Koordinaten des Platzhalters hinzu und entfernen dann den leeren Platzhalter. Das folgende Beispiel macht dies für ein Diagramm:
 
 ```python
 import jpype
@@ -300,11 +362,11 @@ finally:
     presentation.dispose()
 ```
 
-Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die spezialisierten [chart management articles](/slides/de/python-java/powerpoint-charts/), wenn Sie Kategorien, Serien oder Arbeitsblattdaten ersetzen müssen.
+Das hinzugefügte Diagramm ist ein gewöhnliches lokales Diagramm. Es belegt den Bereich des Platzhalters, erbt jedoch nicht vom Layout‑Platzhalter. Verwenden Sie die speziellen [Diagramm‑Verwaltungsartikel](/slides/de/python-java/powerpoint-charts/), wenn Sie dessen Kategorien, Reihen oder Arbeitsbuch‑Daten ersetzen müssen.
 
-## **Komplettes Beispiel: Text‑ oder Bild‑Inhalt aktualisieren**
+## **Vollständiges Beispiel: Text- oder Bildinhalt aktualisieren**
 
-Das folgende End‑zu‑Ende‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel vermeidet bewusst die Annahme eines Form‑Index oder das Behandeln jedes Platzhalters als denselben Typ.
+Das folgende End‑to‑End‑Beispiel öffnet eine Vorlage, durchsucht die erste Folie nach einem Titel‑ oder Bild‑Platzhalter, prüft die Platzhalter‑ und Formtypen, aktualisiert den entsprechenden Inhalt und speichert das Ergebnis. Das Beispiel verzichtet bewusst darauf, einen Form‑Index anzunehmen oder jeden Platzhalter als denselben Typ zu behandeln.
 
 ```python
 from pathlib import Path
@@ -359,12 +421,12 @@ finally:
 
 **Was ist ein Basis‑Platzhalter?**
 
-Ein Basis‑Platzhalter ist die entsprechende Form im Layout oder Master, von der ein anderer Platzhalter erbt. Verwenden Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/de/python-java/aspose.slides/shape/#getBasePlaceholder), um ihn abzurufen. Eine gewöhnliche lokale Form liefert `None`, weil sie nicht Teil der Platzhalter‑Hierarchie ist.
+Ein Basis‑Platzhalter ist die entsprechende Form im Layout oder Master, von der ein anderer Platzhalter erbt. Verwenden Sie [Shape.getBasePlaceholder](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getBasePlaceholder), um ihn abzurufen. Eine gewöhnliche lokale Form gibt `None` zurück, weil sie nicht Teil der Platzhalter‑Hierarchie ist.
 
 **Kann ich alle Folientitel ändern, indem ich einen Layout‑Platzhalter bearbeite?**
 
-Sie können über ein Layout vererbte Formatierungen oder Prompt‑Texte ändern, aber vorhandene Titelinhalte sind in den normalen Folien gespeichert. Um den tatsächlichen Titeltext in einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren jeden Titel‑Platzhalter.
+Sie können die geerbte Formatierung oder den Aufforderungstext über ein Layout ändern, aber der vorhandene Titelinhalt ist in den normalen Folien gespeichert. Um den tatsächlichen Titeltext in einer gesamten Präsentation zu ersetzen, iterieren Sie über die Folien und aktualisieren jeden Titel‑Platzhalter.
 
-**Wie verwalte ich Datums‑, Folien‑Nummer‑, Kopf‑ und Fußzeilen‑Platzhalter?**
+**Wie verwalte ich Datums‑, Folien‑Nummer‑, Kopf‑ und Fuß‑Platzhalter?**
 
-Verwenden Sie die Header‑ und Footer‑Manager auf der jeweiligen Folien‑, Layout‑, Master‑, Notizen‑ oder Handout‑Ebene. Siehe [Manage Presentation Header and Footer](/slides/de/python-java/presentation-header-and-footer/) für vollständige Beispiele.
+Verwenden Sie die Kopf‑ und Fußzeilen‑Manager im jeweiligen Folien‑, Layout‑, Master‑, Notiz‑ oder Handout‑Bereich. Siehe [Präsentationskopf‑ und Fußzeilen verwalten](/slides/de/python-java/presentation-header-and-footer/) für vollständige Beispiele.

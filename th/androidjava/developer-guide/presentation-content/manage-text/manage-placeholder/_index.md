@@ -1,6 +1,6 @@
 ---
-title: จัดการ Placeholder ของงานนำเสนอบน Android
-linktitle: จัดการ Placeholder
+title: จัดการตัวแทนตำแหน่งการนำเสนอบน Android
+linktitle: จัดการตัวแทนตำแหน่ง
 type: docs
 weight: 10
 url: /th/androidjava/manage-placeholder/
@@ -10,42 +10,42 @@ keywords:
 - ตัวแทนตำแหน่งรูปภาพ
 - ตัวแทนตำแหน่งแผนภูมิ
 - ตัวแทนตำแหน่งเนื้อหา
-- ข้อความ Prompt
+- ข้อความแจ้งเตือน
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีตรวจสอบและแก้ไขตัวแทนตำแหน่งข้อความ, รูปภาพ, แผนภูมิ และเนื้อหา รวมถึงทำความเข้าใจการสืบทอดของ placeholder ด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
+description: "เรียนรู้วิธีตรวจสอบและแก้ไขตัวแทนตำแหน่งข้อความ, รูปภาพ, แผนภูมิ และเนื้อหา รวมถึงเข้าใจการสืบทอดตัวแทนตำแหน่งด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับเนื้อหาประเภทหนึ่งในเทมเพลตการนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder สำหรับหัวเรื่อง, เนื้อหา, รูปภาพ, แผนภูมิ, และ placeholder เนื้อหาทั่วไป ไม่เหมือนรูปทรงทั่วไป Placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบ, และการตั้งค่าอื่น ๆ จากสไลด์เลย์เอาต์หรือสไลด์มาสเตอร์
+Placeholder คือรูปทรงที่สงวนตำแหน่งสำหรับเนื้อหาชนิดหนึ่งในเทมเพลตงานนำเสนอ ตัวอย่างทั่วไปได้แก่ placeholder ของหัวข้อ, เนื้อหา, รูปภาพ, แผนภูมิ, และ placeholder เนื้อหาทั่วไป ต่างจากรูปทรงปกติ placeholder สามารถสืบทอดตำแหน่ง, ขนาด, การจัดรูปแบบ และการตั้งค่าอื่น ๆ จากสไลด์เลย์เอาต์หรือสไลด์มาสเตอร์ได้
 
-Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านวิธีการ [IShape.getPlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) วิธีการนี้จะคืนค่าอ็อบเจ็กต์ [IPlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholder/) หรือ `null` สำหรับรูปทรงทั่วไป ใช้ [IPlaceholder.getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholder/) เพื่อตรวจสอบว่า placeholder มีวัตถุประสงค์จะบรรจุอะไร
+Aspose.Slides เปิดเผยข้อมูล placeholder ผ่านเมธอด [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) เมธอดนี้จะคืนค่าอ็อบเจ็กต์ [IPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) หรือ `null` สำหรับรูปทรงปกติ ใช้ [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) เพื่อตรวจสอบ placeholder มีจุดประสงค์เพื่อเก็บอะไร
 
-รูปแบบของรูปทรงยังคงสำคัญหลังจากที่คุณทราบประเภทของ placeholder แล้ว:
+อินเทอร์เฟซของรูปทรงยังคงสำคัญหลังจากทราบประเภทของ placeholder:
 
-- Placeholder ที่ว่างเปล่าสำหรับข้อความ, รูปภาพ, แผนภูมิ, หรือเนื้อหามักจะแทนด้วย [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)  
-- Placeholder รูปภาพที่มีเนื้อหาแล้วสามารถแทนด้วย [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/)  
-- Placeholder แผนภูมิที่มีเนื้อหาแล้วสามารถแทนด้วย [IChart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/)  
-- Placeholder เนื้อหาอาจบรรจุหลายประเภทของเนื้อหา ตรวจสอบทั้ง [IPlaceholder.getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholder/) และอินเทอร์เฟซของรูปทรงในช่วงเวลารันไทม์ แทนที่จะสมมติว่า placeholder ทุกอันเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
+- placeholder ของข้อความ, รูปภาพ, แผนภูมิ หรือเนื้อหาที่ว่างเปล่ามักจะแสดงด้วย [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)  
+- placeholder ของรูปภาพที่มีเนื้อหาแล้วสามารถแสดงด้วย [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/)  
+- placeholder ของแผนภูมิที่มีเนื้อหาแล้วสามารถแสดงด้วย [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/)  
+- placeholder ของเนื้อหาอาจมีหลายประเภท ตรวจสอบทั้ง [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) และอินเทอร์เฟซของรูปทรงในช่วงเวลารันไทม์ แทนการสันนิษฐานว่า placeholder ทั้งหมดเป็น [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholder/) ระบุบทบาทของ placeholder; แต่ไม่ได้รับประกันประเภทของรูปทรงในช่วงเวลารันไทม์ ควรตรวจสอบประเภทเสมอก่อนเข้าถึงสมาชิกที่เกี่ยวกับข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่ออื่น ๆ
+[IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) บรรยายบทบาทของ placeholder; มันไม่ได้รับประกันประเภทของรูปทรงในช่วงเวลารันไทม์ ควรตรวจสอบประเภทก่อนเข้าถึงสมาชิกของข้อความ, รูปภาพ, แผนภูมิ, ตาราง หรือสื่ออื่น
 {{% /alert %}}
 
 ## **ทำความเข้าใจการสืบทอด Placeholder**
 
-Placeholders มีโครงสร้างเป็นลำดับขั้น:
+Placeholder สร้างเป็นลำดับชั้น:
 
-1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และบางครั้งอาจมี placeholder ระดับมาสเตอร์
-2. สไลด์เลย์เอาต์กำหนดการจัดเรียงที่ใช้โดยสไลด์ปกติหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์ได้
-3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลย์เอาต์ของมันได้
+1. สไลด์มาสเตอร์กำหนดสไตล์ที่ใช้ซ้ำได้และบางกรณีอาจมี placeholder ระดับมาสเตอร์
+2. สไลด์เลย์เอาต์กำหนดการจัดเรียงที่ใช้โดยสไลด์ปกติเพิ่มเติมหนึ่งหรือหลายสไลด์และสามารถสืบทอดจากมาสเตอร์
+3. สไลด์ปกติมี placeholder ของสไลด์นั้นและสามารถสืบทอดจากเลย์เอาต์ของมัน
 
-เรียกใช้ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) เพื่อเลื่อนระดับหนึ่งขึ้นในลำดับขั้น สไลด์ placeholder โดยทั่วไปจะคืนค่า placeholder ของเลย์เอาต์; placeholder ของเลย์เอาต์อาจคืนค่า placeholder ของมาสเตอร์ วิธีการนี้จะคืนค่า `null` เมื่อรูปทรงไม่มี base placeholder
+เรียกใช้ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) เพื่อย้ายขึ้นหนึ่งระดับในลำดับชั้นนี้ สไลด์ placeholder จะคืนค่า placeholder ของเลย์เอาต์; placeholder ของเลย์เอาต์อาจคืนค่า placeholder ของมาสเตอร์ เมธอดจะคืนค่า `null` เมื่อรูปทรงไม่มี base placeholder
 
-ตัวอย่างต่อไปนี้แสดงรายการ placeholder บนสไลด์แรกและรายงาน base placeholder ของพวกมัน:
+ตัวอย่างต่อไปนี้แสดงรายการ placeholder ในสไลด์แรกและรายงาน base placeholder ของแต่ละอัน:
 
 ```java
 import com.aspose.slides.*;
@@ -86,13 +86,75 @@ try {
 }
 ```
 
-การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการทับซ้อนระดับท้องถิ่นสำหรับสไลด์นั้น การแก้ไขเลย์เอาต์หรือมาสเตอร์ที่เกี่ยวข้องอาจส่งผลต่อสไลด์ทั้งหมดที่ยังคงสืบทอดการตั้งค่านั้น รูปทรงธรรมดาท้องถิ่นที่ไม่มี base placeholder จะไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน
+การแก้ไข placeholder บนสไลด์ปกติจะสร้างหรือเปลี่ยนการแทนที่เฉพาะสำหรับสไลด์นั้น การแก้ไขเลย์เอาต์หรือมาสเตอร์ที่เกี่ยวข้องจะส่งผลต่อสไลด์ทั้งหมดที่ยังสืบทอดการตั้งค่านั้น รูปทรงปกติที่เป็นชั้นท้องถิ่นไม่มี base placeholder และไม่เริ่มสืบทอดเพียงเพราะอยู่ในพิกัดเดียวกัน
+
+## **ลบสถานะ Placeholder**
+
+เมื่อปรับแต่งเทมเพลต ให้ใช้เมธอด [IShape.removePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#removePlaceholder--) เพื่อเก็บอ็อบเจ็กต์ที่มีอยู่เป็นรูปทรงปกติ เมธอด [getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getPlaceholder--) จะคืนค่า `null` แต่รูปทรงยังคงอยู่ในคอลเลกชันของสไลด์ ในทางตรงกันข้ามเมธอด [IShapeCollection.remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) จะลบรูปทรงออกจากคอลเลกชันนั้น
+
+ตัวอย่างต่อไปนี้ต้องการไฟล์ `template.pptx` ที่มีอย่างน้อยหนึ่งสไลด์และ placeholder ข้อความที่ไม่ว่างเปล่าในสไลด์แรก ใช้ placeholder ที่สืบทอดการจัดรูปแบบจากเลย์เอาต์หรือมาสเตอร์เพื่อดูผลลัพธ์ของการลบความสัมพันธ์ ตัวอย่างจะตรวจสอบว่ารูปทรงเดียวกันยังคงอยู่, เรียกเมธอดอีกครั้งบนรูปทรงที่กลายเป็นธรรมดา, แล้วบันทึกผลลัพธ์
+
+{{% alert color="warning" title="Warning" %}}
+การลบสถานะ placeholder ไม่ได้ทำให้การตั้งค่าการแสดงผลที่สืบทอดโดยอัตโนมัติ คอยตั้งค่าเหล่านั้นไว้ไม่เปลี่ยนแปลง ตัวอย่างด้านล่างจึงทิ้งการตั้งค่าเดิมไว้ ดังนั้นผลลัพธ์อาจดูแตกต่าง รูปทรงที่ตำแหน่งและขนาดสืบทอดทั้งหมดอาจเหลือค่าพิกัดและมิติเป็นศูนย์หลังการเรียกและกลายเป็นไม่มองเห็นได้ แม้ยังคงอยู่ในคอลเลกชัน
+{{% /alert %}}
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean found = false;
+
+    for (int index = 0; index < slide.getShapes().size(); index++) {
+        IShape candidate = slide.getShapes().get_Item(index);
+        if (!(candidate instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape shape = (IAutoShape) candidate;
+        ITextFrame textFrame = shape.getTextFrame();
+        if (shape.getPlaceholder() == null ||
+            textFrame == null ||
+            textFrame.getText() == null ||
+            textFrame.getText().isEmpty()) {
+            continue;
+        }
+
+        int shapeCount = slide.getShapes().size();
+        shape.removePlaceholder();
+
+        System.out.println("Placeholder removed: " + (shape.getPlaceholder() == null));
+        System.out.println("Same shape retained: " + (slide.getShapes().get_Item(index) == shape));
+        System.out.println("Shape count unchanged: " + (slide.getShapes().size() == shapeCount));
+
+        // การเรียกเมธอดบนรูปทรงปกติไม่มีผล.
+        shape.removePlaceholder();
+        found = true;
+        break;
+    }
+
+    if (found) {
+        presentation.save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("No nonempty text placeholder was found on the first slide.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+สำหรับ placeholder ที่ตรงกัน การตรวจสอบทั้งสามอย่างจะพิมพ์ `true` ข้อความยังคงอยู่ แต่ตำแหน่ง, ขนาด, การหมุน, ฟอนต์, การจัดย่อหน้า, ระยะขอบของ text‑frame, การยึดแนวตั้ง, การเติม, และการกำหนดเส้นอาจเปลี่ยนเมื่อความสัมพันธ์ placeholder ถูกลบ ตัวอย่างเช่น การจัดรูปแบบหัวข้อที่สืบทอดอาจกลับไปใช้การจัดรูปแบบข้อความธรรมดา ดูเพิ่มเติมเกี่ยวกับเลย์เออต์ในบทความ [Slide Layout](/slides/th/androidjava/slide-layout/)
+
+เพื่อคงลักษณะการแสดงที่ต้องการ ให้บันทึกตำแหน่ง, ขนาด, และการหมุนที่ได้คำนวนแล้วก่อนทำการลบ แล้วคัดลอกค่าการจัดรูปแบบที่มีผลจริงลงในตัวแปรแยกต่างหาก ดึงค่าดังกล่าวผ่านเมธอด [IPortionFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iportionformat/#getEffective--), [IParagraphFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraphformat/#getEffective--), [ITextFrameFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframeformat/#getEffective--), [IFillFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getEffective--), และ [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) อย่าพึ่งพาแค่วัตถุ effective‑format เนื่องจากค่าการจัดรูปแบบข้อความอาจเปลี่ยนหลังการลบ ให้นำค่าที่บันทึกไว้ไปใช้กับรูปทรงธรรมดาหลังจากนั้นอย่างชัดเจน รวมถึงฟอนต์, ขนาด, สไตล์, สี, การตั้งค่าข้อความ, การตั้งค่า text‑frame, การเติม, และเส้นที่เทมเพลตของคุณใช้
+
+เรขาคณิตของรูปทรงที่สืบทอดอาจต้องกำหนดอย่างเจาะจงผ่านเมธอด [IGeometryShape.setShapeType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igeometryshape/#setShapeType-int-) สำหรับ placeholder ของข้อความสี่เหลี่ยม จะต้องกำหนด [ShapeType.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/shapetype/#Rectangle) การคืนค่าเพียงการเติมและเส้นอาจไม่ทำให้สี่เหลี่ยมมองเห็นได้ เทมเพลตที่มีเอฟเฟกต์เพิ่มเติมหรือการจัดรูปแบบที่ซับซ้อนต้องจัดการตั้งค่าเหล่านั้นด้วย
 
 ## **เปลี่ยนข้อความใน Placeholder**
 
-Placeholder สำหรับหัวเรื่อง, centered‑title, subtitle, body, และข้อความมักสนับสนุนข้อความ ตรวจสอบว่าเป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ก่อนใช้เมธอด [getTextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
+Placeholder ของหัวข้อ, centered‑title, subtitle, body, และข้อความทั่วไปมักรองรับข้อความ ตรวจสอบว่ารูปทรงเป็น [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ก่อนเรียกเมธอด [getTextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/)
 
-ตัวอย่างนี้อัปเดต placeholder หัวเรื่องแรกบนสไลด์แรกและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้อัปเดต placeholder ของหัวข้อแรกบนสไลด์แรกและบันทึกผลลัพธ์:
 
 ```java
 import com.aspose.slides.*;
@@ -131,13 +193,13 @@ try {
 }
 ```
 
-รูปแบบนี้หลีกเลี่ยงการแคสต์ placeholder ที่เป็นรูปภาพ, แผนภูมิ, ตาราง หรือสื่อให้เป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) อีกทั้งยังระบุ placeholder ตามวัตถุประสงค์แทนการอ้างอิงตามดัชนีรูปทรงที่เปราะบาง
+รูปแบบนี้หลีกเลี่ยงการแคสท์รูปภาพ, แผนภูมิ, ตาราง หรือ placeholder สื่ออื่นเป็น [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) อีกทั้งยังระบุ placeholder ตามวัตถุประสงค์แทนการพึ่งพาดัชนีรูปทรงที่อ่อนแรง
 
-## **ตั้งข้อความ Prompt บน Layout**
+## **กำหนด Prompt Text บน Layout**
 
-Prompt text คือคำแนะนำที่แสดงใน placeholder ที่ว่างเปล่าในระหว่างการออกแบบ เช่น *คลิกเพื่อเพิ่มหัวเรื่อง* ตั้งข้อความ Prompt ที่กำหนดเองบน placeholder ของเลย์เอาต์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลย์เอาต์ผ่าน [ISlide.getLayoutSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/) และวนลูปคอลเลกชันที่คืนโดย [ILayoutSlide.getShapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseslide/)
+Prompt text คือข้อความแนะนำในช่วงออกแบบที่แสดงใน placeholder ว่าง เช่น *Click to add title* ให้ตั้งค่า prompt text บน placeholder ของเลย์เอาต์แทนการพยายามเข้าถึงผ่านคอลเลกชันรูปทรงของสไลด์ปกติ เข้าถึงเลย์เอาต์ผ่านเมธอด [ISlide.getLayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/) แล้ววนลูปคอลเลกชันที่คืนจาก [ILayoutSlide.getShapes](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ibaseslide/)
 
-ตัวอย่างต่อไปนี้เปลี่ยน Prompt ของหัวเรื่องและหัวเรื่องย่อยบนเลย์เอาต์ที่ใช้โดยสไลด์แรก:
+ตัวอย่างต่อไปนี้เปลี่ยน prompt ของหัวข้อและ subtitle บนเลย์เอาต์ที่ใช้โดยสไลด์แรก:
 
 ```java
 import com.aspose.slides.*;
@@ -172,16 +234,16 @@ try {
 }
 ```
 
-Prompt text ไม่ใช่เนื้อหาสไลด์ปกติ มันมีไว้สำหรับ placeholder ที่ว่างเปล่าในเครื่องมือแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริง Prompt จะไม่แสดงอีกต่อไป การเปลี่ยน Prompt ยังไม่ได้แทนที่ข้อความที่มีอยู่บนสไลด์ที่ใช้เลย์เอ็ตนั้น
+Prompt text ไม่ใช่เนื้อหาของสไลด์ปกติ ตั้งใจใช้กับ placeholder ว่างในแอปแก้ไขเช่น PowerPoint เมื่อผู้ใช้หรือโปรแกรมใส่เนื้อหาจริงแล้ว prompt จะไม่แสดงอีกแล้ว การเปลี่ยน prompt ยังไม่ทับข้อความที่มีอยู่บนสไลด์ที่ใช้เลย์เอาต์นั้น
 
-## **อัปเดต Picture Placeholder**
+## **อัปเดต Placeholder ของรูปภาพ**
 
-มีสองกรณีที่ต้องจัดการ:
+มีสองกรณีให้จัดการ:
 
-- หาก picture placeholder ถูกเติมแล้วและแทนด้วย [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) ให้แทนที่ภาพผ่าน [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipicturefillformat/) และ [ISlidesPicture.setImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidespicture/)
-- หากยังเป็น placeholder ที่ว่างเปล่า ให้เพิ่ม picture frame ที่พิกัดของ placeholder ด้วย [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapecollection/) แล้วลบ placeholder ที่ว่างเปล่าออก
+- หาก placeholder ของรูปภาพมีเนื้อหาแล้วและแสดงด้วย [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) ให้แทนที่รูปภาพผ่าน [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) และ [ISlidesPicture.setImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islidespicture/)
+- หากยังเป็น placeholder ว่าง ให้เพิ่ม picture frame ที่พิกัดของ placeholder ผ่าน [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishapecollection/) แล้วลบ placeholder ว่างออก
 
-ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกงานนำเสนอ:
+ตัวอย่างต่อไปนี้รองรับทั้งสองกรณีและบันทึกการนำเสนอ:
 
 ```java
 import com.aspose.slides.*;
@@ -223,13 +285,13 @@ try {
 }
 ```
 
-การแทนที่ที่สร้างขึ้นสำหรับ placeholder ที่ว่างเปล่าเป็น picture frame ท้องถิ่น ไม่ใช่ placeholder ใหม่ เนื่องจาก [IShape.getPlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) ไม่ได้มี setter มันยังคงตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder อีกต่อไป หากต้องการรักษาความสัมพันธ์ของ placeholder ควรเตรียมและเติม placeholder ใน PowerPoint ก่อน จากนั้นอัปเดต [IPictureFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides
+การแทนที่ที่สร้างสำหรับ placeholder ว่างจะเป็น picture frame ท้องถิ่น ไม่ได้เป็น placeholder ใหม่ เนื่องจาก [IShape.getPlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) ไม่มี setter มันจะรักษาตำแหน่งที่สงวนไว้แต่ไม่สืบทอดพฤติกรรมเฉพาะของ placeholder หากการรักษาความสัมพันธ์ของ placeholder มีความสำคัญ ควรเตรียมและเติม placeholder ใน PowerPoint ก่อน แล้วอัปเดต [IPictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipictureframe/) ที่ได้ด้วย Aspose.Slides
 
-สำหรับการปรับความโปร่งใสของภาพ, การครอป, และเอฟเฟ็กต์เฉพาะของรูปภาพอื่น ๆ ดูที่ [Manage Picture Frames](/slides/th/androidjava/picture-frame/) การดำเนินการเหล่านี้เป็นของ picture frame หรือ picture fill ไม่ใช่เมตาดาต้าของ placeholder
+สำหรับความโปร่งใสของรูปภาพ, การครอป, และเอฟเฟกต์อื่น ๆ ของรูปภาพ ดูบทความ [Manage Picture Frames](/slides/th/androidjava/picture-frame/) การดำเนินการเหล่านั้นเป็นของ picture frame หรือ picture fill ไม่ใช่เมตาดาทาของ placeholder
 
 ## **ทำงานกับ Chart และ Content Placeholder**
 
-Placeholder แผนภูมิที่เติมแล้วสามารถแทนด้วย [IChart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/) ตัวอย่างนี้ค้นหาแผนภูมิที่เป็นเช่นนั้นโดยตรวจสอบทั้งประเภทของ placeholder และอินเทอร์เฟซรันไทม์, เปลี่ยนหัวเรื่องของมัน, และบันทึกไฟล์:
+Placeholder ของแผนภูมิที่มีข้อมูลสามารถแสดงด้วย [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) ตัวอย่างนี้ค้นหาแผนภูมิดังกล่าวโดยดูทั้งประเภทของ placeholder และอินเทอร์เฟซรันไทม์, เปลี่ยนหัวเรื่อง, แล้วบันทึกไฟล์:
 
 ```java
 import com.aspose.slides.*;
@@ -264,9 +326,9 @@ try {
 }
 ```
 
-Placeholder เนื้อหาทั่วไปมักมี [PlaceholderType.Object](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/) ใน PowerPoint ทำหน้าที่เป็นตัวเรียกใช้หลายประเภทของเนื้อหา รวมถึงแผนภูมิ, ตาราง, ไดอะแกรม, รูปภาพ, และสื่อ หลังจากถูกเติมแล้ว ให้ตรวจสอบอินเทอร์เฟซรูปทรงจริงเพื่อทราบว่ามีอะไรบ้าง เลเอาต์เฉพาะบางประเภทอาจเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholdertype/)
+Content placeholder ทั่วไปมักมีค่า [PlaceholderType.Object](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/) ใน PowerPoint มันทำหน้าที่เป็นตัวเรียกหลายประเภทของเนื้อหา เช่น แผนภูมิ, ตาราง, ไดอะแกรม, รูปภาพ, และสื่อ หลังจากที่มีการเติมแล้ว ตรวจสอบอินเทอร์เฟซรูปทรงจริงเพื่อทราบว่ามีอะไรอยู่ Layout เฉพาะยังสามารถเปิดเผย [PlaceholderType.Chart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/), หรือ [PlaceholderType.Diagram](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholdertype/)
 
-Aspose.Slides ไม่ได้แปลง placeholder ที่เป็น [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ว่างเปล่าให้เป็น [IChart](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/) เพียงแค่เปลี่ยน [IPlaceholder.getType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/placeholder/) ; ประเภทไม่สามารถเปลี่ยนได้ผ่านอินเทอร์เฟซ เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาว่างเปล่าโปรแกรมmatically ให้เพิ่มอ็อบเจ็กต์ที่จำเป็นที่พิกัดของ placeholder แล้วลบ placeholder ที่ว่างเปล่าออก ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
+Aspose.Slides ไม่ได้แปลง placeholder ของ [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) ที่ว่างเป็น [IChart](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ichart/) เพียงโดยการเปลี่ยน [IPlaceholder.getType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/placeholder/) ; ประเภทไม่สามารถเปลี่ยนได้ผ่านอินเทอร์เฟซ เพื่อเติมแผนภูมิหรือพื้นที่เนื้อหาที่ว่างโดยโปรแกรม ให้เพิ่มอ็อบเจ็กต์ที่จำเป็นที่พิกัดของ placeholder แล้วลบ placeholder ว่างออก ตัวอย่างต่อไปนี้ทำเช่นนั้นสำหรับแผนภูมิ:
 
 ```java
 import com.aspose.slides.*;
@@ -303,11 +365,11 @@ try {
 }
 ```
 
-แผนภูมิที่เพิ่มเข้ามาเป็นแผนภูมิท้องถิ่นทั่วไป มันครอบพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลย์เอ็ต ใช้บทความการจัดการแผนภูมิที่เฉพาะเจาะจง [chart management articles](/slides/th/androidjava/powerpoint-charts/) เมื่อจำเป็นต้องแทนที่ประเภท, ชุดข้อมูล, หรือข้อมูลใน workbook
+แผนภูมิที่เพิ่มเข้ามาจะเป็นแผนภูมิท้องถิ่นทั่วไป จะครอบพื้นที่ของ placeholder แต่ไม่สืบทอดจาก placeholder ของเลย์เอาต์ ใช้บทความ [chart management articles](/slides/th/androidjava/powerpoint-charts/) เมื่อคุณต้องการแทนที่กลุ่มข้อมูล, ซีรีส์, หรือข้อมูลเวิร์กบุ๊กของแผนภูมิ
 
-## **ตัวอย่างครบถ้วน: อัปเดตข้อความหรือเนื้อหารูปภาพ**
+## **ตัวอย่างสมบูรณ์: อัปเดตข้อความหรือเนื้อหารูปภาพ**
 
-ตัวอย่างต่อไปนี้เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ที่เป็นหัวเรื่องหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสม, และบันทึกผลลัพธ์ ตัวอย่างนี้ตั้งใจหลีกเลี่ยงการสมมติว่ามีดัชนีรูปทรงหรือการแคสต์ placeholder ทุกอันเป็นอินเทอร์เฟซเดียวกัน
+ตัวอย่างต่อไปนี้เป็นการทำงานตั้งแต่ต้นจนจบ: เปิดเทมเพลต, ค้นหาสไลด์แรกสำหรับ placeholder ที่เป็นหัวข้อหรือรูปภาพ, ตรวจสอบประเภทของ placeholder และรูปทรง, อัปเดตเนื้อหาที่เหมาะสม, แล้วบันทึกผลลัพธ์ ตัวอย่างตั้งใจหลีกเลี่ยงการสันนิษฐานดัชนีรูปทรงหรือการแคสท์ placeholder ทุกอันให้เป็นอินเทอร์เฟซเดียวกัน
 
 ```java
 import com.aspose.slides.*;
@@ -362,16 +424,16 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**Placeholder ฐานคืออะไร?**
+**Base placeholder คืออะไร?**
 
-Placeholder ฐานคือรูปทรงที่สอดคล้องบนเลย์เออตหรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดมาจากมัน ใช้ [IShape.getBasePlaceholder](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) เพื่อดึงค่า placeholder ฐาน รูปทรงท้องถิ่นธรรมดาจะคืนค่า `null` เนื่องจากไม่ได้เป็นส่วนหนึ่งของโครงสร้าง hierarchy ของ placeholder
+Base placeholder คือรูปทรงที่สอดคล้องบนเลย์เอ็ตหรือมาสเตอร์ซึ่ง placeholder อื่นสืบทอดจากมัน ใช้เมธอด [IShape.getBasePlaceholder](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) เพื่อดึงค่า รูปทรงท้องถิ่นทั่วไปจะคืนค่า `null` เพราะไม่ได้เป็นส่วนหนึ่งของลำดับชั้น placeholder
 
-**ฉันสามารถเปลี่ยนหัวเรื่องของทุกสไลด์โดยแก้ไข placeholder ของเลย์เออตได้หรือไม่?**
+**ฉันสามารถเปลี่ยนหัวข้อทั้งหมดของสไลด์โดยแก้ไข layout placeholder ได้หรือไม่?**
 
-คุณสามารถเปลี่ยนการจัดรูปแบบหรือข้อความ Prompt ที่สืบทอดผ่านเลย์เออตได้ แต่เนื้อหาหัวเรื่องที่มีอยู่ถูกจัดเก็บบนสไลด์ปกติ เพื่อแทนที่ข้อความหัวเรื่องจริงทั่วทั้งงานนำเสนอ ให้วนลูปผ่านสไลด์และอัปเดตแต่ละ placeholder ของหัวเรื่อง
+คุณสามารถเปลี่ยนการจัดรูปแบบหรือ prompt text ที่สืบทอดผ่านเลย์เออต์ได้ แต่เนื้อหาหัวข้อที่มีอยู่ถูกจัดเก็บบนสไลด์ปกติ เพื่อแทนที่ข้อความหัวข้อจริง ๆ ทั่วทั้งงานนำเสนอ ให้วนลูปสไลด์และอัปเดตแต่ละ placeholder ของหัวข้อ
 
-**ฉันจะจัดการ placeholder ของวันที่, หมายเลขสไลด์, ส่วนหัวและส่วนท้ายอย่างไร?**
+**ฉันจะจัดการกับ placeholder ของวันที่, เลขสไลด์, ส่วนหัวและส่วนเท้าอย่างไร?**
 
-ใช้ตัวจัดการส่วนหัวและส่วนท้ายในระดับสไลด์, เลย์เออต, มาสเตอร์, โน้ต, หรือเอกสารแจกจ่ายตามความต้องการ ดูที่ [Manage Presentation Header and Footer](/slides/th/androidjava/presentation-header-and-footer/) สำหรับตัวอย่างที่ครบถ้วน
+ใช้ตัวจัดการส่วนหัวและส่วนเท้าที่สอดคล้องกับสไลด์, เลย์เออต์, มาสเตอร์, โน้ต, หรือ handout ดูบทความ [Manage Presentation Header and Footer](/slides/th/androidjava/presentation-header-and-footer/) เพื่อดูตัวอย่างที่สมบูรณ์

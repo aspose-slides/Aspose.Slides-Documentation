@@ -1,51 +1,51 @@
 ---
-title: Управление плейсхолдерами презентации в .NET
-linktitle: Управление плейсхолдерами
+title: Управление заполнителями презентации в .NET
+linktitle: Управление заполнителями
 type: docs
 weight: 10
 url: /ru/net/manage-placeholder/
 keywords:
-- плейсхолдер
-- текстовый плейсхолдер
-- плейсхолдер изображения
-- плейсхолдер диаграммы
-- плейсхолдер содержимого
+- заполнитель
+- текстовый заполнитель
+- графический заполнитель
+- заполнитель диаграммы
+- заполнитель содержимого
 - текст подсказки
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и содержательные плейсхолдеры, а также понять наследование плейсхолдеров с помощью Aspose.Slides для .NET."
+description: "Узнайте, как просматривать и редактировать текстовые, графические, диаграммные и содержательные заполнители, а также понять наследование заполнителей с помощью Aspose.Slides для .NET."
 ---
 ## **Обзор**
 
-Плейсхолдер — это фигура, резервирующая позицию для определённого типа контента в шаблоне презентации. Распространённые примеры — заголовок, основной текст, изображение, диаграмма и универсальные плейсхолдеры содержимого. В отличие от обычной фигуры, плейсхолдер может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑макета или слайда‑шаблона.
+Заполнитель — это объект, который резервирует позицию для определённого типа содержимого в шаблоне презентации. Распространённые примеры: заголовок, основной текст, изображение, диаграмма и универсальные заполнители содержимого. В отличие от обычного объекта, заполнитель может наследовать свою позицию, размер, форматирование и другие параметры от слайда‑макета или слайда‑мастера.
 
-Aspose.Slides предоставляет информацию о плейсхолдерах через свойство [IShape.Placeholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/placeholder/). Это свойство возвращает объект [IPlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/iplaceholder/) либо `null` для обычной фигуры. Используйте [IPlaceholder.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/iplaceholder/type/) для определения того, какой контент ожидается в плейсхолдере.
+Aspose.Slides предоставляет информацию о заполнятеле через свойство [IShape.Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/). Это свойство возвращает объект [IPlaceholder](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/) или `null` для обычного объекта. Используйте [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/) чтобы определить, что заполнитель предназначен хранить.
 
-Тип интерфейса фигуры остаётся важным, даже после того как известен тип плейсхолдера:
+Интерфейс объекта всё ещё важен после того, как вы узнали тип заполнителя:
 
-- Пустой текстовый, графический, диаграммный или контентный плейсхолдер обычно представляет [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/).
-- Заполненный графический плейсхолдер может быть представлен [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/).
-- Заполненный диаграммный плейсхолдер может быть представлен [IChart](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/).
-- Контентный плейсхолдер может содержать несколько типов контента. Проверяйте как [IPlaceholder.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/iplaceholder/type/), так и интерфейс фигуры во время выполнения, вместо предположения, что каждый плейсхолдер является [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/).
+- Пустой текстовый, графический, диаграммный или содержательный заполнитель обычно представляется объектом [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
+- Заполненный графический заполнитель может быть представлен объектом [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/).
+- Заполненный диаграммный заполнитель может быть представлен объектом [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/).
+- Содержательный заполнитель может включать несколько видов содержимого. Проверьте как [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/), так и интерфейс объекта во время выполнения, вместо того чтобы полагать, что каждый заполнитель является [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[IPlaceholder.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/iplaceholder/type/) описывает роль плейсхолдера; он не гарантирует тип фигуры во время выполнения. Всегда проверяйте тип перед доступом к членам, специфичным для текста, изображения, диаграммы, таблицы или медиа.
+[IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/) describes a placeholder's role; it does not guarantee the shape's runtime type. Always use a type check before accessing text, picture, chart, table, or media-specific members.
 {{% /alert %}}
 
-## **Понимание наследования плейсхолдеров**
+## **Понимание наследования заполнителей**
 
-Плейсхолдеры образуют иерархию:
+Заполнители образуют иерархию:
 
-1. Слайд‑шаблон (master) задаёт переиспользуемые стили и, в некоторых случаях, плейсхолдеры уровня шаблона.
-2. Слайд‑макет (layout) определяет расположение, используемое одним или несколькими обычными слайдами, и может наследовать от шаблона.
-3. Обычный слайд содержит плейсхолдеры для данного слайда и может наследовать от своего макета.
+1. Слайд‑мастер определяет переиспользуемые стили и, в некоторых случаях, заполнители уровня мастера.
+2. Слайд‑макет определяет расположение, используемое одним или несколькими обычными слайдами, и может наследоваться от мастера.
+3. Обычный слайд содержит заполнители для этого слайда и может наследоваться от своего макета.
 
-Вызовите [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) для перехода на один уровень выше в этой иерархии. Плейсхолдер слайда обычно возвращает свой плейтсхолдер макета; плейсхолдер макета может вернуть плейтсхолдер шаблона. Метод возвращает `null`, когда у фигуры нет базового плейсхолдера.
+Вызовите [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/getbaseplaceholder/) чтобы переместиться на один уровень выше в этой иерархии. Заполнитель слайда обычно возвращает свой заполнитель‑макет; заполнитель‑макет может вернуть свой заполнитель‑мастер. Метод возвращает `null`, если объект не имеет базового заполнителя.
 
-Следующий пример выводит список плейсхолдеров на первом слайде и их базовые плейсхолдеры:
+Следующий пример перечисляет заполнители на первом слайде и выводит их базовые заполнители:
 
 ```csharp
 using System;
@@ -81,13 +81,70 @@ foreach (var shape in slide.Shapes)
 }
 ```
 
-Редактирование плейсхолдера на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование соответствующего макета или шаблона может повлиять на все слайды, которые всё ещё наследуют эти настройки. Обычная локальная фигура не имеет базового плейсхолдера и не начинает наследовать просто потому, что занимает те же координаты.
+Редактирование заполнителя на обычном слайде создаёт или изменяет локальное переопределение для этого слайда. Редактирование связанного макета или мастера может повлиять на все слайды, которые всё ещё наследуют эту настройку. Обычный локальный объект не имеет базового заполнителя и не начинает наследовать просто потому, что занимает те же координаты.
 
-## **Изменение текста в плейсхолдере**
+## **Удаление статуса заполнителя**
 
-Плейсхолдеры заголовка, центрированного заголовка, подзаголовка, тела и текста обычно поддерживают текст. Проверьте, является ли фигура [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/), перед использованием её свойства [TextFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/textframe/).
+При адаптации шаблона используйте [IShape.RemovePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/removeplaceholder/) чтобы оставить существующий объект как обычный объект. Его свойство [Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) становится `null`, но объект остаётся в коллекции слайда. В отличие от этого, [IShapeCollection.Remove](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/remove/) удаляет объект из этой коллекции.
 
-Этот пример обновляет первый заголовочный плейсхолдер на первом слайде и сохраняет результат:
+Следующий пример требует файл `template.pptx` с минимум одним слайдом и непустым текстовым заполнителем на первом слайде. Используйте заполнитель с форматированием, унаследованным от его макета или мастера, чтобы увидеть эффект удаления этой связи. Пример проверяет, что тот же объект остаётся, вызывает метод снова для теперь обычного объекта и сохраняет результат.
+
+{{% alert color="warning" title="Warning" %}}
+Removing placeholder status does not automatically preserve inherited appearance settings. The example below deliberately leaves those settings unchanged, so the output may look different. A shape whose position and size are entirely inherited can have zero coordinates and dimensions after the call and become invisible even though it remains in the collection.
+{{% /alert %}}
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("template.pptx");
+var slide = presentation.Slides[0];
+var found = false;
+
+for (var index = 0; index < slide.Shapes.Count; index++)
+{
+    if (slide.Shapes[index] is not IAutoShape shape || 
+        shape.Placeholder == null || 
+        string.IsNullOrEmpty(shape.TextFrame?.Text))
+    {
+        continue;
+    }
+
+    var shapeCount = slide.Shapes.Count;
+    shape.RemovePlaceholder();
+
+    Console.WriteLine($"Placeholder removed: {shape.Placeholder == null}");
+    Console.WriteLine($"Same shape retained: {ReferenceEquals(slide.Shapes[index], shape)}");
+    Console.WriteLine($"Shape count unchanged: {slide.Shapes.Count == shapeCount}");
+
+    // Вызов метода на обычном объекте не имеет эффекта.
+    shape.RemovePlaceholder();
+    found = true;
+    break;
+}
+
+if (found)
+{
+    presentation.Save("placeholder-status-removed.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("No nonempty text placeholder was found on the first slide.");
+}
+```
+
+Для соответствующего заполнителя все три проверки выводят `True`. Текст остаётся, но унаследованные позиция, размер, вращение, шрифт, выравнивание абзаца, отступы текстового фрейма, вертикальная привязка, параметры заливки и линии могут измениться после удаления связи заполнителя. Например, унаследованное форматирование заголовка может вернуться к обычному форматированию текста. Смотрите [Макет слайда](/slides/ru/net/slide-layout/) для более подробной информации о макетах.
+
+Чтобы сохранить ожидаемый внешний вид, зафиксируйте вычисленные позицию, размер и вращение до вызова и скопируйте необходимые значения эффективного форматирования в отдельные переменные. Получите эти значения через [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/), [IParagraphFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/geteffective/), [ITextFrameFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/geteffective/), [IFillFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/geteffective/), и [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/). Не полагайтесь только на объекты эффективного форматирования, так как их значения текстового форматирования могут измениться после удаления связи. Явно примените полученные значения к обычному объекту после этого, включая семейство шрифта, размер, стиль, цвет, параметры абзаца, настройки текстового фрейма, заливку и линию, используемые в вашем шаблоне.
+
+Унаследованную геометрию объекта также может потребоваться задать явно через [IGeometryShape.ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/shapetype/). Для прямоугольного текстового заполнителя это означает назначить [ShapeType.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/shapetype/); восстановление только заливки и линии может не восстановить видимый прямоугольник. Шаблоны с дополнительными эффектами или более сложным форматированием требуют также обработки этих настроек.
+
+## **Изменение текста в заполнителе**
+
+Заполнители заголовка, центрированного заголовка, подзаголовка, основного текста и текста обычно поддерживают текст. Проверьте наличие [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) прежде чем использовать его свойство [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/).
+
+В этом примере обновляется первый заполнитель заголовка на первом слайде и сохраняется результат:
 
 ```csharp
 using System;
@@ -122,13 +179,13 @@ titleShape.TextFrame.Text = "Quarterly Business Review";
 presentation.Save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-Такой подход избегает приведения графических, диаграммных, табличных или медиа‑плейсхолдеров к [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/). Он также идентифицирует плейсхолдер по назначению, а не полагается на хрупкий индекс фигуры.
+Этот шаблон избегает приведения заполнителей изображений, диаграмм, таблиц или медиа к типу [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/). Он также определяет заполнитель по назначению, а не полагается на хрупкий индекс объекта.
 
 ## **Установка текста подсказки в макете**
 
-Текст подсказки — это инструктивный текст, отображаемый в пустом плейсхолдере во время проектирования, например *Щёлкните, чтобы добавить заголовок*. Устанавливайте пользовательский текст подсказки в плейсхолдере макета, а не через коллекцию фигур обычного слайда. Получите доступ к макету через [ISlide.LayoutSlide](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/layoutslide/) и пройдитесь по [ILayoutSlide.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides/ibaseslide/shapes/).
+Текст подсказки — это инструкция во время проектирования, отображаемая в пустом заполнителе, например *Click to add title*. Установите пользовательский текст подсказки в заполнителе макета, а не пытаясь получить к нему доступ через коллекцию объектов обычного слайда. Доступ к макету можно получить через [ISlide.LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/islide/layoutslide/) и перебирая [ILayoutSlide.Shapes](https://reference.aspose.com/slides/net/aspose.slides/ibaseslide/shapes/).
 
-Следующий пример меняет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
+Следующий пример изменяет подсказки заголовка и подзаголовка в макете, используемом первым слайдом:
 
 ```csharp
 using System;
@@ -160,14 +217,14 @@ foreach (var shape in layoutSlide.Shapes)
 presentation.Save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
 ```
 
-Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых плейсхолдеров в редакторах, таких как PowerPoint. Как только пользователь или программа задаёт реальный контент, подсказка более не отображается. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
+Текст подсказки не является обычным содержимым слайда. Он предназначен для пустых заполнителей в редакторах, таких как PowerPoint. Как только пользователь или программа предоставят реальное содержимое, подсказка перестаёт отображаться. Изменение подсказки также не заменяет существующий текст на слайдах, использующих данный макет.
 
-## **Обновление плейсхолдера изображения**
+## **Обновление графического заполнителя**
 
-Существует два варианта обработки:
+Существует два случая для обработки:
 
-- Если графический плейсхолдер уже заполнен и представлен [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/ipicturefillformat/picture/) и [ISlidesPicture.Image](https://reference.aspose.com/slides/ru/net/aspose.slides/islidespicture/image/).
-- Если это всё ещё пустой плейсхолдер, добавьте графический кадр в координатах плейсхолдера с помощью [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addpictureframe/) и удалите пустой плейсхолдер.
+- Если графический заполнитель уже заполнен и представлен объектом [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/), замените изображение через [IPictureFillFormat.Picture](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picture/) и [ISlidesPicture.Image](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/image/).
+- Если это всё ещё пустой заполнитель, добавьте графический фрейм в координатах заполнителя с помощью [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/) и удалите пустой заполнитель.
 
 Следующий пример поддерживает оба случая и сохраняет презентацию:
 
@@ -211,13 +268,13 @@ else
 presentation.Save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-Созданная замена для пустого плейсхолдера является локальным графическим кадром, а не новым плейсхолдером, поскольку [IShape.Placeholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/placeholder/) только для чтения. Она сохраняет зарезервированную позицию, но больше не наследует поведение, специфичное для плейсхолдера. Если сохранение связи с плейсхолдером критично, подготовьте и заполните плейсхолдер в PowerPoint сначала, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/) с помощью Aspose.Slides.
+Созданная замена для пустого заполнителя представляет собой локальный графический фрейм, а не новый заполнитель, потому что [IShape.Placeholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/placeholder/) только для чтения. Он сохраняет зарезервированную позицию, но более не наследует поведение, специфичное для заполнителя. Если необходимо сохранять связь заполнителя, сначала подготовьте и заполните заполнитель в PowerPoint, а затем обновите полученный [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) с помощью Aspose.Slides.
 
-Для прозрачности изображения, обрезки и других эффектов, специфичных для изображений, см. раздел [Manage Picture Frames](/slides/ru/net/picture-frame/). Эти операции относятся к графическому кадру или заливке изображения, а не к метаданным плейсхолдера.
+Для прозрачности изображения, обрезки и других эффектов, специфичных для изображений, см. [Управление графическими фреймами](/slides/ru/net/picture-frame/). Эти операции относятся к графическому фрейму или заливке изображения, а не к метаданным заполнителя.
 
-## **Работа с плейсхолдерами диаграмм и содержимого**
+## **Работа с заполнителями диаграмм и содержимого**
 
-Заполненный плейсхолдер диаграммы может быть представлен [IChart](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/). Этот пример находит такую диаграмму по типу плейсхолдера и интерфейсу во время выполнения, меняет её заголовок и сохраняет файл:
+Заполненный заполнитель диаграммы может быть представлен объектом [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/). Этот пример находит такую диаграмму как по типу заполнителя, так и по интерфейсу во время выполнения, изменяет её заголовок и сохраняет файл:
 
 ```csharp
 using System;
@@ -248,9 +305,9 @@ placeholderChart.ChartTitle.AddTextFrameForOverriding("Quarterly Revenue");
 presentation.Save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
 ```
 
-Общий плейсхолдер содержимого обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/). В PowerPoint он выступает в роли контейнера для разных типов контента: диаграмм, таблиц, схем, изображений и медиа. После заполнения проанализируйте реальный интерфейс фигуры, чтобы узнать, что она содержит. Специальные макеты могут также использовать [PlaceholderType.Chart](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/), либо [PlaceholderType.Diagram](https://reference.aspose.com/slides/ru/net/aspose.slides/placeholdertype/).
+Общий заполнитель содержимого обычно имеет тип [PlaceholderType.Object](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/). В PowerPoint он выступает в качестве запускающего элемента для нескольких типов содержимого, включая диаграммы, таблицы, диаграммы, изображения и медиа. После заполнения проверьте фактический интерфейс объекта, чтобы узнать, что он содержит. Специализированные макеты также могут использовать [PlaceholderType.Chart](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/), или [PlaceholderType.Diagram](https://reference.aspose.com/slides/net/aspose.slides/placeholdertype/).
 
-Aspose.Slides не преобразует пустой плейсхолдер [IAutoShape](https://reference.aspose.com/slides/ru/net/aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/) простым изменением [IPlaceholder.Type](https://reference.aspose.com/slides/ru/net/aspose.slides/iplaceholder/type/); тип только для чтения. Чтобы программно заполнить пустую диаграмму или область содержимого, добавьте необходимый объект в координаты плейсхолдера и затем удалите пустой плейсхолдер. Следующий пример делает это для диаграммы:
+Aspose.Slides не преобразует пустой заполнитель [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) в [IChart](https://reference.aspose.com/slides/net/aspose.slides.charts/ichart/) просто изменением [IPlaceholder.Type](https://reference.aspose.com/slides/net/aspose.slides/iplaceholder/type/); тип только для чтения. Чтобы программно заполнить пустую область диаграммы или содержимого, добавьте необходимый объект в координаты заполнителя, а затем удалите пустой заполнитель. Следующий пример делает это для диаграммы:
 
 ```csharp
 using System;
@@ -283,11 +340,11 @@ slide.Shapes.Remove(targetPlaceholder);
 presentation.Save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
 ```
 
-Добавленная диаграмма — обычная локальная диаграмма. Она занимает область плейсхолдера, но не наследует свойства от макетного плейсхолдера. При необходимости заменить категории, серии или данные книги используйте специализированные статьи по управлению [диаграммами](/slides/ru/net/powerpoint-charts/).
+Добавленная диаграмма — обычная локальная диаграмма. Она занимает область заполнителя, но не наследует свойства от заполнителя макета. Используйте специальные статьи по управлению диаграммами [статьи по управлению диаграммами](/slides/ru/net/powerpoint-charts/), когда необходимо заменить её категории, серии или данные книги.
 
 ## **Полный пример: обновление текста или изображения**
 
-Следующий сквозной пример открывает шаблон, ищет на первом слайде заголовочный или графический плейсхолдер, проверяет типы плейсхолдера и фигуры, обновляет соответствующий контент и сохраняет результат. Пример намеренно избегает предположений о индексе фигуры или приведения всех плейсхолдеров к одному интерфейсу.
+Следующий сквозной пример открывает шаблон, ищет на первом слайде заполнитель заголовка или изображения, проверяет типы заполнителя и объекта, обновляет соответствующее содержимое и сохраняет результат. Пример специально избегает предположения о индексе объекта или приведения каждого заполнителя к одному интерфейсу.
 
 ```csharp
 using System;
@@ -343,16 +400,16 @@ if (!updated)
 presentation.Save("placeholder-content-updated.pptx", SaveFormat.Pptx);
 ```
 
-## **Вопросы и ответы**
+## **Часто задаваемые вопросы**
 
-**Что такое базовый плейсхолдер?**
+**Что такое базовый заполнитель?**
 
-Базовый плейсхолдер — это соответствующая фигура на макете или шаблоне, от которой наследуется другой плейсхолдер. Используйте [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ru/net/aspose.slides/ishape/getbaseplaceholder/) для его получения. Обычная локальная фигура возвращает `null`, потому что она не входит в иерархию плейсхолдеров.
+Базовый заполнитель — это соответствующий объект на макете или мастере, от которого наследуется другой заполнитель. Используйте [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/net/aspose.slides/ishape/getbaseplaceholder/) чтобы получить его. Обычный локальный объект возвращает `null`, так как он не является частью иерархии заполнителей.
 
-**Можно ли изменить все заголовки слайдов, отредактировав плейсхолдер макета?**
+**Могу ли я изменить все заголовки слайдов, редактируя заполнитель макета?**
 
-Можно изменить наследуемое форматирование или текст подсказки через макет, но фактическое содержимое заголовков хранится в обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, пройдитесь по слайдам и обновите каждый заголовочный плейсхолдер.
+Вы можете изменить унаследованное форматирование или текст подсказки через макет, но фактическое содержимое заголовка хранится на обычных слайдах. Чтобы заменить реальный текст заголовков во всей презентации, пройдитесь по слайдам и обновите каждый заполнитель заголовка.
 
-**Как управлять плейсхолдерами даты, номера слайда, верхнего и нижнего колонтитулов?**
+**Как управлять заполнителями даты, номера слайда, заголовка и нижнего колонтитула?**
 
-Используйте менеджеры верхних и нижних колонтитулов на соответствующем уровне: слайд, макет, шаблон, заметки или раздача. См. раздел [Manage Presentation Header and Footer](/slides/ru/net/presentation-header-and-footer/) для полноценных примеров.
+Используйте менеджеры заголовков и нижних колонтитулов на соответствующем уровне слайда, макета, мастера, заметок или листов раздутых. См. [Управление заголовками и нижними колонтитулами презентации](/slides/ru/net/presentation-header-and-footer/) для полных примеров.

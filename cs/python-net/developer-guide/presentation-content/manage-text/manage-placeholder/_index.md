@@ -1,50 +1,50 @@
 ---
-title: Správa zástupných prvků prezentace v Pythonu
-linktitle: Spravovat zástupné prvky
+title: Správa zástupných objektů prezentace v Pythonu
+linktitle: Spravovat zástupné objekty
 type: docs
 weight: 10
 url: /cs/python-net/manage-placeholder/
 keywords:
-- zástupný prvek
-- textový zástupný prvek
-- obrázkový zástupný prvek
-- grafový zástupný prvek
-- obsahový zástupný prvek
-- výzva
+- zástupný objekt
+- textový zástupný objekt
+- obrázkový zástupný objekt
+- grafický zástupný objekt
+- obsahový zástupný objekt
+- výzva text
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Naučte se, jak inspektovat a upravovat textové, obrázkové, grafické a obsahové zástupné prvky a pochopit dědičnost zástupných prvků s Aspose.Slides pro Python pomocí .NET."
+description: "Naučte se, jak kontrolovat a upravovat textové, obrázkové, grafické a obsahové zástupné objekty a pochopit dědičnost zástupných objektů pomocí Aspose.Slides pro Python via .NET."
 ---
 ## **Přehled**
 
-Zástupný prvek je tvar, který vyhrazuje pozici pro určitý typ obsahu v šabloně prezentace. Běžnými příklady jsou zástupné prvky pro název, tělo, obrázek, graf a obecný obsah. Na rozdíl od běžného tvaru může zástupný prvek zdědit svou pozici, velikost, formátování a další nastavení z rozvržení snímku nebo hlavního snímku.
+Zástupný objekt je tvar, který vyhrazuje pozici pro konkrétní typ obsahu v šabloně prezentace. Mezi běžné příklady patří zástupné objekty pro název, tělo, obrázek, graf a obecný obsah. Na rozdíl od běžného tvaru může zástupný objekt dědit svou pozici, velikost, formátování a další nastavení z rozložení snímku nebo hlavního snímku.
 
-Aspose.Slides poskytuje informace o zástupných prvcích prostřednictvím vlastnosti [Shape.placeholder](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/placeholder/). Vlastnost vrací objekt [Placeholder](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholder/) nebo `None` pro běžný tvar. Použijte [Placeholder.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholder/type/), abyste zjistili, co má zástupný prvek obsahovat.
+Aspose.Slides poskytuje informace o zástupných objektech prostřednictvím vlastnosti [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/). Vlastnost vrací objekt [Placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/) nebo `None` pro běžný tvar. Použijte [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) k určení, co má zástupný objekt obsahovat.
 
-Třída tvaru je i nadále důležitá, i když znáte typ zástupného prvku:
+Třída tvaru má stále význam poté, co znáte typ zástupného objektu:
 
-- Prázdný textový, obrázkový, grafický nebo obsahový zástupný prvek je běžně reprezentován pomocí [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
-- Vyplněný obrázkový zástupný prvek může být reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/).
-- Vyplněný grafový zástupný prvek může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/).
-- Obsahový zástupný prvek může obsahovat několik typů obsahu. Zkontrolujte jak [Placeholder.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholder/type/) tak třídu tvaru za běhu, místo abyste předpokládali, že každý zástupný prvek je [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/).
+- Prázdný textový, obrázkový, grafový nebo obsahový zástupný objekt je běžně reprezentován pomocí [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+- Naplněný obrázkový zástupný objekt může být reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/).
+- Naplněný grafový zástupný objekt může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/).
+- Obsahový zástupný objekt může obsahovat několik typů obsahu. Zkontrolujte jak [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/), tak třídu tvaru v době běhu, místo abyste předpokládali, že každý zástupný objekt je [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
 
 {{% alert color="warning" title="Warning" %}}
-[Placeholder.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholder/type/) popisuje roli zástupného prvku; nezaručuje třídu tvaru za běhu. Vždy použijte kontrolu typu před přístupem k textovým, obrázkovým, grafickým, tabulkovým nebo mediálním členům.
+[Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/) popisuje roli zástupného objektu; negarantuje třídu tvaru v době běhu. Vždy použijte kontrolu typu před přístupem k textu, obrázku, grafu, tabulce nebo mediálním členům.
 {{% /alert %}}
 
-## **Porozumění dědičnosti zástupných prvků**
+## **Pochopení dědičnosti zástupných objektů**
 
-Zástupné prvky tvoří hierarchii:
+Zástupné objekty vytvářejí hierarchii:
 
-1. Hlavní snímek definuje znovupoužitelné styly a v některých případech i zástupné prvky na úrovni hlavního snímku.
-2. Rozvržení snímku určuje uspořádání používané jedním nebo více běžnými snímky a může dědit z hlavního snímku.
-3. Běžný snímek obsahuje zástupné prvky pro tento snímek a může dědit ze svého rozvržení.
+1. Hlavní snímek definuje znovupoužitelné styly a v některých případech hlavní úrovňové zástupné objekty.
+2. Rozvržení snímku určuje uspořádání používané jedním nebo více normálními snímky a může dědit z hlavního snímku.
+3. Normální snímek obsahuje zástupné objekty pro daný snímek a může dědit ze svého rozvržení.
 
-Voláním [Shape.get_base_placeholder](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/get_base_placeholder/) se posunete o jednu úroveň výše v této hierarchii. Zástupný prvek snímku obvykle vrací svůj zástupný prvek rozvržení; zástupný prvek rozvržení může vrátit svůj hlavní zástupný prvek. Metoda vrací `None`, pokud tvar nemá základní zástupný prvek.
+Vyvolejte [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) pro posun o jednu úroveň výš v této hierarchii. Zástupný objekt snímku obvykle vrací svůj zástupný objekt rozvržení; zástupný objekt rozvržení může vrátit svůj hlavní zástupný objekt. Metoda vrací `None`, když tvar nemá základní zástupný objekt.
 
-Následující příklad vypisuje zástupné prvky na prvním snímku a uvádí jejich základní zástupné prvky:
+Následující příklad vypíše zástupné objekty na prvním snímku a uvádí jejich základní zástupné objekty:
 
 ```python
 import aspose.slides as slides
@@ -71,13 +71,61 @@ with slides.Presentation("template.pptx") as presentation:
                 print(f"  Master placeholder: {master_placeholder_type}")
 ```
 
-Úprava zástupného prvku na běžném snímku vytvoří nebo změní lokální přepsání pro tento snímek. Úprava souvisejícího rozvržení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí toto nastavení. Lokální běžný tvar nemá základní zástupný prvek a nezačíná dědit jen proto, že zabírá stejné souřadnice.
+Editace zástupného objektu na normálním snímku vytvoří nebo změní místní přepsání pro tento snímek. Úprava souvisejícího rozvržení nebo hlavního snímku může ovlivnit všechny snímky, které stále dědí dané nastavení. Místní běžný tvar nemá základní zástupný objekt a nezačne dědit jen proto, že obsazuje stejné souřadnice.
 
-## **Změna textu v zástupném prvku**
+## **Odstranit stav zástupného objektu**
 
-Zástupné prvky pro název, centrovaný název, podtitul, tělo a text obvykle podporují text. Zkontrolujte, zda jde o [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) před použitím jeho [text_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/text_frame/).
+Při úpravě šablony použijte [Shape.remove_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/remove_placeholder/) pro zachování existujícího objektu jako běžného tvaru. Jeho vlastnost [placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) se stane `None`, ale tvar zůstane ve sbírce snímku. Naopak [ShapeCollection.remove](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/remove/) odstraní tvar z této sbírky.
 
-Následující příklad aktualizuje první zástupný prvek názvu na prvním snímku a uloží výsledek:
+Následující příklad vyžaduje `template.pptx` s alespoň jedním snímkem a neprázdným textovým zástupným objektem na prvním snímku. Použijte zástupný objekt s formátováním děděným z jeho rozvržení nebo hlavního snímku, abyste viděli dopad odstranění tohoto vztahu. Příklad kontroluje, že stejný tvar zůstane, znovu zavolá metodu na nyní běžném tvaru a výsledek uloží.
+
+{{% alert color="warning" title="Warning" %}}
+Odstranění stavu zástupného objektu automaticky neuchovává děděné nastavení vzhledu. Níže uvedený příklad úmyslně ponechává tato nastavení nezměněna, takže výstup může vypadat odlišně. Tvar, jehož pozice a velikost jsou zcela děděny, může po volání mít nulové souřadnice a rozměry a stát se neviditelným, i když zůstane ve sbírce.
+{{% /alert %}}
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("template.pptx") as presentation:
+    slide = presentation.slides[0]
+    found = False
+
+    for index in range(len(slide.shapes)):
+        shape = slide.shapes[index]
+        if not isinstance(shape, slides.AutoShape) or shape.placeholder is None:
+            continue
+        if shape.text_frame is None or not shape.text_frame.text:
+            continue
+
+        shape_count = len(slide.shapes)
+        shape.remove_placeholder()
+
+        print(f"Placeholder removed: {shape.placeholder is None}")
+        print(f"Same shape retained: {slide.shapes[index] == shape}")
+        print(f"Shape count unchanged: {len(slide.shapes) == shape_count}")
+
+        # Volání metody na běžném tvaru nemá žádný vliv.
+        shape.remove_placeholder()
+        found = True
+        break
+
+    if found:
+        presentation.save("placeholder-status-removed.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("No nonempty text placeholder was found on the first slide.")
+```
+
+Pro odpovídající zástupný objekt všechny tři kontroly vypíšou `True`. Text zůstane, ale děděná pozice, velikost, rotace, písmo, zarovnání odstavce, okraje textového rámce, svislé ukotvení, výplň a nastavení čáry se mohou po odstranění vztahu změnit. Například děděné formátování názvu může přejít na běžné formátování textu. Viz [Slide Layout](/slides/cs/python-net/slide-layout/) pro více informací o rozvrženích.
+
+Pro zachování zamýšleného vzhledu zachyťte vyřešenou pozici, velikost a rotaci před voláním a zkopírujte požadované efektivní hodnoty formátování do samostatných proměnných. Získejte tyto hodnoty přes [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/), [ParagraphFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/get_effective/), [TextFrameFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/get_effective/), [FillFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/get_effective/), a [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/). Nespoléhejte se pouze na objektu efektivního formátu, protože jejich hodnoty formátování textu se mohou po odstranění vztahu změnit. Výslovně aplikujte zachycené hodnoty na běžný tvar poté, včetně rodiny písma, velikosti, stylu, barvy, nastavení odstavce, nastavení textového rámce, výplně a čáry používané ve vaší šabloně.
+
+Děděná geometrie tvaru může také vyžadovat explicitní přiřazení přes [GeometryShape.shape_type](https://reference.aspose.com/slides/python-net/aspose.slides/geometryshape/shape_type/). Pro obdélníkový textový zástupný objekt to znamená přiřadit [ShapeType.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/shapetype/); obnovení jen výplně a čáry nemusí obnovit viditelný obdélník. Šablony s dalšími efekty nebo složitějším formátováním vyžadují, aby byla tato nastavení také ošetřena.
+
+## **Změnit text v zástupném objektu**
+
+Název, centrovaný název, podtitul, tělo a textové zástupné objekty normálně podporují text. Před použitím vlastnosti [text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/text_frame/) zkontrolujte, zda jde o [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/).
+
+Tento příklad aktualizuje první zástupný objekt názvu na prvním snímku a výsledek uloží:
 
 ```python
 import aspose.slides as slides
@@ -102,13 +150,13 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("title-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tento vzor zabraňuje zacházení s obrázkovými, grafickými, tabulkovými nebo mediálními zástupnými prvky jako s objekty [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/). Také identifikuje zástupný prvek podle účelu místo spoléhání se na křehký index tvaru.
+Tento vzor zabraňuje zacházení s obrázkovými, grafovými, tabulkovými nebo mediálními zástupnými objekty jako s [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) objekty. Také identifikuje zástupný objekt podle účelu místo spoléhaní se na křehký index tvaru.
 
-## **Nastavení výzvy v rozvržení**
+## **Nastavit výzvu textu v rozvržení**
 
-Výzva (prompt text) je návrhový pokyn zobrazený v prázdném zástupném prvku, například *Klikněte pro přidání názvu*. Nastavte vlastní výzvu na zástupném prvku rozvržení místo toho, abyste se snažili získat ji přes kolekci tvarů běžného snímku. Přístup k rozvržení získáte přes [Slide.layout_slide](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slide/layout_slide/) a iterujte přes [LayoutSlide.shapes](https://reference.aspose.com/slides/cs/python-net/aspose.slides/baseslide/shapes/).
+Výzva textu je instrukce v čase návrhu zobrazovaná v prázdném zástupném objektu, například *Klikněte pro přidání názvu*. Nastavte vlastní výzvu textu na zástupný objekt rozvržení místo pokusu o dosažení přes sbírku tvarů normálního snímku. Přístup k rozvržení získáte přes [Slide.layout_slide](https://reference.aspose.com/slides/python-net/aspose.slides/slide/layout_slide/) a iterujte přes [LayoutSlide.shapes](https://reference.aspose.com/slides/python-net/aspose.slides/baseslide/shapes/).
 
-Následující příklad mění výzvy názvu a podtitulu v rozvržení použitým na první snímek:
+Následující příklad mění výzvy názvu a podtitulku v rozvržení použitým na prvním snímku:
 
 ```python
 import aspose.slides as slides
@@ -130,16 +178,16 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("custom-placeholder-prompts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Výzva není běžný obsah snímku. Je určena pro prázdné zástupné prvky v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program dodá skutečný obsah, výzva se již nezobrazuje. Změna výzvy také nenahrazuje existující text na snímcích, které rozvržení používají.
+Výzva textu není běžný obsah snímku. Je určena pro prázdné zástupné objekty v editačních aplikacích, jako je PowerPoint. Jakmile uživatel nebo program dodá skutečný obsah, výzva se již nezobrazuje. Změna výzvy také nenahrazuje existující text na snímcích, které rozvržení používají.
 
-## **Aktualizace obrázkového zástupného prvku**
+## **Aktualizovat obrázkový zástupný objekt**
 
 Existují dva případy, které je třeba řešit:
 
-- Pokud je obrázkový zástupný prvek již vyplněn a reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/), nahraďte obrázek pomocí [PictureFillFormat.picture](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/picture/) a [Picture.image](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picture/image/).
-- Pokud je stále prázdný zástupný prvek, přidejte obrázkový rám na souřadnice zástupného prvku pomocí [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shapecollection/add_picture_frame/) a odstraňte prázdný zástupný prvek.
+- Pokud je obrázkový zástupný objekt již naplněn a reprezentován pomocí [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/), nahraďte obrázek přes [PictureFillFormat.picture](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture/) a [Picture.image](https://reference.aspose.com/slides/python-net/aspose.slides/picture/image/).
+- Pokud je stále prázdný zástupný objekt, přidejte rámeček obrázku na souřadnice zástupného objektu pomocí [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/python-net/aspose.slides/shapecollection/add_picture_frame/) a odstraňte prázdný zástupný objekt.
 
-Následující příklad podporuje oba případy a ukládá prezentaci:
+Další příklad podporuje oba případy a prezentaci uloží:
 
 ```python
 import aspose.slides as slides
@@ -170,13 +218,13 @@ with slides.Presentation("picture-template.pptx") as presentation:
     presentation.save("picture-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Náhrada vytvořená pro prázdný zástupný prvek je lokální obrázkový rám, nikoli nový zástupný prvek, protože [Shape.placeholder](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/placeholder/) je jen pro čtení. Uchovává vyhrazenou pozici, ale již nedědí chování specifické pro zástupné prvky. Pokud je zachování vztahu k zástupnému prvku podstatné, připravte a vyplňte zástupný prvek nejprve v PowerPointu, poté aktualizujte vzniklý [PictureFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/pictureframe/) pomocí Aspose.Slides.
+Náhrada vytvořená pro prázdný zástupný objekt je místní rámeček obrázku, ne nový zástupný objekt, protože [Shape.placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/placeholder/) je jen pro čtení. Zachovává vyhrazenou pozici, ale již nedědí chování specifické pro zástupný objekt. Pokud je zachování vztahu zástupného objektu podstatné, připravte a naplňte zástupný objekt v PowerPointu nejprve, pak aktualizujte vzniklý [PictureFrame](https://reference.aspose.com/slides/python-net/aspose.slides/pictureframe/) pomocí Aspose.Slides.
 
-Pro průhlednost obrázku, ořezávání a další efekty specifické pro obrázek viz [Manage Picture Frames](/slides/cs/python-net/picture-frame/). Tyto operace patří k obrázkovému rámci nebo výplni obrázku, nikoli k metadatům zástupného prvku.
+Pro průhlednost obrázku, ořezávání a další efekty specifické pro obrázek viz [Manage Picture Frames](/slides/cs/python-net/picture-frame/). Tyto operace patří ke rámečku obrázku nebo výplni obrázku, nikoli k metadatům zástupného objektu.
 
-## **Práce s grafovými a obsahovými zástupnými prvky**
+## **Práce s grafem a obsahovými zástupnými objekty**
 
-Vyplněný grafový zástupný prvek může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/). Tento příklad najde takový graf jak podle typu zástupného prvku, tak podle třídy tvaru za běhu, změní jeho název a uloží soubor:
+Naplněný grafový zástupný objekt může být reprezentován pomocí [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/). Tento příklad najde takový graf jak podle typu zástupného objektu, tak podle runtime třídy, změní jeho název a soubor uloží:
 
 ```python
 import aspose.slides as slides
@@ -199,9 +247,9 @@ with slides.Presentation("chart-template.pptx") as presentation:
     presentation.save("chart-placeholder-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Obecný obsahový zástupný prvek má obvykle [PlaceholderType.OBJECT](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po jeho vyplnění zkontrolujte skutečnou třídu tvaru, abyste zjistili, co obsahuje. Specializovaná rozvržení mohou také vystavovat [PlaceholderType.CHART](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/), nebo [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholdertype/).
+Obecný obsahový zástupný objekt obvykle má [PlaceholderType.OBJECT](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/). V PowerPointu funguje jako spouštěč pro několik typů obsahu, včetně grafů, tabulek, diagramů, obrázků a médií. Po naplnění zkontrolujte skutečnou třídu tvaru, abyste zjistili, co obsahuje. Speciální rozvržení může také vystavovat [PlaceholderType.CHART](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.TABLE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.PICTURE](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), [PlaceholderType.MEDIA](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/), nebo [PlaceholderType.DIAGRAM](https://reference.aspose.com/slides/python-net/aspose.slides/placeholdertype/).
 
-Aspose.Slides nepřevádí prázdný [AutoShape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/autoshape/) zástupný prvek na [Chart](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/) pouhým změněním [Placeholder.type](https://reference.aspose.com/slides/cs/python-net/aspose.slides/placeholder/type/); typ je jen pro čtení. Pro programové vyplnění prázdné oblasti grafu nebo obsahu přidejte požadovaný objekt na souřadnice zástupného prvku a poté odstraňte prázdný zástupný prvek. Následující příklad to provádí pro graf:
+Aspose.Slides nepřemění prázdný [AutoShape](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/) zástupný objekt na [Chart](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chart/) pouhým změněním [Placeholder.type](https://reference.aspose.com/slides/python-net/aspose.slides/placeholder/type/); typ je jen pro čtení. Pro naplnění prázdného grafu nebo obsahové oblasti programově přidejte požadovaný objekt na souřadnice zástupného objektu a poté odstraňte prázdný zástupný objekt. Následující příklad to provádí pro graf:
 
 ```python
 import aspose.slides as slides
@@ -229,11 +277,11 @@ with slides.Presentation("content-template.pptx") as presentation:
     presentation.save("content-placeholder-replaced-with-chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Přidaný graf je běžný lokální graf. Zaujímá oblast zástupného prvku, ale nedědí z rozvržení zástupného prvku. Použijte vyhrazené [chart management articles](/slides/cs/python-net/powerpoint-charts/), když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
+Přidaný graf je běžný místní graf. Zabírá oblast zástupného objektu, ale nedědí z rozvržení zástupného objektu. Použijte věnované [chart management articles](/slides/cs/python-net/powerpoint-charts/) když potřebujete nahradit jeho kategorie, řady nebo data sešitu.
 
-## **Kompletní příklad: Aktualizace textového nebo obrazového obsahu**
+## **Úplný příklad: Aktualizovat text nebo obsah obrázku**
 
-Následující komplexní příklad otevře šablonu, prohledá první snímek na zástupný prvek názvu nebo obrázku, zkontroluje typy zástupného prvku a tvaru, aktualizuje příslušný obsah a uloží výstup. Příklad úmyslně nevyužívá předpoklad o indexu tvaru ani nepřistupuje ke každému zástupnému prvku jako ke stejné třídě tvaru.
+Následující end-to-end příklad otevře šablonu, vyhledá na prvním snímku buď zástupný objekt názvu nebo obrázku, zkontroluje typy zástupného objektu a tvaru, aktualizuje příslušný obsah a výstup uloží. Příklad úmyslně nevyužívá předpoklad indexu tvaru ani nepracuje se všemi zástupnými objekty jako se stejnou třídou tvaru.
 
 ```python
 import aspose.slides as slides
@@ -274,16 +322,16 @@ with slides.Presentation("template.pptx") as presentation:
     presentation.save("placeholder-content-updated.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Co je základní zástupný prvek?**
+**Co je základní zástupný objekt?**
 
-Základní zástupný prvek je odpovídající tvar na rozvržení nebo hlavním snímku, ze kterého další zástupný prvek dědí. Použijte [Shape.get_base_placeholder](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/get_base_placeholder/) k jeho získání. Běžný lokální tvar vrací `None`, protože není součástí hierarchie zástupných prvků.
+Základní zástupný objekt je odpovídající tvar v rozvržení nebo hlavě, ze kterého další zástupný objekt dědí. Použijte [Shape.get_base_placeholder](https://reference.aspose.com/slides/python-net/aspose.slides/shape/get_base_placeholder/) pro jeho získání. Běžný místní tvar vrací `None`, protože není součástí hierarchie zástupných objektů.
 
-**Mohu změnit všechny názvy snímků úpravou zástupného prvku v rozvržení?**
+**Mohu změnit všechny názvy snímků úpravou zástupného objektu v rozvržení?**
 
-Můžete změnit zděděné formátování nebo výzvu prostřednictvím rozvržení, ale existující obsah názvu je uložen na běžných snímcích. Pro nahrazení skutečného textu názvu v celé prezentaci iterujte přes snímky a aktualizujte každý zástupný prvek názvu.
+Můžete měnit děděné formátování nebo výzvu textu prostřednictvím rozvržení, ale existující název snímku je uložen na normálních snímcích. Pro nahrazení skutečného textu názvu v celé prezentaci iterujte přes snímky a aktualizujte každý zástupný objekt názvu.
 
-**Jak spravovat zástupné prvky data, čísla snímku, záhlaví a zápatí?**
+**Jak spravovat zástupné objekty data, čísla snímků, záhlaví a zápatí?**
 
-Použijte správce záhlaví a zápatí na odpovídajícím úrovni snímku, rozvržení, hlavního snímku, poznámek či výstřižků. Viz [Manage Presentation Header and Footer](/slides/cs/python-net/presentation-header-and-footer/) pro úplné příklady.
+Použijte správce záhlaví a zápatí na úrovni odpovídajícího snímku, rozvržení, hlavního snímku, poznámek nebo výstřižku. Viz [Manage Presentation Header and Footer](/slides/cs/python-net/presentation-header-and-footer/) pro kompletní příklady.
