@@ -12,7 +12,7 @@ import time
 import zipfile
 import io
 
-from verify import extract_archive, inspect_archive, normalized_architecture, sha
+from verify import C_SHARP_FENCE, extract_archive, inspect_archive, normalized_architecture, sha
 
 ARTICLE='application-integration/background-worker'
 EXPECTED_RESULT={'mixed_jobs':4,'successful_jobs':3,'failed_jobs':1,'shutdown_accounted_for_every_job':True,'cancellation_recorded':True,'active_conversion_cancelled':True,'partial_output_removed':True,'queue_capacity':2,'concurrency':2}
@@ -47,6 +47,27 @@ def read_json(path):
     return json.loads(path.read_text(encoding='utf-8-sig')) if path.is_file() else None
 
 
+def verify_worker_source(git_data, commit, program):
+    prefix = 'en/net/examples/' + ARTICLE + '/'
+    page = git_data(commit, prefix + '_index.md').decode('utf-8-sig').replace('\r\n', '\n')
+    blocks = C_SHARP_FENCE.findall(page)
+    if len(blocks) != 1:
+        raise ValueError('Expected one printed worker snippet')
+
+    catalog = json.loads(git_data(commit, 'tools/examples-net/catalog.json'))
+    if catalog['schema_version'] == 1:
+        archive_source = program.decode('utf-8-sig').replace('\r\n', '\n')
+        if blocks[0].strip() != archive_source.strip():
+            raise ValueError('Printed and compiled worker source differ')
+    elif catalog['schema_version'] == 2:
+        if catalog['articles'][ARTICLE]['snippet_sha256'] != [sha(blocks[0].encode('utf-8'))]:
+            raise ValueError('Printed worker snippet hash differs')
+        if git_data(commit, prefix + 'Program.cs') != program:
+            raise ValueError('Archived worker source differs from committed Program.cs')
+    else:
+        raise ValueError('Unsupported worker catalog schema')
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--baseline-sha',required=True);p.add_argument('--candidate-sha',required=True)
@@ -71,10 +92,7 @@ def main():
         if manifest['article_id']!=ARTICLE:raise ValueError('Foreign archive identity')
         if label=='baseline' and sha(data)!=args.baseline_archive_sha256:raise ValueError('Baseline archive hash differs')
         with zipfile.ZipFile(io.BytesIO(data)) as z:program=z.read('Program.cs');bootstrap=z.read('ExampleBootstrap.cs')
-        page=git_data(commit,'en/net/examples/'+ARTICLE+'/_index.md').decode('utf-8-sig')
-        blocks=re.findall(r'```(?:csharp|cs|c#)\s*\n(.*?)```',page,re.S)
-        canonical=lambda s:s.replace('\r\n','\n').strip()
-        if len(blocks)!=1 or canonical(blocks[0])!=canonical(program.decode('utf-8-sig')):raise ValueError('Printed and compiled worker source differ')
+        verify_worker_source(git_data, commit, program)
         project=work/(label+' project (1)');extract_archive(data,project)
         source={'commit':commit,'archive_sha256':sha(data),'program_sha256':sha(program),'bootstrap_sha256':sha(bootstrap),'project':str(project),'actions':manifest['actions'],'setup':[]};record['sources'][label]=source
         for argv in ([args.dotnet,'restore','Example.sln'],[args.dotnet,'build','Example.sln','-c','Release','--no-restore']):
