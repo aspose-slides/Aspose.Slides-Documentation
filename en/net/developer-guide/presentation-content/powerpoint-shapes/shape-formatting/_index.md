@@ -65,6 +65,57 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Custom Line Dash Patterns**
+
+Use [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically sets [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) to [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
+
+Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `{ 4, 2 }` at a width of 3 points produces a 12-point dash followed by a 6-point gap. Use pairs of finite, nonnegative values to define complete dash-and-gap segments. The example uses positive values to keep every dash and gap visible.
+
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(600, 300, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var patterns = new[]
+{
+    new float[] { 4, 2 },
+    new float[] { 1, 2 },
+    new float[] { 6, 2, 1, 2 },
+    new float[] { 4, 2 },
+    new float[] { 4, 2 }
+};
+
+for (var i = 0; i < patterns.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+    line.LineFormat.Width = i == 3 ? 6 : 3;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.CapStyle = LineCapStyle.Flat;
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.CustomDashPattern = patterns[i];
+}
+
+// Return the last line to a solid style.
+slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
+
+presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+```
+
+To return to a predefined dashed style instead, assign [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) to [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). The selected style controls the line's appearance.
+
+The result in PowerPoint, from top to bottom: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; and **Solid, 3 pt**.
+
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
+
+
 ### **Set Line Caps**
 
 Use [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
