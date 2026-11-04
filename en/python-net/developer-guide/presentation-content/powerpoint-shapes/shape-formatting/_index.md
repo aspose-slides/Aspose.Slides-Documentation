@@ -63,6 +63,51 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Custom Line Dash Patterns**
+
+Use [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically sets [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) to [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+
+List entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `[4, 2]` at a width of 3 points produces a 12-point dash followed by a 6-point gap. Use pairs of finite, nonnegative values to define complete dash-and-gap segments. The example uses positive values to keep every dash and gap visible.
+
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(600, 300, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ]
+
+    for i, pattern in enumerate(patterns):
+        line = slide.shapes.add_auto_shape(slides.ShapeType.LINE, 50, 50 + i * 50, 500, 0)
+        line.line_format.width = 6 if i == 3 else 3
+        line.line_format.fill_format.fill_type = slides.FillType.SOLID
+        line.line_format.fill_format.solid_fill_color.preset_color = slides.PresetColor.DARK_BLUE
+        line.line_format.cap_style = slides.LineCapStyle.FLAT
+        line.line_format.begin_arrowhead_style = slides.LineArrowheadStyle.NONE
+        line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
+        line.line_format.custom_dash_pattern = pattern
+
+    # Return the last line to a solid style.
+    slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
+
+    presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
+```
+
+To return to a predefined dashed style instead, assign [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) to [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). The selected style controls the line's appearance.
+
+The result in PowerPoint, from top to bottom: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; and **Solid, 3 pt**.
+
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
+
 ### **Set Line Caps**
 
 Use [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:

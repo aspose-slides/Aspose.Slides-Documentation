@@ -71,6 +71,64 @@ The result:
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
+### **Set Custom Line Dash Patterns**
+
+Use [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the line dash style to [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+
+Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `[4, 2]` at a width of 3 points produces a 12-point dash followed by a 6-point gap. Use pairs of finite, nonnegative values to define complete dash-and-gap segments. The example uses positive values to keep every dash and gap visible.
+
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\LineCapStyle;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(600, 300, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+
+    for ($i = 0; $i < count($patterns); $i++) {
+        $line = $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 50 + $i * 50, 500, 0);
+        $line->getLineFormat()->setWidth($i == 3 ? 6 : 3);
+        $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+        $line->getLineFormat()->setCapStyle(LineCapStyle::Flat);
+        $line->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle::None);
+        $line->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::None);
+        $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
+    }
+
+    // Return the last line to a solid style.
+    $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
+
+    $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+To return to a predefined dashed style instead, pass [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) to [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). The selected style controls the line's appearance.
+
+The result in PowerPoint, from top to bottom: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; and **Solid, 3 pt**.
+
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
+
 ### **Set Line Caps**
 
 Use [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) class provides three explicit cap styles:
