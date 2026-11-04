@@ -1,84 +1,62 @@
 ---
-title: जावास्क्रिप्ट में PowerPoint शैप्स को फ़ॉर्मेट करें
-linktitle: शैप फ़ॉर्मेटिंग
+title: जावास्क्रिप्ट में PowerPoint आकृतियों का स्वरूपण
+linktitle: आकृति स्वरूपण
 type: docs
 weight: 20
 url: /hi/nodejs-java/shape-formatting/
 keywords:
-- शैप फ़ॉर्मेट
-- रेखा फ़ॉर्मेट
+- आकृति स्वरूपित करना
+- रेखा स्वरूपित करना
 - स्केच प्रभाव
-- स्केच शैप रेखा
-- जॉइन शैली फ़ॉर्मेट
-- ग्रेडिएंट फिल
-- पैटर्न फिल
-- पिक्चर फिल
-- टेक्सचर फिल
-- सॉलिड कलर फिल
-- शैप ट्रांसपेरेंसी
-- काली-और-सफ़ेद शैप रेंडरिंग
-- ग्रेस्केल शैप रेंडरिंग
-- शैप घुमाएँ
-- 3डी बिवेल प्रभाव
-- 3डी घूर्णन प्रभाव
+- स्केच आकृति रेखा
+- जॉइन शैली स्वरूपित करना
+- ग्रेडिएंट भराव
+- पैटर्न भराव
+- चित्र भराव
+- टेक्सचर भराव
+- सॉलिड कलर भराव
+- आकृति पारदर्शिता
+- ब्लैक-एंड-व्हाइट आकृति रेंडरिंग
+- ग्रेस्केल आकृति रेंडरिंग
+- आकृति घुमाएँ
+- 3D बीवल प्रभाव
+- 3D घुमाव प्रभाव
 - फ़ॉर्मेट रीसेट करें
 - PowerPoint
 - प्रस्तुति
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके जावास्क्रिप्ट में PowerPoint शैप्स को फ़ॉर्मेट करें—PPT, PPTX, और ODP फ़ाइलों के लिए फ़िल, लाइन, और इफ़ेक्ट शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
+description: "Aspose.Slides का उपयोग करके जावास्क्रिप्ट में PowerPoint आकृतियों को फॉर्मेट करना सीखें—PPT और PPTX फ़ाइलों के लिए भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
 ---
 ## **परिचय**
 
-PowerPoint में, आप स्लाइड्स में शैप्स जोड़ सकते हैं। चूँकि शैप्स रेखाओं से बने होते हैं, आप उनकी रूपरेखा को संशोधित या प्रभाव लागू करके उन्हें फ़ॉर्मेट कर सकते हैं। अतिरिक्त रूप से, आप शैप्स को उनके आंतरिक भाग को भरने वाले सेटिंग्स को निर्दिष्ट करके भी फ़ॉर्मेट कर सकते हैं।
+PowerPoint में आकृतियों को उनके outlines, fills और effects को समायोजित करके फॉर्मेट करें। Aspose.Slides for Node.js via Java आपको इन सेटिंग्स को प्रोग्रामेटिकली नियंत्रित करने देता है, जिसमें पारदर्शिता, घुमाव, और 3D फ़ॉर्मेटिंग शामिल हैं।
 
-![फ़ॉर्मेट-शेप-पावरपॉइंट](format-shape-powerpoint.png)
+![PowerPoint में आकृति फ़ॉर्मेटिंग विकल्प](format-shape-powerpoint.png)
 
-Aspose.Slides for Node.js via Java क्लास और मेथड्स प्रदान करता है जो आपको PowerPoint में उपलब्ध समान विकल्पों का उपयोग करके शैप्स को फ़ॉर्मेट करने की अनुमति देते हैं।
+Aspose.Slides for Node.js via Java क्लास और मेथड्स प्रदान करता है जो आपको PowerPoint में उपलब्ध समान विकल्पों का उपयोग करके आकृतियों को फॉर्मेट करने देते हैं।
 
-## **रेखा स्वरूप**
+## **लाइन स्वरूपण**
 
-Aspose.Slides का उपयोग करके, आप किसी शैप के लिए कस्टम लाइन स्टाइल निर्दिष्ट कर सकते हैं। नीचे दिए गए चरण इस प्रक्रिया को रेखांकित करते हैं:
+Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) selects a thick‑thin compound line, while [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) sets its width to 7 points and [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) selects the dash pattern.
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप की [लाइन शैली](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) सेट करें।
-5. लाइन की चौड़ाई सेट करें।
-6. लाइन की [डैश शैली](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) सेट करें।
-7. शैप के लिए लाइन रंग सेट करें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-निम्नलिखित कोड दिखाता है कि कैसे एक आयत `AutoShape` को फ़ॉर्मेट किया जाए:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// प्रस्तुति फ़ाइल को दर्शाने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // आयत शैप से फ़िल हटाएँ।
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // आयत की रेखाओं पर फ़ॉर्मेटिंग लागू करें।
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // आयत की रेखा के लिए रंग सेट करें।
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,51 +65,139 @@ try {
 
 परिणाम:
 
-![प्रस्तुति में स्वरूपित रेखाएँ](formatted-lines.png)
+![प्रस्तुति में स्वरूपित लाइनें](formatted-lines.png)
 
-## **शेप रेखाओं पर स्केच प्रभाव लागू करें**
+### **कस्टम लाइन डैश पैटर्न सेट करें**
 
-एक स्केच प्रभाव शैप की रेखा को हाथ से खींची हुई दिखाता है। लाइन सेटिंग्स तक पहुँचने के लिये [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) का उपयोग करें, स्केच सेटिंग्स तक पहुँचने के लिये [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) का उपयोग करें, और [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) से आप [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) एन्यूमरेशन में से कोई मान चुन सकते हैं।
+Use [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the line dash style to [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-निम्नलिखित JavaScript कोड दिखाता है कि कैसे एक [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) प्रभाव लागू किया जाए, स्पष्ट रूप से असाइन किए गए मान को पढ़ा जाए, और [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) के साथ प्रभाव को हटाया जाए:
+Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `[4, 2]` at a width of 3 points produces a 12-point dash followed by a 6-point gap. Use pairs of finite, nonnegative values to define complete dash-and-gap segments. The example uses positive values to keep every dash and gap visible.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+This example creates five blue lines with the same length and flat caps. The first three compare patterns at a width of 3 points. The fourth repeats the first pattern at twice the width, doubling both the dash and gap lengths. The fifth switches from a custom pattern to a solid line.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // अंतिम लाइन को ठोस शैली में वापस लाएँ।
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+To return to a predefined dashed style instead, pass [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) to [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). The selected style controls the line's appearance.
+
+PowerPoint में परिणाम, ऊपर से नीचे: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; and **Solid, 3 pt**.
+
+![तीन कस्टम डैश पैटर्न, पहले पैटर्न का उपयोग करके बड़ी लाइन, और PowerPoint में एक ठोस लाइन](custom-dash-patterns.png)
+
+### **लाइन कैप सेट करें**
+
+Use [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) class provides three explicit cap styles:
+
+- `Flat`: स्ट्रोक अंत बिंदु पर रुकता है।
+- `Round`: अर्धवृत्ताकार कैप लाइन की चौड़ाई के आधे हिस्से तक अंत बिंदु से आगे बढ़ता है।
+- `Square`: वर्गाकार कैप लाइन की चौड़ाई के आधे हिस्से तक अंत बिंदु से आगे बढ़ता है।
+
+The class also includes `NotDefined`, which means that no cap style is explicitly assigned.
+
+Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) and [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) so that only the cap shapes are compared.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint में परिणाम, ऊपर से नीचे: **Flat**, **Round**, and **Square**.
+
+![PowerPoint में समान मोटी लाइनों पर फ्लैट, गोल और वर्गाकार कैप्स](line-caps.png)
+
+## **आकृति लाइनों पर स्केच प्रभाव लागू करें**
+
+A sketch effect makes a shape line look hand-drawn. Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) to access the line settings, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) to access the sketch settings, and [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) to select a value from the [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) class.
+
+The following JavaScript code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // शेप की लाइन फ़ॉर्मेट और उसकी स्केच फ़ॉर्मेट तक पहुँचें।
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // स्केच प्रभाव लागू करें।
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // शेप को सीधे असाइन किए गए स्केच प्रभाव को पढ़ें।
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // स्केच प्रभाव हटाएँ।
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-जो मान [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) द्वारा लौटाया जाता है, वह शैप पर सीधे असाइन की गई सेटिंग को दर्शाता है। यदि लाइन फ़ॉर्मेट थीम, मास्टर स्लाइड, या लेआउट स्लाइड से विरासित हो सकता है, तो [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) का उपयोग करें, लौटाए गए ऑब्जेक्ट पर `getSketchFormat` कॉल करें, और फिर उसके `getSketchType` मेथड को कॉल करें। प्रभावी मान उन फ़ॉर्मेटिंग को दर्शाता है जो विरासत समाधान के बाद वास्तव में लागू होती है:
+The value returned by [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), call `getSketchFormat` on the returned object, and then call its `getSketchType` method. The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -143,113 +209,123 @@ try {
 }
 ```
 
-## **जॉइन शैलियों को फ़ॉर्मेट करें**
+## **जॉइन शैली फ़ॉर्मेट करें**
 
-तीन जॉइन प्रकार विकल्प यहाँ हैं:
+Here are the three join type options:
 
-* गोल
-* माइटर
-* बिवेल
+* Round
+* Miter
+* Bevel
 
-डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे शैप के कोने पर), यह **Round** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोणों वाले शैप को ड्रॉ कर रहे हैं, तो आप **Miter** विकल्प को प्राथमिकता दे सकते हैं।
+The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
 
 ![प्रस्तुति में जॉइन शैली](join-style-powerpoint.png)
 
-निम्नलिखित JavaScript कोड दर्शाता है कि ऊपर की छवि में दिखाए गए तीन आयतों को Miter, Bevel, और Round जॉइन प्रकार सेटिंग्स का उपयोग करके कैसे बनाया गया।
+This example creates three black rectangles with blue outlines 15 points wide. It uses [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) to apply the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार के तीन ऑटो शैप जोड़ें।
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // प्रत्येक आयत शैप के लिए फ़िल रंग सेट करें।
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // रेखा की चौड़ाई सेट करें।
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // प्रत्येक आयत की रेखा के लिए रंग सेट करें।
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // जॉइन शैली सेट करें।
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // प्रत्येक आयत में टेक्स्ट जोड़ें।
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ग्रेडिएंट फिल**
+### **तीव्र कोनों पर मिटर जॉइन को सीमित करें**
 
-PowerPoint में, ग्रेडिएंट फिल एक फ़ॉर्मेटिंग विकल्प है जो आपको शैप पर लगातार रंगों का मिश्रण लागू करने की अनुमति देता है। उदाहरण के लिए, आप दो या अधिक रंग इस प्रकार लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में मिल जाता है।
+Use [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) with [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) set to [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
 
-यहाँ Aspose.Slides का उपयोग करके शैप पर ग्रेडिएंट फिल लागू करने का तरीका दिया गया है:
+The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप का [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) `Gradient` पर सेट करें।
-5. ग्रेडिएंट स्टॉप कलेक्शन की `add` मेथड्स का उपयोग करके, जिनका उल्लेख [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) क्लास में है, दो वांछित रंगों को निर्धारित स्थितियों के साथ जोड़ें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
+This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter-length-to-line-width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Ellipse प्रकार का एक ऑटो शैप जोड़ें।
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // दीपवृत्त पर ग्रेडिएंट फ़ॉर्मेटिंग लागू करें।
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint में परिणाम: **Miter limit 2** on the left and **miter limit 8** on the right.
+
+![PowerPoint में मिटर लिमिट 2 के साथ एक बवेल्ड शीर्ष बिंदु और मिटर लिमिट 8 के साथ एक नुकीला शीर्ष बिंदु](miter-limits.png)
+
+## **ग्रेडिएंट फ़िल**
+
+A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45-degree angle from red to purple using [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). The [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // ग्रेडिएंट की दिशा सेट करें।
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // दो ग्रेडिएंट स्टॉप जोड़ें।
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -258,52 +334,171 @@ try {
 
 परिणाम:
 
-![ग्रेडिएंट फिल के साथ दीर्घवृत्त](gradient-fill.png)
+![ग्रेडिएंट फ़िल के साथ दीर्घवृत्त](gradient-fill.png)
 
-यदि किसी ग्रेडिएंट का निर्यातित छवि में दिखना PowerPoint से अलग हो, तो देखें [Choose a Gradient Rendering Style](/slides/hi/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)। आप प्रस्तुति में संग्रहीत ग्रेडिएंट फिल को बदले बिना एक रेंडरिंग शैली चुन सकते हैं।
+If a gradient looks different in an exported image than it does in PowerPoint, see [ग्रेडिएंट रेंडरिंग शैली चुनें](/slides/hi/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
 
-## **पैटर्न फिल**
+### **रेखीय ग्रेडिएंट कोण सेट करें**
 
-PowerPoint में, पैटर्न फिल एक फ़ॉर्मेटिंग विकल्प है जो आपको शैप पर दो‑रंगी डिज़ाइन—जैसे बिंदु, धारीदार, क्रॉसहैच, या चेक—लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि के लिए कस्टम रंग चुन सकते हैं।
+Use [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) to control the orientation of a [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
 
-Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न शैलियाँ प्रदान करता है जिन्हें आप शैप्स पर लागू करके अपनी प्रस्तुतियों की दृश्य अपील बढ़ा सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी, आप उसे उपयोग करने वाले सटीक रंग निर्दिष्ट कर सकते हैं।
+This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
 
-यहाँ Aspose.Slides का उपयोग करके शैप पर पैटर्न फिल लागू करने का तरीका है:
-
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप का [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) `Pattern` पर सेट करें।
-5. पूर्वनिर्धारित विकल्पों में से एक पैटर्न शैली चुनें।
-6. शैप के [पृष्ठभूमि रंग](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) सेट करें।
-7. शैप के [अग्रभूमि रंग](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) सेट करें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint में परिणाम:
+
+![ऊपर की पंक्ति में 0, 45, और 90 डिग्री पर रेखीय ग्रेडिएंट, और नीचे की पंक्ति में 135, 180, और 270 डिग्री पर](linear-gradient-angles.png)
+
+### **आकार के साथ रेखीय ग्रेडिएंट स्केल करें**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepts a [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non-square shape.
+
+The following example uses a `45`-degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+PowerPoint में परिणाम, बाएँ पर स्केलिंग बंद और दाएँ पर स्केलिंग चालू:
+
+![बायाँ पर LinearGradientScaled False और दाएँ पर True के साथ 45-डिग्री ग्रेडिएंट के साथ चौड़ी और लंबी आयतें](linear-gradient-scaling.png)
+
+With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`-degree gradient.
+
+Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) fills.
+
+### **कोण को ग्रेडिएंट दिशा के साथ मिलाएँ**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/) class; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Keep the direction unchanged when comparing angles or scaling.
+
+The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **पैटर्न फ़िल**
+
+A pattern fill applies a two-color design, such as dots, stripes, or checks. This example uses [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) to select a trellis pattern. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) supplies the light gray background, and [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) supplies the yellow pattern color.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // फ़िल टाइप को Pattern पर सेट करें।
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // पैटर्न शैली सेट करें।
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // पैटर्न की पृष्ठभूमि और अग्रभूमि रंग सेट करें।
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -312,56 +507,35 @@ try {
 
 परिणाम:
 
-![पैटर्न फिल के साथ आयत](pattern-fill.png)
+![पैटर्न फ़िल के साथ आयत](pattern-fill.png)
 
-## **पिक्चर फिल**
+## **पिक्चर फ़िल**
 
-PowerPoint में, पिक्चर फिल एक फ़ॉर्मेटिंग विकल्प है जो आपको शैप के भीतर एक छवि डालने की अनुमति देता है—वास्तव में छवि को शैप की पृष्ठभूमि के रूप में उपयोग करता है।
+A picture fill uses an image inside a shape. This example requires a local image and uses [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) to load it into the presentation’s image collection. Setting [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
 
-यहाँ Aspose.Slides का उपयोग करके शैप पर पिक्चर फिल लागू करने का तरीका दिया गया है:
+![कमल की तस्वीर](lotus.png)
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप का [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) `Picture` पर सेट करें।
-5. पिक्चर फिल मोड को `Tile` (या कोई अन्य वांछित मोड) पर सेट करें।
-6. इच्छित छवि से एक [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं।
-7. छवि को `ISlidesPicture.setImage` मेथड में पास करें।
-8. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-मान लीजिए हमारे पास एक "lotus.png" फ़ाइल है जिसका चित्र नीचे दिया गया है:
-
-![लोटस चित्र](lotus.png)
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // फ़िल टाइप को Picture पर सेट करें।
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // पिक्चर फ़िल मोड सेट करें।
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // एक छवि लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // चित्र सेट करें।
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -370,47 +544,43 @@ try {
 
 परिणाम:
 
-![पिक्चर फिल के साथ शैप](picture-fill.png)
+![पिक्चर फ़िल के साथ आकृति](picture-fill.png)
 
-### **टाइल तस्वीर को बनावट के रूप में**
+### **टाइल पिक्चर को टेक्सचर के रूप में उपयोग करें**
 
-यदि आप एक टाइल वाली छवि को बनावट के रूप में सेट करना चाहते हैं और टाइलिंग व्यवहार को अनुकूलित करना चाहते हैं, तो आप [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) क्लास की निम्नलिखित मेथड्स का प्रयोग कर सकते हैं:
+If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) class:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): चित्र फिल मोड सेट करता है — `Tile` या `Stretch`।
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): शैप के भीतर टाइलों की संरेखण निर्दिष्ट करता है।
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): टाइल को क्षैतिज, ऊर्ध्वाधर या दोनों दिशा में फ्लिप करने को नियंत्रित करता है।
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): टाइल का क्षैतिज ऑफ़सेट (पॉइंट में) शैप की मूल से सेट करता है।
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): टाइल का ऊर्ध्वाधर ऑफ़सेट (पॉइंट में) शैप की मूल से सेट करता है।
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): टाइल के क्षैतिज स्केल को प्रतिशत में निर्धारित करता है।
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): टाइल के ऊर्ध्वाधर स्केल को प्रतिशत में निर्धारित करता है।
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): चित्र भरने का मोड सेट करता है — `Tile` या `Stretch`।
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): आकृति के भीतर टाइल्स की संरेखण निर्दिष्ट करता है।
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): टाइल को क्षैतिज, लंबवत या दोनों दिशाओं में उलटने को नियंत्रित करता है।
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): टाइल का क्षैतिज ऑफ़सेट (पॉइंट्स में) आकृति के मूल बिंदु से सेट करता है।
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): टाइल का लंबवत ऑफ़सेट (पॉइंट्स में) सेट करता है।
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): टाइल का क्षैतिज स्केल प्रतिशत में निर्धारित करता है।
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): टाइल का लंबवत स्केल प्रतिशत में निर्धारित करता है।
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+This example requires a local image and configures [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom-right alignment and flipping in both directions determine how the repeated texture is arranged.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // एक आयत ऑटो शैप जोड़ें।
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // शैप का फ़िल टाइप Picture पर सेट करें।
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // छवि लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // छवि को शैप को असाइन करें।
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // पिक्चर फ़िल मोड और टाइलिंग गुण कॉन्फ़िगर करें।
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -419,7 +589,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -430,40 +599,22 @@ try {
 
 ![टाइल विकल्प](tile-options.png)
 
-## **सॉलिड कलर फिल**
+## **सॉलिड कलर फ़िल**
 
-PowerPoint में, सॉलिड कलर फिल एक फ़ॉर्मेटिंग विकल्प है जो शैप को एकसमान रंग से भरता है। यह सादा पृष्ठभूमि रंग कोई ग्रेडिएंट, बनावट, या पैटर्न के बिना लागू किया जाता है।
+A solid fill gives a shape a single, uniform color. This example uses [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) to select the solid fill mode and assigns yellow through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), then saves the rectangle in a presentation.
 
-एक शैप पर सॉलिड कलर फिल लागू करने के लिये Aspose.Slides का उपयोग करके, निम्न चरणों का पालन करें:
-
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप का [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) `Solid` पर सेट करें।
-5. शैप को अपना वांछित फ़िल रंग असाइन करें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // फ़िल टाइप को Solid पर सेट करें।
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // फ़िल रंग सेट करें।
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -472,41 +623,90 @@ try {
 
 परिणाम:
 
-![सॉलिड कलर फिल के साथ शैप](solid-color-fill.png)
+![सॉलिड कलर फ़िल के साथ आकृति](solid-color-fill.png)
 
-## **ट्रांसपेरेंसी सेट करें**
+## **स्लाइड पृष्ठभूमि को आकृति फ़िल के रूप में उपयोग करें**
 
-PowerPoint में, जब आप सॉलिड कलर, ग्रेडिएंट, पिक्चर, या टेक्सचर फिल लागू करते हैं, तो आप ट्रांसपेरेंसी स्तर सेट करके फ़िल की अपारदर्शिता को नियंत्रित कर सकते हैं। अधिक ट्रांसपेरेंसी मान शैप को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे की वस्तुएँ आंशिक रूप से दिखाई देती हैं।
+Use [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) when a shape should match the slide background, for example in a presentation template. Use [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) to select [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
 
-Aspose.Slides आपको फ़िल में उपयोग किए गए रंग की अल्फा वैल्यू को समायोजित करके ट्रांसपेरेंसी स्तर सेट करने देता है। इसे करने का तरीका इस प्रकार है:
+This differs from [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप का [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) `Solid` पर सेट करें।
-5. फ़िल करने के लिये `Color` का उपयोग करके ट्रांसपेरेंसी के साथ एक रंग परिभाषित करें (अल्फा घटक ट्रांसपेरेंसी को नियंत्रित करता है)।
-6. प्रस्तुति को सहेजें।
+The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // एक ठोस आयत ऑटो शैप जोड़ें।
+    // मास्टर से ग्रेडिएंट विरासत में लें।
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // इस वस्तु को पहले जोड़ें ताकि यह आयतों के पीछे दिखे।
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // स्पष्ट भराव लागू करने से पहले पृष्ठभूमि भराव को निष्क्रिय करें।
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+परिणाम, बाएँ से दाएँ: **background fill**, **no fill**, and **explicit fill**. The magenta band is hidden by the left and right rectangles but remains visible through the middle rectangle.
+
+![पृष्ठभूमि भराव, कोई भराव नहीं, और मैजेंटा बैंड के ऊपर स्पष्ट नारंगी भराव](background-fill.png)
+
+The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+
+## **पारदर्शिता सेट करें**
+
+For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ठोस शैप के ऊपर एक पारदर्शी आयत ऑटो शैप जोड़ें।
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -515,37 +715,22 @@ try {
 
 परिणाम:
 
-![ट्रांसपेरेंट शैप](shape-transparency.png)
+![पारदर्शी आकृति](shape-transparency.png)
 
-## **शैप घुमाएँ**
+## **आकृतियों को घुमाएँ**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में शैप्स को घुमाने की सुविधा देता है। यह विशिष्ट संरेखण या डिज़ाइन आवश्यकताओं वाले विज़ुअल तत्वों को स्थित करने में उपयोगी हो सकता है।
+Use [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
 
-स्लाइड पर शैप को घुमाने के लिये, नीचे दिए गए चरणों का पालन करें:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप की घूर्णन प्रॉपर्टी को वांछित कोण पर सेट करें।
-5. प्रस्तुति को सहेजें।
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// प्रस्तुति फ़ाइल को दर्शाने वाली Presentation क्लास को इंस्टैंसिएट करें।
 let presentation = new aspose.slides.Presentation();
 try {
-    // पहली स्लाइड प्राप्त करें।
     let slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // शैप को 5 डिग्री घुमाएँ।
     shape.setRotation(5);
 
-    // PPTX फ़ाइल को डिस्क पर सहेजें।
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -554,39 +739,26 @@ try {
 
 परिणाम:
 
-![शैप घूर्णन](shape-rotation.png)
+![आकृति घुमाव](shape-rotation.png)
 
-## **3D बिवेल प्रभाव जोड़ें**
+## **3D बीवल प्रभाव जोड़ें**
 
-Aspose.Slides आपको शैप्स पर 3D बिवेल प्रभाव लागू करने देता है, जिसके लिये आप उनके [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करते हैं।
+Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, uses [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) to set the depth to 4 points, and applies a circular top bevel with a width and height of 6 points through [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). A front-facing orthographic camera and three-point lighting make the bevel visible.
 
-शैप पर 3D बिवेल प्रभाव जोड़ने के लिये, नीचे दिए चरणों का पालन करें:
-
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. शैप के [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) को कॉन्फ़िगर करके बिवेल सेटिंग्स निर्धारित करें।
-5. प्रस्तुति को सहेजें।
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Presentation क्लास का एक इंस्टेंस बनाएं।
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // स्लाइड में एक शैप जोड़ें।
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // शैप की ThreeDFormat प्रॉपर्टीज़ सेट करें।
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -595,7 +767,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -604,38 +775,25 @@ try {
 
 परिणाम:
 
-![3D बिवेल प्रभाव](3D-bevel-effect.png)
+![3D बीवल प्रभाव](3D-bevel-effect.png)
 
-## **3D घूर्णन प्रभाव जोड़ें**
+## **3D घुमाव प्रभाव जोड़ें**
 
-Aspose.Slides आपको शैप्स पर 3D घूर्णन प्रभाव लागू करने देता है, जिसके लिये आप उनके [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करते हैं।
+A shape’s 3D view is controlled by its camera settings. This example uses [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) and balanced lighting through [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), then saves the formatted rectangle.
 
-शैप पर 3D घूर्णन लागू करने के लिये:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. एक [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) क्लास का इंस्टेंस बनाएं।
-2. उसके सूचकांक द्वारा स्लाइड का एक रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) जोड़ें।
-4. 3D घूर्णन को परिभाषित करने के लिये [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) और [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) का उपयोग करें।
-5. प्रस्तुति को सहेजें।
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Presentation क्लास का एक इंस्टेंस बनाएं।
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -644,19 +802,18 @@ try {
 
 परिणाम:
 
-![3D घूर्णन प्रभाव](3D-rotation-effect.png)
+![3D घुमाव प्रभाव](3D-rotation-effect.png)
 
-## **शैप्स के लिए काली-और-सफ़ेद रेंडरिंग नियंत्रित करें**
+## **आकृतियों के लिए काली-श्वेत रेंडरिंग नियंत्रित करें**
 
-[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) मेथड यह निर्धारित करता है कि जब प्रस्तुति काली-और-सफ़ेद मोड में देखी या संसाधित की जाती है, तो व्यक्तिगत शैप कैसे रेंडर किया जाता है। यह स्वयं काली-और-सफ़ेद डिस्प्ले को सक्षम नहीं करता, और सामान्य रंग मोड में शैप की फ़िल, लाइन, या अन्य फ़ॉर्मेटिंग को नहीं बदलता।
+The [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) method specifies how an individual shape is rendered when a presentation is viewed or processed in black-and-white mode. It does not enable black-and-white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
 
-इच्छित व्यवहार चुनने के लिये [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) एन्यूमरेशन से कोई मान उपयोग करें। उदाहरण के लिये, `Automatic` रेंडरिंग एप्लिकेशन को परिवर्तन चुनने देता है, `Gray` और `LightGray` ग्रे रंग का उपयोग करते हैं, `BlackWhite` केवल काला और सफेद उपयोग करता है, `Black` और `White` एकल रंग को बाध्य करते हैं, `Color` सामान्य रंग को बरकरार रखता है, और `Hidden` काली-और-सफ़ेद मोड में शैप को छोड़ देता है। `NotDefined` का अर्थ है कि कोई शैप-स्तर मोड असाइन नहीं किया गया है।
+Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) class to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black-and-white mode. `NotDefined` means that no shape-level mode is assigned.
 
-निम्नलिखित JavaScript कोड एक रंगीन शैप बनाता है और काली-और-सफ़ेद डिस्प्ले मोड में इसे ग्रे दिखाता है:
+This example creates an orange rectangle and uses [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) to select gray coloring. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black-and-white display settings:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -665,9 +822,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // रंग मोड में नारंगी फ़िल रखें, लेकिन काली-और-सफ़ेद मोड में शैप को ग्रे रंग में रेंडर करें।
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -676,39 +831,38 @@ try {
 }
 ```
 
-साधारण रंग मोड में, आयत अपना नारंगी फ़िल बरकरार रखती है। काली-और-सफ़ेद डिस्प्ले कार्यप्रवाह में, यह ग्रे रंग का उपयोग करती है क्योंकि उसका मोड `Gray` पर सेट है। यह आपको पूर्ण‑रंग स्लाइड को संरक्षित रखने की अनुमति देता है, जबकि प्रिंटिंग, प्रीव्यू या अन्य कार्यप्रवाहों के लिये अलग दिखावट को परिभाषित करता है जो प्रस्तुति की काली-और-सफ़ेद डिस्प्ले सेटिंग्स का सम्मान करते हैं।
+In normal color mode, the rectangle retains its orange fill. In a black-and-white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full-color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black-and-white display settings.
 
 ## **फ़ॉर्मेट रीसेट करें**
 
-निम्नलिखित JavaScript कोड दर्शाता है कि कैसे स्लाइड की फ़ॉर्मेटिंग रीसेट की जाए और [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) पर प्लेसहोल्डर्स वाले सभी शैप्स की स्थिति, आकार, और फ़ॉर्मेटिंग को उनकी डिफ़ॉल्ट सेटिंग्स पर लौटाया जाए:
+Use [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout-linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // लेआउट में प्लेसहोल्डर वाला प्रत्येक शैप स्लाइड पर रीसेट करें।
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या शैप फ़ॉर्मेटिंग अंतिम प्रस्तुति फ़ाइल आकार को प्रभावित करती है?**
+**क्या आकृति फ़ॉर्मेटिंग अंतिम प्रस्तुति फ़ाइल आकार को प्रभावित करती है?**
 
-केवल न्यूनतम रूप से। एम्बेडेड छवियां और मीडिया फ़ाइल स्थान का अधिकांश भाग घेरती हैं, जबकि शैप पैरामीटर जैसे रंग, प्रभाव, और ग्रेडिएंट मेटाडेटा के रूप में संग्रहीत होते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
+रंग, लाइन शैली, और प्रभाव सेटिंग्स आमतौर पर एम्बेडेड इमेज और मीडिया की तुलना में कम डेटा जोड़ते हैं। पिक्चर फ़िल्स फ़ाइल आकार बढ़ा सकते हैं क्योंकि उनकी छवियाँ प्रस्तुति में संग्रहीत रहती हैं।
 
-**मैं कैसे पहचान सकता हूं कि स्लाइड पर कौन से शैप समान फ़ॉर्मेटिंग साझा करते हैं ताकि मैं उन्हें समूहित कर सकूं?**
+**मैं कैसे पता लगा सकता हूँ कि स्लाइड में कौन‑सी आकृतियाँ समान फ़ॉर्मेटिंग साझा करती हैं ताकि मैं उन्हें समूहित कर सकूँ?**
 
-प्रत्येक शैप की मुख्य फ़ॉर्मेटिंग प्रॉपर्टीज़—फ़िल, लाइन, और इफ़ेक्ट सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनके स्टाइल को समान मानें और तर्कसंगत रूप से उन शैप्स को समूहित करें, जिससे बाद में स्टाइल प्रबंधन आसान हो जाता है।
+प्रत्येक आकृति की प्रमुख फ़ॉर्मेटिंग प्रॉपर्टीज़—भरण, लाइन, और प्रभाव सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनकी शैलियों को समान मानें और उन आकृतियों को तर्कसंगत रूप से समूहित करें, जिससे बाद में शैली प्रबंधन सरल हो जाता है।
 
-**क्या मैं कस्टम शैप शैलियों को एक अलग फ़ाइल में सहेजकर अन्य प्रस्तुतियों में पुन: उपयोग कर सकता हूं?**
+**क्या मैं कस्टम आकृति शैलियों का एक सेट अलग फ़ाइल में सहेज कर अन्य प्रस्तुतियों में पुन: उपयोग कर सकता हूँ?**
 
-हां। वांछित शैलियों के साथ नमूना शैप्स को टेम्प्लेट स्लाइड डेक या .POTX टेम्प्लेट फ़ाइल में सहेजें। नई प्रस्तुति बनाते समय, टेम्प्लेट खोलें, आवश्यक शैलियों वाले शैप को क्लोन करें, और जहाँ‑जहाँ आवश्यक हो, उनकी फ़ॉर्मेटिंग को पुनः लागू करें।
+हाँ। वांछित शैलियों वाले नमूना आकृतियों को एक टेम्पलेट स्लाइड डेक या .POTX टेम्पलेट फ़ाइल में सहेजें। नई प्रस्तुति बनाते समय टेम्पलेट खोलें, आवश्यक शैली वाली आकृतियों को क्लोन करें, और जहाँ‑जहाँ आवश्यकता हो फिर से लागू करें।

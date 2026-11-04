@@ -1,83 +1,62 @@
 ---
-title: Định dạng hình dạng PowerPoint trên Android
-linktitle: Định dạng Hình dạng
+title: Định dạng các hình PowerPoint trên Android
+linktitle: Định dạng hình
 type: docs
 weight: 20
 url: /vi/androidjava/shape-formatting/
 keywords:
-- định dạng hình dạng
+- định dạng hình
 - định dạng đường viền
-- hiệu ứng phác họa
-- đường viền hình dạng phác họa
+- hiệu ứng phác thảo
+- đường hình phác thảo
 - định dạng kiểu nối
 - đổ gradient
-- đổ pattern
-- đổ hình ảnh
-- đổ texture
-- đổ màu đặc
-- độ trong suốt hình dạng
-- hiển thị hình dạng đen‑trắng
-- hiển thị hình dạng xám
-- xoay hình dạng
-- hiệu ứng bevel 3D
+- đổ mẫu
+- đổ ảnh
+- đổ kết cấu
+- đổ màu đồng nhất
+- độ trong suốt hình
+- kết xuất hình đen-trắng
+- kết xuất hình xám
+- xoay hình
+- hiệu ứng viền 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Android
 - Java
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trên Android bằng Aspose.Slides—đặt các kiểu fill, line và effect cho tệp PPT, PPTX và ODP một cách chính xác và kiểm soát toàn diện."
+description: "Tìm hiểu cách định dạng các hình PowerPoint trên Android bằng Aspose.Slides—đặt các kiểu tô, đường viền và hiệu ứng cho tệp PPT và PPTX một cách chính xác và kiểm soát đầy đủ."
 ---
 ## **Giới thiệu**
 
-Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo thành từ các đường, bạn có thể định dạng chúng bằng cách sửa đổi hoặc áp dụng hiệu ứng cho đường viền. Ngoài ra, bạn cũng có thể định dạng hình dạng bằng cách chỉ định các thiết lập kiểm soát cách nội bộ của chúng được tô màu.
+Định dạng các hình trong PowerPoint bằng cách điều chỉnh viền, tô màu và hiệu ứng. Aspose.Slides for Android qua Java cho phép bạn kiểm soát các thiết lập này bằng chương trình, bao gồm độ trong suốt, xoay và định dạng 3D.
 
-![định dạng hình PowerPoint](format-shape-powerpoint.png)
+![Các tùy chọn định dạng hình trong PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java cung cấp các giao diện và phương thức cho phép bạn định dạng hình dạng bằng cùng các tùy chọn có trong PowerPoint.
+Aspose.Slides for Android qua Java cung cấp các giao diện và phương thức cho phép bạn định dạng hình bằng các tùy chọn tương tự như trong PowerPoint.
 
 ## **Định dạng Đường viền**
 
-Sử dụng Aspose.Slides, bạn có thể chỉ định kiểu đường viền tùy chỉnh cho một hình dạng. Các bước sau mô tả quy trình:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [line style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linestyle/) cho hình dạng.
-1. Đặt độ rộng của đường viền.
-1. Đặt [dash style](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) cho đường viền.
-1. Đặt màu đường viền cho hình dạng.
-1. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã sau minh họa cách định dạng một `AutoShape` hình chữ nhật:
+Sử dụng [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) để điều khiển viền của một hình. Ví dụ này tạo một hình chữ nhật không tô màu với viền xanh, dạng nét đứt. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) chọn một đường hợp chất dày‑mỏng, trong khi [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) đặt độ rộng thành 7 điểm và [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) chọn mẫu dash.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Xóa phần fill khỏi hình chữ nhật để chỉ các đường viền hiển thị.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Áp dụng định dạng cho các đường viền của hình chữ nhật.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
-
-    // Đặt màu cho đường viền của hình chữ nhật.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -86,13 +65,110 @@ try {
 
 Kết quả:
 
-![Các đường viền đã được định dạng trong bản trình bày](formatted-lines.png)
+![Các đường đã định dạng trong bản trình bày](formatted-lines.png)
 
-## **Áp dụng Hiệu ứng Phác họa cho Đường viền Hình dạng**
+### **Đặt Mẫu Đường Nét Tùy Chỉnh**
 
-Hiệu ứng phác họa làm cho đường viền hình dạng trông như được vẽ tay. Sử dụng [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) để truy cập cài đặt đường viền, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/) để truy cập cài đặt phác họa, và [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) để chọn một giá trị trong enum [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) .
+Sử dụng [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) khi các kiểu đường nét định sẵn không cung cấp độ dài dash và khoảng trống bạn cần, ví dụ cho viền thương hiệu hoặc sơ đồ kỹ thuật. Gán một mẫu sẽ tự động thay đổi kiểu dash của đường thành [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-Mã Java sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) , đọc giá trị đã gán một cách rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) :
+Các phần tử của mảng xen kẽ giữa độ dài dash và khoảng trống, bắt đầu bằng dash. Mỗi giá trị là bội số của độ rộng đường: `{ 4, 2 }` ở độ rộng 3 điểm tạo một dash dài 12 điểm rồi một khoảng trống 6 điểm. Sử dụng các cặp giá trị hữu hạn, không âm để định nghĩa các đoạn dash‑gap hoàn chỉnh. Ví dụ sử dụng các giá trị dương để mọi dash và gap đều hiển thị.
+
+Ví dụ này tạo năm đường xanh có cùng độ dài và đầu phẳng. Ba đường đầu tiên so sánh các mẫu ở độ rộng 3 điểm. Đường thứ tư lặp lại mẫu đầu tiên ở độ rộng gấp đôi, tăng gấp đôi cả dash và gap. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường đặc.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[][] patterns = {
+        { 4, 2 },
+        { 1, 2 },
+        { 6, 2, 1, 2 },
+        { 4, 2 },
+        { 4, 2 }
+    };
+
+    for (int i = 0; i < patterns.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setCustomDashPattern(patterns[i]);
+    }
+
+    // Đặt lại đường cuối cùng thành kiểu solid.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Để quay lại kiểu dash định sẵn, truyền [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) cho [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Kiểu được chọn điều khiển cách hiển thị của đường.
+
+Kết quả trong PowerPoint, từ trên xuống dưới: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; và **Solid, 3 pt**.
+
+![Ba mẫu dash tùy chỉnh, một đường rộng hơn sử dụng mẫu đầu tiên, và một đường đặc trong PowerPoint](custom-dash-patterns.png)
+
+### **Đặt Đầu Đường**
+
+Sử dụng [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) để đặt đầu của một đường mở. Lớp [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) cung cấp ba kiểu đầu cụ thể:
+
+- `Flat`: Đường dừng tại điểm cuối.
+- `Round`: Đầu nửa vòng tròn mở rộng ra ngoài điểm cuối một nửa độ rộng đường.
+- `Square`: Đầu vuông mở rộng ra ngoài điểm cuối một nửa độ rộng đường.
+
+Lớp cũng bao gồm `NotDefined`, nghĩa là không có kiểu đầu nào được chỉ định rõ ràng.
+
+Đầu khác với mũi tên, vốn thêm ký hiệu vào đầu đường, và nối, vốn điều khiển các góc giữa các đoạn đường. Ví dụ này tắt mũi tên bằng [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) và [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) để chỉ so sánh các dạng đầu.
+
+Ví dụ sau tạo ba đường ngang gần như giống hệt, rộng 20 điểm. Từ trên xuống dưới, chúng sử dụng đầu phẳng, tròn và vuông. Các điểm cuối của chúng có cùng tọa độ ngang; đầu tròn và vuông mở rộng 10 điểm ra ngoài mỗi điểm cuối.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] capStyles = new byte[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+    for (int i = 0; i < capStyles.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid);
+        line.getLineFormat().setCapStyle(capStyles[i]);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+    }
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả trong PowerPoint, từ trên xuống dưới: **Flat**, **Round**, và **Square**.
+
+![Đầu phẳng, tròn và vuông trên các đường dày giống nhau trong PowerPoint](line-caps.png)
+
+## **Áp dụng Hiệu Ứng Phác Thảo cho Đường Hình**
+
+Một hiệu ứng phác thảo làm cho đường của hình trông như được vẽ tay. Sử dụng [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) để truy cập cài đặt đường, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) để truy cập cài đặt phác thảo, và [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) để chọn một giá trị từ lớp [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
+
+Đoạn mã Java sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/), đọc giá trị đã gán, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -100,26 +176,20 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Truy cập định dạng đường viền của hình và định dạng phác họa của nó.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Áp dụng hiệu ứng phác họa.
     sketchFormat.setSketchType(LineSketchType.Curved);
-
-    // Đọc hiệu ứng phác họa được gán trực tiếp cho hình.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
-
-    // Loại bỏ hiệu ứng phác họa.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Giá trị trả về bởi [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường viền có thể được kế thừa từ một theme, master slide hoặc layout slide, hãy sử dụng [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/) , truy cập [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/) , và đọc [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/) . Giá trị hiệu quả phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết:
+Giá trị trả về bởi [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) biểu thị cài đặt được gán trực tiếp cho hình. Nếu định dạng đường có thể kế thừa từ chủ đề, slide chủ hay slide bố trí, hãy dùng [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), truy cập [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), và đọc [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Giá trị thực tế phản ánh định dạng thực sự được áp dụng sau khi kế thừa được giải quyết. Ví dụ này yêu cầu một bản trình bày đã tồn tại có ít nhất một hình trên slide đầu tiên và in ra cả hai giá trị:
 
 ```java
 import com.aspose.slides.*;
@@ -127,8 +197,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    ILineFormat lineFormat = shape.getLineFormat();
 
+    ILineFormat lineFormat = shape.getLineFormat();
     int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
     int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -142,110 +212,120 @@ try {
 
 ## **Định dạng Kiểu Nối**
 
-Ba tùy chọn kiểu nối:
+Dưới đây là ba tùy chọn kiểu nối:
 
 * Round
 * Miter
 * Bevel
 
-Mặc định, khi PowerPoint nối hai đường ở một góc (chẳng hạn ở góc của hình dạng), nó sử dụng cài đặt **Round**. Tuy nhiên, nếu bạn đang vẽ một hình dạng có các góc nhọn, bạn có thể muốn chọn tùy chọn **Miter**.
+Kiểu nối điều khiển cách hai đoạn viền gặp nhau ở góc. Dùng **Round** cho các góc tròn, **Miter** cho các góc nhọn, hoặc **Bevel** cho các góc được làm phẳng.
 
 ![Kiểu nối trong bản trình bày](join-style-powerpoint.png)
 
-Mã Java sau minh họa cách ba hình chữ nhật (như trong ảnh trên) được tạo ra bằng các cài đặt kiểu nối Miter, Bevel và Round:
+Ví dụ này tạo ba hình chữ nhật đen với viền xanh rộng 15 điểm. Nó dùng [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) để áp dụng các giá trị miter, bevel và round của [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/), tương ứng, để so sánh cách các góc được vẽ.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm ba auto shape loại Rectangle.
-    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+    IAutoShape miterShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape bevelShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape roundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Đặt màu fill cho mỗi hình chữ nhật.
-    shape1.getFillFormat().setFillType(FillType.Solid);
-    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape2.getFillFormat().setFillType(FillType.Solid);
-    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape3.getFillFormat().setFillType(FillType.Solid);
-    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    miterShape.getFillFormat().setFillType(FillType.Solid);
+    miterShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    bevelShape.getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    roundShape.getFillFormat().setFillType(FillType.Solid);
+    roundShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Đặt độ rộng đường viền.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Đặt màu cho đường viền của mỗi hình chữ nhật.
-    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    miterShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    bevelShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    roundShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Đặt kiểu nối.
-    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    miterShape.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    bevelShape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    roundShape.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Thêm văn bản vào mỗi hình chữ nhật.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+### **Giới hạn Nối Miter ở Các Góc Nhọn**
+
+Sử dụng [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) cùng với [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) đặt thành [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) để giới hạn độ dài của góc nhọn.
+
+Giới hạn là tỉ lệ giữa khoảng cách giữa góc trong và góc ngoài của nối so với độ rộng đường. Ví dụ, giá trị `8` cho phép độ dài miter lên tới tám lần độ rộng đường; nó không phải là đo bằng điểm. Nếu góc vượt quá giới hạn, PowerPoint sẽ dùng nối bevel ở góc đó. Giới hạn lớn hơn cho phép các điểm nhọn hơn. Cài đặt này chỉ ảnh hưởng đến nối miter và không gây ảnh hưởng nhìn thấy được khi góc vẫn nằm trong cả hai giới hạn.
+
+Ví dụ này tạo hai tam giác không tô màu giống hệt, viền rộng 20 điểm. Tam giác trái dùng giới hạn `2`, còn bên phải dùng `8`. Mỗi tam giác rộng 80 điểm và cao 160 điểm, cho tỉ lệ độ dài miter‑to‑line‑width ở góc trên khoảng `4.12`. Do đó PowerPoint bevel góc trái và giữ nguyên góc phải.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[] miterLimits = new float[] { 2f, 8f };
+
+    for (int i = 0; i < miterLimits.length; i++) {
+        IAutoShape triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(FillType.NoFill);
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+        triangle.getLineFormat().setMiterLimit(miterLimits[i]);
+    }
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả trong PowerPoint: **Miter limit 2** ở bên trái và **miter limit 8** ở bên phải.
+
+![Một góc bevel với giới hạn miter 2 và một góc nhọn với giới hạn miter 8 trong PowerPoint](miter-limits.png)
+
 ## **Đổ Gradient**
 
-Trong PowerPoint, Đổ Gradient là một tùy chọn định dạng cho phép bạn áp dụng một dải màu liên tục vào một hình dạng. Ví dụ, bạn có thể áp dụng hai màu hoặc nhiều màu sao cho một màu dần dần chuyển sang màu khác.
-
-Cách áp dụng đổ gradient cho một hình dạng bằng Aspose.Slides:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) của hình dạng thành `Gradient` .
-1. Thêm hai màu ưa thích của bạn với vị trí đã xác định bằng các phương thức `add` của collection gradient stop được mở rộng bởi giao diện [IGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/) .
-1. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã Java sau minh họa cách áp dụng hiệu ứng đổ gradient cho một hình ellipse:
+Đổ gradient pha trộn các màu qua một hình. Ví dụ này đổ một hình bầu dục bằng gradient tuyến tính góc 45 độ từ đỏ sang tím bằng [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). Phương thức [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) đặt các điểm dừng màu ở 0 và 1, tức đầu và cuối gradient. Xóa các điểm dừng hiện có đảm bảo chỉ hai màu này được dùng.
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
-
-    // Áp dụng định dạng gradient cho ellipse.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0f, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0f, PresetColor.Red);
 
-    // Đặt hướng của gradient.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
-
-    // Thêm hai gradient stop.
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
-
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -254,53 +334,171 @@ try {
 
 Kết quả:
 
-![Ellipse với đổ gradient](gradient-fill.png)
+![Ellipse với đổ màu gradient](gradient-fill.png)
 
-Nếu gradient trông khác trong ảnh xuất ra so với trong PowerPoint, xem phần [Choose a Gradient Rendering Style](/slides/vi/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient đã lưu trong bản trình bày.
+Nếu gradient trông khác trong hình ảnh xuất ra so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu kết xuất mà không cần thay đổi gradient đã lưu trong bản trình bày.
 
-## **Đổ Pattern**
+### **Đặt Góc Gradient Tuyến Tính**
 
-Trong PowerPoint, Đổ Pattern là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu—như chấm, sọc, giao chéo hoặc ô vuông—vào một hình dạng. Bạn có thể chọn màu tùy chỉnh cho nền và màu nền trước của pattern.
+Dùng [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) để điều khiển hướng của một đổ [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). Góc được đo bằng độ và tăng theo chiều kim đồng hồ: `0` chạy từ trái sang phải, `90` từ trên xuống dưới, `180` từ phải sang trái, và `270` từ dưới lên trên. Hỗ trợ góc phần thập phân. Các góc hữu hạn ngoài khoảng `[0, 360)` được chuẩn hóa về một vòng quay; ví dụ, `-45` trở thành `315` và `360` trở thành `0`.
 
-Aspose.Slides cung cấp hơn 45 kiểu pattern có sẵn mà bạn có thể áp dụng cho các hình dạng để tăng tính thẩm mỹ cho bản trình chiếu. Ngay cả sau khi chọn một pattern có sẵn, bạn vẫn có thể chỉ định chính xác các màu mà nó sẽ sử dụng.
-
-Cách áp dụng pattern cho một hình dạng bằng Aspose.Slides:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) của hình dạng thành `Pattern` .
-1. Chọn một kiểu pattern từ các tùy chọn có sẵn.
-1. Đặt [Background Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getBackColor--) của pattern.
-1. Đặt [Foreground Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getForeColor--) của pattern.
-1. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã Java sau minh họa cách áp dụng pattern cho một hình chữ nhật:
+Ví dụ này tạo sáu hình chữ nhật với các điểm dừng màu đỏ, xanh lá và xanh dương giống nhau ở vị trí `0`, `0.5`, và `1`. Tắt tỷ lệ để góc có thể được so sánh mà không phụ thuộc vào tỷ lệ hình chữ nhật. Các góc, từ trái sang phải, là `0`, `45`, và `90` ở hàng trên, và `135`, `180`, và `270` ở hàng dưới.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
+    float[] angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+    for (int i = 0; i < angles.length; i++) {
+        int x = 30 + (i % 3) * 230;
+        int y = 30 + (i / 3) * 190;
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.False);
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả trong PowerPoint:
+
+![Gradient tuyến tính ở các góc 0, 45, và 90 độ ở hàng trên, và 135, 180, và 270 độ ở hàng dưới](linear-gradient-angles.png)
+
+### **Phóng To/Mở Rộng Gradient Tuyến Tính Cùng Hình**
+
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) chấp nhận một giá trị [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). Đặt rõ `False` để giữ góc gradient hình học khi tỷ lệ hình thay đổi, hoặc `True` để gradient mở rộng cùng chiều rộng và chiều cao của hình. Khi bật scaling, góc nhìn thấy có thể khác với góc đã gán trên hình không vuông.
+
+Ví dụ sau dùng góc `45` độ và cùng các điểm dừng màu như so sánh góc. Cột trái dùng `False`; cột phải dùng `True`. Mỗi cột chứa một hình chữ nhật rộng phía trên một hình chữ nhật cao. Cả hai bắt đầu với cùng kích thước rộng; thay đổi chiều rộng và chiều cao của hình thứ hai cho thấy cách tô màu phản hồi khi thay đổi kích thước mà không thay đổi cài đặt gradient.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] scalingOptions = new byte[] { NullableBool.False, NullableBool.True };
+
+    for (int column = 0; column < scalingOptions.length; column++) {
+        for (int row = 0; row < 2; row++) {
+            int x = 30 + column * 360;
+            int y = row == 0 ? 30 : 150;
+
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+            shape.getFillFormat().setFillType(FillType.Gradient);
+
+            IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(GradientShape.Linear);
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0f, Color.RED);
+            gradient.getGradientStops().add(0.5f, Color.GREEN);
+            gradient.getGradientStops().add(1f, Color.BLUE);
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(scalingOptions[column]);
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả trong PowerPoint, với scaling tắt ở bên trái và bật ở bên phải:
+
+![Hình chữ nhật rộng và cao với gradient 45 độ, so sánh LinearGradientScaled False bên trái với True bên phải](linear-gradient-scaling.png)
+
+Với scaling tắt, các dải màu chéo giữ cùng hướng trong cả hai hình. Với scaling bật, các dải kéo dài theo tỷ lệ của hình. Điều này giúp tái tạo gradient của mẫu khi điều chỉnh hình sang kích thước khác. Trên hình vuông, bật scaling không thay đổi giao diện của gradient `45` độ này.
+
+Cả góc và scaling đều áp dụng cho gradient tuyến tính. Chúng không điều khiển các đổ [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
+
+### **Kết Hợp Góc Với Hướng Gradient**
+
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) chọn một kiểu gradient từ lớp [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); nó không thay thế cho góc số. Đối với gradient tuyến tính, các kiểu góc có thể thay đổi khu vực màu phân bố mà không thay đổi góc được gán qua [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Giữ hướng không đổi khi so sánh góc hoặc scaling.
+
+Ví dụ sau áp dụng cùng cài đặt nhưng theo thứ tự ngược nhau. Hai hình chữ nhật có cùng giao diện: đặt hướng trước hoặc sau góc không làm thay đổi kết quả.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (int i = 0; i < 2; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.True);
+
+        if (i == 0) {
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Đổ Mẫu**
+
+Đổ mẫu áp dụng một thiết kế hai màu, chẳng hạn chấm, sọc hoặc ô. Ví dụ này dùng [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) để chọn mẫu trellis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) cung cấp nền xám nhạt, và [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) cung cấp màu vàng cho mẫu.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Đặt kiểu fill là Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
-
-    // Đặt kiểu mẫu.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
-
-    // Đặt màu nền và màu nền trước của mẫu.
-    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
+    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.rgb(192, 192, 192));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -309,56 +507,34 @@ try {
 
 Kết quả:
 
-![Hình chữ nhật với pattern](pattern-fill.png)
+![Hình chữ nhật với đổ mẫu](pattern-fill.png)
 
 ## **Đổ Hình Ảnh**
 
-Trong PowerPoint, Đổ Hình Ảnh là một tùy chọn định dạng cho phép bạn chèn một hình ảnh vào bên trong một hình dạng—hiệu quả như việc sử dụng hình ảnh làm nền cho hình dạng.
+Đổ hình ảnh sử dụng một bức ảnh bên trong một hình. Ví dụ này yêu cầu một ảnh cục bộ và dùng [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) để tải nó vào bộ sưu tập ảnh của bản trình bày. Đặt [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) ở chế độ lát (tiled) sẽ lặp lại ảnh trong hình chữ nhật. Ảnh nguồn được dùng ở đây được hiển thị bên dưới:
 
-Cách sử dụng Aspose.Slides để áp dụng đổ hình ảnh cho một hình dạng:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) của hình dạng thành `Picture` .
-1. Đặt chế độ đổ hình ảnh thành `Tile` (hoặc chế độ ưa thích khác).
-1. Tạo một đối tượng [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/) từ hình ảnh bạn muốn sử dụng.
-1. Truyền hình ảnh vào phương thức `ISlidesPicture.setImage` .
-1. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Giả sử chúng ta có tệp "lotus.png" với hình ảnh sau:
-
-![Hình lotus](lotus.png)
-
-Mã Java sau minh họa cách đổ hình ảnh vào một hình dạng:
+![Hình ảnh sen](lotus.png)
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Đặt kiểu fill là Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
-
-    // Đặt chế độ đổ hình ảnh.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Tải một hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     IImage image = Images.fromFile("lotus.png");
-    IPPImage picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Đặt hình ảnh.
+    IPPImage picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -367,47 +543,42 @@ try {
 
 Kết quả:
 
-![Hình dạng với đổ hình ảnh](picture-fill.png)
+![Hình với đổ hình ảnh](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Lát Hình Ảnh Như Vải**
 
-Nếu bạn muốn đặt một hình ảnh lát gạch làm texture và tùy chỉnh hành vi lát, bạn có thể sử dụng các phương thức sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) :
+Nếu muốn đặt một ảnh lặp lại làm vải và tùy chỉnh hành vi lát, bạn có thể dùng các phương thức sau của giao diện [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) và lớp [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Đặt chế độ đổ hình ảnh—`Tile` hoặc `Stretch` .
-- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Xác định cách căn chỉnh các lát trong hình dạng.
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Kiểm soát việc lật lát theo chiều ngang, dọc hoặc cả hai.
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Đặt độ lệch ngang của lát (theo point) so với gốc của hình dạng.
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Đặt độ lệch dọc của lát (theo point) so với gốc của hình dạng.
-- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Định nghĩa tỉ lệ mở rộng ngang của lát dưới dạng phần trăm.
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Định nghĩa tỉ lệ mở rộng dọc của lát dưới dạng phần trăm.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Đặt chế độ đổ hình ảnh—hoặc `Tile` hoặc `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Xác định cách căn chỉnh các viên gạch trong hình.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Kiểm soát việc lật viên gạch theo chiều ngang, dọc hoặc cả hai.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Đặt độ lệch ngang của viên gạch (điểm) so với gốc hình.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Đặt độ lệch dọc của viên gạch (điểm) so với gốc hình.
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Xác định tỷ lệ ngang của viên gạch theo phần trăm.
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Xác định tỷ lệ dọc của viên gạch theo phần trăm.
 
-Mẫu mã sau cho thấy cách thêm một hình chữ nhật với đổ hình ảnh lát và cấu hình các tùy chọn lát:
+Ví dụ này yêu cầu một ảnh cục bộ và cấu hình [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) để lặp lại nó ở kích thước 50% so với kích thước gốc. Độ lệch `−32` điểm dịch các viên gạch theo chiều ngang và dọc; căn chỉnh góc dưới‑phải và lật cả hai hướng xác định cách bố trí texture lặp lại.
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape hình chữ nhật.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Đặt kiểu fill của hình dạng thành Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Tải hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     IImage sourceImage = Images.fromFile("lotus.png");
-    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Gán hình ảnh cho hình dạng.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Cấu hình chế độ đổ hình ảnh và các thuộc tính lát.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -416,7 +587,6 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -427,41 +597,22 @@ Kết quả:
 
 ![Các tùy chọn lát](tile-options.png)
 
-## **Đổ Màu Đặc**
+## **Đổ Màu Đơn**
 
-Trong PowerPoint, Đổ Màu Đặc là một tùy chọn định dạng làm đầy một hình dạng bằng một màu duy nhất, đồng nhất. Nền màu này được áp dụng mà không có gradient, texture hay pattern nào.
-
-Để áp dụng đổ màu đặc cho một hình dạng bằng Aspose.Slides, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) của hình dạng thành `Solid` .
-1. Gán màu tô mong muốn cho hình dạng.
-1. Lưu bản trình bày đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã Java sau minh họa cách áp dụng đổ màu đặc cho một hình chữ nhật trong slide PowerPoint:
+Đổ màu đồng nhất cho hình một màu duy nhất, đồng đều. Ví dụ này dùng [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) để chọn chế độ đổ màu solid và gán màu vàng qua [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), sau đó lưu hình chữ nhật trong bản trình bày.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Đặt kiểu fill là Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
-
-    // Đặt màu fill.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -470,42 +621,90 @@ try {
 
 Kết quả:
 
-![Hình dạng với đổ màu đặc](solid-color-fill.png)
+![Hình với đổ màu đồng nhất](solid-color-fill.png)
 
-## **Đặt Độ Trong suốt**
+## **Sử Dụng Nền Slide Như Đổ Hình**
 
-Trong PowerPoint, khi bạn áp dụng màu đặc, gradient, hình ảnh hoặc texture cho các hình dạng, bạn cũng có thể đặt mức độ trong suốt để kiểm soát độ mờ của phần tô. Giá trị trong suốt cao hơn làm cho hình dạng trong suốt hơn, cho phép nền hoặc các đối tượng bên dưới hiển thị một phần.
+Dùng [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) khi một hình cần khớp với nền slide, chẳng hạn trong một mẫu bản trình bày. Đầu tiên dùng [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) với [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) để xóa bất kỳ tô màu rõ ràng nào. Với kết hợp này, hình sẽ sử dụng nền slide thay vì tô màu kiểu của nó. Chỉ bật cờ này không xóa một tô màu rõ ràng đã tồn tại.
 
-Aspose.Slides cho phép bạn đặt mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được dùng để tô. Cách thực hiện:
+Điều này khác với [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): tô nền bao phủ các đối tượng phía sau hình với khu vực nền slide tương ứng, trong khi NoFill để các đối tượng đó vẫn hiển thị. Gradient vẫn giữ căn chỉnh với slide thay vì khởi động lại bên trong từng hình.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) thành `Solid` .
-1. Sử dụng `Color` để xác định một màu có độ trong suốt (thành phần `alpha` điều khiển mức trong suốt).
-1. Lưu bản trình bày.
-
-Mã Java dưới đây minh họa cách áp dụng màu tô trong suốt cho một hình chữ nhật:
+Ví dụ sau tạo một nền master được kế thừa bởi slide và đặt một dải màu hồng tươi phía sau ba hình chữ nhật. Hình trái dùng nền, hình giữa không có tô màu, và hình phải chuyển từ nền sang tô màu cam rõ ràng.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape hình chữ nhật đặc.
+    // Kế thừa gradient từ master.
+    slide.getBackground().setType(BackgroundType.NotDefined);
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
+    IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Gradient);
+    IGradientFormat gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(GradientShape.Linear);
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
+    gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
+
+    // Thêm đối tượng này đầu tiên để nó xuất hiện phía sau các hình chữ nhật.
+    IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape backgroundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(FillType.NotDefined);
+    backgroundShape.setUseBackgroundFill(true);
+
+    IAutoShape noFillShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape explicitShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(FillType.NotDefined);
+    explicitShape.setUseBackgroundFill(true);
+
+    // Tắt việc tô nền trước khi áp dụng tô màu rõ ràng.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(FillType.Solid);
+    explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Kết quả, từ trái sang phải: **background fill**, **no fill**, và **explicit fill**. Dải màu hồng tươi bị ẩn bởi hình trái và phải nhưng vẫn hiện ra qua hình giữa.
+
+![Nền đổ, không đổ và đổ màu cam rõ ràng trên dải màu hồng tươi](background-fill.png)
+
+Cùng hành vi áp dụng cho nền được định nghĩa trực tiếp trên slide hoặc kế thừa từ layout. Hình sử dụng nền đã được giải quyết của slide; ví dụ để cả slide và layout không định nghĩa nền để master cung cấp nó.
+
+## **Đặt Độ Trong Suốt**
+
+Đối với đổ màu đồng nhất, thành phần alpha của màu kiểm soát độ trong suốt: 0 là hoàn toàn trong suốt và 255 là hoàn toàn đặc. Ví dụ này dùng giá trị alpha 128 cho một hình chữ nhật màu vàng, làm cho nó khoảng 50 % trong suốt để hình dưới vẫn nhìn thấy. Màu được gán qua [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Thêm một auto shape hình chữ nhật trong suốt lên trên hình dạng đặc.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
-    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(Color.argb(128, 255, 255, 0));
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -514,38 +713,22 @@ try {
 
 Kết quả:
 
-![Hình dạng trong suốt](shape-transparency.png)
+![Hình trong suốt](shape-transparency.png)
 
-## **Xoay Hình dạng**
+## **Xoay Hình**
 
-Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này hữu ích khi cần định vị các yếu tố hình ảnh với yêu cầu căn chỉnh hoặc thiết kế cụ thể.
-
-Để xoay một hình dạng trên slide, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Đặt thuộc tính xoay của hình dạng thành góc mong muốn.
-1. Lưu bản trình bày.
-
-Mã Java sau minh họa cách xoay một hình dạng 5 độ:
+Dùng [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) để xoay một hình trong mặt phẳng slide. Góc đo bằng độ; ví dụ này xoay một hình chữ nhật 5 độ theo chiều kim đồng hồ và lưu bản trình bày.
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo thể hiện của lớp Presentation đại diện cho một tệp bản trình chiếu.
 Presentation presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Xoay hình dạng 5 độ.
     shape.setRotation(5);
 
-    // Lưu tệp PPTX vào ổ đĩa.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -554,40 +737,26 @@ try {
 
 Kết quả:
 
-![Xoay hình dạng](shape-rotation.png)
+![Xoay hình](shape-rotation.png)
 
-## **Thêm Hiệu ứng Đánh bóng 3D**
+## **Thêm Hiệu Ứng Viên Độ 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng đánh bóng 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) của chúng.
-
-Để thêm hiệu ứng đánh bóng 3D cho một hình dạng, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Cấu hình [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) của hình dạng để định nghĩa các thiết lập bevel.
-1. Lưu bản trình bày.
-
-Mã Java dưới đây cho thấy cách áp dụng hiệu ứng đánh bóng 3D cho một hình dạng:
+Dùng [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) để cho một hình độ sâu và các cạnh viền. Ví dụ này tạo một hình bầu dục màu xanh lá với viền màu cam, dùng [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) đặt độ sâu 4 điểm, và áp dụng viền trên dạng vòng tròn với chiều rộng và chiều cao 6 điểm qua [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Một camera trực diện dạng orthographic và ánh sáng ba‑điểm làm cho viền hiển thị.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Thêm một hình dạng vào slide.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Đặt các thuộc tính ThreeDFormat của hình dạng.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -596,7 +765,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Lưu bản trình chiếu dưới dạng tệp PPTX.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -605,39 +773,25 @@ try {
 
 Kết quả:
 
-![Hiệu ứng đánh bóng 3D](3D-bevel-effect.png)
+![Hiệu ứng viền 3D](3D-bevel-effect.png)
 
-## **Thêm Hiệu ứng Xoay 3D**
+## **Thêm Hiệu Ứng Xoay 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) của chúng.
-
-Để áp dụng xoay 3D cho một hình dạng:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Lấy tham chiếu tới một slide theo chỉ mục của nó.
-1. Thêm một [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) vào slide.
-1. Sử dụng [setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) và [setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) để định nghĩa xoay 3D.
-1. Lưu bản trình bày.
-
-Mã Java dưới đây minh họa cách áp dụng hiệu ứng xoay 3D cho một hình dạng:
+Góc nhìn 3D của một hình được kiểm soát bởi các cài đặt camera. Ví dụ này dùng [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) với các góc vĩ độ, kinh độ và quay tròn lần lượt là 40, 35 và 20 độ. Nó chọn một camera isometric qua [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) và ánh sáng cân bằng qua [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), sau đó lưu hình chữ nhật đã định dạng.
 
 ```java
 import com.aspose.slides.*;
 
-// Tạo một thể hiện của lớp Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // Lưu bản trình chiếu dưới dạng tệp PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -648,13 +802,13 @@ Kết quả:
 
 ![Hiệu ứng xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm soát Hiển thị Đen‑Trắng cho Hình dạng**
+## **Kiểm Soát Kết Xuất Đen-Trắng cho Hình**
 
-Phương thức [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) xác định cách một hình dạng cá nhân được render khi bản trình chiếu được xem hoặc xử lý ở chế độ đen‑trắng. Nó không kích hoạt chế độ đen‑trắng tự động, và không thay đổi màu nền, đường viền hay các định dạng khác khi ở chế độ màu bình thường.
+Phương thức [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) chỉ định cách một hình riêng lẻ được kết xuất khi bản trình bày được xem hoặc xử lý ở chế độ đen‑trắng. Nó không tự động bật hiển thị đen‑trắng và không thay đổi tô màu, đường viền hay các định dạng khác của hình trong chế độ màu bình thường.
 
-Sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng render tự động chọn cách chuyển đổi, `Gray` và `LightGray` sử dụng màu xám, `BlackWhite` chỉ dùng màu đen và trắng, `Black` và `White` ép buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` loại bỏ hình dạng trong chế độ đen‑trắng. `NotDefined` nghĩa là không có chế độ cấp cho hình dạng.
+Sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` cho phép ứng dụng kết xuất lựa chọn cách chuyển đổi, `Gray` và `LightGray` dùng màu xám, `BlackWhite` chỉ dùng đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` loại bỏ hình trong chế độ đen‑trắng. `NotDefined` nghĩa là không có chế độ cấp cho hình.
 
-Mã Java dưới đây tạo một hình dạng màu và làm cho nó hiển thị màu xám trong chế độ hiển thị đen‑trắng:
+Ví dụ này tạo một hình chữ nhật màu cam và dùng [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) để chọn màu xám. Hình đã lưu giữ màu cam khi hiển thị màu bình thường và yêu cầu màu xám từ các ứng dụng tôn trọng cài đặt hiển thị đen‑trắng.
 
 ```java
 import com.aspose.slides.*;
@@ -667,8 +821,6 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
-
-    // Giữ màu nền cam ở chế độ màu, nhưng render hình dạng với màu xám trong chế độ đen‑trắng.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -677,11 +829,11 @@ try {
 }
 ```
 
-Trong chế độ màu bình thường, hình chữ nhật vẫn giữ màu nền cam. Khi ở quy trình hiển thị đen‑trắng, nó sẽ sử dụng màu xám vì chế độ đã được đặt thành `Gray`. Điều này giúp bạn giữ nguyên slide màu đầy đủ trong khi định nghĩa một dạng hiển thị riêng cho việc in ấn, xem trước hoặc các quy trình khác tôn trọng cài đặt hiển thị đen‑trắng của bản trình chiếu.
+Trong chế độ màu bình thường, hình chữ nhật giữ màu cam. Trong quy trình làm việc hiển thị đen‑trắng, nó dùng màu xám vì chế độ đã được đặt thành `Gray`. Điều này cho phép bạn giữ một slide màu đầy đủ trong khi định nghĩa giao diện riêng cho việc in ấn, xem trước hoặc các quy trình khác tôn trọng thiết lập hiển thị đen‑trắng của bản trình bày.
 
-## **Đặt lại Định dạng**
+## **Đặt Lại Định Dạng**
 
-Mã Java dưới đây cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước và định dạng của tất cả các hình dạng với placeholders trên [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) về các thiết lập mặc định:
+Dùng [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) để khôi phục vị trí, kích thước và định dạng của các placeholder trên slide từ các placeholder tương ứng trên layout. Ví dụ này yêu cầu một bản trình bày đã tồn tại với các placeholder liên kết layout và đặt lại mọi slide trước khi lưu. Các hình không có placeholder tương ứng trên layout sẽ không được đặt lại.
 
 ```java
 import com.aspose.slides.*;
@@ -689,25 +841,22 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Đặt lại mỗi hình dạng trên slide mà có placeholder trên layout.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**Việc định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
+**Does shape formatting affect the final presentation file size?**  
+Việc định dạng hình thường chỉ thêm một lượng ít dữ liệu so với các hình ảnh và phương tiện nhúng. Đổ hình ảnh có thể làm tăng kích thước tệp vì ảnh được lưu trong bản trình bày.
 
-Chỉ ảnh hưởng rất ít. Các hình ảnh và phương tiện nhúng chiếm phần lớn dung lượng tệp, còn các tham số hình dạng như màu, hiệu ứng và gradient chỉ được lưu dưới dạng metadata và gần như không làm tăng kích thước.
+**How can I detect shapes on a slide that share identical formatting so I can group them?**  
+So sánh các thuộc tính định dạng chính của mỗi hình—các thiết lập tô màu, đường viền và hiệu ứng. Nếu tất cả các giá trị tương ứng khớp nhau, coi chúng là cùng kiểu và nhóm chúng lại để quản lý kiểu sau này dễ dàng hơn.
 
-**Làm sao tôi có thể phát hiện các hình dạng trên một slide có cùng định dạng để có thể nhóm chúng lại?**
-
-So sánh các thuộc tính định dạng chính của mỗi hình dạng—các thiết lập fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi chúng là cùng một kiểu và nhóm chúng lại, giúp việc quản lý kiểu sau này dễ dàng hơn.
-
-**Tôi có thể lưu một tập hợp các kiểu hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
-
-Có. Lưu các hình mẫu với các kiểu mong muốn vào một slide mẫu hoặc tệp mẫu .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình đã định dạng cần thiết và áp dụng lại định dạng cho các đối tượng cần thiết.
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**  
+Có. Lưu các hình mẫu với các kiểu mong muốn trong một slide deck mẫu hoặc tệp .POTX. Khi tạo bản trình bày mới, mở mẫu, sao chép các hình đã định dạng cần thiết và áp dụng lại định dạng ở nơi cần.

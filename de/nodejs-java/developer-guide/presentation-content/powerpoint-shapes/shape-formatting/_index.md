@@ -7,7 +7,7 @@ url: /de/nodejs-java/shape-formatting/
 keywords:
 - Form formatieren
 - Linie formatieren
-- Skizzeneffekt
+- Skizzen-Effekt
 - Formlinien skizzieren
 - Verbindungsstil formatieren
 - Verlaufsfüllung
@@ -15,70 +15,48 @@ keywords:
 - Bildfüllung
 - Texturfüllung
 - Einfarbige Füllung
-- Form-Transparenz
-- Schwarz-Weiß-Formdarstellung
-- Graustufen-Formdarstellung
+- Formtransparenz
+- Schwarz‑weiß‑Darstellung von Formen
+- Graustufen‑Darstellung von Formen
 - Form drehen
-- 3D-Kanteneffekt
-- 3D-Drehungseffekt
+- 3D‑Kanteneffekt
+- 3D‑Rotationseffekt
 - Formatierung zurücksetzen
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint-Formen in JavaScript mit Aspose.Slides formatieren — Füll-, Linien- und Effekt-Stile für PPT-, PPTX- und ODP-Dateien präzise und mit voller Kontrolle festlegen."
+description: "Erfahren Sie, wie Sie PowerPoint‑Formen in JavaScript mit Aspose.Slides formatieren – Füllen, Linien und Effekte für PPT‑ und PPTX‑Dateien präzise und vollständig steuern."
 ---
 ## **Einleitung**
 
-In PowerPoint können Sie Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, können Sie sie formatieren, indem Sie die Umrisse ändern oder Effekte darauf anwenden. Zusätzlich können Sie Formen formatieren, indem Sie Einstellungen festlegen, die steuern, wie deren Innenflächen gefüllt werden.
+Formatieren Sie Formen in PowerPoint, indem Sie deren Konturen, Füllungen und Effekte anpassen. Aspose.Slides für Node.js über Java ermöglicht es Ihnen, diese Einstellungen programmgesteuert zu steuern, einschließlich Transparenz, Drehung und 3D-Formatierung.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Formformatierungsoptionen in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides für Node.js via Java stellt Klassen und Methoden bereit, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
+Aspose.Slides für Node.js über Java bietet Klassen und Methoden, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
 
 ## **Linien formatieren**
 
-Mit Aspose.Slides können Sie einen benutzerdefinierten Linienstil für eine Form festlegen. Die folgenden Schritte beschreiben das Verfahren:
+Verwenden Sie [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat), um die Kontur einer Form zu steuern. Dieses Beispiel erstellt ein nicht ausgefülltes Rechteck mit einer blauen, gestrichelten Kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) wählt eine dick-dünn zusammengesetzte Linie, während [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) ihre Breite auf 7 Punkte setzt und [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) das Strichmuster auswählt.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Legen Sie den [Linienstil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) der Form fest.
-1. Legen Sie die Linienbreite fest.
-1. Legen Sie den [Strichstil](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) der Linie fest.
-1. Legen Sie die Linienfarbe für die Form fest.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende Code demonstriert, wie man ein Rechteck‑`AutoShape` formatiert:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Entfernen Sie die Füllung von der Rechteckform.
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // Wenden Sie die Formatierung auf die Linien des Rechtecks an.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // Legen Sie die Farbe für die Linie des Rechtecks fest.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -89,49 +67,139 @@ Das Ergebnis:
 
 ![Die formatierten Linien in der Präsentation](formatted-lines.png)
 
+### **Benutzerdefinierte Strichmuster für Linien festlegen**
+
+Verwenden Sie [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern), wenn vordefinierte Linienstile nicht die benötigten Strichlängen und Lücken bieten, zum Beispiel für Markenlinien oder technische Diagramme. Das Zuweisen eines Musters ändert automatisch den Linien‑Strichstil zu [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
+
+Array‑Einträge wechseln zwischen Strich‑ und Lückenlängen, beginnend mit einem Strich. Jeder Wert ist ein Vielfaches der Linienbreite: `[4, 2]` bei einer Breite von 3 Punkten erzeugt einen 12‑Punkt‑Strich gefolgt von einer 6‑Punkt‑Lücke. Verwenden Sie Paare aus endlichen, nicht‑negativen Werten, um vollständige Strich‑und‑Lücken‑Segmente zu definieren. Das Beispiel verwendet positive Werte, damit jeder Strich und jede Lücke sichtbar bleibt.
+
+Dieses Beispiel erstellt fünf blaue Linien mit gleicher Länge und flachen Enden. Die ersten drei vergleichen Muster bei einer Breite von 3 Punkten. Die vierte wiederholt das erste Muster bei doppelter Breite und verdoppelt dabei sowohl Strich‑ als auch Lückenlängen. Die fünfte wechselt von einem benutzerdefinierten Muster zu einer durchgezogenen Linie.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // Setze die letzte Linie auf einen durchgezogenen Stil zurück.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Um stattdessen zu einem vordefinierten Strichstil zurückzukehren, übergeben Sie [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) an [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Der ausgewählte Stil bestimmt das Aussehen der Linie.
+
+Das Ergebnis in PowerPoint von oben nach unten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; und **Solid, 3 pt**.
+
+![Drei benutzerdefinierte Strichmuster, eine breitere Linie, die das erste Muster verwendet, und eine durchgezogene Linie in PowerPoint](custom-dash-patterns.png)
+
+### **Linienenden festlegen**
+
+Verwenden Sie [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle), um die Enden einer offenen Linie festzulegen. Die Klasse [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) bietet drei explizite Endstil‑Optionen:
+
+- `Flat`: Der Strich endet am Endpunkt.
+- `Round`: Ein halbkreisförmiges Ende reicht halb so breit wie die Linie über den Endpunkt hinaus.
+- `Square`: Ein quadratisches Ende reicht halb so breit wie die Linie über den Endpunkt hinaus.
+
+Die Klasse enthält außerdem `NotDefined`, was bedeutet, dass kein Endstil explizit zugewiesen ist.
+
+Enden unterscheiden sich von Pfeilspitzen, die Symbole an Linienenden hinzufügen, und von Verbindungen, die Ecken zwischen Linienstücken steuern. Dieses Beispiel deaktiviert Pfeilspitzen über [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) und [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle), sodass nur die Endformen verglichen werden.
+
+Das folgende Beispiel erstellt drei ansonsten identische horizontale Linien mit einer Breite von 20 Punkten. Von oben nach unten verwenden sie flache, runde und quadratische Enden. Ihre Endpunkte haben dieselben horizontalen Koordinaten; die runden und quadratischen Enden reichen 10 Punkte über jeden Endpunkt hinaus.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint von oben nach unten: **Flat**, **Round** und **Square**.
+
+![Flache, runde und quadratische Enden an identischen dicken Linien in PowerPoint](line-caps.png)
+
 ## **Skizzeneffekte auf Formlinien anwenden**
 
-Ein Skizzeneffekt lässt eine Formlinie handgezeichnet aussehen. Verwenden Sie [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) , um auf die Linieneinstellungen zuzugreifen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) , um auf die Skizzeneinstellungen zuzugreifen, und [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) , um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) auszuwählen.
+Ein Skizzeneffekt lässt eine Formlinie handgezeichnet wirken. Verwenden Sie [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat), um auf die Linieneinstellungen zuzugreifen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat), um auf die Skizzeneinstellungen zuzugreifen, und [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType), um einen Wert aus der Klasse [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) auszuwählen.
 
-Der folgende JavaScript‑Code zeigt, wie man einen [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) Effekt anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) entfernt:
+Der folgende JavaScript‑Code zeigt, wie ein [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)‑Effekt angewendet, der explizit zugewiesene Wert ausgelesen und der Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) entfernt wird:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Greifen Sie auf das Linienformat der Form und dessen Skizzierungsformat zu.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Wenden Sie einen Skizzeneffekt an.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // Lesen Sie den direkt der Form zugewiesenen Skizzeneffekt.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // Entfernen Sie den Skizzeneffekt.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Der von [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) zurückgegebene Wert stellt die direkt der Form zugewiesene Einstellung dar. Wenn die Linienformatierung von einem Design, einer Master‑Folie oder einer Layout‑Folie geerbt werden kann, verwenden Sie [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), rufen `getSketchFormat` auf dem zurückgegebenen Objekt auf und dann dessen `getSketchType`‑Methode. Der effektive Wert spiegelt die Formatierung wider, die nach Auflösung der Vererbung tatsächlich angewendet wird:
+Der von [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) zurückgegebene Wert stellt die direkt der Form zugewiesene Einstellung dar. Wenn die Linieneinstellungen von einem Thema, einer Master‑Folien oder einer Layout‑Folie vererbt werden können, verwenden Sie [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), rufen Sie `getSketchFormat` auf dem zurückgegebenen Objekt auf und anschließend dessen `getSketchType`‑Methode. Der effektive Wert spiegelt die Formatierung wider, die nach Auflösung der Vererbung tatsächlich angewendet wird. Dieses Beispiel benötigt eine vorhandene Präsentation mit mindestens einer Form auf der ersten Folie und gibt beide Werte aus:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -143,115 +211,123 @@ try {
 }
 ```
 
-## **Verbindungsstile formatieren**
+## **Verbindungsarten formatieren**
 
-Hier sind die drei Optionen für den Verbindungstyp:
+Hier sind die drei Optionen für Verbindungsarten:
 
-* Rund
-* Gehrung
-* Fase
+* Round
+* Miter
+* Bevel
 
-Standardmäßig verwendet PowerPoint beim Zusammenführen zweier Linien in einem Winkel (z. B. an einer Formkante) die Einstellung **Rund**. Wenn Sie jedoch eine Form mit scharfen Winkeln zeichnen, bevorzugen Sie möglicherweise die Einstellung **Gehrung**.
+Der Verbindungsstil bestimmt, wie zwei Kontursegmente an einer Ecke zusammentreffen. Verwenden Sie **Round** für abgerundete Ecken, **Miter** für spitze Ecken oder **Bevel** für abgeflachte Ecken.
 
 ![Der Verbindungsstil in der Präsentation](join-style-powerpoint.png)
 
-Der folgende JavaScript‑Code demonstriert, wie drei Rechtecke (wie im Bild oben) mit den Verbindungsstil‑Einstellungen Miter, Bevel und Round erstellt wurden:
+Dieses Beispiel erstellt drei schwarze Rechtecke mit blauen Konturen von 15 Punkten Breite. Es verwendet [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle), um die Werte miter, bevel und round der Klasse [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) nacheinander anzuwenden und zu vergleichen, wie die Ecken gezeichnet werden.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie drei AutoShapes vom Typ Rechteck hinzu.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Setzen Sie die Füllfarbe für jede Rechteckform.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Setzen Sie die Linienbreite.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Setzen Sie die Farbe für die Linie jedes Rechtecks.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Setzen Sie den Verbindungsstil.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // Fügen Sie jedem Rechteck Text hinzu.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Verlaufsfüllung**
+### **Miter‑Verbindungen bei spitzen Ecken begrenzen**
 
-In PowerPoint ist die Verlaufsfüllung eine Formatierungsoption, die es Ihnen ermöglicht, einer Form einen kontinuierlichen Farbübergang zuzuweisen. Sie können beispielsweise zwei oder mehr Farben so anwenden, dass eine allmählich in die andere übergeht.
+Verwenden Sie [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) zusammen mit [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle), das auf [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) gesetzt ist, um zu begrenzen, wie weit eine spitze Ecke ausgedehnt werden kann.
 
-Hier erfahren Sie, wie Sie mit Aspose.Slides eine Verlaufsfüllung auf eine Form anwenden:
+Der Grenzwert ist ein Verhältnis des Abstands zwischen den inneren und äußeren Ecken der Verbindung zur Linienbreite. Zum Beispiel erlaubt ein Wert von `8` eine Miter‑Länge von bis zu achtmal der Linienbreite; es handelt sich nicht um eine Messung in Punkten. Wenn die Ecke den Grenzwert überschreiten würde, verwendet PowerPoint an dieser Stelle eine abgeschrägte Verbindung. Ein größerer Grenzwert ermöglicht spitzere Punkte. Die Einstellung wirkt sich nur auf Miter‑Verbindungen aus, und eine Änderung hat keine sichtbare Auswirkung, wenn die Ecke innerhalb beider Grenzen bleibt.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) der Form auf `Gradient`.
-1. Fügen Sie Ihre beiden bevorzugten Farben mit definierten Positionen mithilfe der `add`‑Methoden der Farbverlauf‑Stop‑Sammlung hinzu, die von der Klasse [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) bereitgestellt wird.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
+Dieses Beispiel erstellt zwei identische, nicht ausgefüllte Dreiecke mit Konturen von 20 Punkten Breite. Das linke Dreieck verwendet einen Grenzwert von `2`, das rechte `8`. Jedes Dreieck ist 80 Punkte breit und 160 Punkte hoch, wodurch das Verhältnis der Miter‑Länge zur Linienbreite an der oberen Ecke etwa `4,12` beträgt. Folglich schrägt PowerPoint die linke Spitze ab und behält die rechte Spitze bei.
 
-Der folgende JavaScript‑Code demonstriert, wie man einer Ellipse einen Verlaufsfüllungseffekt hinzufügt:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Ellipse hinzu.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // Wenden Sie eine Verlaufsformatierung auf die Ellipse an.
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint: **Miter limit 2** links und **miter limit 8** rechts.
+
+![Eine abgeschrägte Spitze mit Miter‑Grenzwert 2 und eine spitze Spitze mit Miter‑Grenzwert 8 in PowerPoint](miter-limits.png)
+
+## **Verlauffüllung**
+
+Eine Verlauffüllung mischt Farben über eine Form hinweg. Dieses Beispiel füllt eine Ellipse mit einem linearen Verlauf im 45‑Grad‑Winkel von Rot nach Lila mithilfe von [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Die Methode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) legt die Farbstopps bei 0 und 1, dem Anfang und Ende des Verlaufs, fest. Das Löschen der vorhandenen Stopps stellt sicher, dass nur diese beiden Farben verwendet werden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // Setzen Sie die Richtung des Verlaufs.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // Fügen Sie zwei Verlaufsstopps hinzu.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -260,54 +336,171 @@ try {
 
 Das Ergebnis:
 
-![Die Ellipse mit Verlaufsfüllung](gradient-fill.png)
+![Die Ellipse mit Verlauffüllung](gradient-fill.png)
 
-Falls ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Rendering‑Stil auswählen, ohne die in der Präsentation gespeicherte Verlaufsfüllung zu ändern.
+Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Rendering‑Stil auswählen, ohne die in der Präsentation gespeicherte Verlauffüllung zu ändern.
+
+### **Den Winkel des linearen Verlaufs festlegen**
+
+Verwenden Sie [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle), um die Ausrichtung einer [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑Füllung zu steuern. Der Winkel wird in Grad gemessen und nimmt im Uhrzeigersinn zu: `0` verläuft von links nach rechts, `90` von oben nach unten, `180` von rechts nach links und `270` von unten nach oben. Bruchteilige Winkel werden unterstützt. Endliche Winkel außerhalb des Bereichs `[0, 360)` werden auf eine Umdrehung normalisiert; zum Beispiel wird `-45` zu `315` und `360` zu `0`.
+
+Dieses Beispiel erstellt sechs Rechtecke mit identischen Rot‑, Grün‑ und Blau‑Stopps an den Positionen `0`, `0.5` und `1`. Die Skalierung ist deaktiviert, sodass der Winkel unabhängig von den Proportionen der Rechtecke verglichen werden kann. Die Winkel, von links nach rechts, sind `0`, `45` und `90` in der ersten Zeile und `135`, `180` und `270` in der zweiten Zeile.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint:
+
+![Lineare Verläufe bei 0, 45 und 90 Grad in der oberen Zeile sowie 135, 180 und 270 Grad in der unteren Zeile](linear-gradient-angles.png)
+
+### **Linearen Verlauf mit der Form skalieren**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) akzeptiert einen [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/)‑Wert. Setzen Sie ihn explizit auf `False`, um den geometrischen Verlaufswinkel beizubehalten, wenn sich die Proportionen der Form ändern, oder auf `True`, um den Verlauf mit Breite und Höhe der Form zu skalieren. Bei aktivierter Skalierung kann der sichtbare Winkel vom zugewiesenen Winkel bei einer nicht quadratischen Form abweichen.
+
+Das folgende Beispiel verwendet einen Winkel von `45` Grad und dieselben Farbstopps wie beim Winkelvergleich. Die linke Spalte verwendet `False`; die rechte Spalte verwendet `True`. Jede Spalte enthält ein breites Rechteck über einem hohen Rechteck. Beide beginnen mit denselben breiten Abmessungen; das Ändern von Breite und Höhe des zweiten Rechtecks zeigt, wie die Füllung auf Größenänderungen reagiert, ohne die Verlaufeinstellungen zu ändern.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint, links ohne Skalierung und rechts mit Skalierung:
+
+![Breite und hohe Rechtecke mit einem 45‑Grad‑Verlauf, Vergleich von LinearGradientScaled False links und True rechts](linear-gradient-scaling.png)
+
+Ohne Skalierung behalten die diagonalen Farbbänder in beiden Rechtecken dieselbe Orientierung. Mit aktivierter Skalierung strecken sich die Bänder mit den Proportionen der Form. Das hilft, den Verlauf einer Vorlage reproduzierbar zu machen, wenn eine Form auf eine andere Größe angepasst wird. Bei einem Quadrat ändert das Aktivieren der Skalierung das Aussehen dieses `45`‑Grad‑Verlaufs nicht.
+
+Sowohl der Winkel‑ als auch der Skalierungseinstellung gelten für lineare Verläufe. Sie steuern nicht die Füllungen [GradientShape.Radial oder GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
+
+### **Winkel mit Verlauf­richtung kombinieren**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) wählt einen Verlaufstil aus der Klasse [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/) aus; er ersetzt keinen numerischen Winkel. Für einen linearen Verlauf können die Eckstile den Bereich ändern, über den die Farben verteilt werden, ohne den über [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) zugewiesenen Winkel zu verändern. Lassen Sie die Richtung unverändert, wenn Sie Winkel oder Skalierung vergleichen.
+
+Das folgende Beispiel wendet dieselben Einstellungen in umgekehrter Reihenfolge an. Die beiden Rechtecke sehen identisch aus: Das Zuweisen der Richtung vor oder nach dem Winkel ändert das Ergebnis nicht.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Musterfüllung**
 
-In PowerPoint ist die Musterfüllung eine Formatierungsoption, die es Ihnen ermöglicht, ein zweifarbiges Design – wie Punkte, Streifen, Kreuzschraffuren oder Karos – auf eine Form anzuwenden. Sie können benutzerdefinierte Farben für Vorder‑ und Hintergrund des Musters wählen.
+Eine Musterfüllung wendet ein zweifarbiges Design wie Punkte, Streifen oder Karos an. Dieses Beispiel verwendet [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle), um ein Gitter‑Muster auszuwählen. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) liefert den hellgrauen Hintergrund und [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) liefert die gelbe Musterfarbe.
 
-Aspose.Slides bietet über 45 vordefinierte Musterstile, die Sie auf Formen anwenden können, um die visuelle Attraktivität Ihrer Präsentationen zu steigern. Auch nach der Auswahl eines vordefinierten Musters können Sie noch die genauen Farben festlegen, die verwendet werden sollen.
-
-Hier erfahren Sie, wie Sie mit Aspose.Slides eine Musterfüllung auf eine Form anwenden:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) der Form auf `Pattern`.
-1. Wählen Sie einen Musterstil aus den vordefinierten Optionen.
-1. Setzen Sie die [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) des Musters.
-1. Setzen Sie die [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) des Musters.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende JavaScript‑Code demonstriert, wie man einer Rechtecksform eine Musterfüllung hinzufügt:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Setzen Sie den Fülltyp auf Muster.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // Setzen Sie den Musterstil.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // Setzen Sie die Hintergrund- und Vordergrundfarben des Musters.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -320,54 +513,31 @@ Das Ergebnis:
 
 ## **Bildfüllung**
 
-In PowerPoint ist die Bildfüllung eine Formatierungsoption, die es Ihnen ermöglicht, ein Bild in eine Form einzufügen – das Bild wird dabei effektiv als Hintergrund der Form verwendet.
+Eine Bildfüllung verwendet ein Bild innerhalb einer Form. Dieses Beispiel benötigt ein lokales Bild und verwendet [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile), um es in die Bildsammlung der Präsentation zu laden. Das Setzen von [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) auf den gekachelten Modus wiederholt das Bild im Rechteck. Das hier verwendete Ausgangsbild ist unten dargestellt:
 
-Hier erfahren Sie, wie Sie mit Aspose.Slides eine Bildfüllung auf eine Form anwenden:
+![Das Lotus‑Bild](lotus.png)
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) der Form auf `Picture`.
-1. Setzen Sie den Bildfüllungsmodus auf `Tile` (oder einen anderen bevorzugten Modus).
-1. Erstellen Sie ein [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) Objekt aus dem Bild, das Sie verwenden möchten.
-1. Übergeben Sie das Bild an die Methode `ISlidesPicture.setImage`.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Angenommen, wir haben eine Datei "lotus.png" mit folgendem Bild:
-
-![Das Lotus-Bild](lotus.png)
-
-Der folgende JavaScript‑Code demonstriert, wie man einer Form das Bild zuweist:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Setzen Sie den Fülltyp auf Bild.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // Setzen Sie den Bildfüllungsmodus.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Laden Sie ein Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Setzen Sie das Bild.
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Speichern Sie die PPTX‑Datei auf dem Datenträger.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -382,43 +552,37 @@ Das Ergebnis:
 
 Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachelverhalten anpassen möchten, können Sie die folgenden Methoden der Klasse [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) verwenden:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Legt den Bildfüllungsmodus fest – entweder `Tile` oder `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Setzt den Bildfüllungsmodus — entweder `Tile` oder `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
 - [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Legt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Legt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definiert den horizontalen Maßstab der Kachel als Prozentsatz.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definiert den vertikalen Maßstab der Kachel als Prozentsatz.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Setzt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Setzt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
 
-Der folgende Code‑Beispiel zeigt, wie man einer Rechtecksform eine gekachelte Bildfüllung hinzufügt und Kachel‑Optionen konfiguriert:
+Dieses Beispiel benötigt ein lokales Bild und konfiguriert [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) , es mit 50 % seiner Originalgröße zu wiederholen. Versätze von −32 Punkten verschieben die Kacheln horizontal und vertikal; Ausrichtung unten‑rechts und Spiegelung in beiden Richtungen bestimmen, wie die wiederholte Textur angeordnet wird.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine Rechteck‑AutoShape hinzu.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Setzen Sie den Fülltyp der Form auf Bild.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Laden Sie das Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Weisen Sie das Bild der Form zu.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Konfigurieren Sie den Bildfüllungsmodus und die Kacheligeigenschaften.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -427,7 +591,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Speichern Sie die PPTX‑Datei auf dem Datenträger.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -440,40 +603,20 @@ Das Ergebnis:
 
 ## **Einfarbige Füllung**
 
-In PowerPoint ist die einfarbige Füllung eine Formatierungsoption, die eine Form mit einer einzigen, einheitlichen Farbe füllt. Diese schlichte Hintergrundfarbe wird ohne Verläufe, Texturen oder Muster angewendet.
+Eine einfarbige Füllung verleiht einer Form eine einzige, einheitliche Farbe. Dieses Beispiel verwendet [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType), um den Modus für einfarbige Füllung auszuwählen, und weist Gelb über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) zu, dann speichert es das Rechteck in einer Präsentation.
 
-Um mit Aspose.Slides eine einfarbige Füllung auf eine Form anzuwenden, gehen Sie wie folgt vor:
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) der Form auf `Solid`.
-1. Weisen Sie der Form Ihre bevorzugte Füllfarbe zu.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende JavaScript‑Code demonstriert, wie man einer Rechtecksform in einer PowerPoint‑Folien eine einfarbige Füllung hinzufügt:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Setzen Sie den Fülltyp auf Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // Setzen Sie die Füllfarbe.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -484,41 +627,88 @@ Das Ergebnis:
 
 ![Die Form mit einfarbiger Füllung](solid-color-fill.png)
 
-## **Transparenz festlegen**
+## **Folienhintergrund als Formfüllung verwenden**
 
-In PowerPoint können Sie beim Anwenden einer einfarbigen, Verlauf-, Bild‑ oder Texturfüllung auf Formen auch einen Transparenzwert festlegen, um die Deckkraft der Füllung zu steuern. Ein höherer Transparenzwert macht die Form durchsichtiger, sodass der Hintergrund oder darunterliegende Objekte teilweise sichtbar werden.
+Verwenden Sie [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill), wenn eine Form dem Folienhintergrund entsprechen soll, zum Beispiel in einer Präsentationsvorlage. Verwenden Sie zuerst [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType), um [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) auszuwählen und damit eine explizite Füllung zu entfernen. In dieser Kombination verwendet die Form den Folienhintergrund anstelle ihrer Stil‑Füllung. Das alleinige Aktivieren des Flags entfernt keine bereits vorhandene explizite Füllung.
 
-Aspose.Slides ermöglicht das Festlegen des Transparenzwerts, indem der Alpha‑Wert der für die Füllung verwendeten Farbe angepasst wird. Hier erfahren Sie, wie es geht:
+Dies unterscheidet sich von [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): Hintergrundfüllung bedeckt Objekte hinter der Form mit dem entsprechenden Bereich des Folienhintergrunds, während Keine‑Füllung diese Objekte sichtbar lässt. Ein Verlauf bleibt an die Folie ausgerichtet, anstatt innerhalb jeder Form neu zu beginnen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) auf `Solid`.
-1. Verwenden Sie `Color`, um eine Farbe mit Transparenz zu definieren (die `alpha`‑Komponente steuert die Transparenz).
-1. Speichern Sie die Präsentation.
+Das folgende Beispiel erstellt einen Master‑Hintergrund, der von der Folie geerbt wird, und platziert einen magentafarbenen Streifen hinter drei Rechtecken. Das linke Rechteck verwendet den Hintergrund, das mittlere Rechteck hat keine Füllung, und das rechte Rechteck wechselt von Hintergrundfüllung zu einer expliziten orangefarbenen Füllung.
 
-Der folgende JavaScript‑Code demonstriert, wie man einer Rechtecksform eine transparente Füllfarbe zuweist:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine solide Rechteck‑AutoShape hinzu.
+    // Übernehme den Verlauf vom Master.
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // Füge dieses Objekt zuerst hinzu, damit es hinter den Rechtecken erscheint.
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // Deaktiviere die Hintergrundfüllung, bevor eine explizite Füllung angewendet wird.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis von links nach rechts: **background fill**, **no fill** und **explicit fill**. Der magentafarbene Streifen wird von den linken und rechten Rechtecken verdeckt, bleibt jedoch durch das mittlere Rechteck sichtbar.
+
+![Hintergrundfüllung, keine Füllung und explizite orange Farbe über einem magentafarbenen Streifen](background-fill.png)
+
+Das gleiche Verhalten gilt für einen direkt auf der Folie definierten oder aus einem Layout geerbten Hintergrund. Die Form verwendet den aufgelösten Folienhintergrund; das Beispiel lässt sowohl den Folien- als auch den Layout‑Hintergrund undefiniert, sodass der Master ihn liefert.
+
+## **Transparenz festlegen**
+
+Bei einer einfarbigen Füllung steuert die Alpha‑Komponente der Farbe die Opazität: 0 ist vollständig transparent und 255 vollständig undurchsichtig. Dieses Beispiel verwendet einen Alpha‑Wert von 128 für ein gelbes Rechteck, wodurch es etwa zu 50 % transparent wird, sodass das darunterliegende Rechteck sichtbar bleibt. Die Farbe wird über [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) zugewiesen.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fügen Sie eine transparente Rechteck‑AutoShape über der soliden Form hinzu.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // Speichern Sie die PPTX‑Datei auf dem Datenträger.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -531,35 +721,18 @@ Das Ergebnis:
 
 ## **Formen drehen**
 
-Aspose.Slides ermöglicht das Drehen von Formen in PowerPoint‑Präsentationen. Dies kann nützlich sein, wenn visuelle Elemente mit bestimmten Ausrichtungen oder Designanforderungen positioniert werden sollen.
+Verwenden Sie [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation), um eine Form in der Folienebene zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel dreht ein Rechteck um 5 Grad im Uhrzeigersinn und speichert die Präsentation.
 
-Um eine Form auf einer Folie zu drehen, gehen Sie wie folgt vor:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Setzen Sie die Rotations‑Eigenschaft der Form auf den gewünschten Winkel.
-1. Speichern Sie die Präsentation.
-
-Der folgende JavaScript‑Code demonstriert, wie man eine Form um 5 Grad dreht:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Holen Sie die erste Folie.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Drehen Sie die Form um 5 Grad.
     shape.setRotation(5);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -568,41 +741,26 @@ try {
 
 Das Ergebnis:
 
-![Die Formrotation](shape-rotation.png)
+![Die Formdrehung](shape-rotation.png)
 
 ## **3D‑Kanteneffekte hinzufügen**
 
-Aspose.Slides ermöglicht das Anwenden von 3D‑Kanteneffekten auf Formen, indem deren [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) Eigenschaften konfiguriert werden.
+Verwenden Sie [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat), um einer Form Tiefe und geglättete Kanten zu geben. Dieses Beispiel erstellt eine grüne Ellipse mit orangefarbener Kontur, verwendet [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth), um die Tiefe auf 4 Punkte zu setzen, und wendet über [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) eine kreisförmige obere Abschrägung mit einer Breite und Höhe von 6 Punkten an. Eine frontale orthografische Kamera und Dreipunkt‑Beleuchtung machen die Abschrägung sichtbar.
 
-Um einer Form 3D‑Kanteneffekte hinzuzufügen, gehen Sie wie folgt vor:
-
-1. Instanziieren Sie die [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Konfigurieren Sie das [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) der Form, um Kanten‑Einstellungen festzulegen.
-1. Speichern Sie die Präsentation.
-
-Der folgende JavaScript‑Code zeigt, wie man 3D‑Kanteneffekte auf eine Form anwendet:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Erstellen Sie eine Instanz der Presentation-Klasse.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie der Folie eine Form hinzu.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Setzen Sie die ThreeDFormat-Eigenschaften der Form.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -611,7 +769,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Save the presentation as a PPTX file.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -620,40 +777,25 @@ try {
 
 Das Ergebnis:
 
-![Der 3D‑Kanteneffekt](3D-bevel-effect.png)
+![Der 3D‑Kanten‑Effekt](3D-bevel-effect.png)
 
-## **3D‑Drehungseffekte hinzufügen**
+## **3D‑Rotations‑Effekte hinzufügen**
 
-Aspose.Slides ermöglicht das Anwenden von 3D‑Drehungseffekten auf Formen, indem deren [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) Eigenschaften konfiguriert werden.
+Die 3D‑Ansicht einer Form wird durch ihre Kameraeinstellungen gesteuert. Dieses Beispiel verwendet [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) mit Breiten‑, Längen‑ und Revolutionswinkeln von jeweils 40, 35 und 20 Grad. Es wählt eine isometrische Kamera über [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) und ausgewogene Beleuchtung über [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) und speichert das formatierte Rechteck.
 
-Um einer Form 3D‑Drehungen hinzuzufügen:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) Klasse.
-1. Holen Sie sich eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) hinzu.
-1. Verwenden Sie [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) und [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), um die 3D‑Drehung zu definieren.
-1. Speichern Sie die Präsentation.
-
-Der folgende JavaScript‑Code demonstriert, wie man 3D‑Drehungseffekte auf eine Form anwendet:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Erstellen Sie eine Instanz der Presentation‑Klasse.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Speichern Sie die Präsentation als PPTX-Datei.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -662,19 +804,18 @@ try {
 
 Das Ergebnis:
 
-![Der 3D‑Drehungseffekt](3D-rotation-effect.png)
+![Der 3D‑Rotations‑Effekt](3D-rotation-effect.png)
 
-## **Schwarz‑Weiß‑Darstellung von Formen steuern**
+## **Schwarz‑weiß‑Rendern für Formen steuern**
 
-Die Methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation in Schwarz‑Weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert nicht selbst die Schwarz‑Weiß‑Anzeige und ändert weder die Füllung, Linie noch andere Formatierungen der Form im normalen Farbmodus.
+Die Methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) gibt an, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert nicht selbst die Schwarz‑weiß‑Anzeige und ändert die Füllung, Kontur oder andere Formatierungen der Form im normalen Farbmodus nicht.
 
-Verwenden Sie einen Wert aus der Aufzählung [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Beispielsweise lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Grautöne, `BlackWhite` verwendet nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzelne Farbe, `Color` erhält die normale Farben bei, und `Hidden` blendet die Form im Schwarz‑Weiß‑Modus aus. `NotDefined` bedeutet, dass kein Form‑Ebene‑Modus zugewiesen ist.
+Verwenden Sie einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Zum Beispiel lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden graue Färbung, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzige Farbe, `Color` bewahrt die normale Farbgebung, und `Hidden` lässt die Form im Schwarz‑weiß‑Modus weg. `NotDefined` bedeutet, dass kein Form‑Level‑Modus zugewiesen ist.
 
-Der folgende JavaScript‑Code erstellt eine farbige Form und lässt sie im Schwarz‑Weiß‑Anzeigemodus grau erscheinen:
+Dieses Beispiel erstellt ein orangefarbenes Rechteck und verwendet [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode), um graue Färbung auszuwählen. Die gespeicherte Form behält ihre orangefarbene Füllung für die normale Farbanzeige bei und fordert graue Färbung von Anwendungen an, die Schwarz‑weiß‑Anzeigeeinstellungen beachten:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -683,9 +824,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // Behalte die orange Füllung im Farbmodus, aber rendere die Form mit grauer Färbung im Schwarz-Weiß-Modus.
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -694,23 +833,22 @@ try {
 }
 ```
 
-Im normalen Farbmodus behält das Rechteck seine orange Füllung. In einem Schwarz‑Weiß‑Anzeige‑Workflow wird es grau dargestellt, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine Folie in Vollfarbe erhalten und gleichzeitig ein separates Erscheinungsbild für den Druck, die Vorschau oder andere Workflows definieren, die die Schwarz‑Weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
+Im normalen Farbmodus behält das Rechteck seine orangefarbene Füllung. In einem Schwarz‑weiß‑Anzeige‑Workflow verwendet es graue Färbung, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine vollfarbige Folie beibehalten und gleichzeitig ein unterschiedliches Aussehen für Druck, Vorschau oder andere Workflows definieren, die die Schwarz‑weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
 
 ## **Formatierung zurücksetzen**
 
-Der folgende JavaScript‑Code zeigt, wie man die Formatierung einer Folie zurücksetzt und die Position, Größe und Formatierung aller Formen mit Platzhaltern auf dem [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) auf ihre Standard‑Einstellungen zurückführt:
+Verwenden Sie [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset), um die Position, Größe und Formatierung von Folien‑Platzhaltern aus den entsprechenden Layout‑Platzhaltern wiederherzustellen. Dieses Beispiel benötigt eine vorhandene Präsentation mit layout‑verknüpften Platzhaltern und setzt jede Folie vor dem Speichern zurück. Formen ohne entsprechenden Layout‑Platzhalter werden nicht zurückgesetzt.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Setzen Sie jede Form auf der Folie zurück, die einen Platzhalter im Layout hat.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -721,12 +859,12 @@ try {
 
 **Beeinflusst die Formatierung von Formen die endgültige Dateigröße der Präsentation?**
 
-Nur sehr wenig. Eingebettete Bilder und Medien beanspruchen den größten Teil des Dateiraums, während Formparameter wie Farben, Effekte und Verläufe als Metadaten gespeichert werden und praktisch keine zusätzliche Größe hinzufügen.
+Farben, Linienstile und Effekt‑Einstellungen fügen im Vergleich zu eingebetteten Bildern und Medien generell nur wenig Daten hinzu. Bildfüllungen können die Dateigröße erhöhen, da ihre Bilder in der Präsentation gespeichert werden.
 
-**Wie kann ich Formen auf einer Folie erkennen, die dieselbe Formatierung besitzen, um sie zu gruppieren?**
+**Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung teilen, um sie zu gruppieren?**
 
-Vergleichen Sie die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, betrachten Sie deren Stile als identisch und gruppieren die Formen logisch, was die spätere Stilverwaltung vereinfacht.
+Vergleichen Sie die wichtigsten Formatierungs‑Eigenschaften jeder Form – Füllung, Kontur und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, behandeln Sie deren Stile als identisch und gruppieren Sie die Formen logisch, was die spätere Stilverwaltung vereinfacht.
 
-**Kann ich ein Set benutzerdefinierter Formstile in einer separaten Datei speichern, um sie in anderen Präsentationen wiederzuverwenden?**
+**Kann ich ein Set benutzerdefinierter Form‑Stile in einer separaten Datei speichern, um es in anderen Präsentationen wiederzuverwenden?**
 
-Ja. Speichern Sie Beispiel­formen mit den gewünschten Stilen in einem Vorlagen‑Foliendeck oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten stilisierten Formen und wenden deren Formatierung dort an, wo sie gebraucht wird.
+Ja. Speichern Sie Musterformen mit den gewünschten Stilen in einem Vorlagen‑Slide‑Deck oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten gestalteten Formen und wenden deren Formatierung an den gewünschten Stellen wieder an.

@@ -1,5 +1,5 @@
 ---
-title: Format PowerPoint-vormen in .NET
+title: PowerPoint-vormen opmaken in .NET
 linktitle: Vormopmaak
 type: docs
 weight: 20
@@ -7,124 +7,189 @@ url: /nl/net/shape-formatting/
 keywords:
 - vorm opmaken
 - lijn opmaken
-- schets effect
+- schetseffect
 - schets vormlijn
-- aansluitingsstijl opmaken
-- verloopvulling
+- aansluitstijl opmaken
+- gradiëntvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
 - effen kleurvulling
 - vormtransparantie
 - zwart-wit vormrendering
-- grijswaarden vormrendering
-- vorm roteren
-- 3D-schuineffect
-- 3D-rotatie effect
+- grijstint vormrendering
+- vorm draaien
+- 3D schuineffect
+- 3D rotatie-effect
 - opmaak resetten
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Leer hoe u PowerPoint-vormen kunt formatteren in C# met Aspose.Slides—stel vul-, lijn- en effectstijlen in voor PPT- en PPTX-bestanden met nauwkeurigheid en volledige controle."
+description: "Leer hoe u PowerPoint‑vormen kunt opmaken in C# met Aspose.Slides—stel vullings-, lijn- en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
 ---
 ## **Inleiding**
 
-In PowerPoint kun je vormen aan dia's toevoegen. Aangezien vormen bestaan uit lijnen, kun je ze opmaken door hun contouren te wijzigen of er effecten op toe te passen. Daarnaast kun je vormen opmaken door instellingen te specificeren die bepalen hoe hun binnenkant wordt gevuld.
+Formateer vormen in PowerPoint door hun contouren, vullingen en effecten aan te passen. Aspose.Slides for .NET stelt u in staat deze instellingen programmatisch te beheren, inclusief transparantie, rotatie en 3D-opmaak.
 
-![vorm-opmaken-powerpoint](format-shape-powerpoint.png)
+![Opties voor vormopmaak in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides voor .NET biedt interfaces en properties die je in staat stellen om vormen op te maken met dezelfde opties die in PowerPoint beschikbaar zijn.
+Aspose.Slides for .NET biedt interfaces en eigenschappen die u in staat stellen vormen te formatteren met dezelfde opties die beschikbaar zijn in PowerPoint.
 
-## **Lijnen opmaken**
+## **Lijnen formatteren**
 
-Met Aspose.Slides kun je een aangepaste lijnstijl voor een vorm opgeven. De volgende stappen beschrijven de procedure:
+Gebruik [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) om de contour van een vorm te beheersen. Dit voorbeeld maakt een niet‑gevulde rechthoek met een blauwe, gestippelde contour. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) kiest een dikke‑dunne samengestelde lijn, terwijl [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) de breedte op 7 punten zet en [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) het streeppatroon selecteert.
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [lijnstijl](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) van de vorm in.
-1. Stel de lijndikte in.
-1. Stel de [streepjesstijl](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) van de lijn in.
-1. Stel de lijnkleur voor de vorm in.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-De volgende C#‑code toont hoe je een rechthoek‑`AutoShape` kunt opmaken:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een autoshape van het type Rechthoek toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.Style = LineStyle.ThickThin;
+shape.LineFormat.Width = 7;
+shape.LineFormat.DashStyle = LineDashStyle.Dash;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Stel de vulkleur in voor de rechthoekvorm.
-    shape.FillFormat.FillType = FillType.NoFill;
-
-    // Pas de opmaak toe op de lijnen van de rechthoek.
-    shape.LineFormat.Style = LineStyle.ThickThin;
-    shape.LineFormat.Width = 7;
-    shape.LineFormat.DashStyle = LineDashStyle.Dash;
-
-    // Stel de kleur in voor de lijn van de rechthoek.
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
-}
+presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De opgemaakte lijnen in de presentatie](formatted-lines.png)
 
-## **Schets‑effecten toepassen op vormlijnen**
+### **Aangepaste lijnstreeppatronen instellen**
 
-Een schets‑effect laat een vormlijn eruitzien alsof deze met de hand is getekend. Gebruik [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) om toegang te krijgen tot de lijninstellingen, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) om toegang te krijgen tot de schetsinstellingen, en [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)‑enumeratie te selecteren.
+Gebruik [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) wanneer vooraf gedefinieerde lijnstijlen niet de gewenste streklengtes en onderbrekingen bieden, bijvoorbeeld voor merkgebonden contouren of technische diagrammen. Het toewijzen van een patroon stelt automatisch [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) in op [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
 
-De volgende C#‑code laat zien hoe je een [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)‑effect toepast, de expliciet toegewezen waarde uitleest, en het effect verwijdert met [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+Array‑items wisselen tussen streep‑ en onderbrekingslengtes, beginnend met een streep. Elke waarde is een veelvoud van de lijndikte: `{ 4, 2 }` bij een breedte van 3 punten produceert een 12‑punt streep gevolgd door een 6‑punt onderbreking. Gebruik paren van eindige, niet‑negatieve waarden om volledige streep‑en‑onderbrekingssegmenten te definiëren. Het voorbeeld gebruikt positieve waarden om elke streep en onderbreking zichtbaar te houden.
+
+Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte uiteinden. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon met dubbele breedte, waardoor zowel de streep‑ als de onderbrekingslengte verdubbelt. De vijfde schakelt van een aangepast patroon naar een doorlopende lijn.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(600, 300, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var patterns = new[]
+{
+    new float[] { 4, 2 },
+    new float[] { 1, 2 },
+    new float[] { 6, 2, 1, 2 },
+    new float[] { 4, 2 },
+    new float[] { 4, 2 }
+};
+
+for (var i = 0; i < patterns.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+    line.LineFormat.Width = i == 3 ? 6 : 3;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.CapStyle = LineCapStyle.Flat;
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.CustomDashPattern = patterns[i];
+}
+
+// Return the last line to a solid style.
+slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
+
+presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+```
+
+Om terug te keren naar een vooraf gedefinieerde gestippelde stijl, wijs [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) toe aan [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/). De geselecteerde stijl regelt het uiterlijk van de lijn.
+
+Het resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
+
+![Drie aangepaste streeppatronen, een bredere lijn die het eerste patroon gebruikt, en een doorlopende lijn in PowerPoint](custom-dash-patterns.png)
+
+### **Lijneinden instellen**
+
+Gebruik [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) om de uiteinden van een open lijn in te stellen. De [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/)‑enumeratie biedt drie expliciete cap‑stijlen:
+
+- `Flat`: De lijn stopt bij het eindpunt.
+- `Round`: Een halve cirkelvormige cap strekt zich uit tot halverwege de lijndikte voorbij het eindpunt.
+- `Square`: Een vierkante cap strekt zich uit tot halverwege de lijndikte voorbij het eindpunt.
+
+De enumeratie bevat ook `NotDefined`, wat betekent dat er geen cap‑stijl expliciet is toegewezen.
+
+Caps verschillen van pijlpuntjes, die symbolen aan lijnuiteinden toevoegen, en van verbindingen, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpuntjes uit via [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) en [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/) zodat alleen de cap‑vormen worden vergeleken.
+
+Het volgende voorbeeld maakt drie verder identieke horizontale lijnen, 20 punten breed. Van boven naar beneden gebruiken ze respectievelijk platte, ronde en vierkante caps. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante caps strekken zich 10 punten voorbij elk eindpunt uit.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 240, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var capStyles = new[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+for (var i = 0; i < capStyles.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+    line.LineFormat.Width = 20;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.DashStyle = LineDashStyle.Solid;
+    line.LineFormat.CapStyle = capStyles[i];
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+}
+
+presentation.Save("line_caps.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
+
+![Platte, ronde en vierkante caps op identieke dikke lijnen in PowerPoint](line-caps.png)
+
+## **Schets‑effecten toepassen op vormlijnen**
+
+Een schetseffect laat een vormlijn handgetekend lijken. Gebruik [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) om de lijninstellingen te benaderen, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) voor de schetsettings, en [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)‑enumeratie te selecteren.
+
+De onderstaande C#‑code toont hoe een [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)‑effect toe te passen, de expliciet toegewezen waarde uit te lezen, en het effect te verwijderen met [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/):
+
+```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-// Access the shape's line format and its sketch format.
 var sketchFormat = shape.LineFormat.SketchFormat;
-
-// Apply a sketch effect.
 sketchFormat.SketchType = LineSketchType.Curved;
-
-// Read the sketch effect assigned directly to the shape.
 var explicitSketchType = sketchFormat.SketchType;
 Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
-
-// Remove the sketch effect.
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-De waarde die wordt geretourneerd door `ISketchFormat.SketchType` vertegenwoordigt de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, masterslide of lay‑outs­slide, gebruik dan [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), krijg toegang tot [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), en lees [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). De effectieve waarde geeft de opmaak weer die daadwerkelijk wordt toegepast nadat erfenissen zijn opgelost:
+De waarde die teruggegeven wordt door [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) representeert de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak geërfd kan worden van een thema, masterslide of layoutslide, gebruik dan [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), bereik [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/), en lees [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast na het oplossen van de erfenis. Dit voorbeeld vereist een bestaande presentatie met minstens één vorm op de eerste dia en drukt beide waarden af:
 
 ```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("presentation.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
-var lineFormat = shape.LineFormat;
 
+var lineFormat = shape.LineFormat;
 var explicitSketchType = lineFormat.SketchFormat.SketchType;
 var effectiveLineFormat = lineFormat.GetEffective();
 var effectiveSketchType = effectiveLineFormat.SketchFormat.SketchType;
@@ -133,168 +198,287 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Opmaak van aansluitingsstijlen**
+## **Aansluit‑stijlen formatteren**
 
-Hier zijn de drie opties voor het type aansluitingsstijl:
+Hier zijn de drie aansluit‑type opties:
 
-* Rond
-* Scherp
-* Afsnij
+* Round
+* Miter
+* Bevel
 
-Standaard, wanneer PowerPoint twee lijnen onder een hoek (bijvoorbeeld bij een hoek van een vorm) verbindt, wordt de **Rond**‑instelling gebruikt. Als je echter een vorm met scherpe hoeken tekent, kun je de voorkeur geven aan de **Scherp**‑optie.
+De aansluit‑stijl bepaalt hoe twee contoursegmenten bij een hoek elkaar ontmoeten. Gebruik **Round** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgevlakte hoeken.
 
-![De aansluitingsstijl in de presentatie](join-style-powerpoint.png)
+![De aansluit‑stijl in de presentatie](join-style-powerpoint.png)
 
-De volgende C#‑code toont hoe drie rechthoeken (zoals te zien in de afbeelding hierboven) werden gemaakt met de Miter‑, Bevel‑ en Round‑aansluitingsstijlinstellingen:
+Dit voorbeeld maakt drie zwarte rechthoeken met blauwe contouren van 15 punten breed. Het stelt [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) in op respectievelijk de miter-, bevel- en round‑waarden van [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) om te vergelijken hoe de hoeken worden getekend.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg drie autosvormen van het type Rechthoek toe.
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+var miterShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+var bevelShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+var roundShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Stel de vulkleur in voor elke rechthoekvorm.
-    shape1.FillFormat.FillType = FillType.Solid;
-    shape1.FillFormat.SolidFillColor.Color = Color.Black;
-    shape2.FillFormat.FillType = FillType.Solid;
-    shape2.FillFormat.SolidFillColor.Color = Color.Black;
-    shape3.FillFormat.FillType = FillType.Solid;
-    shape3.FillFormat.SolidFillColor.Color = Color.Black;
+miterShape.FillFormat.FillType = FillType.Solid;
+miterShape.FillFormat.SolidFillColor.Color = Color.Black;
+bevelShape.FillFormat.FillType = FillType.Solid;
+bevelShape.FillFormat.SolidFillColor.Color = Color.Black;
+roundShape.FillFormat.FillType = FillType.Solid;
+roundShape.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Stel de lijndikte in.
-    shape1.LineFormat.Width = 15;
-    shape2.LineFormat.Width = 15;
-    shape3.LineFormat.Width = 15;
+miterShape.LineFormat.Width = 15;
+bevelShape.LineFormat.Width = 15;
+roundShape.LineFormat.Width = 15;
 
-    // Stel de kleur in voor de lijn van elke rechthoek.
-    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+miterShape.LineFormat.FillFormat.FillType = FillType.Solid;
+miterShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+bevelShape.LineFormat.FillFormat.FillType = FillType.Solid;
+bevelShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+roundShape.LineFormat.FillFormat.FillType = FillType.Solid;
+roundShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Stel de aansluitingsstijl in.
-    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
+miterShape.LineFormat.JoinStyle = LineJoinStyle.Miter;
+bevelShape.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+roundShape.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Voeg tekst toe aan elke rechthoek.
-    shape1.TextFrame.Text = "Miter Join Style";
-    shape2.TextFrame.Text = "Bevel Join Style";
-    shape3.TextFrame.Text = "Round Join Style";
+miterShape.TextFrame.Text = "Miter Join Style";
+bevelShape.TextFrame.Text = "Bevel Join Style";
+roundShape.TextFrame.Text = "Round Join Style";
 
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
-}
+presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
 
-## **Verloopvulling**
+### **Miter‑aansluitingen beperken bij scherpe hoeken**
 
-In PowerPoint is Verloopvulling een opmaakoptie waarmee je een continue kleurverloop op een vorm kunt toepassen. Je kunt bijvoorbeeld twee of meer kleuren toepassen op een manier waarbij de ene geleidelijk in de andere overloopt.
+Gebruik [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) met [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) ingesteld op [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek kan uitstrekken.
 
-Zo pas je een verloopvulling toe op een vorm met Aspose.Slides:
+De limiet is een verhouding tussen de afstand tussen de binnen- en buitenhoeken van de aansluiting en de lijndikte. Bijvoorbeeld, een waarde van `8` staat een miter‑lengte toe tot acht keer de lijndikte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een afgevlakte aansluiting op die hoek. Een grotere limiet maakt scherpere punten mogelijk. De instelling beïnvloedt alleen miter‑aansluitingen, en een wijziging heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) van de vorm in op `Gradient`.
-1. Voeg je twee favoriete kleuren toe met gedefinieerde posities via de `Add`‑methoden van de gradient‑stop‑collectie die wordt blootgesteld door de [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/) interface.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt twee identieke, niet‑gevulde driehoeken met contouren van 20 punten breed. De linker driehoek gebruikt een limiet van `2`, en de rechter gebruikt `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de bovenste hoek een miter‑lengte‑tot‑lijndikte‑verhouding van ongeveer `4.12` heeft. Daardoor vlakt PowerPoint de linkerpunt af en behoudt de rechterpunt.
 
-De volgende C#‑code toont hoe je een verloopvulling toepast op een ellips:
-
-```c#
+```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 320, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var miterLimits = new[] { 2f, 8f };
+
+for (var i = 0; i < miterLimits.Length; i++)
 {
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
-
-    // Voeg een autosvorm van het type Ellipse toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
-
-    // Pas verloopopmaak toe op de ellips.
-    shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
-
-    // Stel de richting van het verloop in.
-    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
-
-    // Voeg twee verloopstops toe.
-    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
-    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+    var triangle = slide.Shapes.AddAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+    triangle.FillFormat.FillType = FillType.NoFill;
+    triangle.LineFormat.Width = 20;
+    triangle.LineFormat.FillFormat.FillType = FillType.Solid;
+    triangle.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    triangle.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    triangle.LineFormat.MiterLimit = miterLimits[i];
 }
+
+presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat in PowerPoint: **Miter limit 2** links en **miter limit 8** rechts.
+
+![Een afgevlakt punt met miter‑limiet 2 en een puntig punt met miter‑limiet 8 in PowerPoint](miter-limits.png)
+
+## **Gradiëntenvulling**
+
+Een gradiëntenvulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineaire gradiënt onder een hoek van 45 graad van rood naar paars met behulp van [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). De methode [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) plaatst de kleurenstops bij 0 en 1, het begin en einde van de gradiënt. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Gradient;
+shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+shape.FillFormat.GradientFormat.LinearGradientAngle = 45;
+shape.FillFormat.GradientFormat.GradientStops.Clear();
+shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+
+presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
-![De ellips met verloopvulling](gradient-fill.png)
+![De ellips met gradiëntenvulling](gradient-fill.png)
 
-Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie dan [Kies een verloop‑renderingsstijl](/slides/nl/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een renderingsstijl selecteren zonder de verloopvulling die in de presentatie is opgeslagen te wijzigen.
+Als een gradiënt er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie [Choose a Gradient Rendering Style](/slides/nl/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). U kunt een renderingsstijl selecteren zonder de gradiëntenvulling die in de presentatie is opgeslagen te wijzigen.
 
-## **Patroonvulling**
+### **De lineaire gradiënthoek instellen**
 
-In PowerPoint is Patroonvulling een opmaakoptie waarmee je een tweekleurig ontwerp—zoals stippen, strepen, kruislings of vakken—op een vorm kunt toepassen. Je kunt aangepaste kleuren kiezen voor de voor‑ en achtergrond van het patroon.
+Gebruik [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) om de oriëntatie van een [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) vulling te regelen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Fractionele hoeken worden ondersteund. Eindige hoeken buiten `[0, 360)` worden genormaliseerd naar één omwenteling; bijvoorbeeld, `-45` wordt `315` en `360` wordt `0`.
 
-Aspose.Slides biedt meer dan 45 vooraf gedefinieerde patroonstijlen die je op vormen kunt toepassen om de visuele aantrekkingskracht van je presentaties te vergroten. Zelfs nadat je een vooraf gedefinieerd patroon hebt gekozen, kun je nog steeds de exacte kleuren opgeven die het moet gebruiken.
+Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken kan worden vergeleken. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
 
-Zo pas je een patroonvulling toe op een vorm met Aspose.Slides:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) van de vorm in op `Pattern`.
-1. Kies een patroonstijl uit de vooraf gedefinieerde opties.
-1. Stel de [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) van het patroon in.
-1. Stel de [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) van het patroon in.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-De volgende C#‑code toont hoe je een patroonvulling toepast op een rechthoek:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+for (var i = 0; i < angles.Length; i++)
 {
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+    var x = 30 + (i % 3) * 230;
+    var y = 30 + (i / 3) * 190;
 
-    // Voeg een autosvorm van het type Rectangle toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+    shape.FillFormat.FillType = FillType.Gradient;
 
-    // Stel het vultype in op Pattern.
-    shape.FillFormat.FillType = FillType.Pattern;
-
-    // Stel de patroonstijl in.
-    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
-
-    // Stel de achtergrond- en voorgrondkleuren van het patroon in.
-    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.False;
+    gradient.LinearGradientAngle = angles[i];
 }
+
+presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat in PowerPoint:
+
+![Lineaire gradiënten op 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
+
+### **Een lineaire gradiënt schalen met de vorm**
+
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) accepteert een [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) waarde. Stel deze expliciet in op `False` om de geometrische gradiënthoek te behouden terwijl de proporties van de vorm veranderen, of op `True` om de gradiënt te schalen met de breedte en hoogte van de vorm. Met scaling ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek op een niet‑vierkante vorm.
+
+Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurenstops als de hoekvergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op schalen zonder de gradiëntinstellingen te wijzigen.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 460, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var scalingOptions = new[] { NullableBool.False, NullableBool.True };
+
+for (var column = 0; column < scalingOptions.Length; column++)
+{
+    for (var row = 0; row < 2; row++)
+    {
+        var x = 30 + column * 360;
+        var y = row == 0 ? 30 : 150;
+        
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+        shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+        shape.FillFormat.FillType = FillType.Gradient;
+
+        var gradient = shape.FillFormat.GradientFormat;
+        gradient.GradientShape = GradientShape.Linear;
+        gradient.GradientStops.Clear();
+        gradient.GradientStops.Add(0f, Color.Red);
+        gradient.GradientStops.Add(0.5f, Color.Lime);
+        gradient.GradientStops.Add(1f, Color.Blue);
+        gradient.LinearGradientAngle = 45;
+        gradient.LinearGradientScaled = scalingOptions[column];
+
+        if (row == 1)
+        {
+            shape.Width = 90;
+            shape.Height = 280;
+        }
+    }
+}
+
+presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat in PowerPoint, met scaling uitgeschakeld links en ingeschakeld rechts:
+
+![Brede en hoge rechthoeken met een 45‑graden gradiënt, vergelijking LinearGradientScaled False links met True rechts](linear-gradient-scaling.png)
+
+Met scaling uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met scaling ingeschakeld rekken de banden zich uit volgens de proporties van de vorm. Dit helpt om de gradiënt van een sjabloon te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkant verandert het inschakelen van scaling het uiterlijk van deze `45`‑graden gradiënt niet.
+
+Zowel de hoek‑ als scaling‑instellingen zijn van toepassing op lineaire gradiënten. Ze regelen geen [GradientShape.Radial of GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/) vullingen.
+
+### **De hoek combineren met gradiënt‑richting**
+
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) selecteert een gradiëntstijl uit de [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/)‑enumeratie; het is geen vervanging voor een numerieke hoek. Voor een lineaire gradiënt kunnen de hoek‑stijlen het gebied waarin de kleuren worden verdeeld veranderen zonder [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) te wijzigen. Houd de richting onveranderd bij het vergelijken van hoeken of scaling.
+
+Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken hebben dezelfde weergave: de richting toewijzen vóór of na de hoek verandert het resultaat niet.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+for (var i = 0; i < 2; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+    shape.FillFormat.FillType = FillType.Gradient;
+
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.True;
+
+    if (i == 0)
+    {
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+        gradient.LinearGradientAngle = 30;
+    }
+    else
+    {
+        gradient.LinearGradientAngle = 30;
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+    }
+}
+
+presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+```
+
+## **Patroonvulling**
+
+Een patroonvulling past een tweekleurig ontwerp toe, zoals stippen, strepen of vakken. Dit voorbeeld gebruikt [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) om een trellis‑patroon te selecteren. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) levert de lichtgrijze achtergrond, en [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) levert de gele patroonkleur.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Pattern;
+shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+
+presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
@@ -303,112 +487,70 @@ Het resultaat:
 
 ## **Afbeeldingsvulling**
 
-In PowerPoint is Afbeeldingsvulling een opmaakoptie waarmee je een afbeelding in een vorm kunt invoegen—effectief gebruikmakend van de afbeelding als achtergrond van de vorm.
-
-Zo gebruik je Aspose.Slides om een afbeeldingvulling op een vorm toe te passen:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) van de vorm in op `Picture`.
-1. Stel de afbeeldingvullingsmodus in op `Tile` (of een andere gewenste modus).
-1. Maak een [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) object aan van de afbeelding die je wilt gebruiken.
-1. Wijs deze afbeelding toe aan de `Picture.Image`‑eigenschap van de `PictureFillFormat` van de vorm.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-Stel dat we een bestand “lotus.png” hebben met de volgende afbeelding:
+Een afbeeldingsvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) om deze te laden in de afbeeldingscollectie van de presentatie. Het instellen van [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) op de tegelmodus herhaalt de afbeelding binnen de rechthoek. De bronafbeelding die hier wordt gebruikt, staat hieronder:
 
 ![De lotusafbeelding](lotus.png)
 
-De volgende C#‑code toont hoe je een vorm vult met de afbeelding:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een autosvorm van het type Rectangle toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+shape.FillFormat.FillType = FillType.Picture;
+shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Stel het vultype in op Picture.
-    shape.FillFormat.FillType = FillType.Picture;
+using var image = Images.FromFile("lotus.png");
+var presentationImage = presentation.Images.AddImage(image);
+shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // Stel de afbeeldingvullingsmodus in.
-    shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
-
-    // Laad een afbeelding en voeg deze toe aan de presentatiebronnen.
-    IImage image = Images.FromFile("lotus.png");
-    IPPImage presentationImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Stel de afbeelding in.
-    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
-}
+presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De vorm met afbeeldingsvulling](picture-fill.png)
 
-### **Beeldtegels als textuur**
+### **Afbeelding als tegeltextuur gebruiken**
 
-Als je een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kun je de volgende eigenschappen van de [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) interface en de [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) klasse gebruiken:
+Als u een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kunt u de volgende eigenschappen van de interface [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) en de klasse [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) gebruiken:
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Stelt de afbeeldingvullingsmodus in—`Tile` of `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Bepaalt de uitlijning van de tegels binnen de vorm.
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Bepaalt of de tegel horizontaal, verticaal of beide keren wordt gespiegeld.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Stelt de horizontale verschuiving van de tegel (in points) ten opzichte van het oorsprongpunt van de vorm in.
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Stelt de verticale verschuiving van de tegel (in points) ten opzichte van het oorsprongpunt van de vorm in.
-- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Definieert de horizontale schaal van de tegel als percentage.
-- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Definieert de verticale schaal van de tegel als percentage.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Stelt de afbeeldingsvullingsmodus in — `Tile` of `Stretch`.
+- [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Geeft de uitlijning van de tegels binnen de vorm aan.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Regelt of de tegel horizontaal, verticaal, of beide keren wordt gedraaid.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
+- [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Definieert de horizontale schaal van de tegel als een percentage.
+- [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Definieert de verticale schaal van de tegel als een percentage.
 
-De volgende code laat zien hoe je een rechthoekige vorm toevoegt met een getegelde afbeeldingvulling en de tegelopties configureert:
+Dit voorbeeld vereist een lokale afbeelding en configureert [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) om deze op 50 % van de oorspronkelijke grootte te herhalen. Offsets van −32 punten verschuiven de tegels horizontaal en verticaal; uitlijning rechtsonder en draaien in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide firstSlide = presentation.Slides[0];
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
 
-    // Voeg een rechthoekige autosvorm toe.
-    IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+var shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+shape.FillFormat.FillType = FillType.Picture;
 
-    // Stel het vultype van de vorm in op Picture.
-    shape.FillFormat.FillType = FillType.Picture;
+using var sourceImage = Images.FromFile("lotus.png");
+var presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Laad de afbeelding en voeg deze toe aan de presentatieresources.
-    IPPImage presentationImage;
-    using (IImage sourceImage = Images.FromFile("lotus.png"))
-        presentationImage = presentation.Images.AddImage(sourceImage);
+var pictureFillFormat = shape.FillFormat.PictureFillFormat;
+pictureFillFormat.Picture.Image = presentationImage;
+pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+pictureFillFormat.TileOffsetX = -32;
+pictureFillFormat.TileOffsetY = -32;
+pictureFillFormat.TileScaleX = 50;
+pictureFillFormat.TileScaleY = 50;
+pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+pictureFillFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Wijs de afbeelding toe aan de vorm.
-    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
-    pictureFillFormat.Picture.Image = presentationImage;
-
-    // Configureer de afbeeldingvullingsmodus en tegel-eigenschappen.
-    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
-    pictureFillFormat.TileOffsetX = -32;
-    pictureFillFormat.TileOffsetY = -32;
-    pictureFillFormat.TileScaleX = 50;
-    pictureFillFormat.TileScaleY = 50;
-    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
-    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("tile.pptx", SaveFormat.Pptx);
-}
+presentation.Save("tile.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
@@ -417,87 +559,109 @@ Het resultaat:
 
 ## **Vulling met effen kleur**
 
-In PowerPoint is Vulling met effen kleur een opmaakoptie die een vorm vult met één enkele, uniforme kleur. Deze eenvoudige achtergrondkleur wordt toegepast zonder verloop, textuur of patroon.
+Een effen vulling geeft een vorm een enkele, uniforme kleur. Dit voorbeeld stelt [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) in op de effen vullingsmodus en kent geel toe via [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/), waarna de rechthoek in een presentatie wordt opgeslagen.
 
-Om een vulling met effen kleur op een vorm toe te passen met Aspose.Slides, volg je deze stappen:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) van de vorm in op `Solid`.
-1. Wijs je gewenste vulkleur toe aan de vorm.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-De volgende C#‑code toont hoe je een rechthoek in een PowerPoint‑dia vult met een effen kleur:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een autosvorm van het type Rectangle toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    // Stel het vultype in op Solid.
-    shape.FillFormat.FillType = FillType.Solid;
-
-    // Stel de vulkleur in.
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
-}
+presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![De vorm met effen kleurvulling](solid-color-fill.png)
 
+## **De dia‑achtergrond gebruiken als vormvulling**
+
+Gebruik [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Stel eerst [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) in op [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van zijn stijl‑vulling. Het inschakelen van de vlag alleen verwijdert geen bestaande expliciete vulling.
+
+Dit verschilt van [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): achtergrondvulling bedekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een gradiënt blijft uitgelijnd met de dia in plaats van opnieuw te beginnen binnen elke vorm.
+
+Het volgende voorbeeld creëert een master‑achtergrond die door de dia wordt geërfd en plaatst een magenta‑band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste rechthoek heeft geen vulling, en de rechter rechthoek schakelt van achtergrondvulling naar een expliciete oranje vulling.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+// Erf de gradiënt van de master.
+slide.Background.Type = BackgroundType.NotDefined;
+slide.LayoutSlide.Background.Type = BackgroundType.NotDefined;
+var background = slide.LayoutSlide.MasterSlide.Background;
+background.Type = BackgroundType.OwnBackground;
+background.FillFormat.FillType = FillType.Gradient;
+var gradient = background.FillFormat.GradientFormat;
+gradient.GradientShape = GradientShape.Linear;
+gradient.LinearGradientAngle = 0;
+gradient.GradientStops.Clear();
+gradient.GradientStops.Add(0, Color.DarkBlue);
+gradient.GradientStops.Add(1, Color.LightSkyBlue);
+
+// Voeg dit object eerst toe zodat het achter de rechthoeken verschijnt.
+var band = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.Magenta;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var backgroundShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+backgroundShape.FillFormat.FillType = FillType.NotDefined;
+backgroundShape.UseBackgroundFill = true;
+
+var noFillShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+noFillShape.FillFormat.FillType = FillType.NoFill;
+
+var explicitShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+explicitShape.FillFormat.FillType = FillType.NotDefined;
+explicitShape.UseBackgroundFill = true;
+
+// Schakel achtergrondvulling uit voordat je een expliciete vulling toepast.
+explicitShape.UseBackgroundFill = false;
+explicitShape.FillFormat.FillType = FillType.Solid;
+explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
+
+presentation.Save("background_fill.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magenta‑band wordt verborgen door de linker en rechter rechthoeken maar blijft zichtbaar door de middelste rechthoek.
+
+![Achtergrondvulling, geen vulling, en expliciete oranje vulling over een magenta‑band](background-fill.png)
+
+Hetzelfde gedrag geldt voor een achtergrond die direct op de dia is gedefinieerd of van een lay‑out wordt geërfd. De vorm gebruikt de opgeloste achtergrond van de dia; het voorbeeld laat zowel de dia‑ als de lay‑out‑achtergronden ongedefinieerd zodat de master deze levert.
+
 ## **Transparantie instellen**
 
-In PowerPoint kun je, wanneer je een effen kleur, verloop, afbeelding of textuurvulling op vormen toepast, ook een transparantieniveau instellen om de dekkingsgraad van de vulling te regelen. Een hogere transparantiewaarde maakt de vorm meer doorschijnend, waardoor de achtergrond of onderliggende objecten gedeeltelijk zichtbaar worden.
+Voor een effen vulling bepaalt de alfa‑component van de kleur de opaciteit: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant wordt zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/).
 
-Aspose.Slides laat je het transparantieniveau instellen door de alfabeta‑waarde in de kleur die voor de vulling wordt gebruikt aan te passen. Zo doe je dat:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) in op `Solid`.
-1. Gebruik `Color.FromArgb(alpha, baseColor)` om een kleur met transparantie te definiëren (de `alpha`‑component bepaalt de transparantie).
-1. Sla de presentatie op.
-
-De volgende C#‑code toont hoe je een transparante vulkleur toepast op een rechthoek:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een solide rechthoekige autosvorm toe.
-    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Voeg een transparante rechthoekige autosvorm toe boven de solide vorm.
-    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
-    transparentShape.FillFormat.FillType = FillType.Solid;
-    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+var transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+transparentShape.FillFormat.FillType = FillType.Solid;
+transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
 
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
@@ -506,37 +670,19 @@ Het resultaat:
 
 ## **Vormen roteren**
 
-Aspose.Slides laat je vormen roteren in PowerPoint‑presentaties. Dit kan handig zijn bij het positioneren van visuele elementen met specifieke uitlijning‑ of ontwerpeisen.
+Gebruik [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) om een vorm in het dia‑vlak te draaien. De hoek wordt gemeten in graden; dit voorbeeld roteert een rechthoek 5 graden met de klok mee en slaat de presentatie op.
 
-Om een vorm op een dia te roteren, volg je deze stappen:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de `Rotation`‑eigenschap van de vorm in op de gewenste hoek.
-1. Sla de presentatie op.
-
-De volgende C#‑code toont hoe je een vorm 5 graden roteert:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
-using (Presentation presentation = new Presentation())
-{
-    // Haal de eerste dia op.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een autosvorm van het type Rectangle toe.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.Rotation = 5;
 
-    // Roteer de vorm met 5 graden.
-    shape.Rotation = 5;
-
-    // Sla het PPTX-bestand op schijf.
-    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
@@ -545,48 +691,31 @@ Het resultaat:
 
 ## **3D‑schuineffecten toevoegen**
 
-Aspose.Slides maakt het mogelijk om 3D‑schuineffecten toe te passen op vormen door hun [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/)‑eigenschappen te configureren.
+Gebruik [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) om een vorm diepte en schuine randen te geven. Dit voorbeeld maakt een groene ellips met een oranje contour, stelt [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) in op 4 punten, en past een ronde bovenste schuine rand toe met een breedte en hoogte van 6 punten via [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/). Een front‑facing orthografische camera en drie‑puntverlichting maken de schuine rand zichtbaar.
 
-Om 3D‑schuineffecten aan een vorm toe te voegen, volg je deze stappen:
-
-1. Instantieer de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Configureer de [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) van de vorm om de schuine‑instellingen te definiëren.
-1. Sla de presentatie op.
-
-De volgende C#‑code laat zien hoe je 3D‑schuineffecten toepast op een vorm:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Maak een instantie van de Presentation-klasse.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Voeg een vorm toe aan de dia.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.Green;
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
-    shape.LineFormat.Width = 2.0;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Green;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
+shape.LineFormat.Width = 2.0;
+shape.ThreeDFormat.Depth = 4;
+shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+shape.ThreeDFormat.BevelTop.Height = 6;
+shape.ThreeDFormat.BevelTop.Width = 6;
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // Stel de ThreeDFormat‑eigenschappen van de vorm in.
-    shape.ThreeDFormat.Depth = 4;
-    shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    shape.ThreeDFormat.BevelTop.Height = 6;
-    shape.ThreeDFormat.BevelTop.Width = 6;
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-
-    // Sla de presentatie op als een PPTX‑bestand.
-    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
-}
+presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
@@ -595,50 +724,35 @@ Het resultaat:
 
 ## **3D‑rotatie‑effecten toevoegen**
 
-Aspose.Slides maakt het mogelijk om 3D‑rotatie‑effecten toe te passen op vormen door hun [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/)‑eigenschappen te configureren.
+Het 3D‑beeld van een vorm wordt beheerd door de camera‑instellingen. Dit voorbeeld gebruikt [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) met breedtegraad, lengtegraad en revolutiehoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) en gebalanceerde verlichting via [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), waarna de opgemaakte rechthoek wordt opgeslagen.
 
-Om 3D‑rotatie op een vorm toe te passen:
-
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/net/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) toe aan de dia.
-1. Stel de [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) en [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) van de vorm in om de 3D‑rotatie te definiëren.
-1. Sla de presentatie op.
-
-De volgende C#‑code toont hoe je 3D‑rotatie‑effecten op een vorm toepast:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Maak een instantie van de Presentation-klasse.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-    autoShape.TextFrame.Text = "Hello, Aspose!";
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+autoShape.TextFrame.Text = "Hello, Aspose!";
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
+autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-
-    // Sla de presentatie op als een PPTX-bestand.
-    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
-}
+presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 ```
 
 Het resultaat:
 
 ![Het 3D‑rotatie‑effect](3D-rotation-effect.png)
 
-## **Zwart‑witweergave van vormen beheren**
+## **Zwart‑wit‑rendering voor vormen beheren**
 
-De eigenschap [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) bepaalt hoe een individuele vorm wordt gerenderd wanneer een presentatie wordt bekeken of verwerkt in zwart‑witmodus. De eigenschap activeert niet zelf een zwart‑witweergave en wijzigt de vul‑, lijn‑ of andere opmaak niet in de normale kleermodus.
+De eigenschap [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) geeft aan hoe een individuele vorm wordt gerenderd wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. Het activeert niet vanzelf een zwart‑wit‑weergave en verandert de vulling, lijn of andere opmaak van de vorm niet in de normale kleermodus.
 
-Gebruik een waarde uit de [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/)‑enumeratie om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen één enkele kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑witmodus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
+Gebruik een waarde uit de enumeratie [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) om het gewenste gedrag te kiezen. Bijvoorbeeld, `Automatic` laat de rendering‑applicatie de conversie bepalen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen één kleur, `Color` behoudt de normale kleur, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
 
-De volgende C#‑code maakt een gekleurde vorm en laat deze grijs verschijnen in zwart‑witweergavemodus:
+Dit voorbeeld maakt een oranje rechthoek en stelt [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) in op gray. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleurweergave en vraagt grijze kleur aan applicaties die zwart‑wit‑weergave‑instellingen respecteren:
 
 ```csharp
 using System.Drawing;
@@ -651,45 +765,40 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
-
-// Behoud de oranje vulling in kleurmodus, maar render de vorm met grijze kleur in zwart-witmodus.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-In normale kleurmodus behoudt de rechthoek zijn oranje vulling. In een zwart‑witworkflow gebruikt hij grijstinten omdat de modus is ingesteld op `Gray`. Zo kun je een volledige‑kleur dia behouden terwijl je een aparte weergave voor afdrukken, preview of andere workflows definieert die respecteren dat de presentatie in zwart‑wit moet worden weergegeven.
+In de normale kleermodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑weergave‑workflow gebruikt hij grijze kleur omdat de modus is ingesteld op `Gray`. Hiermee kunt u een volledige‑kleur dia behouden terwijl u een aparte weergave definieert voor afdrukken, voorvertonen of andere workflows die de zwart‑wit‑weergave‑instellingen van de presentatie respecteren.
 
 ## **Opmaak resetten**
 
-De volgende C#‑code toont hoe je de opmaak van een dia reset en de positie, grootte en opmaak van alle vormen met placeholders op de [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) terugzet naar hun standaardinstellingen:
+Gebruik [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) om de positie, grootte en opmaak van dia‑plaatsaanduidingen te herstellen vanuit de bijbehorende lay‑out‑plaatsaanduidingen. Dit voorbeeld vereist een bestaande presentatie met lay‑out‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder corresponderende lay‑out‑plaatsaanduidingen worden niet gereset.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in presentation.Slides)
-    {
-        // Reset elke vorm op de dia die een placeholder op de lay-out heeft.
-        slide.Reset();
-    }
-
-    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
+    slide.Reset();
 }
+
+presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Heeft de opmaak van vormen invloed op de uiteindelijke bestandsgrootte van de presentatie?**
+**Heeft vormopmaak invloed op de uiteindelijke bestandsgrootte van de presentatie?**
 
-Alleen minimaal. Ingebedde afbeeldingen en media nemen het grootste deel van de bestandsgrootte in beslag, terwijl vormparameters zoals kleuren, effecten en verlopen als metadata worden opgeslagen en praktisch geen extra grootte toevoegen.
+Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe vergeleken met ingevoegde afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
 
-**Hoe kan ik vormen op een dia identificeren die identieke opmaak delen zodat ik ze kan groeperen?**
+**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
 
-Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm—vul, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, behandel dan hun stijlen als identiek en groepeer die vormen logisch, wat later style‑beheer vereenvoudigt.
+Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later het stijlbeheer vereenvoudigt.
 
 **Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
 
-Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloondiavoorstelling of een .POTX‑sjabloonbestand. Wanneer je een nieuwe presentatie maakt, open je het sjabloon, kloon je de benodigde gestylede vormen, en pas je hun opmaak overal toe waar nodig.
+Ja. Bewaar voorbeeldvormen met de gewenste stijlen in een sjabloondia‑set of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie, open het sjabloon, kloon de benodigde gestylede vormen, en pas hun opmaak opnieuw toe waar nodig.

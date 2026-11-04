@@ -1,6 +1,6 @@
 ---
-title: PowerPoint-Formen auf Android formatieren
-linktitle: Formformatierung
+title: "PowerPoint-Formen auf Android formatieren"
+linktitle: "Formformatierung"
 type: docs
 weight: 20
 url: /de/androidjava/shape-formatting/
@@ -8,76 +8,55 @@ keywords:
 - Form formatieren
 - Linie formatieren
 - Skizzeneffekt
-- Skizzenlinien der Form
+- Skizzenformlinie
 - Verbindungsstil formatieren
 - Verlaufsfüllung
 - Musterfüllung
 - Bildfüllung
 - Texturfüllung
 - Einfarbige Füllung
-- Formtransparenz
+- Form-Transparenz
 - Schwarz-weiß-Darstellung von Formen
 - Graustufen-Darstellung von Formen
 - Form drehen
-- 3D-Kehleneffekt
-- 3D-Drehungseffekt
+- 3D-Kanteneffekt
+- 3D-Rotationseffekt
 - Formatierung zurücksetzen
 - PowerPoint
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint-Formen auf Android mit Aspose.Slides formatieren - füllen, Linien- und Effektstile für PPT-, PPTX- und ODP-Dateien präzise und vollständig steuern."
+description: "Erfahren Sie, wie Sie PowerPoint-Formen auf Android mit Aspose.Slides formatieren – Füll‑, Linien‑ und Effekt‑Stile für PPT‑ und PPTX‑Dateien präzise und vollständig steuern."
 ---
-## **Einleitung**
+## **Einführung**
 
-In PowerPoint können Sie Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, können Sie sie formatieren, indem Sie deren Konturen ändern oder Effekte darauf anwenden. Zusätzlich können Sie Formen formatieren, indem Sie Einstellungen festlegen, die steuern, wie ihre Innenflächen gefüllt werden.
+Formatiere Formen in PowerPoint, indem du ihre Konturen, Füllungen und Effekte anpasst. Aspose.Slides für Android via Java ermöglicht es dir, diese Einstellungen programmgesteuert zu steuern, einschließlich Transparenz, Drehung und 3D‑Formatierung.
 
-![Formformat PowerPoint](format-shape-powerpoint.png)
+![Formformatierungsoptionen in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides für Android via Java bietet Schnittstellen und Methoden, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
+Aspose.Slides für Android via Java stellt Schnittstellen und Methoden bereit, die es ermöglichen, Formen mit denselben Optionen zu formatieren, die in PowerPoint verfügbar sind.
 
 ## **Linien formatieren**
 
-Mit Aspose.Slides können Sie für eine Form einen benutzerdefinierten Linienstil festlegen. Die folgenden Schritte beschreiben das Verfahren:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [Linienstil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linestyle/) der Form.
-1. Setzen Sie die Linienbreite.
-1. Setzen Sie den [Strichstil](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) der Linie.
-1. Setzen Sie die Linienfarbe für die Form.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende Code zeigt, wie man ein Rechteck-`AutoShape` formatiert:
+Verwenden Sie [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) , um die Kontur einer Form zu steuern. Dieses Beispiel erstellt ein nicht gefülltes Rechteck mit einer blauen, gestrichelten Kontur. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) wählt eine dick‑dünn Verbundlinie, während [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) die Breite auf 7 Punkte setzt und [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) das Strichmuster auswählt.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Entfernen Sie die Füllung der Rechteckform, sodass nur die Linien sichtbar sind.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Formatieren Sie die Linien des Rechtecks.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
-
-    // Setzen Sie die Farbe für die Linie des Rechtecks.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -88,11 +67,106 @@ Das Ergebnis:
 
 ![Die formatierten Linien in der Präsentation](formatted-lines.png)
 
-## **Skizzeneffekte auf Formlinien anwenden**
+### **Benutzerdefinierte Strichmuster für Linien festlegen**
 
-Ein Skizzeneffekt lässt die Linie einer Form handgezeichnet erscheinen. Verwenden Sie [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/) , um auf die Linieneinstellungen zuzugreifen, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/) , um auf die Skizzeneinstellungen zuzugreifen, und [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) , um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) auszuwählen.
+Verwenden Sie [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) , wenn vordefinierte Linienstile nicht die benötigten Strichlängen und Lücken bereitstellen, beispielsweise für Marken‑Konturen oder technische Diagramme. Das Zuweisen eines Musters ändert den Linienstil automatisch zu [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-Der folgende Java-Code zeigt, wie man den Effekt [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) entfernt:
+Array‑Einträge wechseln abwechselnd zwischen Strich‑ und Lückenlängen, beginnend mit einem Strich. Jeder Wert ist ein Vielfaches der Linienbreite: `{ 4, 2 }` bei einer Breite von 3 Punkten erzeugt einen 12‑Punkte‑Strich gefolgt von einer 6‑Punkte‑Lücke. Verwenden Sie Paare endlicher, nicht‑negativer Werte, um vollständige Strich‑und‑Lückensegmente zu definieren. Das Beispiel verwendet positive Werte, damit jeder Strich und jede Lücke sichtbar bleibt.
+
+Dieses Beispiel erstellt fünf blaue Linien mit gleicher Länge und flachen Enden. Die ersten drei vergleichen Muster bei einer Breite von 3 Punkten. Die vierte wiederholt das erste Muster bei doppelter Breite und verdoppelt damit sowohl Strich‑ als auch Längen. Die fünfte wechselt von einem benutzerdefinierten Muster zu einer durchgezogenen Linie.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[][] patterns = {
+        { 4, 2 },
+        { 1, 2 },
+        { 6, 2, 1, 2 },
+        { 4, 2 },
+        { 4, 2 }
+    };
+
+    for (int i = 0; i < patterns.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setCustomDashPattern(patterns[i]);
+    }
+
+    // Setze die letzte Linie auf einen durchgezogenen Stil zurück.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Um stattdessen zu einem vordefinierten Strichstil zurückzukehren, übergeben Sie [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) an [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Der ausgewählte Stil kontrolliert das Aussehen der Linie.
+
+Das Ergebnis in PowerPoint, von oben nach unten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; und **Solid, 3 pt**.
+
+![Drei benutzerdefinierte Strichmuster, eine breitere Linie mit dem ersten Muster und eine Konturlinie in PowerPoint](custom-dash-patterns.png)
+
+### **Linienenden festlegen**
+
+Verwenden Sie [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) , um die Enden einer offenen Linie festzulegen. Die Klasse [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) bietet drei explizite End‑Stile:
+
+- `Flat`: Der Strich endet am Endpunkt.
+- `Round`: Ein halbkreisförmiges Ende erstreckt sich über den Endpunkt hinaus um die halbe Linienbreite.
+- `Square`: Ein quadratisches Ende erstreckt sich über den Endpunkt hinaus um die halbe Linienbreite.
+
+Die Klasse enthält außerdem `NotDefined`, was bedeutet, dass kein End‑Stil explizit zugewiesen ist.
+
+Enden unterscheiden sich von Pfeilspitzen, die Symbole an Linienenden hinzufügen, und von Verbindungs‑Stilen, die Ecken zwischen Linienstücken steuern. Dieses Beispiel deaktiviert Pfeilspitzen über [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) und [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-), sodass nur die End‑Formen verglichen werden.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] capStyles = new byte[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+    for (int i = 0; i < capStyles.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid);
+        line.getLineFormat().setCapStyle(capStyles[i]);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+    }
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint, von oben nach unten: **Flat**, **Round** und **Square**.
+
+![Flache, runde und quadratische Enden auf identischen dicken Linien in PowerPoint](line-caps.png)
+
+## **Skizzen‑Effekte auf Formlinien anwenden**
+
+Ein Skizzen‑Effekt lässt eine Formlinie handgezeichnet wirken. Verwenden Sie [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) , um die Linieneinstellungen zu erhalten, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) , um die Skizzen‑Einstellungen zu erhalten, und [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) , um einen Wert aus der Klasse [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) auszuwählen.
+
+Der folgende Java‑Code zeigt, wie ein [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/)‑Effekt angewendet, der explizit zugewiesene Wert ausgelesen und der Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) entfernt wird:
 
 ```java
 import com.aspose.slides.*;
@@ -100,26 +174,20 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Greifen Sie auf das Linienformat der Form und dessen Skizzformat zu.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Wenden Sie einen Skizzeneffekt an.
     sketchFormat.setSketchType(LineSketchType.Curved);
-
-    // Lesen Sie den direkt der Form zugewiesenen Skizzeneffekt.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
-
-    // Entfernen Sie den Skizzeneffekt.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Der von [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/) zurückgegebene Wert stellt die direkt der Form zugewiesene Einstellung dar. Wenn die Linienformatierung von einem Theme, einer Masterfolie oder einer Layoutfolie geerbt werden kann, verwenden Sie [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/) , greifen Sie auf [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/) zu und lesen Sie [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/) . Der effektive Wert spiegelt die Formatierung wider, die nach Auflösung der Vererbung tatsächlich angewendet wird:
+Der von [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) zurückgegebene Wert repräsentiert die direkt der Form zugewiesene Einstellung. Wenn die Linienformatierung von einem Design, einer Master‑Folie oder einer Layout‑Folie geerbt werden kann, verwenden Sie [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) , greifen Sie auf [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) zu und lesen Sie [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) . Der effektive Wert spiegelt die Formatierung wider, die tatsächlich nach Auflösung der Vererbung angewendet wird. Dieses Beispiel benötigt eine vorhandene Präsentation mit mindestens einer Form auf der ersten Folie und gibt beide Werte aus:
 
 ```java
 import com.aspose.slides.*;
@@ -127,8 +195,8 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    ILineFormat lineFormat = shape.getLineFormat();
 
+    ILineFormat lineFormat = shape.getLineFormat();
     int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
     int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -140,112 +208,120 @@ try {
 }
 ```
 
-## **Join‑Stile formatieren**
+## **Verbindungs‑Stile formatieren**
 
-Hier sind die drei Optionen für den Verbindungsstil:
+* Round
+* Miter
+* Bevel
 
-* Rund
-* Gehrung
-* Fase
-
-Standardmäßig verwendet PowerPoint beim Verbinden zweier Linien in einem Winkel (wie an einer Ecke einer Form) die Einstellung **Rund**. Wenn Sie jedoch eine Form mit spitzen Winkeln zeichnen, bevorzugen Sie möglicherweise die Option **Gehrung**.
+Der Verbindungs‑Stil steuert, wie zwei Kontursegmente an einer Ecke zusammentreffen. Verwenden Sie **Round** für abgerundete Ecken, **Miter** für spitze Ecken oder **Bevel** für abgeflachte Ecken.
 
 ![Der Verbindungsstil in der Präsentation](join-style-powerpoint.png)
 
-Der folgende Java-Code demonstriert, wie drei Rechtecke (wie im Bild oben gezeigt) mit den Join‑Typ‑Einstellungen Gehrung, Fase und Rund erstellt wurden:
+Dieses Beispiel erstellt drei schwarze Rechtecke mit blauen Konturen von 15 Punkten Breite. Es verwendet [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) , um die Werte miter, bevel und round der Klasse [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) jeweils anzuwenden und zu vergleichen, wie die Ecken gezeichnet werden.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie drei AutoShapes vom Typ Rectangle hinzu.
-    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+    IAutoShape miterShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape bevelShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape roundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Setzen Sie die Füllfarbe für jede Rechtecksform.
-    shape1.getFillFormat().setFillType(FillType.Solid);
-    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape2.getFillFormat().setFillType(FillType.Solid);
-    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape3.getFillFormat().setFillType(FillType.Solid);
-    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    miterShape.getFillFormat().setFillType(FillType.Solid);
+    miterShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    bevelShape.getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    roundShape.getFillFormat().setFillType(FillType.Solid);
+    roundShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Setzen Sie die Linienbreite.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Setzen Sie die Farbe für die Linie jedes Rechtecks.
-    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    miterShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    bevelShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    roundShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Setzen Sie den Verbindungsstil.
-    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    miterShape.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    bevelShape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    roundShape.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Fügen Sie jedem Rechteck Text hinzu.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Verlauffüllung**
+### **Miter‑Verbindungen an scharfen Ecken begrenzen**
 
-In PowerPoint ist die Verlauffüllung eine Formatierungsoption, mit der Sie einer Form einen kontinuierlichen Farbverlauf auftragen können. Zum Beispiel können Sie zwei oder mehr Farben so anwenden, dass die eine allmählich in die andere übergeht.
+Verwenden Sie [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) zusammen mit [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) auf [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) , um zu begrenzen, wie weit eine scharfe Ecke ausgedehnt werden kann.
 
-So wenden Sie eine Verlauffüllung auf eine Form mit Aspose.Slides an:
+Der Grenzwert ist das Verhältnis des Abstandes zwischen innerer und äußerer Ecke des Verbindungs‑\nsegments zur Linienbreite. Ein Wert von `8` erlaubt beispielsweise eine Miter‑Länge von bis zu achtfacher Linienbreite; es handelt sich nicht um eine Messung in Punkten. Überschreitet die Ecke den Grenzwert, verwendet PowerPoint an dieser Stelle eine abgeschrägte Verbindung. Ein größerer Grenzwert erlaubt spitzere Punkte. Die Einstellung wirkt nur auf Miter‑Verbindungen und hat keinen sichtbaren Effekt, solange die Ecke innerhalb beider Grenzen bleibt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) der Form auf `Gradient`.
-1. Fügen Sie Ihre beiden bevorzugten Farben mit definierten Positionen mithilfe der `add`‑Methoden der Verlauf‑Stop‑Sammlung hinzu, die von der Schnittstelle [IGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/) bereitgestellt wird.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
+Dieses Beispiel erstellt zwei identische, nicht gefüllte Dreiecke mit Konturen von 20 Punkten Breite. Das linke Dreieck verwendet einen Grenzwert von `2`, das rechte `8`. Jedes Dreieck ist 80 Punkte breit und 160 Punkte hoch, wodurch das Verhältnis von Miter‑Länge zu Linienbreite an der oberen Ecke etwa `4.12` beträgt. Folglich wird PowerPoint die linke Spitze abschrägen und die rechte Spitze beibehalten.
 
-Der folgende Java-Code demonstriert, wie man einer Ellipse einen Verlaufseffekt hinzufügt:
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[] miterLimits = new float[] { 2f, 8f };
+
+    for (int i = 0; i < miterLimits.length; i++) {
+        IAutoShape triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(FillType.NoFill);
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+        triangle.getLineFormat().setMiterLimit(miterLimits[i]);
+    }
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint: **Miter‑Grenzwert 2** links und **Miter‑Grenzwert 8** rechts.
+
+![Ein abgeschrägter Scheitel mit Miter‑Limit 2 und ein spitzer Scheitel mit Miter‑Limit 8 in PowerPoint](miter-limits.png)
+
+## **Verlaufsfüllung**
+
+Eine Verlaufsfüllung mischt Farben über eine Form hinweg. Dieses Beispiel füllt eine Ellipse mit einem linearen Verlauf im Winkel von 45 Grad von Rot nach Lila mithilfe von [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). Die Methode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) legt die Farb­stopps bei 0 und 1, also am Anfang und Ende des Farbverlaufs, fest. Das Löschen der vorhandenen Stopps stellt sicher, dass nur diese beiden Farben verwendet werden.
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Ellipse hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
-
-    // Wenden Sie eine Verlaufsformatierung auf die Ellipse an.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0f, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0f, PresetColor.Red);
 
-    // Setzen Sie die Richtung des Farbverlaufs.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
-
-    // Fügen Sie zwei Verlaufsstopps hinzu.
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -254,53 +330,171 @@ try {
 
 Das Ergebnis:
 
-![Die Ellipse mit Verlauffüllung](gradient-fill.png)
+![Die Ellipse mit Verlaufsfüllung](gradient-fill.png)
 
-Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Wählen Sie einen Verlaufdarstellungsstil](/slides/de/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Darstellungsstil auswählen, ohne die im Dokument gespeicherte Verlauffüllung zu ändern.
+Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Renderstil auswählen, ohne die im Dokument gespeicherte Verlauf‑Füllung zu ändern.
 
-## **Musterfüllung**
+### **Den Winkel des linearen Farbverlaufs festlegen**
 
-In PowerPoint ist die Musterfüllung eine Formatierungsoption, mit der Sie einer Form ein zweifarbiges Design – wie Punkte, Streifen, Kreuzschraffuren oder Karos – hinzufügen können. Sie können benutzerdefinierte Farben für den Vordergrund und Hintergrund des Musters wählen.
+Verwenden Sie [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) , um die Orientierung einer [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/)‑Füllung zu steuern. Der Winkel wird in Grad gemessen und steigt im Uhrzeigersinn: `0` läuft von links nach rechts, `90` von oben nach unten, `180` von rechts nach links und `270` von unten nach oben. Bruchteile von Grad werden unterstützt. Endliche Winkel außerhalb von `[0, 360)` werden zu einer Umdrehung normalisiert; zum Beispiel wird `-45` zu `315` und `360` zu `0`.
 
-Aspose.Slides bietet über 45 vordefinierte Mustervorlagen, die Sie auf Formen anwenden können, um die visuelle Attraktivität Ihrer Präsentationen zu steigern. Auch nach Auswahl eines vordefinierten Musters können Sie die genauen Farben festlegen, die verwendet werden sollen.
-
-So wenden Sie eine Musterfüllung auf eine Form mit Aspose.Slides an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) der Form auf `Pattern`.
-1. Wählen Sie einen Mustertyp aus den vordefinierten Optionen.
-1. Setzen Sie die [Background Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getBackColor--) des Musters.
-1. Setzen Sie die [Foreground Color](https://reference.aspose.com/slides/androidjava/com.aspose.slides/patternformat/#getForeColor--) des Musters.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende Java-Code demonstriert, wie man ein Rechteck mit Musterfüllung versieht:
+Dieses Beispiel erstellt sechs Rechtecke mit identischen Rot‑, Grün‑ und Blau‑Stopps an den Positionen `0`, `0.5` und `1`. Die Skalierung ist deaktiviert, damit der Winkel unabhängig von den Proportionen der Rechtecke verglichen werden kann. Die Winkel von links nach rechts sind in der ersten Zeile `0`, `45` und `90`, in der zweiten Zeile `135`, `180` und `270`.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
+    float[] angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+    for (int i = 0; i < angles.length; i++) {
+        int x = 30 + (i % 3) * 230;
+        int y = 30 + (i / 3) * 190;
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.False);
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint:
+
+![Lineare Verläufe bei 0°, 45° und 90° in der oberen Reihe sowie 135°, 180° und 270° in der unteren Reihe](linear-gradient-angles.png)
+
+### **Einen linearen Farbverlauf mit der Form skalieren**
+
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) akzeptiert einen [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). Setzen Sie ihn explizit auf `False`, um den geometrischen Verlauf‑Winkel beizubehalten, wenn sich die Proportionen der Form ändern, oder auf `True`, um den Verlauf mit der Breite und Höhe der Form zu skalieren. Bei aktivierter Skalierung kann der sichtbare Winkel von dem zugewiesenen Winkel abweichen, wenn die Form nicht quadratisch ist.
+
+Das folgende Beispiel verwendet einen Winkel von `45` Grad und dieselben Farb‑Stopps wie im Winkel‑Vergleich. Die linke Spalte verwendet `False`; die rechte Spalte verwendet `True`. Jede Spalte enthält ein breites Rechteck über einem hohen Rechteck. Beide beginnen mit denselben breiten Abmessungen; das Ändern von Breite und Höhe des zweiten Rechtecks zeigt, wie die Füllung auf Größenänderungen reagiert, ohne die Verlaufseinstellungen zu ändern.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] scalingOptions = new byte[] { NullableBool.False, NullableBool.True };
+
+    for (int column = 0; column < scalingOptions.length; column++) {
+        for (int row = 0; row < 2; row++) {
+            int x = 30 + column * 360;
+            int y = row == 0 ? 30 : 150;
+
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+            shape.getFillFormat().setFillType(FillType.Gradient);
+
+            IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(GradientShape.Linear);
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0f, Color.RED);
+            gradient.getGradientStops().add(0.5f, Color.GREEN);
+            gradient.getGradientStops().add(1f, Color.BLUE);
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(scalingOptions[column]);
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis in PowerPoint, links ohne Skalierung und rechts mit Skalierung:
+
+![Breite und hohe Rechtecke mit 45‑Grad‑Verlauf, Vergleich LinearGradientScaled False links und True rechts](linear-gradient-scaling.png)
+
+Bei deaktivierter Skalierung behalten die diagonalen Farb­bänder in beiden Rechtecken dieselbe Ausrichtung. Bei aktivierter Skalierung strecken sich die Bänder mit den Proportionen der Form. Das hilft, den Verlauf einer Vorlage zu reproduzieren, wenn eine Form auf eine andere Größe angepasst wird. Bei einem Quadrat ändert das Aktivieren der Skalierung das Aussehen dieses `45`‑Grad‑Verlaufs nicht.
+
+Der Winkel‑ und Skalierungs‑Einstellung gelten nur für lineare Verläufe. Sie steuern nicht [GradientShape.Radial] oder [GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/)‑Füllungen.
+
+### **Winkel mit Verlauf‑Richtung kombinieren**
+
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) wählt einen Verlaufs‑Stil aus der Klasse [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) aus; er ersetzt keinen numerischen Winkel. Bei einem linearen Verlauf können die Eck‑Stile den Bereich verändern, über den die Farben verteilt werden, ohne den über [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) zugewiesenen Winkel zu ändern. Lassen Sie die Richtung unverändert, wenn Sie Winkel oder Skalierung vergleichen.
+
+Das folgende Beispiel wendet dieselben Einstellungen in umgekehrter Reihenfolge an. Die beiden Rechtecke sehen identisch aus: Das Zuweisen der Richtung vor oder nach dem Winkel ändert das Ergebnis nicht.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (int i = 0; i < 2; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.True);
+
+        if (i == 0) {
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Musterfüllung**
+
+Eine Musterfüllung wendet ein zweifarbiges Design, wie Punkte, Streifen oder Karos, an. Dieses Beispiel verwendet [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) , um ein Gitter‑Muster auszuwählen. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) liefert den hellgrauen Hintergrund, und [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) liefert die gelbe Musterfarbe.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Setzen Sie den Fülltyp auf Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
-
-    // Setzen Sie den Musterstil.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
-
-    // Setzen Sie die Hintergrund- und Vordergrundfarben des Musters.
-    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
+    shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.rgb(192, 192, 192));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -313,50 +507,30 @@ Das Ergebnis:
 
 ## **Bildfüllung**
 
-In PowerPoint ist die Bildfüllung eine Formatierungsoption, mit der Sie ein Bild in eine Form einfügen können – das Bild wird effektiv als Hintergrund der Form verwendet.
+Eine Bildfüllung verwendet ein Bild innerhalb einer Form. Dieses Beispiel benötigt ein lokales Bild und verwendet [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) , um es in die Bildsammlung der Präsentation zu laden. Durch Setzen von [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) auf den Kachel‑Modus wird das Bild im Rechteck wiederholt. Das hier verwendete Quellbild ist unten zu sehen:
 
-So verwenden Sie Aspose.Slides, um einer Form eine Bildfüllung hinzuzufügen:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) der Form auf `Picture`.
-1. Setzen Sie den Bildfüllungsmodus auf `Tile` (oder einen anderen gewünschten Modus).
-1. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ippimage/)‑Objekt aus dem Bild, das Sie verwenden möchten.
-1. Übergeben Sie das Bild an die Methode `ISlidesPicture.setImage`.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-![Das Lotus-Bild](lotus.png)
-
-Der folgende Java-Code demonstriert, wie man einer Form das Bild hinzufügt:
+![Das Lotus‑Bild](lotus.png)
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Setzen Sie den Fülltyp auf Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
-
-    // Setzen Sie den Bildfüllungsmodus.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Laden Sie ein Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
     IImage image = Images.fromFile("lotus.png");
-    IPPImage picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Setzen Sie das Bild.
+    IPPImage picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -367,45 +541,40 @@ Das Ergebnis:
 
 ![Die Form mit Bildfüllung](picture-fill.png)
 
-### **Kachelbild als Textur**
+### **Bild als Textur kacheln**
 
-Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachelverhalten anpassen möchten, können Sie die folgenden Methoden der Schnittstelle [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) verwenden:
+Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachel‑Verhalten anpassen möchten, können Sie die folgenden Methoden der Schnittstelle [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) verwenden:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) : Legt den Bildfüllungsmodus fest – entweder `Tile` oder `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-) : Gibt die Ausrichtung der Kacheln innerhalb der Form an.
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-) : Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-) : Legt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-) : Legt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
-- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-) : Definiert den horizontalen Maßstab der Kachel als Prozentsatz.
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-) : Definiert den vertikalen Maßstab der Kachel als Prozentsatz.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Legt den Bildfüllungs‑Modus fest – entweder `Tile` oder `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Steuert, ob die Kachel horizontal, vertikal oder in beiden Richtungen gespiegelt wird.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Legt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Legt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
 
-Der folgende Code‑Beispiel zeigt, wie man ein Rechteck mit gekachelter Bildfüllung erstellt und Kacheloptionen konfiguriert:
+Dieses Beispiel benötigt ein lokales Bild und konfiguriert [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) so, dass es bei 50 % seiner Originalgröße wiederholt wird. Offsets von −32 Punkten verschieben die Kacheln horizontal und vertikal; die Ausrichtung unten‑rechts und das Spiegeln in beiden Richtungen bestimmen, wie die wiederholte Textur angeordnet wird.
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine Rechteck-AutoShape hinzu.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Setzen Sie den Fülltyp der Form auf Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Laden Sie das Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
     IImage sourceImage = Images.fromFile("lotus.png");
-    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Weisen Sie das Bild der Form zu.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Konfigurieren Sie den Bildfüllungsmodus und die Kachel-Eigenschaften.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -414,7 +583,6 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -423,43 +591,24 @@ try {
 
 Das Ergebnis:
 
-![Die Kacheloptionen](tile-options.png)
+![Die Kachel‑Optionen](tile-options.png)
 
 ## **Einfarbige Füllung**
 
-In PowerPoint ist die einfarbige Füllung eine Formatierungsoption, die eine Form mit einer einzigen, gleichmäßigen Farbe füllt. Dieser schlichte Hintergrund wird ohne Verläufe, Texturen oder Muster angewendet.
-
-So wenden Sie eine einfarbige Füllung auf eine Form mit Aspose.Slides an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) der Form auf `Solid`.
-1. Weisen Sie der Form Ihre bevorzugte Füllfarbe zu.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende Java-Code demonstriert, wie man einer Rechtecks‑Form in einer PowerPoint‑Folie eine einfarbige Füllung zuweist:
+Eine einfarbige Füllung gibt einer Form eine einheitliche Farbe. Dieses Beispiel verwendet [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) , um den einfarbigen Füllungs‑Modus auszuwählen und weist Gelb über [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) zu, bevor das Rechteck in einer Präsentation gespeichert wird.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Setzen Sie den Fülltyp auf Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
-
-    // Setzen Sie die Füllfarbe.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -470,40 +619,88 @@ Das Ergebnis:
 
 ![Die Form mit einfarbiger Füllung](solid-color-fill.png)
 
-## **Transparenz festlegen**
+## **Folienhintergrund als Formfüllung verwenden**
 
-In PowerPoint können Sie bei einer einfarbigen, Verlauf‑, Bild‑ oder Texturffüllung die Transparenz einstellen, um die Deckkraft der Füllung zu steuern. Ein höherer Transparenzwert macht die Form durchsichtiger, sodass der Hintergrund oder darunter liegende Objekte teilweise sichtbar werden.
+Verwenden Sie [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) , wenn eine Form dem Folienhintergrund entsprechen soll, zum Beispiel in einer Präsentations‑Vorlage. Verwenden Sie zuerst [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) mit [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) , um jegliche explizite Füllung zu entfernen. Mit dieser Kombination verwendet die Form den Folienhintergrund anstelle ihrer Stil‑Füllung. Das Setzen des Flags allein entfernt keine bereits vorhandene explizite Füllung.
 
-Aspose.Slides lässt Sie die Transparenz festlegen, indem Sie den Alpha‑Wert der für die Füllung verwendeten Farbe anpassen. So geht's:
+Dies unterscheidet sich von [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): Die Hintergrund‑Füllung deckt Objekte hinter der Form mit dem entsprechenden Bereich des Folienhintergrunds ab, während keine Füllung diese Objekte sichtbar lässt. Ein Verlauf bleibt dabei an der Folie ausgerichtet und startet nicht innerhalb jeder Form neu.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) auf `Solid`.
-1. Verwenden Sie `Color`, um eine Farbe mit Transparenz zu definieren (die `alpha`‑Komponente steuert die Transparenz).
-1. Speichern Sie die Präsentation.
-
-Der folgende Java-Code demonstriert, wie man einer Rechtecks‑Form eine transparente Füllfarbe zuweist:
+Das folgende Beispiel erzeugt einen Master‑Hintergrund, der von der Folie geerbt wird, und platziert ein magentafarbenes Band hinter drei Rechtecken. Das linke Rechteck verwendet den Hintergrund, das mittlere Rechteck hat keine Füllung, und das rechte Rechteck wechselt von Hintergrund‑Füllung zu einer expliziten orangefarbenen Füllung.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine einfarbige Rechteck‑AutoShape hinzu.
+    // Den Verlauf vom Master erben.
+    slide.getBackground().setType(BackgroundType.NotDefined);
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
+    IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Gradient);
+    IGradientFormat gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(GradientShape.Linear);
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
+    gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
+
+    // Dieses Objekt zuerst hinzufügen, damit es hinter den Rechtecken erscheint.
+    IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape backgroundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(FillType.NotDefined);
+    backgroundShape.setUseBackgroundFill(true);
+
+    IAutoShape noFillShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape explicitShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(FillType.NotDefined);
+    explicitShape.setUseBackgroundFill(true);
+
+    // Hintergrundfüllung deaktivieren, bevor eine explizite Füllung angewendet wird.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(FillType.Solid);
+    explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Ergebnis, von links nach rechts: **background fill**, **no fill** und **explicit fill**. Das magentafarbene Band wird von den linken und rechten Rechtecken verdeckt, bleibt jedoch durch das mittlere Rechteck sichtbar.
+
+![Hintergrundfüllung, keine Füllung und explizite orange Füllung über einem magentafarbenen Band](background-fill.png)
+
+Das gleiche Verhalten gilt für einen direkt auf der Folie definierten Hintergrund oder einen von einem Layout geerbten Hintergrund. Die Form verwendet den aufgelösten Folien‑Hintergrund; das Beispiel lässt sowohl den Folien‑ als auch den Layout‑Hintergrund undefiniert, sodass der Master ihn bereitstellt.
+
+## **Transparenz festlegen**
+
+Bei einer einfarbigen Füllung steuert die Alpha‑Komponente der Farbe die Undurchsichtigkeit: 0 ist vollständig transparent und 255 vollständig undurchsichtig. Dieses Beispiel verwendet einen Alpha‑Wert von 128 für ein gelbes Rechteck, wodurch es etwa zu 50 % transparent wird, sodass das darunterliegende Rechteck sichtbar bleibt. Die Farbe wird über [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) zugewiesen.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fügen Sie eine transparente Rechteck‑AutoShape über der einfarbigen Form hinzu.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
-    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(Color.argb(128, 255, 255, 0));
 
-    // Speichern Sie die PPTX‑Datei auf dem Datenträger.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -516,34 +713,18 @@ Das Ergebnis:
 
 ## **Formen drehen**
 
-Aspose.Slides lässt Sie Formen in PowerPoint‑Präsentationen drehen. Das kann nützlich sein, wenn visuelle Elemente mit bestimmter Ausrichtung oder Design‑Anforderung positioniert werden sollen.
-
-So drehen Sie eine Form auf einer Folie:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie die Rotationseigenschaft der Form auf den gewünschten Winkel.
-1. Speichern Sie die Präsentation.
-
-Der folgende Java-Code demonstriert, wie man eine Form um 5 Grad dreht:
+Verwenden Sie [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) , um eine Form in der Folien‑Ebene zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel dreht ein Rechteck um 5 Grad im Uhrzeigersinn und speichert die Präsentation.
 
 ```java
 import com.aspose.slides.*;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
 Presentation presentation = new Presentation();
 try {
-    // Holen Sie die erste Folie.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Rotieren Sie die Form um 5 Grad.
     shape.setRotation(5);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -552,40 +733,26 @@ try {
 
 Das Ergebnis:
 
-![Die Formrotation](shape-rotation.png)
+![Die Formdrehung](shape-rotation.png)
 
-## **3D‑Kehleneffekte hinzufügen**
+## **3D‑Kanteneffekte hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von 3D‑Kehleneffekten zu Formen, indem die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) konfiguriert werden.
-
-So fügen Sie einer Form 3D‑Kehleneffekte hinzu:
-
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Konfigurieren Sie das [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) der Form, um Kehleneinstellungen festzulegen.
-1. Speichern Sie die Präsentation.
-
-Der folgende Java-Code zeigt, wie man einer Form 3D‑Kehleneffekte hinzufügt:
+Verwenden Sie [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) , um einer Form Tiefe und abgeflachte Kanten zu verleihen. Dieses Beispiel erstellt eine grüne Ellipse mit orangefarbener Kontur, verwendet [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) , um die Tiefe auf 4 Punkte zu setzen, und wendet über [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) eine kreisförmige obere Abschrägung mit Breite und Höhe von 6 Punkten an. Eine frontale orthografische Kamera und Drei-Punkt‑Beleuchtung machen die Abschrägung sichtbar.
 
 ```java
 import com.aspose.slides.*;
-import java.awt.Color;
+import android.graphics.Color;
 
-// Erstellen Sie eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Fügen Sie der Folie eine Form hinzu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Setzen Sie die ThreeDFormat-Eigenschaften der Form.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -594,7 +761,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Speichern Sie die Präsentation als PPTX-Datei.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -603,39 +769,25 @@ try {
 
 Das Ergebnis:
 
-![Der 3D‑Kehleneffekt](3D-bevel-effect.png)
+![Der 3D‑Kanteneffekt](3D-bevel-effect.png)
 
-## **3D‑Drehungseffekte hinzufügen**
+## **3D‑Rotations‑Effekte hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von 3D‑Drehungseffekten zu Formen, indem die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/threedformat/) konfiguriert werden.
-
-So wenden Sie 3D‑Drehung auf eine Form an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-1. Holen Sie eine Referenz auf eine Folie anhand ihres Index.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) hinzu.
-1. Verwenden Sie die Methoden [setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) und [setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), um die 3D‑Drehung zu definieren.
-1. Speichern Sie die Präsentation.
-
-Der folgende Java-Code demonstriert, wie man einer Form 3D‑Drehungseffekte hinzufügt:
+Die 3D‑Ansicht einer Form wird durch ihre Kamera‑Einstellungen gesteuert. Dieses Beispiel verwendet [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) mit Breitengrad‑, Längengrad‑ und Revolutions‑Winkeln von 40, 35 bzw. 20 Grad. Es wählt über [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) eine isometrische Kamera und über [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) eine ausgewogene Beleuchtung, bevor das formatierte Rechteck gespeichert wird.
 
 ```java
 import com.aspose.slides.*;
 
-// Erstellen Sie eine Instanz der Presentation-Klasse.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // Speichern Sie die Präsentation als PPTX-Datei.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -644,15 +796,15 @@ try {
 
 Das Ergebnis:
 
-![Der 3D‑Drehungseffekt](3D-rotation-effect.png)
+![Der 3D‑Rotations‑Effekt](3D-rotation-effect.png)
 
 ## **Schwarz‑weiß‑Darstellung für Formen steuern**
 
-Die Methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation in Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑weiß‑Anzeige nicht selbst und ändert die Füllung, Linie oder andere Formatierungen der Form im normalen Farbmodus nicht.
+Die Methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) gibt an, wie eine einzelne Form gerendert wird, wenn eine Präsentation in Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑weiß‑Anzeige nicht von selbst und ändert die Füllung, Kontur oder andere Formatierungen der Form im normalen Farbmodus nicht.
 
-Verwenden Sie einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) , um das gewünschte Verhalten auszuwählen. Beispielsweise lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Grautöne, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einfarbige Darstellung, `Color` bewahrt die normale Farbgebung, und `Hidden` blendet die Form im Schwarz‑weiß‑Modus aus. `NotDefined` bedeutet, dass kein formbezogener Modus zugewiesen ist.
+Verwenden Sie einen Wert aus der Klasse [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Zum Beispiel lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Graufärbung, `BlackWhite` verwendet nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzelne Farbe, `Color` bewahrt die normale Farbgebung, und `Hidden` lässt die Form im Schwarz‑weiß‑Modus wegfallen. `NotDefined` bedeutet, dass kein Form‑Level‑Modus zugewiesen ist.
 
-Der folgende Java-Code erstellt eine farbige Form und lässt sie im Schwarz‑weiß‑Anzeigemodus grau erscheinen:
+Dieses Beispiel erstellt ein oranges Rechteck und verwendet [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) , um graue Farbgebung zu wählen. Die gespeicherte Form behält ihre orangefarbene Füllung für die normale Farbanzeige bei und fordert graue Farbgebung von Anwendungen an, die Schwarz‑weiß‑Anzeige‑Einstellungen berücksichtigen:
 
 ```java
 import com.aspose.slides.*;
@@ -665,8 +817,6 @@ try {
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
-
-    // Behalten Sie die orange Füllung im Farbmodus, aber rendern Sie die Form mit grauer Farbgebung im Schwarz-weiß-Modus.
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -675,11 +825,11 @@ try {
 }
 ```
 
-Im normalen Farbmodus behält das Rechteck seine orangefarbene Füllung bei. In einem Schwarz‑weiß‑Anzeige‑Workflow wird es grau gefärbt, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine Folie in voller Farbe beibehalten und gleichzeitig ein separates Erscheinungsbild für den Druck, die Vorschau oder andere Workflows definieren, die die Schwarz‑weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
+Im normalen Farbmodus behält das Rechteck seine orange Füllung. In einem Schwarz‑weiß‑Workflow verwendet es graue Farbgebung, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine Vollfarbe‑Folie beibehalten und gleichzeitig ein separates Aussehen für Druck, Vorschau oder andere Workflows definieren, die die Schwarz‑weiß‑Anzeige‑Einstellungen der Präsentation berücksichtigen.
 
 ## **Formatierung zurücksetzen**
 
-Der folgende Java-Code zeigt, wie man die Formatierung einer Folie zurücksetzt und die Position, Größe und Formatierung aller Formen mit Platzhaltern auf dem [LayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/) auf ihre Standardwerte zurücksetzt:
+Verwenden Sie [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) , um Position, Größe und Formatierung von Folien‑Platzhaltern aus den entsprechenden Layout‑Platzhaltern wiederherzustellen. Dieses Beispiel benötigt eine vorhandene Präsentation mit layout‑verknüpften Platzhaltern und setzt jede Folie vor dem Speichern zurück. Formen ohne entsprechenden Layout‑Platzhalter werden nicht zurückgesetzt.
 
 ```java
 import com.aspose.slides.*;
@@ -687,9 +837,9 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Setzen Sie jede Form auf der Folie zurück, die im Layout einen Platzhalter hat.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -698,14 +848,14 @@ try {
 
 ## **FAQ**
 
-**Beeinflusst die Formformatierung die endgültige Dateigröße der Präsentation?**
+**Wirkt sich die Formatierung von Formen auf die endgültige Dateigröße der Präsentation aus?**
 
-Nur minimal. Eingebettete Bilder und Medien belegen den größten Teil des Speicherplatzes, während Formparameter wie Farben, Effekte und Verläufe als Metadaten gespeichert werden und praktisch keinen zusätzlichen Platz beanspruchen.
+Farben, Linienstile und Effekt‑Einstellungen fügen im Vergleich zu eingebetteten Bildern und Medien nur wenig Daten hinzu. Bildfüllungen können die Dateigröße erhöhen, weil ihre Bilder in der Präsentation gespeichert werden.
 
-**Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung besitzen, damit ich sie gruppieren kann?**
+**Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung teilen, damit ich sie gruppieren kann?**
 
-Vergleichen Sie die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekte. Stimmen alle entsprechenden Werte überein, behandeln Sie ihre Stile als identisch und gruppieren die Formen logisch, was die spätere Stilverwaltung vereinfacht.
+Vergleichen Sie die wichtigsten Format‑Eigenschaften jeder Form – Füllung, Linie und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, behandeln Sie ihre Stile als identisch und gruppieren Sie die Formen logisch, was das spätere Stil‑Management vereinfacht.
 
-**Kann ich ein Set benutzerdefinierter Formstile in einer separaten Datei speichern, um sie in anderen Präsentationen wiederzuverwenden?**
+**Kann ich ein Set benutzerdefinierter Form‑Stile in einer separaten Datei speichern, um es in anderen Präsentationen wiederzuverwenden?**
 
-Ja. Speichern Sie Beispiel­formen mit den gewünschten Stilen in einer Vorlagen‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten gestylten Formen und wenden deren Formatierung dort an, wo sie erforderlich ist.
+Ja. Speichern Sie Beispiel‑Formen mit den gewünschten Stilen in einem Vorlagen‑Slide‑Deck oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten gestalteten Formen und wenden deren Formatierung dort an, wo sie nötig ist.

@@ -1,6 +1,6 @@
 ---
-title: Formatar Formas do PowerPoint em Python via Java
-linktitle: Formatação de Forma
+title: Formatar formas do PowerPoint em Python via Java
+linktitle: Formatação de Formas
 type: docs
 weight: 20
 url: /pt/python-java/shape-formatting/
@@ -10,7 +10,7 @@ keywords:
 - efeito de esboço
 - linha de forma esboçada
 - formatar estilo de junção
-- preenchimento em degradê
+- preenchimento gradiente
 - preenchimento de padrão
 - preenchimento de imagem
 - preenchimento de textura
@@ -19,7 +19,7 @@ keywords:
 - renderização de forma em preto e branco
 - renderização de forma em escala de cinza
 - rotacionar forma
-- efeito de bisel 3D
+- efeito de chanfrado 3D
 - efeito de rotação 3D
 - redefinir formatação
 - PowerPoint
@@ -27,30 +27,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Aprenda a formatar formas do PowerPoint em Python via Java usando Aspose.Slides—defina estilos de preenchimento, linha e efeito para arquivos PPT, PPTX e ODP com precisão e controle total."
+description: "Aprenda a formatar formas do PowerPoint em Python via Java usando Aspose.Slides — defina estilos de preenchimento, linha e efeito para arquivos PPT e PPTX com precisão e total controle."
 ---
 ## **Introdução**
 
-No PowerPoint, você pode adicionar formas aos slides. Como as formas são compostas por linhas, pode formatá‑las modificando ou aplicando efeitos aos seus contornos. Além disso, pode formatar formas especificando configurações que controlam como seus interiores são preenchidos.
+Formate formas no PowerPoint ajustando seus contornos, preenchimentos e efeitos. Aspose.Slides for Python via Java permite controlar essas configurações programaticamente, incluindo transparência, rotação e formatação 3D.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Opções de formatação de forma no PowerPoint](format-shape-powerpoint.png)
 
 Aspose.Slides for Python via Java fornece classes e métodos que permitem formatar formas usando as mesmas opções disponíveis no PowerPoint.
 
-## **Formatar Linhas**
+## **Formatar linhas**
 
-Usando Aspose.Slides, você pode especificar um estilo de linha personalizado para uma forma. Os passos a seguir descrevem o procedimento:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [line style](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) da forma.
-1. Defina a largura da linha.
-1. Defina o [dash style](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) da linha.
-1. Defina a cor da linha para a forma.
-1. Salve a apresentação modificada como um arquivo PPTX.
-
-O código a seguir demonstra como formatar um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) retângulo:
+Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) para controlar o contorno de uma forma. Este exemplo cria um retângulo sem preenchimento com um contorno azul pontilhado. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) seleciona uma linha composta grossa‑fina, enquanto [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) define sua largura para 7 pontos e [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) seleciona o padrão de tracejado.
 
 ```python
 import jpype
@@ -62,28 +51,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineDashStyle, LineStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Rectangle.
-    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
-
-    # Definir a cor de preenchimento para a forma retângulo.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Aplicar formatação às linhas do retângulo.
     shape.getLineFormat().setStyle(LineStyle.ThickThin)
     shape.getLineFormat().setWidth(7)
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash)
-
-    # Definir a cor para a linha do retângulo.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -93,11 +72,118 @@ O resultado:
 
 ![As linhas formatadas na apresentação](formatted-lines.png)
 
-## **Aplicar Efeitos de Esboço às Linhas da Forma**
+### **Definir padrões de traço de linha personalizados**
 
-Um efeito de esboço faz a linha de uma forma parecer desenhada à mão. Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) para acessar as configurações da linha, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) para acessar as configurações de esboço e [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) para selecionar um valor da enumeração [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
+Use [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) quando os estilos de linha predefinidos não fornecem os comprimentos de traço e lacunas que você precisa, por exemplo para contornos de marca ou diagramas técnicos. Atribuir um padrão altera automaticamente o estilo de traço da linha para [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-O código Python a seguir mostra como aplicar o efeito [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved), ler o valor atribuído explicitamente e remover o efeito com [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None):
+As entradas do array alternam entre comprimentos de traço e lacuna, começando com um traço. Cada valor é um múltiplo da largura da linha: `[4, 2]` com largura de 3 pontos produz um traço de 12 pontos seguido de uma lacuna de 6 pontos. Use pares de valores finitos e não negativos para definir segmentos completos de traço e lacuna. O exemplo usa valores positivos para manter cada traço e lacuna visíveis.
+
+Este exemplo cria cinco linhas azuis com o mesmo comprimento e extremidades planas. As três primeiras comparam padrões com largura de 3 pontos. A quarta repete o primeiro padrão com o dobro da largura, dobrando os comprimentos do traço e da lacuna. A quinta troca de um padrão personalizado para uma linha sólida.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ]
+
+    for i, pattern in enumerate(patterns):
+        line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0)
+        line.getLineFormat().setWidth(6 if i == 3 else 3)
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat)
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setCustomDashPattern(jpype.JArray(jpype.JFloat)(pattern))
+
+    # Retornar a última linha para um estilo sólido.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid)
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Para voltar a um estilo tracejado predefinido, passe [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) para [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). O estilo selecionado controla a aparência da linha.
+
+O resultado no PowerPoint, de cima para baixo: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; e **Solid, 3 pt**.
+
+![Três padrões de traço personalizados, uma linha mais larga usando o primeiro padrão, e uma linha sólida no PowerPoint](custom-dash-patterns.png)
+
+### **Definir extremidades de linha**
+
+Use [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) para definir as extremidades de uma linha aberta. A classe [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) fornece três estilos de extremidade explícitos:
+
+- `Flat`: O traço termina no ponto final.
+- `Round`: Uma extremidade semicircular estende‑se além do ponto final em metade da largura da linha.
+- `Square`: Uma extremidade quadrada estende‑se além do ponto final em metade da largura da linha.
+
+A classe também inclui `NotDefined`, que significa que nenhum estilo de extremidade foi explicitamente atribuído.
+
+Extremidades são diferentes de pontas de seta, que adicionam símbolos às extremidades da linha, e de junções, que controlam cantos entre segmentos de linha. Este exemplo desativa pontas de seta através de [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) e [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) para que apenas as formas de extremidade sejam comparadas.
+
+O exemplo a seguir cria três linhas horizontais, de outra forma idênticas, com 20 pontos de largura. De cima para baixo, elas usam extremidades flat, round e square. Seus pontos finais têm as mesmas coordenadas horizontais; as extremidades round e square estendem‑se 10 pontos além de cada ponto final.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    cap_styles = [LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square]
+
+    for i, cap_style in enumerate(cap_styles):
+        line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0)
+        line.getLineFormat().setWidth(20)
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid)
+        line.getLineFormat().setCapStyle(cap_style)
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O resultado no PowerPoint, de cima para baixo: **Flat**, **Round**, e **Square**.
+
+![Extremidades flat, round e square em linhas espessas idênticas no PowerPoint](line-caps.png)
+
+## **Aplicar efeitos de esboço às linhas de forma**
+
+Um efeito de esboço faz a linha de uma forma parecer desenhada à mão. Use [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) para acessar as configurações da linha, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) para acessar as configurações de esboço, e [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) para selecionar um valor da classe [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
+
+O código Python a seguir mostra como aplicar um efeito [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) , ler o valor atribuído explicitamente e remover o efeito com [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -111,25 +197,19 @@ from asposeslides.api import LineSketchType, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
 
-    # Acessar o formato de linha da forma e seu formato de esboço.
     sketch_format = shape.getLineFormat().getSketchFormat()
-
-    # Aplicar um efeito de esboço.
     sketch_format.setSketchType(LineSketchType.Curved)
-
-    # Ler o efeito de esboço atribuído diretamente à forma.
     explicit_sketch_type = sketch_format.getSketchType()
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-
-    # Remover o efeito de esboço.
+    print("Explicit sketch type:", explicit_sketch_type)
     sketch_format.setSketchType(LineSketchType.None_)
 finally:
     presentation.dispose()
 ```
 
-O valor retornado por [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) representa a configuração atribuída diretamente à forma. Se a formatação da linha puder ser herdada de um tema, slide mestre ou slide de layout, use [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective), acesse `LineFormatEffectiveData.getSketchFormat` e leia `SketchFormatEffectiveData.getSketchType`. O valor efetivo reflete a formatação que realmente foi aplicada após a resolução da herança:
+O valor retornado por [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) representa a configuração atribuída diretamente à forma. Se a formatação da linha puder ser herdada de um tema, slide mestre ou slide de layout, use [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) e leia o tipo de esboço da formatação de linha efetiva retornada, como mostrado abaixo. O valor efetivo reflete a formatação que realmente é aplicada após a herança ser resolvida. Este exemplo requer uma apresentação existente com ao menos uma forma no primeiro slide e imprime ambos os valores:
 
 ```python
 import jpype
@@ -143,19 +223,19 @@ from asposeslides.api import Presentation
 presentation = Presentation("presentation.pptx")
 try:
     shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    line_format = shape.getLineFormat()
 
+    line_format = shape.getLineFormat()
     explicit_sketch_type = line_format.getSketchFormat().getSketchType()
     effective_line_format = line_format.getEffective()
     effective_sketch_type = effective_line_format.getSketchFormat().getSketchType()
 
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-    print(f"Effective sketch type: {effective_sketch_type}")
+    print("Explicit sketch type:", explicit_sketch_type)
+    print("Effective sketch type:", effective_sketch_type)
 finally:
     presentation.dispose()
 ```
 
-## **Formatar Estilos de Junção**
+## **Formatar estilos de junção**
 
 Aqui estão as três opções de tipo de junção:
 
@@ -163,11 +243,11 @@ Aqui estão as três opções de tipo de junção:
 * Miter
 * Bevel
 
-Por padrão, quando o PowerPoint une duas linhas em um ângulo (como no canto de uma forma), ele usa a configuração **Round**. No entanto, se você estiver desenhando uma forma com ângulos agudos, pode preferir a opção **Miter**.
+O estilo de junção controla como dois segmentos de contorno se encontram em um canto. Use **Round** para cantos arredondados, **Miter** para cantos pontiagudos, ou **Bevel** para cantos achatados.
 
 ![O estilo de junção na apresentação](join-style-powerpoint.png)
 
-O código Python a seguir demonstra como três retângulos (conforme exibido na imagem acima) foram criados usando as configurações de tipo de junção Miter, Bevel e Round:
+Este exemplo cria três retângulos pretos com contornos azuis de 15 pontos de largura. Ele usa [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) para definir os valores miter, bevel e round de [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), respectivamente, para comparar como os cantos são desenhados.
 
 ```python
 import jpype
@@ -179,18 +259,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-    # Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar três formas automáticas do tipo Rectangle.
     miter_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75)
     bevel_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75)
     round_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75)
 
-    # Definir a cor de preenchimento para cada forma retângulo.
     miter_shape.getFillFormat().setFillType(FillType.Solid)
     miter_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     bevel_shape.getFillFormat().setFillType(FillType.Solid)
@@ -198,12 +274,10 @@ try:
     round_shape.getFillFormat().setFillType(FillType.Solid)
     round_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Definir a largura da linha.
     miter_shape.getLineFormat().setWidth(15)
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
 
-    # Definir a cor para a linha de cada retângulo.
     miter_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     miter_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     bevel_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
@@ -211,36 +285,26 @@ try:
     round_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     round_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Definir o estilo de junção.
     miter_shape.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
     bevel_shape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel)
     round_shape.getLineFormat().setJoinStyle(LineJoinStyle.Round)
 
-    # Adicionar texto a cada retângulo.
     miter_shape.getTextFrame().setText("Miter Join Style")
     bevel_shape.getTextFrame().setText("Bevel Join Style")
     round_shape.getTextFrame().setText("Round Join Style")
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("join_styles.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Preenchimento em Degradê**
+### **Limitar junções Miter em cantos agudos**
 
-No PowerPoint, o Preenchimento em Degradê é uma opção de formatação que permite aplicar uma fusão contínua de cores a uma forma. Por exemplo, você pode aplicar duas ou mais cores de modo que uma gradualmente se dissolva na outra.
+Use [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) com [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) definido como [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) para limitar o quanto um canto agudo pode se estender.
 
-Veja como aplicar um preenchimento em degradê a uma forma usando Aspose.Slides:
+O limite é uma proporção da distância entre os cantos interno e externo da junção em relação à largura da linha. Por exemplo, um valor `8` permite um comprimento de miter de até oito vezes a largura da linha; não é uma medida em pontos. Se o canto ultrapassar o limite, o PowerPoint usa uma junção chanfrada naquele canto. Um limite maior permite pontas mais agudas. A configuração afeta somente junções miter, e alterá‑la não tem efeito visível quando o canto permanece dentro dos limites.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) da forma como `Gradient`.
-1. Adicione suas duas cores preferidas com posições definidas usando o método [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) da coleção de paradas de degradê exposta pela classe [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/).
-1. Salve a apresentação modificada como um arquivo PPTX.
-
-O código Python a seguir demonstra como aplicar um efeito de preenchimento em degradê a uma elipse:
+Este exemplo cria duas triângulos idênticos, sem preenchimento, com contornos de 20 pontos de largura. O triângulo esquerdo usa um limite de `2`, e o direito usa `8`. Cada triângulo tem 80 pontos de largura e 160 pontos de altura, dando ao seu canto superior uma proporção de comprimento de miter para largura de linha de aproximadamente `4.12`. Consequentemente, o PowerPoint chanfrar o ápice esquerdo e preservar o ápice direito.
 
 ```python
 import jpype
@@ -249,30 +313,61 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, GradientDirection, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
+from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
 from java.awt import Color
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Elipse.
-    shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
+    miter_limits = [2.0, 8.0]
 
-    # Aplicar formatação de degradê à elipse.
+    for i, miter_limit in enumerate(miter_limits):
+        triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160)
+        triangle.getFillFormat().setFillType(FillType.NoFill)
+        triangle.getLineFormat().setWidth(20)
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
+        triangle.getLineFormat().setMiterLimit(miter_limit)
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O resultado no PowerPoint: **Miter limit 2** à esquerda e **miter limit 8** à direita.
+
+![Um ápice chanfrado com limite miter 2 e um ápice pontiagudo com limite miter 8 no PowerPoint](miter-limits.png)
+
+## **Preenchimento gradiente**
+
+Um preenchimento gradiente mistura cores ao longo de uma forma. Este exemplo preenche uma elipse com um gradiente linear em um ângulo de 45 graus de vermelho a roxo usando [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). O método [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) posiciona as paradas de cor em 0 e 1, o início e o fim do gradiente. Limpar as paradas existentes garante que apenas essas duas cores sejam usadas.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
     shape.getFillFormat().setFillType(FillType.Gradient)
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
-
-    # Definir a direção do degradê.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
-
-    # Adicionar duas paradas de degradê.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45)
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear()
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -280,28 +375,165 @@ finally:
 
 O resultado:
 
-![A elipse com preenchimento em degradê](gradient-fill.png)
+![A elipse com preenchimento gradiente](gradient-fill.png)
 
-Se um degradê parecer diferente em uma imagem exportada em comparação ao PowerPoint, consulte [Choose a Gradient Rendering Style](/slides/pt/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Você pode selecionar um estilo de renderização sem alterar o preenchimento em degradê armazenado na apresentação.
+Se um gradiente parecer diferente em uma imagem exportada do que no PowerPoint, veja [Escolher um estilo de renderização de gradiente](/slides/pt/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Você pode selecionar um estilo de renderização sem alterar o preenchimento gradiente armazenado na apresentação.
 
-## **Preenchimento de Padrão**
+### **Definir o ângulo do gradiente linear**
 
-No PowerPoint, o Preenchimento de Padrão é uma opção de formatação que permite aplicar um design de duas cores — como pontos, listras, cruzes ou quadriculados — a uma forma. Você pode escolher cores personalizadas para o primeiro plano e o plano de fundo do padrão.
+Use [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) para controlar a orientação de um preenchimento [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). O ângulo é medido em graus e aumenta no sentido horário: `0` vai da esquerda para a direita, `90` de cima para baixo, `180` da direita para a esquerda, e `270` de baixo para cima. Ângulos fracionários são suportados. Ângulos finitos fora de `[0, 360)` são normalizados para uma revolução; por exemplo, `-45` torna‑se `315` e `360` torna‑se `0`.
 
-Aspose.Slides fornece mais de 45 estilos de padrão predefinidos que podem ser aplicados a formas para melhorar o apelo visual de suas apresentações. Mesmo após selecionar um padrão predefinido, ainda é possível especificar as cores exatas que ele deve usar.
+Este exemplo cria seis retângulos com paradas de vermelho, verde e azul idênticas nas posições `0`, `0.5` e `1`. O dimensionamento está desativado para que o ângulo possa ser comparado independentemente das proporções dos retângulos. Os ângulos, da esquerda para a direita, são `0`, `45` e `90` na primeira linha, e `135`, `180` e `270` na segunda linha.
 
-Veja como aplicar um preenchimento de padrão a uma forma usando Aspose.Slides:
+```python
+import jpype
+import asposeslides
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) da forma como `Pattern`.
-1. Escolha um estilo de padrão entre as opções predefinidas.
-1. Defina a [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) do padrão.
-1. Defina a [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) do padrão.
-1. Salve a apresentação modificada como um arquivo PPTX.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
 
-O código Python a seguir demonstra como aplicar um preenchimento de padrão a um retângulo:
+from asposeslides.api import FillType, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    angles = [0, 45, 90, 135, 180, 270]
+
+    for i, angle in enumerate(angles):
+        x = 30 + (i % 3) * 230
+        y = 30 + (i // 3) * 190
+
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        shape.getFillFormat().setFillType(FillType.Gradient)
+
+        gradient = shape.getFillFormat().getGradientFormat()
+        gradient.setGradientShape(GradientShape.Linear)
+        gradient.getGradientStops().clear()
+        gradient.getGradientStops().add(0, Color.RED)
+        gradient.getGradientStops().add(0.5, Color.GREEN)
+        gradient.getGradientStops().add(1, Color.BLUE)
+        gradient.setLinearGradientScaled(NullableBool.False_)
+        gradient.setLinearGradientAngle(angle)
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O resultado no PowerPoint:
+
+![Gradientes lineares em 0, 45 e 90 graus na linha superior, e 135, 180 e 270 graus na linha inferior](linear-gradient-angles.png)
+
+### **Dimensionar um gradiente linear com a forma**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) aceita um valor [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Defina‑o explicitamente como `False_` para manter o ângulo geométrico do gradiente enquanto as proporções da forma mudam, ou como `True_` para dimensionar o gradiente com a largura e altura da forma. Com o dimensionamento ativado, o ângulo visível pode diferir do ângulo atribuído em uma forma não quadrada.
+
+O exemplo a seguir usa um ângulo de `45` graus e as mesmas paradas de cor da comparação de ângulos. A coluna esquerda usa `False_`; a coluna direita usa `True_`. Cada coluna contém um retângulo largo acima de um retângulo alto. Ambos começam com as mesmas dimensões largas; mudar a largura e altura do segundo retângulo demonstra como o preenchimento responde ao redimensionamento sem mudar suas configurações de gradiente.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    scaling_options = [NullableBool.False_, NullableBool.True_]
+
+    for column, scaled in enumerate(scaling_options):
+        for row in range(2):
+            x = 30 + column * 360
+            y = 30 if row == 0 else 150
+
+            shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90)
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+            shape.getFillFormat().setFillType(FillType.Gradient)
+
+            gradient = shape.getFillFormat().getGradientFormat()
+            gradient.setGradientShape(GradientShape.Linear)
+            gradient.getGradientStops().clear()
+            gradient.getGradientStops().add(0, Color.RED)
+            gradient.getGradientStops().add(0.5, Color.GREEN)
+            gradient.getGradientStops().add(1, Color.BLUE)
+            gradient.setLinearGradientAngle(45)
+            gradient.setLinearGradientScaled(scaled)
+
+            if row == 1:
+                shape.setWidth(90)
+                shape.setHeight(280)
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O resultado no PowerPoint, com dimensionamento desativado à esquerda e ativado à direita:
+
+![Retângulos largos e altos com gradiente de 45 graus, comparando LinearGradientScaled False à esquerda com True à direita](linear-gradient-scaling.png)
+
+Com o dimensionamento desativado, as faixas de cor diagonais mantêm a mesma orientação em ambos os retângulos. Com o dimensionamento ativado, as faixas se esticam com as proporções da forma. Isso ajuda a reproduzir o gradiente de um modelo ao adaptar uma forma a um tamanho diferente. Em um quadrado, habilitar o dimensionamento não altera a aparência deste gradiente de `45` graus.
+
+Ambas as configurações de ângulo e dimensionamento se aplicam a gradientes lineares. Elas não controlam preenchimentos [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
+
+### **Combinar o ângulo com a direção do gradiente**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) seleciona um estilo de gradiente da classe [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/). Não substitui um ângulo numérico. Para um gradiente linear, os estilos de canto podem mudar a área onde as cores são distribuídas sem alterar o ângulo atribuído via [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Mantenha a direção inalterada ao comparar ângulos ou dimensionamento.
+
+O exemplo a seguir aplica as mesmas configurações em ordem inversa. Os dois retângulos têm a mesma aparência: atribuir a direção antes ou depois do ângulo não altera o resultado.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientDirection, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for i in range(2):
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        shape.getFillFormat().setFillType(FillType.Gradient)
+
+        gradient = shape.getFillFormat().getGradientFormat()
+        gradient.setGradientShape(GradientShape.Linear)
+        gradient.getGradientStops().clear()
+        gradient.getGradientStops().add(0, Color.RED)
+        gradient.getGradientStops().add(0.5, Color.GREEN)
+        gradient.getGradientStops().add(1, Color.BLUE)
+        gradient.setLinearGradientScaled(NullableBool.True_)
+
+        if i == 0:
+            gradient.setGradientDirection(GradientDirection.FromCorner1)
+            gradient.setLinearGradientAngle(30)
+        else:
+            gradient.setLinearGradientAngle(30)
+            gradient.setGradientDirection(GradientDirection.FromCorner1)
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Preenchimento de padrão**
+
+Um preenchimento de padrão aplica um design de duas cores, como pontos, listras ou quadriculados. Este exemplo usa [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) para selecionar um padrão de treliça. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) fornece o fundo cinza claro, e [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) fornece a cor amarela do padrão.
 
 ```python
 import jpype
@@ -313,26 +545,16 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PatternStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Definir o tipo de preenchimento como Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern)
-
-    # Definir o estilo do padrão.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
-
-    # Definir as cores de fundo e de primeiro plano do padrão.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -342,26 +564,11 @@ O resultado:
 
 ![O retângulo com preenchimento de padrão](pattern-fill.png)
 
-## **Preenchimento de Imagem**
+## **Preenchimento de imagem**
 
-No PowerPoint, o Preenchimento de Imagem é uma opção de formatação que permite inserir uma imagem dentro de uma forma — efetivamente usando a imagem como plano de fundo da forma.
-
-Veja como usar Aspose.Slides para aplicar um preenchimento de imagem a uma forma:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) da forma como `Picture`.
-1. Defina o modo de preenchimento da imagem como `Tile` (ou outro modo preferido).
-1. Crie um objeto [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) a partir da imagem que deseja usar.
-1. Passe a imagem ao método `SlidesPicture.setImage`.
-1. Salve a apresentação modificada como um arquivo PPTX.
-
-Suponha que temos um arquivo "lotus.png" com a seguinte imagem:
+Um preenchimento de imagem usa uma imagem dentro de uma forma. Este exemplo requer uma imagem local e usa [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) para carregá‑la na coleção de imagens da apresentação. Definir [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) para o modo em ladrilhos repete a imagem dentro do retângulo. A imagem fonte usada aqui é mostrada abaixo:
 
 ![A imagem do lótus](lotus.png)
-
-O código Python a seguir demonstra como preencher uma forma com a imagem:
 
 ```python
 import jpype
@@ -372,30 +579,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, SaveFormat, ShapeType
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130)
-    
-    # Definir o tipo de preenchimento como Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
-
-    # Definir o modo de preenchimento da imagem.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile)
 
-    # Carregar uma imagem e adicioná-la aos recursos da apresentação.
     image = Images.fromFile("lotus.png")
-    picture = presentation.getImages().addImage(image)
-    image.dispose()
-
-    # Definir a imagem.
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -405,19 +603,19 @@ O resultado:
 
 ![A forma com preenchimento de imagem](picture-fill.png)
 
-### **Azulejar Imagem como Textura**
+### **Ladrilhar imagem como textura**
 
-Se desejar definir uma imagem em modo azulejo como textura e personalizar o comportamento do azulejo, pode usar os seguintes métodos da classe [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
+Se você quiser definir uma imagem em ladrilhos como textura e personalizar o comportamento de ladrilhamento, pode usar os seguintes métodos da classe [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): define o modo de preenchimento da imagem — `Tile` ou `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): especifica o alinhamento dos azulejos dentro da forma.
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): controla se o azulejo é invertido horizontalmente, verticalmente ou em ambas as direções.
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): define o deslocamento horizontal do azulejo (em pontos) a partir da origem da forma.
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): define o deslocamento vertical do azulejo (em pontos) a partir da origem da forma.
-- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): define a escala horizontal do azulejo como porcentagem.
-- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): define a escala vertical do azulejo como porcentagem.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Define o modo de preenchimento de imagem — `Tile` ou `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Especifica o alinhamento dos ladrilhos dentro da forma.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Controla se o ladrilho é invertido horizontalmente, verticalmente ou ambos.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Define o deslocamento horizontal do ladrilho (em pontos) a partir da origem da forma.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Define o deslocamento vertical do ladrilho (em pontos) a partir da origem da forma.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Define a escala horizontal do ladrilho como porcentagem.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Define a escala vertical do ladrilho como porcentagem.
 
-O exemplo de código a seguir mostra como adicionar uma forma retângulo com preenchimento de imagem em azulejo e configurar as opções de azulejo:
+Este exemplo requer uma imagem local e configura [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) para repeti‑la a 50% do seu tamanho original. Deslocamentos de −32 pontos deslocam os ladrilhos horizontal e verticalmente; o alinhamento inferior‑direito e a inversão em ambas as direções determinam como a textura repetida é organizada.
 
 ```python
 import jpype
@@ -428,28 +626,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, RectangleAlignment, SaveFormat, ShapeType, TileFlip
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     first_slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática de retângulo.
     shape = first_slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95)
-
-    # Definir o tipo de preenchimento da forma como Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # Carregar a imagem e adicioná-la aos recursos da apresentação.
     source_image = Images.fromFile("lotus.png")
-    presentation_image = presentation.getImages().addImage(source_image)
-    source_image.dispose()
+    try:
+        presentation_image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
 
-    # Atribuir a imagem à forma.
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
-
-    # Configurar o modo de preenchimento da imagem e as propriedades de ladrilhos.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -458,7 +649,6 @@ try:
     picture_fill_format.setTileAlignment(RectangleAlignment.BottomRight)
     picture_fill_format.setTileFlip(TileFlip.FlipBoth)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("tile.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -466,22 +656,11 @@ finally:
 
 O resultado:
 
-![As opções de azulejo](tile-options.png)
+![As opções de ladrilhos](tile-options.png)
 
-## **Preenchimento de Cor Sólida**
+## **Preenchimento de cor sólida**
 
-No PowerPoint, o Preenchimento de Cor Sólida é uma opção de formatação que preenche uma forma com uma única cor uniforme. Essa cor de fundo simples é aplicada sem degradês, texturas ou padrões.
-
-Para aplicar um preenchimento de cor sólida a uma forma usando Aspose.Slides, siga estas etapas:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) da forma como `Solid`.
-1. Atribua a cor de preenchimento preferida à forma.
-1. Salve a apresentação modificada como um arquivo PPTX.
-
-O código Python a seguir demonstra como aplicar um preenchimento de cor sólida a um retângulo em um slide do PowerPoint:
+Um preenchimento sólido fornece a uma forma uma cor única e uniforme. Este exemplo usa [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) para definir o modo de preenchimento sólido e atribui amarelo através de [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), então salva o retângulo em uma apresentação.
 
 ```python
 import jpype
@@ -493,22 +672,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Definir o tipo de preenchimento como Solid.
     shape.getFillFormat().setFillType(FillType.Solid)
-
-    # Definir a cor de preenchimento.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -518,20 +689,81 @@ O resultado:
 
 ![A forma com preenchimento de cor sólida](solid-color-fill.png)
 
-## **Definir Transparência**
+## **Usar o fundo do slide como preenchimento da forma**
 
-No PowerPoint, ao aplicar um preenchimento sólido, em degradê, de imagem ou textura a formas, você também pode definir um nível de transparência para controlar a opacidade do preenchimento. Um valor de transparência mais alto torna a forma mais translúcida, permitindo que o plano de fundo ou objetos subjacentes sejam parcialmente visíveis.
+Use [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) quando uma forma deve corresponder ao fundo do slide, por exemplo em um modelo de apresentação. Defina [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) para [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) primeiro para remover qualquer preenchimento explícito. Com essa combinação, a forma usa o fundo do slide em vez do seu preenchimento de estilo. Habilitar a flag sozinha não remove um preenchimento explícito existente.
 
-Aspose.Slides permite definir o nível de transparência ajustando o valor alfa na cor usada para o preenchimento. Veja como fazer:
+Isso difere de [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): o preenchimento de fundo cobre objetos atrás da forma com a área correspondente do fundo do slide, enquanto nenhum preenchimento deixa esses objetos visíveis. Um gradiente permanece alinhado ao slide em vez de reiniciar dentro de cada forma.
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina o [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) como `Solid`.
-1. Use [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) para definir uma cor com transparência (o componente `alpha` controla a transparência).
-1. Salve a apresentação.
+O exemplo a seguir cria um fundo mestre herdado pelo slide e coloca uma faixa magenta atrás de três retângulos. O retângulo esquerdo usa o fundo, o retângulo do meio não tem preenchimento, e o retângulo direito troca o preenchimento de fundo por um preenchimento laranja explícito.
 
-O código Python a seguir demonstra como aplicar uma cor de preenchimento transparente a um retângulo:
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, GradientShape, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    # Herdar o gradiente do mestre.
+    slide.getBackground().setType(BackgroundType.NotDefined)
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
+    background = slide.getLayoutSlide().getMasterSlide().getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Gradient)
+    gradient = background.getFillFormat().getGradientFormat()
+    gradient.setGradientShape(GradientShape.Linear)
+    gradient.setLinearGradientAngle(0)
+    gradient.getGradientStops().clear()
+    color = Color(0, 0, 139)
+    gradient.getGradientStops().add(0, color)
+    color = Color(135, 206, 250)
+    gradient.getGradientStops().add(1, color)
+
+    # Adicionar este objeto primeiro para que apareça atrás dos retângulos.
+    band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    background_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200)
+    background_shape.getFillFormat().setFillType(FillType.NotDefined)
+    background_shape.setUseBackgroundFill(True)
+
+    no_fill_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200)
+    no_fill_shape.getFillFormat().setFillType(FillType.NoFill)
+
+    explicit_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200)
+    explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
+    explicit_shape.setUseBackgroundFill(True)
+
+    # Desativar o preenchimento de fundo antes de aplicar um preenchimento explícito.
+    explicit_shape.setUseBackgroundFill(False)
+    explicit_shape.getFillFormat().setFillType(FillType.Solid)
+    color = Color(255, 165, 0)
+    explicit_shape.getFillFormat().getSolidFillColor().setColor(color)
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+O resultado, da esquerda para a direita: **background fill**, **no fill**, e **explicit fill**. A faixa magenta é ocultada pelos retângulos esquerdo e direito, mas permanece visível através do retângulo do meio.
+
+![Preenchimento de fundo, sem preenchimento e preenchimento laranja explícito sobre uma faixa magenta](background-fill.png)
+
+O mesmo comportamento se aplica a um fundo definido diretamente no slide ou herdado de um layout. A forma usa o fundo resolvido do slide; o exemplo deixa ambos os fundos do slide e do layout indefinidos para que o mestre os forneça.
+
+## **Definir transparência**
+
+Para um preenchimento sólido, o componente alfa da cor controla a opacidade: 0 é totalmente transparente e 255 é totalmente opaco. Este exemplo usa um valor alfa de 128 para um retângulo amarelo, tornando‑o aproximadamente 50% transparente para que o retângulo abaixo permaneça visível. A cor é atribuída através de [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -543,22 +775,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática de retângulo sólido.
     solid_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Adicionar uma forma automática de retângulo transparente sobre a forma sólida.
     transparent_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75)
     transparent_shape.getFillFormat().setFillType(FillType.Solid)
-    transparent_color = Color(255, 255, 0, 204)
-    transparent_shape.getFillFormat().getSolidFillColor().setColor(transparent_color)
+    color = Color(255, 255, 0, 128)
+    transparent_shape.getFillFormat().getSolidFillColor().setColor(color)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -568,19 +795,9 @@ O resultado:
 
 ![A forma transparente](shape-transparency.png)
 
-## **Rotacionar Formas**
+## **Rotacionar formas**
 
-Aspose.Slides permite rotacionar formas em apresentações do PowerPoint. Isso pode ser útil ao posicionar elementos visuais com necessidades específicas de alinhamento ou design.
-
-Para rotacionar uma forma em um slide, siga estas etapas:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Defina a propriedade de rotação da forma para o ângulo desejado.
-1. Salve a apresentação.
-
-O código Python a seguir demonstra como rotacionar uma forma em 5 graus:
+Use [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) para rotacionar uma forma no plano do slide. O ângulo é medido em graus; este exemplo gira um retângulo 5 graus no sentido horário e salva a apresentação.
 
 ```python
 import jpype
@@ -591,19 +808,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Instanciar a classe Presentation que representa um arquivo de apresentação.
 presentation = Presentation()
 try:
-    # Obter o primeiro slide.
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma automática do tipo Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Rotacionar a forma em 5 graus.
     shape.setRotation(5)
 
-    # Salvar o arquivo PPTX no disco.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -613,19 +824,9 @@ O resultado:
 
 ![A rotação da forma](shape-rotation.png)
 
-## **Adicionar Efeitos de Bisel 3D**
+## **Adicionar efeitos de chanfrado 3D**
 
-Aspose.Slides permite aplicar efeitos de bisel 3D a formas configurando suas propriedades [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/).
-
-Para adicionar efeitos de bisel 3D a uma forma, siga estas etapas:
-
-1. Instancie a classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Configure o [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) da forma para definir as configurações de bisel.
-1. Salve a apresentação.
-
-O código Python a seguir mostra como aplicar efeitos de bisel 3D a uma forma:
+Use [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) para dar a uma forma profundidade e bordas chanfradas. Este exemplo cria uma elipse verde com contorno laranja, usa [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) para definir a profundidade em 4 pontos, e aplica um chanfrado superior circular com largura e altura de 6 pontos via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Uma câmera ortográfica de frente e iluminação de três pontos tornam o chanfrado visível.
 
 ```python
 import jpype
@@ -637,20 +838,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import BevelPresetType, CameraPresetType, FillType, LightRigPresetType, LightingDirection, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Criar uma instância da classe Presentation.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Adicionar uma forma ao slide.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
+    color = Color(255, 165, 0)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().setWidth(2.0)
-
-    # Definir as propriedades ThreeDFormat da forma.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -659,7 +858,6 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # Salvar a apresentação como um arquivo PPTX.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -667,24 +865,14 @@ finally:
 
 O resultado:
 
-![O efeito de bisel 3D](3D-bevel-effect.png)
+![O efeito de chanfrado 3D](3D-bevel-effect.png)
 
-## **Adicionar Efeitos de Rotação 3D**
+## **Adicionar efeitos de rotação 3D**
 
-Aspose.Slides permite aplicar efeitos de rotação 3D a formas configurando suas propriedades [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/).
-
-Para aplicar rotação 3D a uma forma:
-
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/).
-1. Obtenha uma referência a um slide pelo seu índice.
-1. Adicione um [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) ao slide.
-1. Use os métodos [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) e [setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) para definir a rotação 3D.
-1. Salve a apresentação.
-
-O código Python a seguir demonstra como aplicar efeitos de rotação 3D a uma forma:
+A visualização 3D de uma forma é controlada pelas configurações de sua câmera. Este exemplo usa [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) com ângulos de latitude, longitude e revolução de 40, 35 e 20 graus, respectivamente. Ele seleciona uma câmera isométrica através de [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) e iluminação equilibrada através de [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), então salva o retângulo formatado.
 
 ```python
-import jpape
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -692,20 +880,16 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import CameraPresetType, LightRigPresetType, Presentation, SaveFormat, ShapeType
 
-# Criar uma instância da classe Presentation.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
-
-    auto_shape.getThreeDFormat().setDepth(6)
-    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp)
+    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
 
-    # Salvar a apresentação como um arquivo PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -715,13 +899,13 @@ O resultado:
 
 ![O efeito de rotação 3D](3D-rotation-effect.png)
 
-## **Controlar Renderização em Preto‑e‑Branco para Formas**
+## **Controlar renderização em preto e branco para formas**
 
-O método [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) especifica como uma forma individual é renderizada quando uma apresentação é visualizada ou processada em modo preto‑e‑branco. Ele não habilita a exibição em preto‑e‑branco por si só, nem altera o preenchimento, linha ou outra formatação da forma no modo de cores normal.
+O método [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) especifica como uma forma individual é renderizada quando uma apresentação é visualizada ou processada em modo preto e branco. Ele não habilita a exibição em preto e branco por si só, e não altera o preenchimento, linha ou outra formatação da forma no modo de cor normal.
 
-Use um valor da classe [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) para selecionar o comportamento desejado. Por exemplo, `Automatic` permite que o aplicativo de renderização escolha a conversão, `Gray` e `LightGray` utilizam coloração em tons de cinza, `BlackWhite` usa apenas preto e branco, `Black` e `White` forçam uma cor única, `Color` preserva a coloração normal e `Hidden` omite a forma no modo preto‑e‑branco. `NotDefined` significa que nenhum modo a nível de forma foi atribuído.
+Use um valor da classe [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) para selecionar o comportamento desejado. Por exemplo, `Automatic` permite que o aplicativo de renderização escolha a conversão, `Gray` e `LightGray` utilizam coloração cinza, `BlackWhite` usa apenas preto e branco, `Black` e `White` forçam uma única cor, `Color` preserva a coloração normal, e `Hidden` omite a forma no modo preto e branco. `NotDefined` significa que nenhum modo de forma foi atribuído.
 
-O código Python a seguir cria uma forma colorida e a faz aparecer cinza na exibição em preto‑e‑branco:
+Este exemplo cria um retângulo laranja e usa [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) para definir o modo como cinza. A forma salva mantém seu preenchimento laranja para exibição em cor normal e solicita coloração cinza de aplicativos que respeitam as configurações de exibição em preto e branco:
 
 ```python
 import jpype
@@ -739,9 +923,8 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
-
-    # Manter o preenchimento laranja no modo de cor, mas renderizar a forma com coloração cinza no modo preto e branco.
+    color = Color(255, 165, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -749,11 +932,11 @@ finally:
     presentation.dispose()
 ```
 
-No modo de cor normal, o retângulo mantém seu preenchimento laranja. Em um fluxo de trabalho de exibição em preto‑e‑branco, ele usa coloração cinza porque seu modo está definido como `Gray`. Isso permite preservar um slide em cores completas ao definir uma aparência distinta para impressão, pré‑visualização ou outros fluxos que respeitam as configurações de exibição em preto‑e‑branco da apresentação.
+Em modo de cor normal, o retângulo mantém seu preenchimento laranja. Em um fluxo de trabalho de exibição em preto e branco, ele usa coloração cinza porque seu modo está definido como `Gray`. Isso permite preservar um slide em cores completas enquanto define uma aparência distinta para impressão, visualização ou outros fluxos que respeitam as configurações de exibição em preto e branco da apresentação.
 
-## **Redefinir Formatação**
+## **Redefinir formatação**
 
-O código Python a seguir mostra como redefinir a formatação de um slide e reverter a posição, tamanho e formatação de todas as formas com marcadores no [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) para suas configurações padrão:
+Use [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) para restaurar a posição, tamanho e formatação de marcadores de posição de slide a partir de seus marcadores de posição correspondentes no layout. Este exemplo requer uma apresentação existente com marcadores de posição vinculados ao layout e redefine cada slide antes de salvar. Formas sem marcadores de posição correspondentes no layout não são redefinidas.
 
 ```python
 import jpype
@@ -767,7 +950,6 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     for slide in presentation.getSlides():
-        # Redefinir cada forma no slide que tem um marcador de posição no layout.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx)
@@ -775,16 +957,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **A formatação de formas afeta o tamanho final do arquivo da apresentação?**
 
-Apenas de forma mínima. Imagens e mídias incorporadas ocupam a maior parte do espaço do arquivo, enquanto parâmetros de forma como cores, efeitos e degradês são armazenados como metadados e praticamente não aumentam o tamanho.
+Cores, estilos de linha e configurações de efeitos geralmente adicionam poucos dados em comparação com imagens e mídia incorporadas. Preenchimentos de imagem podem aumentar o tamanho do arquivo porque suas imagens são armazenadas na apresentação.
 
 **Como posso detectar formas em um slide que compartilham formatação idêntica para que eu possa agrupá‑las?**
 
-Compare as principais propriedades de formatação de cada forma — preenchimento, linha e configurações de efeito. Se todos os valores correspondentes coincidirem, considere seus estilos como idênticos e agrupe logicamente essas formas, o que simplifica o gerenciamento de estilos posterior.
+Compare as principais propriedades de formatação de cada forma — preenchimento, linha e configurações de efeito. Se todos os valores correspondentes coincidirem, trate seus estilos como idênticos e agrupe logicamente essas formas, o que simplifica o gerenciamento de estilo posterior.
 
-**Posso salvar um conjunto de estilos de forma personalizados em um arquivo separado para reutilização em outras apresentações?**
+**Posso salvar um conjunto de estilos de forma personalizados em um arquivo separado para reutilizar em outras apresentações?**
 
-Sim. Armazene formas de exemplo com os estilos desejados em um slide‑modelo ou em um arquivo de modelo .POTX. Ao criar uma nova apresentação, abra o modelo, clone as formas estilizadas que precisar e reaplique sua formatação onde for necessário.
+Sim. Armazene formas de exemplo com os estilos desejados em um deck de slides modelo ou em um arquivo de modelo .POTX. Ao criar uma nova apresentação, abra o modelo, clone as formas estilizadas necessárias e reaplique sua formatação onde for preciso.

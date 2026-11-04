@@ -1,6 +1,6 @@
 ---
-title: Formatowanie kształtów PowerPoint w języku Java
-linktitle: Formatowanie kształtów
+title: "Formatowanie kształtów PowerPoint w języku Java"
+linktitle: "Formatowanie kształtów"
 type: docs
 weight: 20
 url: /pl/java/shape-formatting/
@@ -8,75 +8,54 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- linia szkicu kształtu
+- linia kształtu szkicowa
 - formatowanie stylu połączenia
 - wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
-- wypełnienie jednolitym kolorem
+- wypełnienie kolorem jednolitym
 - przezroczystość kształtu
-- renderowanie kształtu czarno-białe
+- renderowanie kształtu w czerni i bieli
 - renderowanie kształtu w odcieniach szarości
 - obrót kształtu
-- efekt 3D bevel
-- efekt obrotu 3D
+- efekt fazy 3D
+- efekt rotacji 3D
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w języku Java przy użyciu Aspose.Slides — ustawiaj style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w języku Java przy użyciu Aspose.Slides — ustawiaj style wypełnień, linii i efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
-W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub stosując efekty na ich konturach. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące sposób wypełniania ich wnętrz.
+Formatuj kształty w programie PowerPoint, dostosowując ich kontury, wypełnienia i efekty. Aspose.Slides for Java umożliwia programowe sterowanie tymi ustawieniami, w tym przezroczystością, obrotem i formatowaniem 3D.
 
-![formatowanie-kształtu-powerpoint](format-shape-powerpoint.png)
+![Opcje formatowania kształtów w programie PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java udostępnia interfejsy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
+Aspose.Slides for Java dostarcza interfejsy i metody, które umożliwiają formatowanie kształtów przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
 ## **Formatowanie linii**
 
-Używając Aspose.Slides, możesz określić niestandardowy styl linii dla kształtu. Poniższe kroki opisują procedurę:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [styl linii](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) kształtu.
-1. Ustaw szerokość linii.
-1. Ustaw [styl kreski](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) linii.
-1. Ustaw kolor linii dla kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Poniższy kod demonstruje, jak sformatować prostokąt `AutoShape`:
+Użyj [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) aby kontrolować kontur kształtu. Ten przykład tworzy prostokąt bez wypełnienia z niebieskim, przerywanym konturem. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) wybiera linię złożoną z grubego i cienkiego segmentu, natomiast [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) ustawia jej szerokość na 7 punktów, a [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) wybiera wzór kreski.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-//    Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    //    Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    //    Dodaj auto-kształt typu Rectangle.
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    //    Ustaw kolor wypełnienia dla prostokątnego kształtu.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(FillType.NoFill);
-
-    //    Zastosuj formatowanie linii prostokąta.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
-
-    //    Ustaw kolor linii prostokąta.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    //    Zapisz plik PPTX na dysku.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,43 +66,138 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-## **Zastosuj efekty szkicu do linii kształtu**
+### **Ustawianie niestandardowych wzorów kreski linii**
 
-Efekt szkicu sprawia, że linia kształtu wygląda jak narysowana ręcznie. Użyj [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) aby uzyskać dostęp do ustawień linii, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) aby uzyskać dostęp do ustawień szkicu oraz [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
+Użyj [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float:A-) gdy wstępnie zdefiniowane style linii nie zapewniają potrzebnych długości kresek i przerw, na przykład dla znakowanych konturów lub diagramów technicznych. Przypisanie wzoru automatycznie zmienia styl kreski linii na [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
 
-Poniższy kod Java pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/), odczytać wyraźnie przypisaną wartość i usunąć efekt za pomocą [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
+Elementy tablicy naprzemiennie określają długości kresek i przerw, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `{ 4, 2 }` przy szerokości 3 punktów powoduje kreskę o długości 12 punktów, po której następuje przerwa 6 punktów. Używaj par skończonych, nieujemnych wartości, aby zdefiniować pełne segmenty kreska‑przerwa. Przykład używa dodatnich wartości, aby wszystkie kreski i przerwy były widoczne.
+
+Ten przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzory przy szerokości 3 punktów. Czwarta powtarza pierwszy wzór przy podwojonej szerokości, podwajając zarówno długość kreski, jak i przerwy. Piąta przechodzi z niestandardowego wzoru na linię ciągłą.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[][] patterns = {
+        { 4, 2 },
+        { 1, 2 },
+        { 6, 2, 1, 2 },
+        { 4, 2 },
+        { 4, 2 }
+    };
+
+    for (int i = 0; i < patterns.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setCustomDashPattern(patterns[i]);
+    }
+
+    // Przywróć ostatnią linię do stylu ciągłego.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aby zamiast tego powrócić do wstępnie zdefiniowanego stylu przerywanego, przekaż [LineDashStyle.Dash](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) do [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-). Wybrany styl kontroluje wygląd linii.
+
+Wynik w programie PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
+
+![Trzy niestandardowe wzory kresek, szersza linia używająca pierwszego wzoru oraz linia ciągła w programie PowerPoint](custom-dash-patterns.png)
+
+### **Ustawianie zakończeń linii**
+
+Użyj [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) aby ustawić końce otwartej linii. Klasa [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) zapewnia trzy wyraźne style zakończeń:
+
+- `Flat`: Pędzel zatrzymuje się na końcowym punkcie.
+- `Round`: Półokrągłe zakończenie wykracza poza punkt końcowy o połowę szerokości linii.
+- `Square`: Kwadratowe zakończenie wykracza poza punkt końcowy o połowę szerokości linii.
+
+Klasa zawiera również `NotDefined`, co oznacza, że żaden styl zakończenia nie jest wyraźnie przypisany.
+
+Zakończenia różnią się od grotów strzałek, które dodają symbole na końcach linii, oraz od połączeń, które kontrolują kąty między segmentami linii. Ten przykład wyłącza groty strzałek przy użyciu [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) i [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-), aby porównać wyłącznie kształty zakończeń.
+
+Poniższy przykład tworzy trzy w pozostałych aspektach identyczne poziome linie o szerokości 20 punktów. Od góry do dołu używają zakończeń płaskiego, okrągłego i kwadratowego. Ich końcowe punkty mają te same współrzędne poziome; okrągłe i kwadratowe zakończenia wykraczają 10 punktów poza każdy koniec.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] capStyles = new byte[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+    for (int i = 0; i < capStyles.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid);
+        line.getLineFormat().setCapStyle(capStyles[i]);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+    }
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik w programie PowerPoint, od góry do dołu: **Flat**, **Round** i **Square**.
+
+![Płaskie, okrągłe i kwadratowe zakończenia na identycznych grubych liniach w programie PowerPoint](line-caps.png)
+
+## **Zastosowanie efektów szkicu do linii kształtu**
+
+Efekt szkicu sprawia, że linia kształtu wygląda na odręczną. Użyj [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) aby uzyskać dostęp do ustawień linii, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) aby uzyskać dostęp do ustawień szkicu oraz [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) aby wybrać wartość z klasy [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
+
+Poniższy kod Java pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/), odczytać wyraźnie przypisaną wartość oraz usunąć efekt przy użyciu [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Uzyskaj dostęp do formatu linii kształtu oraz jego formatu szkicu.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Zastosuj efekt szkicu.
     sketchFormat.setSketchType(LineSketchType.Curved);
-
-    // Odczytaj efekt szkicu przypisany bezpośrednio do kształtu.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
-
-    // Usuń efekt szkicu.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Wartość zwracana przez [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu-mistrza lub slajdu układu, użyj [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/), uzyskaj dostęp do [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/), i odczytaj [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/). Efektywna wartość odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia:
+Wartość zwracana przez [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu‑mistrza lub slajdu‑układu, użyj [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--), uzyskaj [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), i odczytaj [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia. Ten przykład wymaga istniejącej prezentacji co najmniej z jednym kształtem na pierwszym slajdzie i wypisuje obie wartości:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    ILineFormat lineFormat = shape.getLineFormat();
 
+    ILineFormat lineFormat = shape.getLineFormat();
     int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
     int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -139,106 +213,118 @@ try {
 
 Oto trzy dostępne opcje typu połączenia:
 
-* Zaokrąglony
-* Kątowy
-* Ścięty
+* Round
+* Miter
+* Bevel
 
-Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Round**. Jednakże, jeśli rysujesz kształt o ostrych kątach, może Ci bardziej odpowiadać opcja **Miter**.
+Styl połączenia kontroluje, w jaki sposób dwa segmenty konturu łączą się w narożniku. Użyj **Round** dla zaokrąglonych narożników, **Miter** dla ostrych narożników lub **Bevel** dla spłaszczonych narożników.
 
 ![Styl połączenia w prezentacji](join-style-powerpoint.png)
 
-Poniższy kod Java demonstruje, jak trzy prostokąty (widoczne na powyższym obrazie) zostały utworzone przy użyciu ustawień typu połączenia Miter, Bevel i Round:
+Ten przykład tworzy trzy czarne prostokąty z niebieskimi konturami o szerokości 15 punktów. Używa [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) aby kolejno ustawić wartości miter, bevel i round klasy [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/), aby porównać, jak rysowane są narożniki.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj trzy auto-kształty typu Rectangle.
-    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+    IAutoShape miterShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape bevelShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape roundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ustaw kolor wypełnienia dla każdego prostokątnego kształtu.
-    shape1.getFillFormat().setFillType(FillType.Solid);
-    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape2.getFillFormat().setFillType(FillType.Solid);
-    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape3.getFillFormat().setFillType(FillType.Solid);
-    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    miterShape.getFillFormat().setFillType(FillType.Solid);
+    miterShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    bevelShape.getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    roundShape.getFillFormat().setFillType(FillType.Solid);
+    roundShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Ustaw szerokość linii.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Ustaw kolor linii dla każdego prostokąta.
-    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    miterShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    bevelShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    roundShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Ustaw styl połączenia.
-    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    miterShape.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    bevelShape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    roundShape.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Dodaj tekst do każdego prostokąta.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+### **Ograniczanie połączeń Miter przy ostrych kątach**
+
+Użyj [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) wraz z [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ustawionym na [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) aby ograniczyć, jak daleko może wystawać ostry narożnik.
+
+Limit jest stosunkiem odległości między wewnętrznym a zewnętrznym narożnikiem połączenia do szerokości linii. Na przykład wartość `8` dopuszcza długość miecza do ośmiu razy większą niż szerokość linii; nie jest to miara w punktach. Jeśli narożnik przekracza limit, PowerPoint używa połączenia fazowanego w tym miejscu. Większy limit pozwala na ostrzejsze punkty. Ustawienie wpływa wyłącznie na połączenia Miter i nie ma widocznego efektu, gdy narożnik pozostaje w granicach limitu.
+
+Ten przykład tworzy dwa identyczne, nie wypełnione trójkąty z konturami o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, a prawy `8`. Każdy trójkąt ma 80 punktów szerokości i 160 punktów wysokości, co daje stosunek długości miecza do szerokości linii w górnym narożniku około `4.12`. W konsekwencji PowerPoint fazuje lewy wierzchołek i zachowuje prawy.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[] miterLimits = new float[] { 2f, 8f };
+
+    for (int i = 0; i < miterLimits.length; i++) {
+        IAutoShape triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(FillType.NoFill);
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+        triangle.getLineFormat().setMiterLimit(miterLimits[i]);
+    }
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik w programie PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
+
+![Spicz z fazą przy limicie miter 2 i ostry szczyt przy limicie miter 8 w programie PowerPoint](miter-limits.png)
+
 ## **Wypełnienie gradientem**
 
-W programie PowerPoint wypełnienie gradientem jest opcją formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład możesz użyć dwóch lub więcej kolorów, tak aby jeden stopniowo przechodził w drugi.
-
-Aby zastosować wypełnienie gradientem do kształtu przy użyciu Aspose.Slides:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) kształtu na `Gradient`.
-1. Dodaj dwa wybrane kolory wraz z określonymi pozycjami, używając metod `add` kolekcji punktów stop gradientu udostępnianej przez interfejs [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/).
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Wypełnienie gradientem miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni od czerwonego do fioletowego przy użyciu [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--). Metoda [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) umieszcza punkty kolorów w pozycjach 0 i 1, czyli na początku i końcu gradientu. Usunięcie istniejących punktów zapewnia użycie jedynie tych dwóch kolorów.
 
 ```java
 import com.aspose.slides.*;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto‑kształt typu Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
-
-    // Zastosuj formatowanie gradientowe do elipsy.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0f, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0f, PresetColor.Red);
 
-    // Ustaw kierunek gradientu.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
-
-    // Dodaj dwa przystanki gradientu.
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
-
-    // Zapisz plik PPTX na dysku.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -249,47 +335,169 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany wypełnienia gradientowego zapisanego w prezentacji.
+Jeśli gradient wygląda inaczej na wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu przechowywanego w prezentacji.
 
-## **Wypełnienie wzorem**
+### **Ustawienie kąta gradientu liniowego**
 
-W programie PowerPoint wypełnienie wzorem jest opcją formatowania, która pozwala zastosować dwukolorowy wzór — np. kropki, paski, krzyżówki lub szachownicę — do kształtu. Możesz wybrać własne kolory pierwszego planu i tła wzoru.
+Użyj [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) aby kontrolować orientację wypełnienia [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/). Kąt jest mierzony w stopniach i rośnie zgodnie z ruchem wskazówek zegara: `0` biegnie od lewej do prawej, `90` od góry do dołu, `180` od prawej do lewej, a `270` od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty spoza przedziału `[0, 360)` są normalizowane do jednego pełnego obrotu; na przykład `-45` staje się `315`, a `360` staje się `0`.
 
-Aspose.Slides udostępnia ponad 45 wstępnie zdefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu gotowego wzoru, możesz dokładnie określić kolory, które mają być użyte.
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) kształtu na `Pattern`.
-1. Wybierz styl wzoru spośród predefiniowanych opcji.
-1. Ustaw [Kolor tła](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) wzoru.
-1. Ustaw [Kolor pierwszego planu](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) wzoru.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Ten przykład tworzy sześć prostokątów z identycznymi punktami kolorów czerwonego, zielonego i niebieskiego w pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt mógł być porównywany niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto‑kształt typu Rectangle.
+    float[] angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+    for (int i = 0; i < angles.length; i++) {
+        int x = 30 + (i % 3) * 230;
+        int y = 30 + (i / 3) * 190;
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.False);
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik w programie PowerPoint:
+
+![Gradienty liniowe pod kątem 0, 45 i 90 stopni w pierwszym wierszu oraz 135, 180 i 270 stopni w drugim wierszu](linear-gradient-angles.png)
+
+### **Skalowanie gradientu liniowego wraz z kształtem**
+
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/). Ustaw ją explicite na `False`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True`, aby skalować gradient wraz z szerokością i wysokością kształtu. Przy włączonym skalowaniu widoczny kąt może różnić się od przypisanego kąta w przypadku nie‑kwadratowego kształtu.
+
+Poniższy przykład używa kąta `45` stopni i tych samych punktów kolorów co przy porównaniu kątów. Lewa kolumna używa `False`; prawa kolumna używa `True`. Każda kolumna zawiera szeroki prostokąt nad wysokim prostokątem. Obie zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta pokazuje, jak wypełnienie reaguje na zmianę rozmiaru bez zmiany ustawień gradientu.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] scalingOptions = new byte[] { NullableBool.False, NullableBool.True };
+
+    for (int column = 0; column < scalingOptions.length; column++) {
+        for (int row = 0; row < 2; row++) {
+            int x = 30 + column * 360;
+            int y = row == 0 ? 30 : 150;
+
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+            shape.getFillFormat().setFillType(FillType.Gradient);
+
+            IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(GradientShape.Linear);
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0f, Color.RED);
+            gradient.getGradientStops().add(0.5f, Color.GREEN);
+            gradient.getGradientStops().add(1f, Color.BLUE);
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(scalingOptions[column]);
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik w programie PowerPoint, przy wyłączonym skalowaniu po lewej i włączonym po prawej:
+
+![Szerokie i wysokie prostokąty z gradientem 45 stopni, porównanie LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
+
+Przy wyłączonym skalowaniu diagonalne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonym skalowaniu pasma rozciągają się wraz z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu przy dostosowywaniu kształtu do innego rozmiaru. W przypadku kwadratu włączenie skalowania nie zmienia wyglądu tego gradientu `45`‑stopniowego.
+
+Kąt i ustawienia skalowania mają zastosowanie do gradientów liniowych. Nie kontrolują one wypełnień [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/).
+
+### **Połączenie kąta z kierunkiem gradientu**
+
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) wybiera styl gradientu z klasy [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/); nie zastępuje to kąta numerycznego. Dla gradientu liniowego style narożników mogą zmieniać obszar, na którym rozkładane są kolory, bez zmiany kąta przypisanego przez [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skalowaniu.
+
+Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Dwa prostokąty mają taki sam wygląd: przypisanie kierunku przed lub po kącie nie zmienia rezultatu.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (int i = 0; i < 2; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.True);
+
+        if (i == 0) {
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Wypełnienie wzorem**
+
+Wypełnienie wzorem stosuje dwukolorowy wzór, taki jak kropki, paski lub kratkę. Ten przykład używa [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) aby wybrać wzór kratowy. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) dostarcza jasnoszare tło, a [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) dostarcza żółty kolor wzoru.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ustaw typ wypełnienia na Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
-
-    // Ustaw styl wzoru.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
-
-    // Ustaw kolory tła i pierwszego planu wzoru.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -302,50 +510,30 @@ Wynik:
 
 ## **Wypełnienie obrazem**
 
-W programie PowerPoint wypełnienie obrazem jest opcją formatowania, która pozwala wstawić obraz wewnątrz kształtu — skutecznie używając obrazu jako tła kształtu.
-
-Jak używać Aspose.Slides do zastosowania wypełnienia obrazem:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) kształtu na `Picture`.
-1. Ustaw tryb wypełnienia obrazem na `Tile` (lub inny preferowany tryb).
-1. Utwórz obiekt [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) z obrazu, który chcesz użyć.
-1. Przekaż obraz do metody `ISlidesPicture.setImage`.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
-
-Załóżmy, że mamy plik „lotus.png” z następującym obrazem:
+Wypełnienie obrazem używa obrazu wewnątrz kształtu. Ten przykład wymaga lokalnego obrazu i używa [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) aby załadować go do kolekcji obrazów prezentacji. Ustawienie [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) na tryb kafelkowy powtarza obraz w obrębie prostokąta. Źródłowy obraz użyty tutaj przedstawiono poniżej:
 
 ![Obraz lotosu](lotus.png)
 
 ```java
 import com.aspose.slides.*;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto‑kształt typu Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Ustaw typ wypełnienia na Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
-
-    // Ustaw tryb wypełnienia obrazem.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Wczytaj obraz i dodaj go do zasobów prezentacji.
     IImage image = Images.fromFile("lotus.png");
-    IPPImage picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Ustaw obraz.
+    IPPImage picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -356,45 +544,40 @@ Wynik:
 
 ![Kształt z wypełnieniem obrazem](picture-fill.png)
 
-### **Użyj obrazu jako tekstury kafelkowej**
+### **Kafelkuj obraz jako teksturę**
 
-Jeśli chcesz ustawić kafelkowy obraz jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić obraz kafelkowy jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
 
 - [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Ustawia tryb wypełnienia obrazu — `Tile` lub `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Określa wyrównanie kafelków wewnątrz kształtu.
-- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Kontroluje, czy kafelek jest odbity w poziomie, w pionie lub w obu kierunkach.
-- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ustawia poziomy offset kafelka (w punktach) względem pochodzenia kształtu.
-- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ustawia pionowy offset kafelka (w punktach) względem pochodzenia kształtu.
-- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definiuje poziomą skalę kafelka jako procent.
-- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definiuje pionową skalę kafelka jako procent.
+- [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Kontroluje, czy kafelek jest odbijany poziomo, pionowo lub w obu kierunkach.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definiuje poziomą skalę kafelka w procentach.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definiuje pionową skalę kafelka w procentach.
 
-Poniższy przykład kodu pokazuje, jak dodać prostokątny kształt z kafelkowym wypełnieniem obrazem i skonfigurować opcje kafelkowania:
+Ten przykład wymaga lokalnego obrazu i konfiguruje [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) aby powtórzyć go w 50 % pierwotnego rozmiaru. Offsets of −32 points shift the tiles horizontally and vertically; bottom‑right alignment and flipping in both directions determine how the repeated texture is arranged.
 
 ```java
 import com.aspose.slides.*;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Dodaj prostokątny auto‑kształt.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Ustaw typ wypełnienia kształtu na Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Wczytaj obraz i dodaj go do zasobów prezentacji.
     IImage sourceImage = Images.fromFile("lotus.png");
-    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Przypisz obraz do kształtu.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Skonfiguruj tryb wypełnienia obrazem i właściwości kafelkowania.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -403,7 +586,6 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -414,39 +596,22 @@ Wynik:
 
 ![Opcje kafelkowania](tile-options.png)
 
-## **Wypełnienie jednolitym kolorem**
+## **Wypełnienie kolorem jednolitym**
 
-W programie PowerPoint wypełnienie jednolitym kolorem jest opcją formatowania, która wypełnia kształt jednym, jednorodnym kolorem. Ten jednolity kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
-
-Aby zastosować wypełnienie jednolitym kolorem do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) kształtu na `Solid`.
-1. Przypisz wybrany kolor wypełnienia do kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+Wypełnienie jednolite nadaje kształtowi pojedynczy, jednolity kolor. Ten przykład używa [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) aby ustawić tryb wypełnienia jednolitego i przypisuje żółty kolor przez [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), po czym zapisuje prostokąt w prezentacji.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto‑kształt typu Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ustaw typ wypełnienia na Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
-
-    // Ustaw kolor wypełnienia.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -455,40 +620,90 @@ try {
 
 Wynik:
 
-![Kształt z jednolitym wypełnieniem kolorem](solid-color-fill.png)
+![Kształt z wypełnieniem kolorem jednolitym](solid-color-fill.png)
 
-## **Ustaw przezroczystość**
+## **Użycie tła slajdu jako wypełnienia kształtu**
 
-W programie PowerPoint, kiedy stosujesz jednolity, gradientowy, obrazowy lub teksturowany wypełnienie kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować nieprzezroczystość wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt staje się bardziej przezroczysty, umożliwiając częściowe widzenie tła lub obiektów leżących pod nim.
+Użyj [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) gdy kształt ma pasować do tła slajdu, na przykład w szablonie prezentacji. Użyj [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) aby najpierw ustawić [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) i usunąć wszelkie jawne wypełnienie. Dzięki tej kombinacji kształt używa tła slajdu zamiast swojego stylu wypełnienia. Samo ustawienie flagi nie usuwa istniejącego jawnego wypełnienia.
 
-Aspose.Slides pozwala ustawić poziom przezroczystości, dostosowując wartość alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
+Różni się to od [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/): wypełnienie tłem pokrywa obiekty za kształtem odpowiednim obszarem tła slajdu, podczas gdy brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie rozpoczyna się wewnątrz każdego kształtu.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) na `Solid`.
-1. Użyj `Color`, aby zdefiniować kolor z przezroczystością (składnik `alpha` steruje przezroczystością).
-1. Zapisz prezentację.
+Poniższy przykład tworzy tło nadrzędne dziedziczone przez slajd i umieszcza magentowy pasek za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na wyraźne wypełnienie pomarańczowe.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj prostokątny auto-kształt wypełniony.
+    // odziedzicz gradient z szablonu głównego.
+    slide.getBackground().setType(BackgroundType.NotDefined);
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
+    IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Gradient);
+    IGradientFormat gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(GradientShape.Linear);
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, new Color(0, 0, 139));
+    gradient.getGradientStops().add(1, new Color(135, 206, 250));
+
+    // Dodaj ten obiekt jako pierwszy, aby pojawił się za prostokątami.
+    IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape backgroundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(FillType.NotDefined);
+    backgroundShape.setUseBackgroundFill(true);
+
+    IAutoShape noFillShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape explicitShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(FillType.NotDefined);
+    explicitShape.setUseBackgroundFill(true);
+
+    // Wyłącz wypełnienie tłem przed zastosowaniem wyraźnego wypełnienia.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(FillType.Solid);
+    explicitShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wynik, od lewej do prawej: **background fill**, **no fill**, i **explicit fill**. Magentowy pasek jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
+
+![Wypełnienie tłem, brak wypełnienia i wyraźne wypełnienie pomarańczowe na magenta pasie](background-fill.png)
+
+To samo zachowanie dotyczy tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozpoznanego tła slajdu; przykład pozostawia zarówno tło slajdu, jak i układu niezdefiniowane, tak aby dostarczyło je nadrzędny szablon.
+
+## **Ustawienie przezroczystości**
+
+W przypadku wypełnienia jednolitego składnik alfa koloru steruje nieprzezroczystością: 0 oznacza całkowitą przezroczystość, a 255 całkowitą nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, czyniąc go w przybliżeniu w 50 % przezroczystym, tak aby prostokąt pod nim pozostał widoczny. Kolor jest przypisywany przez [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--).
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Dodaj przezroczysty prostokątny auto-kształt nad wypełnionym kształtem.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
-    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 128));
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -501,32 +716,18 @@ Wynik:
 
 ## **Obracanie kształtów**
 
-Aspose.Slides pozwala obracać kształty w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych wymagających konkretnego wyrównania lub projektu.
-
-Aby obrócić kształt na slajdzie, wykonaj następujące kroki:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Ustaw właściwość rotacji kształtu na żądany kąt.
-1. Zapisz prezentację.
+Użyj [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) aby obrócić kształt w płaszczyźnie slajdu. Kąt jest mierzony w stopniach; ten przykład obraca prostokąt o 5 stopni zgodnie z ruchem wskazówek zegara i zapisuje prezentację.
 
 ```java
 import com.aspose.slides.*;
 
-// Utwórz instancję klasy Presentation reprezentującej plik prezentacji.
 Presentation presentation = new Presentation();
 try {
-    // Uzyskaj pierwszy slajd.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto-kształt typu Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Obróć kształt o 5 stopni.
     shape.setRotation(5);
 
-    // Zapisz plik PPTX na dysku.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -537,36 +738,24 @@ Wynik:
 
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodaj efekty 3D Bevel**
+## **Dodawanie efektów 3D z fazą**
 
-Aspose.Slides umożliwia zastosowanie efektów 3D bevel do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/).
-
-Aby dodać efekty 3D bevel do kształtu, wykonaj następujące kroki:
-
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) kształtu, aby określić ustawienia krawędzi.
-1. Zapisz prezentację.
+Użyj [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) aby nadać kształtowi głębię i fazowane krawędzie. Ten przykład tworzy zieloną elipsę z pomarańczowym konturem, używa [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-) aby ustawić głębokość na 4 punkty i stosuje okrągłą fazę górną o szerokości i wysokości 6 punktów poprzez [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--). Kamera ortograficzna skierowana na przód i oświetlenie trójpunktowe uwidaczniają fazę.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj kształt do slajdu.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Ustaw właściwości ThreeDFormat kształtu.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -575,7 +764,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Zapisz prezentację jako plik PPTX.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -584,37 +772,25 @@ try {
 
 Wynik:
 
-![Efekt 3D bevel](3D-bevel-effect.png)
+![Efekt 3D fazy](3D-bevel-effect.png)
 
-## **Dodaj efekty obrotu 3D**
+## **Dodawanie efektów rotacji 3D**
 
-Aspose.Slides umożliwia zastosowanie efektów obrotu 3D do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/).
-
-Aby zastosować obrót 3D do kształtu:
-
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu na podstawie jego indeksu.
-1. Dodaj [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) do slajdu.
-1. Użyj metod [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) i [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), aby zdefiniować obrót 3D.
-1. Zapisz prezentację.
+Widok 3D kształtu jest kontrolowany przez ustawienia kamery. Ten przykład używa [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) z kątem szerokości, długości i obrotu odpowiednio 40°, 35° i 20°. Wybiera kamerę izometryczną przy pomocy [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) oraz zrównoważone oświetlenie przy [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), po czym zapisuje sformatowany prostokąt.
 
 ```java
 import com.aspose.slides.*;
 
-// Utwórz instancję klasy Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // Zapisz prezentację jako plik PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -623,15 +799,15 @@ try {
 
 Wynik:
 
-![Efekt obrotu 3D](3D-rotation-effect.png)
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
-## **Kontrola renderowania czarno-białego dla kształtów**
+## **Kontrola renderowania czarno‑białego dla kształtów**
 
-Metoda [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samodzielnie trybu czarno-białego i nie zmienia wypełnienia, linii ani innych formatowań w normalnym trybie kolorowym.
+Metoda [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno‑białym. Nie włącza ona samodzielnie wyświetlania czarno‑białego i nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
 
-Użyj wartości z klasy [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/), aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają odcieni szarości, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają pojedynczy kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno-białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
+Użyj wartości z klasy [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają szarego koloru, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają jeden kolor, `Color` zachowuje normalne kolorowanie, a `Hidden` pomija kształt w trybie czarno‑białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
 
-Poniższy kod Java tworzy kolorowy kształt i sprawia, że w trybie wyświetlania czarno-białego pojawia się jako szary:
+Ten przykład tworzy pomarańczowy prostokąt i używa [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) aby ustawić tryb na szary. Zapisany kształt zachowuje pomarańczowe wypełnienie w normalnym wyświetlaniu kolorowym i prosi o szare kolorowanie w aplikacjach honorujących ustawienia wyświetlania czarno‑białego:
 
 ```java
 import com.aspose.slides.*;
@@ -643,9 +819,7 @@ try {
 
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
-
-    // Utrzymaj pomarańczowe wypełnienie w trybie kolorowym, ale renderuj kształt w odcieniach szarości w trybie czarno-białym.
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -654,9 +828,11 @@ try {
 }
 ```
 
+W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W przepływie pracy wyświetlania czarno‑białego używa szarego kolorowania, ponieważ tryb jest ustawiony na `Gray`. Pozwala to zachować slajd w pełnym kolorze, definiując jednocześnie odrębny wygląd dla drukowania, podglądu lub innych przepływów pracy, które respektują ustawienia wyświetlania czarno‑białego prezentacji.
+
 ## **Resetowanie formatowania**
 
-Poniższy kod Java pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) do ich domyślnych ustawień:
+Użyj [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) aby przywrócić pozycję, rozmiar i formatowanie pól zastępczych slajdu z ich odpowiadającymi polami w układzie. Ten przykład wymaga istniejącej prezentacji z polami zastępczymi powiązanymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających pól w układzie nie są resetowane.
 
 ```java
 import com.aspose.slides.*;
@@ -664,9 +840,9 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Zresetuj każdy kształt na slajdzie, który ma placeholder w układzie.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -675,14 +851,14 @@ try {
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na rozmiar końcowego pliku prezentacji?**
+**Czy formatowanie kształtu wpływa na ostateczny rozmiar pliku prezentacji?**
 
-Tylko w niewielkim stopniu. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, podczas gdy parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
+Kolory, style linii i ustawienia efektów zazwyczaj dodają niewiele danych w porównaniu z osadzonymi obrazami i mediami. Wypełnienia obrazem mogą zwiększyć rozmiar pliku, ponieważ ich obrazy są przechowywane w prezentacji.
 
-**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby móc je grupować?**
+**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające sobie wartości są takie same, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające wartości są równe, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw niestandardowych stylów kształtów w osobnym pliku w celu ponownego użycia w innych prezentacjach?**
+**Czy mogę zapisać zestaw własnych stylów kształtów do osobnego pliku, aby ponownie używać ich w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku .POTX. Przy tworzeniu nowej prezentacji otwórz szablon, sklonuj potrzebne stylizowane kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.
+Tak. Przechowuj przykładowe kształty z pożądanymi stylami w zestawie slajdów szablonu lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.

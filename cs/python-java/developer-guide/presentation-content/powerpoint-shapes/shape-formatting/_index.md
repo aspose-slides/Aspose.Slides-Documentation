@@ -1,56 +1,45 @@
 ---
-title: Formátování tvarů PowerPoint v Pythonu přes Java
-linktitle: Formátování tvarů
+title: Formátování tvarů PowerPointu v Pythonu přes Java
+linktitle: Formátování tvaru
 type: docs
 weight: 20
 url: /cs/python-java/shape-formatting/
 keywords:
-- formát tvaru
-- formát čáry
-- skicový efekt
-- skicová čára tvaru
-- formát stylu spojení
-- gradientové vyplnění
-- vzorkované vyplnění
-- obrázkové vyplnění
-- texturové vyplnění
-- jednobarevné vyplnění
-- průhlednost tvaru
-- černobílé vykreslení tvaru
-- vykreslení tvaru v odstínech šedi
-- otočení tvaru
-- 3D efekt hran
-- 3D otáčecí efekt
-- obnovení formátování
-- PowerPoint
-- prezentace
-- Python
-- Java
-- Aspose.Slides
-description: "Naučte se, jak formátovat tvary PowerPointu v Pythonu přes Java pomocí Aspose.Slides—nastavte styly výplně, čáry a efektů pro soubory PPT, PPTX a ODP s přesností a úplnou kontrolou."
+  - formátování tvaru
+  - formátování čáry
+  - skicový efekt
+  - skicová čára tvaru
+  - formátování stylu spojení
+  - gradientní výplň
+  - vzorová výplň
+  - obrázková výplň
+  - texturová výplň
+  - plná barva výplně
+  - průhlednost tvaru
+  - černobílé vykreslení tvaru
+  - vykreslení tvaru ve stupních šedi
+  - otáčení tvaru
+  - 3d efekt zkosení
+  - 3d rotační efekt
+  - resetování formátování
+  - PowerPoint
+  - prezentace
+  - Python
+  - Java
+  - Aspose.Slides
+description: "Naučte se, jak formátovat tvary PowerPointu v Pythonu přes Java pomocí Aspose.Slides—nastavit výplň, čáru a styly efektů pro soubory PPT a PPTX s přesností a plnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysy. Navíc můžete tvary formátovat zadáním nastavení, která řídí, jak jsou jejich vnitřky vyplněny.
+Formátujte tvary v PowerPointu úpravou jejich obrysů, výplní a efektů. Aspose.Slides pro Python přes Java vám umožňuje ovládat tato nastavení programově, včetně průhlednosti, otáčení a 3D formátování.
 
-![formátování tvaru v PowerPointu](format-shape-powerpoint.png)
+![Možnosti formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides pro Python via Java poskytuje třídy a metody, které vám umožní formátovat tvary pomocí stejných možností dostupných v PowerPointu.
+Aspose.Slides pro Python přes Java poskytuje třídy a metody, které umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
-Pomocí Aspose.Slides můžete pro tvar zadat vlastní styl čáry. Postup je následující:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [styl čáry](https://reference.aspose.com/slides/python-java/aspose.slides/linestyle/) tvaru.
-1. Nastavte šířku čáry.
-1. Nastavte [styl přerušení](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) čáry.
-1. Nastavte barvu čáry pro tvar.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód ukazuje, jak formátovat obdélníkový [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) :
+Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) k ovládání obrysu tvaru. Tento příklad vytváří nevyplněný obdélník s modrým, čárkovaným obrysem. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) vybírá spojení tlusté a tenké čáry, zatímco [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) nastavuje šířku na 7 bodů a [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) volí vzor čáry.
 
 ```python
 import jpype
@@ -62,28 +51,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineDashStyle, LineStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Rectangle.
-    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75)
-
-    # Nastavte barvu výplně pro tvar obdélníku.
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     shape.getFillFormat().setFillType(FillType.NoFill)
-
-    # Použijte formátování na čáry obdélníku.
     shape.getLineFormat().setStyle(LineStyle.ThickThin)
     shape.getLineFormat().setWidth(7)
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash)
-
-    # Nastavte barvu čáry obdélníku.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -93,11 +72,118 @@ Výsledek:
 
 ![Formátované čáry v prezentaci](formatted-lines.png)
 
-## **Použití skicových efektů na čáry tvaru**
+### **Nastavit vlastní vzory čárek**
 
-Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) k přístupu k nastavení čáry, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) k přístupu k nastavení skicu a [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) .
+Použijte [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern), pokud předdefinované styly čar neposkytují požadované délky čárek a mezer, například pro značkové obrysy nebo technické diagramy. Při přiřazení vzoru se automaticky mění styl čáry na [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-Následující Python kód ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#Curved), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/#None) :
+Pole vstupů střídá délky čáry a mezery, počínaje čárou. Každá hodnota je násobkem šířky čáry: `[4, 2]` při šířce 3 body vytváří čáru o délce 12 bodů následovanou mezerou 6 bodů. Používejte dvojice konečných, nezáporných hodnot k definování úplných úseků čáry a mezery. Příklad používá kladné hodnoty, aby byly všechny čáry i mezery viditelné.
+
+Tento příklad vytváří pět modrých čar stejné délky a se rovnými zakončeními. První tři porovnávají vzory při šířce 3 body. Čtvrtá opakuje první vzor při dvojnásobné šířce, čímž zdvojnásobí jak délku čáry, tak mezery. Pátá přepíná z vlastního vzoru na plnou čáru.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ]
+
+    for i, pattern in enumerate(patterns):
+        line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0)
+        line.getLineFormat().setWidth(6 if i == 3 else 3)
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat)
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setCustomDashPattern(jpype.JArray(jpype.JFloat)(pattern))
+
+    # Nastavit poslední čáru na plný styl.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid)
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Pro návrat k předdefinovanému čárkovanému stylu použijte [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) jako argument metody [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Vybraný styl řídí vzhled čáry.
+
+Výsledek v PowerPointu, shora dolů: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; a **Solid, 3 pt**.
+
+![Tři vlastní vzory čárek, širší čára s prvním vzorem a plná čára v PowerPointu](custom-dash-patterns.png)
+
+### **Nastavit zakončení čar**
+
+Použijte [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) k nastavení konců otevřené čáry. Třída [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) poskytuje tři explicitní styly zakončení:
+
+- `Flat`: Tah končí v koncovém bodě.
+- `Round`: Polokulové zakončení přesahuje koncový bod o polovinu šířky čáry.
+- `Square`: Čtvercové zakončení přesahuje koncový bod o polovinu šířky čáry.
+
+Třída také obsahuje `NotDefined`, což znamená, že žádný styl zakončení není explicitně přiřazen.
+
+Zakončení se liší od šipek, které přidávají symboly na konce čar, a od spojů, které řídí rohy mezi úseky čar. Tento příklad zakazuje šipky pomocí [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) a [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle), aby byly porovnány pouze tvary zakončení.
+
+Následující příklad vytváří tři jinak identické vodorovné čáry, široké 20 bodů. Shora dolů používají rovná, kulatá a čtvercová zakončení. Jejich koncové body mají stejné vodorovné souřadnice; kulatá a čtvercová zakončení přesahují 10 bodů za každý koncový bod.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    cap_styles = [LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square]
+
+    for i, cap_style in enumerate(cap_styles):
+        line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0)
+        line.getLineFormat().setWidth(20)
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid)
+        line.getLineFormat().setCapStyle(cap_style)
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None_)
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Výsledek v PowerPointu, shora dolů: **Flat**, **Round** a **Square**.
+
+![Rovná, kulatá a čtvercová zakončení na identických tlustých čarách v PowerPointu](line-caps.png)
+
+## **Použít skicové efekty na čáry tvaru**
+
+Skicový efekt způsobí, že čára tvaru vypadá ručně kreslená. Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) pro přístup k nastavení čáry, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) pro přístup k nastavení skici a [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) pro výběr hodnoty ze třídy [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
+
+Následující kód Python ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -111,25 +197,19 @@ from asposeslides.api import LineSketchType, Presentation, ShapeType
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
+
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
 
-    # Přístup k formátování čáry tvaru a jeho skicovému formátu.
     sketch_format = shape.getLineFormat().getSketchFormat()
-
-    # Použít skicový efekt.
     sketch_format.setSketchType(LineSketchType.Curved)
-
-    # Přečíst skicový efekt přiřazený přímo tvaru.
     explicit_sketch_type = sketch_format.getSketchType()
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-
-    # Odebrat skicový efekt.
+    print("Explicit sketch type:", explicit_sketch_type)
     sketch_format.setSketchType(LineSketchType.None_)
 finally:
     presentation.dispose()
 ```
 
-Hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozvržení snímku, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective), přistupte k `LineFormatEffectiveData.getSketchFormat` a přečtěte `SketchFormatEffectiveData.getSketchType`. Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti :
+Hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) představuje nastavení přiřazené přímo tvaru. Pokud lze formátování čáry zdědit z motivu, hlavního snímku nebo rozložení snímku, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) a přečtěte typ skici z vráceného efektivního formátování čáry, jak je ukázáno níže. Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti. Tento příklad vyžaduje existující prezentaci s alespoň jedním tvarem na prvním snímku a vypisuje obě hodnoty:
 
 ```python
 import jpype
@@ -143,31 +223,31 @@ from asposeslides.api import Presentation
 presentation = Presentation("presentation.pptx")
 try:
     shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0)
-    line_format = shape.getLineFormat()
 
+    line_format = shape.getLineFormat()
     explicit_sketch_type = line_format.getSketchFormat().getSketchType()
     effective_line_format = line_format.getEffective()
     effective_sketch_type = effective_line_format.getSketchFormat().getSketchType()
 
-    print(f"Explicit sketch type: {explicit_sketch_type}")
-    print(f"Effective sketch type: {effective_sketch_type}")
+    print("Explicit sketch type:", explicit_sketch_type)
+    print("Effective sketch type:", effective_sketch_type)
 finally:
     presentation.dispose()
 ```
 
 ## **Formátování stylů spojení**
 
-Zde jsou tři možnosti typu spoje:
+Zde jsou tři možnosti typu spojení:
 
-* Zaoblený
-* Úhlový
-* Sražený
+* Round
+* Miter
+* Bevel
 
-Ve výchozím nastavení, když PowerPoint spojuje dvě čáry pod úhlem (například v rohu tvaru), používá nastavení **Zaoblený**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Úhlový**.
+Styl spojení řídí, jak se dva úseky obrysu setkají v rohu. Použijte **Round** pro zakulacené rohy, **Miter** pro ostré rohy nebo **Bevel** pro zploštělé rohy.
 
-![Styl spoje v prezentaci](join-style-powerpoint.png)
+![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Následující Python kód ukazuje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení typů spojení Miter, Bevel a Round :
+Tento příklad vytváří tři černé obdélníky s modrými obrysy širokými 15 bodů. Používá [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) pro nastavení hodnot miter, bevel a round třídy [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) a porovnává, jak jsou rohy vykresleny.
 
 ```python
 import jpype
@@ -179,18 +259,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-    # Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte tři automatické tvary typu Rectangle.
     miter_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75)
     bevel_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75)
     round_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75)
 
-    # Nastavte barvu výplně pro každý obdélníkový tvar.
     miter_shape.getFillFormat().setFillType(FillType.Solid)
     miter_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
     bevel_shape.getFillFormat().setFillType(FillType.Solid)
@@ -198,12 +274,10 @@ try:
     round_shape.getFillFormat().setFillType(FillType.Solid)
     round_shape.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
 
-    # Nastavte šířku čáry.
     miter_shape.getLineFormat().setWidth(15)
     bevel_shape.getLineFormat().setWidth(15)
     round_shape.getLineFormat().setWidth(15)
 
-    # Nastavte barvu čáry pro každý obdélník.
     miter_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     miter_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
     bevel_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
@@ -211,34 +285,26 @@ try:
     round_shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
     round_shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE)
 
-    # Nastavte styl spoje.
     miter_shape.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
     bevel_shape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel)
     round_shape.getLineFormat().setJoinStyle(LineJoinStyle.Round)
 
-    # Přidejte text do každého obdélníku.
     miter_shape.getTextFrame().setText("Miter Join Style")
     bevel_shape.getTextFrame().setText("Bevel Join Style")
     round_shape.getTextFrame().setText("Round Join Style")
 
-    # Uložte soubor PPTX na disk.
     presentation.save("join_styles.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
 ```
 
-## **Gradientové vyplnění**
+### **Omezit miterové spoje u ostrých rohů**
 
-V PowerPointu je Gradient Fill formátovací možnost, která vám umožní aplikovat plynulé prolínání barev na tvar. Například můžete použít dvě nebo více barev tak, aby jedna postupně přecházela v druhou.
+Použijte [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) spolu s [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) nastaveným na [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) pro omezení, jak daleko může ostrý roh vyčnívat.
 
-Zde je návod, jak použít gradientové vyplnění na tvar pomocí Aspose.Slides:
+Limit je poměr vzdálenosti mezi vnitřním a vnějším rohem spoje k šířce čáry. Například hodnota `8` umožní délku miteru až osminásobek šířky čáry; není to měření v bodech. Pokud by roh překročil limit, PowerPoint použije u tohoto rohu zkosený spoj. Větší limit umožňuje ostřejší špičky. Nastavení ovlivňuje pouze miterové spoje a jeho změna nemá viditelný efekt, pokud roh zůstane v obou limitech.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) tvaru na `Gradient`.
-1. Přidejte své dva preferované barvy s definovanými pozicemi pomocí metody [addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) kolekce gradientových zastávek, která je vystavena třídou [GradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/) .
-1. Uložte upravenou prezentaci jako soubor PPTX.
+Tento příklad vytváří dva identické nevyplněné trojúhelníky s obrysy širokými 20 bodů. Levý trojúhelník používá limit `2` a pravý `8`. Každý trojúhelník má šířku 80 bodů a výšku 160 bodů, což dává jeho hornímu rohu poměr délky miteru k šířce čáry přibližně `4,12`. V důsledku toho PowerPoint zkosení levého vrcholu a zachová pravý vrchol.
 
 ```python
 import jpype
@@ -247,30 +313,61 @@ import asposeslides
 if not jpype.isJVMStarted():
     jpype.startJVM()
 
-from asposeslides.api import FillType, GradientDirection, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
+from asposeslides.api import FillType, LineJoinStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Ellipse.
-    shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
+    miter_limits = [2.0, 8.0]
 
-    # Použijte gradientové formátování na elipsu.
+    for i, miter_limit in enumerate(miter_limits):
+        triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160)
+        triangle.getFillFormat().setFillType(FillType.NoFill)
+        triangle.getLineFormat().setWidth(20)
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+        color = Color(0, 0, 139)
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter)
+        triangle.getLineFormat().setMiterLimit(miter_limit)
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Výsledek v PowerPointu: **Miter limit 2** vlevo a **miter limit 8** vpravo.
+
+![Zkosený vrchol s limitem miteru 2 a špičatý vrchol s limitem miteru 8 v PowerPointu](miter-limits.png)
+
+## **Gradientní výplň**
+
+Gradientní výplň míchá barvy napříč tvarem. Tento příklad vyplní elipsu lineárním gradientem pod úhlem 45 stupňů od červené po fialovou pomocí [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metoda [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) umístí barevné zastávky na 0 a 1, tedy na začátek a konec gradientu. Vymazání existujících zastávek zajišťuje, že budou použity pouze tyto dvě barvy.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientShape, Presentation, PresetColor, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75)
     shape.getFillFormat().setFillType(FillType.Gradient)
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear)
-
-    # Nastavte směr gradientu.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2)
-
-    # Přidejte dvě zastávky gradientu.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45)
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear()
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, PresetColor.Purple)
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, PresetColor.Red)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -278,26 +375,165 @@ finally:
 
 Výsledek:
 
-![Elipsa s gradientovým vyplněním](gradient-fill.png)
+![Elipsa s gradientní výplní](gradient-fill.png)
 
-Pokud gradient v exportovaném obrázku vypadá jinak než v PowerPointu, podívejte se na [Zvolte styl vykreslování gradientu](/slides/cs/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování aniž byste změnili gradientové vyplnění uložené v prezentaci.
+Pokud gradient v exportovaném obrázku vypadá jinak než v PowerPointu, podívejte se na [Vyberte styl vykreslování gradientu](/slides/cs/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Můžete vybrat styl vykreslování, aniž byste měnili gradientní výplň uloženou v prezentaci.
 
-## **Vzorkované vyplnění**
+### **Nastavit úhel lineárního gradientu**
 
-V PowerPointu je Pattern Fill formátovací možnost, která vám umožní aplikovat dvoubarevný návrh – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete zvolit vlastní barvy pro popředí a pozadí vzoru.
+Použijte [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) k ovládání orientace výplně [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). Úhel se měří ve stupních a zvyšuje se ve směru hodinových ručiček: `0` jde zleva doprava, `90` shora dolů, `180` zprava doleva a `270` zdola nahoru. Podporovány jsou i zlomkové úhly. Konečné úhly mimo interval `[0, 360)` jsou normalizovány na jednu otáčku; například `-45` se převede na `315` a `360` na `0`.
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary a zvýšit tak vizuální přitažlivost svých prezentací. I po výběru předdefinovaného vzoru můžete ještě určit přesné barvy, které se mají použít.
+Tento příklad vytváří šest obdélníků se stejnými červenými, zelenými a modrými zastávkami na pozicích `0`, `0,5` a `1`. Škálování je zakázáno, aby bylo možné úhel porovnat nezávisle na proporcích obdélníků. Úhly, zleva doprava, jsou `0`, `45` a `90` v první řadě a `135`, `180` a `270` ve druhé řadě.
 
-Zde je návod, jak aplikovat vzorkované vyplnění na tvar pomocí Aspose.Slides:
+```python
+import jpype
+import asposeslides
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) tvaru na `Pattern`.
-1. Vyberte styl vzoru z předdefinovaných možností.
-1. Nastavte [Background Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) vzoru.
-1. Nastavte [Foreground Color](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) vzoru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    angles = [0, 45, 90, 135, 180, 270]
+
+    for i, angle in enumerate(angles):
+        x = 30 + (i % 3) * 230
+        y = 30 + (i // 3) * 190
+
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        shape.getFillFormat().setFillType(FillType.Gradient)
+
+        gradient = shape.getFillFormat().getGradientFormat()
+        gradient.setGradientShape(GradientShape.Linear)
+        gradient.getGradientStops().clear()
+        gradient.getGradientStops().add(0, Color.RED)
+        gradient.getGradientStops().add(0.5, Color.GREEN)
+        gradient.getGradientStops().add(1, Color.BLUE)
+        gradient.setLinearGradientScaled(NullableBool.False_)
+        gradient.setLinearGradientAngle(angle)
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Výsledek v PowerPointu:
+
+![Lineární gradienty při 0, 45 a 90 stupních v horní řadě a 135, 180 a 270 stupních ve spodní řadě](linear-gradient-angles.png)
+
+### **Škálovat lineární gradient s tvarem**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) přijímá hodnotu [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Nastavte ji explicitně na `False_`, aby se geometrický úhel gradientu udržel při změně proporcí tvaru, nebo na `True_`, aby se gradient škáloval spolu se šířkou a výškou tvaru. Při povoleném škálování se viditelný úhel může lišit od přiřazeného úhlu u nečtvercového tvaru.
+
+Následující příklad používá úhel `45` stupňů a stejné barevné zastávky jako při porovnávání úhlů. Levý sloupec používá `False_`; pravý sloupec používá `True_`. Každý sloupec obsahuje široký obdélník nad vysokým obdélníkem. Oba začínají se stejnými rozměry; změna šířky a výšky druhého obdélníku ukazuje, jak výplň reaguje na změnu velikosti bez změny nastavení gradientu.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    scaling_options = [NullableBool.False_, NullableBool.True_]
+
+    for column, scaled in enumerate(scaling_options):
+        for row in range(2):
+            x = 30 + column * 360
+            y = 30 if row == 0 else 150
+
+            shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90)
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+            shape.getFillFormat().setFillType(FillType.Gradient)
+
+            gradient = shape.getFillFormat().getGradientFormat()
+            gradient.setGradientShape(GradientShape.Linear)
+            gradient.getGradientStops().clear()
+            gradient.getGradientStops().add(0, Color.RED)
+            gradient.getGradientStops().add(0.5, Color.GREEN)
+            gradient.getGradientStops().add(1, Color.BLUE)
+            gradient.setLinearGradientAngle(45)
+            gradient.setLinearGradientScaled(scaled)
+
+            if row == 1:
+                shape.setWidth(90)
+                shape.setHeight(280)
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Výsledek v PowerPointu, se škálováním zakázaným doleva a povoleným napravo:
+
+![Široké a vysoké obdélníky s 45‑stupňovým gradientem, porovnání LinearGradientScaled False vlevo a True vpravo](linear-gradient-scaling.png)
+
+Při zakázaném škálování si šikmé barevné pásy zachovávají stejnou orientaci v obou obdélnících. Při povoleném škálování se pásy roztahují s proporcemi tvaru. To pomáhá reprodukovat gradient šablony při přizpůsobení tvaru na jinou velikost. Na čtverci povolení škálování nemění vzhled tohoto gradientu s úhlem `45` stupňů.
+
+Oba nastavení, úhel i škálování, se vztahují jen na lineární gradienty. Neovlivňují výplně [GradientShape.Radial nebo GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
+
+### **Kombinovat úhel se směrem gradientu**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) vybírá styl gradientu ze třídy [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); není to náhrada za číselný úhel. U lineárního gradientu mohou styly rohů změnit oblast, na kterou jsou barvy rozděleny, aniž by se změnil úhel nastavený pomocí [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Při porovnávání úhlů nebo škálování ponechte směr beze změny.
+
+Následující příklad aplikuje stejná nastavení v opačném pořadí. Oba obdélníky mají stejný vzhled: nastavení směru před nebo po úhlu nemění výsledek.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, GradientDirection, GradientShape, NullableBool, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    for i in range(2):
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+        shape.getFillFormat().setFillType(FillType.Gradient)
+
+        gradient = shape.getFillFormat().getGradientFormat()
+        gradient.setGradientShape(GradientShape.Linear)
+        gradient.getGradientStops().clear()
+        gradient.getGradientStops().add(0, Color.RED)
+        gradient.getGradientStops().add(0.5, Color.GREEN)
+        gradient.getGradientStops().add(1, Color.BLUE)
+        gradient.setLinearGradientScaled(NullableBool.True_)
+
+        if i == 0:
+            gradient.setGradientDirection(GradientDirection.FromCorner1)
+            gradient.setLinearGradientAngle(30)
+        else:
+            gradient.setLinearGradientAngle(30)
+            gradient.setGradientDirection(GradientDirection.FromCorner1)
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+## **Vzorová výplň**
+
+Vzorová výplň aplikuje dvoubarevný návrh, například tečky, proužky nebo šachovnici. tento příklad používá [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) k výběru vzoru "trellis". [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) poskytuje světle šedé pozadí a [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) žlutou barvu vzoru.
 
 ```python
 import jpype
@@ -309,26 +545,16 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, PatternStyle, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Nastavte typ výplně na Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern)
-
-    # Nastavte styl vzoru.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis)
-
-    # Nastavte barvy pozadí a popředí vzoru.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY)
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -336,28 +562,13 @@ finally:
 
 Výsledek:
 
-![Obdélník s vzorkovaným vyplněním](pattern-fill.png)
+![Obdélník s vzorovou výplní](pattern-fill.png)
 
-## **Obrázkové vyplnění**
+## **Obrázková výplň**
 
-V PowerPointu je Picture Fill formátovací možnost, která vám umožní vložit obrázek do tvaru – efektivně použít obrázek jako pozadí tvaru.
-
-Zde je návod, jak pomocí Aspose.Slides aplikovat obrázkové vyplnění na tvar:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) tvaru na `Picture`.
-1. Nastavte režim obrázkového vyplnění na `Tile` (nebo jiný preferovaný režim).
-1. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/python-java/aspose.slides/ppimage/) z obrázku, který chcete použít.
-1. Předávejte obrázek metodě `SlidesPicture.setImage`.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Předpokládejme, že máme soubor "lotus.png" s následujícím obrázkem:
+Obrázková výplň používá obrázek uvnitř tvaru. Tento příklad vyžaduje lokální obrázek a používá [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) k načtení do kolekce obrázků prezentace. Nastavení [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) na režim dlaždic opakuje obrázek uvnitř obdélníku. Zdrojový obrázek použitý zde je zobrazen níže:
 
 ![Obrázek lotosu](lotus.png)
-
-Následující Python kód ukazuje, jak vyplnit tvar obrázkem :
 
 ```python
 import jpype
@@ -368,30 +579,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, SaveFormat, ShapeType
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130)
-    
-    # Nastavte typ výplně na Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
-
-    # Nastavte režim obrázkového vyplnění.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile)
 
-    # Načtěte obrázek a přidejte jej do zdrojů prezentace.
     image = Images.fromFile("lotus.png")
-    picture = presentation.getImages().addImage(image)
-    image.dispose()
-
-    # Nastavte obrázek.
+    try:
+        picture = presentation.getImages().addImage(image)
+    finally:
+        image.dispose()
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -399,21 +601,21 @@ finally:
 
 Výsledek:
 
-![Tvar s obrázkovým vyplněním](picture-fill.png)
+![Tvar s obrázkovou výplní](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Dlaždice obrázku jako textura**
 
-Pokud chcete nastavit obdélníkový obrázek jako texturu a přizpůsobit chování dlaždic, můžete použít následující metody třídy [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) :
+Pokud chcete nastavit opakovaný obrázek jako texturu a přizpůsobit chování opakování, můžete použít následující metody třídy [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastaví režim obrázkového vyplnění – buď `Tile`, nebo `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastavuje režim obrázkové výplně – buď `Tile` nebo `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Určuje zarovnání dlaždic uvnitř tvaru.
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Ovládá, zda je dlaždice převrácena vodorovně, svisle nebo obojí.
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastaví vodorovný posun dlaždice (v bodech) od počátku tvaru.
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastaví svislý posun dlaždice (v bodech) od počátku tvaru.
-- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje vodorovné měřítko dlaždice jako procento.
-- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje svislé měřítko dlaždice jako procento.
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Ovládá, zda je dlaždice překlopena horizontálně, vertikálně nebo obojí.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastavuje vodorovný posun dlaždice (v bodech) od počátku tvaru.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastavuje svislý posun dlaždice (v bodech) od počátku tvaru.
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje vodorovné měřítko dlaždice v procentech.
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje svislé měřítko dlaždice v procentech.
 
-Následující ukázkový kód ukazuje, jak přidat obdélníkový tvar s obrázkovým vyplněním typu dlaždice a nakonfigurovat možnosti dlaždic :
+Tento příklad vyžaduje lokální obrázek a konfiguruje [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) k jeho opakování na 50 % původní velikosti. Posuny –32 bodů posunou dlaždice horizontálně i vertikálně; zarovnání vpravo dole a překlopení v obou směrech určuje, jak je textura uspořádána.
 
 ```python
 import jpype
@@ -424,28 +626,21 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import FillType, Images, PictureFillMode, Presentation, RectangleAlignment, SaveFormat, ShapeType, TileFlip
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     first_slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický obdélníkový tvar.
     shape = first_slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95)
-
-    # Nastavte typ výplně tvaru na Picture.
     shape.getFillFormat().setFillType(FillType.Picture)
 
-    # Načtěte obrázek a přidejte jej do zdrojů prezentace.
     source_image = Images.fromFile("lotus.png")
-    presentation_image = presentation.getImages().addImage(source_image)
-    source_image.dispose()
+    try:
+        presentation_image = presentation.getImages().addImage(source_image)
+    finally:
+        source_image.dispose()
 
-    # Přiřaďte obrázek k tvaru.
     picture_fill_format = shape.getFillFormat().getPictureFillFormat()
     picture_fill_format.getPicture().setImage(presentation_image)
-
-    # Nakonfigurujte režim obrázkového vyplnění a vlastnosti dlaždic.
     picture_fill_format.setPictureFillMode(PictureFillMode.Tile)
     picture_fill_format.setTileOffsetX(-32)
     picture_fill_format.setTileOffsetY(-32)
@@ -454,7 +649,6 @@ try:
     picture_fill_format.setTileAlignment(RectangleAlignment.BottomRight)
     picture_fill_format.setTileFlip(TileFlip.FlipBoth)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("tile.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -464,18 +658,9 @@ Výsledek:
 
 ![Možnosti dlaždic](tile-options.png)
 
-## **Plné barvé vyplnění**
+## **Plná barva výplně**
 
-V PowerPointu je Solid Color Fill formátovací možnost, která naplní tvar jednou, jednotnou barvou. Tato čistá barva pozadí se použije bez gradientů, textur nebo vzorů.
-
-Chcete-li použít plné barvé vyplnění na tvar pomocí Aspose.Slides, postupujte následovně:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) tvaru na `Solid`.
-1. Přiřaďte preferovanou barvu výplně tvaru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+Plná výplň dává tvaru jednotnou barvu. Tento příklad používá [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) k nastavení režimu plné výplně a přiřazuje žlutou barvu pomocí [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), poté ukládá obdélník v prezentaci.
 
 ```python
 import jpype
@@ -487,22 +672,14 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Nastavte typ výplně na Solid.
     shape.getFillFormat().setFillType(FillType.Solid)
-
-    # Nastavte barvu výplně.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -510,20 +687,83 @@ finally:
 
 Výsledek:
 
-![Tvar s plným barvovým vyplněním](solid-color-fill.png)
+![Tvar s plnou barvou výplně](solid-color-fill.png)
 
-## **Nastavení průhlednosti**
+## **Použít pozadí snímku jako výplň tvaru**
 
-V PowerPointu můžete při aplikaci plné barvy, gradientu, obrázku nebo textury na tvary také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průhledný, což umožní viditelnost pozadí nebo podkladových objektů.
+Použijte [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill), když má tvar odpovídat pozadí snímku, například v šabloně prezentace. Nejprve nastavte [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) na [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), aby se odstranila jakákoliv explicitní výplň. Tímto kombinovaným nastavením tvar použije pozadí snímku místo své stylové výplně. Pouze aktivace příznaku neodstraní existující explicitní výplň.
 
-Aspose.Slides vám umožní nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
+To se liší od [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): výplň pozadím pokrývá objekty za tvarem odpovídající oblastí pozadí snímku, zatímco žádná výplň tyto objekty nechává viditelné. Gradient zůstává zarovnán k snímku místo toho, aby se restartoval uvnitř každého tvaru.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte [FillType](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) na `Solid`.
-1. Použijte třídu [Color](https://docs.oracle.com/en/java/javase/17/docs/api/java.desktop/java/awt/Color.html) pro definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
-1. Uložte prezentaci.
+Následující příklad vytváří hlavní pozadí zděděné snímkem a umisťuje magentový pruh za tři obdélníky. Levý obdélník používá pozadí, prostřední nemá výplň a pravý přepíná z výplně pozadím na explicitní oranžovou výplň.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import BackgroundType, FillType, GradientShape, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    # Zdědit gradient z masteru.
+    slide.getBackground().setType(BackgroundType.NotDefined)
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
+    background = slide.getLayoutSlide().getMasterSlide().getBackground()
+    background.setType(BackgroundType.OwnBackground)
+    background.getFillFormat().setFillType(FillType.Gradient)
+    gradient = background.getFillFormat().getGradientFormat()
+    gradient.setGradientShape(GradientShape.Linear)
+    gradient.setLinearGradientAngle(0)
+    gradient.getGradientStops().clear()
+    color = Color(0, 0, 139)
+    gradient.getGradientStops().add(0, color)
+    color = Color(135, 206, 250)
+    gradient.getGradientStops().add(1, color)
+
+    # Přidejte tento objekt jako první, aby byl za obdélníky.
+    band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
+    band.getFillFormat().setFillType(FillType.Solid)
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    background_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200)
+    background_shape.getFillFormat().setFillType(FillType.NotDefined)
+    background_shape.setUseBackgroundFill(True)
+
+    no_fill_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200)
+    no_fill_shape.getFillFormat().setFillType(FillType.NoFill)
+
+    explicit_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200)
+    explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
+    explicit_shape.setUseBackgroundFill(True)
+
+    # Zakážte výplň pozadí před použitím explicitní výplně.
+    explicit_shape.setUseBackgroundFill(False)
+    explicit_shape.getFillFormat().setFillType(FillType.Solid)
+    color = Color(255, 165, 0)
+    explicit_shape.getFillFormat().getSolidFillColor().setColor(color)
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Výsledek, zleva doprava: **výplň pozadím**, **žádná výplň** a **explicitní výplň**. Magentový pruh je skrytý levým a pravým obdélníkem, ale zůstává viditelný skrz prostřední obdélník.
+
+![Výplň pozadím, žádná výplň a explicitní oranžová výplň přes magentový pruh](background-fill.png)
+
+Stejné chování platí pro pozadí definované přímo na snímku nebo zděděné z rozložení. Tvar používá rozpoznané pozadí snímku; příklad nechává pozadí snímku i rozložení nedefinované, aby ho poskytl hlavní.
+
+## **Nastavit průhlednost**
+
+U plné výplně komponenta alfa barvy řídí neprůhlednost: 0 je úplně průhledná a 255 úplně neprůhledná. Tento příklad používá hodnotu alfa 128 pro žlutý obdélník, což jej činí přibližně 50 % průhledným, takže podkladový obdélník zůstává viditelný. Barva je přiřazena pomocí [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -535,22 +775,17 @@ if not jpype.isJVMStarted():
 from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte pevný obdélníkový automatický tvar.
     solid_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
 
-    # Přidejte průhledný obdélníkový automatický tvar přes pevný tvar.
     transparent_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75)
     transparent_shape.getFillFormat().setFillType(FillType.Solid)
-    transparent_color = Color(255, 255, 0, 204)
-    transparent_shape.getFillFormat().getSolidFillColor().setColor(transparent_color)
+    color = Color(255, 255, 0, 128)
+    transparent_shape.getFillFormat().getSolidFillColor().setColor(color)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -560,17 +795,9 @@ Výsledek:
 
 ![Průhledný tvar](shape-transparency.png)
 
-## **Otočení tvarů**
+## **Otáčet tvary**
 
-Aspose.Slides vám umožní otáčet tvary v prezentacích PowerPoint. To může být užitečné při umísťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
-
-Chcete-li otočit tvar na snímku, postupujte takto:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
-1. Uložte prezentaci.
+Použijte [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) k otáčení tvaru v rovině snímku. Úhel se měří ve stupních; tento příklad otáčí obdélník o 5 stupňů ve směru hodinových ručiček a ukládá prezentaci.
 
 ```python
 import jpype
@@ -581,19 +808,13 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat, ShapeType
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 presentation = Presentation()
 try:
-    # Získejte první snímek.
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte automatický tvar typu Rectangle.
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
-
-    # Otočte tvar o 5 stupňů.
     shape.setRotation(5)
 
-    # Uložte soubor PPTX na disk.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -601,19 +822,11 @@ finally:
 
 Výsledek:
 
-![Otočení tvaru](shape-rotation.png)
+![Rotace tvaru](shape-rotation.png)
 
-## **Přidání 3D efektních hran**
+## **Přidat 3D efekty zkosení**
 
-Aspose.Slides umožňuje aplikovat 3D efekty hran na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) .
-
-Chcete-li přidat 3D efekty hran na tvar, postupujte takto:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) tvaru pro definování nastavení hran.
-1. Uložte prezentaci.
+Použijte [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) k přidání hloubky a zkosených hran tvaru. Tento příklad vytváří zelenou elipsu s oranžovým obrysem, používá [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) k nastavení hloubky na 4 body a aplikuje kruhové horní zkosení se šířkou a výškou 6 bodů pomocí [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Frontální ortografická kamera a trojibodové osvětlení zpřístupňují zkosení.
 
 ```python
 import jpype
@@ -625,20 +838,18 @@ if not jpype.isJVMStarted():
 from asposeslides.api import BevelPresetType, CameraPresetType, FillType, LightRigPresetType, LightingDirection, Presentation, SaveFormat, ShapeType
 from java.awt import Color
 
-# Vytvořte instanci třídy Presentation.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
-    # Přidejte tvar na snímek.
     shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN)
+    color = Color(0, 128, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
+    color = Color(255, 165, 0)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(color)
     shape.getLineFormat().setWidth(2.0)
-
-    # Nastavte vlastnosti ThreeDFormat tvaru.
     shape.getThreeDFormat().setDepth(4)
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle)
     shape.getThreeDFormat().getBevelTop().setHeight(6)
@@ -647,7 +858,6 @@ try:
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt)
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top)
 
-    # Uložte prezentaci jako soubor PPTX.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -655,19 +865,11 @@ finally:
 
 Výsledek:
 
-![3D efekt hran](3D-bevel-effect.png)
+![3D efekt zkosení](3D-bevel-effect.png)
 
-## **Přidání 3D otáčecích efektů**
+## **Přidat 3D rotační efekty**
 
-Aspose.Slides umožňuje aplikovat 3D otáčecí efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/) .
-
-Chcete-li aplikovat 3D otáčení na tvar:
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/) .
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [AutoShape](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/) .
-1. Použijte metody [setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) a [setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) pro definování 3D otáčení.
-1. Uložte prezentaci.
+3D pohled tvaru řídí nastavení kamery. Tento příklad používá [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) s úhly šířky, výšky a rotace 40, 35 a 20 stupňů. Vybere izometrickou kameru pomocí [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) a vyvážené osvětlení pomocí [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), poté uloží formátovaný obdélník.
 
 ```python
 import jpype
@@ -678,20 +880,16 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import CameraPresetType, LightRigPresetType, Presentation, SaveFormat, ShapeType
 
-# Vytvořte instanci třídy Presentation.
 presentation = Presentation()
 try:
     slide = presentation.getSlides().get_Item(0)
 
     auto_shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75)
     auto_shape.getTextFrame().setText("Hello, Aspose!")
-
-    auto_shape.getThreeDFormat().setDepth(6)
-    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp)
+    auto_shape.getThreeDFormat().getCamera().setRotation(40, 35, 20)
     auto_shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced)
 
-    # Uložte prezentaci jako soubor PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx)
 finally:
     presentation.dispose()
@@ -699,18 +897,18 @@ finally:
 
 Výsledek:
 
-![3D otáčecí efekt](3D-rotation-effect.png)
+![3D rotační efekt](3D-rotation-effect.png)
 
-## **Řízení černobílého vykreslování pro tvary**
+## **Řídit černobílý rendering pro tvary**
 
-Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) určuje, jak je jednotlivý tvar vykreslen, když je prezentace zobrazována nebo zpracovávána v černobílém režimu. Nezpůsobuje samotné zapnutí černobílého zobrazení a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
+Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) určuje, jak je jednotlivý tvar vykreslen při prohlížení nebo zpracování prezentace v černobílém režimu. Nezapíná černobílý režim samotný a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
 
-Použijte hodnotu z třídy [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) pro výběr požadovaného chování. Například `Automatic` umožní aplikaci výběr konverze, `Gray` a `LightGray` použijí šedé zbarvení, `BlackWhite` použije jen černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvu a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že žádný režim na úrovni tvaru není přiřazen.
+Použijte hodnotu ze třídy [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) k výběru požadovaného chování. Například `Automatic` nechá aplikaci zvolit převod, `Gray` a `LightGray` použijí šedé zabarvení, `BlackWhite` použije pouze černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvy a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že nebyl přiřazen žádný režim na úrovni tvaru.
 
-Následující Python kód vytvoří barevný tvar a zobrazí jej šedě v černobílém zobrazovacím režimu :
+Tento příklad vytváří oranžový obdélník a pomocí [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) nastaví režim na šedou. Uložený tvar si zachová oranžovou výplň pro normální barevné zobrazení a požaduje šedé zabarvení od aplikací, které respektují nastavení černobílého zobrazení:
 
 ```python
-import jpage
+import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -725,9 +923,8 @@ try:
 
     shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100)
     shape.getFillFormat().setFillType(FillType.Solid)
-    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE)
-
-    # Uchovejte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
+    color = Color(255, 165, 0)
+    shape.getFillFormat().getSolidFillColor().setColor(color)
     shape.setBlackWhiteMode(BlackWhiteMode.Gray)
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx)
@@ -735,11 +932,11 @@ finally:
     presentation.dispose()
 ```
 
-V normálním barevném režimu si obdélník zachová oranžové výplně. V černobílém pracovním postupu se použije šedé zbarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnokolorovou snímku a zároveň definovat odlišný vzhled pro tisk, náhled nebo jiné pracovní postupy, které respektují nastavení černobílého zobrazení prezentace.
+V normálním barevném režimu si obdélník zachová oranžovou výplň. V pracovním postupu černobílého zobrazení používá šedé zabarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat plnobarevný snímek a definovat odlišný vzhled pro tisk, náhled nebo jiné pracovní postupy, které respektují nastavení černobílého zobrazení prezentace.
 
-## **Obnovení formátování**
+## **Resetovat formátování**
 
-Následující Python kód ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů s místodržáky na [LayoutSlide](https://reference.aspose.com/slides/python-java/aspose.slides/layoutslide/) na jejich výchozí nastavení :
+Použijte [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) k obnovení polohy, velikosti a formátování zástupných objektů snímku z jejich odpovídajících zástupných objektů rozložení. Tento příklad vyžaduje existující prezentaci se zástupnými objekty propojenými s rozložením a před uložením resetuje každý snímek. Tvary bez odpovídajících zástupných objektů rozložení nejsou resetovány.
 
 ```python
 import jpype
@@ -753,7 +950,6 @@ from asposeslides.api import Presentation, SaveFormat
 presentation = Presentation("sample.pptx")
 try:
     for slide in presentation.getSlides():
-        # Obnovte každý tvar na snímku, který má zástupný prvek v rozvržení.
         slide.reset()
 
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx)
@@ -761,16 +957,16 @@ finally:
     presentation.dispose()
 ```
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
 **Ovlivňuje formátování tvaru konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů, jako jsou barvy, efekty a gradienty, jsou uloženy jako metadata a téměř nepřidávají žádnou další velikost.
+Barvy, styly čar a nastavení efektů obecně přidávají jen málo dat ve srovnání s vloženými obrázky a médii. Výplně obrázků mohou velikost souboru zvýšit, protože jejich obrázky jsou uloženy v prezentaci.
 
-**Jak mohu zjistit tvary na snímku, které mají stejné formátování, abych je mohl seskupit?**
+**Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – výplň, čáru a nastavení efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky seskupte tyto tvary, což zjednoduší následnou správu stylů.
 
 **Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte vzorové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, klonujte stylované tvary, které potřebujete, a znovu použijte jejich formátování kdekoliv je to vyžadováno.
+Ano. Uložte vzorové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je to potřeba.
