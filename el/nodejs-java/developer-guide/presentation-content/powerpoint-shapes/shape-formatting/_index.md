@@ -14,71 +14,49 @@ keywords:
 - γέμισμα μοτίβου
 - γέμισμα εικόνας
 - γέμισμα υφής
-- γέμισμα στερεού χρώματος
+- γέμισμα σταθερού χρώματος
 - διαφάνεια σχήματος
-- ασπρόμαυρη απόδοση σχήματος
+- απόδοση σχήματος σε ασπρόμαυρο
 - απόδοση σχήματος σε γκρι κλίμακα
 - περιστροφή σχήματος
-- εφέ 3d λοβού
-- εφέ 3d περιστροφής
+- εφέ 3Δ φελίδωσης
+- εφέ 3Δ περιστροφής
 - επαναφορά μορφοποίησης
 - PowerPoint
 - παρουσίαση
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Διαμορφώστε τα σχήματα του PowerPoint σε JavaScript χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT, PPTX και ODP με ακρίβεια και πλήρη έλεγχο."
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε JavaScript χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Στο PowerPoint, μπορείτε να προσθέσετε σχήματα στις διαφάνειες. Καθώς τα σχήματα αποτελούνται από γραμμές, μπορείτε να τα μορφοποιήσετε τροποποιώντας ή εφαρμόζοντας εφέ στα περιγράμματά τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα καθορίζοντας ρυθμίσεις που ελέγχουν πώς γεμίζουν τα εσωτερικά τους.
+Διαμορφώστε σχήματα στο PowerPoint ρυθμίζοντας τα περιγράμματά τους, τις γεμίσεις και τα εφέ. Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της τρισδιάστατης διαμόρφωσης.
 
-![μορφοποίηση σχήματος PowerPoint](format-shape-powerpoint.png)
+![Επιλογές μορφοποίησης σχήματος στο PowerPoint](format-shape-powerpoint.png)
 
-Το Aspose.Slides για Node.js μέσω Java παρέχει κλάσεις και μεθόδους που σας επιτρέπουν να μορφοποιήσετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
+Το Aspose.Slides για Node.js μέσω Java παρέχει κλάσεις και μεθόδους που σας επιτρέπουν να μορφοποιείτε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που είναι διαθέσιμες στο PowerPoint.
 
 ## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να ορίσετε προσαρμοσμένο στυ λ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
+Χρησιμοποιήστε [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμισμένο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Η μέθοδος [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) επιλέγει μια σύνθετη γραμμή παχιά-λεπτή, ενώ η [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) ορίζει το πλάτος της στα 7 σημεία και η [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) επιλέγει το μοτίβο παύλας.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-1. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-1. Ορίστε το [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) του σχήματος.
-1. Ορίστε το πάχος της γραμμής.
-1. Ορίστε το [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) της γραμμής.
-1. Ορίστε το χρώμα της γραμμής για το σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας δείχνει πώς να μορφοποιήσετε ένα ορθογώνιο `AutoShape`:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Αφαιρέστε το γέμισμα από το σχήμα Rectangle.
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // Εφαρμόστε μορφοποίηση στις γραμμές του Rectangle.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // Ορίστε το χρώμα για τη γραμμή του Rectangle.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -89,49 +67,139 @@ try {
 
 ![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-## **Εφαρμογή Εφέ Σχεδίων στις Γραμμές Σχήματος**
+### **Ορισμός Προσαρμοσμένων Μοτίβων Παύλων Γραμμής**
 
-Ένα εφέ σκίτσου κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε το [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις της γραμμής, το [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις του σκίτσου, και το [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) για να επιλέξετε μια τιμή από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
+Χρησιμοποιήστε [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) όταν τα προρυθμισμένα στυλ γραμμής δεν παρέχουν τα επιθυμητά μήκη παύλων και κενών, για παράδειγμα για εμπορικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ παύλης σε [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) , να διαβάσετε την ρητά καθορισμένη τιμή, και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) :
+Οι καταχωρίσεις του πίνακα εναλλάσσονται μεταξύ μήκους παύλας και κενού, ξεκινώντας με παύλα. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `[4, 2]` σε πλάτος 3 σημείων παράγει παύλα 12 σημείου ακολουθούμενη από κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα παύλης‑κενού. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε παύλα και κενό να είναι ορατά.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδες άκρες. Οι πρώτες τρεις συγκρίνουν μοτίβα σε πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο σε διπλάσιο πλάτος, διπλασιάζοντας τόσο τις παύλες όσο και τα κενά. Η πέμπτη μεταβαίνει από προσαρμοσμένο μοτίβο σε συμπαγή γραμμή.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // Επαναφορά της τελευταίας γραμμής σε συμπαγές στυλ.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Για να επιστρέψετε σε προρυθμισμένο στυλ παύλης, περάστε το [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) στη [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
+
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**· **{1, 2}, 3 pt**· **{6, 2, 1, 2}, 3 pt**· **{4, 2}, 6 pt**· και **Solid, 3 pt**.
+
+![Τρία προσαρμοσμένα μοτίβα παύλων, μια πιο φαρδιά γραμμή που χρησιμοποιεί το πρώτο μοτίβο, και μια συμπαγή γραμμή στο PowerPoint](custom-dash-patterns.png)
+
+### **Ορισμός Άκρων Γραμμής**
+
+Χρησιμοποιήστε [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) για να ορίσετε τα άκρα μιας ανοιχτής γραμμής. Η κλάση [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) παρέχει τρία ρητά στυλ άκρων:
+
+- `Flat`: Η γραμμή σταματά στο άκρο.
+- `Round`: Μια ημικυκλική άκρη εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+- `Square`: Μια τετράγωνη άκρη εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+
+Η κλάση περιλαμβάνει επίσης το `NotDefined`, που σημαίνει ότι δεν έχει εκχωρηθεί ρητό στυλ άκρου.
+
+Τα άκρα διαφέρουν από τα βελόνα, που προσθέτουν σύμβολα στα άκρα της γραμμής, και τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τις βελόνα μέσω των [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) και [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) ώστε να συγκριτούνται μόνο τα σχήματα άκρων.
+
+Το παρακάτω παράδειγμα δημιουργεί τρεις οριζόντιες γραμμές με ίδιες ιδιότητες, πλάτους 20 σημείων. Από πάνω προς τα κάτω, χρησιμοποιούν άκρα flat, round και square. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα round και square άκρα εκτείνονται 10 σημεία πέρα από κάθε άκρο.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, και **Square**.
+
+![Flat, round και square άκρα σε ίσες παχιές γραμμές στο PowerPoint](line-caps.png)
+
+## **Εφαρμογή Σχεδίου Σκίτσου σε Γραμμές Σχήματος**
+
+Ένα εφέ σκίτσου κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδ drawn. Χρησιμοποιήστε [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) για πρόσβαση στις ρυθμίσεις γραμμής, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) για πρόσβαση στις ρυθμίσεις σκίτσου και [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) για επιλογή τιμής από την κλάση [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
+
+Ο παρακάτω κώδικας JavaScript δείχνει πώς να εφαρμόσετε ένα εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/), να διαβάσετε την ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Πρόσβαση στη μορφοποίηση γραμμής του σχήματος και στη μορφή σκίτσου.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Εφαρμογή εφέ σκίτσου.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // Ανάγνωση του εφέ σκίτσου που έχει οριστεί άμεσα στο σχήμα.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // Αφαίρεση του εφέ σκίτσου.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Η τιμή που επιστρέφει το [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) αντιπροσωπεύει τη ρύθμιση που έχει οριστεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληθεί από θέμα, κύρια διαφάνεια ή διαφάνεια διάταξης, χρησιμοποιήστε το [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), καλέστε `getSketchFormat` στο επιστρεφόμενο αντικείμενο και στη συνέχεια καλέστε τη μέθοδό του `getSketchType`. Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται πράγματι μετά την επίλυση της κληρονομικότητας:
+Η τιμή που επιστρέφει η [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) αντιπροσωπεύει τη ρύθμιση που έχει εκχωρηθεί απευθείας στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε τη [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), καλέστε το `getSketchFormat` στο επιστρεφόμενο αντικείμενο και στη συνέχεια καλέστε τη μέθοδο `getSketchType`. Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονομικότητας. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στη πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -143,113 +211,123 @@ try {
 }
 ```
 
-## **Μορφοποίηση Στυλ Σύνδεσης**
+## **Μορφοποίηση Στυλ Συμμετοχής**
 
-Αυτές είναι οι τρεις επιλογές τύπου σύνδεσης:
+Εδώ είναι οι τρεις επιλογές τύπου συμμετοχής:
 
-* Στρογγυλή
-* Οξύγωνη
-* Κωνική
+* Round
+* Miter
+* Bevel
 
-Από προεπιλογή, όταν το PowerPoint ενώνει δύο γραμμές με γωνία (π.χ. στη γωνία ενός σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλή**. Ωστόσο, εάν σχεδιάζετε σχήμα με οξυγώνιες γωνίες, μπορεί να προτιμήσετε την επιλογή **Οξύγωνη**.
+Το στυλ συμμετοχής ελέγχει πώς δύο τμήματα περιγράμματος συναντιούνται σε γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για αιχμηρές γωνίες ή **Bevel** για επίπεδες γωνίες.
 
-![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
+![Το στυλ συμμετοχής στην παρουσίαση](join-style-powerpoint.png)
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς τρία ορθογώνια (όπως φαίνονται στην εικόνα παραπάνω) δημιουργήθηκαν χρησιμοποιώντας τις ρυθμίσεις τύπου σύνδεσης Oξύγωνη, Κωνική και Στρογγυλή:
+Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα πλάτους 15 σημείων. Χρησιμοποιεί τη [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) για να εφαρμόσει τις τιμές miter, bevel και round της κλάσης [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), αντίστοιχα, ώστε να συγκρίνει πώς σχεδιάζονται οι γωνίες.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε τρία αυτόματα σχήματα τύπου Rectangle.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ορίστε το χρώμα γεμίσματος για κάθε σχήμα Rectangle.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Ορίστε το πλάτος της γραμμής.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Ορίστε το χρώμα για τη γραμμή κάθε Rectangle.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Ορίστε το στυλ σύνδεσης.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // Προσθέστε κείμενο σε κάθε Rectangle.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Γέμισμα Διαβάθμισης**
+### **Περιορισμός Συμμετοχών Miter σε Αιχμηρές Γωνίες**
 
-Στο PowerPoint, το Γέμισμα Διαβάθμισης είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε μια συνεχόμενη μίξη χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα με τέτοιο τρόπο ώστε το ένα να εξασθένει σταδιακά στο άλλο.
+Χρησιμοποιήστε τη [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) μαζί με τη [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) ορισμένη σε [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο μπορεί να εκτεινθεί μια αιχμηρή γωνία.
 
-Ακολουθεί η διαδικασία για την εφαρμογή γέμισης διαβάθμισης σε σχήμα χρησιμοποιώντας το Aspose.Slides:
+Το όριο είναι ένα λόγο της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της συμμετοχής προς το πλάτος της γραμμής. Για παράδειγμα, η τιμή `8` επιτρέπει μήκος miter έως και οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία θα ξεπεράσει το όριο, το PowerPoint χρησιμοποιεί μια παραμειδίαμενη (beveled) συμμετοχή σε αυτή τη γωνία. Μεγαλύτερο όριο επιτρέπει πιο αιχμηρά σημεία. Η ρύθμιση επηρεάζει μόνο τις συμμετοχές miter και δεν έχει ορατό αποτέλεσμα όταν η γωνία παραμένει εντός των ορίων.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε το [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) του σχήματος σε `Gradient`.
-5. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `add` της συλλογής σημείων διαβάθμισης που εκθέτει η κλάση [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/) .
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί δύο ίσα, μη γεμισμένα τρίγωνα με περιγράμματα πλάτους 20 σημείων. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, το δεξιό `8`. Κάθε τρίγωνο έχει πλάτος 80 σημείων και ύψος 160 σημείων, δίνοντας στην κορυφαία γωνία του λόγο miter‑length‑to‑line‑width περίπου `4.12`. Ως εκ τούτου, το PowerPoint παραμελδίζει το αριστερό άκρο και διατηρεί το δεξιό.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Ellipse.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // Εφαρμόστε μορφοποίηση διαβάθμισης στην Ellipse.
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint: **Miter limit 2** στα αριστερά και **miter limit 8** στα δεξιά.
+
+![Μια παραμειδίαμενη κορυφή με όριο miter 2 και μια αιχμηρή κορυφή με όριο miter 8 στο PowerPoint](miter-limits.png)
+
+## **Γέμισμα Διαβάθμισης**
+
+Ένα γέμισμα διαβάθμισης ανα μίκτης χρωμάτων μέσα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική διαβάθμιση υπό γωνία 45 μοιρών από το κόκκινο στο μωβ χρησιμοποιώντας τη [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Η μέθοδος [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) τοποθετεί τα χρωματικά σταθμούς στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχόντων σταθμών εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // Ορίστε την κατεύθυνση της διαβάθμισης.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // Προσθέστε δύο σημεία διαβάθμισης.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -258,52 +336,171 @@ try {
 
 Το αποτέλεσμα:
 
-![Το έλλειψο με γέμισμα διαβάθμισης](gradient-fill.png)
+![Η έλλειψη με γέμισμα διαβάθμισης](gradient-fill.png)
 
-Εάν μια διαβάθμιση φαίνεται διαφορετική σε μια εξαγόμενη εικόνα από ό,τι στο PowerPoint, δείτε το [Επιλέξτε Στυλ Απόδοσης Διαβάθμισης](/slides/el/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση που αποθηκεύεται στην παρουσίαση.
+Αν η διαβάθμιση φαίνεται διαφορετικά σε εξαγόμενο εικόνικο αρχείο από ό,τι στο PowerPoint, δείτε το [Choose a Gradient Rendering Style](/slides/el/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη διαβάθμιση που αποθηκεύεται στην παρουσίαση.
 
-## **Γέμισμα Σχεδίου**
+### **Ορισμός Γωνίας Γραμμικής Διαβάθμισης**
 
-Στο PowerPoint, το Γέμισμα Σχεδίου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε σχεδίαση δύο χρωμάτων — όπως κουκίδες, λωρίδες, διαγώνιες λωρίδες ή τετράγωνα — σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το φόντο του σχεδίου.
+Χρησιμοποιήστε τη [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) για να ελέγξετε την προσανατολισμό μιας γεμίσματος [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/). Η γωνία μετριέται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς κάτω, `180` από δεξιά προς αριστερά και `270` από κάτω προς πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι πεπερασμένες γωνίες εκτός του εύρους `[0, 360)` κανονικοποιούνται σε μία πλήρη περιστροφή· για παράδειγμα, `-45` γίνεται `315` και `360` γίνεται `0`.
 
-Το Aspose.Slides παρέχει πάνω από 45 προεγκατεστημένα στυλ σχεδίου που μπορείτε να εφαρμόσετε σε σχήματα για να ενισχύσετε την οπτική ελκυστικότητα των παρουσιάσεών σας. Ακόμη και μετά την επιλογή προεγκατεστημένου σχεδίου, μπορείτε να καθορίσετε ακριβώς τα χρώματα που θα χρησιμοποιηθούν.
+Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με ίδιους χρωματικούς σταθμούς κόκκινου, πράσινου και μπλε στις θέσεις `0`, `0.5` και `1`. Η κλίμακα είναι απενεργοποιημένη ώστε η γωνία να μπορεί να συγκριθεί ανεξάρτητα από τις αναλογίες των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
 
-Ακολουθεί ο οδηγός για την εφαρμογή γέμισης σχεδίου σε σχήμα χρησιμοποιώντας το Aspose.Slides:
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε το [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) του σχήματος σε `Pattern`.
-5. Επιλέξτε ένα στυλ σχεδίου από τις προεγκατεστημένες επιλογές.
-6. Ορίστε το [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) του σχεδίου.
-7. Ορίστε το [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) του σχεδίου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint:
+
+![Γραμμικές διαβάθμιση στις 0, 45 και 90 μοίρες στην κορυφαία σειρά, και 135, 180 και 270 μοίρες στην κάτω σειρά](linear-gradient-angles.png)
+
+### **Κλιμάκωση Γραμμικής Διαβάθμισης με το Σχήμα**
+
+Η [GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) δέχεται τιμή τύπου [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/). Ορίστε την ρητά σε `False` για να διατηρείται η γεωμετρική γωνία της διαβάθμισης καθώς αλλάζουν οι αναλογίες του σχήματος, ή σε `True` για να κλιμακώνεται η διαβάθμιση με το πλάτος και το ύψος του σχήματος. Με την κλιμάκωση ενεργοποιημένη, η ορατή γωνία μπορεί να διαφέρει από την καθορισμένη γωνία σε μη τετράγωνο σχήμα.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τους ίδιους χρωματικούς σταθμούς όπως στο προηγούμενο παράδειγμα σύγκρισης γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά στήλη χρησιμοποιεί `True`. Κάθε στήλη περιέχει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και οι δύο ξεκινούν με τις ίδιες πλατιές διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γέμιση ανταποκρίνεται στην αλλαγή μεγέθους χωρίς να αλλάζει τις ρυθμίσεις της διαβάθμισης.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint, με κλιμάκωση απενεργοποιημένη στα αριστερά και ενεργοποιημένη στα δεξιά:
+
+![Πλατιά και ψηλά ορθογώνια με διαβάθμιση 45 μοιρών, συγκρίνοντας LinearGradientScaled False στα αριστερά με True στα δεξιά](linear-gradient-scaling.png)
+
+Με την κλιμάκωση απενεργοποιημένη, οι διαγώνιες χρωματικές λωρίδες διατηρούν την ίδια προσανατολισμό και στα δύο ορθογώνια. Με την κλιμάκωση ενεργοποιημένη, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην αναπαραγωγή μιας προτύπου διαβάθμισης όταν προσαρμόζεται ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση της διαβάθμισης 45 μοιρών.
+
+Τanto η γωνία όσο και η κλιμάκωση ισχύουν για γραμμικές διαβάθμιση. Δεν ελέγχουν τις γεμίσεις [GradientShape.Radial ή GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/).
+
+### **Συνδυασμός Γωνίας με Κατεύθυνση Διαβάθμισης**
+
+Η [GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) επιλέγει στυλ διαβάθμισης από την κλάση [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); δεν αντικαθιστά αριθμητική γωνία. Για μια γραμμική διαβάθμιση, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή διανομής των χρωμάτων χωρίς να αλλάξουν τη γωνία που ορίζεται μέσω του [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
+
+Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίστροφη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Γέμισμα Μοτίβου**
+
+Ένα γέμισμα μοτίβου εφαρμόζει σχέδιο δύο χρωμάτων, όπως κουκίδες, λωρίδες ή τετράγωνα. Το παράδειγμα χρησιμοποιεί το [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) για να επιλέξει μοτίβο πλέγματος. Η μέθοδος [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) καθορίζει το ανοιχτό γκρι φόντο, και η [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) ορίζει το κίτρινο χρώμα του μοτίβου.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ορίστε τον τύπο γεμίσματος σε Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // Ορίστε το στυλ του μοτίβου.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // Ορίστε τα χρώματα φόντου και προσκηνίου του μοτίβου.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -312,56 +509,35 @@ try {
 
 Το αποτέλεσμα:
 
-![Το ορθογώνιο με γέμισμα σχεδίου](pattern-fill.png)
+![Το ορθογώνιο με γέμισμα μοτίβου](pattern-fill.png)
 
 ## **Γέμισμα Εικόνας**
 
-Στο PowerPoint, το Γέμισμα Εικόνας είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εισάγετε μια εικόνα μέσα σε ένα σχήμα — χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
+Ένα γέμισμα εικόνας χρησιμοποιεί μια εικόνα μέσα σε σχήμα. Αυτό το παράδειγμα απαιτεί τοπική εικόνα και χρησιμοποιεί το [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) σε λειτουργία επικάλυψης (tiled) η εικόνα επαναλαμβάνεται μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται φαίνεται παρακάτω:
 
-Ακολουθούν τα βήματα για να εφαρμόσετε γέμισμα εικόνας σε σχήμα χρησιμοποιώντας το Aspose.Slides:
+![Η εικόνα λωτού](lotus.png)
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε το [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) του σχήματος σε `Picture`.
-5. Ορίστε τη λειτουργία γέμισματος εικόνας σε `Tile` (ή άλλη προτιμώμενη λειτουργία).
-6. Δημιουργήστε ένα αντικείμενο [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) από την εικόνα που θέλετε να χρησιμοποιήσετε.
-7. Μεταβιβάστε την εικόνα στη μέθοδο `ISlidesPicture.setImage`.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ας υποθέσουμε ότι έχουμε το αρχείο «lotus.png» με την παρακάτω εικόνα:
-
-![Η εικόνα lotus](lotus.png)
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Ορίστε τον τύπο γεμίσματος σε Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // Ορίστε τη λειτουργία γεμίσματος εικόνας.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Φορτώστε μια εικόνα και προσθέστε την στους πόρους της παρουσίασης.
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Ορίστε την εικόνα.
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -372,45 +548,41 @@ try {
 
 ![Το σχήμα με γέμισμα εικόνας](picture-fill.png)
 
-### **Πλακίδωση Εικόνας ως Υφή**
+### **Επικάλυψη Εικόνας ως Υφή**
 
-Εάν θέλετε να ορίσετε μια πλακιδωμένη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά της πλακίδωσης, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) :
+Αν θέλετε να ορίσετε μια επικάλυπτη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά επικάλυψης, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Ορίζει το mode γέμισματος εικόνας — είτε `Tile` είτε `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Καθορίζει τη στοίχιση των πλακιδίων μέσα στο σχήμα.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Ελέγχει εάν το πλακίδιο θα αναστραφεί οριζόντια, κάθετα ή και τα δύο.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ορίζει την οριζόντια απόσταση του πλακιδίου (σε πόντους) από το σημείο προέλευσης του σχήματος.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ορίζει την κάθετη απόσταση του πλακιδίου (σε πόντους) από το σημείο προέλευσης του σχήματος.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Ορίζει το οριζόντιο κλίμακα του πλακιδίου ως ποσοστό.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Ορίζει το κάθετο κλίμακα του πλακιδίου ως ποσοστό.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Ορίζει τη λειτουργία γέμισματος εικόνας — `Tile` ή `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Ελέγχει αν το πλακίδιο θα αναστραφεί οριζόντια, κάθετα ή και τα δύο.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ορίζει την οριζόντια απόσταση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ορίζει την κάθετη απόσταση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Αυτό το παράδειγμα απαιτεί τοπική εικόνα και ρυθμίζει το [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) ώστε να την επαναλαμβάνει στο 50 % του αρχικού μεγέθους. Οι μετατοπίσεις `‑32` σημεία μετατοπίζουν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω‑δεξιά και η ανάποδη απεικόνιση και στις δύο κατευθύνσεις καθορίζουν τη διάταξη της επαναλαμβανόμενης υφής.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Ορίστε τον τύπο γεμίσματος του σχήματος σε Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Φορτώστε την εικόνα και προσθέστε την στους πόρους της παρουσίασης.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Αντιστοιχίστε την εικόνα στο σχήμα.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Διαμορφώστε τη λειτουργία γεμίσματος εικόνας και τις ιδιότητες πλακίδωσης.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -419,7 +591,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -428,42 +599,24 @@ try {
 
 Το αποτέλεσμα:
 
-![Οι επιλογές πλακίδωσης](tile-options.png)
+![Οι επιλογές πλακιδίων](tile-options.png)
 
-## **Γέμισμα Στερεού Χρώματος**
+## **Γέμισμα Σταθερού Χρώματος**
 
-Στο PowerPoint, το Γέμισμα Στερεού Χρώματος είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή σχέδια.
+Ένα σταθερό γέμισμα δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα χρησιμοποιεί το [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) για να επιλέξει τη λειτουργία σταθερού γεμίσματος και αναθέτει κίτρινο χρώμα μέσω του [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), στη συνέχεια αποθηκεύει το ορθογώνιο σε μια παρουσίαση.
 
-Για να εφαρμόσετε γέμισμα στερεού χρώματος σε σχήμα χρησιμοποιώντας το Aspose.Slides, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε το [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) του σχήματος σε `Solid`.
-5. Αναθέστε το προτιμώμενο χρώμα γεμίσματος στο σχήμα.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ορίστε τον τύπο γεμίσματος σε Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // Ορίστε το χρώμα γεμίσματος.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -472,41 +625,90 @@ try {
 
 Το αποτέλεσμα:
 
-![Το σχήμα με γέμισμα στερεού χρώματος](solid-color-fill.png)
+![Το σχήμα με γέμισμα σταθερού χρώματος](solid-color-fill.png)
+
+## **Χρήση του Φόντου Διαφάνειας ως Γέμισμα Σχήματος**
+
+Χρησιμοποιήστε το [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, π.χ. σε πρότυπο παρουσίασης. Χρησιμοποιήστε το [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) για να επιλέξετε αρχικά το [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ώστε να αφαιρεθεί οποιοδήποτε ρητό γέμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί για το δικό του γέμισμα στυλ. Η ενεργοποίηση της σημαίας από μόνη της δεν αφαιρεί υπάρχον ρητό γέμισμα.
+
+Αυτό διαφέρει από το [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): το γέμισμα φόντου καλύπτει τα αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το NoFill αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να ξεκινά ξανά μέσα σε κάθε σχήμα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα κύριο φόντο που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γέμισμα, και το δεξιό εναλλάσσει το φόντο με ρητό γέμισμα πορτοκαλί.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    // Κληρονόμηση του gradient από το master.
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // Προσθήκη αυτού του αντικειμένου πρώτα ώστε να εμφανίζεται πίσω από τα ορθογώνια.
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // Απενεργοποίηση γεμίσματος φόντου πριν εφαρμοστεί ρητό γέμισμα.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα, από αριστερά προς τα δεξιά: **γέμισμα φόντου**, **χωρίς γέμισμα**, και **ρητό γέμισμα**. Η ματζέντα λωρίδα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσω του μεσαίου ορθογωνίου.
+
+![Γέμισμα φόντου, χωρίς γέμισμα και ρητό πορτοκαλί γέμισμα πάνω από μια ματζέντα λωρίδα](background-fill.png)
+
+Η ίδια συμπεριφορά εφαρμόζεται σε φόντο που ορίζεται άμεσα στη διαφάνεια ή κληρονομείται από μια διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο φόντο της διαφάνειας· το παράδειγμα αφήνει και τις φόντο διαφάνειας και διάταξης ακαθόριστες ώστε η κύρια να τις παρέχει.
 
 ## **Ορισμός Διαφάνειας**
 
-Στο PowerPoint, όταν εφαρμόζετε γέμισμα στερεού χρώματος, διαβάθμισης, εικόνας ή υφής σε σχήματα, μπορείτε επίσης να ορίσετε ένα επίπεδο διαφάνειας για να ελέγξετε τη διαφάνεια του γεμίσματος. Ένα μεγαλύτερο ποσοστό διαφάνειας κάνει το σχήμα πιο διαυγές, επιτρέποντας στο φόντο ή στα υποκείμενα αντικείμενα να είναι εν μέρει ορατά.
+Για ένα σταθερό γέμισμα, το συστατικό αλφα του χρώματος ελέγχει την αδιαφάνεια: 0 σημαίνει πλήρως διαφανές και 255 πλήρως αδιαφάνεια. Αυτό το παράδειγμα χρησιμοποιεί αλφα τιμή 128 για ένα κίτρινο ορθογώνιο, κάνοντάς το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε το επίπεδο διαφάνειας ρυθμίζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Δείτε πώς:
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε το [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) σε `Solid`.
-5. Χρησιμοποιήστε την κλάση `Color` για να ορίσετε ένα χρώμα με διαφάνεια (το συστατικό `alpha` ελέγχει τη διαφάνεια).
-6. Αποθηκεύστε την παρουσίαση.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα στερεό ορθογώνιο αυτόματο σχήμα.
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Προσθέστε ένα διαφανές ορθογώνιο αυτόματο σχήμα επάνω στο στερεό σχήμα.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -519,33 +721,18 @@ try {
 
 ## **Περιστροφή Σχημάτων**
 
-Το Aspose.Slides σας επιτρέπει να περιστρέψετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο όταν στοιχίζετε οπτικά στοιχεία με συγκεκριμένη στοίχιση ή σχεδιαστικές απαιτήσεις.
+Χρησιμοποιήστε το [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) για να περιστρέψετε ένα σχήμα στο επίπεδο της διαφάνειας. Η γωνία μετριέται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο κατά 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
 
-Για να περιστρέψετε ένα σχήμα σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Ορίστε την ιδιότητα περιστροφής του σχήματος στην επιθυμητή γωνία.
-5. Αποθηκεύστε την παρουσίαση.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Λάβετε την πρώτη διαφάνεια.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα αυτόματο σχήμα τύπου Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Περιστρέψτε το σχήμα κατά 5 μοίρες.
     shape.setRotation(5);
 
-    // Αποθηκεύστε το αρχείο PPTX στο δίσκο.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -556,37 +743,24 @@ try {
 
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Λοβού**
+## **Προσθήκη Εφέ 3D Φελίδωσης**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ λοβού σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) .
+Χρησιμοποιήστε το [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) για να δώσετε σε ένα σχήμα βάθος και φελιδωμένα άκρα. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, χρησιμοποιεί το [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) για να ορίσει το βάθος σε 4 σημεία και εφαρμόζει μια κυκλική επάνω φελίδωση με πλάτος και ύψος 6 σημείων μέσω του [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Μια μπροστά‑προσανατολισμένη ορθογώνια κάμερα και φωτισμός τριών σημείων κάνουν το φελίδωμα ορατό.
 
-Για να προσθέσετε 3Δ εφέ λοβού σε ένα σχήμα, ακολουθήστε τα βήματα:
-
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Διαμορφώστε το [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) του σχήματος για να ορίσετε τις ρυθμίσεις λοβού.
-5. Αποθηκεύστε την παρουσίαση.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Προσθέστε ένα σχήμα στη διαφάνεια.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Ορίστε τις ιδιότητες ThreeDFormat του σχήματος.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -595,7 +769,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -604,38 +777,25 @@ try {
 
 Το αποτέλεσμα:
 
-![Το 3Δ εφέ λοβού](3D-bevel-effect.png)
+![Το εφέ 3D φελίδωσης](3D-bevel-effect.png)
 
-## **Προσθήκη 3Δ Εφέ Περιστροφής**
+## **Προσθήκη Εφέ 3D Περιστροφής**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ περιστροφής σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) .
+Η τρισδιάστατη προβολή ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) με γωνίες γεωγραφικού πλάτους, μη κεντρικού (longitude) και επαναφοράς 40, 35 και 20 μοιρών, αντίστοιχα. Επιλέγει ισομετρική κάμερα μέσω του [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) και ισορροπημένο φωτισμό μέσω του [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), στη συνέχεια αποθηκεύει το μορφοποιημένο ορθογώνιο.
 
-Για την εφαρμογή 3Δ περιστροφής σε σχήμα:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) .
-2. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση τον δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Χρησιμοποιήστε το [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) και το [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) για να ορίσετε την 3Δ περιστροφή.
-5. Αποθηκεύστε την παρουσίαση.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Δημιουργεί ένα στιγμιότυπο της κλάσης Presentation.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -644,17 +804,18 @@ try {
 
 Το αποτέλεσμα:
 
-![Το 3Δ εφέ περιστροφής](3D-rotation-effect.png)
+![Το εφέ 3D περιστροφής](3D-rotation-effect.png)
 
-## **Έλεγχος Ασπρόμαυρης Απόδοσης για Σχήματα**
+## **Έλεγχος Απόχρωσης Μαύρο‑Άσπρο για Σχήματα**
 
-Η μέθοδος [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν η παρουσίαση εμφανίζεται ή επεξεργάζεται σε ασπρόμαυρη λειτουργία. Δεν ενεργοποιεί την ασπρόμαυρη εμφάνιση από μόνο του και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική χρωματική λειτουργία.
+Η μέθοδος [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσίαση προβολείται ή επεξεργάζεται σε λειτουργία μαύρο‑άσπρο. Δεν ενεργοποιεί την προβολή μαύρο‑άσπρο από μόνο του και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική χρωματική λειτουργία.
 
-Χρησιμοποιήστε μια τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) για να επιλέξετε τη συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `Gray` και `LightGray` χρησιμοποιούν γκριχρώματα, `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, `Black` και `White` επιβάλλουν ένα ενιαίο χρώμα, `Color` διατηρεί το κανονικό χρώμα, και `Hidden` παραλείπει το σχήμα στην ασπρόμαυρη λειτουργία. `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
+Χρησιμοποιήστε μια τιμή από την κλάση [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) για να επιλέξετε τη ζητούμενη συμπεριφορά. Για παράδειγμα, το `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, τα `Gray` και `LightGray` χρησιμοποιούν γκρι απόχρωση, το `BlackWhite` χρησιμοποιεί μόνο μαύρο και άσπρο, τα `Black` και `White` επιβάλλουν ένα ενιαίο χρώμα, το `Color` διατηρεί το κανονικό χρώμα, και το `Hidden` αφαιρεί το σχήμα σε λειτουργία μαύρο‑άσπρο. Το `NotDefined` σημαίνει ότι δεν έχει εκχωρηθεί λειτουργία σε επίπεδο σχήματος.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και χρησιμοποιεί το [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) για να επιλέξει γκρι απόχρωση. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμισμα για κανονική χρωματική προβολή και ζητά γκρι απόχρωση από εφαρμογές που σέβονται τις ρυθμίσεις προβολής μαύρο‑άσπρου:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -663,9 +824,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // Διατηρήστε το πορτοκαλί γέμισμα σε χρωματική λειτουργία, αλλά απεικονίστε το σχήμα με γκρι χρωματισμό σε ασπρόμαυρη λειτουργία.
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -674,21 +833,22 @@ try {
 }
 ```
 
+Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμα. Σε ροή εργασίας μαύρο‑άσπρου, χρησιμοποιεί γκρι απόχρωση επειδή η λειτουργία του έχει οριστεί σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως χρωματιστή διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις προβολής μαύρο‑άσπρου της παρουσίασης.
+
 ## **Επαναφορά Μορφοποίησης**
 
-Ο παρακάτω κώδικας JavaScript δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με placeholders στη [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) στις προεπιλεγμένες ρυθμίσεις τους:
+Χρησιμοποιήστε το [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των δεσμευμένων θέσεων διαφανειών από τις αντίστοιχες θέσεις διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με δεσμευμένες θέσεις διάταξης και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχες θέσεις διάταξης δεν επαναφέρονται.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Επαναφορά κάθε σχήματος στη διαφάνεια που έχει placeholder στη διάταξη.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -697,14 +857,14 @@ try {
 
 ## **Συχνές Ερωτήσεις**
 
-**Επηρεάζει η μορφοποίηση των σχημάτων το τελικό μέγεθος του αρχείου παρουσίασης;**
+**Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος αρχείου της παρουσίασης;**
 
-Μόνο ελάχιστα. Οι ενσωματωμένες εικόνες και τα μέσα καταλαμβάνουν το μεγαλύτερο μέρος του χώρου του αρχείου, ενώ οι παράμετροι των σχημάτων όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και δεν προσθέτουν σχεδόν κανένα επιπλέον μέγεθος.
+Τα χρώματα, τα στυλ γραμμής και οι ρυθμίσεις εφέ προσθέτουν γενικά λίγα δεδομένα σε σύγκριση με ενσωματωμένες εικόνες και πολυμέσα. Τα γεμίσματα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
 
 **Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος — ρυθμίσεις γεμίσματος, γραμμής και εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε ότι τα στυλ είναι τα ίδια και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη διαχείριση στυλ αργότερα.
+Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος—γεμίσματα, γραμμές και ρυθμίσεις εφέ. Αν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ τους ως ίδια και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχημάτων σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε μια πρότυπη παρουσίαση ή σε αρχείο .POTX. Όταν δημιουργείτε νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλιζεμένα σχήματα που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε μια παρουσίαση προτύπου ή αρχείο .POTX. Όταν δημιουργείτε νέα παρουσίαση, ανοίξτε το πρότυπο, αντιγράψτε τα σχήματα με το στυλ που χρειάζεστε και επαναεφαρμόστε τη μορφοποίησή τους όπου απαιτείται.

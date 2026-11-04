@@ -1,127 +1,223 @@
 ---
 title: Định dạng hình dạng PowerPoint trong PHP
-linktitle: Định dạng Hình dạng
+linktitle: Định dạng hình dạng
 type: docs
 weight: 20
 url: /vi/php-java/shape-formatting/
 keywords:
 - định dạng hình dạng
 - định dạng đường
-- hiệu ứng phác thảo
-- đường viền hình dạng phác thảo
+- hiệu ứng vẽ tay
+- đường hình dạng vẽ tay
 - định dạng kiểu nối
 - đổ màu gradient
 - đổ mẫu
-- đổ hình ảnh
-- đổ kết cấu
-- đổ màu đơn
-- trong suốt hình dạng
+- đổ ảnh
+- đổ texture
+- đổ màu đặc
+- độ trong suốt hình dạng
 - hiển thị hình dạng đen-trắng
-- hiển thị hình dạng thang độ xám
+- hiển thị hình dạng mức xám
 - xoay hình dạng
-- hiệu ứng chân đế 3D
+- hiệu ứng bevel 3D
 - hiệu ứng xoay 3D
 - đặt lại định dạng
 - PowerPoint
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách định dạng các hình dạng PowerPoint trong PHP bằng Aspose.Slides—đặt các kiểu tô, đường viền và hiệu ứng cho tệp PPT, PPTX và ODP một cách chính xác và kiểm soát đầy đủ."
+description: "Tìm hiểu cách định dạng hình dạng PowerPoint trong PHP bằng Aspose.Slides - đặt các kiểu đổ, đường và hiệu ứng cho tệp PPT và PPTX một cách chính xác và toàn quyền kiểm soát."
 ---
 ## **Giới thiệu**
 
-Trong PowerPoint, bạn có thể thêm các hình dạng vào các slide. Vì các hình dạng được tạo thành từ các đường, bạn có thể định dạng chúng bằng cách sửa đổi hoặc áp dụng hiệu ứng cho đường viền của chúng. Ngoài ra, bạn có thể định dạng các hình dạng bằng cách chỉ định các cài đặt kiểm soát cách phần bên trong của chúng được tô màu.
+Định dạng các hình dạng trong PowerPoint bằng cách điều chỉnh đường viền, nền và hiệu ứng của chúng. Aspose.Slides for PHP qua Java cho phép bạn kiểm soát các cài đặt này bằng mã, bao gồm độ trong suốt, xoay và định dạng 3D.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Các tùy chọn định dạng hình dạng trong PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java cung cấp các lớp và phương thức cho phép bạn định dạng các hình dạng bằng các tùy chọn giống như trong PowerPoint.
+Aspose.Slides for PHP qua Java cung cấp các lớp và phương thức cho phép bạn định dạng hình dạng bằng các tùy chọn có sẵn trong PowerPoint.
 
-## **Định dạng Đường**
+## **Định dạng đường**
 
-Sử dụng Aspose.Slides, bạn có thể chỉ định kiểu đường tùy chỉnh cho một hình dạng. Các bước sau mô tả quy trình:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [line style](https://reference.aspose.com/slides/php-java/aspose.slides/linestyle/) cho hình dạng.
-1. Đặt độ rộng của đường.
-1. Đặt [dash style](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) của đường.
-1. Đặt màu đường cho hình dạng.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã PHP sau minh họa cách định dạng một `AutoShape` hình chữ nhật:
+Sử dụng [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) để điều khiển đường viền của một hình dạng. Ví dụ này tạo một hình chữ nhật không nền với đường viền màu xanh dương, dạng gạch đứt. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) chọn một đường hợp chất dày-mỏng, trong khi [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) đặt độ rộng của nó thành 7 point và [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) chọn mẫu gạch.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\LineDashStyle;
+use aspose\slides\LineStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
-
-    // Đặt màu tô cho hình chữ nhật.
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
     $shape->getFillFormat()->setFillType(FillType::NoFill);
-
-    // Áp dụng định dạng cho các đường của hình chữ nhật.
     $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
-
-    // Đặt màu cho đường viền của hình chữ nhật.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-
 Kết quả:
 
-![Các đường đã định dạng trong bản trình chiếu](formatted-lines.png)
+![Các đường đã được định dạng trong bản trình chiếu](formatted-lines.png)
 
-## **Áp dụng Hiệu ứng Phác thảo cho Đường viền Hình**
+### **Đặt mẫu gạch tùy chỉnh cho đường**
 
-Hiệu ứng phác thảo làm cho đường viền của hình dạng trông như được vẽ tay. Sử dụng [Shape.getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) để truy cập các cài đặt đường, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/) để truy cập các cài đặt phác thảo, và [SketchFormat.setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) để chọn một giá trị từ enumeration [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
+Sử dụng [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) khi các kiểu đường định trước không cung cấp độ dài gạch và khoảng trống mà bạn cần, ví dụ cho các đường viền thương hiệu hoặc sơ đồ kỹ thuật. Gán một mẫu sẽ tự động thay đổi kiểu gạch của đường thành [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-Mã PHP sau cho thấy cách áp dụng hiệu ứng [LineSketchType.Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/), đọc giá trị được gán một cách rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType.None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+Các mục trong mảng xen kẽ giữa độ dài gạch và khoảng trống, bắt đầu bằng một gạch. Mỗi giá trị là bội số của độ rộng đường: `[4, 2]` với độ rộng 3 point tạo ra gạch 12 point sau đó là khoảng trống 6 point. Sử dụng các cặp giá trị hữu hạn, không âm để xác định các đoạn gạch‑khoảng trống hoàn chỉnh. Ví dụ sử dụng các giá trị dương để giữ cho mọi gạch và khoảng trống đều hiển thị.
+
+Ví dụ này tạo năm đường màu xanh dương có cùng độ dài và đầu thẳng. Ba đường đầu tiên so sánh các mẫu với độ rộng 3 point. Đường thứ tư lặp lại mẫu đầu tiên với độ rộng gấp đôi, làm tăng gấp đôi cả độ dài gạch và khoảng trống. Đường thứ năm chuyển từ mẫu tùy chỉnh sang đường đặc.
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\LineCapStyle;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(600, 300, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+
+    for ($i = 0; $i < count($patterns); $i++) {
+        $line = $slide->getShapes()->addAutoShape(ShapeType::Line, 50, 50 + $i * 50, 500, 0);
+        $line->getLineFormat()->setWidth($i == 3 ? 6 : 3);
+        $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+        $line->getLineFormat()->setCapStyle(LineCapStyle::Flat);
+        $line->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle::None);
+        $line->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::None);
+        $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
+    }
+
+    // Đặt đường cuối cùng thành kiểu solid.
+    $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
+
+    $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Để trở lại kiểu gạch định trước, hãy truyền [LineDashStyle::Dash](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/) vào [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle). Kiểu đã chọn kiểm soát giao diện của đường.
+
+Kết quả trong PowerPoint, từ trên xuống dưới: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; và **Solid, 3 pt**.
+
+![Ba mẫu gạch tùy chỉnh, một đường rộng hơn sử dụng mẫu đầu tiên, và một đường đặc trong PowerPoint](custom-dash-patterns.png)
+
+### **Đặt đầu dòng**
+
+Sử dụng [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) để đặt đầu của một đường mở. Lớp [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) cung cấp ba kiểu đầu rõ ràng:
+
+- `Flat`: Đường nét dừng lại ở điểm cuối.
+- `Round`: Một đầu hình nửa vòng tròn kéo dài ra ngoài điểm cuối bởi một nửa độ rộng đường.
+- `Square`: Một đầu hình vuông kéo dài ra ngoài điểm cuối bởi một nửa độ rộng đường.
+
+Lớp này cũng bao gồm `NotDefined`, có nghĩa là không có kiểu đầu nào được gán rõ ràng.
+
+Đầu khác với mũi tên, chúng thêm ký hiệu vào đầu đường, và các nối, chúng kiểm soát các góc giữa các đoạn đường. Ví dụ này tắt mũi tên thông qua [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) và [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) để chỉ so sánh các hình dạng đầu.
+
+Ví dụ sau tạo ba đường ngang gần như giống nhau, rộng 20 point. Từ trên xuống dưới, chúng sử dụng đầu flat, round và square. Các điểm cuối của chúng có cùng tọa độ ngang; đầu round và square mở rộng 10 point ra ngoài mỗi điểm cuối.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\LineArrowheadStyle;
+use aspose\slides\LineCapStyle;
+use aspose\slides\LineDashStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(500, 240, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $capStyles = [LineCapStyle::Flat, LineCapStyle::Round, LineCapStyle::Square];
+
+    for ($i = 0; $i < count($capStyles); $i++) {
+        $line = $slide->getShapes()->addAutoShape(ShapeType::Line, 100, 50 + $i * 70, 300, 0);
+        $line->getLineFormat()->setWidth(20);
+        $line->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $lineColor = new Java("java.awt.Color", 0, 0, 139);
+        $line->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+        $line->getLineFormat()->setDashStyle(LineDashStyle::Solid);
+        $line->getLineFormat()->setCapStyle($capStyles[$i]);
+        $line->getLineFormat()->setBeginArrowheadStyle(LineArrowheadStyle::None);
+        $line->getLineFormat()->setEndArrowheadStyle(LineArrowheadStyle::None);
+    }
+
+    $presentation->save("line_caps.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả trong PowerPoint, từ trên xuống dưới: **Flat**, **Round**, và **Square**.
+
+![Đầu flat, round và square trên các đường dày giống nhau trong PowerPoint](line-caps.png)
+
+## **Áp dụng hiệu ứng vẽ tay cho đường hình dạng**
+
+Hiệu ứng vẽ tay làm cho đường của hình dạng trông giống như được vẽ bằng tay. Sử dụng [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) để truy cập cài đặt đường, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) để truy cập cài đặt vẽ tay, và [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) để chọn một giá trị từ lớp [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
+
+Mã PHP sau đây cho thấy cách áp dụng hiệu ứng [LineSketchType::Curved](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/) , đọc giá trị được gán rõ ràng, và loại bỏ hiệu ứng bằng [LineSketchType::None](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/):
+
+```php
+use aspose\slides\LineSketchType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
+
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Truy cập định dạng đường của hình và định dạng phác thảo của nó.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
-
-    // Áp dụng hiệu ứng phác thảo.
     $sketchFormat->setSketchType(LineSketchType::Curved);
-
-    // Đọc hiệu ứng phác thảo được gán trực tiếp cho hình.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
-
-    // Xóa bỏ hiệu ứng phác thảo.
     $sketchFormat->setSketchType(LineSketchType::None);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Giá trị trả về bởi [SketchFormat.getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/) đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường có thể được kế thừa từ chủ đề, slide máster hoặc slide bố cục, hãy sử dụng [LineFormat.getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/), truy cập phương thức `getSketchFormat` của đối tượng trả về, và đọc giá trị `getSketchType` của nó. Giá trị hiệu quả phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết:
+Giá trị trả về bởi [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) đại diện cho cài đặt được gán trực tiếp cho hình dạng. Nếu định dạng đường có thể được kế thừa từ chủ đề, slide chủ hoặc slide bố cục, hãy sử dụng [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), truy cập phương thức `getSketchFormat` của đối tượng trả về, và đọc giá trị `getSketchType` của nó. Giá trị hiệu quả phản ánh định dạng thực tế được áp dụng sau khi kế thừa được giải quyết. Ví dụ này yêu cầu một bản trình chiếu hiện có có ít nhất một hình dạng trên slide đầu tiên và in cả hai giá trị:
 
 ```php
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("presentation.pptx");
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lineFormat = $shape->getLineFormat();
 
+    $lineFormat = $shape->getLineFormat();
     $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
     $effectiveLineFormat = $lineFormat->getEffective();
     $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
@@ -133,107 +229,135 @@ try {
 }
 ```
 
-## **Định dạng Kiểu Nối**
+## **Định dạng kiểu nối**
 
 Dưới đây là ba tùy chọn kiểu nối:
 
-* Tròn
-* Góc nhọn
-* Góc xiên
+* Round
+* Miter
+* Bevel
 
-Mặc định, khi PowerPoint nối hai đường ở một góc (chẳng hạn ở góc của một hình dạng), nó sử dụng cài đặt **Tròn**. Tuy nhiên, nếu bạn đang vẽ một hình dạng với các góc sắc, bạn có thể ưu tiên tùy chọn **Góc nhọn**.
+Kiểu nối kiểm soát cách hai đoạn viền gặp nhau tại một góc. Sử dụng **Round** cho góc tròn, **Miter** cho góc sắc, hoặc **Bevel** cho góc phẳng.
 
 ![Kiểu nối trong bản trình chiếu](join-style-powerpoint.png)
 
-Mã PHP sau minh họa cách ba hình chữ nhật (như trong hình trên) được tạo bằng các cài đặt kiểu nối Miter, Bevel và Round:
+Ví dụ này tạo ba hình chữ nhật đen với viền xanh dương rộng 15 point. Nó đặt [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) thành các giá trị miter, bevel và round của [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), tương ứng, để so sánh cách các góc được vẽ.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\LineJoinStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm ba auto shape loại Rectangle.
-    $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
-    $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
-    $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
+    $miterShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
+    $bevelShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
+    $roundShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // Đặt màu tô cho mỗi hình chữ nhật.
-    $shape1->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shape2->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $shape3->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $miterShape->getFillFormat()->setFillType(FillType::Solid);
+    $miterShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $bevelShape->getFillFormat()->setFillType(FillType::Solid);
+    $bevelShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $roundShape->getFillFormat()->setFillType(FillType::Solid);
+    $roundShape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
 
-    // Đặt độ rộng đường.
-    $shape1->getLineFormat()->setWidth(15);
-    $shape2->getLineFormat()->setWidth(15);
-    $shape3->getLineFormat()->setWidth(15);
+    $miterShape->getLineFormat()->setWidth(15);
+    $bevelShape->getLineFormat()->setWidth(15);
+    $roundShape->getLineFormat()->setWidth(15);
 
-    // Đặt màu cho đường của mỗi hình chữ nhật.
-    $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape2->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $miterShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $miterShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $bevelShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $bevelShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+    $roundShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $roundShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Đặt kiểu nối.
-    $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
-    $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
-    $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
+    $miterShape->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
+    $bevelShape->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
+    $roundShape->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
 
-    // Thêm văn bản vào mỗi hình chữ nhật.
-    $shape1->getTextFrame()->setText("Miter Join Style");
-    $shape2->getTextFrame()->setText("Bevel Join Style");
-    $shape3->getTextFrame()->setText("Round Join Style");
+    $miterShape->getTextFrame()->setText("Miter Join Style");
+    $bevelShape->getTextFrame()->setText("Bevel Join Style");
+    $roundShape->getTextFrame()->setText("Round Join Style");
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("join_styles.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Đổ màu Gradient**
+### **Giới hạn nối Miter ở các góc sắc**
 
-Trong PowerPoint, Đổ màu Gradient là một tùy chọn định dạng cho phép bạn áp dụng một sự pha trộn liên tục của các màu vào một hình dạng. Ví dụ, bạn có thể áp dụng hai hoặc nhiều màu sao cho một màu dần chuyển sang màu khác.
+Sử dụng [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) cùng với [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) được đặt thành [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) để giới hạn mức độ mở rộng của một góc sắc.
 
-Cách áp dụng đổ màu gradient cho một hình dạng bằng Aspose.Slides:
+Giới hạn là tỉ lệ giữa khoảng cách giữa góc trong và góc ngoài của nối so với độ rộng đường. Ví dụ, giá trị `8` cho phép độ dài miter lên tới tám lần độ rộng đường; đây không phải là đơn vị điểm. Nếu góc vượt quá giới hạn, PowerPoint sẽ dùng một nối bevel ở góc đó. Giới hạn lớn hơn cho phép các điểm nhọn hơn. Cài đặt này chỉ ảnh hưởng đến nối miter và không tạo ra hiệu ứng nào khi góc vẫn nằm trong giới hạn.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) của hình dạng thành `Gradient`.
-1. Thêm hai màu bạn ưa thích kèm vị trí đã định nghĩa bằng các phương thức `add` của bộ sưu tập gradient stop được mở ra bởi lớp [GradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/).
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã PHP sau minh họa cách áp dụng hiệu ứng đổ màu gradient cho một ellipse:
+Ví dụ này tạo hai tam giác không nền giống hệt nhau, viền rộng 20 point. Tam giác bên trái dùng giới hạn `2`, còn bên phải dùng `8`. Mỗi tam giác rộng 80 point và cao 160 point, cho tỉ lệ độ dài miter so với độ rộng đường ở đỉnh trên khoảng `4.12`. Do đó, PowerPoint bevel đỉnh trái và giữ nguyên đỉnh phải.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\LineJoinStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
+    $presentation->getSlideSize()->setSize(500, 320, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Ellipse.
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
+    $miterLimits = [2, 8];
 
-    // Áp dụng định dạng gradient cho ellipse.
+    for ($i = 0; $i < count($miterLimits); $i++) {
+        $triangle = $slide->getShapes()->addAutoShape(ShapeType::Triangle, 90 + $i * 240, 110, 80, 160);
+        $triangle->getFillFormat()->setFillType(FillType::NoFill);
+        $triangle->getLineFormat()->setWidth(20);
+        $triangle->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $lineColor = new Java("java.awt.Color", 0, 0, 139);
+        $triangle->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+        $triangle->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
+        $triangle->getLineFormat()->setMiterLimit($miterLimits[$i]);
+    }
+
+    $presentation->save("miter_limits.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả trong PowerPoint: **Miter limit 2** ở bên trái và **miter limit 8** ở bên phải.
+
+![Đỉnh bị cắt góc với miter limit 2 và đỉnh nhọn với miter limit 8 trong PowerPoint](miter-limits.png)
+
+## **Đổ màu gradient**
+
+Một gradient đổ màu pha trộn các màu qua một hình dạng. Ví dụ này đổ màu cho một ellipsis bằng gradient tuyến tính góc 45 độ từ màu đỏ sang màu tím bằng [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). Phương thức [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) đặt các điểm màu tại 0 và 1, tức đầu và cuối của gradient. Xóa các điểm hiện có đảm bảo chỉ có hai màu này được sử dụng.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\Presentation;
+use aspose\slides\PresetColor;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
-
-    // Đặt hướng của gradient.
-    $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
-
-    // Thêm hai điểm dừng gradient.
+    $shape->getFillFormat()->getGradientFormat()->setLinearGradientAngle(45);
+    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->clear();
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
-    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
+    $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0.0, PresetColor::Red);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("gradient_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -242,50 +366,191 @@ try {
 
 Kết quả:
 
-![Hình ellipse với đổ màu gradient](gradient-fill.png)
+![Ellipse với màu gradient](gradient-fill.png)
 
-Nếu một gradient trông khác trong hình ảnh được xuất so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient được lưu trong bản trình chiếu.
+Nếu một gradient trông khác trong ảnh xuất khẩu so với trong PowerPoint, xem [Choose a Gradient Rendering Style](/slides/vi/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient được lưu trong bản trình chiếu.
+
+Bạn có thể chọn kiểu hiển thị mà không thay đổi gradient được lưu trong bản trình chiếu.
+
+### **Đặt góc gradient tuyến tính**
+
+Sử dụng [GradientFormat::setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle) để kiểm soát hướng của một lớp đổ [GradientShape::Linear](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/). Góc được đo bằng độ và tăng theo chiều kim đồng hồ: `0` chạy từ trái sang phải, `90` từ trên xuống dưới, `180` từ phải sang trái, và `270` từ dưới lên trên. Hỗ trợ các góc thập phân. Các góc hữu hạn ngoài khoảng `[0, 360)` sẽ được chuẩn hoá thành một vòng quay; ví dụ, `-45` trở thành `315` và `360` trở thành `0`.
+
+Ví dụ này tạo sáu hình chữ nhật có các điểm màu đỏ, xanh lá và xanh dương giống nhau ở các vị trí `0`, `0.5` và `1`. Tắt tỷ lệ để góc có thể so sánh độc lập với tỉ lệ của các hình chữ nhật. Các góc, từ trái sang phải, là `0`, `45` và `90` ở hàng đầu, và `135`, `180` và `270` ở hàng thứ hai.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $angles = [0, 45, 90, 135, 180, 270];
+
+    for ($i = 0; $i < count($angles); $i++) {
+        $x = 30 + ($i % 3) * 230;
+        $y = 30 + intdiv($i, 3) * 190;
+
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 200, 150);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getFillFormat()->setFillType(FillType::Gradient);
+
+        $gradient = $shape->getFillFormat()->getGradientFormat();
+        $gradient->setGradientShape(GradientShape::Linear);
+        $gradient->getGradientStops()->clear();
+        $gradient->getGradientStops()->add(0, java("java.awt.Color")->RED);
+        $gradient->getGradientStops()->add(0.5, java("java.awt.Color")->GREEN);
+        $gradient->getGradientStops()->add(1, java("java.awt.Color")->BLUE);
+        $gradient->setLinearGradientScaled(NullableBool::False);
+        $gradient->setLinearGradientAngle($angles[$i]);
+    }
+
+    $presentation->save("linear_gradient_angles.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả trong PowerPoint:
+
+![Gradient tuyến tính ở các góc 0, 45 và 90 độ ở hàng trên, và 135, 180 và 270 độ ở hàng dưới](linear-gradient-angles.png)
+
+### **Thu phóng gradient tuyến tính với hình dạng**
+
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) chấp nhận một giá trị [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Đặt nó rõ ràng thành `False` để giữ góc gradient hình học khi tỷ lệ hình dạng thay đổi, hoặc thành `True` để thu phóng gradient cùng với chiều rộng và chiều cao của hình dạng. Khi bật thu phóng, góc hiển thị có thể khác với góc đã gán trên một hình không vuông.
+
+Ví dụ sau sử dụng góc `45` độ và cùng các điểm màu như so sánh góc. Cột trái dùng `False`; cột phải dùng `True`. Mỗi cột chứa một hình chữ nhật rộng ở trên và một hình chữ nhật cao ở dưới. Cả hai đều bắt đầu với cùng kích thước rộng; việc thay đổi chiều rộng và chiều cao của hình thứ hai cho thấy cách nền phản hồi khi thay đổi kích thước mà không thay đổi cài đặt gradient.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(720, 460, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $scalingOptions = [NullableBool::False, NullableBool::True];
+
+    for ($column = 0; $column < count($scalingOptions); $column++) {
+        for ($row = 0; $row < 2; $row++) {
+            $x = 30 + $column * 360;
+            $y = $row == 0 ? 30 : 150;
+
+            $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, $x, $y, 300, 90);
+            $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+            $shape->getFillFormat()->setFillType(FillType::Gradient);
+
+            $gradient = $shape->getFillFormat()->getGradientFormat();
+            $gradient->setGradientShape(GradientShape::Linear);
+            $gradient->getGradientStops()->clear();
+            $gradient->getGradientStops()->add(0, java("java.awt.Color")->RED);
+            $gradient->getGradientStops()->add(0.5, java("java.awt.Color")->GREEN);
+            $gradient->getGradientStops()->add(1, java("java.awt.Color")->BLUE);
+            $gradient->setLinearGradientAngle(45);
+            $gradient->setLinearGradientScaled($scalingOptions[$column]);
+
+            if ($row == 1) {
+                $shape->setWidth(90);
+                $shape->setHeight(280);
+            }
+        }
+    }
+
+    $presentation->save("linear_gradient_scaling.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả trong PowerPoint, với thu phóng tắt ở bên trái và bật ở bên phải:
+
+![Các hình chữ nhật rộng và cao với gradient 45 độ, so sánh LinearGradientScaled False ở bên trái với True ở bên phải](linear-gradient-scaling.png)
+
+Với thu phóng tắt, các dải màu chéo giữ cùng hướng trong cả hai hình chữ nhật. Với thu phóng bật, các dải kéo dài theo tỉ lệ của hình dạng. Điều này giúp tái tạo gradient của một mẫu khi điều chỉnh hình dạng sang kích thước khác. Trên một hình vuông, bật thu phóng không thay đổi giao diện của gradient `45` độ này.
+
+Cả góc và cài đặt thu phóng đều áp dụng cho gradient tuyến tính. Chúng không kiểm soát các lớp đổ [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
+
+### **Kết hợp góc với hướng gradient**
+
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) chọn một kiểu gradient từ lớp [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); nó không thay thế cho một góc số. Đối với gradient tuyến tính, các kiểu góc có thể thay đổi khu vực màu được phân bố mà không thay đổi góc đã gán qua [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Giữ hướng không thay đổi khi so sánh góc hoặc thu phóng.
+
+Ví dụ sau áp dụng cùng một cài đặt theo thứ tự ngược lại. Hai hình chữ nhật có cùng giao diện: gán hướng trước hoặc sau góc không làm thay đổi kết quả.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\GradientDirection;
+use aspose\slides\GradientShape;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    for ($i = 0; $i < 2; $i++) {
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 30 + $i * 140, 320, 100);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getFillFormat()->setFillType(FillType::Gradient);
+
+        $gradient = $shape->getFillFormat()->getGradientFormat();
+        $gradient->setGradientShape(GradientShape::Linear);
+        $gradient->getGradientStops()->clear();
+        $gradient->getGradientStops()->add(0, java("java.awt.Color")->RED);
+        $gradient->getGradientStops()->add(0.5, java("java.awt.Color")->GREEN);
+        $gradient->getGradientStops()->add(1, java("java.awt.Color")->BLUE);
+        $gradient->setLinearGradientScaled(NullableBool::True);
+
+        if ($i == 0) {
+            $gradient->setGradientDirection(GradientDirection::FromCorner1);
+            $gradient->setLinearGradientAngle(30);
+        } else {
+            $gradient->setLinearGradientAngle(30);
+            $gradient->setGradientDirection(GradientDirection::FromCorner1);
+        }
+    }
+
+    $presentation->save("linear_gradient_direction.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Đổ mẫu**
 
-Trong PowerPoint, Đổ mẫu là một tùy chọn định dạng cho phép bạn áp dụng một thiết kế hai màu—như chấm, sọc, vạch chéo, hoặc ô vuông—vào một hình dạng. Bạn có thể chọn màu tùy chỉnh cho tiền cảnh và nền của mẫu.
-
-Aspose.Slides cung cấp hơn 45 kiểu mẫu được định sẵn mà bạn có thể áp dụng cho các hình dạng để tăng tính thẩm mỹ cho bản trình chiếu. Ngay cả sau khi chọn một mẫu đã định sẵn, bạn vẫn có thể chỉ định chính xác các màu mà nó sẽ sử dụng.
-
-Cách áp dụng đổ mẫu cho một hình dạng bằng Aspose.Slides:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) của hình dạng thành `Pattern`.
-1. Chọn một kiểu mẫu từ các tùy chọn đã định sẵn.
-1. Đặt [Background Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) của mẫu.
-1. Đặt [Foreground Color](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) của mẫu.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã PHP sau minh họa cách áp dụng đổ mẫu cho một hình chữ nhật:
+Một đổ mẫu áp dụng một thiết kế hai màu, chẳng hạn chấm, sọc hoặc ô. Ví dụ này sử dụng [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) để chọn mẫu trellis. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) cung cấp nền xám nhạt, và [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) cung cấp màu vàng cho mẫu.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\PatternStyle;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Đặt kiểu tô thành Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
-
-    // Đặt kiểu mẫu.
     $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
-
-    // Đặt màu nền và màu tiền cảnh của mẫu.
     $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
     $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -296,52 +561,36 @@ Kết quả:
 
 ![Hình chữ nhật với đổ mẫu](pattern-fill.png)
 
-## **Đổ Hình ảnh**
+## **Đổ ảnh**
 
-Trong PowerPoint, Đổ hình ảnh là một tùy chọn định dạng cho phép bạn chèn một hình ảnh vào bên trong một hình dạng—đúng như việc sử dụng hình ảnh làm nền cho hình dạng.
+Một đổ ảnh sử dụng một hình ảnh bên trong một hình dạng. Ví dụ này yêu cầu một hình ảnh cục bộ và sử dụng [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) để tải nó vào bộ sưu tập hình ảnh của bản trình chiếu. Đặt [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) ở chế độ lát (tile) sẽ lặp lại hình ảnh trong hình chữ nhật. Hình ảnh nguồn được sử dụng ở đây được hiển thị dưới đây:
 
-Cách sử dụng Aspose.Slides để áp dụng đổ hình ảnh cho một hình dạng:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) của hình dạng thành `Picture`.
-1. Đặt chế độ đổ hình ảnh thành `Tile` (hoặc chế độ ưa thích khác).
-1. Tạo một đối tượng [PPImage](https://reference.aspose.com/slides/php-java/aspose.slides/ppimage/) từ hình ảnh bạn muốn sử dụng.
-1. Truyền hình ảnh vào phương thức `SlidesPicture.setImage`.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Giả sử chúng ta có tệp "lotus.png" với hình ảnh sau:
-
-![Hình lotus](lotus.png)
-
-Mã PHP sau minh họa cách đổ hình ảnh vào một hình dạng:
+![Hình ảnh sen](lotus.png)
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
-
-    // Đặt kiểu tô thành Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
-
-    // Đặt chế độ đổ hình ảnh.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // Tải một hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     $image = Images::fromFile("lotus.png");
-    $picture = $presentation->getImages()->addImage($image);
-    $image->dispose();
-
-    // Đặt hình ảnh.
+    try {
+        $picture = $presentation->getImages()->addImage($image);
+    } finally {
+        $image->dispose();
+    }
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("picture_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -350,45 +599,48 @@ try {
 
 Kết quả:
 
-![Hình dạng với đổ hình ảnh](picture-fill.png)
+![Hình dạng với đổ ảnh](picture-fill.png)
 
-### **Lát Hình ảnh làm Kết cấu**
+### **Lát ảnh thành texture**
 
-Nếu bạn muốn đặt một hình ảnh lát làm kết cấu và tùy chỉnh hành vi lát, bạn có thể sử dụng các phương thức sau của lớp [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
+Nếu bạn muốn đặt một ảnh lát làm texture và tùy chỉnh cách lát, bạn có thể sử dụng các phương thức sau của lớp [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Đặt chế độ đổ hình ảnh—hoặc `Tile` hoặc `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Xác định căn chỉnh của các ô lát trong hình dạng.
-- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Kiểm soát việc ô lát có bị lật ngang, dọc hoặc cả hai hay không.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Đặt độ lệch ngang của ô lát (theo điểm) so với gốc của hình dạng.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Đặt độ lệch dọc của ô lát (theo điểm) so với gốc của hình dạng.
-- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Xác định tỉ lệ ngang của ô lát dưới dạng phần trăm.
-- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Xác định tỉ lệ dọc của ô lát dưới dạng phần trăm.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Đặt chế độ đổ ảnh—hoặc `Tile` hoặc `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Xác định vị trí căn chỉnh của các ô ảnh trong hình dạng.
+- [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Kiểm soát việc lật ô ảnh theo chiều ngang, chiều dọc, hoặc cả hai.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Đặt độ dịch chuyển ngang của ô ảnh (theo point) so với gốc của hình dạng.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Đặt độ dịch chuyển dọc của ô ảnh (theo point) so với gốc của hình dạng.
+- [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Định nghĩa tỷ lệ thu phóng ngang của ô ảnh dưới dạng phần trăm.
+- [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Định nghĩa tỷ lệ thu phóng dọc của ô ảnh dưới dạng phần trăm.
 
-Mã mẫu dưới đây cho thấy cách thêm một hình chữ nhật với đổ hình ảnh lát và cấu hình các tùy chọn lát:
+Ví dụ này yêu cầu một hình ảnh cục bộ và cấu hình [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) để lặp lại nó ở 50% kích thước gốc. Độ dịch chuyển `−32` point di chuyển các ô ảnh theo chiều ngang và dọc; căn chỉnh góc dưới‑phải và lật cả hai hướng xác định cách texture lặp lại được sắp xếp.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\RectangleAlignment;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TileFlip;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape hình chữ nhật.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
-
-    // Đặt kiểu tô của hình dạng thành Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Tải hình ảnh và thêm nó vào tài nguyên của bản trình chiếu.
     $sourceImage = Images::fromFile("lotus.png");
-    $presentationImage = $presentation->getImages()->addImage($sourceImage);
-    $sourceImage->dispose();
+    try {
+        $presentationImage = $presentation->getImages()->addImage($sourceImage);
+    } finally {
+        $sourceImage->dispose();
+    }
 
-    // Gán hình ảnh cho hình dạng.
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
-
-    // Cấu hình chế độ đổ hình ảnh và các thuộc tính lát.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -397,7 +649,6 @@ try {
     $pictureFillFormat->setTileAlignment(RectangleAlignment::BottomRight);
     $pictureFillFormat->setTileFlip(TileFlip::FlipBoth);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("tile.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -408,38 +659,24 @@ Kết quả:
 
 ![Các tùy chọn lát](tile-options.png)
 
-## **Đổ màu Đơn**
+## **Đổ màu đặc**
 
-Trong PowerPoint, Đổ màu Đơn là một tùy chọn định dạng làm đầy một hình dạng bằng một màu duy nhất, đồng nhất. Nền màu này được áp dụng mà không có gradient, kết cấu hay mẫu nào.
-
-Để áp dụng đổ màu đơn cho một hình dạng bằng Aspose.Slides, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) của hình dạng thành `Solid`.
-1. Gán màu đổ ưa thích của bạn cho hình dạng.
-1. Lưu bản trình chiếu đã chỉnh sửa dưới dạng tệp PPTX.
-
-Mã PHP sau minh họa cách áp dụng đổ màu đơn cho một hình chữ nhật trong slide PowerPoint:
+Một đổ màu đặc cung cấp cho hình dạng một màu duy nhất, đồng nhất. Ví dụ này đặt [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) thành chế độ đổ đặc và gán màu vàng qua [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), sau đó lưu hình chữ nhật trong bản trình chiếu.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Đặt kiểu tô thành Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
-
-    // Đặt màu tô.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("solid_color_fill.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -448,39 +685,101 @@ try {
 
 Kết quả:
 
-![Hình dạng với đổ màu đơn](solid-color-fill.png)
+![Hình dạng với đổ màu đặc](solid-color-fill.png)
 
-## **Đặt Độ trong suốt**
+## **Sử dụng nền slide làm nền cho hình dạng**
 
-Trong PowerPoint, khi bạn áp dụng màu đơn, gradient, hình ảnh hoặc kết cấu cho các hình dạng, bạn cũng có thể đặt mức độ trong suốt để kiểm soát độ mờ của phần tô. Giá trị trong suốt cao hơn làm cho hình dạng trở nên trong suốt hơn, cho phép nền hoặc các đối tượng bên dưới được hiển thị một phần.
+Sử dụng [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) khi một hình dạng cần khớp với nền slide, ví dụ trong một mẫu bản trình chiếu. Đặt [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) thành [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) trước để xóa bất kỳ nền nào được xác định rõ. Với sự kết hợp này, hình dạng sẽ sử dụng nền slide thay vì nền được định dạng riêng. Chỉ bật cờ này không xóa nền đã xác định trước đó.
 
-Aspose.Slides cho phép bạn đặt mức độ trong suốt bằng cách điều chỉnh giá trị alpha trong màu được dùng để tô. Cách thực hiện:
+Điều này khác với [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): nền nền phủ các đối tượng phía sau hình dạng bằng khu vực tương ứng của nền slide, trong khi không nền để các đối tượng đó hiển thị. Gradient vẫn được căn chỉnh với slide thay vì khởi động lại bên trong mỗi hình dạng.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt [FillType](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) thành `Solid`.
-1. Sử dụng `Color` để xác định một màu có độ trong suốt (thành phần `alpha` kiểm soát độ trong suốt).
-1. Lưu bản trình chiếu.
-
-Mã PHP sau minh họa cách áp dụng màu tô trong suốt cho một hình chữ nhật:
+Ví dụ sau tạo một nền chủ được kế thừa bởi slide và đặt một dải màu magenta phía sau ba hình chữ nhật. Hình chữ nhật bên trái dùng nền, hình chữ nhật giữa không có nền, và hình chữ nhật bên phải chuyển từ nền thành nền màu cam rõ ràng.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\GradientShape;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
+    $presentation->getSlideSize()->setSize(720, 400, SlideSizeScaleType::DoNotScale);
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape hình chữ nhật đặc.
+    // Kế thừa gradient từ master.
+    $slide->getBackground()->setType(BackgroundType::NotDefined);
+    $slide->getLayoutSlide()->getBackground()->setType(BackgroundType::NotDefined);
+    $background = $slide->getLayoutSlide()->getMasterSlide()->getBackground();
+    $background->setType(BackgroundType::OwnBackground);
+    $background->getFillFormat()->setFillType(FillType::Gradient);
+    $gradient = $background->getFillFormat()->getGradientFormat();
+    $gradient->setGradientShape(GradientShape::Linear);
+    $gradient->setLinearGradientAngle(0);
+    $gradient->getGradientStops()->clear();
+    $startColor = new Java("java.awt.Color", 0, 0, 139);
+    $gradient->getGradientStops()->add(0, $startColor);
+    $endColor = new Java("java.awt.Color", 135, 206, 250);
+    $gradient->getGradientStops()->add(1, $endColor);
+
+    // Thêm đối tượng này đầu tiên để nó xuất hiện phía sau các hình chữ nhật.
+    $band = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
+    $band->getFillFormat()->setFillType(FillType::Solid);
+    $band->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->MAGENTA);
+    $band->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+    $backgroundShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 100, 160, 200);
+    $backgroundShape->getFillFormat()->setFillType(FillType::NotDefined);
+    $backgroundShape->setUseBackgroundFill(true);
+
+    $noFillShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 280, 100, 160, 200);
+    $noFillShape->getFillFormat()->setFillType(FillType::NoFill);
+
+    $explicitShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 510, 100, 160, 200);
+    $explicitShape->getFillFormat()->setFillType(FillType::NotDefined);
+    $explicitShape->setUseBackgroundFill(true);
+
+    // Vô hiệu hoá nền trước khi áp dụng nền đặc.
+    $explicitShape->setUseBackgroundFill(false);
+    $explicitShape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $explicitShape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+
+    $presentation->save("background_fill.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kết quả, từ trái sang phải: **background fill**, **no fill**, và **explicit fill**. Dải màu magenta bị ẩn bởi hình chữ nhật trái và phải nhưng vẫn hiện ra qua hình trung gian.
+
+![Nền nền, không nền, và nền màu cam rõ ràng trên dải màu magenta](background-fill.png)
+
+Hành vi tương tự áp dụng cho một nền được định nghĩa trực tiếp trên slide hoặc kế thừa từ bố cục. Hình dạng sử dụng nền đã được giải quyết của slide; ví dụ này để cả nền slide và bố cục không xác định để nền chủ cung cấp.
+
+## **Đặt độ trong suốt**
+
+Đối với một nền đặc, thành phần alpha của màu kiểm soát độ mờ: 0 là hoàn toàn trong suốt và 255 là hoàn toàn đục. Ví dụ này sử dụng giá trị alpha 128 cho một hình chữ nhật màu vàng, làm cho nó gần 50% trong suốt để hình chữ nhật phía dưới vẫn hiển thị. Màu được gán qua [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Thêm một auto shape hình chữ nhật trong suốt lên trên hình dạng đặc.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
-    $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
+    $fillColor = new Java("java.awt.Color", 255, 255, 0, 128);
+    $transparentShape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("shape_transparency.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -491,34 +790,22 @@ Kết quả:
 
 ![Hình dạng trong suốt](shape-transparency.png)
 
-## **Xoay Hình dạng**
+## **Xoay hình dạng**
 
-Aspose.Slides cho phép bạn xoay các hình dạng trong bản trình chiếu PowerPoint. Điều này hữu ích khi bố trí các yếu tố hình ảnh cần căn chỉnh hoặc thiết kế đặc thù.
-
-Để xoay một hình dạng trên slide, thực hiện các bước sau:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Đặt thuộc tính quay của hình dạng thành góc mong muốn.
-1. Lưu bản trình chiếu.
-
-Mã PHP sau minh họa cách xoay một hình dạng 5 độ:
+Sử dụng [Shape::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setRotation) để xoay một hình dạng trong mặt phẳng slide. Góc được đo bằng độ; ví dụ này xoay một hình chữ nhật 5 độ theo chiều kim đồng hồ và lưu bản trình chiếu.
 
 ```php
-// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    // Lấy slide đầu tiên.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một auto shape loại Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
-
-    // Xoay hình dạng 5 độ.
     $shape->setRotation(5);
 
-    // Lưu tệp PPTX vào đĩa.
     $presentation->save("shape_rotation.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -529,35 +816,32 @@ Kết quả:
 
 ![Xoay hình dạng](shape-rotation.png)
 
-## **Thêm Hiệu ứng Chân đế 3D**
+## **Thêm hiệu ứng bevel 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng chân đế 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
-
-Để thêm hiệu ứng chân đế 3D cho một hình dạng, thực hiện các bước sau:
-
-1. Khởi tạo lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Cấu hình [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/) của hình dạng để định nghĩa các cài đặt chân đế.
-1. Lưu bản trình chiếu.
-
-Mã PHP sau cho thấy cách áp dụng hiệu ứng chân đế 3D cho một hình dạng:
+Sử dụng [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) để cho một hình dạng độ sâu và các cạnh bevel. Ví dụ này tạo một ellipsis màu xanh lá với viền màu cam, đặt [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) thành 4 point, và áp dụng một bevel đỉnh tròn với chiều rộng và chiều cao 6 point qua [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Một camera trực diện dạng trực giao và ánh sáng ba‑điểm làm cho bevel hiển thị.
 
 ```php
-// Tạo một thể hiện của lớp Presentation.
+use aspose\slides\BevelPresetType;
+use aspose\slides\CameraPresetType;
+use aspose\slides\FillType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\LightingDirection;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Thêm một hình dạng vào slide.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
+    $fillColor = new Java("java.awt.Color", 0, 128, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
+    $lineColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
     $shape->getLineFormat()->setWidth(2.0);
-
-    // Đặt các thuộc tính ThreeDFormat của hình dạng.
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -566,7 +850,6 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Lưu bản trình chiếu dưới dạng tệp PPTX.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -575,37 +858,29 @@ try {
 
 Kết quả:
 
-![Hiệu ứng chân đế 3D](3D-bevel-effect.png)
+![Hiệu ứng bevel 3D](3D-bevel-effect.png)
 
-## **Thêm Hiệu ứng Xoay 3D**
+## **Thêm hiệu ứng xoay 3D**
 
-Aspose.Slides cho phép bạn áp dụng hiệu ứng xoay 3D cho các hình dạng bằng cách cấu hình các thuộc tính [ThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/).
-
-Để áp dụng xoay 3D cho một hình dạng:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-1. Lấy tham chiếu đến một slide theo chỉ mục của nó.
-1. Thêm một [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) vào slide.
-1. Sử dụng [setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) và [setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType) để định nghĩa xoay 3D.
-1. Lưu bản trình chiếu.
-
-Mã PHP sau minh họa cách áp dụng hiệu ứng xoay 3D cho một hình dạng:
+Một hình dạng 3D được điều khiển bởi các cài đặt camera. Ví dụ này sử dụng [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) với các góc vĩ độ, kinh độ và quay vòng là 40, 35 và 20 độ tương ứng. Nó chọn một camera isometric qua [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) và ánh sáng cân bằng qua [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), sau đó lưu hình chữ nhật đã định dạng.
 
 ```php
-// Tạo một thể hiện của lớp Presentation.
+use aspose\slides\CameraPresetType;
+use aspose\slides\LightRigPresetType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
     $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
     $autoShape->getTextFrame()->setText("Hello, Aspose!");
-
-    $autoShape->getThreeDFormat()->setDepth(6);
-    $autoShape->getThreeDFormat()->getCamera()->setRotation(40, 35, 20);
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
+    $autoShape->getThreeDFormat()->getCamera()->setRotation(40, 35, 20);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Lưu bản trình chiếu dưới dạng tệp PPTX.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -616,13 +891,13 @@ Kết quả:
 
 ![Hiệu ứng xoay 3D](3D-rotation-effect.png)
 
-## **Kiểm soát Hiển thị Đen-Trắng cho Hình dạng**
+## **Điều khiển việc hiển thị đen‑trắng cho hình dạng**
 
-Phương thức [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) chỉ định cách một hình dạng riêng lẻ được hiển thị khi bản trình chiếu được xem hoặc xử lý ở chế độ đen-trắng. Nó không tự động bật hiển thị đen-trắng và không thay đổi màu nền, đường viền hoặc các định dạng khác trong chế độ màu bình thường.
+Phương thức [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) chỉ định cách một hình dạng riêng lẻ được hiển thị khi bản trình chiếu được xem hoặc xử lý ở chế độ đen‑trắng. Nó không tự động bật chế độ hiển thị đen‑trắng và không thay đổi nền, đường viền hoặc các định dạng khác của hình trong chế độ màu bình thường.
 
-Sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng hiển thị tự động lựa chọn chuyển đổi, `Gray` và `LightGray` sử dụng màu xám, `BlackWhite` chỉ dùng đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` ẩn hình dạng trong chế độ đen-trắng. `NotDefined` có nghĩa là không có chế độ cấp cho hình dạng.
+Sử dụng một giá trị từ lớp [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) để chọn hành vi mong muốn. Ví dụ, `Automatic` để ứng dụng render chọn cách chuyển đổi, `Gray` và `LightGray` dùng màu xám, `BlackWhite` chỉ dùng đen và trắng, `Black` và `White` buộc một màu duy nhất, `Color` giữ nguyên màu bình thường, và `Hidden` bỏ qua hình trong chế độ đen‑trắng. `NotDefined` nghĩa là không có chế độ cấp độ hình nào được gán.
 
-Mã PHP sau tạo một hình dạng có màu và làm cho nó hiển thị màu xám trong chế độ hiển thị đen-trắng:
+Ví dụ này tạo một hình chữ nhật màu cam và đặt [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) thành màu xám. Hình đã lưu giữ nền màu cam cho hiển thị màu bình thường và yêu cầu màu xám từ các ứng dụng tôn trọng cài đặt hiển thị đen‑trắng:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -637,10 +912,8 @@ try {
 
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
-    $orange = new Java("java.awt.Color", 255, 165, 0);
-    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
-
-    // Giữ màu tô cam trong chế độ màu, nhưng hiển thị hình dạng với màu xám trong chế độ đen-trắng.
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
     $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
 
     $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
@@ -649,20 +922,23 @@ try {
 }
 ```
 
-Trong chế độ màu bình thường, hình chữ nhật vẫn giữ màu nền cam. Trong quy trình hiển thị đen-trắng, nó sử dụng màu xám vì chế độ được đặt thành `Gray`. Điều này cho phép bạn giữ slide màu đầy đủ trong khi định nghĩa cách hiển thị riêng cho việc in, xem trước hoặc các quy trình khác tôn trọng cài đặt hiển thị đen-trắng của bản trình chiếu.
+Trong chế độ màu bình thường, hình chữ nhật giữ nền màu cam. Trong quy trình làm việc hiển thị đen‑trắng, nó dùng màu xám vì chế độ đã được đặt thành `Gray`. Điều này cho phép bạn giữ một slide đầy màu trong khi định nghĩa giao diện riêng cho việc in ấn, xem trước hoặc các quy trình khác tôn trọng cài đặt hiển thị đen‑trắng của bản trình chiếu.
 
-## **Đặt lại Định dạng**
+## **Đặt lại định dạng**
 
-Mã Java sau cho thấy cách đặt lại định dạng của một slide và khôi phục vị trí, kích thước và định dạng của tất cả các hình dạng có trình giữ chỗ trên [LayoutSlide](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) về cài đặt mặc định:
+Sử dụng [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) để khôi phục vị trí, kích thước và định dạng của các placeholder slide từ các placeholder bố cục tương ứng. Ví dụ này yêu cầu một bản trình chiếu hiện có với các placeholder được liên kết tới bố cục và đặt lại mọi slide trước khi lưu. Các hình không có placeholder bố cục tương ứng sẽ không được đặt lại.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Đặt lại mỗi hình dạng trên slide có trình giữ chỗ trên bố cục.
         $slide->reset();
     }
+
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -671,14 +947,14 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của tệp bản trình chiếu không?**
+**Định dạng hình dạng có ảnh hưởng đến kích thước cuối cùng của file bản trình chiếu không?**
 
-Chỉ ảnh hưởng rất ít. Các hình ảnh và phương tiện nhúng chiếm phần lớn không gian tệp, trong khi các tham số hình dạng như màu, hiệu ứng và gradient được lưu dưới dạng siêu dữ liệu và gần như không làm tăng kích thước.
+Màu sắc, kiểu đường và cài đặt hiệu ứng thường chỉ thêm ít dữ liệu so với hình ảnh và phương tiện nhúng. Đổ ảnh có thể làm tăng kích thước file vì hình ảnh của chúng được lưu trữ trong bản trình chiếu.
 
 **Làm sao tôi có thể phát hiện các hình dạng trên một slide có cùng định dạng để có thể nhóm chúng?**
 
-So sánh các thuộc tính định dạng chính của mỗi hình dạng—các cài đặt fill, line và effect. Nếu tất cả các giá trị tương ứng khớp nhau, coi kiểu của chúng là giống nhau và nhóm logic các hình dạng đó, giúp đơn giản hoá việc quản lý kiểu sau này.
+So sánh các thuộc tính định dạng chính của mỗi hình dạng — nền, đường viền và cài đặt hiệu ứng. Nếu tất cả các giá trị tương ứng trùng khớp, coi chúng là cùng một kiểu và nhóm logic các hình đó, giúp việc quản lý kiểu sau này dễ dàng hơn.
 
 **Tôi có thể lưu một tập hợp các kiểu hình dạng tùy chỉnh vào một tệp riêng để tái sử dụng trong các bản trình chiếu khác không?**
 
-Có. Lưu các hình mẫu với kiểu mong muốn trong một slide mẫu hoặc tệp mẫu .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình dạng đã định dạng bạn cần và áp dụng lại định dạng của chúng ở nơi cần thiết.
+Có. Lưu các hình mẫu với các kiểu mong muốn trong một bộ slide mẫu hoặc tệp .POTX. Khi tạo bản trình chiếu mới, mở mẫu, sao chép các hình đã định dạng cần thiết và áp dụng lại định dạng của chúng ở bất kỳ nơi nào cần.

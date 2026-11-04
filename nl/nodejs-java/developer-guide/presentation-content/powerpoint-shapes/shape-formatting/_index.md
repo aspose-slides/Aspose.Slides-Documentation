@@ -1,5 +1,5 @@
 ---
-title: Opmaak van PowerPoint-vormen in JavaScript
+title: PowerPoint-vormen opmaken in JavaScript
 linktitle: Vormopmaak
 type: docs
 weight: 20
@@ -7,78 +7,56 @@ url: /nl/nodejs-java/shape-formatting/
 keywords:
 - vorm opmaken
 - lijn opmaken
-- schets effect
-- schets vormlijn
+- schetseffect
+- schetslijn
 - verbindingstijl opmaken
-- verloopvulling
+- gradiëntvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
 - effen kleurvulling
 - vormtransparantie
-- zwart-wit vormweergave
-- grijswaarde vormweergave
+- zwart-wit vormrendering
+- grijswaarden vormrendering
 - vorm roteren
-- 3D schuineffect
-- 3D rotatie-effect
+- 3D-bevel-effect
+- 3D-rotatie-effect
 - opmaak resetten
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Opmaak van PowerPoint-vormen in JavaScript met Aspose.Slides—stel vul-, lijn- en effectstijlen in voor PPT-, PPTX- en ODP-bestanden met precisie en volledige controle."
+description: "Leer hoe u PowerPoint‑vormen kunt opmaken in JavaScript met Aspose.Slides — stel vul-, lijn‑ en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
 ---
 ## **Introductie**
 
-In PowerPoint kun je vormen aan dia’s toevoegen. Omdat vormen uit lijnen bestaan, kun je ze opmaken door hun contouren te wijzigen of er effecten op toe te passen. Daarnaast kun je vormen opmaken door instellingen te specificeren die bepalen hoe hun binnenkant wordt gevuld.
+Formatteer vormen in PowerPoint door hun contouren, opvullingen en effecten aan te passen. Aspose.Slides for Node.js via Java stelt je in staat deze instellingen programmatisch te beheren, inclusief transparantie, rotatie en 3D‑formattering.
 
-![vorm-opmaak-powerpoint](format-shape-powerpoint.png)
+![Opties voor vormopmaak in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides voor Node.js via Java biedt klassen en methoden waarmee je vormen kunt opmaken met dezelfde opties die beschikbaar zijn in PowerPoint.
+Aspose.Slides for Node.js via Java biedt klassen en methoden waarmee je vormen kunt formatteren met dezelfde opties die beschikbaar zijn in PowerPoint.
 
 ## **Lijnen opmaken**
 
-Met Aspose.Slides kun je een aangepaste lijnstijl voor een vorm opgeven. De volgende stappen beschrijven de procedure:
+Gebruik [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) om de omtrek van een vorm te regelen. Dit voorbeeld maakt een rechthoek zonder opvulling met een blauwe, gestippelde omtrek. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) selecteert een dikke‑dunne samengestelde lijn, terwijl [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) de breedte instelt op 7 punten en [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) het stippelmuster selecteert.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) van de vorm in.
-1. Stel de lijndikte in.
-1. Stel de [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) van de lijn in.
-1. Stel de lijnkleur voor de vorm in.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-De volgende code laat zien hoe je een rechthoekige `AutoShape` kunt opmaken:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation-klasse die een presentatie-bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto-vorm van het type Rechthoek toe.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Verwijder de vulling van de rechthoekige vorm.
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // Pas opmaak toe op de lijnen van de rechthoek.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // Stel de kleur in voor de lijn van de rechthoek.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Sla het PPTX-bestand op schijf.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -89,49 +67,139 @@ Het resultaat:
 
 ![De opgemaakte lijnen in de presentatie](formatted-lines.png)
 
-## **Schets‑effecten toepassen op vormlijnen**
+### **Aangepaste lijn‑dash‑patronen instellen**
 
-Een schets‑effect laat een vormlijn eruit zien alsof deze met de hand is getekend. Gebruik [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) om de lijninstellingen te benaderen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) om de schetsinstellingen te benaderen, en [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) om een waarde uit de enumeratie [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) te selecteren.
+Gebruik [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) wanneer vooraf gedefinieerde lijnstijlen niet de benodigde dash‑lengtes en -gaten bieden, bijvoorbeeld voor merkgerelateerde omtrekken of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de lijn‑dash‑stijl naar [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-De volgende JavaScript‑code laat zien hoe je een [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) effect toepast, de expliciet toegewezen waarde leest, en het effect verwijdert met [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+Array‑items wisselen af tussen dash‑ en gap‑lengtes, beginnend met een dash. Elke waarde is een veelvoud van de lijnbreedte: `[4, 2]` bij een breedte van 3 punten levert een dash van 12 punten gevolgd door een gap van 6 punten op. Gebruik paren van eindige, niet‑negatieve waarden om volledige dash‑en‑gap‑segmenten te definiëren. Het voorbeeld gebruikt positieve waarden om elke dash en elk gap zichtbaar te houden.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte caps. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon bij dubbele breedte, waardoor zowel dash‑ als gap‑lengtes verdubbelen. De vijfde schakelt van een aangepast patroon naar een ononderbroken lijn.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // Zet de laatste lijn terug naar een solide stijl.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Gebruik [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) als argument voor [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) om terug te keren naar een vooraf gedefinieerde gestippelde stijl. De geselecteerde stijl bepaalt het uiterlijk van de lijn.
+
+Het resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
+
+![Drie aangepaste dash‑patronen, een bredere lijn met het eerste patroon, en een ononderbroken lijn in PowerPoint](custom-dash-patterns.png)
+
+### **Lijncaps instellen**
+
+Gebruik [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) om de uiteinden van een open lijn in te stellen. De klasse [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) biedt drie expliciete cap‑stijlen:
+
+- `Flat`: De lijn stopt op het eindpunt.
+- `Round`: Een halve cirkelvormige cap strekt zich uit voorbij het eindpunt met de halve lijnbreedte.
+- `Square`: Een vierkante cap strekt zich uit voorbij het eindpunt met de halve lijnbreedte.
+
+De klasse bevat ook `NotDefined`, wat betekent dat er geen cap‑stijl expliciet is toegewezen.
+
+Caps verschillen van pijlpuntstijlen, die symbolen aan de uiteinden van een lijn toevoegen, en van joins, die de hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpuntstijlen uit via [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) en [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle), zodat alleen de cap‑vormen worden vergeleken.
+
+Het onderstaande voorbeeld maakt drie verder identieke horizontale lijnen van 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante caps. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante caps steken 10 punten verder uit dan elk eindpunt.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
+
+![Platte, ronde en vierkante caps op identieke dikke lijnen in PowerPoint](line-caps.png)
+
+## **Schets‑effecten op vormlijnen toepassen**
+
+Een schets‑effect laat een vormlijn handgetekend lijken. Gebruik [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) om de lijninstellingen op te vragen, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) om de schetsinstellingen op te vragen, en [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) om een waarde uit de klasse [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) te selecteren.
+
+De volgende JavaScript‑code toont hoe een [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)‑effect wordt toegepast, de expliciet toegewezen waarde wordt gelezen, en het effect wordt verwijderd met [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Toegang tot de lijnopmaak van de vorm en het schetsformaat.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Schets‑effect toepassen.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // Lees het schets‑effect dat direct aan de vorm is toegewezen.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // Verwijder het schets‑effect.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-De waarde die wordt geretourneerd door [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) geeft de instelling weer die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of lay‑outdia, gebruik dan [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), roep `getSketchFormat` aan op het geretourneerde object en roep vervolgens de methode `getSketchType` aan. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat de overerving is opgehelderd:
+De waarde die wordt geretourneerd door [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) vertegenwoordigt de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of lay‑dia, gebruik dan [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), roep `getSketchFormat` aan op het geretourneerde object en roep vervolgens de methode `getSketchType` aan. De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat overerving is opgelost. Dit voorbeeld vereist een bestaande presentatie met minstens één vorm op de eerste dia en geeft beide waarden weer:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -143,165 +211,296 @@ try {
 }
 ```
 
-## **Join‑stijlen opmaken**
+## **Joint‑stijlen opmaken**
 
-Dit zijn de drie opties voor het type verbinding:
+Hier zijn de drie opties voor join‑type:
 
-* Rond
-* Scherp
-* Afgeschuind
+* Round
+* Miter
+* Bevel
 
-Standaard gebruikt PowerPoint, wanneer het twee lijnen onder een hoek (bijvoorbeeld bij een hoek van een vorm) samenvoegt, de instelling **Rond**. Als je echter een vorm met scherpe hoeken tekent, kun je de **Scherp** optie verkiezen.
+De joint‑stijl bepaalt hoe twee omtreksegmenten elkaar op een hoek ontmoeten. Gebruik **Round** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgevlakte hoeken.
 
-![De aansluitstijl in de presentatie](join-style-powerpoint.png)
+![De join‑stijl in de presentatie](join-style-powerpoint.png)
 
-De volgende JavaScript‑code laat zien hoe drie rechthoeken (zoals weergegeven in de afbeelding hierboven) werden gemaakt met de Miter‑, Bevel‑ en Rond‑instellingen voor het type verbinding:
+Dit voorbeeld maakt drie zwarte rechthoeken met blauwe omtrekken van 15 punten breed. Het gebruikt [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) om respectievelijk de miter‑, bevel‑ en round‑waarden van [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) toe te passen, zodat de weergave van de hoeken vergeleken kan worden.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation‑klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg drie auto‑vormen van het type Rechthoek toe.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Stel de vulkleur in voor elke rechthoek‑vorm.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // Stel de lijndikte in.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Stel de kleur in voor de lijn van elke rechthoek.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Stel de verbindingstijl in.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // Voeg tekst toe aan elke rechthoek.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Verloopvulling**
+### **Miter‑koppelingen beperken bij scherpe hoeken**
 
-In PowerPoint is Verloopvulling een opmaakoptie waarmee je een continu kleurverloop op een vorm kunt toepassen. Je kunt bijvoorbeeld twee of meer kleuren toepassen zodat de ene geleidelijk in de andere overloopt.
+Gebruik [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) in combinatie met [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) ingesteld op [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek mag uitsteken.
 
-Zo pas je een verloopvulling toe op een vorm met Aspose.Slides:
+De limiet is een verhouding tussen de afstand van de binnen‑ naar de buitenhoek van de joint en de lijnbreedte. Een waarde van `8` staat een miter‑lengte toe tot acht keer de lijnbreedte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint op die hoek een bevel‑joint. Een grotere limiet staat scherpere punten toe. De instelling beïnvloedt alleen miter‑joints, en een wijziging heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) van de vorm in op `Gradient`.
-1. Voeg je twee gewenste kleuren toe met gedefinieerde posities met behulp van de `add`‑methoden van de gradient‑stop‑collectie die wordt blootgesteld door de klasse [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/).
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
+Dit voorbeeld maakt twee identieke, niet‑gevulde driehoeken met omtrekken van 20 punten breed. Het linkermidden driehoek gebruikt een limiet van `2`, de rechter een limiet van `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de bovenhoek een verhouding van ongeveer `4.12` heeft tussen miter‑lengte en lijnbreedte. Daardoor gebruikt PowerPoint een bevel‑joint voor het linker topje en behoudt het rechter topje.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation‑klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto‑vorm van het type Ellipse toe.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // Pas een verloop‑opmaak toe op de ellips.
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat in PowerPoint: **Miter limit 2** links en **miter limit 8** rechts.
+
+![Een afgeknipt topje met miter‑limiet 2 en een puntig topje met miter‑limiet 8 in PowerPoint](miter-limits.png)
+
+## **Gradiëntvulling**
+
+Een gradiëntvulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineaire gradiënt onder een hoek van 45 graden van rood naar paars via [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). De methode [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) plaatst de kleurstops op 0 en 1, het begin en einde van de gradiënt. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // Stel de richting van het verloop in.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // Voeg twee verloopstops toe.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-![De ellips met verloopvulling](gradient-fill.png)
+Het resultaat:
 
-Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een weergavestijl kiezen zonder de in de presentatie opgeslagen verloopvulling te wijzigen.
+![De ellips met gradiëntvulling](gradient-fill.png)
+
+Als een gradiënt er in een geëxporteerde afbeelding anders uitziet dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een renderingsstijl selecteren zonder de gradiëntvulling die in de presentatie is opgeslagen te wijzigen.
+
+### **Stel de hoek van lineaire gradiënt in**
+
+Gebruik [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) om de oriëntatie van een [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑vulling te regelen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar onder, `180` van rechts naar links, en `270` van onder naar boven. Fractionele hoeken worden ondersteund. Hoeken buiten `[0, 360)` worden genormaliseerd naar één omwenteling; bijvoorbeeld `-45` wordt `315` en `360` wordt `0`.
+
+Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken kan worden vergeleken. De hoeken, van links naar rechts, zijn in de eerste rij `0`, `45` en `90`, en in de tweede rij `135`, `180` en `270`.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat in PowerPoint:
+
+![Lineaire gradiënten bij 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
+
+### **Lineaire gradiënt schalen met de vorm**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepteert een [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/)‑waarde. Stel deze expliciet in op `False` om de geometrische gradiënthoek te behouden wanneer de verhoudingen van de vorm veranderen, of op `True` om de gradiënt te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek verschillen van de toegewezen hoek op een niet‑vierkante vorm.
+
+Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als bij de hoekvergelijking. De linker kolom gebruikt `False`; de rechter kolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op herschalen zonder de gradiëntinstellingen te wijzigen.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat in PowerPoint, met schalen uitgeschakeld links en ingeschakeld rechts:
+
+![Brede en hoge rechthoeken met een 45‑graads gradiënt, waarbij LinearGradientScaled False links wordt vergeleken met True rechts](linear-gradient-scaling.png)
+
+Met schalen uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schalen ingeschakeld strekken de banden zich uit volgens de verhoudingen van de vorm. Dit helpt een sjabloon‑gradiënt te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkant verandert het inschakelen van schalen het uiterlijk van deze `45`‑graads gradiënt niet.
+
+Zowel de hoek‑ als de schaalinstellingen gelden voor lineaire gradiënten. Ze regelen geen [GradientShape.Radial of GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑vullingen.
+
+### **Combineer de hoek met gradiënt‑richting**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) selecteert een gradiëntstijl uit de klasse [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); het is geen vervanging voor een numerieke hoek. Voor een lineaire gradiënt kunnen de hoek‑stijlen het gebied waarin de kleuren worden verdeeld veranderen zonder de hoek die via [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) is toegewezen te wijzigen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schalen.
+
+Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken hebben hetzelfde uiterlijk: het eerst instellen van de richting vóór of na de hoek verandert het resultaat niet.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Patroonvulling**
 
-In PowerPoint is Patroonvulling een opmaakoptie waarmee je een tweekleurenontwerp—zoals stippen, strepen, kruispatronen of geruite patronen—op een vorm kunt toepassen. Je kunt aangepaste kleuren kiezen voor de voor‑ en achtergrond van het patroon.
+Een patroonvulling past een tweekleurig ontwerp toe, zoals stippen, strepen of geruite patronen. Dit voorbeeld gebruikt [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) om een rasterpatroon te selecteren. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) levert de lichtgrijze achtergrond, en [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) levert de gele patroonkleur.
 
-Aspose.Slides biedt meer dan 45 vooraf gedefinieerde patroonstijlen die je op vormen kunt toepassen om de visuele aantrekkingskracht van je presentaties te vergroten. Ook na het kiezen van een vooraf gedefinieerd patroon kun je nog steeds de exacte kleuren specificeren die het moet gebruiken.
-
-Zo pas je een patroonvulling toe op een vorm met Aspose.Slides:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) van de vorm in op `Pattern`.
-1. Kies een patroonstijl uit de vooraf gedefinieerde opties.
-1. Stel de [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) van het patroon in.
-1. Stel de [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) van het patroon in.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation‑klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto‑vorm van het type Rechthoek toe.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Stel het vultype in op Patroon.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // Stel de patroonstijl in.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // Stel de achtergrond‑ en voorgrondkleuren van het patroon in.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -312,52 +511,31 @@ try {
 
 ## **Afbeeldingsvulling**
 
-In PowerPoint is Afbeeldingsvulling een opmaakoptie waarmee je een afbeelding in een vorm kunt invoegen—effectief als achtergrond van de vorm.
+Een afbeeldingvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) om deze te laden in de afbeeldingscollectie van de presentatie. Het instellen van [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) op de tegelmodus herhaalt de afbeelding binnen de rechthoek. De gebruikte bronafbeelding staat hieronder:
 
-Zo gebruik je Aspose.Slides om een afbeeldingsvulling toe te passen op een vorm:
+![De lotusafbeelding](lotus.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) van de vorm in op `Picture`.
-1. Stel de afbeeldingsvulling‑modus in op `Tile` (of een andere gewenste modus).
-1. Maak een [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/)‑object aan van de afbeelding die je wilt gebruiken.
-1. Geef de afbeelding door aan de `ISlidesPicture.setImage`‑methode.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-![De lotus-afbeelding](lotus.png)
-
-De volgende JavaScript‑code laat zien hoe je een vorm vult met de afbeelding:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation‑klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto‑vorm van het type Rechthoek toe.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Stel het vultype in op Afbeelding.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // Stel de afbeeldingsvullingsmodus in.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Laad een afbeelding en voeg deze toe aan de presentatie‑bronnen.
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Stel de afbeelding in.
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -366,45 +544,41 @@ try {
 
 ![De vorm met afbeeldingsvulling](picture-fill.png)
 
-### **Afbeelding als tegeltekstuur**
+### **Afbeelding als tegeltextuur**
 
-Als je een tegelafbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kun je de volgende methoden van de [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) klasse gebruiken:
+Als je een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kun je de volgende methoden van de klasse [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) gebruiken:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de afbeeldingsvulling‑modus in—`Tile` of `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Geeft de uitlijning van de tegels binnen de vorm aan.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Bepaalt of de tegel horizontaal, verticaal of beide kanten wordt gespiegeld.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in points) ten opzichte van de oorsprong van de vorm in.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als percentage.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als percentage.
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Stelt de afbeeldingsvullingsmodus in — ofwel `Tile` of `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Specificeert de uitlijning van de tegels binnen de vorm.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Bepaalt of de tegel horizontaal, verticaal of beide keren wordt gedraaid.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definieert de horizontale schaal van de tegel als een percentage.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definieert de verticale schaal van de tegel als een percentage.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+Dit voorbeeld vereist een lokale afbeelding en configureert [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) om deze op 50 % van de oorspronkelijke grootte te herhalen. Offsets van −32 punten verschuiven de tegels horizontaal en verticaal; uitlijning rechtsonder en draaien in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation-klasse die een presentatiebestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Voeg een rechthoekige auto vorm toe.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Stel het vultype van de vorm in op Afbeelding.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Laad de afbeelding en voeg deze toe aan de presentatiebronnen.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Wijs de afbeelding toe aan de vorm.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Configureer de afbeeldingsvullingsmodus en tegel‑eigenschappen.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -413,7 +587,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -422,40 +595,22 @@ try {
 
 ![De tegelopties](tile-options.png)
 
-## **Effen kleurvulling**
+## **Vulling met effen kleur**
 
-In PowerPoint is Effen kleurvulling een opmaakoptie die een vorm vult met één enkele, uniforme kleur. Deze effen achtergrondkleur wordt toegepast zonder verlopen, texturen of patronen.
+Een effen vulling geeft een vorm een enkele, uniforme kleur. Dit voorbeeld gebruikt [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) om de effen vullingsmodus te selecteren en kent geel toe via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), waarna de rechthoek in een presentatie wordt opgeslagen.
 
-Om een effen kleurvulling toe te passen op een vorm met Aspose.Slides, volg je deze stappen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) van de vorm in op `Solid`.
-1. Wijs je gewenste vulkleur toe aan de vorm.
-1. Sla de gewijzigde presentatie op als een PPTX‑bestand.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation-klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto‑vorm van het type Rechthoek toe.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Stel het vultype in op Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // Stel de vulkleur in.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -464,39 +619,88 @@ try {
 
 ![De vorm met effen kleurvulling](solid-color-fill.png)
 
-## **Transparantie instellen**
+## **Gebruik de dia‑achtergrond als vormvulling**
 
-In PowerPoint kun je, naast een effen kleur, een verloop‑, afbeelding‑ of textuurvulling, een transparantieniveau instellen om de opaciteit van de vulling te regelen. Een hogere transparantiewaarde maakt de vorm doorzichtiger, zodat de achtergrond of onderliggende objecten gedeeltelijk zichtbaar zijn.
+Gebruik [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Gebruik [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) om eerst [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) te selecteren om een expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van haar eigen stijlvulling. Alleen het inschakelen van de vlag verwijdert geen bestaande expliciete vulling.
 
-Aspose.Slides laat je het transparantieniveau instellen door de alfa‑waarde van de kleur die voor de vulling wordt gebruikt aan te passen. Zo doe je dat:
+Dit verschilt van [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): een achtergrondvulling bedekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een gradiënt blijft uitgelijnd met de dia in plaats van opnieuw te beginnen binnen elke vorm.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) in op `Solid`.
-1. Gebruik `Color` om een kleur met transparantie te definiëren (de `alpha`‑component regelt de transparantie).
-1. Sla de presentatie op.
+Het volgende voorbeeld maakt een master‑achtergrond die door de dia wordt geërfd en plaatst een magentareep achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste heeft geen vulling, en de rechthoek rechts schakelt van achtergrondvulling naar een expliciete oranje vulling.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Instantieer de Presentation-klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een solide rechthoekige auto‑vorm toe.
+    // Erf de gradiënt van de master.
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // Voeg dit object eerst toe zodat het achter de rechthoeken verschijnt.
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // Schakel achtergrondvulling uit voordat een expliciete vulling wordt toegepast.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Het resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magentareep wordt verborgen door de linker‑ en rechter‑rechthoeken maar blijft zichtbaar via de middelste rechthoek.
+
+![Achtergrondvulling, geen vulling en expliciete oranje vulling over een magenta band](background-fill.png)
+
+Gedrag is gelijk voor een direct op de dia gedefinieerde of van een lay‑dia geërfde achtergrond. De vorm gebruikt de opgeloste achtergrond van de dia; het voorbeeld laat zowel de dia‑ als de lay‑achtergronden ongedefinieerd zodat de master deze levert.
+
+## **Transparantie instellen**
+
+Voor een effen vulling bepaalt de alfa‑component van de kleur de opaciteit: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Voeg een transparante rechthoekige auto‑vorm toe boven de solide vorm.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -507,72 +711,44 @@ try {
 
 ## **Vormen roteren**
 
-Aspose.Slides laat je vormen draaien in PowerPoint‑presentaties. Dit kan handig zijn bij het positioneren van visuele elementen met specifieke uitlijning of ontwerpvereisten.
+Gebruik [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) om een vorm in het dia‑vlak te roteren. De hoek wordt gemeten in graden; dit voorbeeld roteert een rechthoek 5 graden met de klok mee en slaat de presentatie op.
 
-Om een vorm op een dia te roteren, volg je deze stappen:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Stel de rotatie‑eigenschap van de vorm in op de gewenste hoek.
-1. Sla de presentatie op.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Instantieer de Presentation-klasse die een presentatie‑bestand vertegenwoordigt.
 let presentation = new aspose.slides.Presentation();
 try {
-    // Haal de eerste dia op.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een auto‑vorm van het type Rechthoek toe.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Draai de vorm 5 graden.
     shape.setRotation(5);
 
-    // Sla het PPTX‑bestand op schijf.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-![De vormrotatie](shape-rotation.png)
+![De rotatie van de vorm](shape-rotation.png)
 
-## **3D‑schuineffecten toevoegen**
+## **3D‑bevel‑effecten toevoegen**
 
-Aspose.Slides maakt het mogelijk om 3D‑schuineffecten op vormen toe te passen door de eigenschappen van hun [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) te configureren.
+Gebruik [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) om een vormdiepte en afgebeelde randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omtrek, gebruikt [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) om de diepte op 4 punten in te stellen, en past een ronde boven‑bevel met een breedte en hoogte van 6 punten toe via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). Een front‑facing orthografische camera en drie‑punt verlichting maken het bevel zichtbaar.
 
-Om 3D‑schuineffecten aan een vorm toe te voegen, volg je deze stappen:
-
-1. Instantieer de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Configureer de [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) van de vorm om de schuine‑instellingen te definiëren.
-1. Sla de presentatie op.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// Maak een instantie van de Presentation-klasse.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // Voeg een vorm toe aan de dia.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Stel de ThreeDFormat-eigenschappen van de vorm in.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -581,45 +757,31 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // Sla de presentatie op als een PPTX-bestand.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-![Het 3D‑schuineffect](3D-bevel-effect.png)
+![Het 3D‑bevel‑effect](3D-bevel-effect.png)
 
 ## **3D‑rotatie‑effecten toevoegen**
 
-Aspose.Slides maakt het mogelijk om 3D‑rotatie‑effecten op vormen toe te passen door de eigenschappen van hun [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) te configureren.
+Het 3D‑beeld van een vorm wordt geregeld door de camera‑instellingen. Dit voorbeeld gebruikt [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) met breedte‑, lengte‑ en revolutietoekenningen van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) en evenwichtige verlichting via [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), waarna de geformatteerde rechthoek wordt opgeslagen.
 
-Om 3D‑rotatie op een vorm toe te passen:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) klasse.
-1. Haal een referentie op naar een dia op basis van de index.
-1. Voeg een [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) toe aan de dia.
-1. Gebruik [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) en [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) om de 3D‑rotatie te definiëren.
-1. Sla de presentatie op.
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// Maak een instantie van de Presentation-klasse.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // Sla de presentatie op als een PPTX-bestand.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -630,15 +792,14 @@ try {
 
 ## **Zwart‑wit weergave voor vormen beheren**
 
-De methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) bepaalt hoe een individuele vorm wordt gerenderd wanneer een presentatie in zwart‑wit‑modus wordt bekeken of verwerkt. De methode activeert niet zelf een zwart‑wit‑weergave en wijzigt de vul‑, lijn‑ of andere opmaak van de vorm niet in de normale kleermodus.
+De methode [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) bepaalt hoe een individuele vorm wordt gerenderd wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. Het activeert niet zelf zwart‑wit‑weergave en wijzigt de vulling, lijn of andere opmaak van de vorm niet in de normale kleermodus.
 
-Gebruik een waarde uit de enumeratie [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze kleuren, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` forceren één kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen modus op vormniveau is toegewezen.
+Gebruik een waarde uit de klasse [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze tinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` forceren één kleur, `Color` behoudt de normale kleur, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
 
-De volgende JavaScript‑code maakt een gekleurde vorm aan en laat deze grijs verschijnen in de zwart‑wit‑weergavemodus:
+Dit voorbeeld maakt een oranje rechthoek en gebruikt [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) om een grijze kleur te selecteren. De opgeslagen vorm behoudt haar oranje vulling voor normale kleermodus en vraagt grijze kleur aan applicaties die zwart‑wit‑weergave respecteren:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -647,9 +808,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // Behoud de oranje vulling in kleermodus, maar render de vorm met grijze kleuring in zwart-wit modus.
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -658,21 +817,22 @@ try {
 }
 ```
 
+In de normale kleermodus behoudt de rechthoek haar oranje vulling. In een zwart‑wit‑workflow gebruikt ze een grijze kleur omdat haar modus is ingesteld op `Gray`. Hiermee kun je een volledige‑kleur dia behouden terwijl je een apart uiterlijk definieert voor afdrukken, voorvertoningen of andere workflows die de zwart‑wit‑instellingen van de presentatie respecteren.
+
 ## **Opmaak resetten**
 
-De volgende JavaScript‑code laat zien hoe je de opmaak van een dia reset en de positie, grootte en opmaak van alle vormen met placeholders op de [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) terugzet naar hun standaardinstellingen:
+Gebruik [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) om de positie, grootte en opmaak van dia‑plaatsaanduidingen te herstellen vanuit de overeenkomstige lay‑plaatsaanduidingen. Dit voorbeeld vereist een bestaande presentatie met lay‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige lay‑plaatsaanduidingen worden niet gereset.
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Reset elke vorm op de dia die een placeholder heeft in de lay-out.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -681,14 +841,14 @@ try {
 
 ## **FAQ**
 
-**Heeft de opmaak van een vorm invloed op de uiteindelijke bestandsgrootte van de presentatie?**
+**Heeft vormopmaak invloed op de uiteindelijke bestandsgrootte van de presentatie?**
 
-Alleen minimaal. Ingesloten afbeeldingen en media vormen het grootste gedeelte van de bestandsgrootte, terwijl vormparameters zoals kleuren, effect en verlopen als metadata worden opgeslagen en vrijwel geen extra grootte toevoegen.
+Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe in vergelijking met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
 
-**Hoe kan ik vormen op een dia detecteren die identieke opmaak hebben zodat ik ze kan groeperen?**
+**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
 
-Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm—vul, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later beheer van stijlen vergemakkelijkt.
+Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, behandel dan hun stijlen als identiek en groepeer de vormen logisch, wat later stijlbeheer vereenvoudigt.
 
-**Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
+**Kan ik een reeks aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
 
-Ja. Bewaar voorbeeldvormen met de gewenste stijlen in een sjabloondia‑deck of een .POTX‑sjabloonbestand. Wanneer je een nieuwe presentatie maakt, open je het sjabloon, kloon je de gestylede vormen die je nodig hebt, en pas je hun opmaak opnieuw toe waar nodig.
+Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑presentatie of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie open je het sjabloon, kloont de benodigde gestylede vormen en pas je hun opmaak toe waar nodig.

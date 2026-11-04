@@ -1,82 +1,61 @@
 ---
-title: Διαμόρφωση Σχημάτων PowerPoint σε Java
-linktitle: Διαμόρφωση Σχημάτων
+title: Μορφοποίηση Σχημάτων PowerPoint σε Java
+linktitle: Μορφοποίηση Σχημάτων
 type: docs
 weight: 20
 url: /el/java/shape-formatting/
 keywords:
-- διαμόρφωση σχήματος
-- διαμόρφωση γραμμής
-- εφέ σκίτσης
-- γραμμή σχήματος σκίτσης
-- διαμόρφωση στυλ σύνδεσης
+- μορφοποίηση σχήματος
+- μορφοποίηση γραμμής
+- εφέ σκίτσου
+- γραμμή σκίτσου σχήματος
+- μορφοποίηση στυλ ένωσης
 - γέμιση διαβάθμισης
 - γέμιση μοτίβου
 - γέμιση εικόνας
 - γέμιση υφής
-- γέμιση μονόχρωμη
+- γέμιση στερεού χρώματος
 - διαφάνεια σχήματος
-- αποτύπωση σχήματος ασπρόμαυρη
-- αποτύπωση σχήματος γκρι κλίμακας
+- απόδοση σχήματος ασπρόμαυρης
+- απόδοση σχήματος σε γκρι κλίμακα
 - περιστροφή σχήματος
-- 3Δ εφέ λοξότμησης
+- 3Δ εφέ λοξοτομίας
 - 3Δ εφέ περιστροφής
 - επαναφορά μορφοποίησης
 - PowerPoint
 - παρουσίαση
 - Java
 - Aspose.Slides
-description: "Μάθετε πώς να διαμορφώνετε σχήματα PowerPoint σε Java χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT, PPTX και ODP με ακρίβεια και πλήρη έλεγχο."
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε Java χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT και PPTX με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Στο PowerPoint, μπορείτε να προσθέσετε σχήματα σε διαφάνειες. Καθώς τα σχήματα αποτελούνται από γραμμές, μπορείτε να μορφοποιήσετε τις γραμμές τους τροποποιώντας ή εφαρμόζοντας εφέ στα περιγράμματά τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα ορίζοντας ρυθμίσεις που ελέγχουν τον τρόπο γεμίσματος του εσωτερικού τους.
+Διαμορφώστε σχήματα στο PowerPoint προσαρμόζοντας τα περιγράμματά τους, τις γεμίσεις και τα εφέ. Το Aspose.Slides for Java σάς επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένων της διαφάνειας, της περιστροφής και της 3Δ διαμόρφωσης.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![Διαθέσιμες μορφές σχήματος στο PowerPoint](format-shape-powerpoint.png)
 
 Το Aspose.Slides for Java παρέχει διεπαφές και μεθόδους που σας επιτρέπουν να μορφοποιήσετε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
 
 ## **Μορφοποίηση Γραμμών**
 
-Με το Aspose.Slides, μπορείτε να καθορίσετε ένα προσαρμοσμένο στυλ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [line style](https://reference.aspose.com/slides/java/com.aspose.slides/linestyle/) του σχήματος.
-1. Ορίστε το πάχος της γραμμής.
-1. Ορίστε το [dash style](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) της γραμμής.
-1. Ορίστε το χρώμα γραμμής για το σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας δείχνει πώς να μορφοποιήσετε ένα επίπεδο `AutoShape`:
+Χρησιμοποιήστε [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) για τον έλεγχο του περιγράμματος ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμάτο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. [ILineFormat.setStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setStyle-byte-) επιλέγει μια σύνθετη γραμμή παχιά‑λεπτή, ενώ [ILineFormat.setWidth](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setWidth-double-) ορίζει το πλάτος της στα 7 σημεία και [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-) επιλέγει το μοτίβο διακεκομμένης γραμμής.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle.
-    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // Ορισμός του χρώματος γεμίσματος για το σχήμα Rectangle.
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Εφαρμογή μορφοποίησης στις γραμμές του Rectangle.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
-
-    // Ορισμός του χρώματος για τη γραμμή του Rectangle.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Αποθήκευση του αρχείου PPTX στο δίσκο.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,43 +66,138 @@ try {
 
 ![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-## **Εφαρμογή Σχέδιο Εφέ στις Γραμμές Σχήματος**
+### **Ορισμός Προσαρμοσμένων Μοτίβων Διακεκοµμένων Γραμμών**
 
-Ένα εφέ σκαρίφησης κάνει μια γραμμή σχήματος να φαίνεται χειρογράφιστη. Χρησιμοποιήστε [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) για να αποκτήσετε πρόσβαση στις ρυθμίσεις γραμμής, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/) για τις ρυθμίσεις σκαρίφησης και [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) για να επιλέξετε μια τιμή από την απαριθμημένη τιμή [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
+Χρησιμοποιήστε [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float:A-) όταν τα προεπιλεγμένα στιλ γραμμής δεν παρέχουν τα μήκη των τετών και των κενών που χρειάζεστε, για παράδειγμα για εταιρικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου αλλάζει αυτόματα το στυλ διακεκοµμένης γραμμής σε [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
 
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/), να διαβάσετε την ρητά ορισμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
+Οι καταχωρίσεις του πίνακα εναλλάσσονται μεταξύ μηκών τετούς και κενών, ξεκινώντας με τέτο. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `{ 4, 2 }` με πλάτος 3 σημείων παράγει μια τετό 12 σημείων ακολουθούμενη από κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα τετούς‑κενών. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε τέτο και κενό να είναι ορατά.
+
+Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδες άκρες. Οι πρώτες τρεις συγκρίνουν μοτίβα με πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο με διπλάσιο πλάτος, διπλασιάζοντας τόσο το μήκος του τετούς όσο και του κενού. Η πέμπτη μεταβαίνει από προσαρμοσμένο μοτίβο σε στερεή γραμμή.
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[][] patterns = {
+        { 4, 2 },
+        { 1, 2 },
+        { 6, 2, 1, 2 },
+        { 4, 2 },
+        { 4, 2 }
+    };
+
+    for (int i = 0; i < patterns.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        line.getLineFormat().setCapStyle(LineCapStyle.Flat);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setCustomDashPattern(patterns[i]);
+    }
+
+    // Επαναφέρετε την τελευταία γραμμή σε στερεό στυλ.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
+
+    presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Για να επιστρέψετε σε προεπιλεγμένο στυλ διακεκοµμένης γραμμής, περάστε το [LineDashStyle.Dash](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/) στη μέθοδο [ILineFormat.setDashStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setDashStyle-byte-). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
+
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**· **{1, 2}, 3 pt**· **{6, 2, 1, 2}, 3 pt**· **{4, 2}, 6 pt**· και **Solid, 3 pt**.
+
+![Τρία προσαρμοσμένα μοτίβα διακεκοµμένων, μια πιο πλατιά γραμμή που χρησιμοποιεί το πρώτο μοτίβο, και μια στερεή γραμμή στο PowerPoint](custom-dash-patterns.png)
+
+### **Ορισμός Άκρων Γραμμής**
+
+Χρησιμοποιήστε [ILineFormat.setCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCapStyle-byte-) για να ορίσετε τα άκρα μιας ανοιχτής γραμμής. Η κλάση [LineCapStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linecapstyle/) παρέχει τρία ρητά στυλ άκρων:
+
+- `Flat`: Η γραμμή σταματά στο άκρο.
+- `Round`: Ένα ημιδικό κυκλικό άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+- `Square`: Ένα τετράγωνο άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+
+Η κλάση περιλαμβάνει επίσης `NotDefined`, που σημαίνει ότι δεν έχει ανατεθεί ρητά κάποιο στυλ άκρου.
+
+Τα άκρα διαφέρουν από τις κεφαλές βέλους, οι οποίες προσθέτουν σύμβολα στα άκρα της γραμμής, και από τις ενώσεις, οι οποίες ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τις κεφαλές βέλους μέσω των [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) και [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) ώστε να συγκριθούν μόνο τα σχήματα των άκρων.
+
+Το παρακάτω παράδειγμα δημιουργεί τρεις οριζόντιες γραμμές, ουσιαστικά πανομοιότυπες, με πλάτος 20 σημείων. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδες, στρογγυλεμένες και τετράγωνες άκρες. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλεμένα και τετράγωνα άκρα εκτείνονται 10 σημεία πέρα από κάθε άκρο.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] capStyles = new byte[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+    for (int i = 0; i < capStyles.length; i++) {
+        IAutoShape line = slide.getShapes().addAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        line.getLineFormat().setDashStyle(LineDashStyle.Solid);
+        line.getLineFormat().setCapStyle(capStyles[i]);
+        line.getLineFormat().setBeginArrowheadStyle(LineArrowheadStyle.None);
+        line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None);
+    }
+
+    presentation.save("line_caps.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, και **Square**.
+
+![Επίπεδες, στρογγυλεμένες και τετράγωνες άκρες σε πανομοιότυπες παχιές γραμμές στο PowerPoint](line-caps.png)
+
+## **Εφαρμογή Σχεδίου Σχεδίασης σε Γραμμές Σχήματος**
+
+Ένα εφέ σχεδίου κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε [IShape.getLineFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getLineFormat--) για πρόσβαση στις ρυθμίσεις της γραμμής, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getSketchFormat--) για πρόσβαση στις ρυθμίσεις του σχεδίου, και [ISketchFormat.setSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#setSketchType-int-) για επιλογή μιας τιμής από την κλάση [LineSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/).
+
+Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.Curved](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/), να διαβάσετε την ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.None](https://reference.aspose.com/slides/java/com.aspose.slides/linesketchtype/):
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // Πρόσβαση στη μορφοποίηση γραμμής του σχήματος και στη μορφοποίηση σκίτσης.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // Εφαρμογή εφέ σκίτσης.
     sketchFormat.setSketchType(LineSketchType.Curved);
-
-    // Ανάγνωση του εφέ σκίτσης που έχει ανατεθεί απευθείας στο σχήμα.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
-
-    // Αφαίρεση του εφέ σκίτσης.
     sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-Η τιμή που επιστρέφεται από το [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/) αντιπροσωπεύει τη ρύθμιση που έχει ανατεθεί απευθείας στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληθεί από ένα θέμα, κύρια διαφάνεια ή διάταξη διαφάνειας, χρησιμοποιήστε το [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/), αποκτήστε πρόσβαση στο [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/) και διαβάστε το [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/). Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονομικότητας:
+Η τιμή που επιστρέφεται από το [ISketchFormat.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformat/#getSketchType--) αντιπροσωπεύει τη ρύθμιση που έχει εκχωρηθεί απευθείας στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από ένα θέμα, το κύριο διαφάνειο ή το διαφάνι διάταξης, χρησιμοποιήστε το [ILineFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#getEffective--), προσπελάστε το [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), και διαβάστε το [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/java/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονομιάς. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    ILineFormat lineFormat = shape.getLineFormat();
 
+    ILineFormat lineFormat = shape.getLineFormat();
     int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
     int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -135,112 +209,122 @@ try {
 }
 ```
 
-## **Μορφοποίηση Στυλ Σύνδεσης**
+## **Μορφοποίηση Στυλ Ενώσεων**
 
-Αυτές είναι οι τρεις επιλογές τύπου σύνδεσης:
+Οι τρεις επιλογές τύπου ένωσης είναι:
 
-* Στρογγυλό
-* Κόψιμο
-* Πλαγιοκόψιμο
+* Round
+* Miter
+* Bevel
 
-Από προεπιλογή, όταν το PowerPoint συνδέει δύο γραμμές σε γωνία (όπως σε μια γωνία σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλό**. Ωστόσο, εάν σχεδιάζετε ένα σχήμα με οξύ γωνίες, ίσως προτιμήσετε την επιλογή **Κόψιμο**.
+Το στυλ ένωσης ελέγχει το πώς δύο τμήματα περιγράμματος συναντιούνται σε γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για αιχμηρές γωνίες ή **Bevel** για επίπεδες γωνίες.
 
-![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
+![Το στυλ ένωσης στην παρουσίαση](join-style-powerpoint.png)
 
-Ο παρακάτω κώδικας Java δείχνει πώς δημιουργήθηκαν τρία ορθογώνια (όπως φαίνονται στην παραπάνω εικόνα) χρησιμοποιώντας τις ρυθμίσεις τύπου σύνδεσης Μπλέι, Κόψιμο και Στρογγυλό:
+Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 σημείων πλάτους. Χρησιμοποιεί το [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) για να θέσει τις τιμές miter, bevel και round της κλάσης [LineJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/), αντίστοιχα, ώστε να συγκριθεί η σχεδίαση των γωνιών.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη τριών αυτόματων σχημάτων τύπου Rectangle.
-    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+    IAutoShape miterShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+    IAutoShape bevelShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+    IAutoShape roundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Ορισμός του χρώματος γεμίσματος για κάθε σχήμα Rectangle.
-    shape1.getFillFormat().setFillType(FillType.Solid);
-    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape2.getFillFormat().setFillType(FillType.Solid);
-    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape3.getFillFormat().setFillType(FillType.Solid);
-    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    miterShape.getFillFormat().setFillType(FillType.Solid);
+    miterShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    bevelShape.getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    roundShape.getFillFormat().setFillType(FillType.Solid);
+    roundShape.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Ορισμό του πλάτους της γραμμής.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // Ορισμός του χρώματος για τη γραμμή κάθε Rectangle.
-    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    miterShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    bevelShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    roundShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Ορισμός του στυλ σύνδεσης.
-    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+    miterShape.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+    bevelShape.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+    roundShape.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Προσθήκη κειμένου σε κάθε Rectangle.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Γέμιση Διαβάθμισης**
+### **Περιορισμός Ενώσεων Miter σε Αιχμηρές Γωνίες**
 
-Στο PowerPoint, η Γέμιση Διαβάθμισης είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα συνεχές μίγμα χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα έτσι ώστε το ένα να εξασφυλίζει σταδιακά στο άλλο.
+Χρησιμοποιήστε το [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setMiterLimit-float-) μαζί με το [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ορισμένο σε [LineJoinStyle.Miter](https://reference.aspose.com/slides/java/com.aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο μπορεί να εκτείνεται μια αιχμηρή γωνία.
 
-Ακολουθούν τα βήματα για την εφαρμογή γέμισης διαβάθμισης σε σχήμα με χρήση Aspose.Slides:
+Το όριο είναι ένας λόγος της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της ένωσης προς το πλάτος της γραμμής. Για παράδειγμα, η τιμή `8` επιτρέπει μήκος miter έως και οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Αν η γωνία υπερβεί το όριο, το PowerPoint χρησιμοποιεί μια λοξοτομή (bevel) σε εκείνη τη γωνία. Μεγαλύτερο όριο επιτρέπει πιο αιχμηρά σημεία. Η ρύθμιση επηρεάζει μόνο ενώσεις miter και δεν έχει οπτική επίδραση όταν η γωνία παραμένει εντός των ορίων.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) του σχήματος σε `Gradient`.
-1. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `add` της συλλογής διαβάθμισης που εκτίθεται από τη διεπαφή [IGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Αυτό το παράδειγμα δημιουργεί δύο ταυτοχή, μη γεμάτα τρίγωνα με περιγράμματα 20 σημείων πλάτους. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, και το δεξιό `8`. Κάθε τρίγωνο έχει πλάτος 80 σημείων και ύψος 160 σημείων, δίνοντας στην κορυφή του ένα λόγο μήκους miter προς πλάτος γραμμής περίπου `4.12`. Συνεπώς, το PowerPoint λοξοτομεί την αριστερή άκρη και διατηρεί την δεξιά.
 
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε το εφέ γέμισης διαβάθμισης σε μια έλλειψη:
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 320, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    float[] miterLimits = new float[] { 2f, 8f };
+
+    for (int i = 0; i < miterLimits.length; i++) {
+        IAutoShape triangle = slide.getShapes().addAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(FillType.NoFill);
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+        triangle.getLineFormat().setMiterLimit(miterLimits[i]);
+    }
+
+    presentation.save("miter_limits.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint: **Miter limit 2** αριστερά και **miter limit 8** δεξιά.
+
+![Μία λοξοτομημένη άκρη με όριο miter 2 και μία αιχμηρή άκρη με όριο miter 8 στο PowerPoint](miter-limits.png)
+
+## **Γενική Γέμιση (Gradient Fill)**
+
+Μία γενική γέμιση συνδυάζει χρώματα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμικό gradient σε γωνία 45 μοιρών από το κόκκινο στο μωβ χρησιμοποιώντας το [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getGradientFormat--). Η μέθοδος [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/java/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) τοποθετεί τα χρώματα στα 0 και 1, στην αρχή και στο τέλος του gradient. Η εκκαθάριση των υπαρχόντων στάσεων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργία του αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
-
-    // Εφαρμογή μορφοποίησης διαβάθμισης στο Ellipse.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0f, PresetColor.Purple);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0f, PresetColor.Red);
 
-    // Ορισμός της κατεύθυνσης της διαβάθμισης.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
-
-    // Προσθήκη δύο σημείων διαβάθμισης.
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
-
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -249,53 +333,171 @@ try {
 
 Το αποτέλεσμα:
 
-![Η έλλειψη με γέμιση διαβάθμισης](gradient-fill.png)
+![Η έλλειψη με γενική γέμιση](gradient-fill.png)
 
-Εάν μια διαβάθμιση φαίνεται διαφορετική σε μια εξαγόμενη εικόνα από ό,τι στο PowerPoint, δείτε το [Choose a Gradient Rendering Style](/slides/el/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη γέμιση διαβάθμισης που αποθηκεύεται στην παρουσίαση.
+Αν ένα gradient φαίνεται διαφορετικό σε μια εξαγόμενη εικόνα σε σχέση με το PowerPoint, δείτε [Choose a Gradient Rendering Style](/slides/el/java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε το gradient που αποθηκεύεται στην παρουσίαση.
 
-## **Γέμιση Σχεδίου**
+### **Ορισμός Γωνίας Γραμμικού Gradient**
 
-Στο PowerPoint, η Γέμιση Σχεδίου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα σχεδιάγραμμα δίχρωμου – όπως κουκκίδες, λωρίδες, διαγώνιες λωρίδες ή σκαλίσματα – σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το παρασκήνιο του σχεδίου.
+Χρησιμοποιήστε το [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) για τον έλεγχο του προσανατολισμού ενός [GradientShape.Linear](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/) γεμίσματος. Η γωνία μετράται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά και `270` από κάτω προς πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι πεπερασμένες γωνίες εκτός του διαστήματος `[0, 360)` κανονικοποιούνται σε μία περιστροφή· για παράδειγμα, `-45` γίνεται `315` και `360` γίνεται `0`.
 
-Το Aspose.Slides παρέχει πάνω από 45 προεγκατεστημένα στυλ σχεδίου που μπορείτε να εφαρμόσετε στα σχήματα για να ενισχύσετε την οπτική ελκυστικότητα των παρουσιάσεών σας. Ακόμη και αφού επιλέξετε ένα προεγκατεστημένο σχέδιο, μπορείτε να καθορίσετε ακριβώς τα χρώματα που θα χρησιμοποιήσει.
-
-Ακολουθούν τα βήματα για την εφαρμογή γέμισης σχεδίου σε σχήμα με χρήση Aspose.Slides:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) του σχήματος σε `Pattern`.
-1. Επιλέξτε ένα στυλ σχεδίου από τις προεγκατεστημένες επιλογές.
-1. Ορίστε το [Background Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getBackColor--) του σχεδίου.
-1. Ορίστε το [Foreground Color](https://reference.aspose.com/slides/java/com.aspose.slides/patternformat/#getForeColor--) του σχεδίου.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε γέμιση σχεδίου σε ένα ορθογώνιο:
+Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με τα ίδια χρώματα κόκκινο, πράσινο και μπλε στις θέσεις `0`, `0.5` και `1`. Η κλιμάκωση είναι ανενεργή ώστε η γωνία να μπορεί να συγκριθεί ανεξάρτητα από τις αναλογίες των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle.
+    float[] angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+    for (int i = 0; i < angles.length; i++) {
+        int x = 30 + (i % 3) * 230;
+        int y = 30 + (i / 3) * 190;
+
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.False);
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint:
+
+![Γραμμικά gradients στις γωνίες 0, 45, 90 στην επάνω σειρά και 135, 180, 270 στην κατώτερη σειρά](linear-gradient-angles.png)
+
+### **Κλιμάκωση Γραμμικού Gradient με το Σχήμα**
+
+Το [IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) δέχεται μια τιμή [NullableBool](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/). Ορίστε το ρητά σε `False` για να διατηρείται η γεωμετρική γωνία του gradient όταν αλλάζουν οι αναλογίες του σχήματος, ή σε `True` για να κλιμακώνεται το gradient μαζί με το πλάτος και το ύψος του σχήματος. Με ενεργοποιημένη την κλιμάκωση, η ορατή γωνία μπορεί να διαφέρει από την εκχωρημένη γωνία σε μη τετράγωνο σχήμα.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τα ίδια χρώματα όπως στην σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `False`; η δεξιά `True`. Κάθε στήλη περιέχει ένα ευρύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και τα δύο ξεκινούν με τις ίδιες ευρείες διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γέμιση αντιδρά σε αλλαγή μεγέθους χωρίς να αλλάζει τις ρυθμίσεις του gradient.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] scalingOptions = new byte[] { NullableBool.False, NullableBool.True };
+
+    for (int column = 0; column < scalingOptions.length; column++) {
+        for (int row = 0; row < 2; row++) {
+            int x = 30 + column * 360;
+            int y = row == 0 ? 30 : 150;
+
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+            shape.getFillFormat().setFillType(FillType.Gradient);
+
+            IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(GradientShape.Linear);
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0f, Color.RED);
+            gradient.getGradientStops().add(0.5f, Color.GREEN);
+            gradient.getGradientStops().add(1f, Color.BLUE);
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(scalingOptions[column]);
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα στο PowerPoint, με κλιμάκωση ανενεργή στα αριστερά και ενεργή στα δεξιά:
+
+![Ευρεία και ψηλή ορθογώνια με gradient 45 μοιρών, συγκρίνοντας LinearGradientScaled False αριστερά με True δεξιά](linear-gradient-scaling.png)
+
+Με κλιμάκωση ανενεργή, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με κλιμάκωση ενεργή, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην αναπαραγωγή του gradient ενός προτύπου όταν προσαρμόζεται το σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση αυτού του gradient 45 μοιρών.
+
+Και η γωνία και η κλιμάκωση ισχύουν μόνο για γραμμικά gradients. Δεν ελέγχουν γεμίσεις [GradientShape.Radial ή GradientShape.Rectangle](https://reference.aspose.com/slides/java/com.aspose.slides/gradientshape/).
+
+### **Συνδυασμός Γωνίας με Κατεύθυνση Gradient**
+
+Το [IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setGradientDirection-int-) επιλέγει ένα στυλ gradient από την κλάση [GradientDirection](https://reference.aspose.com/slides/java/com.aspose.slides/gradientdirection/); δεν αποτελεί υποκατάστατο αριθμητικής γωνίας. Για ένα γραμμικό gradient, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή διανομής των χρωμάτων χωρίς να αλλάξουν τη γωνία που έχει οριστεί μέσω του [setLinearGradientAngle](https://reference.aspose.com/slides/java/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
+
+Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίστροφη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (int i = 0; i < 2; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+        shape.getFillFormat().setFillType(FillType.Gradient);
+
+        IGradientFormat gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(GradientShape.Linear);
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0f, Color.RED);
+        gradient.getGradientStops().add(0.5f, Color.GREEN);
+        gradient.getGradientStops().add(1f, Color.BLUE);
+        gradient.setLinearGradientScaled(NullableBool.True);
+
+        if (i == 0) {
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Γέμιση Μοτίβου (Pattern Fill)**
+
+Μία γέμιση μοτίβου εφαρμόζει σχέδιο με δύο χρώματα, όπως σημεία, ρίγες ή σκαλιστές γραμμές. Αυτό το παράδειγμα χρησιμοποιεί το [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) για να επιλέξει ένα μοτίβο τύπου trellis. Το [IPatternFormat.getBackColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getBackColor--) παρέχει το ανοιχτό γκρι φόντο, και το [IPatternFormat.getForeColor](https://reference.aspose.com/slides/java/com.aspose.slides/ipatternformat/#getForeColor--) παρέχει το κίτρινο χρώμα του μοτίβου.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ορισμός του τύπου γεμίσματος σε Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
-
-    // Ορισμός του στυλ μοτίβου.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
-
-    // Ορισμός των χρωμάτων παρασκηνίου και προσκηνίου του μοτίβου.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -304,56 +506,34 @@ try {
 
 Το αποτέλεσμα:
 
-![Το ορθογώνιο με γέμιση σχεδίου](pattern-fill.png)
+![Το ορθογώνιο με γέμιση μοτίβου](pattern-fill.png)
 
-## **Γέμιση Εικόνας**
+## **Γέμιση Εικόνας (Picture Fill)**
 
-Στο PowerPoint, η Γέμιση Εικόνας είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εισάγετε μια εικόνα μέσα σε ένα σχήμα – χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
+Μια γέμιση εικόνας χρησιμοποιεί μια εικόνα μέσα σε ένα σχήμα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και χρησιμοποιεί το [Images.fromFile](https://reference.aspose.com/slides/java/com.aspose.slides/images/#fromFile-java.lang.String-) για να τη φορτώσει στην συλλογή εικόνων της παρουσίασης. Ορίζοντας το [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) σε λειτουργία επικάλυψης (tiled) η εικόνα επαναλαμβάνεται μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται φαίνεται παρακάτω:
 
-Ακολουθούν τα βήματα για τη χρήση Aspose.Slides ώστε να εφαρμόσετε γέμιση εικόνας σε σχήμα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) του σχήματος σε `Picture`.
-1. Ορίστε τη λειτουργία γέμισης εικόνας σε `Tile` (ή άλλη προτιμώμενη λειτουργία).
-1. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/java/com.aspose.slides/ippimage/) από την εικόνα που θέλετε να χρησιμοποιήσετε.
-1. Περνάτε την εικόνα στη μέθοδο `ISlidesPicture.setImage`.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ας υποθέσουμε ότι έχουμε το αρχείο «lotus.png» με την ακόλουθη εικόνα:
-
-![Η εικόνα lotus](lotus.png)
-
-Ο παρακάτω κώδικας Java δείχνει πώς να γεμίσετε ένα σχήμα με την εικόνα:
+![Η εικόνα λωτού](lotus.png)
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // Ορισμός του τύπου γεμίσματος σε Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
-
-    // Ορισμός της λειτουργίας γεμίσματος εικόνας.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Φόρτωση εικόνας και προσθήκη της στους πόρους της παρουσίασης.
     IImage image = Images.fromFile("lotus.png");
-    IPPImage picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // Ορισμός της εικόνας.
+    IPPImage picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -364,45 +544,40 @@ try {
 
 ![Το σχήμα με γέμιση εικόνας](picture-fill.png)
 
-### **Πλακίδια Εικόνας ως Υφή**
+### **Επικάλυψη Εικόνας ως Υφή**
 
-Εάν θέλετε να ορίσετε μια πλακιδική εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά του πλακίδωσης, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
+Αν θέλετε να ορίσετε μια επικάλυψη εικόνας ως υφή και να προσαρμόσετε τη συμπεριφορά της επικάλυψης, μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεθόδους της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Ορίζει τη λειτουργία γέμισης εικόνας—είτε `Tile` είτε `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Ορίζει τη λειτουργία γέμισης εικόνας — είτε `Tile` είτε `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
 - [setTileFlip](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Ελέγχει αν το πλακίδιο αναστρέφεται οριζόντια, κάθετα ή και τα δύο.
-- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ορίζει τη οριζόντια μετατόπιση του πλακιδίου (σε points) από το σημείο προέλευσης του σχήματος.
-- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ορίζει τη λvertical μετατόπιση του πλακιδίου (σε points) από το σημείο προέλευσης του σχήματος.
-- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Καθορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
-- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Καθορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
+- [setTileOffsetX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
+- [setTileOffsetY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Ορίζει την κατακόρυφη μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
+- [setTileScaleX](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [setTileScaleY](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε ένα ορθογώνιο σχήμα με πλακιδική γέμιση εικόνας και να ρυθμίσετε τις επιλογές πλακιδίων:
+Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και διαμορφώνει το [IPictureFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ipicturefillformat/) ώστε να την επαναλάβει στο 50 % του αρχικού μεγέθους. Μετατοπίσεις των −32 σημείων μετακινούν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω‑δεξιά και η αναστροφή και στις δύο κατευθύνσεις καθορίζουν πώς διατάσσεται η επαναλαμβανόμενη υφή.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος Rectangle.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // Ορισμός του τύπου γεμίσματος του σχήματος σε Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Φόρτωση της εικόνας και προσθήκη της στους πόρους της παρουσίασης.
     IImage sourceImage = Images.fromFile("lotus.png");
-    IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // Ανάθεση της εικόνας στο σχήμα.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // Διαμόρφωση της λειτουργίας γεμίσματος εικόνας και των ιδιοτήτων πλακιδώματος.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -411,7 +586,6 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -422,41 +596,22 @@ try {
 
 ![Οι επιλογές πλακιδίων](tile-options.png)
 
-## **Γέμιση Σε Μονόχρωμα**
+## **Στερεά Γέμιση (Solid Color Fill)**
 
-Στο PowerPoint, η Γέμιση Σε Μονόχρωμα είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή σχέδια.
-
-Για να εφαρμόσετε γέμιση σε μονόχρωμα σε σχήμα με χρήση Aspose.Slides, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) του σχήματος σε `Solid`.
-1. Εκχωρήστε το προτιμώμενο χρώμα γεμίσματος στο σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε γέμιση σε μονόχρωμα σε ένα ορθογώνιο σε διαφάνεια PowerPoint:
+Μία στερεή γέμιση δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα χρησιμοποιεί το [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) για να ορίσει τη λειτουργία στερεής γέμισης και εκχωρεί κίτρινο χρώμα μέσω του [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--), έπειτα αποθηκεύει το ορθογώνιο στην παρουσίαση.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Ορισμός του τύπου γεμίσματος σε Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
-
-    // Ορισμός του χρώματος γεμίσματος.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -465,42 +620,90 @@ try {
 
 Το αποτέλεσμα:
 
-![Το σχήμα με μονόχρωμη γέμιση](solid-color-fill.png)
+![Το σχήμα με στερεή γέμιση χρώματος](solid-color-fill.png)
 
-## **Ορισμός Διαφάνειας**
+## **Χρήση Φόντου Διαφάνειας ως Γέμιση Σχήματος**
 
-Στο PowerPoint, όταν εφαρμόζετε ένα μονόχρωμο, διαβαθμισμένο, εικόνα ή υφή γέμισμα σε σχήματα, μπορείτε επίσης να ορίσετε ένα επίπεδο διαφάνειας για να ελέγξετε την αδιαφάνεια του γεμίσματος. Μια υψηλότερη τιμή διαφάνειας κάνει το σχήμα πιο διαφανές, επιτρέποντας στο φόντο ή στα υποκείμενα αντικείμενα να είναι μερικώς ορατά.
+Χρησιμοποιήστε το [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, π.χ. σε πρότυπο παρουσίασης. Χρησιμοποιήστε το [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) σε [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) πρώτα για να αφαιρέσετε τυχόν ρητή γέμιση. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί για τη δική του γέμιση στυλ. Η ενεργοποίηση της σημαίας μόνη της δεν αφαιρεί μια υπάρχουσα ρητή γέμιση.
 
-Το Aspose.Slides σάς επιτρέπει να ορίσετε την τιμή διαφάνειας ρυθμίζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Ακολουθήστε τα παρακάτω βήματα:
+Αυτό διαφέρει από το [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/): η γέμιση φόντου καλύπτει τα αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το NoFill αφήνει αυτά τα αντικείμενα ορατά. Ένα gradient παραμένει ευθυγραμμισμένο με τη διαφάνεια αντί να επαναλαμβάνεται μέσα σε κάθε σχήμα.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) σε `Solid`.
-1. Χρησιμοποιήστε `Color` για να ορίσετε ένα χρώμα με διαφάνεια (το στοιχείο `alpha` ελέγχει τη διαφάνεια).
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε χρώμα γεμίσματος με διαφάνεια σε ένα ορθογώνιο:
+Το παρακάτω παράδειγμα δημιουργεί ένα κύριο φόντο που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γέμιση, και το δεξιό εναλλάσσει το φόντο με μια ρητή πορτοκαλί γέμιση.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
+    presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος ορθογωνίου με συμπαγές γέμισμα.
+    // Κληρονομεί το gradient από το master.
+    slide.getBackground().setType(BackgroundType.NotDefined);
+    slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
+    IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(BackgroundType.OwnBackground);
+    background.getFillFormat().setFillType(FillType.Gradient);
+    IGradientFormat gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(GradientShape.Linear);
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, new Color(0, 0, 139));
+    gradient.getGradientStops().add(1, new Color(135, 206, 250));
+
+    // Προσθέστε αυτό το αντικείμενο πρώτα ώστε να εμφανίζεται πίσω από τα ορθογώνια.
+    IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(FillType.Solid);
+    band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
+    band.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape backgroundShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(FillType.NotDefined);
+    backgroundShape.setUseBackgroundFill(true);
+
+    IAutoShape noFillShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(FillType.NoFill);
+
+    IAutoShape explicitShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(FillType.NotDefined);
+    explicitShape.setUseBackgroundFill(true);
+
+    // Απενεργοποιήστε τη γέμιση φόντου πριν εφαρμόσετε μια ρητή γέμιση.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(FillType.Solid);
+    explicitShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
+
+    presentation.save("background_fill.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το αποτέλεσμα, από αριστερά προς δεξιά: **γέμιση φόντου**, **χωρίς γέμιση**, και **ρητή γέμιση**. Η λωρίδα ματζέντα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσα από το κεντρικό ορθογώνιο.
+
+![Γέμιση φόντου, χωρίς γέμιση και ρητή πορτοκαλή γέμιση πάνω από μια λωρίδα ματζέντα](background-fill.png)
+
+Η ίδια συμπεριφορά ισχύει για φόντο που ορίζεται άμεσα στη διαφάνεια ή κληρονομείται από μια διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο φόντο της διαφάνειας· το παράδειγμα αφήνει τόσο το φόντο της διαφάνειας όσο και της διάταξης ακαθόριστα ώστε ο κύριος να το παρέχει.
+
+## **Ορισμός Διαφάνειας**
+
+Για μια στερεή γέμιση, το αλφα‑συστατικό του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφαές. Αυτό το παράδειγμα χρησιμοποιεί τιμή αλφα 128 για ένα κίτρινο ορθογώνιο, καθιστώντας το περίπου 50 % διαφανές ώστε το ορθογώνιο από κάτω να παραμένει ορατό. Το χρώμα εκχωρείται μέσω του [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#getSolidFillColor--).
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Προσθήκη διαφανούς αυτόματου σχήματος ορθογωνίου πάνω από το συμπαγές σχήμα.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
-    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 128));
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -513,34 +716,18 @@ try {
 
 ## **Περιστροφή Σχημάτων**
 
-Το Aspose.Slides σας επιτρέπει να περιστρέφετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο όταν τοποθετείτε οπτικά στοιχεία με συγκεκριμένη ευθυγράμμιση ή απαιτήσεις σχεδίασης.
-
-Για να περιστρέψετε ένα σχήμα σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε την ιδιότητα περιστροφής του σχήματος στην επιθυμητή γωνία.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να περιστρέψετε ένα σχήμα κατά 5 μοίρες:
+Χρησιμοποιήστε το [IShape.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setRotation-float-) για να περιστρέψετε ένα σχήμα στο επίπεδο της διαφάνειας. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 Presentation presentation = new Presentation();
 try {
-    // Λήψη της πρώτης διαφάνειας.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη αυτόματου σχήματος τύπου Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // Περιστροφή του σχήματος κατά 5 μοίρες.
     shape.setRotation(5);
 
-    // Αποθήκευση του αρχείου PPTX στον δίσκο.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -551,38 +738,24 @@ try {
 
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Λοξότμησης**
+## **Προσθήκη 3D Εφέ Λοξοτομίας (Bevel)**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ λοξότμησης σε σχήματα ρυθμίζοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/).
-
-Για να προσθέσετε 3Δ εφέ λοξότμησης σε ένα σχήμα, ακολουθήστε τα βήματα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ρυθμίστε το [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/) του σχήματος για να ορίσετε τις ρυθμίσεις λοξότμησης.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε 3Δ εφέ λοξότμησης σε ένα σχήμα:
+Χρησιμοποιήστε το [IShape.getThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getThreeDFormat--) για να δώσετε σε ένα σχήμα βάθος και λοξοτομίες άκρων. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το βάθος σε 4 σημεία μέσω του [IThreeDFormat.setDepth](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#setDepth-double-), και εφαρμόζει λοξοτομία κορυφής κυκλικής μορφής με πλάτος και ύψος 6 σημείων μέσω του [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/java/com.aspose.slides/ithreedformat/#getBevelTop--). Μια ορθογώνια, προσηπτική κάμερα και τριών‑σημείων φωτισμός κάνουν τη λοξοτομία ορατή.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Δημιουργία ενός αντικειμένου της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Προσθήκη ενός σχήματος στη διαφάνεια.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // Ορισμός των ιδιοτήτων ThreeDFormat του σχήματος.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -591,7 +764,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // Αποθήκευση της παρουσίασης ως αρχείο PPTX.
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -600,39 +772,25 @@ try {
 
 Το αποτέλεσμα:
 
-![Το εφέ 3Δ λοξότμησης](3D-bevel-effect.png)
+![Το 3D εφέ λοξοτομίας](3D-bevel-effect.png)
 
-## **Προσθήκη 3Δ Εφέ Περιστροφής**
+## **Προσθήκη 3D Εφέ Περιστροφής**
 
-Το Aspose.Slides επιτρέπει την εφαρμογή 3Δ εφέ περιστροφής σε σχήματα ρυθμίζοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/java/com.aspose.slides/threedformat/).
-
-Για να εφαρμόσετε 3Δ περιστροφή σε ένα σχήμα:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με τον δείκτη της.
-1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/) στη διαφάνεια.
-1. Χρησιμοποιήστε τις μεθόδους [setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) και [setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-) για να ορίσετε την 3Δ περιστροφή.
-1. Αποθηκεύστε την παρουσίαση.
-
-Ο παρακάτω κώδικας Java δείχνει πώς να εφαρμόσετε 3Δ εφέ περιστροφής σε ένα σχήμα:
+Η 3Δ προβολή ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [ICamera.setRotation](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setRotation-float-float-float-) με γωνίες γεωγραφικού πλάτους, γεωγραφικού μήκους και επανάληψης 40, 35 και 20 μοιρών αντίστοιχα. Επιλέγει μια ισομετρική κάμερα μέσω του [ICamera.setCameraType](https://reference.aspose.com/slides/java/com.aspose.slides/icamera/#setCameraType-int-) και ισορροπημένο φωτισμό μέσω του [ILightRig.setLightType](https://reference.aspose.com/slides/java/com.aspose.slides/ilightrig/#setLightType-int-), έπειτα αποθηκεύει το μορφοποιημένο ορθογώνιο.
 
 ```java
 import com.aspose.slides.*;
 
-// Δημιουργία ενός αντικειμένου της κλάσης Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
     IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // Αποθήκευση της παρουσίασης ως αρχείο PPTX.
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -641,15 +799,15 @@ try {
 
 Το αποτέλεσμα:
 
-![Το εφέ 3Δ περιστροφής](3D-rotation-effect.png)
+![Το 3D εφέ περιστροφής](3D-rotation-effect.png)
 
-## **Έλεγχος Ασπρόμαυρης Απόδοσης για Σχήματα**
+## **Έλεγχος Μαυρω-Άσπρου Απόδοσης για Σχήματα**
 
-Η μέθοδος [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) ορίζει πώς ένα ατομικό σχήμα θα αποδοθεί όταν μια παρουσίαση προβάλλεται ή επεξεργάζεται σε ασπρόμαυρη λειτουργία. Δεν ενεργοποιεί την ασπρόμαυρη απεικόνιση από μόνη της και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική χρωματική λειτουργία.
+Η μέθοδος [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) καθορίζει πώς ένα μεμονωμένο σχήμα αποδίδεται όταν μια παρουσίαση προβλέπεται ή επεξεργάζεται σε μαυρω‑άσπρο τρόπο. Δεν ενεργοποιεί την προβολή μαυρω‑άσπρου από μόνη της και δεν αλλάζει τη γέμιση, το περίγραμμα ή άλλες μορφοποιήσεις του σχήματος σε κανονική έγχρωμη λειτουργία.
 
-Χρησιμοποιήστε μια τιμή από την κλάση [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) για να επιλέξετε τη συμπεριφορά που επιθυμείτε. Για παράδειγμα, το `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, τα `Gray` και `LightGray` χρησιμοποιούν γκρι χρωματισμό, το `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, τα `Black` και `White` εξαναγκάζουν ένα ενιαίο χρώμα, το `Color` διατηρεί το κανονικό χρώμα, και το `Hidden` αποκρύπτει το σχήμα σε ασπρόμαυρη λειτουργία. Το `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
+Χρησιμοποιήστε μια τιμή από την κλάση [BlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/blackwhitemode/) για να επιλέξετε τη συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `Gray` και `LightGray` χρησιμοποιούν γκριχρωματισμό, `BlackWhite` χρησιμοποιεί μόνο μαύρο και άσπρο, `Black` και `White` επιβάλλουν ένα ενιαίο χρώμα, `Color` διατηρεί το κανονικό χρώμα, και `Hidden` παραλείπει το σχήμα σε μαυρω‑άσπρη λειτουργία. `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
 
-Ο παρακάτω κώδικας Java δημιουργεί ένα χρωματιστό σχήμα και το εμφανίζει γκρι σε ασπρόμαυρη λειτουργία εμφάνισης:
+Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και θέτει το [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμιση στην κανονική χρωματική προβολή και ζητά γκρι χρωματισμό από τις εφαρμογές που σέβονται τις ρυθμίσεις μαυρω‑άσπρης προβολής:
 
 ```java
 import com.aspose.slides.*;
@@ -661,9 +819,7 @@ try {
 
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
-    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
-
-    // Διατηρήστε το πορτοκαλί γέμισμα σε χρωματική λειτουργία, αλλά αποδώστε το σχήμα με γκρι χρωματισμό σε ασπρόμαυρη λειτουργία.
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
     shape.setBlackWhiteMode(BlackWhiteMode.Gray);
 
     presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
@@ -672,11 +828,11 @@ try {
 }
 ```
 
-Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμα του. Σε ροή εργασίας ασπρόμαυρης προβολής, χρησιμοποιεί γκρι χρωματισμό επειδή η λειτουργία του έχει οριστεί σε `Gray`. Αυτό σας επιτρέπει να διατηρείτε μια πλήρη‑χρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις ασπρόμαυρης προβολής της παρουσίασης.
+Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμιση. Σε ροή εργασίας μαυρω‑άσπρης προβολής, χρησιμοποιεί γκρι χρωματισμό επειδή η λειτουργία του είναι ορισμένη σε `Gray`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις μαυρω‑άσπρης προβολής.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Ο παρακάτω κώδικας Java δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με σύμβολα στη [LayoutSlide](https://reference.aspose.com/slides/java/com.aspose.slides/layoutslide/) στις προεπιλεγμένες ρυθμίσεις τους:
+Χρησιμοποιήστε το [ISlide.reset](https://reference.aspose.com/slides/java/com.aspose.slides/islide/#reset--) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των δεσμευτών διαφάνειας από τους αντίστοιχους δεσμευτές διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με δεσμευτές συνδεδεμένους με τη διάταξη και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχο δεσμευτή διάταξης δεν επαναφέρονται.
 
 ```java
 import com.aspose.slides.*;
@@ -684,25 +840,25 @@ import com.aspose.slides.*;
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Επαναφορά κάθε σχήματος στη διαφάνεια που έχει σύμβολο κράτησης θέσης στη διάταξη.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές Ερωτήσεις (FAQ)**
 
-**Η μορφοποίηση των σχημάτων επηρεάζει το τελικό μέγεθος του αρχείου παρουσίασης;**
+**Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος του αρχείου παρουσίασης;**
 
-Μόνο ελάχιστα. Οι ενσωματωμένες εικόνες και τα μέσα καταλαμβάνουν το μεγαλύτερο μέρος του χώρου του αρχείου, ενώ οι παράμετροι σχήματος όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και δεν προσθέτουν σχεδόν κανένα πρόσθετο μέγεθος.
+Τα χρώματα, τα στυλ γραμμών και οι ρυθμίσεις εφέ προσθέτουν γενικά λίγα δεδομένα σε σύγκριση με τις ενσωματωμένες εικόνες και πολυμέσα. Οι γέμιση εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
 
-**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που έχουν την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
+**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται ταυτόσημη μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος—γέμιση, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε ότι τα στυλ είναι πανομοιότυπα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
+Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος — γέμιση, γραμμή και ρυθμίσεις εφέ. Αν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ ως ταυτόσημα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχημάτων σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επανάληψη σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε μια προτυπική παρουσίαση ή σε αρχείο προτύπου .POTX. Όταν δημιουργείτε μια νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγμα σχήματος με τα επιθυμητά στυλ σε μια διαφάνεια‑πρότυπο ή σε αρχείο .POTX. Όταν δημιουργείτε νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλσχηματο που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.

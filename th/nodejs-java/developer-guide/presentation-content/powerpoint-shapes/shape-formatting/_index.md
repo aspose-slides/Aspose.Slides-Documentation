@@ -1,84 +1,62 @@
 ---
-title: จัดรูปแบบรูปร่าง PowerPoint ด้วย JavaScript
-linktitle: การจัดรูปแบบรูปร่าง
+title: "จัดรูปแบบรูปร่าง PowerPoint ใน JavaScript"
+linktitle: "การจัดรูปแบบรูปร่าง"
 type: docs
 weight: 20
 url: /th/nodejs-java/shape-formatting/
 keywords:
-- จัดรูปแบบรูปร่าง
-- จัดรูปแบบเส้น
-- เอฟเฟกต์สเก็ตช์
-- เส้นรูปร่างสเก็ตช์
-- จัดรูปแบบสไตล์การเชื่อมต่อ
-- การเติมไล่สี
-- การเติมลวดลาย
-- การเติมรูปภาพ
-- การเติมพื้นผิว
-- การเติมสีทึบ
-- ความโปร่งใสของรูปร่าง
-- การเรนเดอร์รูปร่างขาว-ดำ
-- การเรนเดอร์รูปร่างระดับสีเทา
-- หมุนรูปร่าง
-- เอฟเฟกต์ Bevel 3 มิติ
-- เอฟเฟกต์การหมุน 3 มิติ
-- รีเซ็ตการจัดรูปแบบ
-- PowerPoint
-- การนำเสนอ
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "จัดรูปแบบรูปร่าง PowerPoint ด้วย JavaScript โดยใช้ Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT, PPTX, และ ODP ด้วยความแม่นยำและการควบคุมเต็มรูปแบบ."
+- "จัดรูปแบบรูปร่าง"
+- "จัดรูปแบบเส้น"
+- "เอฟเฟ็กต์สเก็ตช์"
+- "เส้นรูปร่างสเก็ตช์"
+- "จัดรูปแบบสไตล์การเชื่อมต่อ"
+- "การเติมแบบไล่ระดับสี"
+- "การเติมแบบลายเส้น"
+- "การเติมด้วยรูปภาพ"
+- "การเติมพื้นผิว"
+- "การเติมสีทึบ"
+- "ความโปร่งใสของรูปร่าง"
+- "การเรนเดอร์รูปร่างขาว‑ดำ"
+- "การเรนเดอร์รูปร่างระดับสีเทา"
+- "หมุนรูปร่าง"
+- "เอฟเฟ็กต์ bevel 3 มิติ"
+- "เอฟเฟ็กต์การหมุน 3 มิติ"
+- "รีเซ็ตการจัดรูปแบบ"
+- "PowerPoint"
+- "การนำเสนอ"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน JavaScript ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟ็กต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มรูปแบบ."
 ---
 ## **บทนำ**
 
-ใน PowerPoint คุณสามารถเพิ่มรูปร่างลงในสไลด์ได้ เนื่องจากรูปร่างประกอบด้วยเส้น คุณจึงสามารถจัดรูปแบบได้โดยการแก้ไขหรือใช้เอฟเฟกต์กับขอบของมัน นอกจากนี้ คุณยังสามารถจัดรูปแบบรูปร่างโดยระบุการตั้งค่าที่ควบคุมวิธีการเติมส่วนภายในของรูปร่าง
+จัดรูปแบบรูปร่างใน PowerPoint โดยปรับเส้นขอบ การเติมสี และเอฟเฟ็กต์ต่าง ๆ Aspose.Slides for Node.js ผ่าน Java ช่วยให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม รวมถึงความโปร่งใส การหมุน และการจัดรูปแบบ 3D
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![ตัวเลือกการจัดรูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Node.js via Java ให้คลาสและเมธอดที่ช่วยให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกันกับที่มีใน PowerPoint
+Aspose.Slides for Node.js ผ่าน Java มีคลาสและเมธอดที่ทำให้คุณสามารถจัดรูปแบบรูปร่างได้โดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-ด้วย Aspose.Slides คุณสามารถระบุสไตล์เส้นแบบกำหนดเองสำหรับรูปร่างได้ ขั้นตอนต่อไปนี้สรุปกระบวนการ:
+ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) เพื่อควบคุมเส้นขอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าไม่มีการเติมสีที่มีเส้นขอบสีฟ้าประดับเส้นประ [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) เลือกเส้นแบบคอมพาวนด์หนาบาง ในขณะที่ [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) ตั้งความกว้างเป็น 7 จุดและ [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) เลือกรูปแบบจุดประแทน
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [line style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linestyle/) ของรูปร่าง
-1. ตั้งค่าความกว้างของเส้น
-1. ตั้งค่า [dash style](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) ของเส้น
-1. ตั้งค่าสีเส้นสำหรับรูปร่าง
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ดต่อไปนี้แสดงวิธีจัดรูปแบบ `AutoShape` แบบสี่เหลี่ยม:
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Rectangle.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
-
-    // ลบการเติมสีจากรูปร่างสี่เหลี่ยม.
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-
-    // ใช้การจัดรูปแบบกับเส้นของสี่เหลี่ยม.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
-
-    // ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยม.
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -87,51 +65,141 @@ try {
 
 ผลลัพธ์:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
 
-## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นของรูปร่าง**
+### **กำหนดรูปแบบจุดประแทนของเส้นแบบกำหนดเอง**
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดด้วยมือ ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)
+ใช้ [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) เมื่อรูปแบบเส้นที่กำหนดไว้ล่วงหน้าไม่สามารถให้ความยาวของจุดและช่องว่างที่ต้องการได้ เช่น สำหรับเส้นขอบตามแบรนด์หรือแผนผังเชิงเทคนิค การกำหนดรูปแบบอัตโนมัติจะเปลี่ยนสไตล์จุดประแทนของเส้นเป็น [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/)
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดอย่างชัดเจน, และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+รายการในอาร์เรย์สลับระหว่างความยาวของจุดและช่องว่าง เริ่มจากจุด แต่ละค่าจะเป็นหลายเท่าของความกว้างของเส้น: `[4, 2]` ที่ความกว้าง 3 จุดจะสร้างจุดยาว 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ค่าที่เป็นจำนวนจริง ไม่เป็นลบ เพื่อกำหนดส่วนจุด‑ช่องว่างที่ครบถ้วน ตัวอย่างใช้ค่าบวกเพื่อให้ทุกจุดและช่องว่างมองเห็นได้
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+ตัวอย่างนี้สร้างเส้นสีฟ้าห้าเส้นที่มีความยาวเท่ากันและหัวเส้นเรียบ แถวแรกสามเส้นเปรียบเทียบรูปแบบที่ความกว้าง 3 จุด แถวที่สี่ทำซ้ำรูปแบบแรกที่ความกว้างสองเท่า ทำให้จุดและช่องว่างเพิ่มขึ้นเป็นสองเท่า แถวที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทึบ
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(600, 300, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let patterns = [
+        [4, 2],
+        [1, 2],
+        [6, 2, 1, 2],
+        [4, 2],
+        [4, 2]
+    ];
+
+    for (let i = 0; i < patterns.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 50, 50 + i * 50, 500, 0);
+        line.getLineFormat().setWidth(i == 3 ? 6 : 3);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setCapStyle(java.newByte(aspose.slides.LineCapStyle.Flat));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        let pattern = java.newArray("float", patterns[i]);
+        line.getLineFormat().setCustomDashPattern(pattern);
+    }
+
+    // เปลี่ยนเส้นสุดท้ายให้เป็นสไตล์ทึบ.
+    slide.getShapes().get_Item(4).getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+
+    presentation.save("custom_dash_patterns.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หากต้องการกลับไปใช้สไตล์จุดประแทนที่กำหนดไว้ล่วงหน้า ให้ส่งค่า [LineDashStyle.Dash](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/) ไปยัง [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
+
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**.
+
+![สามรูปแบบจุดประแทนกำหนดเอง เส้นกว้างกว่าด้วยรูปแบบแรก และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
+
+### **ตั้งค่าหัวเส้น**
+
+ใช้ [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) เพื่อตั้งค่าหัวของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) มีสามสไตล์หัวที่กำหนดอย่างชัดเจน:
+
+- `Flat`: เส้นหยุดที่จุดปลาย
+- `Round`: หัวกึ่งวงกลมต่อจากจุดปลายออกไปครึ่งความกว้างของเส้น
+- `Square`: หัวสี่เหลี่ยมต่อจากจุดปลายออกไปครึ่งความกว้างของเส้น
+
+คลาสนี้ยังมี `NotDefined` ซึ่งหมายความว่าไม่ได้กำหนดสไตล์หัวโดยชัดเจน
+
+หัวเส้นต่างจากหัวลูกศรที่เพิ่มสัญลักษณ์ที่ปลายเส้นและการเชื่อมต่อที่ควบคุมมุมระหว่างส่วนของเส้น ตัวอย่างนี้ปิดการทำงานของหัวลูกศรด้วย [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) และ [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) เพื่อให้เปรียบเทียบเฉพาะรูปหัว
+
+ตัวอย่างต่อไปสร้างเส้นแนวนอนสามเส้นที่เหมือนกัน ความกว้าง 20 จุด จากบนลงล่างใช้หัวแบบ `Flat` , `Round` และ `Square` ตามลำดับ จุดปลายของเส้นมีพิกัดแนวนอนเดียวกัน; หัวแบบ `Round` และ `Square` ยืดออกไปอีก 10 จุดจากแต่ละจุดปลาย
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(500, 240, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let capStyles = [aspose.slides.LineCapStyle.Flat, aspose.slides.LineCapStyle.Round, aspose.slides.LineCapStyle.Square];
+
+    for (let i = 0; i < capStyles.length; i++) {
+        let line = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Line, 100, 50 + i * 70, 300, 0);
+        line.getLineFormat().setWidth(20);
+        line.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        line.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        line.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Solid));
+        line.getLineFormat().setCapStyle(java.newByte(capStyles[i]));
+        line.getLineFormat().setBeginArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+        line.getLineFormat().setEndArrowheadStyle(java.newByte(aspose.slides.LineArrowheadStyle.None));
+    }
+
+    presentation.save("line_caps.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**.
+
+![หัวเส้นแบบ Flat, Round และ Square บนเส้นหนาแบบเดียวกันใน PowerPoint](line-caps.png)
+
+## **ใช้เอฟเฟ็กต์สเก็ตช์กับเส้นของรูปร่าง**
+
+เอฟเฟ็กต์สเก็ตช์ทำให้เส้นของรูปร่างดูเหมือนวาดด้วยมือ ใช้ [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) เพื่อเข้าถึงการตั้งค่าเส้น, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)
+
+โค้ด JavaScript ด้านล่างแสดงวิธีใช้เอฟเฟ็กต์ [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยชัดเจน และลบเอฟเฟ็กต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // เข้าถึงรูปแบบเส้นของรูปร่างและรูปแบบสเก็ตช์ของมัน.
     let sketchFormat = shape.getLineFormat().getSketchFormat();
-
-    // ใช้เอฟเฟกต์สเก็ตช์.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
-
-    // อ่านเอฟเฟกต์สเก็ตช์ที่กำหนดโดยตรงให้กับรูปร่าง.
     let explicitSketchType = sketchFormat.getSketchType();
     console.log("Explicit sketch type: " + explicitSketchType);
-
-    // ลบเอฟเฟกต์สเก็ตช์.
     sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-ค่าที่คืนโดย [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์, หรือเลย์เอาต์สไลด์ ให้ใช้ [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/), เรียก `getSketchFormat` บนวัตถุที่คืนมา, จากนั้นเรียกเมธอด `getSketchType` ของมัน ค่าที่มีประสิทธิภาพจะแสดงการจัดรูปแบบที่ใช้งานจริงหลังจากการสืบทอดถูกแก้ไข:
+ค่าที่คืนจาก [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) แสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม แม่สไลด์ หรือสไลด์เลย์เอาต์ ให้ใช้ [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective) แล้วเรียก `getSketchFormat` จากอ็อบเจ็กต์ที่ได้ และต่อด้วยเมธอด `getSketchType` ค่าที่ได้จะสะท้อนการจัดรูปแบบที่ใช้จริงหลังจากสืบทอดเสร็จ ตัวอย่างนี้ต้องใช้งานนำเสนอที่มีรูปร่างอย่างน้อยหนึ่งรูปในสไลด์แรกและพิมพ์ค่าทั้งสอง:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    let lineFormat = shape.getLineFormat();
 
+    let lineFormat = shape.getLineFormat();
     let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
     let effectiveLineFormat = lineFormat.getEffective();
     let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
@@ -145,111 +213,121 @@ try {
 
 ## **จัดรูปแบบสไตล์การเชื่อมต่อ**
 
-นี่คือสามตัวเลือกของประเภทการเชื่อมต่อ:
+ตัวเลือกสไตล์การเชื่อมต่อสามแบบคือ:
 
-* กลม
-* มิตเตอร์
-* บีเวล
+* Round
+* Miter
+* Bevel
 
-โดยค่าเริ่มต้น เมื่อ PowerPoint เชื่อมสองเส้นที่มุม (เช่นที่มุมของรูปร่าง) จะใช้การตั้งค่า **Round** อย่างไรก็ตาม หากคุณวาดรูปร่างที่มีมุมคม คุณอาจต้องการตัวเลือก **Miter**.
+สไตล์การเชื่อมต่อกำหนดว่าช่วงเส้นขอบสองช่วงมาประชิดที่มุมอย่างไร ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมแหลม, หรือ **Bevel** สำหรับมุมแบน
 
-![The join style in the presentation](join-style-powerpoint.png)
+![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีที่สี่เหลี่ยมสามรูป (ตามที่แสดงในรูปด้านบน) ถูกสร้างโดยใช้การตั้งค่าประเภทการเชื่อมต่อ Miter, Bevel, และ Round:
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำสามรูปที่มีเส้นขอบสีฟ้า ความกว้าง 15 จุด ใช้ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) เพื่อกำหนดค่า miter, bevel และ round ของ [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) ตามลำดับ เพื่อเปรียบเทียบการวาดมุม
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติสามรูปแบบ Rectangle.
-    let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
-    let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
-    let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
+    let miterShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
+    let bevelShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
+    let roundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // ตั้งค่าสีเติมสำหรับแต่ละรูปร่างสี่เหลี่ยม.
-    shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    miterShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    bevelShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    roundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
 
-    // ตั้งค่าความกว้างของเส้น.
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    miterShape.getLineFormat().setWidth(15);
+    bevelShape.getLineFormat().setWidth(15);
+    roundShape.getLineFormat().setWidth(15);
 
-    // ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยม.
-    shape1.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape2.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    shape3.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    miterShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    miterShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    bevelShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    bevelShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
+    roundShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    roundShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // ตั้งค่าสไตล์การเชื่อมต่อ.
-    shape1.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
-    shape2.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
-    shape3.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
+    miterShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+    bevelShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Bevel));
+    roundShape.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Round));
 
-    // เพิ่มข้อความให้แต่ละสี่เหลี่ยม.
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
+    miterShape.getTextFrame().setText("Miter Join Style");
+    bevelShape.getTextFrame().setText("Bevel Join Style");
+    roundShape.getTextFrame().setText("Round Join Style");
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **การเติมแบบไล่สี**
+### **จำกัดการเชื่อมต่อ Miter ที่มุมแหลม**
 
-ใน PowerPoint การเติมแบบไล่สีเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การผสมสีต่อเนื่องกับรูปร่าง ตัวอย่างเช่น คุณสามารถใช้สองสีหรือมากกว่านั้นโดยที่สีหนึ่งค่อยๆ กลางเข้าสู่สีอีกสีหนึ่ง
+ใช้ [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) ร่วมกับ [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) ตั้งเป็น [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมแหลมสามารถยืดออกได้
 
-ต่อไปนี้คือวิธีใช้ Aspose.Slides เพื่อเติมแบบไล่สีให้กับรูปร่าง:
+ขีดจำกัดคืออัตราส่วนระหว่างระยะห่างของมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวของ miter สูงสุดถึงแปดเท่าของความกว้างเส้น; ค่านี้ไม่ใช่หน่วยจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่ขึ้นทำให้จุดมุมคมยิ่งขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อ miter เท่านั้นและไม่มีผลต่อการแสดงผลเมื่อมุมอยู่ภายในขีดจำกัดทั้งสอง
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ของรูปร่างเป็น `Gradient`
-1. เพิ่มสีสองสีที่คุณต้องการพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `add` ของคอลเลกชัน gradient stop ที่เปิดเผยโดยคลาส [GradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/)
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+ตัวอย่างนี้สร้างสามเหลี่ยมไร้การเติมสีสองรูปที่มีเส้นขอบความกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2` และด้านขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาว miter ต่อความกว้างเส้นประมาณ `4.12` ดังนั้น PowerPoint จะทำให้ยอดซ้ายเป็น bevel และรักษายอดขวาไว้เป็นจุดแหลม
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
+    presentation.getSlideSize().setSize(500, 320, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Ellipse.
-    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
+    let miterLimits = [2, 8];
 
-    // ใช้การจัดรูปแบบไล่สีกับรูปวงรี.
+    for (let i = 0; i < miterLimits.length; i++) {
+        let triangle = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+        triangle.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        triangle.getLineFormat().setWidth(20);
+        triangle.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        triangle.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 0, 139));
+        triangle.getLineFormat().setJoinStyle(java.newByte(aspose.slides.LineJoinStyle.Miter));
+        triangle.getLineFormat().setMiterLimit(java.newFloat(miterLimits[i]));
+    }
+
+    presentation.save("miter_limits.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา
+
+![ยอดที่ bevel ด้วย miter limit 2 และยอดแหลมด้วย miter limit 8 ใน PowerPoint](miter-limits.png)
+
+## **การเติมด้วยการไล่ระดับสี (Gradient Fill)**
+
+การเติมไล่ระดับสีผสมสีภายในรูปร่าง ตัวอย่างนี้เติมวงรีด้วยไล่ระดับสีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat) วิธี [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) จะใส่จุดสีที่ตำแหน่ง 0 และ 1 ซึ่งเป็นจุดเริ่มและจบของการไล่สี การลบจุดสีที่มีอยู่ก่อนหน้าเพื่อให้ใช้เพียงสองสีนี้เท่านั้น
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
-
-    // ตั้งค่าทิศทางของไล่สี.
-    shape.getFillFormat().getGradientFormat().setGradientDirection(aspose.slides.GradientDirection.FromCorner2);
-
-    // เพิ่มสองจุดไล่สี.
+    shape.getFillFormat().getGradientFormat().setLinearGradientAngle(45);
+    shape.getFillFormat().getGradientFormat().getGradientStops().clear();
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
-    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
+    shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0.0, aspose.slides.PresetColor.Red);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -258,52 +336,171 @@ try {
 
 ผลลัพธ์:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![วงรีที่เติมด้วยการไล่ระดับสี](gradient-fill.png)
 
-หากไล่สีดูแตกต่างในภาพที่ส่งออกเมื่อเทียบกับใน PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). คุณสามารถเลือกสไตล์การเรนเดอร์ได้โดยไม่ต้องเปลี่ยนการเติมไล่สีที่เก็บไว้ในงานนำเสนอ
+หากการไล่ระดับสีแสดงผลแตกต่างในภาพที่ส่งออกเมื่อเทียบกับ PowerPoint ดูที่ [Choose a Gradient Rendering Style](/slides/th/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการไล่ระดับสีที่เก็บไว้ในงานนำเสนอ
 
-## **การเติมลวดลาย**
+### **ตั้งค่ามุมของการไล่ระดับสีเชิงเส้น**
 
-ใน PowerPoint การเติมลวดลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใช้การออกแบบสองสี—เช่น จุด, แนวนอน, ลายเส้นตัดกัน หรือ เช็กบอร์ด—กับรูปร่าง คุณสามารถเลือกสีที่กำหนดเองสำหรับพื้นหน้าและพื้นหลังของลวดลายได้
+ใช้ [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) เพื่อควบคุมการวางแนวของการเติม [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` คือจากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, `270` จากล่างขึ้นบน รองรับมุมเป็นเศษส่วน มุมที่อยู่นอกช่วง `[0, 360)` จะถูกปรับเป็นรอบเดียว เช่น `-45` จะกลายเป็น `315` และ `360` จะเป็น `0`
 
-Aspose.Slides มีลักษณะลวดลายที่กำหนดล่วงหน้ากว่า 45 แบบที่คุณสามารถนำไปใช้กับรูปร่างเพื่อเพิ่มความน่าสนใจของงานนำเสนอของคุณ แม้หลังจากเลือกลวดลายที่กำหนดล่วงหน้าแล้ว คุณยังสามารถระบุสีที่ต้องการให้ใช้ได้อย่างแม่นยำ
+ตัวอย่างนี้สร้างสี่เหลี่ยมหกรูปที่มีจุดสีแดง เขียว และน้ำเงินที่ตำแหน่ง `0`, `0.5`, `1` เหมือนกัน ปิดการสเกลเพื่อให้เปรียบเทียบมุมโดยไม่คำนึงถึงสัดส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90` และแถวที่สองคือ `135`, `180`, `270`
 
-ต่อไปนี้เป็นวิธีใช้ Aspose.Slides เพื่อเติมลวดลายให้กับรูปร่าง:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ของรูปร่างเป็น `Pattern`
-1. เลือกสไตล์ลวดลายจากตัวเลือกที่กำหนดล่วงหน้า
-1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor--) ของลวดลาย
-1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor--) ของลวดลาย
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Rectangle.
+    let angles = [0, 45, 90, 135, 180, 270];
+
+    for (let i = 0; i < angles.length; i++) {
+        let x = 30 + (i % 3) * 230;
+        let y = 30 + Math.floor(i / 3) * 190;
+
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 200, 150);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.False));
+        gradient.setLinearGradientAngle(angles[i]);
+    }
+
+    presentation.save("linear_gradient_angles.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์ใน PowerPoint:
+
+![การไล่ระดับสีเชิงเส้นที่ 0, 45, และ 90 องศาในแถวบน, และ 135, 180, 270 องศาในแถวล่าง](linear-gradient-angles.png)
+
+### **สเกลการไล่ระดับสีเชิงเส้นตามรูปร่าง**
+
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) รับค่า [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) ตั้งค่าเป็น `False` อย่างชัดเจนเพื่อคงมุมการไล่สีเชิงเรขาคณิตเมื่อรูปร่างเปลี่ยนสัดส่วน หรือตั้งเป็น `True` เพื่อสเกลการไล่สีตามความกว้างและความสูงของรูปร่าง หากเปิดสเกล มุมที่มองเห็นอาจแตกต่างจากมุมที่กำหนดไว้บนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
+
+ตัวอย่างต่อไปใช้มุม `45` องศาและจุดสีเดียวกันกับการเปรียบเทียบมุม คอลัมน์ซ้ายตั้งค่า `False`; คอลัมน์ขวาตั้งค่า `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างด้านบนและสี่เหลี่ยมสูงด้านล่าง ทั้งสองเริ่มจากขนาดกว้างเดียวกัน; การเปลี่ยนแปลงความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมตอบสนองต่อการปรับขนาดอย่างไรโดยไม่ต้องเปลี่ยนการตั้งค่าไล่สี
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(720, 460, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    let scalingOptions = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.True];
+
+    for (let column = 0; column < scalingOptions.length; column++) {
+        for (let row = 0; row < 2; row++) {
+            let x = 30 + column * 360;
+            let y = row == 0 ? 30 : 150;
+
+            let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, x, y, 300, 90);
+            shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+            shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+            let gradient = shape.getFillFormat().getGradientFormat();
+            gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+            gradient.getGradientStops().clear();
+            gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+            gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+            gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+            gradient.setLinearGradientAngle(45);
+            gradient.setLinearGradientScaled(java.newByte(scalingOptions[column]));
+
+            if (row == 1) {
+                shape.setWidth(90);
+                shape.setHeight(280);
+            }
+        }
+    }
+
+    presentation.save("linear_gradient_scaling.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์ใน PowerPoint โดยปิดสเกลด้านซ้ายและเปิดสเกลด้านขวา:
+
+![สี่เหลี่ยมกว้างและสี่เหลี่ยมสูงที่มีไล่สี 45 องศา, เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
+
+เมื่อสเกลปิด, แถบสีแนวทแยงจะคงทิศทางเดียวกันในทั้งสองสี่เหลี่ยม; เมื่อสเกลเปิด, แถบสีจะขยายตามสัดส่วนของรูปร่าง ช่วยให้ทำสำเนาไล่สีของเทมเพลตเมื่อปรับรูปร่างเป็นขนาดอื่น ๆ บนสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่เปลี่ยนลักษณะของไล่สี `45` องศานี้
+
+มุมและการสเกลใช้ได้กับการไล่ระดับสีเชิงเส้นเท่านั้น ไม่ได้ควบคุมการเติม [GradientShape.Radial หรือ GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)
+
+### **ผสานมุมกับทิศทางการไล่ระดับสี**
+
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) เลือกสไตล์การไล่สีจากคลาส [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/) ไม่ใช่การแทนที่มุมเชิงตัวเลข สำหรับการไล่ระดับสีเชิงเส้น ทิศทางของมุมสามารถเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) ให้คงทิศทางเดิมเมื่อเปรียบเทียบมุมหรือสเกล
+
+ตัวอย่างนี้ใช้การตั้งค่าเดียวกันแต่สั่งลำดับกันกลับกัน สี่เหลี่ยมสองรูปจะแสดงผลเดียวกัน: การกำหนดทิศทางก่อนหรือหลังมุมจะไม่เปลี่ยนผลลัพธ์
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
+    for (let i = 0; i < 2; i++) {
+        let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+
+        let gradient = shape.getFillFormat().getGradientFormat();
+        gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+        gradient.getGradientStops().clear();
+        gradient.getGradientStops().add(0, java.getStaticFieldValue("java.awt.Color", "RED"));
+        gradient.getGradientStops().add(java.newFloat(0.5), java.getStaticFieldValue("java.awt.Color", "GREEN"));
+        gradient.getGradientStops().add(1, java.getStaticFieldValue("java.awt.Color", "BLUE"));
+        gradient.setLinearGradientScaled(java.newByte(aspose.slides.NullableBool.True));
+
+        if (i == 0) {
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+            gradient.setLinearGradientAngle(30);
+        } else {
+            gradient.setLinearGradientAngle(30);
+            gradient.setGradientDirection(aspose.slides.GradientDirection.FromCorner1);
+        }
+    }
+
+    presentation.save("linear_gradient_direction.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **การเติมแบบลายเส้น (Pattern Fill)**
+
+การเติมแบบลายเส้นใช้การออกแบบสองสี เช่น จุด, ลายแถบ หรือการตรวจสอบ ตัวอย่างนี้ใช้ [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) เลือกลายเส้น trellis. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) กำหนดสีพื้นหลังเทาที่อ่อน, และ [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) กำหนดสีลายเป็นสีเหลือง
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // ตั้งค่าชนิดการเติมเป็น Pattern.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Pattern));
-
-    // ตั้งค่าสไตล์ลวดลาย.
     shape.getFillFormat().getPatternFormat().setPatternStyle(java.newByte(aspose.slides.PatternStyle.Trellis));
-
-    // ตั้งค่าสีพื้นหลังและสีพื้นหน้าของลวดลาย.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -312,56 +509,35 @@ try {
 
 ผลลัพธ์:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![สี่เหลี่ยมที่เติมด้วยลายเส้น](pattern-fill.png)
 
-## **การเติมรูปภาพ**
+## **การเติมด้วยรูปภาพ (Picture Fill)**
 
-ใน PowerPoint การเติมรูปภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณใส่ภาพภายในรูปร่าง—โดยใช้ภาพเป็นพื้นหลังของรูปร่าง
+การเติมด้วยรูปภาพใช้ภาพภายในรูปร่าง ตัวอย่างนี้ต้องการภาพในเครื่องและใช้ [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) เพื่อโหลดเข้าคอลเลกชันรูปภาพของงานนำเสนอ ตั้งค่า [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) เป็นโหมดกระเบื้องเพื่อทำซ้ำภาพภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
 
-ต่อไปนี้เป็นวิธีใช้ Aspose.Slides เพื่อเติมรูปภาพให้กับรูปร่าง:
+![รูปดอกบัว](lotus.png)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ของรูปร่างเป็น `Picture`
-1. ตั้งค่าโหมดการเติมภาพเป็น `Tile` (หรือโหมดที่ต้องการอื่น)
-1. สร้างอ็อบเจ็กต์ [PPImage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ppimage/) จากภาพที่คุณต้องการใช้
-1. ส่งภาพไปยังเมธอด `ISlidesPicture.setImage`
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-สมมติว่ามีไฟล์ "lotus.png" ที่มีรูปต่อไปนี้:
-
-![The lotus picture](lotus.png)
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
-    
-    // ตั้งค่าชนิดการเติมเป็น Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
-
-    // ตั้งค่าโหมดการเติมรูปภาพ.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // โหลดภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
     let image = aspose.slides.Images.fromFile("lotus.png");
-    let picture = presentation.getImages().addImage(image);
-    image.dispose();
-
-    // ตั้งค่าภาพ.
+    let picture;
+    try {
+        picture = presentation.getImages().addImage(image);
+    } finally {
+        image.dispose();
+    }
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -370,47 +546,43 @@ try {
 
 ผลลัพธ์:
 
-![The shape with picture fill](picture-fill.png)
+![รูปร่างที่เติมด้วยรูปภาพ](picture-fill.png)
 
-### **ใช้ภาพเป็นพื้นผิวแบบต่อกระเบื้อง**
+### **ตั้งค่ารูปภาพเป็นกระเบื้องเป็นพื้นผิว (Tile Picture As Texture)**
 
-หากคุณต้องการตั้งค่าภาพเป็นพื้นผิวแบบต่อกระเบื้องและปรับแต่งพฤติกรรมการต่อกระเบื้อง คุณสามารถใช้เมธอดต่อไปนี้ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) :
+หากต้องการตั้งรูปภาพเป็นกระเบื้องเป็นพื้นผิวและปรับพฤติกรรมการกระเบื้อง สามารถใช้เมธอดต่อไปนี้ของคลาส [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): ตั้งค่าโหมดการเติมรูปภาพ — `Tile` หรือ `Stretch`
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุการจัดแนวของกระเบื้องภายในรูปร่าง
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมว่ากระเบื้องจะพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): ตั้งค่าการเยื้องแนวนอนของกระเบื้อง (หน่วย points) จากจุดกำเนิดของรูปร่าง
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): ตั้งค่าการเยื้องแนวตั้งของกระเบื้อง (หน่วย points) จากจุดกำเนิดของรูปร่าง
+- [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): กำหนดโหมดการเติมรูปภาพ—`Tile` หรือ `Stretch`
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): ระบุตำแหน่งการจัดแนวของกระเบื้องภายในรูปร่าง
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): ควบคุมการพลิกกระเบื้องแนวนอน แนวตั้ง หรือทั้งสองอย่าง
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): กำหนดระยะชิดซ้าย‑ขวาของกระเบื้อง (หน่วยจุด) จากจุดเริ่มของรูปร่าง
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): กำหนดระยะชิดบน‑ล่างของกระเบื้อง (หน่วยจุด) จากจุดเริ่มของรูปร่าง
 - [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์
 - [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+ตัวอย่างนี้ต้องการภาพในเครื่องและกำหนดค่า [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) ให้ทำซ้ำที่ขนาด 50 % ของขนาดเดิม การชิดลบ `−32` จุดทำให้กระเบื้องเลื่อนแนวนอนและแนวตั้ง; การจัดแนวด้านล่าง‑ขวาและการพลิกทิศทั้งสองกำหนดวิธีการจัดเรียงพื้นผิวที่ทำซ้ำ
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยม.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
-
-    // ตั้งค่าชนิดการเติมของรูปร่างเป็น Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // โหลดภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
-    let presentationImage = presentation.getImages().addImage(sourceImage);
-    sourceImage.dispose();
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(sourceImage);
+    } finally {
+        sourceImage.dispose();
+    }
 
-    // กำหนดภาพให้กับรูปร่าง.
     let pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
-
-    // กำหนดค่าโหมดการเติมรูปภาพและคุณสมบัติการต่อกระเบื้อง.
     pictureFillFormat.setPictureFillMode(aspose.slides.PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -419,7 +591,6 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -428,42 +599,24 @@ try {
 
 ผลลัพธ์:
 
-![The tile options](tile-options.png)
+![ตัวเลือกกระเบื้อง](tile-options.png)
 
-## **การเติมสีทึบ**
+## **การเติมสีทึบ (Solid Color Fill)**
 
-ใน PowerPoint การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่เติมรูปร่างด้วยสีเดียวที่สม่ำเสมอ สีพื้นหลังเรียบนี้จะถูกนำไปใช้โดยไม่มีไล่สี, พื้นผิว, หรือลวดลายใดๆ
+การเติมสีทึบทำให้รูปร่างมีสีเดียวที่สม่ำเสมอ ตัวอย่างนี้ใช้ [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) เลือกโหมดการเติมสีทึบและกำหนดสีเหลืองผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) จากนั้นบันทึกสี่เหลี่ยมลงในงานนำเสนอ
 
-เพื่อใช้การเติมสีทึบกับรูปร่างโดยใช้ Aspose.Slides ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
-1. กำหนดสีเติมที่คุณต้องการให้กับรูปร่าง
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // ตั้งค่าชนิดการเติมเป็น Solid.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-
-    // ตั้งค่าสีเติม.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -472,41 +625,90 @@ try {
 
 ผลลัพธ์:
 
-![The shape with solid color fill](solid-color-fill.png)
+![รูปร่างที่เติมสีทึบ](solid-color-fill.png)
 
-## **ตั้งค่าความโปร่งใส**
+## **ใช้พื้นหลังของสไลด์เป็นการเติมของรูปร่าง**
 
-ใน PowerPoint เมื่อคุณใช้การเติมสีทึบ, ไล่สี, รูปภาพ, หรือพื้นผิวกับรูปร่าง คุณยังสามารถตั้งค่าระดับความโปร่งใสเพื่อควบคุมความทึบของการเติมได้ ค่าโปร่งใสที่สูงทำให้รูปร่างดูโปร่งแสงมากขึ้น ทำให้พื้นหลังหรือวัตถุที่อยู่ด้านล่างมองเห็นได้บางส่วน
+ใช้ [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) เมื่อรูปร่างควรตรงกับพื้นหลังของสไลด์ เช่น ในเทมเพลตงานนำเสนอ ใช้ [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) ตั้งค่าเป็น [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) ก่อนเพื่อเอาการเติมที่กำหนดไว้ลบออก ด้วยการผสมนี้ รูปร่างจะใช้พื้นหลังของสไลด์แทนการเติมสไตล์ของมันเอง การเปิดค่าสถานะนี้อย่างเดียวไม่ทำให้การเติมที่กำหนดอยู่ก่อนหน้าถูกลบ
 
-Aspose.Slides ให้คุณตั้งค่าความโปร่งใสโดยปรับค่าอัลฟ่าในสีที่ใช้สำหรับการเติม ดำเนินการตามขั้นตอนต่อไปนี้:
+นี่แตกต่างจาก [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): การเติมพื้นหลังจะครอบออบเจกต์ที่อยู่หลังรูปร่างด้วยพื้นที่พื้นหลังของสไลด์ที่สอดคล้องกัน ส่วนไม่มีการเติมจะทำให้ออบเจกต์เหล่านั้นมองเห็นได้ การไล่ระดับสีจะยังคงสอดคล้องกับสไลด์แทนที่จะเริ่มใหม่ภายในแต่ละรูปร่าง
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) เป็น `Solid`
-1. ใช้ `Color` เพื่อกำหนดสีที่มีความโปร่งใส (ส่วน `alpha` ควบคุมความโปร่งใส)
-1. บันทึกการนำเสนอ
+ตัวอย่างต่อไปสร้างพื้นหลังแม่ที่สืบทอดโดยสไลด์และวางแถบสีชมพูเมเจนต้าอยู่ด้านหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, และสี่เหลี่ยมขวาสลับจากการเติมพื้นหลังไปเป็นการเติมสีส้มที่กำหนดเอง
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
+    presentation.getSlideSize().setSize(720, 400, aspose.slides.SlideSizeScaleType.DoNotScale);
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมทึบ.
+    // สืบทอดการไล่ระดับสีจากมาสเตอร์.
+    slide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    slide.getLayoutSlide().getBackground().setType(java.newByte(aspose.slides.BackgroundType.NotDefined));
+    let background = slide.getLayoutSlide().getMasterSlide().getBackground();
+    background.setType(java.newByte(aspose.slides.BackgroundType.OwnBackground));
+    background.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
+    let gradient = background.getFillFormat().getGradientFormat();
+    gradient.setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
+    gradient.setLinearGradientAngle(0);
+    gradient.getGradientStops().clear();
+    gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
+    gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
+
+    // เพิ่มวัตถุนี้ก่อนเพื่อให้ปรากฏอยู่ด้านหลังสี่เหลี่ยม.
+    let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
+    band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
+    band.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let backgroundShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 100, 160, 200);
+    backgroundShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    backgroundShape.setUseBackgroundFill(true);
+
+    let noFillShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 280, 100, 160, 200);
+    noFillShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+    let explicitShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 510, 100, 160, 200);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
+    explicitShape.setUseBackgroundFill(true);
+
+    // ปิดการเติมพื้นหลังก่อนที่จะใช้การเติมแบบกำหนดเอง.
+    explicitShape.setUseBackgroundFill(false);
+    explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
+
+    presentation.save("background_fill.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์จากซ้ายไปขวา: **การเติมพื้นหลัง**, **ไม่มีการเติม**, และ **การเติมแบบกำหนดเอง** แถบสีชมพูเมเจนต้าถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นได้ผ่านสี่เหลี่ยมกลาง
+
+![การเติมพื้นหลัง, ไม่มีการเติม และการเติมสีส้มแบบกำหนดเองบนแถบสีเมเจนต้า](background-fill.png)
+
+พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปร่างใช้พื้นหลังที่แก้ไขแล้วของสไลด์; ตัวอย่างนี้ไม่กำหนดพื้นหลังของสไลด์และเลย์เอาต์เพื่อให้แม่เป็นผู้จัดหา
+
+## **กำหนดความโปร่งใส (Set Transparency)**
+
+สำหรับการเติมสีทึบ ค่าตัวส่วน α ของสีกำหนดความทึบ: 0 คือโปร่งใสเต็ม, 255 คือทึบเต็ม ตัวอย่างนี้ใช้ค่าตัวส่วน α 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50 % เพื่อให้สี่เหลี่ยมด้านล่างมองเห็นได้ สีถูกกำหนดผ่าน [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor)
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+
     let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // เพิ่มรูปร่างอัตโนมัติสี่เหลี่ยมโปร่งแสงเหนือรูปร่างทึบ.
     let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 128));
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -515,37 +717,22 @@ try {
 
 ผลลัพธ์:
 
-![The transparent shape](shape-transparency.png)
+![รูปร่างที่โปร่งใส](shape-transparency.png)
 
-## **หมุนรูปร่าง**
+## **หมุนรูปร่าง (Rotate Shapes)**
 
-Aspose.Slides ให้คุณหมุนรูปร่างในงานนำเสนอ PowerPoint ซึ่งเป็นประโยชน์เมื่อต้องจัดตำแหน่งองค์ประกอบภาพตามการจัดวางหรือความต้องการออกแบบเฉพาะ
+ใช้ [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) เพื่อหมุนรูปร่างในระนาบสไลด์ มุมวัดเป็นองศา; ตัวอย่างนี้หมุนสี่เหลี่ยม 5 องศาตามเข็มนาฬิกาและบันทึกงานนำเสนอ
 
-เพื่อหมุนรูปร่างบนสไลด์ ให้ทำตามขั้นตอนต่อไปนี้:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ตั้งค่าคุณสมบัติการหมุนของรูปร่างเป็นมุมที่ต้องการ
-1. บันทึกการนำเสนอ
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรก.
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างอัตโนมัติชนิด Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
-
-    // หมุนรูปร่าง 5 องศา.
     shape.setRotation(5);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -554,39 +741,26 @@ try {
 
 ผลลัพธ์:
 
-![The shape rotation](shape-rotation.png)
+![การหมุนของรูปร่าง](shape-rotation.png)
 
-## **เพิ่มเอฟเฟกต์ Bevel 3 มิติ**
+## **เพิ่มเอฟเฟ็กต์ Bevel 3 มิติ (Add 3D Bevel Effects)**
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์ Bevel 3 มิติกับรูปร่างโดยการกำหนดค่าคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) ของมัน
+ใช้ [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) เพื่อให้รูปร่างมีความลึกและขอบ bevel ตัวอย่างนี้สร้างวงรีสีเขียวที่มีขอบสีส้ม ใช้ [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) ตั้งความลึกเป็น 4 จุด และใช้ [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop) ทำ bevel ด้านบนเป็นรูปวงกลมที่มีความกว้างและความสูง 6 จุด กล้องแบบออร์โธกราฟิกที่หันหน้าและแสงสามจุดทำให้ bevel มองเห็นได้
 
-เพื่อเพิ่มเอฟเฟกต์ Bevel 3 มิติให้กับรูปร่าง ให้ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. กำหนดค่าคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) ของรูปร่างเพื่อกำหนดการตั้งค่า bevel
-1. บันทึกการนำเสนอ
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปร่างลงในสไลด์.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 0, 128, 0));
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.getLineFormat().setWidth(2.0);
-
-    // ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปร่าง.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(aspose.slides.BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -595,7 +769,6 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(aspose.slides.LightingDirection.Top);
 
-    // บันทึกงานนำเสนอเป็นไฟล์ PPTX.
     presentation.save("3D_bevel_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -604,38 +777,25 @@ try {
 
 ผลลัพธ์:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![เอฟเฟ็กต์ bevel 3 มิติ](3D-bevel-effect.png)
 
-## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
+## **เพิ่มเอฟเฟ็กต์การหมุน 3 มิติ (Add 3D Rotation Effects)**
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์การหมุน 3 มิติกับรูปร่างโดยการกำหนดค่าคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/) ของมัน
+การมองเห็น 3 มิติของรูปร่างควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) ตั้งค่ามุมละติจูด, ลองจิจูด, และการปั่นที่ 40, 35, และ 20 องศา ตามลำดับ เลือกกล้องไอโซเมทริกผ่าน [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) และแสงสมดุลผ่าน [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) จากนั้นบันทึกสี่เหลี่ยมที่จัดรูปแบบ
 
-เพื่อใช้การหมุน 3 มิติกับรูปร่าง:
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-1. รับอ้างอิงถึงสไลด์ตามดัชนีของมัน
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/) ลงในสไลด์
-1. ใช้ [setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) และ [setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType) เพื่อกำหนดการหมุน 3 มิติ
-1. บันทึกการนำเสนอ
-
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
-
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
     let slide = presentation.getSlides().get_Item(0);
 
     let autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.getTextFrame().setText("Hello, Aspose!");
-
-    autoShape.getThreeDFormat().setDepth(6);
-    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getCamera().setCameraType(aspose.slides.CameraPresetType.IsometricLeftUp);
+    autoShape.getThreeDFormat().getCamera().setRotation(40, 35, 20);
     autoShape.getThreeDFormat().getLightRig().setLightType(aspose.slides.LightRigPresetType.Balanced);
 
-    // บันทึกงานนำเสนอเป็นไฟล์ PPTX.
     presentation.save("3D_rotation_effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -644,19 +804,18 @@ try {
 
 ผลลัพธ์:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![เอฟเฟ็กต์การหมุน 3 มิติ](3D-rotation-effect.png)
 
-## **ควบคุมการเรนเดอร์ขาวดำสำหรับรูปร่าง**
+## **ควบคุมการเรนเดอร์ขาว‑ดำสำหรับรูปร่าง (Control Black-and-White Rendering for Shapes)**
 
-เมธอด [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) ระบุวิธีที่รูปร่างแต่ละชิ้นจะถูกเรนเดอร์เมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว‑ดำ ซึ่งเมธอดนี้ไม่ได้เปิดใช้งานการแสดงผลขาว‑ดำโดยอัตโนมัติและไม่ได้เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่นในโหมดสีทั่วไป
+เมธอด [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) กำหนดว่ารูปร่างแต่ละอันจะเรนเดอร์อย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดขาว‑ดำ มันไม่ได้เปิดการแสดงผลขาว‑ดำด้วยตัวเองและไม่เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่น ๆ ของรูปร่างในโหมดสีปกติ
 
-ใช้ค่าจาก enumeration [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและขาว, `Black` และ `White` บังคับสีเดียว, `Color` รักษาสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดขาว‑ดำ, `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
+ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับสีเดียว, `Color` รักษาสีปกติ, และ `Hidden` ลบรูปทรงในโหมดขาว‑ดำ `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
 
-โค้ด JavaScript ต่อไปนี้สร้างรูปร่างสีและทำให้แสดงเป็นสีเทาในโหมดแสดงผลขาว‑ดำ:
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและใช้ [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) เลือกสีเทา รูปร่างที่บันทึกจะคงสีส้มสำหรับการแสดงผลสีปกติและขอให้แอปพลิเคชันที่รองรับการแสดงผลขาว‑ดำใช้สีเทา:
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 let presentation = new aspose.slides.Presentation();
@@ -665,9 +824,7 @@ try {
 
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "ORANGE"));
-
-    // เก็บสีการเติมสีส้มในโหมดสี, แต่เรนเดอร์รูปร่างด้วยสีเทาในโหมดขาว-ดำ.
+    shape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
     shape.setBlackWhiteMode(java.newByte(aspose.slides.BlackWhiteMode.Gray));
 
     presentation.save("shape_black_white_mode.pptx", aspose.slides.SaveFormat.Pptx);
@@ -676,39 +833,38 @@ try {
 }
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมจะคงสีส้มของการเติมไว้ ส่วนในกระบวนการแสดงผลขาว‑ดำ จะใช้สีเทาเนื่องจากโหมดตั้งเป็น `Gray` สิ่งนี้ทำให้คุณสามารถรักษาสไลด์สีเต็มได้ในขณะที่กำหนดลักษณะการแสดงเฉพาะสำหรับการพิมพ์, การพรีวิว หรือกระบวนการอื่นที่เคารพการตั้งค่าการแสดงผลขาว‑ดำของงานนำเสนอ
+ในโหมดสีปกติ สี่เหลี่ยมคงสีส้มไว้ ในกระบวนการแสดงผลขาว‑ดำ มันจะใช้สีเทาเพราะโหมดตั้งเป็น `Gray` ช่วยให้คุณคงสไลด์สีเต็มขณะกำหนดลักษณะเฉพาะสำหรับการพิมพ์, การดูตัวอย่าง หรือกระบวนการอื่น ๆ ที่เคารพการตั้งค่าการแสดงผลขาว‑ดำของงานนำเสนอ
 
-## **รีเซ็ตการจัดรูปแบบ**
+## **รีเซ็ตการจัดรูปแบบ (Reset Formatting)**
 
-โค้ด JavaScript ต่อไปนี้แสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปร่างทั้งหมดที่มีตัวแสดงบน [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/) ให้กลับไปเป็นค่าตั้งต้น:
+ใช้ [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) เพื่อคืนค่าตำแหน่ง, ขนาด, และรูปแบบของตัวแปรตำแหน่งที่วางของสไลด์จากตัวแปรตำแหน่งที่วางของเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องมีงานนำเสนอที่มีตัวแปรตำแหน่งที่วางเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีตัวแปรตำแหน่งที่วางที่สอดคล้องกันจะไม่ถูกรีเซ็ต
 
-```js
-var aspose = aspose || {};
-aspose.slides = require("aspose.slides.via.java");
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
 
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // รีเซ็ตรูปร่างแต่ละชิ้นบนสไลด์ที่มีตัวอิงบนเลย์เอาต์.
         slide.reset();
     }
+
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **คำถามที่พบบ่อย (FAQ)**
 
-**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์ของงานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปร่างมีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
 
-เพียงเล็กน้อย ภาพและสื่อที่ฝังอยู่เป็นส่วนใหญ่ของขนาดไฟล์ ส่วนพารามิเตอร์ของรูปร่างเช่นสี, เอฟเฟกต์และไล่สีจะถูกจัดเก็บเป็นเมทาดาต้าและเพิ่มขนาดเกือบไม่มี
+สี, สไตล์เส้น, และการตั้งค่าเอฟเฟ็กต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังไว้ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกเก็บไว้ในงานนำเสนอ
 
-**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเหมือนกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปร่างในสไลด์ที่มีรูปแบบการจัดรูปแบบเดียวกันเพื่อทำการกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าตรงกันทั้งหมด ถือว่ารูปร่างเหล่านั้นมีสไตล์เดียวกันและสามารถจัดกลุ่มตรรกะได้ ซึ่งช่วยลดความซับซ้อนในการจัดการสไตล์ในภายหลัง
+เปรียบเทียบคุณสมบัติกุญแจของการจัดรูปแบบแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟ็กต์ หากค่าทุกค่าแมตช์กัน ให้ถือว่ารูปร่างมีสไตล์เดียวกันและจัดกลุ่มตรรกะเพื่อจัดการสไตล์ในภายหลังได้ง่ายขึ้น
 
-**ฉันสามารถบันทึกชุดสไตล์รูปร่างที่กำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปร่างกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
 
-ได้ ให้เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในสไลด์แม่แบบหรือไฟล์เทมเพลต .POTX เมื่อสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์ต้องการ, และนำการจัดรูปแบบของมันไปใช้ใหม่ตามที่ต้องการ
+ได้. เก็บรูปร่างตัวอย่างที่มีสไตล์ที่ต้องการในเทมเพลตสไลด์หรือไฟล์เทมเพลต .POTX เมื่อต้องการสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปร่างที่สไตล์แล้วและนำไปใช้ใหม่ตามต้องการ.
