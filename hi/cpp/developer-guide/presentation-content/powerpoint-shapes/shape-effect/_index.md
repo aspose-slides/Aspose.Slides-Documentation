@@ -1,43 +1,43 @@
 ---
-title: प्रस्तुतियों में C++ का उपयोग करके आकृति प्रभाव लागू करें
-linktitle: आकृति प्रभाव
+title: C++ का उपयोग करके प्रस्तुतीकरण में आकार इफ़ेक्ट लागू करें
+linktitle: आकार इफ़ेक्ट
 type: docs
 weight: 30
 url: /hi/cpp/shape-effect/
 keywords:
-- आकृति प्रभाव
-- छाया प्रभाव
-- प्रतिबिंब प्रभाव
-- चमक प्रभाव
-- नरम किनारे प्रभाव
-- प्रभाव स्वरूप
+- आकार इफ़ेक्ट
+- छाया इफ़ेक्ट
+- परावर्तन इफ़ेक्ट
+- चमक इफ़ेक्ट
+- नरम किनारे इफ़ेक्ट
+- इफ़ेक्ट फॉर्मेट
 - PowerPoint
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ उन्नत आकृति प्रभावों का उपयोग करके अपनी PPT और PPTX फ़ाइलों को बदलें — केवल कुछ सेकंड में आकर्षक, पेशेवर स्लाइड बनाएं।"
+description: "Aspose.Slides for C++ का उपयोग करके उन्नत आकार इफ़ेक्ट्स के साथ अपने PPT और PPTX फ़ाइलों को बदलें — कुछ सेकंड में आकर्षक, पेशेवर स्लाइड बनाएं।"
 ---
 ## **परिचय**
 
-जबकि PowerPoint में प्रभावों का उपयोग किसी आकृति को प्रमुख बनाने के लिए किया जा सकता है, वे [भराव](/slides/hi/cpp/shape-formatting/#gradient-fill) या आउटलाइन से भिन्न होते हैं। PowerPoint प्रभावों का उपयोग करके आप आकृति पर विश्वसनीय प्रतिबिंब बना सकते हैं, आकृति की चमक को फैला सकते हैं, आदि।
+PowerPoint में इफ़ेक्ट्स का उपयोग किसी आकार को उभारा जा सकता है, लेकिन वे [भराव](/slides/hi/cpp/shape-formatting/#gradient-fill) या outlines से अलग होते हैं। PowerPoint इफ़ेक्ट्स का उपयोग करके, आप किसी आकार पर विश्वसनीय परावर्तन बना सकते हैं, आकार की चमक फैला सकते हैं, आदि।
 
-![आकृति प्रभाव](shape-effect.png)
+![आकार इफ़ेक्ट](shape-effect.png)
 
-PowerPoint छह प्रभाव प्रदान करता है जिन्हें आकृतियों पर लागू किया जा सकता है। आप एक या अधिक प्रभाव किसी आकृति पर लागू कर सकते हैं।
+PowerPoint आकारों पर लागू किए जा सकने वाले छह इफ़ेक्ट्स प्रदान करता है। आप किसी आकार पर एक या अधिक इफ़ेक्ट्स लागू कर सकते हैं।
 
-कुछ प्रभाव संयोजन अन्य की तुलना में अधिक आकर्षक होते हैं। इसी कारण से, PowerPoint में **Preset** के अंतर्गत विकल्प होते हैं। Preset विकल्प मूलतः दो या अधिक प्रभावों का ऐसा संयोजन होते हैं जो अच्छा दिखता है। इस प्रकार, एक प्रीसेट चुनकर आपको विभिन्न प्रभावों को परीक्षण या संयोजन करने में समय बर्बाद नहीं करना पड़ेगा।
+कुछ इफ़ेक्ट संयोजन दूसरों से बेहतर दिखते हैं। इस कारण से, PowerPoint में **Preset** के तहत विकल्प होते हैं। Preset विकल्प मूलतः दो या अधिक इफ़ेक्ट्स के ऐसे संयोजन होते हैं जो एक साथ अच्छी तरह दिखते हैं। इस प्रकार, एक Preset चुनकर, आपको विभिन्न इफ़ेक्ट्स का परीक्षण या संयोजन करने में समय बर्बाद नहीं करना पड़ेगा।
 
-Aspose.Slides [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) वर्ग के तहत गुण और विधियाँ प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकृतियों पर समान प्रभाव लागू करने की अनुमति देती हैं।
+Aspose.Slides [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) क्लास के तहत प्रॉपर्टी और मेथड प्रदान करता है जो आपको PowerPoint प्रस्तुतियों में आकारों पर समान इफ़ेक्ट्स लागू करने की अनुमति देते हैं।
 
-## **छाया प्रभाव लागू करें**
+## **छाया इफ़ेक्ट लागू करें**
 
-Aspose.Slides for C++ आकृतियों के लिए बाहरी और आंतरिक छायाओं का समर्थन करता है। आप उनके रंग, दिशा, दूरी और धुंधला त्रिज्या को अपनी प्रस्तुति के डिज़ाइन से मेल खाने के लिए अनुकूलित कर सकते हैं।
+Aspose.Slides for C++ आकारों के लिए बाहरी और आंतरिक छायाओं का समर्थन करता है। आप उनके रंग, दिशा, दूरी, और ब्लर त्रिज्या को अपनी प्रस्तुति के डिजाइन के अनुसार अनुकूलित कर सकते हैं।
 
 ### **बाहरी छाया लागू करें**
 
-एक कार्ड या पैनल को स्लाइड पृष्ठभूमि के विरुद्ध प्रमुख बनाने के लिए बाहरी छाया का उपयोग करें। छाया आकृति के किनारों के बाहर तक फैली होती है, जिससे ऐसा प्रभाव बनता है कि आकृति स्लाइड से उठी हुई है। अपने टेम्पलेट की प्रकाश व्यवस्था और शैली से मेल खाने के लिए उसके रंग, दिशा, दूरी और धुंधला त्रिज्या समायोजित करें।
+स्लाइड बैकग्राउंड के विरुद्ध कार्ड या पैनल को उभारा करने के लिए बाहरी छाया का उपयोग करें। छाया आकार की किनारों से बाहर तक विस्तार करती है, जिससे ऐसा प्रभाव बनता है कि आकार स्लाइड के ऊपर उठाया हुआ है। इसके रंग, दिशा, दूरी, और ब्लर त्रिज्या को अपने टेम्पलेट की प्रकाश व्यवस्था और स्टाइलिंग के अनुसार समायोजित करें।
 
-यह C++ कोड दिखाता है कि कैसे किसी आयत में [outer shadow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) लागू किया जाता है:
+यह C++ कोड दिखाता है कि कैसे एक आयत पर [बाहरी छाया इफ़ेक्ट](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) लागू किया जाए:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -69,15 +69,15 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![छाया प्रभाव](shadow_effect.png)
+![छाया इफ़ेक्ट](shadow_effect.png)
 
 ### **आंतरिक छाया लागू करें**
 
-टेम्पलेट की दृश्य शैली को दोहराते समय, कार्ड या पैनल को डुबोने का प्रभाव देने के लिए आंतरिक छाया का उपयोग करें। एक बाहरी छाया आकृति के बाहर तक विस्तारित होती है और इसे उठी हुई दिखाती है, जबकि आंतरिक छाया किनारों के भीतर छाया देती है।
+जब टेम्पलेट की दृश्य स्टाइलिंग को पुन: उत्पन्न कर रहे हों, तो कार्ड या पैनल को धँसा हुआ रूप देने के लिए आंतरिक छाया का उपयोग करें। बाहरी छाया आकार के बाहर तक विस्तारित होती है और उसे उठे हुए जैसा दिखाती है, जबकि आंतरिक छाया इसके किनारों के अंदर को शेड करती है।
 
-[EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) को कॉल करें, फिर [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) को कॉन्फ़िगर करें। बड़ी धुंधला त्रिज्या मान नरम किनारे उत्पन्न करते हैं।
+कॉल करें [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/), फिर कॉन्फ़िगर करें [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/). बड़ी ब्लर त्रिज्या मान अधिक कोमल किनारे बनाते हैं।
 
-यह C++ उदाहरण एक हल्के नीले कार्ड को गहरे ग्रे आंतरिक छाया के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
+यह C++ उदाहरण हल्के नीले कार्ड को गहरे धूसर आंतरिक छाया के साथ बनाता है और इसे PPTX फ़ाइल के रूप में सहेजता है:
 
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
@@ -118,13 +118,13 @@ presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 
 ![आंतरिक छाया के साथ हल्का नीला आयत](inner_shadow_effect.png)
 
-आंतरिक छाया को हटाने के लिए, आकृति के प्रभाव फ़ॉर्मेट पर [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) को कॉल करें।
+आंतरिक छाया को हटाने के लिए, shape के effect format पर [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) को कॉल करें।
 
-## **प्रतिबिंब प्रभाव लागू करें**
+## **परावर्तन इफ़ेक्ट लागू करें**
 
-Aspose.Slides for C++ में प्रतिबिंब प्रभाव लागू करने के लिए आप आकृतियों में आरसे जैसे प्रतिबिंब जोड़ सकते हैं, दूरी, पारदर्शिता और आकार जैसे पैरामीटर समायोजित कर सकते हैं। यह प्रभाव आपके प्रस्तुतियों की सौंदर्यशास्त्र को बढ़ाता है, आकृतियों को अधिक परिष्कृत और सुरुचिपूर्ण दिखाता है। यह सरल कोड के साथ आसानी से लागू किया जा सकता है, जिससे कई तत्वों पर निरंतर डिज़ाइन लागू करना तेज़ हो जाता है।
+Aspose.Slides for C++ में परावर्तन इफ़ेक्ट लागू करने के लिए, आप आकारों में एक दर्पण-समान परावर्तन जोड़ सकते हैं, तथा दूरी, पारदर्शिता, और आकार जैसे पैरामीटर को समायोजित कर सकते हैं। यह इफ़ेक्ट आपके प्रस्तुतियों की सौंदर्यशास्त्र को उन्नत करता है, आकारों को अधिक परिष्कृत और सज्जित दिखाता है। इसे सरल कोड के साथ लागू करना आसान है, जिससे कई तत्वों पर तेज़ी से समान डिज़ाइन के लिए लागू किया जा सके।
 
-यह C++ कोड दिखाता है कि कैसे किसी आकृति में [reflection effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) लागू किया जाता है:
+यह C++ कोड दिखाता है कि कैसे एक आकार पर [परावर्तन इफ़ेक्ट](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) लागू किया जाए:
 
 ```cpp
 #include <DOM/Effects/IReflection.h>
@@ -155,13 +155,13 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![प्रतिबिंब प्रभाव](reflection_effect.png)
+![परावर्तन इफ़ेक्ट](reflection_effect.png)
 
-## **चमक प्रभाव लागू करें**
+## **चमक इफ़ेक्ट लागू करें**
 
-Aspose.Slides for C++ में आकृति पर चमक प्रभाव लागू करने के लिए आप आकृतियों के चारों ओर एक नरम, प्रकाशमान आभा जोड़ सकते हैं, रंग और आकार जैसी गुणों को समायोजित कर सकते हैं। यह प्रभाव आकृतियों को उभारा जाता है और आपके प्रस्तुति में आकर्षक दृश्यमान तत्व जोड़ता है। न्यूनतम कोड के साथ इसे लागू करना आसान है, जिससे स्लाइड्स की कुल रूपरेखा सुधरती है।
+Aspose.Slides for C++ में आकार पर चमक इफ़ेक्ट लागू करने के लिए, आप आकारों के चारों ओर एक कोमल, प्रकाशमान आभा जोड़ सकते हैं, तथा रंग और आकार जैसी प्रॉपर्टी को समायोजित कर सकते हैं। यह इफ़ेक्ट आकारों को उभारा करता है और आपके प्रस्तुति में आकर्षक, नज़र को पकड़ने वाला दृश्य तत्व जोड़ता है। इसे न्यूनतम कोड के साथ लागू किया जा सकता है, जिससे आपके स्लाइड्स का समग्र लुक बेहतर होता है।
 
-यह C++ कोड दिखाता है कि कैसे किसी आकृति में [glow effect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) लागू किया जाता है:
+यह C++ कोड दिखाता है कि कैसे एक आकार पर [चमक इफ़ेक्ट](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) लागू किया जाए:
 
 ```cpp
 #include <DOM/Effects/IGlow.h>
@@ -192,13 +192,13 @@ glowEffect->set_Radius(15);
 presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![चमक प्रभाव](glow_effect.png)
+![चमक इफ़ेक्ट](glow_effect.png)
 
-## **नरम किनारों का प्रभाव लागू करें**
+## **नरम किनारे इफ़ेक्ट लागू करें**
 
-Aspose.Slides for C++ में नरम किनारों का प्रभाव लागू करने के लिए आप आकृति के किनारों के आसपास एक सुचारु, धुंधला संक्रमण बना सकते हैं। यह प्रभाव अधिक सूक्ष्म और परिष्कृत लुक जोड़ता है, जिससे डिज़ाइन को एक हल्का, नरम स्वर मिलता है। आप विभिन्न आकृतियों में वांछित प्रभाव प्राप्त करने के लिए त्रिज्या जैसे पैरामीटर्स को आसानी से समायोजित कर सकते हैं।
+Aspose.Slides for C++ में नरम किनारे इफ़ेक्ट लागू करने के लिए, आप आकार के किनारों के चारों ओर एक स्मूद, ब्लर ट्रांज़िशन बना सकते हैं। यह इफ़ेक्ट एक अधिक सूक्ष्म और परिष्कृत लुक जोड़ता है, जो उन डिज़ाइनों के लिए परिपूर्ण है जिन्हें हल्की, नरम उपस्थिति चाहिए। आप अपनी प्रस्तुति में विभिन्न आकारों पर वांछित प्रभाव पाने के लिए त्रिज्या जैसे पैरामीटर को आसानी से समायोजित कर सकते हैं।
 
-यह C++ कोड दिखाता है कि कैसे किसी आकृति में [soft edges](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) लागू किया जाता है:
+यह C++ कोड दिखाता है कि कैसे एक आकार पर [नरम किनारे](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) लागू किया जाए:
 
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
@@ -225,18 +225,70 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![नरम किनारों का प्रभाव](soft_edges_effect.png)
+![नरम किनारे इफ़ेक्ट](soft_edges_effect.png)
+
+## **ब्लर इफ़ेक्ट लागू करें**
+
+आकार ब्लर का उपयोग करके आकार की भराव और रूपरेखा को नरम किया जा सकता है, जबकि आकार संपादन योग्य बना रहता है। shape के effect format पर [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) को कॉल करें। त्रिज्या पॉइंट्स में मापी जाती है (1/72 इंच): एक गैर-नकारात्मक मान उपयोग करें, बड़े मान अधिक मजबूत ब्लर उत्पन्न करते हैं। शून्य त्रिज्या रूप को अपरिवर्तित रखती है।
+
+यह [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) सेटिंग प्रभाव की विज़िबल सीमाओं को नियंत्रित करती है। `false` होने पर, ब्लर मूल पेंटेड सीमाओं तक सीमित रहता है, जिसमें रूपरेखा भी शामिल है। `true` होने पर, ब्लर उन सीमाओं से बाहर तक विस्तारित हो सकता है। इन दोनों सेटिंग्स से आकार की स्थिति या आयाम नहीं बदलते।
+
+नीचे दिया गया तुलना समान भराव, रूपरेखा, और आकार आयामों का उपयोग करती है। शीर्ष पंक्ति `grow = false` का उपयोग करती है; नीचे की पंक्ति `grow = true` का उपयोग करती है।
+
+![5 और 15 पॉइंट ब्लर त्रिज्या के साथ मूल आयत, grow अक्षम व सक्षम](shape_blur_comparison.png)
+
+यह C++ उदाहरण एक नारंगी आयत को गहरे नीले आउटलाइन के साथ बनाता है, 5‑पॉइंट ब्लर लागू करता है, और फिर [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) को फिर से कॉल करके इसे 15‑पॉइंट ब्लर में अपडेट करता है। यह दोनों ब्लर स्थितियों को सहेजता है, फिर [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) को कॉल करता है और ब्लर के बिना आकार को सहेजता है।
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 80.0f, 160.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+shape->get_LineFormat()->set_Width(8);
+
+shape->get_EffectFormat()->SetBlurEffect(5, false);
+presentation->Save(u"shape_blur_5.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->SetBlurEffect(15, true);
+presentation->Save(u"shape_blur_15.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->DisableBlurEffect();
+presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
+```
+
+आकार ब्लर भराव और रूपरेखा दोनों को प्रभावित करता है। नरम किनारे इफ़ेक्ट आकार के किनारों को फेड करता है, जबकि छाया ब्लर केवल छाया को नरम करता है। छवि रूपांतरण इफ़ेक्ट छवि सामग्री पर कार्य करता है; इस उदाहरण में ब्लर को सीधे आकार के effect format पर लागू किया गया है बिना आकार को छवि में परिवर्तित किए।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं एक ही आकृति पर एक से अधिक प्रभाव लागू कर सकता हूँ?**
+**क्या मैं एक ही आकार पर कई इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हां, आप एक ही आकृति पर विभिन्न प्रभावों—जैसे छाया, प्रतिबिंब और चमक—को मिलाकर अधिक गतिशील रूप बना सकते हैं।
+हाँ, आप विभिन्न इफ़ेक्ट्स, जैसे कि छाया, परावर्तन, और चमक, को एक ही आकार पर संयोजित कर सकते हैं ताकि अधिक गतिशील रूप बन सके।
 
-**मैं किन आकृतियों पर प्रभाव लागू कर सकता हूँ?**
+**मैं किन आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-आप विभिन्न प्रकार की आकृतियों पर प्रभाव लागू कर सकते हैं, जिसमें ऑटोषेप्स, चार्ट, टेबल, चित्र, स्मार्टआर्ट ऑब्जेक्ट, OLE ऑब्जेक्ट और अन्य शामिल हैं।
+आप विभिन्न आकारों पर इफ़ेक्ट्स लागू कर सकते हैं, जिनमें ऑटोषेप, चार्ट, टेबल, चित्र, SmartArt ऑब्जेक्ट, OLE ऑब्जेक्ट आदि शामिल हैं।
 
-**क्या मैं समूहित आकृतियों पर प्रभाव लागू कर सकता हूँ?**
+**क्या मैं समूहित आकारों पर इफ़ेक्ट्स लागू कर सकता हूँ?**
 
-हां, आप समूहित आकृतियों पर प्रभाव लागू कर सकते हैं। प्रभाव पूरी समूह पर लागू होगा।
+हाँ, आप समूहित आकारों पर इफ़ेक्ट्स लागू कर सकते हैं। इफ़ेक्ट पूरे समूह पर लागू होगा।

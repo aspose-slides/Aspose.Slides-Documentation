@@ -1,43 +1,43 @@
 ---
-title: Alakzat hatások alkalmazása prezentációkban Java használatával
-linktitle: Alakzat hatás
+title: Alakzat effektusok alkalmazása előadásokban Java-val
+linktitle: Alakzat effektus
 type: docs
 weight: 30
 url: /hu/java/shape-effect/
 keywords:
-- alakzat hatás
-- árnyék hatás
-- reflexió hatás
-- ragyogás hatás
-- lágy szélek hatás
-- effektusformátum
+- alakzat effektus
+- árnyék effektus
+- tükröződés effektus
+- ragyogás effektus
+- lágy szélek effektus
+- effektus formátum
 - PowerPoint
-- prezentáció
+- előadás
 - Java
 - Aspose.Slides
-description: "Alakítsa át PPT és PPTX fájljait fejlett alakzathi hatáslarla az Aspose.Slides for Java segítségével—hozzon létre lenyűgöző, professzionális diákat pillanatok alatt."
+description: "Alakítsa át PPT és PPTX fájljait fejlett alakzat effektusokkal az Aspose.Slides for Java használatával—hozzon létre lenyűgöző, professzionális diákat pillanatok alatt."
 ---
 ## **Bevezetés**
 
-Miközben a PowerPoint effektusai segítségével kiemelhet egy alakzatot, ezek különböznek a [kitöltésektől](/slides/hu/java/shape-formatting/#gradient-fill) vagy a körvonalaktól. PowerPoint effektusokkal meggyőző tükröződéseket hozhat létre egy alakzaton, terjesztheti az alakzat fénykibúvását stb.
+Miközben a PowerPoint effektusok használhatók egy alakzat kiemelésére, eltérnek a [kitöltésektől](/slides/hu/java/shape-formatting/#gradient-fill) vagy a körvonaltól. A PowerPoint effektusok segítségével meggyőző tükröződéseket hozhat létre egy alakzaton, elterjesztheti az alakzat ragyogását stb.
 
-![Shape effect](shape-effect.png)
+![Alakzat effektus](shape-effect.png)
 
 A PowerPoint hat effektust biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több effektust is alkalmazhat egy alakzatra.
 
-Néhány effektuskombináció jobb hatást kelt, mint mások. Emiatt a PowerPoint a **Preset** menüpont alatt lehetőségeket kínál. A Preset opciók két vagy több, jól kinéző effektus kombinációi. Így egy előre beállított elem kiválasztásával nem kell időt vesztegetnie különböző effektusok tesztelésére vagy kombinálására a megfelelő kombináció megtalálásához.
+Néhány effektuskombináció jobban néz ki, mint mások. Ezért a PowerPoint **Preset** opciókat kínál. Az Előre beállított lehetőségek két vagy több effektus kombinációi, amelyekről ismert, hogy jól mutatnak. Így egy előre beállítást kiválasztva nem kell időt pazarolni különböző effektusok tesztelésével vagy kombinálásával, hogy jó kombinációt találjon.
 
-Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) osztályban biztosít tulajdonságokat és metódusokat, amelyek lehetővé teszik, hogy ugyanazokat az effektusokat alkalmazza a PowerPoint bemutatók alakzataira.
+Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) osztály alatt olyan tulajdonságokat és metódusokat biztosít, amelyek lehetővé teszik, hogy ugyanazokat az effektusokat alkalmazza a PowerPoint előadások alakzataira.
 
-## **Árnyékhatás alkalmazása**
+## **Árnyék effektus alkalmazása**
 
-Az Aspose.Slides for Java külső és belső árnyékokat támogat az alakzatokhoz. Testreszabhatja a színüket, irányukat, távolságukat és elmosódási sugarukat, hogy illeszkedjenek a bemutató tervezéséhez.
+Az Aspose.Slides for Java külső és belső árnyékokat támogat alakzatokhoz. Testreszabhatja a színüket, irányukat, távolságukat és elmosódási sugarukat, hogy megfeleljenek az előadás tervezésének.
 
 ### **Külső árnyék alkalmazása**
 
-Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttérrel szemben. Az árnyék túlnyúlik az alakzat élein, ezáltal azt a benyomást keltve, mintha az alakzat a dia fölé lenne emelve. Állítsa be a színét, irányát, távolságát és elmosódási sugarát a sablon megvilágításához és stílusához illően.
+Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttérrel szemben. Az árnyék a forma széleit meghaladja, így a benyomást kelti, mintha a forma a dia fölött volna emelve. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy illeszkedjen a sablon megvilágításához és stílusához.
 
-Ez a Java kód bemutatja, hogyan kell alkalmazni a [külső árnyékhatás](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) egy téglalapra:
+Ez a Java kód bemutatja, hogyan alkalmazhatja a [külső árnyék effektust](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) egy téglalapra:
 
 ```java
 import com.aspose.slides.*;
@@ -59,13 +59,15 @@ try {
 }
 ```
 
-![Shadow effect](shadow_effect.png)
+![Árnyék effektus](shadow_effect.png)
 
 ### **Belső árnyék alkalmazása**
 
-A sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy a kártya vagy panel recesszív megjelenést kapjon. A külső árnyék az alakzat kívülére nyúlik és emelt hatást kelt, míg a belső árnyék az élek belsejét árnyékosra teszi.
+Sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy egy kártya vagy panel besüllyedett megjelenést kapjon. A külső árnyék a forma kívülére nyúlik és emeltnek mutatja, míg a belső árnyék a szélek belsejét árnyékolja.
 
-Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) metódust, majd konfigurálja a [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) által visszaadott árnyékot. A nagyobb elmosódási sugárértékek lágyabb éleket eredményeznek.
+Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) metódust, majd konfigurálja a [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) által visszaadott árnyékot. A nagyobb elmosódási sugárértékek puhább széleket eredményeznek.
+
+Ez a Java példa egy világoskék kártyát hoz létre sötétszürke belső árnyékkal, és PPTX fájlként menti. Az árnyék iránya 225 fok, távolsága 7 pont, és elmosódási sugara 6 pont:
 
 ```java
 import com.aspose.slides.*;
@@ -93,15 +95,15 @@ try {
 }
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Világoskék téglalap belső árnyékkal](inner_shadow_effect.png)
 
 A belső árnyék eltávolításához hívja meg a [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) metódust az alakzat effektusformátumán.
 
-## **Reflexióhatás alkalmazása**
+## **Tükröződés effektus alkalmazása**
 
-Az Aspose.Slides for Java-ban a reflexióhatás alkalmazásához hozzáadhat tükörszerű tükröződést az alakzatokhoz, beállítva olyan paramétereket, mint a távolság, átlátszóság és méret. Ez a hatás javítja a bemutatók esztétikáját, elegánsabb, kifinomultabb megjelenést kölcsönözve az alakzatoknak. Egyszerű kóddal könnyen megvalósítható, gyors alkalmazást biztosítva több elemre a konzisztens tervezés érdekében.
+A reflection (tükröződés) effektus alkalmazásához az Aspose.Slides for Java-ban hozzáadhat tükörszerű tükröződést az alakzatokhoz, beállítva olyan paramétereket, mint a távolság, átlátszóság és méret. Ez az effektus javítja az előadások esztétikáját, finomabb és kifinomultabb megjelenést kölcsönözve az alakzatoknak. Egyszerű kóddal könnyen megvalósítható, gyors alkalmazást tesz lehetővé több elemre a konzisztens tervezés érdekében.
 
-Ez a Java kód bemutatja, hogyan kell alkalmazni a [reflexióhatás](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) egy alakzatra:
+Ez a Java kód bemutatja, hogyan alkalmazhatja a [tükröződés effektust](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) egy alakzatra:
 
 ```java
 import com.aspose.slides.*;
@@ -123,13 +125,13 @@ try {
 }
 ```
 
-![Reflection effect](reflection_effect.png)
+![Tükröződés effektus](reflection_effect.png)
 
-## **Ragyogás hatás alkalmazása**
+## **Ragyogás effektus alkalmazása**
 
-Az Aspose.Slides for Java-ban a ragyogás hatás alkalmazásához puha, fényes aurát adhat az alakzatok köré, beállítva a színt és méretet. Ez a hatás segít kiemelni az alakzatokat, és vonzó, feltűnő vizuális elemet ad a bemutatóhoz. Minimális kóddal könnyen megvalósítható, javítva a diák általános megjelenését.
+A ragyogás effektus alkalmazásához egy alakzatra az Aspose.Slides for Java-ban hozzáadhat egy lágy, fényes aurát az alakzatok köré, beállítva olyan tulajdonságokat, mint a szín és a méret. Ez az effektus segít kiemelni az alakzatokat, és vonzó, szemrevaló vizuális elemet ad az előadáshoz. Minimális kóddal könnyen megvalósítható, javítva a diák általános megjelenését.
 
-Ez a Java kód bemutatja, hogyan kell alkalmazni a [ragyogás hatás](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) egy alakzatra:
+Ez a Java kód bemutatja, hogyan alkalmazhatja a [ragyogás effektust](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) egy alakzatra:
 
 ```java
 import com.aspose.slides.*;
@@ -150,13 +152,13 @@ try {
 }
 ```
 
-![Glow effect](glow_effect.png)
+![Ragyogás effektus](glow_effect.png)
 
-## **Lágy szélek hatás alkalmazása**
+## **Lágy szélek effektus alkalmazása**
 
-Az Aspose.Slides for Java-ban a lágy szélek hatás alkalmazásával sima, elmosódott átmenetet hozhat létre az alakzat szélein. Ez a hatás finomabb, kifinomultabb megjelenést ad, tökéletes a finom, lágyabb megjelenést igénylő tervekhez. Könnyen beállíthatja a sugár paraméterét, hogy a kívánt hatást elérje különböző alakzatoknál a bemutatóban.
+A lágy szélek effektus alkalmazásához az Aspose.Slides for Java-ban létrehozhat egy sima, elmosódott átmenetet egy alakzat szélei körül. Ez az effektus finomabb és kifinomultabb megjelenést kölcsönöz, tökéletes olyan tervekhez, amelyeknek enyhe, lágyabb megjelenésre van szükségük. Könnyen beállíthatja például a sugarat, hogy a kívánt hatást elérje különböző alakzatoknál az előadásban.
 
-Ez a Java kód bemutatja, hogyan kell alkalmazni a [lágy szélek hatás](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) egy alakzatra:
+Ez a Java kód bemutatja, hogyan alkalmazhatja a [lágy szélek effektust](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) egy alakzatra:
 
 ```java
 import com.aspose.slides.*;
@@ -175,18 +177,60 @@ try {
 }
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Lágy szélek effektus](soft_edges_effect.png)
+
+## **Elmosódás effektus alkalmazása**
+
+Használja a forma elmosódást a forma kitöltésének és körvonalának lágyításához, miközben a forma szerkeszthető marad. Hívja meg a [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) metódust az alakzat effektusformátumán. A sugár pontokban van mérve (1/72 hüvelyk): használjon nem negatív értéket, a nagyobb értékek erősebb elmosódást eredményeznek. A nulla sugár változatlan megjelenést hagy.
+
+A [getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) beállítás szabályozza az effektus látható határait. `false` esetén az elmosódás az eredeti festett határokra, beleértve a körvonalat, lesz vágva. `true` esetén az elmosódás kiterjeszthető ezen határokon túlra. Egyik beállítás sem módosítja az alakzat pozícióját vagy méreteit.
+
+Az alábbi összehasonlítás ugyanazt a kitöltést, körvonalat és alakzatmérőket használja mindenhol. A felső sor `grow = false`; az alsó sor `grow = true`.
+
+![Eredeti téglalap összehasonlítva 5 és 15 pontos elmosódási sugárral, a grow kikapcsolt és bekapcsolt állapotban](shape_blur_comparison.png)
+
+Ez a Java példa egy narancssárga téglalapot hoz létre sötétkék körvonallal, 5 pontos elmosódást alkalmaz, majd ismét a [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) hívásával 15 pontos elmosódásra frissíti. Mindkét elmosódott állapotot menti, majd meghívja a [disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) metódust, és elmenti az alakzatot elmosódás nélkül.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A forma elmosódás a kitöltést és a körvonalat egyaránt érinti. A lágy szélek effektus a forma széleit halványítja, míg az árnyék elmosódás csak az árnyékot lágyítja. A képtranszformációs effektusok a kép tartalmán működnek; ez a példa közvetlenül a forma effektusformátumára alkalmaz elmosódást, anélkül, hogy a formát képpé konvertálná.
 
 ## **FAQ**
 
 **Alkalmazhatok több effektust ugyanarra az alakzatra?**
 
-Igen, különböző effektusokat, például árnyékot, reflexiót és ragyogást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
+Igen, különböző effektusokat, például árnyékot, tükröződést és ragyogást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
 
 **Milyen alakzatokra alkalmazhatok effektusokat?**
 
-Különböző alakzatokra alkalmazhat effektusokat, beleértve az automatikus alakzatokat, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
+Effektusokat különféle alakzatokra alkalmazhat, beleértve az automatikus alakzatokat, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
 
 **Alkalmazhatok effektusokat csoportosított alakzatokra?**
 
-Igen, csoportosított alakzatokra is alkalmazhat effektusokat. A hatás a teljes csoportra lesz alkalmazva.
+Igen, csoportosított alakzatokra is alkalmazhat effektusokat. Az effektus a teljes csoportra lesz alkalmazva.

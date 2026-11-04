@@ -1,44 +1,44 @@
 ---
-title: Alakzat-hatások alkalmazása prezentációkban Python via Java használatával
-linktitle: Alakzat hatás
+title: Alakzat effektusok alkalmazása prezentációkban a Python via Java használatával
+linktitle: Alakzat effektus
 type: docs
 weight: 30
 url: /hu/python-java/shape-effect/
 keywords:
-- alakzat hatás
-- árnyékhatás
-- tükröződési hatás
-- ragyogás hatás
-- lágy szegélyek hatás
-- hatásformátum
+- alakzat effektus
+- árnyék effektus
+- reflexió effektus
+- ragyogás effektus
+- puhított élek effektus
+- effektusformátum
 - PowerPoint
 - prezentáció
 - Python
 - Java
 - Aspose.Slides
-description: "Alakítsa át PPT és PPTX fájljait fejlett alakzat-hatásokkal az Aspose.Slides for Python via Java használatával — hozzon létre lenyűgöző, professzionális diákat néhány másodperc alatt."
+description: "Alakítsa át PPT és PPTX fájljait fejlett alakzat effektusokkal az Aspose.Slides for Python via Java segítségével – hozzon létre lenyűgöző, professzionális diákat pillanatok alatt."
 ---
 ## **Bevezetés**
 
-Miközben a PowerPoint hatásait felhasználhatja egy alakzat kiemelésére, ezek különböznek a [kitöltésektől](/slides/hu/python-java/shape-formatting/#gradient-fill) vagy a körvonalaktól. A PowerPoint hatásaival meggyőző tükröződéseket hozhat létre egy alakzaton, elnyújthatja az alakzat ragyogását stb.
+Miközben a PowerPoint effektusok használhatók egy alakzat kiemelésére, különböznek a [kitöltésektől](/slides/hu/python-java/shape-formatting/#gradient-fill) vagy a körvonalaktól. PowerPoint effektusokkal meggyőző tükröződéseket hozhat létre egy alakzaton, eloszlathatja annak ragyogását, stb.
 
-![Shape effect](shape-effect.png)
+![Alakzat effektus](shape-effect.png)
 
-A PowerPoint hat hatást biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
+A PowerPoint hat effektust biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több effektust is alkalmazhat egy alakzatra.
 
-Néhány hatáskombináció jobban néz ki, mint mások. Emiatt a PowerPoint a **Preset** alatt opciókat kínál. A Preset beállítások két vagy több hatás kombinációi, amelyekről ismert, hogy jól mutatnak. Így egy előre beállítást kiválasztva nem kell időt pazarolnia különböző hatások tesztelésére vagy kombinálására egy szép kombináció megtalálásához.
+Néhány effektuskombináció jobban néz ki, mint mások. Emiatt a PowerPoint a **Preset** alatt lehetőségeket biztosít. Az előbeállítások két vagy több effektus kombinációi, amelyekről ismert, hogy jól mutatnak. Így egy előbeállítás kiválasztásával nem kell időt vesztegetnie különböző effektusok tesztelésével vagy kombinálásával, hogy jó kombinációt találjon.
 
-Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) osztály alatt tulajdonságokat és metódusokat biztosít, amelyek lehetővé teszik ugyanazon hatások alkalmazását PowerPoint‑prezentációk alakzataira.
+Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) osztályban olyan tulajdonságokat és metódusokat biztosít, amelyek lehetővé teszik ugyanazon effektusok alkalmazását PowerPoint prezentációk alakzatain.
 
-## **Árnyékhatás alkalmazása**
+## **Árnyék effektus alkalmazása**
 
-Az Aspose.Slides for Python via Java támogatja a külső és belső árnyékokat alakzatokra. Testreszabhatja a színüket, irányukat, távolságukat és a elmosódási sugárukat, hogy illeszkedjenek a prezentáció tervezéséhez.
+Az Aspose.Slides for Python via Java külső és belső árnyékokat támogat alakzatokra. Színét, irányát, távolságát és elmosási sugarát testre szabhatja a prezentációja tervezéséhez.
 
 ### **Külső árnyék alkalmazása**
 
-Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a diák háttérétől. Az árnyék túlnyúlik az alakzat szélein, így a benyomást kelti, mintha az alakzat a dia fölé lenne emelve. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy megfeleljen a sablon világításának és stílusának.
+Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttéréből. Az árnyék túlnyúlik az alakzat szélén, ezáltal úgy tűnik, mintha az alakzat a dia felett lebegne. Állítsa be a színét, irányát, távolságát és elmosási sugarát, hogy illeszkedjen a sablonja megvilágításához és stílusához.
 
-Ez a Python‑kód bemutatja, hogyan lehet alkalmazni a [külső árnyék hatást](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) egy téglalapra:
+Ez a Python kód bemutatja, hogyan kell alkalmazni a [külső árnyék effektust](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) egy téglalapra:
 
 ```python
 import jpype
@@ -65,15 +65,15 @@ finally:
     presentation.dispose()
 ```
 
-![Shadow effect](shadow_effect.png)
+![Árnyék effektus](shadow_effect.png)
 
 ### **Belső árnyék alkalmazása**
 
-Amikor egy sablon vizuális stílusát reprodukálja, használjon belső árnyékot, hogy a kártya vagy panel belevonódott megjelenést kapjon. A külső árnyék az alakzat kívülére nyúlik, és emelt hatást kelt, míg a belső árnyék az élékek belsejét árnyékolja.
+Sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy a kártya vagy panel visszahúzott megjelenést kapjon. A külső árnyék az alakzat kívülére nyúlik és emeltté teszi, míg a belső árnyék a szélek belsejét árnyékolja.
 
-Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) metódust, majd konfigurálja a [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) által visszaadott árnyékot. A nagyobb elmosódási sugár értékek lágyabb széleket eredményeznek.
+Hívja meg a [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) metódust, majd konfigurálja a [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect) által visszaadott árnyékot. A nagyobb elmosási sugárértékek lágyabb éleket eredményeznek.
 
-Ez a Python‑példa világoskék kártyát hoz létre sötétszürke belső árnyékkal, és PPTX‑fájlként menti. Az árnyék iránya 225 fok, távolsága 7 pont, elmosódási sugara 6 pont:
+Ez a Python példa egy világoskék kártyát hoz létre sötétszürke belső árnyékkal, és PPTX fájlként menti el. Az árnyék iránya 225 fok, a távolsága 7 pont, az elmosási sugara pedig 6 pont:
 
 ```python
 import jpype
@@ -106,15 +106,15 @@ finally:
     presentation.dispose()
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Világoskék téglalap belső árnyékkal](inner_shadow_effect.png)
 
-A belső árnyék eltávolításához hívja meg a [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) metódust az alakzat hatásformátumán.
+A belső árnyék eltávolításához hívja meg a [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) metódust az alakzat effektusformátumán.
 
-## **Tükröződési hatás alkalmazása**
+## **Reflexió effektus alkalmazása**
 
-A tükröződési hatás alkalmazásához az Aspose.Slides for Python via Java‑ban hozzáadhat tükörszerű tükröződést alakzatokhoz, beállítva például a távolságot, átlátszóságot és méretet. Ez a hatás fokozza a prezentációk esztétikáját azáltal, hogy az alakzatok kifinomultabb, precíz megjelenést kapnak. Könnyen megvalósítható egyszerű kóddal, amely gyors alkalmazást tesz lehetővé több elemre a konzisztens tervezés érdekében.
+A reflexió effektus alkalmazásához az Aspose.Slides for Python via Java segítségével tükörszerű tükröződést adhat alakzatokhoz, beállítva például a távolságot, átlátszóságot és méretet. Ez az effektus javítja a prezentációk esztétikáját, mivel elegánsabb, kifinomultabb megjelenést kölcsönöz az alakzatoknak. Könnyen megvalósítható egyszerű kóddal, lehetővé téve a gyors alkalmazást több elemre a konzisztens tervezés érdekében.
 
-Ez a Python‑kód bemutatja, hogyan lehet alkalmazni a [tükröződési hatást](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) egy alakzatra:
+Ez a Python kód bemutatja, hogyan kell alkalmazni a [reflexió effektust](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) egy alakzatra:
 
 ```python
 import jpype
@@ -141,13 +141,13 @@ finally:
     presentation.dispose()
 ```
 
-![Reflection effect](reflection_effect.png)
+![Reflexió effektus](reflection_effect.png)
 
-## **Ragyogás hatás alkalmazása**
+## **Ragyogás effektus alkalmazása**
 
-A ragyogás hatás alkalmazásához egy alakzaton az Aspose.Slides for Python via Java‑ban lágy, fénylő aurát adhat a körülöttük, a szín és a méret tulajdonságait állítva. Ez a hatás segít kiemelni az alakzatokat és vonzó, szemkáprázó vizuális elemet ad a prezentációnak. Könnyen megvalósítható minimális kóddal, amely javítja a diák általános megjelenését.
+A ragyogás effektus alkalmazásához egy alakzatra az Aspose.Slides for Python via Java segítségével lágy, fényes aurát adhat a formáknak, szín és méret tulajdonságok beállításával. Ez az effektus segít kiemelni az alakzatokat, és vonzó, szemrevaló vizuális elemet ad a prezentációjához. Könnyen megvalósítható minimális kóddal, javítva a diák összképét.
 
-Ez a Python‑kód bemutatja, hogyan lehet alkalmazni a [ragyogás hatást](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) egy alakzatra:
+Ez a Python kód bemutatja, hogyan kell alkalmazni a [ragyogás effektust](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) egy alakzatra:
 
 ```python
 import jpype
@@ -173,13 +173,13 @@ finally:
     presentation.dispose()
 ```
 
-![Glow effect](glow_effect.png)
+![Ragyogás effektus](glow_effect.png)
 
-## **Lágy szegélyek hatás alkalmazása**
+## **Puhított élek effektus alkalmazása**
 
-A lágy szegélyek hatás alkalmazásához az Aspose.Slides for Python via Java‑ban egy sima, elmosódott átmenetet hozhat létre az alakzat szélén. Ez a hatás finomabb és kifinomultabb megjelenést ad, ami tökéletes a gyengébb, lágyabb kinézetet igénylő tervekhez. Könnyen beállíthatja a sugár paramétert a kívánt hatás eléréséhez a prezentáció különböző alakzatai között.
+A puhított élek effektus alkalmazásához az Aspose.Slides for Python via Java segítségével egy sima, elmosott átmenetet hozhat létre egy alakzat élei körül. Ez az effektus finomabb és kifinomultabb megjelenést ad, tökéletes a gyengédebb, lágyabb kinézetet igénylő tervekhez. Könnyen állíthatja a sugár paramétert, hogy a kívánt hatást elérje különböző alakzatok esetén a prezentációban.
 
-Ez a Python‑kód bemutatja, hogyan lehet alkalmazni a [lágy szegélyek hatást](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) egy alakzatra:
+Ez a Python kód bemutatja, hogyan kell alkalmazni a [puhított élek effektust](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) egy alakzatra:
 
 ```python
 import jpype
@@ -203,18 +203,65 @@ finally:
     presentation.dispose()
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Puhított élek effektus](soft_edges_effect.png)
+
+## **Elmosás effektus alkalmazása**
+
+Használja a formaelmosást az alakzat kitöltésének és körvonalának lágyításához, miközben az alakzat szerkeszthető marad. Hívja meg a [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) metódust az alakzat effektusformátumán. A sugár pontban van mérve (1/72 hüvelyk): használjon nemnegatív értéket, a nagyobb értékek erősebb elmosást eredményeznek. A nulla sugarú beállítás nem változtatja meg a megjelenést.
+
+A [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) beállítás szabályozza az effektus látható határait. `False` esetén az elmosás az eredeti festett határokra, beleértve a körvonalat, lesz vágva. `True` esetén az elmosás túlnyúlhat ezekre a határokra. Egyik beállítás sem változtatja meg az alakzat pozícióját vagy méreteit.
+
+Az alábbi összehasonlítás ugyanazt a kitöltést, körvonalat és alakzati méreteket használja. A felső sor a `grow = False` értéket, az alsó sor a `grow = True` értéket használja.
+
+![Eredeti téglalap elmosási sugarakkal 5 és 15 pont, a növekedés letiltva és engedélyezve](shape_blur_comparison.png)
+
+Ez a Python példa egy narancssárga téglalapot hoz létre sötétkék körvonalakkal, 5 pontos elmosást alkalmaz, majd ugyanazt 15 pontos elmosásra módosít a [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) újbóli meghívásával. Mindkét elmosott állapotot elmenti, majd meghívja a [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) metódust, és elmenti az alakzatot elmosás nélkül.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(255, 165, 0))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    shape.getLineFormat().setWidth(8)
+
+    shape.getEffectFormat().setBlurEffect(5, False)
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().setBlurEffect(15, True)
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().disableBlurEffect()
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+A formaelmosás egyszerre érinti a kitöltést és a körvonalat. A puhított élek effektus elhalványítja az alakzat széleit, míg az árnyék elmosás csak az árnyékot lágyítja. A képenkénti átalakító effektusok a kép tartalmán működnek; ez a példa közvetlenül az alakzat effektusformátumára alkalmaz elmosást, anélkül, hogy az alakzatot képpé konvertálná.
 
 ## **GYIK**
 
-**Alkalmazhatok több hatást ugyanarra az alakzatra?**
+**Alkalmazhatok több effektust ugyanarra az alakzatra?**
 
-Igen, különböző hatásokat, például árnyékot, tükröződést és ragyogást kombinálhat egyetlen alakzatra, hogy dinamikusabb megjelenést érjen el.
+Igen, több különböző effektust – például árnyékot, reflexiót és ragyogást – kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
 
-**Milyen alakzatokra alkalmazhatok hatásokat?**
+**Milyen alakzatokra alkalmazhatok effektusokat?**
 
-Különféle alakzatokra alkalmazhat hatásokat, beleértve az autoshape‑eket, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
+Különféle alakzatokra alkalmazhat effektusokat, beleértve az autoshape‑eket, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
 
-**Alkalmazhatok hatásokat csoportos alakzatokra?**
+**Alkalmazhatok effektusokat csoportos alakzatokra?**
 
-Igen, a hatásokat csoportos alakzatokra is alkalmazhatja. A hatás az egész csoportra érvényesül.
+Igen, csoportos alakzatokra is alkalmazhat effektusokat. Az effektus az egész csoportra lesz hatással.

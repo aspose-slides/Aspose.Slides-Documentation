@@ -1,5 +1,5 @@
 ---
-title: Pas Vormeffecten toe in Presentaties met Python via Java
+title: Vormeffecten toepassen in presentaties met Python via Java
 linktitle: Vormeffect
 type: docs
 weight: 30
@@ -7,38 +7,38 @@ url: /nl/python-java/shape-effect/
 keywords:
 - vormeffect
 - schaduweffect
-- reflectie-effect
+- reflectie‑effect
 - gloeieffect
-- zachtrand-effect
+- zachte randen‑effect
 - effectformaat
 - PowerPoint
 - presentatie
 - Python
 - Java
 - Aspose.Slides
-description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met Aspose.Slides voor Python via Java - maak opvallende, professionele dia's in enkele seconden."
+description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten via Aspose.Slides voor Python via Java - maak binnen enkele seconden opvallende, professionele dia's."
 ---
-## **Inleiding**
+## **Introductie**
 
-Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [vullingen](/slides/nl/python-java/shape-formatting/#gradient-fill) of contouren. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm maken, de gloed van een vorm verspreiden, enz.
+Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [opvullingen](/slides/nl/python-java/shape-formatting/#gradient-fill) of contouren. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
 
-![Shape effect](shape-effect.png)
+![Vormeffect](shape-effect.png)
 
 PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meer effecten op een vorm toepassen.
 
-Sommige combinaties van effecten zien er beter uit dan andere. Om die reden biedt PowerPoint opties onder **Preset**. De Preset‑opties zijn combinaties van twee of meer effecten die bekend staan om hun goede uiterlijk. Op deze manier hoef je, door een preset te selecteren, geen tijd meer te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
+Sommige combinaties van effecten zien er beter uit dan andere. Om die reden biedt PowerPoint opties onder **Voorinstelling**. De opties voor voorinstellingen zijn combinaties van twee of meer effecten die bekend staan om er goed uit te zien. Op deze manier hoef je, door een voorinstelling te selecteren, geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
 
-Aspose.Slides biedt eigenschappen en methoden onder de [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/)‑klasse die je in staat stellen dezelfde effecten op vormen in PowerPoint‑presentaties toe te passen.
+Aspose.Slides biedt eigenschappen en methoden onder de [EffectFormat](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/) klasse die je toestaan dezelfde effecten toe te passen op vormen in PowerPoint‑presentaties.
 
 ## **Een schaduweffect toepassen**
 
-Aspose.Slides voor Python via Java ondersteunt buiten- en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsstraal aanpassen om overeen te komen met het ontwerp van je presentatie.
+Aspose.Slides voor Python via Java ondersteunt buiten‑ en binnenschaduwen voor vormen. Je kunt hun kleur, richting, afstand en onscherpte‑straal aanpassen aan het ontwerp van je presentatie.
 
-### **Een buitenste schaduw toepassen**
+### **Een buitenschaduw toepassen**
 
-Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de achtergrond van de dia. De schaduw strekt zich uit voorbij de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en vervagingsstraal aan om overeen te komen met de verlichting en de stijl van je sjabloon.
+Gebruik een buitenschaduw om een kaart of paneel te laten opvallen tegen de achtergrond van de dia. De schaduw strekt zich uit voorbij de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de dia zweeft. Pas de kleur, richting, afstand en onscherpte‑straal aan om overeen te komen met de verlichting en stijl van je sjabloon.
 
-Deze Python‑code toont hoe je het [buitenste schaduweffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) op een rechthoek toepast:
+Deze Python‑code laat zien hoe je het [buitenschaduweffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getOuterShadowEffect) op een rechthoek toepast:
 
 ```python
 import jpype
@@ -65,15 +65,15 @@ finally:
     presentation.dispose()
 ```
 
-![Shadow effect](shadow_effect.png)
+![Schaduweffect](shadow_effect.png)
 
 ### **Een binnenschaduw toepassen**
 
-Wanneer je de visuele stijl van een sjabloon nabootst, gebruik je een binnenschaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenste schaduw strekt zich uit buiten de vorm en laat deze opgeheven lijken, terwijl een binnenschaduw de binnenkant van de randen verduistert.
+Bij het reproduceren van de visuele stijl van een sjabloon, gebruik je een binnenschaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenschaduw strekt zich buiten de vorm uit en laat deze verhoogd lijken, terwijl een binnenschaduw de binnenkant van de randen verduistert.
 
-Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) aan en configureer vervolgens de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Grotere waarden voor de vervagingsstraal geven zachtere randen.
+Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#enableInnerShadowEffect) aan, configureer daarna de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getInnerShadowEffect). Grotere waarden voor de onscherpte‑straal geven zachtere randen.
 
-Dit Python‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten en de vervagingsstraal is 6 punten:
+Dit Python‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenschaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten, en de onscherpte‑straal is 6 punten:
 
 ```python
 import jpype
@@ -106,15 +106,15 @@ finally:
     presentation.dispose()
 ```
 
-![Light blue rectangle with an inner shadow](inner_shadow_effect.png)
+![Lichtblauwe rechthoek met een binnenschaduw](inner_shadow_effect.png)
 
 Om de binnenschaduw te verwijderen, roep je [disableInnerShadowEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableInnerShadowEffect) aan op het effectformaat van de vorm.
 
 ## **Een reflectie‑effect toepassen**
 
-Om een reflectie‑effect toe te passen in Aspose.Slides voor Python via Java, kun je een spiegelachtige reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect vergroot de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met simpele code, waardoor je het snel kunt toepassen op meerdere elementen voor een consistent ontwerp.
+Om een reflectie‑effect toe te passen in Aspose.Slides voor Python via Java, kun je een spiegelachtige reflectie toevoegen aan vormen, waarbij je parameters zoals afstand, transparantie en grootte aanpast. Dit effect verbetert de esthetiek van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor snelle toepassing over meerdere elementen mogelijk is voor een consistent ontwerp.
 
-Deze Python‑code toont hoe je het [reflectie‑effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) op een vorm toepast:
+Deze Python‑code laat zien hoe je het [reflectie‑effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getReflectionEffect) op een vorm toepast:
 
 ```python
 import jpype
@@ -141,13 +141,13 @@ finally:
     presentation.dispose()
 ```
 
-![Reflection effect](reflection_effect.png)
+![Reflectie‑effect](reflection_effect.png)
 
 ## **Een gloeieffect toepassen**
 
-Om een gloeieffect op een vorm toe te passen in Aspose.Slides voor Python via Java, kun je een zachte, lichtgevende aura rond vormen toevoegen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia's wordt verbeterd.
+Om een gloeieffect toe te passen op een vorm in Aspose.Slides voor Python via Java, kun je een zachte, lichtgevende aura rond vormen toevoegen, waarbij je eigenschappen zoals kleur en grootte aanpast. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algemene uiterlijk van je dia's wordt verbeterd.
 
-Deze Python‑code toont hoe je het [gloeieffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) op een vorm toepast:
+Deze Python‑code laat zien hoe je het [gloeieffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getGlowEffect) op een vorm toepast:
 
 ```python
 import jpype
@@ -173,13 +173,13 @@ finally:
     presentation.dispose()
 ```
 
-![Glow effect](glow_effect.png)
+![Gloeieffect](glow_effect.png)
 
-## **Een zachtrand‑effect toepassen**
+## **Een zacht‑randen‑effect toepassen**
 
-Om een zachtrand‑effect toe te passen in Aspose.Slides voor Python via Java, kun je een vloeiende, vervaagde overgang rond de randen van een vorm creëren. Dit effect geeft een subtieler en verfijnder uiterlijk, perfect voor ontwerpen die een zachte, subtiele uitstraling nodig hebben. Je kunt eenvoudig parameters zoals de radius aanpassen om het gewenste effect te bereiken voor verschillende vormen in je presentatie.
+Om een zacht‑randen‑effect toe te passen in Aspose.Slides voor Python via Java, kun je een gladde, onscherpe overgang rond de randen van een vorm creëren. Dit effect geeft een subtieler en verfijnder uiterlijk, perfect voor ontwerpen die een zachte, subtiele uitstraling nodig hebben. Je kunt eenvoudig parameters zoals straal aanpassen om het gewenste effect te bereiken op verschillende vormen in je presentatie.
 
-Deze Python‑code toont hoe je het [zachtrand‑effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) op een vorm toepast:
+Deze Python‑code laat zien hoe je het [zacht‑randen‑effect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#getSoftEdgeEffect) op een vorm toepast:
 
 ```python
 import jpype
@@ -203,17 +203,64 @@ finally:
     presentation.dispose()
 ```
 
-![Soft edges effect](soft_edges_effect.png)
+![Zacht‑randen‑effect](soft_edges_effect.png)
 
-## **FAQ**
+## **Een vervagings‑effect toepassen**
+
+Gebruik vorm‑vervaging om de opvulling en contour van een vorm zachter te maken terwijl de vorm bewerkbaar blijft. Roep [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) aan op het effectformaat van de vorm. De straal wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging opleveren. Een straal van nul laat het uiterlijk ongewijzigd.
+
+De [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) instelling regelt de zichtbare grenzen van het effect. Met `False` wordt de vervaging bijgesneden tot de oorspronkelijk geschilderde grenzen, inclusief de contour. Met `True` kan de vervaging zich buiten die grenzen uitstrekken. Geen van beide instellingen verandert de positie of afmetingen van de vorm.
+
+De onderstaande vergelijking gebruikt doorlopend dezelfde opvulling, contour en vormafmetingen. De bovenste rij gebruikt `grow = False`; de onderste rij gebruikt `grow = True`.
+
+![Originele rechthoek vergeleken met vervagingsstraal van 5 en 15 punten, met uitgroei uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
+
+Dit Python‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe, en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) aan te roepen. Het slaat beide vervaagde toestanden op, roept vervolgens [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) aan en slaat de vorm zonder vervaging op.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(255, 165, 0))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    shape.getLineFormat().setWidth(8)
+
+    shape.getEffectFormat().setBlurEffect(5, False)
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().setBlurEffect(15, True)
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().disableBlurEffect()
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Vorm‑vervaging beïnvloedt zowel de opvulling als de contour tegelijk. Een zacht‑randen‑effect doet de randen van de vorm vervagen, terwijl schaduw‑vervaging alleen de schaduw zachter maakt. Beeld‑transformatieteffecten werken op de afbeeldingsinhoud; dit voorbeeld past vervaging rechtstreeks toe op het effectformaat van de vorm zonder de vorm naar een afbeelding om te zetten.
+
+## **Veelgestelde vragen**
 
 **Kan ik meerdere effecten toepassen op dezelfde vorm?**
 
-Ja, je kunt verschillende effecten combineren, zoals schaduw, reflectie en gloed, op één enkele vorm om een dynamischer uiterlijk te creëren.
+Ja, je kunt verschillende effecten combineren, zoals schaduw, reflectie en gloed, op één vorm om een dynamischere uitstraling te creëren.
 
 **Op welke vormen kan ik effecten toepassen?**
 
-Je kunt effecten toepassen op diverse vormen, waaronder automatisch vormen, diagrammen, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
+Je kunt effecten toepassen op diverse vormen, waaronder autosjablonen, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
 
 **Kan ik effecten toepassen op gegroepeerde vormen?**
 

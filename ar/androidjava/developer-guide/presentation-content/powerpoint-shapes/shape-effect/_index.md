@@ -1,5 +1,5 @@
 ---
-title: تطبيق تأثيرات الشكل في العروض التقديمية على Android
+title: تطبيق تأثيرات الأشكال في العروض التقديمية على Android
 linktitle: تأثير الشكل
 type: docs
 weight: 30
@@ -16,29 +16,29 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "حوّل ملفات PPT و PPTX باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides لنظام Android باستخدام Java—أنشئ شرائح جذابة ومهنية في ثوانٍ."
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides لـ Android باستخدام Java — أنشئ شرائح جذابة واحترافية في ثوانٍ."
 ---
-## **المقدمة**
+## **مقدمة**
 
-في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [التعبئات](/slides/ar/androidjava/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، إلخ.
+بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فهي تختلف عن [التعبئات](/slides/ar/androidjava/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
 
 ![تأثير الشكل](shape-effect.png)
 
-PowerPoint يوفر ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
+يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يقدم PowerPoint خيارات تحت **Preset**. خيارات Preset هي تركيبات من تأثيرين أو أكثر معروفة بأنها تبدو جيدة. بهذه الطريقة، باختيار إعداد مسبق، لن تضطر إلى إضاعة الوقت في اختبار أو الجمع بين تأثيرات مختلفة للعثور على تركيبة مناسبة.
+بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يقدم PowerPoint خيارات تحت **Preset**. خيارات Preset هي تركيبات من تأثيرين أو أكثر معروفة بأنها تبدو جيدة. بهذه الطريقة، باختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
 
-يوفر Aspose.Slides خصائص وأساليب تحت فئة [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
+توفر Aspose.Slides خصائص وطرق تحت فئة [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) التي تسمح لك بتطبيق نفس التأثيرات على الأشكال في عروض PowerPoint.
 
 ## **تطبيق تأثير الظل**
 
-Aspose.Slides لنظام Android عبر Java يدعم الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص اللون والاتجاه والمسافة ونصف قطر التشويش لتتناسب مع تصميم عرضك التقديمي.
+يدعم Aspose.Slides لـ Android عبر Java الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، اتجاهها، مسافتها، ونصف قطر الضبابية لتتناسب مع تصميم عرضك.
 
 ### **تطبيق ظل خارجي**
 
-استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل إلى ما وراء حدود الشكل، مما يخلق انطباعًا بأن الشكل مرفوع فوق الشريحة. اضبط لونه واتجاهه ومسافته ونصف قطر التشويش ليتطابق مع الإضاءة وتنسيق القالب الخاص بك.
+استخدم ظلًا خارجيًا لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يعطي الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه، اتجاهه، مسافته، ونصف قطر الضبابية لتتناسب مع الإضاءة وتنسيق قالبك.
 
-يعرض هذا الكود Java كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) على مستطيل:
+هذا الكود Java يوضح كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) على مستطيل:
 
 ```java
 import com.aspose.slides.*;
@@ -64,11 +64,11 @@ try {
 
 ### **تطبيق ظل داخلي**
 
-عند إعادة إنتاج النمط البصري للقالب، استخدم ظلًا داخليًا لمنح البطاقة أو اللوحة مظهرًا غائرًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرفوعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
+عند إعادة إنتاج نمط القالب البصري، استخدم ظلًا داخليًا لإعطاء بطاقة أو لوحة مظهرًا مغمورًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرتفعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
 
-استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--)، ثم قم بتكوين الظل الذي تُرجعه [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). القيم الأكبر لنصف قطر التشويش تنتج حوافًا أكثر نعومة.
+استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--)، ثم ضبط الظلال التي تُرجعها [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--). القيم الأكبر لنصف قطر الضبابية تنتج حوافًا أكثر نعومة.
 
-هذا المثال Java ينشئ بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل هو 225 درجة، والمسافة 7 نقاط، ونصف قطر التشويش 6 نقاط:
+هذا المثال Java ينشئ بطاقة زرقاء فاتحة بظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل 225 درجة، مسافته 7 نقاط، ونصف قطر الضبابية 6 نقاط:
 
 ```java
 import com.aspose.slides.*;
@@ -102,9 +102,9 @@ try {
 
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير الانعكاس في Aspose.Slides لنظام Android عبر Java، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، مع ضبط المعلمات مثل المسافة والشفافية والحجم. يحسن هذا التأثير مظهر عروضك التقديمية بإعطاء الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم متسق.
+لتطبيق تأثير الانعكاس في Aspose.Slides لـ Android عبر Java، يمكنك إضافة انعكاس شبه مرآة إلى الأشكال، مع تعديل معلمات مثل المسافة، الشفافية، والحجم. يعزز هذا التأثير جمالية عروضك من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تنفيذه بكتابة كود بسيط، مما يتيح تطبيقه بسرعة عبر عناصر متعددة لتصميم متسق.
 
-يعرض هذا الكود Java كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) على شكل:
+هذا الكود Java يوضح كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) على شكل:
 
 ```java
 import com.aspose.slides.*;
@@ -130,9 +130,9 @@ try {
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير التوهج على شكل في Aspose.Slides لنظام Android عبر Java، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع ضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا ولافتًا للانتباه إلى عرضك التقديمي. من السهل تنفيذه بكود بسيط، مما يعزز المظهر العام لشرائحك.
+لتطبيق تأثير التوهج على شكل في Aspose.Slides لـ Android عبر Java، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، مع تعديل خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا إلى عرضك. من السهل تنفيذه بكود قليل، مما يحسن المظهر العام لشرائحك.
 
-يعرض هذا الكود Java كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) على شكل:
+هذا الكود Java يوضح كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) على شكل:
 
 ```java
 import com.aspose.slides.*;
@@ -157,9 +157,9 @@ try {
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides لنظام Android عبر Java، يمكنك إنشاء انتقال سلس ومهتز حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقةً وتأنقًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر ناعم وأكثر هدوءًا. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر الأشكال المختلفة في عرضك التقديمي.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides لـ Android عبر Java، يمكنك إنشاء انتقال سلس وممزوج حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وهدوءًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر ناعم. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك.
 
-يعرض هذا الكود Java كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) على شكل:
+هذا الكود Java يوضح كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) على شكل:
 
 ```java
 import com.aspose.slides.*;
@@ -180,16 +180,58 @@ try {
 
 ![تأثير الحواف الناعمة](soft_edges_effect.png)
 
-## **الأسئلة الشائعة**
+## **تطبيق تأثير الضبابية**
 
-**هل يمكنني تطبيق عدة تأثيرات على نفس الشكل؟**
+استخدم ضبابية الشكل لتنعيم تعبئة الشكل وحدوده مع الحفاظ على إمكانية تحرير الشكل. استدعِ [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، فالقيم الأكبر تنتج ضبابية أقوى. نصف القطر صفر يترك المظهر دون تغيير.
 
-نعم، يمكنك الجمع بين تأثيرات مختلفة، مثل الظل والانعكاس والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+إعداد [getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) يتحكم في حدود التأثير المرئية. عند `false`، يتم قص الضبابية إلى الحدود المرسومة الأصلية، بما في ذلك الحدود. عند `true`، يمكن للضبابية أن تمتد خارج تلك الحدود. لا يغيّر أي من الإعدادين موضع الشكل أو أبعاده.
 
-**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+المقارنة أدناه تستخدم نفس التعبئة والحدود وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
 
-يمكنك تطبيق التأثيرات على مجموعة متنوعة من الأشكال، بما في ذلك الأشكال التلقائية، والرسوم البيانية، والجداول، والصور، وكائنات SmartArt، وكائنات OLE، والمزيد.
+![مستطيل أصلي مقارنة مع أنصاف أقطار الضبابية 5 و15 نقطة، مع تعطيل وتمكين النمو](shape_blur_comparison.png)
 
-**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
+هذا المثال Java ينشئ مستطيلًا برتقاليًا بحدود زرقاء داكنة، يطبق ضبابية 5 نقاط، ثم يحدّثها إلى ضبابية 15 نقطة عبر استدعاء [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) مرة أخرى. يحفظ الحالتين الضبابيتين، ثم يستدعي [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) ويحفظ الشكل دون ضبابية.
 
-نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+تؤثر ضبابية الشكل على التعبئة والحدود معًا. يخفّف تأثير الحواف الناعمة حواف الشكل، بينما ينعّم ضباب الظل الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق الضبابية مباشرة على تنسيق تأثير الشكل دون تحويله إلى صورة.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
+
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، الانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+
+**ما الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+
+يمكنك تطبيق التأثيرات على أشكال متنوعة، بما فيها الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وغير ذلك.
+
+**هل يمكنني تطبيق التأثيرات على الأشكال المجمعّة؟**
+
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعّة. سيُطبق التأثير على المجموعة بأكملها.

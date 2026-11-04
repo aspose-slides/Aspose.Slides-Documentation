@@ -1,5 +1,5 @@
 ---
-title: Java を使用したプレゼンテーションでのシェイプ効果の適用
+title: Java を使用したプレゼンテーションでシェイプ効果を適用する
 linktitle: シェイプ効果
 type: docs
 weight: 30
@@ -10,34 +10,34 @@ keywords:
 - 反射効果
 - 光彩効果
 - ソフトエッジ効果
-- エフェクト形式
+- エフェクトフォーマット
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して高度なシェイプ効果で PPT および PPTX ファイルを変換し、数秒で印象的でプロフェッショナルなスライドを作成します。"
+description: "Aspose.Slides for Java を使用して、PPT および PPTX ファイルを高度なシェイプ効果で変換し、数秒で印象的でプロフェッショナルなスライドを作成します。"
 ---
-## **はじめに**
+## **導入**
 
-PowerPoint の効果はシェイプを際立たせるために使用できますが、[fills](/slides/ja/java/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint の効果を使用すると、シェイプにリアルな反射を作成したり、シェイプの輝きを広げたりすることができます。
+PowerPoint のエフェクトはシェイプを際立たせるために使用できますが、[塗りつぶし](/slides/ja/java/shape-formatting/#gradient-fill) やアウトラインとは異なります。PowerPoint のエフェクトを使用すると、シェイプにリアルな反射を作成したり、シェイプの光彩を広げたりできます。
 
 ![シェイプ効果](shape-effect.png)
 
-PowerPoint にはシェイプに適用できる 6 つの効果が用意されています。シェイプに 1 つまたは複数の効果を適用できます。
+PowerPoint にはシェイプに適用できる 6 つのエフェクトが用意されています。1 つまたは複数のエフェクトをシェイプに適用できます。
 
-効果の組み合わせによっては、他のものより見栄えが良いものがあります。そのため、PowerPoint では **Preset** のオプションが提供されています。Preset オプションは、見栄えが良いと知られている 2 つ以上の効果の組み合わせです。これにより、プリセットを選択するだけで、さまざまな効果を試したり組み合わせたりして最適な組み合わせを探す時間を無駄にしなくて済みます。
+エフェクトの組み合わせによって見栄えが異なります。このため、PowerPoint では **Preset** の下にオプションが用意されています。Preset オプションは、見た目が良いと分かっている 2 つ以上のエフェクトの組み合わせです。これにより、プリセットを選択するだけで、さまざまなエフェクトを試したり組み合わせたりする手間が省けます。
 
-Aspose.Slides は、PowerPoint プレゼンテーションのシェイプに同じ効果を適用できるように、[EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) クラスのプロパティとメソッドを提供します。
+Aspose.Slides は [EffectFormat](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/) クラスのプロパティとメソッドを提供し、PowerPoint プレゼンテーションのシェイプに同じエフェクトを適用できます。
 
-## **影効果の適用**
+## **影（シャドウ）エフェクトの適用**
 
-Aspose.Slides for Java はシェイプの外側および内側の影をサポートしています。色、方向、距離、ぼかし半径をカスタマイズして、プレゼンテーションのデザインに合わせることができます。
+Aspose.Slides for Java はシェイプの外側シャドウと内側シャドウをサポートします。色、方向、距離、ぼかし半径をカスタマイズしてプレゼンテーションのデザインに合わせることができます。
 
-### **外側の影の適用**
+### **外側シャドウの適用**
 
-外側の影を使用すると、カードやパネルがスライドの背景に対して際立ちます。影はシェイプのエッジを超えて広がり、シェイプがスライド上に持ち上がっているように見えます。影の色、方向、距離、ぼかし半径を調整して、テンプレートの照明やスタイリングに合わせます。
+外側シャドウを使用すると、カードやパネルがスライドの背景から浮き上がって見えます。シャドウはシェイプの端を超えて広がり、シェイプがスライド上に持ち上げられたように見えます。色、方向、距離、ぼかし半径を調整してテンプレートの照明やスタイルに合わせてください。
 
-この Java コードは、矩形に [outer shadow effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) を適用する方法を示しています:
+この Java コードは矩形に対して [外側シャドウエフェクト](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getOuterShadowEffect--) を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -59,15 +59,15 @@ try {
 }
 ```
 
-![影効果](shadow_effect.png)
+![シャドウ効果](shadow_effect.png)
 
-### **内側の影の適用**
+### **内側シャドウの適用**
 
-テンプレートのビジュアルスタイルを再現する際には、内側の影を使用してカードやパネルにへこみ感を与えます。外側の影はシェイプの外側に広がり持ち上がったように見せ、内側の影はエッジの内部を陰影付けします。
+テンプレートのビジュアルスタイルを再現する際には、内側シャドウを使用してカードやパネルにへこみ感を与えます。外側シャドウはシェイプの外側に広がり、浮き上がって見えるのに対し、内側シャドウはエッジの内側を陰影付けします。
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) が返す影を設定します。ぼかし半径の値を大きくすると、エッジがより柔らかくなります。
+[enableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#enableInnerShadowEffect--) を呼び出し、次に [getInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getInnerShadowEffect--) が返すシャドウを構成します。ぼかし半径の値が大きいほど、エッジは柔らかくなります。
 
-この Java の例は、薄い青色のカードに濃い灰色の内側の影を付け、PPTX ファイルとして保存します。影の方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです:
+この Java の例は、薄い青色のカードに濃い灰色の内側シャドウを付け、PPTX ファイルとして保存します。シャドウの方向は 225 度、距離は 7 ポイント、ぼかし半径は 6 ポイントです。
 
 ```java
 import com.aspose.slides.*;
@@ -95,15 +95,15 @@ try {
 }
 ```
 
-![内側の影が付いた薄い青の矩形](inner_shadow_effect.png)
+![内側シャドウ付きの薄い青色矩形](inner_shadow_effect.png)
 
-内側の影を削除するには、シェイプの EffectFormat で [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) を呼び出します。
+内側シャドウを削除するには、シェイプのエフェクトフォーマットで [disableInnerShadowEffect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#disableInnerShadowEffect--) を呼び出してください。
 
-## **反射効果の適用**
+## **反射エフェクトの適用**
 
-Aspose.Slides for Java で反射効果を適用するには、シェイプに鏡のような反射を追加し、距離、透明度、サイズなどのパラメータを調整します。この効果は、シェイプに洗練された外観を与え、プレゼンテーションの美しさを高めます。シンプルなコードで簡単に実装でき、複数の要素に対して一貫したデザインを迅速に適用できます。
+Aspose.Slides for Java で反射エフェクトを適用するには、シェイプに鏡面のような反射を追加し、距離、透明度、サイズなどのパラメータを調整します。このエフェクトはシェイプに洗練された外観を与え、プレゼンテーションの美観を高めます。シンプルなコードで簡単に実装でき、複数の要素に対して一貫したデザインをすばやく適用できます。
 
-この Java コードは、シェイプに [reflection effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) を適用する方法を示しています:
+この Java コードはシェイプに対して [反射エフェクト](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getReflectionEffect--) を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -127,11 +127,11 @@ try {
 
 ![反射効果](reflection_effect.png)
 
-## **光彩効果の適用**
+## **光彩エフェクトの適用**
 
-Aspose.Slides for Java でシェイプに光彩効果を適用するには、シェイプの周囲に柔らかく光るオーラを追加し、色やサイズなどのプロパティを調整します。この効果はシェイプを際立たせ、プレゼンテーションに目を引くビジュアル要素を加えます。最小限のコードで簡単に実装でき、スライド全体の外観を向上させます。
+Aspose.Slides for Java でシェイプに光彩エフェクトを適用すると、シェイプの周囲に柔らかい光輪を追加できます。色やサイズなどのプロパティを調整して、シェイプを目立たせ、プレゼンテーションに魅力的で目を引くビジュアル要素を加えます。最小限のコードで実装でき、スライド全体の外観を向上させます。
 
-この Java コードは、シェイプに [glow effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) を適用する方法を示しています:
+この Java コードはシェイプに対して [光彩エフェクト](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getGlowEffect--) を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -154,11 +154,11 @@ try {
 
 ![光彩効果](glow_effect.png)
 
-## **ソフトエッジ効果の適用**
+## **ソフトエッジエフェクトの適用**
 
-Aspose.Slides for Java でソフトエッジ効果を適用すると、シェイプのエッジ周辺に滑らかでぼやけた移行を作成できます。この効果は、より控えめで洗練された外観を提供し、柔らかい印象が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまなシェイプに望みの効果を実現できます。
+Aspose.Slides for Java でソフトエッジエフェクトを適用すると、シェイプのエッジ周辺に滑らかでぼやけたトランジションを作成できます。このエフェクトは、より微妙で洗練された外観を提供し、柔らかい外観が必要なデザインに最適です。半径などのパラメータを簡単に調整して、プレゼンテーション内のさまざまなシェイプに目的の効果を実現できます。
 
-この Java コードは、シェイプに [soft edges effect](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) を適用する方法を示しています:
+この Java コードはシェイプに対して [ソフトエッジエフェクト](https://reference.aspose.com/slides/java/com.aspose.slides/effectformat/#getSoftEdgeEffect--) を適用する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -179,16 +179,58 @@ try {
 
 ![ソフトエッジ効果](soft_edges_effect.png)
 
+## **ぼかしエフェクトの適用**
+
+シェイプのぼかしを使用すると、塗りつぶしとアウトラインをソフトにしながらシェイプ自体は編集可能なままにできます。シェイプのエフェクトフォーマットで [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を呼び出します。半径はポイント単位（1/72 インチ）で測定され、非負の値を使用します。値が大きいほどぼかしが強くなります。半径が 0 の場合は見た目は変わりません。
+
+[getGrow](https://reference.aspose.com/slides/java/com.aspose.slides/iblur/#getGrow--) 設定はエフェクトの表示領域を制御します。`false` の場合、ぼかしは元の描画領域（アウトラインを含む）にクリップされます。`true` の場合、ぼかしはその領域を超えて拡張できます。どちらの設定でもシェイプの位置やサイズは変更されません。
+
+下の比較は全体で同じ塗りつぶし、アウトライン、シェイプサイズを使用しています。上段は `grow = false`、下段は `grow = true` です。
+
+![元の矩形とぼかし半径 5 ポイントおよび 15 ポイント、grow 無効・有効の比較](shape_blur_comparison.png)
+
+この Java の例は、オレンジ色の矩形に濃い青色のアウトラインを付け、5 ポイントのぼかしを適用し、その後 [setBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) を再度呼び出して 15 ポイントのぼかしに更新します。両方のぼかし状態を保存した後、[disableBlurEffect](https://reference.aspose.com/slides/java/com.aspose.slides/ieffectformat/#disableBlurEffect--) を呼び出してぼかしのないシェイプを保存します。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(new Color(255, 165, 0));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 139));
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+シェイプのぼかしは塗りつぶしとアウトラインの両方に影響します。ソフトエッジ効果はシェイプのエッジをフェードさせ、シャドウぼかしはシャドウのみを柔らかくします。画像変換エフェクトは画像コンテンツに対して作用しますが、この例はシェイプを画像に変換せず、直接シェイプのエフェクトフォーマットにぼかしを適用しています。
+
 ## **FAQ**
 
-**同じシェイプに複数の効果を適用できますか？**
+**同じシェイプに複数のエフェクトを適用できますか？**
 
-はい、影、反射、光彩など、さまざまな効果を組み合わせて単一のシェイプに適用し、より動的な外観を作り出すことができます。
+はい、シャドウ、反射、光彩など異なるエフェクトを組み合わせて、1 つのシェイプに対してよりダイナミックな外観を作り出すことができます。
 
-**どのようなシェイプに効果を適用できますか？**
+**どのようなシェイプにエフェクトを適用できますか？**
 
-オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプに効果を適用できます。
+オートシェイプ、チャート、テーブル、画像、SmartArt オブジェクト、OLE オブジェクトなど、さまざまなシェイプにエフェクトを適用できます。
 
-**グループ化されたシェイプに効果を適用できますか？**
+**グループ化されたシェイプにエフェクトを適用できますか？**
 
-はい、グループ化されたシェイプ全体に効果を適用できます。効果はグループ全体に適用されます。
+はい、グループ化されたシェイプ全体にエフェクトを適用できます。エフェクトはグループ全体に対して適用されます。

@@ -7,37 +7,38 @@ url: /hu/cpp/shape-effect/
 keywords:
 - alakzat hatás
 - árnyék hatás
-- tükröződés hatás
-- ragyogás hatás
-- lágy szél hatás
-- hatás formátum
+- reflexiós hatás
+- fénylő hatás
+- lágy szélek hatás
+- effektusformátum
 - PowerPoint
 - bemutató
 - C++
 - Aspose.Slides
-description: "Alakítsa át PPT és PPTX fájljait fejlett alakzat-hatásokkal az Aspose.Slides for C++ segítségével — percek alatt hozhat létre figyelemfelkeltő, professzionális diákat."
+description: "Alakítsa át PPT és PPTX fájljait fejlett alakzateffektusokkal az Aspose.Slides for C++ segítségével - hozzon létre lenyűgöző, professzionális diákat másodpercek alatt."
 ---
 ## **Bevezetés**
 
-Miközben a PowerPoint hatásait arra lehet használni, hogy egy alakzat kiemelkedjen, különböznek a [kitöltésektől](/slides/hu/cpp/shape-formatting/#gradient-fill) vagy a körvonalaktól. PowerPoint hatásokkal meggyőző tükröződéseket hozhat létre egy alakzaton, elnyúló ragyogást stb.
+Miközben a PowerPointban lévő effektusok segítségével egy alakzatot kiemel, különböznek a [kitöltésektől](/slides/hu/cpp/shape-formatting/#gradient-fill) vagy kontúroktól. PowerPoint effektusok használatával meggyőző tükröződéseket hozhat létre egy alakzaton, szórhatja az alakzat ragyogását stb.
 
 ![Alakzat hatás](shape-effect.png)
 
-A PowerPoint hat hat effektust biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást alkalmazhat egy alakzatra.
+A PowerPoint hat hatást biztosít, amelyeket alakzatokra lehet alkalmazni. Egy vagy több hatást is alkalmazhat egy alakzatra.
 
-Egyes hatáskombinációk jobban néznek ki, mint mások. Emiatt a PowerPointnek vannak **Preset** opciói. A Preset opciók lényegében egy olyan kombinációt jelentenek, amelyik két vagy több hatásból áll és jó vizuálisan. Így egy előbeállítást kiválasztva nem kell időt vesztegetnie a különböző hatások tesztelésével vagy kombinálásával, hogy szép kombinációt találjon.
+Bizonyos hatáskombinációk jobban néznek ki, mint mások. Emiatt a PowerPoint rendelkezik **Preset** opciókkal. A Preset beállítások lényegében két vagy több, együtt jól néző hatás kombinációját jelentik. Így egy előre beállított lehetőség kiválasztásával nem kell időt pazarolni különböző hatások tesztelésére vagy kombinálására egy jó kombináció megtalálásához.
 
-Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) osztályban biztosít tulajdonságokat és metódusokat, amelyekkel ugyanazokat a hatásokat alkalmazhatja a PowerPoint bemutatók alakzataira.
+Az Aspose.Slides a [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) osztály alatt tulajdonságokat és metódusokat biztosít, amelyek lehetővé teszik ugyanazon hatások alkalmazását PowerPoint‑prezentációk alakzataira.
 
 ## **Árnyékhatás alkalmazása**
 
-Az Aspose.Slides for C++ támogatja a külső és belső árnyékokat alakzatoknál. Testreszabhatja a színüket, irányukat, távolságukat és elmosódási sugarukat, hogy illeszkedjenek a bemutató dizájnjához.
+Az Aspose.Slides for C++ külső és belső árnyékokat támogat alakzatokhoz. Testreszabhatja azok színét, irányát, távolságát és elmosódási sugarát, hogy megfeleljen a bemutató tervezésének.
 
 ### **Külső árnyék alkalmazása**
 
-Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttéréből. Az árnyék meghaladja az alakzat szélét, így úgy tűnik, mintha az alakzat a dia fölött lenne. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy megfeleljen a sablon megvilágításának és stílusának.
+Használjon külső árnyékot, hogy egy kártya vagy panel kiemelkedjen a dia háttérrel szemben. Az árnyék meghaladja az alakzat szélét, azt a benyomást keltve, hogy az alakzat a dia fölött emelkedik. Állítsa be a színét, irányát, távolságát és elmosódási sugarát, hogy illeszkedjen a sablon megvilágításához és stílusához.
 
-Ez a C++ kód bemutatja, hogyan lehet a [külső árnyék hatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) egy téglalapra alkalmazni:
+Ez a C++ kód bemutatja, hogyan alkalmazzon [külső árnyékhatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_outershadoweffect/) egy téglalapra:
+
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
 #include <DOM/IAutoShape.h>
@@ -68,15 +69,16 @@ outerShadowEffect->set_Direction(45.0f);
 presentation->Save(u"shadow_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Árnyék hatás](shadow_effect.png)
+![Árnyékhatás](shadow_effect.png)
 
 ### **Belső árnyék alkalmazása**
 
-Ha egy sablon vizuális stílusát reprodukálja, használjon belső árnyékot, hogy a kártya vagy panel recesszív megjelenést kapjon. A külső árnyék az alakzat kívülére nyúlik, és azt a benyomást kelti, hogy az fel van emelve, míg a belső árnyék az alakzat belső széleit árnyékolja.
+Sablon vizuális stílusának reprodukálásakor használjon belső árnyékot, hogy egy kártya vagy panel mélyedő megjelenést kapjon. A külső árnyék a forma kívülére nyúlik, és emelkedettnek mutatja, míg a belső árnyék az él belsejét árnyékolja.
 
-Hívja meg az [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) függvényt, majd konfigurálja az [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) beállítást. A nagyobb elmosódási sugár értékek lágyabb szegélyeket eredményeznek.
+Hívja meg a [EnableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/enableinnershadoweffect/) metódust, majd konfigurálja a [InnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_innershadoweffect/) beállításait. A nagyobb elmosódási sugár értékek lágyabb éleket eredményeznek.
 
-Ez a C++ példa egy világoskék kártyát hoz létre sötét szürke belső árnyékkal, majd PPTX fájlként menti:
+Ez a C++ példa egy világos kék kártyát hoz létre sötétszürke belső árnyékkal, és PPTX fájlként menti:
+
 ```cpp
 #include <DOM/Effects/IInnerShadow.h>
 #include <DOM/IAutoShape.h>
@@ -116,13 +118,14 @@ presentation->Save(u"inner_shadow_effect.pptx", SaveFormat::Pptx);
 
 ![Világoskék téglalap belső árnyékkal](inner_shadow_effect.png)
 
-A belső árnyék eltávolításához hívja meg a [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) függvényt az alakzat effektusformátumán.
+A belső árnyék eltávolításához hívja meg a [DisableInnerShadowEffect](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/disableinnershadoweffect/) metódust az alakzat effektusformátumán.
 
-## **Tükröződés hatás alkalmazása**
+## **Reflexiós hatás alkalmazása**
 
-A PowerPoint prezentációkban a tükröződés hatás javítja a vizuális megjelenést, egy tükörszerű visszaverődést ad az alakzatoknak, állítható a távolság, átlátszatlanság és méret. Ez a hatás elegánsabbá és professzionálisabbá teszi a diákat, könnyen megvalósítható egyszerű kóddal, és gyorsan alkalmazható több elemre a konzisztens dizájn érdekében.
+A reflexiós hatás alkalmazásához az Aspose.Slides for C++-ban tükröződéssel tudja ellátni az alakzatokat, a távolság, átlátszóság és méret paraméterek módosításával. Ez a hatás fokozza a bemutatók esztétikáját, kifinomultabb és polírozottabb megjelenést kölcsönözve az alakzatoknak. Egyszerű kóddal könnyen megvalósítható, gyorsan alkalmazható több elemre a konzisztens dizájn érdekében.
 
-Ez a C++ kód bemutatja, hogyan lehet a [tükröződés hatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) egy alakzatra alkalmazni:
+Ez a C++ kód bemutatja, hogyan alkalmazzon [reflexiós hatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_reflectioneffect/) egy alakzatra:
+
 ```cpp
 #include <DOM/Effects/IReflection.h>
 #include <DOM/IAutoShape.h>
@@ -152,13 +155,14 @@ reflectionEffect->set_BlurRadius(2);
 presentation->Save(u"reflection_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Tükröződés hatás](reflection_effect.png)
+![Reflexiós hatás](reflection_effect.png)
 
 ## **Ragyogás hatás alkalmazása**
 
-A C++-ban a ragyogás hatással lágy, fényes aurát adhat az alakzatok köré, beállítható a szín és a méret. Ez a hatás segít kiemelni az alakzatokat, és vonzó, szemfelkeltő vizuális elemet ad a prezentációnak. Könnyen megvalósítható minimális kóddal, növelve a diák teljes megjelenését.
+A rágogás hatás egy alakzatra történő alkalmazásához az Aspose.Slides for C++‑ban lágy, fénylő aurát adhat az alakzatok köré, a szín és méret tulajdonságok beállításával. Ez a hatás segít kiemelni az alakzatokat, és vonzó, szemrevaló vizuális elemet ad a bemutatónak. Minimális kóddal könnyen megvalósítható, javítva a diák összképét.
 
-Ez a C++ kód bemutatja, hogyan lehet a [ragyogás hatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) egy alakzatra alkalmazni:
+Ez a C++ kód bemutatja, hogyan alkalmazzon [rágogás hatást](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_gloweffect/) egy alakzatra:
+
 ```cpp
 #include <DOM/Effects/IGlow.h>
 #include <DOM/IAutoShape.h>
@@ -190,11 +194,12 @@ presentation->Save(u"glow_effect.pptx", SaveFormat::Pptx);
 
 ![Ragyogás hatás](glow_effect.png)
 
-## **Lágy szél hatás alkalmazása**
+## **Lágy szélek hatás alkalmazása**
 
-A C++-ban a lágy szél hatással sima, elmosódott átmenetet hozhat létre az alakzat szélén. Ez a hatás finomabb, kifinomultabb megjelenést ad, tökéletes azokhoz a tervezésekhez, amelyeknek enyhe, lágy megjelenésre van szükségük. A sugár paraméter egyszerűen állítható, hogy a kívánt hatást elérje a prezentáció különböző alakzataiban.
+A lágy szélek hatás alkalmazásához az Aspose.Slides for C++‑ban sima, elmosódott átmenetet hozhat létre az alakzat szélein. Ez a hatás finomabb és kifinomultabb megjelenést ad, tökéletes a gyengédebb, lágyabb kinézetet igénylő tervekhez. Könnyen állíthatja a paramétereket, például a sugárt, hogy a kívánt hatást elérje a bemutató különböző alakzatai között.
 
-Ez a C++ kód bemutatja, hogyan lehet a [lágy szél](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) hatást egy alakzatra alkalmazni:
+Ez a C++ kód bemutatja, hogyan alkalmazzon [lágy széleket](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/get_softedgeeffect/) egy alakzatra:
+
 ```cpp
 #include <DOM/Effects/ISoftEdge.h>
 #include <DOM/IAutoShape.h>
@@ -220,18 +225,70 @@ softEdgeEffect->set_Radius(8);
 presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
-![Lágy szél hatás](soft_edges_effect.png)
+![Lágy szélek hatás](soft_edges_effect.png)
 
-## **FAQ**
+## **Elmosódás hatás alkalmazása**
+
+Használja az alakzat elmosódást a kitöltés és a kontúr lágyításához, miközben az alakzat szerkeszthető marad. Hívja meg a [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) metódust az alakzat effektusformátumán. A sugár pontokban van mérve (1/72 hüvelyk): használjon nem negatív értéket, a nagyobb értékek erősebb elmosódást eredményeznek. A nulla sugár változatlanul hagyja a megjelenést.
+
+A [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) beállítás szabályozza a hatás látható határait. `false` esetén az elmosódás az eredeti festett határokra, beleértve a kontúrt, lesz vágva. `true` esetén az elmosódás meghaladhatja ezeket a határokat. Egyik beállítás sem változtatja meg az alakzat pozícióját vagy méreteit.
+
+Az alábbi összehasonlítás ugyanazt a kitöltést, kontúrt és alakzati méreteket használja mindenhol. A felső sor `grow = false` értéket, az alsó sor `grow = true` értéket alkalmazza.
+
+![Eredeti téglalap 5 és 15 pont elmosódási sugárral összehasonlítva, a grow letiltva és engedélyezve](shape_blur_comparison.png)
+
+Ez a C++ példa egy narancssárga téglalapot hoz létre sötétkék kontúrral, 5 pont elmosódást alkalmaz, majd egy újabb [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) hívással 15 pont elmosódásra frissíti. Mindkét elmosódott állapotot elmenti, majd a [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) hívás után elmenti az árnyék nélküli alakzatot.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 80.0f, 160.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+shape->get_LineFormat()->set_Width(8);
+
+shape->get_EffectFormat()->SetBlurEffect(5, false);
+presentation->Save(u"shape_blur_5.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->SetBlurEffect(15, true);
+presentation->Save(u"shape_blur_15.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->DisableBlurEffect();
+presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
+```
+
+Az alakzat elmosódás a kitöltést és a kontúrt együtt befolyásolja. A lágy szélek hatás elhalványítja az alakzat széleit, míg az árnyék elmosódás csak az árnyékot lágyítja. A képek átalakítási hatásai a kép tartalmán működnek; ez a példa közvetlenül az alakzat effektusformátumára alkalmaz elmosódást, anélkül, hogy az alakzatot képpé konvertálná.
+
+## **GYIK**
 
 **Alkalmazhatok több hatást ugyanarra az alakzatra?**
 
-Igen, különböző hatásokat, például árnyékot, tükröződést és ragyogást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
+Igen, több különböző hatást, például árnyékot, reflexiót és ragyogást kombinálhat egyetlen alakzaton, hogy dinamikusabb megjelenést érjen el.
 
 **Milyen alakzatokra alkalmazhatok hatásokat?**
 
-Különféle alakzatokra alkalmazhat hatásokat, köztük autoshape-ekre, diagramokra, táblázatokra, képekre, SmartArt objektumokra, OLE objektumokra és egyebekre.
+Különféle alakzatokra alkalmazhat hatásokat, beleértve az automatikus alakzatokat, diagramokat, táblázatokat, képeket, SmartArt objektumokat, OLE objektumokat és egyebeket.
 
-**Alkalmazhatok hatásokat csoportosított alakzatokra?**
+**Alkalmazhatok hatásokat csoportos alakzatokra?**
 
-Igen, a hatás a teljes csoportra lesz alkalmazva.
+Igen, alkalmazhat hatásokat csoportos alakzatokra. A hatás az egész csoportra lesz alkalmazva.
