@@ -9,36 +9,35 @@ keywords:
 - efekt stínu
 - efekt odrazu
 - efekt záře
-- efekt měkkých okrajů
+- efekt měkkých hran
 - formát efektu
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Transformujte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v Aspose.Slides pro PHP via Java—vytvořte úchvatné, profesionální snímky během několika sekund."
+description: "Přeměňte své soubory PPT a PPTX pomocí pokročilých efektů tvarů v Aspose.Slides for PHP via Java — vytvořte během několika sekund výrazné, profesionální snímky."
 ---
 ## **Úvod**
 
-Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplní](/slides/cs/php-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů v PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
+Zatímco efekty v PowerPointu lze použít k zvýraznění tvaru, liší se od [výplní](/slides/cs/php-java/shape-formatting/#gradient-fill) nebo obrysů. Pomocí efektů PowerPointu můžete vytvořit přesvědčivé odrazy na tvaru, rozšířit záři tvaru atd.
 
 ![Efekt tvaru](shape-effect.png)
 
 PowerPoint poskytuje šest efektů, které lze použít na tvary. Na tvar můžete použít jeden nebo více efektů.
 
-Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint nabízí možnosti pod **Předvolba**. Možnosti Předvolby jsou kombinace dvou nebo více efektů, o nichž se ví, že vypadají dobře. Tímto způsobem, výběrem předvolby, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli hezkou kombinaci.
+Některé kombinace efektů vypadají lépe než jiné. Z tohoto důvodu PowerPoint poskytuje možnosti pod **Preset**. Možnosti Preset jsou kombinace dvou nebo více efektů, o nichž se ví, že vypadají dobře. Tímto způsobem, výběrem presetu, nebudete muset ztrácet čas testováním nebo kombinováním různých efektů, abyste našli vhodnou kombinaci.
 
-Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/), které vám umožní použít stejné efekty na tvary v prezentacích PowerPoint.
+Aspose.Slides poskytuje vlastnosti a metody ve třídě [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/), které vám umožní aplikovat stejné efekty na tvary v prezentacích PowerPointu.
 
-## **Použití stínového efektu**
+## **Použití efektu stínu**
 
 Aspose.Slides for PHP via Java podporuje vnější a vnitřní stíny pro tvary. Můžete přizpůsobit jejich barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly designu vaší prezentace.
 
-### **Použít vnější stín**
+### **Použití vnějšího stínu**
 
-Použijte vnější stín, aby karta nebo panel vynikly proti pozadí snímku. Stín přesahuje okraje tvaru a vytváří dojem, že je tvar nad snímkem. Přizpůsobte jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
+Vnější stín použijte k zvýraznění karty nebo panelu vůči pozadí snímku. Stín se rozšiřuje za okraje tvaru, čímž vytváří dojem, že je tvar nad snímkem. Upravte jeho barvu, směr, vzdálenost a poloměr rozostření tak, aby odpovídaly osvětlení a stylu vaší šablony.
 
-Tento PHP kód ukazuje, jak použít [vnější stínový efekt](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) na obdélník:
-
+Tento PHP kód ukazuje, jak aplikovat [efekt vnějšího stínu](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) na obdélník:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -61,16 +60,15 @@ try {
 }
 ```
 
-![Stínový efekt](shadow_effect.png)
+![Efekt stínu](shadow_effect.png)
 
-### **Použít vnitřní stín**
+### **Použití vnitřního stínu**
 
-Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel měly zapouzdřený vzhled. Vnější stín přesahuje mimo tvar a způsobuje, že vypadá vyvýšený, zatímco vnitřní stín zatmaví vnitřní část jeho okrajů.
+Při reprodukci vizuálního stylu šablony použijte vnitřní stín, aby karta nebo panel měly zapuštěný vzhled. Vnější stín se rozšiřuje mimo tvar a způsobuje, že vypadá vyvýšeně, zatímco vnitřní stín zahlučuje vnitřek jeho okrajů.
 
-Zavolejte [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect), poté nakonfigurujte stín vrácený metodou [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). Větší hodnoty poloměru rozostření vytvářejí měkčí hrany.
+Zavolejte [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect), poté nakonfigurujte stín vrácený metodou [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). Větší hodnoty poloměru rozostření produkují měkčí hrany.
 
 Tento PHP příklad vytvoří světle modrou kartu s tmavě šedým vnitřním stínem a uloží ji jako soubor PPTX. Směr stínu je 225 stupňů, jeho vzdálenost je 7 bodů a poloměr rozostření je 6 bodů:
-
 ```php
 use aspose\slides\FillType;
 use aspose\slides\Presentation;
@@ -103,14 +101,13 @@ try {
 
 ![Světle modrý obdélník s vnitřním stínem](inner_shadow_effect.png)
 
-Pro odstranění vnitřního stínu zavolejte [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formátu efektu tvaru.
+Chcete-li odstranit vnitřní stín, zavolejte [disableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableInnerShadowEffect) na formátu efektu tvaru.
 
-## **Použití odrazového efektu**
+## **Použití efektu odrazu**
 
-Pro použití odrazového efektu v Aspose.Slides for PHP via Java můžete přidat zrcadlový odraz k tvarům a upravit parametry, jako je vzdálenost, průhlednost a velikost. Tento efekt zvyšuje estetiku vašich prezentací tím, že poskytuje tvarům uhlazenější a sofistikovanější vzhled. Je snadné jej implementovat pomocí jednoduchého kódu, což umožňuje rychlé použití napříč více prvky pro konzistentní design.
+Pro použití efektu odrazu v Aspose.Slides for PHP via Java můžete přidat zrcadlový odraz k tvarům a upravit parametry jako vzdálenost, průhlednost a velikost. Tento efekt vylepšuje estetiku vašich prezentací tím, že poskytuje tvarům uhlazenější a sofistikovanější vzhled. Je snadné jej implementovat pomocí jednoduchého kódu, což umožňuje rychlé použití napříč více prvky pro jednotný design.
 
-Tento PHP kód ukazuje, jak použít [odrazový efekt](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) na tvar:
-
+Tento PHP kód ukazuje, jak aplikovat [efekt odrazu](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) na tvar:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\RectangleAlignment;
@@ -134,14 +131,13 @@ try {
 }
 ```
 
-![Odrazový efekt](reflection_effect.png)
+![Efekt odrazu](reflection_effect.png)
 
-## **Použití zářivého efektu**
+## **Použití efektu záře**
 
-Pro použití zářivého efektu na tvar v Aspose.Slides for PHP via Java můžete přidat měkkou, jasně vyzařující aurou kolem tvarů a upravit vlastnosti, jako je barva a velikost. Tento efekt pomáhá zvýraznit tvary a přidává atraktivní, upoutávající vizuální prvek do vaší prezentace. Je snadné jej implementovat s minimálním kódem, čímž zlepšuje celkový vzhled vašich snímků.
+Pro aplikaci efektu záře na tvar v Aspose.Slides for PHP via Java můžete přidat měkkou, zářivou auru kolem tvarů a upravit vlastnosti jako barvu a velikost. Tento efekt pomáhá zvýraznit tvary a přidává atraktivní, poutavý vizuální prvek do vaší prezentace. Je snadné jej implementovat s minimálním kódem, což zlepšuje celkový vzhled vašich snímků.
 
-Tento PHP kód ukazuje, jak použít [zářivý efekt](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
-
+Tento PHP kód ukazuje, jak aplikovat [efekt záře](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) na tvar:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -162,14 +158,13 @@ try {
 }
 ```
 
-![Zářivý efekt](glow_effect.png)
+![Efekt záře](glow_effect.png)
 
-## **Použití měkkých okrajů**
+## **Použití efektu měkkých hran**
 
-Pro použití efektu měkkých okrajů v Aspose.Slides for PHP via Java můžete vytvořit hladký, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a vylepšený vzhled, ideální pro návrhy, které vyžadují jemný, měkčí vzhled. Můžete snadno upravit parametry, jako je poloměr, abyste dosáhli požadovaného efektu u různých tvarů ve vaší prezentaci.
+Pro aplikaci efektu měkkých hran v Aspose.Slides for PHP via Java můžete vytvořit hladký, rozmazaný přechod kolem okrajů tvaru. Tento efekt přidává jemnější a rafinovanější vzhled, ideální pro návrhy, které vyžadují jemný, měkčí vzhled. Parametry jako poloměr můžete snadno upravit, abyste dosáhli požadovaného efektu na různých tvarech ve vaší prezentaci.
 
-Tento PHP kód ukazuje, jak použít [efekt měkkých okrajů](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
-
+Tento PHP kód ukazuje, jak aplikovat [efekt měkkých hran](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) na tvar:
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
@@ -189,17 +184,62 @@ try {
 }
 ```
 
-![Efekt měkkých okrajů](soft_edges_effect.png)
+![Efekt měkkých hran](soft_edges_effect.png)
 
-## **FAQ**
+## **Použití efektu rozostření**
 
-**Mohu použít více efektů na stejný tvar?**
+Použijte rozostření tvaru k změkčení výplně a obrysu tvaru při zachování editovatelnosti tvaru. Zavolejte [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) na formát efektu tvaru. Poloměr se měří v bodech (1/72 palce): použijte nezápornou hodnotu, přičemž větší hodnoty produkují silnější rozostření. Poloměr nula ponechává vzhled beze změny.
 
-Ano, můžete kombinovat různé efekty, jako stín, odraz a záři, na jeden tvar, abyste vytvořili dynamickější vzhled.
+Nastavení [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) řídí viditelné hranice efektu. S hodnotou `false` je rozostření oříznuto na původní namalované hranice, včetně obrysu. S hodnotou `true` může rozostření přesáhnout tyto hranice. Žádné z nastavení nemění pozici ani rozměry tvaru.
+
+Srovnání níže používá po celou dobu stejnou výplň, obrys a rozměry tvaru. Horní řada používá `grow = false`; spodní řada používá `grow = true`.
+
+![Původní obdélník porovnán s poloměry rozostření 5 a 15 bodů, s vypnutým a zapnutým růstem](shape_blur_comparison.png)
+
+Tento PHP příklad vytvoří oranžový obdélník s tmavě modrým obrysem, použije rozostření o 5 bodů a poté ho aktualizuje na rozostření o 15 bodů opětovným zavoláním [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect). Uloží oba rozostřené stavy, poté zavolá [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) a uloží tvar bez rozostření.
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 80, 160, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $shape->getLineFormat()->setWidth(8);
+
+    $shape->getEffectFormat()->setBlurEffect(5, false);
+    $presentation->save("shape_blur_5.pptx", SaveFormat::Pptx);
+
+    $shape->getEffectFormat()->setBlurEffect(15, true);
+    $presentation->save("shape_blur_15.pptx", SaveFormat::Pptx);
+
+    $shape->getEffectFormat()->disableBlurEffect();
+    $presentation->save("shape_blur_removed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Rozostření tvaru ovlivňuje výplň i obrys najednou. Efekt měkkých hran rozplývá hrany tvaru, zatímco rozostření stínu změkčuje pouze stín. Efekty transformace obrazu pracují s obsahem obrázku; tento příklad aplikuje rozostření přímo na formát efektu tvaru, aniž by tvar převáděl na obrázek.
+
+## **Často kladené otázky**
+
+**Mohu na stejný tvar použít více efektů?**
+
+Ano, můžete kombinovat různé efekty, jako je stín, odraz a záře, na jediném tvaru a vytvořit tak dynamičtější vzhled.
 
 **Na jaké tvary mohu aplikovat efekty?**
 
-Můžete aplikovat efekty na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
+Efekty můžete použít na různé tvary, včetně automatických tvarů, grafů, tabulek, obrázků, objektů SmartArt, OLE objektů a dalších.
 
 **Mohu aplikovat efekty na seskupené tvary?**
 

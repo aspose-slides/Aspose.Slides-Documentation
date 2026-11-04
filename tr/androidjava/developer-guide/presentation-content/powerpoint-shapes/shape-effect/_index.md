@@ -8,35 +8,35 @@ keywords:
 - şekil efekti
 - gölge efekti
 - yansıma efekti
-- parlama efekti
+- parıltı efekti
 - yumuşak kenarlar efekti
-- efekt biçimi
+- efekt formatı
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak gelişmiş şekil efektleriyle PPT ve PPTX dosyalarınızı dönüştürün—saniyeler içinde çarpıcı, profesyonel slaytlar oluşturun."
+description: "Aspose.Slides for Android via Java kullanarak gelişmiş şekil efektleriyle PPT ve PPTX dosyalarınızı dönüştürün—saniyeler içinde çarpıcı ve profesyonel slaytlar oluşturun."
 ---
 ## **Giriş**
 
-PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, bunlar [doldurmalar](/slides/tr/androidjava/shape-formatting/#gradient-fill) veya anahatlardan farklıdır. PowerPoint efektlerini kullanarak bir şeklin üzerinde ikna edici yansımalar yaratabilir, şeklin parıltısını yayabilirsiniz vb.
+PowerPoint'teki efektler bir şekli öne çıkarmak için kullanılabilirken, [doldurmalar](/slides/tr/androidjava/shape-formatting/#gradient-fill) veya kenar çizgilerinden farklıdır. PowerPoint efektlerini kullanarak bir şeklin üzerindeki ikna edici yansımalar oluşturabilir, şeklin parlaklığını yayabilirsiniz, vb.
 
 ![Şekil efekti](shape-effect.png)
 
 PowerPoint, şekillere uygulanabilen altı efekt sunar. Bir şekle bir veya daha fazla efekt uygulayabilirsiniz.
 
-Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle, PowerPoint **Preset** altında seçenekler sunar. Preset seçenekleri, iyi görünmesi bilinen iki veya daha fazla efektin kombinasyonlarıdır. Bu sayede bir preset seçerek, güzel bir kombinasyon bulmak için farklı efektleri test etmek veya birleştirmek için zaman harcamak zorunda kalmazsınız.
+Bazı efekt kombinasyonları diğerlerinden daha iyi görünür. Bu nedenle, PowerPoint **Preset** altında seçenekler sunar. Preset seçenekleri, iyi göründüğü bilinen iki veya daha fazla efektin kombinasyonlarıdır. Böylece, bir preset seçerek farklı efektleri denemek veya birleştirmek için zaman kaybetmezsiniz.
 
 Aspose.Slides, PowerPoint sunumlarındaki şekillere aynı efektleri uygulamanızı sağlayan [EffectFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/) sınıfı altında özellikler ve yöntemler sunar.
 
 ## **Gölge Efekti Uygulama**
 
-Aspose.Slides for Android via Java, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklaşma yarıçapını sunumunuzun tasarımına uygun şekilde özelleştirebilirsiniz.
+Aspose.Slides for Android via Java, şekiller için dış ve iç gölgeleri destekler. Renk, yön, mesafe ve bulanıklık yarıçapını sunumunuzun tasarımına uygun şekilde özelleştirebilirsiniz.
 
 ### **Dış Gölge Uygulama**
 
-Bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlamak için dış gölge kullanın. Gölge, şeklin kenarlarının ötesine uzanır ve şeklin slayt üzerinde yükselmiş izlenimini verir. Renk, yön, mesafe ve bulanıklaşma yarıçapını şablonunuzun aydınlatması ve stiline uyacak şekilde ayarlayın.
+Dış gölgeyi, bir kartın veya panelin slayt arka planına karşı öne çıkmasını sağlamak için kullanın. Gölge, şeklin kenarlarının ötesine uzanarak şeklin slayt üzerinde yükselmiş izlenimini yaratır. Renk, yön, mesafe ve bulanıklık yarıçapını şablonunuzun ışıklandırması ve stiline uygun şekilde ayarlayın.
 
 Bu Java kodu, bir dikdörtgene [dış gölge efekti](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getOuterShadowEffect--) nasıl uygulanacağını gösterir:
 
@@ -60,15 +60,15 @@ try {
 }
 ```
 
-![Gölge etkisi](shadow_effect.png)
+![Gölge efekti](shadow_effect.png)
 
 ### **İç Gölge Uygulama**
 
-Bir şablonun görsel stilini yeniden üretirken, bir kart veya panele gömülü bir görünüm vermek için iç gölge kullanın. Dış gölge şeklin dışına uzanır ve yükselmiş görünürken, iç gölge kenarların içini gölgelendirir.
+Bir şablonun görsel stilini yeniden üretirken, bir kartın veya panelin içe doğru gömülmüş bir görünüm kazanması için iç gölge kullanın. Dış gölge şeklin dışına uzanarak yükselmiş görünürken, iç gölge kenarların içini gölgeler.
 
-[enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) metodunu çağırın, ardından [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) tarafından döndürülen gölgeyi yapılandırın. Daha büyük bulanıklaşma yarıçapı değerleri daha yumuşak kenarlar üretir.
+Bu yöntemi [enableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#enableInnerShadowEffect--) çağırın, ardından [getInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getInnerShadowEffect--) tarafından döndürülen gölgeyi yapılandırın. Daha büyük bulanıklık yarıçapı değerleri daha yumuşak kenarlar üretir.
 
-Bu Java örneği, koyu gri bir iç gölgeyle açık mavi bir kart oluşturur ve PPTX dosyası olarak kaydeder. Gölge yönü 225 derecedir, mesafesi 7 puan ve bulanıklaşma yarıçapı 6 puandır:
+Bu Java örneği, koyu gri iç gölgeye sahip açık mavi bir kart oluşturur ve PPTX dosyası olarak kaydeder. Gölge yönü 225 derece, mesafesi 7 puan ve bulanıklık yarıçapı 6 puandır:
 
 ```java
 import com.aspose.slides.*;
@@ -98,11 +98,11 @@ try {
 
 ![İç gölgeli açık mavi dikdörtgen](inner_shadow_effect.png)
 
-İç gölgeyi kaldırmak için, şeklin effect format'ında [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) metodunu çağırın.
+İç gölgeyi kaldırmak için şeklin effect formatı üzerinde [disableInnerShadowEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#disableInnerShadowEffect--) metodunu çağırın.
 
 ## **Yansıma Efekti Uygulama**
 
-Aspose.Slides for Android via Java'da bir yansıma efekti uygulamak için, şekillere ayna benzeri bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm vererek sunumlarınızın estetiğini artırır. Basit bir kodla kolayca uygulanabilir ve tutarlı bir tasarım için birden fazla öğeye hızlıca uygulanmasını sağlar.
+Aspose.Slides for Android via Java'da bir yansıma efekti uygulamak için şekillere ayna benzeri bir yansıma ekleyebilir, mesafe, şeffaflık ve boyut gibi parametreleri ayarlayabilirsiniz. Bu efekt, şekillere daha cilalı ve sofistike bir görünüm vererek sunumlarınızın estetiğini artırır. Basit kodla uygulanması kolaydır, tutarlı bir tasarım için birden çok öğeye hızlıca uygulanmasını sağlar.
 
 Bu Java kodu, bir şekle [yansıma efekti](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getReflectionEffect--) nasıl uygulanacağını gösterir:
 
@@ -128,11 +128,11 @@ try {
 
 ![Yansıma efekti](reflection_effect.png)
 
-## **Parlama Efekti Uygulama**
+## **Parıltı Efekti Uygulama**
 
-Aspose.Slides for Android via Java'da bir şekle parlama efekti uygulamak için, şekillerin etrafına yumuşak, ışıldayan bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarmaya yardımcı olur ve sunumunuza çekici, göz alıcı bir görsel öğe ekler. Minimum kodla kolayca uygulanabilir ve slaytlarınızın genel görünümünü iyileştirir.
+Aspose.Slides for Android via Java'da bir şekle parıltı efekti uygulamak için şekillerin etrafına yumuşak, ışıklı bir aura ekleyebilir, renk ve boyut gibi özellikleri ayarlayabilirsiniz. Bu efekt, şekilleri öne çıkarmaya yardımcı olur ve sunumunuza çekici, göz alıcı bir görsel öğe ekler. Az kodla uygulanması kolaydır, slaytlarınızın genel görünümünü iyileştirir.
 
-Bu Java kodu, bir şekle [parlama efekti](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) nasıl uygulanacağını gösterir:
+Bu Java kodu, bir şekle [parıltı efekti](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getGlowEffect--) nasıl uygulanacağını gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -153,11 +153,11 @@ try {
 }
 ```
 
-![Parlama efekti](glow_effect.png)
+![Parıltı efekti](glow_effect.png)
 
 ## **Yumuşak Kenarlar Efekti Uygulama**
 
-Aspose.Slides for Android via Java'da yumuşak kenarlar efekti uygulamak için, bir şeklin kenarları etrafında pürüzsüz ve bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha nazik ve incelikli bir görünüm ekler; hafif, daha yumuşak bir görünüme ihtiyaç duyan tasarımlar için mükemmeldir. Sunumunuzdaki çeşitli şekillerde istenen etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
+Aspose.Slides for Android via Java'da yumuşak kenarlar efekti uygulamak için bir şeklin kenarları etrafında pürüzsüz, bulanık bir geçiş oluşturabilirsiniz. Bu efekt, daha ince ve zarif bir görünüm ekler; hafif, daha yumuşak bir görünüm gerektiren tasarımlar için mükemmeldir. Sunumunuzdaki çeşitli şekillerde istenen etkiyi elde etmek için yarıçap gibi parametreleri kolayca ayarlayabilirsiniz.
 
 Bu Java kodu, bir şekle [yumuşak kenarlar efekti](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effectformat/#getSoftEdgeEffect--) nasıl uygulanacağını gösterir:
 
@@ -180,16 +180,58 @@ try {
 
 ![Yumuşak kenarlar efekti](soft_edges_effect.png)
 
+## **Bulanıklık Efekti Uygulama**
+
+Şekil bulanıklığını kullanarak bir şeklin doldurmasını ve kenar çizgisini yumuşatabilir, şeklin düzenlenebilirliğini koruyabilirsiniz. Şeklin effect formatı üzerinde [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) metodunu çağırın. Yarıçap, puan (1/72 inç) cinsinden ölçülür: negatif olmayan bir değer kullanın; daha büyük değerler daha güçlü bulanıklık üretir. Sıfır yarıçap görünümü değiştirmez.
+
+[getGrow](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iblur/#getGrow--) ayarı, efektin görünür sınırlarını kontrol eder. `false` ile bulanıklık, kenar çizgisi dahil orijinal boyanmış sınırlara kırpılır. `true` ile bulanıklık bu sınırların ötesine uzanabilir. Hiçbir ayar şeklin konumunu veya boyutlarını değiştirmez.
+
+Aşağıdaki karşılaştırma aynı doldurma, kenar ve şekil boyutlarını kullanır. Üst satır `grow = false`; alt satır `grow = true` kullanır.
+
+![Bulanıklık yarıçapları 5 ve 15 puan olan, grow devre dışı ve etkin durumlarda orijinal dikdörtgen karşılaştırması](shape_blur_comparison.png)
+
+Bu Java örneği, koyu mavi kenarlıklı turuncu bir dikdörtgen oluşturur, 5 puanlık bir bulanıklık uygular ve ardından [setBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#setBlurEffect-double-boolean-) metodunu tekrar çağırarak 15 puanlık bir bulanıklığa günceller. Her iki bulanık durumu da kaydeder, ardından [disableBlurEffect](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ieffectformat/#disableBlurEffect--) metodunu çağırarak bulanıklığı kaldırılmış şekli kaydeder.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.rgb(0, 0, 139));
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Şekil bulanıklığı doldurma ve kenarı birlikte etkiler. Yumuşak kenarlar efekti şeklin kenarlarını solarken, gölge bulanıklığı sadece gölgeyi yumuşatır. Görüntü dönüşüm efektleri görüntü içeriği üzerinde çalışır; bu örnek, şekli bir görüntüye dönüştürmeden doğrudan şeklin effect formatına bulanıklık uygular.
+
 ## **SSS**
 
-**Aynı şekle birden fazla efekt uygulayabilir miyim?**
+**Aynı şekle birden çok efekt uygulayabilir miyim?**
 
-Evet, gölge, yansıma ve parlama gibi farklı efektleri tek bir şekle birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
+Evet, gölge, yansıma ve parıltı gibi farklı efektleri tek bir şekle birleştirerek daha dinamik bir görünüm oluşturabilirsiniz.
 
 **Hangi şekillere efekt uygulayabilirim?**
 
-Autoshape'ler, grafikler, tablolar, resimler, SmartArt nesneleri, OLE nesneleri ve daha fazlası dahil olmak üzere çeşitli şekillere efekt uygulayabilirsiniz.
+Otomatik şekiller, grafikler, tablolar, resimler, SmartArt nesneleri, OLE nesneleri ve daha fazlası dahil olmak üzere çeşitli şekillere efekt uygulayabilirsiniz.
 
 **Gruplanmış şekillere efekt uygulayabilir miyim?**
 
-Evet, gruplandırılmış şekillere efekt uygulayabilirsiniz. Efekt tüm grup üzerinde uygulanır.
+Evet, grup şekillere efekt uygulayabilirsiniz. Efekt tüm gruba uygulanır.

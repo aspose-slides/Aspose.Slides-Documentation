@@ -15,29 +15,29 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides لـ PHP عبر Java—أنشئ شرائح جذابة ومهنية في ثوانٍ."
+description: "حوّل ملفات PPT و PPTX الخاصة بك باستخدام تأثيرات الشكل المتقدمة عبر Aspose.Slides لـ PHP عبر Java—أنشئ شرائح مبهرة ومهنية في ثوانٍ."
 ---
-## **المقدمة**
+## **مقدمة**
 
-بينما يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [ملء](/slides/ar/php-java/shape-formatting/#gradient-fill) أو الحدود. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، ونشر توهج الشكل، وما إلى ذلك.
+في حين يمكن استخدام التأثيرات في PowerPoint لجعل الشكل يبرز، فإنها تختلف عن [الملء](/slides/ar/php-java/shape-formatting/#gradient-fill) أو الخطوط الخارجية. باستخدام تأثيرات PowerPoint، يمكنك إنشاء انعكاسات مقنعة على الشكل، وتوزيع توهج الشكل، وما إلى ذلك.
 
 ![تأثير الشكل](shape-effect.png)
 
-يوفر PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
+يقدّم PowerPoint ستة تأثيرات يمكن تطبيقها على الأشكال. يمكنك تطبيق تأثير واحد أو أكثر على الشكل.
 
-بعض تركيبات التأثيرات تبدو أفضل من غيرها. لهذا السبب، يوفر PowerPoint خيارات تحت **Preset**. خيارات Preset هي تركيبات من تأثيرين أو أكثر معروفة بأنها تبدو جيدة. بهذه الطريقة، عند اختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
+بعض تراكيب التأثيرات تبدو أفضل من غيرها. لهذا السبب، يوفر PowerPoint خيارات تحت **Preset**. خيارات Preset هي تراكيب من تأثيرين أو أكثر يُعرف أنها تبدو جيدة. بهذه الطريقة، باختيار إعداد مسبق، لن تحتاج إلى إضاعة الوقت في اختبار أو دمج تأثيرات مختلفة للعثور على تركيبة مناسبة.
 
-توفر Aspose.Slides الخصائص والأساليب ضمن فئة [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
+توفر Aspose.Slides خصائص وأساليب ضمن الفئة [EffectFormat](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/) التي تتيح لك تطبيق نفس التأثيرات على الأشكال في عروض PowerPoint التقديمية.
 
 ## **تطبيق تأثير الظل**
 
-يدعم Aspose.Slides لـ PHP عبر Java الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، واتجاهها، ومسافتها، ونصف قطر الضباب لتتناسب مع تصميم العرض التقديمي الخاص بك.
+يدعم Aspose.Slides لـ PHP عبر Java الظلال الخارجية والداخلية للأشكال. يمكنك تخصيص لونها، واتجاهها، ومسافتها، ونصف قطر الضبابية لتتناسب مع تصميم عرضك التقديمي.
 
-### **تطبيق الظل الخارجي**
+### **تطبيق ظل خارجي**
 
-استخدم الظل الخارجي لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حدود الشكل، مما يخلق انطباعًا بأن الشكل مرتفع فوق الشريحة. قم بضبط لونه، واتجاهه، ومسافته، ونصف قطر الضباب ليتطابق مع الإضاءة وتنسيق القالب الخاص بك.
+استخدم الظل الخارجي لجعل بطاقة أو لوحة تبرز ضد خلفية الشريحة. يمتد الظل خارج حواف الشكل، مما يخلق الانطباع بأن الشكل مرتفع فوق الشريحة. اضبط لونه، واتجاهه، ومسافته، ونصف قطر الضبابية لتتناسب مع الإضاءة وتنسيق القالب الخاص بك.
 
-يعرض كود PHP هذا كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) على مستطيل:
+يعرض هذا الكود PHP كيفية تطبيق [تأثير الظل الخارجي](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getOuterShadowEffect) على مستطيل:
 
 ```php
 use aspose\slides\Presentation;
@@ -63,13 +63,13 @@ try {
 
 ![تأثير الظل](shadow_effect.png)
 
-### **تطبيق الظل الداخلي**
+### **تطبيق ظل داخلي**
 
-عند إعادة إنتاج النمط البصري للقالب، استخدم الظل الداخلي لإعطاء البطاقة أو اللوحة مظهرًا غائرًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرتفعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
+عند إعادة إنتاج النمط البصري للقالب، استخدم ظلًا داخليًا لمنح البطاقة أو اللوحة مظهرًا متراجعًا. يمتد الظل الخارجي خارج الشكل ويجعله يبدو مرتفعًا، بينما يظلل الظل الداخلي داخل حواف الشكل.
 
-استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect)، ثم قم بتكوين الظل المعاد بواسطة [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). قيم نصف قطر الضباب الأكبر تنتج حوافًا أكثر نعومة.
+استدعِ [enableInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#enableInnerShadowEffect)، ثم قم بتهيئة الظل المُرجع بواسطة [getInnerShadowEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getInnerShadowEffect). القيم الأكبر لنصف قطر الضبابية تنتج حوافًا أكثر نعومة.
 
-ينشئ مثال PHP هذا بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل هو 225 درجة، والمسافة 7 نقاط، ونصف قطر الضباب 6 نقاط:
+ينشئ هذا المثال PHP بطاقة زرقاء فاتحة مع ظل داخلي رمادي داكن ويحفظها كملف PPTX. اتجاه الظل هو 225 درجة، والمسافة 7 نقاط، ونصف قطر الضبابية 6 نقاط:
 
 ```php
 use aspose\slides\FillType;
@@ -107,9 +107,9 @@ try {
 
 ## **تطبيق تأثير الانعكاس**
 
-لتطبيق تأثير الانعكاس في Aspose.Slides لـ PHP عبر Java، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، وضبط معلمات مثل المسافة، والشفافية، والحجم. يعزز هذا التأثير جمالية عروضك التقديمية من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وتطورًا. من السهل تطبيقه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عناصر متعددة لتصميم متسق.
+لتطبيق تأثير الانعكاس في Aspose.Slides لـ PHP عبر Java، يمكنك إضافة انعكاس شبيه بالمرآة إلى الأشكال، وضبط معلمات مثل المسافة والشفافية والحجم. يعزز هذا التأثير جمالية عروضك التقديمية من خلال إعطاء الأشكال مظهرًا أكثر صقلًا وتعقيدًا. من السهل تنفيذه باستخدام كود بسيط، مما يتيح تطبيقًا سريعًا عبر عدة عناصر لتصميم متسق.
 
-يعرض كود PHP هذا كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) على شكل:
+يعرض هذا الكود PHP كيفية تطبيق [تأثير الانعكاس](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getReflectionEffect) على شكل:
 
 ```php
 use aspose\slides\Presentation;
@@ -138,9 +138,9 @@ try {
 
 ## **تطبيق تأثير التوهج**
 
-لتطبيق تأثير التوهج على شكل في Aspose.Slides لـ PHP عبر Java، يمكنك إضافة هالة ناعمة ومضيئة حول الأشكال، وضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا وجذابًا إلى عرضك التقديمي. من السهل تطبيقه باستخدام حد أدنى من الكود، مما يعزز المظهر العام لشرائحك.
+لتطبيق تأثير التوهج على شكل في Aspose.Slides لـ PHP عبر Java، يمكنك إضافة هالة ناعمة ومتوهجة حول الأشكال، وضبط خصائص مثل اللون والحجم. يساعد هذا التأثير على إبراز الأشكال ويضيف عنصرًا بصريًا جذابًا ولافتًا للانتباه إلى العرض التقديمي الخاص بك. من السهل تنفيذه بكود بسيط، مما يعزز المظهر العام لشرائحك.
 
-يعرض كود PHP هذا كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) على شكل:
+يعرض هذا الكود PHP كيفية تطبيق [تأثير التوهج](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getGlowEffect) على شكل:
 
 ```php
 use aspose\slides\Presentation;
@@ -166,9 +166,9 @@ try {
 
 ## **تطبيق تأثير الحواف الناعمة**
 
-لتطبيق تأثير الحواف الناعمة في Aspose.Slides لـ PHP عبر Java، يمكنك إنشاء انتقال ناعم ومطمس حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر هدوءًا وتفصيلًا، مثاليًا للتصاميم التي تحتاج إلى مظهر لطيف وأخف. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك التقديمي.
+لتطبيق تأثير الحواف الناعمة في Aspose.Slides لـ PHP عبر Java، يمكنك إنشاء انتقال ناعم وممحو حول حواف الشكل. يضيف هذا التأثير مظهرًا أكثر رقة وتفصيلًا، وهو مثالي للتصاميم التي تحتاج إلى مظهر لطيف وناعم. يمكنك بسهولة ضبط معلمات مثل نصف القطر لتحقيق التأثير المطلوب عبر أشكال مختلفة في عرضك التقديمي.
 
-يعرض كود PHP هذا كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) على شكل:
+يعرض هذا الكود PHP كيفية تطبيق [تأثير الحواف الناعمة](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#getSoftEdgeEffect) على شكل:
 
 ```php
 use aspose\slides\Presentation;
@@ -191,16 +191,62 @@ try {
 
 ![تأثير الحواف الناعمة](soft_edges_effect.png)
 
-## **الأسئلة الشائعة**
+## **تطبيق تأثير الضبابية**
+
+استخدم تشويش الشكل لتنعيم تعبئة الشكل وخطه مع الحفاظ على إمكانية تعديل الشكل. استدعِ [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) على تنسيق تأثير الشكل. يُقاس نصف القطر بالنقاط (1/72 بوصة): استخدم قيمة غير سالبة، حيث تنتج القيم الأكبر تشويشًا أقوى. نصف القطر صفر يترك المظهر دون تغيير.
+
+تتحكم إعدادات [getGrow](https://reference.aspose.com/slides/php-java/aspose.slides/blur/#getGrow) في الحدود المرئية للتأثير. مع `false`، يتم قطع التشويش عند الحدود الأصلية المرسومة، بما في ذلك الخط الخارجي. مع `true`، يمكن للتشويش أن يمتد خارج تلك الحدود. لا يغيّر أيٌ من الإعدادين موضع الشكل أو أبعاده.
+
+المقارنة أدناه تستخدم نفس التعبئة والخط الخارجي وأبعاد الشكل طوال الوقت. الصف العلوي يستخدم `grow = false`؛ الصف السفلي يستخدم `grow = true`.
+
+![مستطيل أصلي مقارنةً بنصف قطر الضبابية 5 و15 نقطة، مع تعطيل وتمكين خاصية النمو](shape_blur_comparison.png)
+
+ينشئ هذا المثال PHP مستطيلًا برتقاليًا بخط خارجي أزرق داكن، يطبق تشويشًا بقوة 5 نقاط، ثم يحدّثه إلى تشويش بقوة 15 نقطة عن طريق استدعاء [setBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#setBlurEffect) مرة أخرى. يحفظ الحالتين المشوشتين، ثم يستدعِ [disableBlurEffect](https://reference.aspose.com/slides/php-java/aspose.slides/effectformat/#disableBlurEffect) ويحفظ الشكل دون تشويش.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 80, 160, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $fillColor = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($fillColor);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $lineColor = new Java("java.awt.Color", 0, 0, 139);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor($lineColor);
+    $shape->getLineFormat()->setWidth(8);
+
+    $shape->getEffectFormat()->setBlurEffect(5, false);
+    $presentation->save("shape_blur_5.pptx", SaveFormat::Pptx);
+
+    $shape->getEffectFormat()->setBlurEffect(15, true);
+    $presentation->save("shape_blur_15.pptx", SaveFormat::Pptx);
+
+    $shape->getEffectFormat()->disableBlurEffect();
+    $presentation->save("shape_blur_removed.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+تؤثر ضبابية الشكل على التعبئة والخط الخارجي معًا. يخفّف تأثير الحواف الناعمة حواف الشكل، بينما يُنعّم تشويش الظل الظل فقط. تعمل تأثيرات تحويل الصورة على محتوى الصورة؛ هذا المثال يطبق التشويش مباشرةً على تنسيق تأثير الشكل دون تحويل الشكل إلى صورة.
+
+## **الأسئلة المتكررة**
 
 **هل يمكنني تطبيق تأثيرات متعددة على نفس الشكل؟**
 
-نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل، والانعكاس، والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
+نعم، يمكنك دمج تأثيرات مختلفة، مثل الظل والانعكاس والتوهج، على شكل واحد لإنشاء مظهر أكثر ديناميكية.
 
-**ما الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
+**ما هي الأشكال التي يمكنني تطبيق التأثيرات عليها؟**
 
-يمكنك تطبيق التأثيرات على أشكال مختلفة، بما في ذلك الأشكال التلقائية، والرسوم البيانية، والجداول، والصور، وكائنات SmartArt، وكائنات OLE، وغير ذلك.
+يمكنك تطبيق التأثيرات على أشكال مختلفة، بما في ذلك الأشكال التلقائية، المخططات، الجداول، الصور، كائنات SmartArt، كائنات OLE، وغيرها.
 
-**هل يمكنني تطبيق التأثيرات على الأشكال المجمعة؟**
+**هل يمكنني تطبيق التأثيرات على الأشكال المجموعة؟**
 
-نعم، يمكنك تطبيق التأثيرات على الأشكال المجمعة. سيُطبق التأثير على المجموعة بأكملها.
+نعم، يمكنك تطبيق التأثيرات على الأشكال المجموعة. سيُطبق التأثير على المجموعة بأكملها.

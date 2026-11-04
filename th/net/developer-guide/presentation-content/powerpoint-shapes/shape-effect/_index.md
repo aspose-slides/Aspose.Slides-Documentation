@@ -1,44 +1,44 @@
 ---
-title: ใช้เอฟเฟกต์รูปร่างในงานนำเสนอด้วย .NET
-linktitle: เอฟเฟกต์รูปร่าง
+title: ใช้เอฟเฟกต์รูปทรงในงานนำเสนอด้วย .NET
+linktitle: เอฟเฟกต์รูปทรง
 type: docs
 weight: 30
 url: /th/net/shape-effect/
 keywords:
-- เอฟเฟกต์รูปร่าง
+- เอฟเฟกต์รูปทรง
 - เอฟเฟกต์เงา
 - เอฟเฟกต์การสะท้อน
-- เอฟเฟกต์แสงเรืองรอบ
+- เอฟเฟกต์แสงอำพราง
 - เอฟเฟกต์ขอบนุ่ม
 - รูปแบบเอฟเฟกต์
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปร่างขั้นสูงโดยใช้ Aspose.Slides สำหรับ .NET — สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที"
+description: "แปลงไฟล์ PPT และ PPTX ของคุณด้วยเอฟเฟกต์รูปทรงขั้นสูงโดยใช้ Aspose.Slides for .NET—สร้างสไลด์ที่โดดเด่นและเป็นมืออาชีพในไม่กี่วินาที."
 ---
 ## **บทนำ**
 
-แม้ว่าเอฟเฟกต์ใน PowerPoint จะใช้เพื่อทำให้รูปร่างโดดเด่น แต่เอฟเฟกต์จะแตกต่างจาก [การเติม](/slides/th/net/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ใน PowerPoint สามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปร่าง กระจายแสงเงาของรูปร่าง ฯลฯ
+แม้ว่าการใช้เอฟเฟกต์ใน PowerPoint สามารถทำให้รูปทรงโดดเด่นได้ แต่พวกมันแตกต่างจาก [การเติม](/slides/th/net/shape-formatting/#gradient-fill) หรือเส้นขอบ การใช้เอฟเฟกต์ใน PowerPoint คุณสามารถสร้างการสะท้อนที่น่าเชื่อถือบนรูปทรง กระจายแสงอำพรางของรูปทรง เป็นต้น.
 
-![เอฟเฟกต์รูปร่าง](shape-effect.png)
+![Shape effect](shape-effect.png)
 
-PowerPoint มีเอฟเฟกต์ทั้งหมดหกแบบที่สามารถนำไปใช้กับรูปร่าง คุณสามารถใช้เอฟเฟกต์หนึ่งหรือหลายแบบกับรูปร่างได้
+PowerPoint มีเอฟเฟกต์หกประเภทที่สามารถใช้กับรูปทรงได้ คุณสามารถใช้หนึ่งหรือหลายเอฟเฟกต์กับรูปทรงหนึ่งรูปได้.
 
-บางการผสมผสานของเอฟเฟกต์ดูดีกว่าการผสมผสานอื่น ๆ ด้วยเหตุนี้ PowerPoint จึงมีตัวเลือกใต้ **Preset** ตัวเลือก Preset เป็นการผสมผสานที่ดูดีของสองหรือหลายเอฟเฟกต์ ซึ่งเป็นที่รู้จักแล้ว วิธีนี้เมื่อเลือก Preset คุณจะไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อหาการผสมที่น่าพอใจ
+บางการผสมผสานของเอฟเฟกต์ดูดีขึ้นกว่าการผสมอื่น ๆ ด้วยเหตุผลนี้ PowerPoint มีตัวเลือกภายใต้ **Preset** ตัวเลือก Preset เป็นการผสมผสานที่ดูดีของสองหรือมากกว่าหนึ่งเอฟเฟกต์ ดังนั้นโดยการเลือก Preset คุณจะไม่ต้องเสียเวลาในการทดสอบหรือผสมเอฟเฟกต์ต่าง ๆ เพื่อค้นหาการผสมที่ดี
 
-Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) ที่ช่วยให้คุณใช้เอฟเฟกต์เดียวกันกับรูปร่างในงานนำเสนอ PowerPoint ได้
+Aspose.Slides มีคุณสมบัติและเมธอดภายใต้คลาส [EffectFormat](https://reference.aspose.com/slides/net/aspose.slides/effectformat/) ที่ช่วยให้คุณใช้เอฟเฟกต์เดียวกันกับรูปทรงในงานนำเสนอ PowerPoint.
 
-## **ใช้เอฟเฟ็กต์เงา**
+## **ใช้เอฟเฟกต์เงา**
 
-Aspose.Slides for .NET รองรับเงานอกและเงาภายในสำหรับรูปร่าง คุณสามารถกำหนดสี ทิศทาง ระยะทาง และรัศมีการเบลอให้ตรงกับการออกแบบงานนำเสนอของคุณ
+Aspose.Slides for .NET รองรับเงานอกและเงาในสำหรับรูปทรง คุณสามารถปรับแต่งสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้ตรงกับการออกแบบงานนำเสนอของคุณ.
 
 ### **ใช้เงานอก**
 
-ใช้เงานอกเพื่อทำให้การ์ดหรือพาเนลโดดเด่นจากพื้นหลังสไลด์ เงาจะขยายออกนอกขอบของรูปร่าง ทำให้ดูเหมือนรูปร่างลอยขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทาง และรัศมีการเบลอให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ
+ใช้เงานอกเพื่อทำให้การ์ดหรือพาเนลโดดเด่นจากพื้นหลังสไลด์ เงาจะขยายออกนอกขอบของรูปทรง ทำให้รูปลักษณ์เหมือนรูปทรงยกขึ้นเหนือสไลด์ ปรับสี ทิศทาง ระยะทาง และรัศมีเบลอร์ให้ตรงกับแสงและสไตล์ของเทมเพลตของคุณ.
 
-โค้ด C# นี้แสดงวิธีการใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) กับสี่เหลี่ยมผืนผ้า:
+โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์เงานอก](https://reference.aspose.com/slides/net/aspose.slides/effectformat/outershadoweffect/) กับสี่เหลี่ยมผืนผ้า:
 
 ```c#
 using System.Drawing;
@@ -57,15 +57,15 @@ shape.EffectFormat.OuterShadowEffect.Direction = 45;
 presentation.Save("shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![เอฟเฟกต์เงา](shadow_effect.png)
+![Shadow effect](shadow_effect.png)
 
-### **ใช้เงาภายใน**
+### **ใช้เงาใน**
 
-เมื่อต้องการจำลองสไตล์ภาพของเทมเพลต ใช้เงาภายในเพื่อให้การ์ดหรือพาเนลดูมีลักษณะฝังลงในพื้นผิว เงานอกจะแพร่กระจายนอกรูปร่างและทำให้ดูลอยขึ้น ส่วนเงาภายในจะทำให้ขอบภายในของรูปร่างมีสีเงา
+เมื่อทำสำเนาการออกแบบภาพของเทมเพลต ให้ใช้เงาในเพื่อให้การ์ดหรือพาเนลดูถูกฝัง เงานอกขยายออกนอกรูปทรงทำให้ดูยกขึ้น ส่วนเงาในจะให้เฉดสีภายในขอบของรูปทรง.
 
-เรียกใช้ [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/) แล้วกำหนดค่า [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/) ค่าที่ใหญ่ขึ้นจะให้ขอบที่นุ่มขึ้น
+เรียกใช้ [EnableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/enableinnershadoweffect/), จากนั้นกำหนดค่า [InnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/innershadoweffect/). ค่าที่มากขึ้นจะทำให้ขอบนุ่มขึ้น.
 
-ตัวอย่าง C# นี้สร้างการ์ดสีน้ำเงินอ่อนพร้อมเงาภายในสีเทาเข้มและบันทึกเป็นไฟล์ PPTX:
+ตัวอย่าง C# นี้สร้างการ์ดสีฟ้าอ่อนที่มีเงาในสีเทาดำและบันทึกเป็นไฟล์ PPTX:
 
 ```csharp
 using System.Drawing;
@@ -90,15 +90,15 @@ shadow.BlurRadius = 6;
 presentation.Save("inner_shadow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![สี่เหลี่ยมสีฟ้าอ่อนพร้อมเงาภายใน](inner_shadow_effect.png)
+![สี่เหลี่ยมสีฟ้าอ่อนพร้อมเงาใน](inner_shadow_effect.png)
 
-เพื่อยกเลิกเงาภายใน ให้เรียกใช้ [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) บนรูปแบบเอฟเฟกต์ของรูปร่าง
+เพื่อลบเงาใน ให้เรียกใช้ [DisableInnerShadowEffect](https://reference.aspose.com/slides/net/aspose.slides/effectformat/disableinnershadoweffect/) บน EffectFormat ของรูปทรง.
 
 ## **ใช้เอฟเฟกต์การสะท้อน**
 
-เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for .NET คุณสามารถเพิ่มการสะท้อนแบบกระจกให้กับรูปร่างโดยปรับพารามิเตอร์เช่น ระยะทาง ความโปร่งแสง และขนาด เอฟเฟกต์นี้เพิ่มความสวยงามให้กับงานนำเสนอของคุณโดยทำให้รูปร่างดูขัดเกลาและหรูหรามากขึ้น ใช้โค้ดง่าย ๆ เพื่อทำให้เอฟเฟกต์นี้สามารถนำไปใช้กับหลายองค์ประกอบได้อย่างรวดเร็วเพื่อการออกแบบที่สอดคล้องกัน
+เพื่อใช้เอฟเฟกต์การสะท้อนใน Aspose.Slides for .NET คุณสามารถเพิ่มการสะท้อนคล้ายกระจกให้กับรูปทรงโดยปรับพารามิเตอร์เช่น ระยะ, ความโปร่งแสง, และขนาด เอฟเฟกต์นี้ช่วยเพิ่มความสวยงามให้การนำเสนอของคุณโดยทำให้รูปทรงดูเรียบหรูและเป็นมืออาชีพ การทำงานง่ายด้วยโค้ดที่เรียบง่าย ทำให้สามารถประยุกต์ใช้ได้อย่างรวดเร็วบนหลายองค์ประกอบเพื่อการออกแบบที่สม่ำเสมอ.
 
-โค้ด C# นี้แสดงวิธีการใช้ [เอฟเฟกต์การสะท้อน](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟ็กต์การสะท้อน](https://reference.aspose.com/slides/net/aspose.slides/effectformat/reflectioneffect/) กับรูปทรง:
 
 ```c#
 using Aspose.Slides;
@@ -117,13 +117,13 @@ shape.EffectFormat.ReflectionEffect.BlurRadius = 2;
 presentation.Save("reflection_effect.pptx", SaveFormat.Pptx);
 ```
 
-![เอฟเฟกต์การสะท้อน](reflection_effect.png)
+![เอฟเฟ็กต์การสะท้อน](reflection_effect.png)
 
-## **ใช้เอฟเฟกต์แสงเรืองรอบ**
+## **ใช้เอฟเฟกต์แสงอำพราง**
 
-เพื่อใช้เอฟเฟกต์แสงเรืองรอบบนรูปร่างใน Aspose.Slides for .NET คุณสามารถเพิ่มออร่าที่นุ่มนวลและสว่างไสวรอบ ๆ รูปร่างโดยปรับคุณสมบัติต่าง ๆ เช่น สีและขนาด เอฟเฟกต์นี้ช่วยให้รูปร่างโดดเด่นและเพิ่มองค์ประกอบภาพที่ดึงดูดตาให้กับงานนำเสนอของคุณ ใช้งานง่ายด้วยโค้ดเพียงเล็กน้อย ทำให้สไลด์ของคุณดูโดดเด่นยิ่งขึ้น
+เพื่อใช้เอฟเฟกต์แสงอำพรางกับรูปทรงใน Aspose.Slides for .NET คุณสามารถเพิ่มออร่าที่อ่อนและเปล่งแสงไปรอบ ๆ รูปทรงโดยปรับคุณสมบัติเช่น สีและขนาด เอฟเฟกต์นี้ช่วยให้รูปทรงโดดเด่นและเพิ่มองค์ประกอบภาพที่ดึงดูดสายตาให้การนำเสนอของคุณ การทำงานง่ายด้วยโค้ดเพียงเล็กน้อย ช่วยเพิ่มรูปลักษณ์โดยรวมของสไลด์.
 
-โค้ด C# นี้แสดงวิธีการใช้ [เอฟเฟกต์แสงเรืองรอบ](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์แสงอำพราง](https://reference.aspose.com/slides/net/aspose.slides/effectformat/gloweffect/) กับรูปทรง:
 
 ```c#
 using System.Drawing;
@@ -141,13 +141,13 @@ shape.EffectFormat.GlowEffect.Radius = 15;
 presentation.Save("glow_effect.pptx", SaveFormat.Pptx);
 ```
 
-![เอฟเฟกต์แสงเรืองรอบ](glow_effect.png)
+![เอฟเฟกต์แสงอำพราง](glow_effect.png)
 
 ## **ใช้เอฟเฟกต์ขอบนุ่ม**
 
-เพื่อใช้เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for .NET คุณสามารถสร้างการเปลี่ยนแปลงที่ราบรื่นและเบลอรอบขอบของรูปร่าง เอฟเฟกต์นี้เพิ่มลุคที่ละเอียดและอ่อนโยน เหมาะสำหรับการออกแบบที่ต้องการลุคอ่อนนุ่ม คุณสามารถปรับพารามิเตอร์เช่น รัศมี เพื่อให้ได้เอฟเฟกต์ที่ต้องการบนรูปร่างต่าง ๆ ในงานนำเสนอของคุณได้อย่างง่ายดาย
+เพื่อใช้เอฟเฟกต์ขอบนุ่มใน Aspose.Slides for .NET คุณสามารถสร้างการไล่สีที่เรียบและเบลอรอบขอบของรูปทรง เอฟเฟกต์นี้เพิ่มลุคที่ละเอียดอ่อนและพรีเมี่ยม เหมาะกับการออกแบบที่ต้องการลุคนุ่มนวล คุณสามารถปรับพารามิเตอร์เช่น รัศมี ได้อย่างง่ายดายเพื่อให้ได้เอฟเฟกต์ที่ต้องการในรูปทรงต่าง ๆ ของการนำเสนอของคุณ.
 
-โค้ด C# นี้แสดงวิธีการใช้ [ขอบนุ่ม](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) กับรูปร่าง:
+โค้ด C# นี้แสดงวิธีใช้ [เอฟเฟกต์ขอบนุ่ม](https://reference.aspose.com/slides/net/aspose.slides/effectformat/softedgeeffect/) กับรูปทรง:
 
 ```c#
 using Aspose.Slides;
@@ -165,16 +165,55 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ![เอฟเฟกต์ขอบนุ่ม](soft_edges_effect.png)
 
-## **คำถามที่พบบ่อย**
+## **ใช้เอฟเฟ็กต์การเบลอ**
 
-**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปร่างเดียวกันได้หรือไม่?**
+ใช้การเบลอของรูปทรงเพื่อทำให้สีเติมและเส้นขอบของรูปทรงนุ่มขึ้นพร้อมคงรูปทรงให้แก้ไขได้ เรียกใช้ [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) บน EffectFormat ของรูปทรง รัศมีวัดเป็นจุด (1/72 นิ้ว): ใช้ค่าไม่เป็นลบ โดยค่าที่มากกว่าจะทำให้เบลอแรงขึ้น รัศมีเป็นศูนย์จะไม่มีการเปลี่ยนแปลงลักษณะ.
 
-ได้ คุณสามารถรวมเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อน และแสงเรืองรอบ บนรูปร่างเดียวเพื่อสร้างลุคที่ไดนามิกมากขึ้น
+การตั้งค่า [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) ควบคุมขอบเขตที่มองเห็นของเอฟเฟกต์ หากเป็น `false` การเบลอจะถูกตัดให้อยู่ภายในขอบเขตที่วาดไว้เดิมรวมถึงเส้นขอบ หากเป็น `true` การเบลอสามารถขยายเกินขอบเขตเหล่านั้น การตั้งค่าใด ๆ ก็ไม่ได้เปลี่ยนตำแหน่งหรือขนาดของรูปทรง.
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปร่างประเภทใดได้บ้าง?**
+การเปรียบเทียบด้านล่างใช้สีเติม เส้นขอบ และขนาดรูปทรงเดียวกันตลอด แถวบนใช้ `grow = false`; แถวล่างใช้ `grow = true`.
 
-คุณสามารถใช้เอฟเฟกต์กับรูปร่างหลากหลายประเภท รวมถึงออโต้ชพิพท์, แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ
+![สี่เหลี่ยมต้นฉบับที่เทียบกับรัศมีการเบลอ 5 และ 15 จุด, พร้อมการเปิด/ปิด Grow](shape_blur_comparison.png)
 
-**ฉันสามารถใช้เอฟเฟกต์กับรูปแบบที่จัดกลุ่มกันได้หรือไม่?**
+ตัวอย่าง C# นี้สร้างสี่เหลี่ยมสีส้มที่มีเส้นขอบสีน้ำเงินเข้ม ใช้การเบลอ 5 จุด แล้วอัปเดตเป็น 15 จุดโดยเรียก [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) อีกครั้ง บันทึกสถานะที่เบลอทั้งสอง แล้วเรียก [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) และบันทึกรูปทรงโดยไม่มีการเบลอ.
 
-ได้ คุณสามารถใช้เอฟเฟกต์กับรูปแบบที่จัดกลุ่มกันได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด.
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Orange;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+shape.LineFormat.Width = 8;
+
+shape.EffectFormat.SetBlurEffect(5, false);
+presentation.Save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+shape.EffectFormat.SetBlurEffect(15, true);
+presentation.Save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+shape.EffectFormat.DisableBlurEffect();
+presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
+```
+
+การเบลอของรูปทรงจะส่งผลต่อสีเติมและเส้นขอบพร้อมกัน เอฟเฟกต์ขอบนุ่มทำให้ขอบของรูปทรงจางลง ในขณะที่การเบลอของเงาจะทำให้เงานุ่มขึ้นเท่านั้น เอฟเฟกต์การแปลงภาพทำงานบนเนื้อหาภาพ; ตัวอย่างนี้ใช้การเบลอตรงกับ EffectFormat ของรูปทรงโดยไม่แปลงรูปทรงเป็นภาพ.
+
+## **FAQ**
+
+**ฉันสามารถใช้หลายเอฟเฟกต์กับรูปทรงเดียวกันได้หรือไม่?**
+
+ได้ คุณสามารถผสมผสานเอฟเฟกต์ต่าง ๆ เช่น เงา การสะท้อนและแสงอำพราง บนรูปทรงเดียวเพื่อสร้างลุคที่ไดนามิกมากขึ้น.
+
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงใดได้บ้าง?**
+
+คุณสามารถใช้เอฟเฟกต์กับรูปทรงต่าง ๆ รวมถึงอัตโนมัติรูป (autoshapes), แผนภูมิ, ตาราง, รูปภาพ, วัตถุ SmartArt, วัตถุ OLE และอื่น ๆ.
+
+**ฉันสามารถใช้เอฟเฟกต์กับรูปทรงที่รวมกลุ่มกันได้หรือไม่?**
+
+ได้ คุณสามารถใช้เอฟเฟกต์กับรูปทรงที่รวมกลุ่มได้ เอฟเฟกต์จะถูกนำไปใช้กับกลุ่มทั้งหมด.

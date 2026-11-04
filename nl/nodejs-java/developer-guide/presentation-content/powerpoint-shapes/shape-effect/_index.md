@@ -1,5 +1,5 @@
 ---
-title: Vormeffecten toepassen in presentaties met JavaScript
+title: Toepassen van vormeffecten in presentaties met JavaScript
 linktitle: Vormeffect
 type: docs
 weight: 30
@@ -7,8 +7,8 @@ url: /nl/nodejs-java/shape-effect/
 keywords:
 - vormeffect
 - schaduweffect
-- reflectie-effect
-- gloed-effect
+- reflectie‑effect
+- gloeieffect
 - zachte randen effect
 - effectformaat
 - PowerPoint
@@ -16,27 +16,27 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Transformeer uw PPT- en PPTX-bestanden met geavanceerde vormeffecten met JavaScript en Aspose.Slides voor Node.js - maak verbluffende, professionele dia's in enkele seconden."
+description: "Transformeer uw PPT‑ en PPTX‑bestanden met geavanceerde vormeffecten met JavaScript en Aspose.Slides voor Node.js—creëer verbluffende, professionele dia's in enkele seconden."
 ---
 ## **Inleiding**
 
-Hoewel effecten in PowerPoint kunnen worden gebruikt om een vorm te laten opvallen, verschillen ze van [vullingen](/slides/nl/nodejs-java/shape-formatting/#gradient-fill) of omtrekken. Met PowerPoint-effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
+Hoewel effecten in PowerPoint gebruikt kunnen worden om een vorm te laten opvallen, verschillen ze van [opvullingen](/slides/nl/nodejs-java/shape-formatting/#gradient-fill) of contouren. Met PowerPoint‑effecten kun je overtuigende reflecties op een vorm creëren, de gloed van een vorm verspreiden, enz.
 
-![Vorm effect](shape-effect.png)
+![Vormeffect](shape-effect.png)
 
-PowerPoint biedt zes effecten die op vormen kunnen worden toegepast. Je kunt één of meerdere effecten op een vorm toepassen.
+PowerPoint biedt zes effecten die op vormen toegepast kunnen worden. Je kunt één of meerdere effecten op een vorm toepassen.
 
-Sommige combinaties van effecten zien er beter uit dan andere. Daarom biedt PowerPoint opties onder **Preset**. De Preset‑opties zijn combinaties van twee of meer effecten die bekend staan als aantrekkelijk. Op deze manier hoef je bij het kiezen van een preset geen tijd te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
+Sommige combinaties van effecten zien er beter uit dan andere. Daarom biedt PowerPoint opties onder **Voorinstelling**. De opties voor Voorinstelling zijn combinaties van twee of meer effecten die bekend staan om er goed uit te zien. Op die manier hoef je bij het selecteren van een voorinstelling geen tijd meer te verspillen aan het testen of combineren van verschillende effecten om een mooie combinatie te vinden.
 
-Aspose.Slides biedt eigenschappen en methoden onder de [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/)‑klasse die je toelaten dezelfde effecten toe te passen op vormen in PowerPoint‑presentaties.
+Aspose.Slides biedt eigenschappen en methoden in de klasse [EffectFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/) die je in staat stellen dezelfde effecten toe te passen op vormen in PowerPoint‑presentaties.
 
-## **Een schaduweffect toepassen**
+## **Schaduweffect toepassen**
 
-Aspose.Slides voor Node.js via Java ondersteunt buiten- en binnen schaduwen voor vormen. Je kunt hun kleur, richting, afstand en vervagingsstraal aanpassen aan het ontwerp van je presentatie.
+Aspose.Slides voor Node.js via Java ondersteunt buiten- en binnen schaduwen voor vormen. Je kunt hun kleur, richting, afstand en onscherpte‑radius aanpassen aan het ontwerp van je presentatie.
 
-### **Een buitenste schaduw toepassen**
+### **Buitenste schaduw toepassen**
 
-Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen tegen de slide‑achtergrond. De schaduw strekt zich uit buiten de randen van de vorm, waardoor de indruk ontstaat dat de vorm boven de slide zweeft. Pas de kleur, richting, afstand en vervagingsstraal aan om te passen bij de belichting en stijl van je sjabloon.
+Gebruik een buitenste schaduw om een kaart of paneel te laten opvallen ten opzichte van de dia‑achtergrond. De schaduw strekt zich uit voorbij de randen van de vorm, waardoor de indruk ontstaat dat de vorm uit de dia omhoog komt. Pas de kleur, richting, afstand en onscherpte‑radius aan om overeen te komen met de verlichting en stijl van je sjabloon.
 
 Deze JavaScript‑code laat zien hoe je het [buitenste schaduw‑effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getOuterShadowEffect) op een rechthoek toepast:
 
@@ -61,15 +61,15 @@ try {
 }
 ```
 
-![Schaduw‑effect](shadow_effect.png)
+![Schaduweffect](shadow_effect.png)
 
-### **Een binnenste schaduw toepassen**
+### **Binnenste schaduw toepassen**
 
-Wanneer je de visuele stijl van een sjabloon nabootst, gebruik je een binnenste schaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenste schaduw strekt zich uit buiten de vorm en laat deze verhoogd lijken, terwijl een binnenste schaduw de binnenkant van de randen verduistert.
+Bij het reproduceren van de visuele stijl van een sjabloon, gebruik je een binnenste schaduw om een kaart of paneel een verzonken uiterlijk te geven. Een buitenste schaduw strekt zich buiten de vorm uit en maakt deze verhoogd lijken, terwijl een binnenste schaduw de binnenkant van de randen verduistert.
 
-Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) aan en configureer vervolgens de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Grotere waarden voor de vervagingsstraal geven zachtere randen.
+Roep [enableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#enableInnerShadowEffect) aan en configureer vervolgens de schaduw die wordt geretourneerd door [getInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getInnerShadowEffect). Grotere onscherpte‑radiuswaarden zorgen voor zachtere randen.
 
-Dit JavaScript‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenste schaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten, en de vervagingsstraal is 6 punten:
+Dit JavaScript‑voorbeeld maakt een lichtblauwe kaart met een donkergrijze binnenste schaduw en slaat deze op als een PPTX‑bestand. De schaduwrichting is 225 graden, de afstand is 7 punten en de onscherpte‑radius is 6 punten:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -99,13 +99,13 @@ try {
 }
 ```
 
-![Lichtblauw rechthoek met een binnenste schaduw](inner_shadow_effect.png)
+![Lichtblauwe rechthoek met een binnenste schaduw](inner_shadow_effect.png)
 
 Om de binnenste schaduw te verwijderen, roep je [disableInnerShadowEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableInnerShadowEffect) aan op het effectformaat van de vorm.
 
-## **Een reflectie‑effect toepassen**
+## **Reflectie‑effect toepassen**
 
-Om een reflectie‑effect toe te passen in Aspose.Slides voor Node.js via Java, kun je een spiegelachtige reflectie aan vormen toevoegen, waarbij je parameters zoals afstand, transparantie en grootte aanpast. Dit effect verbetert het uiterlijk van je presentaties door vormen een meer gepolijste en verfijnde uitstraling te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor je het snel kunt toepassen op meerdere elementen voor een consistent ontwerp.
+Om een reflectie‑effect toe te passen in Aspose.Slides voor Node.js via Java, kun je een spiegelachtige reflectie aan vormen toevoegen en parameters zoals afstand, transparantie en grootte aanpassen. Dit effect verbetert het esthetische uiterlijk van je presentaties door vormen een meer gepolijste en verfijnde look te geven. Het is eenvoudig te implementeren met eenvoudige code, waardoor snelle toepassing over meerdere elementen mogelijk is voor een consistente vormgeving.
 
 Deze JavaScript‑code laat zien hoe je het [reflectie‑effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getReflectionEffect) op een vorm toepast:
 
@@ -132,9 +132,9 @@ try {
 
 ![Reflectie‑effect](reflection_effect.png)
 
-## **Een gloed‑effect toepassen**
+## **Gloed‑effect toepassen**
 
-Om een gloed‑effect toe te passen op een vorm in Aspose.Slides voor Node.js via Java, kun je een zachte, lichtgevende aura rond vormen toevoegen, waarbij je eigenschappen zoals kleur en grootte aanpast. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor de algehele uitstraling van je dia’s wordt verbeterd.
+Om een gloed‑effect toe te passen op een vorm in Aspose.Slides voor Node.js via Java, kun je een zachte, lichtgevende aura rond vormen toevoegen en eigenschappen zoals kleur en grootte aanpassen. Dit effect helpt vormen op te laten vallen en voegt een aantrekkelijk, opvallend visueel element toe aan je presentatie. Het is eenvoudig te implementeren met minimale code, waardoor het algehele uiterlijk van je dia's wordt verbeterd.
 
 Deze JavaScript‑code laat zien hoe je het [gloed‑effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getGlowEffect) op een vorm toepast:
 
@@ -160,11 +160,11 @@ try {
 
 ![Gloed‑effect](glow_effect.png)
 
-## **Een zacht‑randen‑effect toepassen**
+## **Zachte‑randen‑effect toepassen**
 
-Om een zacht‑randen‑effect toe te passen in Aspose.Slides voor Node.js via Java, kun je een gladde, onscherpe overgang rond de randen van een vorm creëren. Dit effect geeft een subtielere en verfijndere uitstraling, perfect voor ontwerpen die een zachte, zachtere look behoeven. Je kunt eenvoudig parameters zoals radius aanpassen om het gewenste effect te bereiken voor verschillende vormen in je presentatie.
+Om een zachte‑randen‑effect toe te passen in Aspose.Slides voor Node.js via Java, kun je een gladde, vervaagde overgang rondom de randen van een vorm creëren. Dit effect voegt een subtieler en verfijnder uiterlijk toe, perfect voor ontwerpen die een zachte, subtiele uitstraling nodig hebben. Je kunt eenvoudig parameters zoals radius aanpassen om het gewenste effect te behalen op verschillende vormen in je presentatie.
 
-Deze JavaScript‑code laat zien hoe je het [zacht‑randen‑effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) op een vorm toepast:
+Deze JavaScript‑code laat zien hoe je het [zachte‑randen‑effect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#getSoftEdgeEffect) op een vorm toepast:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -183,18 +183,62 @@ try {
 }
 ```
 
-![Zacht‑randen‑effect](soft_edges_effect.png)
+![Zachte‑randen‑effect](soft_edges_effect.png)
+
+## **Vervagingseffect toepassen**
+
+Gebruik vormvervaging om de opvulling en contour van een vorm te verzachten terwijl de vorm bewerkbaar blijft. Roep [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) aan op het effectformaat van de vorm. De radius wordt gemeten in punten (1/72 inch): gebruik een niet‑negatieve waarde, waarbij grotere waarden een sterkere vervaging produceren. Een radius van nul laat het uiterlijk onveranderd.
+
+De instelling [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) bepaalt de zichtbare grenzen van het effect. Met `false` wordt de vervaging bijgesneden tot de oorspronkelijk geschilderde grenzen, inclusief de contour. Met `true` kan de vervaging buiten die grenzen uitbreiden. Geen van beide instellingen wijzigt de positie of afmetingen van de vorm.
+
+De onderstaande vergelijking gebruikt overal dezelfde opvulling, contour en vormafmetingen. De bovenste rij gebruikt `grow = false`; de onderste rij gebruikt `grow = true`.
+
+![Originele rechthoek vergeleken met vervagingsradii van 5 en 15 punten, met grow uitgeschakeld en ingeschakeld](shape_blur_comparison.png)
+
+Dit JavaScript‑voorbeeld maakt een oranje rechthoek met een donkerblauwe contour, past een vervaging van 5 punten toe en werkt deze vervolgens bij naar een vervaging van 15 punten door opnieuw [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) aan te roepen. Het slaat beide vervaagde toestanden op, roept daarna [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) aan en slaat de vorm op zonder vervaging.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    shape.getFillFormat().getSolidFillColor().setColor(fillColor);
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(lineColor);
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Vormvervaging beïnvloedt zowel de opvulling als de contour gezamenlijk. Een zachte‑randen‑effect vervaagt de randen van de vorm, terwijl schaduw‑vervaging alleen de schaduw verzacht. Beeldtransformatie‑effecten werken op de afbeeldinginhoud; dit voorbeeld past vervaging direct toe op het effectformaat van de vorm zonder de vorm naar een afbeelding te converteren.
 
 ## **FAQ**
 
 **Kan ik meerdere effecten op dezelfde vorm toepassen?**
 
-Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één vorm om een meer dynamische uitstraling te creëren.
+Ja, je kunt verschillende effecten, zoals schaduw, reflectie en gloed, combineren op één vorm om een dynamischer uiterlijk te creëren.
 
 **Op welke vormen kan ik effecten toepassen?**
 
-Je kunt effecten toepassen op diverse vormen, waaronder auto‑shapes, grafieken, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
+Je kunt effecten toepassen op diverse vormen, waaronder autoshapes, diagrammen, tabellen, afbeeldingen, SmartArt‑objecten, OLE‑objecten en meer.
 
 **Kan ik effecten toepassen op gegroepeerde vormen?**
 
-Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt op de gehele groep toegepast.
+Ja, je kunt effecten toepassen op gegroepeerde vormen. Het effect wordt toegepast op de gehele groep.
