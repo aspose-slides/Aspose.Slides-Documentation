@@ -43,14 +43,13 @@ This Python code shows how to apply the [outer shadow effect](https://reference.
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 20, 20, 200, 100)
     shape.effect_format.enable_outer_shadow_effect()
-    shape.effect_format.outer_shadow_effect.shadow_color.color = draw.Color.dark_gray
+    shape.effect_format.outer_shadow_effect.shadow_color.color = slides.Color.dark_gray
     shape.effect_format.outer_shadow_effect.distance = 10
     shape.effect_format.outer_shadow_effect.direction = 45
 
@@ -69,19 +68,18 @@ This Python example creates a light blue card with a dark gray inner shadow and 
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
-    shape.fill_format.solid_fill_color.color = draw.Color.light_blue
+    shape.fill_format.solid_fill_color.color = slides.Color.light_blue
     shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
 
     shape.effect_format.enable_inner_shadow_effect()
     shadow = shape.effect_format.inner_shadow_effect
-    shadow.shadow_color.color = draw.Color.dim_gray
+    shadow.shadow_color.color = slides.Color.dim_gray
     shadow.direction = 225
     shadow.distance = 7
     shadow.blur_radius = 6
@@ -125,14 +123,13 @@ This Python code shows how to apply the [glow effect](https://reference.aspose.c
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ROUND_CORNER_RECTANGLE, 20, 20, 200, 100)
     shape.effect_format.enable_glow_effect()
-    shape.effect_format.glow_effect.color.color = draw.Color.magenta
+    shape.effect_format.glow_effect.color.color = slides.Color.magenta
     shape.effect_format.glow_effect.radius = 15
 
     presentation.save("glow_effect.pptx", slides.export.SaveFormat.PPTX)
@@ -160,6 +157,43 @@ with slides.Presentation() as presentation:
 ```
 
 ![Soft edges effect](soft_edges_effect.png)
+
+## **Apply a Blur Effect**
+
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+
+The [grow](https://reference.aspose.com/slides/python-net/aspose.slides.effects/blur/grow/) setting controls the visible bounds of the effect. With `False`, the blur is clipped to the original painted bounds, including the outline. With `True`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = False`; the bottom row uses `grow = True`.
+
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+
+This Python example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [set_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/set_blur_effect/) again. It saves both blurred states, then calls [disable_blur_effect](https://reference.aspose.com/slides/python-net/aspose.slides/effectformat/disable_blur_effect/) and saves the shape without blur.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 80, 160, 100)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = slides.Color.orange
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = slides.Color.dark_blue
+    shape.line_format.width = 8
+
+    shape.effect_format.set_blur_effect(5, False)
+    presentation.save("shape_blur_5.pptx", slides.export.SaveFormat.PPTX)
+
+    shape.effect_format.set_blur_effect(15, True)
+    presentation.save("shape_blur_15.pptx", slides.export.SaveFormat.PPTX)
+
+    shape.effect_format.disable_blur_effect()
+    presentation.save("shape_blur_removed.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
 
 ## **FAQ**
 

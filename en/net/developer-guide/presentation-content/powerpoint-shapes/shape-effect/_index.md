@@ -166,6 +166,45 @@ presentation.Save("soft_edges_effect.pptx", SaveFormat.Pptx);
 
 ![Soft edges effect](soft_edges_effect.png)
 
+## **Apply a Blur Effect**
+
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+
+The [Grow](https://reference.aspose.com/slides/net/aspose.slides.effects/iblur/grow/) setting controls the visible bounds of the effect. With `false`, the blur is clipped to the original painted bounds, including the outline. With `true`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = false`; the bottom row uses `grow = true`.
+
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+
+This C# example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [SetBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/setblureffect/) again. It saves both blurred states, then calls [DisableBlurEffect](https://reference.aspose.com/slides/net/aspose.slides/ieffectformat/disableblureffect/) and saves the shape without blur.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 80, 160, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Orange;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+shape.LineFormat.Width = 8;
+
+shape.EffectFormat.SetBlurEffect(5, false);
+presentation.Save("shape_blur_5.pptx", SaveFormat.Pptx);
+
+shape.EffectFormat.SetBlurEffect(15, true);
+presentation.Save("shape_blur_15.pptx", SaveFormat.Pptx);
+
+shape.EffectFormat.DisableBlurEffect();
+presentation.Save("shape_blur_removed.pptx", SaveFormat.Pptx);
+```
+
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
+
 ## **FAQ**
 
 **Can I apply multiple effects to the same shape?**

@@ -206,6 +206,53 @@ finally:
 
 ![Soft edges effect](soft_edges_effect.png)
 
+## **Apply a Blur Effect**
+
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+
+The [getGrow](https://reference.aspose.com/slides/python-java/aspose.slides/blur/#getGrow) setting controls the visible bounds of the effect. With `False`, the blur is clipped to the original painted bounds, including the outline. With `True`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = False`; the bottom row uses `grow = True`.
+
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+
+This Python example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [setBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#setBlurEffect) again. It saves both blurred states, then calls [disableBlurEffect](https://reference.aspose.com/slides/python-java/aspose.slides/effectformat/#disableBlurEffect) and saves the shape without blur.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, Presentation, SaveFormat, ShapeType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 80, 160, 100)
+    shape.getFillFormat().setFillType(FillType.Solid)
+    shape.getFillFormat().getSolidFillColor().setColor(Color(255, 165, 0))
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid)
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color(0, 0, 139))
+    shape.getLineFormat().setWidth(8)
+
+    shape.getEffectFormat().setBlurEffect(5, False)
+    presentation.save("shape_blur_5.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().setBlurEffect(15, True)
+    presentation.save("shape_blur_15.pptx", SaveFormat.Pptx)
+
+    shape.getEffectFormat().disableBlurEffect()
+    presentation.save("shape_blur_removed.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
+
 ## **FAQ**
 
 **Can I apply multiple effects to the same shape?**
