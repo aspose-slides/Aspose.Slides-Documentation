@@ -186,6 +186,50 @@ try {
 
 ![Soft edges effect](soft_edges_effect.png)
 
+## **Apply a Blur Effect**
+
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+
+The [getGrow](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blur/#getGrow) setting controls the visible bounds of the effect. With `false`, the blur is clipped to the original painted bounds, including the outline. With `true`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = false`; the bottom row uses `grow = true`.
+
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+
+This JavaScript example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [setBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#setBlurEffect) again. It saves both blurred states, then calls [disableBlurEffect](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effectformat/#disableBlurEffect) and saves the shape without blur.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 80, 160, 100);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const fillColor = java.newInstanceSync("java.awt.Color", 255, 165, 0);
+    shape.getFillFormat().getSolidFillColor().setColor(fillColor);
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    const lineColor = java.newInstanceSync("java.awt.Color", 0, 0, 139);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(lineColor);
+    shape.getLineFormat().setWidth(8);
+
+    shape.getEffectFormat().setBlurEffect(5, false);
+    presentation.save("shape_blur_5.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.getEffectFormat().setBlurEffect(15, true);
+    presentation.save("shape_blur_15.pptx", aspose.slides.SaveFormat.Pptx);
+
+    shape.getEffectFormat().disableBlurEffect();
+    presentation.save("shape_blur_removed.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
+
 ## **FAQ**
 
 **Can I apply multiple effects to the same shape?**

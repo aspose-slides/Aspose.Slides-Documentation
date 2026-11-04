@@ -26,7 +26,7 @@ While effects in PowerPoint can be used to make a shape stand out, they differ f
 
 PowerPoint provides six effects that can be applied to shapes. You can apply one or more effects to a shape.
 
-Some combinations of effects look better than others. For this reason, PowerPoint has options under **Preset**. The Preset options are essentially a combination known to look good of two or more effects. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
+Some combinations of effects look better than others. For this reason, PowerPoint has options under **Preset**. The Preset options are essentially a combination of two or more effects known to look good together. This way, by selecting a preset, you won't have to waste time testing or combining different effects to find a nice combination.
 
 Aspose.Slides provides properties and methods under the [EffectFormat](https://reference.aspose.com/slides/cpp/aspose.slides/effectformat/) class that allow you to apply the same effects to shapes in PowerPoint presentations.
 
@@ -227,6 +227,58 @@ presentation->Save(u"soft_edges_effect.pptx", SaveFormat::Pptx);
 ```
 
 ![Soft edges effect](soft_edges_effect.png)
+
+## **Apply a Blur Effect**
+
+Use shape blur to soften a shape's fill and outline while keeping the shape editable. Call [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) on the shape's effect format. The radius is measured in points (1/72 inch): use a nonnegative value, with larger values producing stronger blur. A radius of zero leaves the appearance unchanged.
+
+The [Grow](https://reference.aspose.com/slides/cpp/aspose.slides.effects/iblur/get_grow/) setting controls the visible bounds of the effect. With `false`, the blur is clipped to the original painted bounds, including the outline. With `true`, the blur can extend beyond those bounds. Neither setting changes the shape's position or dimensions.
+
+The comparison below uses the same fill, outline, and shape dimensions throughout. The top row uses `grow = false`; the bottom row uses `grow = true`.
+
+![Original rectangle compared with blur radii of 5 and 15 points, with grow disabled and enabled](shape_blur_comparison.png)
+
+This C++ example creates an orange rectangle with a dark blue outline, applies a 5-point blur, and then updates it to a 15-point blur by calling [SetBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/setblureffect/) again. It saves both blurred states, then calls [DisableBlurEffect](https://reference.aspose.com/slides/cpp/aspose.slides/ieffectformat/disableblureffect/) and saves the shape without blur.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/FillType.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 80.0f, 160.0f, 100.0f);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_DarkBlue());
+shape->get_LineFormat()->set_Width(8);
+
+shape->get_EffectFormat()->SetBlurEffect(5, false);
+presentation->Save(u"shape_blur_5.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->SetBlurEffect(15, true);
+presentation->Save(u"shape_blur_15.pptx", SaveFormat::Pptx);
+
+shape->get_EffectFormat()->DisableBlurEffect();
+presentation->Save(u"shape_blur_removed.pptx", SaveFormat::Pptx);
+```
+
+Shape blur affects the fill and outline together. A soft edges effect fades the shape's edges, while shadow blur softens only the shadow. Image transformation effects operate on image content; this example applies blur directly to the shape's effect format without converting the shape to an image.
 
 ## **FAQ**
 
