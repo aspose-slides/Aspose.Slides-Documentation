@@ -602,6 +602,92 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Control Text Height Normalization**
+
+Use [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
+
+Set the property to [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool::NotDefined` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). It does not mean `False`. Use [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) and read [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) to obtain the resolved Boolean value.
+
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `False: False` and `NotDefined: True`, then saves "text_height_normalization.pptx".
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+NullableBool settings[] = { NullableBool::False, NullableBool::NotDefined };
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 60 + i * 200, 660, 150);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(u"Hxgjpq ÅÉ 0123");
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_MarginTop(0);
+    textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+
+    auto paragraph = textFrame->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    paragraph->get_ParagraphFormat()->set_SpaceWithin(100);
+    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_NormaliseHeight(NullableBool::True);
+
+    auto portion = paragraph->get_Portion(0);
+    auto font = MakeObject<FontData>(u"Arial");
+    portion->get_PortionFormat()->set_LatinFont(font);
+    portion->get_PortionFormat()->set_FontHeight(54);
+    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+    portion->get_PortionFormat()->set_NormaliseHeight(settings[i]);
+
+    Console::WriteLine(u"{0}: {1}", settings[i], portion->get_PortionFormat()->GetEffective()->get_NormaliseHeight());
+}
+
+presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`False`); the bottom row inherits the enabled setting (`NotDefined` → `True`). Keep Arial installed to reproduce this appearance.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalization changes character height without changing the assigned [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/) value, which specifies the font size in points. Paragraph [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) controls line spacing, while text-frame [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/cpp/manage-paragraph/).
+
 ## **Apply and Remove Strikethrough**
 
 Use [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) for one or two lines through the text.

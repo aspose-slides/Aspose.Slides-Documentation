@@ -401,6 +401,65 @@ The result:
 
 ![The font properties for text portions](font_properties_for_text_portions.png)
 
+## **Control Text Height Normalization**
+
+Use [IBasePortionFormat.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/normaliseheight/) when reproducing template typography or investigating differences in character height. In PowerPoint, enabling normalization stretches or compresses individual characters vertically to give them a uniform visible height within the text portion. It does not guarantee equal text heights across different fonts.
+
+Set the property to [NullableBool.True or False](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/) to explicitly enable or disable normalization. `NullableBool.NotDefined` leaves the local setting unset so that the portion inherits its value, for example, from the paragraph's [DefaultPortionFormat](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/defaultportionformat/). It does not mean `False`. Use [IPortionFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/iportionformat/geteffective/) and read [IBasePortionFormatEffectiveData.NormaliseHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformateffectivedata/normaliseheight/) to obtain the resolved Boolean value.
+
+The following self-contained example requires **Arial** to be installed. It creates two text blocks containing the same uppercase letters, lowercase letters, descenders, and accented characters at 54 points. Both paragraphs enable normalization by default. The top portion explicitly disables it; the bottom portion inherits it. The frame sizes, margins, and paragraph spacing are identical, with wrapping and autofit disabled to keep the comparison consistent. The example prints `False: False` and `NotDefined: True`, then saves "text_height_normalization.pptx".
+
+```cs
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var settings = new[] { NullableBool.False, NullableBool.NotDefined };
+
+for (var i = 0; i < settings.Length; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 60 + i * 200, 660, 150);
+    shape.FillFormat.FillType = FillType.NoFill;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+    var textFrame = shape.TextFrame;
+    textFrame.Text = "Hxgjpq ÅÉ 0123";
+    textFrame.TextFrameFormat.AutofitType = TextAutofitType.None;
+    textFrame.TextFrameFormat.WrapText = NullableBool.False;
+    textFrame.TextFrameFormat.AnchoringType = TextAnchorType.Top;
+    textFrame.TextFrameFormat.MarginTop = 0;
+    textFrame.TextFrameFormat.MarginLeft = 0;
+
+    var paragraph = textFrame.Paragraphs[0];
+    paragraph.ParagraphFormat.Alignment = TextAlignment.Left;
+    paragraph.ParagraphFormat.SpaceBefore = 0;
+    paragraph.ParagraphFormat.SpaceAfter = 0;
+    paragraph.ParagraphFormat.SpaceWithin = 100;
+    paragraph.ParagraphFormat.DefaultPortionFormat.NormaliseHeight = NullableBool.True;
+
+    var portion = paragraph.Portions[0];
+    portion.PortionFormat.LatinFont = new FontData("Arial");
+    portion.PortionFormat.FontHeight = 54;
+    portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+    portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.Black;
+    portion.PortionFormat.NormaliseHeight = settings[i];
+
+    Console.WriteLine($"{settings[i]}: {portion.PortionFormat.GetEffective().NormaliseHeight}");
+}
+
+presentation.Save("text_height_normalization.pptx", SaveFormat.Pptx);
+```
+
+The comparison below was exported from the saved presentation. The top row has normalization disabled (`False`); the bottom row inherits the enabled setting (`NotDefined` → `True`). Keep Arial installed to reproduce this appearance.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalization changes character height without changing the assigned [FontHeight](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/fontheight/) value, which specifies the font size in points. Paragraph [SpaceWithin](https://reference.aspose.com/slides/net/aspose.slides/iparagraphformat/spacewithin/) controls line spacing, while text-frame [AutofitType](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/autofittype/) controls how text or its container adjusts to fit. These settings serve different purposes and can affect the overall layout independently. For more on paragraph formatting and inheritance, see [Manage Paragraph](/slides/net/manage-paragraph/).
+
 ## **Apply and Remove Strikethrough**
 
 Use [IBasePortionFormat.StrikethroughType](https://reference.aspose.com/slides/net/aspose.slides/ibaseportionformat/strikethroughtype/) on a text portion to display corrections, cancelled terms, or previous prices without deleting the original text. Set it to [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/net/aspose.slides/textstrikethroughtype/) for one or two lines through the text.
