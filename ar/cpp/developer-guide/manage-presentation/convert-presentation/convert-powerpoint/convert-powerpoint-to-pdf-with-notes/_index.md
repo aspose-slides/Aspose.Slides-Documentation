@@ -1,40 +1,68 @@
 ---
-title: تحويل PowerPoint إلى PDF مع الملاحظات
+title: تحويل عروض PowerPoint إلى PDF مع الملاحظات في C++
+linktitle: PowerPoint إلى PDF مع الملاحظات
 type: docs
 weight: 50
 url: /ar/cpp/convert-powerpoint-to-pdf-with-notes/
-keywords: "تحويل PowerPoint إلى PDF مع الملاحظات"
-description: "تحويل PowerPoint إلى PDF مع الملاحظات. تحويل PPT و PPTX إلى PDF مع الملاحظات في Aspose.Slides."
+keywords:
+- تحويل PowerPoint
+- تحويل عرض تقديمي
+- تحويل شريحة
+- تحويل PPT
+- تحويل PPTX
+- PowerPoint إلى PDF
+- عرض تقديمي إلى PDF
+- شريحة إلى PDF
+- PPT إلى PDF
+- PPTX إلى PDF
+- حفظ العرض كـ PDF
+- حفظ PPT كـ PDF
+- حفظ PPTX كـ PDF
+- تصدير PPT إلى PDF
+- تصدير PPTX إلى PDF
+- ملاحظات المتحدث
+- PDF مع ملاحظات
+- C++
+- Aspose.Slides
+description: "تحويل صيغ PPT و PPTX إلى PDF مع الملاحظات باستخدام Aspose.Slides لـ C++. الحفاظ على التخطيطات وملاحظات المتحدث لعروض تقديمية احترافية."
 ---
+## **نظرة عامة**
 
-يمكن استخدام طريقة [Save](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#afcd59ec697bf05c10f78c3869de2ec9e) التي تفصح عنها فئة Presentation لتحويل عرض PowerPoint PPT أو PPTX إلى PDF مع الملاحظات. إن حفظ عرض PowerPoint من Microsoft إلى ملاحظات PDF باستخدام Aspose.Slides لـ C++ هو عملية تتكون من سطرين. ما عليك سوى فتح العرض وحفظه كملاحظات PDF. تُحدِّث مقتطفات الشيفرة أدناه العرض النموذجي إلى PDF في عرض شريحة الملاحظات:
+في هذه المقالة، ستتعلم كيفية تحويل عروض PowerPoint إلى تنسيق PDF مع ملاحظات المتحدث باستخدام Aspose.Slides. سيغطي هذا الدليل الخطوات اللازمة ويقدم أمثلة على الشيفرة لمساعدتك في إنجاز هذه المهمة بكفاءة. في نهاية هذه المقالة، ستكون قادرًا على:
 
-``` cpp
-// المسار إلى دليل الوثائق.
-String dataDir = GetDataPath();
+- تنفيذ عملية التحويل لتحويل شرائح PowerPoint إلى مستندات PDF مع الحفاظ على ملاحظات المتحدث.
+- تخصيص ملف PDF الناتج لضمان تضمين ملاحظات المتحدث وتنسيقها وفقًا لمتطلباتك.
 
-// إنشاء كائن Presentation يمثل ملف العرض 
-auto presentation = System::MakeObject<Presentation>(dataDir + u"SelectedSlides.pptx");
-auto auxPresentation = System::MakeObject<Presentation>();
+لتعيين أبعاد صفحة الملاحظات والاتجاه قبل التصدير، راجع [حجم صفحة الملاحظات](/slides/ar/cpp/notes-size/).
 
-auto slide = presentation->get_Slides()->idx_get(0);
+## **تحويل PowerPoint إلى PDF مع الملاحظات**
 
-auxPresentation->get_Slides()->InsertClone(0, slide);
+يمكن استخدام طريقة `Save` في الفئة [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/) لتحويل عرض PPT أو PPTX إلى PDF مع ملاحظات المتحدث. باستخدام Aspose.Slides، تقوم ببساطة بتحميل العرض، وتكوين خيارات التخطيط باستخدام الفئة [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides.export/notescommentslayoutingoptions/) لتضمين ملاحظات المتحدث، ثم حفظ الملف كـ PDF. يوضح مقطع الشيفرة التالي كيفية تحويل عرض نمطي إلى PDF في وضع ملاحظات الشريحة.
 
-// إعداد نوع وحجم الشريحة 
-//auxPresentation->get_SlideSize()->SetSize(presentation->get_SlideSize()->get_Size().get_Width(), presentation->get_SlideSize()->get_Size().get_Height(), SlideSizeScaleType::EnsureFit);
-auxPresentation->get_SlideSize()->SetSize(612.F, 792.F, SlideSizeScaleType::EnsureFit);
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-auto pdfOptions = System::MakeObject<PdfOptions>();
-pdfOptions->get_NotesCommentsLayouting()->set_NotesPosition(NotesPositions::BottomFull);
+auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-auxPresentation->Save(dataDir + u"PDFnotes_out.pdf", SaveFormat::Pdf, pdfOptions);
+// تكوين خيارات PDF لعرض ملاحظات المتحدث.
+auto notesOptions = MakeObject<NotesCommentsLayoutingOptions>();
+notesOptions->set_NotesPosition(NotesPositions::BottomFull); // عرض ملاحظات المتحدث أسفل الشريحة.
+    
+auto pdfOptions = MakeObject<PdfOptions>();
+pdfOptions->set_SlidesLayoutOptions(notesOptions);
+
+// حفظ العرض تقديمي كـ PDF مع ملاحظات المتحدث.
+presentation->Save(u"output.pdf", SaveFormat::Pdf, pdfOptions);
 ```
 
-
-
-{{% alert color="primary" %}} 
-
-قد ترغب في الاطلاع على محول Aspose [PowerPoint إلى PDF](https://products.aspose.app/slides/conversion/powerpoint-to-pdf) أو [PPT إلى PDF](https://products.aspose.app/slides/conversion/ppt-to-pdf). 
-
-{{% /alert %}} 
+{{% alert color="info" %}} 
+قد ترغب في تجربة أداة Aspose [محول PowerPoint إلى PDF عبر الإنترنت](https://products.aspose.app/slides/ar/conversion).
+{{% /alert %}}

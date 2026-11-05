@@ -24,20 +24,24 @@ keywords:
 - PDF com notas
 - Java
 - Aspose.Slides
-description: "Converter formatos PPT e PPTX para PDF com notas usando Aspose.Slides para Java. Preservar layouts e anotações do apresentador para apresentações profissionais."
+description: Converter formatos PPT e PPTX para PDF com notas usando Aspose.Slides para Java. Preservar layouts e anotações do apresentador para apresentações profissionais.
 ---
 ## **Visão geral**
 
-Neste artigo, você aprenderá como converter apresentações do PowerPoint para o formato PDF com anotações do apresentador usando Aspose.Slides. Este guia cobrirá as etapas necessárias e fornecerá exemplos de código para ajudá‑lo a concluir essa tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
+Neste artigo, você aprenderá como converter apresentações do PowerPoint para o formato PDF com anotações do apresentador usando Aspose.Slides. Este guia abordará as etapas necessárias e fornecerá exemplos de código para ajudá‑lo a concluir essa tarefa de forma eficiente. Ao final deste artigo, você será capaz de:
 
-- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF preservando as anotações do apresentador.
+- Implementar o processo de conversão para transformar slides do PowerPoint em documentos PDF enquanto preserva as anotações do apresentador.
 - Personalizar o PDF de saída para garantir que as anotações do apresentador sejam incluídas e formatadas de acordo com seus requisitos.
 
-## **Converter PowerPoint para PDF com notas**
+Para definir as dimensões e a orientação da página de notas antes da exportação, veja [Tamanho da Página de Notas](/slides/pt/java/notes-size/).
 
-O método `save` na classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX para PDF com anotações do apresentador. Com Aspose.Slides, basta carregar a apresentação, configurar as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/notescommentslayoutingoptions/) para incluir as anotações do apresentador e, em seguida, salvar o arquivo como PDF. O trecho de código a seguir demonstra como converter uma apresentação de exemplo para PDF na visualização de Slides de Notas.
+## **Converter PowerPoint para PDF com Notas**
+
+O método `save` na classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/) pode ser usado para converter uma apresentação PPT ou PPTX em PDF com anotações do apresentador. Com Aspose.Slides, você simplesmente carrega a apresentação, configura as opções de layout usando a classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/notescommentslayoutingoptions/) para incluir as anotações do apresentador e então salva o arquivo como PDF. O snippet de código a seguir demonstra como converter uma apresentação de exemplo para PDF no modo de slide de notas.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 
 // Configurar opções de PDF para renderizar notas do apresentador.
@@ -52,6 +56,6 @@ presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-Você pode querer conferir o Conversor Online de PowerPoint para PDF da Aspose. 
+{{% alert color="info" title="Note" %}}
+Talvez você queira conferir o Aspose [Conversor Online de PowerPoint para PDF](https://products.aspose.app/slides/pt/conversion).
 {{% /alert %}}

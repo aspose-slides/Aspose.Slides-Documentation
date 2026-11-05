@@ -1,15 +1,15 @@
 ---
-title: Gestisci le note della presentazione in Python tramite Java
+title: Gestire le note della presentazione in Python tramite Java
 linktitle: Note della presentazione
 type: docs
 weight: 110
 url: /it/python-java/presentation-notes/
 keywords:
 - note
-- diapositiva delle note
-- aggiungi note
-- rimuovi note
-- stile delle note
+- diapositiva note
+- aggiungere note
+- rimuovere note
+- stile note
 - note master
 - PowerPoint
 - OpenDocument
@@ -17,18 +17,20 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Personalizza le note della presentazione con Aspose.Slides per Python tramite Java. Lavora senza soluzione di continuità con le note di PowerPoint e OpenDocument per aumentare la tua produttività."
+description: "Personalizza le note della presentazione con Aspose.Slides per Python tramite Java. Lavora senza problemi con le note di PowerPoint e OpenDocument per aumentare la tua produttività."
 ---
 ## **Panoramica**
 
-Aspose.Slides supporta la rimozione delle diapositive delle note da una presentazione. Questo argomento introduce questa funzionalità, includendo come rimuovere le note e come applicare uno stile alle diapositive delle note in una presentazione. Aspose.Slides consente di rimuovere le note da qualsiasi diapositiva e di applicare uno stile alle note esistenti. Gli sviluppatori possono rimuovere le note nei seguenti modi:
+Aspose.Slides supporta la rimozione delle diapositive delle note da una presentazione. Questo argomento presenta questa funzionalità, inclusa come rimuovere le note e come applicare uno stile alle diapositive delle note in una presentazione. Aspose.Slides consente di rimuovere le note da qualsiasi diapositiva e di applicare lo stile alle note esistenti. Gli sviluppatori possono rimuovere le note nei seguenti modi:
 
 - Rimuovere le note da una diapositiva specifica in una presentazione.
 - Rimuovere le note da tutte le diapositive in una presentazione.
 
+Per leggere o modificare le dimensioni della pagina delle note, cambiare l'orientamento e verificare il comportamento di esportazione, vedere [Dimensioni pagina note](/slides/it/python-java/notes-size/).
+
 ## **Rimuovere le note da una diapositiva**
 
-Le note di una diapositiva specifica possono essere rimosse come mostrato nell'esempio seguente:
+Le note da una diapositiva specifica possono essere rimosse come mostrato nell'esempio seguente:
 
 ```python
 import jpype
@@ -39,10 +41,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Istanzia un oggetto Presentation che rappresenta un file di presentazione.
+# Instanzia un oggetto Presentation che rappresenta un file di presentazione.
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # Rimuove le note dalla prima diapositiva.
+    # Rimuovi le note dalla prima diapositiva.
     notes_manager = presentation.getSlides().get_Item(0).getNotesSlideManager()
     notes_manager.removeNotesSlide()
 
@@ -54,7 +56,7 @@ finally:
 
 ## **Rimuovere le note da una presentazione**
 
-Le note di tutte le diapositive in una presentazione possono essere rimosse come mostrato nell'esempio seguente:
+Le note da tutte le diapositive in una presentazione possono essere rimosse come mostrato nell'esempio seguente:
 
 ```python
 import jpype
@@ -65,10 +67,10 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import Presentation, SaveFormat
 
-# Istanzia un oggetto Presentation che rappresenta un file di presentazione.
+# Instanzia un oggetto Presentation che rappresenta un file di presentazione.
 presentation = Presentation("presWithNotes.pptx")
 try:
-    # Rimuove le note da tutte le diapositive.
+    # Rimuovi le note da tutte le diapositive.
     for i in range(presentation.getSlides().size()):
         notes_manager = presentation.getSlides().get_Item(i).getNotesSlideManager()
         notes_manager.removeNotesSlide()
@@ -114,8 +116,8 @@ finally:
 
 **Quale entità API fornisce l'accesso alle note di una diapositiva specifica?**
 
-Le note sono accessibili tramite il gestore delle note della diapositiva: la diapositiva dispone di un [NotesSlideManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/notesslidemanager/) e di un metodo [getNotesSlide](https://reference.aspose.com/slides/it/python-java/aspose.slides/notesslidemanager/#getNotesSlide) che restituisce l'oggetto note, o `None` se non ci sono note.
+Le note sono accessibili tramite il gestore delle note della diapositiva: la diapositiva dispone di un [NotesSlideManager](https://reference.aspose.com/slides/it/python-java/aspose.slides/notesslidemanager/) e di un metodo [getNotesSlide](https://reference.aspose.com/slides/it/python-java/aspose.slides/notesslidemanager/#getNotesSlide) che restituisce l'oggetto delle note, oppure `None` se non vi sono note.
 
 **Ci sono differenze nel supporto delle note tra le versioni di PowerPoint con cui la libreria funziona?**
 
-La libreria supporta un'ampia gamma di formati Microsoft PowerPoint (da 97 in poi) e ODP; le note sono supportate in questi formati senza dipendere da una copia installata di PowerPoint.
+La libreria supporta un'ampia gamma di formati Microsoft PowerPoint (97 e versioni successive) e ODP; le note sono supportate all'interno di questi formati senza dipendere da una copia installata di PowerPoint.

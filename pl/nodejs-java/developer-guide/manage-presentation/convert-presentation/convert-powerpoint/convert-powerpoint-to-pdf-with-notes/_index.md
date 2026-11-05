@@ -1,6 +1,6 @@
 ---
-title: Konwertuj prezentacje PowerPoint do PDF z notatkami w JavaScript
-linktitle: PowerPoint do PDF z notatkami
+title: Konwertuj prezentacje PowerPoint na PDF z notatkami w JavaScript
+linktitle: PowerPoint na PDF z notatkami
 type: docs
 weight: 50
 url: /pl/nodejs-java/convert-powerpoint-to-pdf-with-notes/
@@ -10,11 +10,11 @@ keywords:
 - konwertuj slajd
 - konwertuj PPT
 - konwertuj PPTX
-- PowerPoint do PDF
-- prezentacja do PDF
-- slajd do PDF
-- PPT do PDF
-- PPTX do PDF
+- PowerPoint na PDF
+- prezentacja na PDF
+- slajd na PDF
+- PPT na PDF
+- PPTX na PDF
 - zapisz prezentację jako PDF
 - zapisz PPT jako PDF
 - zapisz PPTX jako PDF
@@ -25,23 +25,27 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konwertuj formaty PPT i PPTX do PDF z notatkami w JavaScript przy użyciu Aspose.Slides dla Node.js. Zachowaj układy i notatki prelegenta dla profesjonalnych prezentacji."
+description: "Konwertuj formaty PPT i PPTX na PDF z notatkami w JavaScript przy użyciu Aspose.Slides dla Node.js. Zachowaj układy i notatki prelegenta w profesjonalnych prezentacjach."
 ---
 ## **Przegląd**
 
-W tym artykule dowiesz się, jak przekonwertować prezentacje PowerPoint do formatu PDF z notatkami prelegenta przy użyciu Aspose.Slides. Poradnik obejmuje niezbędne kroki i zawiera przykłady kodu, które pomogą Ci efektywnie wykonać to zadanie. Po przeczytaniu tego artykułu będziesz w stanie:
+W tym artykule dowiesz się, jak przekonwertować prezentacje PowerPoint na format PDF z notatkami prelegenta przy użyciu Aspose.Slides. Poradnik obejmuje niezbędne kroki i zawiera przykłady kodu, które pomogą Ci efektywnie wykonać to zadanie. Po przeczytaniu tego artykułu będziesz w stanie:
 
-- Zaimplementować proces konwersji, aby przekształcić slajdy PowerPoint w dokumenty PDF, zachowując notatki prelegenta.
-- Dostosować wyjściowy PDF, aby notatki prelegenta były uwzględnione i sformatowane zgodnie z Twoimi wymaganiami.
+- Zaimplementować proces konwersji, aby przekształcić slajdy PowerPoint w dokumenty PDF, zachowując notatki prelegenta.  
+- Dostosować wyjściowy PDF, aby notatki prelegenta zostały uwzględnione i sformatowane zgodnie z wymaganiami.
 
-## **Konwertuj PowerPoint do PDF z notatkami**
+Aby ustawić wymiary i orientację strony notatek przed eksportem, zobacz [Rozmiar strony notatek](/slides/pl/nodejs-java/notes-size/).
 
-Metodę `save` w klasie [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) można użyć do konwersji prezentacji PPT lub PPTX do PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu ładujesz prezentację, konfigurujesz opcje układu za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu demonstruje, jak przekonwertować przykładową prezentację do PDF w widoku Notatki slajdu.
+## **Konwersja PowerPoint do PDF z notatkami**
+
+Metoda `save` w klasie [Prezentacja](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) może być użyta do konwersji prezentacji PPT lub PPTX na PDF z notatkami prelegenta. Korzystając z Aspose.Slides, po prostu wczytujesz prezentację, konfigurowałeś opcje układu przy użyciu klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) aby uwzględnić notatki prelegenta, a następnie zapisujesz plik jako PDF. Poniższy fragment kodu pokazuje, jak przekonwertować przykładową prezentację na PDF w widoku Notatki Slajdu.
 
 ```js
+const asposeSlides = require("aspose.slides.via.java");
+
 let presentation = new asposeSlides.Presentation("sample.pptx");
 
-// Skonfiguruj opcje PDF dla renderowania notatek prelegenta.
+// Skonfiguruj opcje PDF do renderowania notatek prelegenta.
 let notesOptions = new asposeSlides.NotesCommentsLayoutingOptions();
 notesOptions.setNotesPosition(asposeSlides.NotesPositions.BottomFull); // Renderuj notatki prelegenta pod slajdem.
 
@@ -53,8 +57,6 @@ presentation.save("output.pdf", asposeSlides.SaveFormat.Pdf, pdfOptions);
 presentation.dispose();
 ```
 
-{{% alert color="primary" %}} 
-
-Możesz chcieć sprawdzić Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/pl/conversion). 
-
+{{% alert color="info" title="Uwaga" %}}
+Możesz chcieć wypróbować konwerter Aspose [Internetowy konwerter PowerPoint do PDF](https://products.aspose.app/slides/pl/conversion).
 {{% /alert %}}

@@ -1,6 +1,6 @@
 ---
-title: Конвертировать презентации PowerPoint в PDF с заметками в Python
-linktitle: PowerPoint в PDF с заметками
+title: Конвертировать презентации PowerPoint в PDF с примечаниями на Python
+linktitle: PowerPoint в PDF с примечаниями
 type: docs
 weight: 50
 url: /ru/python-java/convert-powerpoint-to-pdf-with-notes/
@@ -10,28 +10,30 @@ keywords:
 - конвертировать PPT
 - конвертировать PPTX
 - PowerPoint в PDF
-- презентацию в PDF
+- презентация в PDF
 - PPT в PDF
 - PPTX в PDF
 - сохранить презентацию как PDF
 - экспортировать PPT в PDF
 - экспортировать PPTX в PDF
-- заметки ведущего
-- PDF с заметками
+- примечания выступающего
+- PDF с примечаниями
 - Python
 - Java
 - Aspose.Slides
-description: "Конвертировать презентации PPT и PPTX в PDF с заметками ведущего, используя Aspose.Slides для Python через Java. Настройте размещение заметок и сохраните длинные заметки."
+description: "Конвертировать презентации PPT и PPTX в PDF с примечаниями выступающего, используя Aspose.Slides для Python через Java. Настройте размещение примечаний и сохраните длиные примечания."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как конвертировать презентации PowerPoint в PDF с заметками ведущего, используя Aspose.Slides для Python через Java. Вы можете включать заметки под каждым слайдом и позволять длинным заметкам продолжаться на дополнительных страницах. Для других параметров экспорта PDF см. [Конвертировать PowerPoint в PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/).
+В этой статье объясняется, как преобразовать презентации PowerPoint в PDF с примечаниями выступающего, используя Aspose.Slides для Python через Java. Вы можете добавить примечания под каждым слайдом и позволить длинным примечаниям продолжаться на дополнительные страницы. Для других настроек экспорта PDF см. [Конвертировать PowerPoint в PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/).
 
-## **Конвертировать PowerPoint в PDF с заметками**
+Чтобы задать размеры и ориентацию страницы примечаний перед экспортом, см. [Размер страницы примечаний](/slides/ru/python-java/notes-size/).
 
-Используйте метод [save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) для экспорта презентации PPT или PPTX в PDF. Чтобы включить заметки ведущего, создайте объект [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/) и настройте размещение заметок с помощью его метода [setNotesPosition](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Присвойте этот макет [PdfOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfoptions/) с помощью [setSlidesLayoutOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Конвертировать PowerPoint в PDF с примечаниями**
 
-Следующий пример загружает `sample.pptx` и экспортирует его в `output.pdf` с заметками ведущего под слайдами:
+Используйте метод [save](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/#save) класса [Presentation](https://reference.aspose.com/slides/ru/python-java/aspose.slides/presentation/) для экспорта презентации PPT или PPTX в PDF. Чтобы включить примечания выступающего, создайте объект [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/) и настройте размещение примечаний с помощью его метода [setNotesPosition](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Назначьте этот макет [PdfOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfoptions/) с помощью [setSlidesLayoutOptions](https://reference.aspose.com/slides/ru/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Следующий пример загружает `sample.pptx` и экспортирует его в `output.pdf` с примечаниями выступающего под слайдами:
 
 ```python
 import jpype
@@ -44,33 +46,33 @@ from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfO
 
 presentation = Presentation("sample.pptx")
 try:
-    # Настройте параметры PDF для отображения заметок докладчика.
+    # Настройте параметры PDF для отображения примечаний выступающего.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
 
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # Сохраните презентацию в PDF с заметками докладчика.
+    # Сохраните презентацию в PDF с примечаниями выступающего.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="info" title="Note" %}}
-Вы также можете попробовать [Онлайн-конвертер PowerPoint в PDF](https://products.aspose.app/slides/ru/conversion).
+Вы также можете попробовать [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ru/conversion).
 {{% /alert %}}
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**Как предотвратить обрезку длинных заметок ведущего?**
+**Как предотвратить обрезку длинных примечаний выступающего?**
 
-Используйте [NotesPositions.BottomFull](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notespositions/#BottomFull), как в примере выше. Эта настройка отображает полные заметки, используя дополнительные страницы при необходимости.
+Используйте [NotesPositions.BottomFull](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notespositions/#BottomFull), как в примере выше. Эта настройка отображает полные примечания, при необходимости используя дополнительные страницы.
 
-**Могу ли я разместить каждый слайд и его заметки на одной странице?**
+**Могу ли я разместить каждый слайд и его примечания на одной странице?**
 
-Используйте [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notespositions/#BottomTruncated). Эта настройка ограничивает заметки одной страницей, поэтому заметки, которые не помещаются, могут быть усечены.
+Используйте [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/ru/python-java/aspose.slides/notespositions/#BottomTruncated). Эта настройка ограничивает примечания одной страницей, поэтому неприложенные части могут быть обрезаны.
 
-**Как экспортировать слайды без заметок ведущего?**
+**Как экспортировать слайды без примечаний выступающего?**
 
-Опустите настройку макета заметок и используйте стандартный экспорт PDF, описанный в [Конвертировать PowerPoint в PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/).
+Не указывайте конфигурацию макета примечаний и используйте стандартный экспорт PDF, описанный в [Конвертировать PowerPoint в PDF](/slides/ru/python-java/convert-powerpoint-to-pdf/).

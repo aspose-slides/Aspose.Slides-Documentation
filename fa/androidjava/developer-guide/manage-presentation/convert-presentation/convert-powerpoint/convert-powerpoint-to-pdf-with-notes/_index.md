@@ -1,6 +1,6 @@
 ---
-title: تبدیل ارائه‌های PowerPoint به PDF با یادداشت‌ها در اندروید
-linktitle: PowerPoint به PDF با یادداشت‌ها
+title: تبدیل ارائه‌های PowerPoint به PDF همراه با یادداشت‌ها در Android
+linktitle: PowerPoint به PDF همراه با یادداشت‌ها
 type: docs
 weight: 50
 url: /fa/androidjava/convert-powerpoint-to-pdf-with-notes/
@@ -21,40 +21,44 @@ keywords:
 - صادرات PPT به PDF
 - صادرات PPTX به PDF
 - یادداشت‌های سخنران
-- PDF با یادداشت‌ها
-- اندروید
-- جاوا
+- PDF همراه با یادداشت‌ها
+- Android
+- Java
 - Aspose.Slides
-description: "قالب‌های PPT و PPTX را با استفاده از Aspose.Slides برای اندروید از طریق جاوا به PDF با یادداشت‌ها تبدیل کنید. چیدمان‌ها و یادداشت‌های سخنران را برای ارائه‌های حرفه‌ای حفظ کنید."
+description: "فرمت‌های PPT و PPTX را با استفاده از Aspose.Slides برای Android از طریق Java به PDF همراه با یادداشت تبدیل کنید. طرح‌ها و یادداشت‌های سخنران را برای ارائه‌های حرفه‌ای حفظ کنید."
 ---
 ## **بررسی کلی**
 
-در این مقاله، خواهید آموخت که چگونه ارائه‌های PowerPoint را با یادداشت‌های سخنران به فرمت PDF تبدیل کنید با استفاده از Aspose.Slides. این راهنما گام‌های لازم را پوشش می‌دهد و مثال‌های کد را ارائه می‌دهد تا بتوانید این کار را به‌صورت کارآمد انجام دهید. در پایان این مقاله، قادر خواهید بود:
+در این مقاله، با نحوه تبدیل ارائه‌های PowerPoint به فرمت PDF همراه با یادداشت‌های سخنران با استفاده از Aspose.Slides آشنا می‌شوید. این راهنما مراحل لازم را پوشش می‌دهد و مثال‌های کد ارائه می‌کند تا بتوانید این کار را به‌صورت کارآمد انجام دهید. در پایان این مقاله قادر خواهید بود:
 
-- فرآیند تبدیل را پیاده‌سازی کنید تا اسلایدهای PowerPoint را به اسناد PDF تبدیل کرده و یادداشت‌های سخنران را حفظ کنید.
-- خروجی PDF را سفارشی کنید تا اطمینان حاصل شود که یادداشت‌های سخنران گنجانده شده و مطابق نیازهای شما قالب‌بندی شوند.
+- پیاده‌سازی فرآیند تبدیل اسلایدهای PowerPoint به اسناد PDF در حالی که یادداشت‌های سخنران حفظ می‌شوند.
+- سفارشی‌سازی PDF خروجی به‌گونه‌ای که یادداشت‌های سخنران گنجانده شده و مطابق نیازهای شما قالب‌بندی شوند.
+
+برای تعیین ابعاد و جهت‌گیری صفحه یادداشت‌ها پیش از صادرات، به [Notes Page Size](/slides/fa/androidjava/notes-size/) مراجعه کنید.
 
 ## **تبدیل PowerPoint به PDF با یادداشت‌ها**
 
-متد `save` در کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) می‌تواند برای تبدیل یک ارائه PPT یا PPTX به PDF همراه با یادداشت‌های سخنران استفاده شود. با Aspose.Slides، کافی است ارائه را بارگذاری کنید، گزینه‌های چیدمان را با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) تنظیم کنید تا یادداشت‌های سخنران گنجانده شوند، و سپس فایل را به صورت PDF ذخیره کنید. بخش کد زیر نشان می‌دهد که چگونه یک ارائه نمونه را در نمای اسلایدهای یادداشت به PDF تبدیل کنید.
+متد `save` در کلاس [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) می‌تواند برای تبدیل ارائهٔ PPT یا PPTX به PDF همراه با یادداشت‌های سخنران استفاده شود. با Aspose.Slides، به سادگی ارائه را بارگذاری می‌کنید، گزینه‌های چینش را با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/notescommentslayoutingoptions/) پیکربندی می‌کنید تا یادداشت‌های سخنران گنجانده شوند و سپس فایل را به‌عنوان PDF ذخیره می‌کنید. قطعهٔ کد زیر نحوهٔ تبدیل یک ارائهٔ نمونه به PDF در نمای اسلاید یادداشت‌ها را نشان می‌دهد.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-	// تنظیم گزینه‌های PDF برای رندر کردن یادداشت‌های سخنران.
+	// پیکربندی گزینه‌های PDF برای رندر کردن یادداشت‌های سخنران.
 	NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
 	notesOptions.setNotesPosition(NotesPositions.BottomFull); // رندر کردن یادداشت‌های سخنران زیر اسلاید.
 
 	PdfOptions pdfOptions = new PdfOptions();
 	pdfOptions.setSlidesLayoutOptions(notesOptions);
 
-	// ذخیرهٔ ارائه به PDF با یادداشت‌های سخنران.
+	// ذخیرهٔ ارائه به PDF همراه با یادداشت‌های سخنران.
 	presentation.save("output.pdf", SaveFormat.Pdf, pdfOptions);
 } finally {
 	if (presentation != null) presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}} 
-ممکن است بخواهید مبدل آنلاین PowerPoint به PDF Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fa/conversion) را بررسی کنید. 
+{{% alert color="info" title="Note" %}}
+ممکن است بخواهید به تبدیل‌کنندهٔ آنلاین Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/fa/conversion) نگاهی بیندازید.
 {{% /alert %}}

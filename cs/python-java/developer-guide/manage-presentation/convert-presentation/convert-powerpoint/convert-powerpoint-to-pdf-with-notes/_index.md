@@ -16,22 +16,24 @@ keywords:
 - uložit prezentaci jako PDF
 - exportovat PPT do PDF
 - exportovat PPTX do PDF
-- poznámky přednášejícího
+- poznámky řečníka
 - PDF s poznámkami
 - Python
 - Java
 - Aspose.Slides
-description: "Převod prezentací PPT a PPTX do PDF s poznámkami přednášejícího pomocí Aspose.Slides pro Python přes Java. Nastavte umístění poznámek a zachovejte dlouhé poznámky."
+description: "Převést prezentace PPT a PPTX do PDF s poznámkami řečníka pomocí Aspose.Slides pro Python přes Java. Nakonfigurujte umístění poznámek a zachovejte dlouhé poznámky."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak převést prezentace PowerPoint do PDF s poznámkami přednášejícího pomocí Aspose.Slides pro Python přes Java. Můžete zahrnout poznámky pod každým snímkem a umožnit dlouhým poznámkám pokračovat na dalších stránkách. Pro další nastavení exportu PDF viz [Convert PowerPoint to PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/).
+Tento článek vysvětluje, jak převést prezentace PowerPoint do PDF s poznámkami řečníka pomocí Aspose.Slides pro Python přes Java. Můžete zahrnout poznámky pod každým snímkem a umožnit dlouhým poznámkám pokračovat na dalších stránkách. Pro další nastavení exportu PDF viz [Convert PowerPoint to PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/).
 
-## **Převod PowerPointu do PDF s poznámkami**
+Pro nastavení rozměrů a orientace stránky s poznámkami před exportem viz [Notes Page Size](/slides/cs/python-java/notes-size/).
 
-Použijte metodu [save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) k exportu prezentace PPT nebo PPTX do PDF. Pro zahrnutí poznámek přednášejícího vytvořte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/) a nakonfigurujte umístění poznámek pomocí jeho metody [setNotesPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Tento rozvrh přiřaďte k [PdfOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfoptions/) pomocí [setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+## **Převést PowerPoint do PDF s poznámkami**
 
-Následující příklad načte `sample.pptx` a exportuje jej do `output.pdf` s poznámkami přednášejícího pod snímky:
+Použijte metodu [save](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/#save) třídy [Presentation](https://reference.aspose.com/slides/cs/python-java/aspose.slides/presentation/) k exportu prezentace PPT nebo PPTX do PDF. Pro zahrnutí poznámek řečníka vytvořte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/) a nakonfigurujte umístění poznámky pomocí jeho metody [setNotesPosition](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Tento rozvrh přiřaďte ke [PdfOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfoptions/) pomocí [setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions).
+
+Následující příklad načte `sample.pptx` a exportuje jej do `output.pdf` s poznámkami řečníka pod snímky:
 
 ```python
 import jpype
@@ -44,14 +46,14 @@ from asposeslides.api import NotesCommentsLayoutingOptions, NotesPositions, PdfO
 
 presentation = Presentation("sample.pptx")
 try:
-    # Nastavte možnosti PDF pro vykreslení poznámek přednášejícího.
+    # Nakonfigurujte možnosti PDF pro vykreslení poznámek řečníka.
     notes_options = NotesCommentsLayoutingOptions()
     notes_options.setNotesPosition(NotesPositions.BottomFull)
 
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(notes_options)
 
-    # Uložte prezentaci do PDF s poznámkami přednášejícího.
+    # Uložte prezentaci do PDF s poznámkami řečníka.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
@@ -61,13 +63,16 @@ finally:
 Můžete také vyzkoušet [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/cs/conversion).
 {{% /alert %}}
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jak mohu zabránit oříznutí dlouhých poznámek přednášejícího?**  
-Použijte [NotesPositions.BottomFull](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notespositions/#BottomFull), jak je uvedeno v příkladu výše. Toto nastavení zobrazí celé poznámky a při potřebe použije další stránky.
+**Jak mohu zabránit oříznutí dlouhých poznámek řečníka?**
 
-**Mohu mít každý snímek a jeho poznámky na jedné stránce?**  
+Použijte [NotesPositions.BottomFull](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notespositions/#BottomFull), jak je uvedeno v příkladu výše. Toto nastavení zobrazuje celé poznámky a v případě potřeby použije další stránky.
+
+**Mohu mít každý snímek a jeho poznámky na jedné stránce?**
+
 Použijte [NotesPositions.BottomTruncated](https://reference.aspose.com/slides/cs/python-java/aspose.slides/notespositions/#BottomTruncated). Toto nastavení omezuje poznámky na jednu stránku, takže poznámky, které se nevejdou, mohou být oříznuty.
 
-**Jak exportovat snímky bez poznámek přednášejícího?**  
-Vynechte konfiguraci rozvržení poznámek a použijte standardní export do PDF popsaný v [Convert PowerPoint to PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/).
+**Jak exportovat snímky bez poznámek řečníka?**
+
+Vynechte konfiguraci rozvrhu poznámek a použijte standardní export PDF popsaný v [Convert PowerPoint to PDF](/slides/cs/python-java/convert-powerpoint-to-pdf/).

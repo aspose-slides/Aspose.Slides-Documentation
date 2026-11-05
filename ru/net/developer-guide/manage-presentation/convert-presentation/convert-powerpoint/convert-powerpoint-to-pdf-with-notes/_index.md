@@ -1,15 +1,15 @@
 ---
-title: Преобразование презентаций PowerPoint в PDF с примечаниями в .NET
-linktitle: PowerPoint в PDF с примечаниями
+title: Конвертировать презентации PowerPoint в PDF с заметками в .NET
+linktitle: PowerPoint в PDF с заметками
 type: docs
 weight: 50
 url: /ru/net/convert-powerpoint-to-pdf-with-notes/
 keywords:
 - конвертировать PowerPoint
-- преобразовать презентацию
-- преобразовать слайд
-- преобразовать PPT
-- преобразовать PPTX
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
+- конвертировать PPTX
 - PowerPoint в PDF
 - презентацию в PDF
 - слайд в PDF
@@ -20,42 +20,46 @@ keywords:
 - сохранить PPTX как PDF
 - экспортировать PPT в PDF
 - экспортировать PPTX в PDF
-- примечания докладчика
-- PDF с примечаниями
+- заметки выступающего
+- PDF с заметками
 - .NET
 - C#
 - Aspose.Slides
-description: "Преобразуйте форматы PPT и PPTX в PDF с примечаниями с помощью Aspose.Slides для .NET. Сохраните макеты и примечания докладчика для профессиональных презентаций."
+description: Конвертировать форматы PPT и PPTX в PDF с заметками с помощью Aspose.Slides для .NET. Сохраняйте макеты и заметки выступающего для профессиональных презентаций.
 ---
-
 ## **Обзор**
 
-В этой статье вы узнаете, как конвертировать презентации PowerPoint в формат PDF с примечаниями докладчика, используя Aspose.Slides. Это руководство охватит необходимые шаги и предоставит примеры кода, чтобы помочь вам эффективно выполнить эту задачу. К концу статьи вы сможете:
+В этой статье вы узнаете, как преобразовать презентации PowerPoint в формат PDF с нотами выступающего с помощью Aspose.Slides. В этом руководстве рассматриваются необходимые шаги и приводятся примеры кода, которые помогут эффективно выполнить эту задачу. По окончании статьи вы сможете:
 
-- Реализовать процесс конвертации, преобразовать слайды PowerPoint в PDF‑документы, сохраняя примечания докладчика.  
-- Настроить выходной PDF, чтобы примечания докладчика были включены и отформатированы в соответствии с вашими требованиями.
+- Реализовать процесс конвертации, преобразующий слайды PowerPoint в PDF‑документы, сохраняя при этом заметки выступающего.
+- Настроить выходной PDF так, чтобы заметки выступающего были включены и отформатированы согласно вашим требованиям.
 
-## **Конвертировать PowerPoint в PDF с примечаниями**
+Чтобы задать размеры и ориентацию страницы заметок перед экспортом, см. [Размер страницы заметок](/slides/ru/net/notes-size/).
 
-Метод `Save` в классе [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) можно использовать для преобразования презентации PPT или PPTX в PDF с примечаниями докладчика. С Aspose.Slides вы просто загружаете презентацию, настраиваете параметры макета, используя класс [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/net/aspose.slides.export/notescommentslayoutingoptions/) для включения примечаний докладчика, а затем сохраняете файл в формате PDF. Следующий фрагмент кода демонстрирует, как конвертировать пример презентации в PDF в режиме слайдов с примечаниями.
+## **Преобразование PowerPoint в PDF с заметками**
+
+Метод `Save` класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) можно использовать для преобразования презентации PPT или PPTX в PDF с заметками выступающего. С Aspose.Slides вы просто загружаете презентацию, настраиваете параметры макета с помощью класса [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notescommentslayoutingoptions/) для включения заметок выступающего, а затем сохраняете файл в формате PDF. Ниже приведён фрагмент кода, демонстрирующий, как преобразовать пример презентации в PDF в представлении слайдов заметок.
+
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Настройте параметры PDF для отображения примечаний докладчика.
+    // Настройте параметры PDF для отображения заметок выступающего.
     PdfOptions pdfOptions = new PdfOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomFull // Отобразить примечания докладчика под слайдом.
+            NotesPosition = NotesPositions.BottomFull // Отображать заметки выступающего под слайдом.
         }
     };
 
-    // Сохраните презентацию в PDF с примечаниями докладчика.
+    // Сохраните презентацию в PDF с заметками выступающего.
     presentation.Save("output.pdf", SaveFormat.Pdf, pdfOptions);
 }
 ```
 
-
-{{% alert color="primary" %}} 
-Возможно, вам будет интересно ознакомиться с онлайн‑конвертером Aspose [Онлайн‑конвертер PowerPoint в PDF](https://products.aspose.app/slides/conversion). 
+{{% alert color="info" %}} 
+Возможно, вы захотите ознакомиться с онлайн‑конвертером Aspose [Online PowerPoint to PDF Converter](https://products.aspose.app/slides/ru/conversion). 
 {{% /alert %}}

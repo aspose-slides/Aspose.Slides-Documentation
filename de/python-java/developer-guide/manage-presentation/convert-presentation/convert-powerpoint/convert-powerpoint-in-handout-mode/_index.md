@@ -16,19 +16,21 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "PowerPoint-Präsentationen in Handouts mit Python via Java konvertieren. Mehrere Folien pro Seite anordnen und mit Aspose.Slides als PDF exportieren."
+description: "PowerPoint-Präsentationen in Handouts in Python über Java konvertieren. Mehrere Folien pro Seite anordnen und mit Aspose.Slides als PDF exportieren."
 ---
-## **Einführung**
+## **Einleitung**
 
-Aspose.Slides for Python via Java ermöglicht den Export von Präsentationen im Handout‑Modus, bei dem mehrere Folien auf einer Seite angeordnet werden. Dies ist nützlich, um Präsentationsmaterialien für Konferenzen, Seminare und ähnliche Veranstaltungen zu drucken.
+Aspose.Slides for Python via Java ermöglicht das Exportieren von Präsentationen im Handout‑Modus, wobei mehrere Folien auf einer einzelnen Seite angeordnet werden. Dies ist nützlich, um Präsentationsmaterialien für Konferenzen, Seminare und ähnliche Veranstaltungen zu drucken.
 
-Konfigurieren Sie das Layout über die [setSlidesLayoutOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions)-Methode. Handout‑Layouts werden von [PdfOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/htmloptions/) und [TiffOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/tiffoptions/) unterstützt. Verwenden Sie ein [HandoutLayoutingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/handoutlayoutingoptions/)-Objekt, um die Layout‑ und Anzeigeeinstellungen festzulegen.
+Konfigurieren Sie das Layout über die [setSlidesLayoutOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions)‑Methode. Handout‑Layouts werden von [PdfOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/), [RenderingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/renderingoptions/), [HtmlOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/htmloptions/) und [TiffOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/tiffoptions/) unterstützt. Verwenden Sie ein [HandoutLayoutingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/handoutlayoutingoptions/)‑Objekt, um das Layout und die Anzeigeeinstellungen festzulegen.
+
+Um die Handout‑Seitenabmessungen und -orientierung vor dem Export festzulegen, siehe [Notes Page Size](/slides/de/python-java/notes-size/).
 
 ## **Export im Handout‑Modus**
 
-Um eine Präsentation im Handout‑Modus zu exportieren, erstellen Sie eine [HandoutLayoutingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/handoutlayoutingoptions/)-Instanz und weisen sie den Ziel‑Exportoptionen über [setSlidesLayoutOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) zu.
+Um eine Präsentation im Handout‑Modus zu exportieren, erstellen Sie eine [HandoutLayoutingOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/handoutlayoutingoptions/)‑Instanz und weisen sie den Ziel‑Exportoptionen mit [setSlidesLayoutOptions](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setSlidesLayoutOptions) zu.
 
-Das folgende Beispiel lädt `sample.pptx` und exportiert es als PDF mit vier Folien pro Seite in horizontaler Reihenfolge. Es enthält Foliennummern und Rahmen um die Folien und schließt Kommentare aus.
+Das folgende Beispiel lädt `sample.pptx` und exportiert es nach PDF mit vier Folien pro Seite in horizontaler Reihenfolge. Es enthält Folienzahlen und Rahmen um die Folien und schließt Kommentare aus.
 
 ```python
 import jpype
@@ -39,7 +41,7 @@ if not jpype.isJVMStarted():
 
 from asposeslides.api import HandoutLayoutingOptions, HandoutType, PdfOptions, Presentation, SaveFormat
 
-# Lade eine Präsentation.
+# Präsentation laden.
 presentation = Presentation("sample.pptx")
 try:
     # Handout-Layout konfigurieren.
@@ -52,26 +54,26 @@ try:
     pdf_options = PdfOptions()
     pdf_options.setSlidesLayoutOptions(slides_layout_options)
 
-    # Exportiere die Präsentation mit dem gewählten Layout als PDF.
+    # Präsentation mit dem gewählten Layout als PDF exportieren.
     presentation.save("output.pdf", SaveFormat.Pdf, pdf_options)
 finally:
     presentation.dispose()
 ```
 
 {{% alert color="warning" title="Warning" %}}
-Handout‑Layout‑Einstellungen gelten für unterstützte Ausgabeformate wie PDF, HTML, TIFF und gerenderte Bilder. Sie ändern nicht die Anordnung der Folien in der Quellpräsentation.
+Handout‑Layout‑Einstellungen gelten für unterstützte Ausgabformate wie PDF, HTML, TIFF und gerenderte Bilder. Sie ordnen die Folien in der Quellpräsentation nicht neu.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Was ist die maximale Anzahl von Folien‑Thumbnails pro Seite im Handout‑Modus?**
+**Was ist die maximale Anzahl von Folien‑Miniaturbildern pro Seite im Handout‑Modus?**
 
-Aspose.Slides unterstützt bis zu neun Thumbnails pro Seite. Die [HandoutType](https://reference.aspose.com/slides/de/python-java/aspose.slides/handouttype/)-Voreinstellungen bieten ein, zwei, drei, vier, sechs oder neun Folien pro Seite. Die Voreinstellungen für vier, sechs und neun Folien ermöglichen horizontale und vertikale Anordnung.
+Aspose.Slides unterstützt bis zu neun Miniaturbilder pro Seite. Die [HandoutType](https://reference.aspose.com/slides/de/python-java/aspose.slides/handouttype/)‑Voreinstellungen bieten ein, zwei, drei, vier, sechs oder neun Folien pro Seite. Die Voreinstellungen für vier, sechs und neun Folien ermöglichen horizontale und vertikale Anordnung.
 
 **Kann ich ein benutzerdefiniertes Raster definieren, z. B. fünf oder acht Folien pro Seite?**
 
-Nein. Die Anzahl und Reihenfolge der Thumbnails werden durch die vordefinierten Werte von [HandoutType](https://reference.aspose.com/slides/de/python-java/aspose.slides/handouttype/) gesteuert. Beliebige Raster werden von diesen Handout‑Layout‑Einstellungen nicht unterstützt.
+Nein. Die Anzahl und Reihenfolge der Miniaturbilder werden von den vordefinierten [HandoutType](https://reference.aspose.com/slides/de/python-java/aspose.slides/handouttype/)‑Werten gesteuert. Beliebige Raster werden von diesen Handout‑Layout‑Einstellungen nicht unterstützt.
 
-**Kann ich versteckte Folien in der Handout‑Ausgabe einbeziehen?**
+**Kann ich ausgeblendete Folien in die Handout‑Ausgabe einbeziehen?**
 
-Ja. Aktivieren Sie versteckte Folien in den Exporteinstellungen für das Ziel­format. Für PDF rufen Sie [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) mit `True` auf, bevor Sie die Präsentation speichern.
+Ja. Aktivieren Sie ausgeblendete Folien in den Exporteinstellungen für das Zielformat. Für PDF rufen Sie [PdfOptions.setShowHiddenSlides](https://reference.aspose.com/slides/de/python-java/aspose.slides/pdfoptions/#setShowHiddenSlides) mit `True` auf, bevor Sie die Präsentation speichern.

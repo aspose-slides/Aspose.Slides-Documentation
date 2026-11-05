@@ -17,20 +17,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Προσαρμόστε τις σημειώσεις παρουσίασης σε JavaScript με το Aspose.Slides για Node.js. Εργαστείτε αβίαστα με σημειώσεις PowerPoint και OpenDocument για να αυξήσετε την παραγωγικότητά σας."
+description: "Προσαρμόστε τις σημειώσεις παρουσίασης σε JavaScript με το Aspose.Slides για Node.js. Εργαστείτε αβίαστα με σημειώσεις PowerPoint και OpenDocument για να ενισχύσετε τη παραγωγικότητά σας."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides υποστηρίζει την αφαίρεση διαφανειών σημειώσεων από μια παρουσίαση. Σε αυτό το θέμα, θα παρουσιάσουμε αυτήν τη δυνατότητα, συμπεριλαμβανομένου του πώς να αφαιρέσετε σημειώσεις και πώς να εφαρμόσετε στυλ στις διαφάνειες σημειώσεων σε μια παρουσίαση. Το Aspose.Slides σας επιτρέπει να αφαιρέσετε σημειώσεις από οποιαδήποτε διαφάνεια και επίσης να εφαρμόσετε στυλισμό σε υπάρχουσες σημειώσεις. Οι προγραμματιστές μπορούν να αφαιρέσουν σημειώσεις με τους ακόλουθους τρόπους:
+Το Aspose.Slides υποστηρίζει την αφαίρεση διαφανειών σημειώσεων από μια παρουσίαση. Σε αυτό το θέμα, θα παρουσιάσουμε αυτή τη λειτουργία, συμπεριλαμβανομένου του πώς να αφαιρέσετε τις σημειώσεις και πώς να εφαρμόσετε στυλ σε διαφάνειες σημειώσεων σε μια παρουσίαση. Το Aspose.Slides επιτρέπει την αφαίρεση σημειώσεων από οποιαδήποτε διαφάνεια και επίσης την εφαρμογή στυλ σε υπάρχουσες σημειώσεις. Οι προγραμματιστές μπορούν να αφαιρέσουν σημειώσεις με τους εξής τρόπους:
 
 - Αφαίρεση σημειώσεων από μια συγκεκριμένη διαφάνεια σε μια παρουσίαση.
 - Αφαίρεση σημειώσεων από όλες τις διαφάνειες σε μια παρουσίαση.
 
-## **Αφαίρεση Σημειώσεων από τη Διαφάνεια**
-Οι σημειώσεις μιας συγκεκριμένης διαφάνειας μπορούν να αφαιρεθούν όπως φαίνεται στο παρακάτω παράδειγμα:
+Για να διαβάσετε ή να αλλάξετε τις διαστάσεις της σελίδας σημειώσεων, να αλλάξετε προσανατολισμό και να ελέγξετε τη συμπεριφορά εξαγωγής, δείτε το [Notes Page Size](/slides/el/nodejs-java/notes-size/).
+
+## **Αφαίρεση Σημειώσεων από Διαφάνεια**
+Οι σημειώσεις από μια συγκεκριμένη διαφάνεια μπορούν να αφαιρεθούν όπως φαίνεται στο παρακάτω παράδειγμα:
 
 ```javascript
-// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο παρουσίασης
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
     // Αφαίρεση σημειώσεων της πρώτης διαφάνειας
@@ -45,14 +50,17 @@ try {
 }
 ```
 
-## **Αφαίρεση Σημειώσεων από την Παρουσίαση**
-Οι σημειώσεις όλων των διαφανειών μιας παρουσίασης μπορούν να αφαιρεθούν όπως φαίνεται στο παρακάτω παράδειγμα:
+## **Αφαίρεση Σημειώσεων από Παρουσίαση**
+Οι σημειώσεις από όλες τις διαφάνειες σε μια παρουσίαση μπορούν να αφαιρεθούν όπως φαίνεται στο παρακάτω παράδειγμα:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
 var pres = new aspose.slides.Presentation("presWithNotes.pptx");
 try {
-    // Αφαίρεση σημειώσεων όλων των διαφανειών
+    // Αφαίρεση σημειώσεων από όλες τις διαφάνειες
     var mgr = null;
     for (var i = 0; i < pres.getSlides().size(); i++) {
         mgr = pres.getSlides().get_Item(i).getNotesSlideManager();
@@ -68,19 +76,23 @@ try {
 ```
 
 ## **Προσθήκη NotesStyle**
-[getNotesStyle](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) μέθοδος έχει προστεθεί στην κλάση [MasterNotesSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide) και στην κλάση [MasterNotesSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide) αντίστοιχα. Αυτή η ιδιότητα καθορίζει το στυλ του κειμένου σημειώσεων. Η υλοποίηση επιδεικνύεται στο παρακάτω παράδειγμα.
+Η μέθοδος [getNotesStyle](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide#getNotesStyle--) προστέθηκε στην κλάση [MasterNotesSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide) και στην κλάση [MasterNotesSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/MasterNotesSlide) αντίστοιχα. Αυτή η ιδιότητα καθορίζει το στυλ του κειμένου σημειώσεων. Η υλοποίηση παρουσιάζεται στο παρακάτω παράδειγμα.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης
 var pres = new aspose.slides.Presentation("demo.pptx");
 try {
     var notesMaster = pres.getMasterNotesSlideManager().getMasterNotesSlide();
     if (notesMaster != null) {
-        // Ανάκτηση στυλ κειμένου MasterNotesSlide
+        // Λήψη στυλ κειμένου MasterNotesSlide
         var notesStyle = notesMaster.getNotesStyle();
-        // Ορισμός σύμβολου κεφαλαίου για τις παραγράφους του πρώτου επιπέδου
+        // Ορισμός σύμβολου σημείου για τις παραγράφους του πρώτου επιπέδου
         var paragraphFormat = notesStyle.getLevel(0);
-        paragraphFormat.getBullet().setType(aspose.slides.BulletType.Symbol);
+        paragraphFormat.getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
     }
     pres.save("NotesSlideWithNotesStyle.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -90,12 +102,12 @@ try {
 }
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
-**Ποια οντότητα API παρέχει πρόσβαση στις σημειώσεις μιας συγκεκριμένης διαφάνειας;**
+**Ποιο στοιχείο API παρέχει πρόσβαση στις σημειώσεις μιας συγκεκριμένης διαφάνειας;**
 
-Οι σημειώσεις προσεγγίζονται μέσω του διαχειριστή σημειώσεων της διαφάνειας: η διαφάνεια διαθέτει έναν [NotesSlideManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslidemanager/) και μια [method](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) που επιστρέφει το αντικείμενο σημειώσεων, ή `null` εάν δεν υπάρχουν σημειώσεις.
+Οι σημειώσεις προβάλλονται μέσω του διαχειριστή σημειώσεων της διαφάνειας: η διαφάνεια διαθέτει έναν [NotesSlideManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslidemanager/) και μια [method](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslidemanager/getnotesslide/) που επιστρέφει το αντικείμενο σημειώσεων, ή `null` εάν δεν υπάρχουν σημειώσεις.
 
-**Υπάρχουν διαφορές στην υποστήριξη σημειώσεων μεταξύ των εκδόσεων του PowerPoint με τις οποίες λειτουργεί η βιβλιοθήκη;**
+**Υπάρχουν διαφορές στην υποστήριξη σημειώσεων μεταξύ των εκδόσεων PowerPoint με τις οποίες λειτουργεί η βιβλιοθήκη;**
 
-Η βιβλιοθήκη στοχεύει σε ένα ευρύ φάσμα μορφών Microsoft PowerPoint (97–νέας) και ODP· οι σημειώσεις υποστηρίζονται σε αυτές τις μορφές χωρίς εξάρτηση από εγκατεστημένο αντίγραφο του PowerPoint.
+Η βιβλιοθήκη στοχεύει σε ένα μεγάλο εύρος μορφών Microsoft PowerPoint (97–και νεότερες) και ODP· οι σημειώσεις υποστηρίζονται σε αυτές τις μορφές χωρίς εξάρτηση από εγκατεστημένο αντίγραφο του PowerPoint.
