@@ -5,44 +5,44 @@ type: docs
 weight: 50
 url: /pl/python-java/text-formatting/
 keywords:
-- wyrównanie akapitu
+- wyrównaj akapit
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
 - odstęp między znakami
 - właściwości czcionki
 - rodzina czcionek
-- obrót tekstu
+- rotacja tekstu
 - kąt obrotu
 - ramka tekstowa
-- interlinia
+- odstęp między wierszami
 - właściwość autofitu
 - kotwica ramki tekstowej
 - tabulacja tekstu
-- język domyślny
+- domyślny język
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Java
 - Aspose.Slides
-description: Formatowanie i stylizacja tekstu w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez Java. Dostosuj czcionki, kolory, wyrównanie i inne.
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez Java. Dostosuj czcionki, kolory, wyrównanie i inne."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez Java. Obejmuje kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy między akapitami, zachowanie autofitu, kotwiczenie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla Pythona przez Java. Omówione są kolory tła, przezroczystość, odstępy między znakami, właściwości czcionek, obrót, odstępy między akapitami, zachowanie autofitu, kotwiczenie tekstu, tabulatory i ustawienia języka.
 
-O ile nie zaznaczono inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy kształt na pierwszym slajdzie jest polem tekstowym, a jego pierwszy akapit zawiera tekst pokazany poniżej. Zarówno indeksy slajdów, jak i kształtów są zerowe. Przykłady wybierające pogrubione fragmenty używają efektywnego formatowania, w tym odziedziczonego pogrubienia:
+Jeśli nie podano inaczej, przykłady używają [sample.pptx](sample.pptx). Pierwszy kształt na pierwszym slajdzie jest polem tekstowym, a jego pierwszy akapit zawiera tekst pokazany poniżej. Indeksy slajdów i kształtów są zerowo‑indeksowane. Przykłady zaznaczające pogrubione fragmenty używają efektywnego formatowania, w tym odziedziczonego pogrubienia:
 
 ![Przykładowy tekst](sample_text.png)
 
-Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/python-java/search-and-replace-text/).
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażenia regularnego, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/python-java/search-and-replace-text/).
 
 ## **Ustaw kolor tła tekstu**
 
-Użyj [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aby ustawić domyślny kolor podświetlenia dla akapitu, lub użyj [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) dla poszczególnych fragmentów tekstu.
+Użyj [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat), aby ustawić domyślny kolor podświetlenia akapitu, lub [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) dla pojedynczych fragmentów tekstu.
 
-Poniższy przykład ustawia jasnoszare podświetlenie jako domyślne dla pierwszego akapitu. Jawne kolory podświetlenia w poszczególnych fragmentach mają pierwszeństwo przed tym domyślnym:
+Poniższy przykład ustawia jasnoszare podświetlenie jako domyślne dla pierwszego akapitu. Jawne kolory podświetlenia w pojedynczych fragmentach mają pierwszeństwo przed tym domyślnym:
 
 ```python
 import jpype
@@ -73,7 +73,7 @@ Wynik:
 
 ![Szary akapit](gray_paragraph.png)
 
-Przykład kodu poniżej demonstruje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
 
 ```python
 import jpype
@@ -108,7 +108,7 @@ Wynik:
 
 ## **Wyrównaj akapity tekstu**
 
-Użyj [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana itp.
+Użyj [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, do lewej, do prawej, wyjustowana itp.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
@@ -128,7 +128,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Ustaw wyrównanie akapitu do środka.
+    # Ustaw wyrównanie akapitu na środek.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center)
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx)
@@ -142,9 +142,9 @@ Wynik:
 
 ## **Wyrównaj czcionki w linii**
 
-Użyj [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment), aby pionowo wyrównać fragmenty tekstu o różnych rozmiarach czcionki w jednej linii. To ustawienie dotyczy całego akapitu i kontroluje wyrównanie w każdej jego linii.
+Użyj [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment), aby pionowo wyrównać fragmenty tekstu o różnych rozmiarach czcionki w jednej linii. Ustawienie to dotyczy całego akapitu i kontroluje wyrównanie w każdej jego linii.
 
-Poniższy samodzielny przykład tworzy cztery oznaczone pola tekstowe na jednym slajdzie. Każdy akapit zawiera ten sam tekst w rozmiarach 18, 36 i 54 punktów, z różnym wyrównaniem czcionki. Używa Arial, wyłącza autofit i zawijanie oraz utrzymuje ramki tekstowe wystarczająco duże dla jednej linii.
+Poniższy samodzielny przykład tworzy cztery oznaczone pola tekstowe na jednym slajdzie. Każdy akapit zawiera ten sam tekst w rozmiarach 18, 36 i 54 punktów, z innym wyrównaniem czcionki. Używa czcionki Arial, wyłącza autofit i zawijanie oraz utrzymuje ramki tekstowe wystarczająco duże dla jednej linii.
 
 ```python
 import jpype
@@ -204,15 +204,15 @@ finally:
 
 Wynik:
 
-![Porównanie wyrównania czcionki (linia bazowa, góra, środek, dół) przy mieszanych rozmiarach czcionki](font_alignment.png)
+![Porównanie wyrównania baseline, góra, środek i dół przy mieszanych rozmiarach czcionek](font_alignment.png)
 
-Wyrównanie czcionki korzysta z metryk czcionki, więc widoczne krawędzie poszczególnych liter nie muszą się idealnie pokrywać. Przykład zawiera zarówno wielką literę, jak i literę z dolnym ogonkiem, aby pokazać różnicę między wyrównaniem do linii bazowej a do dołu. Dostępność czcionki i podmiana, użyte znaki oraz różnica w rozmiarach czcionek wpływają na wynik. Wymiary ramki, marginesy, interlinia, zawijanie i autofit także wpływają na układ; używaj tych samych czcionek i ustawień układu przy porównywaniu trybów.
+Wyrównanie czcionki używa metryk czcionki, więc widoczne krawędzie poszczególnych liter nie muszą dokładnie pokrywać się. Przykład zawiera zarówno wielką literę, jak i dolny element, aby pokazać różnicę między baseline a dolnym wyrównaniem. Dostępność czcionek i ich zamienniki, użyte znaki oraz różnice w rozmiarach czcionek wpływają na wynik. Wymiary ramki, marginesy, odstępy linii, zawijanie i autofit także wpływają na układ; używaj tych samych czcionek i ustawień układu przy porównywaniu trybów.
 
-To ustawienie różni się od [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), które kontroluje poziome wyrównanie akapitu, oraz od [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType), które pozycjonuje blok tekstu pionowo wewnątrz kształtu. Formatowanie indeksu górnego i dolnego za pomocą [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) przesuwa poszczególne fragmenty względem linii bazowej zamiast ustawiać wyrównanie czcionki dla linii akapitu.
+To ustawienie różni się od [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), które kontroluje poziome wyrównanie akapitu, oraz od [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType), które pozycjonuje blok tekstu pionowo w kształcie. Formatowanie indeksu górnego i dolnego za pomocą [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) przesuwa poszczególne fragmenty względem linii bazowej zamiast ustawiać wyrównanie czcionki dla linii akapitu.
 
 ## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana przez składnik alfa koloru przypisanego do [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). W poniższych przykładach `alpha = 50` jest wartością kanału alfa ARGB w skali 0–255, a nie procentem przezroczystości.
+Przezroczystość tekstu jest kontrolowana przez komponent alfa koloru przypisanego do [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). W poniższych przykładach `alpha = 50` to wartość kanału alfa ARGB w skali 0‑255, a nie procent przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
@@ -286,11 +286,11 @@ Wynik:
 
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
-## **Ustaw odstęp znaków w tekście**
+## **Ustaw odstęp między znakami dla tekstu**
 
 Użyj [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing), aby zwiększyć lub zmniejszyć odstęp między znakami w polu tekstowym. Przykłady dodają 3 punkty odstępu; wartości ujemne zagęszczają tekst.
 
-Poniższy kod w Pythonie pokazuje, jak rozszerzyć odstęp znaków w **całym akapicie**:
+Poniższy kod w Pythonie pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
 
 ```python
 import jpype
@@ -308,8 +308,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Uwaga: Użyj wartości ujemnych, aby skompresować odstęp między znakami.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Rozszerz odstęp między znakami.
+    # Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Zwiększ odstęp między znakami.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -318,9 +318,9 @@ finally:
 
 Wynik:
 
-![Odstęp znaków w akapicie](character_spacing_in_paragraph.png)
+![Odstęp między znakami w akapicie](character_spacing_in_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak rozszerzyć odstęp znaków w **fragmentach tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```python
 import jpype
@@ -340,8 +340,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Uwaga: Użyj wartości ujemnych, aby skompresować odstęp między znakami.
-            portion.getPortionFormat().setSpacing(3) # Rozszerz odstęp między znakami.
+            # Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
+            portion.getPortionFormat().setSpacing(3) # Zwiększ odstęp między znakami.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -350,13 +350,13 @@ finally:
 
 Wynik:
 
-![Odstęp znaków w fragmentach tekstu](character_spacing_in_text_portions.png)
+![Odstęp między znakami w fragmentach tekstu](character_spacing_in_text_portions.png)
 
-### **Wyłącz kerning dla wybranych czcionek**
+### **Wyłącz kerning dla konkretnych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco bardziej ściśle niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPointa.
 
-Aby w takich przypadkach uzyskać renderowany wynik bliższy PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na wartość większą niż rzeczywisty rozmiar czcionki. Ten przykład wymaga pliku "presentation.pptx" z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym dziedziczone, i ustawia próg 100 punktów dla fragmentów używających Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
+Aby w takich przypadkach uzyskać wynik bliższy PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na wartość większą niż rzeczywisty rozmiar czcionki. Przykład wymaga pliku „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Sprawdza efektywne nazwy czcionek, w tym odziedziczone, i ustawia próg 100 punktów dla fragmentów używających Roboto. To wyłącza kerning dla pasujących fragmentów o rozmiarze czcionki poniżej 100 punktów:
 
 ```python
 import jpype
@@ -386,13 +386,13 @@ finally:
     presentation.dispose()
 ```
 
-Dla dopasowanego tekstu poniżej progu to ustawienie zapobiega kerningowi i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
+Dla dopasowanego tekstu poniżej progu to ustawienie zapobiega kerningowi i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPointa dla czcionek objętych tym specyficznym zachowaniem PowerPointa.
 
 ## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawić na poziomie akapitu za pomocą [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) lub na poszczególnych fragmentach za pomocą [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/).
+Właściwości czcionki można ustawić na poziomie akapitu przez [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) lub na pojedynczych fragmentach przez [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/).
 
-Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na 12‑punktowy Times New Roman z pogrubieniem, pochyleniem i przerywaną linią podkreślenia. Jawne formatowanie poszczególnych fragmentów ma pierwszeństwo przed tymi domyślnymi:
+Poniższy przykład ustawia domyślną czcionkę pierwszego akapitu na Times New Roman 12 pt z pogrubieniem, kursywą i kreską kropkowaną. Jawne formatowanie pojedynczych fragmentów ma pierwszeństwo przed tymi domyślnymi.
 
 ```python
 import jpype
@@ -427,7 +427,7 @@ Wynik:
 
 ![Właściwości czcionki dla akapitu](font_properties_for_paragraph.png)
 
-Poniższy przykład stosuje 13‑punktowy Times New Roman, formatowanie pochylone oraz przerywaną linię podkreślenia do fragmentów, których efektywne formatowanie jest pogrubione:
+Poniższy przykład stosuje Times New Roman 13 pt, kursywę i kreskę kropkowaną do fragmentów, których efektywne formatowanie jest pogrubione:
 
 ```python
 import jpype
@@ -463,9 +463,145 @@ Wynik:
 
 ![Właściwości czcionki dla fragmentów tekstu](font_properties_for_text_portions.png)
 
-## **Ustaw obrót tekstu**
+## **Kontroluj normalizację wysokości tekstu**
 
-Użyj [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType), aby ustawić predefiniowaną orientację tekstu wewnątrz kształtu.
+Użyj [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight), gdy odtwarzasz typografię szablonu lub badacz różnice w wysokości znaków. W PowerPoint włączenie normalizacji rozciąga lub kompresuje poszczególne znaki pionowo, aby uzyskać jednolitą widoczną wysokość w obrębie fragmentu tekstu. Nie gwarantuje to równej wysokości tekstu w różnych czcionkach.
+
+Ustaw właściwość na [NullableBool.True_ lub False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/), aby explicite włączyć lub wyłączyć normalizację. `NullableBool.NotDefined` pozostawia lokalne ustawienie nieokreślone, więc fragment odziedziczy wartość, np. z [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat). To nie oznacza `False`. Użyj [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) i odczytaj `getNormaliseHeight` na zwróconym efektywnym formatowaniu, aby uzyskać rozwiązany wartość boolowską.
+
+Poniższy samodzielny przykład wymaga zainstalowanego **Arial**. Tworzy dwa bloki tekstu zawierające te same wielkie litery, małe litery, dolne elementy i znaki diakrytyczne w rozmiarze 54 pt. Oba akapity domyślnie włączają normalizację. Górny fragment wyłącza ją explicite; dolny ją dziedziczy. Rozmiary ramek, marginesy i odstępy akapitów są identyczne, zawijanie i autofit są wyłączone, aby utrzymać spójność porównania. Przykład wypisuje `False: False` i `NotDefined: True`, a następnie zapisuje „text_height_normalization.pptx”.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Presentation, SaveFormat, ShapeType, TextAlignment, TextAnchorType, TextAutofitType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    settings = [NullableBool.False_, NullableBool.NotDefined]
+    setting_names = ["False", "NotDefined"]
+
+    for i, setting in enumerate(settings):
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 60 + i * 200, 660, 150)
+        shape.getFillFormat().setFillType(FillType.NoFill)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        text_frame = shape.getTextFrame()
+        text_frame.setText("Hxgjpq ÅÉ 0123")
+        text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+        text_frame.getTextFrameFormat().setWrapText(NullableBool.False_)
+        text_frame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        text_frame.getTextFrameFormat().setMarginTop(0)
+        text_frame.getTextFrameFormat().setMarginLeft(0)
+
+        paragraph = text_frame.getParagraphs().get_Item(0)
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceBefore(0)
+        paragraph.getParagraphFormat().setSpaceAfter(0)
+        paragraph.getParagraphFormat().setSpaceWithin(100)
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(NullableBool.True_)
+
+        portion = paragraph.getPortions().get_Item(0)
+        font = FontData("Arial")
+        portion.getPortionFormat().setLatinFont(font)
+        portion.getPortionFormat().setFontHeight(54)
+        portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        portion.getPortionFormat().setNormaliseHeight(setting)
+
+        print(f"{setting_names[i]}: {bool(portion.getPortionFormat().getEffective().getNormaliseHeight())}")
+
+    presentation.save("text_height_normalization.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Porównanie poniżej zostało wyeksportowane z zapisaną prezentacją. Górny wiersz ma wyłączoną normalizację (`False`); dolny wiersz dziedziczy włączone ustawienie (`NotDefined` → `True`). Aby odtworzyć ten wygląd, utrzymaj zainstalowany Arial.
+
+![Tekst Arial 54 pt z wyłączoną normalizacją powyżej i dziedziczoną normalizacją poniżej](text_height_normalization.png)
+
+Normalizacja zmienia wysokość znaków bez zmiany przypisanej wartości [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight), która określa rozmiar czcionki w punktach. [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) kontroluje odstępy linii, natomiast [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) kontroluje, jak tekst lub jego kontener dopasowuje się do rozmiaru. Te ustawienia służą różnym celom i mogą niezależnie wpływać na układ. Po więcej informacji o formatowaniu akapitów i dziedziczeniu zobacz [Zarządzaj akapitami](/slides/pl/python-java/manage-paragraph/).
+
+## **Zastosuj i usuń przekreślenie**
+
+Użyj [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) na fragmencie tekstu, aby wyświetlić korektę, anulowane terminy lub poprzednie ceny bez usuwania oryginalnego tekstu. Ustaw na [TextStrikethroughType.Single lub Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) dla jednej lub dwóch linii przez tekst.
+
+Aby usunąć przekreślenie, przekaż [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None). To explicite wyłącza efekt, nawet jeśli otaczające formatowanie określa przekreślenie. Natomiast [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) pozostawia lokalne ustawienie nieokreślone, pozwalając fragmentowi dziedziczyć formatowanie, np. z akapitu. Nie gwarantuje to usunięcia przekreślenia. Użyj [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective), aby odczytać wynikowe formatowanie, w tym wartości odziedziczone.
+
+Poniższy samodzielny przykład tworzy trzy porównania cen. Każdy akapit ma oddzielne fragmenty dla etykiety, poprzedniej ceny i bieżącej ceny, więc tylko poprzednia cena jest modyfikowana. W pierwszym wierszu zastosowano, a następnie usunięto przekreślenie; pozostałe wiersze zachowują pojedyncze i podwójne przekreślenie. Zmiana tego ustawienia zachowuje tekst i jego pozostałe formatowanie, w tym pogrubioną poprzednią cenę.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Paragraph, Portion, Presentation, SaveFormat, ShapeType, TextAlignment, TextStrikethroughType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 620, 220)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+    shape.getTextFrame().getParagraphs().clear()
+
+    labels = ["None: ", "Single: ", "Double: "]
+
+    for label in labels:
+        paragraph = Paragraph()
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceAfter(20)
+
+        portion_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        portion_format.setFontHeight(28)
+        font = FontData("Arial")
+        portion_format.setLatinFont(font)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        label_portion = Portion(label)
+        paragraph.getPortions().add(label_portion)
+
+        previous_price = Portion("$100")
+        previous_price.getPortionFormat().setFontBold(NullableBool.True_)
+        paragraph.getPortions().add(previous_price)
+        current_price = Portion(" → $80")
+        paragraph.getPortions().add(current_price)
+
+        shape.getTextFrame().getParagraphs().add(paragraph)
+
+    paragraphs = shape.getTextFrame().getParagraphs()
+
+    # Zastosuj przekreślenie, a następnie explicite usuń je z pierwszej poprzedniej ceny.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Double)
+
+    presentation.save("strikethrough.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Wynik, od góry do dołu: brak przekreślenia, pojedyncze przekreślenie i podwójne przekreślenie.
+
+![Poprzednie ceny bez przekreślenia, z pojedynczym przekreśleniem i z podwójnym przekreśleniem](strikethrough.png)
+
+## **Ustaw rotację tekstu**
+
+Użyj [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType), aby ustawić predefiniowaną orientację tekstu w kształcie.
 
 Poniższy przykład kodu ustawia orientację tekstu w kształcie na [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/), co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
@@ -492,13 +628,13 @@ finally:
 
 Wynik:
 
-![Obrót tekstu](text_rotation.png)
+![Rotacja tekstu](text_rotation.png)
 
-## **Ustaw niestandardowy obrót dla ramek tekstu**
+## **Ustaw niestandardową rotację ramki tekstowej**
 
-Użyj [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle), aby ustawić niestandardowy kąt obrotu dla [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
+Użyj [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle), aby ustawić własny kąt obrotu dla [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
 
-Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
+Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w kształcie:
 
 ```python
 import jpype
@@ -523,16 +659,16 @@ finally:
 
 Wynik:
 
-![Niestandardowy obrót tekstu](custom_text_rotation.png)
+![Niestandardowa rotacja tekstu](custom_text_rotation.png)
 
-## **Ustaw interlinię akapitów**
+## **Ustaw odstęp między wierszami akapitów**
 
-Aspose.Slides udostępnia [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) i [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin), aby kontrolować odstępy akapitów. Właściwości te są używane w następujący sposób:
+Aspose.Slides udostępnia [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) i [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) do kontrolowania odstępów akapitów. Właściwości te używa się w następujący sposób:
 
-* Użyj wartości dodatniej, aby określić interlinię jako procent wysokości linii.
-* Użyj wartości ujemnej, aby określić interlinię w punktach.
+* Użyj wartości dodatniej, aby określić odstęp jako procent wysokości wiersza.
+* Użyj wartości ujemnej, aby określić odstęp w punktach.
 
-Poniższy przykład ustawia odstęp wewnątrz pierwszego akapitu na 200 % wysokości linii (podwójna interlinia):
+Poniższy przykład ustawia odstęp wewnątrz pierwszego akapitu na 200 % wysokości wiersza (podwójny odstęp):
 
 ```python
 import jpype
@@ -559,18 +695,18 @@ finally:
 
 Wynik:
 
-![Interlinia w akapicie](line_spacing.png)
+![Odstęp wierszy w akapicie](line_spacing.png)
 
-## **Kontroluj łamanie linii**
+## **Kontroluj łamanie wierszy**
 
-Reguły łamania linii w akapicie są przydatne w wąskich blokach tekstowych oraz w prezentacjach mieszających tekst łaciński i wschodnioazjatycki. Następujące metody należą do [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/), więc dotyczą całego akapitu:
+Zasady łamania wierszy akapitu są przydatne w wąskich blokach tekstu i prezentacjach mieszających tekst łaciński i wschodnioazjatycki. Poniższe metody należą do [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/), więc dotyczą całego akapitu:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) kontroluje reguły łamania linii w tekście łacińskim. W mieszanym tekście zmiana tej opcji może również zmienić miejsce, w którym są zawijane sąsiadujące teksty wschodnioazjatyckie i interpunkcyjne.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) kontroluje reguły łamania linii w tekście wschodnioazjatyckim, w tym ograniczenia dotyczące znaków na początku i końcu wiersza.
+- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) kontroluje zasady łamania wierszy łacińskich. W mieszanym tekście zmiana tej opcji może także wpływać na to, gdzie łamane są sąsiednie znaki wschodnioazjatyckie i interpunkcja.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) kontroluje zasady łamania wierszy wschodnioazjatyckich, w tym ograniczenia znaków na początku i końcu wiersza.
 
-Te reguły nie zastępują [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText), które włącza automatyczne zawijanie w ramce tekstowej. Wpływają na układ podczas zawijania; nie wstawiają znaków łamania wiersza. Jawne wymuszenie łamania wiersza powoduje nową linię w akapicie niezależnie od dostępnej szerokości.
+Te zasady nie zastępują [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText), które włącza automatyczne zawijanie w ramce tekstowej. Wpływają na układ, gdy zachodzi zawijanie; nie wstawiają znaków łamania wiersza. Jawne wstawienie łamania wymusza nową linię w akapicie niezależnie od dostępnej szerokości.
 
-Poniższy samodzielny przykład tworzy wąski blok tekstowy zawierający chiński i łaciński tekst. Ustawia oba wybory łamania linii explicite i zapisuje "line_breaking.pptx". Aby eksperymentować z którąkolwiek regułą, zmień odpowiednią wartość, pozostawiając pozostałe ustawienia niezmienione. Przykład używa 24‑punktowego Arial i SimSun przy szerokości ramki 160 punktów i zerowych poziomych marginesów ramki tekstu. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) jest wywoływany z [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) , aby rozmiar tekstu i wymiary ramki pozostały stałe.
+Poniższy samodzielny przykład tworzy wąski blok tekstowy zawierający chiński i łaciński tekst. Ustawia oba opcje łamania wierszy explicite i zapisuje „line_breaking.pptx”. Aby eksperymentować z dowolną regułą, zmień odpowiednią wartość, pozostawiając drugie ustawienia niezmienione. Przykład używa Arial 24 pt i SimSun przy szerokości ramki 160 pt oraz zerowych poziomych marginesów ramki tekstowej. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) wywoływany jest z [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/), aby rozmiar tekstu i wymiary ramki pozostały stałe.
 
 ```python
 import jpype
@@ -615,11 +751,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Kontroluj wiszącą interpunkcję**
+## **Kontroluj zawieszanie interpunkcji**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) pozwala dopuszczalnej interpunkcji wystawać poza prawą krawędź linii tekstu zamiast zajmować następną linię. Dotyczy całego akapitu i różni się od wcięcia wiszącego.
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) pozwala dopuszczalnej interpunkcji wystawać poza prawą krawędź linii tekstu zamiast zajmować kolejną linię. Dotyczy całego akapitu i różni się od wcięcia zwisającego.
 
-Poniższy samodzielny przykład włącza wiszącą interpunkcję w ramce tekstowej o szerokości 100 punktów i zapisuje "hanging_punctuation.pptx". Przy 24‑punktowym Arial i zerowych poziomych marginesach ramki tekstu, końcowa kropka pozostaje po słowie "sentence" i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) , aby porównać: przy tych ustawieniach kropka zajmuje osobną linię. Zawijanie jest włączone, a autofit wyłączony, aby zachować stałą dostępną szerokość.
+Poniższy samodzielny przykład włącza zawieszanie interpunkcji w ramce tekstowej o szerokości 100 pt i zapisuje „hanging_punctuation.pptx”. Przy Arial 24 pt i zerowych poziomych marginesach, ostatnia kropka pozostaje po „zdaniu” i wystaje poza prawą krawędź tekstu. Ustaw właściwość na [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/), aby porównać: przy tych ustawieniach kropka zajmuje osobną linię. Zawijanie jest włączone, a autofit wyłączony, aby zachować stałą dostępną szerokość.
 
 ```python
 import jpype
@@ -661,11 +797,11 @@ finally:
     presentation.dispose()
 ```
 
-Nie każdy znak interpunkcyjny może wisieć. [Warunki czcionki i układu opisane powyżej](#control-line-breaking) mają również zastosowanie do tego porównania: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofitu może usunąć widoczną różnicę.
+Nie każda znak interpunkcyjny może się zawiesić. Warunki czcionki i układu opisane powyżej ([kontrola łamania wierszy](#control-line-breaking)) również mają zastosowanie do tego porównania: zmiana czcionki, dostępnej szerokości, marginesów lub ustawień autofitu może usunąć widoczną różnicę.
 
-## **Ustaw typ autofitu dla ramek tekstu**
+## **Ustaw typ autofitu dla ramek tekstowych**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się zmniejszyć, wyciekać, czy automatycznie zmieniać rozmiar kształtu. Poniższy przykład konfiguruje kształt tak, aby zmieniał rozmiar, aby dopasować się do tekstu i zapisuje wynik do "autofit_type.pptx".
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst się pomniejsza, wypływa poza kształt, czy kształt automatycznie zmienia rozmiar, aby dopasować tekst. Poniższy przykład konfiguruje kształt tak, aby zmieniał rozmiar w celu dopasowania tekstu i zapisuje wynik jako „autofit_type.pptx”.
 
 ```python
 import jpype
@@ -688,11 +824,11 @@ finally:
     presentation.dispose()
 ```
 
-Aby policzyć linie po automatycznym zawijaniu i zobaczyć, jak zmiana szerokości tekstu lub kształtu wpływa na wynik, zobacz [Count Rendered Lines](/slides/pl/python-java/manage-paragraph/). Same liczenie linii nie wskazuje, czy tekst wycieka poza kontener.
+Aby policzyć wiersze po automatycznym zawijaniu i zobaczyć, jak zmiana szerokości tekstu lub kształtu wpływa na wynik, zobacz [Zlicz renderowane wiersze](/slides/pl/python-java/manage-paragraph/). Same liczenie wierszy nie wskazuje, czy tekst wypływa poza kontener.
 
-## **Ustaw kotwicę ramek tekstu**
+## **Ustaw kotwicę ramek tekstowych**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) określa, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, na przykład u góry, w środku lub na dole. Poniższy przykład kotwiczy tekst na dole pierwszego kształtu i zapisuje wynik do "text_anchor.pptx".
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub u dołu. Poniższy przykład kotwiczy tekst u dołu pierwszego kształtu i zapisuje wynik jako „text_anchor.pptx”.
 
 ```python
 import jpype
@@ -717,7 +853,7 @@ finally:
 
 ## **Ustaw tabulację tekstu**
 
-Użyj [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) i [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs), aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulacji na 100 punktów i dodaje lewostronny tabulator w 30 punktach. Te ustawienia wpływają na tekst zawierający znaki tabulacji.
+Użyj [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) i [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs), aby skonfigurować tabulatory w akapicie. Poniższy przykład ustawia domyślny odstęp tabulacji na 100 pt i dodaje lewostronny tabulator w 30 pt. Ustawienia te wpływają na tekst zawierający znaki tabulacji.
 
 ```python
 import jpype
@@ -745,13 +881,13 @@ finally:
 
 Wynik:
 
-![Tabulatory w akapicie](paragraph_tabs.png)
+![Tabulatory akapitu](paragraph_tabs.png)
 
-## **Ustaw język korekty**
+## **Ustaw język korekt**
 
-Aspose.Slides udostępnia [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId), co pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
+Aspose.Slides udostępnia [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId), co pozwala ustawić język korekt dla fragmentu tekstu. Język korekt określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
 
-Poniższy przykład wymaga "presentation.pptx" z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie i przynajmniej jednym akapitem. Zastępuje zawartość pierwszego akapitu tekstem "1。", ustawia SimSun jako czcionkę i przypisuje język korekty chiński uproszczony (`zh-CN`). Zapisuje wynik do "proofing_language.pptx":
+Poniższy przykład wymaga „presentation.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie i przynajmniej jednym akapicie. Zastępuje zawartość pierwszego akapitu tekstem „1。”, ustawia czcionkę SimSun i przypisuje język korekt chiński uproszczony (`zh-CN`). Zapisuje wynik jako „proofing_language.pptx”:
 
 ```python
 import jpype
@@ -778,7 +914,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Ustaw Id języka korekty.
+    # Ustaw identyfikator języka korekty.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -789,9 +925,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ustaw język domyślny**
+## **Ustaw domyślny język**
 
-Użyj [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage), aby określić domyślny język tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z amerykańskim angielskim jako domyślnym językiem tekstu, dodaje pole tekstowe i wypisuje `en-US` dla jego pierwszego fragmentu tekstu.
+Użyj [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage), aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji. Poniższy przykład tworzy prezentację z językiem tekstu US English jako domyślnym, dodaje pole tekstowe i wypisuje `en-US` dla jego pierwszego fragmentu tekstu.
 
 ```python
 import jpype
@@ -824,7 +960,7 @@ finally:
 
 Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Poniższy przykład ustawia 14‑punktową pogrubioną czcionkę jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją do "default_text_style.pptx". Tekst może dziedziczyć te domyślne ustawienia, chyba że bardziej szczegółowe formatowanie je nadpisze.
+Poniższy przykład ustawia czcionkę 14 pt pogrubioną jako domyślną dla akapitów najwyższego poziomu w nowej prezentacji i zapisuje ją jako „default_text_style.pptx”. Tekst może dziedziczyć te domyślne ustawienia, chyba że bardziej szczegółowe formatowanie je nadpisze.
 
 ```python
 import jpype
@@ -851,13 +987,13 @@ finally:
 
 ## **Wyodrębnij tekst z efektem wielkich liter**
 
-W PowerPoint zastosowanie efektu **All Caps** powoduje, że tekst wyświetla się wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Po pobraniu takiego fragmentu tekstu za pomocą Aspose.Slides biblioteka zwraca dokładnie wprowadzony tekst. Aby dopasować go do wyświetlanego, sprawdź [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) i zamień zwrócony ciąg na wielkie litery, gdy wartość to `All`.
+W PowerPoint zastosowanie efektu **All Caps** (wszystkie wielkie litery) sprawia, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Gdy pobierasz taki fragment tekstu za pomocą Aspose.Slides, biblioteka zwraca dokładnie wprowadzony tekst. Aby uzyskać wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
 
-Ten przykład wymaga "sample2.pptx" z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Pierwszy fragment pierwszego akapitu zawiera "Hello, Aspose!" z zastosowanym efektem All Caps, jak pokazano poniżej.
+Przykład wymaga „sample2.pptx” z polem tekstowym jako pierwszym kształtem na pierwszym slajdzie. Jego pierwszy akapit ma pierwszy fragment zawierający „Hello, Aspose!” z zastosowanym efektem All Caps, jak pokazano poniżej.
 
 ![Efekt All Caps](all_caps_effect.png)
 
-Poniższy przykład kodu pokazuje, jak wyodrębnić tekst z zastosowanym efektem **All Caps**:
+Poniższy przykład kodu pokazuje, jak wyodrębnić tekst z zastosowanym **efektem All Caps**:
 
 ```python
 import jpype
@@ -894,9 +1030,9 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Jak mogę modyfikować tekst w tabeli na slajdzie?**
+**Jak zmodyfikować tekst w tabeli na slajdzie?**
 
-Aby modyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). Iteruj przez komórki i aktualizuj każdą komórkę za pomocą [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) oraz formatowanie akapitu przez [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). Przeglądaj komórki i aktualizuj każdą komórkę za pomocą [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) oraz formatowanie akapitu przez [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **Jak zastosować gradientowy kolor do tekstu na slajdzie PowerPoint?**
 

@@ -1,5 +1,5 @@
 ---
-title: Prezentáció szövegének formázása JavaScript-ben
+title: Prezentáció szövegének formázása JavaScriptben
 linktitle: Szövegformázás
 type: docs
 weight: 50
@@ -9,15 +9,15 @@ keywords:
 - szövegstílus
 - szöveg háttér
 - szöveg átlátszóság
-- karaktertávolság
+- karakterköz
 - betűtulajdonságok
 - betűcsalád
-- szöveg forgatás
+- szöveg forgatása
 - forgatási szög
-- szövegdoboz
-- sortávolság
-- automatikus illesztés tulajdonság
-- szövegdoboz rögzítés
+- szövegkeret
+- sorköz
+- autofit tulajdonság
+- szövegkeret rögzítése
 - szöveg tabuláció
 - alapértelmezett nyelv
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Node.js Java-n keresztül. Testreszabhatja a betűtípusokat, színeket, igazítást és még sok mást."
+description: "Formázza és stílusozza a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Node.js via Java segítségével. Testreszabhatja a betűket, színeket, igazítást és egyebeket."
 ---
 ## **Áttekintés**
 
-Ez a cikk bemutatja, hogyan lehet szöveget formázni PowerPoint és OpenDocument bemutatókban az Aspose.Slides for Node.js Java-on keresztül használva. Kitér a háttérszínekre, átlátszóságra, karaktertávolságra, betűtulajdonságokra, forgatásra, bekezdéstávolságra, automatikus illesztés viselkedésére, szöveg rögzítésére, tabulátor beállításokra és nyelvi beállításokra.
+Ez a cikk bemutatja, hogyan lehet formázni a szöveget PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Node.js via Java segítségével. Bemutatja a háttérszíneket, átlátszóságot, karakterközöket, betűtulajdonságokat, forgatást, bekezdésházt, automatikus méretezést, szöveg rögzítését, tabulátorállásokat és nyelvi beállításokat.
 
-Amennyiben nincs másként feltüntetve, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dián az első alakzat egy szövegdoboz, és az első bekezdése tartalmazza az alább látható szöveget. Mind a diák, mind az alakzat indexei nullától indulnak. A félkövér részletet kiválasztó példák hatékony formázást használnak, beleértve az örökölt félkövér formázást:
+Kivéve, ha másként szerepel, a példák a [sample.pptx](sample.pptx) fájlt használják. Az első dia első alakzatán egy szövegdoboz van, és az első bekezdés tartalmazza az alább látható szöveget. A dia‑ és alakzat‑indexek nullával kezdődnek. A félkövér részeket kiemelő példák hatékony formázást használnak, beleértve az örökölt félkövér formázást:
 
 ![Minta szöveg](sample_text.png)
 
-A szó szerinti szöveg vagy reguláris kifejezés találatok megtalálásához és kiemeléséhez lásd a [Szöveg keresése és cseréje](/slides/hu/nodejs-java/search-and-replace-text/) oldalt.
+A szöveg konkrét vagy reguláris kifejezés szerinti kereséséhez és kiemeléséhez lásd a [Szöveg keresése és cseréje](/slides/hu/nodejs-java/search-and-replace-text/) oldalt.
 
-## **A szöveg háttérszínének beállítása**
+## **Szöveg háttérszínének beállítása**
 
-Használd a [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) metódust egy bekezdés alapértelmezett kiemelési színének beállításához, vagy a [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) metódust egyedi szövegrészekhez.
+Használja a [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) metódust a bekezdés alapértelmezett kiemelési színének beállításához, vagy a [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) metódust az egyes szövegrészekhez.
 
-A következő példa világosszürke kiemelést állít be az első bekezdés alapértelmezettként. Az egyedi részeken megadott kiemelési színek felülírják ezt az alapértelmezést:
+Az alábbi példa egy világosszürke kiemelést állít be alapértelmezettként az első bekezdéshez. Az egyes részeken megadott kiemelési színek elsőbbséget élveznek ezen alapértelmezés felett:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -55,7 +55,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Állítsa be a teljes bekezdés kiemelési színét.
+    // Állítsa be a kiemelő színt a teljes bekezdéshez.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -68,7 +68,7 @@ Az eredmény:
 
 ![A szürke bekezdés](gray_paragraph.png)
 
-Az alábbi kódrészlet bemutatja, hogyan állítsd be a háttérszínt **félkövér betűkkel** rendelkező **szövegrészek** számára:
+Az alábbi kódrészlet bemutatja, hogyan lehet a **félkövér betűkkel** ellátott **szövegrészek** háttérszínét beállítani:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Állítsa be a szövegrész kiemelési színét.
+            // Állítsa be a kiemelő színt a szövegrészhez.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -101,11 +101,11 @@ Az eredmény:
 
 ![A szürke szövegrészek](gray_text_portions.png)
 
-## **Szöveg bekezdések igazítása**
+## **Szövegbekezdések igazítása**
 
-Használd a [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) metódust a bekezdés igazításához egy szövegdobozon belül. Az érték lehet középre igazított, balra igazított, jobbra igazított, sorkizárt stb.
+Használja a [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) metódust a bekezdés igazításának beállításához egy szövegdobozon belül. Az érték lehet középre, balra, jobbra igazított, sorkizárt stb.
 
-A következő kódrészlet megmutatja, hogyan igazítsd a bekezdést a **középre**:
+Az alábbi kódrészlet a bekezdést **középre** igazítja:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -130,11 +130,11 @@ Az eredmény:
 
 ![Az igazított bekezdés](aligned_paragraph.png)
 
-## **Betűtípusok igazítása egy soron belül**
+## **Betűk függőleges igazítása soron belül**
 
-Használd a [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment-int-) metódust a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás az egész bekezdésre vonatkozik, és minden sorban szabályozza az igazítást.
+Használja a [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) metódust a különböző betűméretű szövegrészek függőleges igazításához egy soron belül. Ez a beállítás a teljes bekezdésre vonatkozik, és szabályozza az egyes sorokban történő igazítást.
 
-Az alábbi önálló példa négy felcímzett szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pont méretben, eltérő betűigazítással. Arial betűtípust használ, letiltja az automatikus illesztést és a sortörést, és a szövegdobozok elég nagyok ahhoz, hogy egy sorba férjenek.
+Az alábbi önálló példa négy felcímelt szövegdobozt hoz létre egy dián. Minden bekezdés ugyanazt a szöveget tartalmazza 18, 36 és 54 pont méretben, különböző betűigazítással. Arial betűtípust használ, letiltja az automatikus méretezést és a sortörést, és a szövegdobozok elegendő méretűek egy sorhoz.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,17 +190,17 @@ try {
 
 Az eredmény:
 
-![Összehasonlítás a Baseline, Top, Center és Bottom betűigazításokról vegyes betűméretekkel](font_alignment.png)
+![Alapvonal, felső, középső és alsó betűigazítás kevert betűméretekkel](font_alignment.png)
 
-A betűigazítás betűmetrikákon alapul, ezért az egyes betűk látható szélei nem feltétlenül esnek pontosan egy vonalba. A példa egy nagybetűt és egy alsóleges betűt is tartalmaz, hogy bemutassa a baseline és a bottom igazítás közti különbséget. A betűtípus elérhetősége, helyettesítése, a karakterek és a betűméretek közti különbségek mind befolyásolják az eredményt. A keret mérete, margók, sortávolság, sortörés és az automatikus illesztés szintén hat a megjelenésre; a módok összehasonlításához használj azonos betűtípusokat és elrendezési beállításokat.
+A betűigazítás a betűmetrikákon alapul, ezért az egyes betűk látható szélei nem feltétlenül illeszkednek pontosan. A példa tartalmaz egy nagybetűt és egy alsónyúlást, hogy megmutassa a különbséget az alapvonal és az alsó igazítás között. A betűtípus elérhetősége, helyettesítése, a használt karakterek és a betűméretkülönbségek mind befolyásolják az eredményt. A keretméretek, margók, sortávolság, sortörés és automatikus méretezés is hatnak a elrendezésre; használjon azonos betűtípusokat és elrendezési beállításokat a módok összehasonlításához.
 
-Ez a beállítás különbözik a [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) metódustól, amely a vízszintes bekezdésigazítást szabályozza, valamint a [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) metódustól, amely a szövegdoboz függőleges pozícióját határozza meg az alakzatban. A [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement-float-) metódussal elérhető felső- és alsó indexelés az egyes részeket a baseline-hoz képest mozgatja, a bekezdés sorainak betűigazítása helyett.
+Ez a beállítás különbözik a [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) metódustól, amely a vízszintes bekezdésigazítást szabályozza, valamint a [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) metódustól, amely a szövegblokk függőleges pozícióját határozza meg az alakzatban. A [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) metódussal történő fel‑ és alsóindexelés a betűk egyéni részleteit az alapvonalhoz képest eltolja, a bekezdés sorainak betűigazítása helyett.
 
 ## **Szöveg átlátszóságának beállítása**
 
-A szöveg átlátszósága a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) színének alfa komponensével szabályozható. Az alábbi példákban az `alpha = 50` egy 0–255 skálán értendő ARGB alfa-csatorna érték, nem átlátszósági százalék.
+A szöveg átlátszóságát a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) színének alfa komponense szabályozza. Az alábbi példákban az `alpha = 50` egy ARGB alfa‑csatorna érték a 0–255 skálán, nem átlátszósági százalék.
 
-Az alábbi kódrészlet megmutatja, hogyan alkalmazz átlátszóságot a **teljes bekezdésre**:
+Az alábbi kódrészlet a **teljes bekezdés** átlátszóságát állítja be:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,7 +216,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Állítsa be a szöveg kitöltőszínét átlátszó színre.
+    // Állítsa be a szöveg kitöltő színét áttetsző színre.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -230,7 +230,7 @@ Az eredmény:
 
 ![Az átlátszó bekezdés](transparent_paragraph.png)
 
-A következő kódrészlet megmutatja, hogyan alkalmazz átlátszóságot **félkövér betűkkel** rendelkező **szövegrészek** számára:
+A következő kódrészlet a **félkövér betűkkel** ellátott szövegrészek átlátszóságát állítja be:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -268,11 +268,11 @@ Az eredmény:
 
 ![Az átlátszó szövegrészek](transparent_text_portions.png)
 
-## **Karaktertávolság beállítása a szövegben**
+## **Karakterköz beállítása a szövegben**
 
-Használd a [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) metódust a karakterek közti távolság növelésére vagy szűkítésére egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek szűkítik a szöveget.
+Használja a [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) metódust a karakterek közötti távolság növelésére vagy csökkentésére egy szövegdobozban. A példák 3 pont távolságot adnak hozzá; a negatív értékek szorosabb szöveget eredményeznek.
 
-Az alábbi JavaScript kód megmutatja, hogyan növeld a karaktertávolságot a **teljes bekezdésben**:
+Az alábbi JavaScript kód a **teljes bekezdés** karakterközét növeli:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -284,8 +284,8 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Megjegyzés: Negatív értékek használata tömöríti a karaktertávolságot.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Bővítse a karaktertávolságot.
+    // Megjegyzés: Negatív értékek használata a karakterközök összenyomásához.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Bővíti a karakterközt.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -295,9 +295,9 @@ try {
 
 Az eredmény:
 
-![A karaktertávolság a bekezdésben](character_spacing_in_paragraph.png)
+![A karakterköz a bekezdésben](character_spacing_in_paragraph.png)
 
-Az alábbi kódrészlet megmutatja, hogyan növeld a karaktertávolságot **félkövér betűkkel** rendelkező **szövegrészek** számára:
+Az alábbi kódrészlet a **félkövér betűkkel** ellátott szövegrészek karakterközét növeli:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -314,8 +314,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Megjegyzés: Negatív értékek használata tömöríti a karaktertávolságot.
-            portion.getPortionFormat().setSpacing(3); // Bővítse a karaktertávolságot.
+            // Megjegyzés: Negatív értékek használata a karakterközök összenyomásához.
+            portion.getPortionFormat().setSpacing(3); // Bővíti a karakterközt.
         }
     }
 
@@ -327,13 +327,13 @@ try {
 
 Az eredmény:
 
-![A karaktertávolság a szövegrészekben](character_spacing_in_text_portions.png)
+![A karakterköz a szövegrészekben](character_spacing_in_text_portions.png)
 
-### **Kerning letiltása meghatározott betűtípusokhoz**
+### **Kerning letiltása bizonyos betűtípusoknál**
 
-Bizonyos esetekben az Aspose.Slides által renderelt szöveg kicsit szorosabb lehet, mint a PowerPointban megjelenített változat. Ez akkor fordulhat elő, ha a PowerPoint figyelmen kívül hagyja a kerning adatokat bizonyos betűtípusoknál, még akkor is, ha a betűtípus tartalmaz érvényes kerning információt és a PowerPoint beállításaiban a kerning engedélyezve van.
+Bizonyos esetekben az Aspose.Slides által renderelt szöveg kicsit szorosabbnak tűnhet, mint a PowerPoint‑ban látható. Ennek oka, hogy a PowerPoint bizonyos betűtípusoknál figyelmen kívül hagyhatja a kerning adatokat, még ha a betűtípus tartalmazna érvényes kerning információt, és a PowerPoint beállításaiban a kerning engedélyezve is van.
 
-Az ilyen esetekben a renderelt kimenetet a PowerPointnak megfelelően a kerning letiltásával az érintett betűtípusú szövegrészeknél érheted el. Állítsd a [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) értékét a tényleges betűméretnél nagyobbra. Ez a példa egy „presentation.pptx” fájlt igényel, amelynek első alakzata egy szövegdoboz az első dián. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be azokhoz a részekhez, amelyek a Roboto-t használják. Ez letiltja a kerninget az olyan részeknél, amelyek betűmérete 100 pont alatt van:
+Ezekben az esetekben a megfelelő betűtípust használó szövegrészeknél letilthatja a kerninget. Állítsa a [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) értékét a tényleges betűméretnél nagyobbra. Ez a példa egy „presentation.pptx” fájlt igényel, amelynek első alakzata egy szövegdoboz az első dián. Ellenőrzi a hatékony betűneveket, beleértve az örökölt betűket, és 100 pontos küszöböt állít be a Roboto‑t használó részekhez. Ezzel a beállítással a 100 pont alatti betűmérettel rendelkező, a feltételnek megfelelő részeknél a kerning letiltásra kerül:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +372,13 @@ try {
 }
 ```
 
-A küszöbérték alatti egyező szöveg esetén ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének a PowerPoint vizuális megjelenéséhez való igazításában a professzionális, PowerPoint‑specifikus viselkedés által érintett betűtípusoknál.
+A küszöbnél kisebb, a feltételnek megfelelő szöveg esetén ez a beállítás megakadályozza a kerninget, és segíthet az Aspose.Slides renderelésének a PowerPoint‑ban megjelenő vizuális kimenetéhez igazításában.
 
 ## **Szöveg betűtulajdonságainak kezelése**
 
-A betűtulajdonságok beállíthatók bekezdés szinten a [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) vagy egyedi részekre a [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) segítségével.
+A betűtulajdonságok beállíthatók a bekezdés szintjén a [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) vagy az egyes részeken a [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) segítségével.
 
-A következő példa beállítja az első bekezdés alapértelmezett betűtípusát 12 pont Times New Roman-ra, félkövérrel, dőltstílussal és pontozott aláhúzással. Az egyedi részeken megadott formázás felülírja ezeket az alapértelmezéseket:
+Az alábbi példa az első bekezdés alapértelmezett betűtípusát 12 pontos Times New Romanra állítja be félkövér, dőlt és pontozott aláhúzással. Az egyes részeken megadott kifejezett formázás elsőbbséget élvez ezekkel az alapértelmezésekkel szemben.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -392,7 +392,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Állítsa be a bekezdés betűtulajdonságait.
+    // Állítsa be a betűtulajdonságokat a bekezdéshez.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -409,7 +409,7 @@ Az eredmény:
 
 ![A bekezdés betűtulajdonságai](font_properties_for_paragraph.png)
 
-A következő példa 13 pont Times New Roman, dőlt és pontozott aláhúzással alkalmaz a **félkövér** hatékony formázással rendelkező részekre:
+Az alábbi példa 13 pontos Times New Roman, dőlt formázást és pontozott aláhúzást alkalmaz a hatékony formázásuk alapján félkövér részekre:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -429,7 +429,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // Állítsa be a szövegrész betűtulajdonságait.
+            // Állítsa be a betűtulajdonságokat a szövegrészhez.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -447,11 +447,141 @@ Az eredmény:
 
 ![A szövegrészek betűtulajdonságai](font_properties_for_text_portions.png)
 
-## **Szöveg forgatásának beállítása**
+## **Szövegmagasság normalizálásának vezérlése**
 
-Használd a [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) metódust egy előre definiált szövegorientáció beállításához egy alakzaton belül.
+Használja a [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) metódust sablon tipográfia reprodukálásakor vagy a karaktermagasság eltéréseinek vizsgálatakor. PowerPointban a normalizálás engedélyezése függőlegesen nyújtja vagy összenyomja az egyes karaktereket, hogy egységes látható magasságot kapjanak a szövegrészben. Nem garantálja, hogy a különböző betűtípusok között egyenlő magasságú lesz a szöveg.
 
-Az alábbi kódrészlet a szövegorientációt a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/) értékre állítja, amely a szöveget **90 fokkal óramutatóval ellentétesen** forgatja:
+Állítsa a tulajdonságot a [NullableBool.True vagy False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) értékek egyikére a normalizálás kifejezett engedélyezéséhez vagy letiltásához. A `NullableBool.NotDefined` helyi beállítást hagyja beállítatlanul, így a rész örökli az értékét, például a bekezdés [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat)‑ből. Nem jelenti a `False` értéket. Használja a [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) és a [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) metódusokat a feloldott logikai érték lekérdezéséhez.
+
+Az alábbi önálló példa **Arial** betűtípust igényel. Két szövegbloport hoz létre, amelyek ugyanazokat a nagy- és kisbetűket, alsónyúlásokat és ékezetes karaktereket tartalmazzák 54 pont méretben. Mindkét bekezdés alapértelmezés szerint engedélyezi a normalizálást. A felső rész kifejezetten letiltja, az alsó rész örökli. A keretméretek, margók és bekezdés‑távolság azonosak, a sortörés és az automatikus méretezés le van tiltva a következetes összehasonlítás érdekében. A példa `False: false` és `NotDefined: true` értékeket ír ki, majd elmenti a „text_height_normalization.pptx” fájlt.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const settings = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.NotDefined];
+    const settingNames = ["False", "NotDefined"];
+
+    for (let i = 0; i < settings.length; i++) {
+        const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 60 + i * 200, 660, 150);
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const textFrame = shape.getTextFrame();
+        textFrame.setText("Hxgjpq ÅÉ 0123");
+        textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+        textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.False));
+        textFrame.getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Top));
+        textFrame.getTextFrameFormat().setMarginTop(0);
+        textFrame.getTextFrameFormat().setMarginLeft(0);
+
+        const paragraph = textFrame.getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceBefore(0);
+        paragraph.getParagraphFormat().setSpaceAfter(0);
+        paragraph.getParagraphFormat().setSpaceWithin(100);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(java.newByte(aspose.slides.NullableBool.True));
+
+        const portion = paragraph.getPortions().get_Item(0);
+        const font = new aspose.slides.FontData("Arial");
+        portion.getPortionFormat().setLatinFont(font);
+        portion.getPortionFormat().setFontHeight(54);
+        portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+        portion.getPortionFormat().setNormaliseHeight(java.newByte(settings[i]));
+
+        console.log(settingNames[i] + ": " + portion.getPortionFormat().getEffective().getNormaliseHeight());
+    }
+
+    presentation.save("text_height_normalization.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az alábbi összehasonlítás a mentett prezentációból exportált képet mutatja. A felső sorban le van tiltva a normalizálás (`False`), az alsó sor örökli a bekapcsolt beállítást (`NotDefined` → `True`). A megfelelő megjelenéshez telepítve kell legyen az Arial.
+
+![Arial 54‑pontos szöveg normalizálás nélkül felül és örökölt normalizálással alul](text_height_normalization.png)
+
+A normalizálás a karaktermagasságot változtatja anélkül, hogy a [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight) értéke változna, amely pontban adja meg a betűméretet. A bekezdés [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) a sorközöket szabályozza, míg a szövegkeret [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) szabályozza, hogy a szöveg vagy a keret hogyan igazodik a méretezéshez. Ezek a beállítások különböző célokat szolgálnak, és a teljes elrendezésre önállóan hatnak. A bekezdésformázás és öröklődés részleteiért lásd a [Bekezdés kezelése](/slides/hu/nodejs-java/manage-paragraph/) oldalt.
+
+## **Áthúzás alkalmazása és eltávolítása**
+
+Használja a [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) metódust egy szövegrész áthúzásához, például javítások, törölt kifejezések vagy korábbi árak megjelenítéséhez a szöveg törlése nélkül. Állítsa a [TextStrikethroughType.Single vagy Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) értékek egyikére egy vagy két vonal megjelenítéséhez.
+
+Az áthúzás eltávolításához adja meg a [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None) értéket. Ez kifejezetten letiltja a hatást, még ha a környező formázás áthúzást tartalmazna is. Ezzel szemben a [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) helyi beállítást meghagyja meghatározatlanul, így a rész örökölheti a formázást, például a bekezdéstől. Nem garantálja, hogy az áthúzás eltávolításra kerül. A [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) metódussal olvasható a végső formázás, beleértve az örökölt értékeket is.
+
+Az alábbi önálló példa három árösszehasonlítást hoz létre. Minden bekezdés külön részeket tartalmaz a címke, a korábbi ár és a jelenlegi ár számára, így csak a korábbi ár érintett. Az első sor alkalmazza, majd eltávolítja az áthúzást; a többi sor egy- és kétszeri áthúzást tart meg. Ennek a beállításnak a módosítása megőrzi a szöveget és a többi formázását, beleértve a félkövér korábbi árat is.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 620, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const labels = ["None: ", "Single: ", "Double: "];
+
+    for (const label of labels) {
+        const paragraph = new aspose.slides.Paragraph();
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceAfter(20);
+
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setFontHeight(28);
+        const font = new aspose.slides.FontData("Arial");
+        format.setLatinFont(font);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const labelPortion = new aspose.slides.Portion(label);
+        paragraph.getPortions().add(labelPortion);
+
+        const previousPrice = new aspose.slides.Portion("$100");
+        previousPrice.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+        paragraph.getPortions().add(previousPrice);
+        const currentPrice = new aspose.slides.Portion(" → $80");
+        paragraph.getPortions().add(currentPrice);
+
+        shape.getTextFrame().getParagraphs().add(paragraph);
+    }
+
+    const paragraphs = shape.getTextFrame().getParagraphs();
+
+    // Alkalmazza az áthúzást, majd kifejezetten eltávolítja az első korábbi árból.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Double));
+
+    presentation.save("strikethrough.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény felülről lefelé: nincs áthúzás, egy vonalas áthúzás és kétszeri áthúzás.
+
+![Korábbi árak áthúzás nélkül, egy vonalas áthúzással és kétszeri áthúzással](strikethrough.png)
+
+## **Szöveg forgatása**
+
+Használja a [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) metódust egy előre definiált szövegorientáció beállításához egy alakzaton belül.
+
+Az alábbi kódrészlet a szövegorientációt a [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/) értékre állítja, amely **90 fokkal óramutató járásával ellentétesen** forgatja a szöveget:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -474,11 +604,11 @@ Az eredmény:
 
 ![A szöveg forgatása](text_rotation.png)
 
-## **Egyéni forgatás beállítása szövegdobozokhoz**
+## **Egyéni forgatás beállítása szövegkeretekhez**
 
-Használd a [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) metódust egy egyéni forgatási szög beállításához egy [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) esetén.
+Használja a [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) metódust egy egyéni forgatási szög beállításához egy [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) számára.
 
-Az alábbi kódrészlet 3 fokos órán járó forgatást alkalmaz a szövegdobozra az alakzaton belül:
+Az alábbi kódrészlet 3 fokkal az óramutató járásával megegyező irányban forgatja a szövegkeretet az alakzaton belül:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -502,12 +632,12 @@ Az eredmény:
 
 ## **Bekezdés sortávolságának beállítása**
 
-Az Aspose.Slides a [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) és [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) metódusokkal szabályozza a bekezdés távolságát. Ezek a tulajdonságok a következőképpen használhatók:
+Az Aspose.Slides a [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) és [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) metódusokkal szabályozza a bekezdés távolságát. Ezeket a tulajdonságokat a következőképpen használhatja:
 
-* Pozitív értékkel a sortávolság a sormagasság százalékában adható meg.
-* Negatív értékkel a sortávolság pontban adható meg.
+* Pozitív érték esetén a sortávolság a sormagasság százalékában adható meg.
+* Negatív érték esetén a sortávolság pontban adható meg.
 
-A következő példa a bekezdés belső távolságát a sormagasság 200%-ára (dupla sorköz) állítja:
+Az alábbi példa a bekezdésen belüli távolságot a sormagasság 200 %-ára (dupla sorköz) állítja be:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -533,14 +663,14 @@ Az eredmény:
 
 ## **Sortörés szabályainak vezérlése**
 
-A bekezdés sortörés szabályai szűk szövegdobozokban és olyan prezentációkban hasznosak, ahol latin és kelet-ázsiai szöveg keveredik. Az alábbi módszerek a [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/) osztályhoz tartoznak, így egy teljes bekezdésre vonatkoznak:
+A bekezdés sortörés szabályai szűk szövegtömbökben és latin és kelet-ázsiai szöveget vegyesen tartalmazó prezentációkban hasznosak. Az alábbi módszerek a [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/) osztályhoz tartoznak, ezért egy teljes bekezdésre vonatkoznak:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) szabályozza a latin sortörési szabályokat. Vegyes szöveg esetén ennek módosítása befolyásolhatja a kelet-ázsiai szöveg és írásjelek tördelését is.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) szabályozza a kelet-ázsiai sortörési szabályokat, beleértve a sor elején és végén lévő karakterek korlátozását.
+- A [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) a latin sortörés szabályait szabályozza. Vegyes szöveg esetén ennek módosítása a kelet‑ázsiai szöveg és írásjelek sortörését is befolyásolhatja.
+- A [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) a kelet‑ázsiai sortörés szabályait szabályozza, többek között a sor elején és végén lévő karakterek korlátozását.
 
-Ezek a szabályok nem helyettesítik a [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-) metódust, amely automatikus sortörést engedélyez a szövegdobozban. A szabályok a layoutot befolyásolják, amikor a sortörés megtörténik; nem illesztenek sortörés karaktereket. Egy kifejezett sortörés új sort hoz létre a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
+Ezek a szabályok nem helyettesítik a [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText) metódust, amely a szövegdobozon belüli automatikus sortörést engedélyezi. A sortörés szabályok befolyásolják a megjelenést, amikor a sortörés megtörténik; nem szúrnak be sortörés karaktereket. Egy explicit sortörés új sort hoz létre a bekezdésen belül, függetlenül a rendelkezésre álló szélességtől.
 
-Az alábbi önálló példa egy szűk szövegdobozt hoz létre kínai és latin szöveggel. Mindkét sortörési beállítást kifejezetten megadja, majd a „line_breaking.pptx” fájlt menti. A szabályok kipróbálásához változtasd meg a megfelelő értéket, miközben a másik beállítást állandóan hagyod. A példa 24 pont Arial és SimSun betűket használ, 160 pont széles kerettel és nulla vízszintes szövegdoboz margóval. A [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) metódust a [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) értékkel hívja meg, hogy a szöveg mérete és a keret mérete rögzítve maradjon:
+Az alábbi önálló példa egy keskeny szövegtömböt hoz létre, amely kínai és latin szöveget tartalmaz. Mindkét sortörés‑opciót explicit módon beállítja, és elmenti a „line_breaking.pptx” fájlt. A szabályok kipróbálásához módosítsa a megfelelő értéket, miközben a másik beállítást változatlanul hagyja. A példa a 24 pontos Arial és SimSun betűket, 160 pont szélességű keretet és nulla horizontális margót használ. A [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) metódus a [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) értékre van állítva, így a szövegméret és a keret mérete rögzített marad.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -581,11 +711,11 @@ try {
 }
 ```
 
-## **Függőleges központozás (hanging punctuation) vezérlése**
+## **Függőleges idézőjelek kezelése**
 
-A [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) lehetővé teszi, hogy az jogos központozási jelek a sor jobb szélén túlnyúljanak, ahelyett, hogy a következő sorba kerülnének. Ez az egész bekezdésre érvényes, és különbözik a függőleges behúzástól.
+A [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) lehetővé teszi, hogy a jogosult írásjelek kitolódjanak a szövegsor jobb szélén túl, ahelyett hogy a következő sorba kerülnek. Az egész bekezdésre vonatkozik, és különbözik a függőleges behúzástól.
 
-Az alábbi önálló példa 100 pont széles szövegdobozban engedélyezi a függőleges központozást, majd a „hanging_punctuation.pptx” fájlt menti. 24 pont Arial betűkkel és nulla vízszintes szövegdoboz margóval a végpont a „mondat” után marad, és a jobb szövegszegmens túlcsordul. Állítsd a tulajdonságot a [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) értékre a összehasonlításhoz: ebben a beállításban a pont külön sorba kerül. A sortörés engedélyezett, az automatikus illesztés pedig letiltott, hogy a rendelkezésre álló szélesség rögzítve maradjon.
+Az alábbi önálló példa 100 pont széles szövegdobozban engedélyezi a függőleges idézőjelek használatát, és elmenti a „hanging_punctuation.pptx” fájlt. 24 pontos Arial és nulla horizontális margó mellett a végső pont a „sentence” után marad, és a jobb szövegszél fölé nyúlik. A tulajdonság beállítható [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) értékre is: ebben az esetben a pont külön sorba kerül. A sortörés engedélyezett, az automatikus méretezés le van tiltva a fix szélesség megtartásához.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -623,11 +753,11 @@ try {
 }
 ```
 
-Nem minden írásjel függőlegesen helyezhető el. A fentebb leírt [betű- és layoutfeltételek](#control-line-breaking) szintén érvényesek erre a példára: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus illesztés módosítása eltüntetheti a látható különbséget.
+Nem minden írásjel tud függőlegesen nyúlni. A fent leírt [betű- és elrendezési feltételek](#control-line-breaking) itt is érvényesek: a betűtípus, a rendelkezésre álló szélesség, a margók vagy az automatikus méretezés módosítása eltüntetheti a látható különbséget.
 
-## **Automatikus illesztés típusának beállítása szövegdobozokhoz**
+## **Automatikus méretezés típusának beállítása szövegkeretekhez**
 
-A [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) határozza meg, hogyan viselkedjen a szöveg, ha túllépi a tároló határait. Ezzel szabályozhatod, hogy a szöveg zsugorodjon, kifolyjon vagy a forma automatikusan átméreteződjön. A következő példa úgy konfigurálja a formát, hogy mérete a szöveghez igazodjon, majd a „autofit_type.pptx” fájlt menti.
+A [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) határozza meg, hogyan viselkedik a szöveg, ha meghaladja a tároló határait. Használja a szöveg zsugorításához, kifolyásához vagy az alakzat automatikus átméretezéséhez. Az alábbi példa úgy konfigurálja az alakzatot, hogy a szöveghez igazodva méreteződjön, és elmenti a „autofit_type.pptx” fájlt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -646,11 +776,11 @@ try {
 }
 ```
 
-Az automatikus sortörés utáni sorok számolásához és a szöveg vagy a forma szélességének változásához lásd a [Renderelt sorok számolása](/slides/hu/nodejs-java/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg kifolyik-e a tárolóból.
+Az automatikus sortörés utáni sorok számának és a szöveg‑ vagy alakzatszélesség változásának megtekintéséhez lásd a [Renderelt sorok számlálása](/slides/hu/nodejs-java/manage-paragraph/) oldalt. A sorok száma önmagában nem mutatja, hogy a szöveg kifolyik‑e a tárolóból.
 
-## **Szövegdobozok rögzítési pontjának beállítása**
+## **Szövegkeretek rögzítési pontjának beállítása**
 
-A [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) meghatározza, hogyan helyezkedjen el a szöveg függőlegesen egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat aljához rögzíti, majd a „text_anchor.pptx” fájlt menti.
+A [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) meghatározza, hogyan helyezkedik el függőlegesen a szöveg egy alakzaton belül, például a tetején, közepén vagy alján. Az alábbi példa a szöveget az első alakzat aljához rögzíti, és elmenti a „text_anchor.pptx” fájlt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -671,7 +801,7 @@ try {
 
 ## **Szöveg tabulációjának beállítása**
 
-Használd a [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) és a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs--) metódusokat a tabulátorok konfigurálásához egy bekezdésben. Az alábbi példa az alapértelmezett tabulátor méretét 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontra. Ezek a beállítások a tabulátor karaktert tartalmazó szövegre hatnak.
+Használja a [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) és a [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) metódusokat a tabulátorállások konfigurálásához egy bekezdésben. Az alábbi példa a tabulátor alapintervallumát 100 pontra állítja, és egy balra igazított tabulátort ad hozzá 30 pontnál. Ezek a beállítások a tabulátor karaktereket tartalmazó szövegre hatnak.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -699,9 +829,9 @@ Az eredmény:
 
 ## **Helyesírási nyelv beállítása**
 
-Az Aspose.Slides a [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) metódussal lehetővé teszi a helyesírási nyelv beállítását egy szövegrészhez. A helyesírási nyelv határozza meg, hogy melyik nyelvet használja a PowerPoint a helyesírás- és nyelvtani ellenőrzéshez.
+Az Aspose.Slides a [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) metódussal lehetővé teszi a szövegrész helyesírási nyelvének beállítását. A helyesírási nyelv határozza meg, hogy a PowerPoint milyen nyelven végez helyesírás‑ és nyelvhelyességi ellenőrzést.
 
-A következő példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián, és legalább egy bekezdést tartalmaz. Az első bekezdés tartalmát „1。” szövegre cseréli, a betűtípust SimSunra állítja, és a Simplified Chinese (`zh-CN`) helyesírási nyelvet rendeli hozzá. A „proofing_language.pptx” fájlt menti:
+Az alábbi példa a „presentation.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián, és legalább egy bekezdést tartalmaz. Lecseréli az első bekezdés tartalmát „1。”‑re, a SimSun betűtípust állítja be, és a Simplified Chinese (`zh-CN`) helyesírási nyelvet rendeli hozzá. Az eredményt a „proofing_language.pptx” fájlba menti:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -735,7 +865,7 @@ try {
 
 ## **Alapértelmezett nyelv beállítása**
 
-Használd a [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) metódust a betöltés vagy a prezentáció létrehozása közben létrejövő szöveg alapértelmezett nyelvének meghatározásához. A következő példa egy olyan prezentációt hoz létre, amelynek alapértelmezett szövegnyelvének az amerikai angolt állítja be, egy szövegdobozt ad hozzá, majd az első szövegrész nyelvét `en-US`-ként írja ki.
+Használja a [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) metódust a prezentáció betöltése vagy létrehozása közben létrehozott szöveg alapértelmezett nyelvének meghatározásához. Az alábbi példa egy prezentációt hoz létre, amelynek alapértelmezett szövegnyelvként az amerikai angol (`en-US`) van megadva, hozzáad egy szövegdobozt, és az első szövegrésznek kiírja az `en-US` értéket.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -761,9 +891,9 @@ try {
 
 ## **Alapértelmezett szövegstílus beállítása**
 
-Az alapértelmezett szövegformázás alkalmazásához a prezentáció szintjén használd a [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--) metódust.
+Az alapértelmezett szövegformázás prezentációszintű alkalmazásához használja a [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle) metódust.
 
-A következő példa 14 pont félkövér betűt állít be az új prezentáció felső szintű bekezdéseihez alapértelmezettként, majd a „default_text_style.pptx” fájlt menti. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak nincs specifikusabb formázás, amely felülírja őket.
+Az alábbi példa 14 pontos félkövér betűt állít be alapértelmezettként a felső szintű bekezdésekhez egy új prezentációban, és elmenti a „default_text_style.pptx” fájlt. A szöveg örökölheti ezeket az alapértelmezéseket, hacsak nincs specifikusabb formázás, amely felülírja őket.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -771,7 +901,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Lekéri a felső szintű bekezdésformátumot.
+    // Szerezze be a legfelső szintű bekezdés formátumát.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -787,13 +917,13 @@ try {
 
 ## **Szöveg kinyerése All‑Caps hatással**
 
-PowerPointban az **All Caps** betűhatás alkalmazása nagybetűssé teszi a szöveget a dián, még ha eredetileg kisbetűkkel lett beírva is. Amikor az Aspose.Slides segítségével ilyen szövegrészt kérsz le, a könyvtár pontosan úgy adja vissza a szöveget, ahogy be lett gépelve. A megjelenített szöveghez való egyezés érdekében ellenőrizd a [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) értékét, és ha `All`, akkor alakítsd a visszakapott karakterláncot nagybetűssé.
+PowerPointban az **All Caps** betűhatás alkalmazása a szöveget nagybetűsre jeleníti meg a diában, még ha az eredetileg kisbetűvel lett beíratva is. Az Aspose.Slides‑el történő szövegrész lekérdezésekor a könyvtár pontosan úgy adja vissza a szöveget, ahogy be lett gépelve. A megjelenített szöveghez való illeszkedéshez ellenőrizze a [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) értékét, és amennyiben `All`, konvertálja a visszakapott karakterláncot nagybetűssé.
 
-Ez a példa a „sample2.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Az első bekezdés első része a „Hello, Aspose!” szöveget tartalmazza, amelyre All Caps hatás van alkalmazva, az alábbiak szerint.
+Ez a példa a „sample2.pptx” fájlt igényli, amelynek első alakzata egy szövegdoboz az első dián. Az első bekezdés első része a „Hello, Aspose!” szöveget tartalmazza All Caps hatással, ahogy alább látható.
 
 ![Az All Caps hatás](all_caps_effect.png)
 
-Az alábbi kódrészlet megmutatja, hogyan nyerj ki szöveget **All Caps** hatással:
+Az alábbi kódrészlet bemutatja, hogyan lehet kinyerni a **All Caps** hatással ellátott szöveget:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -826,10 +956,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **GYIK**
 
-**Hogyan módosítható a szöveg egy táblázatban egy dián?**
+**Hogyan módosíthatom a szöveget egy dián lévő táblában?**
 
-A táblázat szövegének módosításához egy dián használd a [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) osztályt. Iteráld a cellákat, és frissítsd az egyes cellákat a [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) segítségével, a bekezdés formázását pedig a [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) metódussal.
+A szöveg módosításához egy dián lévő táblában használja a [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) osztályt. Iteráljon a cellákon, és frissítse őket a [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) segítségével, a bekezdésformázást pedig a [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat) metódussal.
 
-**Hogyan alkalmazható színátmenet a szövegre egy PowerPoint dián?**
+**Hogyan alkalmazhatok színátmenetes szöveget egy PowerPoint dián?**
 
-A színátmenetes szöveghez használd a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) metódust. Állítsd a [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) értékét a [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) típusra, és konfiguráld a gradient állomásokat, irányt és átlátszóságot.
+A színátmenetes szöveghez használja a [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) metódust. Állítsa a [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) értékét a [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) típusra, és konfigurálja a színátmeneti állomásokat, irányt és átlátszóságot.

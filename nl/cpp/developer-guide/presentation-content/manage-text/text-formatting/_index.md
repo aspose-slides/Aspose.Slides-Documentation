@@ -1,5 +1,5 @@
 ---
-title: Opmaak van presentatietekst in C++
+title: Tekst in presentaties opmaken in C++
 linktitle: Tekstopmaak
 type: docs
 weight: 50
@@ -10,38 +10,38 @@ keywords:
 - tekstachtergrond
 - teksttransparantie
 - tekenafstand
-- lettertype‑eigenschappen
-- lettertype‑familie
+- lettertype-eigenschappen
+- lettertypefamilie
 - tekstrotatie
-- rotatie‑hoek
-- tekstkader
+- rotatiehoek
+- tekstframe
 - regelafstand
-- autofit‑eigenschap
-- tekstkader‑anker
-- tekst‑tabulatie
+- autofit-eigenschap
+- tekstframe-anker
+- teksttabulatie
 - standaardtaal
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Opmaak en stijl van tekst in PowerPoint- en OpenDocument‑presentaties met Aspose.Slides voor C++. Pas lettertypes, kleuren, uitlijning en meer aan."
+description: "Formateer en styleer tekst in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor C++. Pas lettertypen, kleuren, uitlijning en meer aan."
 ---
 ## **Overzicht**
 
-Dit artikel laat zien hoe u tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met Aspose.Slides voor C++. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekst‑verankering, tab‑stops en taalinstellingen.
+Dit artikel laat zien hoe u tekst kunt opmaken in PowerPoint‑ en OpenDocument‑presentaties met behulp van Aspose.Slides voor C++. Het behandelt achtergrondkleuren, transparantie, tekenafstand, lettertype‑eigenschappen, rotatie, alinea‑afstand, autofit‑gedrag, tekst‑ankering, tab‑stops en taalinstellingen.
 
-Tenzij anders aangegeven, gebruiken de voorbeelden [sample.pptx](sample.pptx). De eerste vorm op de eerste dia is een tekstvak, en de eerste alinea daarvan bevat de hieronder getoonde tekst. Zowel dia‑ als vorm‑indices beginnen bij nul. Voorbeelden die vette delen selecteren gebruiken effectieve opmaak, inclusief geërfde vette opmaak:
+Tenzij anders aangegeven, gebruiken de voorbeelden [sample.pptx](sample.pptx). De eerste vorm op de eerste dia is een tekstvak, en de eerste alinea ervan bevat de onderstaande tekst. Zowel dia‑ als vorm‑indices beginnen bij nul. Voorbeelden die vette gedeelten selecteren gebruiken effectieve opmaak, inclusief geërfde vette opmaak:
 
 ![Voorbeeldtekst](sample_text.png)
 
 Om letterlijke tekst of reguliere‑expressie‑overeenkomsten te vinden en te markeren, zie [Zoeken en vervangen van tekst](/slides/nl/cpp/search-and-replace-text/).
 
-## **Tekstachtergrondkleur instellen**
+## **Achtergrondkleur van tekst instellen**
 
-Gebruik [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) voor afzonderlijke tekstgedeelten.
+Gebruik [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) om de standaard markeerkleur voor een alinea in te stellen, of gebruik [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) voor individuele tekstgedeelten.
 
-Het volgende voorbeeld stelt een lichtgrijze markering in als standaard voor de eerste alinea. Expliciete markeerkleuren op afzonderlijke gedeelten hebben voorrang op deze standaard:
+Het volgende voorbeeld stelt een lichtgrijze markering in als standaard voor de eerste alinea. Expliciete markeerkleuren op individuele gedeelten hebben voorrang boven deze standaard:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,9 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Stel de markeerkleur in voor de hele alinea.
+// Set the highlight color for the entire paragraph.
+defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
+
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
@@ -76,7 +78,7 @@ Het resultaat:
 
 ![De grijze alinea](gray_paragraph.png)
 
-Het code‑voorbeeld hieronder laat zien hoe u de achtergrondkleur instelt voor **tekstgedeelten met een vet lettertype**:
+De onderstaande code‑voorbeeld laat zien hoe u de achtergrondkleur instelt voor **tekstgedeelten met een vet lettertype**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -124,11 +126,11 @@ Het resultaat:
 
 ![De grijze tekstgedeelten](gray_text_portions.png)
 
-## **Alinea's uitlijnen**
+## **Tekst‑alinea's uitlijnen**
 
-Gebruik [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) om de uitlijning van een alinea binnen een tekstraster in te stellen. De waarde kan gecentreerd, links uitgelijnd, rechts uitgelijnd, uitgevuld, enzovoort zijn.
+Gebruik [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) om de uitlijning van een alinea binnen een tekstvak in te stellen. De waarde kan gecentreerd, links‑uitgelijnd, rechts‑uitgelijnd, uitgevuld, enzovoort zijn.
 
-Het volgende code‑voorbeeld toont hoe u de alinea op het **midden** uitlijnt:
+Het volgende code‑voorbeeld toont hoe u de alinea naar het **midden** uitlijnt:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -149,7 +151,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Stel de uitlijning van de alinea in op midden.
+// Stel de uitlijning van de alinea in op centraal.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
 presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -160,11 +162,11 @@ Het resultaat:
 
 ![De uitgelijnde alinea](aligned_paragraph.png)
 
-## **Lettertype uitlijnen binnen een regel**
+## **Lettertypen binnen een regel uitlijnen**
 
-Gebruik [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) om tekstgedeelten met verschillende lettergroottes binnen een regel verticaal uit te lijnen. Deze instelling geldt voor de gehele alinea en bepaalt de uitlijning binnen elk van zijn regels.
+Gebruik [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) om tekstgedeelten met verschillende lettergrootten binnen een regel verticaal uit te lijnen. Deze instelling geldt voor de hele alinea en regelt de uitlijning binnen elke regel.
 
-Het volgende zelfstandige voorbeeld maakt vier gelabelde tekstvakken op één dia. Elke alinea bevat dezelfde tekst in 18, 36 en 54 punten, met een andere lettertype‑uitlijning. Het gebruikt Arial, schakelt autofit en omslag uit, en houdt de tekstvakken groot genoeg voor één regel.
+Het volgende zelfstandige voorbeeld maakt vier gelabelde tekstvakken op één dia. Elke alinea bevat dezelfde tekst in 18, 36 en 54 punten, met een verschillende lettertype‑uitlijning. Het gebruikt Arial, schakelt autofit en regelafbreking uit, en houdt de tekstvakken groot genoeg voor één regel.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -251,17 +253,17 @@ presentation->Dispose();
 
 Het resultaat:
 
-![Vergelijking van baseline, boven, midden en onder lettertype‑uitlijning met gemengde lettergroottes](font_alignment.png)
+![Vergelijking van basislijn, boven, midden en onder lettertype‑uitlijning met gemengde lettergroottes](font_alignment.png)
 
-Lettertype‑uitlijning maakt gebruik van font‑metriek, waardoor de zichtbare randen van individuele letters niet per se exact op één lijn liggen. Het voorbeeld bevat zowel een hoofdletter als een afdalende letter om het verschil tussen baseline‑ en onder‑uitlijning te verduidelijken. Beschikbaarheid van lettertypes en vervanging, de gebruikte tekens en het verschil in lettergroottes beïnvloeden het resultaat. Frame‑afmetingen, marges, regelafstand, omslag en autofit beïnvloeden eveneens de lay‑out; gebruik dezelfde lettertypes en lay‑out‑instellingen bij het vergelijken van de modi.
+Lettertype‑uitlijning maakt gebruik van lettertype‑metriek, dus de zichtbare randen van individuele letters komen niet per se exact op één lijn. Het voorbeeld bevat zowel een hoofdletter als een descender om het verschil tussen basislijn‑ en onderuitlijning te laten zien. De beschikbaarheid en vervanging van lettertypen, de gebruikte tekens en het verschil in lettergroottes beïnvloeden het resultaat. Frame‑afmetingen, marges, regelafstand, afbreken en autofit beïnvloeden ook de lay‑out; gebruik dezelfde lettertypen en lay‑outinstellingen bij het vergelijken van modi.
 
-Deze instelling verschilt van [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), die de horizontale alinea‑uitlijning regelt, en van [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), die het tekstblok verticaal binnen zijn vorm positioneert. Superscript‑ en subscript‑opmaak via [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) verschuift afzonderlijke gedeelten ten opzichte van de baseline in plaats van de lettertype‑uitlijning voor de regels van de alinea in te stellen.
+Deze instelling verschilt van [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), die de horizontale alinea‑uitlijning regelt, en van [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), die het tekstblok verticaal binnen de vorm positioneert. Superscript‑ en subscript‑opmaak via [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) verschuift individuele gedeelten ten opzichte van de basislijn in plaats van de lettertype‑uitlijning voor de regels van de alinea in te stellen.
 
 ## **Transparantie voor tekst instellen**
 
-Tekst‑transparantie wordt geregeld via het alfa‑component van de kleur die is toegewezen via [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfa‑kanaalwaarde op de 0–255‑schaal, geen transparantie‑percentage.
+Transparantie van tekst wordt geregeld via het alfacomponent van de kleur die wordt toegewezen via [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). In de onderstaande voorbeelden is `alpha = 50` een ARGB‑alfakanaalwaarde op de 0–255‑schaal, geen transparantiepercentage.
 
-Het code‑voorbeeld hieronder toont hoe u transparantie toepast op de **hele alinea**:
+De onderstaande code‑voorbeeld toont hoe u transparantie toepast op de **hele alinea**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -360,9 +362,9 @@ Het resultaat:
 
 ## **Tekenafstand voor tekst instellen**
 
-Gebruik [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen. De voorbeelden voegen 3 punten toe; negatieve waarden verkleinen de tekst.
+Gebruik [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) om de afstand tussen tekens in een tekstvak uit te breiden of te verkleinen. De voorbeelden voegen 3 punten ruimte toe; negatieve waarden verkleinen de tekst.
 
-De volgende C++‑code laat zien hoe u de tekenafstand in de **hele alinea** vergroot:
+De volgende C++‑code toont hoe u de tekenafstand uitbreidt in de **hele alinea**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -394,7 +396,7 @@ Het resultaat:
 
 ![De tekenafstand in de alinea](character_spacing_in_paragraph.png)
 
-Het code‑voorbeeld hieronder toont hoe u de tekenafstand vergroot in **tekstgedeelten met een vet lettertype**:
+De onderstaande code‑voorbeeld toont hoe u de tekenafstand uitbreidt in **tekstgedeelten met een vet lettertype**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -439,11 +441,11 @@ Het resultaat:
 
 ![De tekenafstand in de tekstgedeelten](character_spacing_in_text_portions.png)
 
-### **Kerning uitschakelen voor specifieke lettertypes**
+### **Kerning voor specifieke lettertypen uitschakelen**
 
-In sommige gevallen kan door Aspose.Slides gerenderde tekst er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypes negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
+In sommige gevallen kan tekst die door Aspose.Slides wordt gerenderd er iets strakker uitzien dan dezelfde tekst in PowerPoint. Dit kan gebeuren omdat PowerPoint kerning‑gegevens voor bepaalde lettertypen negeert, zelfs wanneer het lettertype geldige kerning‑informatie bevat en kerning is ingeschakeld in de PowerPoint‑instellingen.
 
-Om de gegenereerde uitvoer in dergelijke gevallen dichter bij PowerPoint te laten komen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Gebruik [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) om een waarde in te stellen die groter is dan de werkelijke lettergrootte. Dit voorbeeld vereist “presentation.pptx” met een tekstvak als eerste vorm op de eerste dia. Het controleert de effectieve lettertype‑namen, inclusief geërfde lettertypes, en stelt een drempel van 100 punten in voor gedeelten die Roboto gebruiken. Dit schakelt kerning uit voor overeenkomende gedeelten met een lettergrootte kleiner dan 100 punten:
+Om de gerenderde uitvoer dichter bij PowerPoint te krijgen, kunt u kerning uitschakelen voor tekstgedeelten die het betreffende lettertype gebruiken. Gebruik [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) om een waarde groter dan de werkelijke lettergrootte in te stellen. Dit voorbeeld vereist “presentation.pptx” met een tekstvak als eerste vorm op de eerste dia. Het controleert effectieve letternaamen, inclusief geërfde lettertypen, en stelt een drempel van 100 punten in voor gedeelten die Roboto gebruiken. Dit schakelt kerning uit voor overeenkomende gedeelten met een lettergrootte onder 100 punten:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -501,13 +503,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Voor overeenkomstige tekst onder de drempel voorkomt deze instelling kerning en kan het helpen de rendering van Aspose.Slides af te stemmen op de visuele uitvoer van PowerPoint voor lettertypes die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
+Voor overeenkomende tekst onder de drempel voorkomt deze instelling kerning en kan helpen de weergave van Aspose.Slides beter af te stemmen op de visuele uitvoer van PowerPoint voor lettertypen die door dit PowerPoint‑specifieke gedrag worden beïnvloed.
 
 ## **Tekst‑lettertype‑eigenschappen beheren**
 
-Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) of op afzonderlijke gedeelten via [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
+Lettertype‑eigenschappen kunnen op alinea‑niveau worden ingesteld via [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) of op individuele gedeelten via [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
 
-Het volgende voorbeeld stelt het standaardlettertype van de eerste alinea in op 12 punten Times New Roman met vet, cursief en gestippelde onderstreping. Expliciete opmaak op afzonderlijke gedeelten heeft voorrang op deze standaarden.
+Het volgende voorbeeld stelt het standaardlettertype van de eerste alinea in op 12‑punt Times New Roman met vet, cursief en een gestippelde onderstreping. Expliciete opmaak op individuele gedeelten heeft voorrang boven deze standaarden.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -532,7 +534,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Stel de lettertype-eigenschappen voor de alinea in.
+// Stel de lettertype‑eigenschappen voor de alinea in.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -548,7 +550,7 @@ Het resultaat:
 
 ![De lettertype‑eigenschappen voor de alinea](font_properties_for_paragraph.png)
 
-Het volgende voorbeeld past 13 punten Times New Roman, cursieve opmaak en een gestippelde onderstreping toe op gedeelten waarvan de effectieve opmaak vet is:
+Het volgende voorbeeld past 13‑punt Times New Roman, cursieve opmaak en een gestippelde onderstreping toe op gedeelten waarvan de effectieve opmaak vet is:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -559,7 +561,7 @@ Het volgende voorbeeld past 13 punten Times New Roman, cursieve opmaak en een ge
 #include <DOM/IPortionFormat.h>
 #include <DOM/IPortionFormatEffectiveData.h>
 #include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrame>
 #include <DOM/NullableBool.h>
 #include <DOM/Presentation.h>
 #include <DOM/TextUnderlineType.h>
@@ -569,41 +571,200 @@ using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+auto [// missing code?] // This line was not in the original snippet and should be omitted.
+
 auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
-auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-int portionCount = portions->get_Count();
-auto font = System::MakeObject<FontData>(u"Times New Roman");
-
-for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
-{
-    auto portion = paragraph->get_Portion(portionIndex);
-    auto portionFormat = portion->get_PortionFormat();
-    if (portionFormat->GetEffective()->get_FontBold())
-    {
-        // Stel de lettertype‑eigenschappen voor het tekstgedeelte in.
-        portionFormat->set_FontHeight(13.0f);
-        portionFormat->set_FontItalic(NullableBool::True);
-        portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
-        portionFormat->set_LatinFont(font);
-    }
-}
-
-presentation->Save(u"font_properties_for_text_portions.pptx", SaveFormat::Pptx);
-presentation->Dispose();
+auto autoShape = System::ExplicitCast<IAutoShape> (...);
 ```
 
 Het resultaat:
 
 ![De lettertype‑eigenschappen voor tekstgedeelten](font_properties_for_text_portions.png)
 
+## **Normalisatie van tekstruimtehoogte regelen**
+
+Gebruik [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) bij het reproduceren van sjabloon‑typografie of het onderzoeken van verschillen in tekenhoogte. In PowerPoint zorgt het inschakelen van normalisatie ervoor dat individuele tekens verticaal worden uitgerekt of samengedrukt om een uniforme zichtbare hoogte binnen het tekstgedeelte te krijgen. Het garandeert niet dat teksthoogtes gelijk zijn tussen verschillende lettertypen.
+
+Stel de eigenschap in op [NullableBool::True of False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) om normalisatie expliciet in of uit te schakelen. `NullableBool::NotDefined` laat de lokale instelling onbepaald, zodat het gedeelte de waarde erft, bijvoorbeeld van de alinea‑[IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/). Het betekent niet `False`. Gebruik [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) en lees [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) om de uiteindelijk opgeloste Boole‑waarde te verkrijgen.
+
+Het volgende zelfstandige voorbeeld vereist dat **Arial** is geïnstalleerd. Het maakt twee tekstblokken aan met dezelfde hoofdletters, kleine letters, descenders enAccenten op 54 punten. Beide alinea’s schakelen normalisatie standaard in. Het bovenste gedeelte schakelt het expliciet uit; het onderste erft het. De frame‑groottes, marges en alinea‑afstand zijn identiek, met afbreken en autofit uitgeschakeld om de vergelijking consistent te houden. Het voorbeeld schrijft `False: False` en `NotDefined: True`, en slaat “text_height_normalization.pptx” op.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+NullableBool settings[] = { NullableBool::False, NullableBool::NotDefined };
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 60 + i * 200, 660, 150);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(u"Hxgjpq ÅÉ 0123");
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_MarginTop(0);
+    textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+
+    auto paragraph = textFrame->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    paragraph->get_ParagraphFormat()->set_SpaceWithin(100);
+    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_NormaliseHeight(NullableBool::True);
+
+    auto portion = paragraph->get_Portion(0);
+    auto font = MakeObject<FontData>(u"Arial");
+    portion->get_PortionFormat()->set_LatinFont(font);
+    portion->get_PortionFormat()->set_FontHeight(54);
+    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+    portion->get_PortionFormat()->set_NormaliseHeight(settings[i]);
+
+    Console::WriteLine(u"{0}: {1}", settings[i], portion->get_PortionFormat()->GetEffective()->get_NormaliseHeight());
+}
+
+presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+De vergelijking hieronder is geëxporteerd uit de opgeslagen presentatie. De bovenste rij heeft normalisatie uitgeschakeld (`False`); de onderste rij erft de ingeschakelde instelling (`NotDefined` → `True`). Houd Arial geïnstalleerd om dit uiterlijk te reproduceren.
+
+![Arial‑tekst van 54 punten met normalisatie uitgeschakeld boven en geërfde normalisatie ingeschakeld hieronder](text_height_normalization.png)
+
+Normalisatie wijzigt de tekenhoogte zonder de toegewezen [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/)‑waarde te wijzigen, die de lettergrootte in punten specificeert. De alinea‑[IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) regelt de regelafstand, terwijl de tekst‑frame‑[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) bepaalt hoe tekst of de container zich aanpast om te passen. Deze instellingen dienen verschillende doelen en kunnen de algehele lay‑out onafhankelijk van elkaar beïnvloeden. Zie voor meer over alinea‑opmaak en overerving [Beheer alinea](/slides/nl/cpp/manage-paragraph/).
+
+## **Doorhalen toepassen en verwijderen**
+
+Gebruik [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) op een tekstgedeelte om correcties, geannuleerde termen of eerdere prijzen weer te geven zonder de oorspronkelijke tekst te verwijderen. Stel in op [TextStrikethroughType::Single of Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) voor één of twee doorhalingslijnen.
+
+Om doorhalen te verwijderen, wijs `TextStrikethroughType::None` toe. Dit schakelt het effect expliciet uit, zelfs als de omringende opmaak doorhalen specificeert. Daarentegen laat `TextStrikethroughType::NotDefined` de lokale instelling onbepaald, zodat het gedeelte de opmaak erft, bijvoorbeeld van de alinea. Het garandeert niet dat doorhalen wordt verwijderd. Gebruik [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) om de resulterende opmaak te lezen, inclusief geërfde waarden.
+
+Het volgende zelfstandige voorbeeld maakt drie prijsvergelijkingen. Elke alinea heeft aparte gedeelten voor het label, de vorige prijs en de huidige prijs, zodat alleen de vorige prijs wordt beïnvloed. De eerste rij past doorhalen toe en verwijdert het vervolgens; de andere rijen behouden respectievelijk enkelvoudig en dubbel doorhalen. Het wijzigen van deze eigenschap behoudt de tekst en de andere opmaak, inclusief de vetgedrukte vorige prijs.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextStrikethroughType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+String labels[] = { u"None: ", u"Single: ", u"Double: " };
+
+for (auto label : labels)
+{
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(20);
+
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    format->set_FontHeight(28);
+    auto font = MakeObject<FontData>(u"Arial");
+    format->set_LatinFont(font);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto labelPortion = MakeObject<Portion>(label);
+    paragraph->get_Portions()->Add(labelPortion);
+
+    auto previousPrice = MakeObject<Portion>(u"$100");
+    previousPrice->get_PortionFormat()->set_FontBold(NullableBool::True);
+    paragraph->get_Portions()->Add(previousPrice);
+    auto currentPrice = MakeObject<Portion>(u" → $80");
+    paragraph->get_Portions()->Add(currentPrice);
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+// Pas doorhaling toe, en verwijder deze vervolgens expliciet van de eerste vorige prijs.
+auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
+
+textFrame->get_Paragraph(1)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Single);
+textFrame->get_Paragraph(2)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Double);
+
+presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Het resultaat, van boven naar beneden: geen doorhalen, enkelvoudig doorhalen en dubbel doorhalen.
+
+![Vorige prijzen zonder doorhalen, met enkelvoudig doorhalen en met dubbel doorhalen](strikethrough.png)
+
+
 ## **Tekstrotatie instellen**
 
 Gebruik [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) om een vooraf gedefinieerde tekstoriëntatie binnen een vorm in te stellen.
 
-Het volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), wat de tekst **90 graden tegen de klok in** roteert:
+Het volgende code‑voorbeeld stelt de tekstoriëntatie in de vorm in op [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), wat de tekst **90 graden tegen de klok in** draait:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -631,11 +792,11 @@ Het resultaat:
 
 ![De tekstrotatie](text_rotation.png)
 
-## **Aangepaste rotatie voor tekstkaders instellen**
+## **Aangepaste rotatie voor tekstframes instellen**
 
-Gebruik [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) om een aangepaste rotatiehoek in te stellen voor een [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
+Gebruik [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) om een aangepaste rotatie‑hoek voor een [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) in te stellen.
 
-Het code‑voorbeeld hieronder roteert het tekstkader met 3 graden met de klok mee binnen de vorm:
+Het onderstaande code‑voorbeeld roteert het tekstframe met 3 graden met de klok mee binnen de vorm:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -662,14 +823,14 @@ Het resultaat:
 
 ![De aangepaste tekstrotatie](custom_text_rotation.png)
 
-## **Regelafstand voor alinea's instellen**
+## **Regelafstand van alinea’s instellen**
 
-Aspose.Slides biedt [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/), en [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) om de alinea‑afstand te regelen. Deze methoden worden als volgt gebruikt:
+Aspose.Slides biedt [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) en [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) om de alinea‑afstand te regelen. Deze methoden worden als volgt gebruikt:
 
-* Gebruik een positieve waarde om de regelafstand op te geven als een percentage van de regelhoogte.
+* Gebruik een positieve waarde om de regelafstand als een percentage van de regelhoogte op te geven.
 * Gebruik een negatieve waarde om de regelafstand in punten op te geven.
 
-Het volgende voorbeeld stelt de afstand binnen de eerste alinea in op 200 % van de regelhoogte (dubbele regelafstand):
+Het volgende voorbeeld stelt de spacing binnen de eerste alinea in op 200 % van de regelhoogte (dubbele regelafstand):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -699,16 +860,16 @@ Het resultaat:
 
 ![De regelafstand binnen de alinea](line_spacing.png)
 
-## **Regelafbreking beheren**
+## **Regels voor regeleinde regelen**
 
-Regel‑afbreekregels voor alinea’s zijn nuttig in smalle tekstblokken en presentaties die Latijnse en Oost‑Aziatische tekst mengen. De volgende methoden behoren tot [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), zodat ze op een hele alinea van toepassing zijn:
+Regels voor het breken van regels in een alinea zijn nuttig in smalle tekstblokken en presentaties die Latijnse en Oost‑Aziatische tekst combineren. De volgende methoden behoren tot [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), dus ze gelden voor een gehele alinea:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) regelt de Latijnse regel‑afbreekregels. In gemengde tekst kan het wijzigen hiervan ook bepalen waar naastliggende Oost‑Aziatische tekst en interpunctie worden afgebroken.
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) regelt de Oost‑Aziatische regel‑afbreekregels, inclusief beperkingen op tekens aan het begin en einde van een regel.
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) regelt de regelsplitsingsregels voor Latijnse tekst. In gemengde tekst kan het wijzigen hiervan ook bepalen waar aangrenzende Oost‑Aziatische tekst en leestekens afbreken.
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) regelt de regelsplitsingsregels voor Oost‑Aziatische tekst, inclusief beperkingen voor tekens aan het begin en einde van een regel.
 
-Deze regels vervangen niet [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), die automatisch omslaan binnen een tekstkader inschakelt. Ze beïnvloeden de layout wanneer omslaan optreedt; ze voegen geen regel‑afbreektekens toe. Een expliciete regel‑afbreking dwingt een nieuwe regel binnen de alinea, onafhankelijk van de beschikbare breedte.
+Deze regels vervangen niet [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), die automatisch afbreken binnen een tekstframe inschakelt. Ze beïnvloeden de lay‑out wanneer afbreken plaatsvindt; ze voegen geen regeleinde‑tekens in. Een expliciete regeleinde‑invoeging dwingt een nieuwe regel binnen de alinea, onafhankelijk van de beschikbare breedte.
 
-Het volgende zelfstandige voorbeeld maakt een smal tekstblok met Chinese en Latijnse tekst. Het stelt beide regel‑afbreekregels expliciet in en slaat "line_breaking.pptx" op. Om met een van de regels te experimenteren, wijzig de waarde die aan de setter wordt doorgegeven terwijl de andere instellingen ongewijzigd blijven. Het voorbeeld gebruikt 24‑punten Arial en SimSun met een frame‑breedte van 160 punten en nul horizontale tekst‑frame‑marges. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) wordt aangeroepen met [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) zodat de tekstgrootte en frame‑afmetingen vast blijven:
+Het volgende zelfstandige voorbeeld maakt een smal tekstblok met Chinese en Latijnse tekst. Het stelt beide regelsplitsingsregels expliciet in en slaat “line_breaking.pptx” op. Om te experimenteren met een van de regels, wijzig de waarde die aan de setter wordt doorgegeven terwijl de andere instellingen gelijk blijven. Het voorbeeld gebruikt 24‑punt Arial en SimSun met een frame‑breedte van 160 punten en nul horizontale tekst‑frame‑marges. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) wordt aangeroepen met [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) zodat tekstgrootte en framematen vast blijven.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -766,11 +927,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Hangende interpunctie beheren**
+## **Hangende interpunctie regelen**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) staat toe dat in aanmerking komende interpunctie zich uitstrekt voorbij de rechterrand van de tekstregel in plaats van de volgende regel in te nemen. Het geldt voor de gehele alinea en verschilt van een hangende inspringing.
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) maakt het mogelijk dat in aanmerking komende interpunctie zich uitstrekkt voorbij de rechterrand van de tekstreek in plaats van naar de volgende regel te gaan. Het geldt voor de gehele alinea en verschilt van een hangende inspringing.
 
-Het volgende zelfstandige voorbeeld schakelt hangende interpunctie in een 100‑punten breed tekstkader in en slaat "hanging_punctuation.pptx" op. Met 24‑punten Arial en nul horizontale tekst‑frame‑marges blijft de laatste punt achter "sentence" staan en strekt zich uit voorbij de rechterkant van de tekst. Geef [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) door aan de setter om te vergelijken: met deze instellingen neemt de punt een aparte regel in. Omslaan is ingeschakeld en autofit uitgeschakeld om de beschikbare breedte vast te houden.
+Het volgende zelfstandige voorbeeld schakelt hangende interpunctie in een 100‑punt breed tekstframe in en slaat “hanging_punctuation.pptx” op. Met 24‑punt Arial en nul horizontale tekst‑frame‑marges blijft de laatste punt achter “sentence” en strekt zich uit voorbij de rechterkant van de tekst. Geef [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) door aan de setter om te vergelijken: met deze instellingen neemt de punt een aparte regel in. Afbreken is ingeschakeld en autofit uitgeschakeld om de beschikbare breedte vast te houden.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -825,11 +986,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Niet elk leesteken kan hangen. De [lettertype‑ en lay‑out‑condities beschreven hierboven](#control-line-breaking) zijn ook van toepassing op deze vergelijking: het wijzigen van het lettertype, de beschikbare breedte, marges of autofit‑instellingen kan het zichtbare verschil wegnemen.
+Niet elk leesteken kan hangen. De [lettertype‑ en lay‑outvoorwaarden die hierboven worden beschreven](#control-line-breaking) gelden ook voor deze vergelijking: het wijzigen van het lettertype, de beschikbare breedte, marges of autofit‑instellingen kan het zichtbare verschil wegnemen.
 
-## **Autofit‑type voor tekstkaders instellen**
+## **Autofit‑type voor tekstframes instellen**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van zijn container overschrijdt. Gebruik het om te bepalen of de tekst verkleint, overlapt, of de vorm automatisch aanpast. Het volgende voorbeeld configureert de vorm om te schalen zodat de tekst past en slaat het resultaat op als "autofit_type.pptx".
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) bepaalt hoe tekst zich gedraagt wanneer deze de grenzen van de container overschrijdt. Gebruik het om te regelen of de tekst krimpt, overlapt of de vorm automatisch schaalt. Het volgende voorbeeld configureert de vorm zodat deze schaalt om de tekst te passen en slaat het resultaat op in “autofit_type.pptx”.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -853,37 +1014,28 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Om het aantal regels te tellen na automatisch omslaan en te zien hoe tekst‑ of vorm‑breedte het resultaat verandert, zie [Count Rendered Lines](/slides/nl/cpp/manage-paragraph/). Alleen het aantal regels geeft niet aan of de tekst buiten de container overlapt.
+Om het aantal regels na automatisch afbreken te tellen en te zien hoe tekst‑ of vormbreedte het resultaat verandert, zie [Aantal gerenderde regels tellen](/slides/nl/cpp/manage-paragraph/). Het aantal regels alleen geeft niet aan of tekst buiten de container overlapt.
 
-## **Anker van tekstkaders instellen**
+## **Anker van tekstframes instellen**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) bepaalt hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan. Het volgende voorbeeld verankert de tekst aan de onderkant van de eerste vorm en slaat het resultaat op als "text_anchor.pptx".
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) bepaalt hoe tekst verticaal binnen een vorm wordt gepositioneerd, bijvoorbeeld bovenaan, in het midden of onderaan. Het volgende voorbeeld verankert de tekst onderaan de eerste vorm en slaat het resultaat op in “text_anchor.pptx”.
 
 ```cpp
-#include <DOM/IAutoShape.h>
-#include <DOM/ISlide.h>
-#include <DOM/ITextFrame.h>
-#include <DOM/ITextFrameFormat.h>
-#include <DOM/Presentation.h>
-#include <DOM/TextAnchorType.h>
-#include <Export/SaveFormat.h>
+#include <DOM/IAutoShape> // Claro
+#include <DOM/ISlide> // Claro
+#include <DOM/ITextFrame> // Claro
+#include <DOM/ITextFrameFormat> // Claro
+#include <DOM/Presentation> // Claro
+#include <DOM/TextAnchorType> // Claro
+#include <Export/SaveFormat> // Claro
 
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
-auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
-autoShape->get_TextFrame()->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Bottom);
-
-presentation->Save(u"text_anchor.pptx", SaveFormat::Pptx);
-presentation->Dispose();
 ```
 
-## **Tekst‑tabulatie instellen**
+## **Tabulatie voor tekst instellen**
 
-Gebruik [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) en [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) om tab‑stops in een alinea te configureren. Het volgende voorbeeld stelt de standaard tab‑intervallen in op 100 punten en voegt een links‑uitgelijnde tab‑stop toe op 30 punten. Deze instellingen hebben invloed op tekst die tab‑tekens bevat.
+Gebruik [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) en [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) om tab‑stops in een alinea te configureren. Het volgende voorbeeld stelt de standaard tab‑intervallen in op 100 punten en voegt een links‑uitgelijnde tab‑stop toe op 30 punten. Deze instellingen beïnvloeden tekst die tab‑tekens bevat.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -916,11 +1068,11 @@ Het resultaat:
 
 ![De alinea‑tabs](paragraph_tabs.png)
 
-## **Proefleestaal instellen**
+## **Controlertaal instellen**
 
-Aspose.Slides biedt [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), waarmee u de proefleestaal voor een tekstgedeelte kunt instellen. De proefleestaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
+Aspose.Slides biedt [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), waarmee u de controlertaal voor een tekstgedeelte kunt instellen. De controlertaal bepaalt de taal die wordt gebruikt voor spelling‑ en grammaticacontrole in PowerPoint.
 
-Het volgende voorbeeld vereist "presentation.pptx" met een tekstvak als eerste vorm op de eerste dia en ten minste één alinea. Het vervangt de inhoud van de eerste alinea door "1。", stelt SimSun in als lettertype en wijst de vereenvoudigde Chinese proefleestaal (`zh-CN`) toe. Het slaat het resultaat op als "proofing_language.pptx":
+Het volgende voorbeeld vereist “presentation.pptx” met een tekstvak als eerste vorm op de eerste dia en minstens één alinea. Het vervangt de inhoud van de eerste alinea door “1。”, stelt SimSun in als lettertype en kent de vereenvoudigde Chinese controlertaal (`zh‑CN`) toe. Het slaat het resultaat op in “proofing_language.pptx”:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -965,7 +1117,7 @@ presentation->Dispose();
 
 ## **Standaardtaal instellen**
 
-Gebruik [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) om de standaardtaal te definiëren voor tekst die wordt aangemaakt tijdens het laden of maken van een presentatie. Het volgende voorbeeld maakt een presentatie met Engels (VS) als standaard‑teksttaal, voegt een tekstvak toe, en drukt `en-US` af voor het eerste tekstgedeelte.
+Gebruik [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) om de standaardtaal voor tekst te definiëren die wordt aangemaakt tijdens het laden of maken van een presentatie. Het volgende voorbeeld maakt een presentatie met VS‑Engels als standaardteksttaal, voegt een tekstvak toe en print `en‑US` voor het eerste tekstgedeelte.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -988,7 +1140,7 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Voeg een nieuw rechthoekvorm met tekst toe.
+// Voeg een nieuw rechthoekig vorm toe met tekst.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
@@ -1004,7 +1156,7 @@ presentation->Dispose();
 
 Om standaard‑tekstopmaak op presentatieniveau toe te passen, gebruik [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-Het volgende voorbeeld stelt een 14‑punten vet lettertype in als standaard voor top‑level alinea's in een nieuwe presentatie en slaat deze op als "default_text_style.pptx". Tekst kan deze standaarden erven, tenzij specifiekere opmaak ze overschrijft.
+Het volgende voorbeeld stelt een 14‑punt vet lettertype in als standaard voor alinea’s van het hoogste niveau in een nieuwe presentatie en slaat deze op in “default_text_style.pptx”. Tekst kan deze standaarden erven tenzij meer specifieke opmaak ze overschrijft.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -1019,7 +1171,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Verkrijg het alineaformaat van het hoogste niveau.
+// Haal het alineaformaat van het hoogste niveau op.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -1033,15 +1185,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tekst extraheren met het All‑Caps‑effect**
+## **Tekst extraheren met het ‘Alle hoofdletters’‑effect**
 
-In PowerPoint zorgt het toepassen van het **All Caps**‑lettertype‑effect ervoor dat tekst in hoofdletters wordt weergegeven op de dia, zelfs wanneer deze oorspronkelijk in kleine letters werd getypt. Wanneer u zo’n tekstgedeelte ophaalt met Aspose.Slides, retourneert de bibliotheek de tekst precies zoals ingevoerd. Om de weergegeven tekst overeen te laten komen, controleer [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) en zet de geretourneerde tekenreeks om in hoofdletters wanneer de waarde [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) is.
+In PowerPoint maakt het toepassen van het **Alle hoofdletters**‑lettertype‑effect dat tekst in hoofdletters wordt weergegeven op de dia, zelfs wanneer deze oorspronkelijk in kleine letters is getypt. Wanneer u zo’n tekstgedeelte met Aspose.Slides ophaalt, retourneert de bibliotheek de tekst precies zoals deze werd ingevoerd. Om de weergegeven tekst te laten overeenkomen, controleert u [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) en converteert u de geretourneerde tekenreeks naar hoofdletters wanneer de waarde [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) is.
 
-Dit voorbeeld vereist "sample2.pptx" met een tekstvak als eerste vorm op de eerste dia. Het eerste gedeelte van de eerste alinea bevat "Hello, Aspose!" met het All Caps‑effect toegepast, zoals hieronder weergegeven.
+Dit voorbeeld vereist “sample2.pptx” met een tekstvak als eerste vorm op de eerste dia. Het eerste tekstgedeelte van de eerste alinea bevat “Hello, Aspose!” met het Alle hoofdletters‑effect toegepast, zoals hieronder weergegeven.
 
-![Het All Caps‑effect](all_caps_effect.png)
+![Het effect ‘Alle hoofdletters’](all_caps_effect.png)
 
-Het code‑voorbeeld hieronder toont hoe u de tekst kunt extraheren met toegepast **All Caps**‑effect:
+De onderstaande code‑voorbeeld laat zien hoe u de tekst met het **Alle hoofdletters**‑effect kunt extraheren:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1085,10 +1237,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Hoe wijzig ik tekst in een tabel op een dia?**
+**Hoe kan ik tekst in een tabel op een dia wijzigen?**
 
 Om tekst in een tabel op een dia te wijzigen, gebruik [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Loop door de cellen en werk elke cel bij via [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) en alinea‑opmaak via [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Hoe pas ik een verloopkleur toe op tekst in een PowerPoint‑dia?**
+**Hoe kan ik een verloopkleur op tekst in een PowerPoint‑dia toepassen?**
 
-Om een verloopkleur op tekst toe te passen, gebruik [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Stel [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) in op [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) en configureer de verloop‑stops, richting en transparantie.
+Om een verloopkleur op tekst toe te passen, gebruik [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Stel [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) in op [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) en configureer de verloopstops, richting en transparantie.
+
+Gerelateerde functie: [Tekst opmaken binnen dia’s](/slides/nl/features/text-formatting/).

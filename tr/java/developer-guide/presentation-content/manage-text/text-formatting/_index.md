@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Metnini Biçimlendir
+title: Java’da Sunum Metnini Biçimlendir
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
@@ -13,12 +13,12 @@ keywords:
 - yazı tipi özellikleri
 - yazı tipi ailesi
 - metin döndürme
-- dönüş açısı
+- döndürme açısı
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi sabitlemesi
-- metin sekleme
+- metin çerçeve sabitlemesi
+- metin sekmesi
 - varsayılan dil
 - PowerPoint
 - OpenDocument
@@ -29,19 +29,19 @@ description: "Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunum
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, dönüşüm, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
+Bu makale, Aspose.Slides for Java kullanarak PowerPoint ve OpenDocument sunumlarında metin biçimlendirmeyi gösterir. Arka plan renkleri, saydamlık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
 
-Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaytındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır temellidir. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirme dahil olmak üzere etkili biçimlendirme kullanır:
+Aksi belirtilmediği sürece, örneklerde [sample.pptx](sample.pptx) kullanılır. İlk slaydındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır temellidir. Kalın bölümleri seçen örnekler, kalıtımsal kalın biçimlendirme dahil, etkili biçimlendirmeyi kullanır:
 
 ![Örnek metin](sample_text.png)
 
-Metin ara ve değiştir [Search and Replace Text](/slides/tr/java/search-and-replace-text/).
+Literals metni veya regular‑expression eşleşmelerini bulmak ve vurgulamak için [Metin Arama ve Değiştirme](/slides/tr/java/search-and-replace-text/) bölümüne bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragrafın varsayılan vurgulama rengini ayarlamak için [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) kullanın veya bireysel metin bölümleri için [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak üzere [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) kullanın veya bireysel metin bölümleri için [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerdeki açık vurgulama renkleri bu varsayılanın üzerine yazılır:
+Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerdeki açık vurgulama renkleri bu varsayılanın üzerine geçer:
 
 ```java
 import com.aspose.slides.*;
@@ -54,7 +54,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Paragrafın tamamı için vurgulama rengini ayarla.
+    // Tüm paragraf için vurgulama rengini ayarla.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -67,7 +67,7 @@ Sonuç:
 
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki kod örneği, **kalın fontlu metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -82,8 +82,8 @@ try {
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Metin bölümünün vurgulama rengini ayarla.
-            portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
+                // Metin bölümü için vurgulama rengini ayarla.
+                portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
 
@@ -99,9 +99,9 @@ Sonuç:
 
 ## **Metin Paragraflarını Hizala**
 
-Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) kullanın. Değer merkezlenmiş, sola hizalı, sağa hizalı, iki yana yaslı vb. olabilir.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) kullanarak bir metin çerçevesi içinde paragraf hizalamasını ayarlayın. Değer; ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
 
-Aşağıdaki kod örneği paragrafı **ortaya** hizalamanın yolunu gösterir:
+Aşağıdaki kod örneği paragrafı **ortaya** hizalamayı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -113,7 +113,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Paragrafın hizalamasını merkeze ayarla.
+    // Paragrafın hizalamasını ortaya ayarla.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -126,11 +126,11 @@ Sonuç:
 
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
-## **Satır İçindeki Yazı Tiplerini Hizala**
+## **Bir Satır İçinde Yazı Tiplerini Hizala**
 
-Bir satır içinde farklı yazı tipi boyutlarına sahip metin bölümlerini düşey olarak hizalamak için [IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) kullanın. Bu ayar tüm paragraf için geçerlidir ve satırlarının içinde hizalamayı kontrol eder.
+[IParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setFontAlignment-int-) kullanarak aynı satır içinde farklı yazı tipi boyutlarına sahip metin bölümlerini dikey olarak hizalayın. Bu ayar tüm paragrafı etkiler ve her satırdaki hizalamayı kontrol eder.
 
-Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 punto olarak, farklı yazı tipi hizalamasıyla içerir. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterli büyüklükte tutar.
+Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puan boyutlarında içerir ve farklı bir yazı tipi hizalaması vardır. Arial kullanır, otomatik sığdırma ve satır kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
 
 ```java
 import com.aspose.slides.*;
@@ -186,17 +186,17 @@ try {
 
 Sonuç:
 
-![Alt Çizgi, Üst, Orta ve Alt yazı tipi hizalama karşılaştırması](font_alignment.png)
+![Karışık yazı tipi boyutlarıyla Alt Çizgi, Üst, Merkez ve Alt yazı tipi hizalamasının karşılaştırması](font_alignment.png)
 
-Yazı tipi hizalaması yazı tipi metriklerini kullanır, bu nedenle bireysel harflerin görünen kenarları mutlaka tam olarak hizalanmaz. Örnek, bir büyük harf ve bir alt çizgi karakteri içerir ve temel çizgi ile alt hizalama arasındaki farkı göstermeye yardımcı olur. Yazı tipi bulunurluğu ve ikame edilmesi, kullanılan karakterler ve yazı tipi boyutları arasındaki fark sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; modları karşılaştırırken aynı yazı tiplerini ve düzen ayarlarını kullanın.
+Yazı tipi hizalaması yazı tipi ölçümlerine dayanır; bu yüzden bireysel harflerin görünür kenarları tam olarak hizalanmayabilir. Örnek, alt çizgi ve alt karakteri içeren bir büyük harf de içerir, böylece alt çizgi ile alt hizalama arasındaki fark gösterilir. Yazı tipi kullanılabilirliği, karakterler ve yazı tipi boyutları farkı sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da yerleşimi etkiler; modları karşılaştırırken aynı yazı tiplerini ve yerleşim ayarlarını kullanın.
 
-Bu ayar, yatay paragraf hizalamasını kontrol eden [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-), ve şekil içinde metin bloğunu düşey olarak konumlandıran [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ayarlarından farklıdır. [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) aracılığıyla üst simge ve alt simge biçimlendirmesi, paragraf satırlarının yazı tipi hizalamasını ayarlamak yerine bireysel bölümleri temel çizgiye göre kaydırır.
+Bu ayar, yatay paragraf hizalamasını kontrol eden [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) ve metin bloğunu şekil içinde dikey konumlandıran [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) ayarlarından farklıdır. [IBasePortionFormat.setEscapement](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setEscapement-float-) ile superscript ve subscript biçimlendirmesi, paragraf satırlarının yazı tipi hizalamasını ayarlamaktan ziyade, bölümleri taban çizgisine göre kaydırır.
 
 ## **Metin Şeffaflığını Ayarla**
 
-Metin şeffaflığı, [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) aracılığıyla atanan rengin alfa bileşeniyle kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, yüzde 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, şeffaflık yüzdesi değildir.
+Metin şeffaflığı, [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) atanan rengin alfa bileşeni aracılığıyla kontrol edilir. Aşağıdaki örneklerde `alpha = 50` 0–255 ölçeğinde bir ARGB alfa kanal değerdir, yüzde şeffaflık değildir.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığın nasıl uygulanacağını gösterir:
+Aşağıdaki kod örneği, şeffaflığı **tüm paragraf**a nasıl uygulayacağınızı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -211,7 +211,7 @@ try {
     IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Metnin doldurma rengini şeffaf renk olarak ayarla.
+    // Metnin doldurma rengini şeffaf renge ayarla.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -225,7 +225,7 @@ Sonuç:
 
 ![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için şeffaflığın nasıl uygulanacağını gösterir:
+Aşağıdaki kod örneği, **kalın fontlu metin bölümleri** için şeffaflığı nasıl uygulayacağınızı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -258,11 +258,11 @@ Sonuç:
 
 ![Şeffaf metin bölümleri](transparent_text_portions.png)
 
-## **Metin Karakter Aralığını Ayarla**
+## **Metin İçin Karakter Aralığını Ayarla**
 
-Metin kutusundaki karakterler arasındaki boşluğu genişletmek veya sıkıştırmak için [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) kullanın. Örnekler 3 puan ekler; negatif değerler metni sıkıştırır.
+[IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) kullanarak bir metin kutusundaki karakterler arasındaki boşluğu genişletebilir veya sıkıştırabilirsiniz. Örnekler 3 puan boşluk ekler; negatif değerler metni sıkıştırır.
 
-Aşağıdaki Java kodu, **tüm paragrafta** karakter aralığını nasıl artıracağınızı gösterir:
+Aşağıdaki Java kodu, **tüm paragrafta** karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -287,7 +287,7 @@ Sonuç:
 
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümlerinde** karakter aralığını nasıl artıracağınızı gösterir:
+Aşağıdaki kod örneği, **kalın fontlu metin bölümleri** için karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -316,11 +316,11 @@ Sonuç:
 
 ![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
 
-### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
+### **Belirli Yazı Tipleri için Kerning'i Devre Dışı Bırak**
 
-Bazı durumlarda, Aspose.Slides tarafından işlenen metin, aynı metnin PowerPoint'te gösterilmesinden biraz daha sıkı görünebilir. Bu, PowerPoint'in bazı yazı tipleri için kerning verilerini göz ardı etmesi nedeniyle olabilir; hatta yazı tipi geçerli kerning bilgisine sahip ve PowerPoint ayarlarında kerning etkin olsa bile.
+Bazen Aspose.Slides tarafından render edilen metin, PowerPoint'te gösterilen aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint'in belirli yazı tipleri için kerning verilerini yok sayması nedeniyle olabilir; hatta yazı tipi geçerli kerning bilgisine sahip ve PowerPoint ayarlarında kerning açılsa bile.
 
-Bu durumlarda, çıktıyı PowerPoint'e daha yakın hâle getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) değerini gerçek yazı tipi boyutundan büyük bir değere ayarlayın. Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusuna sahip "presentation.pptx" dosyasını gerektirir. Etkili yazı tipi adlarını, kalıtılan yazı tipleri dahil, kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değerini ayarlar. Bu, 100 puandan küçük yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
+Bu gibi durumlarda render edilen çıktıyı PowerPoint'e yaklaştırmak için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) değerini gerçek yazı tipi boyutundan büyük bir değere ayarlayın. Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu bulunan "presentation.pptx" dosyasını gerektirir. Etkili yazı tipi adlarını (kalıtımsal yazı tipleri dahil) denetler ve Roboto kullanan bölümler için 100 puan eşik değeri ayarlar. Bu, 100 puandan küçük yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
 
 ```java
 import com.aspose.slides.*;
@@ -353,13 +353,13 @@ try {
 }
 ```
 
-Eşiğin altındaki eşleşen metin için bu ayar kerning'i önler ve Aspose.Slides'in, bu PowerPoint'e özgü davranıştan etkilenen yazı tipleri için görsel çıktısını PowerPoint ile hizalamaya yardımcı olabilir.
+Eşiğin altındaki eşleşen metinler için bu ayar kerning'i engeller ve bu PowerPoint‑özgü davranıştan etkilenen yazı tipleri için Aspose.Slides renderlamasını PowerPoint’in görsel çıktısına yaklaştırmaya yardımcı olabilir.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, paragraf düzeyinde [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) ile veya bireysel bölümlerde [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/) aracılığıyla ayarlanabilir.
+Yazı tipi özellikleri, [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) aracılığıyla paragraf seviyesinde veya [IPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/) aracılığıyla bireysel bölümlerde ayarlanabilir.
 
-Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman olarak kalın, italik ve noktalı alt çizgi biçimlendirmesiyle ayarlar. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine yazar.
+Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman olarak ayarlar; kalın, italik ve noktalı alt çizgi biçimlendirmesi uygular. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine geçer:
 
 ```java
 import com.aspose.slides.*;
@@ -388,7 +388,7 @@ Sonuç:
 
 ![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik biçimlendirme ve noktalı alt çizgi uygular:
+Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik ve noktalı alt çizgi uygular:
 
 ```java
 import com.aspose.slides.*;
@@ -420,11 +420,139 @@ Sonuç:
 
 ![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
 
-## **Metin Dönüşünü Ayarla**
+## **Metin Yüksekliği Normalizasyonunu Kontrol Et**
 
-[ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) kullanarak bir şekil içinde önceden tanımlı bir metin yönü ayarlayın.
+Şablon tipografisini yeniden üretirken veya karakter yüksekliği farklarını araştırırken [IBasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setNormaliseHeight-byte-) kullanın. PowerPoint’te normalizasyonu etkinleştirmek, bireysel karakterleri dikey olarak uzatır veya sıkıştırır; böylece metin bölümü içinde görünür yüksekliği tekdüze hâle getirir. Farklı yazı tipleri arasında eşit metin yüksekliği garantilemez.
 
-Aşağıdaki kod örneği, şekildeki metin yönünü [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Özelliği açıkça etkinleştirmek veya devre dışı bırakmak için değeri [NullableBool.True veya False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) olarak ayarlayın. `NullableBool.NotDefined` yerel ayarı boş bırakır; bölüm değeri, örneğin paragrafın [getDefaultPortionFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) üzerinden miras alır. Bu, `False` anlamına gelmez. Çözülmüş Boolean değerini elde etmek için [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) ve [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) kullanın.
+
+Aşağıdaki bağımsız örnek **Arial** yüklü olmasını gerektirir. 54 puanda aynı büyük harfler, küçük harfler, alt karakterler ve aksanlı karakterler içeren iki metin bloğu oluşturur. Her iki paragraf da varsayılan olarak normalizasyonu etkinleştirir. Üst bölüm açıkça devre dışı bırakır; alt bölüm miras alır. Çerçeve boyutları, kenar boşlukları ve paragraf aralığı aynıdır; karşılaştırmanın tutarlı olması için kaydırma ve otomatik sığdırma devre dışı bırakılmıştır. Örnek `False: false` ve `NotDefined: true` çıktısını verir, ardından "text_height_normalization.pptx" olarak kaydeder:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    byte[] settings = { NullableBool.False, NullableBool.NotDefined };
+    String[] settingNames = { "False", "NotDefined" };
+
+    for (int i = 0; i < settings.length; i++) {
+        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 60 + i * 200, 660, 150);
+        shape.getFillFormat().setFillType(FillType.NoFill);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+
+        ITextFrame textFrame = shape.getTextFrame();
+        textFrame.setText("Hxgjpq ÅÉ 0123");
+        textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.None);
+        textFrame.getTextFrameFormat().setWrapText(NullableBool.False);
+        textFrame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top);
+        textFrame.getTextFrameFormat().setMarginTop(0);
+        textFrame.getTextFrameFormat().setMarginLeft(0);
+
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceBefore(0);
+        paragraph.getParagraphFormat().setSpaceAfter(0);
+        paragraph.getParagraphFormat().setSpaceWithin(100);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(NullableBool.True);
+
+        IPortion portion = paragraph.getPortions().get_Item(0);
+        FontData font = new FontData("Arial");
+        portion.getPortionFormat().setLatinFont(font);
+        portion.getPortionFormat().setFontHeight(54);
+        portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+        portion.getPortionFormat().setNormaliseHeight(settings[i]);
+
+        System.out.println(settingNames[i] + ": " + portion.getPortionFormat().getEffective().getNormaliseHeight());
+    }
+
+    presentation.save("text_height_normalization.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma kaydedilen sunumdan dışa aktarılmıştır. Üst satır normalizasyon devre dışı (`False`); alt satır etkin ayarı miras alır (`NotDefined` → `True`). Bu görünümü yeniden üretmek için Arial yüklü tutun.
+
+![Arial 54-puanlık metin, üstte normalizasyon devre dışı, altta kalıtımsal normalizasyon etkin](text_height_normalization.png)
+
+Normalizasyon, atanan [getFontHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) değerini değiştirmeden karakter yüksekliğini değiştirir; bu değer puan cinsinden yazı tipi boyutunu belirtir. Paragraf [setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) satır aralığını kontrol eder, metin‑çerçeve [setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) ise metin ya da konteynerin uyumunu ayarlar. Bu ayarlar farklı amaçlara hizmet eder ve genel yerleşimi bağımsız olarak etkileyebilir. Paragraf biçimlendirmesi ve miras hakkında daha fazla bilgi için [Paragrafı Yönet](/slides/tr/java/manage-paragraph/) sayfasına bakın.
+
+## **Üstü Çizili Yazıyı Uygula ve Kaldır**
+
+Bir metin bölümü üzerinde [IBasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setStrikethroughType-byte-) kullanarak düzeltmeler, iptal edilen terimler veya önceki fiyatlar gibi orijinal metni silmeden gösterebilirsiniz. Tek veya çift çizgi için [TextStrikethroughType.Single veya Double](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/) ayarlayın.
+
+Üstü çizgiyi kaldırmak için [TextStrikethroughType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#None) kullanın. Bu, çevreleyici biçimlendirme üstü çizgi belirtiyor olsa bile etkiyi açıkça devre dışı bırakır. Bunun aksine, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/textstrikethroughtype/#NotDefined) yerel ayarı tanımsız bırakır; bölümün paragraftan gibi bir üst kaynaktan biçimlendirme miras almasına izin verir. Bu, üstü çizginin kaldırılacağını garanti etmez. Sonuç biçimlendirmeyi, miras değerleri dahil, okumak için [IPortionFormat.getEffective](https://reference.aspose.com/slides/java/com.aspose.slides/iportionformat/#getEffective--) kullanın.
+
+Aşağıdaki bağımsız örnek üç fiyat karşılaştırması oluşturur. Her paragraf, etiket, önceki fiyat ve güncel fiyat için ayrı bölümler içerir; böylece yalnızca önceki fiyat etkilenir. İlk satır üstü çizgiyi uygular ve ardından kaldırır; diğer satırlar tek ve çift üstü çizgiyi korur. Bu ayarı değiştirmek, metni ve diğer biçimlendirmelerini, kalın önceki fiyatı da dahil, korur.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 620, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
+
+    String[] labels = { "None: ", "Single: ", "Double: " };
+
+    for (String label : labels) {
+        Paragraph paragraph = new Paragraph();
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceAfter(20);
+
+        IPortionFormat format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setFontHeight(28);
+        FontData font = new FontData("Arial");
+        format.setLatinFont(font);
+        format.getFillFormat().setFillType(FillType.Solid);
+        format.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        Portion labelPortion = new Portion(label);
+        paragraph.getPortions().add(labelPortion);
+
+        Portion previousPrice = new Portion("$100");
+        previousPrice.getPortionFormat().setFontBold(NullableBool.True);
+        paragraph.getPortions().add(previousPrice);
+        Portion currentPrice = new Portion(" → $80");
+        paragraph.getPortions().add(currentPrice);
+
+        shape.getTextFrame().getParagraphs().add(paragraph);
+    }
+
+    IParagraphCollection paragraphs = shape.getTextFrame().getParagraphs();
+
+    // Üstü çizgiyi uygula, ardından ilk önceki fiyatın üzerindeki çizgiyi açıkça kaldır.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None);
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single);
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Double);
+
+    presentation.save("strikethrough.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sonuç, üstten alta: üstü çizgi yok, tek çizgi, çift çizgi.
+
+![Üstü çizili olmayan, tek çizgili ve iki çizgili önceki fiyatlar](strikethrough.png)
+
+## **Metin Döndürmesini Ayarla**
+
+[ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) kullanarak bir şekil içinde ön tanımlı bir metin yönelimi ayarlayın.
+
+Aşağıdaki kod örneği, şeklin içindeki metin yönelimini [TextVerticalType.Vertical270](https://reference.aspose.com/slides/java/com.aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
 ```java
 import com.aspose.slides.*;
@@ -444,11 +572,11 @@ try {
 
 Sonuç:
 
-![Metin dönmesi](text_rotation.png)
+![Metin döndürmesi](text_rotation.png)
 
-## **Metin Çerçeveleri İçin Özel Dönüşüm Ayarla**
+## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
 
-[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) kullanarak bir [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) için özel bir dönüş açısı ayarlayın.
+[ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) kullanarak bir [ITextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/itextframe/) için özel bir döndürme açısı ayarlayın.
 
 Aşağıdaki kod örneği, şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
@@ -470,16 +598,16 @@ try {
 
 Sonuç:
 
-![Özel metin dönüşümü](custom_text_rotation.png)
+![Özel metin döndürmesi](custom_text_rotation.png)
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) sağlar. Bu özellikler aşağıdaki gibi kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) ve [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) sağlar. Bu özellikler şu şekilde kullanılır:
 
-* Pozitif bir değer kullanarak satır aralığını satır yüksekliğinin yüzdesi olarak belirtin.
-* Negatif bir değer kullanarak satır aralığını puan cinsinden belirtin.
+* Pozitif bir değer, satır aralığını satır yüksekliğinin yüzde olarak belirtir.
+* Negatif bir değer, satır aralığını puan cinsinden belirtir.
 
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200'üne (çift satır aralığı) ayarlar:
+Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200’ü (çift boşluk) olarak ayarlar:
 
 ```java
 import com.aspose.slides.*;
@@ -503,16 +631,16 @@ Sonuç:
 
 ![Paragraftaki satır aralığı](line_spacing.png)
 
-## **Satır Kesilmesini Kontrol Et**
+## **Satır Kesme Kontrolü**
 
-Paragraf satır kesme kuralları, dar metin bloklarında ve Latin ile Doğu Asya metnini karıştıran sunumlarda yararlıdır. Aşağıdaki yöntemler [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/) aittir, bu nedenle tüm paragraf için geçerlidir:
+Dar metin blokları ve Latin ile Doğu Asya metinlerinin karıştığı sunumlarda paragraf satır kesme kuralları yararlıdır. Aşağıdaki yöntemler [IParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/) içinde bulunur; bu nedenle tüm paragrafı etkiler:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) Latin satır kesme kurallarını kontrol eder. Karışık metinde, değiştirmek komşu Doğu Asya metni ve noktalama işaretlerinin nerede kaydırılacağını da etkileyebilir.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) Doğu Asya satır kesme kurallarını kontrol eder; bir satırın başındaki ve sonundaki karakterlere ilişkin kısıtlamaları içerir.
+- [setLatinLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setLatinLineBreak-byte-) Latin satır kesme kurallarını kontrol eder. Karışık metinde değiştirmek, bitişik Doğu Asya metni ve noktalama işaretlerinin nerede kaydırıldığını da etkileyebilir.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setEastAsianLineBreak-byte-) Doğu Asya satır kesme kurallarını kontrol eder; satırın başındaki ve sonundaki karakter kısıtlamalarını içerir.
 
-Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) yerine geçmez. Kaydırma gerçekleştiğinde yerleşimi etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragrafta yeni bir satır oluşturur.
+Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) işlevinin yerine geçmez. Kaydırma gerçekleştiğinde yerleşimi etkiler; satır kesme karakteri eklemezler. Açık bir satır kesme, mevcut genişliğe bakılmaksızın paragrafta yeni bir satır zorlar.
 
-Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesme seçeneğini açıkça ayarlar ve "line_breaking.pptx" olarak kaydeder. Herhangi bir kuralı denemek için, diğer ayarları sabit tutarak ilgili değeri değiştirin. Örnek, 24 puan Arial ve SimSun kullanır, çerçeve genişliği 160 puan ve yatay metin çerçevesi kenar boşlukları sıfırdır. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) metin boyutu ve çerçeve boyutları sabit kalması için [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/) ile çağrılır.
+Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. İki satır kesme seçeneğini açıkça ayarlar ve "line_breaking.pptx" olarak kaydeder. Kurallardan birini denemek için diğer ayarları sabit tutarak ilgili değeri değiştirin. Örnek, 24 puan Arial ve SimSun ile 160 puan çerçeve genişliği ve sıfır yatay metin‑çerçeve kenar boşlukları kullanır. [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) [TextAutofitType.None](https://reference.aspose.com/slides/java/com.aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve ölçüleri sabit kalır.
 
 ```java
 import com.aspose.slides.*;
@@ -552,11 +680,11 @@ try {
 }
 ```
 
-## **Askı Noktalama İşaretlerini Kontrol Et**
+## **Uçta Asılı Noktalama İşaretlerini Kontrol Et**
 
-[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) uygun noktalama işaretlerinin bir sonraki satırı işgal etmesi yerine metin satırının sağ kenarının ötesine uzanmasına izin verir. Tüm paragraf için geçerlidir ve askı girintisinden farklıdır.
+[IParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setHangingPunctuation-byte-) uygun noktalama işaretlerinin metin satırının sağ kenarını aşarak bir sonraki satıra yerleşmesini engeller. Tüm paragrafı etkiler ve sarkıt girintiden farklıdır.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde askı noktalama işaretlerini etkinleştirir ve "hanging_punctuation.pptx" olarak kaydeder. 24 puan Arial ve yatay metin çerçevesi kenar boşlukları sıfır iken, son nokta "sentence" kelimesinden sonra kalır ve sağ metin kenarının ötesine uzanır. Karşılaştırmak için özelliği [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) olarak ayarlayın: bu ayarlarla nokta ayrı bir satır alır. Kaydırma etkinleştirilir ve otomatik sığdırma devre dışı bırakılır, böylece kullanılabilir genişlik sabit kalır.
+Aşağıdaki bağımsız örnek, 100 puan genişliğindeki bir metin çerçevesinde asılı noktalama işaretlerini etkinleştirir ve "hanging_punctuation.pptx" olarak kaydeder. 24 puan Arial ve sıfır yatay metin‑çerçeve kenar boşluklarıyla, son nokta "sentence" kelimesinden sonra kalır ve sağ metin kenarını aşar. Karşılaştırma için özelliği [NullableBool.False](https://reference.aspose.com/slides/java/com.aspose.slides/nullablebool/) olarak ayarlayın; bu ayarlarla nokta ayrı bir satır oluşturur. Kaydırma etkin, otomatik sığdırma devre dışı bırakılmıştır; böylece kullanılabilir genişlik sabit kalır.
 
 ```java
 import com.aspose.slides.*;
@@ -593,11 +721,11 @@ try {
 }
 ```
 
-Her noktalama işareti askı yapamaz. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#control-line-breaking) da bu karşılaştırmaya uygulanır: yazı tipini, kullanılabilir genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
+Her noktalama işareti asılı olamaz. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#control-line-breaking) bu karşılaştırmaya da uygulanır: yazı tipi, kullanılabilir genişlik, kenar boşlukları veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
 
-## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
+## **Metin Çerçeveleri İçin Otomatik Sığdırma Tipini Ayarla**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) metin kapsayıcının sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceği, taşma yapıp yapmayacağı veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine uyması için yeniden boyutlandırır ve sonucu "autofit_type.pptx" olarak kaydeder.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) bir içerik sınırlarını aşan metnin nasıl davranacağını belirler. Metnin küçülmesini, taşmasını veya şeklin otomatik yeniden boyutlandırılmasını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine sığdırmak için yeniden boyutlandırır ve sonucu "autofit_type.pptx" olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -615,11 +743,11 @@ try {
 }
 ```
 
-Otomatik kaydırma sonrası satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl etkilediğini görmek için [Count Rendered Lines](/slides/tr/java/manage-paragraph/) bölümüne bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
+Otomatik kaydırmadan sonra satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl değiştirdiğini görmek için [Renderlanmış Satırları Say](/slides/tr/java/manage-paragraph/) bölümüne bakın. Satır sayısı tek başına metnin konteyneri aşıp aşmadığını göstermez.
 
 ## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, metni ilk şeklin altına sabitler ve sonucu "text_anchor.pptx" olarak kaydeder.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) bir şekil içinde metnin dikey konumunu tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, metni ilk şeklin alt kısmına sabitler ve sonucu "text_anchor.pptx" olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -639,7 +767,7 @@ try {
 
 ## **Metin Sekmelerini Ayarla**
 
-[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) ve [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) kullanarak bir paragraftaki sek duraklarını yapılandırın. Aşağıdaki örnek, varsayılan sek aralığını 100 puana ayarlar ve 30 puanda sola hizalı bir sek durak ekler. Bu ayarlar sek karakteri içeren metni etkiler.
+[IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) ve [IParagraphFormat.getTabs](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraphformat/#getTabs--) kullanarak bir paragrafta sek duraklarını yapılandırın. Aşağıdaki örnek, varsayılan sek aralığını 100 puan olarak ayarlar ve 30 puanda sola hizalı bir sek durak ekler. Bu ayarlar sek karakteri içeren metni etkiler:
 
 ```java
 import com.aspose.slides.*;
@@ -664,11 +792,11 @@ Sonuç:
 
 ![Paragraf sekmeleri](paragraph_tabs.png)
 
-## **Denetim Dilini Ayarla**
+## **Denetleme Diline Ayarla**
 
-Aspose.Slides, bir metin bölümü için denetim dilini ayarlamanızı sağlayan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) sunar. Denetim dili, PowerPoint'te imla ve dilbilgisi denetiminde kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için denetleme dili ayarlamanızı sağlayan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) sunar. Denetleme dili, PowerPoint’te imla ve dilbilgisi denetiminde kullanılan dili belirler.
 
-Aşağıdaki örnek, ilk slaydın ilk şekli olarak bir metin kutusuna sahip "presentation.pptx" dosyasını ve en az bir paragrafı gerektirir. İlk paragrafın içeriğini "1。" ile değiştirir, yazı tipini SimSun olarak ayarlar ve Basitleştirilmiş Çince denetim dilini (`zh-CN`) atar. Sonucu "proofing_language.pptx" olarak kaydeder:
+Aşağıdaki örnek, ilk slaydın ilk şekli olarak bir metin kutusu bulunan "presentation.pptx" dosyasını gerektirir ve en az bir paragraf içerir. İlk paragrafın içeriğini "1。" ile değiştirir, SimSun’u yazı tipi olarak ayarlar ve Basitleştirilmiş Çince denetleme dili (`zh-CN`) atar. Sonucu "proofing_language.pptx" olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -688,7 +816,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Denetim dilinin Id'sini ayarla.
+    // Denetleme dili kimliğini ayarla.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -702,7 +830,7 @@ try {
 
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metin için varsayılan dili tanımlayın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi kullanan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümünün dilini `en-US` olarak yazdırır.
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metnin varsayılan dilini tanımlayın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi ayarlayan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümünün dili `en-US` olarak yazdırır:
 
 ```java
 import com.aspose.slides.*;
@@ -714,11 +842,11 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Yeni bir dikdörtgen şekil ekle ve metin ekle.
+    // Yeni bir dikdörtgen şekil ekleyin ve metin ekleyin.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // İlk bölümün dilini kontrol et.
+    // İlk bölümün dilini kontrol edin.
     IPortion portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     System.out.println(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -726,18 +854,18 @@ try {
 }
 ```
 
-## **Varsayılan Metin Stilini Ayarla**
+## **Varsayılan Metin Stili Ayarla**
 
-Sunum seviyesinde varsayılan metin biçimlendirmesini uygulamak için [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) kullanın.
+Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--) kullanın.
 
-Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve "default_text_style.pptx" olarak kaydeder. Metin, daha spesifik bir biçimlendirme üzerine yazılmadıkça bu varsayılanları miras alabilir.
+Aşağıdaki örnek, yeni bir sunumda üst‑seviye paragraflar için 14 puan kalın bir yazı tipini varsayılan olarak ayarlar ve "default_text_style.pptx" olarak kaydeder. Metin, daha spesifik bir biçimlendirme tarafından üzerine yazılmadıkça bu varsayılanları miras alabilir.
 
 ```java
 import com.aspose.slides.*;
 
 Presentation presentation = new Presentation();
 try {
-    // Üst düzey paragraf formatını al.
+    // Üst seviye paragraf biçimini al.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -751,15 +879,15 @@ try {
 }
 ```
 
-## **All-Caps Efektiyle Metni Çıkar**
+## **All-Caps Efekti ile Metni Çıkar**
 
-PowerPoint’te **All Caps** yazı tipi efekti uygulandığında, metin küçük harfle girilmiş olsa bile slaytta büyük harf olarak görünür. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görüntülenen metinle eşleşmek için [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda dönen dizeyi büyük harfe çevirin.
+PowerPoint’te **All Caps** yazı tipi efekti uygulandığında, metin slaytta büyük harf olarak gösterilir; ancak aslında küçük harfle yazılmış olabilir. Aspose.Slides ile böyle bir metin bölümü alındığında kütüphane metni tam olarak girildiği gibi döndürür. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/java/com.aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe çevirin.
 
-Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusuna sahip "sample2.pptx" dosyasını gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış "Hello, Aspose!" içerir.
+Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu bulunan "sample2.pptx" dosyasını gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps efekti uygulanmış "Hello, Aspose!" içerir.
 
-![All Caps etkisi](all_caps_effect.png)
+![All Caps efekti](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
+Aşağıdaki kod örneği, **All Caps** efekti uygulanmış metni nasıl çıkaracağınızı gösterir:
 
 ```java
 import com.aspose.slides.*;
@@ -783,8 +911,6 @@ try {
 }
 ```
 
-Çıktı:
-
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
@@ -792,10 +918,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tabloda metni nasıl değiştiririm?**
+**Bir slayttaki tablodaki metni nasıl değiştiririm?**
 
-Bir slayttaki tablodaki metni değiştirmek için [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) kullanın. Hücreler üzerinde döngü yapın ve her hücreyi [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) aracılığıyla güncelleyin; paragraf biçimlendirmesini ise [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--) ile yapın.
+Tablodaki metni değiştirmek için [ITable](https://reference.aspose.com/slides/java/com.aspose.slides/itable/) kullanın. Hücreleri döngüyle gezerek her hücreyi [ICell.getTextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/icell/#getTextFrame--) aracılığıyla güncelleyin ve paragraf biçimlendirmesini [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph/#getParagraphFormat--) ile ayarlayın.
 
-**PowerPoint slaytındaki metne degrade (gradient) renk nasıl uygulanır?**
+**PowerPoint slaydındaki metne degrade renk nasıl uygulanır?**
 
-Metne degrade renk uygulamak için [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) kullanın. [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) değerini [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Metne degrade renk uygulamak için [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformat/#getFillFormat--) kullanın. [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) değerini [FillType.Gradient](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) olarak ayarlayın ve degrade durakları, yön ve saydamlığı yapılandırın.
+
+İlgili özellik: [Slayt içinde metni biçimlendir](/slides/tr/features/text-formatting/).

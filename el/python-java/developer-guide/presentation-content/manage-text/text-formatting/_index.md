@@ -1,5 +1,5 @@
 ---
-title: Διαμόρφωση κειμένου παρουσίασης σε Python μέσω Java
+title: Μορφοποίηση κειμένου παρουσίασης σε Python μέσω Java
 linktitle: Μορφοποίηση κειμένου
 type: docs
 weight: 50
@@ -15,9 +15,9 @@ keywords:
 - περιστροφή κειμένου
 - γωνία περιστροφής
 - πλαίσιο κειμένου
-- διάστημα γραμμών
+- διάστιχο
 - ιδιότητα αυτόματης προσαρμογής
-- άγκυρα πλαισίου κειμένου
+- αγκύρωση πλαισίου κειμένου
 - στηλοθέτηση κειμένου
 - προεπιλεγμένη γλώσσα
 - PowerPoint
@@ -26,23 +26,23 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "Διαμορφώστε και εφαρμόστε στυλ στο κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
+description: "Μορφοποιήστε και στυλιζάτε το κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Προσαρμόστε γραμματοσειρές, χρώματα, στοίχιση και άλλα."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, διάστημα παραγράφων, συμπεριφορά αυτόματης προσαρμογής, τοποθέτηση κειμένου, στάσεις στηλοθέτη και ρυθμίσεις γλώσσας.
+Αυτό το άρθρο δείχνει πώς να μορφοποιήσετε κείμενο σε παρουσιάσεις PowerPoint και OpenDocument χρησιμοποιώντας το Aspose.Slides για Python μέσω Java. Καλύπτει χρώματα φόντου, διαφάνεια, απόσταση χαρακτήρων, ιδιότητες γραμματοσειράς, περιστροφή, απόσταση παραγράφων, συμπεριφορά αυτόματης προσαρμογής, αγκύρωση κειμένου, διακοσμητικά στηλών και ρυθμίσεις γλώσσας.
 
-Εκτός εάν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν το [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη του διαφάνεια είναι ένα πλαίσιο κειμένου και η πρώτη του παράγραφος περιέχει το κείμενο που φαίνεται παρακάτω. Και οι δείκτες διαφάνειας και σχήματος αρχίζουν από το μηδέν. Τα παραδείγματα που επιλέγουν έντονους τμήματα χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
+Εκτός αν αναφέρεται διαφορετικά, τα παραδείγματα χρησιμοποιούν [sample.pptx](sample.pptx). Το πρώτο σχήμα στην πρώτη του διαφάνεια είναι ένα πλαίσιο κειμένου, και η πρώτη παράγραφός του περιέχει το κείμενο που φαίνεται παρακάτω. Οι δείκτες διαφάνειας και σχήματος είναι μηδενικής βάσης. Τα παραδείγματα που επιλέγουν έντονα τμήματα χρησιμοποιούν αποτελεσματική μορφοποίηση, συμπεριλαμβανομένης της κληρονομημένης έντονης μορφοποίησης:
 
-![Δείγμα κειμένου](sample_text.png)
+![Δειγματικό κείμενο](sample_text.png)
 
-Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή αντιστοιχίες κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/python-java/search-and-replace-text/).
+Για να βρείτε και να επισημάνετε κυριολεκτικό κείμενο ή ταιριάσματα κανονικής έκφρασης, δείτε [Αναζήτηση και Αντικατάσταση Κειμένου](/slides/el/python-java/search-and-replace-text/).
 
 ## **Ορισμός Χρώματος Φόντου Κειμένου**
 
-Χρησιμοποιήστε [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης για μια παράγραφο, ή χρησιμοποιήστε [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) για μεμονωμένα τμήματα κειμένου.
+Χρησιμοποιήστε [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) για να ορίσετε το προεπιλεγμένο χρώμα επισήμανσης ενός παραγράφου ή χρησιμοποιήστε [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getHighlightColor) για μεμονωμένα τμήματα κειμένου.
 
-Το παρακάτω παράδειγμα ορίζει μια ανοιχτόγκρι επισήμανση ως προεπιλογή για την πρώτη παράγραφο. Τα ρητά χρώματα επισήμανσης στα μεμονωμένα τμήματα έχουν προτεραιότητα έναντι αυτής της προεπιλογής:
+Το παρακάτω παράδειγμα ορίζει ελαφρύ γκρι ως προεπιλεγμένη επισήμανση για την πρώτη παράγραφο. Η ρητή επισήμανση σε μεμονωμένα τμήματα έχει προτεραιότητα πάνω σε αυτήν την προεπιλογή:
 
 ```python
 import jpype
@@ -71,7 +71,7 @@ finally:
 
 Το αποτέλεσμα:
 
-![Η γκρίζα παράγραφος](gray_paragraph.png)
+![Η γκρι παράγραφος](gray_paragraph.png)
 
 Το παρακάτω παράδειγμα κώδικα δείχνει πώς να ορίσετε το χρώμα φόντου για **τμήματα κειμένου με έντονη γραμματοσειρά**:
 
@@ -80,7 +80,7 @@ import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpause.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat
 from java.awt import Color
@@ -104,19 +104,19 @@ finally:
 
 Το αποτέλεσμα:
 
-![Τα γκρίζα τμήματα κειμένου](gray_text_portions.png)
+![Τα γκρι τμήματα κειμένου](gray_text_portions.png)
 
 ## **Στοίχιση Παραγράφων Κειμένου**
 
-Χρησιμοποιήστε [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) για να ορίσετε την στοίχιση παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, πλήρης στοίχιση κ.λπ.
+Χρησιμοποιήστε [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment) για να ορίσετε την στοίχιση της παραγράφου μέσα σε ένα πλαίσιο κειμένου. Η τιμή μπορεί να είναι κεντραρισμένη, αριστερή, δεξιά, στοιχισμένη και άλλα.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο στο **κέντρο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να στοιχίσετε την παράγραφο **στο κέντρο**:
 
 ```python
 import jpype
 import asposeslides
 
-if not jpime.isJVMStarted():
+if not jpype.isJVMStarted():
     jpype.startJVM()
 
 from asposeslides.api import Presentation, SaveFormat, TextAlignment
@@ -142,9 +142,9 @@ finally:
 
 ## **Στοίχιση Γραμματοσειρών Μέσα σε Γραμμή**
 
-Χρησιμοποιήστε [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) για να ευθυγραμμίσετε κατακόρυφα τμήματα κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μια γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παράγραφο και ελέγχει τη στοίχιση σε κάθε της γραμμή.
+Χρησιμοποιήστε [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setFontAlignment) για κάθετη στοίχιση τμημάτων κειμένου διαφορετικών μεγεθών γραμματοσειράς μέσα σε μια γραμμή. Αυτή η ρύθμιση εφαρμόζεται σε ολόκληρη την παράγραφο και ελέγχει τη στοίχιση σε κάθε γραμμή της.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα επισημασμένα πλαίσια κειμένου σε μία διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο σε 18, 36 και 54 σημεία, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί την αυτόματη προσαρμογή και την αναδίπλωση, και διατηρεί τα πλαίσια κειμένου αρκετά μεγάλα για μία γραμμή.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τέσσερα ετικετοποιημένα πλαίσια κειμένου σε μια διαφάνεια. Κάθε παράγραφος περιέχει το ίδιο κείμενο στα 18, 36 και 54 σημεία, με διαφορετική στοίχιση γραμματοσειράς. Χρησιμοποιεί Arial, απενεργοποιεί την αυτόματη προσαρμογή και το περιτύλιγμα, και διατηρεί τα πλαίσια κειμένου αρκετά μεγάλα για μία σειρά.
 
 ```python
 import jpype
@@ -204,17 +204,17 @@ finally:
 
 Το αποτέλεσμα:
 
-![Σύγκριση στοίχισης γραμματοσειράς (γραμμή βάσης, επάνω, κέντρο, κάτω) με μικτά μεγέθη γραμματοσειράς](font_alignment.png)
+![Σύγκριση Στοίχισης Βάσης, Κορυφής, Κέντρου και Καταλήξεως με μικτές μεγεθύνσεις γραμματοσειράς](font_alignment.png)
 
-Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι οι ορατές άκρες των μεμονωμένων χαρακτήρων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει τόσο ένα κεφαλαίο γράμμα όσο και έναν χαρακτήρα με καθοδική άκρη για να δείξει τη διαφορά μεταξύ στοίχισης γραμμής βάσης και κάτω. Η διαθεσιμότητα της γραμματοσειράς και η αντικατάστασή της, οι χαρακτήρες που χρησιμοποιούνται και η διαφορά στο μέγεθος των γραμματοσειρών επηρεάζουν το αποτέλεσμα. Οι διαστάσεις του πλαισίου, τα περιθώρια, η απόσταση γραμμών, η αναδίπλωση και η αυτόματη προσαρμογή επίσης επηρεάζουν την διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε τις λειτουργίες.
+Η στοίχιση γραμματοσειράς χρησιμοποιεί μετρικές γραμματοσειράς, έτσι οι ορατές άκρες των ατομικών γραμμάτων δεν ευθυγραμμίζονται απαραίτητα ακριβώς. Το παράδειγμα περιλαμβάνει ένα κεφαλαίο γράμμα και ένα ουραίο για να δείξει τη διαφορά μεταξύ στοίχισης βάσης και καταλήξεως. Η διαθεσιμότητα γραμματοσειράς και η αντικατάστασή της, τα χρησιμοποιούμενα σύμβολα και η διαφορά στο μέγεθος των γραμματοσειρών επηρεάζουν το αποτέλεσμα. Οι διαστάσεις του πλαισίου, τα περιθώρια, η απόσταση γραμμών, το περιτύλιγμα και η αυτόματη προσαρμογή επηρεάζουν επίσης τη διάταξη· χρησιμοποιήστε τις ίδιες γραμματοσειρές και ρυθμίσεις διάταξης όταν συγκρίνετε τις λειτουργίες.
 
-Αυτή η ρύθμιση διαφέρει από το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), το οποίο ελέγχει την οριζόντια στοίχιση παραγράφου, και το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType), το οποίο τοποθετεί το μπλοκ κειμένου κατακόρυφα μέσα στο σχήμα του. Η μορφοποίηση εκθέτη και υποκείμενου μέσω [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) μετατοπίζει τα μεμονωμένα τμήματα σε σχέση με τη γραμμή βάσης αντί να ορίζει τη στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
+Αυτή η ρύθμιση διαφέρει από το [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setAlignment), το οποίο ελέγχει οριζόντια στοίχιση παραγράφου, και από το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType), το οποίο τοποθετεί το μπλοκ κειμένου κάθετα μέσα στο σχήμα του. Η μορφοποίηση εκθέτη και υποσημείου μέσω του [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setEscapement) μετατοπίζει μεμονωμένα τμήματα σχετικά με τη βάση αντί να ορίζει στοίχιση γραμματοσειράς για τις γραμμές της παραγράφου.
 
-## **Ορισμός Διαφάνειας Κειμένου**
+## **Ορισμός Διαφάνειας για Κείμενο**
 
-Η διαφάνεια του κειμένου ελέγχεται μέσω του άλφα συστατικού του χρώματος που αντιστοιχεί σε [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). Στα παρακάτω παραδείγματα, `alpha = 50` είναι μια τιμή καναλιού άλφα ARGB στην κλίμακα 0–255, όχι ποσοστό διαφάνειας.
+Η διαφάνεια κειμένου ελέγχεται μέσω του αλφα-συστατικού του χρώματος που ορίζεται στο [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). Σ τα παραδείγματα παρακάτω, `alpha = 50` είναι τιμή αλφα-καναλιού ARGB σε κλίμακα 0–255, όχι ποσοστό διαφάνειας.
 
-Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια σε **ολόκληρη την παράγραφο**:
+Το παρακάτω παράδειγμα κώδικα δείχνει πώς να εφαρμόσετε διαφάνεια στην **ολόκληρη την παράγραφο**:
 
 ```python
 import jpype
@@ -236,7 +236,7 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Ορίστε το χρώμα γεμίσματος του κειμένου σε διαφανές χρώμα.
+    # Ορίστε το χρώμα γέμισης του κειμένου σε διαφανές χρώμα.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid)
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(text_color)
 
@@ -288,9 +288,9 @@ finally:
 
 ## **Ορισμός Διαστήματος Χαρακτήρων για Κείμενο**
 
-Χρησιμοποιήστε [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία διάστημα· οι αρνητικές τιμές συμπτύσσουν το κείμενο.
+Χρησιμοποιήστε [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setSpacing) για να αυξήσετε ή να μειώσετε το διάστημα μεταξύ χαρακτήρων σε ένα πλαίσιο κειμένου. Τα παραδείγματα προσθέτουν 3 σημεία διαστήματος· οι αρνητικές τιμές μειώνουν το κείμενο.
 
-Ο παρακάτω κώδικας Python δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
+Το παρακάτω Python‑κώδικα δείχνει πώς να αυξήσετε το διάστημα χαρακτήρων στην **ολόκληρη την παράγραφο**:
 
 ```python
 import jpype
@@ -308,8 +308,8 @@ try:
     auto_shape = slide.getShapes().get_Item(0)
     paragraph = auto_shape.getTextFrame().getParagraphs().get_Item(0)
 
-    # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπτύξετε το διάστημα χαρακτήρων.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Αυξήστε το διάστημα χαρακτήρων.
+    # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3) # Αύξηση διαστήματος χαρακτήρων.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx)
 finally:
@@ -340,8 +340,8 @@ try:
 
     for portion in paragraph.getPortions():
         if portion.getPortionFormat().getEffective().getFontBold():
-            # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπτύξετε το διάστημα χαρακτήρων.
-            portion.getPortionFormat().setSpacing(3) # Αυξήστε το διάστημα χαρακτήρων.
+            # Σημείωση: Χρησιμοποιήστε αρνητικές τιμές για να συμπιέσετε το διάστημα χαρακτήρων.
+            portion.getPortionFormat().setSpacing(3) # Αύξηση διαστήματος χαρακτήρων.
 
     presentation.save("character_spacing_in_text_portions.pptx", SaveFormat.Pptx)
 finally:
@@ -352,11 +352,11 @@ finally:
 
 ![Το διάστημα χαρακτήρων στα τμήματα κειμένου](character_spacing_in_text_portions.png)
 
-### **Απενεργοποίηση Καρνισμού για Συγκεκριμένες Γραμματοσειρές**
+### **Απενεργοποίηση Καρτεσιανής Διάταξης (Kerning) για Συγκεκριμένες Γραμματοσειρές**
 
-Σε ορισμένες περιπτώσεις, το κείμενο που δημιουργείται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο συμπαγές από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint αγνοεί τα δεδομένα καρνισμού για ορισμένες γραμματοσειρές, ακόμα και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες καρνισμού και ο καρνισμός είναι ενεργοποιημένος στις ρυθμίσεις του PowerPoint.
+Σε ορισμένες περιπτώσεις, το κείμενο που αποδίδεται από το Aspose.Slides μπορεί να φαίνεται ελαφρώς πιο πυκνό από το ίδιο κείμενο που εμφανίζεται στο PowerPoint. Αυτό μπορεί να συμβαίνει επειδή το PowerPoint αγνοεί τα δεδομένα καρτεσιανής διάταξης για ορισμένες γραμματοσειρές, ακόμη και όταν η γραμματοσειρά περιέχει έγκυρες πληροφορίες και η καρτεσιανή διάταξη είναι ενεργοποιημένη στις ρυθμίσεις του PowerPoint.
 
-Για να κάνετε το παραγόμενο αποτέλεσμα πιο κοντά στο PowerPoint σε τέτοιες περιπτώσεις, μπορείτε να απενεργοποιήσετε το καρνισμό για τμήματα κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε το [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Αυτό το παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειράς, συμπεριλαμβανομένων των κληρονομημένων, και θέτει ένα όριο 100 σημείων για τμήματα που χρησιμοποιούν το Roboto. Αυτό απενεργοποιεί το καρνισμό για τα τμήματα που έχουν μέγεθος γραμματοσειράς κάτω από 100 σημεία:
+Για να φέρετε την απόδοση πιο κοντά σε αυτή του PowerPoint, μπορείτε να απενεργοποιήσετε την καρτεσιανή διάταξη για τμήματα κειμένου που χρησιμοποιούν τη συγκεκριμένη γραμματοσειρά. Ορίστε το [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setKerningMinimalSize) σε τιμή μεγαλύτερη από το πραγματικό μέγεθος γραμματοσειράς. Το παράδειγμα απαιτεί το «presentation.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Ελέγχει τα αποτελεσματικά ονόματα γραμματοσειρών, συμπεριλαμβανομένων των κληρονομημένων, και θέτει όριο στα 100 σημεία για τμήματα που χρησιμοποιούν Roboto. Αυτό απενεργοποιεί την καρτεσιανή διάταξη για τμήματα με μέγεθος γραμματοσειράς κάτω από 100 σημεία:
 
 ```python
 import jpype
@@ -386,13 +386,13 @@ finally:
     presentation.dispose()
 ```
 
-Για το κείμενο που ταιριάζει και βρίσκεται κάτω από το όριο, αυτή η ρύθμιση εμποδίζει τον καρνισμό και μπορεί να βοηθήσει στην ευθυγράμμιση της απόδοσης του Aspose.Slides με την οπτική έξοδο του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτή τη συμπεριφορά ειδική του PowerPoint.
+Για κείμενο που αντιστοιχεί στο όριο, αυτή η ρύθμιση αποτρέπει την καρτεσιανή διάταξη και μπορεί να βοηθήσει στο να ταιριάξει η απόδοση του Aspose.Slides με την οπτική έξοδο του PowerPoint για τις γραμματοσειρές που επηρεάζονται από αυτήν τη συμπεριφορά του PowerPoint.
 
 ## **Διαχείριση Ιδιοτήτων Γραμματοσειράς Κειμένου**
 
-Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν σε επίπεδο παραγράφου μέσω του [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat), ή σε μεμονωμένα τμήματα μέσω του [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/).
+Οι ιδιότητες γραμματοσειράς μπορούν να οριστούν στο επίπεδο παραγράφου μέσω του [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ή σε μεμονωμένα τμήματα μέσω του [PortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/).
 
-Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και υπογράμμιση με κουκκίδες. Η ρητή μορφοποίηση στα μεμονωμένα τμήματα έχει προτεραιότητα έναντι αυτών των προεπιλογών.
+Το παρακάτω παράδειγμα ορίζει τη προεπιλεγμένη γραμματοσειρά της πρώτης παραγράφου σε Times New Roman 12 σημείων με έντονη, πλάγια και σημειωμένη υπογράμμιση. Η ρητή μορφοποίηση σε μεμονωμένα τμήματα έχει προτεραιότητα πάνω σε αυτές τις προεπιλογές.
 
 ```python
 import jpype
@@ -427,7 +427,7 @@ finally:
 
 ![Οι ιδιότητες γραμματοσειράς για την παράγραφο](font_properties_for_paragraph.png)
 
-Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείων, πλάγια μορφοποίηση και υπογράμμιση με κουκκίδες σε τμήματα των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
+Το παρακάτω παράδειγμα εφαρμόζει Times New Roman 13 σημείων, πλάγια μορφοποίηση και σημειωμένη υπογράμμιση σε τμήματα των οποίων η αποτελεσματική μορφοποίηση είναι έντονη:
 
 ```python
 import jpype
@@ -461,13 +461,149 @@ finally:
 
 Το αποτέλεσμα:
 
-![Οι ιδιότητες γραμματοσειράς για τα τμήματα κειμένου](font_properties_for_text_portions.png)
+![Οι ιδιότητες γραμματοσειράς για τμήματα κειμένου](font_properties_for_text_portions.png)
+
+## **Έλεγχος Κανονικοποίησης Ύψους Κειμένου**
+
+Χρησιμοποιήστε [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setNormaliseHeight) όταν αναπαράγετε τυπογραφία προτύπου ή ερευνάτε διαφορές στο ύψος χαρακτήρων. Στο PowerPoint, η ενεργοποίηση της κανονικοποίησης τεντώσει ή συμπιέσει κάθε χαρακτήρα κάθετα ώστε να έχει ομοιόμορφο ορατό ύψος μέσα στο τμήμα κειμένου. Δεν εγγυάται ίσο ύψος σε διαφορετικές γραμματοσειρές.
+
+Ορίστε την ιδιότητα σε [NullableBool.True_ ή False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) για ρητή ενεργοποίηση ή απενεργοποίηση της κανονικοποίησης. `NullableBool.NotDefined` αφήνει την τοπική ρύθμιση ακαθόριστη, ώστε το τμήμα να κληρονομήσει την τιμή του, π.χ., από το [getDefaultPortionFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) της παραγράφου. Δεν σημαίνει `False`. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) και διαβάστε το `getNormaliseHeight` στην αποτελεσματική μορφοποίηση για την τελική Boolean τιμή.
+
+Το παρακάτω αυτόνομο παράδειγμα απαιτεί εγκατεστημένο **Arial**. Δημιουργεί δύο μπλοκ κειμένου με τα ίδια κεφαλαία, πεζά, χαρακτήρες-ουρά και χαρακτήρες με τόνους σε 54 σημεία. Και οι δύο παράγραφοι ενεργοποιούν την κανονικοποίηση εξ ορισμού. Το επάνω τμήμα την απενεργοποιεί ρητά· το κάτω τμήμα την κληρονομεί. Τα μεγέθη πλαισίου, τα περιθώρια και η απόσταση παραγράφων είναι ίσα, με περιτύλιξη και αυτόματη προσαρμογή απενεργοποιημένα για σταθερή σύγκριση. Το παράδειγμα εμφανίζει `False: False` και `NotDefined: True`, μετά αποθηκεύει το «text_height_normalization.pptx».
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Presentation, SaveFormat, ShapeType, TextAlignment, TextAnchorType, TextAutofitType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    settings = [NullableBool.False_, NullableBool.NotDefined]
+    setting_names = ["False", "NotDefined"]
+
+    for i, setting in enumerate(settings):
+        shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 60 + i * 200, 660, 150)
+        shape.getFillFormat().setFillType(FillType.NoFill)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+        text_frame = shape.getTextFrame()
+        text_frame.setText("Hxgjpq ÅÉ 0123")
+        text_frame.getTextFrameFormat().setAutofitType(TextAutofitType.None_)
+        text_frame.getTextFrameFormat().setWrapText(NullableBool.False_)
+        text_frame.getTextFrameFormat().setAnchoringType(TextAnchorType.Top)
+        text_frame.getTextFrameFormat().setMarginTop(0)
+        text_frame.getTextFrameFormat().setMarginLeft(0)
+
+        paragraph = text_frame.getParagraphs().get_Item(0)
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceBefore(0)
+        paragraph.getParagraphFormat().setSpaceAfter(0)
+        paragraph.getParagraphFormat().setSpaceWithin(100)
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(NullableBool.True_)
+
+        portion = paragraph.getPortions().get_Item(0)
+        font = FontData("Arial")
+        portion.getPortionFormat().setLatinFont(font)
+        portion.getPortionFormat().setFontHeight(54)
+        portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid)
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+        portion.getPortionFormat().setNormaliseHeight(setting)
+
+        print(f"{setting_names[i]}: {bool(portion.getPortionFormat().getEffective().getNormaliseHeight())}")
+
+    presentation.save("text_height_normalization.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Η σύγκριση παρακάτω εξήχθη από την αποθηκευμένη παρουσίαση. Στην επάνω σειρά η κανονικοποίηση είναι απενεργοποιημένη (`False`), στην κάτω κληρονομείται η ενεργή ρύθμιση (`NotDefined` → `True`). Διατηρήστε το Arial εγκατεστημένο για να αναπαράγετε αυτήν την εμφάνιση.
+
+![Κείμενο Arial 54 σημείου με κανονικοποίηση απενεργοποιημένη στην κορυφή και κληρονομημένη ενεργή κάτω](text_height_normalization.png)
+
+Η κανονικοποίηση αλλάζει το ύψος των χαρακτήρων χωρίς να αλλάζει την τιμή του [getFontHeight](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFontHeight), η οποία υποδεικνύει το μέγεθος γραμματοσειράς σε σημεία. Η [setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) της παραγράφου ελέγχει το διάστημα γραμμών, ενώ η [setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) του πλαισίου κειμένου ελέγχει πώς το κείμενο ή το δοχείο του προσαρμόζεται. Αυτές οι ρυθμίσεις εξυπηρετούν διαφορετικούς σκοπούς και μπορούν ανεξάρτητα να επηρεάσουν τη συνολική διάταξη. Για περισσότερα σχετικά με τη μορφοποίηση παραγράφων και την κληρονομικότητα, δείτε [Διαχείριση Παραγράφου](/slides/el/python-java/manage-paragraph/).
+
+## **Εφαρμογή και Αφαίρεση Διαγράμμισης (Strikethrough)**
+
+Χρησιμοποιήστε [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setStrikethroughType) σε τμήμα κειμένου για να εμφανίσετε διορθώσεις, ακυρωμένες λέξεις ή προηγούμενες τιμές χωρίς διαγραφή του αρχικού κειμένου. Ορίστε το σε [TextStrikethroughType.Single ή Double](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/) για μία ή δύο γραμμές στο κείμενο.
+
+Για να αφαιρέσετε τη διαγράμμιση, περάστε το [TextStrikethroughType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#None). Αυτό απενεργοποιεί ρητά το εφέ, ακόμη και αν η περιβάλλουσα μορφοποίηση το καθορίζει. Αντίθετα, το [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/textstrikethroughtype/#NotDefined) αφήνει την τοπική ρύθμιση ακαθόριστη, ώστε το τμήμα να κληρονομήσει τη μορφοποίηση, π.χ., από την παράγραφο. Δεν εγγυάται ότι η διαγράμμιση θα αφαιρεθεί. Χρησιμοποιήστε το [PortionFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/portionformat/#getEffective) για να διαβάσετε τη τελική μορφοποίηση, συμπεριλαμβανομένων των κληρονομημένων τιμών.
+
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί τρεις συγκρίσεις τιμών. Κάθε παράγραφος περιέχει ξεχωριστά τμήματα για την ετικέτα, την προηγούμενη τιμή και την τρέχουσα τιμή, ώστε μόνο η προηγούμενη τιμή να επηρεάζεται. Η πρώτη σειρά εφαρμόζει και έπειτα αφαιρεί τη διαγράμμιση· οι άλλες σειρές διατηρούν μονή και διπλή διαγράμμιση. Η αλλαγή αυτής της ρύθμισης διατηρεί το κείμενο και τις άλλες μορφοποιήσεις του, συμπεριλαμβανομένης της έντονης προηγούμενης τιμής.
+
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import FillType, FontData, NullableBool, Paragraph, Portion, Presentation, SaveFormat, ShapeType, TextAlignment, TextStrikethroughType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    slide = presentation.getSlides().get_Item(0)
+
+    shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 620, 220)
+    shape.getFillFormat().setFillType(FillType.NoFill)
+    shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+    shape.getTextFrame().getParagraphs().clear()
+
+    labels = ["None: ", "Single: ", "Double: "]
+
+    for label in labels:
+        paragraph = Paragraph()
+        paragraph.getParagraphFormat().setAlignment(TextAlignment.Left)
+        paragraph.getParagraphFormat().setSpaceAfter(20)
+
+        portion_format = paragraph.getParagraphFormat().getDefaultPortionFormat()
+        portion_format.setFontHeight(28)
+        font = FontData("Arial")
+        portion_format.setLatinFont(font)
+        portion_format.getFillFormat().setFillType(FillType.Solid)
+        portion_format.getFillFormat().getSolidFillColor().setColor(Color.BLACK)
+
+        label_portion = Portion(label)
+        paragraph.getPortions().add(label_portion)
+
+        previous_price = Portion("$100")
+        previous_price.getPortionFormat().setFontBold(NullableBool.True_)
+        paragraph.getPortions().add(previous_price)
+        current_price = Portion(" → $80")
+        paragraph.getPortions().add(current_price)
+
+        shape.getTextFrame().getParagraphs().add(paragraph)
+
+    paragraphs = shape.getTextFrame().getParagraphs()
+
+    # Εφαρμόστε διαγράμμιση, μετά αφαιρέστε την ρητά από την πρώτη προηγούμενη τιμή.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.None_)
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Single)
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(TextStrikethroughType.Double)
+
+    presentation.save("strikethrough.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Το αποτέλεσμα, από πάνω προς τα κάτω: χωρίς διαγράμμιση, μονή διαγράμμιση και διπλή διαγράμμιση.
+
+![Προηγούμενες τιμές χωρίς, με μονή και με διπλή διαγράμμιση](strikethrough.png)
 
 ## **Ορισμός Περιστροφής Κειμένου**
 
-Χρησιμοποιήστε [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) για να ορίσετε μια προεπιλεγμένη προσανατολισμό κειμένου μέσα σε ένα σχήμα.
+Χρησιμοποιήστε [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setTextVerticalType) για να ορίσετε προρυθμισμένο προσανατολισμό κειμένου μέσα σε σχήμα.
 
-Το παρακάτω παράδειγμα κώδικα ορίζει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αριστερόστροφα**:
+Το παρακάτω παράδειγμα κώδικα θέτει τον προσανατολισμό κειμένου στο σχήμα σε [TextVerticalType.Vertical270](https://reference.aspose.com/slides/python-java/aspose.slides/textverticaltype/), που περιστρέφει το κείμενο **90 μοίρες αντίθετα από τη φορά των δεικτών του ρολογιού**:
 
 ```python
 import jpype
@@ -492,11 +628,11 @@ finally:
 
 Το αποτέλεσμα:
 
-![Η περιστροφή κειμένου](text_rotation.png)
+![Η περιστροφή του κειμένου](text_rotation.png)
 
 ## **Ορισμός Προσαρμοσμένης Περιστροφής για Πλαίσια Κειμένου**
 
-Χρησιμοποιήστε [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) για να ορίσετε μια προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
+Χρησιμοποιήστε [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setRotationAngle) για να ορίσετε προσαρμοσμένη γωνία περιστροφής για ένα [TextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/textframe/).
 
 Το παρακάτω παράδειγμα κώδικα περιστρέφει το πλαίσιο κειμένου κατά 3 μοίρες δεξιόστροφα μέσα στο σχήμα:
 
@@ -523,16 +659,16 @@ finally:
 
 Το αποτέλεσμα:
 
-![Η προσαρμοσμένη περιστροφή κειμένου](custom_text_rotation.png)
+![Η προσαρμοσμένη περιστροφή του κειμένου](custom_text_rotation.png)
 
-## **Ορισμός Απόστασης Γραμμών Παραγράφων**
+## **Ορισμός Απόστασης Γραμμών στις Παραγράφους**
 
-Το Aspose.Slides παρέχει τα [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore), και [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) για να ελέγχουν το διάστημα παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
+Το Aspose.Slides παρέχει τις μεθόδους [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceBefore) και [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setSpaceWithin) για έλεγχο της απόστασης παραγράφων. Αυτές οι ιδιότητες χρησιμοποιούνται ως εξής:
 
 * Χρησιμοποιήστε θετική τιμή για να ορίσετε το διάστημα γραμμής ως ποσοστό του ύψους της γραμμής.
 * Χρησιμοποιήστε αρνητική τιμή για να ορίσετε το διάστημα γραμμής σε σημεία.
 
-Το παρακάτω παράδειγμα ορίζει το διάστημα μέσα στην πρώτη παράγραφο στο 200% του ύψους της γραμμής (διπλό διάστημα):
+Το παρακάτω παράδειγμα θέτει την απόσταση εντός της πρώτης παραγράφου στο 200 % του ύψους της γραμμής (διπλό διάστημα):
 
 ```python
 import jpype
@@ -559,18 +695,18 @@ finally:
 
 Το αποτέλεσμα:
 
-![Το διάστημα γραμμής μέσα στην παράγραφο](line_spacing.png)
+![Η απόσταση γραμμής εντός της παραγράφου](line_spacing.png)
 
-## **Έλεγχος Αλλαγής Γραμμής**
+## **Έλεγχος Αλλαγής Γραμμής (Line Breaking)**
 
-Οι κανόνες αλλαγής γραμμής παραγράφου είναι χρήσιμοι σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και ανατολικο ασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/), έτσι εφαρμόζονται σε ολόκληρη την παράγραφο:
+Οι κανόνες αλλαγής γραμμής της παραγράφου είναι χρήσιμοι σε στενά μπλοκ κειμένου και παρουσιάσεις που συνδυάζουν λατινικό και ανατολοασιατικό κείμενο. Οι παρακάτω μέθοδοι ανήκουν στο [ParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/), έτσι εφαρμόζονται σε ολόκληρη την παράγραφο:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) ελέγχει τους κανόνες αλλαγής γραμμής για το λατινικό κείμενο. Σε μικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει το σημείο όπου το γειτονικό ανατολικο ασιατικό κείμενο και η στίξη αναδιπλώνονται.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ελέγχει τους κανόνες αλλαγής γραμμής για το ανατολικο ασιατικό κείμενο, συμπεριλαμβανομένων των περιορισμών σε χαρακτήρες στην αρχή και στο τέλος μιας γραμμής.
+- [setLatinLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setLatinLineBreak) ελέγχει τους κανόνες αλλαγής γραμμής για λατινικό κείμενο. Σε μικτό κείμενο, η αλλαγή του μπορεί επίσης να αλλάξει πού το ανατολοασιατικό κείμενο και η στίξη τυλίγονται.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) ελέγχει τους κανόνες αλλαγής γραμμής για ανατολοασιατικό κείμενο, συμπεριλαμβανομένων περιορισμών για χαρακτήρες στην αρχή ή το τέλος μιας γραμμής.
 
-Αυτοί οι κανόνες δεν αντικαθιστούν το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText), το οποίο ενεργοποιεί την αυτόματη αναδίπλωση μέσα σε ένα πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν συμβαίνει η αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής επιβάλλει μια νέα γραμμή μέσα στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
+Αυτοί οι κανόνες δεν υποκαθιστούν το [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setWrapText), το οποίο ενεργοποιεί αυτόματη αναδίπλωση μέσα σε πλαίσιο κειμένου. Επηρεάζουν τη διάταξη όταν γίνεται αναδίπλωση· δεν εισάγουν χαρακτήρες αλλαγής γραμμής. Μια ρητή αλλαγή γραμμής αναγκάζει νέα γραμμή στην παράγραφο ανεξάρτητα από το διαθέσιμο πλάτος.
 
-Το παρακάτω αυτόνομο παράδειγμα δημιουργεί ένα στενό μπλοκ κειμένου που περιέχει κινέζικο και λατινικό κείμενο. Ορίζει ρητά και τις δύο επιλογές αλλαγής γραμμής και αποθηκεύει το "line_breaking.pptx". Για να πειραματιστείτε με οποιονδήποτε κανόνα, αλλάξτε την αντίστοιχη τιμή ενώ διατηρείτε τις άλλες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημείων και SimSun με πλάτος πλαισίου 160 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου. Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) καλείται με το [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις πλαισίου να παραμείνουν σταθερές.
+Το παρακάτω αυτόνομο παράδειγμα δημιουργεί στενό μπλοκ κειμένου που περιλαμβάνει κινεζικό και λατινικό κείμενο. Θέτει ρητά και τις δύο επιλογές αλλαγής γραμμής και αποθηκεύει το «line_breaking.pptx». Για να πειραματιστείτε με κάποιον κανόνα, αλλάξτε την αντίστοιχη τιμή διατηρώντας τις υπόλοιπες ρυθμίσεις σταθερές. Το παράδειγμα χρησιμοποιεί Arial 24 σημείου και SimSun με πλάτος πλαισίου 160 σημείων και μηδενικά οριζόντια περιθώρια. Η [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) καλείται με το [TextAutofitType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/textautofittype/) ώστε το μέγεθος κειμένου και οι διαστάσεις πλαισίου να παραμείνουν σταθερά.
 
 ```python
 import jpype
@@ -615,11 +751,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Έλεγχος Κρεμαστής Στίξης**
+## **Έλεγχος Καρεκλοειδούς Στίξης (Hanging Punctuation)**
 
-Το [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) επιτρέπει σε επιλέξιμη στίξη να εκτείνεται πέρα από την δεξιά άκρη της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Εφαρμόζεται σε ολόκληρη την παράγραφο και διαφέρει από ένα κρεμασμένο εσοχή.
+Η [ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setHangingPunctuation) επιτρέπει σε επιλέξιμη στίξη να εκτείνεται πέρα από το δεξιό άκρο της γραμμής κειμένου αντί να καταλαμβάνει την επόμενη γραμμή. Ισχύει για ολόκληρη την παράγραφο και διαφέρει από ένα κρεμασμένο εσοχή.
 
-Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί την κρεμαστή στίξη σε ένα πλαίσιο κειμένου πλάτους 100 σημείων και αποθηκεύει το "hanging_punctuation.pptx". Με Arial 24 σημείων και μηδενικά οριζόντια περιθώρια πλαισίου κειμένου, η τελική τελεία παραμένει μετά το "sentence" και εκτείνεται πέρα από τη δεξιά άκρη του κειμένου. Ορίστε την ιδιότητα στο [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή απενεργοποιείται ώστε το διαθέσιμο πλάτος να παραμείνει σταθερό.
+Το παρακάτω αυτόνομο παράδειγμα ενεργοποιεί την καρεκλοειδή στίξη σε πλαίσιο κειμένου πλάτους 100 σημείων και αποθηκεύει το «hanging_punctuation.pptx». Με Arial 24 σημείων και μηδενικά οριζόντια περιθώρια, η τελική τελεία παραμένει μετά τη λέξη «sentence» και εκτείνεται πέρα από το δεξιό άκρο του κειμένου. Ορίστε την ιδιότητα σε [NullableBool.False_](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) για σύγκριση: με αυτές τις ρυθμίσεις, η τελεία καταλαμβάνει ξεχωριστή γραμμή. Η αναδίπλωση είναι ενεργοποιημένη και η αυτόματη προσαρμογή απενεργοποιημένη για σταθερό πλάτος.
 
 ```python
 import jpype
@@ -661,11 +797,11 @@ finally:
     presentation.dispose()
 ```
 
-Δεν μπορεί να κρεμαστεί κάθε σημάδι στίξης. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφηκαν παραπάνω](#control-line-breaking) ισχύουν επίσης για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων αυτόματης προσαρμογής μπορεί να αφαιρέσει τη διακριτή διαφορά.
+Δεν μπορεί να κρεμαστεί κάθε σημάδι στίξης. Οι [συνθήκες γραμματοσειράς και διάταξης που περιγράφηκαν παραπάνω](#control-line-breaking) ισχύουν και για αυτή τη σύγκριση: η αλλαγή της γραμματοσειράς, του διαθέσιμου πλάτους, των περιθωρίων ή των ρυθμίσεων αυτόματης προσαρμογής μπορεί να αφαιρέσει τη διακριτή διαφορά.
 
 ## **Ορισμός Τύπου Αυτόματης Προσαρμογής για Πλαίσια Κειμένου**
 
-Το [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) καθορίζει πώς συμπεριφέρεται το κείμενο όταν υπερβαίνει τα όρια του περιέκτη του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο μειώνεται, υπερχειλίζει ή αλλάζει το μέγεθος του σχήματος αυτόματα. Το παρακάτω παράδειγμα ρυθμίζει το σχήμα ώστε να αλλάζει μέγεθος ώστε να ταιριάζει στο κείμενό του και αποθηκεύει το αποτέλεσμα σε "autofit_type.pptx".
+Η [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAutofitType) καθορίζει πώς συμπεριφέρεται το κείμενο όταν ξεπερνά τα όρια του δοχείου του. Χρησιμοποιήστε το για να ελέγξετε αν το κείμενο συρρικνώνεται, υπερέχει ή το σχήμα προσαρμόζεται αυτόματα. Το παρακάτω παράδειγμα διαμορφώνει το σχήμα ώστε να προσαρμόζεται ώστε να χωρά το κείμενό του και αποθηκεύει το αποτέλεσμα στο «autofit_type.pptx».
 
 ```python
 import jpype
@@ -688,11 +824,11 @@ finally:
     presentation.dispose()
 ```
 
-Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς το κείμενο ή το πλάτος του σχήματος αλλάζει το αποτέλεσμα, δείτε [Count Rendered Lines](/slides/el/python-java/manage-paragraph/). Ο απλός αριθμός γραμμών δεν υποδεικνύει αν το κείμενο υπερχειλίζει το περιέκτη του.
+Για να μετρήσετε τις γραμμές μετά την αυτόματη αναδίπλωση και να δείτε πώς η αλλαγή του πλάτους κειμένου ή σχήματος επηρεάζει το αποτέλεσμα, δείτε [Μετρήστε τις Σχεδιασμένες Γραμμές](/slides/el/python-java/manage-paragraph/). Ο απλός αριθμός γραμμών δεν δείχνει αν το κείμενο υπερέχει του δοχείου του.
 
-## **Ορισμός Άγκυρας Πλαισίων Κειμένου**
+## **Ορισμός Αγκύρωσης Πλαισίων Κειμένου**
 
-Το [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) ορίζει πώς το κείμενο τοποθετείται κατακόρυφα μέσα σε ένα σχήμα, π.χ. στην κορυφή, στο κέντρο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα σε "text_anchor.pptx".
+Η [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/python-java/aspose.slides/textframeformat/#setAnchoringType) ορίζει πώς τοποθετείται κάθετα το κείμενο μέσα σε σχήμα, π.χ., στην κορυφή, στο κέντρο ή στο κάτω μέρος. Το παρακάτω παράδειγμα αγκυροβολεί το κείμενο στο κάτω μέρος του πρώτου σχήματος και αποθηκεύει το αποτέλεσμα στο «text_anchor.pptx».
 
 ```python
 import jpype
@@ -715,9 +851,9 @@ finally:
     presentation.dispose()
 ```
 
-## **Ορισμός Στηλοθέτησης Κειμένου**
+## **Ορισμός Στηλοθετηρίων Κειμένου**
 
-Χρησιμοποιήστε [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) και [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) για να ρυθμίσετε τις στάσεις στηλοθέτη σε μια παράγραφο. Το παρακάτω παράδειγμα ορίζει το προεπιλεγμένο διάστημα στηλοθέτη στα 100 σημεία και προσθέτει μια αριστερά ευθυγραμμισμένη στάση στηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν το κείμενο που περιέχει χαρακτήρες στηλοθέτη.
+Χρησιμοποιήστε [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#setDefaultTabSize) και [ParagraphFormat.getTabs](https://reference.aspose.com/slides/python-java/aspose.slides/paragraphformat/#getTabs) για να ρυθμίσετε τα στηλοθέτες σε μια παράγραφο. Το παρακάτω παράδειγμα θέτει το προεπιλεγμένο διάστημα στηλοθέτη στα 100 σημεία και προσθέτει αριστερόστηλοθέτη στα 30 σημεία. Αυτές οι ρυθμίσεις επηρεάζουν κείμενο που περιέχει χαρακτήρες στηλοθέτη.
 
 ```python
 import jpype
@@ -745,16 +881,16 @@ finally:
 
 Το αποτέλεσμα:
 
-![Οι στηλοθέτες της παραγράφου](paragraph_tabs.png)
+![Τα στηλοθέτες της παραγράφου](paragraph_tabs.png)
 
-## **Ορισμός Γλώσσας Ελέγχου**
+## **Ορισμός Γλώσσας Ελέγχου (Proofing Language)**
 
-Το Aspose.Slides παρέχει το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId), το οποίο σας επιτρέπει να ορίσετε τη γλώσσα ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικούς και γραμματικούς ελέγχους στο PowerPoint.
+Το Aspose.Slides παρέχει το [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#setLanguageId), το οποίο επιτρέπει τον ορισμό της γλώσσας ελέγχου για ένα τμήμα κειμένου. Η γλώσσα ελέγχου καθορίζει τη γλώσσα που χρησιμοποιείται για ορθογραφικό και γραμματικό έλεγχο στο PowerPoint.
 
-Το παρακάτω παράδειγμα απαιτεί το "presentation.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μια παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με "1。", ορίζει το SimSun ως γραμματοσειρά της και ορίζει τη γλώσσα ελέγχου Απλοποιημένων Κινέζων (`zh-CN`). Αποθηκεύει το αποτέλεσμα σε "proofing_language.pptx":
+Το παρακάτω παράδειγμα απαιτεί το «presentation.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια και τουλάχιστον μια παράγραφο. Αντικαθιστά το περιεχόμενο της πρώτης παραγράφου με «1。», ορίζει το SimSun ως γραμματοσειρά και ορίζει τη γλώσσα ελέγχου Απλουστής Κίνας (`zh-CN`). Αποθηκεύει το αποτέλεσμα στο «proofing_language.pptx»:
 
 ```python
-import jpype
+import jpage
 import asposeslides
 
 if not jpype.isJVMStarted():
@@ -778,7 +914,7 @@ try:
     text_portion.getPortionFormat().setEastAsianFont(font)
     text_portion.getPortionFormat().setLatinFont(font)
 
-    # Ορίστε το Id της γλώσσας ελέγχου.
+    # Ορίστε το αναγνωριστικό μιας γλώσσας ελέγχου.
     text_portion.getPortionFormat().setLanguageId("zh-CN")
 
     text_portion.setText("1。")
@@ -791,7 +927,7 @@ finally:
 
 ## **Ορισμός Προεπιλεγμένης Γλώσσας**
 
-Χρησιμοποιήστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) για να ορίσετε τη προεπιλεγμένη γλώσσα για κείμενο που δημιουργείται κατά τη φόρτωση ή τη δημιουργία μιας παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση με τα αμερικανικά αγγλικά ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει ένα πλαίσιο κειμένου και εκτυπώνει `en-US` για το πρώτο τμήμα του κειμένου.
+Χρησιμοποιήστε το [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/python-java/aspose.slides/loadoptions/#setDefaultTextLanguage) για να ορίσετε την προεπιλεγμένη γλώσσα κειμένου κατά τη φόρτωση ή δημιουργία παρουσίασης. Το παρακάτω παράδειγμα δημιουργεί παρουσίαση με αγγλικά ΗΠΑ ως προεπιλεγμένη γλώσσα κειμένου, προσθέτει πλαίσιο κειμένου και εκτυπώνει «en‑US» για το πρώτο τμήμα κειμένου του.
 
 ```python
 import jpype
@@ -824,7 +960,7 @@ finally:
 
 Για να εφαρμόσετε προεπιλεγμένη μορφοποίηση κειμένου σε επίπεδο παρουσίασης, χρησιμοποιήστε το [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/python-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Το παρακάτω παράδειγμα ορίζει μια γραμματοσειρά 14 σημείων έντονη ως προεπιλογή για τις παραγράφους κορυφαίου επιπέδου σε μια νέα παρουσίαση και την αποθηκεύει σε "default_text_style.pptx". Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις αντικαταστήσει.
+Το παρακάτω παράδειγμα ορίζει γραμματοσειρά 14 σημείων, έντονη, ως προεπιλογή για παραγράφους υψηλότερου επιπέδου σε νέα παρουσίαση και αποθηκεύει το «default_text_style.pptx». Το κείμενο μπορεί να κληρονομήσει αυτές τις προεπιλογές εκτός εάν πιο συγκεκριμένη μορφοποίηση τις παρακάμπτει.
 
 ```python
 import jpype
@@ -837,7 +973,7 @@ from asposeslides.api import NullableBool, Presentation, SaveFormat
 
 presentation = Presentation()
 try:
-    # Αποκτήστε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
+    # Λάβετε τη μορφοποίηση παραγράφου του ανώτερου επιπέδου.
     paragraph_format = presentation.getDefaultTextStyle().getLevel(0)
 
     if paragraph_format is not None:
@@ -849,11 +985,11 @@ finally:
     presentation.dispose()
 ```
 
-## **Εξαγωγή Κειμένου με το Εφφέ Όλων Κεφαλαίων**
+## **Εξαγωγή Κειμένου με Εφέ Όλων Σε Κεφαλαία (All‑Caps)**
 
-Στο PowerPoint, η εφαρμογή του εφέ γραμματοσειράς **All Caps** κάνει το κείμενο να εμφανίζεται με κεφαλαία γράμματα στη διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με πεζά. Όταν ανακτάτε ένα τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως εισήχθη. Για να ταιριάζει το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) και μετατρέψτε τη επιστρεφόμενη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
+Στο PowerPoint, η εφαρμογή του εφέ **All Caps** στη γραμματοσειρά κάνει το κείμενο να εμφανίζεται με κεφαλαία στην διαφάνεια ακόμη και αν αρχικά πληκτρολογήθηκε με μικρά. Όταν ανακτάτε τέτοιο τμήμα κειμένου με το Aspose.Slides, η βιβλιοθήκη επιστρέφει το κείμενο ακριβώς όπως πληγώθηκε. Για να ταιριάζει με το εμφανιζόμενο κείμενο, ελέγξτε το [TextCapType](https://reference.aspose.com/slides/python-java/aspose.slides/textcaptype/) και μετατρέψτε τη συμβολοσειρά σε κεφαλαία όταν η τιμή είναι `All`.
 
-Αυτό το παράδειγμα απαιτεί το "sample2.pptx" με ένα πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Το πρώτο τμήμα της πρώτης παραγράφου περιέχει "Hello, Aspose!" με το εφέ All Caps εφαρμοσμένο, όπως φαίνεται παρακάτω.
+Το παράδειγμα απαιτεί το «sample2.pptx» με πλαίσιο κειμένου ως πρώτο σχήμα στην πρώτη διαφάνεια. Η πρώτη παράγραφος περιέχει «Hello, Aspose!» με εφαρμοσμένο εφέ All Caps, όπως φαίνεται παρακάτω.
 
 ![Το εφέ All Caps](all_caps_effect.png)
 
@@ -885,19 +1021,19 @@ finally:
     presentation.dispose()
 ```
 
-Αποτέλεσμα:
+Έξοδος:
 
 ```text
 Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές Ερωτήσεις (FAQ)**
 
-**Πώς να τροποποιήσω το κείμενο σε έναν πίνακα σε μια διαφάνεια;**
+**Πώς τροποποιώ το κείμενο σε πίνακα σε μια διαφάνεια;**
 
-Για να τροποποιήσετε το κείμενο σε έναν πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). Επανάληψη (iteration) μέσω των κελιών και ενημερώστε κάθε κελί μέσω του [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) και τη μορφοποίηση παραγράφου μέσω του [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat).
+Για να τροποποιήσετε το κείμενο σε πίνακα σε μια διαφάνεια, χρησιμοποιήστε το [Table](https://reference.aspose.com/slides/python-java/aspose.slides/table/). Διασχίστε τα κελιά και ενημερώστε κάθε κελί μέσω του [Cell.getTextFrame](https://reference.aspose.com/slides/python-java/aspose.slides/cell/#getTextFrame) και μορφοποιήστε τις παραγράφους μέσω του [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/python-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Πώς να εφαρμόσω χρώμα διαβάθμισης σε κείμενο σε μια διαφάνεια PowerPoint;**
+**Πώς εφαρμόζω χρώμα διαβάσματος (gradient) σε κείμενο σε μια διαφάνεια PowerPoint;**
 
-Για να εφαρμόσετε χρώμα διαβάθμισης σε κείμενο, χρησιμοποιήστε το [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). Ορίστε το [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) σε [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) και ρυθμίστε τις στάσεις διαβάθμισης, την κατεύθυνση και τη διαφάνεια.
+Για να εφαρμόσετε χρώμα διαβάσματος σε κείμενο, χρησιμοποιήστε το [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/baseportionformat/#getFillFormat). Ορίστε το [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) σε [FillType.Gradient](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) και ρυθμίστε τα σημεία διαβάσματος, την κατεύθυνση και τη διαφάνεια.
