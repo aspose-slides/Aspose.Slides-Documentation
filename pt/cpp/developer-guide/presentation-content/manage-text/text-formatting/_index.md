@@ -1,5 +1,5 @@
 ---
-title: Formatar Texto da Apresentação em C++
+title: Format ar Texto de Apresentação em C++
 linktitle: Formatação de Texto
 type: docs
 weight: 50
@@ -7,15 +7,15 @@ url: /pt/cpp/text-formatting/
 keywords:
 - alinhar parágrafo
 - estilo de texto
-- fundo do texto
-- transparência do texto
-- espaçamento de caracteres
-- propriedades da fonte
-- família de fontes
+- fundo de texto
+- transparência de texto
+- espaçamento entre caracteres
+- propriedades de fonte
+- família de fonte
 - rotação de texto
 - ângulo de rotação
 - quadro de texto
-- espaçamento de linhas
+- espaçamento entre linhas
 - propriedade de ajuste automático
 - âncora do quadro de texto
 - tabulação de texto
@@ -29,19 +29,19 @@ description: "Formate e estilize texto em apresentações PowerPoint e OpenDocum
 ---
 ## **Visão geral**
 
-Este artigo mostra como formatar texto em apresentações PowerPoint e OpenDocument usando Aspose.Slides para C++. Ele abrange cores de fundo, transparência, espaçamento entre caracteres, propriedades de fonte, rotação, espaçamento de parágrafos, comportamento de ajuste automático, ancoragem de texto, tabulações e configurações de idioma.
+Este artigo mostra como formatar texto em apresentações PowerPoint e OpenDocument usando Aspose.Slides for C++. Ele abrange cores de fundo, transparência, espaçamento entre caracteres, propriedades de fonte, rotação, espaçamento de parágrafo, comportamento de ajuste automático, ancoragem de texto, tabulações e configurações de idioma.
 
-Salvo indicação em contrário, os exemplos utilizam [sample.pptx](sample.pptx). A primeira forma em seu primeiro slide é uma caixa de texto, e seu primeiro parágrafo contém o texto mostrado abaixo. Tanto os índices de slides quanto de formas são baseados em zero. Exemplos que selecionam trechos em negrito usam formatação efetiva, incluindo formatação de negrito herdada:
+Salvo indicação em contrário, os exemplos usam [sample.pptx](sample.pptx). A primeira forma no seu primeiro slide é uma caixa de texto, e seu primeiro parágrafo contém o texto mostrado abaixo. Tanto os índices de slide quanto os de forma são baseados em zero. Exemplos que selecionam trechos em negrito usam formatação efetiva, incluindo formatação em negrito herdada:
 
 ![Texto de exemplo](sample_text.png)
 
-Para encontrar e destacar texto literal ou correspondências de expressões regulares, veja [Pesquisar e Substituir Texto](/slides/pt/cpp/search-and-replace-text/).
+Para encontrar e realçar texto literal ou correspondências de expressão regular, veja [Pesquisar e Substituir Texto](/slides/pt/cpp/search-and-replace-text/).
 
 ## **Definir Cor de Fundo do Texto**
 
-Use [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) para definir a cor de destaque padrão para um parágrafo, ou use [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) para porções de texto individuais.
+Use [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) para definir a cor de realce padrão de um parágrafo, ou use [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) para trechos individuais de texto.
 
-O exemplo a seguir define um destaque cinza claro como padrão para o primeiro parágrafo. Cores de destaque explícitas em porções individuais têm precedência sobre este padrão:
+O exemplo a seguir define um realce cinza claro como padrão para o primeiro parágrafo. Cores de realce explícitas em trechos individuais têm precedência sobre esse padrão:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -67,7 +67,7 @@ auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 auto highlightColor = System::Drawing::Color::get_LightGray();
 
-// Set the highlight color for the entire paragraph.
+// Definir a cor de realce para todo o parágrafo.
 defaultPortionFormat->get_HighlightColor()->set_Color(highlightColor);
 
 presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
@@ -78,7 +78,7 @@ O resultado:
 
 ![O parágrafo cinza](gray_paragraph.png)
 
-O exemplo de código abaixo demonstra como definir a cor de fundo para **porções de texto com fonte em negrito**:
+O exemplo de código abaixo demonstra como definir a cor de fundo para **trechos de texto com fonte em negrito**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -113,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Definir a cor de destaque para a porção de texto.
+        // Definir a cor de realce para o trecho de texto.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -124,11 +124,11 @@ presentation->Dispose();
 
 O resultado:
 
-![As porções de texto cinza](gray_text_portions.png)
+![Os trechos de texto cinza](gray_text_portions.png)
 
 ## **Alinhar Parágrafos de Texto**
 
-Use [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) para definir o alinhamento do parágrafo dentro de uma caixa de texto. O valor pode ser centralizado, alinhado à esquerda, alinhado à direita, justificado, etc.
+Use [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) para definir o alinhamento de parágrafo dentro de um quadro de texto. O valor pode ser centralizado, alinhado à esquerda, à direita, justificado etc.
 
 O exemplo de código a seguir mostra como alinhar o parágrafo ao **centro**:
 
@@ -150,7 +150,6 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
 // Definir o alinhamento do parágrafo para o centro.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
@@ -164,9 +163,9 @@ O resultado:
 
 ## **Alinhar Fontes Dentro de uma Linha**
 
-Use [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) para alinhar verticalmente porções de texto com tamanhos de fonte diferentes dentro de uma linha. Essa configuração se aplica ao parágrafo inteiro e controla o alinhamento dentro de cada uma de suas linhas.
+Use [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) para alinhar verticalmente trechos de texto com tamanhos de fonte diferentes dentro de uma linha. Esta configuração se aplica a todo o parágrafo e controla o alinhamento em cada uma de suas linhas.
 
-O exemplo autocontido a seguir cria quatro caixas de texto rotuladas em um único slide. Cada parágrafo contém o mesmo texto em 18, 36 e 54 pontos, com um alinhamento de fonte diferente. Ele usa Arial, desabilita ajuste automático e quebra de linha, e mantém as caixas de texto grandes o suficiente para uma única linha.
+O exemplo autônomo a seguir cria quatro caixas de texto rotuladas em um slide. Cada parágrafo contém o mesmo texto em 18, 36 e 54 pontos, com um alinhamento de fonte diferente. Ele usa Arial, desabilita ajuste automático e quebra automática, e mantém os quadros de texto grandes o suficiente para uma única linha.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -253,15 +252,15 @@ presentation->Dispose();
 
 O resultado:
 
-![Comparação de Alinhamento de Fonte Baseline, Topo, Centro e Base com tamanhos de fonte misturados](font_alignment.png)
+![Comparação de alinhamento Baseline, Top, Center e Bottom com tamanhos de fonte misturados](font_alignment.png)
 
-O alinhamento de fonte usa métricas de fonte, portanto as bordas visíveis das letras individuais não necessariamente se alinham exatamente. O exemplo inclui tanto uma letra maiúscula quanto um descendente para ajudar a mostrar a diferença entre o alinhamento baseline e o inferior. A disponibilidade e substituição de fontes, os caracteres usados e a diferença nos tamanhos de fonte afetam o resultado. As dimensões da caixa, margens, espaçamento entre linhas, quebra de linha e ajuste automático também influenciam o layout; use as mesmas fontes e configurações de layout ao comparar os modos.
+O alinhamento de fonte usa métricas de fonte, portanto as bordas visíveis de letras individuais nem sempre se alinham exatamente. O exemplo inclui tanto uma letra maiúscula quanto um descendente para ajudar a mostrar a diferença entre alinhamento de linha de base e inferior. A disponibilidade e substituição de fontes, os caracteres usados e a diferença de tamanhos de fonte afetam o resultado. As dimensões do quadro, margens, espaçamento entre linhas, quebra automática e ajuste automático também influenciam o layout; use as mesmas fontes e configurações de layout ao comparar os modos.
 
-Esta configuração difere de [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), que controla o alinhamento horizontal do parágrafo, e de [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), que posiciona o bloco de texto verticalmente dentro de sua forma. A formatação de sobrescrito e subscrito através de [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) desloca as porções individuais em relação à linha de base ao invés de definir o alinhamento de fonte para as linhas do parágrafo.
+Esta configuração difere de [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/), que controla o alinhamento horizontal do parágrafo, e de [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), que posiciona o bloco de texto verticalmente dentro da sua forma. Formatação de sobrescrito e subscrito via [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) desloca trechos individuais em relação à linha de base em vez de definir o alinhamento de fonte para as linhas do parágrafo.
 
 ## **Definir Transparência para Texto**
 
-A transparência do texto é controlada através do componente alfa da cor atribuída por [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Nos exemplos abaixo, `alpha = 50` é um valor de canal alfa ARGB na escala 0–255, não uma porcentagem de transparência.
+A transparência do texto é controlada através do componente alfa da cor atribuída por [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Nos exemplos abaixo, `alpha =  50` é um valor de canal alfa ARGB na escala 0–255, não uma porcentagem de transparência.
 
 O exemplo de código abaixo mostra como aplicar transparência ao **parágrafo inteiro**:
 
@@ -306,7 +305,7 @@ O resultado:
 
 ![O parágrafo transparente](transparent_paragraph.png)
 
-O exemplo de código a seguir mostra como aplicar transparência a **porções de texto com fonte em negrito**:
+O exemplo de código a seguir mostra como aplicar transparência a **trechos de texto com fonte em negrito**:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -344,7 +343,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Definir a transparência da porção de texto.
+        // Definir a transparência do trecho de texto.
         portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
         auto baseColor = System::Drawing::Color::get_Black();
         auto transparentColor = System::Drawing::Color::FromArgb(alpha, baseColor);
@@ -358,13 +357,13 @@ presentation->Dispose();
 
 O resultado:
 
-![As porções de texto transparentes](transparent_text_portions.png)
+![Os trechos de texto transparentes](transparent_text_portions.png)
 
-## **Definir Espaçamento de Caracteres para Texto**
+## **Definir Espaçamento entre Caracteres para Texto**
 
 Use [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) para expandir ou condensar o espaçamento entre caracteres em uma caixa de texto. Os exemplos adicionam 3 pontos de espaçamento; valores negativos condensam o texto.
 
-O código C++ a seguir mostra como expandir o espaçamento de caracteres no **parágrafo inteiro**:
+O código C++ a seguir mostra como expandir o espaçamento entre caracteres no **parágrafo inteiro**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -384,9 +383,8 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
-
-// Observação: Use valores negativos para comprimir o espaçamento entre caracteres.
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Expandir o espaçamento entre caracteres.
+// Nota: Use valores negativos para comprimir o espaçamento entre caracteres.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Expandir espaçamento entre caracteres.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
@@ -394,9 +392,9 @@ presentation->Dispose();
 
 O resultado:
 
-![O espaçamento de caracteres no parágrafo](character_spacing_in_paragraph.png)
+![O espaçamento entre caracteres no parágrafo](character_spacing_in_paragraph.png)
 
-O exemplo de código abaixo mostra como expandir o espaçamento de caracteres em **porções de texto com fonte em negrito**:
+O exemplo de código abaixo mostra como expandir o espaçamento entre caracteres em **trechos de texto com fonte em negrito**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -428,8 +426,8 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Observação: Use valores negativos para comprimir o espaçamento entre caracteres.
-        portionFormat->set_Spacing(3.0f); // Expandir o espaçamento entre caracteres.
+        // Nota: Use valores negativos para comprimir o espaçamento entre caracteres.
+        portionFormat->set_Spacing(3.0f); // Expandir espaçamento entre caracteres.
     }
 }
 
@@ -439,13 +437,13 @@ presentation->Dispose();
 
 O resultado:
 
-![O espaçamento de caracteres nas porções de texto](character_spacing_in_text_portions.png)
+![O espaçamento entre caracteres nos trechos de texto](character_spacing_in_text_portions.png)
 
-### **Desabilitar Kerning para Fontes Específicas**
+### **Desativar Kerning para Fontes Específicas**
 
-Em alguns casos, o texto renderizado pelo Aspose.Slides pode parecer ligeiramente mais apertado do que o mesmo texto exibido no PowerPoint. Isso pode acontecer porque o PowerPoint pode ignorar os dados de kerning para determinadas fontes, mesmo quando a fonte contém informações de kerning válidas e o kerning está habilitado nas configurações do PowerPoint.
+Em alguns casos, o texto renderizado pelo Aspose.Slides pode parecer ligeiramente mais apertado que o mesmo texto exibido no PowerPoint. Isso pode acontecer porque o PowerPoint pode ignorar dados de kerning para certas fontes, mesmo quando a fonte contém informações de kerning válidas e o kerning está habilitado nas configurações do PowerPoint.
 
-Para que a saída renderizada se aproxime do PowerPoint nesses casos, você pode desabilitar o kerning para as porções de texto que utilizam a fonte afetada. Use [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) para definir um valor maior que o tamanho real da fonte. Este exemplo requer "presentation.pptx" com uma caixa de texto como a primeira forma no primeiro slide. Ele verifica os nomes de fontes efetivas, incluindo fontes herdadas, e define um limite de 100 pontos para as porções que usam Roboto. Isso desabilita o kerning para as porções correspondentes com tamanho de fonte abaixo de 100 pontos:
+Para que a saída renderizada fique mais próxima do PowerPoint nesses casos, você pode desativar o kerning para trechos de texto que usam a fonte afetada. Use [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) para definir um valor maior que o tamanho real da fonte. Este exemplo requer "presentation.pptx" com uma caixa de texto como primeira forma no primeiro slide. Ele verifica nomes de fontes efetivas, incluindo fontes herdadas, e define um limiar de 100 pontos para trechos que usam Roboto. Isso desativa o kerning para trechos correspondentes com tamanho de fonte abaixo de 100 pontos:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -503,13 +501,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Para textos correspondentes abaixo do limite, esta configuração impede o kerning e pode ajudar a alinhar a renderização do Aspose.Slides com a saída visual do PowerPoint para fontes afetadas por esse comportamento específico do PowerPoint.
+Para texto correspondente abaixo do limiar, essa configuração impede o kerning e pode ajudar a alinhar a renderização do Aspose.Slides com a saída visual do PowerPoint para fontes afetadas por esse comportamento específico do PowerPoint.
 
 ## **Gerenciar Propriedades de Fonte do Texto**
 
-As propriedades de fonte podem ser definidas no nível do parágrafo através de [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) ou em porções individuais através de [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
+Propriedades de fonte podem ser definidas no nível de parágrafo através de [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) ou em trechos individuais através de [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/).
 
-O exemplo a seguir define a fonte padrão do primeiro parágrafo como Times New Roman de 12 pontos com formatação em negrito, itálico e sublinhado pontilhado. A formatação explícita em porções individuais tem precedência sobre esses padrões:
+O exemplo a seguir define a fonte padrão do primeiro parágrafo como Times New Roman 12 pontos com formatação em negrito, itálico e sublinhado pontilhado. Formatação explícita em trechos individuais tem precedência sobre esses padrões.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -534,7 +532,7 @@ auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 auto defaultPortionFormat = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
 
-// Definir as propriedades da fonte para o parágrafo.
+// Definir as propriedades de fonte para o parágrafo.
 defaultPortionFormat->set_FontHeight(12.0f);
 defaultPortionFormat->set_FontBold(NullableBool::True);
 defaultPortionFormat->set_FontItalic(NullableBool::True);
@@ -550,7 +548,7 @@ O resultado:
 
 ![As propriedades de fonte do parágrafo](font_properties_for_paragraph.png)
 
-O exemplo a seguir aplica Times New Roman de 13 pontos, formatação itálica e sublinhado pontilhado às porções cujo formatação efetiva é negrito:
+O exemplo a seguir aplica Times New Roman 13 pontos, formatação em itálico e sublinhado pontilhado a trechos cuja formatação efetiva está em negrito:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -585,7 +583,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Definir as propriedades da fonte para a porção de texto.
+        // Definir as propriedades de fonte para o trecho de texto.
         portionFormat->set_FontHeight(13.0f);
         portionFormat->set_FontItalic(NullableBool::True);
         portionFormat->set_FontUnderline(TextUnderlineType::Dotted);
@@ -599,13 +597,191 @@ presentation->Dispose();
 
 O resultado:
 
-![As propriedades de fonte das porções de texto](font_properties_for_text_portions.png)
+![As propriedades de fonte dos trechos de texto](font_properties_for_text_portions.png)
 
-## **Definir Rotação de Texto**
+## **Controlar Normalização da Altura do Texto**
+
+Use [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) ao reproduzir tipografia de modelo ou investigar diferenças na altura dos caracteres. No PowerPoint, habilitar a normalização estica ou comprime individualmente os caracteres verticalmente para dar-lhes uma altura visível uniforme dentro do trecho de texto. Não garante alturas de texto iguais entre fontes diferentes.
+
+Defina a propriedade para [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) para habilitar ou desabilitar explicitamente a normalização. `NullableBool::NotDefined` deixa a configuração local indefinida, de modo que o trecho herda seu valor, por exemplo, do [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) do parágrafo. Não significa `False`. Use [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) e leia [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) para obter o valor booleano resolvido.
+
+O exemplo autônomo a seguir requer **Arial** instalado. Ele cria dois blocos de texto contendo as mesmas letras maiúsculas, minúsculas, descendentes e caracteres acentuados em 54 pontos. Ambos os parágrafos habilitam a normalização por padrão. O trecho superior desabilita explicitamente; o inferior a herda. Os tamanhos dos quadros, margens e espaçamento de parágrafo são idênticos, com quebra automática e ajuste automático desabilitados para manter a comparação consistente. O exemplo imprime `False: False` e `NotDefined: True`, então salva "text_height_normalization.pptx".
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+NullableBool settings[] = { NullableBool::False, NullableBool::NotDefined };
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 60 + i * 200, 660, 150);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(u"Hxgjpq ÅÉ 0123");
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_MarginTop(0);
+    textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+
+    auto paragraph = textFrame->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    paragraph->get_ParagraphFormat()->set_SpaceWithin(100);
+    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_NormaliseHeight(NullableBool::True);
+
+    auto portion = paragraph->get_Portion(0);
+    auto font = MakeObject<FontData>(u"Arial");
+    portion->get_PortionFormat()->set_LatinFont(font);
+    portion->get_PortionFormat()->set_FontHeight(54);
+    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+    portion->get_PortionFormat()->set_NormaliseHeight(settings[i]);
+
+    Console::WriteLine(u"{0}: {1}", settings[i], portion->get_PortionFormat()->GetEffective()->get_NormaliseHeight());
+}
+
+presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+A comparação abaixo foi exportada da apresentação salva. A linha superior tem normalização desativada (`False`); a linha inferior herda a configuração habilitada (`NotDefined` → `True`). Mantenha Arial instalado para reproduzir esta aparência.
+
+![Texto Arial 54 pontos com normalização desativada acima e normalização herdada ativada abaixo](text_height_normalization.png)
+
+A normalização altera a altura do caractere sem mudar o valor atribuído em [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/), que especifica o tamanho da fonte em pontos. O [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) do parágrafo controla o espaçamento entre linhas, enquanto o [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) do quadro de texto controla como o texto ou seu contêiner se ajusta para caber. Essas configurações servem a propósitos diferentes e podem afetar o layout geral de forma independente. Para mais informações sobre formatação de parágrafo e herança, veja [Gerenciar Parágrafo](/slides/pt/cpp/manage-paragraph/).
+
+## **Aplicar e Remover Tachado**
+
+Use [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) em um trecho de texto para exibir correções, termos cancelados ou preços anteriores sem excluir o texto original. Defina como [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) para uma ou duas linhas atravessando o texto.
+
+Para remover o tachado, atribua `TextStrikethroughType::None`. Isso desabilita explicitamente o efeito, mesmo que a formatação ao redor especifique tachado. Em contraste, `TextStrikethroughType::NotDefined` deixa a configuração local indefinida, permitindo que o trecho herde a formatação, por exemplo, do parágrafo. Não garante que o tachado seja removido. Use [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) para ler a formatação resultante, incluindo valores herdados.
+
+O exemplo autônomo a seguir cria três comparações de preço. Cada parágrafo tem trechos separados para o rótulo, preço anterior e preço atual, de modo que apenas o preço anterior é afetado. A primeira linha aplica e depois remove o tachado; as demais linhas mantêm tachado simples e duplo. Alterar essa propriedade preserva o texto e sua demais formatações, incluindo o preço anterior em negrito.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextStrikethroughType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+String labels[] = { u"None: ", u"Single: ", u"Double: " };
+
+for (auto label : labels)
+{
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(20);
+
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    format->set_FontHeight(28);
+    auto font = MakeObject<FontData>(u"Arial");
+    format->set_LatinFont(font);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto labelPortion = MakeObject<Portion>(label);
+    paragraph->get_Portions()->Add(labelPortion);
+
+    auto previousPrice = MakeObject<Portion>(u"$100");
+    previousPrice->get_PortionFormat()->set_FontBold(NullableBool::True);
+    paragraph->get_Portions()->Add(previousPrice);
+    auto currentPrice = MakeObject<Portion>(u" → $80");
+    paragraph->get_Portions()->Add(currentPrice);
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+// Aplicar tachado, depois remover explicitamente do primeiro preço anterior.
+auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
+
+textFrame->get_Paragraph(1)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Single);
+textFrame->get_Paragraph(2)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Double);
+
+presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+O resultado, de cima para baixo: sem tachado, tachado simples e tachado duplo.
+
+![Preços anteriores sem tachado, com tachado simples e com tachado duplo](strikethrough.png)
+
+
+## **Definir Rotação do Texto**
 
 Use [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) para definir uma orientação de texto predefinida dentro de uma forma.
 
-O exemplo de código a seguir define a orientação do texto na forma para [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), que rotaciona o texto **90 graus no sentido anti-horário**:
+O exemplo de código a seguir define a orientação do texto na forma como [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/), que gira o texto **90 graus no sentido anti‑horário**:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -637,7 +813,7 @@ O resultado:
 
 Use [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) para definir um ângulo de rotação personalizado para um [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/).
 
-O exemplo de código abaixo rotaciona o quadro de texto em 3 graus no sentido horário dentro da forma:
+O exemplo de código abaixo gira o quadro de texto em 3 graus no sentido horário dentro da forma:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -664,12 +840,12 @@ O resultado:
 
 ![A rotação personalizada do texto](custom_text_rotation.png)
 
-## **Definir Espaçamento de Linha dos Parágrafos**
+## **Definir Espaçamento entre Linhas de Parágrafos**
 
 Aspose.Slides fornece [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/), e [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) para controlar o espaçamento de parágrafos. Esses métodos são usados da seguinte forma:
 
-* Use um valor positivo para especificar o espaçamento de linha como uma porcentagem da altura da linha.
-* Use um valor negativo para especificar o espaçamento de linha em pontos.
+* Use um valor positivo para especificar o espaçamento entre linhas como porcentagem da altura da linha.
+* Use um valor negativo para especificar o espaçamento entre linhas em pontos.
 
 O exemplo a seguir define o espaçamento dentro do primeiro parágrafo como 200% da altura da linha (espaçamento duplo):
 
@@ -699,18 +875,18 @@ presentation->Dispose();
 
 O resultado:
 
-![O espaçamento de linha dentro do parágrafo](line_spacing.png)
+![O espaçamento entre linhas dentro do parágrafo](line_spacing.png)
 
 ## **Controlar Quebra de Linha**
 
-As regras de quebra de linha de parágrafo são úteis em blocos de texto estreitos e apresentações que misturam texto latino e asiático oriental. Os seguintes métodos pertencem a [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), portanto se aplicam a um parágrafo inteiro:
+As regras de quebra de linha de parágrafos são úteis em blocos de texto estreitos e apresentações que misturam texto latino e asiático oriental. Os métodos a seguir pertencem a [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), portanto aplicam‑se a um parágrafo inteiro:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) controla as regras de quebra de linha latina. Em texto misto, alterá-lo também pode mudar onde o texto e pontuação asiáticos adjacentes são quebrados.
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) controla as regras de quebra de linha asiática oriental, incluindo restrições de caracteres no início e fim de uma linha.
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) controla as regras de quebra de linha latina. Em texto misto, alterá‑la também pode mudar onde o texto e a pontuação asiática oriental adjacentes são quebrados.
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) controla as regras de quebra de linha do Leste Asiático, incluindo restrições a caracteres no início e no fim de uma linha.
 
-Essas regras não substituem [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), que habilita a quebra automática dentro de um quadro de texto. Elas influenciam o layout quando a quebra ocorre; não inserem caracteres de quebra de linha. Uma quebra de linha explícita força uma nova linha dentro do parágrafo independentemente da largura disponível.
+Essas regras não substituem [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/), que habilita a quebra automática dentro de um quadro de texto. Elas influenciam o layout quando a quebra automática ocorre; não inserem caracteres de quebra de linha. Uma quebra de linha explícita força uma nova linha dentro do parágrafo independentemente da largura disponível.
 
-O exemplo autocontido a seguir cria um bloco de texto estreito contendo texto chinês e latino. Ele define ambas as regras de quebra de linha explicitamente e salva "line_breaking.pptx". Para experimentar cada regra, altere o valor passado ao seu setter mantendo as outras configurações fixas. O exemplo usa Arial de 24 pontos e SimSun com largura de quadro de 160 pontos e margem horizontal zero. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) é chamado com [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) para que o tamanho do texto e as dimensões do quadro permaneçam fixos.
+O exemplo autônomo a seguir cria um bloco de texto estreito contendo chinês e texto latino. Ele define ambas as regras de quebra de linha explicitamente e salva "line_breaking.pptx". Para experimentar qualquer regra, altere o valor passado para seu setter mantendo as outras configurações fixas. O exemplo usa Arial 24 pontos e SimSun com largura de quadro de 160 pontos e margens horizontais de quadro zero. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) é chamado com [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) para que o tamanho do texto e as dimensões do quadro permaneçam fixos.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -770,9 +946,9 @@ presentation->Dispose();
 
 ## **Controlar Pontuação Suspensa**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) permite que pontuação elegível se estenda além da borda direita da linha de texto em vez de ocupar a linha seguinte. Aplica-se a todo o parágrafo e difere de um recuo suspenso.
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) permite que pontuações elegíveis se estendam além da borda direita da linha de texto em vez de ocupar a linha seguinte. Aplica‑se a todo o parágrafo e difere de uma indentação suspensa.
 
-O exemplo autocontido a seguir habilita pontuação suspensa em um quadro de texto de 100 pontos de largura e salva "hanging_punctuation.pptx". Com Arial de 24 pontos e margem horizontal zero, o ponto final permanece após "sentence" e se estende além da borda direita do texto. Passe [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) ao setter para comparar: com essas configurações, o ponto ocupa uma linha separada. A quebra de linha está habilitada e o ajuste automático desativado para manter a largura disponível fixa.
+O exemplo autônomo a seguir habilita pontuação suspensa em um quadro de texto de 100 pontos de largura e salva "hanging_punctuation.pptx". Com Arial 24 pontos e margens horizontais de quadro zero, o ponto final final permanece após “sentence” e se estende além da borda direita do texto. Passe [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) ao setter para comparar: com essas configurações, o ponto final ocupa uma linha separada. A quebra automática está habilitada e o ajuste automático desabilitado para manter a largura disponível fixa.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -827,11 +1003,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nem toda pontuação pode ser suspensa. As [condições de fonte e layout descritas acima](#control-line-breaking) também se aplicam a esta comparação: mudar a fonte, largura disponível, margens ou configurações de ajuste automático pode remover a diferença visível.
+Nem toda marca de pontuação pode ser suspensa. As [condições de fonte e layout descritas acima](#control-line-breaking) também se aplicam a esta comparação: mudar a fonte, largura disponível, margens ou configurações de ajuste automático pode remover a diferença visível.
 
 ## **Definir Tipo de Ajuste Automático para Quadros de Texto**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) determina como o texto se comporta quando excede os limites de seu contêiner. Use-o para controlar se o texto encolhe, transborda ou redimensiona a forma automaticamente. O exemplo a seguir configura a forma para redimensionar e ajustar seu texto e salva o resultado em "autofit_type.pptx".
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) determina como o texto se comporta quando excede os limites de seu contêiner. Use‑o para controlar se o texto encolhe, transborda ou redimensiona a forma automaticamente. O exemplo a seguir configura a forma para redimensionar e caber seu texto e salva o resultado em "autofit_type.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -855,11 +1031,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Para contar linhas após a quebra automática e ver como a largura do texto ou da forma altera o resultado, consulte [Contar Linhas Renderizadas](/slides/pt/cpp/manage-paragraph/). A contagem de linhas sozinha não indica se o texto transborda seu contêiner.
+Para contar linhas após a quebra automática e ver como a largura do texto ou da forma altera o resultado, veja [Contar Linhas Renderizadas](/slides/pt/cpp/manage-paragraph/). A contagem de linhas por si só não indica se o texto transborda seu contêiner.
 
 ## **Definir Âncora dos Quadros de Texto**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) define como o texto é posicionado verticalmente dentro de uma forma, por exemplo, no topo, meio ou base. O exemplo a seguir ancora o texto na base da primeira forma e salva o resultado em "text_anchor.pptx".
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) define como o texto é posicionado verticalmente dentro de uma forma, por exemplo, no topo, centro ou base. O exemplo a seguir ancora o texto na parte inferior da primeira forma e salva o resultado em "text_anchor.pptx".
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -885,7 +1061,7 @@ presentation->Dispose();
 
 ## **Definir Tabulação de Texto**
 
-Use [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) e [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) para configurar tabulações em um parágrafo. O exemplo a seguir define o intervalo padrão de tabulação para 100 pontos e adiciona uma tabulação alinhada à esquerda em 30 pontos. Essas configurações afetam texto que contém caracteres de tabulação.
+Use [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) e [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) para configurar tabulações em um parágrafo. O exemplo a seguir define o intervalo padrão de tabulação para 100 pontos e adiciona uma tabulação alinhada à esquerda em 30 pontos. Essas configurações afetam texto contendo caracteres de tabulação.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -920,9 +1096,9 @@ O resultado:
 
 ## **Definir Idioma de Revisão**
 
-Aspose.Slides fornece [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), que permite definir o idioma de revisão para uma porção de texto. O idioma de revisão determina o idioma usado para verificação ortográfica e gramatical no PowerPoint.
+Aspose.Slides fornece [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/), que permite definir o idioma de revisão para um trecho de texto. O idioma de revisão determina o idioma usado para verificação ortográfica e gramatical no PowerPoint.
 
-O exemplo a seguir requer "presentation.pptx" com uma caixa de texto como a primeira forma no primeiro slide e ao menos um parágrafo. Ele substitui o conteúdo do primeiro parágrafo por "1。", define SimSun como sua fonte e atribui o idioma de revisão Chinês Simplificado (`zh-CN`). Salva o resultado em "proofing_language.pptx":
+O exemplo a seguir requer "presentation.pptx" com uma caixa de texto como primeira forma no primeiro slide e pelo menos um parágrafo. Ele substitui o conteúdo do primeiro parágrafo por "1。", define SimSun como sua fonte e atribui o idioma de revisão Chinês Simplificado (`zh-CN`). Salva o resultado em "proofing_language.pptx":
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -967,7 +1143,7 @@ presentation->Dispose();
 
 ## **Definir Idioma Padrão**
 
-Use [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) para definir o idioma padrão para texto criado ao carregar ou criar uma apresentação. O exemplo a seguir cria uma apresentação com o inglês dos EUA como idioma de texto padrão, adiciona uma caixa de texto e imprime `en-US` para sua primeira porção de texto.
+Use [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) para definir o idioma padrão para texto criado ao carregar ou criar uma apresentação. O exemplo a seguir cria uma apresentação com o inglês dos EUA como idioma padrão de texto, adiciona uma caixa de texto e imprime `en-US` para seu primeiro trecho de texto.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1004,9 +1180,9 @@ presentation->Dispose();
 
 ## **Definir Estilo de Texto Padrão**
 
-Para aplicar formatação de texto padrão ao nível da apresentação, use [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
+Para aplicar formatação de texto padrão no nível da apresentação, use [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/).
 
-O exemplo a seguir define uma fonte em negrito de 14 pontos como padrão para parágrafos de nível superior em uma nova apresentação e salva em "default_text_style.pptx". O texto pode herdar esses padrões, a menos que formatações mais específicas os sobrescrevam.
+O exemplo a seguir define uma fonte de 14 pontos em negrito como padrão para parágrafos de nível superior em uma nova apresentação e salva em "default_text_style.pptx". O texto pode herdar esses padrões a menos que formatações mais específicas os sobrescrevam.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -1035,15 +1211,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Extrair Texto com o Efeito Tudo em Maiúsculas**
+## **Extrair Texto com o Efeito Todas Maiúsculas**
 
-No PowerPoint, aplicar o efeito de fonte **All Caps** faz o texto aparecer em maiúsculas no slide mesmo quando foi digitado originalmente em minúsculas. Quando você recupera tal porção de texto com Aspose.Slides, a biblioteca devolve o texto exatamente como foi inserido. Para corresponder ao texto exibido, verifique [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) e converta a string retornada para maiúsculas quando o valor for [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
+No PowerPoint, aplicar o efeito de fonte **Todas Maiúsculas** faz o texto aparecer em maiúsculas no slide mesmo quando foi originalmente digitado em minúsculas. Quando você recupera tal trecho de texto com Aspose.Slides, a biblioteca devolve o texto exatamente como foi inserido. Para corresponder ao texto exibido, verifique [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) e converta a string retornada para maiúsculas quando o valor for [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/).
 
-Este exemplo requer "sample2.pptx" com uma caixa de texto como a primeira forma no primeiro slide. A primeira porção do primeiro parágrafo contém "Hello, Aspose!" com o efeito All Caps aplicado, como mostrado abaixo.
+Este exemplo requer "sample2.pptx" com uma caixa de texto como primeira forma no primeiro slide. Seu primeiro parágrafo tem seu primeiro trecho contendo "Hello, Aspose!" com o efeito Todas Maiúsculas aplicado, como mostrado abaixo.
 
-![O efeito All Caps](all_caps_effect.png)
+![O efeito Todas Maiúsculas](all_caps_effect.png)
 
-O exemplo de código abaixo mostra como extrair o texto com o efeito **All Caps** aplicado:
+O exemplo de código abaixo mostra como extrair o texto com o efeito **Todas Maiúsculas** aplicado:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1087,10 +1263,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **FAQ**
 
-**Como modifico texto em uma tabela em um slide?**
+**Como modificar texto em uma tabela em um slide?**
 
-Para modificar texto em uma tabela em um slide, use [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Iterate through the cells and update each cell through [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) and paragraph formatting through [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
+Para modificar texto em uma tabela em um slide, use [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/). Percorra as células e atualize cada célula via [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) e formatação de parágrafo via [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/).
 
-**Como aplico uma cor gradiente ao texto em um slide do PowerPoint?**
+**Como aplicar uma cor gradiente ao texto em um slide do PowerPoint?**
 
-Para aplicar uma cor gradiente ao texto, use [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Set [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) and configure the gradient stops, direction, and transparency.
+Para aplicar uma cor gradiente ao texto, use [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/). Defina [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) como [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) e configure as paradas do gradiente, direção e transparência.
+
+Recurso relacionado: [Formatar texto dentro de slides](/slides/pt/features/text-formatting/).

@@ -1,11 +1,11 @@
 ---
-title: C++'ta Sunum Metnini Biçimlendir
+title: C++'ta Sunum Metnini Biçimlendirme
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
 url: /tr/cpp/text-formatting/
 keywords:
-- paragraf hizala
+- paragraf hizalama
 - metin stili
 - metin arka planı
 - metin şeffaflığı
@@ -18,7 +18,7 @@ keywords:
 - satır aralığı
 - otomatik sığdırma özelliği
 - metin çerçevesi sabitlemesi
-- metin sekmesi
+- metin sekleme
 - varsayılan dil
 - PowerPoint
 - OpenDocument
@@ -29,19 +29,19 @@ description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument sunuml
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin yerleştirme, sek durakları ve dil ayarları ele alınmaktadır.
+Bu makale, Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarlarını kapsar.
 
-Aksi belirtilmedikçe örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slayttaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Hem slayt hem de şekil indeksleri sıfır temellidir. Kalın bölümleri seçen örnekler, kalıtımlı kalın biçimlendirme dahil, etkili biçimlendirme kullanır:
+Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaytındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirmeyi de içeren etkili biçimlendirme kullanır:
 
 ![Örnek metin](sample_text.png)
 
-Literal metin veya düzenli ifade eşleşmelerini bulmak ve vurgulamak için, [Arama ve Metin Değiştirme](/slides/tr/cpp/search-and-replace-text/) sayfasına bakın.
+Metin arama ve değiştirme hakkında bilgi edinmek için [Metin Arama ve Değiştirme](/slides/tr/cpp/search-and-replace-text/) sayfasına bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragrafın varsayılan vurgulama rengini ayarlamak için [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) kullanın veya bireysel metin bölümleri için [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) kullanın veya bireysel metin bölümleri için [IBasePortionFormat::get_HighlightColor](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_highlightcolor/) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerde belirtilen vurgulama renkleri bu varsayılanın üzerine geçer:
+Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümler üzerindeki açık vurgulama renkleri bu varsayılanın önceliğine sahiptir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -74,9 +74,11 @@ presentation->Save(u"gray_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Gri paragraf](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için arka plan rengini nasıl ayarlayacağını gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -111,7 +113,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Metin bölümü için vurgulama rengini ayarla.
+        // Metin bölümünün vurgulama rengini ayarla.
         portionFormat->get_HighlightColor()->set_Color(highlightColor);
     }
 }
@@ -120,13 +122,15 @@ presentation->Save(u"gray_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Gri metin bölümleri](gray_text_portions.png)
 
 ## **Metin Paragraflarını Hizala**
 
-Bir metin çerçevesi içinde paragraf hizalamasını ayarlamak için [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) kullanın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki kenara yaslı vb. olabilir.
+Metin çerçevesi içinde paragraf hizalamasını ayarlamak için [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) kullanın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
 
-Aşağıdaki kod örneği paragrafı **ortaya** hizalamayı gösterir:
+Aşağıdaki kod örneği paragrafı **ortaya** hizalamanın nasıl yapılacağını gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -146,6 +150,7 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
+
 // Paragrafın hizalamasını ortaya ayarla.
 paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Center);
 
@@ -153,13 +158,15 @@ presentation->Save(u"aligned_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Hizalanmış paragraf](aligned_paragraph.png)
 
 ## **Satır İçinde Yazı Tiplerini Hizala**
 
-Bir satır içinde farklı yazı tipi boyutlarına sahip metin bölümlerini dikey olarak hizalamak için [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) kullanın. Bu ayar tüm paragraf için geçerlidir ve her satırdaki hizalamayı kontrol eder.
+Farklı yazı tipi boyutlarına sahip metin bölümlerini bir satır içinde dikey olarak hizalamak için [IParagraphFormat::set_FontAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_fontalignment/) kullanın. Bu ayar tüm paragrafı etkiler ve her satırın içindeki hizalamayı kontrol eder.
 
-Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puanda, farklı bir yazı tipi hizalamasıyla içerir. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
+Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puanda içerir ve farklı bir yazı tipi hizalaması kullanır. Arial kullanır, otomatik sığdırma ve kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar.
 
 ```cpp
 #include <DOM/FontAlignment.h>
@@ -244,17 +251,19 @@ presentation->Save(u"font_alignment.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Karışık yazı tipi boyutlarıyla Alt Çizgi, Üst, Orta ve Alt hizalama karşılaştırması](font_alignment.png)
+Sonuç:
 
-Yazı tipi hizalaması, yazı tipi ölçütlerini kullanır, bu nedenle bireysel harflerin görünen kenarları mutlaka tam olarak hizalanmaz. Örnek, bir büyük harf ve bir alt karakter (descender) içerir ve alt çizgi ile alt hizalama arasındaki farkı göstermeye yardımcı olur. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve yazı tipi boyutlarındaki farklar sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da yerleşimi etkiler; modları karşılaştırırken aynı yazı tipleri ve yerleşim ayarlarını kullanın.
+![Altta, Üst, Orta ve Alt hizalama karşılaştırması](font_alignment.png)
 
-Bu ayar, yatay paragraf hizalamasını kontrol eden [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) ve şekil içinde metin bloğunu dikey konumlandıran [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) ayarlarından farklıdır. [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) ile üst ve alt simge biçimlendirmesi, paragraf satırlarının yazı tipi hizalamasını ayarlamaktan ziyade bireysel bölümleri temel çizgiye göre kaydırır.
+Yazı tipi hizalaması yazı tipi ölçütlerini kullanır, bu nedenle bireysel harflerin görünen kenarları mutlaka tam olarak hizalanmaz. Örnek büyük harf ve bir aşağı doğru uzanan harf içerir; bu, taban ve alt hizalama arasındaki farkı göstermeye yardımcı olur. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve yazı tipi boyutları farkı etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da yerleşimi etkiler; modları karşılaştırırken aynı yazı tipleri ve yerleşim ayarları kullanılmalıdır.
+
+Bu ayar, yatay paragraf hizalamasını kontrol eden [IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) ve şekil içinde metin bloğunu dikey konumlandıran [ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) yöntemlerinden farklıdır. [IBasePortionFormat::set_Escapement](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_escapement/) ile üst ve alt simge biçimlendirmesi, bireysel bölümleri tabana göre kaydırır; paragraf satırları için yazı tipi hizalaması ayarlamaz.
 
 ## **Metin Şeffaflığını Ayarla**
 
-Metin şeffaflığı, [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) aracılığıyla atanan rengin alfa bileşeni ile kontrol edilir. Aşağıdaki örneklerde `alpha = 50` 0–255 ölçeğinde bir ARGB alfa-kanalı değeridir, yüzde şeffaflık değildir.
+Metin şeffaflığı, [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) aracılığıyla atanan rengin alfa bileşeniyle kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, 0–255 ölçeğinde bir ARGB alfa kanalı değeridir, yüzde şeffaflık değildir.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflık nasıl uygulanır gösterir:
+Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığı nasıl uygular gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -293,9 +302,11 @@ presentation->Save(u"transparent_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Şeffaf paragraf](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflık nasıl uygulanır gösterir:
+Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için şeffaflığı nasıl uygular gösterir:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -345,13 +356,15 @@ presentation->Save(u"transparent_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Şeffaf metin bölümleri](transparent_text_portions.png)
 
-## **Metin İçin Karakter Aralığını Ayarla**
+## **Metin Karakter Aralığını Ayarla**
 
-Karakterler arasındaki boşluğu artırmak veya azaltmak için [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) kullanın. Örneklere 3 puanluk aralık eklenir; negatif değerler metni yoğunlaştırır.
+Metin kutusundaki karakterler arasındaki boşluğu artırmak veya azaltmak için [IBasePortionFormat::set_Spacing](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_spacing/) kullanın. Örnekler 3 puan boşluk ekler; negatif değerler metni sıkıştırır.
 
-Aşağıdaki C++ kodu, **tüm paragrafta** karakter aralığını nasıl artıracağınızı gösterir:
+Aşağıdaki C++ kodu, **tüm paragrafta** karakter aralığını nasıl genişleteceğini gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -372,16 +385,18 @@ auto firstShape = presentation->get_Slide(0)->get_Shape(0);
 auto autoShape = System::ExplicitCast<IAutoShape>(firstShape);
 auto paragraph = autoShape->get_TextFrame()->get_Paragraph(0);
 
-// Not: karakter aralığını sıkıştırmak için negatif değerler kullanın.
+// Not: Karakter aralığını sıkıştırmak için negatif değerler kullanın.
 paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_Spacing(3.0f); // Karakter aralığını genişlet.
 
 presentation->Save(u"character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümleri** için karakter aralığını nasıl artıracağınızı gösterir:
+Aşağıdaki kod örneği, **kalın bir yazı tipine sahip metin bölümlerinde** karakter aralığını nasıl genişleteceğini gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -413,7 +428,7 @@ for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
     auto portionFormat = portion->get_PortionFormat();
     if (portionFormat->GetEffective()->get_FontBold())
     {
-        // Not: karakter aralığını sıkıştırmak için negatif değerler kullanın.
+        // Not: Karakter aralığını sıkıştırmak için negatif değerler kullanın.
         portionFormat->set_Spacing(3.0f); // Karakter aralığını genişlet.
     }
 }
@@ -422,13 +437,15 @@ presentation->Save(u"character_spacing_in_text_portions.pptx", SaveFormat::Pptx)
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
 
 ### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
 
-Bazi durumlarda, Aspose.Slides tarafından oluşturulan metin, PowerPoint'te aynı metinden biraz daha sık görünebilir. Bu, PowerPoint'in belirli yazı tipleri için kerning verilerini görmezden gelmesi nedeniyle olabilir; yazı tipi geçerli kerning bilgi içeriyor ve PowerPoint ayarlarında kerning etkin olsa bile.
+Bazı durumlarda, Aspose.Slides tarafından oluşturulan metin, PowerPoint'te aynı metinden biraz daha sık görünebilir. Bu, PowerPoint'in bazı yazı tipleri için kerning verisini görmezden gelmesinden kaynaklanabilir; yazı tipi geçerli kerning bilgisine sahip olsa bile PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu gibi durumlarda oluşturulan çıktıyı PowerPoint'e daha yakın hâle getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. Gerçek yazı tipi boyutundan daha büyük bir değer ayarlamak için [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) kullanın. Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "presentation.pptx" dosyasını gerektirir. Etkili yazı tipi adlarını, kalıtım yapılan yazı tipleri dahil, kontrol eder ve Roboto kullanan bölümler için 100 puanlık bir eşik ayarlar. Bu, 100 puanın altında bir yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
+Bu durumlarda çıktıyı PowerPoint'e daha yakın hâle getirmek için, etkilenen yazı tipini kullanan metin bölümleri için kerning'i devre dışı bırakabilirsiniz. Gerçek yazı tipi büyüklüğünden büyük bir değer ayarlamak için [IBasePortionFormat::set_KerningMinimalSize](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_kerningminimalsize/) kullanın. Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren “presentation.pptx” dosyasını gerektirir. Etkili yazı tipi adlarını, kalıtılan yazı tipleri dahil, kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri ayarlar. Bu, 100 puandan küçük yazı tipi boyutuna sahip eşleşen bölümler için kerning'i devre dışı bırakır:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -486,13 +503,13 @@ presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Eşiğin altında kalan eşleşen metinler için bu ayar kerning'i engeller ve bu PowerPoint'e özgü davranıştan etkilenen yazı tipleri için Aspose.Slides render'ını PowerPoint'in görsel çıktısına yaklaştırmaya yardımcı olabilir.
+Eşiğin altında kalan eşleşen metinler için bu ayar kerning'i önler ve PowerPoint’e özgü bu davranıştan etkilenen yazı tiplerinde Aspose.Slides çıktısının görsel olarak PowerPoint ile daha uyumlu olmasına yardımcı olur.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, paragraf düzeyinde [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) aracılığıyla veya tek tek bölümler için [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/) aracılığıyla ayarlanabilir.
+Yazı tipi özellikleri, paragraf düzeyinde [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) aracılığıyla veya bireysel bölümlerde [IPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/) aracılığıyla ayarlanabilir.
 
-Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman olarak, kalın, italik ve noktalı alt çizgi biçimlendirmesiyle ayarlar. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine geçer.
+Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman, kalın, italik ve noktalı alt çizgi biçiminde ayarlar. Bireysel bölümler üzerindeki açık biçimlendirme bu varsayılanların üzerindeki önceliğe sahiptir:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -529,9 +546,11 @@ presentation->Save(u"font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
 
-Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik biçimlendirme ve noktalı alt çizgi uygular:
+Aşağıdaki örnek, **kalın** etkili biçimlendirmeye sahip bölümlere 13 puan Times New Roman, italik biçim ve noktalı alt çizgi uygular:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -578,13 +597,193 @@ presentation->Save(u"font_properties_for_text_portions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
+
+## **Metin Yüksekliği Normalleştirmesini Kontrol Et**
+
+Şablon tipografisini yeniden üretirken veya karakter yüksekliği farklarını incelerken [IBasePortionFormat::set_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_normaliseheight/) kullanın. PowerPoint’te normalleştirmeyi etkinleştirmek, bireysel karakterleri dikey olarak uzatır veya sıkıştırır ve metin bölümünde görünür yüksekliği tekdüze hâle getirir. Farklı yazı tipleri arasında eşit metin yüksekliği garantilenmez.
+
+Özelliği açıkça etkinleştirmek veya devre dışı bırakmak için [NullableBool::True or False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) ayarlayın. `NullableBool::NotDefined` yerel ayarı ayarlamaz; böylece bölüm, örneğin paragrafın [IParagraphFormat::get_DefaultPortionFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_defaultportionformat/) üzerinden değerini devralır. `False` anlamına gelmez. Çözülmüş Boolean değerini elde etmek için [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) ve [IBasePortionFormatEffectiveData::get_NormaliseHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformateffectivedata/get_normaliseheight/) kullanın.
+
+Aşağıdaki bağımsız örnek **Arial** yüklü olmasını gerektirir. Aynı büyük harfler, küçük harfler, aşağı uzanan harfler ve aksanlı karakterleri 54 puanda iki metin bloğu oluşturur. Her iki paragraf da varsayılan olarak normalleştirmeyi etkinleştirir. Üst bölüm bunu açıkça devre dışı bırakır; alt bölüm devralır. Çerçeve boyutları, kenar boşlukları ve paragraf aralığı aynıdır; karşılaştırmayı tutarlı kılmak için kaydırma ve otomatik sığdırma devre dışı bırakılmıştır. Örnek `False: False` ve `NotDefined: True` çıktılar verir, ardından “text_height_normalization.pptx” kaydeder.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+NullableBool settings[] = { NullableBool::False, NullableBool::NotDefined };
+
+for (auto i = 0; i < 2; i++)
+{
+    auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 60 + i * 200, 660, 150);
+    shape->get_FillFormat()->set_FillType(FillType::NoFill);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+
+    auto textFrame = shape->get_TextFrame();
+    textFrame->set_Text(u"Hxgjpq ÅÉ 0123");
+    textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::None);
+    textFrame->get_TextFrameFormat()->set_WrapText(NullableBool::False);
+    textFrame->get_TextFrameFormat()->set_AnchoringType(TextAnchorType::Top);
+    textFrame->get_TextFrameFormat()->set_MarginTop(0);
+    textFrame->get_TextFrameFormat()->set_MarginLeft(0);
+
+    auto paragraph = textFrame->get_Paragraph(0);
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceBefore(0);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(0);
+    paragraph->get_ParagraphFormat()->set_SpaceWithin(100);
+    paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_NormaliseHeight(NullableBool::True);
+
+    auto portion = paragraph->get_Portion(0);
+    auto font = MakeObject<FontData>(u"Arial");
+    portion->get_PortionFormat()->set_LatinFont(font);
+    portion->get_PortionFormat()->set_FontHeight(54);
+    portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+    portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+    portion->get_PortionFormat()->set_NormaliseHeight(settings[i]);
+
+    Console::WriteLine(u"{0}: {1}", settings[i], portion->get_PortionFormat()->GetEffective()->get_NormaliseHeight());
+}
+
+presentation->Save(u"text_height_normalization.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Aşağıdaki karşılaştırma, kaydedilen sunumdan dışa aktarılmıştır. Üst satırda normalleştirme devre dışı bırakılmıştır (`False`); alt satırda etkin ayar kalıtılmıştır (`NotDefined` → `True`). Bu görünümü yeniden oluşturmak için Arial kurulu olmalıdır.
+
+![Normalleştirme devre dışı ve devrede olan Arial 54 puanlık metin](text_height_normalization.png)
+
+Normalleştirme, atanan [IBasePortionFormat::get_FontHeight](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fontheight/) değerini değiştirmeden karakter yüksekliğini değiştirir; bu değer puan cinsinden yazı tipi boyutunu belirtir. Paragraf [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) satır aralığını kontrol ederken, metin‑çerçeve [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) metnin ya da kapsayıcısının nasıl ayarlanacağını belirler. Bu ayarlar farklı amaçlara hizmet eder ve bağımsız olarak yerleşimi etkileyebilir. Paragraf biçimlendirme ve kalıtım hakkında daha fazla bilgi için [Paragrafı Yönet](/slides/tr/cpp/manage-paragraph/) sayfasına bakın.
+
+## **Üstü Çizgiyi Uygula ve Kaldır**
+
+Bir metin bölümüne üstü çizgi eklemek, düzeltmeler, iptal edilen ifadeler veya önceki fiyatları silmeden göstermek için [IBasePortionFormat::set_StrikethroughType](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_strikethroughtype/) kullanılır. Tek satır veya iki satır üstü çizgi için [TextStrikethroughType::Single or Double](https://reference.aspose.com/slides/cpp/aspose.slides/textstrikethroughtype/) ayarlayın.
+
+Üstü çizgiyi kaldırmak için `TextStrikethroughType::None` atayın. Bu, çevreleyen biçimlendirme üstü çizgi belirtiyor olsa bile efekti açıkça devre dışı bırakır. Bunun tersine, `TextStrikethroughType::NotDefined` yerel ayarı tanımsız bırakır; bölüm, örneğin paragraftan biçimlendirme devralabilir. Üstü çizgi kaldırıldığını garanti etmez. Sonuç biçimlendirmeyi, kalıtılan değerler dahil, okumak için [IPortionFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/iportionformat/geteffective/) kullanın.
+
+Aşağıdaki bağımsız örnek üç fiyat karşılaştırması oluşturur. Her paragraf, etiket, önceki fiyat ve geçerli fiyat için ayrı bölümler içerir; sadece önceki fiyat etkilenir. İlk satır üstü çizgiyi uygular ve ardından kaldırır; diğer satırlar tek ve çift üstü çizgiyi korur. Bu özelliği değiştirmek, metni ve diğer biçimlendirmeleri (örneğin kalın önceki fiyat) korur.
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextStrikethroughType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+String labels[] = { u"None: ", u"Single: ", u"Double: " };
+
+for (auto label : labels)
+{
+    auto paragraph = MakeObject<Paragraph>();
+    paragraph->get_ParagraphFormat()->set_Alignment(TextAlignment::Left);
+    paragraph->get_ParagraphFormat()->set_SpaceAfter(20);
+
+    auto format = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat();
+    format->set_FontHeight(28);
+    auto font = MakeObject<FontData>(u"Arial");
+    format->set_LatinFont(font);
+    format->get_FillFormat()->set_FillType(FillType::Solid);
+    format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+
+    auto labelPortion = MakeObject<Portion>(label);
+    paragraph->get_Portions()->Add(labelPortion);
+
+    auto previousPrice = MakeObject<Portion>(u"$100");
+    previousPrice->get_PortionFormat()->set_FontBold(NullableBool::True);
+    paragraph->get_Portions()->Add(previousPrice);
+    auto currentPrice = MakeObject<Portion>(u" → $80");
+    paragraph->get_Portions()->Add(currentPrice);
+
+    textFrame->get_Paragraphs()->Add(paragraph);
+}
+
+// Üstü çizgiyi uygula, ardından ilk önceki fiyatın üstü çizgisini açıkça kaldır.
+auto firstPriceFormat = textFrame->get_Paragraph(0)->get_Portion(1)->get_PortionFormat();
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::Single);
+firstPriceFormat->set_StrikethroughType(TextStrikethroughType::None);
+
+textFrame->get_Paragraph(1)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Single);
+textFrame->get_Paragraph(2)->get_Portion(1)->get_PortionFormat()->set_StrikethroughType(TextStrikethroughType::Double);
+
+presentation->Save(u"strikethrough.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Sonuç (üstten alta): üstü çizgisi olmayan, tek üstü çizgili ve çift üstü çizgili önceki fiyatlar.
+
+![Üstü çizgisi olmayan, tek ve çift üstü çizgili önceki fiyatlar](strikethrough.png)
+
 
 ## **Metin Döndürmeyi Ayarla**
 
-Bir şekil içinde önceden tanımlı bir metin yönelimi ayarlamak için [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) kullanın.
+Metin yönünü bir şekil içinde ayarlamak için [ITextFrameFormat::set_TextVerticalType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_textverticaltype/) kullanın.
 
-Aşağıdaki kod örneği, şekildeki metin yönelimini [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Aşağıdaki kod örneği, şekildeki metin yönünü [TextVerticalType::Vertical270](https://reference.aspose.com/slides/cpp/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -608,11 +807,13 @@ presentation->Save(u"text_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Metin döndürmesi](text_rotation.png)
 
-## **Metin Çerçeveleri için Özel Döndürmeyi Ayarla**
+## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
 
-[ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) kullanarak bir [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) için özel bir döndürme açısı ayarlayın.
+Bir [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) için özel döndürme açısı ayarlamak üzere [ITextFrameFormat::set_RotationAngle](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_rotationangle/) kullanın.
 
 Aşağıdaki kod örneği, şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
 
@@ -637,16 +838,18 @@ presentation->Save(u"custom_text_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Özel metin döndürmesi](custom_text_rotation.png)
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) ve [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) sağlar. Bu yöntemler aşağıdaki gibi kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [IParagraphFormat::set_SpaceAfter](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spaceafter/), [IParagraphFormat::set_SpaceBefore](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacebefore/) ve [IParagraphFormat::set_SpaceWithin](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_spacewithin/) sağlar. Bu yöntemler şu şekilde kullanılır:
 
-- Pozitif bir değer kullanarak satır aralığını satır yüksekliğinin yüzdesi olarak belirtin.
-- Negatif bir değer kullanarak satır aralığını puan olarak belirtin.
+* Oran değerini pozitif bir değer olarak kullanarak satır aralığını satır yüksekliğinin yüzdesi olarak belirtin.
+* Negatif bir değer kullanarak satır aralığını puan cinsinden belirtin.
 
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200'üne (çift satır aralığı) ayarlar:
+Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200’ü (çift aralık) olarak ayarlar:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -672,18 +875,20 @@ presentation->Save(u"line_spacing.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Paragraftaki satır aralığı](line_spacing.png)
 
-## **Satır Kesintisini Kontrol Et**
+## **Satır Sonlandırmayı Kontrol Et**
 
-Paragraf satır kesme kuralları, dar metin bloklarında ve Latin ile Doğu Asya metninin karıştığı sunumlarda faydalıdır. Aşağıdaki yöntemler [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/), bu yüzden bir bütün paragraf için geçerlidir:
+Satır sonlandırma kuralları, dar metin bloklarında ve Latin ile Doğu Asya metinlerinin karıştığı sunumlarda yararlıdır. Aşağıdaki yöntemler [IParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/) sınıfına aittir; bu nedenle tüm paragrafı etkiler:
 
-- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) Latin satır kesme kurallarını kontrol eder. Karışık metinde, bunu değiştirmek Doğu Asya metin ve noktalama işaretlerinin satır sonu sarmalamasını da etkileyebilir.
-- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) Doğu Asya satır kesme kurallarını kontrol eder; satırın başındaki ve sonundaki karakterler üzerindeki kısıtlamalar dahil.
+- [IParagraphFormat::set_LatinLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_latinlinebreak/) Latin satır sonlandırma kurallarını kontrol eder. Karışık metinde değiştirmek, Doğu Asya metin ve noktalama işaretlerinin kaydırılma noktalarını da etkileyebilir.
+- [IParagraphFormat::set_EastAsianLineBreak](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_eastasianlinebreak/) Doğu Asya satır sonlandırma kurallarını kontrol eder; bir satırın başı ve sonundaki karakterler için kısıtlamalar içerir.
 
-Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) yerine geçmez. Kaydırma gerçekleştiğinde yerleşimi etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragraf içinde yeni bir satır zorlar.
+Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_wraptext/) yönteminin yerini almaz. Kaydırma gerçekleştiğinde yerleşimi etkiler; satır sonu karakterleri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragrafta yeni bir satır başlatır.
 
-Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesme kuralını da açıkça ayarlar ve "line_breaking.pptx" dosyasını kaydeder. Bir kuralı denemek için, diğer ayarları sabit tutarken setter'a verilen değeri değiştirin. Örnek, 24 puan Arial ve SimSun yazı tiplerini, 160 puan çerçeve genişliği ve sıfır yatay metin çerçevesi kenar boşlukları ile kullanır. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) çağrısı, [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) ile yapılır; böylece metin boyutu ve çerçeve boyutları sabit kalır.
+Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır sonlandırma kuralını da açıkça ayarlar ve “line_breaking.pptx” olarak kaydeder. Her iki kuralı da sabit tutup sadece birini değiştirmek, etkisini denemenizi sağlar. Örnek 24 puan Arial ve SimSun, 160 puan çerçeve genişliği ve sıfır yatay metin‑çerçeve kenar boşluğu kullanır. [ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) yöntemi, metin boyutu ve çerçeve boyutları sabit kalmalı diye [TextAutofitType::None](https://reference.aspose.com/slides/cpp/aspose.slides/textautofittype/) ile çağrılır.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -741,11 +946,11 @@ presentation->Save(u"line_breaking.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Askı Noktalama İşaretlerini Kontrol Et**
+## **Sarkan Noktalama İşaretlerini Kontrol Et**
 
-[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) uygun noktalama işaretlerinin metin satırının sağ kenarını aşarak bir sonraki satırı doldurmak yerine uzamasına izin verir. Tüm paragraf için geçerlidir ve askı girintisinden farklıdır.
+[IParagraphFormat::set_HangingPunctuation](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_hangingpunctuation/) uygun noktalama işaretlerinin metin satırının sağ kenarının ötesine uzanmasını sağlar; bir sonraki satıra yerleşmez. Tüm paragrafı etkiler ve sarkan girintiden farklıdır.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde askı noktalama işaretlerini etkinleştirir ve "hanging_punctuation.pptx" dosyasını kaydeder. 24 puan Arial ve sıfır yatay metin çerçevesi kenar boşluklarıyla, son nokta "sentence" kelimesinden sonra kalır ve sağ metin kenarının ötesine uzanır. Karşılaştırma için setter'a [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) geçirilir: bu ayarlarla, nokta ayrı bir satırda yer alır. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır, böylece kullanılabilir genişlik sabit kalır.
+Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde sarkan noktalama işaretini etkinleştirir ve “hanging_punctuation.pptx” olarak kaydeder. 24 puan Arial ve sıfır yatay metin‑çerçeve kenar boşluğu ile son nokta “sentence” kelimesinden sonra kalır ve sağ kenarın ötesine uzanır. Karşılaştırma için setteciğe [NullableBool::False](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) aktarın: bu ayarla nokta ayrı bir satıra yerleşir. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır; mevcut genişlik sabit kalır.
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -800,11 +1005,11 @@ presentation->Save(u"hanging_punctuation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Her noktalama işareti askı konumunda olamaz. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#control-line-breaking) da bu karşılaştırmaya uygulanır: yazı tipi, kullanılabilir genişlik, kenar boşlukları veya otomatik sığdırma ayarlarının değiştirilmesi görünür farkı ortadan kaldırabilir.
+Her noktalama işareti sarkan olmayabilir. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#satır-sonlandırmayı-kontrol-et) bu karşılaştırmaya da uygulanır; yazı tipini, mevcut genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirerek görünür fark ortadan kalkabilir.
 
 ## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
 
-[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/), bir metin kapsayıcısının sınırlarını aştığında metnin nasıl davranacağını belirler. Metnin küçülüp küçülmeyeceğini, taşma yapıp yapmayacağını veya şeklin otomatik olarak yeniden boyutlandırılıp boyutlandırılmayacağını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine uyacak şekilde yeniden boyutlandırır ve sonucu "autofit_type.pptx" dosyasına kaydeder.
+[ITextFrameFormat::set_AutofitType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_autofittype/) metnin kapsayıcısının sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülmesini, taşmasını veya şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine göre yeniden boyutlandırır ve sonucu “autofit_type.pptx” olarak kaydeder.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -828,11 +1033,11 @@ presentation->Save(u"autofit_type.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Otomatik kaydırma sonrası satırları saymak ve metin veya şekil genişliğinin sonucu nasıl etkilediğini görmek için [Render Edilen Satırları Say](/slides/tr/cpp/manage-paragraph/) sayfasına bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
+Otomatik kaydırma sonrası satırları saymak ve metnin ya da şeklin genişliğinin sonucu nasıl etkilediğini görmek için [Render Edilen Satırları Say](/slides/tr/cpp/manage-paragraph/) sayfasına bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
 
 ## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/), bir şekil içindeki metnin dikey konumlandırılmasını tanımlar; örneğin, üstte, ortada veya altta. Aşağıdaki örnek, metni ilk şeklin alt kısmına sabitler ve sonucu "text_anchor.pptx" dosyasına kaydeder.
+[ITextFrameFormat::set_AnchoringType](https://reference.aspose.com/slides/cpp/aspose.slides/itextframeformat/set_anchoringtype/) metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, metni ilk şeklin alt kısmına sabitler ve sonucu “text_anchor.pptx” olarak kaydeder.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -858,7 +1063,7 @@ presentation->Dispose();
 
 ## **Metin Sekmelerini Ayarla**
 
-Bir paragrafta sek duraklarını yapılandırmak için [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) ve [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) kullanın. Aşağıdaki örnek, varsayılan sek aralığını 100 puana ayarlar ve 30 puanda sola hizalı bir sek durak ekler. Bu ayarlar sek karakteri içeren metni etkiler.
+Paragrafta sek duraklarını yapılandırmak için [IParagraphFormat::set_DefaultTabSize](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_defaulttabsize/) ve [IParagraphFormat::get_Tabs](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/get_tabs/) kullanın. Aşağıdaki örnek, varsayılan sek aralığını 100 puana ayarlar ve 30 puanda sol hizalı bir sek durak ekler. Bu ayarlar sek karakteri içeren metni etkiler.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -887,13 +1092,15 @@ presentation->Save(u"paragraph_tabs.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Sonuç:
+
 ![Paragraf sekmeleri](paragraph_tabs.png)
 
-## **Denetleme Dilini Ayarla**
+## **Düzeltme Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümü için denetleme dilini ayarlamanızı sağlayan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) sunar. Denetleme dili, PowerPoint'te imla ve dilbilgisi denetiminde kullanılan dili belirler.
+Aspose.Slides, bir metin bölümü için doğrulama dilini ayarlamanızı sağlayan [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/set_languageid/) sunar. Doğrulama dili, PowerPoint’te imla ve dilbilgisi denetimlerinde kullanılan dili belirler.
 
-Aşağıdaki örnek, ilk slayttaki ilk şekil olarak bir metin kutusu ve en az bir paragraf içeren "presentation.pptx" dosyasını gerektirir. İlk paragrafın içeriğini "1。" ile değiştirir, yazı tipini SimSun olarak ayarlar ve Basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu "proofing_language.pptx" dosyasına kaydeder:
+Aşağıdaki örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren “presentation.pptx” dosyasını ve en az bir paragrafı gerektirir. İlk paragrafın içeriğini “1。” ile değiştirir, font olarak SimSun ayarlar ve doğrulama dilini Basitleştirilmiş Çince (`zh-CN`) olarak atar. Sonucu “proofing_language.pptx” olarak kaydeder:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -926,7 +1133,7 @@ portionFormat->set_ComplexScriptFont(font);
 portionFormat->set_EastAsianFont(font);
 portionFormat->set_LatinFont(font);
 
-// Denetleme dilini Basitleştirilmiş Çince olarak ayarla.
+// Doğrulama dilini Basitleştirilmiş Çince olarak ayarla.
 portionFormat->set_LanguageId(u"zh-CN");
 
 textPortion->set_Text(u"1。");
@@ -938,7 +1145,7 @@ presentation->Dispose();
 
 ## **Varsayılan Dili Ayarla**
 
-Yükleme veya sunum oluşturma sırasında oluşturulan metin için varsayılan dili tanımlamak için [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) kullanın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi ile bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümü için `en-US` yazdırır.
+Sunum yüklenirken veya oluşturulurken yeni oluşturulan metin için varsayılan dili tanımlamak üzere [LoadOptions::set_DefaultTextLanguage](https://reference.aspose.com/slides/cpp/aspose.slides/loadoptions/set_defaulttextlanguage/) kullanın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi ayarlayan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümü için `en-US` yazdırır.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -961,7 +1168,7 @@ loadOptions->set_DefaultTextLanguage(u"en-US");
 auto presentation = System::MakeObject<Presentation>(loadOptions);
 auto slide = presentation->get_Slide(0);
 
-// Metin ile yeni bir dikdörtgen şekil ekle.
+// Metin içeren yeni bir dikdörtgen şekil ekle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 50.0f);
 shape->get_TextFrame()->set_Text(u"Sample text");
 
@@ -973,11 +1180,11 @@ System::Console::WriteLine(languageId);
 presentation->Dispose();
 ```
 
-## **Varsayılan Metin Stili Ayarla**
+## **Varsayılan Metin Stiline Ayarla**
 
 Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [IPresentation::get_DefaultTextStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipresentation/get_defaulttextstyle/) kullanın.
 
-Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi ayarlar ve "default_text_style.pptx" dosyasına kaydeder. Metin, daha spesifik bir biçimlendirme üzerine yazılmadıkça bu varsayılanları miras alabilir.
+Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için 14 puan kalın bir yazı tipini varsayılan olarak ayarlar ve “default_text_style.pptx” olarak kaydeder. Metin, daha belirgin biçimlendirme geçersiz kılınmadıkça bu varsayılanları devralabilir.
 
 ```cpp
 #include <DOM/IParagraphFormat.h>
@@ -992,7 +1199,7 @@ using namespace Aspose::Slides::Export;
 
 auto presentation = System::MakeObject<Presentation>();
 
-// Üst seviye paragraf formatını al.
+// Üst düzey paragraf biçimini al.
 auto paragraphFormat = presentation->get_DefaultTextStyle()->GetLevel(0);
 
 if (paragraphFormat != nullptr)
@@ -1006,15 +1213,15 @@ presentation->Save(u"default_text_style.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tüm Büyük Harf Efekti ile Metni Çıkar**
+## **Tüm Büyük Harf Etkisiyle Metni Çıkar**
 
-PowerPoint'te **All Caps** yazı tipi efekti uygulandığında, metin düşük harflerle girilmiş olsa bile slaytta büyük harf olarak görünür. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görüntülenen metinle eşleşmek için [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) kontrol edin ve değer [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) olduğunda döndürülen dizeyi büyük harfe çevirin.
+PowerPoint’te **All Caps** (Tüm Büyük Harf) yazı tipi efekti uygulandığında, slaytta metin büyük harf gibi görünür, ancak metin aslında küçük harfle girilmiştir. Aspose.Slides ile böyle bir metin bölümü alındığında kütüphane metni tam olarak girildiği şekilde döndürür. Görünen metinle eşleşmesi için [TextCapType](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) kontrol edin ve değer [TextCapType::All](https://reference.aspose.com/slides/cpp/aspose.slides/textcaptype/) olduğunda döndürülen dizeyi büyük harfe dönüştürün.
 
-Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "sample2.pptx" dosyasını gerektirir. İlk paragrafının ilk bölümü, aşağıda gösterildiği gibi **All Caps** efekti uygulanmış "Hello, Aspose!" içerir.
+Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren “sample2.pptx” dosyasını gerektirir. İlk paragrafın ilk bölümü, All Caps etkisi uygulanmış “Hello, Aspose!” metnini içerir, aşağıda gösterildiği gibi.
 
-![All Caps efekti](all_caps_effect.png)
+![Tüm Büyük Harf etkisi](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **All Caps** efekti uygulanmış metni nasıl çıkaracağınızı gösterir:
+Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1058,8 +1265,12 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tabloda metni nasıl değiştiririm?**  
-Bir slayttaki tablodaki metni değiştirmek için [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) kullanın. Hücreler üzerinde döngü yapın ve her hücreyi [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) ve paragraf biçimlendirmesini [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/) aracılığıyla güncelleyin.
+**Bir slayttaki tablo içindeki metni nasıl değiştiririm?**
 
-**PowerPoint slaytında metne degrade (gradient) renk nasıl uygularım?**  
-Metne degrade (gradient) renk uygulamak için [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) kullanın. [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) metodunu [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Tablodaki metni değiştirmek için [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) kullanın. Hücreler arasında gezinerek her hücreyi [ICell::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/icell/get_textframe/) ve [IParagraph::get_ParagraphFormat](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/get_paragraphformat/) aracılığıyla güncelleyin.
+
+**PowerPoint slaytındaki metne nasıl bir degrade renk uygularım?**
+
+Degrade renk uygulamak için [IBasePortionFormat::get_FillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ibaseportionformat/get_fillformat/) kullanın. [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) yöntemini [FillType::Gradient](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığı yapılandırın.
+
+İlgili özellik: [Slayt içindeki metni biçimlendir](/slides/tr/features/text-formatting/).

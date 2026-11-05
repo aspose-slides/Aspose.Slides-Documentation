@@ -1,11 +1,11 @@
 ---
-title: JavaScript'te Sunum Metnini Biçimlendir
+title: JavaScript'te Sunum Metnini Biçimlendirin
 linktitle: Metin Biçimlendirme
 type: docs
 weight: 50
 url: /tr/nodejs-java/text-formatting/
 keywords:
-- paragraf hizala
+- paragraf hizalama
 - metin stili
 - metin arka planı
 - metin şeffaflığı
@@ -17,8 +17,8 @@ keywords:
 - metin çerçevesi
 - satır aralığı
 - otomatik sığdırma özelliği
-- metin çerçevesi sabitlemesi
-- metin sekleme
+- metin çerçevesi çapası
+- metin sekmesi
 - varsayılan dil
 - PowerPoint
 - OpenDocument
@@ -30,19 +30,19 @@ description: "Aspose.Slides for Node.js via Java kullanarak PowerPoint ve OpenDo
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides for Node.js via Java kullanarak PowerPoint ve OpenDocument sunumlarında metni nasıl biçimlendireceğinizi gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, döndürme, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sek durakları ve dil ayarları ele alınır.
+Bu makale, Aspose.Slides for Node.js via Java kullanarak PowerPoint ve OpenDocument sunumlarında metin biçimlendirme işlemlerini gösterir. Arka plan renkleri, şeffaflık, karakter aralığı, yazı tipi özellikleri, dönüşüm, paragraf aralığı, otomatik sığdırma davranışı, metin sabitleme, sekme durakları ve dil ayarları ele alınmaktadır.
 
-Aksi belirtilmedikçe, örnekler [sample.pptx](sample.pptx) dosyasını kullanır. İlk slaytındaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır tabanlıdır. Kalın bölümleri seçen örnekler, kalıtılan kalın biçimlendirme dahil olmak üzere etkili biçimlendirme kullanır:
+Aksi belirtilmedikçe, örneklerde [sample.pptx](sample.pptx) kullanılır. İlk slayttaki ilk şekil bir metin kutusudur ve ilk paragrafı aşağıda gösterilen metni içerir. Slayt ve şekil indeksleri sıfır‑bazlıdır. Kalın bölümleri seçen örnekler, devralınan kalın biçimlendirme dahil olmak üzere etkili biçimlendirme kullanır:
 
-![Örnek metin](sample_text.png)
+![Sample text](sample_text.png)
 
-Gerçek metin veya düzenli ifadelerle eşleşmeleri bulmak ve vurgulamak için, [Metin Arama ve Değiştirme](/slides/tr/nodejs-java/search-and-replace-text/) adresine bakın.
+Gerçek metni veya düzenli ifade eşleşmelerini bulmak ve vurgulamak için [Search and Replace Text](/slides/tr/nodejs-java/search-and-replace-text/) bölümüne bakın.
 
 ## **Metin Arka Plan Rengini Ayarla**
 
-Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) kullanın veya bireysel metin bölümleri için [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) kullanın.
+Bir paragraf için varsayılan vurgulama rengini ayarlamak için [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) kullanın; bireysel metin bölümleri için ise [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) kullanın.
 
-Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümlerdeki açık vurgulama renkleri bu varsayılanın üzerine yazar:
+Aşağıdaki örnek, ilk paragraf için varsayılan olarak açık gri bir vurgulama ayarlar. Bireysel bölümler üzerindeki açık vurgulama renkleri bu varsayılanın üzerine geçer:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -66,9 +66,9 @@ try {
 
 Sonuç:
 
-![Gri paragraf](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için arka plan renginin nasıl ayarlanacağını gösterir:
+Aşağıdaki kod örneği, **kalın yazı tipine** sahip **metin bölümleri** için arka plan renginin nasıl ayarlanacağını gösterir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Metin bölümü için vurgulama rengini ayarla.
+            // Metin bölümünün vurgulama rengini ayarla.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -99,13 +99,13 @@ try {
 
 Sonuç:
 
-![Gri metin bölümleri](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
 ## **Metin Paragraflarını Hizala**
 
-[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) kullanarak bir metin çerçevesi içinde paragraf hizalamasını ayarlayın. Değer merkezlenmiş, sola hizalı, sağa hizalı, iki yana yaslanmış vb. olabilir.
+Bir metin çerçevesindeki paragraf hizalamasını ayarlamak için [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) kullanın. Değerler ortalanmış, sola hizalı, sağa hizalı, iki yana yaslı vb. olabilir.
 
-Aşağıdaki kod örneği paragrafı **ortaya** hizalamanın yolunu gösterir:
+Aşağıdaki kod örneği paragrafı **ortaya** hizalar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -128,13 +128,13 @@ try {
 
 Sonuç:
 
-![Hizalanmış paragraf](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **Satır İçinde Yazı Tiplerini Hizala**
+## **Bir Satır İçinde Yazı Tipi Hizalamasını Ayarla**
 
-[ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment-int-) kullanarak aynı satır içinde farklı yazı tipi boyutlarına sahip metin bölümlerini dikey olarak hizalayın. Bu ayar tüm paragrafı kapsar ve satırların içindeki hizalamayı kontrol eder.
+Farklı yazı tipi boyutlarına sahip metin bölümlerini dikey olarak hizalamak için [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) kullanın. Bu ayar tüm paragraf için geçerlidir ve her satırın içindeki hizalamayı kontrol eder.
 
-Aşağıdaki bağımsız örnek, bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puan boyutlarında içerir ve farklı bir yazı tipi hizalaması kullanır. Arial kullanır, otomatik sığdırma ve satır sonu kaydırmayı devre dışı bırakır ve metin çerçevelerini tek satır için yeterince büyük tutar:
+Aşağıdaki bağımsız örnek, tek bir slaytta dört etiketli metin kutusu oluşturur. Her paragraf aynı metni 18, 36 ve 54 puan boyutlarında içerir ve farklı bir yazı tipi hizalaması kullanır. Arial kullanılır, otomatik sığdırma ve kaydırma devre dışı bırakılır ve metin çerçeveleri tek satır için yeterince büyük tutulur.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,17 +190,17 @@ try {
 
 Sonuç:
 
-![Karışık yazı tipi boyutlarıyla Alt Çizgi, Üst, Orta ve Alt hizalama karşılaştırması](font_alignment.png)
+![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
 
-Yazı tipi hizalaması, font metriklerini kullandığından, bireysel harflerin görünür kenarları mutlaka tam olarak hizalanmayabilir. Örnek, alt çizgi ile alt hizalama arasındaki farkı göstermek için hem büyük harf hem bir alt karakter içerir. Font bulunabilirliği ve yerine koyma, kullanılan karakterler ve font boyutları arasındaki fark sonuçları etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; modları karşılaştırırken aynı fontları ve düzen ayarlarını kullanın.
+Yazı tipi hizalaması yazı tipi metriklerine dayanır; bu nedenle bireysel harflerin görünen kenarları tam olarak hizalanmayabilir. Örnek, bir büyük harf ve bir alt çizgi karakteri içerir ve temel hizalama ile alt hizalama arasındaki farkı gösterir. Yazı tipi bulunabilirliği ve ikamesi, kullanılan karakterler ve boyut farkları sonucu etkiler. Çerçeve boyutları, kenar boşlukları, satır aralığı, kaydırma ve otomatik sığdırma da düzeni etkiler; modları karşılaştırırken aynı yazı tipleri ve düzen ayarları kullanılmalıdır.
 
-Bu ayar, yatay paragraf hizalamasını kontrol eden [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) ve metin bloğunu şeklin içinde dikey konumlandıran [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) metodlarından farklıdır. [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement-float-) ile üst ve alt indis formatı, alt satır temelini değiştirerek bireysel bölümleri kaydırır; paragraf satırları için font hizalaması ayarlamaz.
+Bu ayar, yatay paragraf hizalamasını kontrol eden [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) ve metin bloğunu şeklin içinde dikey konumlandıran [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) ayarlarından farklıdır. [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) üzerinden üst ve alt simge biçimlendirmesi, bireysel bölümleri temel çizgiye göre kaydırır; paragraf satırları için yazı tipi hizalaması ayarlamaz.
 
-## **Metin İçin Şeffaflığı Ayarla**
+## **Metin Şeffaflığını Ayarla**
 
-Metin şeffaflığı, [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) üzerinden atanan rengin alfa bileşeni ile kontrol edilir. Aşağıdaki örneklerde `alpha = 50` 0–255 ölçeğinde bir ARGB alfa kanal değeri olup, şeffaflık yüzdesi değildir.
+Metin şeffaflığı, [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) aracılığıyla atanan rengin alfa bileşeni üzerinden kontrol edilir. Aşağıdaki örneklerde `alpha = 50`, 0‑255 ölçeğinde bir ARGB alfa değeri olup, şeffaflık yüzdesi değildir.
 
-Aşağıdaki kod örneği, **tüm paragraf** için şeffaflığın nasıl uygulanacağını gösterir:
+Aşağıdaki kod örneği **tüm paragraf** için şeffaflık uygular:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -216,7 +216,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // Metnin dolgu rengini şeffaf renk olarak ayarla.
+    // Metnin doldurma rengini şeffaf renge ayarla.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -228,9 +228,9 @@ try {
 
 Sonuç:
 
-![Şeffaf paragraf](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** için şeffaflığın nasıl uygulanacağını gösterir:
+Aşağıdaki kod örneği **kalın yazı tipine** sahip **metin bölümleri** için şeffaflık uygular:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,13 +266,13 @@ try {
 
 Sonuç:
 
-![Şeffaf metin bölümleri](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
 ## **Metin İçin Karakter Aralığını Ayarla**
 
-[BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) kullanarak bir metin kutusunda karakterler arasındaki aralığı genişletebilir veya daraltabilirsiniz. Örneklerde 3 puan aralık eklenir; negatif değerler metni sıkıştırır.
+Bir metin kutusundaki karakterler arasındaki aralığı genişletmek veya sıkıştırmak için [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) kullanın. Örnekler 3 puan aralık ekler; negatif değerler metni sıkıştırır.
 
-Aşağıdaki JavaScript kodu, **tüm paragraf** içinde karakter aralığını nasıl genişleteceğini gösterir:
+Aşağıdaki JavaScript kodu, **tüm paragraf** için karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -295,9 +295,9 @@ try {
 
 Sonuç:
 
-![Paragraftaki karakter aralığı](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Aşağıdaki kod örneği, **kalın yazı tipine sahip metin bölümleri** içinde karakter aralığını nasıl genişleteceğini gösterir:
+Aşağıdaki kod örneği **kalın yazı tipine** sahip **metin bölümleri** için karakter aralığını nasıl genişleteceğinizi gösterir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -327,13 +327,13 @@ try {
 
 Sonuç:
 
-![Metin bölümlerindeki karakter aralığı](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
 ### **Belirli Yazı Tipleri İçin Kerning'i Devre Dışı Bırak**
 
-Bazen Aspose.Slides tarafından oluşturulan metin, aynı metnin PowerPoint’teki görünümünden biraz daha sıkı görünebilir. Bu, PowerPoint’in belirli fontlar için kerning verilerini göz ardı etmesinden kaynaklanabilir; font geçerli kerning bilgisi içerse ve PowerPoint ayarlarında kerning açıksa bile.
+Bazı durumlarda, Aspose.Slides ile oluşturulan metin, PowerPoint’teki aynı metinden biraz daha sıkı görünebilir. Bu, PowerPoint’in belirli yazı tipleri için kerning verisini göz ardı etmesinden kaynaklanabilir; yazı tipinde geçerli kerning bilgisi bulunup PowerPoint ayarlarında kerning etkin olsa bile.
 
-Bu durumda çıktıyı PowerPoint’e daha yakın hâle getirmek için, ilgili fontu kullanan metin bölümlerinin kerning’ini devre dışı bırakabilirsiniz. [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) değerini gerçek font boyutundan daha büyük bir değere ayarlayın. Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren "presentation.pptx" gerektirir. Etkili font adlarını, kalıtılan fontlar dahil, kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri ayarlar. Bu, 100 puan altındaki font boyutuna sahip eşleşen bölümler için kerning’i devre dışı bırakır:
+Bu durumlarda, etkilenen yazı tipini kullanan metin bölümleri için kerning’i devre dışı bırakabilirsiniz. [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) değerini gerçek yazı tipi boyutundan daha büyük bir değer olarak ayarlayın. Bu örnek, ilk slaydın ilk şekli olarak bir metin kutusu içeren “presentation.pptx” dosyasını gerektirir. Etkili yazı tipi adlarını (devralınan yazı tipleri dahil) kontrol eder ve Roboto kullanan bölümler için 100 puan eşik değeri ayarlar. Bu, 100 puandan küçük boyutlu eşleşen bölümler için kerning’i devre dışı bırakır:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +372,13 @@ try {
 }
 ```
 
-Eşiğin altında kalan eşleşen metinler için bu ayar kerning’i önler ve PowerPoint’in bu spesifik davranıştan etkilenen fontlarda görsel çıktısını Aspose.Slides render’ı ile uyumlu hâle getirmeye yardımcı olur.
+Eşik değerinin altında eşleşen metinler için bu ayar kerning’i önler ve PowerPoint’teki belirli yazı tiplerinin görsel çıktısıyla Aspose.Slides render’ının daha yakın olmasına yardımcı olabilir.
 
 ## **Metin Yazı Tipi Özelliklerini Yönet**
 
-Yazı tipi özellikleri, paragraf düzeyinde [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) ile veya bireysel bölümlerde [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) ile ayarlanabilir.
+Yazı tipi özellikleri, [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) aracılığıyla paragraf düzeyinde veya [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) aracılığıyla bireysel bölümler için ayarlanabilir.
 
-Aşağıdaki örnek, ilk paragrafın varsayılan fontunu 12 puan Times New Roman, kalın, italik ve noktalı altı çizili olarak ayarlar. Bireysel bölümlerdeki açık biçimlendirme bu varsayılanların üzerine yazar:
+Aşağıdaki örnek, ilk paragrafın varsayılan yazı tipini 12 puan Times New Roman, kalın, italik ve noktalı altı çizili olarak ayarlar. Bireysel bölümler üzerindeki açık biçimlendirme bu varsayılanların üzerine geçer:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -407,7 +407,7 @@ try {
 
 Sonuç:
 
-![Paragraf için yazı tipi özellikleri](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
 Aşağıdaki örnek, etkili biçimlendirmesi kalın olan bölümlere 13 puan Times New Roman, italik ve noktalı altı çizili uygular:
 
@@ -445,13 +445,143 @@ try {
 
 Sonuç:
 
-![Metin bölümleri için yazı tipi özellikleri](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
+
+## **Metin Yüksekliği Normalizasyonunu Kontrol Et**
+
+Şablon tipografisini yeniden oluştururken veya karakter yüksekliği farklarını incelerken [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight) kullanın. PowerPoint’te normalizasyonu etkinleştirmek, bireysel karakterleri dikey olarak uzatır veya sıkıştırır, böylece metin bölümü içinde görünür yüksekliği tek tip hâle gelir. Farklı yazı tipleri arasında eşit metin yüksekliği garantilemez.
+
+Özelliği açık ya da kapalı olarak ayarlamak için [NullableBool.True veya False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) kullanın. `NullableBool.NotDefined` yerel ayarı boş bırakır; böylece bölüm değeri, örneğin paragrafın [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) değerini devralır. Bu, `False` anlamına gelmez. Çözülmüş Boolean değerini elde etmek için [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) ve [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) kullanın.
+
+Aşağıdaki bağımsız örnek **Arial**’ın kurulu olmasını gerektirir. Aynı büyük harf, küçük harf, alt karakter ve aksanlı karakterleri 54 puanda iki metin bloğu oluşturur. Her iki paragraf da varsayılan olarak normalizasyonu etkinleştirir. Üst bölüm bunu açıkça devre dışı bırakırken; alt bölüm devralır. Çerçeve boyutları, kenar boşlukları ve paragraf aralığı aynı olup, kaydırma ve otomatik sığdırma devre dışı bırakılmıştır, böylece karşılaştırma tutarlı kalır. Örnek `False: false` ve `NotDefined: true` çıktılarının ardından “text_height_normalization.pptx” dosyasını kaydeder.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const settings = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.NotDefined];
+    const settingNames = ["False", "NotDefined"];
+
+    for (let i = 0; i < settings.length; i++) {
+        const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 60 + i * 200, 660, 150);
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const textFrame = shape.getTextFrame();
+        textFrame.setText("Hxgjpq ÅÉ 0123");
+        textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+        textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.False));
+        textFrame.getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Top));
+        textFrame.getTextFrameFormat().setMarginTop(0);
+        textFrame.getTextFrameFormat().setMarginLeft(0);
+
+        const paragraph = textFrame.getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceBefore(0);
+        paragraph.getParagraphFormat().setSpaceAfter(0);
+        paragraph.getParagraphFormat().setSpaceWithin(100);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(java.newByte(aspose.slides.NullableBool.True));
+
+        const portion = paragraph.getPortions().get_Item(0);
+        const font = new aspose.slides.FontData("Arial");
+        portion.getPortionFormat().setLatinFont(font);
+        portion.getPortionFormat().setFontHeight(54);
+        portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+        portion.getPortionFormat().setNormaliseHeight(java.newByte(settings[i]));
+
+        console.log(settingNames[i] + ": " + portion.getPortionFormat().getEffective().getNormaliseHeight());
+    }
+
+    presentation.save("text_height_normalization.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Aşağıdaki karşılaştırma kaydedilen sunumdan dışa aktarılmıştır. Üst satırda normalizasyon devre dışı bırakılmıştır (`False`); alt satırda etkin ayar devralınmıştır (`NotDefined` → `True`). Bu görünümü yeniden oluşturmak için Arial kurulu olmalıdır.
+
+![Arial 54-point text with normalization disabled above and inherited normalization enabled below](text_height_normalization.png)
+
+Normalizasyon, atanmış [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight) değerini değiştirmeden karakter yüksekliğini değiştirir; bu değer puan cinsinden yazı tipi boyutunu belirtir. Paragraf [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) satır aralığını kontrol eder, metin‑çerçeve [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) ise metnin ya da kapsayıcının nasıl sığdırılacağını belirler. Bu ayarlar farklı amaçlar taşır ve düzeni bağımsız olarak etkileyebilir. Paragraf biçimlendirme ve devralma hakkında daha fazla bilgi için [Manage Paragraph](/slides/tr/nodejs-java/manage-paragraph/) bölümüne bakın.
+
+## **Üstü Çizili Metin Uygula ve Kaldır**
+
+Bir metin bölümü üzerinde [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) kullanarak düzeltmeler, iptal edilen ifadeler veya önceki fiyatlar gibi metni silmeden gösterebilirsiniz. Tek veya çift çizgi için [TextStrikethroughType.Single veya Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) kullanın.
+
+Üstü çiziliyi kaldırmak için [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None) değerini atayın. Bu, çevreleyen biçimlendirme üstü çizili belirtse bile etkiyi açıkça devre dışı bırakır. Buna karşılık, [TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) yerel ayarı tanımsız bırakır; bölüm paragraftan devralabilir. Bu, üstü çiziliyin kaldırılacağını garanti etmez. Sonuç biçimlendirmeyi, devralınan değerler dahil, okumak için [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) kullanın.
+
+Aşağıdaki bağımsız örnek üç fiyat karşılaştırması oluşturur. Her paragraf, etiket, önceki fiyat ve mevcut fiyat için ayrı bölümler içerir; yalnızca önceki fiyat etkilenir. İlk satır üstü çizgiyi uygular ve ardından kaldırır; diğer satırlar tek ve çift üstü çizgiyi korur. Bu ayarın değiştirilmesi, metni ve diğer biçimlendirmelerini, örneğin kalın önceki fiyatı, korur.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 620, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const labels = ["None: ", "Single: ", "Double: "];
+
+    for (const label of labels) {
+        const paragraph = new aspose.slides.Paragraph();
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceAfter(20);
+
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setFontHeight(28);
+        const font = new aspose.slides.FontData("Arial");
+        format.setLatinFont(font);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const labelPortion = new aspose.slides.Portion(label);
+        paragraph.getPortions().add(labelPortion);
+
+        const previousPrice = new aspose.slides.Portion("$100");
+        previousPrice.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+        paragraph.getPortions().add(previousPrice);
+        const currentPrice = new aspose.slides.Portion(" → $80");
+        paragraph.getPortions().add(currentPrice);
+
+        shape.getTextFrame().getParagraphs().add(paragraph);
+    }
+
+    const paragraphs = shape.getTextFrame().getParagraphs();
+
+    // Üstü çizgiyi uygula, ardından ilk önceki fiyattan açıkça kaldır.
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Double));
+
+    presentation.save("strikethrough.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sonuç, yukarıdan aşağıya: üstü çizgili olmayan, tek üstü çizgili ve çift üstü çizgili.
+
+![Previous prices without strikethrough, with single strikethrough, and with double strikethrough](strikethrough.png)
 
 ## **Metin Döndürmeyi Ayarla**
 
-[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) kullanarak bir şekil içinde önceden tanımlanmış bir metin yönelimi ayarlayın.
+Bir şekil içinde önceden tanımlı bir metin yönlendirmesi ayarlamak için [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) kullanın.
 
-Aşağıdaki kod örneği, şeklin içindeki metin yönelimini [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
+Aşağıdaki kod örneği metin yönlendirmesini [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/) olarak ayarlar; bu, metni **90 derece saat yönünün tersine** döndürür:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -472,13 +602,13 @@ try {
 
 Sonuç:
 
-![Metin döndürmesi](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **Metin Çerçeveleri İçin Özel Döndürmeyi Ayarla**
+## **Metin Çerçeveleri İçin Özel Döndürme Ayarla**
 
-[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) kullanarak bir [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) için özel bir döndürme açısı belirleyin.
+[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) kullanarak bir [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) için özel bir döndürme açısı ayarlayabilirsiniz.
 
-Aşağıdaki kod örneği, şekil içinde metin çerçevesini 3 derece saat yönünde döndürür:
+Aşağıdaki kod örneği, şekil içinde metin çerçevesini saat yönünde 3 derece döndürür:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -498,16 +628,16 @@ try {
 
 Sonuç:
 
-![Özel metin döndürmesi](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
 ## **Paragrafların Satır Aralığını Ayarla**
 
-Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) ve [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) sağlar. Bu özellikler şu şekilde kullanılır:
+Aspose.Slides, paragraf aralığını kontrol etmek için [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) ve [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) sağlar. Bu özellikler şu şekilde kullanılır:
 
-* Pozitif bir değer kullanarak satır aralığını satır yüksekliğinin yüzdesi olarak belirtin.
-* Negatif bir değer kullanarak satır aralığını puan cinsinden belirtin.
+* Pozitif bir değer, satır aralığını satır yüksekliğinin yüzdesi olarak belirtir.
+* Negatif bir değer, satır aralığını puan cinsinden belirtir.
 
-Aşağıdaki örnek, ilk paragraftaki aralığı satır yüksekliğinin %200’ü (çift satır aralığı) olarak ayarlar:
+Aşağıdaki örnek, ilk paragrafta satır yüksekliğinin %200’ü kadar (çift satır aralığı) aralık ayarlar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -529,18 +659,18 @@ try {
 
 Sonuç:
 
-![Paragraftaki satır aralığı](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **Satır Kesilmeyi Kontrol Et**
+## **Satır Kesilmesini Kontrol Et**
 
-Paragraf satır kesme kuralları, dar metin blokları ve Latin ile Doğu Asya metinlerinin karıştığı sunumlar için yararlıdır. Aşağıdaki yöntemler [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/) sınıfına aittir ve bu yüzden tüm paragraf için geçerlidir:
+Paragraf satır kesilme kuralları, dar metin blokları ve Latin ile Doğu Asya metinlerinin karıştığı sunumlar için faydalıdır. Aşağıdaki yöntemler [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/) sınıfına aittir; bu nedenle bütün bir paragrafı etkiler:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) Latin satır kesme kurallarını kontrol eder. Karışık metinlerde bunu değiştirmek, Doğu Asya metin ve noktalama işaretlerinin kaydırma yerini de etkileyebilir.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) Doğu Asya satır kesme kurallarını kontrol eder; satır başı ve sonundaki karakter kısıtlamalarını içerir.
+- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) Latin satır kesilme kurallarını kontrol eder. Karışık metinde değiştirilmesi, bitişik Doğu Asya metni ve noktalama işaretlerinin nerede satır sonuna taşınacağını da etkileyebilir.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) Doğu Asya satır kesilme kurallarını kontrol eder; satırın başı ve sonundaki karakterler üzerindeki kısıtlamaları içerir.
 
-Bu kurallar, bir metin çerçevesi içinde otomatik kaydırmayı etkinleştiren [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-) metodunun yerini almaz. Kaydırma gerçekleştiğinde düzeni etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragrafta yeni bir satır zorlar.
+Bu kurallar, bir metin çerçevesinde otomatik kaydırmayı etkinleştiren [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText) işlevinin yerini tutmaz. Kaydırma gerçekleştiğinde yerleşimi etkiler; satır sonu karakteri eklemezler. Açık bir satır sonu, mevcut genişlikten bağımsız olarak paragraf içinde yeni bir satır oluşturur.
 
-Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesme seçeneğini açıkça ayarlar ve “line_breaking.pptx” olarak kaydeder. Her kuralı denemek için, diğer ayarları sabit tutarken ilgili değeri değiştirin. Örnekte 24 puan Arial ve SimSun, 160 puan çerçeve genişliği ve yatay kenar boşluğu sıfır olarak kullanılır. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) metodu, [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve boyutları sabit kalır.
+Aşağıdaki bağımsız örnek, Çince ve Latin metin içeren dar bir metin bloğu oluşturur. Her iki satır kesilme seçeneğini açıkça ayarlar ve “line_breaking.pptx” dosyasını kaydeder. Her iki ayarı da sabit tutarak sadece bir kuralı denemek için ilgili değeri değiştirin. Örnek 24 puan Arial ve SimSun, 160 puan çerçeve genişliği ve sıfır yatay metin‑çerçeve kenar boşluğu kullanır. [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) ile çağrılır; böylece metin boyutu ve çerçeve boyutları sabit kalır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -583,9 +713,9 @@ try {
 
 ## **Asılı Noktalama İşaretlerini Kontrol Et**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) uygun noktalama işaretlerinin metin satırının sağ kenarının ötesine uzanmasına izin verir; bir sonraki satırı işgal etmez. Bu, tüm paragraf için geçerlidir ve asılı girintiden farklıdır.
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) uygun noktalama işaretlerinin metin satırının sağ kenarının ötesine uzanmasına izin verir; bir sonraki satıra yerleşmek yerine. Bu, tüm paragrafı etkiler ve asılı girintiden farklıdır.
 
-Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde asılı noktalama işaretlerini etkinleştirir ve “hanging_punctuation.pptx” olarak kaydeder. 24 puan Arial ve yatay kenar boşluğu sıfır ile, son nokta “sentence” kelimesinden sonra kalır ve sağ kenarın ötesine uzanır. Karşılaştırma için özelliği [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) olarak ayarlayın; bu ayarlarla nokta ayrı bir satırda yer alır. Kaydırma etkin ve otomatik sığdırma devre dışı bırakılmıştır; böylece kullanılabilir genişlik sabit kalır.
+Aşağıdaki bağımsız örnek, 100 puan genişliğinde bir metin çerçevesinde asılı noktalama işaretini etkinleştirir ve “hanging_punctuation.pptx” dosyasını kaydeder. 24 puan Arial ve sıfır yatay metin‑çerçeve kenar boşluğu ile son nokta “sentence” kelimesinden sonra kalır ve sağ metin kenarının ötesine uzanır. Özelliği [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) yaparak karşılaştırın: bu ayarlarda nokta ayrı bir satıra yerleşir. Kaydırma etkinleştirilir ve otomatik sığdırma devre dışı bırakılır, böylece mevcut genişlik sabit kalır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -623,11 +753,11 @@ try {
 }
 ```
 
-Her noktalama işareti asılı olamaz. Yukarıda açıklanan [font ve düzen koşulları](#control-line-breaking) da bu karşılaştırmaya uygulanır; font, kullanılabilir genişlik, kenar boşlukları veya otomatik sığdırma ayarlarını değiştirerek görünür farkı ortadan kaldırabilirsiniz.
+Her noktalama işareti asılı olamaz. Yukarıda açıklanan [yazı tipi ve yerleşim koşulları](#control-line-breaking) da bu karşılaştırmaya uygulanır; yazı tipini, mevcut genişliği, kenar boşluklarını veya otomatik sığdırma ayarlarını değiştirmek görünür farkı ortadan kaldırabilir.
 
-## **Metin Çerçeveleri İçin Otomatik Sığdırma Tipini Ayarla**
+## **Metin Çerçeveleri İçin Otomatik Sığdırma Türünü Ayarla**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) bir metin kapsayıcısının sınırlarını aştığında metnin nasıl davranacağını belirler. Metnin küçülmesini, taşmasını veya şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın. Aşağıdaki örnek, şekli metnine göre yeniden boyutlandıracak şekilde yapılandırır ve sonucu “autofit_type.pptx” olarak kaydeder.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) metnin kapsayıcısının sınırlarını aştığında nasıl davranacağını belirler. Metnin küçülmesini, taşmasını veya şeklin otomatik olarak yeniden boyutlandırılmasını kontrol etmek için kullanın. Aşağıdaki örnek şekli, metnine sığacak şekilde yeniden boyutlandırır ve sonucu “autofit_type.pptx” dosyasına kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -646,11 +776,11 @@ try {
 }
 ```
 
-Otomatik kaydırma sonrası satırları saymak ve metin ya da şekil genişliğinin sonucu nasıl değiştirdiğini görmek için [Count Rendered Lines](/slides/tr/nodejs-java/manage-paragraph/) sayfasına bakın. Sadece satır sayısı, metnin kapsayıcısını aşıp aşmadığını göstermez.
+Otomatik kaydırmadan sonra satırları saymak ve metnin veya şeklin genişliğinin sonucu nasıl değiştirdiğini görmek için [Count Rendered Lines](/slides/tr/nodejs-java/manage-paragraph/) bölümüne bakın. Satır sayısı yalnızca metnin kapsayıcısını aşıp aşmadığını göstermez.
 
 ## **Metin Çerçevelerinin Sabitlemesini Ayarla**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) bir şekil içinde metnin dikey konumunu tanımlar; örneğin üst, orta veya alt. Aşağıdaki örnek, metni ilk şeklin altına sabitler ve sonucu “text_anchor.pptx” olarak kaydeder.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) metnin bir şekil içinde dikey olarak nasıl konumlandırılacağını tanımlar; örneğin en üst, orta veya en alt. Aşağıdaki örnek metni ilk şeklin altına sabitler ve sonucu “text_anchor.pptx” dosyasına kaydeder.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -669,9 +799,9 @@ try {
 }
 ```
 
-## **Metin Sekmesini Ayarla**
+## **Metin Sekme Ayarlarını Yap**
 
-[ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) ve [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs--) kullanarak bir paragrafta sek duraklarını yapılandırın. Aşağıdaki örnek, varsayılan sek aralığını 100 puan olarak ayarlar ve 30 puanda sol hizalı bir sek durak ekler. Bu ayarlar sek karakteri içeren metni etkiler.
+Paragrafta sekme duraklarını yapılandırmak için [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) ve [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) kullanın. Aşağıdaki örnek varsayılan sekme aralığını 100 puan olarak ayarlar ve 30 puanda sola hizalı bir sekme durak ekler. Bu ayarlar sekme karakteri içeren metni etkiler.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -695,13 +825,13 @@ try {
 
 Sonuç:
 
-![Paragraf sekmeleri](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **Denetleme Dilini Ayarla**
+## **Düzeltme (Proofing) Dilini Ayarla**
 
-Aspose.Slides, bir metin bölümünün denetleme dilini ayarlamanızı sağlayan [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) metodunu sunar. Denetleme dili, PowerPoint’te yazım ve dil bilgisi denetimi için kullanılan dili belirler.
+Aspose.Slides, bir metin bölümünün düzeltme dilini ayarlamanıza olanak tanıyan [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) sağlar. Düzeltme dili, PowerPoint’te imla ve dilbilgisi denetimlerinde kullanılan dili belirler.
 
-Aşağıdaki örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren “presentation.pptx” dosyasını gerektirir. İlk paragrafın içeriğini “1。” ile değiştirir, fontunu SimSun olarak ayarlar ve basitleştirilmiş Çince denetleme dilini (`zh-CN`) atar. Sonucu “proofing_language.pptx” olarak kaydeder:
+Aşağıdaki örnek “presentation.pptx” dosyasını (ilk slaytın ilk şekli olarak bir metin kutusu ve en az bir paragraf içerir) gerektirir. İlk paragrafın içeriğini “1。” olarak değiştirir, SimSun’u yazı tipi olarak ayarlar ve Basitleştirilmiş Çince düzeltme dilini (`zh-CN`) atar. Sonucu “proofing_language.pptx” dosyasına kaydeder:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -721,7 +851,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Denetleme dilinin kimliğini ayarla.
+    // Düzeltme dili kimliğini ayarla.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -735,7 +865,7 @@ try {
 
 ## **Varsayılan Dili Ayarla**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metnin varsayılan dilini tanımlayın. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi kullanan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümü için `en-US` yazar.
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) kullanarak bir sunum yüklenirken veya oluşturulurken oluşturulan metnin varsayılan dilini tanımlayabilirsiniz. Aşağıdaki örnek, varsayılan metin dili olarak ABD İngilizcesi ayarlayan bir sunum oluşturur, bir metin kutusu ekler ve ilk metin bölümü için `en-US` yazdırır.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -747,11 +877,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // Metin içeren yeni bir dikdörtgen şekli ekle.
+    // Yeni bir dikdörtgen şekil ekle ve metin ekle.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // İlk bölüm dilini kontrol et.
+    // İlk bölüm dilini kontrol edin.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -759,11 +889,11 @@ try {
 }
 ```
 
-## **Varsayılan Metin Stili Ayarla**
+## **Varsayılan Metin Stilini Ayarla**
 
-Sunum düzeyinde varsayılan metin biçimlendirmesini uygulamak için [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--) metodunu kullanın.
+Sunum düzeyinde varsayılan metin biçimlendirmesi uygulamak için [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle) kullanın.
 
-Aşağıdaki örnek, yeni bir sunumda üst düzey paragraflar için varsayılan olarak 14 puan kalın bir font ayarlar ve “default_text_style.pptx” olarak kaydeder. Metin, daha spesifik bir biçimlendirme üzerine yazılmadıkça bu varsayılanları miras alabilir.
+Aşağıdaki örnek, yeni bir sunumda üst‑seviye paragraflar için varsayılan olarak 14 puan kalın bir yazı tipi belirler ve “default_text_style.pptx” dosyasına kaydeder. Metin, daha spesifik bir biçimlendirme geçersiz kılmadıkça bu varsayılanları devralabilir.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -771,7 +901,7 @@ const java = require("java");
 
 const presentation = new aspose.slides.Presentation();
 try {
-    // Üst düzey paragraf biçimini al.
+    // Üst seviye paragraf biçimini al.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -785,15 +915,15 @@ try {
 }
 ```
 
-## **All-Caps Etkisiyle Metni Çıkar**
+## **Büyük Harf (All‑Caps) Etkisiyle Metin Çıkar**
 
-PowerPoint’te **All Caps** font etkisini uygulamak, metnin slaytta büyük harf olarak görünmesini sağlar; metin düşük harf olarak girilmiş olsa bile. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görünen metni eşleştirmek için [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` ise döndürülen dizeyi büyük harfe çevirin.
+PowerPoint’te **All Caps** (Tam Büyük Harf) yazı tipi etkisi uygulandığında, metin slaytta büyük harf olarak görünür, ancak gerçek metin hâlâ küçük harf olarak saklanır. Aspose.Slides ile böyle bir metin bölümü alındığında, kütüphane metni tam olarak girildiği gibi döndürür. Görüntülenen metinle eşleşmek için [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) kontrol edin ve değer `All` olduğunda döndürülen dizeyi büyük harfe çevirin.
 
-Bu örnek, ilk slayttaki ilk şekil olarak bir metin kutusu içeren “sample2.pptx” dosyasını gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış “Hello, Aspose!” içerir.
+Bu örnek “sample2.pptx” dosyasını (ilk slaytın ilk şekli olarak bir metin kutusu) gerektirir. İlk paragrafın ilk bölümü, aşağıda gösterildiği gibi All Caps etkisi uygulanmış “Hello, Aspose!” metni içerir.
 
-![All Caps etkisi](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış şekilde metni nasıl çıkaracağınızı gösterir:
+Aşağıdaki kod örneği, **All Caps** etkisi uygulanmış metni nasıl çıkaracağınızı gösterir:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -826,10 +956,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **SSS**
 
-**Bir slayttaki tablo içindeki metni nasıl değiştiririm?**
+**Bir slayttaki tablo içindeki metni nasıl değiştirebilirim?**
 
-Bir slayttaki tablo içinde metni değiştirmek için [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) kullanın. Hücreleri gezin ve her hücreyi [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) ile güncelleyin; paragraf biçimlendirmesini ise [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) ile ayarlayın.
+Bir slayttaki tablo içindeki metni değiştirmek için [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/) kullanın. Hücreleri döngüyle gezip her hücreyi [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) aracılığıyla güncelleyin ve paragraf biçimlendirmesini [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat) ile ayarlayın.
 
-**PowerPoint slaytındaki metne nasıl bir degrade renk uygularım?**
+**PowerPoint slaytındaki metne nasıl bir renk geçişi (gradient) uygulayabilirim?**
 
-Metne degrade renk uygulamak için [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) kullanın. [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) değerini [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) olarak ayarlayın ve degrade duraklarını, yönünü ve şeffaflığını yapılandırın.
+Metne bir renk geçişi uygulamak için [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) kullanın. [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) değerini [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) olarak ayarlayın ve renk duraklarını, yönü ve şeffaflığı yapılandırın.

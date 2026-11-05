@@ -9,7 +9,7 @@ keywords:
 - стиль текста
 - фон текста
 - прозрачность текста
-- интервал между символами
+- межсимвольный интервал
 - свойства шрифта
 - семейство шрифтов
 - вращение текста
@@ -25,23 +25,23 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Форматируйте и оформляйте текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
+description: "Форматировать и стилизовать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
 ---
 ## **Обзор**
 
-В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for PHP via Java. Рассматриваются цвета фона, прозрачность, интервал между символами, свойства шрифтов, вращение, межабзацный интервал, поведение автоподгонки, привязка текста, табуляция и параметры языка.
+Эта статья демонстрирует, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для PHP через Java. Рассматриваются фоновые цвета, прозрачность, межсимвольный интервал, свойства шрифта, вращение, межабзацный интервал, поведение автоподгонки, привязка текста, табуляция и настройки языка.
 
-Если не указано иное, примеры используют [sample.pptx](sample.pptx). Первая фигура на первом слайде — это текстовое поле, и его первый абзац содержит показанный ниже текст. Как индексы слайдов, так и индексы фигур нумеруются с нуля. Примеры, в которых выделяются жирные части, используют эффективное форматирование, включая унаследованное жирное форматирование:
+Если не указано иное, примеры используют [sample.pptx](sample.pptx). Первая фигура на первом слайде — это текстовое поле, а его первый абзац содержит текст, показанный ниже. Индексы слайдов и фигур нумеруются с нуля. Примеры, в которых выделены жирные части, используют эффективное форматирование, включая унаследованное жирное форматирование:
 
-![Sample text](sample_text.png)
+![Пример текста](sample_text.png)
 
-Чтобы найти и выделить буквальный текст или совпадения регулярных выражений, см. [Поиск и замена текста](/slides/ru/php-java/search-and-replace-text/).
+Чтобы найти и выделить буквальный текст или совпадения по регулярному выражению, см. [Search and Replace Text](/slides/ru/php-java/search-and-replace-text/).
 
 ## **Установить цвет фона текста**
 
-Используйте [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) для установки цвета подсветки по умолчанию для абзаца, либо [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) для отдельных текстовых фрагментов.
+Используйте [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat), чтобы задать цвет подсветки по умолчанию для абзаца, или [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getHighlightColor) для отдельных текстовых частей.
 
-Следующий пример задает светло‑серую подсветку по умолчанию для первого абзаца. Явные цвета подсветки отдельных фрагментов имеют приоритет над этим значением по умолчанию:
+Следующий пример задаёт светло‑серую подсветку по умолчанию для первого абзаца. Явные цвета подсветки у отдельных частей имеют приоритет над этим значением по умолчанию:
 
 ```php
 use aspose\slides\Presentation;
@@ -55,7 +55,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Установить цвет подсветки для всего абзаца.
+    // Установите цвет подсветки для всего абзаца.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
@@ -66,9 +66,9 @@ try {
 
 Результат:
 
-![The gray paragraph](gray_paragraph.png)
+![Серый абзац](gray_paragraph.png)
 
-Пример кода ниже демонстрирует, как установить цвет фона для **текстовых фрагментов с жирным шрифтом**:
+Ниже показан пример кода, демонстрирующего, как установить цвет фона для **текстовых частей с жирным шрифтом**:
 
 ```php
 use aspose\slides\Presentation;
@@ -86,7 +86,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Установить цвет подсветки для текстового фрагмента.
+            // Установите цвет подсветки для текстовой части.
             $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
@@ -99,11 +99,11 @@ try {
 
 Результат:
 
-![The gray text portions](gray_text_portions.png)
+![Серые текстовые части](gray_text_portions.png)
 
 ## **Выравнивание абзацев текста**
 
-Используйте [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment) для установки выравнивания абзаца внутри текстового кадра. Значение может быть по центру, по левому краю, по правому краю, с выравниванием по ширине и т.д.
+Используйте [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), чтобы задать выравнивание абзаца внутри текстового кадра. Значение может быть центрировано, выровнено по левому, правому краю, по ширине и т.д.
 
 Следующий пример кода показывает, как выровнять абзац **по центру**:
 
@@ -119,7 +119,7 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Установить выравнивание абзаца по центру.
+    // Установите выравнивание абзаца по центру.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -130,13 +130,13 @@ try {
 
 Результат:
 
-![The aligned paragraph](aligned_paragraph.png)
+![Выровненный абзац](aligned_paragraph.png)
 
 ## **Выравнивание шрифтов в строке**
 
-Используйте [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment) для вертикального выравнивания текстовых фрагментов разных размеров шрифта в строке. Эта настройка применяется ко всему абзацу и контролирует выравнивание внутри каждой его строки.
+Используйте [ParagraphFormat::setFontAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setFontAlignment), чтобы вертикально выравнивать текстовые части разных размеров шрифта внутри строки. Эта настройка применяется ко всему абзацу и контролирует выравнивание в каждой его строке.
 
-Следующий автономный пример создаёт четыре помеченных текстовых поля на одном слайде. Каждый абзац содержит одинаковый текст размером 18, 36 и 54 пункта с разным выравниванием шрифта. Он использует Arial, отключает автоподгонку и перенос, и делает текстовые кадры достаточно большими для одной строки.
+Следующий автономный пример создаёт четыре помеченных текстовых поля на одном слайде. Каждый абзац содержит одинаковый текст размером 18, 36 и 54 пункта с разным выравниванием шрифта. Используется Arial, отключены автоподгонка и перенос, а текстовые кадры достаточно велики для одной строки.
 
 ```php
 use aspose\slides\FillType;
@@ -205,17 +205,17 @@ try {
 
 Результат:
 
-![Comparison of Baseline, Top, Center, and Bottom font alignment with mixed font sizes](font_alignment.png)
+![Сравнение выравнивания Baseline, Top, Center и Bottom при смешанных размерах шрифта](font_alignment.png)
 
-Выравнивание шрифтов использует метрики шрифта, поэтому визуальные границы отдельных букв не обязательно будут точно совпадать. В примере присутствуют как заглавная буква, так и нижний вынос, чтобы продемонстрировать разницу между базовой линией и нижним выравниванием. Доступность шрифтов и их замена, используемые символы и различие в размерах шрифта влияют на результат. Размеры кадра, отступы, межстрочный интервал, перенос и автоподгонка также влияют на расположение; при сравнении режимов используйте одинаковые шрифты и параметры макета.
+Выравнивание шрифта использует метрики шрифта, поэтому видимые границы отдельных символов могут не совпадать точно. В примере присутствует заглавная буква и нижний вынос, чтобы продемонстрировать разницу между базовой линией и нижним выравниванием. Наличие шрифта и его подстановка, используемые символы и различие размеров шрифта влияют на результат. Размеры кадра, поля, межстрочный интервал, перенос и автоподгонка также влияют на расположение; используйте одинаковые шрифты и параметры макета при сравнении режимов.
 
-Эта настройка отличается от [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), который управляет горизонтальным выравниванием абзаца, и от [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), который позиционирует текстовый блок вертикально внутри фигуры. Форматирование надстрочного и подстрочного текста с помощью [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) смещает отдельные фрагменты относительно базовой линии вместо того, чтобы задавать выравнивание шрифта для строк абзаца.
+Эта настройка отличается от [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setAlignment), который управляет горизонтальным выравниванием абзаца, и от [TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType), который позиционирует текстовый блок вертикально внутри фигуры. Форматирование индекса и подстрочного индекса через [BasePortionFormat::setEscapement](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setEscapement) смещает отдельные части относительно базовой линии вместо установки выравнивания шрифта для строк абзаца.
 
 ## **Установить прозрачность текста**
 
-Прозрачность текста контролируется альфа‑компонентом цвета, присвоенного [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). В примерах ниже `alpha = 50` — это значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
+Прозрачность текста контролируется через альфа‑компонент цвета, задаваемого [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). В примерах ниже `alpha = 50` — это значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
 
-Пример кода ниже показывает, как применить прозрачность к **всему абзацу**:
+Ниже показан пример кода, демонстрирующий, как применить прозрачность к **всему абзацу**:
 
 ```php
 use aspose\slides\FillType;
@@ -232,7 +232,7 @@ try {
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Установить цвет заливки текста в прозрачный цвет.
+    // Установите цвет заливки текста в прозрачный цвет.
     $fillFormat->setFillType(FillType::Solid);
     $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
     $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -245,9 +245,9 @@ try {
 
 Результат:
 
-![The transparent paragraph](transparent_paragraph.png)
+![Прозрачный абзац](transparent_paragraph.png)
 
-Следующий пример кода показывает, как применить прозрачность к **текстовым фрагментам с жирным шрифтом**:
+Следующий пример кода показывает, как применить прозрачность к **текстовым частям с жирным шрифтом**:
 
 ```php
 use aspose\slides\FillType;
@@ -268,7 +268,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Установить прозрачность текстового фрагмента.
+            // Установите прозрачность текстовой части.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
             $fillFormat->getSolidFillColor()->setColor($transparentColor);
@@ -283,13 +283,13 @@ try {
 
 Результат:
 
-![The transparent text portions](transparent_text_portions.png)
+![Прозрачные текстовые части](transparent_text_portions.png)
 
-## **Установить интервал между символами текста**
+## **Установить межсимвольный интервал текста**
 
-Используйте [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing) для увеличения или сжатия интервала между символами в текстовом поле. В примерах добавляется интервал в 3 пункта; отрицательные значения сжимают текст.
+Используйте [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setSpacing), чтобы увеличить или уменьшить интервал между символами в текстовом поле. В примерах добавляется 3 пункта интервала; отрицательные значения сжимают текст.
 
-Следующий PHP‑код показывает, как расширить интервал между символами в **всём абзаце**:
+Ниже PHP‑код, показывающий, как расширить межсимвольный интервал в **всём абзаце**:
 
 ```php
 use aspose\slides\Presentation;
@@ -302,8 +302,8 @@ try {
     $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Примечание: используйте отрицательные значения, чтобы сжать интервал между символами.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Увеличить интервал между символами.
+    // Примечание: используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Увеличить межсимвольный интервал.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -313,9 +313,9 @@ try {
 
 Результат:
 
-![The character spacing in the paragraph](character_spacing_in_paragraph.png)
+![Межсимвольный интервал в абзаце](character_spacing_in_paragraph.png)
 
-Пример кода ниже показывает, как расширить интервал между символами в **текстовых фрагментах с жирным шрифтом**:
+Пример кода ниже показывает, как расширить межсимвольный интервал в **текстовых частях с жирным шрифтом**:
 
 ```php
 use aspose\slides\Presentation;
@@ -332,8 +332,8 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Примечание: используйте отрицательные значения, чтобы сжать интервал между символами.
-            $portion->getPortionFormat()->setSpacing(3); // Увеличить интервал между символами.
+            // Примечание: используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+            $portion->getPortionFormat()->setSpacing(3); // Увеличить межсимвольный интервал.
         }
     }
 
@@ -345,13 +345,13 @@ try {
 
 Результат:
 
-![The character spacing in the text portions](character_spacing_in_text_portions.png)
+![Межсимвольный интервал в текстовых частях](character_spacing_in_text_portions.png)
 
-### **Отключить кернинг для конкретных шрифтов**
+### **Отключить кернинг для определённых шрифтов**
 
-В некоторых случаях текст, отрисованный Aspose.Slides, может выглядеть слегка плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint может игнорировать данные кернинга для некоторых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
+В некоторых случаях текст, отрисованный Aspose.Slides, может выглядеть немного плотнее, чем тот же текст в PowerPoint. Это может происходить, потому что PowerPoint игнорирует данные кернинга для некоторых шрифтов, даже если шрифт содержит корректные данные кернинга и кернинг включён в настройках PowerPoint.
 
-Чтобы вывод был ближе к PowerPoint в таких случаях, вы можете отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) в значение, превышающее реальный размер шрифта. Этот пример требует файл "presentation.pptx" с текстовым полем в качестве первой фигуры на первом слайде. Он проверяет эффективные имена шрифтов, включая унаследованные, и задаёт порог в 100 пунктов для фрагментов, использующих Roboto. Это отключает кернинг для соответствующих фрагментов, у которых размер шрифта ниже 100 пунктов:
+Чтобы сделать вывод более похожим на PowerPoint в таких случаях, можно отключить кернинг для текстовых частей, использующих затронутый шрифт. Установите [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) в значение, превышающее фактический размер шрифта. В примере требуется файл "presentation.pptx" с текстовым полем в первой фигуре первого слайда. Он проверяет эффективные имена шрифтов, включая унаследованные, и задаёт порог 100 пунктов для частей, использующих Roboto. Это отключает кернинг для соответствующих частей с размером шрифта менее 100 пунктов:
 
 ```php
 use aspose\slides\Presentation;
@@ -389,13 +389,13 @@ try {
 }
 ```
 
-Для соответствующего текста, размер которого ниже порога, эта настройка предотвращает кернинг и может помочь сопоставить визуальный вывод Aspose.Slides с выводом PowerPoint для шрифтов, на которые влияет данное специфическое поведение PowerPoint.
+Для текста, соответствующего порогу, данная настройка предотвращает кернинг и может помочь согласовать визуальный вывод Aspose.Slides с PowerPoint для шрифтов, на которые влияет данное специфическое поведение PowerPoint.
 
-## **Управление свойствами шрифтов текста**
+## **Управление свойствами шрифта текста**
 
-Свойства шрифта можно задавать на уровне абзаца с помощью [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) или на отдельных фрагментах через [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
+Свойства шрифта можно задавать на уровне абзаца через [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) или на отдельных частях через [PortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/).
 
-Следующий пример задаёт шрифт по умолчанию для первого абзаца как Times New Roman 12 пунктов с жирным, курсивом и пунктирным подчёркиванием. Явное форматирование отдельных фрагментов имеет приоритет над этими значениями по умолчанию.
+Следующий пример задаёт для первого абзаца шрифт Times New Roman 12 пунктов с жирным, курсивным и пунктирным подчёркиванием. Явное форматирование отдельных частей имеет приоритет над этими значениями по умолчанию.
 
 ```php
 use aspose\slides\FontData;
@@ -413,7 +413,7 @@ try {
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
     $font = new FontData("Times New Roman");
 
-    // Установить свойства шрифта для абзаца.
+    // Установите свойства шрифта для абзаца.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
@@ -428,9 +428,9 @@ try {
 
 Результат:
 
-![The font properties for the paragraph](font_properties_for_paragraph.png)
+![Свойства шрифта для абзаца](font_properties_for_paragraph.png)
 
-Следующий пример применяет Times New Roman 13 пунктов, курсив и пунктирное подчёркивание к фрагментам, у которых эффективное форматирование является жирным:
+Следующий пример применяет к частям, у которых эффективное форматирование жирное, шрифт Times New Roman 13 пунктов, курсив и пунктирное подчёркивание:
 
 ```php
 use aspose\slides\FontData;
@@ -451,7 +451,7 @@ try {
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold())) {
-            // Установить свойства шрифта для текстового фрагмента.
+            // Установите свойства шрифта для текстовой части.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
@@ -468,13 +468,159 @@ try {
 
 Результат:
 
-![The font properties for text portions](font_properties_for_text_portions.png)
+![Свойства шрифта для текстовых частей](font_properties_for_text_portions.png)
+
+## **Контроль нормализации высоты текста**
+
+Используйте [BasePortionFormat::setNormaliseHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setNormaliseHeight), когда требуется воспроизвести типографику шаблона или исследовать различия в высоте символов. В PowerPoint включение нормализации растягивает или сжимает отдельные символы по вертикали, чтобы они имели одинаковую видимую высоту внутри текстовой части. Это не гарантирует одинаковую высоту текста между различными шрифтами.
+
+Установите свойство в [NullableBool::True или False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), чтобы явно включить или отключить нормализацию. `NullableBool::NotDefined` оставляет локальную настройку неопределённой, позволяя части наследовать значение, например, из [getDefaultPortionFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) абзаца. Это не значит `False`. Используйте [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective) и читайте `getNormaliseHeight` у полученных эффективных данных, чтобы получить разрешённое логическое значение.
+
+Следующий автономный пример требует установленный шрифт **Arial**. Он создаёт два текстовых блока, содержащих одинаковые заглавные и строчные буквы, нижние выносы и символы с диакритическими знаками размером 54 пункта. Оба абзаца по умолчанию включают нормализацию. Верхняя часть явно отключает её; нижняя наследует включённое значение. Размеры кадров, поля и межабзацный интервал одинаковы, перенос и автоподгонка отключены, чтобы сравнение было консистентным. Пример выводит `False: false` и `NotDefined: true`, затем сохраняет «text_height_normalization.pptx».
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextAnchorType;
+use aspose\slides\TextAutofitType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $settings = [NullableBool::False, NullableBool::NotDefined];
+    $settingNames = ["False", "NotDefined"];
+
+    for ($i = 0; $i < count($settings); $i++) {
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 60 + $i * 200, 660, 150);
+        $shape->getFillFormat()->setFillType(FillType::NoFill);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+
+        $textFrame = $shape->getTextFrame();
+        $textFrame->setText("Hxgjpq ÅÉ 0123");
+        $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::None);
+        $textFrame->getTextFrameFormat()->setWrapText(NullableBool::False);
+        $textFrame->getTextFrameFormat()->setAnchoringType(TextAnchorType::Top);
+        $textFrame->getTextFrameFormat()->setMarginTop(0);
+        $textFrame->getTextFrameFormat()->setMarginLeft(0);
+
+        $paragraph = $textFrame->getParagraphs()->get_Item(0);
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceBefore(0);
+        $paragraph->getParagraphFormat()->setSpaceAfter(0);
+        $paragraph->getParagraphFormat()->setSpaceWithin(100);
+        $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setNormaliseHeight(NullableBool::True);
+
+        $portion = $paragraph->getPortions()->get_Item(0);
+        $font = new FontData("Arial");
+        $portion->getPortionFormat()->setLatinFont($font);
+        $portion->getPortionFormat()->setFontHeight(54);
+        $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $black = java("java.awt.Color")->BLACK;
+        $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor($black);
+        $portion->getPortionFormat()->setNormaliseHeight($settings[$i]);
+
+        $normaliseHeight = java_values($portion->getPortionFormat()->getEffective()->getNormaliseHeight());
+        echo $settingNames[$i], ": ", $normaliseHeight ? "true" : "false", PHP_EOL;
+    }
+
+    $presentation->save("text_height_normalization.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Сравнение ниже экспортировано из сохранённой презентации. Верхняя строка — нормализация отключена (`False`); нижняя строка — наследует включённое значение (`NotDefined` → `True`). Оставьте установленный Arial, чтобы воспроизвести внешний вид.
+
+![Текст Arial 54 пункта с отключённой нормализацией сверху и наследованной нормализацией снизу](text_height_normalization.png)
+
+Нормализация изменяет высоту символов без изменения установленного значения [getFontHeight](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFontHeight), которое задаёт размер шрифта в пунктах. [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) управляет межстрочным интервалом, а [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) контролирует, как текст или его контейнер подстраивается. Эти параметры служат разным целям и могут независимо влиять на общий макет. Подробнее о форматировании абзацев и наследовании см. в статье [Manage Paragraph](/slides/ru/php-java/manage-paragraph/).
+
+## **Применить и удалить зачеркивание**
+
+Используйте [BasePortionFormat::setStrikethroughType](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setStrikethroughType) для текстовой части, чтобы отображать исправления, отменённые термины или прежние цены без удаления оригинального текста. Установите значение в [TextStrikethroughType::Single или Double](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/) для одной или двух линий через текст.
+
+Чтобы удалить зачеркивание, передайте [TextStrikethroughType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#None). Это явно отключает эффект, даже если окружающее форматирование указывает зачеркивание. В отличие от этого, [TextStrikethroughType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/textstrikethroughtype/#NotDefined) оставляет локальную настройку неопределённой, позволяя части наследовать форматирование, например, от абзаца. Это не гарантирует удаление зачеркивания. Используйте [PortionFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/portionformat/#getEffective), чтобы прочитать результирующее форматирование, включая унаследованные значения.
+
+Следующий автономный пример создаёт три сравнения цен. Каждый абзац имеет отдельные части для подписи, прежней цены и текущей цены, поэтому только прежняя цена затронута. В первой строке зачеркивание применяется, а затем удаляется; остальные строки сохраняют одиночное и двойное зачеркивание. Изменение этой настройки сохраняет текст и его прочие свойства, включая жирный прежний ценник.
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\FontData;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAlignment;
+use aspose\slides\TextStrikethroughType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 620, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $labels = [ "None: ", "Single: ", "Double: " ];
+
+    foreach ($labels as $label) {
+        $paragraph = new Paragraph();
+        $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Left);
+        $paragraph->getParagraphFormat()->setSpaceAfter(20);
+
+        $format = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+        $format->setFontHeight(28);
+        $font = new FontData("Arial");
+        $format->setLatinFont($font);
+        $format->getFillFormat()->setFillType(FillType::Solid);
+        $blackColor = java("java.awt.Color")->BLACK;
+        $format->getFillFormat()->getSolidFillColor()->setColor($blackColor);
+
+        $labelPortion = new Portion($label);
+        $paragraph->getPortions()->add($labelPortion);
+
+        $previousPrice = new Portion("$100");
+        $previousPrice->getPortionFormat()->setFontBold(NullableBool::True);
+        $paragraph->getPortions()->add($previousPrice);
+        $currentPrice = new Portion(" → $80");
+        $paragraph->getPortions()->add($currentPrice);
+
+        $shape->getTextFrame()->getParagraphs()->add($paragraph);
+    }
+
+    $paragraphs = $shape->getTextFrame()->getParagraphs();
+
+    // Применить зачеркивание, затем явно удалить его у первой предыдущей цены.
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(0)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::None);
+
+    $paragraphs->get_Item(1)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Single);
+    $paragraphs->get_Item(2)->getPortions()->get_Item(1)->getPortionFormat()->setStrikethroughType(TextStrikethroughType::Double);
+
+    $presentation->save("strikethrough.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Результат сверху вниз: без зачеркивания, одиночное зачеркивание и двойное зачеркивание.
+
+![Прежние цены без зачеркивания, с одиночным и двойным зачеркиванием](strikethrough.png)
 
 ## **Установить вращение текста**
 
-Используйте [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType) для установки предопределённой ориентации текста внутри фигуры.
+Используйте [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setTextVerticalType), чтобы задать предопределённую ориентацию текста внутри фигуры.
 
-Следующий пример кода задаёт ориентацию текста в фигуре как [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), что вращает текст **на 90 градусов против часовой стрелки**:
+Следующий пример кода задаёт ориентацию текста в фигуре как [TextVerticalType::Vertical270](https://reference.aspose.com/slides/php-java/aspose.slides/textverticaltype/), которая вращает текст **на 90 градусов против часовой стрелки**:
 
 ```php
 use aspose\slides\Presentation;
@@ -496,13 +642,13 @@ try {
 
 Результат:
 
-![The text rotation](text_rotation.png)
+![Вращение текста](text_rotation.png)
 
 ## **Установить пользовательское вращение для текстовых кадров**
 
-Используйте [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle) для задания пользовательского угла вращения для [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
+Используйте [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setRotationAngle), чтобы задать пользовательский угол вращения для [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/).
 
-Пример кода ниже вращает текстовый кадр на 3 градуса по часовой стрелке внутри фигуры:
+Следующий пример кода вращает текстовый кадр на 3 градуса по часовой стрелке внутри фигуры:
 
 ```php
 use aspose\slides\Presentation;
@@ -523,16 +669,16 @@ try {
 
 Результат:
 
-![The custom text rotation](custom_text_rotation.png)
+![Пользовательское вращение текста](custom_text_rotation.png)
 
 ## **Установить межстрочный интервал абзацев**
 
-Aspose.Slides предоставляет [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) и [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) для управления интервалом абзацев. Эти свойства используются следующим образом:
+Aspose.Slides предоставляет методы [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceBefore) и [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setSpaceWithin) для управления интервалом абзацев. Эти свойства используются следующим образом:
 
-* Используйте положительное значение, чтобы задать межстрочный интервал в процентах от высоты строки.
-* Используйте отрицательное значение, чтобы задать межстрочный интервал в пунктах.
+* Положительное значение задаёт межстрочный интервал в процентах от высоты строки.
+* Отрицательное значение задаёт межстрочный интервал в пунктах.
 
-Следующий пример задаёт интервал внутри первого абзаца равным 200% от высоты строки (двойной интервал):
+Следующий пример задаёт интервал внутри первого абзаца 200 % от высоты строки (двойной интервал):
 
 ```php
 use aspose\slides\Presentation;
@@ -555,18 +701,18 @@ try {
 
 Результат:
 
-![The line spacing within the paragraph](line_spacing.png)
+![Межстрочный интервал внутри абзаца](line_spacing.png)
 
-## **Управление разрывом строк**
+## **Контроль разрыва строк**
 
-Правила разрыва строк абзаца полезны в узких текстовых блоках и презентациях, где смешаны латинский и восточно‑азиатский текст. Следующие методы относятся к [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/), поэтому они применяются ко всему абзацу:
+Правила разрыва строк абзаца полезны в узких текстовых блоках и презентациях, где смешивается латинский и восточно‑азиатский текст. Следующие методы относятся к [ParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/) и применяются ко всему абзацу:
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) управляет правилами разрыва строк для латинского текста. В смешанном тексте изменение этого параметра может также изменить место переноса соседнего восточно‑азиатского текста и знаков пунктуации.
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) управляет правилами разрыва строк для восточно‑азиатского текста, включая ограничения на символы в начале и конце строки.
+- [setLatinLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setLatinLineBreak) управляет правилами разрыва строк для латинского текста. В смешанном тексте изменение этого параметра может также изменить место переноса соседнего восточно‑азиатского текста и пунктуации.
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) управляет правилами разрыва строк для восточно‑азиатского текста, включая ограничения на символы в начале и в конце строки.
 
-Эти правила не заменяют [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), который включает автоматический перенос внутри текстового кадра. Они влияют на раскладку при переносе; они не вставляют символы разрыва строки. Явный разрыв строки заставляет начать новую строку в абзаце независимо от доступной ширины.
+Эти правила не заменяют [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setWrapText), который включает автоматический перенос внутри текстового кадра. Они влияют на расположение, когда происходит перенос; они не вставляют символы разрыва строки. Явный разрыв строки принудительно создаёт новую строку в абзаце независимо от доступной ширины.
 
-Следующий автономный пример создаёт узкий текстовый блок, содержащий китайский и латинский тексты. Он явно задаёт оба варианта разрыва строк и сохраняет файл "line_breaking.pptx". Чтобы поэкспериментировать с каждым правилом, измените соответствующее значение, оставив остальные настройки неизменными. В примере использованы Arial и SimSun размером 24 пункта, ширина кадра 160 пунктов и нулевые горизонтальные отступы текстового кадра. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) вызывается с [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), чтобы размер текста и размеры кадра оставались фиксированными.
+Следующий автономный пример создаёт узкий текстовый блок, содержащий китайский и латинский текст. Он явно задаёт обе опции разрыва строк и сохраняет файл «line_breaking.pptx». Чтобы поэкспериментировать с любой из правил, измените соответствующее значение, оставив остальные параметры фиксированными. Пример использует Arial 24 пт и SimSun, ширина кадра 160 пт и нулевые горизонтальные поля текста. [TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) вызывается с [TextAutofitType::None](https://reference.aspose.com/slides/php-java/aspose.slides/textautofittype/), чтобы размер текста и кадра оставались фиксированными.
 
 ```php
 use aspose\slides\FillType;
@@ -613,11 +759,11 @@ try {
 }
 ```
 
-## **Управление висячей пунктуацией**
+## **Контроль висячей пунктуации**
 
-[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) позволяет подходящей пунктуации выходить за правый край строки текста вместо того, чтобы занимать следующую строку. Применяется к целому абзацу и отличается от висячего отступа.
+[ParagraphFormat::setHangingPunctuation](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setHangingPunctuation) позволяет допустимой пунктуации выходить за правый край строки текста вместо того, чтобы занимать следующую строку. Применяется ко всему абзацу и отличается от висячего отступа.
 
-Следующий автономный пример включает висячую пунктуацию в текстовом кадре шириной 100 пунктов и сохраняет файл "hanging_punctuation.pptx". При шрифте Arial 24 пункта и нулевых горизонтальных отступах текстового кадра, конечная точка остаётся после слова "sentence" и выходит за правый край текста. Установите свойство в значение [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), чтобы сравнить: с этими настройками точка занимает отдельную строку. Перенос включён, а автоподгонка отключена, чтобы фиксировать доступную ширину.
+Следующий автономный пример включает висячую пунктуацию в текстовом кадре шириной 100 пт и сохраняет «hanging_punctuation.pptx». При Arial 24 пт и нулевых горизонтальных полях окончательная точка остаётся после слова «sentence» и выходит за правый край текста. Установите свойство в [NullableBool::False](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/), чтобы сравнить: при этих настройках точка занимает отдельную строку. Перенос включён, автоподгонка отключена, чтобы фиксировать доступную ширину.
 
 ```php
 use aspose\slides\FillType;
@@ -661,11 +807,11 @@ try {
 }
 ```
 
-Не каждый знак пунктуации может «висеть». [Условия шрифта и макета, описанные выше](#control-line-breaking) также применимы к этому сравнению: изменение шрифта, доступной ширины, отступов или настроек автоподгонки может убрать видимую разницу.
+Не каждый знак пунктуации может «висеть». На это сравнение также влияют [условия шрифта и макета, описанные выше](#control-line-breaking): изменение шрифта, доступной ширины, полей или настроек автоподгонки может убрать видимую разницу.
 
 ## **Установить тип автоподгонки для текстовых кадров**
 
-[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) определяет поведение текста, когда он превышает границы контейнера. Используйте его, чтобы контролировать, будет ли текст сжиматься, выходить за пределы или автоматически изменять размер фигуры. Следующий пример настраивает фигуру так, чтобы её размер менялся под размер текста, и сохраняет результат в файл "autofit_type.pptx".
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAutofitType) определяет, как текст ведёт себя, когда превышает границы своего контейнера. Используйте его, чтобы управлять тем, будет ли текст сжиматься, выходить за пределы или автоматически менять размер фигуры. Следующий пример конфигурирует фигуру так, чтобы она изменяла размер под текст, и сохраняет результат в «autofit_type.pptx».
 
 ```php
 use aspose\slides\Presentation;
@@ -685,11 +831,11 @@ try {
 }
 ```
 
-Чтобы подсчитать строки после автоматического переноса и увидеть, как меняются результат при изменении ширины текста или фигуры, см. [Подсчёт отрендеренных строк](/slides/ru/php-java/manage-paragraph/). Само количество строк не указывает, выходит ли текст за границы контейнера.
+Чтобы подсчитать строки после автоматического переноса и увидеть, как меняются ширина текста или фигуры, см. [Count Rendered Lines](/slides/ru/php-java/manage-paragraph/). Одно лишь количество строк не указывает, выходит ли текст за пределы контейнера.
 
 ## **Установить привязку текстовых кадров**
 
-[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) определяет, как текст позиционируется вертикально внутри фигуры, например, вверху, посередине или внизу. Следующий пример привязывает текст к нижней части первой фигуры и сохраняет результат в файл "text_anchor.pptx".
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/#setAnchoringType) определяет, как текст позиционируется вертикально внутри фигуры, например, сверху, по центру или снизу. Следующий пример привязывает текст к нижнему краю первой фигуры и сохраняет результат в «text_anchor.pptx».
 
 ```php
 use aspose\slides\Presentation;
@@ -711,7 +857,7 @@ try {
 
 ## **Установить табуляцию текста**
 
-Используйте [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) и [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs) для настройки табуляций в абзаце. Следующий пример задаёт интервал табуляции по умолчанию в 100 пунктов и добавляет табуляцию, выровненную по левому краю, в 30 пунктов. Эти настройки влияют на текст, содержащий символы табуляции.
+Используйте [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) и [ParagraphFormat::getTabs](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/#getTabs), чтобы настроить табуляцию в абзаце. Следующий пример задаёт размер табуляции по умолчанию 100 пт и добавляет табуляцию, выровненную по левому краю, на позиции 30 пт. Эти настройки влияют на текст, содержащий символы табуляции.
 
 ```php
 use aspose\slides\Presentation;
@@ -736,13 +882,13 @@ try {
 
 Результат:
 
-![The paragraph tabs](paragraph_tabs.png)
+![Табуляция абзаца](paragraph_tabs.png)
 
-## **Установить язык проверки правописания**
+## **Установить язык проверки орфографии**
 
-Aspose.Slides предоставляет [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId), который позволяет установить язык проверки правописания для текстового фрагмента. Язык проверки определяет язык, используемый для проверки орфографии и грамматики в PowerPoint.
+Aspose.Slides предоставляет [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#setLanguageId), который позволяет задать язык проверки орфографии для текстовой части. Язык проверки определяет, какой язык будет использоваться для проверки правописания и грамматики в PowerPoint.
 
-Следующий пример требует файл "presentation.pptx" с текстовым полем в качестве первой фигуры на первом слайде и как минимум одним абзацем. Он заменяет содержимое первого абзаца на "1。", задаёт SimSun в качестве шрифта и назначает язык проверки упрощённого китайского (`zh-CN`). Затем сохраняет результат в файл "proofing_language.pptx":
+Следующий пример требует файл «presentation.pptx» с текстовым полем в первой фигуре первого слайда и как минимум одним абзацем. Он заменяет содержимое первого абзаца на «1。», задаёт шрифт SimSun и назначает язык проверки упрощённого китайского (`zh-CN`). Сохраняет результат в «proofing_language.pptx»:
 
 ```php
 use aspose\slides\FontData;
@@ -766,7 +912,7 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Установить Id языка проверки правописания.
+    // Установите идентификатор языка проверки правописания.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
     $textPortion->setText("1。");
@@ -780,7 +926,7 @@ try {
 
 ## **Установить язык по умолчанию**
 
-Используйте [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) для определения языка по умолчанию для текста, создаваемого при загрузке или создании презентации. Следующий пример создаёт презентацию с американским английским в качестве языка текста по умолчанию, добавляет текстовое поле и выводит `en-US` для первого текстового фрагмента.
+Используйте [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage), чтобы задать язык по умолчанию для текста, создаваемого при загрузке или создании презентации. Следующий пример создаёт презентацию с американским английским в качестве языка текста по умолчанию, добавляет текстовое поле и выводит `en-US` для его первой текстовой части.
 
 ```php
 use aspose\slides\LoadOptions;
@@ -794,11 +940,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Добавить новую прямоугольную фигуру с текстом.
+    // Добавьте новую прямоугольную фигуру с текстом.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Проверить язык первого фрагмента.
+    // Проверьте язык первой части.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -810,7 +956,7 @@ try {
 
 Чтобы применить форматирование текста по умолчанию на уровне презентации, используйте [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Следующий пример задаёт 14‑пунктовый жирный шрифт по умолчанию для абзацев верхнего уровня в новой презентации и сохраняет её в файл "default_text_style.pptx". Текст может наследовать эти значения по умолчанию, если только более конкретное форматирование не переопределит их.
+Следующий пример задаёт шрифт 14 пт полужирным в качестве значения по умолчанию для абзацев верхнего уровня в новой презентации и сохраняет её в «default_text_style.pptx». Текст может наследовать эти значения, если более специфическое форматирование их не переопределит.
 
 ```php
 use aspose\slides\NullableBool;
@@ -819,7 +965,7 @@ use aspose\slides\SaveFormat;
 
 $presentation = new Presentation();
 try {
-    // Получить формат абзаца верхнего уровня.
+    // Получите формат абзаца верхнего уровня.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -833,15 +979,15 @@ try {
 }
 ```
 
-## **Извлечь текст с эффектом All-Caps**
+## **Извлекать текст с эффектом «Все заглавные»**
 
-В PowerPoint применение эффекта шрифта **All Caps** заставляет текст отображаться заглавными буквами на слайде, даже если он был введён строчными. При получении такого текстового фрагмента с помощью Aspose.Slides библиотека возвращает текст точно в том виде, в котором он был введён. Чтобы совпадать с отображаемым текстом, проверьте [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) и преобразуйте полученную строку в верхний регистр, если значение равно `All`.
+В PowerPoint применение эффекта **All Caps** делает текст заглавными буквами на слайде, даже если он изначально введён строчными. При получении такой текстовой части с помощью Aspose.Slides библиотека возвращает текст точно в том виде, в каком он был введён. Чтобы получить отображаемый текст, проверьте [TextCapType](https://reference.aspose.com/slides/php-java/aspose.slides/textcaptype/) и преобразуйте возвращённую строку в верхний регистр, когда значение равно `All`.
 
-Этот пример требует файл "sample2.pptx" с текстовым полем в качестве первой фигуры на первом слайде. Первый фрагмент первого абзаца содержит "Hello, Aspose!" с применённым эффектом All Caps, как показано ниже.
+Этот пример требует файл «sample2.pptx» с текстовым полем в первой фигуре первого слайда. Первая часть первого абзаца содержит «Hello, Aspose!», к которой применён эффект All Caps, как показано ниже.
 
-![The All Caps effect](all_caps_effect.png)
+![Эффект All Caps](all_caps_effect.png)
 
-Пример кода ниже показывает, как извлечь текст с применённым эффектом **All Caps**:
+Ниже пример кода, показывающий, как извлечь текст с применённым эффектом **All Caps**:
 
 ```php
 use aspose\slides\Presentation;
@@ -878,8 +1024,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Для изменения текста в таблице на слайде используйте [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Проходите по ячейкам и обновляйте каждую ячейку через [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) и форматирование абзацев через [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
+Для изменения текста в таблице на слайде используйте [Table](https://reference.aspose.com/slides/php-java/aspose.slides/table/). Итеративно обходите ячейки и обновляйте каждую через [Cell::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getTextFrame) и форматирование абзацев через [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
 **Как применить градиентный цвет к тексту на слайде PowerPoint?**
 
-Чтобы применить градиентный цвет к тексту, используйте [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). Установите [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) в значение [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) и настройте градиентные стопы, направление и прозрачность.
+Для применения градиентного цвета к тексту используйте [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/baseportionformat/#getFillFormat). Установите [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) в [FillType::Gradient](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) и настройте градиентные остановки, направление и прозрачность.

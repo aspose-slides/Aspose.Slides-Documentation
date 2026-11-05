@@ -11,14 +11,14 @@ keywords:
 - 文本透明度
 - 字符间距
 - 字体属性
-- 字体系列
+- 字体族
 - 文本旋转
 - 旋转角度
 - 文本框
-- 行间距
+- 行距
 - 自动适应属性
 - 文本框锚点
-- 文本制表
+- 文本制表位
 - 默认语言
 - PowerPoint
 - OpenDocument
@@ -26,23 +26,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint 和 OpenDocument 演示文稿中格式化和设置文本样式。自定义字体、颜色、对齐方式等。"
+description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint 和 OpenDocument 演示文稿中格式化和美化文本。自定义字体、颜色、对齐方式等。"
 ---
 ## **概述**
 
-本文档展示了如何使用 Aspose.Slides for Node.js via Java 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式设置。内容涉及背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚定、制表位和语言设置。
+本文介绍如何使用 Aspose.Slides for Node.js via Java 对 PowerPoint 和 OpenDocument 演示文稿中的文本进行格式化。它涵盖背景颜色、透明度、字符间距、字体属性、旋转、段落间距、自动适应行为、文本锚定、制表位和语言设置。
 
-除非另有说明，示例均使用 [sample.pptx](sample.pptx)。其第一张幻灯片的第一个形状是一个文本框，首段包含下文所示文本。幻灯片和形状的索引均为从零开始。选择粗体部分的示例使用有效格式，包括继承的粗体格式：
+除非另有说明，示例均使用 [sample.pptx](sample.pptx)。其第一张幻灯片上的第一个形状是一个文本框，其第一段包含以下显示的文本。幻灯片和形状的索引均从零开始。选择粗体部分的示例使用有效格式，包括继承的粗体格式：
 
 ![示例文本](sample_text.png)
 
-要查找并突出显示文字字面量或正则表达式匹配，请参阅 [Search and Replace Text](/slides/zh/nodejs-java/search-and-replace-text/)。
+要查找并突出显示文字字面值或正则表达式匹配项，请参阅 [搜索和替换文本](/slides/zh/nodejs-java/search-and-replace-text/)。
 
 ## **设置文本背景颜色**
 
-使用 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) 为段落设置默认高亮颜色，或使用 [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) 为单个文本段落设置高亮颜色。
+使用 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 来设置段落的默认突出显示颜色，或使用 [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor) 对单个文本片段进行设置。
 
-下面的示例将第一个段落的默认高亮设置为浅灰色。对单个段落的显式高亮颜色会优先于此默认值：
+下面的示例将浅灰色突出显示设置为第一段的默认颜色。对单个片段的显式突出显示颜色将优先于此默认值：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -55,7 +55,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 设置整个段落的高亮颜色。
+    // 为整个段落设置高亮颜色。
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -68,7 +68,7 @@ try {
 
 ![灰色段落](gray_paragraph.png)
 
-下面的代码示例演示如何为 **粗体字体的文本段落** 设置背景颜色：
+下面的代码示例演示如何为 **加粗字体的文本片段** 设置背景颜色：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -86,7 +86,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // 设置文本段落的高亮颜色。
+            // 为文本片段设置高亮颜色。
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -99,13 +99,13 @@ try {
 
 结果：
 
-![灰色文本段落](gray_text_portions.png)
+![灰色文本片段](gray_text_portions.png)
 
 ## **对齐文本段落**
 
-使用 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) 在文本框内设置段落对齐方式。可选值包括居中、左对齐、右对齐、两端对齐等。
+使用 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment) 在文本框内设置段落对齐方式。该值可以是居中、左对齐、右对齐、两端对齐等。
 
-下面的代码示例演示如何将段落 **居中** 对齐：
+下面的代码示例展示如何将段落对齐到 **中心**：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -117,7 +117,7 @@ try {
     const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // 设置段落的对齐方式为居中。
+    // 为段落设置居中对齐。
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -130,11 +130,11 @@ try {
 
 ![对齐的段落](aligned_paragraph.png)
 
-## **对齐行内字体**
+## **在行内对齐字体**
 
-使用 [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment-int-) 在同一行内对不同字号的文本段落进行垂直对齐。此设置适用于整个段落，并控制每行的对齐方式。
+使用 [ParagraphFormat.setFontAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setFontAlignment) 在一行内垂直对齐不同字号的文本片段。此设置适用于整个段落，并控制其每行内部的对齐方式。
 
-下面的独立示例在同一张幻灯片上创建四个带标签的文本框。每个段落使用 18、36、54 磅的相同文本，并采用不同的字体对齐方式。示例使用 Arial，禁用自动适应和换行，并保持文本框足够大以容纳单行文本。
+下面的独立示例在一张幻灯片上创建四个带标签的文本框。每个段落以 18、36 和 54 磅的相同文本显示，并使用不同的字体对齐方式。示例使用 Arial，禁用自动适应和换行，并保持文本框足够大以容纳单行。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,17 +190,17 @@ try {
 
 结果：
 
-![Baseline、Top、Center 和 Bottom 字体对齐的比较（混合字号）](font_alignment.png)
+![基线、顶部、居中和底部字体对齐的比较（混合字号）](font_alignment.png)
 
-字体对齐基于字体度量，因此单个字母的可见边缘不一定完全对齐。示例同时包含大写字母和下行字符，以帮助展示基线与底部对齐的差异。字体可用性、字符替代、字符本身以及字号差异都会影响结果。框的尺寸、边距、行距、换行和自动适应也会影响布局；比较模式时请使用相同的字体和布局设置。
+字体对齐使用字体度量，因此各个字母的可视边缘不一定完全对齐。示例同时包含大写字母和下行字，以帮助展示基线和底部对齐的区别。字体的可用性与替换、所使用的字符以及字号差异都会影响结果。框架尺寸、边距、行距、换行和自动适应也会影响布局；在比较不同模式时请使用相同的字体和布局设置。
 
-此设置不同于 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-)，后者控制水平段落对齐；也不同于 [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-)，后者在形状内部垂直定位文本块。通过 [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement-float-) 实现的上标和下标格式会相对于基线移动单个段落，而不是为段落行设置字体对齐。
+此设置不同于 [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setAlignment)（控制段落水平对齐）和 [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType)（在形状内垂直定位文本块）。通过 [BasePortionFormat.setEscapement](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setEscapement) 的上标和下标格式会相对于基线移动单个片段，而不是为段落的行设置字体对齐。
 
 ## **设置文本透明度**
 
-文本透明度通过分配给 [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) 的颜色的 Alpha 分量来控制。在以下示例中，`alpha = 50` 是 0–255 范围内的 ARGB Alpha 通道值，而非透明度百分比。
+文本透明度通过分配给 [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat) 的颜色的 alpha 分量来控制。在以下示例中，`alpha = 50` 是 0–255 范围的 ARGB alpha 通道值，而非透明度百分比。
 
-下面的代码示例演示如何为 **整个段落** 应用透明度：
+下面的代码示例展示如何将透明度应用于 **整个段落**：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -230,7 +230,7 @@ try {
 
 ![透明段落](transparent_paragraph.png)
 
-下面的代码示例演示如何为 **粗体字体的文本段落** 应用透明度：
+下面的代码示例展示如何将透明度应用于 **加粗字体的文本片段**：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -252,7 +252,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // 设置文本段落的透明度。
+            // 设置文本片段的透明度。
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -266,13 +266,13 @@ try {
 
 结果：
 
-![透明文本段落](transparent_text_portions.png)
+![透明文本片段](transparent_text_portions.png)
 
 ## **设置文本字符间距**
 
-使用 [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) 可以在文本框中的字符之间增加或减少间距。示例中添加了 3 磅的间距；负值会压缩文本。
+使用 [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setSpacing) 可在文本框中扩展或收紧字符之间的间距。示例中增加了 3 磅的间距；负值会收紧文本。
 
-下面的 JavaScript 代码演示如何在 **整个段落** 中扩大字符间距：
+下面的 JavaScript 代码展示如何在 **整个段落** 中扩大字符间距：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -297,7 +297,7 @@ try {
 
 ![段落中的字符间距](character_spacing_in_paragraph.png)
 
-下面的代码示例演示如何在 **粗体字体的文本段落** 中扩大字符间距：
+下面的代码示例展示如何在 **加粗字体的文本片段** 中扩大字符间距：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -327,13 +327,13 @@ try {
 
 结果：
 
-![文本段落中的字符间距](character_spacing_in_text_portions.png)
+![文本片段中的字符间距](character_spacing_in_text_portions.png)
 
-### **为特定字体禁用连字**
+### **为特定字体禁用字距调整**
 
-在某些情况下，Aspose.Slides 渲染的文本看起来比 PowerPoint 中的相同文本更紧凑。这可能是因为 PowerPoint 在某些字体上会忽略连字数据，即使该字体包含有效的连字信息且在 PowerPoint 设置中已启用连字。
+在某些情况下，Aspose.Slides 渲染的文本可能比 PowerPoint 中显示的相同文本略显紧凑。这可能是因为 PowerPoint 对某些字体会忽略字距调整数据，即使该字体包含有效的字距信息且在 PowerPoint 设置中已启用字距调整。
 
-为使渲染结果更接近 PowerPoint，可为使用受影响字体的文本段落禁用连字。将 [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) 设置为大于实际字号的值。本示例需要 “presentation.pptx”，其中第一张幻灯片的第一形状是一个文本框。它检查有效的字体名称（包括继承的字体），并为使用 Roboto 的段落设置 100 磅阈值：低于该阈值的段落将禁用连字。
+为使渲染输出更接近 PowerPoint，可对使用受影响字体的文本片段禁用字距调整。将 [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize) 设置为大于实际字号的值。本示例需要一个名为 "presentation.pptx" 的文件，其中第一张幻灯片的第一个形状是文本框。示例检查有效的字体名称（包括继承的字体），并为使用 Roboto 的片段设置 100 磅的阈值。这会对字号低于 100 磅的匹配片段禁用字距调整：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -372,13 +372,13 @@ try {
 }
 ```
 
-对于低于阈值的匹配文本，此设置会阻止连字，有助于使 Aspose.Slides 的渲染与 PowerPoint 对受此 PowerPoint‑特定行为影响的字体的视觉输出保持一致。
+对于低于阈值的匹配文本，此设置会阻止字距调整，并有助于将受此 PowerPoint 特定行为影响的字体的 Aspose.Slides 渲染结果与 PowerPoint 的视觉输出对齐。
 
 ## **管理文本字体属性**
 
-可以通过 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) 在段落级别设置字体属性，或通过 [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) 在单个段落上设置。
+可以通过 [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) 在段落级别设置字体属性，或通过 [PortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/) 在单个片段上设置。
 
-下面的示例将第一段的默认字体设置为 12 磅 Times New Roman，并使用粗体、斜体和点状下划线。对单个段落的显式格式会优先于这些默认值。
+下面的示例将第一段的默认字体设置为 12 磅 Times New Roman，并使用粗体、斜体和点线下划线格式。对单个片段的显式格式化将优先于这些默认设置。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -392,7 +392,7 @@ try {
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // 为段落设置字体属性。
+    // 设置段落的字体属性。
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -409,7 +409,7 @@ try {
 
 ![段落的字体属性](font_properties_for_paragraph.png)
 
-下面的示例对有效格式为粗体的段落应用 13 磅 Times New Roman、斜体和点状下划线：
+下面的示例对有效格式为粗体的片段应用 13 磅 Times New Roman、斜体和点线下划线：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -445,13 +445,143 @@ try {
 
 结果：
 
-![文本段落的字体属性](font_properties_for_text_portions.png)
+![文本片段的字体属性](font_properties_for_text_portions.png)
+
+## **控制文本高度归一化**
+
+在复现模板排版或调查字符高度差异时，请使用 [BasePortionFormat.setNormaliseHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setNormaliseHeight)。在 PowerPoint 中，启用归一化会垂直拉伸或压缩各个字符，使它们在文本片段内具有统一的可视高度。但这并不保证不同字体的文本高度相等。
+
+将属性设置为 [NullableBool.True or False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) 可显式启用或禁用归一化。`NullableBool.NotDefined` 表示本地设置未定义，从而使片段继承其值，例如来自段落的 [getDefaultPortionFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat)。这并不等同于 `False`。使用 [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) 并读取 [IBasePortionFormatEffectiveData.getNormaliseHeight](https://reference.aspose.com/slides/java/com.aspose.slides/ibaseportionformateffectivedata/#getNormaliseHeight--) 可获得解析后的布尔值。
+
+下面的独立示例需要安装 **Arial**。它创建两个文本块，分别包含相同的大写字母、小写字母、下行字和重音字符，字号为 54 磅。两个段落默认启用归一化。顶部片段显式禁用；底部片段继承该设置。框架尺寸、边距和段落间距相同，且禁用了换行和自动适应，以保持比较的一致性。示例输出 `False: false` 和 `NotDefined: true`，随后保存为 "text_height_normalization.pptx"。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const settings = [aspose.slides.NullableBool.False, aspose.slides.NullableBool.NotDefined];
+    const settingNames = ["False", "NotDefined"];
+
+    for (let i = 0; i < settings.length; i++) {
+        const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 60 + i * 200, 660, 150);
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+
+        const textFrame = shape.getTextFrame();
+        textFrame.setText("Hxgjpq ÅÉ 0123");
+        textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.None));
+        textFrame.getTextFrameFormat().setWrapText(java.newByte(aspose.slides.NullableBool.False));
+        textFrame.getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Top));
+        textFrame.getTextFrameFormat().setMarginTop(0);
+        textFrame.getTextFrameFormat().setMarginLeft(0);
+
+        const paragraph = textFrame.getParagraphs().get_Item(0);
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceBefore(0);
+        paragraph.getParagraphFormat().setSpaceAfter(0);
+        paragraph.getParagraphFormat().setSpaceWithin(100);
+        paragraph.getParagraphFormat().getDefaultPortionFormat().setNormaliseHeight(java.newByte(aspose.slides.NullableBool.True));
+
+        const portion = paragraph.getPortions().get_Item(0);
+        const font = new aspose.slides.FontData("Arial");
+        portion.getPortionFormat().setLatinFont(font);
+        portion.getPortionFormat().setFontHeight(54);
+        portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(textColor);
+        portion.getPortionFormat().setNormaliseHeight(java.newByte(settings[i]));
+
+        console.log(settingNames[i] + ": " + portion.getPortionFormat().getEffective().getNormaliseHeight());
+    }
+
+    presentation.save("text_height_normalization.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+下面的比较图是从已保存的演示文稿导出的。顶部行的归一化已禁用（`False`）；底部行继承了已启用的设置（`NotDefined` → `True`）。请保持安装 Arial 以重现此外观。
+
+![Arial 54 磅文本，上方禁用归一化，下方继承启用归一化](text_height_normalization.png)
+
+归一化会改变字符高度，但不会改变分配的 [getFontHeight](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFontHeight) 值，该值指定字体大小（磅）。段落的 [setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) 控制行距，而文本框的 [setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) 控制文本或其容器的适配方式。这些设置各自作用不同，可能独立影响整体布局。有关段落格式化和继承的更多信息，请参阅 [管理段落](/slides/zh/nodejs-java/manage-paragraph/)。
+
+## **应用和移除删除线**
+
+在文本片段上使用 [BasePortionFormat.setStrikethroughType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setStrikethroughType) 可显示更正、已取消的词语或以前的价格，而不删除原始文本。将其设置为 [TextStrikethroughType.Single or Double](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/) 可在文本上加一条或两条删除线。
+
+要移除删除线，请传入 [TextStrikethroughType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#None)。这会显式禁用该效果，即使周围的格式指定了删除线。相比之下，[TextStrikethroughType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textstrikethroughtype/#NotDefined) 将本地设置保持未定义，从而使片段继承格式，例如来自段落的设置。它并不保证删除线被移除。使用 [PortionFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/portionformat/#getEffective) 可读取结果格式，包括继承的值。
+
+下面的独立示例创建了三个价格比较。每个段落都有标签、原价和现价的独立片段，因此仅原价受影响。第一行先应用后移除删除线；其余行保留单线和双线删除线。更改此设置可保留文本及其其他格式，包括粗体的原价。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 620, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const labels = ["None: ", "Single: ", "Double: "];
+
+    for (const label of labels) {
+        const paragraph = new aspose.slides.Paragraph();
+        paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Left);
+        paragraph.getParagraphFormat().setSpaceAfter(20);
+
+        const format = paragraph.getParagraphFormat().getDefaultPortionFormat();
+        format.setFontHeight(28);
+        const font = new aspose.slides.FontData("Arial");
+        format.setLatinFont(font);
+        format.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        const textColor = java.getStaticFieldValue("java.awt.Color", "BLACK");
+        format.getFillFormat().getSolidFillColor().setColor(textColor);
+
+        const labelPortion = new aspose.slides.Portion(label);
+        paragraph.getPortions().add(labelPortion);
+
+        const previousPrice = new aspose.slides.Portion("$100");
+        previousPrice.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
+        paragraph.getPortions().add(previousPrice);
+        const currentPrice = new aspose.slides.Portion(" → $80");
+        paragraph.getPortions().add(currentPrice);
+
+        shape.getTextFrame().getParagraphs().add(paragraph);
+    }
+
+    const paragraphs = shape.getTextFrame().getParagraphs();
+
+    // 先应用删除线，然后显式地移除第一条原价的删除线。
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(0).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.None));
+
+    paragraphs.get_Item(1).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Single));
+    paragraphs.get_Item(2).getPortions().get_Item(1).getPortionFormat().setStrikethroughType(java.newByte(aspose.slides.TextStrikethroughType.Double));
+
+    presentation.save("strikethrough.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+结果（从上到下）：无删除线、单线删除线和双线删除线。
+
+![没有删除线、单线删除线和双线删除线的以前价格](strikethrough.png)
 
 ## **设置文本旋转**
 
-使用 [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) 在形状内设置预定义的文本方向。
+使用 [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType) 可在形状内设置预定义的文本方向。
 
-下面的代码示例将形状内的文本方向设置为 [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/)，即 **逆时针旋转 90 度**：
+下面的代码示例将形状中的文本方向设置为 [TextVerticalType.Vertical270](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textverticaltype/)，它将文本 **逆时针旋转 90 度**：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -476,9 +606,9 @@ try {
 
 ## **为文本框设置自定义旋转**
 
-使用 [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) 为 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 设置自定义旋转角度。
+使用 [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setRotationAngle) 可以为 [TextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframe/) 设置自定义旋转角度。
 
-下面的代码示例在形状内部将文本框顺时针旋转 3 度：
+下面的代码示例在形状内将文本框顺时针旋转 3 度：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -500,14 +630,14 @@ try {
 
 ![自定义文本旋转](custom_text_rotation.png)
 
-## **设置段落的行间距**
+## **设置段落行距**
 
-Aspose.Slides 提供 [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)、[ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) 和 [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) 来控制段落间距。这些属性的使用方式如下：
+Aspose.Slides 提供 [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter)、[ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore) 和 [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin) 来控制段落间距。使用方式如下：
 
-* 使用正值指定行间距为行高的百分比。
-* 使用负值指定行间距的磅值。
+* 使用正值将行距指定为行高的百分比。
+* 使用负值将行距指定为磅值。
 
-下面的示例将第一段的内部间距设置为行高的 200%（即双倍行距）：
+下面的示例将第一段内部的间距设置为行高的 200%（双倍行距）：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -529,18 +659,18 @@ try {
 
 结果：
 
-![段落内部的行间距](line_spacing.png)
+![段落内部的行距](line_spacing.png)
 
-## **控制换行行为**
+## **控制换行**
 
-段落换行规则在窄文本块以及混合拉丁文和东亚文字的演示文稿中非常有用。以下方法属于 [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/)，因此适用于整个段落：
+段落换行规则在狭窄的文本块以及混合拉丁文和东亚文字的演示文稿中很有用。以下方法属于 [ParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/)，因此适用于整个段落：
 
-- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak-byte-) 控制拉丁文换行规则。在混合文本中，更改此项也会影响相邻东亚文字和标点的换行位置。
-- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak-byte-) 控制东亚换行规则，包括行首和行末字符的限制。
+- [setLatinLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setLatinLineBreak) 控制拉丁文换行规则。在混合文本中，更改它也会影响相邻东亚文字和标点的换行位置。
+- [setEastAsianLineBreak](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setEastAsianLineBreak) 控制东亚换行规则，包括对行首和行尾字符的限制。
 
-这些规则并不取代 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText-byte-)，后者启用文本框内的自动换行。它们影响换行时的布局；不会插入换行字符。显式的换行符会在段落内部强制换行，独立于可用宽度。
+这些规则并不取代 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setWrapText)，后者在文本框内启用自动换行。它们在换行发生时影响布局，但不会插入换行字符。显式换行符会在段落内强制新行，且不受可用宽度的影响。
 
-下面的独立示例创建一个包含中文和拉丁文的窄文本块，显式设置两种换行选项并保存为 “line_breaking.pptx”。如需实验任一规则，只需更改对应的值并保持其他设置不变。示例使用 24 磅 Arial 和 SimSun，框宽 160 磅，水平文本框边距为 0。调用 [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) 并传入 [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/)，以使文本大小和框尺寸保持固定。
+下面的独立示例创建了一个包含中文和拉丁文的狭窄文本块。它显式设置了两种换行选项并保存为 "line_breaking.pptx"。要尝试任一规则，只需更改相应的值，同时保持其他设置不变。示例使用 24 磅 Arial 和 SimSun，框宽为 160 磅，水平文本框边距为零。调用 [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) 并使用 [TextAutofitType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textautofittype/) 以使文本大小和框架尺寸保持固定。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -583,9 +713,9 @@ try {
 
 ## **控制悬挂标点**
 
-[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation-byte-) 允许符合条件的标点超出文本行右边缘，而不是占据下一行。该设置适用于整个段落，且不同于悬挂缩进。
+[ParagraphFormat.setHangingPunctuation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setHangingPunctuation) 允许符合条件的标点超出文本行的右边缘，而不是占据下一行。它适用于整个段落，并不同于悬挂缩进。
 
-下面的独立示例在宽度为 100 磅的文本框中启用悬挂标点，并保存为 “hanging_punctuation.pptx”。使用 24 磅 Arial 且水平文本框边距为 0 时，句号会保留在 “sentence” 后并超出右侧文本边缘。将属性设置为 [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) 可进行对比：此时句号会占据单独一行。示例启用换行并禁用自动适应，以保持可用宽度固定。
+下面的独立示例在宽度为 100 磅的文本框中启用悬挂标点并保存为 "hanging_punctuation.pptx"。使用 24 磅 Arial 且水平文本框边距为零，最后的句点仍位于 "sentence" 之后，并超出文本右边缘。将属性设置为 [NullableBool.False](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/) 进行对比：在此设置下，句点会占据单独一行。启用换行并禁用自动适应以保持可用宽度固定。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -623,11 +753,11 @@ try {
 }
 ```
 
-并非所有标点符号都可以悬挂。上述 [字体和布局条件](#control-line-breaking) 同样适用于此对比：更改字体、可用宽度、边距或自动适应设置都可能消除可见差异。
+并非所有标点符号都能悬挂。上述 [字体和布局条件](#control-line-breaking) 也适用于此比较：更改字体、可用宽度、边距或自动适应设置可能会消除可见差异。
 
-## **为文本框设置自动适应类型**
+## **设置文本框的自动适应类型**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) 决定文本超出容器边界时的行为。可用于控制文本是缩小、溢出还是自动调整形状大小。下面的示例将形状配置为随文本自动调整大小，并将结果保存为 “autofit_type.pptx”。
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAutofitType) 决定文本在超出容器边界时的行为。可用它控制文本是缩小、溢出还是自动调整形状大小。下面的示例将形状配置为根据文本大小自动调整，并将结果保存为 "autofit_type.pptx"。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -646,11 +776,11 @@ try {
 }
 ```
 
-若想在自动换行后统计行数并观察文本或形状宽度变化，请参阅 [Count Rendered Lines](/slides/zh/nodejs-java/manage-paragraph/)。仅凭行数无法判断文本是否溢出容器。
+要在自动换行后统计行数并查看文本或形状宽度的变化，请参阅 [统计已呈现行数](/slides/zh/nodejs-java/manage-paragraph/)。仅凭行数并不能判断文本是否溢出其容器。
 
-## **设置文本框的锚点**
+## **设置文本框锚点**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) 定义文本在形状内部的垂直定位方式，例如顶部、居中或底部。下面的示例将文本锚定到第一形状的底部，并将结果保存为 “text_anchor.pptx”。
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textframeformat/#setAnchoringType) 定义文本在形状内的垂直定位方式，例如顶部、居中或底部。下面的示例将文本锚定到第一个形状的底部，并将结果保存为 "text_anchor.pptx"。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -669,9 +799,9 @@ try {
 }
 ```
 
-## **设置制表位**
+## **设置文本制表位**
 
-使用 [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) 和 [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs--) 配置段落中的制表位。下面的示例将默认制表间距设置为 100 磅，并在 30 磅处添加左对齐的制表位。这些设置会影响包含制表字符的文本。
+使用 [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize) 和 [ParagraphFormat.getTabs](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraphformat/#getTabs) 可在段落中配置制表位。下面的示例将默认制表间隔设置为 100 磅，并在 30 磅处添加左对齐制表位。这些设置会影响包含制表符的文本。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -695,13 +825,13 @@ try {
 
 结果：
 
-![段落的制表位](paragraph_tabs.png)
+![段落制表位](paragraph_tabs.png)
 
 ## **设置校对语言**
 
-Aspose.Slides 提供 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)，用于为文本段落设置校对语言。校对语言决定 PowerPoint 在拼写和语法检查时使用的语言。
+Aspose.Slides 提供 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)，可为文本片段设置校对语言。校对语言决定 PowerPoint 中拼写和语法检查使用的语言。
 
-下面的示例需要 “presentation.pptx”，其中第一张幻灯片的第一形状是一个文本框，并且至少包含一个段落。示例将第一段的内容替换为 “1。”，将字体设为 SimSun，并将校对语言设置为简体中文 (`zh-CN`)。结果保存为 “proofing_language.pptx”：
+下面的示例需要一个名为 "presentation.pptx" 的文件，其中第一张幻灯片的第一个形状是文本框，且至少包含一个段落。示例将第一段的内容替换为 "1。"，将其字体设为 SimSun，并分配简体中文校对语言 (`zh-CN`)。最终保存为 "proofing_language.pptx"：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -735,7 +865,7 @@ try {
 
 ## **设置默认语言**
 
-使用 [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) 定义在加载或创建演示文稿时创建的文本的默认语言。下面的示例创建一个默认文本语言为美式英语的演示文稿，添加一个文本框，并打印其第一个文本段落的语言代码 `en-US`。
+使用 [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage) 可定义在加载或创建演示文稿时创建的文本的默认语言。下面的示例创建了一个默认文本语言为美式英语的演示文稿，添加了一个文本框，并打印其第一个文本片段的语言代码 `en-US`。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -751,7 +881,7 @@ try {
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // 检查第一段文本的语言。
+    // 检查第一个片段的语言。
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -761,9 +891,9 @@ try {
 
 ## **设置默认文本样式**
 
-要在演示文稿级别应用默认文本格式，请使用 [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--)。
+要在演示文稿级别应用默认文本格式，可使用 [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle)。
 
-下面的示例将新建演示文稿中顶层段落的默认字体设置为 14 磅粗体，并将其保存为 “default_text_style.pptx”。除非更具体的格式覆盖，否则文本会继承这些默认设置。
+下面的示例在新演示文稿中将 14 磅粗体字体设置为顶层段落的默认样式，并保存为 "default_text_style.pptx"。文本可以继承这些默认设置，除非更具体的格式覆盖它们。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -787,13 +917,13 @@ try {
 
 ## **提取带全大写效果的文本**
 
-在 PowerPoint 中，应用 **All Caps** 字体效果会使幻灯片上的文本显示为大写，即使原始输入是小写。使用 Aspose.Slides 获取此类文本段落时，库会返回原始输入的文本。要匹配显示的文本，请检查 [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) 并在值为 `All` 时将返回的字符串转换为大写。
+在 PowerPoint 中，应用 **All Caps** 字体效果会使幻灯片上的文本显示为大写，即使原始输入为小写。使用 Aspose.Slides 检索此类文本片段时，库会返回原始输入的文本。若要匹配显示的文本，需要检查 [TextCapType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/textcaptype/) 并在其值为 `All` 时将返回的字符串转换为大写。
 
-此示例需要 “sample2.pptx”，其中第一张幻灯片的第一形状是一个文本框。其第一段的第一个段落包含了带 All Caps 效果的 “Hello, Aspose!”，如下所示。
+此示例需要一个名为 "sample2.pptx" 的文件，第一张幻灯片的第一个形状为文本框。其第一段的第一个片段包含带有 All Caps 效果的 "Hello, Aspose!"，如下所示。
 
 ![全大写效果](all_caps_effect.png)
 
-下面的代码示例演示如何提取带 **All Caps** 效果的文本：
+下面的代码示例展示如何提取带有 **All Caps** 效果的文本：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -824,12 +954,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **常见问题解答**
+## **常见问题**
 
-**如何修改幻灯片中表格的文本？**
+**如何在幻灯片上的表格中修改文本？**
 
-要修改幻灯片中表格的文本，请使用 [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/)。遍历单元格，并通过 [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame--) 更新每个单元格的文本框，以及通过 [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) 更新段落格式。
+要在幻灯片的表格中修改文本，请使用 [Table](https://reference.aspose.com/slides/nodejs-java/aspose.slides/table/)。遍历单元格，并通过 [Cell.getTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/cell/#getTextFrame) 更新每个单元格，通过 [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph/#getParagraphFormat) 更新段落格式。
 
-**如何为 PowerPoint 幻灯片中的文本应用渐变颜色？**
+**如何在 PowerPoint 幻灯片上的文本应用渐变颜色？**
 
-要为文本应用渐变颜色，请使用 [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--)。将 [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) 设置为 [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/)，并配置渐变停靠点、方向和透明度。
+要为文本应用渐变颜色，请使用 [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/baseportionformat/#getFillFormat)。将 [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) 设置为 [FillType.Gradient](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/)，并配置渐变止点、方向和透明度。

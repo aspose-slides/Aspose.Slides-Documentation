@@ -16,7 +16,7 @@ keywords:
 - ángulo de rotación
 - marco de texto
 - interlineado
-- propiedad de ajuste automático
+- propiedad autofit
 - ancla del marco de texto
 - tabulación de texto
 - idioma predeterminado
@@ -25,23 +25,23 @@ keywords:
 - presentación
 - Python
 - Aspose.Slides
-description: "Formatee y estilice el texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python mediante .NET. Personalice fuentes, colores, alineación y más."
+description: "Formatear y diseñar texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python a través de .NET. Personaliza fuentes, colores, alineación y más."
 ---
 ## **Visión general**
 
-Este artículo muestra cómo dar formato al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python mediante .NET. Cubre colores de fondo, transparencia, espaciado de caracteres, propiedades de fuentes, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabulaciones y configuraciones de idioma.
+Este artículo muestra cómo dar formato al texto en presentaciones de PowerPoint y OpenDocument usando Aspose.Slides para Python a través de .NET. Cubre colores de fondo, transparencia, espaciado de caracteres, propiedades de fuente, rotación, espaciado de párrafos, comportamiento de ajuste automático, anclaje de texto, tabulaciones y configuraciones de idioma.
 
-A menos que se indique lo contrario, los ejemplos utilizan [sample.pptx](sample.pptx). La primera forma en su primera diapositiva es un cuadro de texto, y su primer párrafo contiene el texto que se muestra a continuación. Tanto los índices de diapositiva como de forma son basados en cero. Los ejemplos que seleccionan porciones en negrita usan formato efectivo, incluido el formato de negrita heredado:
+A menos que se indique lo contrario, los ejemplos utilizan [sample.pptx](sample.pptx). La primera forma en su primera diapositiva es un cuadro de texto, y su primer párrafo contiene el texto que se muestra a continuación. Tanto los índices de diapositivas como los de formas empiezan en cero. Los ejemplos que seleccionan porciones en negrita usan formato efectivo, incluido el formato negrita heredado:
 
 ![Texto de ejemplo](sample_text.png)
 
-Para buscar y resaltar texto literal o coincidencias de expresiones regulares, consulte [Buscar y reemplazar texto](/slides/es/python-net/search-and-replace-text/).
+Para encontrar y resaltar texto literal o coincidencias de expresiones regulares, vea [Buscar y reemplazar texto](/slides/es/python-net/search-and-replace-text/).
 
 ## **Establecer color de fondo del texto**
 
-Utilice [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) para establecer el color de resaltado predeterminado para un párrafo, o utilice [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) para porciones de texto individuales.
+Utilice [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) para establecer el color de resaltado predeterminado de un párrafo, o use [BasePortionFormat.highlight_color](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/highlight_color/) para porciones de texto individuales.
 
-El siguiente ejemplo establece un resaltado gris claro como predeterminado para el primer párrafo. Los colores de resaltado explícitos en porciones individuales tienen prioridad sobre este valor predeterminado:
+El siguiente ejemplo establece un resaltado gris claro como predeterminado para el primer párrafo. Los colores de resaltado explícitos en porciones individuales tienen prioridad sobre este predeterminado:
 
 ```python
 import aspose.pydrawing as draw
@@ -89,7 +89,7 @@ El resultado:
 
 ## **Alinear párrafos de texto**
 
-Utilice [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) para establecer la alineación de párrafos dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, alineado a la derecha, justificado, etc.
+Utilice [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/) para establecer la alineación del párrafo dentro de un marco de texto. El valor puede ser centrado, alineado a la izquierda, alineado a la derecha, justificado, etc.
 
 El siguiente ejemplo de código muestra cómo alinear el párrafo al **centro**:
 
@@ -114,9 +114,9 @@ El resultado:
 
 ## **Alinear fuentes dentro de una línea**
 
-Utilice [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) para alinear verticalmente las porciones de texto de diferentes tamaños de fuente dentro de una línea. Esta configuración se aplica a todo el párrafo y controla la alineación dentro de cada una de sus líneas.
+Utilice [ParagraphFormat.font_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/font_alignment/) para alinear verticalmente porciones de texto de diferentes tamaños de fuente dentro de una línea. Esta configuración se aplica a todo el párrafo y controla la alineación dentro de cada una de sus líneas.
 
-El siguiente ejemplo independiente crea cuatro cuadros de texto etiquetados en una diapositiva. Cada párrafo contiene el mismo texto en tamaños de 18, 36 y 54 puntos, con una alineación de fuente diferente. Utiliza Arial, deshabilita el ajuste automático y el ajuste de línea, y mantiene los marcos de texto lo suficientemente grandes para una sola línea.
+El siguiente ejemplo independiente crea cuatro cuadros de texto etiquetados en una diapositiva. Cada párrafo contiene el mismo texto a 18, 36 y 54 puntos, con una alineación de fuente diferente. Utiliza Arial, desactiva el ajuste automático y el ajuste de línea, y mantiene los marcos de texto lo suficientemente grandes para una sola línea.
 
 ```python
 import aspose.pydrawing as draw
@@ -165,15 +165,15 @@ with slides.Presentation() as presentation:
 
 El resultado:
 
-![Comparación de la alineación de fuentes Baseline, Top, Center y Bottom con tamaños de fuente mixtos](font_alignment.png)
+![Comparación de alineación de fuente Baseline, Top, Center y Bottom con tamaños de fuente mixtos](font_alignment.png)
 
-La alineación de fuentes utiliza métricas tipográficas, por lo que los bordes visibles de las letras individuales no siempre se alinean exactamente. El ejemplo incluye tanto una letra mayúscula como un descendente para ayudar a mostrar la diferencia entre la alineación de línea base y la alineación inferior. La disponibilidad y sustitución de fuentes, los caracteres utilizados y la diferencia de tamaños de fuente afectan el resultado. Las dimensiones del marco, los márgenes, el interlineado, el ajuste de línea y el ajuste automático también influyen en el diseño; utilice las mismas fuentes y configuraciones de diseño al comparar los modos.
+La alineación de fuente utiliza métricas tipográficas, por lo que los bordes visibles de las letras individuales no necesariamente se alinean exactamente. El ejemplo incluye una letra mayúscula y un descendente para ayudar a mostrar la diferencia entre la alineación baseline y bottom. La disponibilidad y sustitución de fuentes, los caracteres utilizados y la diferencia de tamaños de fuente afectan el resultado. Las dimensiones del marco, márgenes, espaciado de línea, ajuste de texto y ajuste automático también influyen en el diseño; utilice las mismas fuentes y configuraciones de diseño al comparar modos.
 
-Esta configuración difiere de [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/), que controla la alineación horizontal del párrafo, y de [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/), que posiciona el bloque de texto verticalmente dentro de su forma. El formato de superíndice y subíndice a través de [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) desplaza porciones individuales respecto a la línea base en lugar de establecer la alineación de fuente para las líneas del párrafo.
+Esta configuración difiere de [ParagraphFormat.alignment](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/alignment/), que controla la alineación horizontal del párrafo, y de [TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/), que posiciona el bloque de texto verticalmente dentro de su forma. El formato de superíndice y subíndice mediante [BasePortionFormat.escapement](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/escapement/) desplaza las porciones individuales respecto a la línea base en lugar de establecer la alineación de fuente para las líneas del párrafo.
 
 ## **Establecer transparencia para el texto**
 
-La transparencia del texto se controla mediante el componente alfa del color asignado a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). En los ejemplos siguientes, `alpha = 50` es un valor de canal alfa ARGB en la escala 0–255, no un porcentaje de transparencia.
+La transparencia del texto se controla mediante el componente alfa del color asignado a [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). En los ejemplos siguientes, `alpha = 50` es un valor de canal alfa ARGB en la escala de 0–255, no un porcentaje de transparencia.
 
 El siguiente ejemplo de código muestra cómo aplicar transparencia al **párrafo completo**:
 
@@ -229,7 +229,7 @@ El resultado:
 
 ## **Establecer espaciado de caracteres para el texto**
 
-Utilice [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) para ampliar o condensar el espaciado entre caracteres en un cuadro de texto. Los ejemplos añaden 3 puntos de espaciado; los valores negativos condensan el texto.
+Utilice [BasePortionFormat.spacing](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/spacing/) para ampliar o contraer el espaciado entre caracteres en un cuadro de texto. Los ejemplos añaden 3 puntos de espaciado; los valores negativos contraen el texto.
 
 El siguiente código Python muestra cómo ampliar el espaciado de caracteres en el **párrafo completo**:
 
@@ -243,7 +243,7 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph = auto_shape.text_frame.paragraphs[0]
 
     # Nota: Use valores negativos para comprimir el espaciado de caracteres.
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # Expandir espaciado de caracteres.
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # Expandir el espaciado de caracteres.
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -266,7 +266,7 @@ with slides.Presentation("sample.pptx") as presentation:
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
             # Nota: Use valores negativos para comprimir el espaciado de caracteres.
-            portion.portion_format.spacing = 3  # Expandir espaciado de caracteres.
+            portion.portion_format.spacing = 3  # Expandir el espaciado de caracteres.
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
@@ -277,9 +277,9 @@ El resultado:
 
 ### **Desactivar el kerning para fuentes específicas**
 
-En algunos casos, el texto renderizado por Aspose.Slides puede parecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede suceder porque PowerPoint puede ignorar los datos de kerning para ciertas fuentes, incluso cuando la fuente contiene información de kerning válida y el kerning está habilitado en la configuración de PowerPoint.
+En algunos casos, el texto renderizado por Aspose.Slides puede parecer ligeramente más ajustado que el mismo texto mostrado en PowerPoint. Esto puede ocurrir porque PowerPoint puede ignorar los datos de kerning para ciertas fuentes, incluso cuando la fuente contiene información de kerning válida y el kerning está habilitado en la configuración de PowerPoint.
 
-Para acercar la salida renderizada a la de PowerPoint en dichos casos, puede desactivar el kerning para las porciones de texto que usan la fuente afectada. Establezca [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) a un valor mayor que el tamaño real de la fuente. Este ejemplo requiere “presentation.pptx” con un cuadro de texto como primera forma en la primera diapositiva. Verifica los nombres de fuentes efectivos, incluidas las fuentes heredadas, y establece un umbral de 100 puntos para las porciones que usan Roboto. Esto desactiva el kerning para las porciones coincidentes con un tamaño de fuente inferior a 100 puntos:
+Para que la salida renderizada se acerque más a PowerPoint en esos casos, puede desactivar el kerning para las porciones de texto que utilizan la fuente afectada. Establezca [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) a un valor mayor que el tamaño real de la fuente. Este ejemplo requiere "presentation.pptx" con un cuadro de texto como primera forma en la primera diapositiva. Comprueba los nombres de fuentes efectivas, incluidas las fuentes heredadas, y establece un umbral de 100 puntos para las porciones que usan Roboto. Esto desactiva el kerning para las porciones coincidentes con un tamaño de fuente inferior a 100 puntos:
 
 ```python
 import aspose.slides as slides
@@ -302,13 +302,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Para el texto coincidente por debajo del umbral, esta configuración evita el kerning y puede ayudar a alinear la renderización de Aspose.Slides con la salida visual de PowerPoint para las fuentes afectadas por este comportamiento específico de PowerPoint.
+Para el texto coincidente por debajo del umbral, esta configuración evita el kerning y puede ayudar a alinear la representación de Aspose.Slides con la salida visual de PowerPoint para las fuentes afectadas por este comportamiento específico de PowerPoint.
 
 ## **Gestionar propiedades de fuente del texto**
 
-Las propiedades de fuente pueden establecerse a nivel de párrafo mediante [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) o en porciones individuales mediante [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/).
-
-El siguiente ejemplo establece la fuente predeterminada del primer párrafo a Times New Roman de 12 puntos con formato en negrita, cursiva y subrayado punteado. El formato explícito en porciones individuales tiene prioridad sobre estos valores predeterminados:
+Las propiedades de fuente pueden establecerse a nivel de párrafo mediante [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) o en porciones individuales mediante [PortionFormat](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/). El siguiente ejemplo establece la fuente predeterminada del primer párrafo a Times New Roman de 12 puntos con formato negrita, cursiva y subrayado punteado. El formato explícito en porciones individuales tiene prioridad sobre estos valores predeterminados.
 
 ```python
 import aspose.slides as slides
@@ -319,7 +317,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = slide.shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # Establecer las propiedades de fuente para el párrafo.
+    # Establecer las propiedades de fuente del párrafo.
     portion_format = paragraph.paragraph_format.default_portion_format
     portion_format.font_height = 12
     portion_format.font_bold = slides.NullableBool.TRUE
@@ -347,7 +345,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # Establecer las propiedades de fuente para la porción de texto.
+            # Establecer las propiedades de fuente de la porción de texto.
             portion.portion_format.font_height = 13
             portion.portion_format.font_italic = slides.NullableBool.TRUE
             portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
@@ -359,6 +357,118 @@ with slides.Presentation("sample.pptx") as presentation:
 El resultado:
 
 ![Las propiedades de fuente de las porciones de texto](font_properties_for_text_portions.png)
+
+## **Controlar la normalización de altura del texto**
+
+Utilice [BasePortionFormat.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/normalise_height/) al reproducir tipografía de plantillas o investigar diferencias en la altura de los caracteres. En PowerPoint, habilitar la normalización estira o comprime verticalmente los caracteres individuales para darles una altura visible uniforme dentro de la porción de texto. No garantiza alturas de texto iguales entre diferentes fuentes.
+
+Establezca la propiedad a [NullableBool.TRUE o FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) para habilitar o desactivar explícitamente la normalización. `NullableBool.NOT_DEFINED` deja la configuración local sin definir, de modo que la porción hereda su valor, por ejemplo, del [default_portion_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_portion_format/) del párrafo. No equivale a `False`. Utilice [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) y lea [IBasePortionFormatEffectiveData.normalise_height](https://reference.aspose.com/slides/python-net/aspose.slides/ibaseportionformateffectivedata/normalise_height/) para obtener el valor booleano resuelto.
+
+El siguiente ejemplo independiente requiere que **Arial** esté instalado. Crea dos bloques de texto que contienen las mismas letras mayúsculas, minúsculas, descendentes y caracteres acentuados a 54 puntos. Ambos párrafos habilitan la normalización por defecto. La porción superior la desactiva explícitamente; la inferior la hereda. Los tamaños del marco, márgenes y espaciado de párrafo son idénticos, con ajuste de línea y autofit desactivados para mantener la comparación consistente. El ejemplo imprime `FALSE: False` y `NOT_DEFINED: True`, luego guarda "text_height_normalization.pptx".
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    settings = [slides.NullableBool.FALSE, slides.NullableBool.NOT_DEFINED]
+
+    for i, setting in enumerate(settings):
+        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 60 + i * 200, 660, 150)
+        shape.fill_format.fill_type = slides.FillType.NO_FILL
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+        text_frame = shape.text_frame
+        text_frame.text = "Hxgjpq ÅÉ 0123"
+        text_frame.text_frame_format.autofit_type = slides.TextAutofitType.NONE
+        text_frame.text_frame_format.wrap_text = slides.NullableBool.FALSE
+        text_frame.text_frame_format.anchoring_type = slides.TextAnchorType.TOP
+        text_frame.text_frame_format.margin_top = 0
+        text_frame.text_frame_format.margin_left = 0
+
+        paragraph = text_frame.paragraphs[0]
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.space_before = 0
+        paragraph.paragraph_format.space_after = 0
+        paragraph.paragraph_format.space_within = 100
+        paragraph.paragraph_format.default_portion_format.normalise_height = slides.NullableBool.TRUE
+
+        portion = paragraph.portions[0]
+        portion.portion_format.latin_font = slides.FontData("Arial")
+        portion.portion_format.font_height = 54
+        portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+        portion.portion_format.fill_format.solid_fill_color.color = "black"
+        portion.portion_format.normalise_height = setting
+
+        print(f"{setting.name}: {portion.portion_format.get_effective().normalise_height}")
+
+    presentation.save("text_height_normalization.pptx", slides.export.SaveFormat.PPTX)
+```
+
+La comparación a continuación se exportó de la presentación guardada. La fila superior tiene la normalización desactivada (`FALSE`); la fila inferior hereda la configuración habilitada (`NOT_DEFINED` → `True`). Mantenga Arial instalado para reproducir esta apariencia.
+
+![Texto Arial de 54 puntos con normalización desactivada arriba y normalización heredada habilitada abajo](text_height_normalization.png)
+
+La normalización cambia la altura de los caracteres sin modificar el valor asignado de [font_height](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/font_height/), que especifica el tamaño de fuente en puntos. El [space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) del párrafo controla el espaciado de líneas, mientras que [autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) del marco de texto controla cómo el texto o su contenedor se ajusta. Estas configuraciones sirven a propósitos diferentes y pueden afectar el diseño global de forma independiente. Para más información sobre el formato de párrafos y la herencia, consulte [Gestionar párrafo](/slides/es/python-net/manage-paragraph/).
+
+## **Aplicar y eliminar tachado**
+
+Utilice [BasePortionFormat.strikethrough_type](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/strikethrough_type/) en una porción de texto para mostrar correcciones, términos cancelados o precios anteriores sin eliminar el texto original. Establézcalo en [TextStrikethroughType.SINGLE o DOUBLE](https://reference.aspose.com/slides/python-net/aspose.slides/textstrikethroughtype/) para una o dos líneas a través del texto.
+
+Para eliminar el tachado, asigne `TextStrikethroughType.NONE`. Esto desactiva explícitamente el efecto, incluso si el formato circundante especifica tachado. En cambio, `TextStrikethroughType.NOT_DEFINED` deja la configuración local sin definir, permitiendo que la porción herede el formato, por ejemplo, del párrafo. No garantiza que el tachado se elimine. Utilice [PortionFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/portionformat/get_effective/) para leer el formato resultante, incluidos los valores heredados.
+
+El siguiente ejemplo independiente crea tres comparaciones de precios. Cada párrafo tiene porciones separadas para la etiqueta, el precio anterior y el precio actual, de modo que solo el precio anterior se ve afectado. La primera fila aplica y luego elimina el tachado; las demás filas conservan el tachado simple y doble. Cambiar esta propiedad preserva el texto y su otro formato, incluida la negrita del precio anterior.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 620, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.text_frame.paragraphs.clear()
+
+    labels = ["None: ", "Single: ", "Double: "]
+
+    for label in labels:
+        paragraph = slides.Paragraph()
+        paragraph.paragraph_format.alignment = slides.TextAlignment.LEFT
+        paragraph.paragraph_format.space_after = 20
+
+        portion_format = paragraph.paragraph_format.default_portion_format
+        portion_format.font_height = 28
+        portion_format.latin_font = slides.FontData("Arial")
+        portion_format.fill_format.fill_type = slides.FillType.SOLID
+        portion_format.fill_format.solid_fill_color.color = draw.Color.black
+
+        paragraph.portions.add(slides.Portion(label))
+
+        previous_price = slides.Portion("$100")
+        previous_price.portion_format.font_bold = slides.NullableBool.TRUE
+        paragraph.portions.add(previous_price)
+        paragraph.portions.add(slides.Portion(" → $80"))
+
+        shape.text_frame.paragraphs.add(paragraph)
+
+    paragraphs = shape.text_frame.paragraphs
+
+    # Aplicar tachado, y luego eliminarlo explícitamente del primer precio anterior.
+    paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
+    paragraphs[0].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.NONE
+
+    paragraphs[1].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.SINGLE
+    paragraphs[2].portions[1].portion_format.strikethrough_type = slides.TextStrikethroughType.DOUBLE
+
+    presentation.save("strikethrough.pptx", slides.export.SaveFormat.PPTX)
+```
+
+El resultado, de arriba a abajo: sin tachado, tachado simple y tachado doble.
+
+![Precios anteriores sin tachado, con tachado simple y con tachado doble](strikethrough.png)
 
 ## **Establecer rotación del texto**
 
@@ -387,7 +497,7 @@ El resultado:
 
 Utilice [TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/rotation_angle/) para establecer un ángulo de rotación personalizado para un [TextFrame](https://reference.aspose.com/slides/python-net/aspose.slides/textframe/).
 
-El siguiente ejemplo de código rota el marco de texto 3 grados en sentido horario dentro de la forma:
+El siguiente ejemplo de código gira el marco de texto 3 grados en el sentido de las agujas del reloj dentro de la forma:
 
 ```python
 import aspose.slides as slides
@@ -406,12 +516,12 @@ El resultado:
 
 ![La rotación personalizada del texto](custom_text_rotation.png)
 
-## **Establecer interlineado de los párrafos**
+## **Establecer espaciado de líneas de los párrafos**
 
 Aspose.Slides ofrece [ParagraphFormat.space_after](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_before/) y [ParagraphFormat.space_within](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/space_within/) para controlar el espaciado de párrafos. Estas propiedades se utilizan de la siguiente manera:
 
-* Use un valor positivo para especificar el interlineado como porcentaje de la altura de la línea.
-* Use un valor negativo para especificar el interlineado en puntos.
+* Utilice un valor positivo para especificar el espaciado de línea como un porcentaje de la altura de la línea.
+* Utilice un valor negativo para especificar el espaciado de línea en puntos.
 
 El siguiente ejemplo establece el espaciado dentro del primer párrafo al 200 % de la altura de la línea (doble espacio):
 
@@ -431,18 +541,18 @@ with slides.Presentation("sample.pptx") as presentation:
 
 El resultado:
 
-![El interlineado dentro del párrafo](line_spacing.png)
+![El espaciado de líneas dentro del párrafo](line_spacing.png)
 
 ## **Controlar el salto de línea**
 
-Las reglas de salto de línea de los párrafos son útiles en bloques de texto estrechos y presentaciones que mezclan texto latino y asiático oriental. Las siguientes propiedades pertenecen a [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/), por lo que se aplican a un párrafo completo:
+Las reglas de salto de línea de los párrafos son útiles en bloques de texto estrechos y presentaciones que combinan texto latino y asiático oriental. Las siguientes propiedades pertenecen a [ParagraphFormat](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/), por lo que se aplican a todo el párrafo:
 
-- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) controla las reglas de salto de línea latinas. En texto mixto, cambiarlo también puede cambiar dónde se envuelven el texto asiático oriental adyacente y la puntuación.
-- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) controla las reglas de salto de línea del asiático oriental, incluidas las restricciones sobre los caracteres al comienzo y al final de una línea.
+- [latin_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/latin_line_break/) controla las reglas de salto de línea para texto latino. En texto mixto, cambiarlo también puede alterar dónde se ajusta el texto y la puntuación asiática oriental adyacente.
+- [east_asian_line_break](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/east_asian_line_break/) controla las reglas de salto de línea para texto asiático oriental, incluidas las restricciones de caracteres al principio y al final de una línea.
 
-Estas reglas no sustituyen a [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/), que habilita el ajuste automático dentro de un marco de texto. Influyen en el diseño cuando ocurre el ajuste; no insertan caracteres de salto de línea. Un salto de línea explícito fuerza una nueva línea dentro del párrafo independientemente del ancho disponible.
+Estas reglas no reemplazan [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/wrap_text/), que habilita el ajuste automático dentro de un marco de texto. Influyen en el diseño cuando ocurre el ajuste; no insertan caracteres de salto de línea. Un salto de línea explícito fuerza una nueva línea dentro del párrafo independientemente del ancho disponible.
 
-El siguiente ejemplo independiente crea un bloque de texto estrecho que contiene texto chino y latino. Establece ambas propiedades de salto de línea de forma explícita y guarda “line_breaking.pptx”. Para experimentar con cualquiera de las reglas, cambie el valor de esa propiedad manteniendo los demás ajustes fijos. El ejemplo utiliza Arial de 24 puntos y SimSun con un ancho de marco de 160 puntos y márgenes horizontales del marco en cero. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) se establece en [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/) para que el tamaño del texto y las dimensiones del marco permanezcan fijos.
+El siguiente ejemplo independiente crea un bloque de texto estrecho que contiene chino y texto latino. Configura ambas propiedades de salto de línea explícitamente y guarda "line_breaking.pptx". Para experimentar con cualquiera de las reglas, cambie el valor de esa propiedad manteniendo los demás ajustes fijos. El ejemplo usa Arial de 24 puntos y SimSun con un ancho de marco de 160 puntos y márgenes horizontales del marco de texto en cero. [TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) está establecido en [TextAutofitType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/textautofittype/) para que el tamaño del texto y las dimensiones del marco permanezcan fijos.
 
 ```python
 import aspose.pydrawing as draw
@@ -476,11 +586,11 @@ with slides.Presentation() as presentation:
     presentation.save("line_breaking.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Controlar puntuación colgante**
+## **Controlar la puntuación colgante**
 
 [ParagraphFormat.hanging_punctuation](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/hanging_punctuation/) permite que la puntuación elegible se extienda más allá del borde derecho de la línea de texto en lugar de ocupar la siguiente línea. Se aplica a todo el párrafo y es diferente de una sangría colgante.
 
-El siguiente ejemplo independiente habilita la puntuación colgante en un marco de texto de 100 puntos de ancho y guarda “hanging_punctuation.pptx”. Con Arial de 24 puntos y márgenes horizontales del marco en cero, el punto final permanece después de “sentence” y se extiende más allá del borde derecho del texto. Establezca la propiedad a [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) para comparar: con estos ajustes, el punto ocupa una línea separada. El ajuste de línea está habilitado y el ajuste automático deshabilitado para mantener el ancho disponible fijo.
+El siguiente ejemplo independiente habilita la puntuación colgante en un marco de texto de 100 puntos de ancho y guarda "hanging_punctuation.pptx". Con Arial de 24 puntos y márgenes horizontales del marco de texto en cero, el punto final permanece después de "sentence" y se extiende más allá del borde derecho del texto. Establezca la propiedad a [NullableBool.FALSE](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/) para comparar: con estos ajustes, el punto ocupa una línea separada. El ajuste de texto está habilitado y el autofit desactivado para mantener el ancho disponible fijo.
 
 ```python
 import aspose.pydrawing as draw
@@ -512,11 +622,11 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_punctuation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-No todos los signos de puntuación pueden colgar. El resultado visible depende de las [condiciones de fuente y diseño](#control-line-breaking): cambiar la fuente, el ancho disponible, los márgenes o los ajustes de ajuste automático puede eliminar la diferencia visible.
+No todos los signos de puntuación pueden colgar. El resultado visible depende de las [condiciones de fuente y diseño](#control-line-breaking): cambiar la fuente, el ancho disponible, los márgenes o la configuración de autofit puede eliminar la diferencia visible.
 
 ## **Establecer tipo de ajuste automático para marcos de texto**
 
-[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) determina cómo se comporta el texto cuando excede los límites de su contenedor. Úselo para controlar si el texto se reduce, desborda o redimensiona la forma automáticamente. El siguiente ejemplo configura la forma para redimensionarse y ajustarse al texto y guarda el resultado en “autofit_type.pptx”.
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/autofit_type/) determina cómo se comporta el texto cuando supera los límites de su contenedor. Úselo para controlar si el texto se reduce, desborda o redimensiona la forma automáticamente. El siguiente ejemplo configura la forma para que cambie de tamaño y se ajuste al texto y guarda el resultado en "autofit_type.pptx".
 
 ```python
 import aspose.slides as slides
@@ -531,11 +641,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Para contar líneas después del ajuste automático y ver cómo cambia el resultado al modificar el ancho del texto o de la forma, consulte [Contar líneas renderizadas](/slides/es/python-net/manage-paragraph/). El número de líneas por sí solo no indica si el texto se desborda de su contenedor.
+Para contar líneas después del ajuste automático y ver cómo cambian el texto o el ancho de la forma, consulte [Contar líneas renderizadas](/slides/es/python-net/manage-paragraph/). El número de líneas por sí solo no indica si el texto sobresale de su contenedor.
 
-## **Establecer ancla de los marcos de texto**
+## **Establecer anclaje de los marcos de texto**
 
-[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo, en la parte superior, media o inferior. El siguiente ejemplo ancla el texto en la parte inferior de la primera forma y guarda el resultado en “text_anchor.pptx”.
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/python-net/aspose.slides/textframeformat/anchoring_type/) define cómo se posiciona verticalmente el texto dentro de una forma, por ejemplo, en la parte superior, media o inferior. El siguiente ejemplo ancla el texto en la parte inferior de la primera forma y guarda el resultado en "text_anchor.pptx".
 
 ```python
 import aspose.slides as slides
@@ -552,7 +662,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Establecer tabulación del texto**
 
-Utilice [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) y [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) para configurar las tabulaciones en un párrafo. El siguiente ejemplo establece el intervalo de tabulación predeterminado a 100 puntos y añade una tabulación alineada a la izquierda en 30 puntos. Estas configuraciones afectan al texto que contiene caracteres de tabulación.
+Utilice [ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/default_tab_size/) y [ParagraphFormat.tabs](https://reference.aspose.com/slides/python-net/aspose.slides/paragraphformat/tabs/) para configurar los tabuladores en un párrafo. El siguiente ejemplo establece el intervalo de tabulación predeterminado a 100 puntos y añade un tabulador alineado a la izquierda en 30 puntos. Estas configuraciones afectan al texto que contiene caracteres de tabulación.
 
 ```python
 import aspose.slides as slides
@@ -571,13 +681,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 El resultado:
 
-![Las tabulaciones del párrafo](paragraph_tabs.png)
+![Los tabuladores del párrafo](paragraph_tabs.png)
 
-## **Establecer idioma de revisión**
+## **Establecer idioma de corrección**
 
-Aspose.Slides proporciona [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/), que permite establecer el idioma de revisión para una porción de texto. El idioma de revisión determina el idioma utilizado para la corrección ortográfica y gramatical en PowerPoint.
+Aspose.Slides proporciona [BasePortionFormat.language_id](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/language_id/), que permite establecer el idioma de corrección para una porción de texto. El idioma de corrección determina el idioma utilizado para la revisión ortográfica y gramatical en PowerPoint.
 
-El siguiente ejemplo requiere “presentation.pptx” con un cuadro de texto como primera forma en la primera diapositiva y al menos un párrafo. Reemplaza el contenido del primer párrafo por “1。”, establece SimSun como su fuente y asigna el idioma de revisión chino simplificado (`zh-CN`). Guarda el resultado en “proofing_language.pptx”:
+El siguiente ejemplo requiere "presentation.pptx" con un cuadro de texto como primera forma en la primera diapositiva y al menos un párrafo. Reemplaza el contenido del primer párrafo con "1。", establece SimSun como su fuente y asigna el idioma de corrección chino simplificado (`zh-CN`). Guarda el resultado en "proofing_language.pptx":
 
 ```python
 import aspose.slides as slides
@@ -597,7 +707,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     text_portion.portion_format.east_asian_font = font
     text_portion.portion_format.latin_font = font
 
-    # Establecer el idioma de revisión a chino simplificado.
+    # Establecer el idioma de corrección a chino simplificado.
     text_portion.portion_format.language_id = "zh-CN"
 
     text_portion.text = "1。"
@@ -608,7 +718,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Establecer idioma predeterminado**
 
-Utilice [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) para definir el idioma predeterminado del texto creado al cargar o crear una presentación. El siguiente ejemplo crea una presentación con inglés de EE. UU. como idioma de texto predeterminado, añade un cuadro de texto y muestra `en-US` para su primera porción de texto.
+Utilice [LoadOptions.default_text_language](https://reference.aspose.com/slides/python-net/aspose.slides/loadoptions/default_text_language/) para definir el idioma predeterminado del texto creado al cargar o crear una presentación. El siguiente ejemplo crea una presentación con inglés de EE. UU como idioma de texto predeterminado, añade un cuadro de texto y muestra `en-US` para su primera porción de texto.
 
 ```python
 import aspose.slides as slides
@@ -619,7 +729,7 @@ load_options.default_text_language = "en-US"
 with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # Añadir una nueva forma rectangular con texto.
+    # Agregar una nueva forma rectangular con texto.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
@@ -630,9 +740,9 @@ with slides.Presentation(load_options) as presentation:
 
 ## **Establecer estilo de texto predeterminado**
 
-Para aplicar formato de texto predeterminado a nivel de presentación, utilice [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
+Para aplicar formato de texto predeterminado a nivel de presentación, use [Presentation.default_text_style](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/default_text_style/).
 
-El siguiente ejemplo establece una fuente en negrita de 14 puntos como predeterminada para los párrafos de nivel superior en una nueva presentación y lo guarda en “default_text_style.pptx”. El texto puede heredar estos valores predeterminados a menos que un formato más específico los sobrescriba.
+El siguiente ejemplo establece una fuente en negrita de 14 puntos como predeterminada para los párrafos de nivel superior en una nueva presentación y la guarda en "default_text_style.pptx". El texto puede heredar estos valores predeterminados a menos que un formato más específico los anule.
 
 ```python
 import aspose.slides as slides
@@ -648,13 +758,13 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Extraer texto con el efecto Todo en mayúsculas**
+## **Extraer texto con el efecto de mayúsculas**
 
-En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque originalmente se haya escrito en minúsculas. Cuando recupera dicha porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para que coincida con el texto mostrado, compruebe [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) y convierta la cadena devuelta a mayúsculas cuando el valor sea `ALL`.
+En PowerPoint, aplicar el efecto de fuente **All Caps** hace que el texto aparezca en mayúsculas en la diapositiva aunque originalmente se haya escrito en minúsculas. Cuando recupera una porción de texto con Aspose.Slides, la biblioteca devuelve el texto tal como se ingresó. Para que coincida con el texto mostrado, compruebe [TextCapType](https://reference.aspose.com/slides/python-net/aspose.slides/textcaptype/) y convierta la cadena devuelta a mayúsculas cuando el valor sea `ALL`.
 
-El ejemplo requiere “sample2.pptx” con un cuadro de texto como primera forma en la primera diapositiva. Su primer párrafo contiene “Hello, Aspose!” con el efecto All Caps aplicado, como se muestra a continuación.
+Este ejemplo requiere "sample2.pptx" con un cuadro de texto como primera forma en la primera diapositiva. La primera porción del primer párrafo contiene "Hello, Aspose!" con el efecto All Caps aplicado, como se muestra a continuación.
 
-![El efecto Todo en mayúsculas](all_caps_effect.png)
+![El efecto All Caps](all_caps_effect.png)
 
 El siguiente ejemplo de código muestra cómo extraer el texto con el efecto **All Caps** aplicado:
 
@@ -686,8 +796,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 **¿Cómo modifico el texto en una tabla de una diapositiva?**
 
-Para modificar el texto en una tabla en una diapositiva, use [Table](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Itera a través de las celdas y actualiza cada celda mediante [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) y el formato de párrafo mediante [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
+Para modificar el texto en una tabla de una diapositiva, use [Tabla](https://reference.aspose.com/slides/python-net/aspose.slides/table/). Itere a través de las celdas y actualice cada celda mediante [Cell.text_frame](https://reference.aspose.com/slides/python-net/aspose.slides/cell/text_frame/) y el formato de párrafo mediante [Paragraph.paragraph_format](https://reference.aspose.com/slides/python-net/aspose.slides/paragraph/paragraph_format/).
 
 **¿Cómo aplico un color degradado al texto en una diapositiva de PowerPoint?**
 
-Para aplicar un color degradado al texto, use [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). Establezca [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) a [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) y configure las paradas de degradado, la dirección y la transparencia.
+Para aplicar un color degradado al texto, use [BasePortionFormat.fill_format](https://reference.aspose.com/slides/python-net/aspose.slides/baseportionformat/fill_format/). Establezca [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) a [FillType.GRADIENT](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) y configure las paradas del degradado, la dirección y la transparencia.
+
+[Formato de texto dentro de diapositivas](/slides/es/features/text-formatting/)
