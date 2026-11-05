@@ -69,7 +69,7 @@ The result:
 
 ### **Set Custom Line Dash Patterns**
 
-Use [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float:A-) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the line dash style to [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
+Use [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/java/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the line dash style to [LineDashStyle.Custom](https://reference.aspose.com/slides/java/com.aspose.slides/linedashstyle/).
 
 Array entries alternate between dash and gap lengths, starting with a dash. Each value is a multiple of the line width: `{ 4, 2 }` at a width of 3 points produces a 12-point dash followed by a 6-point gap. Use pairs of finite, nonnegative values to define complete dash-and-gap segments. The example uses positive values to keep every dash and gap visible.
 
@@ -623,9 +623,78 @@ The result:
 
 ![The shape with solid color fill](solid-color-fill.png)
 
+### **Copy Colors While Preserving Theme References**
+
+Use [IColorFormat.copyFrom](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) to copy a color definition, including its color type, theme reference, and transformations. This is useful when transferring a fill color between shapes that should continue to follow the presentation theme. The method copies only the color: it does not copy the fill type, outline, or other shape formatting. Set the destination's fill type explicitly with [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-).
+
+This example creates three rectangles, from left to right: the source, a theme-aware copy, and a fixed RGB copy. The source uses [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setSchemeColor-int-) to reference the first accent color and adds a tint through [IColorOperationCollection.add](https://reference.aspose.com/slides/java/com.aspose.slides/icoloroperationcollection/#add-int-float-). The RGB copy uses the source's effective fill color so all three initially look identical. Calling [IColorFormat.setColor](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#setColor-java.awt.Color-) sets a fixed RGB value and clears any existing color transformations.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Theme references follow the new accent color; the fixed RGB value does not.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(new Color(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Before the theme change, all three fills match:
+
+![Source, copyFrom destination, and fixed RGB destination with identical blue fills](color-copy-before.png)
+
+After the theme change, the source and the theme-aware copy follow the new accent color and retain their tint. The fixed RGB copy remains blue:
+
+![Source and copyFrom destination with orange fills, while the fixed RGB destination remains blue](color-copy-after.png)
+
+The copied definition is independent of the source. Subsequently changing the source's theme reference, assigning another color, or adding or removing its transformations does not change the destination. A theme change still affects both shapes because each independently refers to the same theme color.
+
+Saving and reopening the PPTX preserves the copied color's type returned by [IColorFormat.getColorType](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorType--), theme reference, and transformation collection returned by [IColorFormat.getColorTransform](https://reference.aspose.com/slides/java/com.aspose.slides/icolorformat/#getColorTransform--); it does not flatten the definition to RGB.
+
+When copying between different theme contexts, such as presentations with different accent palettes, the copied reference resolves against the destination's theme. The same reference and transformations can therefore produce a different visible color. See [Presentation Theme](/slides/java/presentation-theme/) for more about configuring theme colors.
+
 ## **Use the Slide Background as a Shape Fill**
 
-Use [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) when a shape should match the slide background, for example in a presentation template. Use [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+Use [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) when a shape should match the slide background, for example in a presentation template. Set the fill type with [IFillFormat.setFillType](https://reference.aspose.com/slides/java/com.aspose.slides/ifillformat/#setFillType-byte-) to [FillType.NotDefined](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
 
 This differs from [FillType.NoFill](https://reference.aspose.com/slides/java/com.aspose.slides/filltype/): background fill covers objects behind the shape with the corresponding area of the slide background, while no fill leaves those objects visible. A gradient remains aligned with the slide rather than restarting inside each shape.
 

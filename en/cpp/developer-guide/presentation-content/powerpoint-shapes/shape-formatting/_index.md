@@ -859,6 +859,95 @@ The result:
 
 ![The shape with solid color fill](solid-color-fill.png)
 
+### **Copy Colors While Preserving Theme References**
+
+Use [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) to copy a color definition, including its color type, theme reference, and transformations. This is useful when transferring a fill color between shapes that should continue to follow the presentation theme. The method copies only the color: it does not copy the fill type, outline, or other shape formatting. Set the destination's fill type explicitly with [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
+
+This example creates three rectangles, from left to right: the source, a theme-aware copy, and a fixed RGB copy. The source uses [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) to reference the first accent color and adds a tint through [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). The RGB copy uses the source's effective fill color so all three initially look identical. Calling [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) sets a fixed RGB value and clears any existing color transformations.
+
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Before the theme change, all three fills match:
+
+![Source, CopyFrom destination, and fixed RGB destination with identical blue fills](color-copy-before.png)
+
+After the theme change, the source and the theme-aware copy follow the new accent color and retain their tint. The fixed RGB copy remains blue:
+
+![Source and CopyFrom destination with orange fills, while the fixed RGB destination remains blue](color-copy-after.png)
+
+The copied definition is independent of the source. Subsequently changing the source's theme reference, assigning another color, or adding or removing its transformations does not change the destination. A theme change still affects both shapes because each independently refers to the same theme color.
+
+Saving and reopening the PPTX preserves the copied color's type, available through [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), its theme reference, and the transformation collection returned by [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); it does not flatten the definition to RGB.
+
+When copying between different theme contexts, such as presentations with different accent palettes, the copied reference resolves against the destination's theme. The same reference and transformations can therefore produce a different visible color. See [Presentation Theme](/slides/cpp/presentation-theme/) for more about configuring theme colors.
+
 ## **Use the Slide Background as a Shape Fill**
 
 Use [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
