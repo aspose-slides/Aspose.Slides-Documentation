@@ -8,38 +8,38 @@ keywords:
 - تنسيق الشكل
 - تنسيق الخط
 - تأثير الرسم التخطيطي
-- خط شكل الرسم التخطيطي
-- تنسيق نمط الوصل
-- تعبئة متدرجة
-- تعبئة بنمط
-- تعبئة صورة
-- تعبئة نسيج
-- تعبئة بلون صلب
+- خط الشكل التخطيطي
+- تنسيق نمط الاتصال
+- تعبئة التدرج اللوني
+- تعبئة النمط
+- تعبئة الصورة
+- تعبئة القوام
+- تعبئة اللون الصلب
 - شفافية الشكل
 - عرض الشكل بالأبيض والأسود
-- عرض الشكل بالدرجات الرمادية
+- عرض الشكل بالتحويل إلى تدرج رمادي
 - تدوير الشكل
-- تأثير القطع ثلاثي الأبعاد
+- تأثير الحافة ثلاثية الأبعاد
 - تأثير الدوران ثلاثي الأبعاد
 - إعادة ضبط التنسيق
 - PowerPoint
-- عرض تقديمي
+- العرض التقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تنسيق أشكال PowerPoint على Android باستخدام Aspose.Slides — اضبط أنماط التعبئة والخط والتأثيرات لملفات PPT وPPTX بدقة وتحكم كامل."
+description: "تعلم كيفية تنسيق أشكال PowerPoint على Android باستخدام Aspose.Slides—حدد أنماط التعبئة والحد وتأثيرات للملفات PPT وPPTX بدقة وتحكم كامل."
 ---
-## **مقدمة**
+## **المقدمة**
 
-قم بتنسيق الأشكال في PowerPoint عن طريق تعديل حدودها، تعبئتها، وتأثيراتها. يتيح Aspose.Slides for Android عبر Java التحكم في هذه الإعدادات برمجيًا، بما في ذلك الشفافية، والدوران، وتنسيق ثلاثي الأبعاد.
+قم بتنسيق الأشكال في PowerPoint عن طريق تعديل حدودها، وتعبئتها، وتأثيراتها. يتيح Aspose.Slides for Android عبر Java التحكم في هذه الإعدادات برمجياً، بما في ذلك الشفافية، والدوران، وتنسيق ثلاثي الأبعاد.
 
 ![خيارات تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
 
-يُوفر Aspose.Slides for Android عبر Java واجهات وطرق تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+يقدم Aspose.Slides for Android عبر Java واجهات وطرق تتيح لك تنسيق الأشكال باستخدام نفس الخيارات المتوفرة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) للتحكم في حدود الشكل. يخلق هذا المثال مستطيلاً غير مملوء بخط أزرق متقطع. يحدد [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) خطًا مركبًا سميك‑رفيع، بينما يقوم [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) بتعيين عرضه إلى 7 نقاط و[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) يختار نمط الشرط.
+استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) للتحكم في حدود الشكل. يُنشئ هذا المثال مستطيلاً غير مملوء مع حد أزرق متقطع. يحدد [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) خطًا مركبًا سميكًا رفيعًا، بينما يحدد [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) عرضه إلى 7 نقاط و[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) نمط التقطيع.
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +67,13 @@ try {
 
 ![الخطوط المُنسقة في العرض التقديمي](formatted-lines.png)
 
-### **تعيين أنماط الخط المتقطعة المخصصة**
+### **تحديد أنماط التقطيع المخصصة للخط**
 
-استخدم [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) عندما لا توفر أنماط الخط المُعرّفة مسبقًا أطوال الفواصل والفواصل التي تحتاجها، على سبيل المثال للحدود ذات العلامة التجارية أو المخططات التقنية. يؤدي تعيين نمط إلى تغيير نمط الشرط تلقائيًا إلى [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
+استخدم [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) عندما لا توفر الأنماط المُحددة مسبقًا لطول الفواصل والمسافات التي تحتاجها، على سبيل المثال للحدود ذات العلامات التجارية أو المخططات التقنية. يؤدي تعيين نمط إلى تغيير نمط التقطيع للخط تلقائيًا إلى [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-تتناوب قيم المصفوفة بين أطوال الشرط والفجوة، بدءًا بشرط. كل قيمة هي مضاعف لعرض الخط: `{ 4, 2 }` بعرض 3 نقاط ينتج شرطًا بطول 12 نقطة يليه فجوة بطول 6 نقاط. استخدم أزواجًا من القيم المحدودة وغير السالبة لتعريف مقاطع الشرط‑الفجوة الكاملة. يستخدم المثال قيمًا موجبة لإبقاء كل شرط وفجوة مرئية.
+تتناوب عناصر المصفوفة بين طول الفاصل وطول الفراغ، بدءًا بفاصل. كل قيمة هي مضاعف لعرض الخط: `{ 4, 2 }` عند عرض 3 نقاط ينتج فاصل بطول 12 نقطة يليه فراغ بطول 6 نقاط. استخدم أزواجًا من القيم المحدودة وغير السالبة لتحديد قطاعات الفواصل الكاملة. يستخدم المثال قيمًا موجبة للحفاظ على وضوح كل فاصل وفراغ.
 
-هذا المثال يخلق خمسة خطوط زرقاء بنفس الطول والنهايات المسطحة. الثلاثة الأولى تقارن الأنماط بعرض 3 نقاط. الرابع يكرر النمط الأول بعرض مضاعف، مضاعفًا كل من أطوال الشرط والفجوة. الخامس ينتقل من نمط مخصص إلى خط صلب.
+هذا المثال ينشئ خمسة خطوط زرقاء ذات نفس الطول والنهايات المسطحة. الثلاثة الأولى تقارن الأنماط بعرض 3 نقاط. الرابع يكرر النمط الأول بعرض مضاعف، مما يضاعف طول الفواصل والفراغات. الخامس يتحول من نمط مخصص إلى خط صلب.
 
 ```java
 import com.aspose.slides.*;
@@ -112,25 +112,25 @@ try {
 }
 ```
 
-للعودة إلى نمط متقطع مُعرّف مسبقًا، مرّر [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) إلى [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). النمط المحدد يتحكم في مظهر الخط.
+للعودة إلى نمط متقطع مُحدد مسبقًا بدلاً من ذلك، مرر [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) إلى [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). يتحكم النمط المحدد في مظهر الخط.
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و**Solid, 3 pt**.
+النتيجة في PowerPoint من أعلى إلى أسفل: **{4, 2}, 3 pt**؛ **{1, 2}, 3 pt**؛ **{6, 2, 1, 2}, 3 pt**؛ **{4, 2}, 6 pt**؛ و **Solid, 3 pt**.
 
-![ثلاثة أنماط شرط مخصصة، خط أعرض باستخدام النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
+![ثلاثة أنماط تقطيع مخصصة، خط أوسع يستخدم النمط الأول، وخط صلب في PowerPoint](custom-dash-patterns.png)
 
-### **تعيين نهايات الخط**
+### **تحديد أشكال نهايات الخط**
 
-استخدم [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) لتعيين نهايات الخط المفتوح. توفر فئة [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) ثلاثة أنماط نهاية صريحة:
+استخدم [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) لتعيين نهايات خط مفتوح. توفر فئة [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) ثلاثة أنماط صريحة للنهايات:
 
 - `Flat`: يتوقف الخط عند نقطة النهاية.
-- `Round`: نهاية نصف دائرية تمتد إلى ما بعد نقطة النهاية بنصف عرض الخط.
-- `Square`: نهاية مربعة تمتد إلى ما بعد نقطة النهاية بنصف عرض الخط.
+- `Round`: يمتد حد نصف دائري إلى ما بعد نقطة النهاية بمقدار نصف عرض الخط.
+- `Square`: يمتد حد مربع إلى ما بعد نقطة النهاية بمقدار نصف عرض الخط.
 
-تتضمن الفئة أيضًا `NotDefined`، وهو ما يعني عدم تعيين نمط نهاية صريح.
+تتضمن الفئة أيضًا `NotDefined`، مما يعني أنه لا يتم تعيين نمط نهاية صريح.
 
-النهايات تختلف عن رؤوس السهام التي تضيف رموزًا إلى نهايات الخط، وأيضًا عن الوصلات التي تتحكم في الزوايا بين مقاطع الخط. يعطل هذا المثال رؤوس السهام عبر [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) و[ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) بحيث تتم مقارنة أشكال النهايات فقط.
+تختلف النهايات عن رؤوس السهام التي تضيف رموزًا إلى نهايات الخط، والاتصالات التي تتحكم في الزوايا بين مقاطع الخط. يقوم هذا المثال بإلغاء رؤوس السهام عبر [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) و[ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) بحيث تتم مقارنة أشكال النهايات فقط.
 
-المثال التالي يخلق ثلاثة خطوط أفقية متطابقة أخرى، عرضها 20 نقطة. من الأعلى إلى الأسفل، تستخدم نهايات مسطحة، دائرية، ومربعة. نقاط النهاية لها نفس الإحداثيات الأفقية؛ النهايات الدائرية والمربعة تمتد 10 نقاط خارج كل نقطة نهاية.
+ينشئ المثال التالي ثلاثة خطوط أفقية متطابقة تقريبًا، عرضها 20 نقطة. من أعلى إلى أسفل، تستخدم نهايات مسطحة، مستديرة، ومربعة. نقاط النهاية لها نفس الإحداثيات الأفقية؛ تمتد النهايات المستديرة والمربعة 10 نقاط إلى ما بعد كل نقطة نهاية.
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-النتيجة في PowerPoint من الأعلى إلى الأسفل: **Flat**, **Round**, و**Square**.
+النتيجة في PowerPoint من أعلى إلى أسفل: **Flat**, **Round**, و **Square**.
 
-![نهايات مسطحة، دائرية، ومربعة على خطوط سميكة متماثلة في PowerPoint](line-caps.png)
+![نهايات مسطحة، مستديرة، ومربعة على خطوط سميكة متطابقة في PowerPoint](line-caps.png)
 
 ## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
 
-يضيف تأثير الرسم التخطيطي مظهرًا كأن الخط مرسوم يدويًا. استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) للوصول إلى إعدادات الخط، [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) للوصول إلى إعدادات الرسم التخطيطي، و[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) لاختيار قيمة من فئة [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
+يُضفي تأثير الرسم التخطيطي مظهرًا يدويًا على خط الشكل. استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) للوصول إلى إعدادات الخط، و[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) للوصول إلى إعدادات الرسم التخطيطي، و[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) لتحديد قيمة من فئة [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
 
-يعرض الشيفرة الجافية التالية كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) وقراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
+يعرض الكود التالي بلغة Java كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) ، قراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-القيمة التي تُعيدها [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان بإمكان تنسيق الخط أن يُورّث من سمة، أو شريحة رئيسية، أو شريحة تخطيط، استخدم [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--)، و[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--)، ثم اقرأ [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). تعكس القيمة الفعلية التنسيق الذي يُطبق فعليًا بعد حل الوراثة. يتطلب هذا المثال وجود عرض تقديمي يحتوي على شكل واحد على الأقل في شريحته الأولى ويطبع القيمتين:
+القيمة التي تعيدها [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان تنسيق الخط يمكن وراثته من نمط أو شريحة رئيسية أو شريحة تخطيط، استخدم [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--)، و[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--)، ثم اقرأ [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). القيمة الفعّالة تعكس التنسيق الذي يُطبق فعليًا بعد حل الوراثة. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على شكل واحد على الشريحة الأولى على الأقل ويطبع القيمتين:
 
 ```java
 import com.aspose.slides.*;
@@ -210,19 +210,19 @@ try {
 }
 ```
 
-## **تنسيق أنماط الوصل**
+## **تنسيق أنماط الاتصالات**
 
-هنا ثلاثة خيارات لأنواع الوصل:
+فيما يلي خيارات ثلاثة لأنواع الاتصالات:
 
-* مستدير
-* ملتحم
-* محدب
+* Round
+* Miter
+* Bevel
 
-نمط الوصل يتحكم في كيفية اجتماع مقطعي الحدود عند زاوية. استخدم **مستدير** للزوايا المستديرة، **ملتحم** للزوايا الحادة، أو **محدب** للزوايا المملسّة.
+يتحكم نمط الاتصال في كيفية التقائهما لجزئي الحد عند الزاوية. استخدم **Round** للزوايا المستديرة، **Miter** للزوايا الحادة، أو **Bevel** للزوايا المسطحة.
 
-![نمط الوصل في العرض التقديمي](join-style-powerpoint.png)
+![نمط الاتصال في العرض التقديمي](join-style-powerpoint.png)
 
-هذا المثال يخلق ثلاثة مستطيلات سوداء بحدود زرقاء عرضها 15 نقطة. يستخدم [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) لتطبيق القيم الملتصقة، المحدبة، والمستديرة من فئة [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/)، على التوالي، لمقارنة كيفية رسم الزوايا.
+هذا المثال ينشئ ثلاثة مستطيلات سوداء ذات حدود زرقاء عرضها 15 نقطة. يستخدم [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) لتطبيق قيم [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) للميتير، والبيفل، والراند على التوالي، للمقارنة بين كيفية رسم الزوايا.
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **تحديد وصلات الميتر عند الزوايا الحادة**
+### **تحديد حدود الانضمام الحاد عند الزوايا الحادة**
 
-استخدم [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) مع [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) مُعيَّن إلى [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) لتحديد الحد الأقصى لامتداد الزاوية الحادة.
+استخدم [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) مع ضبط [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) إلى [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) لتحديد مدى امتداد الزاوية الحادة.
 
-الحد هو نسبة بين المسافة بين الزوايا الداخلية والخارجية للوصلة وعرض الخط. على سبيل المثال، قيمة `8` تسمح بطول ميلتر يصل إلى ثمان مرات عرض الخط؛ ليست قياسًا بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint وصلة مبهرة عند تلك الزاوية. الحد الأكبر يسمح بنقاط أكثر حدة. الإعداد يؤثر فقط على وصلات الميتر، ولا يغيّر المظهر عندما تظل الزاوية داخل الحدين.
+الحد هو نسبة المسافة بين الزاوية الداخلية والخارجية للاتصال إلى عرض الخط. على سبيل المثال، قيمة `8` تسمح بطول ميتير يصل إلى ثمانية أضعاف عرض الخط؛ وهي ليست قياسًا بالنقاط. إذا تجاوزت الزاوية الحد، يستخدم PowerPoint وصلة بيفل عند تلك الزاوية. كلما زاد الحد، أصبحت النقاط أكثر حدة. يؤثر الإعداد على وصلات الميتير فقط، ولا يغيّر أي مظهر مرئي عندما تبقى الزاوية ضمن الحدين.
 
-هذا المثال يخلق مثلثين غير مملوئين متطابقين بحدود عرضها 20 نقطة. يستخدم المثلث الأيسر حدًا `2`، والمثلث الأيمن حدًا `8`. كل مثلث عرضه 80 نقطة وارتفاعه 160 نقطة، ما يعطي نسبة طول الميتر إلى عرض الخط للزاوية العليا تقريبًا `4.12`. وبالتالي، يقوم PowerPoint بتقوية القمة اليسرى ويُبقي القمة اليمنى حادة.
+هذا المثال ينشئ مثلثين غير مملوءين متطابقين بحدود عرضها 20 نقطة. يستخدم المثلث الأيسر حدًا `2`، واليمين حدًا `8`. كل مثلث عرضه 80 نقطة وطوله 160 نقطة، مما يمنحه نسبة طول ميتير إلى عرض الخط تقارب `4.12`. وبالتالي، يقوم PowerPoint بعمل بيفل للقمة اليسرى ويحافظ على القمة اليمنى.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +305,11 @@ try {
 
 النتيجة في PowerPoint: **Miter limit 2** على اليسار و**miter limit 8** على اليمين.
 
-![قمة مائلة بحد ميتر 2 وقمة حادة بحد ميتر 8 في PowerPoint](miter-limits.png)
+![قمة مسطحة بحد ميتير 2 وقمة حادة بحد ميتير 8 في PowerPoint](miter-limits.png)
 
-## **تعبئة متدرجة**
+## **تعبئة التدرج اللوني**
 
-تدمج تعبئة متدرجة الألوان عبر الشكل. هذا المثال يملأ إهليلجًا بتدرج خطي بزاوية 45 درجة من الأحمر إلى الأرجواني باستخدام [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). تُضيف طريقة [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) نقاط التوقف اللونية عند 0 و1، بداية ونهاية التدرج. يضمن مسح نقاط التوقف الحالية أن تُستخدم هاتان اللونان فقط.
+تُدمج تعبئة التدرج الألوان عبر الشكل. يملأ هذا المثال إهليلجًا بتدرج خطي بزاوية 45 درجة من الأحمر إلى البنفسجي باستخدام [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). تُضيف الطريقة [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) ألوان التوقف عند 0 و1، البداية والنهاية للتدرج. يضمن مسح التوقفات الحالية استخدام هذين اللونين فقط.
 
 ```java
 import com.aspose.slides.*;
@@ -334,15 +334,15 @@ try {
 
 النتيجة:
 
-![الإهليلج بتعبئة متدرجة](gradient-fill.png)
+![الإهليلج مع تعبئة التدرج](gradient-fill.png)
 
-إذا بدا التدرج مختلفًا في صورة مُصدَّرة مقارنةً بما هو في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط عرض دون تغيير تعبئة التدرج المخزنة في العرض.
+إذا ظهر التدرج بلون مختلف في صورة مُصدرة مقارنةً بما هو في PowerPoint، راجع [Choose a Gradient Rendering Style](/slides/ar/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). يمكنك اختيار نمط العرض دون تغيير تعبئة التدرج المخزنة في العرض التقديمي.
 
-### **تعيين زاوية التدرج الخطي**
+### **تحديد زاوية التدرج الخطي**
 
-استخدم [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) للتحكم في اتجاه تعبئة [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد في اتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من الأعلى إلى الأسفل، `180` من اليمين إلى اليسار، و`270` من الأسفل إلى الأعلى. تدعم الزوايا الكسرية. تُطبع الزوايا خارج `[0, 360)` إلى دورة واحدة؛ على سبيل المثال، `-45` تصبح `315` و`360` تصبح `0`.
+استخدم [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) للتحكم في اتجاه تعبئة [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). تُقاس الزاوية بالدرجات وتزداد باتجاه عقارب الساعة: `0` من اليسار إلى اليمين، `90` من أعلى إلى أسفل، `180` من اليمين إلى اليسار، و`270` من أسفل إلى أعلى. تدعم الزوايا الكسرية. تُطبع الزوايا خارج نطاق `[0, 360)` إلى ثورة واحدة؛ على سبيل المثال، `-45` تصبح `315` و`360` تصبح `0`.
 
-هذا المثال يخلق ستة مستطيلات بنقاط توقف لون أحمر، أخضر، وأزرق متماثلة عند المواضع `0`، `0.5`، و`1`. تم تعطيل التحجيم حتى يُقارن الزاوية مستقلة عن أبعاد المستطيلات. الزوايا من اليسار إلى اليمين هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
+هذا المثال ينشئ ستة مستطيلات بألوان توقف حمراء، خضراء، وزرقاء متطابقة في المواقع `0`، `0.5`، و`1`. تم تعطيل التحجيم بحيث يمكن مقارنة الزاوية بشكل مستقل عن أبعاد المستطيلات. الزوايا، من اليسار إلى اليمين، هي `0`، `45`، و`90` في الصف الأول، و`135`، `180`، و`270` في الصف الثاني.
 
 ```java
 import com.aspose.slides.*;
@@ -385,9 +385,9 @@ try {
 
 ### **تحجيم التدرج الخطي مع الشكل**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) تقبل قيمة [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). اضبطها صراحةً إلى `False` للحفاظ على زاوية التدرج الهندسية مع تغيير أبعاد الشكل، أو إلى `True` لتحجيم التدرج مع عرض وارتفاع الشكل. عند تمكين التحجيم، قد تختلف الزاوية الظاهرة عن الزاوية المعينة على شكل غير مربع.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) تقبل قيمة [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). اضبطها صراحةً إلى `False` للحفاظ على زاوية التدرج الهندسية مع تغيير أبعاد الشكل، أو إلى `True` لتحجيم التدرج مع عرض وارتفاع الشكل. عند تمكين التحجيم، يمكن أن تختلف الزاوية الظاهرة عن الزاوية المعينة على شكل غير مربع.
 
-المثال التالي يستخدم زاوية `45` درجة ونقاط توقف اللون نفسها كما في مقارنة الزوايا. العمود الأيسر يستخدم `False`؛ العمود الأيمن يستخدم `True`. كل عمود يحتوي على مستطيل عريض فوق مستطيل طويل. يبدأ كلاهما بأبعاد عريضة متماثلة؛ يوضح تغيير عرض وارتفاع المستطيل الثاني كيفية استجابة التعبئة لإعادة التحجيم دون تغيير إعدادات التدرج.
+يستخدم المثال التالي زاوية `45` درجة ونفس ألوان التوقف كما في مقارنة الزوايا. العمود الأيسر يستخدم `False`؛ العمود الأيمن يستخدم `True`. يحتوي كل عمود على مستطيل عريض فوق مستطيل طويل. يبدأ كلاهما بنفس الأبعاد العريضة؛ يوضح تعديل عرض وارتفاع المستطيل الثاني كيفية استجابة التعبئة لإعادة التحجيم دون تغيير إعدادات التدرج.
 
 ```java
 import com.aspose.slides.*;
@@ -433,17 +433,17 @@ try {
 
 النتيجة في PowerPoint، مع تعطيل التحجيم على اليسار وتمكينه على اليمين:
 
-![مستطيلات عريضة وطويلة مع تدرج 45 درجة، مقارنة LinearGradientScaled False على اليسار مع True على اليمين](linear-gradient-scaling.png)
+![مستطيلات عريضة وطويلة مع تدرج بزاوية 45 درجة، مقارنة LinearGradientScaled False على اليسار مع True على اليمين](linear-gradient-scaling.png)
 
-مع تعطيل التحجيم، تبقى الشرائط اللونية القطرية بنفس الاتجاه في كلا المستطيلين. مع تمكين التحجيم، تتمدَد الشرائط مع أبعاد الشكل. يساعد ذلك في إعادة إنتاج تدرج القالب عند تعديل الشكل إلى حجم مختلف. على شكل مربع، لا يغيّر تمكين التحجيم مظهر هذا التدرج بزاوية `45` درجة.
+مع تعطيل التحجيم، تبقى أشرطة اللون المائلة بنفس الاتجاه في كلا المستطيلين. مع تمكين التحجيم، تمتد الأشرطة مع أبعاد الشكل. يساعد ذلك على استنساخ تدرج قالب عند تعديل حجم الشكل. على الشكل المربع، لا يغيّر تمكين التحجيم مظهر هذا التدرج بزاوية `45` درجة.
 
-كل من إعدادات الزاوية والتحجيم تُطبق على التدرجات الخطية. لا تتحكم في تعبئات [GradientShape.Radial أو GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
+تنطبق إعدادات الزاوية والتحجيم على التدرجات الخطية فقط. لا تتحكم في تعبئات [GradientShape.Radial أو GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
 
 ### **دمج الزاوية مع اتجاه التدرج**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) يختار نمط تدرج من فئة [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/)، وهو ليس بديلاً عن الزاوية الرقمية. بالنسبة للتدرج الخطي، يمكن لأنماط الزوايا تغيير المنطقة التي تُوزّع فيها الألوان دون تغيير الزاوية المعينة عبر [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). حافظ على الاتجاه ثابتًا عند مقارنة الزوايا أو التحجيم.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) يحدد نمط التدرج من فئة [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); وهو ليس بديلاً عن الزاوية الرقمية. بالنسبة لتدرج خطي، يمكن لأنماط الزوايا تغيير المنطقة التي توزّع فيها الألوان دون تغيير الزاوية المعينة عبر [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). حافظ على الاتجاه دون تغيير عند مقارنة الزوايا أو التحجيم.
 
-المثال التالي يطبق نفس الإعدادات بترتيب عكسي. المستطيلان لهما المظهر نفسه: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
+يطبق المثال التالي نفس الإعدادات بترتيب عكسي. المستطيلان لهما المظهر نفسه: تعيين الاتجاه قبل أو بعد الزاوية لا يغيّر النتيجة.
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **تعبئة بنمط**
+## **تعبئة النمط**
 
-تطبق تعبئة بنمط تصميمًا من لونين، مثل النقاط أو الخطوط أو المربعات. يستخدم هذا المثال [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) لاختيار نمط شبكي. يزود [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) الخلفية باللون الرمادي الفاتح، و[IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) اللون الأصفر للنمط.
+تُطبق تعبئة النمط تصميمًا بلونين، مثل النقاط أو الخطوط أو المتراجعات. يستخدم هذا المثال [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) لاختيار نمط trellis. يوفر [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) خلفية رمادية فاتحة، ويوفر [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) لون النمط الأصفر.
 
 ```java
 import com.aspose.slides.*;
@@ -507,11 +507,11 @@ try {
 
 النتيجة:
 
-![المستطيل بتعبئة بنمط](pattern-fill.png)
+![المستطيل مع تعبئة النمط](pattern-fill.png)
 
-## **تعبئة صورة**
+## **تعبئة الصورة**
 
-تستخدم تعبئة صورة صورة داخل الشكل. يتطلب هذا المثال صورة محلية ويستخدم [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) لتحميلها إلى مجموعة صور العرض التقديمي. ضبط [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) على وضع التكرار يكرر الصورة داخل المستطيل. الصورة المستخدمة هنا موضحة أدناه:
+تستخدم تعبئة الصورة صورة داخل الشكل. يتطلب هذا المثال صورة محلية ويستخدم [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) لتحميلها إلى مجموعة صور العرض التقديمي. ضبط [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) على وضع tiled يكرر الصورة داخل المستطيل. الصورة المصدر المستخدمة هنا موضوعة أدناه:
 
 ![صورة اللوتس](lotus.png)
 
@@ -543,21 +543,21 @@ try {
 
 النتيجة:
 
-![الشكل بتعبئة صورة](picture-fill.png)
+![الشكل مع تعبئة الصورة](picture-fill.png)
 
-### **تجزئة الصورة كملمس**
+### **تكرار الصورة كنقش**
 
-إذا أردت ضبط صورة مكررة كملمس وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) وفئة [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
+إذا أردت ضبط صورة مكررة كنقش وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) وفئة [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): يحدد وضع تعبئة الصورة — إما `Tile` أو `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): يضبط وضع تعبئة الصورة — إما `Tile` أو `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): يحدد محاذاة البلاطات داخل الشكل.
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): يتحكم فيما إذا كانت البلاطة مقلوبة أفقيًا أو عموديًا أو كليهما.
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): يضبط الإزاحة الأفقية للبلاطة (بالنقاط) من أصل الشكل.
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): يضبط الإزاحة العمودية للبلاطة (بالنقاط) من أصل الشكل.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): يتحكم فيما إذا كانت البلاطة مقلوبة أفقيًا أو رأسيًا أو كلاهما.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): يضبط إزاحة البلاطة الأفقية (بالنقاط) من أصل الشكل.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): يضبط إزاحة البلاطة العمودية (بالنقاط) من أصل الشكل.
 - [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): يعرف مقياس البلاطة الأفقية كنسبة مئوية.
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): يعرف مقياس البلاطة العمودي كنسبة مئوية.
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): يعرف مقياس البلاطة العمودية كنسبة مئوية.
 
-يتطلب هذا المثال صورة محلية ويُكوّن [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) لتكرارها بنسبة 50 % من حجمها الأصلي. تُحَوِّل الإزاحات −32 نقطة البلاطات أفقياً وعمودياً؛ يحدد المحاذاة السفلية‑ اليمنى والتقليب في الاتجاهين كيفية ترتيب النسيج المتكرر.
+يتطلب هذا المثال صورة محلية ويضبط [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) لتكرارها بنسبة 50% من حجمها الأصلي. إزاحات `−32` نقطة تحرك البلاطات أفقيًا وعموديًا؛ محاذاة الأسفل-اليمين والقلب في الاتجاهين يحددان كيفية ترتيب النقش المكرر.
 
 ```java
 import com.aspose.slides.*;
@@ -595,11 +595,11 @@ try {
 
 النتيجة:
 
-![خيارات التجزئة](tile-options.png)
+![خيارات البلاط](tile-options.png)
 
-## **تعبئة بلون صلب**
+## **تعبئة اللون الصلب**
 
-تعطي تعبئة صلبة الشكل لونًا موحدًا واحدًا. يستخدم هذا المثال [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) لاختيار وضع التعبئة الصلبة ويعين اللون الأصفر عبر [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--)، ثم يحفظ المستطيل في عرض تقديمي.
+تعطي تعبئة اللون الصلب الشكل لونًا موحدًا واحدًا. يستخدم هذا المثال [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) لاختيار وضع التعبئة الصلبة ويعيّن اللون الأصفر عبر [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--)، ثم يحفظ المستطيل في عرض تقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -621,15 +621,84 @@ try {
 
 النتيجة:
 
-![الشكل بتعبئة لون صلب](solid-color-fill.png)
+![الشكل مع تعبئة لون صلبة](solid-color-fill.png)
+
+### **نسخ الألوان مع الحفاظ على مراجع النمط**
+
+استخدم [IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) لنسخ تعريف اللون، بما في ذلك نوع اللون، مرجع النمط، والتحويلات. هذا مفيد عند نقل لون تعبئة بين أشكال يجب أن تظل تتبع نمط العرض التقديمي. تنسخ الطريقة اللون فقط: لا تنسخ نوع التعبئة أو الحدود أو أي تنسيق آخر للشكل. اضبط نوع التعبئة للوجهة صراحةً باستخدام [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-).
+
+هذا المثال ينشئ ثلاثة مستطيلات، من اليسار إلى اليمين: المصدر، نسخة واعية للنمط، ونسخة RGB ثابتة. يستخدم المصدر [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) للإشارة إلى اللون المميز الأول ويضيف ظلًا عبر [IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-). تستخدم نسخة RGB اللون الفعّال للمصدر بحيث تبدو الثلاثة متماثلة في البداية. استدعاء [IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) يعيّن قيمة RGB ثابتة ويمسح أي تحويلات لون موجودة.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // تشير مراجع النمط إلى لون التمييز الجديد؛ القيمة الثابتة RGB لا تفعل ذلك.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+قبل تغيير النمط، تتطابق جميع تعبئات الثلاثة:
+
+![المصدر، نسخة copyFrom الوجهة، والوجهة RGB الثابتة مع تعبئات زرقاء متطابقة](color-copy-before.png)
+
+بعد تغيير النمط، يتبع المصدر والنسخة المستندة إلى النمط اللون المميز الجديد وتحتفظان بالظل. تظل نسخة RGB الثابتة زرقاء:
+
+![المصدر ونسخة copyFrom الوجهة بتعبئة برتقالية، بينما تظل النسخة RGB الثابتة زرقاء](color-copy-after.png)
+
+التعريف المنسوخ مستقل عن المصدر. تعديل مرجع النمط للمصدر لاحقًا، أو تعيين لون آخر، أو إضافة أو إزالة تحويلاته لا يغيّر الوجهة. لا يزال تغيير النمط يؤثر على الشكلين لأن كلًا منهما يشير بشكل مستقل إلى نفس لون النمط.
+
+حفظ وإعادة فتح ملف PPTX يحافظ على نوع اللون المنسوخ الذي تعيده [IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--)، ومرجع النمط، ومجموعة التحويلات التي تعيدها [IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--); لا يتم تحويل التعريف إلى RGB.
+
+عند النسخ بين سياقات نمط مختلفة، مثل عروض تقديمية ذات لوحات ألوان مميزة مختلفة، يُحلّ المرجع المنسوخ وفقًا لنمط الوجهة. يمكن لنفس المرجع والتحويلات إذًا أن ينتج لونًا مرئيًا مختلفًا. راجع [Presentation Theme](/slides/ar/androidjava/presentation-theme/) للمزيد عن ضبط ألوان النمط.
 
 ## **استخدام خلفية الشريحة كملء الشكل**
 
-استخدم [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، مثلًا في قالب عرض تقديمي. استخدم [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) مع [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) أولاً لإزالة أي تعبئة صريحة. بهذه التركيبة، يستخدم الشكل خلفية الشريحة بدلاً من تعبئته النمطية. تفعيل العلامة وحدها لا يزيل تعبئة صريحة موجودة.
+استخدم [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) عندما يجب أن يتطابق الشكل مع خلفية الشريحة، مثلاً في قالب عرض تقديمي. اضبط نوع التعبئة أولاً باستخدام [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) إلى [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) لإزالة أي تعبئة صريحة. بهذه الطريقة، يستخدم الشكل خلفية الشريحة بدلاً من تعبئة نمطية. تمكين العلامة وحدها لا يزيل تعبئة صريحة موجودة.
 
-هذا يختلف عن [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بمنطقة خلفية الشريحة المقابلة، بينما لا تعبئة تترك تلك الكائنات ظاهرة. يبقى التدرج مُحاذيًا مع الشريحة بدلاً من البدء داخل كل شكل.
+هذا يختلف عن [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): تعبئة الخلفية تغطي الكائنات خلف الشكل بالمنطقة المقابلة من خلفية الشريحة، بينما لا تعبئة تترك تلك الكائنات مرئية. يبقى التدرج محاذيًا للشفرة بدلاً من أن يبدأ داخل كل شكل.
 
-المثال التالي يخلق خلفية رئيسية تُورَّث من قبل الشريحة ويضع شريطًا أرجوانيًا خلف ثلاثة مستطيلات. يستخدم المستطيل الأيسر الخلفية، والمستطيل الأوسط لا تعبئة، والمستطيل الأيمن يتحول من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
+ينشئ المثال التالي خلفية رئيسية يورثها الشريحة ويضع شريطًا أرجوانيًا خلف ثلاثة مستطيلات. يستخدم المستطيل الأيسر الخلفية، والمستطيل الأوسط لا يحتوي على تعبئة، والمستطيل الأيمن يتحول من تعبئة الخلفية إلى تعبئة برتقالية صريحة.
 
 ```java
 import com.aspose.slides.*;
@@ -640,7 +709,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // ورث التدرج من القالب الرئيسي.
+    // ورث التدرج من الشريحة الرئيسية.
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -653,7 +722,7 @@ try {
     gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
     gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
 
-    // أضف هذا الكائن أولاً حتى يظهر خلف المستطيلات.
+    // أضف هذا العنصر أولاً بحيث يظهر خلف المستطيلات.
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -670,7 +739,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // عطّل تعبئة الخلفية قبل تطبيق تعبئة صريحة.
+    // تعطل تعبئة الخلفية قبل تطبيق تعبئة صريحة.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
@@ -681,15 +750,15 @@ try {
 }
 ```
 
-النتيجة من اليسار إلى اليمين: **ملء خلفية**, **بدون ملء**, و**ملء صريح**. يختفي الشريط الأرجواني خلف المستطيلين الأيسر والأيمن لكنه يبقى ظاهرًا من خلال المستطيل الأوسط.
+النتيجة، من اليسار إلى اليمين: **background fill**, **no fill**, و **explicit fill**. يختفي الشريط الأرجواني خلف المستطيلين الأيسر والأيمن لكنه يظل مرئيًا من خلال المستطيل الأوسط.
 
-![ملء خلفية، بدون ملء، وملء برتقالي صريح فوق شريط أرجواني](background-fill.png)
+![ملء الخلفية، لا ملء، وملء برتقالي صريح فوق شريط أرجواني](background-fill.png)
 
-السلوك نفسه ينطبق على خلفية مُعرَّفة مباشرةً على الشريحة أو مُورَّثة من تخطيط. يستخدم الشكل خلفية الشريحة التي تم حلّها؛ لا يحدد المثال خلفيات الشريحة أو التخطيط، لذا يُورِّثها القالب الرئيسي.
+ينطبق نفس السلوك على خلفية مُعرفّة مباشرةً على الشريحة أو موروثة من تخطيط. يستخدم الشكل الخلفية التي تم حلها للشرائح؛ يترك المثال كلًا من خلفية الشريحة والتخطيط غير معرفين بحيث يزودهما الماستر.
 
 ## **تعيين الشفافية**
 
-بالنسبة لتعبئة صلبة، يتحكم مكوّن ألفا للون في الشفافية: 0 يعني شفافية كاملة و255 يعني تعتيم كامل. يستخدم هذا المثال قيمة ألفا 128 لمستطيل أصفر، مما يجعله شفافًا تقريبًا بنسبة 50 % بحيث يظل المستطيل الموجود تحته مرئيًا. يُعيَّن اللون عبر [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
+للتعبئة الصلبة، يتحكم مكوّن ألفا للون في الشفافية: 0 يعني شفاف تمامًا و255 يعني غير شفاف تمامًا. يستخدم هذا المثال قيمة ألفا `128` لمستطيل أصفر، ما يجعله شفافًا تقريبًا بنسبة 50% بحيث يبقى المستطيل الموجود تحته مرئيًا. يتم تعيين اللون عبر [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
 
 ```java
 import com.aspose.slides.*;
@@ -717,7 +786,7 @@ try {
 
 ## **تدوير الأشكال**
 
-استخدم [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) لتدوير شكل في سطح الشريحة. تُقاس الزاوية بالدرجات؛ يدور هذا المثال المستطيل 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
+استخدم [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) لتدوير شكل في مستوى الشريحة. تُقاس الزاوية بالدرجات؛ يدور هذا المثال مستطيلًا 5 درجات باتجاه عقارب الساعة ويحفظ العرض التقديمي.
 
 ```java
 import com.aspose.slides.*;
@@ -739,9 +808,9 @@ try {
 
 ![دوران الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات القطع الثلاثية الأبعاد**
+## **إضافة تأثيرات الحافة ثلاثية الأبعاد**
 
-استخدم [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) لإضفاء عمق وحواف مائلة على الشكل. يخلق هذا المثال إهليلجًا أخضرًا بحد برتقالي، ويضبط العمق إلى 4 نقاط عبر [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-)، ثم يطبق حافة علوية دائرية بعرض وارتفاع 6 نقاط عبر [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). تجعل الكاميرا المتعامدة الأمامية والإضاءة الثلاثية النقاط القطع مرئية.
+استخدم [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) لإضفاء عمق وحواف مشطوفة على الشكل. ينشئ هذا المثال إهليلجًا أخضرًا بحد برتقالي، ويستخدم [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) لتعيين العمق إلى 4 نقاط، ويطبق شطبة علوية دائرية بعرض وارتفاع 6 نقاط عبر [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). تجعل كاميرا أمامية أرثوغرافية وإضاءة ثلاثية النقاط الحافة مرئية.
 
 ```java
 import com.aspose.slides.*;
@@ -773,11 +842,11 @@ try {
 
 النتيجة:
 
-![تأثير القطع ثلاثي الأبعاد](3D-bevel-effect.png)
+![تأثير الحافة ثلاثية الأبعاد](3D-bevel-effect.png)
 
-## **إضافة تأثيرات دوران ثلاثية الأبعاد**
+## **إضافة تأثيرات الدوران ثلاثية الأبعاد**
 
-يُتحكم في عرض الشكل ثلاثي الأبعاد بإعدادات الكاميرا. يستخدم هذا المثال [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) بزاويتي عرض، طول، وتدور 40، 35، و20 درجة على التوالي. يختار كاميرا إيزومترية عبر [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-)، وإضاءة متوازنة عبر [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-)، ثم يحفظ المستطيل المنسق.
+يتم التحكم في عرض الشكل ثلاثي الأبعاد عبر إعدادات الكاميرا. يستخدم هذا المثال [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) بزاوية خط العرض، الطول، والثورة 40، 35، و20 درجة على التوالي. يختار كاميرا إيزومترية عبر [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) وإضاءة متوازنة عبر [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-)، ثم يحفظ المستطيل المنسق.
 
 ```java
 import com.aspose.slides.*;
@@ -800,15 +869,15 @@ try {
 
 النتيجة:
 
-![تأثير دوران ثلاثي الأبعاد](3D-rotation-effect.png)
+![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
 
-## **التحكم في عرض أبيض وأسود للأشكال**
+## **التحكم في العرض بالأبيض والأسود للأشكال**
 
-تحدد طريقة [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) كيفية عرض شكل فردي عندما يُعرض أو يُعالج عرض تقديمي في وضع الأبيض والأسود. لا تُفعِّل طريقة العرض بالأبيض والأسود بنفسها، ولا تُغيّر تعبئة الشكل، أو خطه، أو تنسيقه الآخر في وضع الألوان العادي.
+طريقة [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) تحدد كيفية عرض شكل فردي عندما يُعرض أو يُعالج العرض التقديمي في وضع أبيض وأسود. لا تفعّل العرض بالأبيض والأسود بذاتها، ولا تغيّر تعبئة الشكل أو حدوده أو أي تنسيق آخر في وضع اللون الطبيعي.
 
-استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) لاختيار السلوك المطلوب. على سبيل المثال، `Automatic` يترك تطبيق العرض يختار التحويل، `Gray` و`LightGray` يستخدمان اللون الرمادي، `BlackWhite` يستخدم فقط الأسود والأبيض، `Black` و`White` يُجبران على لون واحد، `Color` يحافظ على الألوان العادية، و`Hidden` يحذف الشكل في وضع الأبيض والأسود. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
+استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `Automatic` يتيح لتطبيق العرض اختيار التحويل، و`Gray` و`LightGray` يستخدمان تلوينًا رماديًا، و`BlackWhite` يستخدم فقط الأسود والأبيض، و`Black` و`White` يجبران على لون واحد، و`Color` يحافظ على التلوين الطبيعي، و`Hidden` يحذف الشكل في وضع أبيض وأسود. `NotDefined` يعني عدم تعيين وضع على مستوى الشكل.
 
-هذا المثال يخلق مستطيلًا برتقاليًا ويستخدم [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) لاختيار تلوين رمادي. يحتفظ الشكل المحفوظ بملئه البرتقالي في عرض الألوان العادي، ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
+ينشئ هذا المثال مستطيلًا برتقاليًا ويستخدم [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) لاختيار تلوين رمادي. يحتفظ الشكل المحفوظ بتعبئته البرتقالية للعرض بالألوان الطبيعية ويطلب تلوينًا رماديًا من التطبيقات التي تحترم إعدادات العرض بالأبيض والأسود:
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-في وضع الألوان العادي، يحتفظ المستطيل بملئه البرتقالي. في سير عمل عرض أبيض وأسود، يستخدم تلوينًا رماديًا لأن وضعه مضبوط على `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تعريف مظهر مميز للطباعة أو المعاينة أو غيرها من العمليات التي تحترم إعدادات العرض بالأبيض والأسود.
+في وضع اللون الطبيعي، يحتفظ المستطيل بتعبئته البرتقالية. في سير عمل عرض أبيض وأسود، يستخدم تلوينًا رماديًا لأن وضعه مضبوط على `Gray`. يتيح لك ذلك الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو أي سير عمل آخر يلتزم بإعدادات العرض بالأبيض والأسود للعرض التقديمي.
 
-## **إعادة تنسيق**
+## **إعادة ضبط التنسيق**
 
-استخدم [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) لاستعادة موضع، حجم، وتنسيق عناصر النائب في الشريحة من عناصر النائب المقابلة في تخطيطها. يتطلب هذا المثال وجود عرض تقديمي قائم مع عناصر نائب مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. لا تُعاد ضبط الأشكال التي لا تقابلها عناصر نائب في التخطيط.
+استخدم [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) لاستعادة موقع، حجم، وتنسيق العناصر النائبة للشرائح من العناصر النائبة المقابلة في التخطيط. يتطلب هذا المثال عرضًا تقديميًا موجودًا يحتوي على عناصر نائبة مرتبطة بالتخطيط ويعيد ضبط كل شريحة قبل الحفظ. لا يتم إعادة ضبط الأشكال التي لا تتوافر لها عناصر نائبة في التخطيط.
 
 ```java
 import com.aspose.slides.*;
@@ -854,12 +923,12 @@ try {
 
 **هل يؤثر تنسيق الشكل على حجم ملف العرض التقديمي النهائي؟**
 
-عادةً ما تضيف الألوان، أنماط الخطوط، وإعدادات التأثيرات القليل من البيانات مقارنةً بالصور والوسائط المضمَّنة. قد تزيد تعبئات الصور حجم الملف لأن صورها تُخزن في العرض التقديمي.
+الألوان، وأنماط الخطوط، وإعدادات التأثير عادةً ما تضيف بيانات قليلة مقارنة بالصور والوسائط المضمنة. يمكن أن تزيد تعبئات الصور حجم الملف لأن صورها تُخزن في العرض التقديمي.
 
-**كيف يمكنني اكتشاف الأشكال في شريحة تشترك في تنسيق متطابق حتى أتمكن من تجميعها؟**
+**كيف يمكنني اكتشاف الأشكال على شريحة تشترك في تنسيق متماثل لتجميعها؟**
 
-قارن خصائص التنسيق الأساسية لكل شكل — التعبئة، الخط، وإعدادات التأثير. إذا طابقت جميع القيم المقابلة، اعتبر أن أسلوبها متطابقًا وقم بتجميع تلك الأشكال منطقياً، مما يبسط إدارة الأسلوب لاحقًا.
+قارن خصائص التنسيق الرئيسية لكل شكل — التعبئة، الخط، وإعدادات التأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متماثلة وقم بتجميع هذه الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة إلى ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
 
-نعم. احفظ الأشكال النموذجية ذات الأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المنسقة التي تحتاجها، وأعد تطبيق تنسيقها حيثما دعت الحاجة.
+نعم. احفظ أشكالًا نموذجية بالأنماط المطلوبة في مجموعة شرائح قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال المنسقة التي تحتاجها، وأعد تطبيق تنسيقها حيثما كان ذلك مطلوبًا.

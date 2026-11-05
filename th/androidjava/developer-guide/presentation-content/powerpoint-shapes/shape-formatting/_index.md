@@ -10,36 +10,36 @@ keywords:
 - เอฟเฟกต์สเก็ตช์
 - เส้นรูปร่างสเก็ตช์
 - จัดรูปแบบสไตล์การเชื่อมต่อ
-- การเติมสีไล่สี
-- การเติมลาย
-- การเติมภาพ
-- การเติมพื้นผิว
+- การเติมสีไล่ระดับ
+- การเติมลายแบบ
+- การเติมรูปภาพ
+- การเติมเทกเจอร์
 - การเติมสีทึบ
-- ความโปร่งแสงของรูปร่าง
-- การเรนเดอร์รูปร่างสีขาว-ดำ
-- การเรนเดอร์รูปร่างระดับสีเทา
-- การหมุนรูปร่าง
-- เอฟเฟกต์ bevel 3 มิติ
-- เอฟเฟกต์การหมุน 3 มิติ
+- ความโปร่งใสของรูปร่าง
+- การแสดงผลรูปร่างสีขาว‑ดำ
+- การแสดงผลรูปร่างระดับสีเทา
+- หมุนรูปร่าง
+- เอฟเฟกต์บีเวล 3D
+- เอฟเฟกต์การหมุน 3D
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
 - การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint บน Android ด้วย Aspose.Slides—ตั้งค่าเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มรูปแบบ."
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint บน Android ด้วย Aspose.Slides—ตั้งสไตล์การเติม, เส้น, และเอฟเฟกต์สำหรับไฟล์ PPT และ PPTX อย่างแม่นยำและควบคุมเต็มที่"
 ---
 ## **บทนำ**
 
-จัดรูปแบบรูปร่างใน PowerPoint โดยปรับเส้นกรอบ, การเติมสี, และเอฟเฟกต์ต่าง ๆ Aspose.Slides for Android via Java ให้คุณควบคุมการตั้งค่าเหล่านี้โดยโปรแกรม รวมถึงความโปร่งแสง, การหมุน, และการจัดรูปแบบ 3 มิติ
+จัดรูปแบบรูปร่างใน PowerPoint โดยปรับโครงร่าง การเติมสี และเอฟเฟกต์ต่างๆ Aspose.Slides for Android via Java ให้คุณควบคุมการตั้งค่าเหล่านี้ด้วยโปรแกรม รวมถึงความโปร่งใส การหมุน และการจัดรูปแบบ 3D
 
 ![ตัวเลือกการจัดรูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java มีอินเทอร์เฟซและเมธอดที่ช่วยให้คุณจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกันกับที่มีใน PowerPoint
+Aspose.Slides for Android via Java ให้ส่วนติดต่อและเมธอดที่ทำให้คุณสามารถจัดรูปแบบรูปร่างโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) เพื่อควบคุมเส้นกรอบของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมไม่มีการเติมสีที่มีเส้นสีฟ้าขึ้นจุดประสาน ใช้ [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) เพื่อเลือกเส้นแบบ compound หนา-บาง, ในขณะที่ [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) ตั้งความกว้างเป็น 7 จุด และ [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) เลือกรูปแบบจุดประสาน
+ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) เพื่อควบคุมโค้งของรูปร่าง ตัวอย่างนี้สร้างสี่เหลี่ยมผืนผ้าไม่มีการเติมสีที่มีโค้งสีน้ำเงินและเป็นเส้นประ [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) เลือกเส้นคอมพาวด์หนา‑บาง ในขณะที่ [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) ตั้งค่าความกว้างเป็น 7 จุดและ [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) เลือกแบบลายเส้นประ
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +67,13 @@ try {
 
 ![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
 
-### **กำหนดรูปแบบจุดประสานเส้นแบบกำหนดเอง**
+### **ตั้งค่าแบบลายเส้นแบบกำหนดเอง**
 
-ใช้ [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) เมื่อรูปแบบเส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวและช่องว่างที่คุณต้องการ เช่น สำหรับเส้นขอบที่เป็นแบรนด์หรือแผนภาพเทคนิค การกำหนดลวดลายจะเปลี่ยนสไตล์จุดประสานอัตโนมัติเป็น [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)
+ใช้ [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) เมื่อสไตล์เส้นที่กำหนดไว้ล่วงหน้าไม่ให้ความยาวของเส้นประและช่องว่างที่คุณต้องการ เช่น สำหรับโครงร่างที่มีแบรนด์หรือแผนภาพเชิงเทคนิค การกำหนดรูปแบบโดยอัตโนมัติจะเปลี่ยนสไตล์เส้นประเป็น [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)
 
-อาเรย์ในลำดับจะสลับระหว่างความยาวของเส้นและช่องว่างโดยเริ่มจากเส้น ความค่าแต่ละค่าคือหลายเท่าของความกว้างเส้น: `{ 4, 2 }` ที่ความกว้าง 3 จุดจะให้เส้นยาว 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ค่าที่เป็นจำนวนจริง ไม่เป็นลบเพื่อกำหนดส่วนจุด-ช่องว่างที่สมบูรณ์ ตัวอย่างใช้ค่าบวกเพื่อให้ทุกจุดและช่องว่างมองเห็นได้
+รายการในอาเรย์สลับระหว่างความยาวของเส้นประและช่องว่าง เริ่มด้วยเส้นประ แต่ละค่าจะเป็นหลายเท่าของความกว้างของเส้น: `{ 4, 2 }` ที่ความกว้าง 3 จุดจะผลิตเส้นประ 12 จุดตามด้วยช่องว่าง 6 จุด ใช้คู่ของค่าที่จำกัดและไม่เป็นลบเพื่อกำหนดส่วนเต็มของเส้นประ‑ช่องว่าง ตัวอย่างใช้ค่าบวกเพื่อให้เส้นประและช่องว่างทุกส่วนมองเห็นได้
 
-ตัวอย่างนี้สร้างเส้นสีฟ้า 5 เส้นที่มีความยาวเท่ากันและปลายเส้นแบนสามเส้นแรกเปรียบเทียบลวดลายที่ความกว้าง 3 จุด เส้นที่สี่ทำสำเนาลวดลายแรกโดยความกว้างเท่ากับสองเท่า ทำให้ทั้งเส้นและช่องว่างยาวขึ้นสองเท่า เส้นที่ห้าสลับจากลวดลายกำหนดเองเป็นเส้นทึบ
+ตัวอย่างนี้สร้างเส้นสีน้ำเงินห้าเส้นที่มีความยาวเท่าเดิมและปลายเส้นแบน สามเส้นแรกเปรียบเทียบรูปแบบที่ความกว้าง 3 จุด เส้นที่สี่ทำซ้ำรูปแบบแรกที่สองเท่าของความกว้าง ทำให้ความยาวของเส้นประและช่องว่างเพิ่มเป็นสองเท่า เส้นที่ห้าสลับจากรูปแบบกำหนดเองเป็นเส้นทึบ
 
 ```java
 import com.aspose.slides.*;
@@ -103,7 +103,7 @@ try {
         line.getLineFormat().setCustomDashPattern(patterns[i]);
     }
 
-    // คืนค่าเส้นสุดท้ายเป็นสไตล์ทึบ.
+    // คืนเส้นสุดท้ายเป็นสไตล์เส้นทึบ.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -112,25 +112,25 @@ try {
 }
 ```
 
-หากต้องการกลับไปใช้สไตล์จุดประสานที่กำหนดไว้ล่วงหน้า ให้ส่ง [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) ไปยัง [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) สไตล์ที่เลือกจะควบคุมลักษณะของเส้น
+หากต้องการกลับไปใช้สไตล์เส้นประที่กำหนดไว้ล่วงหน้า ให้ส่งค่า [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) ไปยัง [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) สไตล์ที่เลือกจะกำหนดลักษณะของเส้น
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; และ **Solid, 3 pt**.
 
-![สามรูปแบบจุดประสานกำหนดเอง, เส้นกว้างใช้รูปแบบแรก, และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
+![สามรูปแบบเส้นประแบบกำหนดเอง เส้นกว้างขึ้นโดยใช้รูปแบบแรก และเส้นทึบใน PowerPoint](custom-dash-patterns.png)
 
-### **กำหนดปลายเส้น**
+### **ตั้งค่าปลายเส้น**
 
-ใช้ [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) เพื่อกำหนดปลายของเส้นเปิด คลาส [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) ให้สามสไตล์ปลายที่ชัดเจน:
+ใช้ [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) เพื่อกำหนดปลายของเส้นที่เปิดอยู่ คลาส [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) มีสามสไตล์ที่ระบุอย่างชัดเจน:
 
-- `Flat`: เส้นหยุดที่จุดปลาย
-- `Round`: ปลายเส้นกึ่งวงกลมขยายออกนอกจุดปลายครึ่งความกว้างของเส้น
-- `Square`: ปลายเส้นสี่เหลี่ยมขยายออกนอกจุดปลายครึ่งความกว้างของเส้น
+- `Flat`: เส้นหยุดที่จุดสิ้นสุด
+- `Round`: ปลายเส้นกึ่งวงกลมยืดออกไปข้างนอกจากจุดสิ้นสุดครึ่งความกว้างของเส้น
+- `Square`: ปลายเส้นสี่เหลี่ยมยืดออกไปข้างนอกจากจุดสิ้นสุดครึ่งความกว้างของเส้น
 
-คลาสยังมี `NotDefined` ซึ่งหมายความว่าไม่มีการกำหนดสไตล์ปลายอย่างชัดเจน
+คลาสนี้ยังรวม `NotDefined` ซึ่งหมายความว่าไม่มีการกำหนดสไตล์ปลายอย่างชัดเจน
 
-ปลายเส้นแตกต่างจากหัวศรที่เพิ่มสัญลักษณ์ที่ปลายเส้นและการเชื่อมต่อที่ควบคุมมุมระหว่างส่วนเส้น ตัวอย่างนี้ปิดหัวศรด้วย [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) และ [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) เพื่อให้เปรียบเทียบเฉพาะรูปแบบปลาย
+ปลายเส้นต่างจากหัวศรซึ่งเพิ่มสัญลักษณ์ที่ปลายเส้น และการเชื่อมต่อซึ่งควบคุมมุมระหว่างส่วนเส้น ตัวอย่างนี้ปิดการใช้หัวศรผ่าน [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) และ [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) เพื่อให้เปรียบเทียบเฉพาะรูปแบบปลายเท่านั้น
 
-ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกัน ความกว้าง 20 จุด จากบนลงล่างใช้ปลายแบน, กลม, และสี่เหลี่ยม ปลายของเส้นทั้งสามอยู่ที่พิกัดแนวนอนเดียวกัน; ปลายกลมและสี่เหลี่ยมขยายออกไป 10 จุดเหนือแต่ละปลาย
+ตัวอย่างต่อไปนี้สร้างเส้นแนวนอนสามเส้นที่เหมือนกันทั้งหมด ความกว้าง 20 จุด จากบนลงล่าง ใช้ปลาย Flat, Round, และ Square ตามลำดับ จุดสิ้นสุดของพวกมันมีพิกัดแนวนอนเดียวกัน; ปลาย Round และ Square ยืดออกไปข้างนอก 10 จุดจากแต่ละจุดสิ้นสุด
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**
+ผลลัพธ์ใน PowerPoint จากบนลงล่าง: **Flat**, **Round**, และ **Square**.
 
-![ปลายแบน, กลม, และสี่เหลี่ยมบนเส้นหนาแบบเดียวกันใน PowerPoint](line-caps.png)
+![ปลาย Flat, round, และ square บนเส้นหนาเดียวกันใน PowerPoint](line-caps.png)
 
 ## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นรูปร่าง**
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นรูปร่างดูเหมือนวาดด้วยมือ ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/)
+เอฟเฟกต์สเก็ตช์ทำให้เส้นรูปร่างดูเหมือนถูกวาดด้วยมือ ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) เพื่อเลือกค่าจากคลาส [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/)
 
-โค้ด Java ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) อ่านค่าที่กำหนดไว้โดยชัดเจน, และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
+โค้ด Java ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยชัดเจน และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-ค่าที่คืนจาก [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) แสดงการตั้งค่าที่กำหนดโดยตรงกับรูปร่าง หากการจัดรูปแบบเส้นได้รับการสืบทอดจากธีม, มาสเตอร์สไลด์, หรือเลเยาต์สไลด์ ให้ใช้ [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), เข้าถึง [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), และอ่าน [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) ค่าที่มีผลจะแสดงการจัดรูปแบบที่ใช้จริงหลังจากที่การสืบทอดได้รับการแก้ไข ตัวอย่างนี้ต้องการงานนำเสนอที่มีอย่างน้อยหนึ่งรูปร่างบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
+ค่าที่คืนมาจาก [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) แสดงการตั้งค่าที่กำหนดโดยตรงกับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์ หรือเลย์เอาต์สไลด์ ให้ใช้ [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) เข้าถึง [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) และอ่าน [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) ค่าที่ได้จะแสดงการจัดรูปแบบที่ใช้งานจริงหลังจากการสืบทอดถูกประมวลผล ตัวอย่างนี้ต้องการงานนำเสนอที่มีอย่างน้อยหนึ่งรูปร่างบนสไลด์แรกและพิมพ์ค่าทั้งสอง:
 
 ```java
 import com.aspose.slides.*;
@@ -218,11 +218,11 @@ try {
 * Miter
 * Bevel
 
-สไตล์การเชื่อมต่อกำหนดว่าจุดเชื่อมของเส้นสองส่วนมาพบกันอย่างไรที่มุม ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมคม, หรือ **Bevel** สำหรับมุมตัดเรียบ
+สไตล์การเชื่อมต่อควบคุมว่าส่วนโค้งสองส่วนมาพบกันที่มุมอย่างไร ใช้ **Round** สำหรับมุมโค้ง, **Miter** สำหรับมุมคม, หรือ **Bevel** สำหรับมุมแบน
 
 ![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีดำสามแผ่นที่มีเส้นขอบสีน้ำเงินกว้าง 15 จุด ใช้ [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) เพื่อกำหนดค่าของ [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) เป็น miter, bevel, และ round ตามลำดับ เพื่อตรวจสอบการวาดมุม
+ตัวอย่างนี้สร้างรูปสี่เหลี่ยมสีดำสามรูปที่มีโค้งสีน้ำเงินกว้าง 15 จุด ใช้ [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) เพื่อใช้ค่า miter, bevel และ round ของคลาส [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) ตามลำดับเพื่อเปรียบเทียบการวาดมุม
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **จำกัดมุม Miter ที่มุมคม**
+### **จำกัดการเชื่อมต่อแบบ Miter ที่มุมคม**
 
-ใช้ [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) ร่วมกับ [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ที่ตั้งเป็น [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) เพื่อจำกัดระยะที่มุมคมสามารถยืดออกได้
+ใช้ [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) ร่วมกับ [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ตั้งเป็น [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) เพื่อจำกัดความยาวของมุมคม
 
-ขีดจำกัดเป็นอัตราส่วนของระยะทางระหว่างมุมในและนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวมิตรเท่ากับแปดเท่าของความกว้างเส้น; ไม่ได้เป็นการวัดเป็นจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขีดจำกัดที่ใหญ่กว่าจะทำให้จุดคมยิ่งขึ้น การตั้งค่านี้มีผลต่อการเชื่อมต่อแบบ miter เท่านั้น และการเปลี่ยนแปลงจะไม่มีผลต่อการแสดงผลเมื่อมุมยังคงอยู่ภายในขีดจำกัดทั้งสอง
+ค่าที่จำกัดคืออัตราส่วนระหว่างระยะห่างของมุมด้านในและด้านนอกของการเชื่อมต่อต่อความกว้างของเส้น ตัวอย่างเช่น ค่า `8` อนุญาตให้ความยาวของ miter มีได้สูงสุดถึงแปดเท่าของความกว้างของเส้น; ค่านี้ไม่ใช่หน่วยจุด หากมุมเกินขีดจำกัด PowerPoint จะใช้การเชื่อมต่อแบบ bevel ที่มุมนั้น ขอบเขตที่ใหญ่ขึ้นทำให้จุดคมขึ้น การตั้งค่านี้ส่งผลต่อการเชื่อมต่อแบบ miter เท่านั้น และการเปลี่ยนแปลงจะไม่มีผลต่อการแสดงผลเมื่อมุมยังคงอยู่ภายในขีดจำกัดทั้งสอง
 
-ตัวอย่างนี้สร้างสามเหลี่ยมไม่มีการเติมสีสองอันที่มีเส้นขอบกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2`, ด้านขวาใช้ `8` แต่ละสามเหลี่ยมกว้าง 80 จุด สูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาวมิตรต่อความกว้างเส้นประมาณ `4.12` ผลลัพธ์ PowerPoint จะ bevel ด้านซ้ายและคงมุมด้านขวาเดิม
+ตัวอย่างนี้สร้างสามเหลี่ยมไม่มีการเติมสีสองรูปที่มีโค้งกว้าง 20 จุด สามเหลี่ยมซ้ายใช้ขีดจำกัด `2` และขวาใช้ `8` แต่ละรูปกว้าง 80 จุดและสูง 160 จุด ทำให้มุมบนมีอัตราส่วนความยาว miter ต่อความกว้างเส้นประมาณ `4.12` ดังนั้น PowerPoint จะทำ bevel ที่ยอดซ้ายและคงยอดขวาให้อยู่ในรูปแบบจุดคม
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,13 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint: **Miter limit 2** ทางซ้ายและ **miter limit 8** ทางขวา
+ผลลัพธ์ใน PowerPoint: **Miter limit 2** ด้านซ้ายและ **miter limit 8** ด้านขวา
 
-![มุม bevel ที่ขีดจำกัด 2 และมุมคมที่ขีดจำกัด 8 ใน PowerPoint](miter-limits.png)
+![ยอดที่ bevel ด้วยขีดจำกัด miter 2 และยอดจุดคมด้วยขีดจำกัด miter 8 ใน PowerPoint](miter-limits.png)
 
-## **การเติมสีไล่สี (Gradient Fill)**
+## **การเติมสีไล่ระดับ**
 
-การเติมสีไล่สีผสานสีต่าง ๆ บนอีลิปส์ ตัวอย่างนี้เติมอีลิปส์ด้วยไล่สีเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) วิธี [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) จะวางจุดหยุดสีที่ 0 และ 1 ซึ่งเป็นจุดเริ่มและสิ้นสุดของไล่สี การลบจุดหยุดที่มีอยู่เดิมทำให้ใช้สีสองสีนี้เท่านั้น
+การเติมสีไล่ระดับผสมสีทั่วทั้งรูปร่าง ตัวอย่างนี้เติมวงรีด้วยไล่ระดับเชิงเส้นที่มุม 45 องศาจากสีแดงไปสีม่วงโดยใช้ [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) เมธอด [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) วางสีหยุดที่ 0 และ 1 ซึ่งเป็นจุดเริ่มต้นและสิ้นสุดของไล่ระดับ การล้างสีหยุดที่มีอยู่เดิมทำให้ใช้เพียงสีสองนี้เท่านั้น
 
 ```java
 import com.aspose.slides.*;
@@ -334,15 +334,15 @@ try {
 
 ผลลัพธ์:
 
-![อีลิปส์ที่มีการเติมไล่สี](gradient-fill.png)
+![วงรีที่เติมสีไล่ระดับ](gradient-fill.png)
 
-หากไล่สีแสดงแตกต่างในภาพที่ส่งออกเมื่อเทียบกับ PowerPoint ดูที่ [Choose a Gradient Rendering Style](/slides/th/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการเติมไล่สีที่เก็บไว้ในงานนำเสนอ
+หากไล่ระดับดูต่างในภาพที่ส่งออกเทียบกับ PowerPoint ให้ดูที่ [Choose a Gradient Rendering Style](/slides/th/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) คุณสามารถเลือกสไตล์การเรนเดอร์โดยไม่ต้องเปลี่ยนการเติมไล่ระดับที่จัดเก็บในงานนำเสนอ
 
-### **กำหนดมุมไล่สีเชิงเส้น**
+### **ตั้งมุมไล่ระดับเชิงเส้น**
 
-ใช้ [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) เพื่อควบคุมทิศทางของการเติม [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` วิ่งจากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, และ `270` จากล่างขึ้นบน มุมที่เป็นเศษส่วนก็รองรับ มุมที่อยู่นอกช่วง `[0, 360)` จะทำให้เป็นหนึ่งรอบใหม่; ตัวอย่างเช่น `-45` จะกลายเป็น `315` และ `360` จะกลายเป็น `0`
+ใช้ [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) เพื่อควบคุมการวางแนวของการเติม [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) มุมวัดเป็นองศาและเพิ่มตามเข็มนาฬิกา: `0` จากซ้ายไปขวา, `90` จากบนลงล่าง, `180` จากขวาไปซ้าย, และ `270` จากล่างขึ้นบน มุมเศษส่วนก็รองรับได้ มุมที่อยู่นอกช่วง `[0, 360)` จะถูกทำให้เป็นรอบหนึ่ง เช่น `-45` จะเป็น `315` และ `360` จะเป็น `0`
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมหกอันที่มีจุดหยุดสีแดง, เขียว, และน้ำเงินที่ตำแหน่ง `0`, `0.5`, และ `1` เหมือนกัน ปิดการสเกลเพื่อให้มุมเปรียบเทียบได้โดยไม่พิจารณาอัตราส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, และ `90`; ในแถวที่สองคือ `135`, `180`, และ `270`
+ตัวอย่างนี้สร้างสี่เหลี่ยมหกรูปที่มีสีหยุดแดง, เขียว, น้ำเงินเดียวกันที่ตำแหน่ง `0`, `0.5`, และ `1` ปิดการสเกลเพื่อให้มุมสามารถเปรียบเทียบได้โดยอิสระจากสัดส่วนของสี่เหลี่ยม มุมจากซ้ายไปขวาในแถวแรกคือ `0`, `45`, `90` และในแถวที่สองคือ `135`, `180`, `270`
 
 ```java
 import com.aspose.slides.*;
@@ -381,13 +381,13 @@ try {
 
 ผลลัพธ์ใน PowerPoint:
 
-![ไล่สีเชิงเส้นที่ 0, 45, และ 90 องศาในแถวบน, และ 135, 180, และ 270 องศาในแถวล่าง](linear-gradient-angles.png)
+![ไล่ระดับเชิงเส้นที่ 0, 45, และ 90 องศาในแถวบน, และ 135, 180, และ 270 องศาในแถวล่าง](linear-gradient-angles.png)
 
-### **สเกลไล่สีเชิงเส้นตามรูปร่าง**
+### **ปรับขนาดไล่ระดับเชิงเส้นตามรูปร่าง**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) รับค่า [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) ตั้งค่าเป็น `False` อย่างชัดเจนเพื่อให้มุมไล่สีเชิงเรขาคณิตคงที่เมื่อรูปร่างเปลี่ยนสัดส่วน, หรือเป็น `True` เพื่อสเกลไล่สีตามความกว้างและความสูงของรูปร่าง เมื่อเปิดสเกล มุมที่มองเห็นอาจแตกต่างจากมุมที่กำหนดบนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) รับค่า [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) ตั้งเป็น `False` เพื่อคงมุมไล่ระดับเชิงเรขาคณิตแม้รูปร่างเปลี่ยนสัดส่วน หรือเป็น `True` เพื่อสเกลไล่ระดับตามความกว้างและความสูงของรูปร่าง เมื่อเปิดการสเกล มุมที่เห็นอาจแตกต่างจากมุมที่กำหนดบนรูปร่างที่ไม่เป็นสี่เหลี่ยมจัตุรัส
 
-ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและจุดหยุดสีเดียวกันกับการเปรียบเทียบมุม คอลัมน์ซ้ายตั้งค่าเป็น `False`; คอลัมน์ขวาตั้งค่าเป็น `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างด้านบนและสี่เหลี่ยมยาวด้านล่าง ทั้งสองเริ่มจากขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมสีตอบสนองต่อการปรับขนาดอย่างไรโดยไม่ต้องเปลี่ยนการตั้งค่าไล่สี
+ตัวอย่างต่อไปนี้ใช้มุม `45` องศาและสีหยุดเดียวกับการเปรียบเทียบมุม คอลัมน์ซ้ายตั้งเป็น `False`; คอลัมน์ขวาตั้งเป็น `True` แต่ละคอลัมน์มีสี่เหลี่ยมกว้างด้านบนและสี่เหลี่ยมสูงด้านล่าง ทั้งสองเริ่มด้วยขนาดกว้างเดียวกัน; การเปลี่ยนความกว้างและความสูงของสี่เหลี่ยมที่สองแสดงว่าการเติมตอบสนองต่อการปรับขนาดอย่างไรโดยไม่เปลี่ยนการตั้งค่าไล่ระดับ
 
 ```java
 import com.aspose.slides.*;
@@ -431,19 +431,19 @@ try {
 }
 ```
 
-ผลลัพธ์ใน PowerPoint, โดยปิดสเกลทางซ้ายและเปิดสเกลทางขวา:
+ผลลัพธ์ใน PowerPoint, ปิดการสเกลที่ซ้ายและเปิดที่ขวา:
 
-![สี่เหลี่ยมกว้างและยาวที่มีไล่สี 45 องศา, เปรียบเทียบ LinearGradientScaled False ทางซ้ายกับ True ทางขวา](linear-gradient-scaling.png)
+![สี่เหลี่ยมกว้างและสูงที่มีไล่ระดับ 45‑องศา, เปรียบเทียบ LinearGradientScaled False ด้านซ้ายกับ True ด้านขวา](linear-gradient-scaling.png)
 
-เมื่อปิดสเกล แถบสีทแยงมุมจะคงทิศทางเดิมในสี่เหลี่ยมทั้งสอง เมื่อเปิดสเกล แถบสีจะยืดตามสัดส่วนของรูปร่าง นี้ช่วยให้คัดลอกไล่สีของแม่แบบเมื่อนำรูปร่างไปใช้กับขนาดอื่น ๆ บนสี่เหลี่ยมจัตุรัส การเปิดสเกลบนสี่เหลี่ยมจัตุรัสจะไม่เปลี่ยนลักษณะของไล่สี `45` องศานี้
+เมื่อปิดการสเกล แถบสีทแยงมุมจะคงทิศทางเดิมในสี่เหลี่ยมทั้งสอง เมื่อเปิดการสเกล แถบสีจะยืดตามสัดส่วนของรูปร่าง ช่วยทำสำเนาไล่ระดับของเทมเพลตเมื่อนำรูปร่างไปปรับขนาดต่างๆ ในสี่เหลี่ยมจัตุรัส การเปิดสเกลจะไม่เปลี่ยนลักษณะของไล่ระดับ `45` องศานี้
 
-ทั้งมุมและการตั้งค่าสเกลใช้กับไล่สีเชิงเส้นเท่านั้น ไม่ได้ควบคุมการเติมสี [GradientShape.Radial หรือ GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/)
+การตั้งมุมและการสเกลใช้ได้กับไล่ระดับเชิงเส้นเท่านั้น ไม่ได้ควบคุมการเติม [GradientShape.Radial หรือ GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/)
 
-### **ผสานมุมกับทิศทางไล่สี**
+### **รวมมุมกับแนวไล่ระดับ**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) เลือกสไตล์ไล่สีจากคลาส [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) ไม่ใช่การทดแทนมุมเชิงตัวเลข สำหรับไล่สีเชิงเส้น สไตล์มุมสามารถเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดด้วย [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) ให้คงทิศทางเดิมเมื่อเปรียบเทียบมุมหรือสเกล
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) เลือกสไตล์ไล่ระดับจากคลาส [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) ซึ่งไม่ใช่การแทนที่มุมเชิงตัวเลข สำหรับไล่ระดับเชิงเส้น แนวอาจเปลี่ยนพื้นที่ที่สีกระจายโดยไม่ต้องเปลี่ยนมุมที่กำหนดผ่าน [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) ให้รักษาแนวคงที่เมื่อต้องการเปรียบเทียบมุมหรือสเกล
 
-ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่สั่งลำดับกันสลับกัน สี่เหลี่ยมสองอันจะแสดงผลเหมือนกัน: การกำหนดทิศทางก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยน
+ตัวอย่างต่อไปนี้ใช้การตั้งค่าเดียวกันแต่ลำดับต่างกัน สี่เหลี่ยมสองรูปมีลักษณะเดียวกัน: การกำหนดแนวก่อนหรือหลังมุมไม่ทำให้ผลลัพธ์เปลี่ยน
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **การเติมลาย (Pattern Fill)**
+## **เติมลายแบบ**
 
-การเติมลายใช้การออกแบบสองสี เช่น จุด, แถบ, หรือหมากกระดาน ตัวอย่างนี้ใช้ [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) เพื่อเลือกลายแบบ trellis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) ให้พื้นหลังสีเทาอ่อน, และ [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) ให้สีเหลืองสำหรับลาย
+การเติมลายแบบใช้การออกแบบสองสี เช่น จุด, เส้น, หรือตาราง ตัวอย่างนี้ใช้ [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) เพื่อเลือกลายแบบ trellis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) ให้พื้นหลังสีเทาอ่อน, และ [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) ให้สีเหลืองสำหรับลาย
 
 ```java
 import com.aspose.slides.*;
@@ -507,13 +507,13 @@ try {
 
 ผลลัพธ์:
 
-![สี่เหลี่ยมที่เติมลาย](pattern-fill.png)
+![สี่เหลี่ยมที่เติมลายแบบ](pattern-fill.png)
 
-## **การเติมภาพ (Picture Fill)**
+## **เติมรูปภาพ**
 
-การเติมภาพใช้รูปภาพภายในรูปร่าง ตัวอย่างนี้ต้องการรูปภาพท้องถิ่นและใช้ [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) เพื่อโหลดเข้าสู่คอลเล็กชันภาพของงานนำเสนอ ตั้งค่า [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) เป็นโหมดต่อภาพทำให้ภาพซ้ำภายในสี่เหลี่ยม รูปภาพต้นฉบับที่ใช้แสดงด้านล่าง:
+การเติมรูปภาพใช้ภาพภายในรูปร่าง ตัวอย่างนี้ต้องการภาพในเครื่องและใช้ [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) โหลดภาพเข้าสู่คอลเลกชันภาพของงานนำเสนอ ตั้งค่า [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) เป็นโหมดต่อกระเบื้องเพื่อทำซ้ำภาพภายในสี่เหลี่ยม ภาพต้นฉบับที่ใช้แสดงด้านล่าง:
 
-![รูปโลตัส](lotus.png)
+![รูปบัว](lotus.png)
 
 ```java
 import com.aspose.slides.*;
@@ -543,21 +543,21 @@ try {
 
 ผลลัพธ์:
 
-![รูปร่างที่เติมภาพ](picture-fill.png)
+![รูปร่างที่เติมรูปภาพ](picture-fill.png)
 
-### **ทำภาพต่อเป็นพื้นผิว (Tile Picture As Texture)**
+### **ทำภาพต่อกระเบื้องเป็นเทกเจอร์**
 
-หากต้องการตั้งค่าภาพต่อเป็นพื้นผิวและปรับพฤติกรรมการต่อ คุณสามารถใช้เมธอดต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) :
+หากต้องการตั้งภาพต่อกระเบื้องเป็นเทกเจอร์และปรับพฤติกรรมการต่อกระเบื้อง สามารถใช้เมธอดต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): ตั้งโหมดการเติมภาพ—`Tile` หรือ `Stretch`
-- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): กำหนดการจัดตำแหน่งของภาพต่อภายในรูปร่าง
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): ควบคุมว่าภาพต่อจะพลิกแนวนอน, แนวตั้ง, หรือทั้งสองทิศ
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): ตั้งตำแหน่งชิดแนวนอนของภาพต่อ (เป็นจุด) จากจุดกำเนิดของรูปร่าง
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): ตั้งตำแหน่งชิดแนวตั้งของภาพต่อ (เป็นจุด) จากจุดกำเนิดของรูปร่าง
-- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): กำหนดสเกลแนวนอนของภาพต่อเป็นเปอร์เซ็นต์
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): กำหนดสเกลแนวตั้งของภาพต่อเป็นเปอร์เซ็นต์
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): ตั้งโหมดเติมรูปภาพ—either `Tile` หรือ `Stretch`
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): ระบุการจัดตำแหน่งของกระเบื้องภายในรูปร่าง
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): ควบคุมว่ากระเบื้องจะพลิกแนวนอน แนวตั้ง หรือทั้งสองอย่าง
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): ตั้งค่าการเยื้องแนวนอนของกระเบื้อง (หน่วยจุด) จากจุดกำเนิดของรูปร่าง
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): ตั้งค่าการเยื้องแนวตั้งของกระเบื้อง (หน่วยจุด) จากจุดกำเนิดของรูปร่าง
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): กำหนดสเกลแนวนอนของกระเบื้องเป็นเปอร์เซ็นต์
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): กำหนดสเกลแนวตั้งของกระเบื้องเป็นเปอร์เซ็นต์
 
-ตัวอย่างนี้ต้องการรูปภาพท้องถิ่นและกำหนดค่า [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) ให้ทำซ้ำที่ขนาด 50 % ของขนาดต้นค่า การชิดตำแหน่ง `−32` จุดทำให้ภาพต่อชิดแนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่าง‑ขวาและการพลิกทั้งสองทิศกำหนดวิธีจัดเรียงเท็กซ์เจอร์ที่ทำซ้ำ
+ตัวอย่างนี้ต้องการภาพในเครื่องและกำหนด [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) ให้ทำซ้ำที่ขนาด 50% ของขนาดต้นฉบับ การเยื้อง −32 จุดทำให้กระเบื้องเลื่อนแนวนอนและแนวตั้ง; การจัดตำแหน่งด้านล่าง‑ขวาและการพลิกทั้งสองทิศกำหนดการจัดเรียงเทกเจอร์ที่ทำซ้ำ
 
 ```java
 import com.aspose.slides.*;
@@ -595,11 +595,11 @@ try {
 
 ผลลัพธ์:
 
-![ตัวเลือกการต่อภาพ](tile-options.png)
+![ตัวเลือกการต่อกระเบื้อง](tile-options.png)
 
-## **การเติมสีทึบ (Solid Color Fill)**
+## **การเติมสีทึบ**
 
-การเติมสีทึบให้รูปร่างสีเดียวเดียว ตัวอย่างนี้ใช้ [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) แล้วบันทึกสี่เหลี่ยมในงานนำเสนอ
+การเติมสีทึบให้รูปร่างสีเดียวที่สม่ำเสมอ ตัวอย่างนี้ใช้ [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เพื่อเลือกโหมดเติมสีทึบและกำหนดสีเหลืองผ่าน [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) จากนั้นบันทึกสี่เหลี่ยมในงานนำเสนอ
 
 ```java
 import com.aspose.slides.*;
@@ -623,13 +623,82 @@ try {
 
 ![รูปร่างที่เติมสีทึบ](solid-color-fill.png)
 
-## **ใช้พื้นหลังสไลด์เป็นการเติมสีรูปร่าง**
+### **คัดลอกสีโดยคงการอ้างอิงธีม**
 
-ใช้ [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์ เช่น ในแม่แบบงานนำเสนอ ใช้ [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) ร่วมกับ [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) ก่อนเพื่อถอนการกำหนดการเติมแบบชัดเจน ด้วยการผสมนี้ รูปร่างจะใช้พื้นหลังสไลด์แทนการเติมแบบสไตล์ของมันเอง การเปิดค่าสถานะนี้เพียงอย่างเดียวไม่ทำให้การเติมแบบชัดเจนที่มีอยู่ถูกลบ
+ใช้ [IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) เพื่อคัดลอกคำนิยามสี รวมถึงประเภทสี การอ้างอิงธีม และการแปลงต่างๆ นี้มีประโยชน์เมื่อต้องย้ายสีเติมระหว่างรูปร่างที่ควรยังคงตามธีมของงานนำเสนอ เมธอดจะคัดลอกเฉพาะสีเท่านั้น ไม่ได้คัดลอกประเภทการเติม, โค้ง, หรือการจัดรูปแบบอื่นของรูปร่าง ตั้งค่าประเภทการเติมของเป้าหมายโดยใช้ [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-)
 
-สิ่งนี้แตกต่างจาก [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): การเติมพื้นหลังจะปกคลุมวัตถุที่อยู่ด้านหลังรูปร่างด้วยพื้นที่พื้นหลังสไลด์ที่สอดคล้องกัน, ส่วน NoFill จะทำให้วัตถุเหล่านั้นยังคงมองเห็นได้ การไล่สีจะยังคงจัดแนวกับสไลด์แทนการเริ่มใหม่ภายในแต่ละรูปร่าง
+ตัวอย่างนี้สร้างสี่เหลี่ยมสามรูปจากซ้ายไปขวา: แหล่งที่มา, คัดลอกที่คำนึงถึงธีม, และคัดลอกที่กำหนดเป็น RGB คงที่ แหล่งที่มาใช้ [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) เพื่ออ้างอิงสีแอคเซนต์แรกและเพิ่ม tint ด้วย [IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-) คัดลอกแบบ RGB ใช้สีเติมที่มีผลของแหล่งที่มา ทำให้ทั้งสามดูเหมือนกันในตอนแรก การเรียก [IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) ตั้งค่าเป็นค่า RGB คงที่และล้างการแปลงสีใดๆ ที่มีอยู่
 
-ตัวอย่างต่อไปนี้สร้างพื้นหลังมาสเตอร์ที่สไลด์สืบทอดและวางแถบสีมะสีแดงด้านหลังสี่เหลี่ยมสามอัน สี่เหลี่ยมซ้ายใช้พื้นหลัง, สี่เหลี่ยมกลางไม่มีการเติม, สี่เหลี่ยมขวาสลับจากการเติมพื้นหลังเป็นการเติมสีส้มแบบชัดเจน
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // การอ้างอิงธีมจะตามสีแอคเซนต์ใหม่; ค่ารหัสสี RGB คงที่จะไม่ตาม
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ก่อนการเปลี่ยนธีม, การเติมทั้งสามตรงกัน:
+
+![แหล่งที่มา, คัดลอกเป้าหมาย, และคัดลอกแบบ RGB คงที่ที่มีการเติมสีน้ำเงินเดียวกัน](color-copy-before.png)
+
+หลังการเปลี่ยนธีม, แหล่งที่มาและคัดลอกที่คำนึงถึงธีมจะตามสีแอคเซนต์ใหม่และคง tint ไว้ ส่วนคัดลอกแบบ RGB คงที่ยังคงเป็นสีฟ้า:
+
+![แหล่งที่มาและคัดลอกเป้าหมายที่มีการเติมสีส้ม, ในขณะที่คัดลอกแบบ RGB คงที่ยังคงเป็นสีน้ำเงิน](color-copy-after.png)
+
+คำนิยามที่คัดลอกเป็นอิสระจากแหล่งที่มา การเปลี่ยนแปลงธีมของแหล่งที่มา, การกำหนดสีใหม่, หรือการเพิ่ม/ลบการแปลงจะไม่ส่งผลต่อเป้าหมาย แต่อย่างไรก็ตาม การเปลี่ยนธีมจะยังคงมีผลต่อทั้งสองรูปร่าง เพราะแต่ละรูปอ้างอิงสีธีมเดียวกัน
+
+การบันทึกและเปิดไฟล์ PPTX อีกครั้งจะคงประเภทสีที่คัดลอกโดย [IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--), การอ้างอิงธีม, และคอลเลกชันการแปลงที่คืนโดย [IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--) ไม่ได้แปลงเป็น RGB
+
+เมื่อคัดลอกระหว่างบริบทธีมที่แตกต่างกัน เช่น งานนำเสนอที่มีพาเล็ตแอคเซนต์ต่างกัน การอ้างอิงที่คัดลอกจะถูกตีความตามธีมของเป้าหมาย ดังนั้นคำนิยามเดียวกันและการแปลงเดียวกันอาจให้สีที่มองเห็นต่างกัน ดูเพิ่มเติมที่ [Presentation Theme](/slides/th/androidjava/presentation-theme/) เพื่อเรียนรู้การกำหนดสีธีม
+
+## **ใช้พื้นหลังสไลด์เป็นการเติมรูปแบบ**
+
+ใช้ [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) เมื่อรูปร่างควรตรงกับพื้นหลังสไลด์ เช่น ในเทมเพลตงานนำเสนอ ตั้งค่าประเภทการเติมด้วย [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) เป็น [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) ก่อนเพื่อลบการเติมที่กำหนดไว้ การผสมนี้ทำให้รูปลักษณ์ใช้พื้นหลังสไลด์แทนการเติมแบบที่กำหนดไว้ การเปิดค่าสถานะนี้เพียงอย่างเดียวไม่ลบการเติมที่กำหนดไว้ก่อนหน้า
+
+นี่ต่างจาก [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) : การเติมพื้นหลังจะครอบออบเจกต์ที่อยู่ด้านหลังรูปร่างด้วยพื้นที่พื้นหลังสไลด์ที่สอดคล้องกัน ส่วน NoFill จะทำให้ออบเจกต์เหล่านั้นมองเห็นได้ การไล่ระดับจะยังคงจัดตำแหน่งกับสไลด์แทนการเริ่มใหม่ภายในแต่ละรูปร่าง
+
+ตัวอย่างต่อไปนี้สร้างพื้นหลังมาสเตอร์ที่สืบทอดโดยสไลด์และวางแถบสีมะนาวไว้ด้านหลังสี่เหลี่ยมสามรูป สี่เหลี่ยมซ้ายใช้พื้นหลัง, กลางไม่มีการเติม, และขวาสลับจากพื้นหลังเป็นการเติมสีส้มที่กำหนดเอง
 
 ```java
 import com.aspose.slides.*;
@@ -640,7 +709,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // สืบทอดไล่สีจากมาสเตอร์.
+    // สืบทอดไล่ระดับจากมาสเตอร์.
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -653,7 +722,7 @@ try {
     gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
     gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
 
-    // เพิ่มวัตถุนี้ก่อนเพื่อให้มันอยู่ด้านหลังสี่เหลี่ยม.
+    // เพิ่มวัตถุนี้เป็นอันดับแรกเพื่อให้แสดงอยู่ด้านหลังสี่เหลี่ยม.
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -670,7 +739,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // ปิดการเติมพื้นหลังก่อนที่จะกำหนดการเติมที่ชัดเจน.
+    // ปิดการเติมพื้นหลังก่อนที่จะกำหนดการเติมแบบกำหนดเอง.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
@@ -681,15 +750,15 @@ try {
 }
 ```
 
-ผลลัพธ์จากซ้ายไปขวา: **การเติมพื้นหลัง**, **ไม่มีการเติม**, และ **การเติมแบบชัดเจน** แถบมะสีแดงถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังมองเห็นได้ผ่านสี่เหลี่ยมกลาง
+ผลลัพธ์จากซ้ายไปขวา: **พื้นหลัง**, **ไม่มีการเติม**, และ **เติมกำหนดเอง** แถบสีมะนาวถูกซ่อนโดยสี่เหลี่ยมซ้ายและขวาแต่ยังคงมองเห็นผ่านสี่เหลี่ยมกลาง
 
-![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มแบบชัดเจนเหนือแถบมะสีแดง](background-fill.png)
+![การเติมพื้นหลัง, ไม่มีการเติม, และการเติมสีส้มกำหนดเองบนแถบสีมะนาว](background-fill.png)
 
-พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปร่างจะใช้พื้นหลังที่สไลด์กำหนดแล้ว; ตัวอย่างนี้ปล่อยให้พื้นหลังของสไลด์และเลย์เอาต์ไม่กำหนดเพื่อให้มาสเตอร์จัดหาให้
+พฤติกรรมเดียวกันใช้กับพื้นหลังที่กำหนดโดยตรงบนสไลด์หรือสืบทอดจากเลย์เอาต์ รูปร่างจะใช้พื้นหลังที่ได้จากการแก้ไขของสไลด์; ตัวอย่างนี้ไม่ได้กำหนดพื้นหลังของสไลด์และเลย์เอาต์เพื่อให้มาสเตอร์ให้ค่า
 
-## **ตั้งค่าความโปร่งแสง**
+## **ตั้งค่าความโปร่งใส**
 
-สำหรับการเติมสีทึบ, ค่าอัลฟาของสีควบคุมความทึบ: 0 คือโปร่งแสงเต็ม, 255 คือทึบเต็ม ตัวอย่างนี้ใช้ค่าอัลฟา 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งแสงประมาณ 50 % เพื่อให้สี่เหลี่ยมด้านล่างยังคงมองเห็นได้ สีถูกกำหนดผ่าน [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--)
+สำหรับการเติมสีทึบ ส่วนประกอบ alpha ของสีควบคุมความทึบ: 0 หมายถึงโปร่งใสเต็มที่และ 255 หมายถึงทึบเต็ม ตัวอย่างนี้ใช้ค่า alpha 128 สำหรับสี่เหลี่ยมสีเหลือง ทำให้โปร่งใสประมาณ 50% เพื่อให้สี่เหลี่ยมด้านล่างมองเห็นได้ สีถูกกำหนดผ่าน [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--)
 
 ```java
 import com.aspose.slides.*;
@@ -713,7 +782,7 @@ try {
 
 ผลลัพธ์:
 
-![รูปร่างที่โปร่งแสง](shape-transparency.png)
+![รูปร่างที่โปร่งใส](shape-transparency.png)
 
 ## **หมุนรูปร่าง**
 
@@ -739,9 +808,9 @@ try {
 
 ![การหมุนรูปร่าง](shape-rotation.png)
 
-## **เพิ่มเอฟเฟกต์ Bevel 3 มิติ**
+## **เพิ่มเอฟเฟกต์บีเวล 3D**
 
-ใช้ [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) เพื่อให้รูปร่างมีความลึกและขอบ bevel ตัวอย่างนี้สร้างอีลิปส์สีเขียวด้วยเส้นขอบส้ม, ใช้ [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) ตั้งความลึกเป็น 4 จุด, และใช้ [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) เพื่อสร้าง bevel ด้านบนเป็นวงกลมที่กว้างและสูง 6 จุด กล้องออร์โธกราฟิกที่หันหน้าและแสงสามจุดทำให้ bevel ปรากฏ
+ใช้ [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) เพื่อให้รูปร่างมีมิติลึกและขอบบีเวล ตัวอย่างนี้สร้างวงรีสีเขียวที่มีโค้งสีส้ม, ตั้งความลึกเป็น 4 จุดด้วย [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) และใช้บีเวลด้านบนเป็นวงกลมโดยตั้งความกว้างและความสูงเป็น 6 จุดผ่าน [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) กล้องแบบออร์โธกราฟิกหน้าตรงและแสงสามจุดทำให้บีเวลมองเห็นได้
 
 ```java
 import com.aspose.slides.*;
@@ -773,11 +842,11 @@ try {
 
 ผลลัพธ์:
 
-![เอฟเฟกต์ Bevel 3 มิติ](3D-bevel-effect.png)
+![เอฟเฟกต์บีเวล 3D](3D-bevel-effect.png)
 
-## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
+## **เพิ่มเอฟเฟกต์การหมุน 3D**
 
-การมองเห็น 3 มิติของรูปร่างควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) ด้วยมุมละติจูด, ลองจิจูด, และการหมุนรอบ 40°, 35°, และ 20° ตามลำดับ เลือกกล้องแบบอิซอเมตริกผ่าน [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) และแสงสมดุลผ่าน [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) จากนั้นบันทึกสี่เหลี่ยมที่จัดรูปแบบ
+มุมมอง 3D ของรูปรShape ควบคุมโดยการตั้งค่ากล้อง ตัวอย่างนี้ใช้ [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) พร้อมมุมละติจูด, ลองจิจูด, และการหมุนรัศมีที่ 40, 35, และ 20 องศาตามลำดับ เลือกกล้องแบบ isometric ผ่าน [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) และแสงแบบสมดุลผ่าน [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) จากนั้นบันทึกสี่เหลี่ยมที่จัดรูปแบบ
 
 ```java
 import com.aspose.slides.*;
@@ -800,15 +869,15 @@ try {
 
 ผลลัพธ์:
 
-![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
+![เอฟเฟกต์การหมุน 3D](3D-rotation-effect.png)
 
-## **ควบคุมการเรนเดอร์สีขาว-ดำสำหรับรูปร่าง**
+## **ควบคุมการแสดงผลขาว‑ดำสำหรับรูปร่าง**
 
-เมธอด [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) ระบุว่ารูปร่างแต่ละอันจะเรนเดอร์อย่างไรเมื่อดูหรือประมวลผลงานนำเสนอในโหมดสีขาว-ดำ มันไม่ได้เปิดใช้งานการแสดงสีขาว-ดำโดยอัตโนมัติและไม่ได้เปลี่ยนการเติมสี, เส้น, หรือการจัดรูปแบบอื่น ๆ ของรูปร่างในโหมดสีปกติ
+เมธอด [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) ระบุว่ารูปรShape ใดจะเรนเดอร์อย่างไรเมื่อการนำเสนอถูกดูหรือประมวลผลในโหมดขาว‑ดำ มันไม่ได้เปิดใช้งานโหมดขาว‑ดำเองและไม่ได้เปลี่ยนการเติม, เส้น, หรือการจัดรูปแบบอื่นในโหมดสีปกติ
 
-ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันเรนเดอร์เลือกการแปลง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับเป็นสีเดียว, `Color` รักษาสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดสีขาว-ดำ, `NotDefined` หมายถึงไม่มีการกำหนดโหมดระดับรูปร่าง
+ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ ตัวอย่างเช่น `Automatic` ให้แอปพลิเคชันแปลงโดยอัตโนมัติ, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้เฉพาะสีดำและสีขาว, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` คงสีปกติ, `Hidden` ลบรูปรShape ในโหมดขาว‑ดำ, `NotDefined` หมายความว่าไม่ได้กำหนดโหมดระดับรูปรShape
 
-ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและใช้ [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) เพื่อเลือกสีเทา รูปร่างที่บันทึกจะคงสีส้มสำหรับการแสดงสีปกติและขอสีเทาจากแอปพลิเคชันที่เคารพการตั้งค่าแสดงสีขาว-ดำ
+ตัวอย่างนี้สร้างสี่เหลี่ยมสีส้มและใช้ [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) เพื่อเลือกการแสดงผลสีเทา การบันทึกรูปรShape จะคงสีส้มสำหรับการแสดงผลสีปกติและขอให้แอปพลิเคชันที่เคารพการตั้งค่าโหมดขาว‑ดำแสดงสีเทา
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-ในโหมดสีปกติ สี่เหลี่ยมคงสีส้มไว้ ในขั้นตอนการทำงานที่แสดงผลสีขาว-ดำ มันจะใช้สีเทาเพราะโหมดถูกตั้งเป็น `Gray` นี้ช่วยให้คุณเก็บสไลด์สีเต็มไว้ขณะกำหนดลักษณะเฉพาะสำหรับการพิมพ์, การดูตัวอย่าง, หรืองานอื่น ๆ ที่เคารพการตั้งค่าแสดงสีขาว-ดำของงานนำเสนอ
+ในโหมดสีปกติ สี่เหลี่ยมคงสีส้มไว้ ในกระบวนการแสดงผลขาว‑ดำ มันใช้สีเทาเนื่องจากโหมดตั้งเป็น `Gray` ทำให้คุณสามารถคงสไลด์สีเต็มไว้ขณะกำหนดลักษณะเฉพาะสำหรับการพิมพ์, ดูตัวอย่าง, หรือกระบวนการอื่นที่เคารพการตั้งค่าแสดงผลขาว‑ดำของงานนำเสนอ
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-ใช้ [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) เพื่อกู้คืนตำแหน่ง, ขนาด, และการจัดรูปแบบของตารางตำแหน่งของสไลด์จากตารางตำแหน่งของเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องการงานนำเสนอที่มีตารางตำแหน่งเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปร่างที่ไม่มีตารางตำแหน่งของเลย์เอาต์ที่สอดคล้องกันจะไม่ได้รับการรีเซ็ต
+ใช้ [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) เพื่อคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของตัวแทนสไลด์จากตัวแทนเลย์เอาต์ที่สอดคล้องกัน ตัวอย่างนี้ต้องการงานนำเสนอที่มีตัวแทนเชื่อมโยงกับเลย์เอาต์และรีเซ็ตทุกสไลด์ก่อนบันทึก รูปรShape ที่ไม่มีตัวแทนเลย์เอาต์ที่สอดคล้องจะไม่ถูกรีเซ็ต
 
 ```java
 import com.aspose.slides.*;
@@ -852,14 +921,14 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**การจัดรูปแบบรูปร่างส่งผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**การจัดรูปแบบรูปรShape มีผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
 
-สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์มักเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังไว้ การเติมภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกจัดเก็บในงานนำเสนอ
+สี, สไตล์เส้น, และการตั้งค่าเอฟเฟกต์โดยทั่วไปเพิ่มข้อมูลเพียงเล็กน้อยเมื่อเทียบกับภาพและสื่อที่ฝังอยู่ การเติมรูปภาพอาจเพิ่มขนาดไฟล์เนื่องจากภาพถูกเก็บในงานนำเสนอ
 
-**ฉันจะตรวจจับรูปร่างบนสไลด์ที่มีการจัดรูปแบบเหมือนกันเพื่อจะจัดกลุ่มได้อย่างไร?**
+**ฉันจะตรวจจับรูปรShape บนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อรวมกลุ่มได้อย่างไร?**
 
-เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าตรงกันทั้งหมด ให้ถือว่ารูปร่างมีสไตล์เดียวกันและจัดกลุ่มตามตรรกะ ซึ่งทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
+เปรียบเทียบคุณสมบัติกุญแจการจัดรูปแบบของแต่ละรูปรShape — การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าทุกค่าแม่นยำตรงกัน ให้ถือสไตล์ว่าเหมือนกันและจัดกลุ่มรูปรShape เหล่านั้นแบบตรรกะ ซึ่งจะทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
 
-**ฉันสามารถบันทึกชุดสไตล์รูปร่างกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
+**ฉันสามารถบันทึกชุดสไตล์รูปรShape แบบกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
 
-ได้. เก็บรูปร่างตัวอย่างพร้อมสไตล์ที่ต้องการในสไลด์แม่แบบหรือไฟล์ .POTX จากนั้นเมื่อสร้างงานนำเสนอใหม่ ให้เปิดแม่แบบ, คัดลองรูปร่างที่สไตล์ต้องการ, และนำการจัดรูปแบบไปใช้ใหม่ตามต้องการ.
+ได้. เก็บรูปรShape ตัวอย่างที่มีสไตล์ที่ต้องการในสไลด์เทมเพลตหรือไฟล์ .POTX เทมเพลต เมื่อสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปรShapeที่ต้องการ, แล้วนำสไตล์ไปใช้ใหม่ตามต้องการ

@@ -7,124 +7,189 @@ url: /de/net/shape-formatting/
 keywords:
 - Form formatieren
 - Linie formatieren
-- Skizzeneffekt
-- Formlinien skizzieren
+- Skizzen-Effekt
+- Skizzenformenlinie
 - Verbindungsstil formatieren
-- Verlaufsfüllung
-- Musterfüllung
-- Bildfüllung
-- Texturfüllung
+- Verlauf-Füllung
+- Muster-Füllung
+- Bild-Füllung
+- Textur-Füllung
 - Einfarbige Füllung
-- Formtransparenz
-- Schwarz-weiß-Darstellung von Formen
+- Form-Transparenz
+- Schwarz-Weiß-Darstellung von Formen
 - Graustufen-Darstellung von Formen
 - Form drehen
-- 3D-Abrundungseffekt
-- 3D-Drehungseffekt
+- 3D‑Fase‑Effekt
+- 3D‑Dreh‑Effekt
 - Formatierung zurücksetzen
 - PowerPoint
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint-Formen in C# mit Aspose.Slides formatieren - Füll-, Linien- und Effektstile für PPT- und PPTX-Dateien präzise und vollständig steuern."
+description: "Erfahren Sie, wie Sie PowerPoint‑Formen in C# mit Aspose.Slides formatieren—Füll‑, Linien‑ und Effekt‑Stile für PPT‑ und PPTX‑Dateien präzise und vollständig steuern."
 ---
-## **Einführung**
+## **Einleitung**
 
-In PowerPoint können Sie Formen zu Folien hinzufügen. Da Formen aus Linien bestehen, können Sie sie formatieren, indem Sie die Konturen ändern oder Effekte darauf anwenden. Zusätzlich können Sie Formen formatieren, indem Sie Einstellungen festlegen, die steuern, wie ihre Innenbereiche gefüllt werden.
+Formatiere Formen in PowerPoint, indem du ihre Konturen, Füllungen und Effekte anpasst. Aspose.Slides für .NET ermöglicht die programmgesteuerte Steuerung dieser Einstellungen, einschließlich Transparenz, Drehung und 3D‑Formatierung.
 
-![Formformat-PowerPoint](format-shape-powerpoint.png)
+![Formformatierungsoptionen in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides für .NET stellt Schnittstellen und Eigenschaften bereit, mit denen Sie Formen mithilfe derselben Optionen formatieren können, die in PowerPoint verfügbar sind.
+Aspose.Slides für .NET stellt Schnittstellen und Eigenschaften bereit, mit denen du Formen mit denselben Optionen formatieren kannst, die in PowerPoint verfügbar sind.
 
 ## **Linien formatieren**
 
-Mit Aspose.Slides können Sie für eine Form einen benutzerdefinierten Linienstil festlegen. Die folgenden Schritte beschreiben das Vorgehen:
+Verwende [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) um die Kontur einer Form zu steuern. Dieses Beispiel erstellt ein nicht gefülltes Rechteck mit einer blauen, gestrichelten Kontur. [ILineFormat.Style](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/style/) wählt eine dick‑dünn‑Verbindungslinie, während [ILineFormat.Width](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/width/) die Breite auf 7 Punkte setzt und [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) das Strichmuster auswählt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [line style](https://reference.aspose.com/slides/net/aspose.slides/linestyle/) der Form.
-1. Legen Sie die Linienstärke fest.
-1. Setzen Sie den [dash style](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) der Linie.
-1. Legen Sie die Linienfarbe für die Form fest.
-1. Speichern Sie die geänderte Präsentation als PPTX-Datei.
-
-Der folgende C#‑Code demonstriert, wie ein Rechteck‑`AutoShape` formatiert wird:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.NoFill;
+shape.LineFormat.Style = LineStyle.ThickThin;
+shape.LineFormat.Width = 7;
+shape.LineFormat.DashStyle = LineDashStyle.Dash;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Legen Sie die Füllfarbe für die Rechteckform fest.
-    shape.FillFormat.FillType = FillType.NoFill;
-
-    // Wenden Sie die Formatierung auf die Linien des Rechtecks an.
-    shape.LineFormat.Style = LineStyle.ThickThin;
-    shape.LineFormat.Width = 7;
-    shape.LineFormat.DashStyle = LineDashStyle.Dash;
-
-    // Legen Sie die Farbe für die Linie des Rechtecks fest.
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
-}
+presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
 ![Die formatierten Linien in der Präsentation](formatted-lines.png)
 
-## **Skizzeneffekte auf Formlinien anwenden**
+### **Benutzerdefinierte Strichmuster für Linien festlegen**
 
-Ein Skizzeneffekt lässt eine Formlinie handgezeichnet wirken. Verwenden Sie [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/), um auf die Linieneinstellungen zuzugreifen, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/), um auf die Skizzeinstellungen zuzugreifen, und [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/), um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) auszuwählen.
+Verwende [ILineFormat.CustomDashPattern](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/customdashpattern/) wenn vordefinierte Linienstile nicht die gewünschten Strichlängen und Lücken bieten, zum Beispiel für Marken‑Konturen oder technische Diagramme. Das Zuweisen eines Musters setzt automatisch [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) auf [LineDashStyle.Custom](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/).
 
-Der folgende C#‑Code zeigt, wie der Effekt [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) angewendet, der explizit zugewiesene Wert ausgelesen und der Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) entfernt wird:
+Array‑Einträge wechseln zwischen Strich‑ und Lückenlänge, beginnend mit einem Strich. Jeder Wert ist ein Vielfaches der Linienbreite: `{ 4, 2 }` bei einer Breite von 3 Punkten erzeugt einen 12‑Punkte‑Strich gefolgt von einer 6‑Punkte‑Lücke. Verwende Paare aus endlichen, nicht‑negativen Werten, um komplette Strich‑und‑Lücken‑Segmente zu definieren. Das Beispiel verwendet positive Werte, damit jeder Strich und jede Lücke sichtbar bleibt.
+
+Dieses Beispiel erstellt fünf blaue Linien mit gleicher Länge und flachen Enden. Die ersten drei vergleichen Muster bei einer Breite von 3 Punkten. Die vierte wiederholt das erste Muster bei doppelter Breite und verdoppelt damit sowohl die Strich‑ als auch die Lückenlängen. Die fünfte wechselt von einem benutzerdefinierten Muster zu einer durchgezogenen Linie.
 
 ```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(600, 300, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var patterns = new[]
+{
+    new float[] { 4, 2 },
+    new float[] { 1, 2 },
+    new float[] { 6, 2, 1, 2 },
+    new float[] { 4, 2 },
+    new float[] { 4, 2 }
+};
+
+for (var i = 0; i < patterns.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 50, 50 + i * 50, 500, 0);
+    line.LineFormat.Width = i == 3 ? 6 : 3;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.CapStyle = LineCapStyle.Flat;
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.CustomDashPattern = patterns[i];
+}
+
+// Return the last line to a solid style.
+slide.Shapes[4].LineFormat.DashStyle = LineDashStyle.Solid;
+
+presentation.Save("custom_dash_patterns.pptx", SaveFormat.Pptx);
+```
+
+Um stattdessen zu einem vordefinierten gestrichelten Stil zurückzukehren, weise [LineDashStyle.Dash](https://reference.aspose.com/slides/net/aspose.slides/linedashstyle/) [ILineFormat.DashStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/dashstyle/) zu. Der ausgewählte Stil bestimmt das Aussehen der Linie.
+
+Das Ergebnis in PowerPoint, von oben nach unten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; und **Solid, 3 pt**.
+
+![Drei benutzerdefinierte Strichmuster, eine breitere Linie, die das erste Muster verwendet, und eine durchgezogene Linie in PowerPoint](custom-dash-patterns.png)
+
+### **Linienenden festlegen**
+
+Verwende [ILineFormat.CapStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/capstyle/) um die Enden einer offenen Linie festzulegen. Die Aufzählung [LineCapStyle](https://reference.aspose.com/slides/net/aspose.slides/linecapstyle/) bietet drei explizite Endstil‑Optionen:
+
+- `Flat`: Der Strich endet am Endpunkt.
+- `Round`: Eine halbkreisförmige Endung reicht halb so breit wie die Linienbreite über den Endpunkt hinaus.
+- `Square`: Eine quadratische Endung reicht halb so breit wie die Linienbreite über den Endpunkt hinaus.
+
+Die Aufzählung beinhaltet außerdem `NotDefined`, was bedeutet, dass kein Endstil explizit zugewiesen ist.
+
+Enden unterscheiden sich von Pfeilspitzen, die Symbole zu Linienenden hinzufügen, und von Verbindungen, die Ecken zwischen Liniensegmenten steuern. Dieses Beispiel deaktiviert Pfeilspitzen über [ILineFormat.BeginArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/beginarrowheadstyle/) und [ILineFormat.EndArrowheadStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/endarrowheadstyle/), sodass nur die Endformen verglichen werden.
+
+Das folgende Beispiel erstellt drei ansonsten identische horizontale Linien mit einer Breite von 20 Punkten. Von oben nach unten verwenden sie flache, runde und quadratische Enden. Ihre Endpunkte haben dieselben horizontalen Koordinaten; die runden und quadratischen Enden erstrecken sich 10 Punkte über jeden Endpunkt hinaus.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 240, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var capStyles = new[] { LineCapStyle.Flat, LineCapStyle.Round, LineCapStyle.Square };
+
+for (var i = 0; i < capStyles.Length; i++)
+{
+    var line = slide.Shapes.AddAutoShape(ShapeType.Line, 100, 50 + i * 70, 300, 0);
+    line.LineFormat.Width = 20;
+    line.LineFormat.FillFormat.FillType = FillType.Solid;
+    line.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    line.LineFormat.DashStyle = LineDashStyle.Solid;
+    line.LineFormat.CapStyle = capStyles[i];
+    line.LineFormat.BeginArrowheadStyle = LineArrowheadStyle.None;
+    line.LineFormat.EndArrowheadStyle = LineArrowheadStyle.None;
+}
+
+presentation.Save("line_caps.pptx", SaveFormat.Pptx);
+```
+
+Das Ergebnis in PowerPoint, von oben nach unten: **Flat**, **Round**, und **Square**.
+
+![Flache, runde und quadratische Enden an identischen dicken Linien in PowerPoint](line-caps.png)
+
+## **Skizzen‑Effekte auf Formlinien anwenden**
+
+Ein Skizzen‑Effekt lässt eine Formlinie handgezeichnet wirken. Verwende [IShape.LineFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/lineformat/) um die Linieneinstellungen zu erhalten, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/sketchformat/) um die Skizzeneinstellungen zu erhalten, und [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) um einen Wert aus der Aufzählung [LineSketchType](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) auszuwählen.
+
+Der folgende C#‑Code zeigt, wie man einen [LineSketchType.Curved](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/)‑Effekt anwendet, den explizit zugewiesenen Wert ausliest und den Effekt mit [LineSketchType.None](https://reference.aspose.com/slides/net/aspose.slides/linesketchtype/) entfernt:
+
+```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation();
-
 var slide = presentation.Slides[0];
+
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-// Greifen Sie auf das Linienformat der Form und dessen Skizzenformat zu.
 var sketchFormat = shape.LineFormat.SketchFormat;
-
-// Wenden Sie einen Skizzeneffekt an.
 sketchFormat.SketchType = LineSketchType.Curved;
-
-// Lesen Sie den direkt der Form zugewiesenen Skizzeneffekt.
 var explicitSketchType = sketchFormat.SketchType;
 Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
-
-// Entfernen Sie den Skizzeneffekt.
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Der von `ISketchFormat.SketchType` zurückgegebene Wert stellt die direkt der Form zugewiesene Einstellung dar. Wenn die Linienformatierung von einem Design, einer Master‑Folien oder einer Layout‑Folien geerbt werden kann, verwenden Sie [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), greifen Sie auf [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/) zu und lesen Sie [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/). Der effektive Wert spiegelt die Formatierung wider, die tatsächlich nach Auflösung der Vererbung angewendet wird:
+Der von [ISketchFormat.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformat/sketchtype/) zurückgegebene Wert stellt die der Form direkt zugewiesene Einstellung dar. Falls die Linienformatierung von einem Theme, einer Master‑Folien oder einer Layout‑Folien geerbt werden kann, verwende [ILineFormat.GetEffective](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/geteffective/), greife auf [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/net/aspose.slides/ilineformateffectivedata/sketchformat/) zu und lese [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/net/aspose.slides/isketchformateffectivedata/sketchtype/) aus. Der effektive Wert spiegelt die Formatierung wider, die tatsächlich nach Auflösung der Vererbung angewendet wird. Dieses Beispiel erfordert eine vorhandene Präsentation mit mindestens einer Form auf der ersten Folie und gibt beide Werte aus:
 
 ```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("presentation.pptx");
-
 var shape = presentation.Slides[0].Shapes[0];
-var lineFormat = shape.LineFormat;
 
+var lineFormat = shape.LineFormat;
 var explicitSketchType = lineFormat.SketchFormat.SketchType;
 var effectiveLineFormat = lineFormat.GetEffective();
 var effectiveSketchType = effectiveLineFormat.SketchFormat.SketchType;
@@ -133,7 +198,7 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **Verbindungsstil formatieren**
+## **Verbindungsstile formatieren**
 
 Hier sind die drei Optionen für den Verbindungstyp:
 
@@ -141,363 +206,521 @@ Hier sind die drei Optionen für den Verbindungstyp:
 * Gehrung
 * Fase
 
-Standardmäßig verwendet PowerPoint, wenn es zwei Linien an einem Winkel (z. B. an einer Formkante) verbindet, die Einstellung **Rund**. Wenn Sie jedoch eine Form mit scharfen Winkeln zeichnen, bevorzugen Sie möglicherweise die Option **Gehrung**.
+Der Verbindungsstil bestimmt, wie zwei Kontursegmente an einer Ecke zusammentreffen. Verwende **Round** für abgerundete Ecken, **Miter** für spitze Ecken oder **Bevel** für abgeflachte Ecken.
 
 ![Der Verbindungsstil in der Präsentation](join-style-powerpoint.png)
 
-Der folgende C#‑Code demonstriert, wie drei Rechtecke (wie im obigen Bild gezeigt) mit den Verbindungstypen Gehrung, Fase und Rund erstellt wurden:
+Dieses Beispiel erstellt drei schwarze Rechtecke mit blauen Konturen von 15 Punkten Breite. Es setzt [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/) auf die miter-, bevel- und round‑Werte von [LineJoinStyle](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/), um zu vergleichen, wie die Ecken gezeichnet werden.
 
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie drei AutoShapes vom Typ Rechteck hinzu.
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+var miterShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+var bevelShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+var roundShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Legen Sie die Füllfarbe für jede Rechteckform fest.
-    shape1.FillFormat.FillType = FillType.Solid;
-    shape1.FillFormat.SolidFillColor.Color = Color.Black;
-    shape2.FillFormat.FillType = FillType.Solid;
-    shape2.FillFormat.SolidFillColor.Color = Color.Black;
-    shape3.FillFormat.FillType = FillType.Solid;
-    shape3.FillFormat.SolidFillColor.Color = Color.Black;
+miterShape.FillFormat.FillType = FillType.Solid;
+miterShape.FillFormat.SolidFillColor.Color = Color.Black;
+bevelShape.FillFormat.FillType = FillType.Solid;
+bevelShape.FillFormat.SolidFillColor.Color = Color.Black;
+roundShape.FillFormat.FillType = FillType.Solid;
+roundShape.FillFormat.SolidFillColor.Color = Color.Black;
 
-    // Legen Sie die Linienstärke fest.
-    shape1.LineFormat.Width = 15;
-    shape2.LineFormat.Width = 15;
-    shape3.LineFormat.Width = 15;
+miterShape.LineFormat.Width = 15;
+bevelShape.LineFormat.Width = 15;
+roundShape.LineFormat.Width = 15;
 
-    // Legen Sie die Farbe für die Linie jedes Rechtecks fest.
-    shape1.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shape2.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape2.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    shape3.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape3.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+miterShape.LineFormat.FillFormat.FillType = FillType.Solid;
+miterShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+bevelShape.LineFormat.FillFormat.FillType = FillType.Solid;
+bevelShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+roundShape.LineFormat.FillFormat.FillType = FillType.Solid;
+roundShape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
-    // Legen Sie den Verbindungsstil fest.
-    shape1.LineFormat.JoinStyle = LineJoinStyle.Miter;
-    shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
-    shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
+miterShape.LineFormat.JoinStyle = LineJoinStyle.Miter;
+bevelShape.LineFormat.JoinStyle = LineJoinStyle.Bevel;
+roundShape.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Fügen Sie jedem Rechteck Text hinzu.
-    shape1.TextFrame.Text = "Miter Join Style";
-    shape2.TextFrame.Text = "Bevel Join Style";
-    shape3.TextFrame.Text = "Round Join Style";
+miterShape.TextFrame.Text = "Miter Join Style";
+bevelShape.TextFrame.Text = "Bevel Join Style";
+roundShape.TextFrame.Text = "Round Join Style";
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("join_styles.pptx", SaveFormat.Pptx);
-}
+presentation.Save("join_styles.pptx", SaveFormat.Pptx);
 ```
 
-## **Verlaufsfüllung**
+### **Miter‑Verbindungen an spitzen Ecken begrenzen**
 
-In PowerPoint ist die Verlaufsfüllung eine Formatierungsoption, mit der Sie einer Form einen kontinuierlichen Farbübergang zuweisen können. Sie können z. B. zwei oder mehr Farben so anwenden, dass die eine allmählich in die andere übergeht.
+Verwende [ILineFormat.MiterLimit](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/miterlimit/) zusammen mit [ILineFormat.JoinStyle](https://reference.aspose.com/slides/net/aspose.slides/ilineformat/joinstyle/), das auf [LineJoinStyle.Miter](https://reference.aspose.com/slides/net/aspose.slides/linejoinstyle/) gesetzt ist, um zu begrenzen, wie weit eine spitze Ecke ausgedehnt werden kann.
 
-So wenden Sie eine Verlaufsfüllung auf eine Form mit Aspose.Slides an:
+Der Grenzwert ist das Verhältnis des Abstands zwischen den inneren und äußeren Ecken der Verbindung zur Linienbreite. Zum Beispiel erlaubt ein Wert von `8` eine Miter‑Länge von bis zu achtmal der Linienbreite; er ist keine Messung in Punkten. Überschreitet die Ecke den Grenzwert, verwendet PowerPoint an dieser Stelle eine abgeflachte Verbindung. Ein größerer Grenzwert ermöglicht spitzere Punkte. Die Einstellung wirkt nur auf Miter‑Verbindungen und eine Änderung hat keinen sichtbaren Effekt, wenn die Ecke innerhalb beider Grenzwerte bleibt.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) der Form auf `Gradient`.
-1. Fügen Sie Ihre beiden gewünschten Farben mit definierten Positionen über die `Add`‑Methoden der Gradient‑Stop‑Sammlung hinzu, die von der Schnittstelle [IGradientFormat](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/) bereitgestellt wird.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Dieses Beispiel erstellt zwei identische, nicht gefüllte Dreiecke mit Konturen von 20 Punkten Breite. Das linke Dreieck verwendet einen Grenzwert von `2`, das rechte `8`. Jedes Dreieck ist 80 Punkte breit und 160 Punkte hoch, wodurch das Verhältnis der Miter‑Länge zur Linienbreite an der oberen Ecke etwa `4.12` beträgt. Folglich fasst PowerPoint die linke Spitze ab und lässt die rechte Spitze erhalten.
 
-Der folgende C#‑Code demonstriert, wie ein Farbverlauf auf eine Ellipse angewendet wird:
-
-```c#
+```csharp
+using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(500, 320, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var miterLimits = new[] { 2f, 8f };
+
+for (var i = 0; i < miterLimits.Length; i++)
 {
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+    var triangle = slide.Shapes.AddAutoShape(ShapeType.Triangle, 90 + i * 240, 110, 80, 160);
+    triangle.FillFormat.FillType = FillType.NoFill;
+    triangle.LineFormat.Width = 20;
+    triangle.LineFormat.FillFormat.FillType = FillType.Solid;
+    triangle.LineFormat.FillFormat.SolidFillColor.Color = Color.DarkBlue;
+    triangle.LineFormat.JoinStyle = LineJoinStyle.Miter;
+    triangle.LineFormat.MiterLimit = miterLimits[i];
+}
 
-    // Fügen Sie eine AutoShape vom Typ Ellipse hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+presentation.Save("miter_limits.pptx", SaveFormat.Pptx);
+```
 
-    // Wenden Sie eine Verlaufsformatierung auf die Ellipse an.
+Das Ergebnis in PowerPoint: **Miter limit 2** links und **miter limit 8** rechts.
+
+![Ein abgeflachter Spitzenwinkel mit Miter‑Grenzwert 2 und ein spitzer Spitzenwinkel mit Miter‑Grenzwert 8 in PowerPoint](miter-limits.png)
+
+## **Verlauf‑Füllung**
+
+Eine Verlauf‑Füllung mischt Farben über eine Form hinweg. Dieses Beispiel füllt eine Ellipse mit einem linearen Verlauf von 45 Grad von Rot zu Lila unter Verwendung von [IFillFormat.GradientFormat](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/gradientformat/). Die Methode [IGradientStopCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/igradientstopcollection/add/) platziert die Farbstopps bei 0 und 1, dem Anfang und Ende des Verlaufs. Das Löschen der vorhandenen Stopps stellt sicher, dass nur diese beiden Farben verwendet werden.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Gradient;
+shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
+shape.FillFormat.GradientFormat.LinearGradientAngle = 45;
+shape.FillFormat.GradientFormat.GradientStops.Clear();
+shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
+shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
+
+presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+```
+
+Das Ergebnis:
+
+![Die Ellipse mit Verlauf‑Füllung](gradient-fill.png)
+
+Falls ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kannst einen Renderstil auswählen, ohne die in der Präsentation gespeicherte Verlauf‑Füllung zu ändern.
+
+### **Den Winkel des linearen Verlaufs festlegen**
+
+Verwende [IGradientFormat.LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) um die Ausrichtung einer [GradientShape.Linear](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/)‑Füllung zu steuern. Der Winkel wird in Grad gemessen und nimmt im Uhrzeigersinn zu: `0` verläuft von links nach rechts, `90` von oben nach unten, `180` von rechts nach links und `270` von unten nach oben. Bruchteilswinkel werden unterstützt. Endliche Winkel außerhalb von `[0, 360)` werden auf eine Umdrehung normiert; zum Beispiel wird `-45` zu `315` und `360` zu `0`.
+
+Dieses Beispiel erstellt sechs Rechtecke mit identischen roten, grünen und blauen Stopps an den Positionen `0`, `0.5` und `1`. Skalierung ist deaktiviert, damit der Winkel unabhängig von den Proportionen der Rechtecke verglichen werden kann. Die Winkel, von links nach rechts, sind `0`, `45` und `90` in der ersten Reihe und `135`, `180` und `270` in der zweiten Reihe.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var angles = new float[] { 0, 45, 90, 135, 180, 270 };
+
+for (var i = 0; i < angles.Length; i++)
+{
+    var x = 30 + (i % 3) * 230;
+    var y = 30 + (i / 3) * 190;
+
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 200, 150);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
     shape.FillFormat.FillType = FillType.Gradient;
-    shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
-    // Legen Sie die Richtung des Verlaufs fest.
-    shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
-
-    // Fügen Sie zwei Verlaufsstopps hinzu.
-    shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
-    shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("gradient_fill.pptx", SaveFormat.Pptx);
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.False;
+    gradient.LinearGradientAngle = angles[i];
 }
+
+presentation.Save("linear_gradient_angles.pptx", SaveFormat.Pptx);
 ```
 
-Das Ergebnis:
+Das Ergebnis in PowerPoint:
 
-![Die Ellipse mit Verlaufsfüllung](gradient-fill.png)
+![Lineare Verläufe bei 0°, 45° und 90° in der oberen Zeile sowie 135°, 180° und 270° in der unteren Zeile](linear-gradient-angles.png)
 
-Wenn ein Verlauf in einem exportierten Bild anders aussieht als in PowerPoint, siehe [Choose a Gradient Rendering Style](/slides/de/net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Sie können einen Renderstil auswählen, ohne die im Dokument gespeicherte Verlaufsfüllung zu ändern.
+### **Einen linearen Verlauf mit der Form skalieren**
 
-## **Musterfüllung**
+[IGradientFormat.LinearGradientScaled](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientscaled/) akzeptiert einen [NullableBool](https://reference.aspose.com/slides/net/aspose.slides/nullablebool/)‑Wert. Setze ihn explizit auf `False`, um den geometrischen Verlaufswinkel beizubehalten, wenn sich die Proportionen der Form ändern, oder auf `True`, um den Verlauf mit Breite und Höhe der Form zu skalieren. Bei aktivierter Skalierung kann der sichtbare Winkel von dem zugewiesenen Winkel bei einer nicht‑quadratischen Form abweichen.
 
-In PowerPoint ist die Musterfüllung eine Formatierungsoption, mit der Sie einem Formobjekt ein zweifarbiges Design – wie Punkte, Streifen, Kreuzschraffuren oder Karos – zuweisen können. Sie können für Vorder‑ und Hintergrund des Musters eigene Farben wählen.
+Das folgende Beispiel verwendet einen Winkel von `45` Grad und dieselben Farbstopps wie beim Winkelvergleich. Die linke Spalte verwendet `False`; die rechte Spalte verwendet `True`. Jede Spalte enthält ein breites Rechteck über einem hohen Rechteck. Beide beginnen mit denselben breiten Abmessungen; das Ändern von Breite und Höhe des zweiten Rechtecks zeigt, wie die Füllung auf Größenänderungen reagiert, ohne die Verlaufeinstellungen zu ändern.
 
-Aspose.Slides bietet über 45 vordefinierte Musterstile, die Sie auf Formen anwenden können, um das visuelle Erscheinungsbild Ihrer Präsentationen zu verbessern. Auch nach Auswahl eines vordefinierten Musters können Sie die genauen Farben festlegen.
-
-So wenden Sie eine Musterfüllung auf eine Form mit Aspose.Slides an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) der Form auf `Pattern`.
-1. Wählen Sie einen Musterstil aus den vordefinierten Optionen.
-1. Setzen Sie die [Background Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) des Musters.
-1. Setzen Sie die [Foreground Color](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) des Musters.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Der folgende C#‑Code demonstriert, wie eine Musterfüllung auf ein Rechteck angewendet wird:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 460, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+var scalingOptions = new[] { NullableBool.False, NullableBool.True };
+
+for (var column = 0; column < scalingOptions.Length; column++)
 {
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+    for (var row = 0; row < 2; row++)
+    {
+        var x = 30 + column * 360;
+        var y = row == 0 ? 30 : 150;
+        
+        var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, x, y, 300, 90);
+        shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+        shape.FillFormat.FillType = FillType.Gradient;
 
-    // Fügen Sie eine AutoShape vom Typ Rechteck hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+        var gradient = shape.FillFormat.GradientFormat;
+        gradient.GradientShape = GradientShape.Linear;
+        gradient.GradientStops.Clear();
+        gradient.GradientStops.Add(0f, Color.Red);
+        gradient.GradientStops.Add(0.5f, Color.Lime);
+        gradient.GradientStops.Add(1f, Color.Blue);
+        gradient.LinearGradientAngle = 45;
+        gradient.LinearGradientScaled = scalingOptions[column];
 
-    // Legen Sie den Fülltyp auf Muster fest.
-    shape.FillFormat.FillType = FillType.Pattern;
-
-    // Legen Sie den Musterstil fest.
-    shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
-
-    // Legen Sie die Hintergrund- und Vordergrundfarben des Musters fest.
-    shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
-    shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
+        if (row == 1)
+        {
+            shape.Width = 90;
+            shape.Height = 280;
+        }
+    }
 }
+
+presentation.Save("linear_gradient_scaling.pptx", SaveFormat.Pptx);
+```
+
+Das Ergebnis in PowerPoint, mit deaktivierter Skalierung links und aktivierter rechts:
+
+![Breite und hohe Rechtecke mit einem 45‑Grad‑Verlauf, Vergleich von LinearGradientScaled False links und True rechts](linear-gradient-scaling.png)
+
+Bei deaktivierter Skalierung behalten die diagonalen Farbstreifen in beiden Rechtecken dieselbe Orientierung bei. Bei aktivierter Skalierung dehnen sich die Streifen mit den Proportionen der Form. Dies hilft, den Verlauf einer Vorlage beim Anpassen einer Form an eine andere Größe zu reproduzieren. Bei einem Quadrat ändert das Aktivieren der Skalierung das Aussehen dieses `45`‑Grad‑Verlaufs nicht.
+
+Sowohl Winkel‑ als auch Skalierungseinstellungen gelten für lineare Verläufe. Sie steuern nicht die Füllungen [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/net/aspose.slides/gradientshape/).
+
+### **Winkel mit Verlauf‑Richtung kombinieren**
+
+[IGradientFormat.GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/gradientdirection/) wählt einen Verlaufsstil aus der Aufzählung [GradientDirection](https://reference.aspose.com/slides/net/aspose.slides/gradientdirection/) aus; sie ist kein Ersatz für einen numerischen Winkel. Bei einem linearen Verlauf können die Eckstile den Bereich, über den die Farben verteilt werden, ändern, ohne [LinearGradientAngle](https://reference.aspose.com/slides/net/aspose.slides/igradientformat/lineargradientangle/) zu ändern. Halte die Richtung unverändert, wenn du Winkel oder Skalierung vergleichst.
+
+Das folgende Beispiel wendet dieselben Einstellungen in umgekehrter Reihenfolge an. Die beiden Rechtecke sehen identisch aus: Das Zuweisen der Richtung vor oder nach dem Winkel ändert das Ergebnis nicht.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+for (var i = 0; i < 2; i++)
+{
+    var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 30 + i * 140, 320, 100);
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+    shape.FillFormat.FillType = FillType.Gradient;
+
+    var gradient = shape.FillFormat.GradientFormat;
+    gradient.GradientShape = GradientShape.Linear;
+    gradient.GradientStops.Clear();
+    gradient.GradientStops.Add(0f, Color.Red);
+    gradient.GradientStops.Add(0.5f, Color.Lime);
+    gradient.GradientStops.Add(1f, Color.Blue);
+    gradient.LinearGradientScaled = NullableBool.True;
+
+    if (i == 0)
+    {
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+        gradient.LinearGradientAngle = 30;
+    }
+    else
+    {
+        gradient.LinearGradientAngle = 30;
+        gradient.GradientDirection = GradientDirection.FromCorner1;
+    }
+}
+
+presentation.Save("linear_gradient_direction.pptx", SaveFormat.Pptx);
+```
+
+## **Muster‑Füllung**
+
+Eine Muster‑Füllung wendet ein zweifarbiges Design wie Punkte, Streifen oder Karos an. Dieses Beispiel verwendet [IPatternFormat.PatternStyle](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/patternstyle/) um ein Gitter‑Muster auszuwählen. [IPatternFormat.BackColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/backcolor/) liefert den hellgrauen Hintergrund, und [IPatternFormat.ForeColor](https://reference.aspose.com/slides/net/aspose.slides/ipatternformat/forecolor/) liefert die gelbe Musterfarbe.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Pattern;
+shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
+shape.FillFormat.PatternFormat.BackColor.Color = Color.LightGray;
+shape.FillFormat.PatternFormat.ForeColor.Color = Color.Yellow;
+
+presentation.Save("pattern_fill.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Das Rechteck mit Musterfüllung](pattern-fill.png)
+![Das Rechteck mit Muster‑Füllung](pattern-fill.png)
 
-## **Bildfüllung**
+## **Bild‑Füllung**
 
-In PowerPoint ist die Bildfüllung eine Formatierungsoption, mit der Sie ein Bild in eine Form einbetten – das Bild dient dabei als Hintergrund der Form.
-
-So verwenden Sie Aspose.Slides, um eine Bildfüllung auf eine Form anzuwenden:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) der Form auf `Picture`.
-1. Setzen Sie den Bildfüllmodus auf `Tile` (oder einen anderen gewünschten Modus).
-1. Erstellen Sie ein [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/)-Objekt aus dem Bild, das Sie verwenden möchten.
-1. Weisen Sie dieses Bild der Eigenschaft `Picture.Image` des `PictureFillFormat` der Form zu.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Angenommen, wir haben die Datei „lotus.png“ mit dem folgenden Bild:
+Eine Bild‑Füllung verwendet ein Bild innerhalb einer Form. Dieses Beispiel benötigt ein lokales Bild und nutzt [Images.FromFile](https://reference.aspose.com/slides/net/aspose.slides/images/fromfile/) um es in die Bildsammlung der Präsentation zu laden. Das Setzen von [IPictureFillFormat.PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/) auf den Kachel‑Modus wiederholt das Bild im Rechteck. Das hier verwendete Quellbild wird unten angezeigt:
 
 ![Das Lotus‑Bild](lotus.png)
 
-Der folgende C#‑Code demonstriert, wie eine Form mit dem Bild gefüllt wird:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+shape.FillFormat.FillType = FillType.Picture;
+shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Setzen Sie den FillType auf Picture.
-    shape.FillFormat.FillType = FillType.Picture;
+using var image = Images.FromFile("lotus.png");
+var presentationImage = presentation.Images.AddImage(image);
+shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
 
-    // Setzen Sie den PictureFillMode.
-    shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
-
-    // Laden Sie ein Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
-    IImage image = Images.FromFile("lotus.png");
-    IPPImage presentationImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Setzen Sie das Bild.
-    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
-}
+presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Die Form mit Bildfüllung](picture-fill.png)
+![Die Form mit Bild‑Füllung](picture-fill.png)
 
-### **Bild kacheln als Textur**
+### **Bild als Textur kacheln**
 
-Wenn Sie ein gekacheltes Bild als Textur festlegen und das Kachelverhalten anpassen möchten, können Sie die folgenden Eigenschaften des Interfaces [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) verwenden:
+Wenn du ein gekacheltes Bild als Textur festlegen und das Kachel‑Verhalten anpassen möchtest, kannst du die folgenden Eigenschaften der Schnittstelle [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) und der Klasse [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/) verwenden:
 
-- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Legt den Bildfüllmodus fest – entweder `Tile` oder `Stretch`.
+- [PictureFillMode](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/picturefillmode/): Legt den Bild‑Füllmodus fest – entweder `Tile` oder `Stretch`.
 - [TileAlignment](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilealignment/): Gibt die Ausrichtung der Kacheln innerhalb der Form an.
-- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Bestimmt, ob die Kachel horizontal, vertikal oder beide Richtungen gespiegelt wird.
-- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Legt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
-- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Legt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form fest.
+- [TileFlip](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileflip/): Steuert, ob die Kachel horizontal, vertikal oder beides gespiegelt wird.
+- [TileOffsetX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsetx/): Setzt den horizontalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
+- [TileOffsetY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tileoffsety/): Setzt den vertikalen Versatz der Kachel (in Punkten) vom Ursprung der Form.
 - [TileScaleX](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescalex/): Definiert die horizontale Skalierung der Kachel als Prozentsatz.
 - [TileScaleY](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/tilescaley/): Definiert die vertikale Skalierung der Kachel als Prozentsatz.
 
-Der folgende Beispielcode zeigt, wie ein Rechteck mit gekachelter Bildfüllung hinzugefügt und die Kacheloptionen konfiguriert werden:
+Dieses Beispiel benötigt ein lokales Bild und konfiguriert [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) um es mit 50 % seiner Originalgröße zu wiederholen. Versätze von −32 Punkten verschieben die Kacheln horizontal und vertikal; die Ausrichtung unten‑rechts und das Spiegeln in beide Richtungen bestimmen, wie die wiederholte Textur angeordnet wird.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide firstSlide = presentation.Slides[0];
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
 
-    // Fügen Sie eine Rechteck-AutoShape hinzu.
-    IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+var shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
+shape.FillFormat.FillType = FillType.Picture;
 
-    // Setzen Sie den FillType der Form auf Picture.
-    shape.FillFormat.FillType = FillType.Picture;
+using var sourceImage = Images.FromFile("lotus.png");
+var presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Laden Sie das Bild und fügen Sie es zu den Präsentationsressourcen hinzu.
-    IPPImage presentationImage;
-    using (IImage sourceImage = Images.FromFile("lotus.png"))
-        presentationImage = presentation.Images.AddImage(sourceImage);
+var pictureFillFormat = shape.FillFormat.PictureFillFormat;
+pictureFillFormat.Picture.Image = presentationImage;
+pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+pictureFillFormat.TileOffsetX = -32;
+pictureFillFormat.TileOffsetY = -32;
+pictureFillFormat.TileScaleX = 50;
+pictureFillFormat.TileScaleY = 50;
+pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
+pictureFillFormat.TileFlip = TileFlip.FlipBoth;
 
-    // Weisen Sie das Bild der Form zu.
-    IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
-    pictureFillFormat.Picture.Image = presentationImage;
-
-    // Konfigurieren Sie den Bildfüllmodus und die Kachelageeigenschaften.
-    pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
-    pictureFillFormat.TileOffsetX = -32;
-    pictureFillFormat.TileOffsetY = -32;
-    pictureFillFormat.TileScaleX = 50;
-    pictureFillFormat.TileScaleY = 50;
-    pictureFillFormat.TileAlignment = RectangleAlignment.BottomRight;
-    pictureFillFormat.TileFlip = TileFlip.FlipBoth;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("tile.pptx", SaveFormat.Pptx);
-}
+presentation.Save("tile.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Die Kacheloptionen](tile-options.png)
+![Die Kachel‑Optionen](tile-options.png)
 
 ## **Einfarbige Füllung**
 
-In PowerPoint ist die einfarbige Füllung eine Formatierungsoption, die eine Form mit einer einzigen, einheitlichen Farbe füllt. Diese einheitliche Hintergrundfarbe wird ohne Verläufe, Texturen oder Muster angewendet.
+Eine einfarbige Füllung gibt einer Form eine einzelne, einheitliche Farbe. Dieses Beispiel setzt [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) auf den einfarbigen Füllmodus und weist Gelb über [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) zu, dann speichert es das Rechteck in einer Präsentation.
 
-So wenden Sie eine einfarbige Füllung auf eine Form mit Aspose.Slides an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) der Form auf `Solid`.
-1. Weisen Sie der Form Ihre gewünschte Füllfarbe zu.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Der folgende C#‑Code demonstriert, wie Sie eine einfarbige Füllung auf ein Rechteck in einer PowerPoint‑Folientabelle anwenden:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
-    // Setzen Sie den FillType auf Solid.
-    shape.FillFormat.FillType = FillType.Solid;
-
-    // Setzen Sie die Füllfarbe.
-    shape.FillFormat.SolidFillColor.Color = Color.Yellow;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
-}
+presentation.Save("solid_color_fill.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
 ![Die Form mit einfarbiger Füllung](solid-color-fill.png)
 
+### **Farben kopieren und dabei Theme‑Verweise beibehalten**
+
+Verwende [IColorFormat.CopyFrom](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/copyfrom/) um eine Fardefinition zu kopieren, einschließlich ihres Farbtyps, Theme‑Verweises und Transformationen. Das ist nützlich, wenn eine Füllfarbe zwischen Formen übertragen wird, die weiterhin dem Präsentations‑Theme folgen sollen. Die Methode kopiert nur die Farbe: Sie kopiert nicht den Fülltyp, die Kontur oder andere Formformatierungen. Setze den [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) des Ziels explizit.
+
+Dieses Beispiel erstellt drei Rechtecke von links nach rechts: die Quelle, eine Theme‑bewusste Kopie und eine feste RGB‑Kopie. Die Quelle verwendet [IColorFormat.SchemeColor](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/schemecolor/) um die erste Akzentfarbe zu referenzieren und fügt über [IColorOperationCollection.Add](https://reference.aspose.com/slides/net/aspose.slides/icoloroperationcollection/add/) eine Tönung hinzu. Die RGB‑Kopie verwendet die effektive Füllfarbe der Quelle, sodass alle drei zunächst identisch aussehen. Das Zuweisen von [IColorFormat.Color](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/color/) setzt einen festen RGB‑Wert und löscht vorhandene Farbtransformationen.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(660, 220, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.RoyalBlue;
+
+var source = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+var themeCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+var rgbCopy = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+foreach (var shape in new[] { source, themeCopy, rgbCopy })
+{
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.FillType = FillType.NoFill;
+}
+
+var sourceColor = source.FillFormat.SolidFillColor;
+sourceColor.SchemeColor = SchemeColor.Accent1;
+sourceColor.ColorTransform.Add(ColorTransformOperation.Tint, 0.75f);
+
+themeCopy.FillFormat.SolidFillColor.CopyFrom(sourceColor);
+rgbCopy.FillFormat.SolidFillColor.Color = source.FillFormat.GetEffective().SolidFillColor;
+
+using var before = slide.GetImage(1f, 1f);
+before.Save("color-copy-before.png", ImageFormat.Png);
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation.MasterTheme.ColorScheme.Accent1.Color = Color.OrangeRed;
+
+using var after = slide.GetImage(1f, 1f);
+after.Save("color-copy-after.png", ImageFormat.Png);
+presentation.Save("copied_colors.pptx", SaveFormat.Pptx);
+```
+
+Vor dem Theme‑Wechsel stimmen alle drei Füllungen überein:
+
+![Quelle, CopyFrom‑Ziel und feste RGB‑Ziel mit identischen blauen Füllungen](color-copy-before.png)
+
+Nach dem Theme‑Wechsel folgen die Quelle und die Theme‑bewusste Kopie der neuen Akzentfarbe und behalten ihre Tönung bei. Die feste RGB‑Kopie bleibt blau:
+
+![Quelle und CopyFrom‑Ziel mit orangefarbenen Füllungen, während das feste RGB‑Ziel blau bleibt](color-copy-after.png)
+
+Die kopierte Definition ist unabhängig von der Quelle. Ändert man anschließend den Theme‑Verweis der Quelle, weist eine andere Farbe zu oder fügt ihre Transformationen hinzu bzw. entfernt sie, ändert sich das Ziel nicht. Ein Theme‑Wechsel wirkt sich weiterhin auf beide Formen aus, weil jede separat auf dieselbe Theme‑Farbe verweist.
+
+Das Speichern und erneute Öffnen der PPTX bewahrt den [IColorFormat.ColorType](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortype/), Theme‑Verweis und die [IColorFormat.ColorTransform](https://reference.aspose.com/slides/net/aspose.slides/icolorformat/colortransform/)‑Sammlung der kopierten Farbe; sie wird nicht zu RGB flachgedrückt.
+
+Beim Kopieren zwischen unterschiedlichen Theme‑Kontexten, wie Präsentationen mit verschiedenen Akzentpaletten, wird der kopierte Verweis gegen das Theme des Ziels aufgelöst. Derselbe Verweis und dieselben Transformationen können daher eine andere sichtbare Farbe erzeugen. Siehe [Presentation Theme](/slides/de/net/presentation-theme/) für weitere Informationen zur Konfiguration von Theme‑Farben.
+
+## **Folienhintergrund als Form‑Füllung verwenden**
+
+Verwende [IAutoShape.UseBackgroundFill](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/usebackgroundfill/) wenn eine Form dem Folienhintergrund entsprechen soll, zum Beispiel in einer Präsentations‑Vorlage. Setze zuerst [IFillFormat.FillType](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/filltype/) auf [FillType.NotDefined](https://reference.aspose.com/slides/net/aspose.slides/filltype/) um eine explizite Füllung zu entfernen. Mit dieser Kombination verwendet die Form den Folienhintergrund anstelle ihrer Stil‑Füllung. Das reine Aktivieren des Flags entfernt keine bereits vorhandene explizite Füllung.
+
+Dies unterscheidet sich von [FillType.NoFill](https://reference.aspose.com/slides/net/aspose.slides/filltype/): Hintergrund‑Füllung deckt Objekte hinter der Form mit dem entsprechenden Bereich des Folienhintergrunds ab, während NoFill diese Objekte sichtbar lässt. Ein Verlauf bleibt an der Folie ausgerichtet, anstatt in jeder Form neu zu starten.
+
+Das folgende Beispiel erstellt einen Master‑Hintergrund, der von der Folie geerbt wird, und platziert einen magentafarbenen Streifen hinter drei Rechtecken. Das linke Rechteck verwendet den Hintergrund, das mittlere Rechteck hat keine Füllung, und das rechte Rechteck wechselt von Hintergrund‑Füllung zu einer expliziten orangefarbenen Füllung.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+presentation.SlideSize.SetSize(720, 400, SlideSizeScaleType.DoNotScale);
+var slide = presentation.Slides[0];
+
+// Vererbt den Verlauf vom Master.
+slide.Background.Type = BackgroundType.NotDefined;
+slide.LayoutSlide.Background.Type = BackgroundType.NotDefined;
+var background = slide.LayoutSlide.MasterSlide.Background;
+background.Type = BackgroundType.OwnBackground;
+background.FillFormat.FillType = FillType.Gradient;
+var gradient = background.FillFormat.GradientFormat;
+gradient.GradientShape = GradientShape.Linear;
+gradient.LinearGradientAngle = 0;
+gradient.GradientStops.Clear();
+gradient.GradientStops.Add(0, Color.DarkBlue);
+gradient.GradientStops.Add(1, Color.LightSkyBlue);
+
+// Füge dieses Objekt zuerst hinzu, damit es hinter den Rechtecken erscheint.
+var band = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
+band.FillFormat.FillType = FillType.Solid;
+band.FillFormat.SolidFillColor.Color = Color.Magenta;
+band.LineFormat.FillFormat.FillType = FillType.NoFill;
+
+var backgroundShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 100, 160, 200);
+backgroundShape.FillFormat.FillType = FillType.NotDefined;
+backgroundShape.UseBackgroundFill = true;
+
+var noFillShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 280, 100, 160, 200);
+noFillShape.FillFormat.FillType = FillType.NoFill;
+
+var explicitShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 510, 100, 160, 200);
+explicitShape.FillFormat.FillType = FillType.NotDefined;
+explicitShape.UseBackgroundFill = true;
+
+// Deaktiviere die Hintergrundfüllung, bevor eine explizite Füllung angewendet wird.
+explicitShape.UseBackgroundFill = false;
+explicitShape.FillFormat.FillType = FillType.Solid;
+explicitShape.FillFormat.SolidFillColor.Color = Color.Orange;
+
+presentation.Save("background_fill.pptx", SaveFormat.Pptx);
+```
+
+Das Ergebnis, von links nach rechts: **background fill**, **no fill** und **explicit fill**. Der magentafarbene Streifen wird von den linken und rechten Rechtecken verdeckt, bleibt aber durch das mittlere Rechteck sichtbar.
+
+![Hintergrund‑Füllung, keine Füllung und explizite orange Füllung über einem magentafarbenen Streifen](background-fill.png)
+
+Das gleiche Verhalten gilt für einen direkt auf der Folie definierten oder von einem Layout geerbten Hintergrund. Die Form verwendet den aufgelösten Folien‑Hintergrund; das Beispiel lässt sowohl den Folien‑ als auch den Layout‑Hintergrund undefiniert, sodass der Master ihn bereitstellt.
+
 ## **Transparenz festlegen**
 
-In PowerPoint können Sie bei einer einfarbigen, Verlauf‑, Bild‑ oder Texturfüllung von Formen auch einen Transparenzwert festlegen, um die Deckkraft der Füllung zu steuern. Ein höherer Transparenzwert macht die Form durchsichtiger, sodass der Hintergrund oder darunter liegende Objekte teilweise sichtbar werden.
+Bei einer einfarbigen Füllung steuert die Alpha‑Komponente der Farbe die Undurchsichtigkeit: 0 ist vollständig transparent und 255 vollständig undurchsichtig. Dieses Beispiel verwendet einen Alpha‑Wert von 128 für ein gelbes Rechteck, wodurch es etwa zu 50 % transparent wird, sodass das darunterliegende Rechteck sichtbar bleibt. Die Farbe wird über [IFillFormat.SolidFillColor](https://reference.aspose.com/slides/net/aspose.slides/ifillformat/solidfillcolor/) zugewiesen.
 
-Aspose.Slides ermöglicht das Festlegen des Transparenzwerts, indem Sie den Alphawert in der für die Füllung verwendeten Farbe anpassen. So gehen Sie vor:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [FillType](https://reference.aspose.com/slides/net/aspose.slides/filltype/) auf `Solid`.
-1. Verwenden Sie `Color.FromArgb(alpha, baseColor)`, um eine Farbe mit Transparenz zu definieren (der `alpha`‑Komponente steuert die Transparenz).
-1. Speichern Sie die Präsentation.
-
-Der folgende C#‑Code demonstriert, wie Sie einer Rechteckform eine transparente Füllfarbe zuweisen:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
 const int alpha = 128;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie ein festes Rechteck-AutoShape hinzu.
-    IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fügen Sie ein transparentes Rechteck-AutoShape über der festen Form hinzu.
-    IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
-    transparentShape.FillFormat.FillType = FillType.Solid;
-    transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
+var transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
+transparentShape.FillFormat.FillType = FillType.Solid;
+transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
 
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape_transparency.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
@@ -506,139 +729,89 @@ Das Ergebnis:
 
 ## **Formen drehen**
 
-Aspose.Slides ermöglicht das Drehen von Formen in PowerPoint‑Präsentationen. Dies kann nützlich sein, um visuelle Elemente mit bestimmter Ausrichtung oder Designanforderungen zu positionieren.
+Verwende [IShape.Rotation](https://reference.aspose.com/slides/net/aspose.slides/ishape/rotation/) um eine Form in der Folienebene zu drehen. Der Winkel wird in Grad gemessen; dieses Beispiel dreht ein Rechteck um 5 Grad im Uhrzeigersinn und speichert die Präsentation.
 
-So drehen Sie eine Form auf einer Folie:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie die Eigenschaft `Rotation` der Form auf den gewünschten Winkel.
-1. Speichern Sie die Präsentation.
-
-Der folgende C#‑Code demonstriert, wie Sie eine Form um 5 Grad drehen:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei darstellt.
-using (Presentation presentation = new Presentation())
-{
-    // Holen Sie die erste Folie.
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie eine AutoShape vom Typ Rectangle hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+shape.Rotation = 5;
 
-    // Drehen Sie die Form um 5 Grad.
-    shape.Rotation = 5;
-
-    // Speichern Sie die PPTX-Datei auf dem Datenträger.
-    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Die Formdrehung](shape-rotation.png)
+![Die Form‑Drehung](shape-rotation.png)
 
-## **3D‑Abrundungseffekte hinzufügen**
+## **3D‑Fase‑Effekte hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von 3D‑Abrundungseffekten zu Formen, indem Sie die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) konfigurieren.
+Verwende [IShape.ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/ishape/threedformat/) um einer Form Tiefe und abgeflachte Kanten zu geben. Dieses Beispiel erstellt eine grüne Ellipse mit einer orangefarbenen Kontur, setzt [IThreeDFormat.Depth](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/depth/) auf 4 Punkte und wendet über [IThreeDFormat.BevelTop](https://reference.aspose.com/slides/net/aspose.slides/ithreedformat/beveltop/) eine kreisförmige obere Fase mit Breite und Höhe von 6 Punkten an. Eine frontale orthografische Kamera und Dreipunkt‑Beleuchtung machen die Fase sichtbar.
 
-So fügen Sie einer Form 3D‑Abrundungseffekte hinzu:
-
-1. Instanziieren Sie die Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Konfigurieren Sie das [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) der Form, um die Abrundungseinstellungen festzulegen.
-1. Speichern Sie die Präsentation.
-
-Der folgende C#‑Code zeigt, wie Sie 3D‑Abrundungseffekte auf eine Form anwenden:
-
-```c#
+```csharp
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Erstellen Sie eine Instanz der Presentation-Klasse.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Fügen Sie der Folie eine Form hinzu.
-    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
-    shape.FillFormat.FillType = FillType.Solid;
-    shape.FillFormat.SolidFillColor.Color = Color.Green;
-    shape.LineFormat.FillFormat.FillType = FillType.Solid;
-    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
-    shape.LineFormat.Width = 2.0;
+var shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Green;
+shape.LineFormat.FillFormat.FillType = FillType.Solid;
+shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
+shape.LineFormat.Width = 2.0;
+shape.ThreeDFormat.Depth = 4;
+shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+shape.ThreeDFormat.BevelTop.Height = 6;
+shape.ThreeDFormat.BevelTop.Width = 6;
+shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
+shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // Setzen Sie die ThreeDFormat-Eigenschaften der Form.
-    shape.ThreeDFormat.Depth = 4;
-    shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-    shape.ThreeDFormat.BevelTop.Height = 6;
-    shape.ThreeDFormat.BevelTop.Width = 6;
-    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
-
-    // Speichern Sie die Präsentation als PPTX-Datei.
-    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
-}
+presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Der 3D‑Abrundungseffekt](3D-bevel-effect.png)
+![Der 3D‑Fase‑Effekt](3D-bevel-effect.png)
 
-## **3D‑Drehungseffekte hinzufügen**
+## **3D‑Dreh‑Effekte hinzufügen**
 
-Aspose.Slides ermöglicht das Hinzufügen von 3D‑Drehungseffekten zu Formen, indem Sie die Eigenschaften des [ThreeDFormat](https://reference.aspose.com/slides/net/aspose.slides/threedformat/) konfigurieren.
+Die 3D‑Ansicht einer Form wird durch ihre Kameraeinstellungen gesteuert. Dieses Beispiel verwendet [ICamera.SetRotation](https://reference.aspose.com/slides/net/aspose.slides/icamera/setrotation/) mit Breiten‑, Längen‑ und Revolutions‑Winkeln von 40, 35 bzw. 20 Grad. Es wählt eine isometrische Kamera über [ICamera.CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) und ausgewogene Beleuchtung über [ILightRig.LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/), dann speichert es das formatierte Rechteck.
 
-So wenden Sie eine 3D‑Drehung auf eine Form an:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Rufen Sie über den Index eine Referenz auf eine Folie ab.
-1. Fügen Sie der Folie ein [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) hinzu.
-1. Setzen Sie den [CameraType](https://reference.aspose.com/slides/net/aspose.slides/icamera/cameratype/) und den [LightType](https://reference.aspose.com/slides/net/aspose.slides/ilightrig/lighttype/) der Form, um die 3D‑Drehung zu definieren.
-1. Speichern Sie die Präsentation.
-
-Der folgende C#‑Code demonstriert, wie Sie 3D‑Drehungseffekte auf eine Form anwenden:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Erstellen Sie eine Instanz der Presentation-Klasse.
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
-    autoShape.TextFrame.Text = "Hello, Aspose!";
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+autoShape.TextFrame.Text = "Hello, Aspose!";
+autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
+autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
+autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
-    autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
-    autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
-
-    // Speichern Sie die Präsentation als PPTX-Datei.
-    presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
-}
+presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 ```
 
 Das Ergebnis:
 
-![Der 3D‑Drehungseffekt](3D-rotation-effect.png)
+![Der 3D‑Dreh‑Effekt](3D-rotation-effect.png)
 
-## **Schwarz‑weiß‑Darstellung für Formen steuern**
+## **Schwarz‑Weiß‑Rendern von Formen steuern**
 
-Die Eigenschaft [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) gibt an, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert die Schwarz‑weiß‑Anzeige nicht selbst und ändert die Füll‑, Linien‑ oder sonstige Formatierung im normalen Farbmodus nicht.
+Die Eigenschaft [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) legt fest, wie eine einzelne Form gerendert wird, wenn eine Präsentation im Schwarz‑Weiß‑Modus angezeigt oder verarbeitet wird. Sie aktiviert nicht automatisch die Schwarz‑Weiß‑Anzeige und ändert nicht die Füllung, Kontur oder andere Formatierungen der Form im normalen Farbmodus.
 
-Verwenden Sie einen Wert aus der Aufzählung [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/), um das gewünschte Verhalten auszuwählen. Beispielsweise lässt `Automatic` die Renderanwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden Grautöne, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzelne Farbe, `Color` bewahrt die normale Farbdarstellung, und `Hidden` lässt die Form im Schwarz‑weiß‑Modus wegfallen. `NotDefined` bedeutet, dass kein Form‑ebene Modus zugewiesen ist.
+Verwende einen Wert aus der Aufzählung [BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/blackwhitemode/) um das gewünschte Verhalten auszuwählen. Zum Beispiel lässt `Automatic` die Rendering‑Anwendung die Konvertierung wählen, `Gray` und `LightGray` verwenden graue Färbung, `BlackWhite` nutzt nur Schwarz und Weiß, `Black` und `White` erzwingen eine einzelne Farbe, `Color` bewahrt die normale Farbgebung, und `Hidden` lässt die Form im Schwarz‑Weiß‑Modus weg. `NotDefined` bedeutet, dass kein Form‑Level‑Modus zugewiesen ist.
 
-Der folgende C#‑Code erstellt eine farbige Form und lässt sie im Schwarz‑weiß‑Anzeige‑Modus grau erscheinen:
+Dieses Beispiel erstellt ein orangefarbenes Rechteck und setzt [IShape.BlackWhiteMode](https://reference.aspose.com/slides/net/aspose.slides/ishape/blackwhitemode/) auf gray. Die gespeicherte Form behält ihre orangefarbene Füllung für die normale Farbanzeige bei und fordert graue Färbung von Anwendungen an, die Schwarz‑Weiß‑Anzeigeeinstellungen berücksichtigen:
 
 ```csharp
 using System.Drawing;
@@ -651,45 +824,40 @@ var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 shape.FillFormat.FillType = FillType.Solid;
 shape.FillFormat.SolidFillColor.Color = Color.Orange;
-
-// Behalten Sie die orange Füllung im Farbmodus bei, aber rendern Sie die Form mit grauer Färbung im Schwarz-weiß-Modus.
 shape.BlackWhiteMode = BlackWhiteMode.Gray;
 
 presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
 ```
 
-Im normalen Farbmodus behält das Rechteck seine orange Füllung. In einem Schwarz‑weiß‑Anzeige‑Workflow wird es grau dargestellt, weil sein Modus auf `Gray` gesetzt ist. So können Sie eine Voll‑Farb‑Folien‑Präsentation erhalten und gleichzeitig ein separates Aussehen für den Druck, die Vorschau oder andere Workflows definieren, die die Schwarz‑weiß‑Anzeige‑Einstellungen der Präsentation berücksichtigen.
+Im normalen Farbmodus behält das Rechteck seine orangefarbene Füllung bei. In einem Schwarz‑Weiß‑Anzeige‑Workflow verwendet es graue Färbung, weil sein Modus auf `Gray` gesetzt ist. So kannst du eine vollfarbige Folie beibehalten und gleichzeitig ein unterschiedliches Erscheinungsbild für Druck, Vorschau oder andere Workflows definieren, die die Schwarz‑Weiß‑Anzeigeeinstellungen der Präsentation berücksichtigen.
 
 ## **Formatierung zurücksetzen**
 
-Der folgende C#‑Code zeigt, wie Sie die Formatierung einer Folie zurücksetzen und Position, Größe und Formatierung aller Formen mit Platzhaltern auf dem [LayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/) auf deren Standardwerte zurücksetzen:
+Verwende [ISlide.Reset](https://reference.aspose.com/slides/net/aspose.slides/islide/reset/) um Position, Größe und Formatierung von Folien‑Platzhaltern aus den entsprechenden Layout‑Platzhaltern wiederherzustellen. Dieses Beispiel benötigt eine vorhandene Präsentation mit layout‑verknüpften Platzhaltern und setzt vor dem Speichern jede Folie zurück. Formen ohne entsprechende Layout‑Platzhalter werden nicht zurückgesetzt.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+foreach (var slide in presentation.Slides)
 {
-    foreach (ISlide slide in presentation.Slides)
-    {
-        // Setzt jede Form auf der Folie zurück, die einen Platzhalter im Layout hat.
-        slide.Reset();
-    }
-
-    presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
+    slide.Reset();
 }
+
+presentation.Save("reset_formatting.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
 **Beeinflusst die Formformatierung die endgültige Dateigröße der Präsentation?**
 
-Nur minimal. Eingebettete Bilder und Medien beanspruchen den größten Teil des Speicherplatzes, während Formparameter wie Farben, Effekte und Verläufe als Metadaten gespeichert werden und praktisch keinen zusätzlichen Platz benötigen.
+Farben, Linienstile und Effekt‑Einstellungen fügen im Vergleich zu eingebetteten Bildern und Medien in der Regel nur wenige Daten hinzu. Bild‑Füllungen können die Dateigröße erhöhen, weil ihre Bilder in der Präsentation gespeichert werden.
 
 **Wie kann ich Formen auf einer Folie erkennen, die identische Formatierung besitzen, um sie zu gruppieren?**
 
-Vergleichen Sie die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekte. Stimmen alle entsprechenden Werte überein, behandeln Sie die Stile als identisch und gruppieren Sie die Formen logisch, was die spätere Stilverwaltung vereinfacht.
+Vergleiche die wichtigsten Formatierungseigenschaften jeder Form – Füllung, Linie und Effekt‑Einstellungen. Stimmen alle entsprechenden Werte überein, betrachte deren Stile als identisch und gruppiere die Formen logisch, wodurch die spätere Stilverwaltung vereinfacht wird.
 
-**Kann ich ein Set benutzerdefinierter Formstile in einer separaten Datei speichern, um es in anderen Präsentationen wiederzuverwenden?**
+**Kann ich einen Satz benutzerdefinierter Form‑Stile in einer separaten Datei speichern, um ihn in anderen Präsentationen wiederzuverwenden?**
 
-Ja. Speichern Sie Beispiel­formen mit den gewünschten Stilen in einer Vorlagen‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffnen Sie die Vorlage, klonen die benötigten gestylten Formen und wenden deren Formatierung dort an, wo sie benötigt wird.
+Ja. Speichere Beispiel­formen mit den gewünschten Stilen in einer Vorlagen‑Folien‑Präsentation oder einer .POTX‑Vorlagendatei. Beim Erstellen einer neuen Präsentation öffne die Vorlage, klone die benötigten formatierten Formen und wende deren Formatierung dort an, wo sie benötigt wird.

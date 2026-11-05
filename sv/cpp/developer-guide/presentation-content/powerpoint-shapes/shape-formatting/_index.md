@@ -7,38 +7,38 @@ url: /sv/cpp/shape-formatting/
 keywords:
 - formatera form
 - formatera linje
-- skiss effekt
-- skissformslinje
-- formatera kopplingsstil
+- skiss‑effekt
+- skisslinje för form
+- formatera anslutningsstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
 - solid färgfyllning
 - formtransparens
-- svart‑vit rendering av form
-- gråskala rendering av form
+- svart‑vit formrendering
+- gråskala formrendering
 - rotera form
-- 3D-fasadseffekt
-- 3D-rotations­effekt
+- 3D‑avfasningseffekt
+- 3D‑rotations‑effekt
 - återställ formatering
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint‑former i C++ med Aspose.Slides—sätt fyllnings‑, linje‑ och effektstilar för PPT‑ och PPTX‑filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint‑former i C++ med Aspose.Slides—sätt fyllnings-, linje- och effekttilar för PPT- och PPTX-filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för C++ låter dig kontrollera dessa inställningar programatiskt, inklusive transparens, rotation och 3D-formatering.
+Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för C++ låter dig styra dessa inställningar programatiskt, inklusive transparens, rotation och 3D‑formatering.
 
-![Formateringsalternativ för former i PowerPoint](format-shape-powerpoint.png)
+![Shape formatting options in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides för C++ tillhandahåller gränssnitt och metoder som låter dig formatera former med samma alternativ som finns i PowerPoint.
+Aspose.Slides för C++ tillhandahåller gränssnitt och metoder som gör att du kan formatera former med samma alternativ som finns i PowerPoint.
 
 ## **Formatera linjer**
 
-Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att kontrollera en formes kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) väljer en tjock‑tunn sammansatt linje, medan [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) sätter dess bredd till 7 punkter och [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) väljer streckmönstret.
+Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att kontrollera en forms kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) väljer en tjock‑tunn sammansatt linje, medan [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) sätter bredden till 7 punkter och [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) väljer dash‑mönstret.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -79,15 +79,15 @@ presentation->Dispose();
 
 Resultatet:
 
-![De formaterade linjerna i presentationen](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
-### **Ange anpassade streckmönster för linjer**
+### **Ange anpassade dash‑mönster för linjer**
 
-Använd [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) när fördefinierade linjestilar inte erbjuder de strecklängder och mellanrum du behöver, till exempel för varumärkeskonturer eller tekniska diagram. Att tilldela ett mönster ändrar automatiskt streckstilen till [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+Använd [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) när fördefinierade linjestilar inte ger de dash‑längder och luckor du behöver, till exempel för varumärkeskonturer eller tekniska diagram. Att tilldela ett mönster ändrar automatiskt dash‑stilen till [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Array‑elementen växlar mellan streck‑ och mellanslaglängder, med ett streck först. Varje värde är en multipel av linjebredden: `{ 4, 2 }` vid en bredd på 3 punkter ger ett 12‑punkts streck följt av ett 6‑punkts mellanrum. Använd par av ändliga, icke‑negativa värden för att definiera kompletta streck‑och‑mellansegment. Exemplet använder positiva värden för att hålla varje streck och mellanrum synligt.
+Array‑element alternerar mellan dash‑ och lucklängder, med en dash först. Varje värde är en multipel av linjebredden: `{ 4, 2 }` vid en bredd på 3 punkter ger en 12‑punkt dash följt av en 6‑punkt lucka. Använd par av ändliga, icke‑negativa värden för att definiera kompletta dash‑och‑luck‑segment. Exemplet använder positiva värden för att hålla varje dash och lucka synlig.
 
-Detta exempel skapar fem blå linjer med samma längd och platta kappar. De tre första jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbelt så stor bredd, vilket fördubblar både streck‑ och mellanrumslängderna. Den femte byter från ett anpassat mönster till en solid linje.
+Detta exempel skapar fem blå linjer med samma längd och platta ändar. De första tre jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbelt så stor bredd och fördubblar både dash‑ och lucklängderna. Den femte byter från ett anpassat mönster till en solid linje.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -151,22 +151,22 @@ För att återgå till en fördefinierad streckad stil, skicka [LineDashStyle::D
 
 Resultatet i PowerPoint, från topp till botten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; och **Solid, 3 pt**.
 
-![Tre anpassade streckmönster, en bredare linje som använder det första mönstret och en solid linje i PowerPoint](custom-dash-patterns.png)
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
 
 
-### **Ange linjekappar**
+### **Ange linjeändar (Caps)**
 
-Använd [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) för att ange ändarna på en öppen linje. [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/)‑enumerationen tillhandahåller tre explicita kappstilar:
+Använd [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) för att sätta ändarna på en öppen linje. Uppräkningen [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) ger tre explicita cap‑stilar:
 
-- `Flat`: Sträckan slutar vid ändpunkten.
-- `Round`: En halvcirkelkap sträcker sig förbi ändpunkten med halva linjebredden.
-- `Square`: En fyrkantig kap sträcker sig förbi ändpunkten med halva linjebredden.
+- `Flat`: Strecket slutar vid slutpunkten.
+- `Round`: En halvcirkel‑cap sträcker sig bortom slutpunkten med halva linjebredden.
+- `Square`: En fyrkantig cap sträcker sig bortom slutpunkten med halva linjebredden.
 
-Enumerationen innehåller även `NotDefined`, vilket betyder att ingen kappstil har tilldelats explicit.
+Uppräkningen innehåller också `NotDefined`, vilket betyder att ingen cap‑stil explicit har tilldelats.
 
-Kappar är annorlunda än pilspetsar, som lägger till symboler i linjens ändar, och föreningar, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilspetsar via [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) och [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) så att endast kappformerna jämförs.
+Caps skiljer sig från pilspetsar, som lägger till symboler i linjeändar, och från joins, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilspetsar via [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) och [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) så att endast cap‑formerna jämförs.
 
-Följande exempel skapar tre i övrigt identiska horisontella linjer, 20 punkter breda. Från topp till botten använder de platta, runda och fyrkantiga kappar. Deras ändpunkter har samma horisontella koordinater; de runda och fyrkantiga kapparna sträcker sig 10 punkter förbi varje ändpunkt.
+Följande exempel skapar tre i övrigt identiska horisontella linjer, 20 punkter breda. Från topp till botten använder de platta, runda respektive fyrkantiga caps. Deras slutpunkter har samma horisontella koordinater; de runda och fyrkantiga caps sträcker sig 10 punkter bortom varje slutpunkt.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -216,15 +216,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Resultatet i PowerPoint, från topp till botten: **Flat**, **Round** och **Square**.
+Resultatet i PowerPoint, från topp till botten: **Flat**, **Round**, och **Square**.
 
-![Platta, runda och fyrkantiga kappar på identiska tjocka linjer i PowerPoint](line-caps.png)
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
 
-## **Applicera skiss­effekter på formlinjer**
+## **Tillämpa skiss‑effekter på formens linjer**
 
-En skisseffekt får en formlinje att se handritad ut. Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att komma åt linjeinställningarna, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) för att komma åt skisseinställningarna och [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) för att välja ett värde från [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)-enumerationen.
+En skiss‑effekt får en formlinje att se handritad ut. Använd [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) för att komma åt linjeinställningarna, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) för att komma åt skiss‑inställningarna, och [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) för att välja ett värde från uppräkningen [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Följande C++‑kod visar hur man applicerar en [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+Följande C++‑kod visar hur man tillämpar en [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +255,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Värdet som returneras av [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), kom åt [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) och läs [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Det effektiva värdet speglar den formatering som faktiskt tillämpas efter ärvning har lösts. Detta exempel kräver en befintlig presentation med minst en form på den första bilden och skriver ut båda värdena:
+Värdet som returneras av [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑slide eller en layout‑slide, använd [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), kom åt [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), och läs [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Det effektiva värdet speglar den formatering som faktiskt tillämpas efter att arv har lösts. Detta exempel kräver en befintlig presentation med minst en form på första sliden och skriver ut båda värdena:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,19 +285,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Formatera kopplingsstilar**
+## **Formatera join‑stilar**
 
-Här är de tre alternativen för kopplingstyp:
+Här är de tre alternativen för join‑typ:
 
-* Rund
+* Round
 * Miter
-* Fas
+* Bevel
 
-Kopplingsstilen styr hur två kontursegment möts i ett hörn. Använd **Round** för avrundade hörn, **Miter** för skarpa hörn eller **Bevel** för platta hörn.
+Join‑stilen styr hur två kontursegment möts i ett hörn. Använd **Round** för avrundade hörn, **Miter** för spetsiga hörn eller **Bevel** för avplattade hörn.
 
-![Kopplingsstilen i presentationen](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det sätter [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) till miter‑, fas‑ och rund‑värdena i [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) respektive för att jämföra hur hörnen ritas.
+Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det sätter [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) till miter, bevel och round‑värdena i [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) för att jämföra hur hörnen ritas.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -358,13 +358,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Begränsa Miter‑kopplingar på skarpa hörn**
+### **Begränsa miter‑joins vid spetsiga hörn**
 
-Använd [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) tillsammans med [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) som är satt till [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) för att begränsa hur långt ett spetsigt hörn kan sträcka sig.
+Använd [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) tillsammans med [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) satt till [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) för att begränsa hur långt ett spetsigt hörn får sträcka sig.
 
-Begränsningen är ett förhållande mellan avståndet mellan inre och yttre hörn i kopplingen och linjebredden. Till exempel tillåter ett värde på `8` en miter‑längd upp till åtta gånger linjebredden; det är ingen mätning i punkter. Om hörnet skulle överskrida begränsningen använder PowerPoint en fasad koppling vid det hörnet. En större gräns tillåter skarpare spetsar. Inställningen påverkar endast miter‑kopplingar och har ingen synlig effekt när hörnet förblir inom båda gränserna.
+Gränsen är ett förhållande mellan avståndet mellan de inre och yttre hörnen i joinen och linjebredden. Till exempel tillåter ett värde på `8` en miter‑längd på upp till åtta gånger linjebredden; det är ingen mätning i punkter. Om hörnet skulle överskrida gränsen använder PowerPoint en avfasad join i det hörnet. En större gräns möjliggör skarpare spetsar. Inställningen påverkar endast miter‑joins, och ändring har ingen synlig effekt när hörnet förblir inom båda gränserna.
 
-Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, och den högra använder `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess övre hörn ett miter‑längd‑till‑linjebredd‑förhållande på ungefär `4.12`. Följaktligen fasar PowerPoint den vänstra spetsen och bevarar den högra spetsen.
+Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, den högra `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess topphörn ett förhållande miter‑längd‑till‑linjebredd på ca `4.12`. Därför fasar PowerPoint av den vänstra toppen och behåller den högra spetsen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -413,11 +413,11 @@ presentation->Dispose();
 
 Resultatet i PowerPoint: **Miter limit 2** till vänster och **miter limit 8** till höger.
 
-![Ett fasat spets med miter‑gräns 2 och en spetspets med miter‑gräns 8 i PowerPoint](miter-limits.png)
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
 ## **Gradientfyllning**
 
-En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i 45‑graders vinkel från röd till lila med hjälp av [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Metoden [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) placerar färgstopp vid 0 och 1, början och slut på gradienten. Genom att rensa befintliga stopp försäkrar man sig om att endast dessa två färger används.
+En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i 45‑gradsvinkel från rött till lila med [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Metoden [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) placerar färgstopp vid 0 och 1, början och slut på gradienten. Att rensa befintliga stopp säkerställer att endast dessa två färger används.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -456,15 +456,17 @@ presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Ellipsen med gradientfyllning](gradient-fill.png)
+Resultatet:
 
-Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Välj en gradientrenderingsstil](/slides/sv/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen som lagras i presentationen.
+![The ellipse with gradient fill](gradient-fill.png)
 
-### **Ange den linjära gradientvinkeln**
+Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Choose a Gradient Rendering Style](/slides/sv/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen i presentationen.
 
-Använd [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) för att kontrollera orienteringen av en [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från topp till botten, `180` från höger till vänster och `270` från botten till toppen. Bråkdelar av grader stöds. Fina vinklar utanför `[0, 360)` normaliseras till en varv; till exempel blir `-45` `315` och `360` blir `0`.
+### **Ställ in vinkeln för linjär gradient**
 
-Detta exempel skapar sex rektanglar med identiska röda, gröna och blå stopp på positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i den första raden och `135`, `180` och `270` i den andra raden.
+Använd [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) för att styra orienteringen av en [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från topp till botten, `180` från höger till vänster och `270` från botten till topp. Bråkvinklar stöds. Ändliga vinklar utanför `[0, 360)` normaliseras till en varv; till exempel blir `-45` `315` och `360` blir `0`.
+
+Detta exempel skapar sex rektanglar med identiska röd‑, grön‑ och blå‑stopp på positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i första raden, samt `135`, `180` och `270` i andra raden.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -523,13 +525,13 @@ presentation->Dispose();
 
 Resultatet i PowerPoint:
 
-![Linjära gradienter vid 0, 45 och 90 grader i översta raden, och 135, 180 och 270 grader i nedre raden](linear-gradient-angles.png)
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
 
 ### **Skala en linjär gradient med formen**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepterar ett [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False` för att behålla den geometriska gradientvinkeln när formens proportioner ändras, eller till `True` för att skala gradienten med formens bredd och höjd. När skalning är påslagen kan den synliga vinkeln avvika från den tilldelade vinkeln på en icke‑fyrkantig form.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) tar ett [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False` för att behålla den geometriska gradientvinkeln när formens proportioner ändras, eller till `True` för att skala gradienten med formens bredd och höjd. Med skalning aktiverad kan den synliga vinkeln skilja sig från den tilldelade på en icke‑kvadratisk form.
 
-Följande exempel använder en `45`‑gradig vinkel och samma färgstopp som vinkeljämförelsen. Den vänstra kolumnen använder `False`; den högra kolumnen använder `True`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda börjar med samma breda dimensioner; ändring av den andra rektangelns bredd och höjd demonstrerar hur fyllningen reagerar på storleksändring utan att ändra gradientinställningarna.
+Följande exempel använder en `45`‑gradsvinkel och samma färgstopp som i vinkeljämförelsen. Den vänstra kolumnen använder `False`; den högra `True`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda startar med samma breda dimensioner; förändring av den andra rektangelns bredd och höjd visar hur fyllningen svarar på storleksändring utan att ändra gradientinställningarna.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,15 +599,17 @@ presentation->Dispose();
 
 Resultatet i PowerPoint, med skalning inaktiverad till vänster och aktiverad till höger:
 
-![Breda och höga rektanglar med en 45‑gradig gradient, jämförelse med LinearGradientScaled False till vänster och True till höger](linear-gradient-scaling.png)
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
 
-Med skalning inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. Med skalning aktiverad sträcks banden med formens proportioner. Detta hjälper till att reproducera en mallgradient när en form anpassas till en annan storlek. På en fyrkant förändrar aktivering av skalning inte utseendet på denna `45`‑gradiga gradient.
+Med skalning inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. Med skalning aktiverad sträcks banden med formens proportioner. Detta hjälper till att reproducera en mall‑gradient när en form anpassas till en annan storlek. På en kvadrat påverkar inte skalning utseendet på denna `45`‑gradgradient.
 
-Både vinkel‑ och skalningsinställningarna gäller för linjära gradienter. De styr inte [GradientShape::Radial eller GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑fyllningar.
+Både vinkeln och skalningsinställningarna gäller linjära gradienter. De styr inte [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑fyllningar.
 
-### **Kombinera vinkeln med gradientriktning**
+### **Kombinera vinkel med gradient­riktning**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) väljer en gradientstil från [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/)-enumerationen; den ersätter inte en numerisk vinkel. För en linjär gradient kan hörn‑stilar förändra det område där färgerna fördelas utan att ändra vinkeln som tilldelats via [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Behåll riktningen oförändrad när du jämför vinklar eller skalning.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) väljer en gradientstil från uppräkningen [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); den är ingen ersättning för en numerisk vinkel. För en linjär gradient kan hörnstilarna ändra området där färgerna fördelas utan att ändra vinkeln som tilldelats via [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Behåll riktningen oförändrad när du jämför vinklar eller skalning.
+
+Följande exempel tillämpar samma inställningar i omvänd ordning. De två rektanglarna ser likadana ut: att ange riktning före eller efter vinkeln förändrar inte resultatet.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -666,7 +670,7 @@ presentation->Dispose();
 
 ## **Mönsterfyllning**
 
-En mönsterfyllning applicerar en tvåfärgsdesign, såsom prickar, ränder eller rutnät. Detta exempel använder [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) för att välja ett spalj‑mönster. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) tillhandahåller den ljusgrå bakgrunden, och [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) levererar den gula mönsterfärgen.
+En mönsterfyllning applicerar en tvåfärgad design, såsom prickar, ränder eller rutnät. Detta exempel använder [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) för att välja ett galler‑mönster. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) levererar den ljusgrå bakgrunden, och [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) levererar den gula mönsterfärgen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -703,13 +707,13 @@ presentation->Dispose();
 
 Resultatet:
 
-![Rektangeln med mönsterfyllning](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Bildfyllning**
 
-En bildfyllning använder en bild inuti en form. Detta exempel kräver en lokal bild och använder [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) för att ladda den i presentationens bildsamling. Genom att sätta [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) till det mosaik‑läget upprepas bilden inom rektangeln. Källbilden som används visas nedan:
+En bildfyllning använder en bild i en form. Detta exempel kräver en lokal bild och använder [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) för att ladda den i presentationens bildsamling. Att sätta [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) till tiled‑läge upprepar bilden inom rektangeln. Källbilden som används visas nedan:
 
-![Lotusbilden](lotus.png)
+![The lotus picture](lotus.png)
 
 ```cpp
 #include <DOM/FillType.h>
@@ -750,21 +754,21 @@ presentation->Dispose();
 
 Resultatet:
 
-![Formen med bildfyllning](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Tile Bild som textur**
+### **Upprepa bild som textur**
 
-Om du vill ange en mosaikbild som en textur och anpassa mosaikbeteendet kan du använda följande metoder i [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/)-gränssnittet och [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/)-klassen:
+Om du vill ställa in en upprepad bild som textur och anpassa upprepningsbeteendet kan du använda följande metoder i gränssnittet [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) och klassen [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ställer in bildfyllningsläge — antingen `Tile` eller `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Anger justeringen av plattorna inom formen.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Kontrollerar om plattan vänds horisontellt, vertikalt eller båda.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Ställer in horisontell förskjutning av plattan (i punkter) från formens ursprung.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Ställer in vertikal förskjutning av plattan (i punkter) från formens ursprung.
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definierar den horisontella skalan för plattan som en procentsats.
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definierar den vertikala skalan för plattan som en procentsats.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Sätter bildfyllningsläget – antingen `Tile` eller `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Anger justeringen av plattorna i formen.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Styr om plattan vänds horisontellt, vertikalt eller båda.
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Sätter den horisontella förskjutningen av plattan (i punkter) från formens ursprung.
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Sätter den vertikala förskjutningen av plattan (i punkter) från formens ursprung.
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definierar den horisontella skalan för plattan som procent.
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definierar den vertikala skalan för plattan som procent.
 
-Detta exempel kräver en lokal bild och konfigurerar [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) för att upprepa den på 50 % av originalstorleken. Förskjutningar på −32 punkter flyttar plattorna horisontellt och vertikalt; justering längst ner till höger och spegling i båda riktningarna bestämmer hur den upprepade texturen placeras.
+Detta exempel kräver en lokal bild och konfigurerar [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) för att upprepa den på 50 % av originalstorleken. Förskjutningar på −32 punkter flyttar plattorna horisontellt och vertikalt; nederst‑höger‑justering och spegling i båda riktningarna bestämmer hur den upprepade texturen placeras.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -815,11 +819,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![Plattalternativen](tile-options.png)
+![The tile options](tile-options.png)
 
 ## **Solid färgfyllning**
 
-En solid fyllning ger en form en enda, enhetlig färg. Detta exempel sätter [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) till solid‑fyllningsläget och tilldelar gul genom [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), sedan sparas rektangeln i en presentation.
+En solid fyllning ger en form en enda, enhetlig färg. Detta exempel sätter [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) till solid‑fyllningsläge och tilldelar gul via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), sedan sparas rektangeln i en presentation.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -852,15 +856,104 @@ presentation->Dispose();
 
 Resultatet:
 
-![Formen med solid färgfyllning](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
-## **Använd bildbakgrund som formfyllning**
+### **Kopiera färger samtidigt som temareferenser bevaras**
 
-Använd [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) när en form ska matcha bildens bakgrund, exempelvis i en presentationsmall. Sätt först [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) till [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) för att ta bort eventuell explicit fyllning. Med den kombinationen använder formen bildens bakgrund istället för sin stilfyllning. Att bara aktivera flaggan tar inte bort en redan befintlig explicit fyllning.
+Använd [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) för att kopiera en färgdefinition, inklusive dess färgtyp, temareferens och transformationer. Detta är användbart när en fyllningsfärg ska överföras mellan former som fortsatt ska följa presentationens tema. Metoden kopierar endast färgen: den kopierar inte fyllningstyp, kontur eller annan formformatering. Sätt destinationens fyllningstyp explicit med [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
 
-Detta skiljer sig från [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): bakgrundsfyllning täcker objekt bakom formen med motsvarande område av bildbakgrunden, medan ingen fyllning lämnar dessa objekt synliga. En gradient förblir inriktad mot bilden snarare än att starta om i varje form.
+Detta exempel skapar tre rektanglar, från vänster till höger: källan, en temamedveten kopia och en fast RGB‑kopia. Källan använder [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) för att referera till den första accentfärgen och lägger till en tint via [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). RGB‑kopian använder källans effektiva fyllningsfärg så att alla tre initialt ser identiska ut. Att anropa [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) sätter ett fast RGB‑värde och rensar eventuella befintliga färgtransformationer.
 
-Följande exempel skapar en master‑bakgrund som ärvs av bilden och placerar ett magentaband bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mellersta har ingen fyllning och den högra byter från bakgrundsfyllning till en explicit orange fyllning.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Tema-referenser följer den nya accentfärgen; det fasta RGB‑värdet gör det inte.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Före temabytet matchar alla tre fyllningar:
+
+![Source, CopyFrom destination, and fixed RGB destination with identical blue fills](color-copy-before.png)
+
+Efter temabytet följer källan och den temamedvetna kopian den nya accentfärgen och behåller sin tint. Den fasta RGB‑kopian förblir blå:
+
+![Source and CopyFrom destination with orange fills, while the fixed RGB destination remains blue](color-copy-after.png)
+
+Den kopierade definitionen är oberoende av källan. Att senare ändra källans temareferens, tilldela en annan färg eller lägga till/ta bort dess transformationer påverkar inte destinationen. Ett temabyte påverkar fortfarande båda formerna eftersom varje form oberoende refererar till samma temafärg.
+
+Att spara och öppna PPTX‑filen bevarar den kopierade färgens typ, tillgänglig via [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), dess temareferens och transformationssamlingen som returneras av [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); den plattar inte av definitionen till RGB.
+
+När du kopierar mellan olika temakontexter, såsom presentationer med olika accentpaletter, löses den kopierade referensen mot destinationens tema. Samma referens och transformationer kan därför ge olika synlig färg. Se [Presentation Theme](/slides/sv/cpp/presentation-theme/) för mer om att konfigurera temafärger.
+
+## **Använd bildens bakgrund som fyllning för en form**
+
+Använd [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) när en form ska matcha bildens bakgrund, exempelvis i en presentationsmall. Sätt [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) till [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) först för att ta bort eventuell explicit fyllning. Med denna kombination använder formen bildens bakgrund i stället för sin egna stilfyllning. Att enbart sätta flaggan tar inte bort en befintlig explicit fyllning.
+
+Detta skiljer sig från [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): bakgrundsfyllning täcker objekt bakom formen med motsvarande bildbakgrunds‑area, medan ingen fyllning låter dessa objekt vara synliga. En gradient förblir justerad mot bilden snarare än att starta om i varje form.
+
+Följande exempel skapar en master‑bakgrund som ärvs av bilden och placerar ett magentaband bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mellersta har ingen fyllning, och den högra växlar från bakgrundsfyllning till en explicit orange fyllning.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -925,7 +1018,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// Inaktivera bakgrundsfyllning innan en explicit fyllning tillämpas.
+// Inaktivera bakgrundsfyllning innan en explicit fyllning appliceras.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -934,15 +1027,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Resultatet, från vänster till höger: **background fill**, **no fill**, och **explicit fill**. Magentabandet är dolt bakom den vänstra och högra rektangeln men förblir synligt genom den mellersta rektangeln.
+Resultatet, från vänster till höger: **background fill**, **no fill**, och **explicit fill**. Magentabandet är dolt av vänster och högre rektangel men synligt genom den mellersta rektangeln.
 
-![Bakgrundsfyllning, ingen fyllning och explicit orange fyllning över ett magentaband](background-fill.png)
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
 
-Samma beteende gäller för en bakgrund som definieras direkt på bilden eller ärvs från en layout. Formen använder bildens lösta bakgrund; exemplet lämnar både bild‑ och layout‑bakgrunder odefinierade så att mastern tillhandahåller den.
+Samma beteende gäller för en bakgrund som definierats direkt på bilden eller ärvd från en layout. Formen använder bildens lösta bakgrund; exemplet lämnar både bild‑ och layoutbakgrunder odefinierade så att master‑bakgrunden levererar den.
 
-## **Ange transparens**
+## **Ställ in transparens**
 
-För en solid fyllning kontrollerar färgens alfa‑komponent opaciteten: 0 är helt transparent och 255 är helt ogenomskinlig. Detta exempel använder ett alfa‑värde på 128 för en gul rektangel, vilket gör den ungefär 50 % transparent så att rektangeln under förblir synlig. Färgen tilldelas via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+För en solid fyllning styr färgens alfa‑komponent opaciteten: 0 är fullt transparent och 255 är fullt opakt. Detta exempel använder ett alfa‑värde på 128 för en gul rektangel, vilket gör den ungefär 50 % transparent så att rektangeln under förblir synlig. Färgen tilldelas via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -979,11 +1072,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![Den transparenta formen](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Rotera former**
 
-Använd [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) för att rotera en form i bildplanet. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
+Använd [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) för att rotera en form i bildens plan. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1010,11 +1103,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![Formrotationen](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **Lägg till 3D-fasadseffekter**
+## **Lägg till 3D‑avfasningseffekter**
 
-Använd [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) för att ge en form djup och fasade kanter. Detta exempel skapar en grön ellips med en orange kontur, sätter [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) till 4 punkter och applicerar en cirkulär top‑bevel med bredd och höjd på 6 punkter via [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). En framåtriktad ortografisk kamera och tre‑punkt‑belysning gör fasen synlig.
+Använd [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) för att ge en form djup och avfasade kanter. Detta exempel skapar en grön ellips med orange kontur, sätter [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) till 4 punkter och applicerar en cirkulär top‑bevel med bredd och höjd 6 punkter via [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). En front‑facing ortografisk kamera och tredjepunkt‑belysning gör avfasningen synlig.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1067,11 +1160,11 @@ presentation->Dispose();
 
 Resultatet:
 
-![3D-fasadseffekten](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Lägg till 3D-rotations­effekter**
+## **Lägg till 3D‑rotations‑effekter**
 
-En formens 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) med latitud, longitud och rotationsvinklar på 40, 35 respektive 20 grader. Det väljer en isometrisk kamera via [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) och balanserad belysning via [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), sedan sparas den formaterade rektangeln.
+En forms 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) med latitud, longitud och revolutionsvinklar på 40, 35 och 20 grader. Det väljer en isometrisk kamera via [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) och balanserad belysning via [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), sedan sparas den formaterade rektangeln.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1107,15 +1200,15 @@ presentation->Dispose();
 
 Resultatet:
 
-![3D-rotations­effekten](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
 ## **Styr svart‑vit rendering för former**
 
-Metoden [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig, och den ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
+Metoden [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vit‑läge. Den aktiverar inte svart‑vit‑visning i sig, och den ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
 
-Använd ett värde från [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/)-enumerationen för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konverteringen, `Gray` och `LightGray` använder grå färgsättning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgsättning och `Hidden` utesluter formen i svart‑vit läge. `NotDefined` betyder att ingen form‑nivå‑inställning har tilldelats.
+Använd ett värde från uppräkningen [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsprogrammet välja konvertering, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färg, och `Hidden` utelämnar formen i svart‑vit‑läge. `NotDefined` betyder att inget läge på formnivå har tilldelats.
 
-Detta exempel skapar en orange rektangel och sätter [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) till grå. Den sparade formen behåller sin orange fyllning för normalt färgvisning och begär grå färgsättning från applikationer som hedrar svart‑vit displayinställningar:
+Detta exempel skapar en orange rektangel och sätter [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) till gray. Den sparade formen behåller sin orange fyllning för normalt färgdisplay och begär grå färgning från applikationer som respekterar svart‑vit‑inställningar:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1148,11 +1241,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-I normalt färgläge behåller rektangeln sin orange fyllning. I ett svart‑vitt arbetsflöde använder den grå färgsättning eftersom dess läge är satt till `Gray`. Detta gör att du kan bevara en full‑färgsbild medan du definierar ett separat utseende för utskrift, förhandsvisning eller andra arbetsflöden som hedrar presentationens svart‑vita displayinställningar.
+I normalt färg‑läge behåller rektangeln sin orange fyllning. I ett svart‑vit‑display‑flöde använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en färgrik slide samtidigt som du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra flöden som respekterar presentationens svart‑vit‑inställningar.
 
 ## **Återställ formatering**
 
-Använd [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) för att återställa position, storlek och formatering av bildplatshållare från deras motsvarande layout‑platshållare. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje bild innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
+Använd [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) för att återställa position, storlek och formatering av platshållare på bild från motsvarande platshållare i layouten. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje bild innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1182,10 +1275,10 @@ presentation->Dispose();
 
 Färger, linjestilar och effektinställningar lägger generellt till lite data jämfört med inbäddade bilder och media. Bildfyllningar kan öka filstorleken eftersom deras bilder lagras i presentationen.
 
-**Hur kan jag identifiera former på en bild som delar identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag upptäcka former på en slide som har identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje formens nyckelformaterings­egenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje forms nyckelformaterings‑egenskaper – fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
 
-**Kan jag spara en samling anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
+**Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med önskade stilar i en mall‑presentation eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stilade formerna du behöver och återapplicera deras formatering där det krävs.
+Ja. Spara exempelformer med önskade stilar i en mall‑presentation eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stylade former du behöver och applicera deras formatering där det behövs.

@@ -1,24 +1,24 @@
 ---
-title: C++ で PowerPoint の図形をフォーマットする
-linktitle: 図形の書式設定
+title: C++ で PowerPoint のシェイプをフォーマットする
+linktitle: シェイプの書式設定
 type: docs
 weight: 20
 url: /ja/cpp/shape-formatting/
 keywords:
-- 図形のフォーマット
+- シェイプのフォーマット
 - 線のフォーマット
 - スケッチ効果
-- 図形線のスケッチ
+- シェイプ線のスケッチ
 - 結合スタイルのフォーマット
 - グラデーション塗りつぶし
 - パターン塗りつぶし
 - 画像塗りつぶし
 - テクスチャ塗りつぶし
 - 単色塗りつぶし
-- 図形の透明度
-- 白黒図形描画
-- グレースケール図形描画
-- 図形の回転
+- シェイプの透明度
+- 白黒シェイプレンダリング
+- グレースケールシェイプレンダリング
+- シェイプの回転
 - 3D ベベル効果
 - 3D 回転効果
 - 書式設定のリセット
@@ -26,19 +26,19 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides を使用して C++ で PowerPoint の図形をフォーマットする方法を学びます。PPT および PPTX ファイルに対して、塗りつぶし、線、効果のスタイルを正確かつ完全に制御して設定できます。"
+description: "Aspose.Slides を使用して C++ で PowerPoint のシェイプをフォーマットする方法を学びます。PPT および PPTX ファイルの塗り、線、効果スタイルを正確かつフルコントロールで設定できます。"
 ---
 ## **はじめに**
 
-PowerPoint の図形の輪郭、塗りつぶし、効果を調整して書式設定します。Aspose.Slides for C++ を使用すると、透過性、回転、3D 書式設定などの設定をプログラムで制御できます。
+PowerPointでシェイプの輪郭、塗りつぶし、効果を調整してフォーマットします。Aspose.Slides for C++ を使用すると、透明度、回転、3D フォーマットなどの設定をプログラムで制御できます。
 
-![PowerPoint の図形書式設定オプション](format-shape-powerpoint.png)
+![PowerPoint のシェイプ書式設定オプション](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ は、PowerPoint で利用可能な同じオプションを使用して図形をフォーマットできるインターフェイスとメソッドを提供します。
+Aspose.Slides for C++ は、PowerPoint で利用できる同じオプションを使用してシェイプをフォーマットできるインターフェイスとメソッドを提供します。
 
-## **線の書式設定**
+## **線のフォーマット**
 
-Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to control a shape’s outline. This example creates an unfilled rectangle with a blue, dashed outline. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) selects a thick‑thin compound line, while [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) sets its width to 7 points and [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) selects the dash pattern.
+形状のアウトラインを制御するには[IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/)を使用します。この例では、塗りつぶしがなく、青色の破線アウトラインの長方形を作成します。[ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/)は太さが異なる複合線を選択し、[ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/)は幅を 7 ポイントに設定し、[ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/)はダッシュパターンを選択します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -77,17 +77,17 @@ presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![プレゼンテーションの書式設定された線](formatted-lines.png)
+![プレゼンテーション内の書式設定された線](formatted-lines.png)
 
 ### **カスタム線ダッシュパターンの設定**
 
-Use [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) when predefined line styles do not provide the dash lengths and gaps you need, for example for branded outlines or technical diagrams. Assigning a pattern automatically changes the dash style to [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+事前定義された線スタイルで必要なダッシュ長さや間隔が得られない場合（例: ブランドアウトラインや技術図）、[ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/)を使用します。パターンを割り当てると、ダッシュスタイルが自動的に[LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/)に変更されます。
 
-配列の要素はダッシュとギャップの長さが交互に並び、ダッシュから始まります。各値は線幅の倍数です。`{ 4, 2 }` を幅 3 ポイントで使用すると、12 ポイントのダッシュの後に 6 ポイントのギャップが続きます。有限かつ非負の値のペアを使用して、完全なダッシュ‑ギャップ セグメントを定義します。この例では、すべてのダッシュとギャップが見えるように正の値を使用しています。
+配列の要素はダッシュとギャップの長さを交互に指定し、ダッシュから始めます。各値は線幅の倍数です。たとえば幅 3 ポイントで `{ 4, 2 }` を指定すると、12 ポイントのダッシュの後に 6 ポイントのギャップが続きます。有限かつ非負の値のペアを使用して完全なダッシュ‑ギャップセグメントを定義します。この例ではすべてのダッシュとギャップが見えるように正の値を使用しています。
 
-この例は、同じ長さでフラットキャップを持つ青い線を5本作成します。最初の3本は幅 3 ポイントでパターンを比較し、4本目は最初のパターンを幅の2倍で繰り返し、ダッシュとギャップの長さも2倍にします。5本目はカスタムパターンから実線に切り替えます。
+この例は、同じ長さでフラットキャップを持つ青色の線を 5 本作成します。最初の 3 本は幅 3 ポイントでパターンを比較し、4 本目は最初のパターンを幅 2 倍で繰り返し、ダッシュとギャップの長さも 2 倍にします。5 本目はカスタムパターンから実線に切り替えます。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -147,26 +147,25 @@ presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Instead of a custom pattern, pass [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) to [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). The selected style controls the line's appearance.
+事前定義された破線スタイルに戻すには、[LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) を [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) に渡します。選択されたスタイルが線の外観を制御します。
 
-PowerPoint 上の結果（上から順に）：**{4, 2}, 3 pt**、**{1, 2}, 3 pt**、**{6, 2, 1, 2}, 3 pt**、**{4, 2}, 6 pt**、および **Solid, 3 pt**。
+PowerPoint の結果（上から下へ）: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; および **Solid, 3 pt**。
 
-![三つのカスタムダッシュパターン、最初のパターンを使用した太い線、そして PowerPoint の実線](custom-dash-patterns.png)
+![PowerPoint の 3 つのカスタムダッシュパターン、最初のパターンを使用した太い線、そして実線](custom-dash-patterns.png)
 
+### **線端の設定**
 
-### **線キャップの設定**
+[ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) を使用して開いた線の端を設定します。[LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) 列挙体は次の 3 つの明示的なキャップスタイルを提供します。
 
-Use [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) to set the ends of an open line. The [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) enumeration provides three explicit cap styles:
-
-- `Flat`: 線は端点で止まります。
+- `Flat`: ストロークは端点で停止します。
 - `Round`: 半円形のキャップが線幅の半分だけ端点を超えて伸びます。
 - `Square`: 正方形のキャップが線幅の半分だけ端点を超えて伸びます。
 
-The enumeration also includes `NotDefined`, which means that no cap style is explicitly assigned.
+列挙体には `NotDefined` も含まれ、これはキャップスタイルが明示的に割り当てられていないことを意味します。
 
-Caps are different from arrowheads, which add symbols to line ends, and joins, which control corners between line segments. This example disables arrowheads through [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) and [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) so that only the cap shapes are compared.
+キャップは、線端に記号を付加する矢印ヘッドや、線分間の角を制御する結合とは異なります。この例では[ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) と [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) で矢印ヘッドを無効にし、キャップ形状だけを比較します。
 
-The following example creates three otherwise identical horizontal lines, 20 points wide. From top to bottom, they use flat, round, and square caps. Their endpoints have the same horizontal coordinates; the round and square caps extend 10 points beyond each endpoint.
+以下の例は、幅 20 ポイントの横線を 3 本作成します。上から下へ、それぞれフラット、ラウンド、スクエアキャップが使用されます。端点の水平座標は同じですが、ラウンドとスクエアキャップは各端点を 10 ポイント超えて伸びます。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -216,15 +215,15 @@ presentation->Save(u"line_caps.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint 上の結果（上から順に）：**Flat**、**Round**、**Square**。
+PowerPoint の結果（上から下へ）: **Flat**, **Round**, **Square**。
 
-![同一の太い線に対するフラット、ラウンド、スクエアのキャップ](line-caps.png)
+![PowerPoint の同一太線上のフラット、ラウンド、スクエアキャップ](line-caps.png)
 
-## **図形線へのスケッチ効果の適用**
+## **シェイプ線へのスケッチ効果の適用**
 
-A sketch effect makes a shape line look hand‑drawn. Use [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) to access the line settings, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) to access the sketch settings, and [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) to select a value from the [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) enumeration.
+スケッチ効果はシェイプの線を手描きのように見せます。[IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) で線設定にアクセスし、[ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) でスケッチ設定にアクセスし、[ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) で [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) 列挙体から値を選択します。
 
-The following C++ code shows how to apply a [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) :
+以下の C++ コードは [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) 効果の適用、明示的に割り当てられた値の取得、[LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) で効果を除去する方法を示します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +254,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-The value returned by [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) represents the setting assigned directly to the shape. If the line formatting can be inherited from a theme, master slide, or layout slide, use [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), access [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), and read [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). The effective value reflects the formatting that is actually applied after inheritance is resolved. This example requires an existing presentation with at least one shape on its first slide and prints both values:
+[ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) が返す値はシェイプに直接割り当てられた設定を表します。線の書式がテーマ、マスタースライド、またはレイアウトスライドから継承される可能性がある場合は、[ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/) を使用し、[ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) にアクセスし、[ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/) を読み取ります。Effective 値は継承が解決された後に実際に適用される書式を示します。この例は、最初のスライドに少なくとも 1 つのシェイプがある既存のプレゼンテーションを必要とし、両方の値を出力します。
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -287,17 +286,17 @@ presentation->Dispose();
 
 ## **結合スタイルの書式設定**
 
-Here are the three join type options:
+以下は 3 つの結合タイプオプションです。
 
-* Round
-* Miter
-* Bevel
+* ラウンド
+* ミーター
+* ベベル
 
-The join style controls how two outline segments meet at a corner. Use **Round** for rounded corners, **Miter** for sharp corners, or **Bevel** for flattened corners.
+結合スタイルは、2 本のアウトラインセグメントが角でどのように接続されるかを制御します。角を丸めるには **ラウンド**、鋭くするには **ミーター**、平らにするには **ベベル** を使用します。
 
 ![プレゼンテーションの結合スタイル](join-style-powerpoint.png)
 
-This example creates three black rectangles with blue outlines 15 points wide. It sets [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) to the miter, bevel, and round values of [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), respectively, to compare how the corners are drawn.
+この例は、青いアウトライン（幅 15 ポイント）を持つ黒い長方形を 3 つ作成します。[ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) をそれぞれ [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) のミーター、ベベル、ラウンドに設定し、角の描画方法を比較します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -358,13 +357,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **鋭角でのミータ結合の制限**
+### **鋭角でのミーター結合の制限**
 
-Use [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) with [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) set to [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) to limit how far a sharp corner can extend.
+[ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) を使用し、[ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) を [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) に設定して、鋭角がどれだけ伸びるかを制限します。
 
-The limit is a ratio of the distance between the inner and outer corners of the join to the line width. For example, a value of `8` permits a miter length of up to eight times the line width; it is not a measurement in points. If the corner would exceed the limit, PowerPoint uses a beveled join at that corner. A larger limit allows sharper points. The setting affects miter joins only, and changing it has no visible effect when the corner remains within both limits.
+制限は、結合部の内側と外側の角間距離と線幅との比率です。たとえば `8` の値は線幅の最大 8 倍までミーター長さを許可します。これはポイントでの測定ではありません。角が制限を超える場合、PowerPoint はその角にベベル結合を使用します。制限を大きくするとより鋭いポイントが得られます。この設定はミーター結合のみに影響し、角が両方の制限内に収まっている場合は視覚的な変化はありません。
 
-This example creates two identical, unfilled triangles with outlines 20 points wide. The left triangle uses a limit of `2`, and the right uses `8`. Each triangle is 80 points wide and 160 points high, giving its top corner a miter‑length‑to‑line‑width ratio of approximately `4.12`. Consequently, PowerPoint bevels the left apex and preserves the right apex.
+この例は、幅 20 ポイントのアウトラインを持つ同一の塗りなし三角形を 2 つ作成します。左側の三角形は制限 `2`、右側は `8` を使用します。各三角形は幅 80 ポイント、高さ 160 ポイントで、上部の角のミーター長さと線幅の比率は約 `4.12` です。そのため、PowerPoint は左側の頂点をベベルし、右側の頂点は保持します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -411,13 +410,13 @@ presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint 上の結果：左側は **Miter limit 2**、右側は **miter limit 8**。
+PowerPoint の結果: 左側 **Miter limit 2**、右側 **miter limit 8**。
 
-![PowerPoint のミータリミット 2 のベベル頂点とミータリミット 8 の尖った頂点](miter-limits.png)
+![PowerPoint のミーターリミット 2 のベベル頂点とミーターリミット 8 の尖った頂点](miter-limits.png)
 
 ## **グラデーション塗りつぶし**
 
-A gradient fill blends colors across a shape. This example fills an ellipse with a linear gradient at a 45‑degree angle from red to purple using [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). The [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) method places the color stops at 0 and 1, the beginning and end of the gradient. Clearing the existing stops ensures that only these two colors are used.
+グラデーション塗りつぶしはシェイプ全体に色をブレンドします。この例は、赤から紫への 45 度の線形グラデーションで楕円を塗りつぶします。使用するのは [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/) です。[IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) メソッドでグラデーションの開始 (0) と終了 (1) にカラーストップを配置します。既存のストップをクリアすると、この 2 色だけが使用されます。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -456,17 +455,17 @@ presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![グラデーション塗りつぶしの楕円形](gradient-fill.png)
 
-If a gradient looks different in an exported image than it does in PowerPoint, see [Choose a Gradient Rendering Style](/slides/ja/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). You can select a rendering style without changing the gradient fill stored in the presentation.
+グラデーションがエクスポート画像で PowerPoint と見た目が異なる場合は、[グラデーションレンダリングスタイルの選択](/slides/ja/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) を参照してください。プレゼンテーションに保存されているグラデーション塗りつぶしを変更せずに、レンダリングスタイルを選択できます。
 
 ### **線形グラデーション角度の設定**
 
-Use [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) to control the orientation of a [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fill. The angle is measured in degrees and increases clockwise: `0` runs from left to right, `90` from top to bottom, `180` from right to left, and `270` from bottom to top. Fractional angles are supported. Finite angles outside `[0, 360)` are normalized to one revolution; for example, `-45` becomes `315` and `360` becomes `0`.
+[IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) を使用して [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) 塗りつぶしの向きを制御します。角度は度数で測定され、時計回りに増加します：`0` は左から右、`90` は上から下、`180` は右から左、`270` は下から上です。小数の角度もサポートします。`[0, 360)` の範囲外の有限角度は 1 回転に正規化され、例として `-45` は `315` に、`360` は `0` になります。
 
-This example creates six rectangles with identical red, green, and blue stops at positions `0`, `0.5`, and `1`. Scaling is disabled so that the angle can be compared independently of the rectangles' proportions. The angles, from left to right, are `0`, `45`, and `90` in the first row, and `135`, `180`, and `270` in the second row.
+この例は、位置 `0`、`0.5`、`1` に同一の赤・緑・青ストップを持つ 6 つの長方形を作成します。スケーリングを無効にして、角度を長方形の比例に関係なく比較できるようにします。左から右への角度は、1 行目が `0`、`45`、`90`、2 行目が `135`、`180`、`270` です。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -523,15 +522,15 @@ presentation->Save(u"linear_gradient_angles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint 上の結果：
+PowerPoint の結果:
 
-![上段は 0°, 45°, 90°、下段は 135°, 180°, 270° の線形グラデーション](linear-gradient-angles.png)
+![上段が 0、45、90 度、下段が 135、180、270 度の線形グラデーション](linear-gradient-angles.png)
 
-### **形状で線形グラデーションをスケールする**
+### **シェイプに合わせた線形グラデーションのスケーリング**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepts a [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) value. Set it explicitly to `False` to keep the geometric gradient angle as the shape's proportions change, or to `True` to scale the gradient with the shape's width and height. With scaling enabled, the visible angle can differ from the assigned angle on a non‑square shape.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) は [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/) 値を受け取ります。`False` に設定するとシェイプの比例が変わっても幾何学的なグラデーション角度が保持され、`True` に設定するとシェイプの幅と高さに合わせてグラデーションがスケーリングされます。スケーリングを有効にすると、非正方形シェイプでは表示角度が割り当て角度と異なる場合があります。
 
-The following example uses a `45`‑degree angle and the same color stops as the angle comparison. The left column uses `False`; the right column uses `True`. Each column contains a wide rectangle above a tall rectangle. Both start with the same wide dimensions; changing the second rectangle's width and height demonstrates how the fill responds to resizing without changing its gradient settings.
+以下の例は `45` 度の角度と同じカラーストップを使用します。左列は `False`、右列は `True` です。各列は上部に横長長方形、下部に縦長長方形を配置します。両方とも同じ横幅で開始し、2 番目の長方形の幅と高さを変更して、塗りつぶしがリサイズにどのように応答するかを示します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,19 +596,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-PowerPoint 上の結果（左はスケーリング無効、右は有効）：
+PowerPoint の結果（左はスケーリング無効、右は有効）:
 
-![幅広と高さの長方形に対する 45° グラデーション、左は LinearGradientScaled = False、右は True の比較](linear-gradient-scaling.png)
+![左は LinearGradientScaled False、右は True の 45 度グラデーションを持つ横長・縦長長方形](linear-gradient-scaling.png)
 
-With scaling disabled, the diagonal color bands keep the same orientation in both rectangles. With scaling enabled, the bands stretch with the shape's proportions. This helps reproduce a template's gradient when adapting a shape to a different size. On a square, enabling scaling does not change the appearance of this `45`‑degree gradient.
+スケーリングを無効にすると、対角のカラーバンドは両方の長方形で同じ向きを保ちます。スケーリングを有効にすると、バンドはシェイプの比例に合わせて伸びます。これにより、テンプレートのグラデーションを別サイズのシェイプに適用する際に再現しやすくなります。正方形の場合、スケーリングを有効にしてもこの `45` 度グラデーションの外観は変わりません。
 
-Both the angle and scaling settings apply to linear gradients. They do not control [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) fills.
+角度とスケーリングの設定は線形グラデーションにのみ適用され、[GradientShape::Radial] や [GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) の塗りつぶしは制御しません。
 
 ### **角度とグラデーション方向の組み合わせ**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) selects a gradient style from the [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) enumeration; it is not a substitute for a numeric angle. For a linear gradient, the corner styles can change the area over which the colors are distributed without changing the angle assigned through [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Keep the direction unchanged when comparing angles or scaling.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) は [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/) 列挙体からグラデーションスタイルを選択します。数値角度の代替ではありません。線形グラデーションの場合、コーナースタイルは [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) で割り当てた角度を変えずに色が分布する領域を変更できます。角度やスケーリングを比較する際は方向を変更しないでください。
 
-The following example applies the same settings in opposite orders. The two rectangles have the same appearance: assigning the direction before or after the angle does not change the result.
+以下の例は同じ設定を逆順で適用します。2 つの長方形は同一の外観になり、方向を角度の前後どちらに設定しても結果は変わりません。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -670,7 +669,7 @@ presentation->Dispose();
 
 ## **パターン塗りつぶし**
 
-A pattern fill applies a two‑color design, such as dots, stripes, or checks. This example uses [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) to select a trellis pattern. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) supplies the light gray background, and [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) supplies the yellow pattern color.
+パターン塗りつぶしはドット、ストライプ、チェックなどの 2 色デザインを適用します。この例は [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) を使用して格子パターンを選択します。[IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) でライトグレーの背景を、[IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) で黄色のパターン色を設定します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -705,13 +704,13 @@ presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![パターン塗りつぶしの長方形](pattern-fill.png)
 
 ## **画像塗りつぶし**
 
-A picture fill uses an image inside a shape. This example requires a local image and uses [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) to load it into the presentation’s image collection. Setting [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) to the tiled mode repeats the image within the rectangle. The source image used here is shown below:
+画像塗りつぶしはシェイプ内部に画像を使用します。この例はローカル画像が必要で、[Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) を使用してプレゼンテーションの画像コレクションにロードします。[IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) をタイルモードに設定すると、画像が長方形内で繰り返されます。使用されているソース画像は以下のとおりです。
 
 ![蓮の画像](lotus.png)
 
@@ -752,23 +751,23 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![画像塗りつぶしの図形](picture-fill.png)
+![画像塗りつぶしのシェイプ](picture-fill.png)
 
-### **テクスチャとして画像をタイル配置**
+### **テクスチャとして画像をタイル表示**
 
-If you want to set a tiled picture as a texture and customize the tiling behavior, you can use the following methods of the [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) interface and [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) class:
+タイル画像をテクスチャとして設定し、タイル動作をカスタマイズしたい場合は、[IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) クラスの次のメソッドを使用できます。
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/)：画像の塗りつぶしモードを設定します（`Tile` または `Stretch`）。
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/)：図形内部でタイルを配置する位置を指定します。
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/)：タイルを水平方向、垂直方向、または両方に反転するかを制御します。
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/)：図形の原点からタイルの水平方向オフセット（ポイント）を設定します。
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/)：図形の原点からタイルの垂直方向オフセット（ポイント）を設定します。
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/)：タイルの水平方向スケールをパーセンテージで定義します。
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/)：タイルの垂直方向スケールをパーセンテージで定義します。
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/)：画像塗りつぶしモードを `Tile` または `Stretch` に設定します。
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/)：シェイプ内でタイルの配置を指定します。
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/)：タイルを水平、垂直、または両方にフリップするかを制御します。
+- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/)：シェイプの原点からタイルの水平オフセット（ポイント）を設定します。
+- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/)：シェイプの原点からタイルの垂直オフセット（ポイント）を設定します。
+- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/)：タイルの水平スケールをパーセンテージで定義します。
+- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/)：タイルの垂直スケールをパーセンテージで定義します。
 
-This example requires a local image and configures [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) to repeat it at 50% of its original size. Offsets of −32 points shift the tiles horizontally and vertically; bottom‑right alignment and flipping in both directions determine how the repeated texture is arranged.
+この例はローカル画像が必要で、[IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) を元サイズの 50% に縮小して繰り返すように構成します。`−32` ポイントのオフセットでタイルを水平・垂直にシフトし、右下揃えと両方向のフリップで繰り返しテクスチャの配置を決定します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -817,13 +816,13 @@ sourceImage->Dispose();
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![タイルオプション](tile-options.png)
 
 ## **単色塗りつぶし**
 
-A solid fill gives a shape a single, uniform color. This example sets [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to the solid fill mode and assigns yellow through [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), then saves the rectangle in a presentation.
+単色塗りつぶしはシェイプに単一の均一な色を与えます。この例は [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) を実色塗りつぶしモードに設定し、[IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) で黄色を割り当て、長方形をプレゼンテーションに保存します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -854,17 +853,106 @@ presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![単色塗りつぶしの図形](solid-color-fill.png)
+![単色塗りつぶしのシェイプ](solid-color-fill.png)
 
-## **スライドの背景を図形の塗りつぶしとして使用**
+### **テーマ参照を保持しながら色をコピー**
 
-Use [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) when a shape should match the slide background, for example in a presentation template. Set [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) to [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) first to remove any explicit fill. With this combination, the shape uses the slide background instead of its style fill. Enabling the flag alone does not remove an existing explicit fill.
+[IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) を使用して、カラータイプ、テーマ参照、変換を含むカラー定義をコピーします。これは、プレゼンテーションテーマに従い続けるべきシェイプ間で塗りつぶしカラーを転送するときに便利です。このメソッドは色のみをコピーし、塗りタイプ、アウトライン、その他のシェイプ書式はコピーしません。宛先の塗りタイプは [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) で明示的に設定してください。
 
-This differs from [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/)：背景塗りつぶしは図形の背後にあるオブジェクトをスライド背景の対応領域で覆いますが、NoFill はそれらのオブジェクトを表示したままにします。グラデーションは各図形内部で再開されるのではなく、スライドに合わせて配置され続けます。
+この例は左から右へ 3 つの長方形を作成します：ソース、テーマ対応コピー、固定 RGB コピーです。ソースは [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) で最初のアクセントカラーを参照し、[IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/) でティントを追加します。RGB コピーはソースの有効塗りカラーを使用するため、最初は 3 つとも同一に見えます。[IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) を呼び出すと固定の RGB 値が設定され、既存の色変換がクリアされます。
 
-The following example creates a master background inherited by the slide and places a magenta band behind three rectangles. The left rectangle uses the background, the middle rectangle has no fill, and the right rectangle switches from background fill to an explicit orange fill.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Theme references follow the new accent color; the fixed RGB value does not.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+テーマ変更前は 3 つの塗りが一致しています:
+
+![ソース、CopyFrom 宛先、固定 RGB 宛先が同一の青塗り](color-copy-before.png)
+
+テーマ変更後、ソースとテーマ対応コピーは新しいアクセントカラーに従いティントを保持します。固定 RGB コピーは青のままです:
+
+![オレンジ塗りのソースと CopyFrom 宛先、固定 RGB 宛先は青のまま](color-copy-after.png)
+
+コピーされた定義はソースとは独立しています。その後、ソースのテーマ参照や別の色への割り当て、変換の追加・削除を行っても宛先は変わりません。テーマ変更は両方のシェイプに影響しますが、各シェイプは同じテーマカラーを個別に参照しているためです。
+
+保存・再オープンすると、コピーされた色のタイプは [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/) で取得でき、テーマ参照と [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/) で返される変換コレクションも保持されます。RGB へフラット化はされません。
+
+異なるテーマコンテキスト（たとえばアクセント パレットが異なるプレゼンテーション）間でコピーすると、コピーされた参照は宛先のテーマに対して解決されます。同じ参照と変換でも、見た目の色が異なる場合があります。[プレゼンテーションテーマ](/slides/ja/cpp/presentation-theme/) を参照してテーマカラーの設定方法を確認してください。
+
+## **スライドの背景をシェイプの塗りつぶしとして使用**
+
+スライドの背景に合わせるシェイプが必要な場合（例: プレゼンテーションテンプレート）には、[IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) を使用します。まず [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) を [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) に設定して明示的な塗りを除去します。この組み合わせにより、シェイプはスタイル塗りではなくスライドの背景を使用します。フラグだけを有効にしても既存の明示的塗りは除去されません。
+
+これは [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) とは異なります。背景塗りはシェイプの背後にあるオブジェクトをスライド背景の該当領域でカバーしますが、NoFill はそれらのオブジェクトを可視のままにします。グラデーションは各シェイプ内で再開するのではなく、スライドに合わせて配置され続けます。
+
+以下の例はスライドが継承するマスターバックグラウンドを作成し、3 つの長方形の背後にマゼンタ帯を配置します。左の長方形は背景を使用し、中央は No Fill、右は背景塗りから明示的なオレンジ塗りに切り替えます。
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -899,7 +987,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// マスターからグラデーションを継承します。
+// マスタからグラデーションを継承します。
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -912,7 +1000,7 @@ gradient->get_GradientStops()->Clear();
 gradient->get_GradientStops()->Add(0, Color::get_DarkBlue());
 gradient->get_GradientStops()->Add(1, Color::get_LightSkyBlue());
 
-// このオブジェクトを最初に追加して、長方形の背面に表示されるようにします。
+// このオブジェクトを最初に追加すると、矩形の背面に表示されます。
 auto band = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 25, 150, 670, 100);
 band->get_FillFormat()->set_FillType(FillType::Solid);
 band->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Magenta());
@@ -929,7 +1017,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// 背景塗りつぶしを無効にしてから明示的な塗りつぶしを適用します。
+// 明示的な塗りつぶしを適用する前に背景塗りつぶしを無効にします。
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -938,15 +1026,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果（左から右へ）：**background fill**、**no fill**、**explicit fill**。マゼンタの帯は左と右の矩形で隠れますが、中央の矩形を通しては見えます。
+結果（左から右へ）: **background fill**, **no fill**, **explicit fill**。マゼンタ帯は左と右の長方形で隠れますが、中央の長方形を通しては可視です。
 
-![背景塗りつぶし、無塗りつぶし、オレンジの明示的塗りつぶしがマゼンタの帯の上にある様子](background-fill.png)
+![背景塗り、No Fill、オレンジの明示的塗りがマゼンタ帯の上にある様子](background-fill.png)
 
-The same behavior applies to a background defined directly on the slide or inherited from a layout. The shape uses the slide's resolved background; the example leaves both the slide and layout backgrounds undefined so the master supplies it.
+同様の動作はスライドに直接定義された背景やレイアウトから継承された背景にも適用されます。シェイプはスライドの解決された背景を使用します。この例ではスライドとレイアウトの背景を未定義にして、マスターが供給するようにしています。
 
 ## **透明度の設定**
 
-For a solid fill, the color’s alpha component controls opacity: 0 is fully transparent and 255 is fully opaque. This example uses an alpha value of 128 for a yellow rectangle, making it approximately 50% transparent so the rectangle underneath remains visible. The color is assigned through [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+実色塗りの場合、色のアルファ成分が不透明度を制御します：0 は完全に透明、255 は完全に不透明です。この例は透明度 128（約 50% 透過）の黄い長方形を使用し、下にある長方形が見えるようにします。色は [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/) を通じて割り当てられます。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -981,13 +1069,13 @@ presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![透明な図形](shape-transparency.png)
+![透明なシェイプ](shape-transparency.png)
 
-## **図形の回転**
+## **シェイプの回転**
 
-Use [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) to rotate a shape in the slide plane. The angle is measured in degrees; this example rotates a rectangle 5 degrees clockwise and saves the presentation.
+[IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) を使用してスライド平面上でシェイプを回転させます。角度は度数で測定され、この例は矩形を時計回りに 5 度回転させてプレゼンテーションを保存します。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1012,13 +1100,13 @@ presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
-![図形の回転](shape-rotation.png)
+![シェイプの回転](shape-rotation.png)
 
 ## **3D ベベル効果の追加**
 
-Use [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) to give a shape depth and beveled edges. This example creates a green ellipse with an orange outline, sets [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) to 4 points, and applies a circular top bevel with a width and height of 6 points through [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). A front‑facing orthographic camera and three‑point lighting make the bevel visible.
+[IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) を使用してシェイプに深さとベベルエッジを付加します。この例は緑の楕円にオレンジのアウトラインを付け、[IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) を 4 ポイントに設定し、[IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/) を通じて幅・高さ 6 ポイントの円形トップベベルを適用します。前方向きの正投影カメラと 3 点照明によりベベルが見えるようになります。
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1069,13 +1157,13 @@ presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![3D ベベル効果](3D-bevel-effect.png)
 
 ## **3D 回転効果の追加**
 
-A shape’s 3D view is controlled by its camera settings. This example uses [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) with latitude, longitude, and revolution angles of 40, 35, and 20 degrees, respectively. It selects an isometric camera through [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) and balanced lighting through [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), then saves the formatted rectangle.
+シェイプの 3D 表示はカメラ設定で制御されます。この例は [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) を使用し、緯度・経度・回転角度をそれぞれ 40°、35°、20° に設定します。[ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) で等角カメラを選択し、[ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/) で均等照明を設定して、書式設定した矩形を保存します。
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1109,17 +1197,17 @@ presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-結果：
+結果:
 
 ![3D 回転効果](3D-rotation-effect.png)
 
-## **図形の白黒描画の制御**
+## **シェイプの白黒レンダリング制御**
 
-The [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) method specifies how an individual shape is rendered when a presentation is viewed or processed in black‑and‑white mode. It does not enable black‑and‑white display by itself, and it does not change the shape's fill, line, or other formatting in normal color mode.
+[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) メソッドは、プレゼンテーションが白黒モードで表示または処理されるときに個々のシェイプがどのようにレンダリングされるかを指定します。このメソッドだけで白黒表示が有効になるわけではなく、通常カラー表示時のシェイプの塗り、線、その他の書式設定は変更されません。
 
-Use a value from the [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) enumeration to select the desired behavior. For example, `Automatic` lets the rendering application choose the conversion, `Gray` and `LightGray` use gray coloring, `BlackWhite` uses only black and white, `Black` and `White` force a single color, `Color` preserves normal coloring, and `Hidden` omits the shape in black‑and‑white mode. `NotDefined` means that no shape‑level mode is assigned.
+[BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) 列挙体の値を使用して目的の動作を選択します。例として `Automatic` はレンダリングアプリが変換を選択させ、`Gray` と `LightGray` はグレイカラー、`BlackWhite` は黒と白だけ、`Black` と `White` は単一色、`Color` は通常カラーを保持、`Hidden` は白黒モードでシェイプを除外します。`NotDefined` はシェイプレベルのモードが割り当てられていないことを意味します。
 
-This example creates an orange rectangle and sets [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) to gray. The saved shape retains its orange fill for normal color display and requests gray coloring from applications that honor black‑and‑white display settings:
+この例はオレンジの長方形を作成し、[IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) を `Gray` に設定します。保存されたシェイプは通常カラー表示ではオレンジ塗りを保持し、白黒表示設定を尊重するアプリケーションではグレイカラーを要求します。
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1152,11 +1240,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-In normal color mode, the rectangle retains its orange fill. In a black‑and‑white display workflow, it uses gray coloring because its mode is set to `Gray`. This lets you preserve a full‑color slide while defining a distinct appearance for printing, previewing, or other workflows that honor the presentation's black‑and‑white display settings.
+通常カラー表示では長方形はオレンジ塗りのままです。白黒表示のワークフローでは `Gray` に設定されているためグレイカラーが使用されます。これにより、フルカラーのスライドを保持しつつ、印刷やプレビュー、その他白黒表示設定を尊重するワークフロー用に別の外観を定義できます。
 
 ## **書式設定のリセット**
 
-Use [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) to restore the position, size, and formatting of slide placeholders from their corresponding layout placeholders. This example requires an existing presentation with layout‑linked placeholders and resets every slide before saving. Shapes without corresponding layout placeholders are not reset.
+[ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) を使用して、レイアウトプレースホルダーに対応するスライドプレースホルダーの位置、サイズ、書式設定を復元します。この例はレイアウトにリンクされたプレースホルダーがある既存のプレゼンテーションが必要で、保存前にすべてのスライドをリセットします。対応するレイアウトプレースホルダーがないシェイプはリセットされません。
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1182,14 +1270,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Does shape formatting affect the final presentation file size?**
+**シェイプの書式設定は最終的なプレゼンテーションのファイルサイズに影響しますか？**
 
-色や線のスタイル、効果設定は、埋め込み画像やメディアに比べてデータ量がほとんど増えません。画像塗りつぶしは、使用する画像がプレゼンテーションに保存されるため、ファイルサイズが増加する可能性があります。
+色、線スタイル、効果設定は埋め込み画像やメディアに比べてデータがほとんど増加しません。画像塗りつぶしは画像がプレゼンテーションに保存されるため、ファイルサイズを増加させる可能性があります。
 
-**How can I detect shapes on a slide that share identical formatting so I can group them?**
+**同一の書式設定を共有するスライド上のシェイプを検出してグループ化するにはどうすればよいですか？**
 
-各図形の主要な書式プロパティ（塗りつぶし、線、効果設定）を比較します。すべての対応する値が一致すれば、同一スタイルとみなし、論理的にグループ化して後のスタイル管理を簡素化できます。
+シェイプごとに主要な書式プロパティ（塗り、線、効果設定）を比較します。すべての対応する値が一致すれば、スタイルが同一とみなし、論理的にグループ化できます。これにより、後のスタイル管理が簡素化されます。
 
-**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**
+**カスタムシェイプスタイルのセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
 
-はい。目的のスタイルを持つサンプル図形をテンプレートスライドまたは .POTX テンプレート ファイルに保存します。新しいプレゼンテーションを作成するときにテンプレートを開き、必要なスタイル付き図形をクローンして目的の場所に再適用します。
+できます。目的のスタイルを持つサンプルシェイプをテンプレートスライドデッキまたは .POTX テンプレートファイルに保存します。新しいプレゼンテーションを作成するときにテンプレートを開き、必要なスタイル済みシェイプをクローンして、必要な場所で書式設定を再適用します。

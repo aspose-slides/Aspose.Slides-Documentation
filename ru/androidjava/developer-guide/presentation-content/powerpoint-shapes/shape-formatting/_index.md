@@ -1,45 +1,45 @@
 ---
-title: Форматировать фигуры PowerPoint на Android
-linktitle: Форматирование фигур
+title: "Форматирование фигур PowerPoint на Android"
+linktitle: "Форматирование фигур"
 type: docs
 weight: 20
 url: /ru/androidjava/shape-formatting/
 keywords:
-- форматировать фигуру
-- форматировать линию
-- эффект наброска
-- линия фигуры наброска
-- стиль соединения
-- градиентная заливка
-- шаблонная заливка
-- заливка изображением
-- текстурная заливка
-- сплошная заливка цветом
-- прозрачность фигуры
-- черно‑белое отображение фигуры
-- отображение фигуры в градациях серого
-- вращение фигуры
-- 3d‑срез эффект
-- 3d‑вращение эффект
-- сброс форматирования
-- PowerPoint
-- презентация
-- Android
-- Java
-- Aspose.Slides
+- "форматировать фигуру"
+- "форматировать линию"
+- "эффект наброска"
+- "линия наброска фигуры"
+- "форматировать стиль соединения"
+- "градиентная заливка"
+- "узорная заливка"
+- "заливка изображением"
+- "текстурная заливка"
+- "сплошная заливка цветом"
+- "прозрачность фигуры"
+- "черно-белая отрисовка фигуры"
+- "отображение фигуры в градациях серого"
+- "повернуть фигуру"
+- "3D-эффект фаски"
+- "3D-эффект вращения"
+- "сброс форматирования"
+- "PowerPoint"
+- "презентация"
+- "Android"
+- "Java"
+- "Aspose.Slides"
 description: "Узнайте, как форматировать фигуры PowerPoint на Android с помощью Aspose.Slides — задавайте стили заливки, линий и эффектов для файлов PPT и PPTX с точностью и полным контролем."
 ---
 ## **Введение**
 
-Форматируйте фигуры в PowerPoint, изменяя их контуры, заливки и эффекты. Aspose.Slides for Android via Java позволяет программно управлять этими параметрами, включая прозрачность, вращение и 3D‑форматирование.
+Форматируйте фигуры в PowerPoint, регулируя их контуры, заливки и эффекты. Aspose.Slides for Android via Java позволяет программно управлять этими настройками, включая прозрачность, вращение и 3D‑форматирование.
 
-![Варианты форматирования фигур в PowerPoint](format-shape-powerpoint.png)
+![Параметры форматирования фигур в PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java предоставляет интерфейсы и методы, позволяющие форматировать фигуры с теми же параметрами, что доступны в PowerPoint.
+Aspose.Slides for Android via Java предоставляет интерфейсы и методы, которые позволяют форматировать фигуры, используя те же параметры, что доступны в PowerPoint.
 
 ## **Форматирование линий**
 
-Используйте [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) для управления контуром фигуры. В этом примере создаётся незалитый прямоугольник с синей пунктирной линией. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) выбирает составную линию «толстая‑тонкая», а [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) задаёт её ширину 7 пунктов, а [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) выбирает тип штриха.
+Используйте [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) для управления контуром фигуры. В этом примере создаётся незаполненный прямоугольник с синей пунктирной обводкой. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) выбирает сложную линию «толстый‑тонкий», а [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) задаёт её ширину 7 пунктов, а [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) выбирает шаблон пунктиров.
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +67,13 @@ try {
 
 ![Отформатированные линии в презентации](formatted-lines.png)
 
-### **Установка пользовательских шаблонов штрихов линий**
+### **Установить пользовательские шаблоны пунктиров линии**
 
-Используйте [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) когда предопределённые стили линий не предоставляют нужные длины пунктиров и промежутков, например для фирменных контуров или технических схем. Присвоение шаблона автоматически меняет стиль штриха линии на [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
+Используйте [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---), когда предустановленные стили линий не предоставляют нужных длин штрихов и пропусков, например для фирменных контуров или технических схем. Присвоение шаблона автоматически меняет стиль пунктиров линии на [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-Элементы массива чередуются между длинами пунктиров и промежутков, начиная с пунктиров. Каждое значение — кратное ширине линии: `{ 4, 2 }` при ширине 3 пункта создаёт пунктир длиной 12 пунктов и промежуток 6 пунктов. Используйте пары конечных, неотрицательных значений для определения полных сегментов пунктир‑промежуток. В примере используются положительные значения, чтобы каждый пунктир и промежуток были видимыми.
+Элементы массива чередуются между длинами штрихов и пропусков, начиная со штриха. Каждое значение – кратное толщине линии: `{ 4, 2 }` при ширине 3 пункта дает штрих длиной 12 пунктов и пропуск 6 пунктов. Используйте пары конечных, неотрицательных значений для определения полных сегментов штрих‑пропуск. В примере использованы положительные значения, чтобы каждый штрих и пропуск оставались видимыми.
 
-Этот пример создаёт пять синих линий одинаковой длины с прямыми концами. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон при двойной ширине, удваивая длины пунктиров и промежутков. Пятая переключается с пользовательского шаблона на сплошную линию.
+Этот пример создаёт пять синих линий одинаковой длины с плоскими концами. Первые три сравнивают шаблоны при ширине 3 пункта. Четвёртая повторяет первый шаблон при удвоенной ширине, удваивая и длину штриха, и пропуска. Пятая переключается с пользовательского шаблона на сплошную линию.
 
 ```java
 import com.aspose.slides.*;
@@ -112,25 +112,25 @@ try {
 }
 ```
 
-Чтобы вернуться к предопределённому пунктирному стилю, передайте [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) в [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Выбранный стиль управляет внешним видом линии.
+Чтобы вместо этого вернуть предустановленный пунктирный стиль, передайте [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) в [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Выбранный стиль управляет внешним видом линии.
 
 Результат в PowerPoint сверху вниз: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; и **Solid, 3 pt**.
 
-![Три пользовательских шаблона штрихов, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
+![Три пользовательских шаблона пунктиров, более широкая линия с первым шаблоном и сплошная линия в PowerPoint](custom-dash-patterns.png)
 
-### **Установка стилей концов линии**
+### **Установить стили концов линии**
 
-Используйте [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) для задания концов открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) предоставляет три явных стиля конечных caps:
+Используйте [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) для установки концов открытой линии. Класс [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) предоставляет три явных стиля концов:
 
-- `Flat`: штрих заканчивается в конечной точке.
-- `Round`: полукруглый конец выступает за конечную точку на половину ширины линии.
-- `Square`: квадратный конец выступает за конечную точку на половину ширины линии.
+- `Flat`: Линия заканчивается в конечной точке.
+- `Round`: Полукруглая заглушка выступает за конечную точку на половину толщины линии.
+- `Square`: Квадратная заглушка выступает за конечную точку на половину толщины линии.
 
-Класс также содержит `NotDefined`, что означает отсутствие явно назначенного стиля.
+Класс также включает `NotDefined`, что означает отсутствие явно назначенного стиля конца.
 
-Caps отличаются от стрелок, которые добавляют символы к концам линии, и соединений (joins), которые управляют углами между сегментами линии. В этом примере стрелки отключаются с помощью [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) и [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-), чтобы сравнивались только формы caps.
+Концы отличаются от стрелок, которые добавляют символы к концам линии, и от соединений, которые управляют углами между сегментами линии. В этом примере стрелки отключаются с помощью [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) и [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-), чтобы сравнивались только формы концов.
 
-Следующий пример создаёт три почти одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют caps flat, round и square. Их конечные точки имеют одинаковые горизонтальные координаты; round и square выступают на 10 пунктов за каждую конечную точку.
+Следующий пример создаёт три практически одинаковые горизонтальные линии шириной 20 пунктов. Сверху вниз они используют плоские, круглые и квадратные концы. Их конечные точки имеют одинаковые горизонтальные координаты; круглые и квадратные концы выступают на 10 пунктов за каждую конечную точку.
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-Результат в PowerPoint сверху вниз: **Flat**, **Round** и **Square**.
+Результат в PowerPoint сверху вниз: **Flat**, **Round**, и **Square**.
 
-![Flat, round и square caps на одинаковых толстых линиях в PowerPoint](line-caps.png)
+![Плоские, круглые и квадратные концы на одинаково толстых линиях в PowerPoint](line-caps.png)
 
-## **Применение эффектов рисунка к линиям фигур**
+## **Применить эффекты наброска к линиям фигур**
 
-Эффект рисунка делает линию фигуры выглядящей как нарисованную от руки. Используйте [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) для доступа к настройкам линии, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) для доступа к настройкам рисунка, и [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
+Эффект наброска делает линию фигуры выглядящей как нарисованную от руки. Используйте [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) для доступа к настройкам линии, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) для доступа к настройкам наброска и [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) для выбора значения из класса [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
 
-Следующий код Java показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/), прочитать явно назначенное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
+Следующий код Java показывает, как применить эффект [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/), прочитать явно установленное значение и удалить эффект с помощью [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-Значение, возвращаемое [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--), представляет настройку, напрямую назначенную фигуре. Если форматирование линии может быть унаследовано из темы, шаблона слайда или макета, используйте [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), затем доступ к [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), и прочитайте [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Эффективное значение отражает форматирование, действительно применённое после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
+Значение, возвращаемое [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--), представляет настройку, назначенную непосредственно фигуре. Если форматирование линии может наследоваться из темы, главного слайда или макета, используйте [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), получайте [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) и читайте [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). Эффективное значение отражает фактическое форматирование после разрешения наследования. Этот пример требует существующей презентации с хотя бы одной фигурой на первом слайде и выводит оба значения:
 
 ```java
 import com.aspose.slides.*;
@@ -212,13 +212,13 @@ try {
 
 ## **Форматирование стилей соединений**
 
-Вот три варианта типа соединения:
+Здесь три варианта типа соединения:
 
 * Round
 * Miter
 * Bevel
 
-Стиль соединения определяет, как два сегмента контура встречаются в угле. Используйте **Round** для скруглённых углов, **Miter** для острых углов или **Bevel** для срезанных углов.
+Стиль соединения определяет, как два сегмента контура встречаются в угле. Используйте **Round** для закруглённых углов, **Miter** для острых углов или **Bevel** для срезанных углов.
 
 ![Стиль соединения в презентации](join-style-powerpoint.png)
 
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **Ограничение соединений miter на острых углах**
+### **Ограничить соединения типа Miter на острых углах**
 
-Используйте [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) вместе с [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) = [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) для ограничения расстояния, на которое может выступать острый угол.
+Используйте [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) вместе с [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) = [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) для ограничения длины острого угла.
 
-Лимит — это отношение расстояния между внутренним и внешним углом соединения к ширине линии. Например, значение `8` допускает длину среза до восьми ширин линии; это не измеряется в пунктах. Если угол превышает лимит, PowerPoint использует срезанный угол. Больший лимит позволяет более острые точки. Настройка влияет только на соединения miter и не имеет видимого эффекта, когда угол остаётся внутри лимита.
+Предел — это отношение расстояния между внутренним и внешним углом соединения к толщине линии. Например, значение `8` позволяет длине угла достигать восьми толщин линии; это не измерение в пунктах. Если угол превышает предел, PowerPoint заменяет его на срезанный угол. Большее значение допускает более острые углы. Настройка влияет только на соединения типа miter и не меняет внешний вид, когда угол остаётся внутри предела.
 
-Этот пример создаёт два одинаковых незалитых треугольника с контурами шириной 20 пунктов. Левый треугольник использует лимит `2`, правый — `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт отношение длины среза к ширине линии около `4.12`. Поэтому PowerPoint срезает левый верхний угол и сохраняет правый.
+Этот пример создаёт два одинаковых незаполненных треугольника с контурами шириной 20 пунктов. Левый треугольник использует предел `2`, правый — `8`. Каждый треугольник шириной 80 пунктов и высотой 160 пунктов, что даёт отношение длины угла к толщине линии примерно `4.12`. Поэтому PowerPoint срезает левую вершину и сохраняет правую.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +305,11 @@ try {
 
 Результат в PowerPoint: **Miter limit 2** слева и **miter limit 8** справа.
 
-![Срезанный верхний угол с лимитом 2 и заострённый угол с лимитом 8 в PowerPoint](miter-limits.png)
+![Срезанный верх с пределом 2 и остроконечный верх с пределом 8 в PowerPoint](miter-limits.png)
 
 ## **Градиентная заливка**
 
-Градиентная заливка плавно меняет цвета по фигуре. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к фиолетовому с помощью [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). Метод [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) размещает цветовые остановки на позициях 0 и 1, в начале и в конце градиента. Очистка существующих остановок гарантирует, что будут использованы только эти два цвета.
+Градиентная заливка плавно меняет цвета по фигуре. Этот пример заполняет эллипс линейным градиентом под углом 45° от красного к фиолетовому с помощью [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). Метод [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) размещает цветовые стопы на 0 и 1 — начале и конце градиента. Очистка существующих стопов гарантирует, что использованы только эти два цвета.
 
 ```java
 import com.aspose.slides.*;
@@ -336,13 +336,13 @@ try {
 
 ![Эллипс с градиентной заливкой](gradient-fill.png)
 
-Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Choose a Gradient Rendering Style](/slides/ru/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль рендеринга, не меняя градиентную заливку, хранящуюся в презентации.
+Если градиент выглядит иначе в экспортированном изображении, чем в PowerPoint, см. [Выберите стиль отображения градиента](/slides/ru/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Вы можете выбрать стиль отображения, не меняя градиентную заливку, хранящуюся в презентации.
 
-### **Установка угла линейного градиента**
+### **Установить угол линейного градиента**
 
-Используйте [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) для управления ориентацией заливки [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы за пределами `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
+Используйте [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) для управления ориентацией заливки [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). Угол измеряется в градусах и увеличивается по часовой стрелке: `0` — слева направо, `90` — сверху вниз, `180` — справа налево, `270` — снизу вверх. Поддерживаются дробные углы. Углы вне диапазона `[0, 360)` нормализуются к одному обороту; например, `-45` становится `315`, а `360` — `0`.
 
-Этот пример создаёт шесть прямоугольников с одинаковыми красными, зелёными и синими остановками на позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол можно было сравнивать независимо от пропорций прямоугольников. Углы слева направо: `0`, `45`, `90` в первой строке и `135`, `180`, `270` во второй строке.
+Этот пример создаёт шесть прямоугольников с одинаковыми стопами красного, зелёного и синего цветов в позициях `0`, `0.5` и `1`. Масштабирование отключено, чтобы угол сравнивался независимо от пропорций фигур. Углы слева направо: `0`, `45`, `90` в первой строке и `135`, `180`, `270` во второй.
 
 ```java
 import com.aspose.slides.*;
@@ -381,13 +381,13 @@ try {
 
 Результат в PowerPoint:
 
-![Линейные градиенты при углах 0, 45 и 90 градусов в верхнем ряду, и 135, 180 и 270 градусов в нижнем ряду](linear-gradient-angles.png)
+![Линейные градиенты при 0°, 45° и 90° в верхнем ряду и при 135°, 180° и 270° в нижнем ряду](linear-gradient-angles.png)
 
-### **Масштабирование линейного градиента вместе с фигурой**
+### **Масштабировать линейный градиент вместе с фигурой**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) принимает значение [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). Установите его явно в `False`, чтобы геометрический угол градиента оставался неизменным при изменении пропорций фигуры, или в `True`, чтобы градиент масштабировался вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от заданного на несвободной фигуре.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) принимает значение [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). Установите его явно в `False`, чтобы сохранять геометрический угол градиента при изменении пропорций фигуры, или в `True`, чтобы масштабировать градиент вместе с шириной и высотой фигуры. При включённом масштабировании видимый угол может отличаться от назначенного на несоответствующей квадрату фигуре.
 
-Следующий пример использует угол `45` градусов и те же цветовые остановки, что и в сравнении углов. В левой колонке — `False`; в правой — `True`. Каждая колонка содержит широкий прямоугольник над высоким прямоугольником. Оба начинаются с одинаковых широких размеров; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размеров без изменения параметров градиента.
+Следующий пример использует угол `45°` и те же цветовые стопы, что и в сравнении углов. В левой колонке — `False`; в правой — `True`. Каждая колонка содержит широкий прямоугольник над высоким. Оба начинают с одинаковых широких размеров; изменение ширины и высоты второго прямоугольника демонстрирует, как заливка реагирует на изменение размеров без изменения параметров градиента.
 
 ```java
 import com.aspose.slides.*;
@@ -433,17 +433,17 @@ try {
 
 Результат в PowerPoint, с отключённым масштабированием слева и включённым справа:
 
-![Широкие и высокие прямоугольники с 45‑градусным градиентом, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
+![Широкие и высокие прямоугольники с градиентом 45°, сравнение LinearGradientScaled False слева и True справа](linear-gradient-scaling.png)
 
-При отключённом масштабировании диагональные цветовые полосы сохраняют одинаковую ориентацию в обеих фигурах. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизвести градиент шаблона при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет внешний вид 45‑градусного градиента.
+При отключённом масштабировании диагональные цветные полосы сохраняют одну и ту же ориентацию в обоих прямоугольниках. При включённом масштабировании полосы растягиваются вместе с пропорциями фигуры. Это помогает воспроизвести градиент шаблона при адаптации фигуры к другому размеру. На квадрате включение масштабирования не меняет вид этого градиента под 45°.
 
-Оба параметра — угол и масштабирование — применимы к линейным градиентам. Они не управляют заливками [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
+Обе настройки — угол и масштабирование — применяются к линейным градиентам. Они не управляют заливками [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
 
-### **Комбинация угла с направлением градиента**
+### **Комбинировать угол с направлением градиента**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); это не замена числовому углу. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, заданного через [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Сохраняйте направление неизменным при сравнении углов или масштабировании.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) выбирает стиль градиента из класса [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); это не заменяет числовой угол. Для линейного градиента стили углов могут менять область распределения цветов без изменения угла, установленного через [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Сохраняйте направление неизменным при сравнении углов или масштабирования.
 
-Следующий пример применяет те же настройки в обратном порядке. Два прямоугольника выглядят одинаково: назначение направления до или после угла не меняет результат.
+Следующий пример применяет одинаковые настройки в обратном порядке. Два прямоугольника выглядят одинаково: назначение направления до или после угла не меняет результат.
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **Шаблонная заливка**
+## **Заливка узором**
 
-Шаблонная заливка применяет двухцветный узор, например точки, полосы или шахматы. Этот пример использует [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) для выбора узора «решётка». [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) задаёт светло-серый фон, а [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) задаёт жёлтый цвет узора.
+Заливка узором применяет двухцветный рисунок, такой как точки, полосы или клетки. Этот пример использует [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) для выбора узора «решётка». [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) задаёт светло‑серый фон, а [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) задаёт жёлтый цвет узора.
 
 ```java
 import com.aspose.slides.*;
@@ -507,11 +507,11 @@ try {
 
 Результат:
 
-![Прямоугольник с шаблонной заливкой](pattern-fill.png)
+![Прямоугольник с узорной заливкой](pattern-fill.png)
 
 ## **Заливка изображением**
 
-Заливка изображением использует картинку внутри фигуры. Этот пример требует локального изображения и использует [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) для загрузки его в коллекцию изображений презентации. Установка [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) в режим плитки повторяет изображение внутри прямоугольника. Исходное изображение показано ниже:
+Заливка изображением помещает картинку внутрь фигуры. Этот пример требует локального изображения и использует [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) для загрузки её в коллекцию изображений презентации. Установка [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) в режим «плитка» повторяет изображение внутри прямоугольника. Исходное изображение показано ниже:
 
 ![Изображение лотоса](lotus.png)
 
@@ -545,19 +545,19 @@ try {
 
 ![Фигура с заливкой изображением](picture-fill.png)
 
-### **Повтор изображения как текстуры**
+### **Повторить изображение как текстуру**
 
-Если нужно установить повторяющееся изображение как текстуру и настроить поведение повторов, можно использовать следующие методы интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
+Если нужно установить повторяющуюся картинку в качестве текстуры и настроить её поведение, можно использовать следующие методы интерфейса [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) и класса [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): задаёт режим заливки изображением — `Tile` или `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): задаёт режим заливки — `Tile` или `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): определяет выравнивание плиток внутри фигуры.
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): управляет зеркальным отражением плитки по горизонтали, вертикали или обоим направлениям.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): управляет горизонтальным, вертикальным или двойным отражением плитки.
 - [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): задаёт горизонтальное смещение плитки (в пунктах) от начала фигуры.
 - [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): задаёт вертикальное смещение плитки (в пунктах) от начала фигуры.
 - [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): определяет горизонтальный масштаб плитки в процентах.
 - [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): определяет вертикальный масштаб плитки в процентах.
 
-Этот пример требует локального изображения и настраивает [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) для повторения его с размером 50 % от оригинала. Смещения −32 пункта сдвигают плитки горизонтально и вертикально; выравнивание по правому нижнему углу и зеркальное отражение в обеих направлениях определяют расположение повторяющейся текстуры.
+Этот пример требует локального изображения и настраивает [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) для повторения его с масштабом 50 % от оригинального размера. Смещения — 32 пункта влево и вниз; выравнивание в правом нижнем углу и отражение в обоих направлениях определяют расположение повторяющейся текстуры.
 
 ```java
 import com.aspose.slides.*;
@@ -597,9 +597,9 @@ try {
 
 ![Параметры плитки](tile-options.png)
 
-## **Сплошная заливка цветом**
+## **Заливка сплошным цветом**
 
-Сплошная заливка задаёт фигуре один однородный цвет. Этот пример использует [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) для выбора режима сплошной заливки и задаёт желтый цвет через [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), затем сохраняет прямоугольник в презентацию.
+Сплошная заливка задаёт фигуре единый, одинаковый цвет. Этот пример использует [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) для выбора режима сплошной заливки и задаёт жёлтый цвет через [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), затем сохраняет прямоугольник в презентацию.
 
 ```java
 import com.aspose.slides.*;
@@ -621,15 +621,84 @@ try {
 
 Результат:
 
-![Фигура со сплошной заливкой цветом](solid-color-fill.png)
+![Фигура со сплошной цветовой заливкой](solid-color-fill.png)
+
+### **Копировать цвета, сохраняя ссылки на тему**
+
+Используйте [IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) для копирования определения цвета, включая тип цвета, ссылку на тему и трансформации. Это полезно при передаче цвета заливки между фигурами, которые должны продолжать следовать теме презентации. Метод копирует только цвет: тип заливки, контур и другие свойства фигур не копируются. Установите тип заливки получателя явно через [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-).
+
+Этот пример создаёт три прямоугольника слева направо: исходный, копию, учитывающую тему, и фиксированную RGB‑копию. Исходный использует [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) для ссылки на первый цвет акцента и добавляет оттенок через [IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-). RGB‑копия использует эффективный цвет заливки исходного, поэтому все три сначала выглядят одинаково. Вызов [IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) задаёт фиксированное RGB‑значение и очищает любые существующие трансформации цвета.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Тематические ссылки следуют за новым цветом акцента; фиксированное RGB‑значение этого не делает.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Перед изменением темы все три заливки совпадают:
+
+![Исходный, копия‑назначения и фиксированная RGB‑копия с одинаковой синей заливкой](color-copy-before.png)
+
+После изменения темы исходный и копия, учитывающая тему, используют новый цвет акцента и сохраняют оттенок. Фиксированная RGB‑копия остаётся синей:
+
+![Исходный и копия‑назначения с оранжевой заливкой, фиксированная RGB‑копия остаётся синей](color-copy-after.png)
+
+Скопированное определение независимо от источника. Последующее изменение ссылки темы источника, назначение другого цвета или добавление/удаление трансформаций не меняет назначения. При изменении темы обе фигуры всё равно реагируют, потому что каждая независимо ссылается на тот же цвет темы.
+
+Сохранение и повторное открытие PPTX сохраняет тип скопированного цвета, возвращаемый [IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--), ссылку на тему и коллекцию трансформаций, возвращаемую [IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--); они не преобразуются в простой RGB.
+
+При копировании между разными контекстами тем, например между презентациями с различными палитрами акцентов, скопированная ссылка резолвится относительно темы получателя. Та же ссылка и трансформации могут дать иной видимый цвет. См. [Presentation Theme](/slides/ru/androidjava/presentation-theme/) для более подробного описания настройки цветов темы.
 
 ## **Использовать фон слайда как заливку фигуры**
 
-Используйте [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала примените [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) с [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) для удаления любой явной заливки. При такой комбинации фигура использует фон слайда вместо своей стилизованной заливки. Включение флага самостоятельно не удаляет уже существующую явную заливку.
+Используйте [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-), когда фигура должна соответствовать фону слайда, например в шаблоне презентации. Сначала задайте тип заливки через [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) как [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/), чтобы убрать любую явную заливку. При такой комбинации фигура использует фон слайда вместо собственного стиля заливки. Включение флага само по себе не удаляет существующую явную заливку.
 
-Это отличается от [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фонa слайда, тогда как отсутствие заливки оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не перезапускается внутри каждой фигуры.
+Это отличается от [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): заливка фоном покрывает объекты за фигурой соответствующей областью фонового изображения слайда, тогда как NoFill оставляет эти объекты видимыми. Градиент остаётся привязанным к слайду, а не начинается внутри каждой фигуры.
 
-Следующий пример создаёт фон мастера, наследуемый слайдом, и помещает магентовую полосу за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, правый переключается с фоновой заливки на явно оранжевую.
+Следующий пример создаёт основной фон, наследуемый слайдом, и размещает магентовую полосу за тремя прямоугольниками. Левый прямоугольник использует фон, средний — без заливки, правый — переключается с фоновой заливки на явную оранжевую.
 
 ```java
 import com.aspose.slides.*;
@@ -653,7 +722,7 @@ try {
     gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
     gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
 
-    // Добавить этот объект первым, чтобы он оказался позади прямоугольников.
+    // Добавить этот объект первым, чтобы он находился позади прямоугольников.
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -670,7 +739,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // Отключить заполняющий фон перед применением явной заливки.
+    // Отключить заливку фоном перед применением явной заливки.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
@@ -681,15 +750,15 @@ try {
 }
 ```
 
-Результат слева направо: **фоновая заливка**, **без заливки**, и **явная заливка**. Магентовая полоса скрыта левым и правым прямоугольниками, но остаётся видимой через средний.
+Результат слева направо: **заполнение фоном**, **без заливки**, и **явная заливка**. Магентовая полоса скрыта левым и правым прямоугольниками, но остаётся видна через средний.
 
-![Фоновая заливка, отсутствие заливки и явная оранжевая заливка над магентовой полосой](background-fill.png)
+![Заполнение фоном, без заливки и явная оранжевая заливка поверх магентовой полосы](background-fill.png)
 
-То же поведение применяется к фону, определённому непосредственно на слайде, или унаследованному от макета. Фигура использует разрешённый фон слайда; пример оставляет фон слайда и макета неопределёнными, чтобы мастер их предоставил.
+То же поведение применяется к фону, определённому непосредственно на слайде, или унаследованному из макета. Фигура использует разрешённый фон слайда; в примере оба фона слайда и макета оставлены неопределёнными, поэтому их предоставляет мастер.
 
-## **Установка прозрачности**
+## **Установить прозрачность**
 
-Для сплошной заливки альфа‑компонент цвета управляет непрозрачностью: 0 — полностью прозрачно, 255 — полностью непрозрачно. Этот пример использует альфа‑значение 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы виден был нижний прямоугольник. Цвет задаётся через [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
+Для сплошной заливки альфа‑компонент цвета определяет непрозрачность: 0 — полностью прозрачно, 255 — полностью непрозрачно. Этот пример использует альфа = 128 для жёлтого прямоугольника, делая его примерно на 50 % прозрачным, чтобы был виден нижний прямоугольник. Цвет задаётся через [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
 
 ```java
 import com.aspose.slides.*;
@@ -715,9 +784,9 @@ try {
 
 ![Прозрачная фигура](shape-transparency.png)
 
-## **Вращение фигур**
+## **Повернуть фигуры**
 
-Используйте [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) для вращения фигуры в плоскости слайда. Угол измеряется в градусах; в этом примере прямоугольник вращается на 5 градусов по часовой стрелке и сохраняется в презентацию.
+Используйте [IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) для вращения фигуры в плоскости слайда. Угол измеряется в градусах; этот пример вращает прямоугольник на 5 градусов по часовой стрелке и сохраняет презентацию.
 
 ```java
 import com.aspose.slides.*;
@@ -739,9 +808,9 @@ try {
 
 ![Вращение фигуры](shape-rotation.png)
 
-## **Добавление 3D‑срезов**
+## **Добавить 3D‑эффекты фаски**
 
-Используйте [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) для придания фигуре глубины и срезанных краёв. Этот пример создаёт зелёный эллипс с оранжевым контуром, задаёт глубину 4 пункта через [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-), и применяет круглой верхний срез шириной и высотой 6 пунктов через [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Передняя орфографическая камера и трёхточечное освещение делают срез видимым.
+Используйте [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) для придания фигуре глубины и фасок. Этот пример создаёт зелёный эллипс с оранжевой обводкой, задаёт глубину 4 пункта через [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-), и применяет круглую верхнюю фаску шириной и высотой 6 пунктов через [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Фронтальная ортографическая камера и трёхточечное освещение делают фаску видимой.
 
 ```java
 import com.aspose.slides.*;
@@ -773,11 +842,11 @@ try {
 
 Результат:
 
-![Эффект 3D‑среза](3D-bevel-effect.png)
+![3D‑эффект фаски](3D-bevel-effect.png)
 
-## **Добавление 3D‑вращения**
+## **Добавить 3D‑эффекты вращения**
 
-Вид 3D‑фигуры управляется настройками её камеры. Этот пример использует [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) с углами широты, долготы и оборота 40°, 35° и 20° соответственно. Он выбирает изометрическую камеру через [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) и сбалансированное освещение через [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), затем сохраняет отформатированный прямоугольник.
+Вид 3D‑фигуры контролируется настройками её камеры. Этот пример использует [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) с углами широты, долготы и разворота — соответственно 40°, 35° и 20°. Выбирает изометрическую камеру через [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) и сбалансированное освещение через [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), затем сохраняет отформатированный прямоугольник.
 
 ```java
 import com.aspose.slides.*;
@@ -800,15 +869,15 @@ try {
 
 Результат:
 
-![Эффект 3D‑вращения](3D-rotation-effect.png)
+![3D‑эффект вращения](3D-rotation-effect.png)
 
 ## **Управление черно‑белым отображением фигур**
 
-Метод [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) задаёт, как отдельная фигура отображается при просмотре или обработке презентации в черно‑белом режиме. Он не включает черно‑белый режим сам по себе и не меняет заливку, линию или другое форматирование фигуры в обычном цветовом режиме.
+Метод [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) задаёт, как отдельная фигура будет отрисовываться при просмотре или обработке презентации в черно‑белом режиме. Он не включает черно‑белый режим сам по себе и не меняет заливку, контур или другое форматирование фигуры в обычном цветном режиме.
 
-Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) для выбора желаемого поведения. Например, `Automatic` позволяет приложению‑отображателю выбрать конвертацию, `Gray` и `LightGray` используют оттенки серого, `BlackWhite` — только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в черно‑белом режиме. `NotDefined` означает, что режим уровня фигуры не назначен.
+Используйте значение из класса [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) для выбора нужного поведения. Например, `Automatic` позволяет приложению выбора выполнить преобразование, `Gray` и `LightGray` используют серый цвет, `BlackWhite` — только чёрный и белый, `Black` и `White` принудительно задают один цвет, `Color` сохраняет обычные цвета, а `Hidden` исключает фигуру в чёрно‑белом режиме. `NotDefined` означает отсутствие установленного режима на уровне фигуры.
 
-Этот пример создаёт оранжевый прямоугольник и использует [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) для выбора серой окраски. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного отображения и запрашивает серую окраску у приложений, поддерживающих черно‑белый режим:
+Этот пример создаёт оранжевый прямоугольник и задаёт через [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) серое отображение. Сохранённая фигура сохраняет оранжевую заливку для обычного цветного просмотра и запрашивает серый цвет у приложений, уважающих параметры чёрно‑белого отображения:
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-В обычном цветовом режиме прямоугольник остаётся оранжевого цвета. В рабочем процессе черно‑белого отображения он использует серую окраску, потому что его режим установлен в `Gray`. Это позволяет сохранять полноцветный слайд, определяя при этом отдельный вид для печати, предварительного просмотра или других процессов, учитывающих настройки черно‑белого отображения презентации.
+В обычном цветном режиме прямоугольник сохраняет оранжевую заливку. В рабочем процессе чёрно‑белого отображения он использует серый цвет, потому что его режим установлен в `Gray`. Это позволяет сохранить полноцветный слайд, задав при этом отдельный вид для печати, предварительного просмотра или иных процессов, учитывающих настройки чёрно‑белого отображения презентации.
 
 ## **Сброс форматирования**
 
-Используйте [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) для восстановления позиции, размера и форматирования заполнителей слайдов из соответствующих заполнителей их макетов. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
+Используйте [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) для восстановления позиции, размеров и форматирования заполнителей слайдов из соответствующих заполнителей макета. Этот пример требует существующей презентации с заполнителями, связанными с макетом, и сбрасывает каждый слайд перед сохранением. Фигуры без соответствующих заполнителей макета не сбрасываются.
 
 ```java
 import com.aspose.slides.*;
@@ -854,12 +923,12 @@ try {
 
 **Влияет ли форматирование фигур на окончательный размер файла презентации?**
 
-Цвета, стили линий и параметры эффектов обычно добавляют мало данных по сравнению с внедрёнными изображениями и медиа. Заливка изображениями может увеличить размер файла, поскольку их изображения хранятся в презентации.
+Цвета, стили линий и параметры эффектов обычно добавляют немного данных по сравнению с вложенными изображениями и медиафайлами. Заливка изображениями может увеличить размер файла, поскольку их изображения хранятся в презентации.
 
-**Как обнаружить фигуры на слайде, имеющие идентичное форматирование, чтобы их сгруппировать?**
+**Как обнаружить фигуры на слайде, имеющие идентичное форматирование, чтобы сгруппировать их?**
 
-Сравните ключевые свойства форматирования каждой фигуры — заливку, линию и параметры эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает последующее управление стилями.
+Сравните ключевые свойства форматирования каждой фигуры — заливку, контур и параметры эффектов. Если все соответствующие значения совпадают, рассматривайте их стили как одинаковые и логически группируйте такие фигуры, что упрощает дальнейшее управление стилями.
 
 **Можно ли сохранить набор пользовательских стилей фигур в отдельный файл для повторного использования в других презентациях?**
 
-Да. Сохраните образцы фигур с нужными стилями в шаблонной презентации или файле шаблона .POTX. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и повторно примените их форматирование там, где это требуется.
+Да. Сохраните образцы фигур с нужными стилями в шаблонной презентации или файле шаблона *.POTX*. При создании новой презентации откройте шаблон, клонируйте нужные стилизованные фигуры и повторно примените их форматирование там, где это требуется.

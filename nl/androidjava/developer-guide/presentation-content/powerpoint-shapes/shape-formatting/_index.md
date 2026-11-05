@@ -1,45 +1,45 @@
 ---
-title: PowerPoint-vormen opmaken op Android
+title: PowerPoint-vormen op Android formatteren
 linktitle: Vormopmaak
 type: docs
 weight: 20
 url: /nl/androidjava/shape-formatting/
 keywords:
-- vorm opmaken
-- lijn opmaken
+- vorm formatteren
+- lijn formatteren
 - schets-effect
 - schetsvormlijn
-- samenvoegingsstijl opmaken
+- join-stijl formatteren
 - verloopvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
-- effen kleurvulling
+- solide kleurvulling
 - vormtransparantie
-- zwart-wit vormweergave
-- grijswaarde vormweergave
+- zwart-wit weergave van vorm
+- grijswaarden weergave van vorm
 - vorm roteren
-- 3D-afschuinings-effect
-- 3D-rotatie-effect
+- 3D-bevel effect
+- 3D-rotatie effect
 - opmaak resetten
 - PowerPoint
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Leer hoe u PowerPoint-vormen op Android kunt formatteren met Aspose.Slides--stel vullings-, lijn- en effectstijlen in voor PPT- en PPTX-bestanden met precisie en volledige controle."
+description: "Leer hoe u PowerPoint‑vormen op Android kunt formatteren met Aspose.Slides—stel vul‑, lijn‑ en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
 ---
 ## **Inleiding**
 
-Formatteer vormen in PowerPoint door hun contouren, vullingen en effecten aan te passen. Aspose.Slides for Android via Java stelt u in staat deze instellingen programmatisch te regelen, waaronder transparantie, rotatie en 3D-opmaak.
+Formatteer vormen in PowerPoint door hun omtrek, vulling en effecten aan te passen. Aspose.Slides for Android via Java stelt u in staat deze instellingen programmatisch te regelen, inclusief transparantie, rotatie en 3D-formattering.
 
-![Opties voor vormopmaak in PowerPoint](format-shape-powerpoint.png)
+![Shape formatting options in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java biedt interfaces en methoden waarmee u vormen kunt opmaken met dezelfde opties als in PowerPoint.
+Aspose.Slides for Android via Java biedt interfaces en methoden waarmee u vormen kunt formatteren met dezelfde opties die beschikbaar zijn in PowerPoint.
 
-## **Lijnen opmaken**
+## **Lijnen formatteren**
 
-Gebruik [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) om de omtrek van een vorm te regelen. Dit voorbeeld maakt een ongevulde rechthoek met een blauwe, gestreepte omtrek. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) selecteert een dikke-dunne samengestelde lijn, terwijl [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) de breedte op 7 punten zet en [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) het streeppatroon kiest.
+Gebruik [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) om de omtrek van een vorm te controleren. Dit voorbeeld maakt een niet‑gevulde rechthoek met een blauwe, gestippelde omtrek. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) kiest een dikke‑dunne samengestelde lijn, terwijl [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) de breedte op 7 punten zet en [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) het gestippelde patroon selecteert.
 
 ```java
 import com.aspose.slides.*;
@@ -63,17 +63,17 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De opgemaakte lijnen in de presentatie](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
-### **Aangepaste streeppatronen instellen**
+### **Aangepaste stippatronen instellen**
 
-Gebruik [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) wanneer vooraf gedefinieerde lijntypen niet de gewenste streep- en tussenafstanden bieden, bijvoorbeeld voor merkgerichte omtrekken of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de lijnstijlen naar [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
+Gebruik [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) wanneer vooraf gedefinieerde lijnstijlen niet de gewenste dash‑lengtes en -gaten bieden, bijvoorbeeld voor merk‑omtrekken of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de lijn‑dash‑stijl naar [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-Array‑items wisselen af tussen streep‑ en tussenafstanden, beginnend met een streep. Elke waarde is een veelvoud van de lijndikte: `{ 4, 2 }` bij een breedte van 3 punten levert een streep van 12 punten gevolgd door een tussenruimte van 6 punten op. Gebruik paren van eindige, niet‑negatieve waarden om volledige streep‑en‑tussensegmenten te definiëren. Het voorbeeld gebruikt positieve waarden zodat elke streep en elk gat zichtbaar blijft.
+Array‑items alterneren tussen dash‑ en gap‑lengtes, beginnend met een dash. Elke waarde is een veelvoud van de lijndikte: `{ 4, 2 }` bij een breedte van 3 punten levert een dash van 12 punten gevolgd door een gat van 6 punten op. Gebruik paren van eindige, niet‑negatieve waarden om volledige dash‑en‑gap‑segmenten te definiëren. Het voorbeeld gebruikt positieve waarden zodat elke dash en elk gat zichtbaar blijft.
 
-Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte uiteinden. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon bij tweemaal de breedte, waardoor zowel de strepen als de tussenruimtes verdubbelen. De vijfde schakelt van een aangepast patroon naar een effen lijn.
+Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte uiteinden. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon bij dubbele breedte, waardoor zowel dash als gap verdubbelen. De vijfde schakelt van een aangepast patroon naar een doorlopende lijn.
 
 ```java
 import com.aspose.slides.*;
@@ -103,7 +103,7 @@ try {
         line.getLineFormat().setCustomDashPattern(patterns[i]);
     }
 
-    // Zet de laatste lijn terug op een effen stijl.
+    // Zet de laatste lijn terug naar een solide stijl.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -112,25 +112,25 @@ try {
 }
 ```
 
-Om terug te keren naar een vooraf gedefinieerde gestreepte stijl, geeft u [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) door aan [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
+Om terug te keren naar een vooraf gedefinieerde gestippelde stijl, geeft u [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) door aan [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
 
-Resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
+Het resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
 
-![Drie aangepaste streep‑patronen, een bredere lijn met het eerste patroon, en een effen lijn in PowerPoint](custom-dash-patterns.png)
+![Three custom dash patterns, a wider line using the first pattern, and a solid line in PowerPoint](custom-dash-patterns.png)
 
-### **Lijnuiteinden instellen**
+### **Lijnuiteinden (caps) instellen**
 
-Gebruik [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) om de uiteinden van een open lijn te bepalen. De klasse [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) biedt drie expliciete cap‑stijlen:
+Gebruik [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) om de uiteinden van een open lijn in te stellen. De klasse [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) biedt drie expliciete cap‑stijlen:
 
 - `Flat`: De streep stopt bij het eindpunt.
-- `Round`: Een halve cirkeluitsteking reikt halverwege de lijndikte voorbij het eindpunt.
-- `Square`: Een vierkante uiteinde reikt halverwege de lijndikte voorbij het eindpunt.
+- `Round`: Een halve cirkelvormige cap strekt zich half de lijndikte voorbij het eindpunt uit.
+- `Square`: Een vierkante cap strekt zich half de lijndikte voorbij het eindpunt uit.
 
-De klasse bevat bovendien `NotDefined`, wat betekent dat er geen cap‑stijl expliciet is toegewezen.
+De klasse bevat ook `NotDefined`, wat betekent dat er geen cap‑stijl expliciet is toegewezen.
 
-Caps verschillen van pijlpuntjes, die symbolen aan lijnuiteinden toevoegen, en van verbindingen, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpuntjes uit via [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) en [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) zodat alleen de cap‑vormen worden vergeleken.
+Caps verschillen van pijlpuntjes, die symbolen aan de lijneinden toevoegen, en van joins, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpuntjes uit via [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) en [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-), zodat alleen de cap‑vormen worden vergeleken.
 
-Het volgende voorbeeld maakt drie verder identieke horizontale lijnen, 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante caps. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante caps steken 10 punten uit voorbij elk eindpunt.
+Het volgende voorbeeld maakt drie verder identieke horizontale lijnen, 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante caps. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante caps strekken zich 10 punten buiten elk eindpunt uit.
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-Resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
+Het resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
 
-![Platte, ronde en vierkante caps op identieke dikke lijnen in PowerPoint](line-caps.png)
+![Flat, round, and square caps on identical thick lines in PowerPoint](line-caps.png)
 
 ## **Schets‑effecten toepassen op vormlijnen**
 
-Een schets‑effect laat een vormlijn eruitzien alsof hij met de hand is getekend. Gebruik [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) om de lijninstellingen te benaderen, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) om de schetsinstellingen te benaderen, en [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) om een waarde uit de klasse [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) te selecteren.
+Een schets‑effect geeft een vormlijn een handgetekende uitstraling. Gebruik [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) om de lijninstellingen te benaderen, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) om de schetstinstellingen te benaderen, en [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) om een waarde uit de klasse [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) te selecteren.
 
-De volgende Java‑code toont hoe een [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) effect toe te passen, de expliciet toegewezen waarde te lezen, en het effect te verwijderen met [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
+De volgende Java‑code laat zien hoe u een [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) effect toepast, de expliciet toegewezen waarde uitleest, en het effect verwijdert met [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-De waarde die wordt geretourneerd door [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) vertegenwoordigt de instelling die rechtstreeks op de vorm is toegepast. Als de lijnopmaak kan worden geërfd van een thema, masterslide of lay‑outslide, gebruik dan [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), krijg toegang tot [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), en lees [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat overerving is opgelost. Dit voorbeeld vereist een bestaande presentatie met minstens één vorm op de eerste dia en drukt beide waarden af:
+De waarde die wordt geretourneerd door [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) vertegenwoordigt de instelling die direct aan de vorm is toegewezen. Als de lijnformattering kan worden geërfd van een thema, masterslide of layout‑slide, gebruik dan [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), benader [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), en lees [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). De effectieve waarde weerspiegelt de formattering die daadwerkelijk wordt toegepast na het oplossen van de erfenis. Dit voorbeeld vereist een bestaande presentatie met minstens één vorm op de eerste dia en geeft beide waarden weer:
 
 ```java
 import com.aspose.slides.*;
@@ -210,19 +210,19 @@ try {
 }
 ```
 
-## **Samenvoegingsstijlen opmaken**
+## **Join‑stijlen formatteren**
 
-Hier zijn de drie opties voor samenvoegingstype:
+Hier zijn de drie opties voor join‑type:
 
 * Round
 * Miter
 * Bevel
 
-De samenvoegingsstijl bepaalt hoe twee omtrekssegmenten elkaar op een hoek ontmoeten. Gebruik **Round** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgeplatte hoeken.
+De join‑stijl bepaalt hoe twee omtreksegmenten elkaar op een hoek ontmoeten. Gebruik **Round** voor ronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgevlakte hoeken.
 
-![De samenvoegingsstijl in de presentatie](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Dit voorbeeld maakt drie zwarte rechthoeken met blauwe omtrekken van 15 punten breed. Het gebruikt [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) om respectievelijk de miter‑, bevel‑ en ronde waarden van [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) toe te passen en zo te vergelijken hoe de hoeken worden getekend.
+Dit voorbeeld maakt drie zwarte rechthoeken met blauwe omtrekken van 15 punten breed. Het gebruikt [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) om respectievelijk de miter, bevel en round waarden van [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) toe te passen, om te vergelijken hoe de hoeken worden getekend.
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **Miter‑samenvoegingen beperken bij scherpe hoeken**
+### **Miter‑joins beperken bij scherpe hoeken**
 
-Gebruik [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) in combinatie met [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ingesteld op [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek mag uitsteken.
+Gebruik [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) samen met [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) ingesteld op [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek mag uitsteken.
 
-De limiet is een verhouding tussen de afstand van de binnen‑ en buitenhoek van de samenvoeging en de lijndikte. Een waarde van `8` staat een miter‑lengte toe tot acht keer de lijndikte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint op die plek een afgeplatte samenvoeging. Een grotere limiet levert scherpere punten op. De instelling heeft alleen invloed op miter‑samenvoegingen en heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
+De limiet is een verhouding tussen de afstand van de binnen‑ naar buitenhoek van de join en de lijndikte. Bijvoorbeeld, een waarde van `8` staat een miter‑lengte toe tot acht keer de lijndikte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een bevel‑join op die hoek. Een grotere limiet maakt scherpere punten mogelijk. Deze instelling beïnvloedt alleen miter‑joins, en heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
 
-Dit voorbeeld maakt twee identieke, ongevulde driehoeken met omtrekken van 20 punten breed. De linkse driehoek gebruikt een limiet van `2`, de rechtse `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de bovenste hoek een miter‑lengte‑tot‑lijndikte‑verhouding van ongeveer `4.12` heeft. Daardoor maakt PowerPoint van de linkse top een afgevlakte top en behoudt de rechter top.
+Dit voorbeeld maakt twee identieke, niet‑gevulde driehoeken met omtrekken van 20 punten breed. De linkse driehoek gebruikt een limiet van `2`, de rechtse `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de verhouding miter‑lengte‑tot‑lijndikte van de bovenste hoek ongeveer `4.12` is. Hierdoor bevelt PowerPoint de linkse top en behoudt de rechter top.
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,13 @@ try {
 }
 ```
 
-Resultaat in PowerPoint: **Miter‑limiet 2** links en **miter‑limiet 8** rechts.
+Het resultaat in PowerPoint: **Miter limit 2** links en **miter limit 8** rechts.
 
-![Een afgevlakte top met miter‑limiet 2 en een puntige top met miter‑limiet 8 in PowerPoint](miter-limits.png)
+![A beveled apex with miter limit 2 and a pointed apex with miter limit 8 in PowerPoint](miter-limits.png)
 
-## **Verloop vulling**
+## **Verloop‑vulling**
 
-Een verloopvulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graden van rood naar paars via [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). De methode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) plaatst de kleurstops bij 0 en 1, het begin en het einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
+Een verloop‑vulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graad van rood naar paars via [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). De methode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) plaatst de kleurstops op 0 en 1, het begin en einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
 
 ```java
 import com.aspose.slides.*;
@@ -332,15 +332,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De ellips met verloopvulling](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-Zie [Choose a Gradient Rendering Style](/slides/nl/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint. U kunt een weergavestijl selecteren zonder de verloopvulling in de presentatie te wijzigen.
+Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). U kunt een render‑stijl kiezen zonder de verloop‑vulling die in de presentatie is opgeslagen te wijzigen.
 
-### **Hoek van lineair verloop instellen**
+### **Lineair verloop‑hoek instellen**
 
-Gebruik [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) om de oriëntatie van een [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) vulling te bepalen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Kommagetallen zijn toegestaan. Eindige hoeken buiten `[0, 360)` worden genormaliseerd tot één omwenteling; bijvoorbeeld `-45` wordt `315` en `360` wordt `0`.
+Gebruik [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) om de oriëntatie van een [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) vulling te beheersen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Brachiale hoeken worden ondersteund. Eindige hoeken buiten `[0, 360)` worden genormaliseerd tot één omwenteling; bijvoorbeeld `-45` wordt `315` en `360` wordt `0`.
 
 Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken kan worden vergeleken. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
 
@@ -379,15 +379,15 @@ try {
 }
 ```
 
-Resultaat in PowerPoint:
+Het resultaat in PowerPoint:
 
-![Lineaire verlopen bij 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
+![Linear gradients at 0, 45, and 90 degrees in the top row, and 135, 180, and 270 degrees in the bottom row](linear-gradient-angles.png)
 
 ### **Lineair verloop schalen met de vorm**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) accepteert een [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) waarde. Stel deze expliciet in op `False` om de geometrische verloophoek te behouden wanneer de vormafmetingen wijzigen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek op een niet‑vierkante vorm.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) accepteert een [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) waarde. Stel deze expliciet in op `False` om de geometrische verloop‑hoek te behouden wanneer de verhoudingen van de vorm veranderen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek bij een niet‑vierkante vorm.
 
-Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als voor de hoekvergelijking. De linkerkolom gebruikt `False`; de rechterkolom `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op formaatverandering zonder de verloopinstellingen aan te passen.
+Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als bij de hoek‑vergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op het aanpassen van de grootte zonder de verloop‑instellingen te veranderen.
 
 ```java
 import com.aspose.slides.*;
@@ -431,19 +431,19 @@ try {
 }
 ```
 
-Resultaat in PowerPoint, met schalen uitgeschakeld links en ingeschakeld rechts:
+Het resultaat in PowerPoint, met schalen uitgeschakeld links en ingeschakeld rechts:
 
-![Brede en hoge rechthoeken met een 45‑graden verloop, waarbij LinearGradientScaled links op `False` staat en rechts op `True`](linear-gradient-scaling.png)
+![Wide and tall rectangles with a 45-degree gradient, comparing LinearGradientScaled False on the left with True on the right](linear-gradient-scaling.png)
 
-Met schalen uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schalen ingeschakeld rekken de banden zich uit volgens de vormverhoudingen. Dit helpt om een sjabloon‑verloop te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkante vorm verandert het inschakelen van schalen de weergave van dit `45`‑graden verloop niet.
+Met schalen uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schalen ingeschakeld worden de banden uitgerekt met de vormverhoudingen. Dit helpt om een sjabloon‑verloop te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkante vorm verandert het inschakelen van schalen de weergave van dit `45`‑graden verloop niet.
 
-Zowel de hoek‑ als de schaalsinstellingen gelden voor lineaire verlopen. Ze regelen geen [GradientShape.Radial of GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) vullingen.
+Zowel de hoek‑ als de schaalinstellingen gelden voor lineaire verlopen. Ze regelen geen [GradientShape.Radial of GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) vullingen.
 
 ### **Hoek combineren met verloop‑richting**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) selecteert een verloopstijl uit de klasse [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoek‑stijlen het gebied wijzigen waarover de kleuren worden verdeeld zonder de hoek die via [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) is toegewezen te veranderen. Laat de richting ongewijzigd wanneer u hoeken of schalen vergelijkt.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) selecteert een verloop‑stijl uit de klasse [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/); het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoek‑stijlen het gebied waarin kleuren worden verdeeld wijzigen zonder de via [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) toegewezen hoek te veranderen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schalen.
 
-Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken hebben hetzelfde uiterlijk: de richting vóór of na de hoek toewijzen verandert het resultaat niet.
+Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken zien er identiek uit: de richting vóór of na de hoek instellen verandert het resultaat niet.
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **Patroonvulling**
+## **Patroon‑vulling**
 
-Een patroonvulling past een tweekleurig ontwerp toe, zoals stippen, strepen of ruitjes. Dit voorbeeld gebruikt [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) om een raster‑patroon te selecteren. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) levert de lichtgrijze achtergrond, en [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) levert de gele patroonkleur.
+Een patroon‑vulling past een tweekleurig ontwerp toe, zoals stippen, strepen of geruite patronen. Dit voorbeeld gebruikt [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) om een trellis‑patroon te selecteren. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) levert de lichtgrijze achtergrond, en [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) levert de gele patroonkleur.
 
 ```java
 import com.aspose.slides.*;
@@ -505,15 +505,15 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De rechthoek met patroonvulling](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
-## **Afbeeldingsvulling**
+## **Afbeeldings‑vulling**
 
-Een afbeeldingvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) om deze in de afbeeldingscollectie van de presentatie te laden. Het instellen van [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) op de tegel‑modus herhaalt de afbeelding binnen het rechthoekige gebied. De bronafbeelding die hier wordt gebruikt, staat hieronder:
+Een afbeelding‑vulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en laadt deze via [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) in de afbeeldingscollectie van de presentatie. Het instellen van [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) op de tegel‑modus herhaalt de afbeelding binnen de rechthoek. De gebruikte bronafbeelding wordt hieronder getoond:
 
-![De lotusafbeelding](lotus.png)
+![The lotus picture](lotus.png)
 
 ```java
 import com.aspose.slides.*;
@@ -541,23 +541,23 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De vorm met afbeeldingvulling](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Afbeelding als tegeltextuur**
+### **Afbeelding als tegel‑textuur**
 
-Wilt u een getegelde afbeelding als textuur instellen en het tegelgedrag aanpassen, dan kunt u de volgende methoden van de interface [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) en de klasse [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) gebruiken:
+Wilt u een getegelde afbeelding als textuur instellen en het tegelen aanpassen, dan kunt u de volgende methoden van de interface [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) en de klasse [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) gebruiken:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Stelt de afbeeldingvullingsmodus in — `Tile` of `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Stelt de afbeelding‑vullingsmodus in — `Tile` of `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Bepaalt de uitlijning van de tegels binnen de vorm.
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Regelt of de tegel horizontaal, verticaal, of beide keer wordt gespiegeld.
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Stelt de horizontale offset van de tegel (in punten) vanaf de oorsprong van de vorm in.
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Stelt de verticale offset van de tegel (in punten) vanaf de oorsprong van de vorm in.
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Regelt of de tegel horizontaal, verticaal of beide keren wordt gespiegeld.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
 - [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Definieert de horizontale schaal van de tegel als percentage.
 - [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Definieert de verticale schaal van de tegel als percentage.
 
-Dit voorbeeld vereist een lokale afbeelding en configureert [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) om deze op 50 % van de oorspronkelijke grootte te herhalen. Offsets van −32 punten verschuiven de tegels horizontaal en verticaal; uitlijning rechtsonder en spiegelen in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
+Dit voorbeeld vereist een lokale afbeelding en configureert [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) om deze op 50 % van de oorspronkelijke grootte te herhalen. Offsets van −32 punten verschuiven de tegels horizontaal en verticaal; onder‑recht‑uitlijning en dubbels spiegelen bepalen hoe de herhaalde textuur wordt gerangschikt.
 
 ```java
 import com.aspose.slides.*;
@@ -593,13 +593,13 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De tegelopties](tile-options.png)
+![The tile options](tile-options.png)
 
-## **Effen kleurvulling**
+## **Éénkleurige vulling**
 
-Een effen vulling geeft een vorm een enkele, gelijkmatige kleur. Dit voorbeeld gebruikt [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) om de effen vullingsmodus te selecteren en kent geel toe via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), waarna het rechthoek wordt opgeslagen in een presentatie.
+Een éénkleurige vulling geeft een vorm een enkele, uniforme kleur. Dit voorbeeld gebruikt [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) om de éénkleurige vullingsmodus te selecteren en kent geel toe via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), waarna de rechthoek in een presentatie wordt opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -619,17 +619,86 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De vorm met effen kleurvulling](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
-## **Achtergrond van de dia als vormvulling gebruiken**
+### **Kleuren kopiëren met behoud van themareferenties**
 
-Gebruik [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Gebruik [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) met [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) eerst om elke expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van de vulling van zijn stijl. Alleen de vlag inschakelen verwijdert geen bestaande expliciete vulling.
+Gebruik [IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) om een kleurobject te kopiëren, inclusief het kleurtype, themareferentie en transformaties. Dit is handig wanneer een vulkleur tussen vormen moet worden overgedragen en toch het thema van de presentatie moet blijven volgen. De methode kopieert alleen de kleur; hij kopieert niet het vultype, de omtrek of andere vormformattering. Stel het doel‑vultype expliciet in met [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-).
 
-Dit verschilt van [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): een achtergrondvulling dekt objecten achter de vorm af met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van opnieuw te starten binnen elke vorm.
+Dit voorbeeld maakt drie rechthoeken, van links naar rechts: de bron, een thema‑bewuste kopie, en een vaste RGB‑kopie. De bron gebruikt [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) om te verwijzen naar de eerste accentkleur en voegt een tint toe via [IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-). De RGB‑kopie gebruikt de effectieve vulkleur van de bron zodat alle drie aanvankelijk identiek lijken. Het aanroepen van [IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) stelt een vaste RGB‑waarde in en wist eventuele bestaande kleurtransformaties.
 
-Het volgende voorbeeld maakt een master‑achtergrond die wordt geërfd door de dia en plaatst een magenta band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste heeft geen vulling, en de rechtse schakelt van achtergrondvulling naar een expliciete oranje vulling.
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Themaverwijzingen volgen de nieuwe accentkleur; de vaste RGB‑waarde niet.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Voor de themawijziging kwamen alle drie de vullingen overeen:
+
+![Source, copyFrom destination, and fixed RGB destination with identical blue fills](color-copy-before.png)
+
+Na de themawijziging blijven de bron en de thema‑bewuste kopie de nieuwe accentkleur volgen en hun tint behouden. De vaste RGB‑kopie blijft blauw:
+
+![Source and copyFrom destination with orange fills, while the fixed RGB destination remains blue](color-copy-after.png)
+
+De gekopieerde definitie is onafhankelijk van de bron. Een latere wijziging van de themareferentie van de bron, het toewijzen van een andere kleur, of het toevoegen of verwijderen van transformaties verandert het doel niet. Een themawijziging heeft nog steeds invloed op beide vormen omdat elke vorm apart naar dezelfde themakleur verwijst.
+
+Opslaan en opnieuw openen van de PPTX behoudt het kleurtype dat wordt geretourneerd door [IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--), de themareferentie en de transformatie‑collectie die wordt geretourneerd door [IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--); het wordt niet naar RGB afgevlakt.
+
+Bij het kopiëren tussen verschillende themacontexten, zoals presentaties met verschillende accentpaletten, wordt de gekopieerde referentie geëvalueerd ten opzichte van het themabestand van het doel. Dezelfde referentie en transformaties kunnen daardoor een andere zichtbare kleur opleveren. Zie [Presentation Theme](/slides/nl/androidjava/presentation-theme/) voor meer informatie over het configureren van themakleuren.
+
+## **Achtergrond van de dia gebruiken als vormvulling**
+
+Gebruik [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatie‑sjabloon. Stel het vultype eerst in op [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) via [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van de eigen stijl‑vulling. Alleen de vlag inschakelen verwijdert geen bestaande expliciete vulling.
+
+Dit verschilt van [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/): een achtergrondvulling bedekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van opnieuw te starten binnen elke vorm.
+
+Het volgende voorbeeld maakt een master‑achtergrond die door de dia wordt geërfd en plaatst een magenta‑band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste heeft geen vulling, en de rechtse wisselt van achtergrondvulling naar een expliciete oranje vulling.
 
 ```java
 import com.aspose.slides.*;
@@ -640,7 +709,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Erf het verloop van de master.
+    // De gradient erven van de master.
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -681,15 +750,15 @@ try {
 }
 ```
 
-Resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magenta band wordt verborgen door de linker‑ en rechter‑rechthoeken maar blijft zichtbaar door de middelste rechthoek.
+Het resultaat, van links naar rechts: **background fill**, **no fill**, en **explicit fill**. De magenta‑band wordt verborgen door de linkse en rechtse rechthoek, maar blijft zichtbaar door de middelste rechthoek.
 
-![Achtergrondvulling, geen vulling, en expliciete oranje vulling over een magenta band](background-fill.png)
+![Background fill, no fill, and explicit orange fill over a magenta band](background-fill.png)
 
-Hetzelfde gedrag geldt voor een achtergrond die direct op de dia is gedefinieerd of wordt geërfd van een lay‑out. De vorm gebruikt de geresolveerde dia‑achtergrond; het voorbeeld laat zowel de dia‑ als de lay‑out‑achtergronden ongedefinieerd zodat de master ze levert.
+Hetzelfde gedrag geldt voor een achtergrond die direct op de dia is gedefinieerd of van een lay‑out wordt geërfd. De vorm gebruikt de door de dia opgeloste achtergrond; het voorbeeld laat zowel de dia‑ als de lay‑out‑achtergronden ongedefinieerd zodat de master ze levert.
 
 ## **Transparantie instellen**
 
-Voor een effen vulling bepaalt de alfa‑component van de kleur de opaciteit: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
+Voor een éénkleurige vulling bepaalt de alfacomponent van de kleur de dekking: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
 
 ```java
 import com.aspose.slides.*;
@@ -711,9 +780,9 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De transparante vorm](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Vormen roteren**
 
@@ -735,13 +804,13 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![De rotatie van de vorm](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **3D‑schuine vlakken toevoegen**
+## **3D‑bevel‑effecten toevoegen**
 
-Gebruik [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) om een vorm diepte en afgeplatte randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omtrek, gebruikt [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) om de diepte op 4 punten te zetten, en past een ronde bovenste afschuining toe met een breedte en hoogte van 6 punten via [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Een front‑gerichte orthografische camera en drie‑punt verlichting maken de afschuining zichtbaar.
+Gebruik [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) om een vorm diepte en gefaseerde randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omtrek, stelt de diepte in op 4 punten via [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-), en past een ronde bovenste bevel toe met een breedte en hoogte van 6 punten via [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Een front‑georiënteerde orthografische camera en drie‑punt verlichting maken het bevel zichtbaar.
 
 ```java
 import com.aspose.slides.*;
@@ -771,13 +840,13 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het 3D‑afschuinings‑effect](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **3D‑rotatie‑effecten toevoegen**
 
-Het 3D‑beeld van een vorm wordt geregeld via de camera‑instellingen. Dit voorbeeld gebruikt [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) met breedte‑, lengt‑ en omwentelingshoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) en een evenwichtige verlichting via [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), waarna de opgemaakte rechthoek wordt opgeslagen.
+De 3D‑weergave van een vorm wordt gecontroleerd door de cameraparameters. Dit voorbeeld gebruikt [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) met breedte‑, lengte‑ en rotatiehoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) en gebalanceerde verlichting via [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), waarna de geformatteerde rechthoek wordt opgeslagen.
 
 ```java
 import com.aspose.slides.*;
@@ -798,17 +867,17 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Het 3D‑rotatie‑effect](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
-## **Zwart‑wit weergave voor vormen regelen**
+## **Zwart‑wit‑weergave voor vormen regelen**
 
-De methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) geeft aan hoe een individuele vorm wordt gerenderd wanneer een presentatie wordt bekeken of verwerkt in zwart‑wit‑modus. Hij activeert de zwart‑wit‑weergave niet op zichzelf en wijzigt de vulling, lijn of andere opmaak van de vorm niet in de normale kleermodus.
+De methode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) geeft aan hoe een individuele vorm wordt weergegeven wanneer een presentatie in zwart‑wit‑modus wordt bekeken of verwerkt. De methode activeert niet zelf zwart‑wit‑weergave en verandert de vulling, omtrek of andere opmaak van de vorm niet in de normale kleurmodus.
 
-Gebruik een waarde uit de klasse [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de render‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` alleen zwart en wit, `Black` en `White` forceren een enkele kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen modus op vormniveau is toegewezen.
+Gebruik een waarde uit de klasse [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) om het gewenste gedrag te kiezen. Bijvoorbeeld, `Automatic` laat de weergave‑applicatie de conversie bepalen, `Gray` en `LightGray` gebruiken grijstinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` dwingen een enkele kleur, `Color` behoudt normale kleuren, en `Hidden` sluit de vorm uit in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
 
-Dit voorbeeld maakt een oranje rechthoek en gebruikt [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) om grijze kleuring te selecteren. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleurweergave en vraagt grijze kleuring aan applicaties die zwart‑wit‑instellingen respecteren:
+Dit voorbeeld maakt een oranje rechthoek en gebruikt [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) om grijze kleur te selecteren. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleurweergave en vraagt grijze kleur aan applicaties die zwart‑wit‑instellingen respecteren:
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-In normale kleurmodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑workflow gebruikt hij grijze kleuring omdat zijn modus op `Gray` staat. Zo kunt u een volledig‑kleurige dia behouden en tegelijkertijd een aparte weergave definiëren voor afdrukken, voorvertoningen of andere workflows die zwart‑wit‑instellingen honoreren.
+In de normale kleurmodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑workflow wordt grijze kleur toegepast omdat de modus op `Gray` staat. Zo kunt u een volledige‑kleur dia behouden en tegelijk een aparte weergave definiëren voor afdrukken, voorbeeldweergave of andere workflows die zwart‑wit‑instellingen honoreren.
 
 ## **Opmaak resetten**
 
-Gebruik [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) om de positie, grootte en opmaak van plaatsaanduidingen van dia’s te herstellen vanuit de overeenkomstige plaatsaanduidingen van de lay‑out. Dit voorbeeld vereist een bestaande presentatie met lay‑out‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige lay‑out‑plaatsaanduidingen worden niet gereset.
+Gebruik [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) om de positie, grootte en opmaak van dia‑plaatsaanduidingen te herstellen vanuit de overeenkomstige lay‑out‑plaatsaanduidingen. Dit voorbeeld vereist een bestaande presentatie met lay‑out‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige lay‑out‑plaatsaanduidingen worden niet gereset.
 
 ```java
 import com.aspose.slides.*;
@@ -852,14 +921,14 @@ try {
 
 ## **FAQ**
 
-**Heeft vormopmaak invloed op de uiteindelijke bestandsgrootte van de presentatie?**
+**Beïnvloedt vormopmaak de uiteindelijke bestandsgrootte van de presentatie?**
 
-Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe in vergelijking met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
+Kleuren, lijnstijlen en effectinstellingen voegen over het algemeen weinig data toe vergeleken met ingesloten afbeeldingen en media. Afbeeldings‑vullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
 
-**Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
+**Hoe kan ik vormen op een dia detecteren die identieke opmaak hebben, zodat ik ze kan groeperen?**
 
-Vergelijk de sleutel‑opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later stijlbeheer vereenvoudigt.
+Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later beheer van stijlen vereenvoudigt.
 
 **Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
 
-Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑presentatie of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie opent u het sjabloon, kloont u de gewenste stijlvormen, en past u hun opmaak toe waar nodig.
+Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑presentatie of een .POTX‑sjabloonbestand. Bij het maken van een nieuwe presentatie opent u het sjabloon, kloont u de benodigde stijlvormen, en past u hun opmaak toe waar nodig.

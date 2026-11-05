@@ -1,24 +1,24 @@
 ---
-title: 在 Android 上格式化 PowerPoint 形狀
-linktitle: 形狀格式化
+title: 在 Android 上格式化 PowerPoint 圖形
+linktitle: 圖形格式化
 type: docs
 weight: 20
 url: /zh-hant/androidjava/shape-formatting/
 keywords:
-- 格式化形狀
+- 格式化圖形
 - 格式化線條
-- 素描效果
-- 形狀線條素描
+- 草圖效果
+- 草圖圖形線條
 - 格式化接合樣式
 - 漸層填色
 - 圖案填色
 - 圖片填色
 - 紋理填色
-- 單色填色
-- 形狀透明度
-- 黑白形狀渲染
-- 灰階形狀渲染
-- 旋轉形狀
+- 純色填色
+- 圖形透明度
+- 黑白圖形呈現
+- 灰階圖形呈現
+- 旋轉圖形
 - 3D 倒角效果
 - 3D 旋轉效果
 - 重設格式
@@ -27,19 +27,19 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上使用 Aspose.Slides 格式化 PowerPoint 形狀——精確且完整控制 PPT 與 PPTX 檔案的填色、線條與效果樣式。"
+description: "了解如何在 Android 上使用 Aspose.Slides 格式化 PowerPoint 圖形——精確且完全掌控 PPT 與 PPTX 檔案的填色、線條與效果樣式。"
 ---
 ## **簡介**
 
-在 PowerPoint 中透過調整形狀的輪廓、填色和效果來格式化形狀。Aspose.Slides for Android via Java 讓您能以程式方式控制這些設定，包含透明度、旋轉和 3D 格式設定。
+透過調整 PowerPoint 中的輪廓、填色與效果來格式化圖形。Aspose.Slides for Android via Java 讓您可以以程式方式控制這些設定，包括透明度、旋轉以及 3D 格式化。
 
-![PowerPoint 中的形狀格式設定選項](format-shape-powerpoint.png)
+![PowerPoint 中的圖形格式設定選項](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java 提供介面與方法，允許您使用 PowerPoint 中相同的選項來格式化形狀。
+Aspose.Slides for Android via Java 提供介面與方法，讓您使用與 PowerPoint 相同的選項來格式化圖形。
 
-## **格式化線條**
+## **格式線條**
 
-使用[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) 來控制形狀的輪廓。此範例建立一個未填充的矩形，藍色虛線輪廓。[ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) 選擇粗細交錯的複合線，且[ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) 將寬度設定為 7 點，[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) 選擇虛線樣式。
+使用[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) 來控制圖形的輪廓。此範例建立一個未填充、藍色虛線輪廓的矩形。[ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) 選擇粗細複合線，而[ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) 將寬度設定為 7 點，且[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) 選擇虛線樣式。
 
 ```java
 import com.aspose.slides.*;
@@ -64,16 +64,15 @@ try {
 ```
 
 結果：
-
 ![簡報中格式化的線條](formatted-lines.png)
 
-### **設定自訂線條虛線樣式**
+### **設定自訂線條虛線圖案**
 
-當預先定義的線條樣式無法提供所需的虛線長度與間隔時（例如品牌輪廓或技術圖表），使用[ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---)。指派模式會自動將線條虛線樣式變更為[LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)。
+當預先定義的線條樣式無法提供所需的虛線長度與間隔時，請使用[ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---)。例如品牌輪廓或技術圖表。指派圖案會自動將線條虛線樣式變更為[LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)。
 
-陣列條目交替出現虛線與間隔長度，從虛線開始。每個值都是線寬的倍數：在寬度為 3 點時，`{ 4, 2 }` 會產生 12 點的虛線以及 6 點的間隔。使用有限且非負的成對值來定義完整的虛線‑間隔段落。範例使用正值以確保所有虛線與間隔皆可見。
+陣列項目交替表示虛線與間隔長度，從虛線開始。每個值都是線寬的倍數：在寬度為 3 點時，`{ 4, 2 }` 產生 12 點長的虛線，接著 6 點的間隔。請使用有限且非負的值成對定義完整的虛線與間隔段落。此範例使用正值以確保每段虛線與間隔皆可見。
 
-此範例建立五條藍色線條，長度相同且端點為平直。前三條在 3 點寬度下比較不同模式。第四條以雙倍寬度重複第一個模式，將虛線與間隔長度皆加倍。第五條則從自訂模式切換為實線。
+此範例建立五條藍色線條，長度相同且使用平直端點。前三條在 3 點寬度下比較圖案。第四條以兩倍寬度重複第一個圖案，將虛線與間隔長度皆加倍。第五條則從自訂圖案切換為實線。
 
 ```java
 import com.aspose.slides.*;
@@ -103,7 +102,7 @@ try {
         line.getLineFormat().setCustomDashPattern(patterns[i]);
     }
 
-    // 將最後一條線返回為實線樣式。
+    // 將最後一條線回復為實線樣式。
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -112,25 +111,25 @@ try {
 }
 ```
 
-若要改回預先定義的虛線樣式，請將[LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/)傳遞給[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-)。所選樣式會控制線條的外觀。
+若要改回預先定義的虛線樣式，請將[LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) 傳遞給 [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-)。所選樣式會控制線條的外觀。
 
-PowerPoint 中的結果，從上到下：**{4, 2}，3 pt**；**{1, 2}，3 pt**；**{6, 2, 1, 2}，3 pt**；**{4, 2}，6 pt**；以及**實線，3 pt**。
+PowerPoint 中的結果，從上到下：**{4, 2}, 3 pt**；**{1, 2}, 3 pt**；**{6, 2, 1, 2}, 3 pt**；**{4, 2}, 6 pt**；以及 **Solid, 3 pt**。
 
-![PowerPoint 中的三種自訂虛線模式、使用第一種模式的較寬線條，以及實線](custom-dash-patterns.png)
+![PowerPoint 中的三種自訂虛線圖案、一條使用第一個圖案的較寬線條，以及一條實線](custom-dash-patterns.png)
 
 ### **設定線條端點樣式**
 
-使用[ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) 來設定開放線條的兩端。[LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) 類別提供三種明確的端點樣式：
+使用[ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) 來設定開放線條的端點。[LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) 類別提供三種明確的端點樣式：
 
-- `Flat`：筆畫於端點處停止。
-- `Round`：半圓形端點延伸至端點之外，長度為線寬的一半。
-- `Square`：方形端點延伸至端點之外，長度為線寬的一半。
+- `Flat`：筆畫在端點處停止。
+- `Round`：半圓形端點延伸超過端點半個線寬。
+- `Square`：方形端點延伸超過端點半個線寬。
 
-該類別還包含 `NotDefined`，表示未明確指派端點樣式。
+此類別亦包含 `NotDefined`，表示未明確指定端點樣式。
 
-端點樣式不同於箭頭樣式（在線條兩端加入符號）以及接合樣式（控制線段之間的拐角）。此範例透過[ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) 與 [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) 停用箭頭，僅比較端點形狀。
+端點與箭頭不同，箭頭會在線條端點加入符號，接合則控制線段之間的角落。此範例透過[ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) 與[ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) 停用箭頭，以僅比較端點形狀。
 
-以下範例建立三條其他屬性相同的水平線條，寬度為 20 點。從上到下分別使用平直、圓形與方形端點。它們的端點具有相同的水平座標；圓形與方形端點會在每個端點之外延伸 10 點。
+以下範例建立三條在其他方面相同的水平線，寬度為 20 點。從上到下分別使用 flat、round 與 square 端點。它們的端點具有相同的水平座標；round 與 square 端點會延伸超過每個端點 10 點。
 
 ```java
 import com.aspose.slides.*;
@@ -164,11 +163,11 @@ PowerPoint 中的結果，從上到下：**Flat**、**Round** 與 **Square**。
 
 ![PowerPoint 中相同粗線的平直、圓形與方形端點](line-caps.png)
 
-## **為形狀線條套用素描效果**
+## **將草圖效果套用至圖形線條**
 
-素描效果會使形狀線條看起來像手繪。使用[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) 取得線條設定，使用[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) 取得素描設定，並使用[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) 從[LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 類別中選取值。
+草圖效果會讓圖形的線條看起來像手繪。使用[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) 取得線條設定，使用[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) 取得草圖設定，並使用[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) 從[LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 類別中選取值。
 
-以下 Java 程式碼示範如何套用 [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 效果、讀取明確指派的值，並以 [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 移除效果：
+以下 Java 程式碼示範如何套用[LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 效果、讀取明確指派的值，以及使用[LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 移除效果：
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +188,7 @@ try {
 }
 ```
 
-由 [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) 回傳的值代表直接指派給形狀的設定。若線條格式可從佈景主題、母片或版面投影片繼承，請使用 [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--)，取得 [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--)，並讀取 [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--)。有效值反映在繼承解析後實際套用的格式。此範例需要一個已有投影片且首張投影片至少有一個形狀的簡報，並印出兩個值：
+由[ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) 回傳的值代表直接指派給圖形的設定。若線條格式可能從佈景主題、母片或版面投影片繼承，請使用[ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--)，存取[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--)，並讀取[ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--)。有效值反映在繼承解析後實際套用的格式。此範例需要一個已存在的投影片，且其第一張投影片上至少有一個圖形，並輸出兩個值：
 
 ```java
 import com.aspose.slides.*;
@@ -210,19 +209,19 @@ try {
 }
 ```
 
-## **格式化接合樣式**
+## **格式接合樣式**
 
 以下是三種接合類型選項：
 
-* Round
-* Miter
-* Bevel
+* `Round`
+* `Miter`
+* `Bevel`
 
-接合樣式決定兩條輪廓線段在拐角處的連接方式。使用 **Round** 取得圓角，使用 **Miter** 取得尖角，使用 **Bevel** 取得平緣角。
+接合樣式控制兩條輪廓線在角落的結合方式。使用 **Round** 以取得圓角，**Miter** 以取得尖角，或 **Bevel** 以取得平整角。
 
-![簡報中的接合樣式](join-style-powerpoint.png)
+![投影片中的接合樣式](join-style-powerpoint.png)
 
-此範例建立三個黑色矩形，藍色輪廓寬度為 15 點。它分別使用[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) 套用 [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) 的 miter、bevel 與 round 值，以比較拐角的呈現方式。
+此範例建立三個黑色矩形，藍色輪廓寬度為 15 點。它分別使用[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) 套用 [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) 的 miter、bevel 與 round 值，以比較角落的繪製方式。
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +267,13 @@ try {
 }
 ```
 
-### **限制尖銳拐角的斜接合**
+### **限制銳角的斜接**
 
-使用[ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) 搭配將[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) 設為[LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) 以限制尖銳拐角的延伸長度。
+使用[ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) 搭配將[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) 設為 [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/)，以限制銳角可延伸的距離。
 
-此限制係接合內、外拐角之距離與線寬的比例。例如，值 `8` 允許斜接合長度最高為線寬的八倍；它不是以點為單位的測量。如果拐角超過此限制，PowerPoint 會在該拐角使用平緣接合。較大的限制允許更尖銳的點。此設定僅影響斜接合，且在拐角仍在限制範圍內時不會產生可見變化。
+此限制是內外角之間距離與線寬的比率。例如，值 `8` 允許斜接長度最多為線寬的八倍；這不是點數測量。如果角落超過此限制，PowerPoint 會在該角落使用斜接。較大的限制允許更尖銳的點。此設定僅影響斜接，且在角落仍在兩個限制內時更改不會產生可見效果。
 
-此範例建立兩個相同、未填充的三角形，輪廓寬度為 20 點。左側三角形使用限制值 `2`，右側使用 `8`。每個三角形寬 80 點、高 160 點，使其頂部拐角的斜接合長度與線寬比約為 `4.12`。因此，PowerPoint 會對左側頂點使用平緣接合，保留右側尖銳頂點。
+此範例建立兩個相同的未填充三角形，輪廓寬度為 20 點。左側三角形使用限制 `2`，右側使用 `8`。每個三角形寬度 80 點，高度 160 點，使其頂角的斜接長度與線寬比約為 `4.12`。因此，PowerPoint 會對左側頂點使用斜接，而保留右側尖銳頂點。
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +304,11 @@ try {
 
 PowerPoint 中的結果：左側為 **Miter limit 2**，右側為 **miter limit 8**。
 
-![PowerPoint 中斜接合限制 2 的平緣頂點與斜接合限制 8 的尖銳頂點](miter-limits.png)
+![PowerPoint 中，斜接限制 2 的倒角頂點與斜接限制 8 的尖銳頂點](miter-limits.png)
 
 ## **漸層填色**
 
-漸層填色會在形狀內混合顏色。此範例使用[IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) 以 45 度角將橢圓填入從紅色到紫色的線性漸層。使用[IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) 方法將顏色停止點放在 0 與 1（漸層的開始與結束）。清除現有的停止點可確保僅使用這兩種顏色。
+漸層填色會在圖形上混合顏色。此範例使用[IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) 以 45 度角將橢圓以線性漸層從紅色過渡至紫色。 [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) 方法將色標置於 0 與 1，即漸層的起點與終點。清除現有的色標可確保僅使用這兩種顏色。
 
 ```java
 import com.aspose.slides.*;
@@ -333,16 +332,15 @@ try {
 ```
 
 結果：
-
 ![具有漸層填色的橢圓](gradient-fill.png)
 
-如果匯出的影像中的漸層與 PowerPoint 中的顯示不同，請參閱[Choose a Gradient Rendering Style](/slides/zh-hant/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可以在不更改簡報內儲存的漸層填色的情況下選擇渲染樣式。
+如果匯出圖像的漸層外觀與 PowerPoint 中不同，請參閱[選擇漸層渲染樣式](/slides/zh-hant/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可在不變更簡報中儲存的漸層填色的情況下選擇渲染樣式。
 
 ### **設定線性漸層角度**
 
-使用[IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) 來控制[GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 填色的方向。角度以度為單位，順時針遞增：`0` 為自左至右，`90` 為自上至下，`180` 為自右至左，`270` 為自下至上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一圈。例如，`-45` 變為 `315`，`360` 變為 `0`。
+使用[IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) 來控制[GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 填色的方向。角度以度為單位，順時針遞增：`0` 為左至右，`90` 為上至下，`180` 為右至左，`270` 為下至上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一圈，例如 `-45` 變為 `315`，`360` 變為 `0`。
 
-此範例建立六個矩形，於位置 `0`、`0.5`、`1` 皆設置相同的紅、綠、藍停止點。停用縮放以便角度比較不受矩形比例影響。角度從左至右分別為第一列的 `0`、`45`、`90`，以及第二列的 `135`、`180`、`270`。
+此範例建立六個矩形，色標為相同的紅、綠、藍，位置分別為 `0`、`0.5` 與 `1`。停用縮放以便角度可獨立於矩形比例比較。角度自左至右在第一列為 `0`、`45`、`90`，第二列為 `135`、`180`、`270`。
 
 ```java
 import com.aspose.slides.*;
@@ -380,14 +378,13 @@ try {
 ```
 
 PowerPoint 中的結果：
-
 ![上排 0、45、90 度的線性漸層，下排 135、180、270 度的線性漸層](linear-gradient-angles.png)
 
-### **隨形狀縮放線性漸層**
+### **隨圖形縮放線性漸層**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) 接受一個 [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) 值。明確設定為 `False` 可在形狀比例變更時保持幾何漸層角度不變，設定為 `True` 則會隨形狀的寬高縮放漸層。啟用縮放時，非正方形形狀的可見角度可能與指定角度不同。
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) 接受[NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) 值。明確設定為 `False` 可在圖形比例變化時保持幾何漸層角度不變，或設定為 `True` 使漸層隨圖形的寬度與高度縮放。啟用縮放時，在非正方形圖形上可見角度可能與指派的角度不同。
 
-以下範例使用 `45` 度角以及與角度比較相同的顏色停止點。左欄使用 `False`，右欄使用 `True`。每欄包含一個寬矩形上方與一個高矩形。兩者起始皆為相同的寬尺寸；變更第二個矩形的寬度與高度即可示範填色在調整大小時的回應，而不改變漸層設定。
+以下範例使用 `45` 度角度以及與角度比較相同的色標。左欄使用 `False`，右欄使用 `True`。每欄包含一個寬矩形在上方、一個高矩形在下方。兩者起始寬度相同；變更第二個矩形的寬度與高度可示範填色在調整大小時如何回應，而不更改漸層設定。
 
 ```java
 import com.aspose.slides.*;
@@ -432,18 +429,17 @@ try {
 ```
 
 PowerPoint 中的結果，左側停用縮放，右側啟用縮放：
-
 ![寬矩形與高矩形的 45 度漸層，左側 LinearGradientScaled 為 False，右側為 True 的比較](linear-gradient-scaling.png)
 
-停用縮放時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨形狀比例伸展。這有助於在將形狀調整為不同尺寸時再現範本的漸層。對於正方形而言，啟用縮放不會改變此 `45` 度漸層的外觀。
+縮放停用時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨圖形比例伸展。這有助於在將圖形調整至不同尺寸時復製模板的漸層。在正方形上，啟用縮放不會改變此 `45` 度漸層的外觀。
 
-角度與縮放設定皆適用於線性漸層，並不控制 [GradientShape.Radial 或 GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 填色。
+角度與縮放設定皆適用於線性漸層。它們不控制[GradientShape.Radial 或 GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 填色。
 
 ### **將角度與漸層方向結合**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) 從[GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) 類別中選取漸層樣式；它並非數值角度的替代方案。對於線性漸層，角落樣式可在不變更透過[setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) 指定的角度下，改變顏色分布的區域。比較角度或縮放時，請保持方向不變。
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) 從[GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) 類別中選取漸層樣式；它並非數值角度的替代方案。對於線性漸層，角落樣式可變更顏色分布的範圍，而不改變透過[setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) 指定的角度。比較角度或縮放時，請保持方向不變。
 
-以下範例以相反的順序套用相同設定。兩個矩形的外觀相同：先指派方向或先指派角度皆不會改變結果。
+以下範例以相反順序套用相同設定。兩個矩形的外觀相同：先設定方向再設定角度或相反皆不會改變結果。
 
 ```java
 import com.aspose.slides.*;
@@ -483,7 +479,7 @@ try {
 
 ## **圖案填色**
 
-圖案填色會套用雙色設計，如點、條紋或格子。此範例使用[IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) 選取格柵圖案。[IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) 提供淡灰色背景，而[IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) 提供黃色圖案顏色。
+圖案填色會套用兩色設計，例如點、條紋或格子。此範例使用[IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) 選取格柵圖案。[IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) 提供淡灰色背景，而[IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) 提供黃色圖案色。
 
 ```java
 import com.aspose.slides.*;
@@ -506,12 +502,11 @@ try {
 ```
 
 結果：
-
 ![套用圖案填色的矩形](pattern-fill.png)
 
 ## **圖片填色**
 
-圖片填色會在形狀內使用影像。此範例需要本機影像，並使用[Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) 將其載入簡報的影像集合。將[IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) 設為平鋪模式會在矩形內重複影像。以下顯示此處使用的來源影像：
+圖片填色在圖形內使用圖像。此範例需要本機圖像，並使用[Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) 將其載入簡報的圖像集合。將[IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) 設為平鋪模式，可在矩形內重複圖像。下方顯示此處使用的來源圖像：
 
 ![蓮花圖片](lotus.png)
 
@@ -542,22 +537,21 @@ try {
 ```
 
 結果：
-
-![套用圖片填色的形狀](picture-fill.png)
+![套用圖片填色的圖形](picture-fill.png)
 
 ### **將圖片平鋪為紋理**
 
-若想將平鋪圖片設定為紋理並自訂平鋪行為，可使用以下 [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) 類別的方法：
+若要將平鋪圖片設定為紋理並自訂平鋪行為，可使用以下 [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) 類別的方法：
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-)：設定圖片填色模式——`Tile` 或 `Stretch`。
-- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-)：指定平鋪在形狀內的對齊方式。
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-)：控制平鋪是否水平翻轉、垂直翻轉或兩者皆翻轉。
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-)：設定平鋪相對於形狀原點的水平偏移（單位：點）。
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-)：設定平鋪相對於形狀原點的垂直偏移（單位：點）。
-- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-)：以百分比定義平鋪的水平縮放。
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-)：以百分比定義平鋪的垂直縮放。
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-)：設定圖片填色模式—`Tile` 或 `Stretch`。
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-)：指定平鋪在圖形內的對齊方式。
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-)：控制平鋪是否水平、垂直或雙向翻轉。
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-)：設定平鋪相對於圖形原點的水平偏移（單位：點）。
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-)：設定平鋪相對於圖形原點的垂直偏移（單位：點）。
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-)：以百分比定義平鋪的水平縮放比例。
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-)：以百分比定義平鋪的垂直縮放比例。
 
-此範例需要本機影像，並將 [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) 設定為以原始尺寸的 50% 重複。−32 點的偏移會水平與垂直平移平鋪；右下對齊且在兩個方向翻轉，決定了重複紋理的排列方式。
+此範例需要本機圖像，並設定[IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) 以其原始大小的 50% 進行重複。−32 點的偏移會水平與垂直平移平鋪；右下對齊且雙向翻轉決定了重複紋理的排列方式。
 
 ```java
 import com.aspose.slides.*;
@@ -594,12 +588,11 @@ try {
 ```
 
 結果：
-
 ![平鋪選項](tile-options.png)
 
-## **單色填色**
+## **純色填色**
 
-單色填色會為形狀提供單一、均勻的顏色。此範例使用[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) 選取單色填色模式，並透過[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) 指派黃色，最後將矩形儲存至簡報。
+純色填色為圖形賦予單一均勻的顏色。此範例使用[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) 選取純色填色模式，並透過[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) 指定黃色，然後將矩形儲存至簡報。
 
 ```java
 import com.aspose.slides.*;
@@ -620,16 +613,82 @@ try {
 ```
 
 結果：
+![套用純色填色的圖形](solid-color-fill.png)
 
-![套用單色填色的形狀](solid-color-fill.png)
+### **複製顏色同時保留主題參照**
 
-## **將投影片背景作為形狀填色**
+使用[IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) 複製顏色定義，包括其顏色類型、主題參照與變換。當在形狀之間轉移填色且仍需遵循簡報主題時，此方法很有用。此方法僅複製顏色：不會複製填色類型、輪廓或其他圖形格式。請使用[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) 明確設定目的地的填色類型。
 
-當形狀應與投影片背景相符時（例如投影片範本），請使用[IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-)。先以[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) 並傳入 [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 移除任何明確的填色。結合使用後，形狀會使用投影片背景而非其樣式填色。僅啟用此旗標並不會移除現有的明確填色。
+此範例建立三個矩形，從左至右分別為：來源、具主題感知的複本，以及固定 RGB 複本。來源使用[IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) 參照第一個強調色，並透過[IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-) 加入淡色。RGB 複本使用來源的有效填色，使三者最初看起來相同。呼叫[IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) 設定固定的 RGB 值，並清除任何既有的顏色變換。
 
-這與 [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 不同：背景填色會以投影片背景的相應區域覆蓋形狀後方的物件，而無填色則會讓這些物件保持可見。漸層會與投影片對齊，而不會在每個形狀內重新開始。
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-以下範例建立一個被投影片繼承的母版背景，並在三個矩形後放置品紅色條紋。左側矩形使用背景，中央矩形無填色，右側矩形則從背景填色切換為明確的橙色填色。
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // 主題參照會遵循新的強調色；固定的 RGB 值不會。
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+主題變更前，三個填色均相同：
+![來源、copyFrom 目的地與固定 RGB 目的地，皆為相同的藍色填色](color-copy-before.png)
+
+主題變更後，來源與具主題感知的複本會跟隨新強調色並保留其淡色。固定 RGB 複本則保持藍色：
+![來源與 copyFrom 目的地為橙色填色，而固定 RGB 目的地仍為藍色](color-copy-after.png)
+
+複製的定義與來源獨立。之後變更來源的主題參照、指定其他顏色，或新增或移除其變換，都不會影響目的地。主題變更仍會影響兩個圖形，因為它們各自獨立參考相同的主題顏色。
+
+儲存並重新開啟 PPTX 會保留複製顏色的類型（由[IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--) 回傳）、主題參照，以及變換集合（由[IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--) 回傳）；不會將定義扁平化為 RGB。
+
+在不同主題環境之間複製，例如在不同強調色盤的簡報，複製的參照會依目的地的主題解析。因此相同的參照與變換可能產生不同的可見顏色。請參閱[簡報主題](/slides/zh-hant/androidjava/presentation-theme/) 以了解更多主題顏色設定。
+
+## **使用投影片背景作為圖形填色**
+
+當圖形應與投影片背景相匹配時（例如在簡報範本中），請使用[IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-)。先使用[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) 設為[FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 以移除任何明確的填色。此組合下，圖形會使用投影片背景而非其樣式填色。僅啟用此旗標並不會移除現有的明確填色。
+
+這與[FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) 不同：背景填色會以投影片相應區域覆蓋圖形後方的物件，而無填色則讓這些物件保持可見。漸層會與投影片對齊，而不是在每個圖形內重新開始。
+
+以下範例建立一個由投影片繼承的母片背景，並在三個矩形後方放置一條品紅色條紋。左側矩形使用背景，中央矩形無填色，右側矩形則從背景填色切換為明確的橙色填色。
 
 ```java
 import com.aspose.slides.*;
@@ -640,7 +699,7 @@ try {
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale);
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 從母版繼承漸層。
+    // 從母片繼承漸層。
     slide.getBackground().setType(BackgroundType.NotDefined);
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined);
     IBackground background = slide.getLayoutSlide().getMasterSlide().getBackground();
@@ -653,7 +712,7 @@ try {
     gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
     gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
 
-    // 先加入此物件，使其顯示在矩形之後。
+    // 首先加入此物件，使其顯示在矩形之後。
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -670,7 +729,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // 在套用明確填色之前，先停用背景填色。
+    // 在套用明確填色前先停用背景填色。
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
@@ -681,15 +740,14 @@ try {
 }
 ```
 
-結果，從左至右：**背景填色**、**無填色** 與 **明確填色**。品紅色條紋被左側與右側矩形遮蔽，但在中間矩形仍可見。
+結果，從左至右：**背景填色**、**無填色** 與 **明確填色**。品紅條紋被左側與右側矩形遮蔽，但仍透過中間矩形可見。
+![背景填色、無填色與明確的橙色填色覆蓋於品紅條紋上](background-fill.png)
 
-![背景填色、無填色與明確橙色填色覆蓋在品紅色條紋上](background-fill.png)
-
-相同的行為也適用於直接於投影片上定義或從版面繼承的背景。形狀使用投影片已解析的背景；此範例將投影片與版面的背景皆留為未定義，使母版提供背景。
+相同的行為適用於直接在投影片上定義或從版面繼承的背景。圖形使用投影片解析後的背景；此範例未定義投影片與版面的背景，使母片提供背景。
 
 ## **設定透明度**
 
-對於單色填色，顏色的 alpha 成分控制不透明度：0 為完全透明，255 為完全不透明。此範例對黃色矩形使用 alpha 值 128，使其約 50% 透明，讓下方的矩形仍可見。顏色透過[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) 指派。
+對於純色填色，顏色的 alpha 成分控制不透明度：0 表示完全透明，255 表示完全不透明。此範例對黃色矩形使用 alpha 值 128，使其約 50% 透明，讓底下的矩形仍可見。顏色透過[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) 指派。
 
 ```java
 import com.aspose.slides.*;
@@ -712,12 +770,11 @@ try {
 ```
 
 結果：
+![透明的圖形](shape-transparency.png)
 
-![透明形狀](shape-transparency.png)
+## **旋轉圖形**
 
-## **旋轉形狀**
-
-使用[IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) 於投影片平面上旋轉形狀。角度以度為單位；此範例將矩形順時針旋轉 5 度，並儲存簡報。
+使用[IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) 於投影片平面旋轉圖形。角度以度為單位；此範例將矩形順時針旋轉 5 度，並儲存簡報。
 
 ```java
 import com.aspose.slides.*;
@@ -736,12 +793,11 @@ try {
 ```
 
 結果：
-
-![形狀旋轉](shape-rotation.png)
+![圖形的旋轉](shape-rotation.png)
 
 ## **新增 3D 倒角效果**
 
-使用[IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) 為形狀賦予深度與倒角邊緣。此範例建立綠色橢圓並加上橙色輪廓，使用[IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) 將深度設定為 4 點，並透過[IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) 套用寬高皆為 6 點的圓形上倒角。前視正投影相機與三點燈光使倒角可見。
+使用[IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) 為圖形賦予深度與倒角邊緣。此範例建立綠色橢圓並加上橙色輪廓，使用[IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) 將深度設為 4 點，並透過[IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) 套用寬高皆為 6 點的圓形上倒角。正面正交相機與三點光源使倒角可見。
 
 ```java
 import com.aspose.slides.*;
@@ -772,12 +828,11 @@ try {
 ```
 
 結果：
-
 ![3D 倒角效果](3D-bevel-effect.png)
 
 ## **新增 3D 旋轉效果**
 
-形狀的 3D 觀點受相機設定控制。此範例使用[ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) 分別設定緯度、經度與旋轉角度為 40、35、20 度。透過[ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) 選取等角相機，並利用[ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) 設定平衡光源，最後儲存格式化的矩形。
+圖形的 3D 觀點由相機設定控制。此範例使用[ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) 設定緯度、經度與旋轉角度分別為 40、35、20 度。透過[ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) 選取等距相機，並使用[ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) 設定平衡光源，然後儲存格式化的矩形。
 
 ```java
 import com.aspose.slides.*;
@@ -799,16 +854,15 @@ try {
 ```
 
 結果：
-
 ![3D 旋轉效果](3D-rotation-effect.png)
 
-## **控制形狀的黑白渲染**
+## **控制圖形的黑白渲染**
 
-[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) 方法指定當簡報以黑白模式檢視或處理時，單一形狀的渲染方式。此方法本身不會啟用黑白顯示，也不會在正常彩色模式下變更形狀的填色、線條或其他格式設定。
+[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) 方法指定在以黑白模式檢視或處理簡報時個別圖形的渲染方式。它本身不會啟用黑白顯示，也不會在正常彩色模式下改變圖形的填色、線條或其他格式。
 
-使用來自 [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) 類別的值以選取所需行為。例如，`Automatic` 讓渲染應用程式自行決定轉換方式，`Gray` 與 `LightGray` 使用灰色，`BlackWhite` 僅使用黑白，`Black` 與 `White` 強制單一顏色，`Color` 保持正常著色，`Hidden` 在黑白模式下隱藏形狀。`NotDefined` 表示未指派形狀層級的模式。
+使用[BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) 類別中的值以選取所需行為。例如，`Automatic` 讓渲染應用程式自行決定轉換，`Gray` 與 `LightGray` 使用灰色，`BlackWhite` 只使用黑白，`Black` 與 `White` 強制單色，`Color` 保持正常顏色，`Hidden` 在黑白模式下省略圖形。`NotDefined` 表示未指派圖形層級的模式。
 
-此範例建立橙色矩形，並使用[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) 選擇灰色著色。儲存的形狀在正常彩色顯示時保留橙色填色，並向支援黑白顯示設定的應用程式請求灰色著色：
+此範例建立橙色矩形，並使用[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) 選取灰色著色。儲存的圖形在正常彩色顯示時保留橙色填色，並向遵守黑白顯示設定的應用程式請求灰色著色：
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +883,11 @@ try {
 }
 ```
 
-在正常彩色模式下，矩形保留橙色填色。在黑白顯示的工作流程中，因其模式設定為 `Gray`，因此使用灰色著色。這讓您在保留全彩投影片的同時，為列印、預覽或其他遵循簡報黑白顯示設定的工作流程定義不同的外觀。
+在正常彩色模式下，矩形保留橙色填色。於黑白顯示工作流程中，因模式設定為 `Gray`，它會使用灰色著色。這讓您在保留全彩投影片的同時，為列印、預覽或其他遵循簡報黑白顯示設定的工作流程定義不同的外觀。
 
 ## **重設格式**
 
-使用[ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) 從對應的版面佈局佔位元復原投影片佔位元的定位、大小與格式。本範例需要一個已有版面連結佔位元的簡報，並在儲存前重設每張投影片。沒有對應版面佔位元的形狀不會被重設。
+使用[ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) 可從相應的版面配置占位元復原投影片占位元的位置、大小與格式。此範例需要一個已存在且包含版面連結占位元的簡報，並在儲存前重設每張投影片。沒有相應版面占位元的圖形不會被重設。
 
 ```java
 import com.aspose.slides.*;
@@ -852,14 +906,14 @@ try {
 
 ## **常見問題**
 
-**形狀格式設定會影響最終簡報檔案大小嗎？**
+**圖形格式設定會影響最終簡報檔案大小嗎？**
 
-相較於內嵌的影像與媒體，顏色、線條樣式與效果設定通常只會增加少量資料。圖片填色可能會因儲存影像於簡報中而增加檔案大小。
+相較於嵌入的圖像與媒體，顏色、線條樣式與效果設定通常只會添加少量資料。圖片填色可能會因其圖像儲存在簡報中而增加檔案大小。
 
-**如何偵測投影片上具相同格式的形狀以便將其分組？**
+**如何偵測投影片上具有相同格式的圖形，以便將它們分組？**
 
-比對每個形狀的關鍵格式屬性——填色、線條與效果設定。若所有對應的值皆相符，則視為樣式相同，並在邏輯上將這些形狀分組，以簡化之後的樣式管理。
+比較每個圖形的關鍵格式屬性——填色、線條與效果設定。若所有對應值相符，則視為相同樣式，並在邏輯上將這些圖形分組，這可簡化之後的樣式管理。
 
-**是否可以將一套自訂形狀樣式儲存為獨立檔案，以便在其他簡報中重複使用？**
+**我可以將一組自訂圖形樣式儲存至單獨檔案，以便在其他簡報中重複使用嗎？**
 
-可以。將帶有所需樣式的範例形狀存放於範本投影片或 .POTX 範本檔案中。建立新簡報時，開啟該範本，複製所需的已樣式化形狀，並在需要的地方重新套用其格式設定。
+可以。將具備所需樣式的範例圖形儲存於範本投影片或 .POTX 範本檔。建立新簡報時，開啟該範本，複製您需要的已樣式化圖形，並在需要的地方重新套用其格式設定。

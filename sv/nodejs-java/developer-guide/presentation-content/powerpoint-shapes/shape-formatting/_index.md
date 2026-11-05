@@ -1,5 +1,5 @@
 ---
-title: Formatera PowerPoint‑former i JavaScript
+title: Formatera PowerPoint-former i JavaScript
 linktitle: Formatering av former
 type: docs
 weight: 20
@@ -7,31 +7,31 @@ url: /sv/nodejs-java/shape-formatting/
 keywords:
 - formatera form
 - formatera linje
-- skiss‑effekt
-- skiss av formlinje
+- skiss-effekt
+- skisslinje
 - formatera fogstil
 - gradientfyllning
 - mönsterfyllning
 - bildfyllning
 - texturfyllning
-- solid‑färg‑fyllning
+- solid färgfyllning
 - formtransparens
-- svart‑vit formrendering
+- svart‑vitt formrendering
 - gråskala formrendering
 - rotera form
-- 3D‑avfasningseffekt
-- 3D‑roteringseffekt
+- 3D fasadeffekt
+- 3D rotereffekt
 - återställ formatering
 - PowerPoint
 - presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Lär dig hur du formaterar PowerPoint‑former i JavaScript med Aspose.Slides – ställ in fyllnings‑, linje‑ och effektstilar för PPT‑ och PPTX‑filer med precision och full kontroll."
+description: "Lär dig hur du formaterar PowerPoint‑former i JavaScript med Aspose.Slides—ställ in fyllnings-, linje‑ och effektstilar för PPT‑ och PPTX‑filer med precision och full kontroll."
 ---
 ## **Introduktion**
 
-Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för Node.js via Java låter dig kontrollera dessa inställningar programmässigt, inklusive transparens, rotation och 3D‑formatering.
+Formatera former i PowerPoint genom att justera deras konturer, fyllningar och effekter. Aspose.Slides för Node.js via Java låter dig kontrollera dessa inställningar programmässigt, inklusive transparens, rotation och 3D-formatering.
 
 ![Formateringsalternativ för former i PowerPoint](format-shape-powerpoint.png)
 
@@ -39,7 +39,7 @@ Aspose.Slides för Node.js via Java tillhandahåller klasser och metoder som lå
 
 ## **Formatera linjer**
 
-Använd [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att kontrollera en formes kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) väljer en tjock‑tunn sammansatt linje, medan [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) sätter dess bredd till 7 punkter och [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) väljer dash‑mönstret.
+Use [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att kontrollera en formes kontur. Detta exempel skapar en ofylld rektangel med en blå, streckad kontur. [LineFormat.setStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setStyle) väljer en tjock-tunn sammansatt linje, medan [LineFormat.setWidth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setWidth) sätter dess bredd till 7 punkter och [LineFormat.setDashStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setDashStyle) väljer streckmönstret.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -67,13 +67,13 @@ Resultatet:
 
 ![De formaterade linjerna i presentationen](formatted-lines.png)
 
-### **Ange anpassade dash‑mönster för linjer**
+### **Ange anpassade linjedash‑mönster**
 
-Använd [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) när fördefinierade linjestilar inte ger de dash‑längder och mellanrum du behöver, t.ex. för varumärkeskonturer eller tekniska diagram. Att tilldela ett mönster ändrar automatiskt linjens dash‑stil till [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
+Använd [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCustomDashPattern) när fördefinierade linjestilar inte erbjuder de dash‑längder och -gap du behöver, till exempel för varumärkta konturer eller tekniska diagram. Att tilldela ett mönster ändrar automatiskt linjedash‑stilen till [LineDashStyle.Custom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linedashstyle/).
 
-Array‑poster växlar mellan dash‑ och gap‑längder och börjar med ett dash. Varje värde är en multipel av linjebredden: `[4, 2]` vid en bredd på 3 punkter ger ett 12‑punkts dash följt av ett 6‑punkts gap. Använd par av ändliga, icke‑negativa värden för att definiera kompletta dash‑och‑gap‑segment. Exemplet använder positiva värden för att hålla varje dash och gap synliga.
+Array‑poster alternerar mellan dash‑ och gap‑längder, med ett dash först. Varje värde är en multipel av linjebredden: `[4, 2]` vid en bredd av 3 punkter ger ett 12‑punkts dash följt av ett 6‑punkts gap. Använd par av ändliga, icke‑negativa värden för att definiera kompletta dash‑och‑gap‑segment. Exemplet använder positiva värden för att alla dash‑ och gap‑element ska vara synliga.
 
-Detta exempel skapar fem blå linjer med samma längd och platta ändar. De tre första jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbel bredd, vilket fördubblar både dash‑ och gap‑längderna. Den femte byter från ett anpassat mönster till en solid linje.
+Detta exempel skapar fem blå linjer med samma längd och platta ändar. De första tre jämför mönster vid en bredd på 3 punkter. Den fjärde upprepar det första mönstret med dubbla bredden, vilket fördubblar både dash‑ och gap‑längderna. Den femte växlar från ett anpassat mönster till en solid linje.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -117,21 +117,21 @@ För att återgå till en fördefinierad streckad stil istället, skicka [LineDa
 
 Resultatet i PowerPoint, från topp till botten: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; och **Solid, 3 pt**.
 
-![Tre anpassade dash‑mönster, en bredare linje med det första mönstret och en solid linje i PowerPoint](custom-dash-patterns.png)
+![Tre anpassade dash‑mönster, en bredare linje som använder det första mönstret, och en solid linje i PowerPoint](custom-dash-patterns.png)
 
-### **Ange linjeändar (Caps)**
+### **Ange linjeändar**
 
-Använd [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) för att sätta ändarna på en öppen linje. Klassen [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) tillhandahåller tre explicita cap‑stilar:
+Använd [LineFormat.setCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setCapStyle) för att ange ändarna på en öppen linje. Klassen [LineCapStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linecapstyle/) tillhandahåller tre explicita cap‑stilar:
 
-- `Flat`: Strecket slutar vid slutpunkten.
-- `Round`: En halvcirkel‑cap sträcker sig bortom slutpunkten med halva linjebredden.
-- `Square`: En fyrkantig cap sträcker sig bortom slutpunkten med halva linjebredden.
+- `Flat`: Stroke stoppas vid slutpunkten.
+- `Round`: En halvcirkelformad cap sträcker sig förbi slutpunkten med halva linjebredden.
+- `Square`: En fyrkantig cap sträcker sig förbi slutpunkten med halva linjebredden.
 
-Klassen innehåller också `NotDefined`, vilket betyder att ingen cap‑stil uttryckligen tilldelas.
+Klassen innehåller också `NotDefined`, vilket betyder att ingen cap‑stil är explicit tilldelad.
 
-Caps skiljer sig från pilhuvuden, som lägger till symboler i linjeändarna, och fogar, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilhuvuden via [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) och [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) så att endast cap‑formerna jämförs.
+Caps skiljer sig från pilhuvuden, som lägger till symboler på linjeändar, och fogar, som styr hörnen mellan linjesegment. Detta exempel inaktiverar pilhuvuden via [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setBeginArrowheadStyle) och [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setEndArrowheadStyle) så att endast cap‑formerna jämförs.
 
-Följande exempel skapar tre i övrigt identiska horisontella linjer, 20 punkter breda. Från topp till botten använder de platta, rundade och fyrkantiga caps. Deras slutpunkter har samma horisontella koordinater; de rundade och fyrkantiga caps sträcker sig 10 punkter bortom varje slutpunkt.
+Följande exempel skapar tre i övrigt identiska horisontella linjer, 20 punkter breda. Från topp till botten använder de platta, runda och fyrkantiga caps. Deras slutpunkter har samma horisontella koordinater; de runda och fyrkantiga caps sträcker sig 10 punkter förbi varje slutpunkt.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,11 +165,11 @@ Resultatet i PowerPoint, från topp till botten: **Flat**, **Round** och **Squar
 
 ![Platta, runda och fyrkantiga caps på identiska tjocka linjer i PowerPoint](line-caps.png)
 
-## **Applicera skiss‑effekter på form‑linjer**
+## **Tillämpa skiss‑effekter på formens linjer**
 
-En skiss‑effekt får en form‑linje att se handritad ut. Använd [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att komma åt linjeinställningarna, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) för att komma åt skissinställningarna och [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) för att välja ett värde från klassen [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
+En skisseffekt får en formlinje att se handritad ut. Använd [Shape.getLineFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getLineFormat) för att komma åt linjeinställningarna, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getSketchFormat) för att komma åt skissinställningarna, och [SketchFormat.setSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#setSketchType) för att välja ett värde från klassen [LineSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/).
 
-Följande JavaScript‑kod visar hur man applicerar en [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
+Följande JavaScript‑kod visar hur man tillämpar en [LineSketchType.Curved](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/)‑effekt, läser det explicit tilldelade värdet och tar bort effekten med [LineSketchType.None](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linesketchtype/):
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -190,7 +190,7 @@ try {
 }
 ```
 
-Värdet som returneras av [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) representerar den inställning som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), anropa `getSketchFormat` på det returnerade objektet och anropa sedan dess `getSketchType`‑metod. Det effektiva värdet speglar den formatering som faktiskt appliceras efter att arv har lösts. Detta exempel kräver en befintlig presentation med minst en form på första bilden och skriver ut båda värdena:
+Värdet som returneras av [SketchFormat.getSketchType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sketchformat/#getSketchType) representerar inställningen som tilldelats direkt till formen. Om linjeformateringen kan ärvas från ett tema, en master‑bild eller en layout‑bild, använd [LineFormat.getEffective](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#getEffective), anropa `getSketchFormat` på det returnerade objektet och sedan dess `getSketchType`‑metod. Det effektiva värdet speglar formateringen som faktiskt tillämpas efter att arv har lösts. Detta exempel kräver en befintlig presentation med minst en form på den första bilden och skriver ut båda värdena:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -211,19 +211,19 @@ try {
 }
 ```
 
-## **Formatera fog‑stilar**
+## **Formatera fogstilar**
 
-Här är de tre alternativen för fog‑typ:
+Här är de tre alternativen för fogtyp:
 
 * Round
 * Miter
 * Bevel
 
-Fog‑stilen styr hur två kontursegment möts i ett hörn. Använd **Round** för avrundade hörn, **Miter** för skarpa hörn eller **Bevel** för avfasade hörn.
+Fogstilen styr hur två kontursegment möts i ett hörn. Använd **Round** för rundade hörn, **Miter** för spetsiga hörn, eller **Bevel** för avplattade hörn.
 
-![Fog‑stilen i presentationen](join-style-powerpoint.png)
+![Fogstilen i presentationen](join-style-powerpoint.png)
 
-Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det använder [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) för att applicera värdena miter, bevel och round från [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), respektive, för att jämföra hur hörnen ritas.
+Detta exempel skapar tre svarta rektanglar med blå konturer 15 punkter breda. Det använder [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) för att applicera mitre‑, bevel‑ och round‑värdena från [LineJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/), respektive, för att jämföra hur hörnen ritas.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -269,13 +269,13 @@ try {
 }
 ```
 
-### **Begränsa Miter‑fog vid skarpa hörn**
+### **Begränsa Miter-fogar vid spetsiga hörn**
 
-Använd [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) tillsammans med [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) satt till [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) för att begränsa hur långt ett skarpt hörn kan sträcka sig.
+Använd [LineFormat.setMiterLimit](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setMiterLimit) tillsammans med [LineFormat.setJoinStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lineformat/#setJoinStyle) satt till [LineJoinStyle.Miter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/linejoinstyle/) för att begränsa hur långt ett spetsigt hörn kan sträcka sig.
 
-Gränsen är ett förhållande mellan avståndet mellan det inre och yttre hörnet av fogen och linjebredden. Till exempel tillåter ett värde på `8` en miter‑längd upp till åtta gånger linjebredden; det är ingen mätning i punkter. Om hörnet skulle överskrida gränsen använder PowerPoint en avfasad fog i det hörnet. En större gräns ger skarpare spetsar. Inställningen påverkar endast miter‑fog, och att ändra den har ingen synlig effekt när hörnet förblir inom båda gränserna.
+Gränsen är ett förhållande mellan avståndet mellan inre och yttre hörnet av foggen och linjebredden. Till exempel tillåter ett värde på `8` en miterlängd på upp till åtta gånger linjebredden; det är ingen mätning i punkter. Om hörnet skulle överskrida gränsen använder PowerPoint en avfasad fog på det hörnet. En större gräns möjliggör vassare punkter. Inställningen påverkar endast mitrefogar, och en förändring har ingen synlig effekt när hörnet förblir inom båda gränserna.
 
-Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, och den högra använder `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess övre hörn ett miter‑längd‑till‑linjebredd‑förhållande på cirka `4.12`. Följaktligen avfasar PowerPoint det vänstra spjutspetsen och behåller det högra.
+Detta exempel skapar två identiska, ofyllda trianglar med konturer 20 punkter breda. Den vänstra triangeln använder en gräns på `2`, och den högra använder `8`. Varje triangel är 80 punkter bred och 160 punkter hög, vilket ger dess översta hörn ett förhållande för miterlängd till linjebredd på ungefär `4.12`. Som ett resultat avfasar PowerPoint den vänstra spetsen och behåller den högra spetsen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -304,13 +304,13 @@ try {
 }
 ```
 
-Resultatet i PowerPoint: **Miter‑gräns 2** till vänster och **miter‑gräns 8** till höger.
+Resultatet i PowerPoint: **Miter limit 2** till vänster och **miter limit 8** till höger.
 
 ![En avfasad spets med miter‑gräns 2 och en spetsig spets med miter‑gräns 8 i PowerPoint](miter-limits.png)
 
 ## **Gradientfyllning**
 
-En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i 45‑gradsvinkel från rött till lila med hjälp av [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Metoden [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) placerar färgstopp vid 0 och 1, början och slutet på gradienten. Att rensa befintliga stopp säkerställer att endast dessa två färger används.
+En gradientfyllning blandar färger över en form. Detta exempel fyller en ellips med en linjär gradient i en 45‑gradig vinkel från rött till lila med hjälp av [FillFormat.getGradientFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getGradientFormat). Metoden [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientstopcollection/#addPresetColor) placerar färgstopp vid 0 och 1, början och slutet av gradienten. Genom att rensa befintliga stopp försäkras att endast dessa två färger används.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -338,13 +338,13 @@ Resultatet:
 
 ![Ellipsen med gradientfyllning](gradient-fill.png)
 
-Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Choose a Gradient Rendering Style](/slides/sv/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen som lagras i presentationen.
+Om en gradient ser annorlunda ut i en exporterad bild än i PowerPoint, se [Välj en gradientrenderingsstil](/slides/sv/nodejs-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Du kan välja en renderingsstil utan att ändra gradientfyllningen som lagras i presentationen.
 
-### **Ange linjär gradientvinkel**
+### **Ange den linjära gradientvinkeln**
 
-Använd [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) för att kontrollera orienteringen på en [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från topp till botten, `180` från höger till vänster och `270` från botten till topp. Decimalgrader stöds. Ändliga vinklar utanför `[0, 360)` normaliseras till en hel varv; t.ex. blir `-45` `315` och `360` blir `0`.
+Använd [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle) för att styra orienteringen av en [GradientShape.Linear](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑fyllning. Vinkeln mäts i grader och ökar medurs: `0` går från vänster till höger, `90` från topp till botten, `180` från höger till vänster, och `270` från botten till topp. Bråkvinklar stöds. Finitiva vinklar utanför `[0, 360)` normaliseras till en varv; till exempel blir `-45` `315` och `360` blir `0`.
 
-Detta exempel skapar sex rektanglar med identiska röda, gröna och blå stopp på positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i den första raden, samt `135`, `180` och `270` i den andra raden.
+Detta exempel skapar sex rektanglar med identiska röda, gröna och blå stopp på positionerna `0`, `0.5` och `1`. Skalning är inaktiverad så att vinkeln kan jämföras oberoende av rektanglarnas proportioner. Vinklarna, från vänster till höger, är `0`, `45` och `90` i första raden, och `135`, `180` och `270` i den andra raden.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -383,13 +383,13 @@ try {
 
 Resultatet i PowerPoint:
 
-![Linjär gradient vid 0, 45 och 90 grader i översta raden, och 135, 180 och 270 grader i nedersta raden](linear-gradient-angles.png)
+![Linjär gradient vid 0, 45 och 90 grader i översta raden, och 135, 180 och 270 grader i nedre raden](linear-gradient-angles.png)
 
 ### **Skala en linjär gradient med formen**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepterar ett [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False` för att behålla den geometriska gradientvinkeln när formens proportioner förändras, eller till `True` för att skala gradienten med formens bredd och höjd. Med skalning aktiverad kan den synliga vinkeln skilja sig från den tilldelade vinkeln på en icke‑kvadratisk form.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientScaled) accepterar ett [NullableBool](https://reference.aspose.com/slides/nodejs-java/aspose.slides/nullablebool/)‑värde. Sätt det explicit till `False` för att behålla den geometriska gradientvinkeln när formens proportioner förändras, eller till `True` för att skala gradienten med formens bredd och höjd. När skalning är aktiverad kan den synliga vinkeln skilja sig från den tilldelade vinkeln på en icke‑fyrkantig form.
 
-Följande exempel använder en `45`‑graders vinkel och samma färgstopp som vinkeljämförelsen. Den vänstra kolumnen använder `False`; den högra kolumnen använder `True`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda startar med samma breda dimensioner; förändringen av den andra rektangelns bredd och höjd visar hur fyllningen reagerar på storleksändring utan att ändra dess gradientinställningar.
+Följande exempel använder en `45`‑gradig vinkel och samma färgstopp som vinkeljämförelsen. Den vänstra kolumnen använder `False`; den högra kolumnen använder `True`. Varje kolumn innehåller en bred rektangel ovanför en hög rektangel. Båda börjar med samma breda dimensioner; förändring av den andra rektangelns bredd och höjd demonstrerar hur fyllningen svarar på storleksändring utan att ändra gradientinställningarna.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -435,15 +435,15 @@ try {
 
 Resultatet i PowerPoint, med skalning inaktiverad till vänster och aktiverad till höger:
 
-![Breda och höga rektanglar med en 45‑graders gradient, jämförelse LinearGradientScaled False till vänster med True till höger](linear-gradient-scaling.png)
+![Breda och höga rektanglar med en 45‑gradig gradient, jämför LinearGradientScaled False till vänster med True till höger](linear-gradient-scaling.png)
 
-Med skalning inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. Med skalning aktiverad sträcks banden med formens proportioner. Detta hjälper till att reproducera en mall‑gradient när en form anpassas till en annan storlek. På en kvadrat förändras inte utseendet på denna `45`‑graders gradient när skalning är på.
+När skalning är inaktiverad behåller de diagonala färgbanden samma orientering i båda rektanglarna. När skalning är aktiverad sträcks banden med formens proportioner. Detta hjälper till att återge en mallgradient när en form anpassas till en annan storlek. På en fyrkant förändrar aktivering av skalning inte utseendet på denna `45`‑gradiga gradient.
 
-Både vinkel‑ och skalningsinställningarna gäller linjära gradienter. De styr inte [GradientShape.Radial eller GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/)‑fyllningar.
+Både vinkel- och skaleringsinställningarna gäller för linjära gradienter. De styr inte [GradientShape.Radial eller GradientShape.Rectangle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientshape/) fyllningar.
 
-### **Kombinera vinkel med gradient‑riktning**
+### **Kombinera vinkeln med gradientriktning**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) väljer en gradientstil från klassen [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/); det är inte en ersättning för ett numeriskt vinkelvärde. För en linjär gradient kan hörn‑stilarna ändra området där färgerna fördelas utan att ändra vinkeln som tilldelats via [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Behåll riktningen oförändrad när du jämför vinklar eller skalning.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setGradientDirection) väljer en gradientstil från klassen [GradientDirection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientdirection/). Det är ingen ersättning för en numerisk vinkel. För en linjär gradient kan hörnstilarna förändra området där färgerna fördelas utan att ändra vinkeln som tilldelas via [setLinearGradientAngle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/gradientformat/#setLinearGradientAngle). Håll riktningen oförändrad när du jämför vinklar eller skalning.
 
 Följande exempel applicerar samma inställningar i omvänd ordning. De två rektanglarna har samma utseende: att tilldela riktningen före eller efter vinkeln förändrar inte resultatet.
 
@@ -485,7 +485,7 @@ try {
 
 ## **Mönsterfyllning**
 
-En mönsterfyllning använder en två‑färgs design, såsom punkter, ränder eller rutnät. Detta exempel använder [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) för att välja ett galler‑mönster. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) anger den ljusgrå bakgrunden, och [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) anger den gula mönsterfärgen.
+En mönsterfyllning applicerar en tvåfärgsdesign, såsom prickar, ränder eller rutmönster. Detta exempel använder [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#setPatternStyle) för att välja ett galler‑mönster. [PatternFormat.getBackColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getBackColor) tillhandahåller den ljusgrå bakgrunden, och [PatternFormat.getForeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/patternformat/#getForeColor) tillhandahåller den gula mönsterfärgen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -513,7 +513,7 @@ Resultatet:
 
 ## **Bildfyllning**
 
-En bildfyllning använder en bild inuti en form. Detta exempel kräver en lokal bild och använder [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) för att ladda den i presentationens bildsamling. Att sätta [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) till tiled‑läget upprepar bilden inom rektangeln. Källbilden som används här visas nedan:
+En bildfyllning använder en bild inuti en form. Detta exempel kräver en lokal bild och använder [Images.fromFile](https://reference.aspose.com/slides/nodejs-java/aspose.slides/images/#fromFile) för att ladda den i presentationens bildsamling. Att sätta [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode) till det kaklade läget upprepar bilden inom rektangeln. Källbilden som används här visas nedan:
 
 ![Lotus‑bilden](lotus.png)
 
@@ -548,19 +548,19 @@ Resultatet:
 
 ![Formen med bildfyllning](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Kakla bild som textur**
 
-Om du vill ange en upprepad bild som en textur och anpassa upprepningsbeteendet kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
+Om du vill ställa in en kaklad bild som en textur och anpassa kaklingsbeteendet kan du använda följande metoder i klassen [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/):
 
 - [setPictureFillMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Ställer in bildfyllningsläget — antingen `Tile` eller `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Anger justeringen av brickorna inom formen.
-- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Kontrollerar om brickan vänds horisontellt, vertikalt eller båda.
-- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ställer in horisontell förskjutning av brickan (i punkter) från formens origin.
-- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ställer in vertikal förskjutning av brickan (i punkter) från formens origin.
-- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar horisontell skala för brickan i procent.
-- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar vertikal skala för brickan i procent.
+- [setTileAlignment](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Anger justeringen av kakel inom formen.
+- [setTileFlip](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Styr om kaklet vänds horisontellt, vertikalt eller båda.
+- [setTileOffsetX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ställer in den horisontella offseten för kaklet (i punkter) från formens ursprung.
+- [setTileOffsetY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ställer in den vertikala offseten för kaklet (i punkter) från formens ursprung.
+- [setTileScaleX](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definierar den horisontella skalan för kaklet som en procentandel.
+- [setTileScaleY](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definierar den vertikala skalan för kaklet som en procentandel.
 
-Detta exempel kräver en lokal bild och konfigurerar [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) för att upprepa den på 50 % av dess originalstorlek. Förskjutningar på −32 punkter flyttar brickorna horisontellt och vertikalt; justering nederst‑höger och spegling i båda riktningarna bestämmer hur den upprepade texturen arrangeras.
+Detta exempel kräver en lokal bild och konfigurerar [PictureFillFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/picturefillformat/) för att upprepa den till 50 % av dess originalstorlek. Offset på −32 punkter förflyttar kaklen horisontellt och vertikalt; nedre‑högra justering och vändning i båda riktningarna bestämmer hur den upprepade texturen organiseras.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -599,11 +599,11 @@ try {
 
 Resultatet:
 
-![Alternativen för brickor](tile-options.png)
+![Kakelalternativen](tile-options.png)
 
-## **Solid färgfyllning**
+## **Enkel färgfyllning**
 
-En solid fyllning ger en form en enda, enhetlig färg. Detta exempel använder [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) för att välja solid fyllningsläge och tilldelar gul via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), sedan sparas rektangeln i en presentation.
+En solid fyllning ger en form en enda, enhetlig färg. Detta exempel använder [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) för att välja solid fyllningsläge och tilldelar gult via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor), och sparar sedan rektangeln i en presentation.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -627,13 +627,82 @@ Resultatet:
 
 ![Formen med solid färgfyllning](solid-color-fill.png)
 
-## **Använd bildens bakgrund som formfyllning**
+### **Kopiera färger samtidigt som temareferenser bevaras**
 
-Använd [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) när en form ska matcha bildens bakgrund, t.ex. i en presentationsmall. Använd [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) för att först välja [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) för att ta bort eventuell explicit fyllning. Med den kombinationen använder formen bildens bakgrund istället för sin egen stilfyllning. Att bara sätta flaggan tar inte bort en befintlig explicit fyllning.
+Använd [ColorFormat.copyFrom](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#copyFrom) för att kopiera en färgdefinition, inklusive dess färgtyp, temareferens och transformationer. Detta är användbart när man överför en fyllningsfärg mellan former som ska fortsätta följa presentationens tema. Metoden kopierar endast färgen: den kopierar inte fyllningstyp, kontur eller annan formformatering. Ställ in destinationens fyllningstyp explicit med [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType).
 
-Detta skiljer sig från [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): ingen fyllning innebär att objekt bakom formen förblir synliga, medan en bakgrundsfyllning täcker objekt bakom formen med motsvarande område av bildens bakgrund. En gradient förblir justerad mot bilden snarare än att starta om i varje form.
+Detta exempel skapar tre rektanglar, från vänster till höger: källan, en temakompatibel kopia och en fast RGB‑kopia. Källan använder [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setSchemeColor) för att referera till den första accentfärgen och lägger till en nyans via [ColorOperationCollection.add](https://reference.aspose.com/slides/nodejs-java/aspose.slides/coloroperationcollection/#add). RGB‑kopian använder källans effektiva fyllningsfärg så att alla tre initialt ser identiska ut. Att anropa [ColorFormat.setColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#setColor) ställer in ett fast RGB‑värde och rensar eventuella befintliga färgtransformationer.
 
-Följande exempel skapar en master‑bakgrund som ärvs av bilden och placerar ett magentaband bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mellersta har ingen fyllning och den högra byter från bakgrundsfylning till en explicit orange fyllning.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, aspose.slides.SlideSizeScaleType.DoNotScale);
+    let slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 65, 105, 225));
+
+    let source = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 30, 40, 180, 140);
+    let themeCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 240, 40, 180, 140);
+    let rgbCopy = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (let shape of [source, themeCopy, rgbCopy]) {
+        shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    }
+
+    let sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(aspose.slides.SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(aspose.slides.ColorTransformOperation.Tint, java.newFloat(0.75));
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    let before = slide.getImage(1, 1);
+    try {
+        before.save("color-copy-before.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Temareferenser följer den nya accentfärgen; det fasta RGB-värdet gör det inte.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(java.newInstanceSync("java.awt.Color", 255, 69, 0));
+
+    let after = slide.getImage(1, 1);
+    try {
+        after.save("color-copy-after.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Före temaförändringen matchar alla tre fyllningar:
+
+![Källa, copyFrom‑destination och fast RGB‑destination med identiska blå fyllningar](color-copy-before.png)
+
+Efter temaförändringen följer källan och den temakompatibla kopian den nya accentfärgen och behåller sin nyans. Den fasta RGB‑kopian förblir blå:
+
+![Källa och copyFrom‑destination med orange fyllningar, medan den fasta RGB‑destinationen förblir blå](color-copy-after.png)
+
+Den kopierade definitionen är oberoende av källan. Att senare ändra källans temareferens, tilldela en annan färg eller lägga till eller ta bort dess transformationer förändrar inte destinationen. En temaförändring påverkar fortfarande båda formerna eftersom varje refererar oberoende till samma temafärg.
+
+Att spara och öppna PPTX‑filen igen bevarar den kopierade färgens typ som returneras av [ColorFormat.getColorType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorType), temareferensen och transformationssamlingen som returneras av [ColorFormat.getColorTransform](https://reference.aspose.com/slides/nodejs-java/aspose.slides/colorformat/#getColorTransform); den plattar inte ner definitionen till RGB.
+
+När du kopierar mellan olika temakontexter, såsom presentationer med olika accentpaletter, löser den kopierade referensen mot destinationens tema. Samma referens och transformationer kan därför ge en annan synlig färg. Se [Presentation Theme](/slides/sv/nodejs-java/presentation-theme/) för mer om att konfigurera temafärger.
+
+## **Använd bildbakgrunden som formfyllning**
+
+Använd [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape/#setUseBackgroundFill) när en form ska matcha bildbakgrunden, till exempel i en presentationsmall. Ställ in fyllningstypen med [FillFormat.setFillType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#setFillType) till [FillType.NotDefined](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/) först för att ta bort eventuell explicit fyllning. Med denna kombination använder formen bildbakgrunden istället för sin stilfyllning. Att bara aktivera flaggan tar inte bort en befintlig explicit fyllning.
+
+Detta skiljer sig från [FillType.NoFill](https://reference.aspose.com/slides/nodejs-java/aspose.slides/filltype/): bakgrundsfyllning täcker objekt bakom formen med motsvarande område av bildbakgrunden, medan ingen fyllning låter dessa objekt vara synliga. En gradient förblir justerad med bilden snarare än att starta om inom varje form.
+
+Följande exempel skapar en master‑bakgrund som ärvs av bilden och placerar ett magentaband bakom tre rektanglar. Den vänstra rektangeln använder bakgrunden, den mellersta rektangeln har ingen fyllning, och den högra rektangeln växlar från bakgrundsfyllning till en explicit orange fyllning.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -657,7 +726,7 @@ try {
     gradient.getGradientStops().add(0, java.newInstanceSync("java.awt.Color", 0, 0, 139));
     gradient.getGradientStops().add(1, java.newInstanceSync("java.awt.Color", 135, 206, 250));
 
-    // Lägg till detta objekt först så att det visas bakom rektanglarna.
+    // Lägg till detta objekt först så det visas bakom rektanglarna.
     let band = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     band.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "MAGENTA"));
@@ -674,7 +743,7 @@ try {
     explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NotDefined));
     explicitShape.setUseBackgroundFill(true);
 
-    // Inaktivera bakgrundsfyllning innan en explicit fyllning appliceras.
+    // Inaktivera bakgrundsfyllning innan du applicerar en explicit fyllning.
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     explicitShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 165, 0));
@@ -685,15 +754,15 @@ try {
 }
 ```
 
-Resultatet, från vänster till höger: **bakgrundsfyllning**, **ingen fyllning** och **explicit fyllning**. Magentabandet döljs av de vänstra och högra rektanglarna men är synligt genom den mellersta rektangeln.
+Resultatet, från vänster till höger: **background fill**, **no fill** och **explicit fill**. Magentabandet är dolt av den vänstra och högra rektangeln men förblir synligt genom den mellersta rektangeln.
 
 ![Bakgrundsfyllning, ingen fyllning och explicit orange fyllning över ett magentaband](background-fill.png)
 
-Samma beteende gäller för en bakgrund som definieras direkt på bilden eller ärvs från en layout. Formen använder bildens lösta bakgrund; exemplet lämnar både bild‑ och layout‑bakgrunder odefinierade så att master levererar den.
+Samma beteende gäller för en bakgrund som definieras direkt på bilden eller ärvs från en layout. Formen använder bildens lösta bakgrund; exemplet lämnar både bildens och layoutens bakgrunder odefinierade så att master‑bakgrunden levererar den.
 
-## **Ange transparens**
+## **Ställ in transparens**
 
-För en solid fyllning styr färgens alfa‑komponent opaciteten: 0 är helt transparent och 255 är helt opakt. Detta exempel använder ett alfa‑värde på 128 för en gul rektangel, vilket gör den cirka 50 % transparent så att rektangeln underförblir synlig. Färgen tilldelas via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
+För en solid fyllning styr färgens alfa‑komponent opaciteten: 0 är helt transparent och 255 är helt ogenomskinlig. Detta exempel använder ett alfa‑värde på 128 för en gul rektangel, vilket gör den ungefär 50 % transparent så att rektangeln under den förblir synlig. Färgen tilldelas via [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -721,7 +790,7 @@ Resultatet:
 
 ## **Rotera former**
 
-Använd [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) för att rotera en form i bildens plan. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
+Använd [Shape.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setRotation) för att rotera en form i bildplanet. Vinkeln mäts i grader; detta exempel roterar en rektangel 5 grader medurs och sparar presentationen.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -743,9 +812,9 @@ Resultatet:
 
 ![Formens rotation](shape-rotation.png)
 
-## **Lägg till 3D‑avfasningseffekter**
+## **Lägg till 3D‑fasadeffekter**
 
-Använd [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) för att ge en form djup och avfasade kanter. Detta exempel skapar en grön ellips med en orange kontur, använder [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) för att sätta djupet till 4 punkter och applicerar en cirkulär topp‑avfasning med bredd och höjd på 6 punkter via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). En front‑facing ortografisk kamera och tre‑punkt‑belysning gör avfasningen synlig.
+Använd [Shape.getThreeDFormat](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#getThreeDFormat) för att ge en form djup och fasade kanter. Detta exempel skapar en grön ellips med en orange kontur, använder [ThreeDFormat.setDepth](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#setDepth) för att sätta djupet till 4 punkter, och applicerar en cirkulär toppfas med en bredd och höjd på 6 punkter via [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/nodejs-java/aspose.slides/threedformat/#getBevelTop). En front‑facing ortografisk kamera och tre‑punkts belysning gör fasen synlig.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -777,11 +846,11 @@ try {
 
 Resultatet:
 
-![3D‑avfasningseffekten](3D-bevel-effect.png)
+![3D‑fasadeffekten](3D-bevel-effect.png)
 
-## **Lägg till 3D‑roterings‑effekter**
+## **Lägg till 3D‑rotereffekter**
 
-En forms 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) med latitud, longitud och revolutions‑vinklar på 40, 35 respektive 20 grader. Det väljer en isometrisk kamera via [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) och balanserad belysning via [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), sedan sparas den formaterade rektangeln.
+En forms 3D‑vy styrs av dess kamerainställningar. Detta exempel använder [Camera.setRotation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setRotation) med latitud, longitud och rotationsvinklar på 40, 35 och 20 grader. Det väljer en isometrisk kamera via [Camera.setCameraType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/camera/#setCameraType) och balanserad belysning via [LightRig.setLightType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/lightrig/#setLightType), och sparar sedan den formaterade rektangeln.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -804,15 +873,15 @@ try {
 
 Resultatet:
 
-![3D‑roterings‑effekten](3D-rotation-effect.png)
+![3D‑rotereffekten](3D-rotation-effect.png)
 
-## **Styr svart‑vit rendering för former**
+## **Styr svart‑vita rendering för former**
 
-Metoden [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) specificerar hur en individuell form renderas när en presentation visas eller bearbetas i svart‑vit läge. Den aktiverar inte svart‑vit visning i sig och ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
+[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode)‑metoden specificerar hur en enskild form renderas när en presentation visas eller bearbetas i svart‑vitt läge. Den aktiverar inte svart‑vit visning i sig, och den ändrar inte formens fyllning, linje eller annan formatering i normalt färgläge.
 
-Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderings‑applikationen välja konvertering, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utesluter formen i svart‑vit läge. `NotDefined` betyder att ingen form‑nivå‑mode har tilldelats.
+Använd ett värde från klassen [BlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/blackwhitemode/) för att välja önskat beteende. Till exempel låter `Automatic` renderingsapplikationen välja konverteringen, `Gray` och `LightGray` använder grå färgning, `BlackWhite` använder endast svart och vitt, `Black` och `White` tvingar en enda färg, `Color` bevarar normal färgning, och `Hidden` utesluter formen i svart‑vitt läge. `NotDefined` betyder att inget form‑specifikt läge är tilldelat.
 
-Detta exempel skapar en orange rektangel och använder [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) för att välja grå färgning. Den sparade formen behåller sin orange fyllning för normalt färgvisning och begär grå färgning från applikationer som hedrar svart‑vit displayinställningar:
+Detta exempel skapar en orange rektangel och använder [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) för att välja grå färgning. Den sparade formen behåller sin orange fyllning för normal färgvisning och begär grå färgning från applikationer som respekterar svart‑vita visningsinställningar:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -833,11 +902,11 @@ try {
 }
 ```
 
-I normalt färgläge behåller rektangeln sin orange fyllning. I ett arbetsflöde med svart‑vit visning använder den grå färgning eftersom dess mode är satt till `Gray`. Detta låter dig bevara en full‑färgs‑bildspel medan du definierar ett distinkt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som hedrar bildspelets svart‑vita displayinställningar.
+I normalt färgläge behåller rektangeln sin orange fyllning. I ett svart‑vitt arbetsflöde använder den grå färgning eftersom dess läge är satt till `Gray`. Detta låter dig bevara en färgrik bild samtidigt som du definierar ett särskilt utseende för utskrift, förhandsgranskning eller andra arbetsflöden som respekterar presentationens svart‑vita visningsinställningar.
 
 ## **Återställ formatering**
 
-Använd [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) för att återställa position, storlek och formatering av bild‑platshållare från deras motsvarande layout‑platshållare. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje bild innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
+Använd [Slide.reset](https://reference.aspose.com/slides/nodejs-java/aspose.slides/slide/#reset) för att återställa position, storlek och formatering av bildplatshållare från deras motsvarande layout‑platshållare. Detta exempel kräver en befintlig presentation med layout‑länkade platshållare och återställer varje bild innan den sparas. Former utan motsvarande layout‑platshållare återställs inte.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -857,14 +926,14 @@ try {
 
 ## **FAQ**
 
-**Påverkar formatering av former den slutliga presentationsfilens storlek?**
+**Påverkar formatering av former den slutgiltiga presentationsfilens storlek?**
 
-Färger, linjestilar och effektinställningar lägger generellt sett till lite data jämfört med inbäddade bilder och media. Bildfyllningar kan öka filstorleken eftersom deras bilder lagras i presentationen.
+Färger, linjestilar och effektinställningar lägger generellt till lite data jämfört med inbäddade bilder och media. Bildfyllningar kan öka filstorleken eftersom deras bilder lagras i presentationen.
 
-**Hur kan jag upptäcka former på en bild som har identisk formatering så att jag kan gruppera dem?**
+**Hur kan jag identifiera former på en bild som har identisk formatering så att jag kan gruppera dem?**
 
-Jämför varje forms nyckelformaterings‑egenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
+Jämför varje forms viktigaste formateringsegenskaper — fyllning, linje och effektinställningar. Om alla motsvarande värden matchar, behandla deras stilar som identiska och gruppera logiskt dessa former, vilket förenklar senare stilhantering.
 
-**Kan jag spara en uppsättning anpassade formstilar till en separat fil för återanvändning i andra presentationer?**
+**Kan jag spara en uppsättning anpassade formstilar i en separat fil för återanvändning i andra presentationer?**
 
-Ja. Spara exempelformer med önskade stilar i en mall‑presentation eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stiliserade formerna du behöver och återapplicera deras formatering där det krävs.
+Ja. Spara exempelformer med önskade stilar i ett mall‑bildspel eller en .POTX‑mallfil. När du skapar en ny presentation, öppna mallen, klona de stiliserade former du behöver och återapplicera deras formatering där det krävs.

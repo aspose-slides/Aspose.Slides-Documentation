@@ -1,5 +1,5 @@
 ---
-title: Formatowanie kształtów PowerPoint w C++
+title: Formatuj kształty PowerPoint w C++
 linktitle: Formatowanie kształtów
 type: docs
 weight: 20
@@ -8,9 +8,9 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- szkicowa linia kształtu
-- formatowanie stylu łączenia
-- wypełnienie gradientowe
+- linia szkicu kształtu
+- formatowanie stylu połączenia
+- wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
@@ -18,15 +18,15 @@ keywords:
 - przezroczystość kształtu
 - renderowanie kształtu czarno-białe
 - renderowanie kształtu w odcieniach szarości
-- obrót kształtu
-- efekt ścięcia 3D
-- efekt obrotu 3D
+- obracanie kształtu
+- efekt fazowania 3D
+- efekt rotacji 3D
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w C++ przy użyciu Aspose.Slides—ustaw wypełnienia, linie i style efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w C++ przy użyciu Aspose.Slides — ustaw style wypełnienia, linii i efektów dla plików PPT i PPTX z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
@@ -36,9 +36,9 @@ Formatuj kształty w programie PowerPoint, dostosowując ich kontury, wypełnien
 
 Aspose.Slides for C++ udostępnia interfejsy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji, które są dostępne w programie PowerPoint.
 
-## **Formatowanie linii**
+## **Formatuj linie**
 
-Użyj [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) aby kontrolować kontur kształtu. Ten przykład tworzy prostokąt bez wypełnienia z niebieskim, przerywanym konturem. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) wybiera linię złożoną z grubego i cienkiego odcinka, natomiast [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ustawia jej szerokość na 7 punktów, a [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) wybiera wzór przerywania.
+Użyj [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) do kontrolowania konturu kształtu. Ten przykład tworzy nie wypełniony prostokąt z niebieskim, przerywanym konturem. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) wybiera linię złożoną gruba-cienka, natomiast [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) ustawia jej szerokość na 7 punktów, a [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) wybiera wzór kreski.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -81,13 +81,13 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-### **Ustaw własne wzory przerywania linii**
+### **Ustaw niestandardowe wzory kresek linii**
 
-Użyj [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) kiedy wbudowane style linii nie zapewniają potrzebnych długości kresek i przerw, np. w obramowaniach firmowych lub diagramach technicznych. Przypisanie wzoru automatycznie zmienia styl przerywania na [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+Użyj [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) gdy wstępnie zdefiniowane style linii nie zapewniają potrzebnych długości kresek i przerw, na przykład dla markowych konturów lub diagramów technicznych. Przypisanie wzoru automatycznie zmienia styl kreski na [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Elementy tablicy naprzemiennie określają długość kreski i przerwy, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `{ 4, 2 }` przy szerokości 3 punktów powoduje kreskę 12‑punktową, po której następuje przerwa 6‑punktowa. Używaj par skończonych, nieujemnych wartości, aby definiować pełne segmenty kreska‑przerwa. W przykładzie użyto wartości dodatnich, aby każda kreska i przerwa były widoczne.
+Elementy tablicy naprzemiennie określają długości kresek i przerw, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `{ 4, 2 }` przy szerokości 3 punktów daje kreskę 12‑punktową, po której następuje przerwa 6‑punktowa. Używaj par skończonych, nieujemnych wartości, aby zdefiniować pełne segmenty kreska‑przerwa. Przykład używa dodatnich wartości, aby każda kreska i przerwa były widoczne.
 
-Ten przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzory przy szerokości 3 punktów. Czwarta powiela pierwszy wzór przy dwukrotnej szerokości, podwajając zarówno długość kreski, jak i przerwy. Piąta przechodzi z własnego wzoru na linię ciągłą.
+Przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzory przy szerokości 3 punktów. Czwarta powtarza pierwszy wzór przy dwukrotnej szerokości, podwajając zarówno długość kreski, jak i przerwy. Piąta przełącza się z niestandardowego wzoru na linię ciągłą.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -140,33 +140,31 @@ for (auto i = 0; i < patterns.size(); i++)
     line->get_LineFormat()->set_CustomDashPattern(patterns[i]);
 }
 
-// Return the last line to a solid style.
+// Zwróć ostatnią linię do stylu ciągłego.
 slide->get_Shape(4)->get_LineFormat()->set_DashStyle(LineDashStyle::Solid);
 
 presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Aby wrócić do wbudowanego stylu przerywanego, przekaż [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) do [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Wybrany styl kontroluje wygląd linii.
+Aby zamiast tego powrócić do wstępnie zdefiniowanego stylu kreski, przekaż [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) do [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). Wybrany styl kontroluje wygląd linii.
 
 Wynik w PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
 
-![Trzy własne wzory przerywania, szersza linia wykorzystująca pierwszy wzór oraz linia ciągła w programie PowerPoint](custom-dash-patterns.png)
+![Trzy niestandardowe wzory kresek, szersza linia używająca pierwszego wzoru i linia ciągła w programie PowerPoint](custom-dash-patterns.png)
 
 
-### **Ustaw style zakończeń linii**
+### **Ustaw zakończenia linii**
 
-Użyj [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) aby ustawić końce otwartej linii. Enumeracja [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) zapewnia trzy wyraźne style zakończeń:
+Użyj [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) aby ustawić końce otwartej linii. Wyliczenie [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) zapewnia trzy wyraźne style zakończeń:
 
-- `Flat`: Pędzel kończy się w punkcie końcowym.
-- `Round`: Półokrągłe zakończenie wykracza poza punkt końcowy o połowę szerokości linii.
-- `Square`: Kwadratowe zakończenie wykracza poza punkt końcowy o połowę szerokości linii.
+- `Flat`: Pędzel zatrzymuje się na końcowym punkcie.
+- `Round`: Półkularne zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
+- `Square`: Kwadratowe zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
 
-Enumera­cja zawiera również `NotDefined`, co oznacza, że nie przypisano żadnego stylu zakończenia.
+Wyliczenie zawiera również `NotDefined`, co oznacza, że żaden styl zakończenia nie został wyraźnie przypisany.
 
-Zakończenia różnią się od grotów strzałek, które dodają symbole do końców linii, oraz od połączeń, które kontrolują rogi między segmentami linii. Ten przykład wyłącza groty strzałek za pomocą [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) i [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/), aby porównać wyłącznie style zakończeń.
-
-Poniższy przykład tworzy trzy w pozostałym zakresie identyczne poziome linie, 20 punktów szerokości. Od góry do dołu używają kolejno zakończeń płaskiego, zaokrąglonego i kwadratowego. Ich końcowe współrzędne poziome są takie same; zakończenia zaokrąglone i kwadratowe wychodzą 10 punktów poza każdy koniec.
+Zakończenia różnią się od grotów strzałek, które dodają symbole na końcach linii, oraz od połączeń, które kontrolują rogi między segmentami linii. Przykład wyłącza grot strzałki za pomocą [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) i [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/), aby porównać jedynie kształty zakończeń.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -222,9 +220,9 @@ Wynik w PowerPoint, od góry do dołu: **Flat**, **Round** i **Square**.
 
 ## **Zastosuj efekty szkicu do linii kształtu**
 
-Efekt szkicu sprawia, że linia kształtu wygląda jak odręczna. Użyj [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) aby uzyskać dostęp do ustawień linii, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) aby uzyskać dostęp do ustawień szkicu oraz [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) aby wybrać wartość z enumeracji [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
+Efekt szkicu sprawia, że linia kształtu wygląda na ręcznie rysowaną. Użyj [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) aby uzyskać dostęp do ustawień linii, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) aby uzyskać dostęp do ustawień szkicu oraz [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/).
 
-Poniższy kod C++ pokazuje, jak zastosować efekt [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), odczytać przypisaną wartość oraz usunąć efekt przy użyciu [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+Poniższy kod C++ pokazuje, jak zastosować efekt [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/), odczytać wyraźnie przypisaną wartość i usunąć efekt przy użyciu [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +253,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Wartość zwrócona przez [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu głównego lub slajdu układu, użyj [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), uzyskaj [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) i odczytaj [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Wartość efektywna odzwierciedla formatowanie rzeczywiście zastosowane po rozwiązaniu dziedziczenia. Ten przykład wymaga istniejącej prezentacji z co najmniej jednym kształtem na pierwszym slajdzie i wypisuje obie wartości:
+Wartość zwrócona przez [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu-mistrza lub slajdu układu, użyj [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), odczytaj [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) i pobierz [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia. Przykład wymaga istniejącej prezentacji z co najmniej jednym kształtem na pierwszym slajdzie i wypisuje obie wartości:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,19 +283,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Formatowanie stylów łączenia**
+## **Formatuj style łączeń**
 
-Oto trzy dostępne opcje typu łączenia:
+Oto trzy dostępne opcje typu połączenia:
 
 * Zaokrąglony
-* Kąt ostry (Miter)
-* Ścięty (Bevel)
+* Kątowy
+* Fazowany
 
-Styl łączenia określa, w jaki sposób dwa odcinki konturu spotykają się w rogu. Użyj **Zaokrąglony** dla zaokrąglonych rogów, **Kąt ostry (Miter)** dla ostrych rogów lub **Ścięty (Bevel)** dla spłaszczonych rogów.
+Styl połączenia kontroluje, jak dwa segmenty konturu spotykają się w rogu. Użyj **Zaokrąglony** dla zaokrąglonych narożników, **Kątowy** dla ostrych narożników lub **Fazowany** dla spłaszczonych narożników.
 
 ![Styl łączenia w prezentacji](join-style-powerpoint.png)
 
-Ten przykład tworzy trzy czarne prostokąty z niebieskimi konturami o szerokości 15 punktów. Ustawia [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) na wartości kątowe, ścięte i zaokrąglone z enumeracji [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), aby porównać sposób rysowania rogów.
+Przykład tworzy trzy czarne prostokąty z niebieskimi konturami o szerokości 15 punktów. Ustawia [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) na wartości kątowy, fazowany i zaokrąglony z wyliczenia [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), aby porównać, jak rysowane są rogi.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -358,13 +356,13 @@ presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-### **Ogranicz łączenia kątowe przy ostrych rogach**
+### **Ogranicz połączenia kątowe przy ostrych rogach**
 
-Użyj [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) razem z [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ustawionym na [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), aby ograniczyć, jak daleko ostry róg może się wydłużać.
+Użyj [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) wraz z [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ustawionym na [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), aby ograniczyć, jak daleko może wystawać ostry róg.
 
-Limit jest stosunkiem odległości między wewnętrznym a zewnętrznym rogiem połączenia do szerokości linii. Na przykład wartość `8` pozwala na długość ścięcia do ośmiu razy większą niż szerokość linii; nie jest to pomiar w punktach. Jeśli róg przekroczyłby limit, PowerPoint użyje łączenia ściętego w tym miejscu. Większy limit pozwala na ostrzejsze punkty. Ustawienie wpływa wyłącznie na łączenia kątowe i nie ma widocznego efektu, gdy róg pozostaje w granicach limitu.
+Limit jest stosunkiem odległości między wewnętrznym a zewnętrznym rogiem połączenia do szerokości linii. Na przykład wartość `8` pozwala na długość kątową do ośmiu razy większą niż szerokość linii; nie jest to miara w punktach. Jeśli róg przekracza limit, PowerPoint używa połączenia fazowanego w tym miejscu. Większy limit pozwala na ostrzejsze punkty. Ustawienie wpływa tylko na połączenia kątowe i nie ma widocznego efektu, gdy róg mieści się w obu limitach.
 
-Ten przykład tworzy dwa identyczne, nie wypełnione trójkąty z konturami o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, a prawy `8`. Każdy trójkąt ma 80 punktów szerokości i 160 punktów wysokości, co daje stosunek długości ścięcia do szerokości linii w górnym rogu około `4.12`. W konsekwencji PowerPoint ścięcie lewego wierzchołka, a prawy pozostaje ostry.
+Przykład tworzy dwa identyczne, nie wypełnione trójkąty z konturami o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, a prawy `8`. Każdy trójkąt ma szerokość 80 punktów i wysokość 160 punktów, co daje stosunek długości kątowej do szerokości linii w górnym rogu około `4.12`. W rezultacie PowerPoint fazuje lewy wierzchołek i zachowuje ostrzy prawy.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -413,11 +411,11 @@ presentation->Dispose();
 
 Wynik w PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
 
-![Szczyt ścięty z limitem 2 i szczyt ostry z limitem 8 w programie PowerPoint](miter-limits.png)
+![A fasowany wierzchołek z limitem kątowym 2 i ostry wierzchołek z limitem kątowym 8 w programie PowerPoint](miter-limits.png)
 
-## **Wypełnienie gradientowe**
+## **Wypełnienie gradientem**
 
-Gradientowe wypełnienie miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni, przechodząc od czerwieni do fioletu, przy użyciu [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Metoda [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) umieszcza kolory w punktach 0 i 1, czyli na początku i końcu gradientu. Usunięcie istniejących przystanków zapewnia użycie wyłącznie tych dwóch kolorów.
+Gradientowe wypełnienie miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni od czerwonego do fioletowego przy użyciu [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). Metoda [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) umieszcza przystanki koloru w pozycjach 0 i 1, na początku i końcu gradientu. Usunięcie istniejących przystanków zapewnia użycie tylko tych dwóch kolorów.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -460,13 +458,13 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu przechowywanego w prezentacji.
+Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w PowerPoint, zobacz [Wybierz styl renderowania gradientu](/slides/pl/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu przechowywanego w prezentacji.
 
 ### **Ustaw kąt gradientu liniowego**
 
-Użyj [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) aby kontrolować orientację wypełnienia [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Kąt podawany jest w stopniach i rośnie zgodnie z ruchem wskazówek zegara: `0` – od lewej do prawej, `90` – od góry do dołu, `180` – od prawej do lewej, `270` – od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty spoza przedziału `[0, 360)` są normalizowane do jednej pełnej rotacji; np. `-45` staje się `315`, a `360` to `0`.
+Użyj [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) aby kontrolować orientację wypełnienia [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/). Kąt jest mierzony w stopniach i zwiększa się zgodnie z ruchem wskazówek zegara: `0` od lewej do prawej, `90` od góry do dołu, `180` od prawej do lewej i `270` od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty skończone poza zakresem `[0, 360)` są normalizowane do jednej pełnej rotacji; na przykład `-45` staje się `315`, a `360` staje się `0`.
 
-Ten przykład tworzy sześć prostokątów z identycznymi przystankami czerwonego, zielonego i niebieskiego w pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt mógł być porównywany niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
+Przykład tworzy sześć prostokątów z identycznymi przystankami koloru czerwonego, zielonego i niebieskiego w pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt można było porównać niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -527,11 +525,11 @@ Wynik w PowerPoint:
 
 ![Gradienty liniowe pod kątami 0, 45 i 90 stopni w górnym wierszu oraz 135, 180 i 270 stopni w dolnym wierszu](linear-gradient-angles.png)
 
-### **Skaluj gradient liniowy wraz z kształtem**
+### **Skaluj liniowy gradient wraz z kształtem**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) przyjmuje wartość typu [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Ustaw ją jawnie na `False`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True`, aby skalować gradient razem z szerokością i wysokością kształtu. Przy włączonej skalowaniu widoczny kąt może różnić się od przypisanego kąta w przypadku niekwadratowego kształtu.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) przyjmuje wartość typu [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Ustaw ją wyraźnie na `False`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True`, aby skalować gradient razem z szerokością i wysokością kształtu. Przy włączonej skali widoczny kąt może różnić się od przypisanego kąta w kształcie o nieregularnym kształcie.
 
-Poniższy przykład używa kąta `45` stopni i tych samych przystanków kolorowych co w porównaniu kątów. Lewa kolumna ma `False`; prawa kolumna ma `True`. Każda kolumna zawiera szeroki prostokąt nad wysokim prostokątem. Oba zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta pokazuje, jak wypełnienie reaguje na zmianę rozmiaru bez modyfikacji ustawień gradientu.
+Poniższy przykład używa kąta `45` stopni oraz tych samych przystanków koloru co porównanie kątów. Lewa kolumna używa `False`; prawa kolumna używa `True`. Każda kolumna zawiera szeroki prostokąt nad wysokim prostokątem. Oba zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta pokazuje, jak wypełnienie reaguje na zmianę rozmiaru bez zmiany ustawień gradientu.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,19 +595,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Wynik w PowerPoint, przy wyłączonej skalowaniu po lewej i włączonej po prawej:
+Wynik w PowerPoint, przy wyłączonej skali po lewej i włączonej po prawej:
 
-![Szerokie i wysokie prostokąty z gradientem 45‑stopniowym, porównanie LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
+![Szerokie i wysokie prostokąty z gradientem 45‑stopniowym, porównujące LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
 
-Przy wyłączonej skalowaniu przekątne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonej skalowaniu pasma rozciągają się wraz z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu podczas dostosowywania kształtu do innego rozmiaru. Na kwadracie włączenie skalowania nie zmienia wyglądu tego gradientu `45`‑stopniowego.
+Przy wyłączonej skali przekątne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonej skali pasma rozciągają się wraz z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu przy dopasowywaniu kształtu do innego rozmiaru. W kwadracie włączenie skalowania nie zmienia wyglądu tego gradientu `45`‑stopniowego.
 
-Oba ustawienia – kąt i skalowanie – dotyczą gradientów liniowych. Nie sterują wypełnieniami [GradientShape::Radial] ani [GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
+Zarówno kąt, jak i ustawienie skalowania dotyczą gradientów liniowych. Nie sterują one wypełnieniami [GradientShape::Radial or GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
 
 ### **Połącz kąt z kierunkiem gradientu**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) wybiera styl gradientu z enumeracji [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); nie jest to substytut kąta numerycznego. Dla gradientu liniowego style narożników mogą zmienić obszar rozkładu kolorów bez zmiany kąta ustawionego przez [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skalowaniu.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) wybiera styl gradientu z wyliczenia [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/); nie jest to zamiennik kąta liczbowego. Dla gradientu liniowego style narożników mogą zmieniać obszar, w którym kolory są rozmieszczone, bez zmiany kąta przypisanego przez [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skalowania.
 
-Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Oba prostokąty wyglądają tak samo: ustawienie kierunku przed lub po kącie nie zmienia rezultatu.
+Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Dwa prostokąty mają taki sam wygląd: przypisanie kierunku przed lub po kącie nie zmienia rezultatu.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -670,7 +668,7 @@ presentation->Dispose();
 
 ## **Wypełnienie wzorem**
 
-Wypełnienie wzorem nakłada dwukolorowy wzór, taki jak kropki, paski lub szachownica. Ten przykład używa [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) aby wybrać wzór kratki. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) dostarcza jasnoszare tło, a [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) dostarcza żółty kolor wzoru.
+Wypełnienie wzorem nakłada dwukolorowy wzór, taki jak kropki, paski lub kratkę. Ten przykład używa [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) aby wybrać wzór kratki. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) dostarcza jasnoszare tło, a [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) dostarcza żółty kolor wzoru.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -711,7 +709,7 @@ Wynik:
 
 ## **Wypełnienie obrazem**
 
-Wypełnienie obrazem używa obrazu wewnątrz kształtu. Ten przykład wymaga lokalnego obrazu i używa [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) aby załadować go do kolekcji obrazów prezentacji. Ustawienie [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) na tryb kafelkowy powtarza obraz w prostokącie. Poniżej pokazano używany obraz:
+Wypełnienie obrazem używa obrazu wewnątrz kształtu. Przykład wymaga lokalnego obrazu i używa [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) aby załadować go do kolekcji obrazów prezentacji. Ustawienie [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) na tryb kafelkowy powtarza obraz w obrębie prostokąta. Źródłowy obraz użyty w przykładzie przedstawiono poniżej:
 
 ![Obraz lotosu](lotus.png)
 
@@ -756,19 +754,19 @@ Wynik:
 
 ![Kształt z wypełnieniem obrazem](picture-fill.png)
 
-### **Kafelkowanie obrazu jako tekstura**
+### **Kafelkowanie obrazu jako tekstury**
 
-Jeśli chcesz ustawić obraz jako kafelkowaną teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić kafelkowany obraz jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod interfejsu [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) i klasy [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/):
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ustawia tryb wypełnienia obrazem — `Tile` lub `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Określa wyrównanie kafelków wewnątrz kształtu.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Kontroluje, czy kafelek jest odbity poziomo, pionowo czy w obu kierunkach.
+- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ustawia tryb wypełnienia obrazu — `Tile` lub `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Określa wyrównanie kafelków w obrębie kształtu.
+- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Kontroluje, czy kafelek jest odbity w poziomie, pionie lub w obu kierunkach.
 - [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
 - [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
 - [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definiuje poziomą skalę kafelka jako procent.
 - [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definiuje pionową skalę kafelka jako procent.
 
-Ten przykład wymaga lokalnego obrazu i konfiguruje [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) tak, aby powtarzał go w 50 % pierwotnego rozmiaru. Przesunięcia o −32 punkty przesuwają kafelki poziomo i pionowo; wyrównanie w prawym dolnym rogu oraz odbicie w obu kierunkach określają, jak powtarzana tekstura jest rozmieszczona.
+Przykład wymaga lokalnego obrazu i konfiguruje [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) aby powielać go w 50 % pierwotnego rozmiaru. Offsety ‑32 punktów przesuwają kafelki poziomo i pionowo; wyrównanie w prawym dolnym rogu oraz odbicie w obu kierunkach określają, jak powtarzana tekstura jest rozmieszczona.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -823,7 +821,7 @@ Wynik:
 
 ## **Wypełnienie jednolitym kolorem**
 
-Wypełnienie jednolite nadaje kształtowi jednorodny kolor. Ten przykład ustawia [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na tryb wypełnienia jednolitego i przypisuje żółty kolor przez [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), po czym zapisuje prostokąt w prezentacji.
+Jednolite wypełnienie nadaje kształtowi jeden, jednolity kolor. Ten przykład ustawia [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na tryb wypełnienia jednolitego i przypisuje żółty kolor przez [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), po czym zapisuje prostokąt w prezentacji.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -858,13 +856,102 @@ Wynik:
 
 ![Kształt z wypełnieniem jednolitym kolorem](solid-color-fill.png)
 
-## **Użyj tła slajdu jako wypełnienia dla kształtu**
+### **Kopiuj kolory zachowując odniesienia tematyczne**
 
-Użyj [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) gdy kształt ma pasować do tła slajdu, np. w szablonie prezentacji. Najpierw ustaw [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), aby usunąć wszelkie explicite ustawione wypełnienie. Dzięki tej kombinacji kształt używa tła slajdu zamiast własnego wypełnienia. Włączenie samej flagi nie usuwa istniejącego explicitego wypełnienia.
+Użyj [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) aby skopiować definicję koloru, w tym typ koloru, odniesienie do motywu i transformacje. Jest to przydatne przy przenoszeniu koloru wypełnienia pomiędzy kształtami, które mają nadal podążać za motywem prezentacji. Metoda kopiuje tylko kolor: nie kopiuje typu wypełnienia, konturu ani innych formatowań kształtu. Ustaw typ wypełnienia docelowego wyraźnie za pomocą [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
 
-Różni się to od [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): wypełnienie tłem zasłania obiekty znajdujące się pod kształtem obszarem odpowiadającym tłu slajdu, podczas gdy brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie rozpoczyna się wewnątrz każdego kształtu.
+Przykład tworzy trzy prostokąty, od lewej do prawej: źródło, kopia świadoma motywu i stała kopia RGB. Źródło używa [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) aby odwołać się do pierwszego koloru akcentu i dodaje odcień przez [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). Kopia RGB używa efektywnego koloru wypełnienia źródła, więc wszystkie trzy początkowo wyglądają identycznie. Wywołanie [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) ustawia stałą wartość RGB i usuwa istniejące transformacje koloru.
 
-Poniższy przykład tworzy tło główne dziedziczone przez slajd i umieszcza magentowy pasek za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na explicite pomarańczowe wypełnienie.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Referencje motywu podążają za nowym kolorem akcentu; stała wartość RGB nie.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Przed zmianą motywu wszystkie trzy wypełnienia są identyczne:
+
+![Źródło, docelowy CopyFrom i stały docelowy RGB z identycznym niebieskim wypełnieniem](color-copy-before.png)
+
+Po zmianie motywu źródło i kopia świadoma motywu podążają za nowym kolorem akcentu i zachowują swój odcień. Kopia stała RGB pozostaje niebieska:
+
+![Źródło i docelowy CopyFrom z pomarańczowym wypełnieniem, podczas gdy stały docelowy RGB pozostaje niebieski](color-copy-after.png)
+
+Skopiowana definicja jest niezależna od źródła. Kolejna zmiana odniesienia motywu w źródle, przypisanie innego koloru lub dodanie/usuunięcie jego transformacji nie zmienia docelowego kształtu. Zmiana motywu nadal wpływa na oba kształty, ponieważ każdy osobno odwołuje się do tego samego koloru motywu.
+
+Zapis i ponowne otwarcie pliku PPTX zachowuje typ skopiowanego koloru, dostępny przez [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), jego odniesienie do motywu oraz kolekcję transformacji zwróconą przez [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); nie spłaszcza definicji do RGB.
+
+Przy kopiowaniu pomiędzy różnymi kontekstami motywu, takimi jak prezentacje z odmiennymi paletami akcentów, skopiowane odwołanie jest rozwiązywane względem motywu docelowego. Ten sam odnośnik i transformacje mogą więc dawać inny widoczny kolor. Zobacz [Presentation Theme](/slides/pl/cpp/presentation-theme/) po więcej informacji o konfigurowaniu kolorów motywu.
+
+## **Użyj tła slajdu jako wypełnienia kształtu**
+
+Użyj [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) gdy kształt ma pasować do tła slajdu, na przykład w szablonie prezentacji. Najpierw ustaw [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) na [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/), aby usunąć wszelkie jawne wypełnienie. Dzięki tej kombinacji kształt używa tła slajdu zamiast własnego wypełnienia. Samo włączenie flagi nie usuwa istniejącego jawnego wypełnienia.
+
+Różni się to od [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): wypełnienie tłem pokrywa obiekty za kształtem obszarem odpowiadającym tłu slajdu, natomiast brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie rozpoczyna się wewnątrz każdego kształtu.
+
+Poniższy przykład tworzy tło mistrza dziedziczone przez slajd i umieszcza magentowy pasek za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na wyraźne pomarańczowe wypełnienie.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -899,7 +986,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// Dziedzicz gradient z mastera.
+// Dziedzicz gradient z motywu głównego.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -929,7 +1016,7 @@ auto explicitShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 510
 explicitShape->get_FillFormat()->set_FillType(FillType::NotDefined);
 explicitShape->set_UseBackgroundFill(true);
 
-// Wyłącz wypełnienie tłem przed zastosowaniem explicite wypełnienia.
+// Wyłącz wypełnienie tłem przed zastosowaniem wypełnienia jawnego.
 explicitShape->set_UseBackgroundFill(false);
 explicitShape->get_FillFormat()->set_FillType(FillType::Solid);
 explicitShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
@@ -938,15 +1025,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Wynik, od lewej do prawej: **wypełnienie tłem**, **brak wypełnienia** i **explicite wypełnienie**. Magentowy pasek jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
+Wynik, od lewej do prawej: **wypełnienie tłem**, **brak wypełnienia** i **wyraźne wypełnienie**. Magentowy pasek jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
 
-![Wypełnienie tłem, brak wypełnienia i explicite pomarańczowe wypełnienie nad magentowym pasem](background-fill.png)
+![Wypełnienie tłem, brak wypełnienia i wyraźne pomarańczowe wypełnienie nad magentowym pasem](background-fill.png)
 
-To samo zachowanie ma miejsce w przypadku tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozwiązanego tła slajdu; w przykładzie zarówno tło slajdu, jak i układu pozostają niezdefiniowane, aby dostarczyć je z szablonu nadrzędnego.
+To samo zachowanie dotyczy tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozwiązanego tła slajdu; przykład pozostawia zarówno tło slajdu, jak i układu niezdefiniowane, aby dostarczyć je z poziomu mistrza.
 
 ## **Ustaw przezroczystość**
 
-Dla wypełnienia jednolitego przezroczystość kontroluje składnik alfa koloru: 0 oznacza całkowitą przezroczystość, 255 – pełną nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, co czyni go w przybliżeniu w 50 % przezroczystym, tak aby prostokąt pod spodem pozostał widoczny. Kolor jest przypisany przez [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+Dla wypełnienia jednolitego komponent alfa koloru kontroluje nieprzezroczystość: 0 oznacza całkowitą przezroczystość, a 255 pełną nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, co daje około 50 % przezroczystości, dzięki czemu prostokąt pod spodem pozostaje widoczny. Kolor jest przypisany przez [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -987,7 +1074,7 @@ Wynik:
 
 ## **Obróć kształty**
 
-Użyj [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) aby obrócić kształt w płaszczyźnie slajdu. Kąt jest podawany w stopniach; ten przykład obraca prostokąt o 5 stopni zgodnie z ruchem wskazówek zegara i zapisuje prezentację.
+Użyj [IShape::set_Rotation](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_rotation/) aby obrócić kształt w płaszczyźnie slajdu. Kąt jest mierzony w stopniach; w tym przykładzie prostokąt jest obrócony o 5 stopni zgodnie z ruchem wskazówek zegara i zapisuje się prezentację.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -1016,9 +1103,9 @@ Wynik:
 
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodaj efekty 3D z fazą ścięcia**
+## **Dodaj efekty 3D krawędziowane**
 
-Użyj [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) aby nadać kształtowi głębię i ścięte krawędzie. Ten przykład tworzy zieloną elipsę z pomarańczowym obramowaniem, ustawia [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) na 4 punkty i stosuje okrągłą fazę górną o szerokości i wysokości 6 punktów poprzez [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Kamera ortograficzna skierowana na przód oraz oświetlenie trójpunktowe uwidaczniają efekt ścięcia.
+Użyj [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) aby nadać kształtowi głębię i krawędziowane brzegi. Ten przykład tworzy zieloną elipsę z pomarańczowym konturem, ustawia [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) na 4 punkty i stosuje okrągły górny bevel o szerokości i wysokości 6 punktów poprzez [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Kamera ortograficzna skierowana na przód oraz oświetlenie trójpunktowe uwidaczniają bevel.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1071,11 +1158,11 @@ presentation->Dispose();
 
 Wynik:
 
-![Efekt 3D z fazą ścięcia](3D-bevel-effect.png)
+![Efekt 3D krawędziowy](3D-bevel-effect.png)
 
-## **Dodaj efekty obrotu 3D**
+## **Dodaj efekty rotacji 3D**
 
-Widok 3D kształtu jest kontrolowany przez ustawienia kamery. Ten przykład używa [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) z kątem nachylenia, długości geograficznej i obrotu wynoszącymi odpowiednio 40°, 35° i 20°. Wybiera kamerę izometryczną poprzez [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) oraz zrównoważone oświetlenie poprzez [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), po czym zapisuje sformatowany prostokąt.
+Widok 3D kształtu jest kontrolowany przez ustawienia kamery. Ten przykład używa [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) z kątami szerokości, długości i obrotu wynoszącymi odpowiednio 40°, 35° i 20°. Wybiera kamerę izometryczną przez [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) oraz zrównoważone oświetlenie przez [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), po czym zapisuje sformatowany prostokąt.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1111,13 +1198,13 @@ presentation->Dispose();
 
 Wynik:
 
-![Efekt obrotu 3D](3D-rotation-effect.png)
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
 ## **Kontroluj renderowanie czarno-białe dla kształtów**
 
-Metoda [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samodzielnie trybu czarno-białego i nie zmienia wypełnienia, linii ani innych formatowań w normalnym trybie kolorowym.
+Metoda [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno‑białym. Nie włącza ona samego trybu czarno‑białego i nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
 
-Użyj wartości z enumeracji [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` stosują odcienie szarości, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają jednolity kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno-białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
+Użyj wartości z wyliczenia [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają odcieni szarości, `BlackWhite` używa tylko czerni i bieli, `Black` i `White` wymuszają pojedynczy kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno‑białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
 
 Ten przykład tworzy pomarańczowy prostokąt i ustawia [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) na szary. Zapisany kształt zachowuje pomarańczowe wypełnienie w normalnym trybie kolorowym i żąda szarego renderowania w aplikacjach honorujących ustawienia czarno‑białego wyświetlania:
 
@@ -1152,11 +1239,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W przepływie pracy czarno‑białego używa szarego koloru, ponieważ jego tryb jest ustawiony na `Gray`. Umożliwia to zachowanie pełnokolorowego slajdu przy definiowaniu odrębnego wyglądu dla drukowania, podglądu lub innych przepływów, które respektują ustawienia wyświetlania czarno‑białego prezentacji.
+W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W przepływie pracy czarno‑białego używa szarego koloru, ponieważ jego tryb jest ustawiony na `Gray`. Pozwala to zachować slajd pełnokolorowy, definiując jednocześnie odrębny wygląd dla drukowania, podglądu lub innych przepływów, które szanują ustawienia czarno‑białego wyświetlania prezentacji.
 
-## **Zresetuj formatowanie**
+## **Resetowanie formatowania**
 
-Użyj [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) aby przywrócić pozycję, rozmiar i formatowanie symboli slajdu z odpowiadających im symboli układu. Ten przykład wymaga istniejącej prezentacji z symbolami połączonymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających im symboli układu nie są resetowane.
+Użyj [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) aby przywrócić pozycję, rozmiar i formatowanie elementów zastępczych slajdu z ich odpowiednich elementów zastępczych układu. Ten przykład wymaga istniejącej prezentacji z elementami zastępczymi połączonymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających elementów układu nie są resetowane.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1182,14 +1269,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
+**Czy formatowanie kształtu wpływa na ostateczny rozmiar pliku prezentacji?**
 
 Kolory, style linii i ustawienia efektów zazwyczaj dodają niewiele danych w porównaniu z osadzonymi obrazami i multimediami. Wypełnienia obrazami mogą zwiększyć rozmiar pliku, ponieważ ich obrazy są przechowywane w prezentacji.
 
 **Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające sobie wartości są takie same, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linia i ustawienia efektów. Jeśli wszystkie odpowiadające wartości są zgodne, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw własnych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
+**Czy mogę zapisać zestaw niestandardowych stylów kształtów w osobnym pliku do ponownego użycia w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie slajdów lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowe kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.
+Tak. Przechowuj przykładowe kształty z żądanymi stylami w szablonie slajdów lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylizowane kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.

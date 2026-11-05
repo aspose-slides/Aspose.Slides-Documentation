@@ -1,45 +1,45 @@
 ---
-title: Android で PowerPoint シェイプをフォーマットする
-linktitle: シェイプの書式設定
+title: Android で PowerPoint の図形をフォーマットする
+linktitle: 図形の書式設定
 type: docs
 weight: 20
 url: /ja/androidjava/shape-formatting/
 keywords:
-- シェイプの書式設定
+- 図形の書式設定
 - 線の書式設定
 - スケッチ効果
-- スケッチシェイプ線
+- 図形線のスケッチ
 - 結合スタイルの書式設定
-- グラデーション塗りつぶし
-- パターン塗りつぶし
-- 画像塗りつぶし
-- テクスチャ塗りつぶし
-- 単色塗りつぶし
-- シェイプの透明度
-- 白黒シェイプレンダリング
-- グレースケールシェイプレンダリング
-- シェイプの回転
-- 3Dベベル効果
-- 3D回転効果
+- グラデーション塗り
+- パターン塗り
+- 画像塗り
+- テクスチャ塗り
+- 単色塗り
+- 図形の透明度
+- 白黒図形レンダリング
+- グレースケール図形レンダリング
+- 図形の回転
+- 3D ベベル効果
+- 3D 回転効果
 - 書式設定のリセット
 - PowerPoint
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Android で PowerPoint シェイプをフォーマットする方法を学びます。PPT および PPTX ファイルの塗り、線、効果スタイルを正確かつ完全にコントロールできます。"
+description: "Aspose.Slides を使用して Android で PowerPoint の図形をフォーマットする方法を学びます。PPT および PPTX ファイルの塗り、線、効果スタイルを正確かつ完全に制御できます。"
 ---
-## **イントロダクション**
+## **はじめに**
 
-PowerPoint でシェイプの輪郭、塗りつぶし、効果を調整して書式設定します。Aspose.Slides for Android via Java を使用すると、透明度、回転、3D 書式設定などの設定をプログラムで制御できます。
+PowerPoint の図形のアウトライン、塗りつぶし、効果を調整して書式設定します。Aspose.Slides for Android via Java を使用すると、透明度、回転、3D 書式設定などの設定をプログラムで制御できます。
 
-![PowerPoint のシェイプ書式設定オプション](format-shape-powerpoint.png)
+![PowerPoint の図形書式設定オプション](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java は、PowerPoint で利用できる同じオプションを使用してシェイプをフォーマットできるインターフェイスとメソッドを提供します。
+Aspose.Slides for Android via Java は、PowerPoint で利用できる同じオプションを使用して図形を書式設定できるインターフェイスとメソッドを提供します。
 
 ## **線の書式設定**
 
-シェイプの輪郭を制御するには [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) を使用します。この例では、塗りつぶしのない長方形を作成し、青色の破線の輪郭を設定します。[ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) は太さが異なる複合線を選択し、[ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) は幅を 7 ポイントに設定し、[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) は破線パターンを選択します。
+[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) を使用して図形のアウトラインを制御します。この例は、塗りつぶしなしの長方形に青色の点線アウトラインを作成します。[ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) で太さが異なる複合線を選択し、[ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) で幅を 7 ポイントに、[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) でダッシュパターンを選択します。
 
 ```java
 import com.aspose.slides.*;
@@ -67,13 +67,13 @@ try {
 
 ![プレゼンテーション内の書式設定された線](formatted-lines.png)
 
-### **カスタム線破線パターンの設定**
+### **カスタム線ダッシュパターンの設定**
 
-事前定義された線スタイルで必要な破線の長さや間隔が得られない場合は、[ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) を使用します（例：ブランド輪郭や技術図）。パターンを割り当てると、線の破線スタイルが自動的に [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) に変更されます。
+事前定義された線スタイルで必要なダッシュ長と間隔が提供されない場合は、[ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) を使用します。たとえば、ブランドのアウトラインや技術図で使用します。パターンを割り当てると、線のダッシュスタイルが [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) に自動的に変更されます。
 
-配列の要素は破線と間隔を交互に並べ、最初は破線から始まります。各値は線幅の倍数です。幅 3 ポイントで `{ 4, 2 }` を指定すると、12 ポイントの破線の後に 6 ポイントの間隔が続きます。有限かつ負でない値のペアを使用して、完全な破線‑間隔セグメントを定義します。この例では、すべての破線と間隔が可視になるように正の値を使用しています。
+配列の要素はダッシュとギャップの長さを交互に指定し、ダッシュから開始します。各値は線の幅の倍数です。幅が 3 ポイントの場合、`{ 4, 2 }` は 12 ポイントのダッシュと 6 ポイントのギャップになります。有限かつ非負の値のペアで完全なダッシュ‑ギャップセグメントを定義します。この例では、すべてのダッシュとギャップが見えるように正の値を使用しています。
 
-この例では、同じ長さで平坦なキャップを持つ 5 本の青い線を作成します。最初の 3 本は幅 3 ポイントでパターンを比較し、4 本目は最初のパターンを幅 2 倍に繰り返し、破線と間隔の長さも 2 倍にします。5 本目はカスタムパターンから実線に切り替えます。
+この例は、同じ長さでフラットキャップの青色の線を 5 本作成します。最初の 3 本は幅 3 ポイントでパターンを比較し、4 本目は幅を 2 倍にして最初のパターンを繰り返し、ダッシュとギャップの長さも 2 倍にします。5 本目はカスタムパターンから実線に切り替えます。
 
 ```java
 import com.aspose.slides.*;
@@ -112,25 +112,25 @@ try {
 }
 ```
 
-代わりに事前定義された破線スタイルに戻すには、[LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) を [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) に渡します。選択されたスタイルが線の外観を制御します。
+事前定義された破線スタイルに戻すには、[ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) に [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) を渡します。選択したスタイルが線の外観を制御します。
 
-PowerPoint の結果（上から下へ）: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; および **Solid, 3 pt**。
+PowerPoint での結果（上から下へ）: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; および **Solid, 3 pt**。
 
-![PowerPoint の 3 つのカスタム破線パターン、最初のパターンを使用した太い線、そして実線](custom-dash-patterns.png)
+![3 つのカスタムダッシュパターン、最初のパターンを使用した太い線、実線の PowerPoint 表示](custom-dash-patterns.png)
 
-### **線のキャップ設定**
+### **線キャップの設定**
 
-開いた線の端を設定するには [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) を使用します。[LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) クラスは、次の 3 つの明示的なキャップスタイルを提供します：
+[ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) を使用して開いた線の端を設定します。[LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) クラスは次の 3 つの明示的なキャップスタイルを提供します。
 
-- `Flat`: ストロークは終点で止まります。
-- `Round`: 半円形のキャップが線幅の半分だけ端点を超えて延びます。
-- `Square`: 四角形のキャップが線幅の半分だけ端点を超えて延びます。
+- `Flat`: ストロークは端点で止まります。
+- `Round`: 半円形のキャップが端点の外側に線幅の半分だけ伸びます。
+- `Square`: 正方形のキャップが端点の外側に線幅の半分だけ伸びます。
 
 クラスには `NotDefined` も含まれ、これはキャップスタイルが明示的に割り当てられていないことを意味します。
 
-キャップは、線の端にシンボルを追加する矢羽や、線分間のコーナーを制御するジョインとは異なります。この例では、[ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) と [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) を使用して矢羽を無効にし、キャップ形状のみを比較します。
+キャップは、線端に記号を追加する矢印ヘッドや、線セグメント間の角を制御するジョインとは異なります。この例では、[ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) と [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) で矢印ヘッドを無効にし、キャップ形状のみを比較します。
 
-以下の例では、幅 20 ポイントの水平線を 3 本作成します。上から下へ、Flat、Round、Square のキャップが適用されます。端点の水平座標は同じですが、Round と Square のキャップは各端点から 10 ポイント延びます。
+以下の例は、横方向に 20 ポイントの幅で、ほぼ同一の水平線を 3 本作成します。上から下へ、フラット、ラウンド、スクエアのキャップを使用します。端点は同じ水平座標を持ち、ラウンドとスクエアのキャップはそれぞれ端点から 10 ポイント外側に伸びます。
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-PowerPoint の結果（上から下へ）: **Flat**, **Round**, **Square**。
+PowerPoint での結果（上から下へ）: **Flat**, **Round**, **Square**。
 
-![PowerPoint の同一太線における平坦、丸み、四角のキャップ](line-caps.png)
+![PowerPoint で同一太線に適用されたフラット、ラウンド、スクエアキャップ](line-caps.png)
 
-## **シェイプ線へのスケッチ効果の適用**
+## **図形の線にスケッチ効果を適用する**
 
-スケッチ効果はシェイプの線を手描きに見せます。[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) で線設定にアクセスし、[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) でスケッチ設定にアクセスし、[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) で [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) クラスから値を選択します。
+スケッチ効果は図形の線を手描きに見せます。[IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) で線設定にアクセスし、[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) でスケッチ設定にアクセスし、[ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) で [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) クラスから値を選択します。
 
-以下の Java コードは [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 効果の適用、明示的に割り当てられた値の取得、そして [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) で効果を削除する方法を示しています。
+以下の Java コードは、[LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) 効果を適用し、明示的に割り当てられた値を取得し、[LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) で効果を削除する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-[ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) が返す値はシェイプに直接割り当てられた設定を表します。線の書式設定がテーマ、マスタースライド、またはレイアウトスライドから継承される可能性がある場合は、[ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) を使用し、[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) にアクセスし、[ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) を読み取ります。継承が解決された後に実際に適用された書式が有効値として返されます。この例では、最初のスライドに少なくとも 1 つのシェイプがある既存のプレゼンテーションが必要で、両方の値を出力します。
+[ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) が返す値は、図形に直接割り当てられた設定を表します。テーマ、マスタースライド、レイアウトスライドから線の書式設定が継承される可能性がある場合は、[ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) にアクセスし、[ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) を取得し、[ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) を読み取ります。Effective 値は、継承が解決された後に実際に適用される書式設定を反映します。この例は、最初のスライドに少なくとも 1 つの図形がある既存のプレゼンテーションを前提とし、両方の値を出力します。
 
 ```java
 import com.aspose.slides.*;
@@ -212,17 +212,17 @@ try {
 
 ## **結合スタイルの書式設定**
 
-次の 3 つが結合タイプのオプションです：
+結合タイプのオプションは次の 3 つです。
 
 * Round
 * Miter
 * Bevel
 
-結合スタイルは、2 本の輪郭セグメントがコーナーでどのように接続されるかを制御します。**Round** は丸みを帯びたコーナー、**Miter** は鋭いコーナー、**Bevel** は平坦なコーナーに使用します。
+結合スタイルは、2 つのアウトラインセグメントが角でどのように接続されるかを制御します。丸みを帯びた角には **Round**、鋭い角には **Miter**、平らな角には **Bevel** を使用します。
 
-![プレゼンテーションの結合スタイル](join-style-powerpoint.png)
+![プレゼンテーション内の結合スタイル](join-style-powerpoint.png)
 
-この例では、青い輪郭（幅 15 ポイント）を持つ黒い矩形を 3 つ作成します。[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) を使用して、[LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) の miter、bevel、round の各値を適用し、コーナーの描画方法を比較します。
+この例は、青色のアウトラインが 15 ポイント幅の黒い長方形を 3 つ作成します。[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) を使用して、[LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) の miter、bevel、round の各値を適用し、角の描画方法を比較します。
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **鋭いコーナーでのミタージョインの制限**
+### **鋭角の Miter 結合を制限する**
 
-[ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) と、[LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) に設定した [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) を組み合わせて、鋭いコーナーがどれだけ伸びるかを制限します。
+[ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) と、[ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) を [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) に設定して、鋭い角がどれだけ伸びるかを制限します。
 
-制限は、結合部の内側と外側のコーナー間の距離を線幅で割った比率です。たとえば `8` の値はミタ―長さを線幅の最大 8 倍まで許容し、ポイント単位の測定ではありません。コーナーが制限を超えると、PowerPoint はそのコーナーでベベル結合を使用します。制限を大きくすると、より鋭いポイントが得られます。この設定はミタージョインにのみ影響し、コーナーが両方の制限内に収まっている場合は視覚的な変化はありません。
+制限は、結合の内側と外側の角の距離を線幅で割った比率です。たとえば、`8` の値は線幅の最大 8 倍までの miter 長さを許可し、ポイント単位の測定ではありません。角が制限を超える場合、PowerPoint はその角で bevel 結合を使用します。より大きな制限は、より鋭いポイントを許可します。この設定は miter 結合にのみ影響し、角が両方の制限内に収まっている場合は目に見える変化はありません。
 
-この例では、幅 20 ポイントの輪郭を持つ同一の塗りつぶしなし三角形を 2 つ作成します。左側の三角形は `2` の制限、右側は `8` の制限を使用します。各三角形は幅 80 ポイント、高さ 160 ポイントで、上部コーナーのミタ―長さ‑線幅比は約 `4.12` です。その結果、PowerPoint は左側の頂点をベベルし、右側の頂点は保持します。
+この例は、幅 20 ポイントのアウトラインを持つ同一の塗りなし三角形を 2 つ作成します。左側の三角形は `2`、右側は `8` の制限を使用します。各三角形は幅 80 ポイント、高さ 160 ポイントで、上部の角の miter 長さと線幅の比率は約 `4.12` です。その結果、PowerPoint は左側の頂点を bevel にし、右側の頂点は保持します。
 
 ```java
 import com.aspose.slides.*;
@@ -303,13 +303,13 @@ try {
 }
 ```
 
-PowerPoint の結果: 左側は **Miter limit 2**、右側は **miter limit 8**。
+PowerPoint での結果: 左側は **Miter limit 2**、右側は **miter limit 8**。
 
-![PowerPoint の左側はミターレベル 2 の角がベベル加工され、右側はミターレベル 8 の鋭い角が保持された様子](miter-limits.png)
+![PowerPoint での bevel 頂点（Miter limit 2）と鋭い頂点（Miter limit 8）](miter-limits.png)
 
-## **グラデーション塗りつぶし**
+## **グラデーション塗り**
 
-グラデーション塗りつぶしはシェイプ全体に色をブレンドします。この例では、赤から紫への 45 度の線形グラデーションで楕円を塗りつぶします。使用するメソッドは [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) です。[IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) は 0 と 1 の位置（グラデーションの開始と終了）にカラー ストップを配置します。既存のストップをクリアすることで、使用される色はこの 2 つだけになります。
+グラデーション塗りは形状全体に色をブレンドします。この例は、[IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) を使用して、赤から紫への 45 度角の線形グラデーションで楕円を塗りつぶします。[IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) メソッドは、グラデーションの開始（0）と終了（1）にカラー ストップを配置します。既存のストップをクリアすることで、これら 2 つの色だけが使用されます。
 
 ```java
 import com.aspose.slides.*;
@@ -334,15 +334,15 @@ try {
 
 結果:
 
-![グラデーション塗りつぶしの楕円](gradient-fill.png)
+![グラデーション塗りの楕円](gradient-fill.png)
 
-グラデーションがエクスポート画像で PowerPoint と見た目が異なる場合は、[Choose a Gradient Rendering Style](/slides/ja/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) を参照してください。プレゼンテーションに保存されているグラデーション塗りつぶしを変更せずに、レンダリング スタイルだけを選択できます。
+エクスポートした画像でグラデーションが PowerPoint と異なる場合は、[Choose a Gradient Rendering Style](/slides/ja/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style) を参照してください。プレゼンテーションに保存されたグラデーション塗りを変更せずに、レンダリング スタイルを選択できます。
 
-### **線形グラデーション角度の設定**
+### **線形グラデーションの角度を設定する**
 
-[IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) を使用して、[GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 塗りつぶしの向きを制御します。角度は度数で測定され、時計回りに増加します：`0` は左から右、`90` は上から下、`180` は右から左、`270` は下から上です。小数角度もサポートされます。`[0, 360)` の範囲外の有限角度は 1 回転に正規化され、たとえば `-45` は `315` に、`360` は `0` になります。
+[IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) を使用して、[GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 塗りの向きを制御します。角度は度単位で時計回りに増加します: `0` は左から右、`90` は上から下、`180` は右から左、`270` は下から上です。小数角度もサポートされます。`[0, 360)` 以外の有限角度は 1 回転に正規化されます。たとえば、`-45` は `315` に、`360` は `0` になります。
 
-この例では、位置 `0`、`0.5`、`1` に同一の赤・緑・青ストップを持つ 6 つの矩形を作成します。スケーリングは無効にして、角度が矩形の比例に影響されずに比較できるようにします。左から右へ、最上段は `0`、`45`、`90`、次の行は `135`、`180`、`270` の角度です。
+この例は、位置 `0`、`0.5`、`1` に同一の赤・緑・青ストップを持つ 6 つの矩形を作成します。スケーリングを無効にして、角度を矩形の比率に依存せずに比較できるようにします。左から右への角度は、1 行目が `0`、`45`、`90`、2 行目が `135`、`180`、`270` です。
 
 ```java
 import com.aspose.slides.*;
@@ -379,15 +379,15 @@ try {
 }
 ```
 
-PowerPoint の結果:
+PowerPoint での結果:
 
-![上段の 0°, 45°, 90° の線形グラデーションと下段の 135°, 180°, 270° の線形グラデーション](linear-gradient-angles.png)
+![上段 0、45、90 度、下段 135、180、270 度の線形グラデーション](linear-gradient-angles.png)
 
-### **シェイプで線形グラデーションをスケールする**
+### **形状とともに線形グラデーションをスケールする**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) は [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) を受け取ります。`False` に設定すると形状の比例が変わっても幾何学的なグラデーション角度を維持し、`True` に設定すると幅と高さに合わせてグラデーションがスケールします。スケーリングが有効な場合、非正方形の形状では見える角度が割り当てた角度と異なることがあります。
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) は [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) 値を受け取ります。`False` に設定すると、形状のサイズが変わっても幾何学的なグラデーション角度が保持され、`True` に設定すると形状の幅と高さに合わせてグラデーションがスケールされます。スケーリングが有効な非正方形形状では、見える角度が割り当てた角度と異なる場合があります。
 
-以下の例では、`45` 度の角度と同じカラー ストップを使用します。左列は `False`、右列は `True` です。各列は上に幅の広い矩形、下に高さの高い矩形を配置します。最初は同じ幅で開始し、2 番目の矩形の幅と高さを変更して、塗りつぶしがサイズ変更にどのように応答するかを示します。
+以下の例は、`45` 度の角度と同じカラー ストップを使用します。左列は `False`、右列は `True` です。各列には横長の矩形の上に縦長の矩形があります。最初は同じ幅で、2 番目の矩形の幅と高さを変更して、塗りがリサイズにどのように応答するかを示します。
 
 ```java
 import com.aspose.slides.*;
@@ -431,19 +431,19 @@ try {
 }
 ```
 
-PowerPoint の結果（左側はスケーリングが無効、右側は有効）:
+PowerPoint での結果（左はスケーリング無効、右は有効）:
 
-![左側でスケーリングが無効、右側で有効の 45° グラデーションを持つ広い矩形と高い矩形の比較](linear-gradient-scaling.png)
+![左は LinearGradientScaled False、右は True の 45 度グラデーションを持つ横長・縦長矩形](linear-gradient-scaling.png)
 
-スケーリングが無効な場合、対角線の色帯は両方の矩形で同じ向きを保ちます。スケーリングが有効になると、色帯は形状の比例に合わせて伸びます。これにより、テンプレートのグラデーションを別のサイズのシェイプに適応させる際に再現しやすくなります。正方形の場合、スケーリングを有効にしてもこの `45` 度グラデーションの外観は変わりません。
+スケーリングを無効にすると、対角線の色帯は両方の矩形で同じ向きを保ちます。スケーリングを有効にすると、帯は形状の比率に合わせて伸びます。これにより、テンプレートのグラデーションを別サイズの形状に適用するときに再現しやすくなります。正方形では、スケーリングを有効にしてもこの `45` 度グラデーションの外観は変わりません。
 
-角度とスケーリングの設定は線形グラデーションにのみ適用され、[GradientShape.Radial] や [GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) の塗りつぶしは制御しません。
+角度設定とスケーリング設定は線形グラデーションにのみ適用され、[GradientShape.Radial] や [GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) 塗りには影響しません。
 
-### **角度とグラデーション方向の組み合わせ**
+### **角度とグラデーション方向を組み合わせる**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) は [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) クラスからグラデーション スタイルを選択しますが、数値角度の代替ではありません。線形グラデーションの場合、角度を [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) で設定したまま、コーナー スタイルで色が分布する領域を変更できます。角度やスケーリングを比較する際は方向を変更しないでください。
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) は [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) クラスからグラデーション スタイルを選択します。数値角度の代替ではありません。線形グラデーションの場合、コーナースタイルは [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) で設定した角度を変えることなく、色が分布する領域を変更できます。角度やスケーリングを比較するときは、方向は変更しないでください。
 
-以下の例では、同じ設定を逆順で適用します。2 つの矩形は同一の外観となり、方向を角度の前後で設定しても結果は変わりません。
+以下の例は、同じ設定を順序を入れ替えて適用します。2 つの矩形は同一の外観になり、方向を角度の前後に設定しても結果は変わりません。
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **パターン塗りつぶし**
+## **パターン塗り**
 
-パターン塗りつぶしは、点やストライプ、チェックなどの 2 色デザインを適用します。この例では、[IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) を使用してトレリス パターンを選択します。[IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) で薄いグレーの背景色を、[IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) で黄色のパターン色を指定します。
+パターン塗りは、ドット、ストライプ、チェックなどの二色デザインを適用します。この例は、[IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) で格子パターンを選択し、[IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) で薄い灰色の背景色を、[IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) で黄色のパターン色を指定します。
 
 ```java
 import com.aspose.slides.*;
@@ -507,11 +507,11 @@ try {
 
 結果:
 
-![パターン塗りつぶしの矩形](pattern-fill.png)
+![パターン塗りの矩形](pattern-fill.png)
 
-## **画像塗りつぶし**
+## **画像塗り**
 
-画像塗りつぶしはシェイプ内に画像を使用します。この例ではローカル画像が必要で、[Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) を使用してプレゼンテーションの画像コレクションに読み込みます。[IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) をタイル モードに設定すると、矩形内で画像が繰り返し表示されます。使用した元画像は以下です：
+画像塗りは、図形内に画像を配置します。この例はローカル画像を使用し、[Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) でプレゼンテーションの画像コレクションに読み込みます。[IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) をタイル モードに設定すると、画像が矩形内で繰り返されます。使用した元画像は以下です。
 
 ![蓮の画像](lotus.png)
 
@@ -543,21 +543,21 @@ try {
 
 結果:
 
-![画像塗りつぶしのシェイプ](picture-fill.png)
+![画像塗りの図形](picture-fill.png)
 
-### **タイル画像をテクスチャとして設定**
+### **テクスチャとして画像をタイル表示する**
 
-タイル画像をテクスチャとして使用し、タイル動作をカスタマイズするには、[IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) クラスの次のメソッドを使用できます：
+タイル画像をテクスチャとして設定し、タイル動作をカスタマイズしたい場合は、[IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) インターフェイスと [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) クラスの次のメソッドを使用できます。
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): 画像塗りつぶしモードを設定します（`Tile` または `Stretch`）。
-- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): タイルの配置をシェイプ内で指定します。
-- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): タイルを水平、垂直、または両方に反転させるかを制御します。
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): シェイプの基点からタイルの水平オフセット（ポイント）を設定します。
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): シェイプの基点からタイルの垂直オフセット（ポイント）を設定します。
-- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): タイルの水平スケールを百分率で定義します。
-- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): タイルの垂直スケールを百分率で定義します。
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): `Tile` または `Stretch` の画像塗りモードを設定します。
+- [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): タイルの配置を指定します。
+- [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): タイルを水平、垂直、または両方にフリップするかを制御します。
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): 形状の基点からタイルの水平オフセット（ポイント）を設定します。
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): 形状の基点からタイルの垂直オフセット（ポイント）を設定します。
+- [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): タイルの水平スケールをパーセンテージで定義します。
+- [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): タイルの垂直スケールをパーセンテージで定義します。
 
-この例ではローカル画像が必要で、[IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) を構成して元画像の 50% のサイズで繰り返します。`-32` ポイントのオフセットでタイルを水平・垂直にシフトし、右下揃えと両方向のフリップで繰り返しテクスチャの配置を決定します。
+この例はローカル画像を使用し、元サイズの 50% で繰り返すように [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) を構成します。`-32` ポイントのオフセットでタイルを水平・垂直にシフトし、右下揃えと両方向フリップで繰り返しテクスチャの配置を決定します。
 
 ```java
 import com.aspose.slides.*;
@@ -597,9 +597,9 @@ try {
 
 ![タイルオプション](tile-options.png)
 
-## **単色塗りつぶし**
+## **単色塗り**
 
-単色塗りつぶしはシェイプに単一の均一な色を付与します。この例では、[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) を使用して単色塗りつぶしモードを選択し、[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) で黄色を割り当て、矩形をプレゼンテーションに保存します。
+単色塗りは図形に単一の均一な色を付けます。この例は、[IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) で単色塗りモードを選択し、[IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) で黄色を割り当て、矩形をプレゼンテーションに保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -621,15 +621,84 @@ try {
 
 結果:
 
-![単色塗りつぶしのシェイプ](solid-color-fill.png)
+![単色塗りの図形](solid-color-fill.png)
 
-## **スライド背景をシェイプの塗りつぶしとして使用**
+### **テーマ参照を保持したまま色をコピーする**
 
-シェイプをスライド背景に合わせる必要がある場合（例：テンプレート）は、[IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) を使用します。最初に [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) に [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) を指定して明示的な塗りつぶしを削除します。この組み合わせにより、シェイプはスタイル塗りつぶしではなくスライド背景を使用します。フラグだけを有効にしても既存の明示的な塗りつぶしは削除されません。
+[IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) を使用すると、色タイプ、テーマ参照、変換を含むカラー定義をコピーできます。これは、テーマに従い続けるべき塗り色を別の図形に転送する場合に便利です。このメソッドは色だけをコピーし、塗りタイプ、アウトライン、その他の図形書式設定はコピーしません。宛先の塗りタイプは [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) で明示的に設定してください。
 
-[FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) とは異なり、背景塗りつぶしはシェイプの背後にあるオブジェクトをスライド背景の該当領域で覆いますが、NoFill はそれらのオブジェクトを表示したままにします。グラデーションはシェイプ内で再開せず、スライド全体に合わせて配置されます。
+この例は、左から右へ 3 つの矩形を作成します。左はソース、中央はテーマ対応コピー、右は固定 RGB コピーです。ソースは [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) で最初のアクセントカラーを参照し、[IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-) でティントを追加します。RGB コピーはソースの effective 塗り色を使用するため、最初はすべて同じ青色に見えます。[IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) を呼び出すと、固定 RGB 値が設定され、既存の色変換がクリアされます。
 
-以下の例では、マスタ背景をスライドが継承し、3 つの矩形の背後にマゼンタ バンドを配置します。左の矩形は背景を使用し、中央は塗りつぶしなし、右は背景塗りつぶしから明示的なオレンジ塗りつぶしに切り替えます。
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // テーマ参照は新しいアクセントカラーに従いますが、固定された RGB 値は従いません。
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+テーマ変更前は、3 つの塗りはすべて一致します:
+
+![ソース、copyFrom 宛先、固定 RGB 宛先の同一青塗り](color-copy-before.png)
+
+テーマ変更後、ソースとテーマ対応コピーは新しいアクセントカラーに従いティントを保持します。固定 RGB コピーは青のままです:
+
+![オレンジ塗りのソースと copyFrom 宛先、固定 RGB 宛先は青のまま](color-copy-after.png)
+
+コピーされた定義はソースから独立しています。以降、ソースのテーマ参照を変更したり別の色を割り当てたり、変換を追加・削除しても宛先には影響しません。テーマ変更は両方の図形に影響しますが、各図形は同じテーマカラーを個別に参照しているためです。
+
+保存して PPTX を再度開くと、[IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--) が返すカラータイプ、テーマ参照、[IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--) が返す変換コレクションは保持され、RGB にフラット化されません。
+
+異なるテーマコンテキスト間でコピーする場合（例: アクセント パレットが異なるプレゼンテーション間）には、コピーされた参照は宛先のテーマに対して解決されます。同じ参照と変換でも、見た目の色が変わることがあります。テーマカラーの設定方法は [Presentation Theme](/slides/ja/androidjava/presentation-theme/) を参照してください。
+
+## **スライドの背景を図形の塗りとして使用する**
+
+スライドの背景に合わせて図形を表示したい場合は、[IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) を使用します。まず [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) を [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) に設定して明示的な塗りを削除します。この組み合わせにより、図形はスタイル塗りではなくスライドの背景を使用します。フラグだけを有効にしても既存の明示的な塗りは削除されません。
+
+これは [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) とは異なります。背景塗りは図形の背後にあるオブジェクトをスライド背景の該当領域で覆い、NoFill はそれらのオブジェクトを表示したままにします。グラデーションは各図形内で再開されず、スライドに合わせて配置されます。
+
+以下の例は、スライドが継承するマスターバックグラウンドを作成し、3 つの矩形の背後にマゼンタ帯を配置します。左の矩形は背景を使用し、中央は NoFill、右は背景塗りから明示的なオレンジ塗りに切り替えます。
 
 ```java
 import com.aspose.slides.*;
@@ -653,7 +722,7 @@ try {
     gradient.getGradientStops().add(0, Color.rgb(0, 0, 139));
     gradient.getGradientStops().add(1, Color.rgb(135, 206, 250));
 
-    // このオブジェクトを最初に追加して、矩形の背面に表示されるようにします。
+    // このオブジェクトを最初に追加して矩形の背後に表示させます。
     IAutoShape band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100);
     band.getFillFormat().setFillType(FillType.Solid);
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA);
@@ -670,7 +739,7 @@ try {
     explicitShape.getFillFormat().setFillType(FillType.NotDefined);
     explicitShape.setUseBackgroundFill(true);
 
-    // 明示的な塗りつぶしを適用する前に背景塗りつぶしを無効にします。
+    // 明示的な塗りを適用する前に背景塗りを無効にします。
     explicitShape.setUseBackgroundFill(false);
     explicitShape.getFillFormat().setFillType(FillType.Solid);
     explicitShape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
@@ -681,15 +750,15 @@ try {
 }
 ```
 
-結果（左から右へ）: **background fill**、**no fill**、**explicit fill**。マゼンタ バンドは左と右の矩形で隠れますが、中央の矩形では可視のままです。
+結果（左から右へ）: **背景塗り**, **NoFill**, **明示的な塗り**。マゼンタ帯は左と右の矩形で隠れますが、中央の矩形からは見えます。
 
-![背景塗りつぶし、塗りつぶしなし、明示的なオレンジ塗りつぶしがマゼンタバンド上にある様子](background-fill.png)
+![背景塗り、NoFill、オレンジの明示的塗りがマゼンタ帯の上にある様子](background-fill.png)
 
-同様の動作はスライドに直接定義された背景やレイアウトから継承された背景にも適用されます。シェイプはスライドの解決済み背景を使用します。例ではスライドとレイアウトの背景を未定義にし、マスタが背景を供給するようにしています。
+同じ動作は、スライド上で直接定義された背景やレイアウトから継承された背景にも適用されます。図形は解決されたスライドの背景を使用します。この例ではスライドとレイアウトの背景は未定義のままにし、マスターが提供します。
 
 ## **透明度の設定**
 
-単色塗りつぶしの場合、カラーのアルファ成分が不透明度を制御します。0 が完全に透明、255 が完全に不透明です。この例ではアルファ値 128 の黄色の矩形を使用し、約 50% 透明にして下の矩形が見えるようにします。カラーは [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) で割り当てます。
+単色塗りの場合、色のアルファ成分が不透明度を制御します。0 が完全に透明、255 が完全に不透明です。この例は、黄色の矩形にアルファ値 128 を使用し、約 50% の透明度にして下の矩形が見えるようにします。色は [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) を介して割り当てられます。
 
 ```java
 import com.aspose.slides.*;
@@ -713,11 +782,11 @@ try {
 
 結果:
 
-![透明なシェイプ](shape-transparency.png)
+![透明な図形](shape-transparency.png)
 
-## **シェイプの回転**
+## **図形の回転**
 
-[IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) を使用して、スライド平面内でシェイプを回転させます。角度は度で測定され、この例では矩形を時計回りに 5 度回転させてプレゼンテーションを保存します。
+[IShape.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setRotation-float-) を使用して、スライド平面上で図形を回転させます。角度は度単位で測定されます。この例は、矩形を時計回りに 5 度回転させてプレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -737,11 +806,11 @@ try {
 
 結果:
 
-![シェイプの回転](shape-rotation.png)
+![図形の回転](shape-rotation.png)
 
 ## **3D ベベル効果の追加**
 
-[IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) を使用してシェイプに奥行きとベベルされたエッジを付与します。この例では緑の楕円にオレンジの輪郭を付け、[IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) で深さを 4 ポイントに設定し、[IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) で幅と高さが 6 ポイントの円形トップベベルを適用します。正面オーソグラフィック カメラと 3 点照明によりベベルが可視化されます。
+[IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) を使用して、図形に奥行きとベベル エッジを付加します。この例は、緑の楕円にオレンジのアウトラインを付け、[IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) で深さを 4 ポイントに設定し、[IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) で幅と高さが 6 ポイントの円形トップベベルを適用します。正面向きの正射影カメラと三点照明によりベベルが見えるようにします。
 
 ```java
 import com.aspose.slides.*;
@@ -777,7 +846,7 @@ try {
 
 ## **3D 回転効果の追加**
 
-シェイプの 3D 表示はカメラ設定で制御されます。この例では、[ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) に緯度 40 度、経度 35 度、回転 20 度を指定します。[ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) で等角投影カメラを選択し、[ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) でバランスの取れた照明を設定して、書式設定した矩形を保存します。
+図形の 3D 表示はカメラ設定で制御されます。この例は、[ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) に緯度 40 度、経度 35 度、回転 20 度を指定して使用します。[ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) で等角カメラを選択し、[ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) でバランスの取れた照明を設定し、書式設定された矩形を保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -802,13 +871,13 @@ try {
 
 ![3D 回転効果](3D-rotation-effect.png)
 
-## **シェイプの白黒レンダリング制御**
+## **図形の白黒レンダリングを制御する**
 
-[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) メソッドは、プレゼンテーションが白黒モードで表示または処理されたときに個々のシェイプがどのようにレンダリングされるかを指定します。このメソッドだけで白黒表示が有効になるわけではなく、通常のカラー表示時のシェイプの塗り、線、その他の書式設定は変更されません。
+[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) メソッドは、プレゼンテーションが白黒モードで表示または処理されるときに、個々の図形がどのようにレンダリングされるかを指定します。これ自体で白黒表示を有効にするわけではなく、通常のカラー モードでの図形の塗り・線・その他の書式設定も変更しません。
 
-[BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) クラスの値を使用して目的の動作を選択します。例：`Automatic` はレンダリング アプリケーションに変換を任せ、`Gray` と `LightGray` はグレイ カラー、`BlackWhite` は黒と白のみ、`Black` と `White` は単一カラー、`Color` は通常のカラーを保持、`Hidden` は白黒モードでシェイプを除外します。`NotDefined` はシェイプレベルのモードが未設定であることを意味します。
+[BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) クラスの値を使用して目的の動作を選択します。たとえば、`Automatic` はレンダリング アプリケーションに変換方式を任せ、`Gray` と `LightGray` は灰色で表示し、`BlackWhite` は黒と白だけ、`Black` と `White` は単一色、`Color` は通常のカラーを保持し、`Hidden` は白黒モードで図形を省略します。`NotDefined` は図形レベルのモードが割り当てられていないことを意味します。
 
-この例ではオレンジの矩形を作成し、[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) でグレイ カラーを選択します。保存されたシェイプは通常カラー表示ではオレンジの塗りを保持し、白黒表示設定を尊重するアプリケーションではグレイ カラーとして表示されます。
+この例はオレンジの矩形を作成し、[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) で灰色表示を選択します。保存された図形は通常カラー表示ではオレンジのままで、白黒表示をサポートするアプリケーションでは灰色で表示されます。
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-通常カラー表示では矩形はオレンジの塗りを保持します。白黒表示のワークフローでは、モードが `Gray` に設定されているためグレイ カラーで表示されます。これにより、フルカラーのスライドを保持しつつ、印刷やプレビューなど白黒設定を尊重するワークフロー向けに別の外観を定義できます。
+通常カラー モードでは矩形はオレンジのままです。白黒表示のワークフローでは、モードが `Gray` に設定されているため灰色で表示されます。これにより、フルカラーのスライドを保持しつつ、印刷やプレビュー、その他白黒表示を尊重するワークフロー用に別の外観を定義できます。
 
 ## **書式設定のリセット**
 
-[ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) を使用して、スライド プレースホルダーの位置、サイズ、書式設定を対応するレイアウト プレースホルダーから復元します。この例では、レイアウトにリンクされたプレースホルダーがある既存のプレゼンテーションが必要で、保存前にすべてのスライドをリセットします。対応するレイアウト プレースホルダーがないシェイプはリセットされません。
+[ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) を使用して、レイアウト プレースホルダーに対応するスライド プレースホルダーの位置、サイズ、書式設定を復元します。この例は、レイアウトにリンクされたプレースホルダーがある既存のプレゼンテーションが必要で、保存前にすべてのスライドをリセットします。対応するレイアウト プレースホルダーがない図形はリセットされません。
 
 ```java
 import com.aspose.slides.*;
@@ -852,14 +921,14 @@ try {
 
 ## **FAQ**
 
-**シェイプの書式設定は最終的なプレゼンテーションのファイルサイズに影響しますか？**
+**図形の書式設定は最終的なプレゼンテーション ファイル サイズに影響しますか？**
 
-カラーや線スタイル、効果設定は、埋め込み画像やメディアに比べてデータ量がほとんど増えません。画像塗りつぶしは画像がプレゼンテーションに保存されるため、ファイルサイズが増加する可能性があります。
+色、線スタイル、効果設定は、埋め込まれた画像やメディアに比べてデータ量が少ないです。画像塗りは、画像がプレゼンテーションに保存されるため、ファイル サイズが増加する可能性があります。
 
-**同一の書式設定を共有しているスライド上のシェイプを検出してグループ化するにはどうすればよいですか？**
+**同一書式設定の図形をスライド上で検出してグループ化するにはどうすればよいですか？**
 
-シェイプごとの主要な書式プロパティ（塗り、線、効果設定）を比較します。すべての対応する値が一致すれば、スタイルが同一とみなし、論理的にグループ化して後のスタイル管理を簡素化できます。
+各図形の主要な書式プロパティ（塗り、線、効果設定）を比較します。すべての対応する値が一致すれば、スタイルを同一と見なし、論理的にグループ化します。これにより、後のスタイル管理が簡素化されます。
 
-**カスタムシェイプスタイルのセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
+**カスタム図形スタイルのセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
 
-はい。目的のスタイルを持つサンプルシェイプをテンプレート スライド デッキまたは .POTX テンプレート ファイルに保存します。新しいプレゼンテーションを作成するときにテンプレートを開き、必要なスタイル付きシェイプをクローンして、必要な場所で書式設定を再適用します。
+はい。目的のスタイルを持つサンプル図形をテンプレート スライド デッキまたは .POTX テンプレート ファイルに保存します。新しいプレゼンテーションを作成するときにテンプレートを開き、必要なスタイル付き図形をクローンして、必要な場所で書式設定を再適用します。

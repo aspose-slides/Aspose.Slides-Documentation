@@ -1,36 +1,36 @@
 ---
 title: Μορφοποίηση Σχημάτων PowerPoint σε Python
-linktitle: Μορφοποίηση Σχήματος
+linktitle: Μορφοποίηση Σχημάτων
 type: docs
 weight: 20
 url: /el/python-net/shape-formatting/
 keywords:
 - μορφοποίηση σχήματος
 - μορφοποίηση γραμμής
-- εφέ σκέτσου
-- γραμμή σχήματος σκέτσου
+- εφέ σκέτσας
+- γραμμή σχήματος σκέτσας
 - μορφοποίηση στυλ σύνδεσης
-- γεμισμα διαβάθμισης
-- γεμισμα μοτίβου
-- γεμισμα εικόνας
-- γεμισμα υφής
-- γεμισμα στερεού χρώματος
+- γέμιση διαβάθμισης
+- γέμιση μοτίβου
+- γέμιση εικόνας
+- γέμιση υφής
+- συμπαγής γέμιση χρώματος
 - διαφάνεια σχήματος
-- απόδοση σχήματος σε ασπρόμαυρο
-- απόδοση σχήματος σε γκρι κλίμακα
+- αποτύπωση σχήματος ασπρόμαυρου
+- αποτύπωση σχήματος σε κλίμακα του γκρι
 - περιστροφή σχήματος
-- εφέ 3Δ απαλότητας
-- εφέ 3Δ περιστροφής
+- εφέ 3D φρεσκας
+- εφέ 3D περιστροφής
 - επαναφορά μορφοποίησης
 - PowerPoint
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε Python χρησιμοποιώντας το Aspose.Slides—ορίστε γεμίσματα, γραμμές και στυλ εφέ για αρχεία PPT, PPTX και ODP με ακρίβεια και πλήρη έλεγχο."
+description: "Μάθετε πώς να μορφοποιείτε σχήματα PowerPoint σε Python χρησιμοποιώντας το Aspose.Slides—ορίστε στυλ γεμίσματος, γραμμής και εφέ για αρχεία PPT, PPTX και ODP με ακρίβεια και πλήρη έλεγχο."
 ---
 ## **Εισαγωγή**
 
-Μορφοποιήστε σχήματα στο PowerPoint ρυθμίζοντας τα περιγράμματα, τα γέμισμα και τα εφέ τους. Το Aspose.Slides for Python μέσω .NET σάς επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της μορφοποίησης 3Δ.
+Διαμορφώστε σχήματα στο PowerPoint προσαρμόζοντας τα περιγράμματα, τις γεμίσεις και τα εφέ τους. Το Aspose.Slides for Python μέσω .NET σας επιτρέπει να ελέγχετε αυτές τις ρυθμίσεις προγραμματιστικά, συμπεριλαμβανομένης της διαφάνειας, της περιστροφής και της 3Δ μορφοποίησης.
 
 ![Επιλογές μορφοποίησης σχήματος στο PowerPoint](format-shape-powerpoint.png)
 
@@ -38,7 +38,7 @@ description: "Μάθετε πώς να μορφοποιείτε σχήματα P
 
 ## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιήστε [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα μη γεμάτο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Το [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) επιλέγει μια γραμμή με σύνθετο παχύ-λεπτό στυλ, ενώ το [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) ορίζει το πλάτος της σε 7 σημεία και το [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) επιλέγει το μοτίβο διακεκοσμού.
+Χρησιμοποιήστε [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) για να ελέγξετε το περίγραμμα ενός σχήματος. Αυτό το παράδειγμα δημιουργεί ένα άσπρο ορθογώνιο με μπλε, διακεκομμένο περίγραμμα. Το [LineFormat.style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/style/) επιλέγει μια γραμμή σύνθεσης παχιά‑λεπτή, ενώ το [LineFormat.width](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/width/) ορίζει το πλάτος της σε 7 σημεία και το [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) επιλέγει το μοτίμο διακεκομμένης γραμμής.
 
 ```python
 import aspose.slides as slides
@@ -62,13 +62,13 @@ with slides.Presentation() as presentation:
 
 ![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
 
-### **Ορισμός Προσαρμοσμένων Προτύπων Παύσας Γραμμής**
+### **Ορισμός Προσαρμοσμένων Μοτίβων Διακεκομμένων Γραμμών**
 
-Χρησιμοποιήστε [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) όταν τα προκαθορισμένα στυλ γραμμών δεν παρέχουν τα μήκη και τα κενά της παύσας που χρειάζεστε, για παράδειγμα για επωνυμογραφημένα περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός προτύπου ορίζει αυτόματα το [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) σε [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
+Χρησιμοποιήστε [LineFormat.custom_dash_pattern](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/custom_dash_pattern/) όταν τα προεπιλεγμένα στυλ γραμμής δεν παρέχουν τα μήκη και τα κενά που χρειάζεστε, π.χ. για εταιρικά περιγράμματα ή τεχνικά διαγράμματα. Η ανάθεση ενός μοτίβου ορίζει αυτόματα το [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/) σε [LineDashStyle.CUSTOM](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/).
 
-Οι καταχωρίσεις της λίστας εναλλάσονται μεταξύ μήκους παύσας και κενών, ξεκινώντας με παύσα. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `[4, 2]` σε πλάτος 3 σημείων παράγει παύσα 12 σημείων ακολουθούμενη από κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα παύσας-κενών. Το παράδειγμα χρησιμοποιεί θετικές τιμές για να διατηρούν όλες οι παύσες και τα κενά ορατά.
+Οι καταχωρίσεις της λίστας εναλλάσσονται μεταξύ μήκους γραμμής και κενών, ξεκινώντας με γραμμή. Κάθε τιμή είναι πολλαπλάσιο του πλάτους της γραμμής: `[4, 2]` με πλάτος 3 σημείων παράγει γραμμή 12 σημείων και κενό 6 σημείων. Χρησιμοποιήστε ζεύγη πεπερασμένων, μη αρνητικών τιμών για να ορίσετε πλήρη τμήματα γραμμής‑κενό. Το παράδειγμα χρησιμοποιεί θετικές τιμές ώστε κάθε γραμμή και κενό να είναι ορατά.
 
-Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές με το ίδιο μήκος και επίπεδα άκρα. Οι πρώτες τρεις συγκρίνουν πρότυπα σε πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο πρότυπο σε διπλάσιο πλάτος, διπλασιάζοντας τα μήκη της παύσας και του κενού. Η πέμπτη αλλάζει από προσαρμοσμένο πρότυπο σε στερεή γραμμή.
+Αυτό το παράδειγμα δημιουργεί πέντε μπλε γραμμές ίδιου μήκους και επίπεδων άκρων. Οι πρώτες τρεις συγκρίνουν μοτίβα με πλάτος 3 σημείων. Η τέταρτη επαναλαμβάνει το πρώτο μοτίβο με διπλάσιο πλάτος, αυξάνοντας τόσο τη γραμμή όσο και το κενό. Η πέμπτη αλλάζει από προσαρμοσμένο μοτίβο σε συμπαγή γραμμή.
 
 ```python
 import aspose.slides as slides
@@ -95,31 +95,31 @@ with slides.Presentation() as presentation:
         line.line_format.end_arrowhead_style = slides.LineArrowheadStyle.NONE
         line.line_format.custom_dash_pattern = pattern
 
-    # Επιστρέψτε την τελευταία γραμμή σε στερεό στυλ.
+    # Επιστρέψτε την τελευταία γραμμή σε συμπαγό στυλ.
     slide.shapes[4].line_format.dash_style = slides.LineDashStyle.SOLID
 
-    presentation.save("custom_dash_patterns.pptx", slides export.SaveFormat.PPTX)
+    presentation.save("custom_dash_patterns.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Για να επιστρέψετε σε προεπιλεγμένο διακεκομμένο στυλ, αναθέστε [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) στο [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
+Για να επιστρέψετε σε προεπιλεγμένο διακεκομμένο στυλ, αντιστοιχίστε το [LineDashStyle.DASH](https://reference.aspose.com/slides/python-net/aspose.slides/linedashstyle/) στο [LineFormat.dash_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/dash_style/). Το επιλεγμένο στυλ ελέγχει την εμφάνιση της γραμμής.
 
 Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **{4, 2}, 3 pt**· **{1, 2}, 3 pt**· **{6, 2, 1, 2}, 3 pt**· **{4, 2}, 6 pt**· και **Solid, 3 pt**.
 
-![Τρία προσαρμοσμένα πρότυπα παύσας, μια πιο παχή γραμμή με το πρώτο πρότυπο, και μια στερεή γραμμή στο PowerPoint](custom-dash-patterns.png)
+![Τρία προσαρμοσμένα μοτίβα διακεκομμένης γραμμής, μια πιο πλατιά γραμμή με το πρώτο μοτίβο και μια συμπαγή γραμμή στο PowerPoint](custom-dash-patterns.png)
 
 ### **Ορισμός Άκρων Γραμμής**
 
-Χρησιμοποιήστε [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) για να ορίσετε τα άκρα μιας ανοικτής γραμμής. Η απαίτηση [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) παρέχει τρία ρητά στυλ άκρων:
+Χρησιμοποιήστε [LineFormat.cap_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/cap_style/) για να ορίσετε τα άκρα μιας ανοιχτής γραμμής. Η απαρίθμηση [LineCapStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linecapstyle/) παρέχει τρία ρητά στυλ άκρων:
 
 - `FLAT`: Η γραμμή σταματά στο άκρο.
-- `ROUND`: Ένα ημικυκλικό άκρο εκτείνεται πέρα από το άκρο κατά το μισό του πλάτους της γραμμής.
-- `SQUARE`: Ένα τετράγωνο άκρο εκτείνεται πέρα από το άκρο κατά το μισό του πλάτους της γραμμής.
+- `ROUND`: Ένα ημικύκλιο άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
+- `SQUARE`: Ένα τετράγωνο άκρο εκτείνεται πέρα από το άκρο κατά το ήμισυ του πλάτους της γραμμής.
 
-Η απαίτηση περιλαμβάνει επίσης `NOT_DEFINED`, που σημαίνει ότι δεν έχει οριστεί ρητό στυλ άκρου.
+Η απαρίθμηση περιλαμβάνει επίσης το `NOT_DEFINED`, που σημαίνει ότι δεν έχει οριστεί ρητά κάποιο στυλ άκρου.
 
-Τα άκρα διαφέρουν από τις κεφαλές βελών, που προσθέτουν σύμβολα στα άκρα των γραμμών, και τις ενώσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τις κεφαλές βελών μέσω του [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) και του [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) ώστε να συγκριθούν μόνο τα σχήματα άκρων.
+Τα άκρα διαφέρουν από τις κεφαλές βέλους, που προσθέτουν σύμβολα στα άκρα, και από τις συνδέσεις, που ελέγχουν τις γωνίες μεταξύ τμημάτων γραμμής. Αυτό το παράδειγμα απενεργοποιεί τις κεφαλές βέλους μέσω των [LineFormat.begin_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/begin_arrowhead_style/) και [LineFormat.end_arrowhead_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/end_arrowhead_style/) ώστε να συγκριθούν μόνο τα σχήματα άκρων.
 
-Το παρακάτω παράδειγμα δημιουργεί τρεις παρόμοιες οριζόντιες γραμμές, 20 σημείων πλάτος. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδα, στρογγυλεμένα και τετράγωνα άκρα. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλεμένα και τετράγωνα άκρα εκτείνονται 10 σημεία πέρα από κάθε άκρο.
+Το ακόλουθο παράδειγμα δημιουργεί τρεις οριζόντιες γραμμές με τα ίδια χαρακτηριστικά, πλάτους 20 σημείων. Από πάνω προς τα κάτω, χρησιμοποιούν επίπεδα, στρογγυλεμένα και τετράγωνα άκρα. Τα άκρα τους έχουν τις ίδιες οριζόντιες συντεταγμένες· τα στρογγυλεμένα και τετράγωνα άκρα εκτείνονται 10 σημεία πέρα από κάθε άκρο.
 
 ```python
 import aspose.slides as slides
@@ -143,15 +143,15 @@ with slides.Presentation() as presentation:
     presentation.save("line_caps.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round** και **Square**.
+Το αποτέλεσμα στο PowerPoint, από πάνω προς τα κάτω: **Flat**, **Round**, και **Square**.
 
-![Επίπεδα, στρογγυλεμένα και τετράγωνα άκρα σε παρόμοιες παχιές γραμμές στο PowerPoint](line-caps.png)
+![Επίπεδα, στρογγυλεμένα και τετράγωνα άκρα σε πανομοιότυπες παχιές γραμμές στο PowerPoint](line-caps.png)
 
-## **Εφαρμογή Εφέ Σκέτσου στις Γραμμές Σχήματος**
+## **Εφαρμογή Εφέ Σκέτσας σε Γραμμές Σχήματος**
 
-Ένα εφέ σκέτσου κάνει μια γραμμή σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) για πρόσβαση στις ρυθμίσεις γραμμής, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) για πρόσβαση στις ρυθμίσεις σκέτσου, και [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) για επιλογή τιμής από την απαίτηση [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
+Ένα εφέ σκέτσας κάνει τη γραμμή ενός σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε [Shape.line_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/line_format/) για πρόσβαση στις ρυθμίσεις γραμμής, [LineFormat.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/sketch_format/) για πρόσβαση στις ρυθμίσεις σκέτσας, και [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) για επιλογή τιμής από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/).
 
-Ο παρακάτω κώδικας Python δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) , να διαβάσετε την ρητά ανατεθειμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
+Ο παρακάτω κώδικας Python δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType.CURVED](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/) , να διαβάσετε την ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType.NONE](https://reference.aspose.com/slides/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -168,7 +168,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-Η τιμή που επιστρέφεται από το [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) αντιπροσωπεύει τη ρύθμιση που έχει ανατεθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληθεί από θέμα, κύρια διαφάνεια ή διάταξη διαφάνειας, χρησιμοποιήστε το [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), αποκτήστε πρόσβαση στο [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/), και διαβάστε το [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση κληρονομίας. Το παράδειγμα αυτό απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εμφανίζει και τις δύο τιμές:
+Η τιμή που επιστρέφει το [SketchFormat.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/sketchformat/sketch_type/) αντιπροσωπεύει τη ρύθμιση που έχει εκχωρηθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληρονομηθεί από θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε το [LineFormat.get_effective](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/get_effective/), προσπελάστε το [ILineFormatEffectiveData.sketch_format](https://reference.aspose.com/slides/python-net/aspose.slides/ilineformateffectivedata/sketch_format/) και διαβάστε το [ISketchFormatEffectiveData.sketch_type](https://reference.aspose.com/slides/python-net/aspose.slides/isketchformateffectivedata/sketch_type/). Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται πραγματικά αφού επιλυθεί η κληρονομικότητα. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με τουλάχιστον ένα σχήμα στην πρώτη διαφάνεια και εκτυπώνει και τις δύο τιμές:
 
 ```python
 import aspose.slides as slides
@@ -185,19 +185,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **Μορφοποίηση Στυλ Συνένωσης**
+## **Μορφοποίηση Στυλ Συμμετρίας (Join Styles)**
 
-Αυτές είναι οι τρεις επιλογές τύπου σύνδεσης:
+Ακολουθούν οι τρεις επιλογές τύπου σύνδεσης:
 
 * Round
 * Miter
 * Bevel
 
-Το στυλ σύνδεσης ελέγχει πώς δύο τμήματα περιγράμματος συναντώνται σε γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για οξείς γωνίες ή **Bevel** για επίπεδες γωνίες.
+Το στυλ σύνδεσης ελέγχει πώς δύο τμήματα περιγράμματος συναντώνται σε γωνία. Χρησιμοποιήστε **Round** για στρογγυλεμένες γωνίες, **Miter** για αιχμηρές γωνίες ή **Bevel** για επίπεδες γωνίες.
 
 ![Το στυλ σύνδεσης στην παρουσίαση](join-style-powerpoint.png)
 
-Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα 15 σημείων πλάτος. Ορίζει το [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) στις τιμές μιτερ, μπέβελ και ροουντ του [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/), αντιστοίχως, για σύγκριση του τρόπου σχεδίασης των γωνιών.
+Αυτό το παράδειγμα δημιουργεί τρία μαύρα ορθογώνια με μπλε περιγράμματα πλάτους 15 σημείων. Ορίζει το [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) σε miter, bevel και round τιμές της [LineJoinStyle](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/), αντίστοιχα, ώστε να συγκριθεί η σχεδίαση των γωνιών.
 
 ```python
 import aspose.slides as slides
@@ -239,13 +239,13 @@ with slides.Presentation() as presentation:
     presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Περιορισμός Συνδέσμων Γωνίας σε Οξείς Γωνίες**
+### **Περιορισμός Σύνδεσεων Miter σε Αιχμηρές Γωνίες**
 
-Χρησιμοποιήστε το [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) μαζί με το [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) ορισμένο σε [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο μπορεί να εκτείνεται μια οξεία γωνία.
+Χρησιμοποιήστε το [LineFormat.miter_limit](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/miter_limit/) μαζί με το [LineFormat.join_style](https://reference.aspose.com/slides/python-net/aspose.slides/lineformat/join_style/) ορισμένο σε [LineJoinStyle.MITER](https://reference.aspose.com/slides/python-net/aspose.slides/linejoinstyle/) για να περιορίσετε το πόσο μπορεί να εκτείνεται μια αιχμηρή γωνία.
 
-Το όριο είναι ένας λόγος της απόστασης μεταξύ της εσωτερικής και εξωτερικής γωνίας της σύνδεσης προς το πλάτος της γραμμής. Για παράδειγμα, η τιμή `8` επιτρέπει μήκος μιτερ έως και οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία υπερβαίνει το όριο, το PowerPoint χρησιμοποιεί μια μπέβελ σύνδεση στη συγκεκριμένη γωνία. Με μεγαλύτερο όριο επιτρέπονται πιο οξείες κορυφές. Η ρύθμιση επηρεάζει μόνο τις μιτερ συνδέσεις και η αλλαγή της δεν έχει ορατό αποτέλεσμα όταν η γωνία παραμένει εντός των δύο ορίων.
+Το όριο είναι ένας λόγος της απόστασης μεταξύ των εσωτερικών και εξωτερικών γωνιών της σύνδεσης προς το πλάτος της γραμμής. Για παράδειγμα, η τιμή `8` επιτρέπει μήκος miter έως και οκτώ φορές το πλάτος της γραμμής· δεν είναι μέτρηση σε σημεία. Εάν η γωνία υπερβεί το όριο, το PowerPoint χρησιμοποιεί μια καμπυλωτή (beveled) σύνδεση σε εκείνη τη γωνία. Μεγαλύτερο όριο επιτρέπει πιο αιχμηρά σημεία. Η ρύθμιση επηρεάζει μόνο τις συνδέσεις miter και δεν έχει ορατό αποτέλεσμα όταν η γωνία παραμείνει εντός των ορίων.
 
-Αυτό το παράδειγμα δημιουργεί δύο παρόμοια, μη γεμάτα τρίγωνα με περιγράμματα 20 σημείων πλάτος. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, το δεξί `8`. Κάθε τρίγωνο είναι 80 σημείων πλάτος και 160 σημείων ύψος, δίνοντας στην κορυφή του λόγο μήκους μιτερ προς πλάτος γραμμής περίπου `4.12`. Ως αποτέλεσμα, το PowerPoint κάνει μπέβελ την αριστερή κορυφή και διατηρεί την δεξιά.
+Αυτό το παράδειγμα δημιουργεί δύο όμοια, αδιάβατα τρίγωνα με περιγράμματα πλάτους 20 σημείων. Το αριστερό τρίγωνο χρησιμοποιεί όριο `2`, και το δεξιό `8`. Κάθε τρίγωνο έχει πλάτος 80 σημείων και ύψος 160 σημείων, δίνοντας στην κορυφή του λόγο μήκους miter προς πλάτος γραμμής περίπου `4.12`. Συνεπώς, το PowerPoint καμπυλώνει την αριστερή κορυφή και διατηρεί την δεξιά.
 
 ```python
 import aspose.slides as slides
@@ -268,13 +268,13 @@ with slides.Presentation() as presentation:
     presentation.save("miter_limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το αποτέλεσμα στο PowerPoint: **Όριο μιτερ 2** στα αριστερά και **όριο μιτερ 8** στα δεξιά.
+Το αποτέλεσμα στο PowerPoint: **Miter limit 2** στα αριστερά και **miter limit 8** στα δεξιά.
 
-![Μπέβελ κορυφή με όριο μιτερ 2 και οξεία κορυφή με όριο μιτερ 8 στο PowerPoint](miter-limits.png)
+![Μια καμπυλωτή κορυφή με όριο miter 2 και μια αιχμηρή κορυφή με όριο miter 8 στο PowerPoint](miter-limits.png)
 
-## **Γεμισμα Διαβάθμισης**
+## **Γέμιση Διαβάθμισης (Gradient Fill)**
 
-Το γεμισμα διαβάθμισης αναμειγνύει χρώματα σε ένα σχήμα. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική διαβάθμιση υπό γωνία 45 μοιρών από το κόκκινο στο μοβ χρησιμοποιώντας το [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). Η μέθοδος [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) τοποθετεί τα χρώματα στα 0 και 1, στην αρχή και το τέλος της διαβάθμισης. Η αφαίρεση των υπαρχουσών στάσεων διασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
+Μια γέμιση διαβάθμισης αναμειγνύει χρώματα διαμέσου ενός σχήματος. Αυτό το παράδειγμα γεμίζει μια έλλειψη με γραμμική διαβάθμιση υπό γωνία 45 μοιρών από κόκκινο σε μωβ χρησιμοποιώντας το [FillFormat.gradient_format](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/gradient_format/). Η μέθοδος [GradientStopCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/gradientstopcollection/add/) τοποθετεί τα χρώματα στα 0 και 1, την αρχή και το τέλος της διαβάθμισης. Η εκκαθάριση των υπαρχόντων διαστημάτων εξασφαλίζει ότι χρησιμοποιούνται μόνο αυτά τα δύο χρώματα.
 
 ```python
 import aspose.slides as slides
@@ -295,15 +295,15 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Η έλλειψη με γεμισμα διαβάθμισης](gradient-fill.png)
+![Η έλλειψη με γέμιση διαβάθμισης](gradient-fill.png)
 
-Αν μια διαβάθμιση εμφανίζεται διαφορετικά σε εξαγόμενο εικόνα από ό,τι στο PowerPoint, δείτε την ενότητα [Choose a Gradient Rendering Style](/slides/el/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε το γεμισμα διαβάθμισης που αποθηκεύεται στην παρουσίαση.
+Εάν μια διαβάθμιση φαίνεται διαφορετική σε εξαγόμενο εικόνα από ό,τι στο PowerPoint, δείτε το [Choose a Gradient Rendering Style](/slides/el/python-net/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Μπορείτε να επιλέξετε στυλ απόδοσης χωρίς να αλλάξετε τη αποθηκευμένη διαβάθμιση στην παρουσίαση.
 
 ### **Ορισμός Γωνίας Γραμμικής Διαβάθμισης**
 
-Χρησιμοποιήστε το [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) για να ελέγξετε τον προσανατολισμό ενός γεμίσματος [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). Η γωνία μετριέται σε μοίρες και αυξάνεται δεξιόστροφα: `0` τρέχει από αριστερά προς δεξιά, `90` από πάνω προς τα κάτω, `180` από δεξιά προς αριστερά, και `270` από κάτω προς πάνω. Υποστηρίζονται δεκαδικές γωνίες. Οι πεπερασμένες γωνίες εκτός του εύρους `[0, 360)` κανονικοποιούνται σε μία στροφή· για παράδειγμα, το `-45` γίνεται `315` και το `360` γίνεται `0`.
+Χρησιμοποιήστε το [GradientFormat.linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/) για έλεγχο του προσανατολισμού μιας γέμισης [GradientShape.LINEAR](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/). Η γωνία μετριέται σε μοίρες και αυξάνει δεξιόστροφα: `0` από τα αριστερά προς τα δεξιά, `90` από πάνω προς τα κάτω, `180` από τα δεξιά προς τα αριστερά, και `270` από το κάτω προς το πάνω. Υποστηρίζονται κλασματικές γωνίες. Οι πεπερασμένες γωνίες εκτός του εύρους `[0, 360)` κανονικοποιούνται σε μία πλήρη περιστροφή· π.χ. `-45` γίνεται `315` και `360` γίνεται `0`.
 
-Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με τα ίδια χρώματα κόκκινο, πράσινο και μπλε σε θέσεις `0`, `0.5` και `1`. Η κλίμακα είναι απενεργοποιημένη ώστε η γωνία να συγκριθεί ανεξάρτητα από τις αναλογίες των ορθογωνίων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
+Αυτό το παράδειγμα δημιουργεί έξι ορθογώνια με τα ίδια κόκκινα, πράσινα και μπλε σημεία στα `0`, `0.5` και `1`. Η κλιμάκωση είναι ανενεργή ώστε η γωνία να συγκρίνεται ανεξάρτητα από τις αναλογίες των ορθογώνιων. Οι γωνίες, από αριστερά προς δεξιά, είναι `0`, `45` και `90` στην πρώτη σειρά, και `135`, `180` και `270` στη δεύτερη σειρά.
 
 ```python
 import aspose.slides as slides
@@ -336,13 +336,13 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα στο PowerPoint:
 
-![Γραμμικές διαβάθμιση στις 0, 45 και 90 μοίρες στην πρώτη σειρά, και 135, 180 και 270 μοίρες στη δεύτερη σειρά](linear-gradient-angles.png)
+![Γραμμικές διαβάθμιση στις γωνίες 0, 45 και 90 μοίρες στην επάνω σειρά, και 135, 180 και 270 μοίρες στην κάτω σειρά](linear-gradient-angles.png)
 
 ### **Κλιμάκωση Γραμμικής Διαβάθμισης με το Σχήμα**
 
-Το [GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) δέχεται τιμή [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). Ορίστε τη ρητά σε `FALSE` για να διατηρείται η γεωμετρική γωνία της διαβάθμισης όταν αλλάζουν οι αναλογίες του σχήματος, ή σε `TRUE` για να κλιμακωθεί η διαβάθμιση με το πλάτος και το ύψος του σχήματος. Με την κλιμάκωση ενεργοποιημένη, η ορατή γωνία μπορεί να διαφέρει από τη καθορισμένη γωνία σε μη τετράγωνο σχήμα.
+Το [GradientFormat.linear_gradient_scaled](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_scaled/) δέχεται τιμή τύπου [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/). Ορίστε το ρητά σε `FALSE` για να διατηρείται η γεωμετρική γωνία της διαβάθμισης όταν αλλάζουν οι αναλογίες του σχήματος, ή σε `TRUE` για κλιμάκωση της διαβάθμισης με το πλάτος και το ύψος του σχήματος. Με την κλιμάκωση ενεργοποιημένη, η ορατή γωνία μπορεί να διαφέρει από την καθορισμένη γωνία σε μη τετράγωνο σχήμα.
 
-Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τα ίδια χρώματα όπως στη σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `FALSE`; η δεξιά `TRUE`. Κάθε στήλη περιέχει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και τα δύο ξεκινούν με τις ίδιες πλατιές διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς το γεμισμα ανταποκρίνεται στην αλλαγή μεγέθους χωρίς αλλαγή των ρυθμίσεων διαβάθμισης.
+Το παρακάτω παράδειγμα χρησιμοποιεί γωνία `45` μοιρών και τα ίδια χρώματα όπως στην σύγκριση γωνιών. Η αριστερή στήλη χρησιμοποιεί `FALSE`; η δεξιά `TRUE`. Κάθε στήλη περιλαμβάνει ένα πλατύ ορθογώνιο πάνω από ένα ψηλό ορθογώνιο. Και τα δύο ξεκινούν με τις ίδιες πλατιές διαστάσεις· η αλλαγή του πλάτους και του ύψους του δεύτερου ορθογωνίου δείχνει πώς η γέμιση αντιδρά στην αλλαγή μεγέθους χωρίς αλλαγή των ρυθμίσεων διαβάθμισης.
 
 ```python
 import aspose.slides as slides
@@ -378,17 +378,17 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_scaling.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το αποτέλεσμα στο PowerPoint, με κλιμάκωση απενεργοποιημένη αριστερά και ενεργοποιημένη δεξιά:
+Το αποτέλεσμα στο PowerPoint, με κλιμάκωση ανενεργή στα αριστερά και ενεργή στα δεξιά:
 
-![Πλατιά και ψηλά ορθογώνια με διαβάθμιση 45 μοιρών, συγκρίνοντας linear_gradient_scaled FALSE αριστερά με TRUE δεξιά](linear-gradient-scaling.png)
+![Πλατιά και ψηλά ορθογώνια με γέμιση 45 μοιρών, συγκρίνοντας linear_gradient_scaled FALSE στα αριστερά με TRUE στα δεξιά](linear-gradient-scaling.png)
 
-Με κλιμάκωση απενεργοποιημένη, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με κλιμάκωση ενεργοποιημένη, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην αναπαραγωγή μιας διαβάθμισης προτύπου όταν προσαρμόζεται ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση της διαβάθμισης `45` μοιρών.
+Με κλιμάκωση ανενεργή, οι διαγώνιες λωρίδες χρώματος διατηρούν τον ίδιο προσανατολισμό και στα δύο ορθογώνια. Με κλιμάκωση ενεργή, οι λωρίδες τεντώνονται με τις αναλογίες του σχήματος. Αυτό βοηθά στην επαναδημιουργία μιας διαβάθμισης προτύπου όταν προσαρμόζετε ένα σχήμα σε διαφορετικό μέγεθος. Σε τετράγωνο σχήμα, η ενεργοποίηση της κλιμάκωσης δεν αλλάζει την εμφάνιση αυτής της διαβάθμισης `45` μοιρών.
 
-Τanto η γωνία όσο και η κλιμάκωση εφαρμόζονται στις γραμμικές διαβάθμισεις. Δεν ελέγχουν τα γεμίσματα [GradientShape.RADIAL ή GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
+Τanto η γωνία όσο και η κλιμάκωση ισχύουν για γραμμικές διαβάθμιση. Δεν ελέγχουν γεμίσεις [GradientShape.RADIAL ή GradientShape.RECTANGLE](https://reference.aspose.com/slides/python-net/aspose.slides/gradientshape/).
 
 ### **Συνδυασμός Γωνίας με Κατεύθυνση Διαβάθμισης**
 
-Το [GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) επιλέγει στυλ διαβάθμισης από την απαίτηση [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/); δεν είναι υποκατάστατο αριθμητικής γωνίας. Για μια γραμμική διαβάθμιση, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή όπου διανέμονται τα χρώματα χωρίς να αλλάζουν το [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
+Το [GradientFormat.gradient_direction](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/gradient_direction/) επιλέγει στυλ διαβάθμισης από την απαρίθμηση [GradientDirection](https://reference.aspose.com/slides/python-net/aspose.slides/gradientdirection/); δεν αποτελεί υποκατάστατο αριθμητικής γωνίας. Για γραμμική διαβάθμιση, τα στυλ γωνιών μπορούν να αλλάξουν την περιοχή κατανομής χρωμάτων χωρίς αλλαγή του [linear_gradient_angle](https://reference.aspose.com/slides/python-net/aspose.slides/gradientformat/linear_gradient_angle/). Διατηρήστε την κατεύθυνση αμετάβλητη όταν συγκρίνετε γωνίες ή κλιμάκωση.
 
 Το παρακάτω παράδειγμα εφαρμόζει τις ίδιες ρυθμίσεις με αντίστροφη σειρά. Τα δύο ορθογώνια έχουν την ίδια εμφάνιση: η ανάθεση της κατεύθυνσης πριν ή μετά τη γωνία δεν αλλάζει το αποτέλεσμα.
 
@@ -421,9 +421,9 @@ with slides.Presentation() as presentation:
     presentation.save("linear_gradient_direction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Γεμισμα Μοτίβου**
+## **Γέμιση Κανονισμού (Pattern Fill)**
 
-Ένα γεμισμα μοτίβου εφαρμόζει σχέδιο δύο χρωμάτων, όπως κουκκίδες, λωρίδες ή τετράγωνα. Αυτό το παράδειγμα χρησιμοποιεί το [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) για επιλογή μοτίβου πλέγματος. Το [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) παρέχει το ανοιχτό γκρι φόντο, και το [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) το κίτρινο χρώμα του μοτίβου.
+Μια γέμιση κανονισμού εφαρμόζει σχέδιο δύο χρωμάτων, όπως σημεία, λωρίδες ή σκαλοπάτια. Αυτό το παράδειγμα χρησιμοποιεί το [PatternFormat.pattern_style](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/pattern_style/) για επιλογή μοτίβου πλέγματος. Το [PatternFormat.back_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/back_color/) παρέχει το ανοιχτό γκρι φόντο, και το [PatternFormat.fore_color](https://reference.aspose.com/slides/python-net/aspose.slides/patternformat/fore_color/) το κίτρινο χρώμα του μοτίβου.
 
 ```python
 import aspose.slides as slides
@@ -443,13 +443,13 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το ορθογώνιο με γεμισμα μοτίβου](pattern-fill.png)
+![Το ορθογώνιο με γέμιση κανονισμού](pattern-fill.png)
 
-## **Γεμισμα Εικόνας**
+## **Γέμιση Εικόνας (Picture Fill)**
 
-Ένα γεμισμα εικόνας χρησιμοποιεί μια εικόνα μέσα σε ένα σχήμα. Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και χρησιμοποιεί το [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ο καθορισμός του [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) σε λειτουργία παράθεσης επαναλαμβάνει την εικόνα μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται φαίνεται παρακάτω:
+Μια γέμιση εικόνας χρησιμοποιεί μια εικόνα εντός ενός σχήματος. Αυτό το παράδειγμα απαιτεί τοπική εικόνα και χρησιμοποιεί το [Images.from_file](https://reference.aspose.com/slides/python-net/aspose.slides/images/from_file/) για να τη φορτώσει στη συλλογή εικόνων της παρουσίασης. Ορίζοντας το [PictureFillFormat.picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/) σε tiled mode, η εικόνα επαναλαμβάνεται μέσα στο ορθογώνιο. Η πηγαία εικόνα που χρησιμοποιείται εμφανίζεται παρακάτω:
 
-![Η εικόνα λωτόνου](lotus.png)
+![Η εικόνα λωτό](lotus.png)
 
 ```python
 import aspose.slides as slides
@@ -470,21 +470,21 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το σχήμα με γεμισμα εικόνας](picture-fill.png)
+![Το σχήμα με γέμιση εικόνας](picture-fill.png)
 
-### **Τοποθέτηση Εικόνας ως Υφή**
+### **Επένδυση Εικόνας σε Υφασμάτωση (Tile Picture As Texture)**
 
-Εάν θέλετε να ορίσετε μια τοποθετημένη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά τοποθέτησης, μπορείτε να χρησιμοποιήσετε τις παρακάτω ιδιότητες της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
+Εάν θέλετε να ορίσετε μια επενδυμένη εικόνα ως υφή και να προσαρμόσετε τη συμπεριφορά της επένδυσης, μπορείτε να χρησιμοποιήσετε τις ακόλουθες ιδιότητες της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/):
 
-- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Ορίζει τη λειτουργία γεμίσματος εικόνας — είτε `TILE` είτε `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
-- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Ελέγχει αν το πλακίδιο θα αντιστραφεί οριζόντια, κάθετα ή και τα δύο.
-- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
-- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
+- [picture_fill_mode](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Ορίζει τη λειτουργία γέμισης εικόνας — είτε `TILE` είτε `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_alignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων εντός του σχήματος.
+- [tile_flip](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_flip/): Ελέγχει εάν το πλακίδιο αναστρέφεται οριζόντια, κάθετα ή και τα δύο.
+- [tile_offset_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_x/): Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το σημείο προέλευσης του σχήματος.
+- [tile_offset_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_offset_y/): Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε σημεία) από το σημείο προέλευσης του σχήματος.
+- [tile_scale_x](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_x/): Καθορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [tile_scale_y](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/tile_scale_y/): Καθορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
 
-Αυτό το παράδειγμα απαιτεί μια τοπική εικόνα και ρυθμίζει το [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) ώστε να την επαναλαμβάνει στο 50 % του αρχικού μεγέθους. Οι μετατοπίσεις `-32` σημειών μετατοπίζουν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω δεξιά και η αντιστροφή και στις δύο κατευθύνσεις καθορίζουν πώς διατάσσεται η επαναλαμβανόμενη υφή.
+Αυτό το παράδειγμα απαιτεί τοπική εικόνα και διαμορφώνει το [PictureFillFormat](https://reference.aspose.com/slides/python-net/aspose.slides/picturefillformat/) ώστε να την επαναλαμβάνει στο 50 % του αρχικού μεγέθους. Οι μετατοπίσεις −32 σημείων μετακινούν τα πλακίδια οριζόντια και κάθετα· η ευθυγράμμιση κάτω‑δεξιά και η αναστροφή και στις δύο κατευθύνσεις καθορίζουν πώς διατάσσεται η επαναλαμβανόμενη υφή.
 
 ```python
 import aspose.slides as slides
@@ -515,9 +515,9 @@ with slides.Presentation() as presentation:
 
 ![Οι επιλογές πλακιδίων](tile-options.png)
 
-## **Γεμισμα Στερεού Χρώματος**
+## **Συμπαγής Γέμιση Χρώματος (Solid Color Fill)**
 
-Ένα στερεό γεμισμα δίνει στο σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα ορίζει το [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) σε λειτουργία στερεού γεμίσματος και αναθέτει κίτρινο χρώμα μέσω του [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), έπειτα αποθηκεύει το ορθογώνιο στην παρουσίαση.
+Μια συμπαγής γέμιση δίνει σε ένα σχήμα ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το παράδειγμα ορίζει το [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) σε λειτουργία συμπαγούς γέμισης και αναθέτει κίτρινο μέσω του [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/), στη συνέχεια αποθηκεύει το ορθογώνιο στην παρουσίαση.
 
 ```python
 import aspose.slides as slides
@@ -535,15 +535,71 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το σχήμα με στερεό γεμισμα χρώματος](solid-color-fill.png)
+![Το σχήμα με συμπαγή γέμιση χρώματος](solid-color-fill.png)
 
-## **Χρήση Φόντου Διαφάνειας ως Γέμισμα Σχήματος**
+### **Αντιγραφή Χρωμάτων Διατηρώντας Αναφορές Θέματος**
 
-Χρησιμοποιήστε το [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) όταν ένα σχήμα πρέπει να ταιριάζει με το φόντο της διαφάνειας, για παράδειγμα σε πρότυπο παρουσίασης. Ορίστε πρώτα το [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) σε [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) για να αφαιρέσετε τυχόν ρητό γεμισμα. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το φόντο της διαφάνειας αντί για το δικό του γεμισμα. Η ενεργοποίηση της σημαίας από μόνη της δεν αφαιρεί ένα υπάρχον ρητό γεμισμα.
+Χρησιμοποιήστε το [ColorFormat.copy_from](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/copy_from/) για να αντιγράψετε έναν ορισμό χρώματος, συμπεριλαμβανομένου του τύπου χρώματος, της αναφοράς θέματος και των μετασχηματισμών. Αυτό είναι χρήσιμο όταν μεταφέρετε χρώμα γέμισης μεταξύ σχημάτων που πρέπει να συνεχίσουν να ακολουθούν το θέμα της παρουσίασης. Η μέθοδος αντιγράφει μόνο το χρώμα: δεν αντιγράφει τον τύπο γέμισης, το περίγραμμα ή άλλες μορφοποιήσεις σχήματος. Ορίστε ρητά το [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) του προορισμού.
 
-Αυτό διαφέρει από το [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): το γεμισμα φόντου καλύπτει αντικείμενα πίσω από το σχήμα με την αντίστοιχη περιοχή του φόντου της διαφάνειας, ενώ το «χωρίς γεμισμα» αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να επανεκκινείται μέσα σε κάθε σχήμα.
+Αυτό το παράδειγμα δημιουργεί τρία ορθογώνια, από αριστερά προς τα δεξιά: την πηγή, ένα αντίγραφο που σέβεται το θέμα και ένα σταθερό αντίγραφο RGB. Η πηγή χρησιμοποιεί το [ColorFormat.scheme_color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/scheme_color/) για αναφορά στο πρώτο χρώμα έμφασης και προσθέτει ατονισμό μέσω του [ColorOperationCollection.add](https://reference.aspose.com/slides/python-net/aspose.slides/coloroperationcollection/add/). Το αντίγραφο RGB χρησιμοποιεί το αποτελεσματικό χρώμα γέμισης της πηγής ώστε και τα τρία αρχικά να φαίνονται όμοια. Η ανάθεση του [ColorFormat.color](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color/) ορίζει σταθερή τιμή RGB και διαγράφει τυχόν υπάρχοντες μετασχηματισμούς χρώματος.
 
-Το παρακάτω παράδειγμα δημιουργεί ένα φόντο κύριου πρότυπου που κληρονομείται από τη διαφάνεια και τοποθετεί μια ματζέντα λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το φόντο, το μεσαίο δεν έχει γεμισμα, και το δεξί εναλλάσσει από γεμισμα φόντου σε ρητό πορτοκαλί γεμισμα.
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    presentation.slide_size.set_size(660, 220, slides.SlideSizeScaleType.DO_NOT_SCALE)
+    slide = presentation.slides[0]
+
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.royal_blue
+
+    source = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 30, 40, 180, 140)
+    theme_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 240, 40, 180, 140)
+    rgb_copy = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.fill_format.fill_type = slides.FillType.SOLID
+        shape.line_format.fill_format.fill_type = slides.FillType.NO_FILL
+
+    source_color = source.fill_format.solid_fill_color
+    source_color.scheme_color = slides.SchemeColor.ACCENT1
+    source_color.color_transform.add(slides.ColorTransformOperation.TINT, 0.75)
+
+    theme_copy.fill_format.solid_fill_color.copy_from(source_color)
+    rgb_copy.fill_format.solid_fill_color.color = source.fill_format.get_effective().solid_fill_color
+
+    with slide.get_image(1.0, 1.0) as before:
+        before.save("color-copy-before.png", slides.ImageFormat.PNG)
+
+    # Οι αναφορές θέματος ακολουθούν το νέο χρώμα έμφασης· η σταθερή τιμή RGB δεν το κάνει.
+    presentation.master_theme.color_scheme.accent1.color = draw.Color.orange_red
+
+    with slide.get_image(1.0, 1.0) as after:
+        after.save("color-copy-after.png", slides.ImageFormat.PNG)
+    presentation.save("copied_colors.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Πριν την αλλαγή θέματος, όλα τα γέμιση ταιριάζουν:
+
+![Πηγή, προορισμός copy_from και προορισμός σταθερού RGB με ταυτόσημη γεμίση μπλε](color-copy-before.png)
+
+Μετά την αλλαγή θέματος, η πηγή και το αντίγραφο που σέβεται το θέμα ακολουθούν το νέο χρώμα έμφασης και διατηρούν τον ατονισμό τους. Το σταθερό RGB αντίγραφο παραμένει μπλε:
+
+![Πηγή και copy_from προορισμός με γέμισμα πορτοκαλί, ενώ το σταθερό RGB προορισμό παραμένει μπλε](color-copy-after.png)
+
+Ο αντιγραμμένος ορισμός είναι ανεξάρτητος από την πηγή. Μεταγενέστερη αλλαγή της αναφοράς θέματος της πηγής, ανάθεση άλλου χρώματος ή προσθήκη/αφαίρεση των μετασχηματισμών δεν αλλάζει τον προορισμό. Μία αλλαγή θέματος εξακολουθεί να επηρεάζει και τα δύο σχήματα επειδή κάθε ένα αναφέρεται ανεξάρτητα στο ίδιο χρώμα θέματος.
+
+Η αποθήκευση και επαναφόρτωση του PPTX διατηρούν το [ColorFormat.color_type](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_type/), την αναφορά θέματος και τη συλλογή [ColorFormat.color_transform](https://reference.aspose.com/slides/python-net/aspose.slides/colorformat/color_transform/) του αντιγραμμένου χρώματος· δεν τα μετατρέπει σε RGB.
+
+Κατά την αντιγραφή μεταξύ διαφορετικών συμφραζομένων θέματος, όπως παρουσιάσεις με διαφορετικές παλέτες έμφασης, η αντιγραμμένη αναφορά λύνει το θέμα του προορισμού. Η ίδια αναφορά και οι μετασχηματισμοί μπορούν επομένως να παράγουν διαφορετικό ορατό χρώμα. Δείτε το [Presentation Theme](/slides/el/python-net/presentation-theme/) για περισσότερα σχετικά με τη διαμόρφωση χρωμάτων θέματος.
+
+## **Χρήση Υποβάθρου Διαφάνειας ως Γέμιση Σχήματος**
+
+Χρησιμοποιήστε το [AutoShape.use_background_fill](https://reference.aspose.com/slides/python-net/aspose.slides/autoshape/use_background_fill/) όταν ένα σχήμα πρέπει να ταιριάζει με το υπέρβαθρο της διαφάνειας, π.χ. σε πρότυπο παρουσίασης. Ορίστε το [FillFormat.fill_type](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/fill_type/) σε [FillType.NOT_DEFINED](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/) πρώτα για να αφαιρέσετε τυχόν ρητή γέμιση. Με αυτόν τον συνδυασμό, το σχήμα χρησιμοποιεί το υπέρβαθρο της διαφάνειας αντί για τη δική του γέμιση. Η ενεργοποίηση της σημαίας μόνη της δεν αφαιρεί υπάρχουσα ρητή γέμιση.
+
+Αυτό διαφέρει από το [FillType.NO_FILL](https://reference.aspose.com/slides/python-net/aspose.slides/filltype/): η γέμιση υπέρβαθρου καλύπτει αντικείμενα πίσω από το σχήμα με το αντίστοιχο τμήμα του υπέρβαθρου της διαφάνειας, ενώ η μη γέμιση αφήνει αυτά τα αντικείμενα ορατά. Μια διαβάθμιση παραμένει ευθυγραμμισμένη με τη διαφάνεια αντί να ξεκινά ξανά μέσα σε κάθε σχήμα.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα κεντρικό υπέρβαθρο κληρονομημένο από τη διαφάνεια της διαφάνειας και τοποθετεί μια φούξια λωρίδα πίσω από τρία ορθογώνια. Το αριστερό ορθογώνιο χρησιμοποιεί το υπέρβαθρο, το μεσαίο δεν έχει γέμιση, και το δεξιό εναλλάσσει από γέμιση υπέρβαθρου σε ρητή πορτοκαλί γέμιση.
 
 ```python
 import aspose.slides as slides
@@ -566,7 +622,7 @@ with slides.Presentation() as presentation:
     gradient.gradient_stops.add(0, draw.Color.dark_blue)
     gradient.gradient_stops.add(1, draw.Color.light_sky_blue)
 
-    # Προσθέστε αυτό το αντικείμενο πρώτα ώστε να εμφανίζεται πίσω από τα ορθογώνια.
+    # Προσθήκη αυτού του αντικειμένου πρώτα ώστε να εμφανίζεται πίσω από τα ορθογώνια.
     band = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 25, 150, 670, 100)
     band.fill_format.fill_type = slides.FillType.SOLID
     band.fill_format.solid_fill_color.color = draw.Color.magenta
@@ -583,7 +639,7 @@ with slides.Presentation() as presentation:
     explicit_shape.fill_format.fill_type = slides.FillType.NOT_DEFINED
     explicit_shape.use_background_fill = True
 
-    # Απενεργοποιήστε το γέμισμα φόντου πριν εφαρμόσετε ένα ρητό γέμισμα.
+    # Απενεργοποίηση γέμισης υποβάθρου πριν εφαρμοστεί ρητή γέμιση.
     explicit_shape.use_background_fill = False
     explicit_shape.fill_format.fill_type = slides.FillType.SOLID
     explicit_shape.fill_format.solid_fill_color.color = draw.Color.orange
@@ -591,15 +647,15 @@ with slides.Presentation() as presentation:
     presentation.save("background_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Το αποτέλεσμα, από αριστερά προς τα δεξιά: **γεμισμα φόντου**, **χωρίς γεμισμα**, και **ρητό γεμισμα**. Η ματζέντα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσα από το μεσαίο.
+Το αποτέλεσμα, από αριστερά προς δεξιά: **γέμιση υπέρβαθρου**, **χωρίς γέμιση**, και **ρητή γέμιση**. Η φούξια λωρίδα κρύβεται από τα αριστερά και δεξιά ορθογώνια αλλά παραμένει ορατή μέσω του μεσαίου ορθογωνίου.
 
-![Γεμισμα φόντου, χωρίς γεμισμα και ρητό πορτοκαλί γεμισμα πάνω από μια ματζέντα λωτόνου](background-fill.png)
+![Γέμιση υπέρβαθρου, χωρίς γέμιση και ρητή πορτοκαλί γέμιση πάνω από φούξια λωρίδα](background-fill.png)
 
-Η ίδια συμπεριφορά ισχύει για φόντο που ορίζεται άμεσα στη διαφάνεια ή κληρονομείται από διάταξη. Το σχήμα χρησιμοποιεί το επιλυμένο φόντο της διαφάνειας· το παράδειγμα αφήνει τόσο το φόντο της διαφάνειας όσο και του layout ακαθόριστα ώστε το κύριο πρότυπο να το παρέχει.
+Η ίδια συμπεριφορά ισχύει για υπέρβαθρο ορισμένο άμεσα στη διαφάνεια ή κληρονομημένο από διάταξη. Το σχήμα χρησιμοποιεί το διαφάνειο που έχει λυθεί· το παράδειγμα αφήνει τόσο τη διαφάνεια της διαφάνειας όσο και της διάταξης ακαθόριστες ώστε ο κύριος να την παρέχει.
 
 ## **Ορισμός Διαφάνειας**
 
-Για ένα στερεό γεμισμα, το αλφα-συστατικό του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαφανές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή αλφα 128 για ένα κίτρινο ορθογώνιο, καθιστώντας το περίπου 50 % διαφανές ώστε το παρακάτω ορθογώνιο να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
+Για μια συμπαγή γέμιση, το αλφα‑συστατικό του χρώματος ελέγχει την αδιαφάνεια: 0 είναι πλήρως διαυγές και 255 πλήρως αδιαφανές. Αυτό το παράδειγμα χρησιμοποιεί τιμή αλφα 128 για ένα κίτρινο ορθογώνιο, κάνοντάς το περίπου 50 % διαυγές ώστε το ορθογώνιο που βρίσκεται από κάτω να παραμένει ορατό. Το χρώμα ανατίθεται μέσω του [FillFormat.solid_fill_color](https://reference.aspose.com/slides/python-net/aspose.slides/fillformat/solid_fill_color/).
 
 ```python
 import aspose.slides as slides
@@ -621,11 +677,11 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το διαφανές σχήμα](shape-transparency.png)
+![Το διαυγές σχήμα](shape-transparency.png)
 
 ## **Περιστροφή Σχημάτων**
 
-Χρησιμοποιήστε το [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) για να περιστρέψετε ένα σχήμα στο επίπεδο της διαφάνειας. Η γωνία μετριέται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
+Χρησιμοποιήστε το [Shape.rotation](https://reference.aspose.com/slides/python-net/aspose.slides/shape/rotation/) για να περιστρέψετε ένα σχήμα στην επίπεδη του διαφάνειας. Η γωνία μετράται σε μοίρες· αυτό το παράδειγμα περιστρέφει ένα ορθογώνιο κατά 5 μοίρες δεξιόστροφα και αποθηκεύει την παρουσίαση.
 
 ```python
 import aspose.slides as slides
@@ -643,9 +699,9 @@ with slides.Presentation() as presentation:
 
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Απαλότητας**
+## **Πρόσθεση Εφέ 3D Φρεσκας (Bevel)**
 
-Χρησιμοποιήστε το [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) για να δώσετε βάθος και ακριβές άκρο σε ένα σχήμα. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) σε 4 σημεία, και εφαρμόζει ένα κυκλικό άνω άκρο με πλάτος και ύψος 6 σημείων μέσω του [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). Μία κεντρική ορθογραφική κάμερα και τριών σημείων φωτισμός κάνουν το άκρο ορατό.
+Χρησιμοποιήστε το [Shape.three_d_format](https://reference.aspose.com/slides/python-net/aspose.slides/shape/three_d_format/) για να δώσετε σε ένα σχήμα βάθος και φρεσκές άκρες. Αυτό το παράδειγμα δημιουργεί μια πράσινη έλλειψη με πορτοκαλί περίγραμμα, ορίζει το [ThreeDFormat.depth](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/depth/) σε 4 σημεία και εφαρμόζει φρεσκά κορυφή κυκλικής μορφής με πλάτος και ύψος 6 σημείων μέσω του [ThreeDFormat.bevel_top](https://reference.aspose.com/slides/python-net/aspose.slides/threedformat/bevel_top/). Μια εφαπτόμενη ορθογραφική κάμερα και τριών‑σημείων φωτισμός κάνουν τη φρεσκά ορατή.
 
 ```python
 import aspose.slides as slides
@@ -673,11 +729,11 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το 3Δ εφέ αφαλότητας](3D-bevel-effect.png)
+![Το εφέ 3D φρεσκας](3D-bevel-effect.png)
 
-## **Προσθήκη 3Δ Εφέ Περιστροφής**
+## **Πρόσθεση Εφέ 3D Περιστροφής**
 
-Η τρισδιάστατη όψη ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) με γωνίες 40, 35 και 20 μοιρών για latitude, longitude και επανάληψη αντίστοιχα. Επιλέγει μια ισομετρική κάμερα μέσω του [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) και ισορροπημένο φωτισμό μέσω του [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), έπειτα αποθηκεύει το μορφοποιημένο ορθογώνιο.
+Η 3Δ άποψη ενός σχήματος ελέγχεται από τις ρυθμίσεις της κάμερας. Αυτό το παράδειγμα χρησιμοποιεί το [Camera.set_rotation](https://reference.aspose.com/slides/python-net/aspose.slides/camera/set_rotation/) με γωνίες latitude, longitude και revolution 40, 35 και 20 μοιρών, αντίστοιχα. Επιλέγει ισομετρική κάμερα μέσω του [Camera.camera_type](https://reference.aspose.com/slides/python-net/aspose.slides/camera/camera_type/) και ισορροπημένο φωτισμό μέσω του [LightRig.light_type](https://reference.aspose.com/slides/python-net/aspose.slides/lightrig/light_type/), στη συνέχεια αποθηκεύει το μορφοποιημένο ορθογώνιο.
 
 ```python
 import aspose.slides as slides
@@ -696,15 +752,15 @@ with slides.Presentation() as presentation:
 
 Το αποτέλεσμα:
 
-![Το 3Δ εφέ περιστροφής](3D-rotation-effect.png)
+![Το εφέ 3D περιστροφής](3D-rotation-effect.png)
 
-## **Έλεγχος Απόδοσης Μαύρο-Άσπρο για Σχήματα**
+## **Έλεγχος Ασπρόμαυρης Απόδοσης για Σχήματα**
 
-Η ιδιότητα [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσίαση εμφανίζεται ή επεξεργάζεται σε λειτουργία μαύρο-άσπρο. Δεν ενεργοποιεί μόνο η λειτουργία μαύρο-άσπρο· δεν αλλάζει το γεμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική χρωματική λειτουργία.
+Η ιδιότητα [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) καθορίζει πώς αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσίαση προβάλλεται ή επεξεργάζεται σε ασπρόμαυρη λειτουργία. Δεν ενεργοποιεί μόνο την ασπρόμαυρη προβολή, και δεν αλλάζει τη γέμιση, το περίγραμμα ή άλλες μορφοποιήσεις του σχήματος σε κανονική χρωματική λειτουργία.
 
-Χρησιμοποιήστε μια τιμή από την απαίτηση [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) για να επιλέξετε την επιθυμητή συμπεριφορά. Για παράδειγμα, `AUTOMATIC` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `GRAY` και `LIGHT_GRAY` χρησιμοποιούν γκρι απόχρωση, `BLACK_WHITE` χρησιμοποιεί μόνο μαύρο και λευκό, `BLACK` και `WHITE` επιβάλλουν ένα ενιαίο χρώμα, `COLOR` διατηρεί το κανονικό χρώμα, και `HIDDEN` παραλείπει το σχήμα στη λειτουργία μαύρο-άσπρο. `NOT_DEFINED` σημαίνει ότι δεν έχει εκχωρηθεί λειτουργία επιπέδου σχήματος.
+Χρησιμοποιήστε μια τιμή από την απαρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/python-net/aspose.slides/blackwhitemode/) για να επιλέξετε την επιθυμητή συμπεριφορά. Για παράδειγμα, `AUTOMATIC` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `GRAY` και `LIGHT_GRAY` χρησιμοποιούν γκρι χρωματισμό, `BLACK_WHITE` χρησιμοποιεί μόνο μαύρο και άσπρο, `BLACK` και `WHITE` επιβάλλουν ένα ενιαίο χρώμα, `COLOR` διατηρεί το κανονικό χρώμα, και `HIDDEN` παραλείπει το σχήμα σε ασπρόμαυρη λειτουργία. `NOT_DEFINED` σημαίνει ότι δεν έχει εκχωρηθεί λειτουργία επιπέδου σχήματος.
 
-Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γεμισμα για κανονική χρωματική προβολή και ζητά γκρι χρώμα από εφαρμογές που σέβονται τις ρυθμίσεις προβολής μαύρο-άσπρου:
+Αυτό το παράδειγμα δημιουργεί ένα πορτοκαλί ορθογώνιο και ορίζει το [Shape.black_white_mode](https://reference.aspose.com/slides/python-net/aspose.slides/shape/black_white_mode/) σε γκρι. Το αποθηκευμένο σχήμα διατηρεί το πορτοκαλί γέμιση για κανονική χρωματική εμφάνιση και ζητά γκρι χρωματισμό από εφαρμογές που τηρούν τις ρυθμίσεις ασπρόμαυρης προβολής:
 
 ```python
 import aspose.slides as slides
@@ -721,11 +777,11 @@ with slides.Presentation() as presentation:
     presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γεμισμα. Σε διαδικασία προβολής μαύρο-άσπρου, χρησιμοποιεί γκρι χρώμα επειδή η λειτουργία του είναι ορισμένη σε `GRAY`. Αυτό σάς επιτρέπει να διατηρήσετε μια πλήρη έγχρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες διαδικασίες που σέβονται τις ρυθμίσεις προβολής μαύρο-άσπρου.
+Σε κανονική χρωματική λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμιση. Σε ροή εργασίας ασπρόμαυρης προβολής, χρησιμοποιεί γκρι χρωματισμό επειδή η λειτουργία του είναι ορισμένη σε `GRAY`. Αυτό σας επιτρέπει να διατηρήσετε μια πλήρη‑χρωμη διαφάνεια ενώ ορίζετε ξεχωριστή εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές που τηρούν τις ρυθμίσεις ασπρόμαυρης προβολής της παρουσίασης.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Χρησιμοποιήστε το [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των δεσμευτικών θέσεων διαφάνειας από τις αντίστοιχες θέσεις διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με δεσμευμένες θέσεις διάταξης και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχες θέσεις διάταξης δεν επαναφέρονται.
+Χρησιμοποιήστε το [Slide.reset](https://reference.aspose.com/slides/python-net/aspose.slides/slide/reset/) για να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση των σύμβολων θέσης της διαφάνειας από τα αντίστοιχα σύμβολα θέσης της διάταξης. Αυτό το παράδειγμα απαιτεί μια υπάρχουσα παρουσίαση με σύμβολα θέσης συνδεδεμένα σε διάταξη και επαναφέρει κάθε διαφάνεια πριν την αποθήκευση. Τα σχήματα χωρίς αντίστοιχο σύμβολο θέσης διάταξης δεν επαναφέρονται.
 
 ```python
 import aspose.slides as slides
@@ -737,16 +793,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές Ερωτήσεις (FAQ)**
 
 **Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος του αρχείου παρουσίασης;**
 
-Τα χρώματα, τα στυλ γραμμών και οι ρυθμίσεις εφέ προσθέτουν γενικά λίγα δεδομένα σε σύγκριση με ενσωματωμένες εικόνες και πολυμέσα. Τα γεμίσματα εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
+Τα χρώματα, τα στυλ γραμμής και οι ρυθμίσεις εφέ συνήθως προσθέτουν μικρή ποσότητα δεδομένων σε σύγκριση με τις ενσωματωμένες εικόνες και πολυμέσα. Οι γέμιση εικόνας μπορούν να αυξήσουν το μέγεθος του αρχείου επειδή οι εικόνες τους αποθηκεύονται στην παρουσίαση.
 
 **Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος—γεμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε τα στυλ τους ως ίσα και λογικά ομαδοποιήστε τα σχήματα, κάτι που απλουστεύει τη μετέπειτα διαχείριση στυλ.
+Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος—γέμιση, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε το στυλ τους ως ίδιο και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για επαναχρήση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγμα σχημάτων με τα επιθυμητά στυλ σε μια διαφάνεια προτύπου ή ένα αρχείο .POTX. Όταν δημιουργείτε μια νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα στυλ σχήματος που χρειάζεστε και επαναεφαρμόστε τη μορφοποίησή τους όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε μια παρουσίαση‑πρότυπο ή αρχείο .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα που χρειάζεστε και επαναεφαρμόστε τη μορφοποίησή τους όπου απαιτείται.

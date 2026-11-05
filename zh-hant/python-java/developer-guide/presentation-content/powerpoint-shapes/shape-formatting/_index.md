@@ -1,25 +1,25 @@
 ---
-title: 在 Python via Java 中格式化 PowerPoint 圖形
-linktitle: 圖形格式化
+title: 使用 Python（透過 Java）格式化 PowerPoint 形狀
+linktitle: 形狀格式化
 type: docs
 weight: 20
 url: /zh-hant/python-java/shape-formatting/
 keywords:
-- 格式化圖形
+- 格式化形狀
 - 格式化線條
-- 草圖效果
-- 圖形線條草圖
+- 素描效果
+- 素描形狀線條
 - 格式化接合樣式
 - 漸層填色
-- 圖案填色
+- 圖樣填色
 - 圖片填色
 - 紋理填色
 - 純色填色
-- 圖形透明度
-- 黑白圖形呈現
-- 灰階圖形呈現
-- 旋轉圖形
-- 3D 斜角效果
+- 形狀透明度
+- 黑白形狀呈現
+- 灰階形狀呈現
+- 旋轉形狀
+- 3D 倒角效果
 - 3D 旋轉效果
 - 重設格式
 - PowerPoint
@@ -27,19 +27,19 @@ keywords:
 - Python
 - Java
 - Aspose.Slides
-description: "了解如何在 Python via Java 中使用 Aspose.Slides 格式化 PowerPoint 圖形——精確且完整控制 PPT 與 PPTX 檔案的填色、線條與效果樣式。"
+description: "了解如何在 Python（透過 Java）使用 Aspose.Slides 格式化 PowerPoint 形狀——精確且完整地設定 PPT 和 PPTX 檔案的填色、線條與效果樣式。"
 ---
 ## **簡介**
 
-透過調整輪廓、填色與效果，為 PowerPoint 中的圖案套用格式。Aspose.Slides for Python via Java 讓您能以程式方式控制這些設定，包括透明度、旋轉與 3D 格式化。
+在 PowerPoint 中透過調整輪廓、填色和效果來格式化形狀。Aspose.Slides for Python via Java 讓您以程式方式控制這些設定，包括透明度、旋轉和 3D 格式化。
 
-![PowerPoint 中的圖案格式選項](format-shape-powerpoint.png)
+![PowerPoint 中的形狀格式化選項](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via Java 提供類別與方法，讓您使用 PowerPoint 中相同的選項來格式化圖案。
+Aspose.Slides for Python via Java 提供類別和方法，讓您使用 PowerPoint 中相同的選項來格式化形狀。
 
 ## **格式線條**
 
-使用[Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat)來控制圖案的輪廓。本範例建立一個未填充且具有藍色虛線輪廓的矩形。[LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle)選取粗細組合線，而[LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth)將寬度設定為 7 點，且[LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle)選擇虛線樣式。
+使用 [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) 來控制形狀的輪廓。此範例建立一個未填充的矩形，具有藍色虛線輪廓。[LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) 選擇粗細混合複合線，而 [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) 將寬度設定為 7 點，且 [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) 選擇虛線樣式。
 
 ```python
 import jpype
@@ -68,24 +68,24 @@ finally:
     presentation.dispose()
 ```
 
-結果：
+結果如下：
 
 ![簡報中格式化的線條](formatted-lines.png)
 
-### **設定自訂線條虛線圖案**
+### **設定自訂線條虛線樣式**
 
-當預先定義的線條樣式無法提供所需的虛線長度與間隙時（例如品牌輪廓或技術圖表），請使用[LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern)。指派圖案會自動將線條虛線樣式變更為[LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/)。
+使用 [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern) 當預定義的線條樣式無法提供所需的虛線長度和間隔時，例如品牌輪廓或技術圖表。指派樣式會自動將線條虛線樣式變更為 [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-陣列項目交替表示虛線與間隙長度，從虛線開始。每個值皆為線寬的倍數：在寬度為 3 點時，`[4, 2]` 產生 12 點的虛線，接著 6 點的間隙。使用成對的有限且非負值來定義完整的虛線-間隙段落。範例使用正值以確保每條虛線與間隙皆可見。
+陣列項目交替為虛線與間隔長度，從虛線開始。每個值都是線寬的倍數：寬度為 3 點時 `[4, 2]` 產生 12 點虛線與 6 點間隔。使用有限且非負的值對來定義完整的虛線‑間隔段落。範例使用正值以保持每段虛線與間隔皆可見。
 
-此範例建立五條相同長度且使用平直端點的藍色線條。前三條在 3 點寬度下比較圖案。第四條以兩倍寬度重複第一個圖案，將虛線與間隙長度皆加倍。第五條則從自訂圖案切換為實線。
+此範例建立五條藍色線條，長度相同且端點為平直。前三條在寬度 3 點時比較不同樣式。第四條以兩倍寬度重複第一種樣式，將虛線與間隔長度皆加倍。第五條則從自訂樣式切換為實線。
 
 ```python
 import jpype
 import asposeslides
 
 if not jpype.isJVMStarted():
-    jpype.startJVM()
+    jpame.startJVM()
 
 from asposeslides.api import FillType, LineArrowheadStyle, LineCapStyle, LineDashStyle, Presentation, SaveFormat, ShapeType, SlideSizeScaleType
 from java.awt import Color
@@ -114,7 +114,7 @@ try:
         line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
         line.getLineFormat().setCustomDashPattern(jpype.JArray(jpype.JFloat)(pattern))
 
-    # 將最後一條線設定為實線樣式。
+    # 將最後一條線恢復為實線樣式。
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid)
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx)
@@ -122,25 +122,25 @@ finally:
     presentation.dispose()
 ```
 
-若要改回預先定義的虛線樣式，請將[LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/)傳遞給[LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle)。所選樣式會控制線條的外觀。
+若要改回預定義的虛線樣式，傳入 [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) 給 [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle)。所選樣式控制線條的外觀。
 
-PowerPoint 中的結果，從上到下：**{4, 2}, 3 pt**；**{1, 2}, 3 pt**；**{6, 2, 1, 2}, 3 pt**；**{4, 2}, 6 pt**；以及**Solid, 3 pt**。
+PowerPoint 中的結果（自上而下）： **{4, 2}, 3 pt**；**{1, 2}, 3 pt**；**{6, 2, 1, 2}, 3 pt**；**{4, 2}, 6 pt**；以及 **Solid, 3 pt**。
 
-![PowerPoint 中的三種自訂虛線圖案、使用第一個圖案的較寬線條，以及實線](custom-dash-patterns.png)
+![PowerPoint 中的三種自訂虛線樣式、使用第一種樣式的較寬線條，以及實線](custom-dash-patterns.png)
 
 ### **設定線端樣式**
 
-使用[LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle)設定開放線條的兩端。[LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/)類別提供三種明確的端點樣式：
+使用 [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle) 來設定開放線條的端點。[LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) 類別提供三種顯式端點樣式：
 
-- `Flat`：筆劃在端點處停止。
-- `Round`：半圓形端點延伸至端點之外，距離為線寬的一半。
-- `Square`：方形端點延伸至端點之外，距離為線寬的一半。
+- `Flat`：筆畫在端點處停止。
+- `Round`：半圓形端點延伸至端點以外，距離為線寬的一半。
+- `Square`：方形端點延伸至端點以外，距離為線寬的一半。
 
-此類別亦包含`NotDefined`，表示未明確指定端點樣式。
+此類別亦包含 `NotDefined`，表示未明確指派任何端點樣式。
 
-端點樣式不同於箭頭，箭頭會在線條末端加入符號；亦不同於接合樣式，接合樣式控制線段之間的拐角。此範例透過[LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle)與[LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle)停用箭頭，以便僅比較端點形狀。
+端點與箭頭（在端點加入符號）以及接合（控制線段之間的拐角）不同。此範例透過 [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) 與 [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle) 停用箭頭，僅比較端點形狀。
 
-以下範例建立三條除端點樣式外完全相同的水平線，寬度為 20 點。從上到下分別使用平直、圓形與方形端點。它們的端點具有相同的水平座標；圓形與方形端點會在每個端點延伸 10 點。
+以下範例建立三條在其他方面相同的水平線，寬度皆為 20 點。自上而下分別使用平直、圓形與方形端點。它們的端點水平座標相同；圓形與方形端點各向外延伸 10 點。
 
 ```python
 import jpype
@@ -175,15 +175,15 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint 中的結果，從上到下：**Flat**、**Round** 與 **Square**。
+PowerPoint 中的結果（自上而下）： **Flat**、**Round** 與 **Square**。
 
-![PowerPoint 中相同粗線條的平直、圓形與方形端點](line-caps.png)
+![PowerPoint 中相同粗線的平直、圓形與方形端點](line-caps.png)
 
-## **套用草圖效果於圖案線條**
+## **套用草圖效果於形狀線條**
 
-草圖效果會使圖案線條呈現手繪外觀。使用[Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat)取得線條設定，使用[LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat)取得草圖設定，並使用[SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType)從[LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)類別中選取值。
+草圖效果使形狀線條看起來像手繪。使用 [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat) 取得線條設定，使用 [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat) 取得草圖設定，並使用 [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType) 從 [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) 類別中選取值。
 
-下面的 Python 程式碼示範如何套用[LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)效果、讀取明確指派的值，並以[LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/)移除該效果：
+以下 Python 程式碼示範如何套用 [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) 效果、讀取明確指派的值，並以 [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) 移除效果：
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-由[SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType)回傳的值代表直接指派給圖案的設定。若線條格式可能從佈景主題、母片或版面投影片繼承，請使用[LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective)並從回傳的有效線條格式中讀取草圖類型，如下所示。有效值反映繼承解析後實際套用的格式。此範例需要一個已有簡報，且第一張投影片上至少有一個圖案，並印出兩個值：
+[SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) 回傳的值代表直接指派給形狀的設定。如果線條格式可能從佈景主題、母片或版面投影片繼承，請使用 [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) 並從回傳的有效線條格式中讀取草圖類型，如下所示。有效值反映在繼承解析後實際套用的格式。此範例需要一個已有至少一個形狀位於第一張投影片的簡報，並同時列印兩個值：
 
 ```python
 import jpype
@@ -237,17 +237,17 @@ finally:
 
 ## **格式接合樣式**
 
-以下是三種接合類型選項：
+以下為三種接合類型選項：
 
 * Round
 * Miter
 * Bevel
 
-接合樣式控制兩條輪廓段在拐角處的相接方式。使用**Round**取得圓角，使用**Miter**取得尖角，或使用**Bevel**取得平坦的拐角。
+接合樣式控制兩段輪廓在拐角處的相會方式。使用 **Round** 可取得圓角，使用 **Miter** 可取得尖角，使用 **Bevel** 可取得平緩的角。
 
 ![簡報中的接合樣式](join-style-powerpoint.png)
 
-此範例建立三個黑色矩形，藍色輪廓寬度為 15 點。它使用[LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle)分別設定[LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/)為斜切、斜角與圓形值，以比較拐角的繪製方式。
+此範例建立三個藍色輪廓、寬度 15 點的黑色矩形。分別使用 [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) 設定 [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) 的斜接合、倒角接合與圓形接合，以比較角落的繪製方式。
 
 ```python
 import jpype
@@ -298,13 +298,13 @@ finally:
     presentation.dispose()
 ```
 
-### **限制尖角斜切接合**
+### **限制銳角時的斜接合**
 
-使用[LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit)搭配將[LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle)設定為[LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/)來限制尖角可延伸的距離。
+使用 [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) 搭配將 [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) 設為 [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/) 以限制銳角可延伸的程度。
 
-此限制為接合內外角之距離與線寬的比率。例如，值為`8`允許斜切長度最高為線寬的八倍；此值並非以點數衡量。若拐角超過此限制，PowerPoint 會在該拐角使用斜角接合。較大的限制允許更尖銳的點。此設定僅影響斜切接合，當拐角仍在限制內時，變更不會產生可見效果。
+限制是內外角之間距離與線寬的比率。例如，值 `8` 允許斜接合長度最多為線寬的八倍；它不是以點數作為測量單位。若角落超過此限制，PowerPoint 會在該角落改用倒角接合。較大的限制容許更尖銳的點。此設定僅影響斜接合，當角落仍在限制內時不會產生可見變化。
 
-此範例建立兩個相同的未填充三角形，輪廓寬度為 20 點。左側三角形使用限制`2`，右側使用`8`。每個三角形寬 80 點、高 160 點，使其頂角的斜切長度與線寬比約為`4.12`。因此，PowerPoint 會斜角化左側頂點，保留右側頂點。
+此範例建立兩個相同、未填充的三角形，輪廓寬度為 20 點。左側三角形使用限制 `2`，右側使用 `8`。每個三角形寬 80 點、高 160 點，使其頂角的斜接合長度與線寬比約為 `4.12`。因此，PowerPoint 會將左側的頂點倒角化，右側則保留尖銳頂點。
 
 ```python
 import jpype
@@ -338,13 +338,13 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint 中的結果：左側為**Miter limit 2**，右側為**miter limit 8**。
+PowerPoint 中的結果：左側 **斜接合限制 2**，右側 **斜接合限制 8**。
 
-![PowerPoint 中斜切限制 2 的倒角頂點與斜切限制 8 的尖銳頂點](miter-limits.png)
+![PowerPoint 中，斜接合限制 2 的倒角頂點與斜接合限制 8 的尖銳頂點](miter-limits.png)
 
 ## **漸層填色**
 
-漸層填色會在圖形中混合顏色。本範例使用[FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat)以 45 度角在橢圓形上套用線性漸層，顏色由紅色過渡至紫色。[GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor)方法將顏色停止點放在 0 與 1，即漸層的開始與結束。清除現有的停止點可確保僅使用這兩種顏色。
+漸層填色會在形狀內混合顏色。此範例使用 [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat) 以 45 度角將橢圓由紅色漸變至紫色。[GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) 方法在 0 與 1 位置（漸層的起點與終點）放置顏色停止點。清除既有的停止點可確保僅使用這兩種顏色。
 
 ```python
 import jpype
@@ -375,15 +375,15 @@ finally:
 
 結果：
 
-![具有漸層填色的橢圓形](gradient-fill.png)
+![具有漸層填色的橢圓](gradient-fill.png)
 
-如果匯出圖片中的漸層與 PowerPoint 中呈現的不同，請參閱[Choose a Gradient Rendering Style](/slides/zh-hant/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可以在不變更簡報內儲存的漸層填色的情況下選擇渲染樣式。
+如果匯出影像的漸層與 PowerPoint 中的呈現不同，請參閱 [選擇漸層呈現樣式](/slides/zh-hant/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style)。您可以在不更改簡報內儲存的漸層填色的情況下切換呈現樣式。
 
 ### **設定線性漸層角度**
 
-使用[GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle)控制[GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)填色的方向。角度以度數為單位，順時針遞增：`0` 代表從左至右，`90` 代表從上至下，`180` 代表從右至左，`270` 代表從下至上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一圈，例如 `-45` 變為 `315`，`360` 變為 `0`。
+使用 [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) 來控制 [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/) 填色的方向。角度以度為單位，順時針遞增：`0` 為左至右，`90` 為上至下，`180` 為右至左，`270` 為下至上。支援小數角度。超出 `[0, 360)` 的有限角度會正規化為一圈，例如 `-45` 變為 `315`、`360` 變為 `0`。
 
-此範例建立六個矩形，其紅、綠、藍三色停止點位置相同，分別為 `0`、`0.5` 與 `1`。停用縮放，以便角度能獨立於矩形比例比較。角度從左至右依序為第一列的 `0`、`45`、`90`，以及第二列的 `135`、`180`、`270`。
+此範例建立六個矩形，皆在位置 `0`、`0.5`、`1` 設定相同的紅、綠、藍色停止點。停用縮放以便角度能獨立於矩形比例比較。角度由左至右依序為第一排的 `0`、`45`、`90`，第二排的 `135`、`180`、`270`。
 
 ```python
 import jpype
@@ -426,13 +426,13 @@ finally:
 
 PowerPoint 中的結果：
 
-![上排 0、45、90 度與下排 135、180、270 度的線性漸層](linear-gradient-angles.png)
+![上排 0°, 45°, 90° 與下排 135°, 180°, 270° 的線性漸層](linear-gradient-angles.png)
 
-### **隨圖形縮放線性漸層**
+### **以形狀縮放線性漸層**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled)接受一個[NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/)值。明確設定為`False_`可在圖形比例變更時保持幾何漸層角度不變，設定為`True_`則使漸層隨圖形的寬度與高度縮放。啟用縮放後，非正方形圖形的可見角度可能與指派的角度不同。
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) 接受一個 [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/) 值。將其明確設為 `False_` 可在形狀比例變化時保持幾何漸層角度不變，或設為 `True_` 使漸層隨形狀寬高縮放。啟用縮放時，在非正方形形狀上可見角度可能與指派角度不同。
 
-以下範例使用 `45` 度角度與相同的顏色停止點作為角度比較。左欄使用 `False_`；右欄使用 `True_`。每欄包含一個寬矩形在上方與一個高矩形在下方。兩者皆從相同的寬尺寸開始；變更第二個矩形的寬度與高度即可展示填色在調整大小時的回應，而不改變其漸層設定。
+以下範例使用 `45` 度角與相同的顏色停止點。左欄使用 `False_`，右欄使用 `True_`。每欄包含一個寬矩形上方與一個高矩形下方。兩者起始尺寸相同；變更第二個矩形的寬高以示範在不改變漸層設定的情況下，填色如何回應尺寸調整。
 
 ```python
 import jpype
@@ -478,19 +478,19 @@ finally:
     presentation.dispose()
 ```
 
-PowerPoint 中的結果，左側停用縮放，右側啟用縮放：
+PowerPoint 中的結果（左側縮放停用，右側縮放啟用）：
 
-![寬與高矩形的 45 度漸層比較：左側 LinearGradientScaled 為 False，右側為 True](linear-gradient-scaling.png)
+![寬和高矩形的 45° 漸層，左側為 LinearGradientScaled False，右側為 True 的比較](linear-gradient-scaling.png)
 
-停用縮放時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨圖形比例伸展。這有助於在將圖形調整為不同尺寸時復原模板的漸層。對於正方形而言，啟用縮放不會改變此 `45` 度漸層的外觀。
+縮放停用時，對角色帶在兩個矩形中保持相同方向。啟用縮放時，色帶會隨形狀比例伸展。這有助於在將形狀調整為不同尺寸時，復製範本的漸層。在正方形上，啟用縮放不會改變此 `45` 度漸層的外觀。
 
-角度與縮放設定皆適用於線性漸層。它們不會控制[GradientShape.Radial 或 GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/)填色。
+角度與縮放設定皆適用於線性漸層，並不控制 [GradientShape.Radial 或 GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/) 填色。
 
-### **將角度與漸層方向結合**
+### **結合角度與漸層方向**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection)從[GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/)類別中選取漸層樣式；它並非數值角度的替代方案。對於線性漸層，角落樣式可變更顏色分佈的區域，而不改變透過[setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle)指派的角度。比較角度或縮放時，保持方向不變。
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) 從 [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/) 類別中選取漸層樣式；它並非數值角度的替代方案。對於線性漸層，角落樣式可在不變更透過 [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle) 指派的角度下，改變顏色分布的範圍。比較角度或縮放時，保持方向不變。
 
-以下範例以相反的順序套用相同設定。兩個矩形的外觀相同：先指派方向或先指派角度皆不會改變結果。
+以下範例以相反順序套用相同設定。兩個矩形呈現相同外觀：先設定方向再設定角度或相反順序均不改變結果。
 
 ```python
 import jpype
@@ -531,9 +531,9 @@ finally:
     presentation.dispose()
 ```
 
-## **圖案填色**
+## **圖樣填色**
 
-圖案填色會套用兩色設計，例如點、條紋或格子。此範例使用[PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle)選取格柵圖案。[PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor)提供淡灰色背景，[PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor)則提供黃色圖案顏色。
+圖樣填色會套用兩色圖案，例如點、條紋或格子。此範例使用 [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle) 選取格子圖案。[PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) 提供淡灰色背景，而 [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) 提供黃色圖案顏色。
 
 ```python
 import jpype
@@ -562,11 +562,11 @@ finally:
 
 結果：
 
-![使用圖案填色的矩形](pattern-fill.png)
+![具有圖樣填色的矩形](pattern-fill.png)
 
 ## **圖片填色**
 
-圖片填色會在圖形內使用圖像。本範例需要本機圖像，並使用[Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile)將其載入簡報的影像集合。將[PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode)設定為平鋪模式，會在矩形內重複圖像。以下顯示此處使用的來源圖像：
+圖片填色會在形狀內使用影像。此範例需要本機影像，並使用 [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile) 將其載入簡報的影像集合。將 [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) 設為平鋪模式，即可在矩形內重複影像。以下顯示所使用的原始影像：
 
 ![蓮花圖片](lotus.png)
 
@@ -601,21 +601,21 @@ finally:
 
 結果：
 
-![使用圖片填色的圖形](picture-fill.png)
+![具有圖片填色的形狀](picture-fill.png)
 
 ### **將圖片平鋪為紋理**
 
-若要將平鋪圖片設定為紋理且自訂平鋪行為，可使用[PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/)類別的以下方法：
+如果想將平鋪圖片作為紋理並自訂平鋪行為，可使用以下 [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) 方法：
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode)：設定圖片填色模式——`Tile`（平鋪）或 `Stretch`（伸展）。
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment)：指定平鋪圖案在圖形內的對齊方式。
-- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip)：控制平鋪圖案是否水平翻轉、垂直翻轉或同時翻轉。
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX)：設定平鋪圖案相對於圖形原點的水平偏移（單位為點）。
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY)：設定平鋪圖案相對於圖形原點的垂直偏移（單位為點）。
-- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX)：以百分比定義平鋪圖案的水平縮放。
-- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY)：以百分比定義平鋪圖案的垂直縮放。
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode)：設定圖片填充模式—`Tile` 或 `Stretch`。
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment)：指定平鋪在形狀內的對齊方式。
+- [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip)：控制平鋪是否水平、垂直或同時翻轉。
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX)：設定平鋪相對於形狀原點的水平偏移（點）。
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY)：設定平鋪相對於形狀原點的垂直偏移（點）。
+- [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX)：以百分比定義水平縮放。
+- [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY)：以百分比定義垂直縮放。
 
-此範例需要本機圖像，並設定[PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/)以原始尺寸的 50% 進行平鋪。−32 點的水平與垂直偏移會移動平鋪圖案；右下對齊且同時翻轉兩個方向，決定重複紋理的排列方式。
+此範例需要本機影像，並將 [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) 設定為以原始大小 50% 重複。將 X 與 Y 偏移設定為 -32 點，使平鋪水平與垂直移動；底部右側對齊並在兩個方向翻轉，以決定重複紋理的排列方式。
 
 ```python
 import jpype
@@ -660,7 +660,7 @@ finally:
 
 ## **純色填色**
 
-純色填色為圖形賦予單一均勻的顏色。此範例使用[FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType)設定為純色填色，並透過[FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor)指定黃色，最後將矩形儲存於簡報中。
+純色填色為形狀提供單一、均勻的顏色。此範例使用 [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) 設定為純色填充模式，並透過 [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) 指定黃色，最後將矩形儲存至簡報。
 
 ```python
 import jpype
@@ -687,15 +687,88 @@ finally:
 
 結果：
 
-![使用純色填色的圖形](solid-color-fill.png)
+![具有純色填色的形狀](solid-color-fill.png)
 
-## **將投影片背景用作圖形填色**
+### **在保留佈景主題參照的同時複製顏色**
 
-當圖形需要與投影片背景相匹配時（例如在簡報範本中），請使用[AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill)。先將[FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType)設定為[FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/)，以移除任何明確的填色。使用此組合時，圖形會使用投影片背景而非其樣式填色。僅啟用此旗標不會移除已有的明確填色。
+使用 [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom) 複製顏色定義，包括其顏色類型、佈景主題參照與變換。此功能在將填色在應該繼續遵循簡報主題的形狀之間傳遞時特別有用。此方法僅複製顏色本身，不會複製填充類型、輪廓或其他形狀格式。請使用 [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) 明確設定目標的填充類型。
 
-這與[FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/)不同：背景填色會使用投影片背景的相應區域覆蓋圖形背後的物件，而無填色則會保留這些物件可見。漸層則保持與投影片對齊，而不是在每個圖形內重新開始。
+此範例建立三個矩形，從左到右分別為來源、具佈景主題感知的複本與固定 RGB 複本。來源使用 [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor) 參照第一個強調色，並透過 [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add) 增加色調。RGB 複本使用來源的有效填充顏色，三者最初看起來相同。呼叫 [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) 後，設定固定的 RGB 值並清除任何既有的顏色變換。
 
-以下範例建立一個被投影片繼承的母片背景，並在三個矩形後放置品紅色條帶。左側矩形使用背景，中央矩形無填色，右側矩形則從背景填色切換為明確的橙色填色。
+```python
+import jpype
+import asposeslides
+
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # 主題參照遵循新的強調色；固定的 RGB 值不會變更。
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+主題變更前，三個填色皆相同：
+
+![來源、copyFrom 目的地與固定 RGB 目的地皆具有相同的藍色填色](color-copy-before.png)
+
+主題變更後，來源與具佈景主題感知的複本遵循新的強調色並保留色調。固定 RGB 複本仍保持藍色：
+
+![來源與 copyFrom 目的地為橙色填色，固定 RGB 目的地仍為藍色](color-copy-after.png)
+
+複製的定義與來源獨立。之後若更改來源的佈景主題參照、指派其他顏色，或增減其變換，都不會影響目的地。佈景主題變更仍會同時影響兩個形狀，因為它們各自獨立參照相同的主題顏色。
+
+儲存並重新開啟 PPTX 時，會保留由 [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType) 回傳的顏色類型、佈景主題參照與由 [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform) 回傳的變換集合；不會將定義平面化為 RGB。
+
+在不同佈景主題環境（例如不同強調色調色板的簡報）之間複製時，複製的參照會根據目的地的佈景主題解析。因此相同的參照與變換在不同簡報中可能產生不同的可見顏色。請參閱 [簡報佈景主題](/slides/zh-hant/python-java/presentation-theme/) 以了解佈景主題顏色的設定方式。
+
+## **將投影片背景用作形狀填色**
+
+使用 [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill) 當形狀應與投影片背景相同，例如在簡報範本中。先以 [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) 設為 [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) 以移除任何明確的填色。結合此設定後，形狀會使用投影片背景而非其樣式填色。僅啟用此旗標不會移除已有的明確填色。
+
+這與 [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) 不同：背景填色會以投影片背景相應區域覆蓋形狀後方的物件，而無填色則會讓這些物件保持可見。漸層仍會與投影片對齊，而不會在每個形狀內重新開始。
+
+以下範例建立一個由母片繼承的背景，並在三個矩形後放置一條洋紅色帶。左側矩形使用背景填色，中間矩形無填色，右側矩形則從背景填色切換為明確的橙色填色。
 
 ```python
 import jpype
@@ -712,7 +785,7 @@ try:
     presentation.getSlideSize().setSize(720, 400, SlideSizeScaleType.DoNotScale)
     slide = presentation.getSlides().get_Item(0)
 
-    # 從母片繼承漸層。
+    # 繼承母片的漸層。
     slide.getBackground().setType(BackgroundType.NotDefined)
     slide.getLayoutSlide().getBackground().setType(BackgroundType.NotDefined)
     background = slide.getLayoutSlide().getMasterSlide().getBackground()
@@ -727,7 +800,7 @@ try:
     color = Color(135, 206, 250)
     gradient.getGradientStops().add(1, color)
 
-    # 先加入此物件，使其顯示在矩形之後。
+    # 先加入此物件，使它顯示在矩形後方。
     band = slide.getShapes().addAutoShape(ShapeType.Rectangle, 25, 150, 670, 100)
     band.getFillFormat().setFillType(FillType.Solid)
     band.getFillFormat().getSolidFillColor().setColor(Color.MAGENTA)
@@ -755,15 +828,15 @@ finally:
     presentation.dispose()
 ```
 
-結果，從左至右：**background fill**、**no fill** 與 **explicit fill**。品紅色條帶被左側與右側矩形遮蔽，但在中間矩形可見。
+結果（左至右）：**背景填色**、**無填色**與**明確填色**。洋紅色帶在左側與右側矩形後被隱藏，但在中間矩形上仍可見。
 
-![背景填色、無填色與明確橙色填色覆蓋品紅條帶](background-fill.png)
+![背景填色、無填色與明確橙色填色覆蓋洋紅條紋](background-fill.png)
 
-相同的行為也適用於直接在投影片上定義或從版面繼承的背景。圖形使用投影片解析後的背景；本範例保持投影片與版面的背景皆未定義，讓母片提供背景。
+相同的行為也適用於直接在投影片上定義或從版面繼承的背景。形狀會使用投影片解析後的背景；此範例將投影片與版面的背景皆留未定義，讓母片提供背景。
 
 ## **設定透明度**
 
-對於純色填色，顏色的 alpha 成分控制不透明度：0 表示完全透明，255 表示完全不透明。此範例對黃色矩形使用 alpha 值 128，使其大約 50% 透明，以下方矩形仍可見。顏色透過[FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor)指派。
+對於純色填色，顏色的 alpha 元件控制不透明度：0 為完全透明，255 為完全不透明。此範例為黃色矩形設定 alpha 值 128，使其大約 50% 透明，讓下層矩形仍可見。顏色透過 [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor) 指派。
 
 ```python
 import jpype
@@ -793,11 +866,11 @@ finally:
 
 結果：
 
-![透明的圖形](shape-transparency.png)
+![透明的形狀](shape-transparency.png)
 
-## **旋轉圖形**
+## **旋轉形狀**
 
-使用[Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation)在投影片平面上旋轉圖形。角度以度數為單位；本範例將矩形順時針旋轉 5 度，並儲存簡報。
+使用 [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation) 以度數在投影片平面上旋轉形狀。此範例將矩形順時針旋轉 5 度，並儲存簡報。
 
 ```python
 import jpype
@@ -822,11 +895,11 @@ finally:
 
 結果：
 
-![圖形旋轉](shape-rotation.png)
+![形狀旋轉](shape-rotation.png)
 
-## **新增 3D 斜角效果**
+## **新增 3D 倒角效果**
 
-使用[Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat)為圖形添加深度與斜角邊緣。此範例建立一個綠色橢圓形，橙色輪廓，使用[ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth)將深度設定為 4 點，並透過[ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop)套用寬度與高度皆為 6 點的圓形上斜角。前視正投影相機與三點式照明使斜角可見。
+使用 [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat) 為形狀添加深度與倒角。此範例建立綠色橢圓、橙色輪廓，使用 [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth) 設定深度為 4 點，並透過 [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop) 以寬高 6 點的圓形上倒角。前視正投影相機與三點燈光使倒角可見。
 
 ```python
 import jpype
@@ -865,11 +938,11 @@ finally:
 
 結果：
 
-![3D 斜角效果](3D-bevel-effect.png)
+![3D 倒角效果](3D-bevel-effect.png)
 
 ## **新增 3D 旋轉效果**
 
-圖形的 3D 觀點由相機設定控制。本範例使用[Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation)分別以 40、35、20 度的緯度、經度與旋轉角度。透過[Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType)選取等角相機，並使用[LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType)設定平衡光源，最後儲存已格式化的矩形。
+形狀的 3D 視圖由相機設定控制。此範例使用 [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) 設定緯度、經度與旋轉角度分別為 40、35、20 度。透過 [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) 選取等角投影相機，並以 [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType) 設定平衡光源，最後儲存格式化後的矩形。
 
 ```python
 import jpype
@@ -899,13 +972,13 @@ finally:
 
 ![3D 旋轉效果](3D-rotation-effect.png)
 
-## **控制圖形的黑白呈現**
+## **控制形狀的黑白呈現**
 
-[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode)方法指定在以黑白模式檢視或處理簡報時，各個圖形的呈現方式。此方法本身不會啟用黑白顯示，也不會在正常彩色模式下變更圖形的填色、線條或其他格式設定。
+[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) 方法指定單一形狀在以黑白模式檢視或處理簡報時的呈現方式。它本身不會啟用黑白顯示，也不會在一般彩色模式下變更形狀的填色、線條或其他格式。
 
-使用[BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/)類別中的值來選擇所需的行為。例如，`Automatic`讓呈現應用程式自行決定轉換方式，`Gray`與`LightGray`使用灰色，`BlackWhite`僅使用黑與白，`Black`與`White`強制單一顏色，`Color`保留正常顏色，`Hidden`在黑白模式下省略圖形。`NotDefined`表示未指派圖形層級的模式。
+使用 [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/) 類別中的值選取所需行為。例如，`Automatic` 讓應用程式自行選擇轉換方式，`Gray` 與 `LightGray` 使用灰階著色，`BlackWhite` 僅使用黑與白，`Black` 與 `White` 強制單色，`Color` 保留一般彩色，`Hidden` 在黑白模式下省略形狀。`NotDefined` 表示未指派形狀層級的模式。
 
-此範例建立一個橙色矩形，並使用[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode)將模式設定為灰色。儲存的圖形在正常彩色顯示時保留橙色填色，且會向支援黑白顯示設定的應用程式請求灰色著色：
+此範例建立橙色矩形，並使用 [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) 將模式設為灰階。儲存後的形狀在一般彩色顯示時保留橙色填色，於支援黑白顯示設定的應用程式中則以灰階呈現：
 
 ```python
 import jpype
@@ -932,11 +1005,11 @@ finally:
     presentation.dispose()
 ```
 
-在正常彩色模式下，矩形保留橙色填色。於黑白顯示工作流程中，因模式設定為`Gray`，它會使用灰色著色。這讓您在保留全彩投影片的同時，為列印、預覽或其他遵循簡報黑白顯示設定的工作流程定義不同的外觀。
+在一般彩色模式下，矩形保留橙色填色。於黑白顯示工作流程中，因模式設定為 `Gray`，因此使用灰階著色。這讓您在保留完整彩色投影片的同時，為列印、預覽或其他遵循黑白顯示設定的工作流程定義不同外觀。
 
 ## **重設格式**
 
-使用[Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset)從相對應的版面配置占位元復原投影片占位元的位置、大小與格式。此範例需要一個已有版面連結占位元的簡報，並在儲存前重設每張投影片。沒有相對應版面占位元的圖形不會被重設。
+使用 [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset) 從對應的版面佈局佔位項還原投影片佔位項的位置、大小與格式。此範例需要一個已有版面連結佔位項的簡報，並在儲存前重設每張投影片。未對應版面佔位項的形狀不會被重設。
 
 ```python
 import jpype
@@ -957,16 +1030,16 @@ finally:
     presentation.dispose()
 ```
 
-## **常見問題**
+## **常見問題集**
 
-**圖形格式化會影響最終簡報檔案大小嗎？**
+**形狀格式化會影響最終簡報檔案大小嗎？**
 
-與嵌入的圖像和媒體相比，顏色、線條樣式與效果設定通常僅增加少量資料。圖片填色可能會因圖像儲存在簡報中而提升檔案大小。
+顏色、線條樣式與效果設定相較於嵌入的影像與媒體，通常只會增加少量資料。圖片填色可能會因為儲存影像而增加檔案大小。
 
-**如何偵測投影片上具有相同格式的圖形以便將其分組？**
+**如何偵測投影片上具有相同格式的形狀以便將它們分組？**
 
-比較每個圖形的關鍵格式屬性——填色、線條與效果設定。若所有相對應的值皆相符，則視為相同樣式，並在邏輯上將這些圖形分組，以簡化後續的樣式管理。
+比較每個形狀的關鍵格式屬性——填色、線條與效果設定。如果所有對應值相符，則視為格式相同，並可在邏輯上將這些形狀分組，簡化之後的樣式管理。
 
-**我可以將一組自訂圖形樣式儲存至單獨檔案，以便在其他簡報中重複使用嗎？**
+**我可以將自訂形狀樣式儲存到單獨的檔案以在其他簡報中重複使用嗎？**
 
-可以。將具備所需樣式的範例圖形儲存於範本投影片或 .POTX 範本檔案中。建立新簡報時，開啟該範本，複製所需的樣式圖形，並在需要的地方重新套用其格式。
+可以。將具備所需樣式的範例形狀儲存在範本投影片或 .POTX 範本檔案中。建立新簡報時，開啟該範本，複製需要的樣式形狀，並在需要的地方重新套用其格式。

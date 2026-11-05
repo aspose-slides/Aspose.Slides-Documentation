@@ -1,5 +1,5 @@
 ---
-title: Vormopmaak van PowerPoint‑vormen in C++
+title: PowerPoint-vormen opmaken in C++
 linktitle: Vormopmaak
 type: docs
 weight: 20
@@ -7,38 +7,38 @@ url: /nl/cpp/shape-formatting/
 keywords:
 - vorm opmaken
 - lijn opmaken
-- schets‑effect
-- schetsvormlijn
-- samenvoegingsstijl opmaken
+- schets-effect
+- schets vormlijn
+- verbindingstijl opmaken
 - verloopvulling
 - patroonvulling
 - afbeeldingsvulling
 - textuurvulling
 - effen kleurvulling
 - vormtransparantie
-- zwart‑wit vormrendering
-- grijswaarden vormrendering
+- zwart-wit vormweergave
+- grijstinten vormweergave
 - vorm roteren
-- 3D‑afschuinings‑effect
-- 3D‑rotatie‑effect
+- 3D afschuiningseffect
+- 3D rotatie-effect
 - opmaak resetten
 - PowerPoint
 - presentatie
 - C++
 - Aspose.Slides
-description: "Leer hoe u PowerPoint‑vormen kunt opmaken in C++ met Aspose.Slides — stel vullings-, lijn‑ en effectstijlen in voor PPT‑ en PPTX‑bestanden met precisie en volledige controle."
+description: "Leer hoe u PowerPoint-vormen kunt opmaken in C++ met Aspose.Slides—stel vul-, lijn- en effectstijlen in voor PPT- en PPTX-bestanden met precisie en volledige controle."
 ---
-## **Inleiding**
+## **Introductie**
 
-Formatteer vormen in PowerPoint door hun lijnen, vullingen en effecten aan te passen. Aspose.Slides for C++ stelt je in staat deze instellingen programmatically te beheersen, inclusief transparantie, rotatie en 3D‑opmaak.
+Formatteer vormen in PowerPoint door hun contouren, vullingen en effecten aan te passen. Aspose.Slides voor C++ stelt u in staat deze instellingen programmeerbaar te beheren, inclusief transparantie, rotatie en 3D‑opmaak.
 
 ![Vormopmaakopties in PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ biedt interfaces en methoden die je in staat stellen vormen op te maken met dezelfde opties die in PowerPoint beschikbaar zijn.
+Aspose.Slides voor C++ biedt interfaces en methoden die u in staat stellen vormen op te maken met dezelfde opties die beschikbaar zijn in PowerPoint.
 
 ## **Lijnen opmaken**
 
-Gebruik [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de omtrek van een vorm te regelen. Dit voorbeeld maakt een niet‑gevulde rechthoek met een blauwe, gestreepte omtrek. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) selecteert een dik‑dun samengestelde lijn, terwijl [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) de breedte op 7 punten zet en [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) het streeppatroon kiest.
+Gebruik [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de contour van een vorm te regelen. Dit voorbeeld maakt een niet‑gevulde rechthoek met een blauwe, gestippelde contour. [ILineFormat::set_Style](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_style/) selecteert een samengestelde lijndikte (dik‑dun), terwijl [ILineFormat::set_Width](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_width/) de breedte op 7 punten instelt en [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/) het stippelpatroon kiest.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -81,13 +81,13 @@ Het resultaat:
 
 ![De opgemaakte lijnen in de presentatie](formatted-lines.png)
 
-### **Aangepaste lijnstreeppatronen instellen**
+### **Aangepaste lijnstippelpaten instellen**
 
-Gebruik [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) wanneer vooraf gedefinieerde lijnstijlen niet de gewenste streep‑ en tussenruimtelengtes bieden, bijvoorbeeld voor merk‑omtrekken of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de streepstijl naar [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
+Gebruik [ILineFormat::set_CustomDashPattern](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_customdashpattern/) wanneer vooraf gedefinieerde lijntypen niet de gewenste stippel‑ en onderbrekingslengtes bieden, bijvoorbeeld voor merkcontouren of technische diagrammen. Het toewijzen van een patroon wijzigt automatisch de stippelstijl naar [LineDashStyle::Custom](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/).
 
-Array‑items wisselen af tussen streep‑ en tussenruimtelengtes, beginnend met een streep. Elke waarde is een veelvoud van de lijnbreedte: `{ 4, 2 }` bij een breedte van 3 pt levert een 12‑pt streep gevolgd door een 6‑pt tussenruimte op. Gebruik paren van eindige, niet‑negatieve waarden om volledige streep‑en‑tussensegmenten te definiëren. Het voorbeeld gebruikt positieve waarden zodat elke streep en tussenruimte zichtbaar blijft.
+Array‑items wisselen af tussen stippellengte en onderbreking, beginnend met een stippel. Elke waarde is een veelvoud van de lijndikte: `{ 4, 2 }` bij een breedte van 3 punten levert een stippel van 12 punten gevolgd door een onderbreking van 6 punten op. Gebruik paren van eindige, niet‑negatieve waarden om volledige stippel‑en‑onderbrekingssegmenten te definiëren. Het voorbeeld gebruikt positieve waarden om elke stippel en onderbreking zichtbaar te houden.
 
-Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte caps. De eerste drie vergelijken patronen bij een breedte van 3 pt. De vierde herhaalt het eerste patroon met dubbele breedte, waardoor zowel de streep‑ als de tussenlengtes verdubbelen. De vijfde schakelt van een aangepast patroon naar een effen lijn.
+Dit voorbeeld maakt vijf blauwe lijnen met dezelfde lengte en platte eindpunten. De eerste drie vergelijken patronen bij een breedte van 3 punten. De vierde herhaalt het eerste patroon met dubbele breedte, waardoor zowel de stippel‑ als onderbrekingslengte verdubbelen. De vijfde schakelt over van een aangepast patroon naar een doorlopende lijn.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -147,26 +147,25 @@ presentation->Save(u"custom_dash_patterns.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Om in plaats daarvan terug te keren naar een vooraf gedefinieerde gestreepte stijl, geef je [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) door aan [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
+Om terug te gaan naar een vooraf gedefinieerde gestippelde stijl, geef [LineDashStyle::Dash](https://reference.aspose.com/slides/cpp/aspose.slides/linedashstyle/) door aan [ILineFormat::set_DashStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_dashstyle/). De geselecteerde stijl bepaalt het uiterlijk van de lijn.
 
 Het resultaat in PowerPoint, van boven naar beneden: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; en **Solid, 3 pt**.
 
-![Drie aangepaste streeppatronen, een dikkere lijn met het eerste patroon, en een effen lijn in PowerPoint](custom-dash-patterns.png)
+![Drie aangepaste stippelpaten, een dikkere lijn met het eerste patroon, en een doorlopende lijn in PowerPoint](custom-dash-patterns.png)
 
+### **Lijn‑eindpunten instellen**
 
-### **Lijncaps instellen**
-
-Gebruik [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) om de uiteinden van een open lijn in te stellen. De [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/)‑enumeratie biedt drie expliciete cap‑stijlen:
+Gebruik [ILineFormat::set_CapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_capstyle/) om de uiteinden van een open lijn in te stellen. De enumeratie [LineCapStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linecapstyle/) biedt drie expliciete eindpuntstijlen:
 
 - `Flat`: De lijn stopt bij het eindpunt.
-- `Round`: Een halve cirkelvormige cap strekt zich half de lijnbreedte voorbij het eindpunt uit.
-- `Square`: Een vierkante cap strekt zich half de lijnbreedte voorbij het eindpunt uit.
+- `Round`: Een halve cirkelvormige cap strekt zich uit voorbij het eindpunt met de helft van de lijndikte.
+- `Square`: Een vierkante cap strekt zich uit voorbij het eindpunt met de helft van de lijndikte.
 
 De enumeratie bevat ook `NotDefined`, wat betekent dat er geen cap‑stijl expliciet is toegewezen.
 
-Caps verschillen van pijlpunten, die symbolen aan het uiteinde van een lijn toevoegen, en van joins, die hoeken tussen lijnsegmenten regelen. Dit voorbeeld schakelt pijlpunten uit via [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) en [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/) zodat alleen de cap‑vormen worden vergeleken.
+Eindpunten verschillen van pijlpunten, die symbolen aan lijnuiteinden toevoegen, en verbindingen, die hoeken tussen lijnsegmenten beheersen. Dit voorbeeld schakelt pijlpunten uit via [ILineFormat::set_BeginArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_beginarrowheadstyle/) en [ILineFormat::set_EndArrowheadStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_endarrowheadstyle/), zodat alleen de eindpuntvormen worden vergeleken.
 
-Het volgende voorbeeld maakt drie verder identieke horizontale lijnen van 20 pt breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante caps. Hun eindpunten hebben dezelfde horizontale coördinaten; de ronde en vierkante caps steken 10 pt voorbij elk eindpunt uit.
+Het volgende voorbeeld maakt drie verder identieke horizontale lijnen van 20 punten breed. Van boven naar beneden gebruiken ze platte, ronde en vierkante eindpunten. Hun uiteinden hebben dezelfde horizontale coördinaten; de ronde en vierkante eindpunten strekken zich 10 punten voorbij elk eindpunt uit.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -218,13 +217,13 @@ presentation->Dispose();
 
 Het resultaat in PowerPoint, van boven naar beneden: **Flat**, **Round**, en **Square**.
 
-![Platte, ronde en vierkante caps op identieke dikke lijnen in PowerPoint](line-caps.png)
+![Platte, ronde en vierkante eindpunten op identieke dikke lijnen in PowerPoint](line-caps.png)
 
 ## **Schets‑effecten toepassen op vormlijnen**
 
-Een schets‑effect laat een vormlijn eruitzien alsof deze met de hand is getekend. Gebruik [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de lijninstellingen te benaderen, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) om de schetsinstellingen te benaderen, en [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) om een waarde uit de [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)‑enumeratie te selecteren.
+Een schetseffect laat een vormlijn handgetekend lijken. Gebruik [IShape::get_LineFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_lineformat/) om de lijninstellingen te benaderen, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/get_sketchformat/) om de schetsinstellingen te benaderen, en [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/set_sketchtype/) om een waarde uit de enumeratie [LineSketchType](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) te selecteren.
 
-De volgende C++‑code toont hoe je een [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/)‑effect toepast, de expliciet toegewezen waarde uitleest, en het effect verwijdert met [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
+De onderstaande C++‑code toont hoe een [LineSketchType::Curved](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/) effect toe te passen, de expliciet toegewezen waarde uit te lezen, en het effect te verwijderen met [LineSketchType::None](https://reference.aspose.com/slides/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -255,7 +254,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-De waarde die wordt geretourneerd door [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) vertegenwoordigt de instelling die direct aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of layout‑dia, gebruik dan [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), benader [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), en lees [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat overerving is opgelost. Dit voorbeeld vereist een bestaande presentatie met ten minste één vorm op de eerste dia en print beide waarden:
+De waarde die wordt geretourneerd door [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformat/get_sketchtype/) representeert de instelling die rechtstreeks aan de vorm is toegewezen. Als de lijnopmaak kan worden geërfd van een thema, master‑dia of lay‑dia, gebruik dan [ILineFormat::GetEffective](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/geteffective/), raadpleeg [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/), en lees [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). De effectieve waarde weerspiegelt de opmaak die daadwerkelijk wordt toegepast nadat erfdelen zijn opgelost. Dit voorbeeld vereist een bestaande presentatie met ten minste één vorm op de eerste dia en print beide waarden:
 
 ```cpp
 #include <DOM/ILineFormat.h>
@@ -285,19 +284,19 @@ Console::WriteLine(u"Effective sketch type: {0}", effectiveSketchType);
 presentation->Dispose();
 ```
 
-## **Samenvoegingsstijlen opmaken**
+## **Verbindingsstijlen opmaken**
 
-Hier zijn de drie opties voor het type verbinding:
+Hier zijn de drie opties voor verbindingssoorten:
 
-* Round
+* Rond
 * Miter
-* Bevel
+* Afschuining
 
-De samenvoegingsstijl bepaalt hoe twee omtreksegmenten elkaar ontmoeten op een hoek. Gebruik **Round** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Bevel** voor afgeplatte hoeken.
+De verbindingsstijl bepaalt hoe twee contoursegmenten samenkomen op een hoek. Gebruik **Rond** voor afgeronde hoeken, **Miter** voor scherpe hoeken, of **Afschuining** voor afgeplatte hoeken.
 
-![De samenvoegingsstijl in de presentatie](join-style-powerpoint.png)
+![De verbindingsstijl in de presentatie](join-style-powerpoint.png)
 
-Dit voorbeeld maakt drie zwarte rechthoeken met blauwe omtrekken van 15 pt breed. Het stelt [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) in op respectievelijk de miter‑, bevel‑ en round‑waarden van [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) om te vergelijken hoe de hoeken worden getekend.
+Dit voorbeeld maakt drie zwarte rechthoeken met blauwe contouren van 15 punten breed. Het stelt [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) in op de miter, bevel en round waarden van [LineJoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/), respectievelijk, om te vergelijken hoe de hoeken worden getekend.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -360,11 +359,11 @@ presentation->Dispose();
 
 ### **Miter‑verbindingen beperken bij scherpe hoeken**
 
-Gebruik [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) in combinatie met [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ingesteld op [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek mag uitsteken.
+Gebruik [ILineFormat::set_MiterLimit](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_miterlimit/) samen met [ILineFormat::set_JoinStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ilineformat/set_joinstyle/) ingesteld op [LineJoinStyle::Miter](https://reference.aspose.com/slides/cpp/aspose.slides/linejoinstyle/) om te beperken hoe ver een scherpe hoek kan uitsteken.
 
-De limiet is de verhouding tussen de afstand van de binnen‑ en buitenhoek van de join en de lijnbreedte. Een waarde van `8` staat een miter‑lengte toe tot acht keer de lijnbreedte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een afgeplatte join op die hoek. Een grotere limiet maakt scherpere punten mogelijk. De instelling beïnvloedt alleen miter‑joins, en wijzigen heeft geen waarneembaar effect wanneer de hoek binnen beide limieten blijft.
+De limiet is een verhouding tussen de afstand tussen de binnen- en buitenhoeken van de verbinding en de lijndikte. Bijvoorbeeld, een waarde van `8` staat een miter‑lengte toe tot acht keer de lijndikte; het is geen meting in punten. Als de hoek de limiet zou overschrijden, gebruikt PowerPoint een afgeschuinde verbinding op die hoek. Een grotere limiet staat scherpere punten toe. Deze instelling beïnvloedt alleen miter‑verbindingen, en een wijziging heeft geen zichtbaar effect wanneer de hoek binnen beide limieten blijft.
 
-Dit voorbeeld maakt twee identieke, niet‑gevulde driehoeken met omtrekken van 20 pt breed. De linker driehoek gebruikt een limiet van `2`, de rechter een limiet van `8`. Elke driehoek is 80 pt breed en 160 pt hoog, waardoor de bovenste hoek een miter‑lengte‑tot‑lijnbreedte‑verhouding van ongeveer `4.12` heeft. Daardoor vlakt PowerPoint de linker top af en behoudt het rechter punt.
+Dit voorbeeld maakt twee identieke, niet‑gevulde driehoeken met contouren van 20 punten breed. De linker driehoek gebruikt een limiet van `2`, en de rechter een limiet van `8`. Elke driehoek is 80 punten breed en 160 punten hoog, waardoor de verhouding van miter‑lengte tot lijndikte van de bovenste hoek ongeveer `4,12` is. Daardoor schuint PowerPoint de linkerpunt af en behoudt het rechterpunt.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -411,13 +410,13 @@ presentation->Save(u"miter_limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het resultaat in PowerPoint: **Miter limit 2** aan de linkerkant en **miter limit 8** aan de rechterkant.
+Het resultaat in PowerPoint: **Miter‑limiet 2** links en **miter‑limiet 8** rechts.
 
-![Een afgeplatte top met miter‑limiet 2 en een puntige top met miter‑limiet 8 in PowerPoint](miter-limits.png)
+![Een afgeschuinde top met miter‑limiet 2 en een puntige top met miter‑limiet 8 in PowerPoint](miter-limits.png)
 
 ## **Verloopvulling**
 
-Een verloopvulling mengt kleuren over een vorm. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graden van rood naar paars via [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). De [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/)‑methode plaatst de kleurstops op 0 en 1, het begin en het einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
+Een verloopvulling mengt kleuren over een vorm heen. Dit voorbeeld vult een ellips met een lineair verloop onder een hoek van 45 graden van rood naar paars met behulp van [IFillFormat::get_GradientFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_gradientformat/). De methode [IGradientStopCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/igradientstopcollection/add/) plaatst de kleurstops bij 0 en 1, het begin en einde van het verloop. Het wissen van de bestaande stops zorgt ervoor dat alleen deze twee kleuren worden gebruikt.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -460,13 +459,13 @@ Het resultaat:
 
 ![De ellips met verloopvulling](gradient-fill.png)
 
-Als een verloop er anders uitziet in een geëxporteerde afbeelding dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Je kunt een renderingsstijl selecteren zonder de in de presentatie opgeslagen verloopvulling te wijzigen.
+Als een verloop er in een geëxporteerde afbeelding anders uitziet dan in PowerPoint, zie dan [Choose a Gradient Rendering Style](/slides/nl/cpp/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). U kunt een weergavestijl kiezen zonder de in de presentatie opgeslagen verloopvulling te wijzigen.
 
-### **Lineaire verloophoek instellen**
+### **De lineaire verloophoek instellen**
 
-Gebruik [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) om de richting van een [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑vulling te bepalen. De hoek wordt gemeten in graden en neemt met de klok mee toe: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Fractionele hoeken worden ondersteund. Eindige hoeken buiten `[0, 360)` worden genormaliseerd tot één omwenteling; bijvoorbeeld, `-45` wordt `315` en `360` wordt `0`.
+Gebruik [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) om de oriëntatie van een [GradientShape::Linear](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/) vulling te beheren. De hoek wordt gemeten in graden en neemt toe met de klok mee: `0` loopt van links naar rechts, `90` van boven naar beneden, `180` van rechts naar links, en `270` van onder naar boven. Gedeeltelijke hoeken worden ondersteund. Eindige hoeken buiten `[0, 360)` worden genormaliseerd naar één omwenteling; bijvoorbeeld, `-45` wordt `315` en `360` wordt `0`.
 
-Dit voorbeeld maakt zes rechthoeken met identieke rode, groene en blauwe stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk van de verhoudingen van de rechthoeken kan worden vergeleken. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
+Dit voorbeeld maakt zes rechthoeken met identieke rood, groen en blauw stops op posities `0`, `0.5` en `1`. Schalen is uitgeschakeld zodat de hoek onafhankelijk kan worden vergeleken met de verhoudingen van de rechthoeken. De hoeken, van links naar rechts, zijn `0`, `45` en `90` in de eerste rij, en `135`, `180` en `270` in de tweede rij.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -525,13 +524,13 @@ presentation->Dispose();
 
 Het resultaat in PowerPoint:
 
-![Lineaire verlopen op 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
+![Lineaire verloopkleuren bij 0, 45 en 90 graden in de bovenste rij, en 135, 180 en 270 graden in de onderste rij](linear-gradient-angles.png)
 
-### **Lineair verloop schalen met de vorm**
+### **Een lineair verloop schalen met de vorm**
 
-[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepteert een [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Stel deze expliciet in op `False` om de geometrische verloophoek te behouden wanneer de verhoudingen van de vorm veranderen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met schalen ingeschakeld kan de zichtbare hoek afwijken van de toegewezen hoek op een niet‑vierkante vorm.
+[IGradientFormat::set_LinearGradientScaled](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientscaled/) accepteert een [NullableBool](https://reference.aspose.com/slides/cpp/aspose.slides/nullablebool/). Stel deze expliciet in op `False` om de geometrische verloophoek te behouden wanneer de verhoudingen van de vorm wijzigen, of op `True` om het verloop te schalen met de breedte en hoogte van de vorm. Met ingeschakelde schaling kan de zichtbare hoek afwijken van de toegewezen hoek bij een niet‑vierkante vorm.
 
-Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als de hoekvergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide starten met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek toont hoe de vulling reageert op grootte‑aanpassing zonder de verloopinstellingen te veranderen.
+Het volgende voorbeeld gebruikt een hoek van `45` graden en dezelfde kleurstops als de hoekvergelijking. De linkerkolom gebruikt `False`; de rechterkolom gebruikt `True`. Elke kolom bevat een brede rechthoek boven een hoge rechthoek. Beide beginnen met dezelfde brede afmetingen; het wijzigen van de breedte en hoogte van de tweede rechthoek laat zien hoe de vulling reageert op grootte‑aanpassing zonder de verloopinstellingen te wijzigen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -597,19 +596,19 @@ presentation->Save(u"linear_gradient_scaling.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het resultaat in PowerPoint, met schalen uitgeschakeld aan de linkerkant en ingeschakeld aan de rechterkant:
+Het resultaat in PowerPoint, met uitschakelde schaling links en ingeschakelde schaling rechts:
 
-![Brede en hoge rechthoeken met een 45‑graden verloop, vergelijking LinearGradientScaled False links met True rechts](linear-gradient-scaling.png)
+![Brede en hoge rechthoeken met een 45‑graden verloop, waarbij LinearGradientScaled False links wordt vergeleken met True rechts](linear-gradient-scaling.png)
 
-Met schalen uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schalen ingeschakeld rekken de banden zich uit volgens de verhoudingen van de vorm. Dit helpt om een sjabloon‑verloop te reproduceren bij het aanpassen van een vorm naar een andere grootte. Op een vierkant verandert het inschakelen van schalen de weergave van dit `45`‑graden verloop niet.
+Met schaling uitgeschakeld behouden de diagonale kleurbanden dezelfde oriëntatie in beide rechthoeken. Met schaling ingeschakeld strekken de banden zich uit met de verhoudingen van de vorm. Dit helpt om het verloop van een sjabloon te reproduceren bij het aanpassen van een vorm naar een andere grootte. Bij een vierkante vorm verandert het inschakelen van schaling de uitstraling van dit `45`‑graden verloop niet.
 
-Zowel de hoek‑ als de schalingsinstellingen gelden voor lineaire verlopen. Ze regelen niet [GradientShape::Radial of GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/)‑vullingen.
+Zowel de hoek‑ als de schaalinstellingen gelden voor lineaire verloopkleuren. Ze regelen niet [GradientShape::Radial of GradientShape::Rectangle](https://reference.aspose.com/slides/cpp/aspose.slides/gradientshape/).
 
-### **Hoek combineren met verlooprichting**
+### **De hoek combineren met verloop‑richting**
 
-[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) selecteert een verloopstijl uit de [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/)‑enumeratie; het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoekstijlen het gebied waarin kleuren worden verdeeld wijzigen zonder de hoek die met [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) is toegewezen te veranderen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schalen.
+[IGradientFormat::set_GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_gradientdirection/) selecteert een verloopstijl uit de enumeratie [GradientDirection](https://reference.aspose.com/slides/cpp/aspose.slides/gradientdirection/). Het is geen vervanging voor een numerieke hoek. Voor een lineair verloop kunnen de hoekstijlen het gebied waarin de kleuren worden verdeeld wijzigen zonder de via [IGradientFormat::set_LinearGradientAngle](https://reference.aspose.com/slides/cpp/aspose.slides/igradientformat/set_lineargradientangle/) toegewezen hoek te veranderen. Houd de richting ongewijzigd bij het vergelijken van hoeken of schaling.
 
-Het volgende voorbeeld past dezelfde instellingen toe in omgekeerde volgorde. De twee rechthoeken hebben hetzelfde uiterlijk: eerst de richting instellen en daarna de hoek (of omgekeerd) verandert het resultaat niet.
+Het volgende voorbeeld past dezelfde instellingen in omgekeerde volgorde toe. De twee rechthoeken hebben dezelfde uitstraling: de richting toewijzen vóór of na de hoek verandert het resultaat niet.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -670,7 +669,7 @@ presentation->Dispose();
 
 ## **Patroonvulling**
 
-Een patroonvulling brengt een twee‑kleurig ontwerp aan, zoals stippen, strepen of geruite patronen. Dit voorbeeld gebruikt [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) om een rasterschema te selecteren. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) levert de lichtgrijze achtergrond, en [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) levert de gele patroonkleur.
+Een patroonvulling past een tweekleurig ontwerp toe, zoals stippen, strepen of ruiten. Dit voorbeeld gebruikt [IPatternFormat::set_PatternStyle](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/set_patternstyle/) om een rasterpatroon te selecteren. [IPatternFormat::get_BackColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_backcolor/) levert de lichtgrijze achtergrond, en [IPatternFormat::get_ForeColor](https://reference.aspose.com/slides/cpp/aspose.slides/ipatternformat/get_forecolor/) levert de gele patroonkleur.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -711,7 +710,7 @@ Het resultaat:
 
 ## **Afbeeldingsvulling**
 
-Een afbeeldingsvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en laadt deze via [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) in de afbeeldingscollectie van de presentatie. Het instellen van [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) op de tegelmodus (Tile) herhaalt de afbeelding binnen de rechthoek. De gebruikte bronafbeelding staat hieronder:
+Een afbeeldingsvulling gebruikt een afbeelding binnen een vorm. Dit voorbeeld vereist een lokale afbeelding en gebruikt [Images::FromFile](https://reference.aspose.com/slides/cpp/aspose.slides/images/fromfile/) om deze te laden in de afbeeldingsverzameling van de presentatie. Het instellen van [IPictureFillFormat::set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/) op de getegelde modus herhaalt de afbeelding binnen de rechthoek. De bronafbeelding die hier wordt gebruikt, staat hieronder:
 
 ![De lotusafbeelding](lotus.png)
 
@@ -756,19 +755,19 @@ Het resultaat:
 
 ![De vorm met afbeeldingsvulling](picture-fill.png)
 
-### **Afbeelding als tegel gebruiken**
+### **Afbeelding tegelen als textuur**
 
-Als je een getegelde afbeelding wilt instellen als textuur en het tegel‑gedrag wilt aanpassen, kun je de volgende methoden van de [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/)‑interface en de [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/)‑klasse gebruiken:
+Als u een getegelde afbeelding als textuur wilt instellen en het tegelgedrag wilt aanpassen, kunt u de volgende methoden van de interface [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) en de klasse [PictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/) gebruiken:
 
-- [set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Stelt de afbeeldingvullingsmodus in – `Tile` of `Stretch`.
-- [set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Bepaalt de uitlijning van de tegels binnen de vorm.
-- [set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Regelt of de tegel horizontaal, verticaal of beide keren wordt gespiegeld.
-- [set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
-- [set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm.
-- [set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Definieert de horizontale schaal van de tegel als een percentage.
-- [set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Definieert de verticale schaal van de tegel als een percentage.
+- `[set_PictureFillMode](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/)`: Stelt de afbeeldingsvullingsmodus in — `Tile` of `Stretch`.
+- `[set_TileAlignment](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilealignment/)`: Bepaalt de uitlijning van de tegels binnen de vorm.
+- `[set_TileFlip](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileflip/)`: Regelt of de tegel horizontaal, verticaal, of beide kanten wordt gespiegeld.
+- `[set_TileOffsetX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/)`: Stelt de horizontale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
+- `[set_TileOffsetY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/)`: Stelt de verticale offset van de tegel (in punten) ten opzichte van de oorsprong van de vorm in.
+- `[set_TileScaleX](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescalex/)`: Definieert de horizontale schaal van de tegel als een percentage.
+- `[set_TileScaleY](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/set_tilescaley/)`: Definieert de verticale schaal van de tegel als een percentage.
 
-Dit voorbeeld vereist een lokale afbeelding en configureert [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) om deze te herhalen op 50 % van de oorspronkelijke grootte. Offsets van −32 pt verschuiven de tegels horizontaal en verticaal; uitlijning rechtsonder en spiegelen in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
+Dit voorbeeld vereist een lokale afbeelding en configureert [IPictureFillFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ipicturefillformat/) om deze te herhalen op 50 % van de originele grootte. Offsets van −32 punten verschuiven de tegels horizontaal en verticaal; uitlijning rechtsonder en spiegelen in beide richtingen bepalen hoe de herhaalde textuur wordt gerangschikt.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -821,9 +820,9 @@ Het resultaat:
 
 ![De tegelopties](tile-options.png)
 
-## **Vulling met effen kleur**
+## **Vullende effen kleur**
 
-Een effen vulling geeft een vorm één enkele, uniforme kleur. Dit voorbeeld stelt [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) in op de modus voor effen vulling en kent geel toe via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), waarna de rechthoek in een presentatie wordt opgeslagen.
+Een effen vulling geeft een vorm één uniforme kleur. Dit voorbeeld stelt [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) in op de effen vullingsmodus en kent geel toe via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/), waarna de rechthoek in een presentatie wordt opgeslagen.
 
 ```cpp
 #include <DOM/FillType.h>
@@ -858,13 +857,102 @@ Het resultaat:
 
 ![De vorm met effen kleurvulling](solid-color-fill.png)
 
-## **Gebruik de dia‑achtergrond als vulling voor een vorm**
+### **Kleuren kopiëren terwijl themaverwijzingen behouden blijven**
 
-Gebruik [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Stel eerst [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) in op [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van zijn eigen vulling. Alleen de vlag inschakelen verwijdert niet een reeds bestaande expliciete vulling.
+Gebruik [IColorFormat::CopyFrom](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/copyfrom/) om een kleuropdefinitie te kopiëren, inclusief het kleurtype, de themaverwijzing en transformaties. Dit is handig bij het overdragen van een vulkleur tussen vormen die het presentatiethema moeten blijven volgen. De methode kopieert alleen de kleur: het kopieert niet het vultype, de omtrek of andere vormopmaak. Stel het vultype van de bestemming expliciet in met [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/).
 
-Dit verschilt van [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): een achtergrondvulling bedekt objecten achter de vorm met het overeenkomstige gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van opnieuw te starten binnen elke vorm.
+Dit voorbeeld maakt drie rechthoeken, van links naar rechts: de bron, een themabewuste kopie, en een vaste RGB‑kopie. De bron gebruikt [IColorFormat::set_SchemeColor](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_schemecolor/) om te verwijzen naar de eerste accentkleur en voegt een tint toe via [IColorOperationCollection::Add](https://reference.aspose.com/slides/cpp/aspose.slides/icoloroperationcollection/add/). De RGB‑kopie gebruikt de effectieve vulkleur van de bron zodat alle drie aanvankelijk identiek lijken. Het aanroepen van [IColorFormat::set_Color](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/set_color/) stelt een vaste RGB‑waarde in en wist eventuele bestaande kleurovereenkomsten.
 
-Het volgende voorbeeld maakt een master‑achtergrond die door de dia wordt geërfd en plaatst een magentabanier achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste heeft geen vulling, en de rechtse schakelt van achtergrondvulling naar een expliciete oranje vulling.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SlideSizeScaleType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+#include <initializer_list>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+presentation->get_SlideSize()->SetSize(660, 220, SlideSizeScaleType::DoNotScale);
+auto slide = presentation->get_Slide(0);
+
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_RoyalBlue());
+
+auto source = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+auto themeCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+auto rgbCopy = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+for (auto shape : { source, themeCopy, rgbCopy })
+{
+    shape->get_FillFormat()->set_FillType(FillType::Solid);
+    shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::NoFill);
+}
+
+auto sourceColor = source->get_FillFormat()->get_SolidFillColor();
+sourceColor->set_SchemeColor(SchemeColor::Accent1);
+sourceColor->get_ColorTransform()->Add(ColorTransformOperation::Tint, 0.75f);
+
+themeCopy->get_FillFormat()->get_SolidFillColor()->CopyFrom(sourceColor);
+auto effectiveFill = source->get_FillFormat()->GetEffective();
+rgbCopy->get_FillFormat()->get_SolidFillColor()->set_Color(effectiveFill->get_SolidFillColor());
+
+auto before = slide->GetImage(1.0f, 1.0f);
+before->Save(u"color-copy-before.png", ImageFormat::Png);
+before->Dispose();
+
+// Themaverwijzingen volgen de nieuwe accentkleur; de vaste RGB-waarde volgt niet.
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent1()->set_Color(Color::get_OrangeRed());
+
+auto after = slide->GetImage(1.0f, 1.0f);
+after->Save(u"color-copy-after.png", ImageFormat::Png);
+after->Dispose();
+presentation->Save(u"copied_colors.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Voor de themawijziging komen alle drie vullingen overeen:
+
+![Bron, CopyFrom‑doel en vaste RGB‑doel met identieke blauwe vullingen](color-copy-before.png)
+
+Na de themawijziging volgen de bron en de themabewuste kopie de nieuwe accentkleur en behouden hun tint. De vaste RGB‑kopie blijft blauw:
+
+![Bron en CopyFrom‑doel met oranje vullingen, terwijl de vaste RGB‑doel blauw blijft](color-copy-after.png)
+
+De gekopieerde definitie staat los van de bron. Het later wijzigen van de themaverwijzing van de bron, een andere kleur toewijzen, of het toevoegen of verwijderen van transformaties verandert de bestemming niet. Een themawijziging beïnvloedt nog steeds beide vormen omdat elke vorm onafhankelijk naar dezelfde themakleur verwijst.
+
+Het opslaan en opnieuw openen van de PPTX behoudt het type van de gekopieerde kleur, beschikbaar via [IColorFormat::get_ColorType](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortype/), de themaverwijzing, en de transformatie‑collectie die wordt geretourneerd door [IColorFormat::get_ColorTransform](https://reference.aspose.com/slides/cpp/aspose.slides/icolorformat/get_colortransform/); het maakt de definitie niet plat naar RGB.
+
+Bij het kopiëren tussen verschillende themacontexten, zoals presentaties met verschillende accentpaletten, wordt de gekopieerde verwijzing opgelost ten opzichte van het thema van de bestemming. Dezelfde verwijzing en transformaties kunnen daardoor een andere zichtbare kleur opleveren. Zie [Presentation Theme](/slides/nl/cpp/presentation-theme/) voor meer informatie over het configureren van themakleuren.
+
+## **De dia‑achtergrond gebruiken als vormvulling**
+
+Gebruik [IAutoShape::set_UseBackgroundFill](https://reference.aspose.com/slides/cpp/aspose.slides/iautoshape/set_usebackgroundfill/) wanneer een vorm moet overeenkomen met de dia‑achtergrond, bijvoorbeeld in een presentatiesjabloon. Stel [IFillFormat::set_FillType](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/set_filltype/) eerst in op [FillType::NotDefined](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/) om eventuele expliciete vulling te verwijderen. Met deze combinatie gebruikt de vorm de dia‑achtergrond in plaats van de stijlvulling. Het alleen inschakelen van de vlag verwijdert geen bestaande expliciete vulling.
+
+Dit verschilt van [FillType::NoFill](https://reference.aspose.com/slides/cpp/aspose.slides/filltype/): achtergrondvulling dekt objecten achter de vorm af met het overeenkomende gebied van de dia‑achtergrond, terwijl geen vulling die objecten zichtbaar laat. Een verloop blijft uitgelijnd met de dia in plaats van opnieuw te beginnen binnen elke vorm.
+
+Het volgende voorbeeld maakt een master‑achtergrond die wordt geërfd door de dia en plaatst een magenta‑band achter drie rechthoeken. De linkse rechthoek gebruikt de achtergrond, de middelste rechthoek heeft geen vulling, en de rechtse rechthoek schakelt van achtergrondvulling naar een expliciete oranje vulling.
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -899,7 +987,7 @@ auto presentation = MakeObject<Presentation>();
 presentation->get_SlideSize()->SetSize(720, 400, SlideSizeScaleType::DoNotScale);
 auto slide = presentation->get_Slide(0);
 
-// Erf het verloop van de master.
+// Erf de verloop van de master.
 slide->get_Background()->set_Type(BackgroundType::NotDefined);
 slide->get_LayoutSlide()->get_Background()->set_Type(BackgroundType::NotDefined);
 auto background = slide->get_LayoutSlide()->get_MasterSlide()->get_Background();
@@ -938,15 +1026,15 @@ presentation->Save(u"background_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Het resultaat, van links naar rechts: **achtergrondvulling**, **geen vulling**, en **expliciete vulling**. Het magentabanier wordt verborgen door de linker‑ en rechter‑rechthoeken maar blijft zichtbaar door de middelste rechthoek.
+Het resultaat, van links naar rechts: **achtergrondvulling**, **geen vulling**, en **expliciete vulling**. De magenta‑band wordt verborgen door de linker en rechter rechthoeken maar blijft zichtbaar door de middelste rechthoek.
 
-![Achtergrondvulling, geen vulling en expliciete oranje vulling over een magentabanier](background-fill.png)
+![Achtergrondvulling, geen vulling, en expliciete oranje vulling over een magenta‑band](background-fill.png)
 
-Hetzelfde gedrag geldt voor een achtergrond die direct op de dia is gedefinieerd of van een layout is geërfd. De vorm gebruikt de uiteindelijk bepaalde dia‑achtergrond; het voorbeeld laat zowel de dia‑ als layout‑achtergronden ongedefinieerd zodat de master ze levert.
+Hetzelfde gedrag geldt voor een achtergrond die direct op de dia is gedefinieerd of geërfd van een lay‑out. De vorm gebruikt de opgeloste achtergrond van de dia; het voorbeeld laat zowel de dia‑ als lay‑out‑achtergronden ongedefinieerd zodat de master deze levert.
 
 ## **Transparantie instellen**
 
-Voor een effen vulling bepaalt het alfa‑component van de kleur de doorzichtigheid: 0 is volledig transparant en 255 volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant is zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
+Voor een effen vulling bepaalt het alfa‑component van de kleur de opaciteit: 0 is volledig transparant en 255 is volledig ondoorzichtig. Dit voorbeeld gebruikt een alfa‑waarde van 128 voor een gele rechthoek, waardoor deze ongeveer 50 % transparant wordt zodat de onderliggende rechthoek zichtbaar blijft. De kleur wordt toegewezen via [IFillFormat::get_SolidFillColor](https://reference.aspose.com/slides/cpp/aspose.slides/ifillformat/get_solidfillcolor/).
 
 ```cpp
 #include <DOM/FillType.h>
@@ -1016,9 +1104,9 @@ Het resultaat:
 
 ![De vormrotatie](shape-rotation.png)
 
-## **3D‑afschuinings‑effecten toevoegen**
+## **3D‑afschuiningseffecten toevoegen**
 
-Gebruik [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) om een vorm diepte en afgewerkte randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omtrek, stelt [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) in op 4 pt, en past een ronde boven‑afschuining toe met een breedte en hoogte van 6 pt via [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Een front‑gerichte orthografische camera en drie‑punt verlichting maken de afschuining zichtbaar.
+Gebruik [IShape::get_ThreeDFormat](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/get_threedformat/) om een vorm diepte en afgeschuinde randen te geven. Dit voorbeeld maakt een groene ellips met een oranje omlijning, stelt [IThreeDFormat::set_Depth](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/set_depth/) in op 4 punten, en past een cirkelvormige boven‑afschuining toe met een breedte en hoogte van 6 punten via [IThreeDFormat::get_BevelTop](https://reference.aspose.com/slides/cpp/aspose.slides/ithreedformat/get_beveltop/). Een front‑gericht orthografisch camera‑ en drie‑punt verlichting zorgen ervoor dat de afschuining zichtbaar is.
 
 ```cpp
 #include <DOM/BevelPresetType.h>
@@ -1075,7 +1163,7 @@ Het resultaat:
 
 ## **3D‑rotatie‑effecten toevoegen**
 
-Het 3D‑beeld van een vorm wordt geregeld door de camera‑instellingen. Dit voorbeeld gebruikt [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) met breedte‑, lengte‑ en rotatiehoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) en een uitgebalanceerde verlichting via [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), waarna de opgemaakte rechthoek wordt opgeslagen.
+De 3D‑weergave van een vorm wordt beheerd door de camera‑instellingen. Dit voorbeeld gebruikt [ICamera::SetRotation](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/setrotation/) met breedte‑graad, lengte‑graad en revolutie‑hoeken van respectievelijk 40, 35 en 20 graden. Het selecteert een isometrische camera via [ICamera::set_CameraType](https://reference.aspose.com/slides/cpp/aspose.slides/icamera/set_cameratype/) en gebalanceerde verlichting via [ILightRig::set_LightType](https://reference.aspose.com/slides/cpp/aspose.slides/ilightrig/set_lighttype/), waarna de opgemaakte rechthoek wordt opgeslagen.
 
 ```cpp
 #include <DOM/CameraPresetType.h>
@@ -1113,13 +1201,13 @@ Het resultaat:
 
 ![Het 3D‑rotatie‑effect](3D-rotation-effect.png)
 
-## **Zwart‑wit weergave van vormen beheren**
+## **Zwart‑wit‑weergave voor vormen beheren**
 
-De methode [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) specificeert hoe een individuele vorm wordt gerenderd wanneer een presentatie in zwart‑wit modus wordt bekeken of verwerkt. Het activeert niet zelf een zwart‑wit weergave en verandert de vulling, lijn of andere opmaak van de vorm niet in de normale kleurmodus.
+De methode [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) geeft aan hoe een individuele vorm wordt gerenderd wanneer een presentatie in zwart‑wit‑modus wordt bekeken of verwerkt. Het activeert niet automatisch zwart‑wit‑weergave, en het verandert de vulling, lijn of andere opmaak van de vorm niet in de gewone kleermodus.
 
-Gebruik een waarde uit de [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/)‑enumeratie om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de rendering‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze tinten, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` forceren één kleur, `Color` behoudt de normale kleuren, en `Hidden` laat de vorm weg in zwart‑wit modus. `NotDefined` betekent dat er geen modus op vormniveau is toegewezen.
+Gebruik een waarde uit de enumeratie [BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/blackwhitemode/) om het gewenste gedrag te selecteren. Bijvoorbeeld, `Automatic` laat de weergave‑applicatie de conversie kiezen, `Gray` en `LightGray` gebruiken grijze kleuring, `BlackWhite` gebruikt alleen zwart en wit, `Black` en `White` forceren één kleur, `Color` behoudt de normale kleuring, en `Hidden` laat de vorm weg in zwart‑wit‑modus. `NotDefined` betekent dat er geen vorm‑specifieke modus is toegewezen.
 
-Dit voorbeeld maakt een oranje rechthoek en stelt [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) in op grijs. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleurweergave en vraagt grijze weergave aan applicaties die zwart‑wit weergave-instellingen respecteren:
+Dit voorbeeld maakt een oranje rechthoek en stelt [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_blackwhitemode/) in op `Gray`. De opgeslagen vorm behoudt zijn oranje vulling voor normale kleermodus en vraagt grijze kleuring aan applicaties die zwart‑wit‑weergave‑instellingen respecteren:
 
 ```cpp
 #include <DOM/BlackWhiteMode.h>
@@ -1152,11 +1240,11 @@ presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-In de normale kleurmodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit workflow wordt grijze weergave gebruikt omdat de modus op `Gray` staat. Zo kun je een volledig‑kleur dia behouden terwijl je een aparte weergave definieert voor afdrukken, voorvertoningen of andere workflows die de zwart‑wit weergave‑instellingen van de presentatie respecteren.
+In de normale kleermodus behoudt de rechthoek zijn oranje vulling. In een zwart‑wit‑weergave‑workflow gebruikt hij grijze kleuring omdat zijn modus is ingesteld op `Gray`. Dit stelt u in staat om een volledig gekleurde dia te behouden terwijl u een afzonderlijke uitstraling definieert voor afdrukken, voorvertoning of andere workflows die de zwart‑wit‑weergave‑instellingen van de presentatie respecteren.
 
 ## **Opmaak resetten**
 
-Gebruik [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) om de positie, grootte en opmaak van dia‑placeholders te herstellen vanuit de overeenkomstige layout‑placeholders. Dit voorbeeld vereist een bestaande presentatie met layout‑gekoppelde placeholders en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige layout‑placeholders worden niet gereset.
+Gebruik [ISlide::Reset](https://reference.aspose.com/slides/cpp/aspose.slides/islide/reset/) om de positie, grootte en opmaak van dia‑plaatsaanduidingen te herstellen vanuit de corresponderende lay‑plaatsaanduidingen. Dit voorbeeld vereist een bestaande presentatie met lay‑gekoppelde plaatsaanduidingen en reset elke dia vóór het opslaan. Vormen zonder overeenkomstige lay‑plaatsaanduidingen worden niet gereset.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -1182,14 +1270,14 @@ presentation->Dispose();
 
 ## **FAQ**
 
-**Heeft vormopmaak invloed op de uiteindelijke bestandsgrootte van de presentatie?**
+**Beïnvloedt vormopmaak de uiteindelijke bestandsgrootte van de presentatie?**
 
-Kleuren, lijnstijlen en effect‑instellingen voegen over het algemeen weinig data toe in vergelijking met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
+Kleuren, lijntypen en effectinstellingen voegen over het algemeen weinig data toe vergeleken met ingesloten afbeeldingen en media. Afbeeldingsvullingen kunnen de bestandsgrootte vergroten omdat hun afbeeldingen in de presentatie worden opgeslagen.
 
 **Hoe kan ik vormen op een dia detecteren die identieke opmaak delen zodat ik ze kan groeperen?**
 
-Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm – vulling, lijn en effect‑instellingen. Als alle overeenkomstige waarden overeenkomen, beschouw hun stijlen dan als identiek en groepeer die vormen logisch, wat later stijlbeheer vereenvoudigt.
+Vergelijk de belangrijkste opmaak‑eigenschappen van elke vorm — vulling, lijn en effectinstellingen. Als alle overeenkomstige waarden overeenkomen, beschouw dan hun stijlen als identiek en groepeer die vormen logisch, wat later het beheer van stijlen vereenvoudigt.
 
-**Kan ik een set aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
+**Kan ik een reeks aangepaste vormstijlen opslaan in een apart bestand voor hergebruik in andere presentaties?**
 
-Ja. Sla voorbeeldvormen met de gewenste stijlen op in een sjabloon‑presentatie of een .POTX‑sjabloonbestand. Wanneer je een nieuwe presentatie maakt, open je de sjabloon, kloont de gestileerde vormen die je nodig hebt, en pas je hun opmaak toe waar nodig.
+Ja. Bewaar voorbeeldvormen met de gewenste stijlen in een sjabloon‑dia‑set of een .POTX‑sjabloonbestand. Wanneer u een nieuwe presentatie maakt, opent u het sjabloon, kloont u de benodigde gestylede vormen, en past u hun opmaak opnieuw toe waar nodig.

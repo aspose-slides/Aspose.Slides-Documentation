@@ -1,19 +1,19 @@
 ---
 title: Formater les formes PowerPoint sur Android
-linktitle: Format de forme
+linktitle: Mise en forme des formes
 type: docs
 weight: 20
 url: /fr/androidjava/shape-formatting/
 keywords:
-- format de forme
-- format de ligne
-- effet croquis
-- ligne de forme croquis
-- format du style de jointure
+- mise en forme de forme
+- mise en forme de ligne
+- effet de croquis
+- ligne de forme en croquis
+- mise en forme du style de jointure
 - remplissage en dégradé
-- remplissage de motif
-- remplissage d'image
-- remplissage de texture
+- remplissage en motif
+- remplissage d’image
+- remplissage en texture
 - remplissage couleur unie
 - transparence de forme
 - rendu noir et blanc de forme
@@ -27,7 +27,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez à formater les formes PowerPoint sur Android avec Aspose.Slides — définissez les styles de remplissage, de ligne et d’effet pour les fichiers PPT et PPTX avec précision et plein contrôle."
+description: "Apprenez comment formater les formes PowerPoint sur Android avec Aspose.Slides - définissez les styles de remplissage, de contour et d’effets pour les fichiers PPT et PPTX avec précision et un contrôle complet."
 ---
 ## **Introduction**
 
@@ -35,11 +35,11 @@ Formatez les formes dans PowerPoint en ajustant leurs contours, remplissages et 
 
 ![Options de formatage des formes dans PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java fournit des interfaces et des méthodes qui vous permettent de formater les formes en utilisant les mêmes options disponibles dans PowerPoint.
+Aspose.Slides for Android via Java fournit des interfaces et des méthodes qui vous permettent de formater des formes en utilisant les mêmes options disponibles dans PowerPoint.
 
 ## **Formater les lignes**
 
-Utilisez [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) pour contrôler le contour d’une forme. Cet exemple crée un rectangle sans remplissage avec un contour bleu en pointillé. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) sélectionne une ligne composée épaisse-fine, tandis que [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) définit sa largeur à 7 points et [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) sélectionne le motif de tirets.
+Utilisez [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) pour contrôler le contour d’une forme. Cet exemple crée un rectangle non rempli avec un contour bleu en pointillés. [ILineFormat.setStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setStyle-byte-) sélectionne une ligne composée épaisse‑mince, tandis que [ILineFormat.setWidth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setWidth-double-) définit sa largeur à 7 points et [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-) choisit le motif de tirets.
 
 ```java
 import com.aspose.slides.*;
@@ -69,11 +69,11 @@ Le résultat :
 
 ### **Définir des motifs de tirets de ligne personnalisés**
 
-Utilisez [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) lorsque les styles de ligne prédéfinis ne fournissent pas les longueurs de tirets et les espaces dont vous avez besoin, par exemple pour des contours de marque ou des diagrammes techniques. L’attribution d’un motif change automatiquement le style de tiret de ligne vers [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
+Utilisez [ILineFormat.setCustomDashPattern](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCustomDashPattern-float---) lorsque les styles de ligne prédéfinis ne fournissent pas les longueurs de tirets et d’intervalles dont vous avez besoin, par exemple pour des contours de marque ou des diagrammes techniques. L’attribution d’un motif modifie automatiquement le style de tiret de ligne en [LineDashStyle.Custom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/).
 
-Les entrées du tableau alternent entre les longueurs de tiret et d’espace, en commençant par un tiret. Chaque valeur est un multiple de la largeur de ligne : `{ 4, 2 }` avec une largeur de 3 points produit un tiret de 12 points suivi d’un espace de 6 points. Utilisez des paires de valeurs finies et non négatives pour définir des segments complets de tiret‑et‑espace. L’exemple utilise des valeurs positives pour que chaque tiret et chaque espace restent visibles.
+Les entrées du tableau alternent entre les longueurs de tiret et d’écart, en commençant par un tiret. Chaque valeur est un multiple de la largeur de la ligne : `{ 4, 2 }` avec une largeur de 3 points produit un tiret de 12 points suivi d’un écart de 6 points. Utilisez des paires de valeurs finies et non négatives pour définir des segments complets de tiret‑et‑écart. L’exemple utilise des valeurs positives pour que chaque tiret et chaque écart restent visibles.
 
-Cet exemple crée cinq lignes bleues de même longueur et avec des extrémités plates. Les trois premières comparent des motifs avec une largeur de 3 points. La quatrième répète le premier motif à deux fois la largeur, doublant ainsi les longueurs des tirets et des espaces. La cinquième passe d’un motif personnalisé à une ligne pleine.
+Cet exemple crée cinq lignes bleues de même longueur et avec des extrémités plates. Les trois premières comparent des motifs à une largeur de 3 points. La quatrième répète le premier motif à deux fois la largeur, doublant ainsi les longueurs du tiret et de l’écart. La cinquième passe d’un motif personnalisé à une ligne pleine.
 
 ```java
 import com.aspose.slides.*;
@@ -103,7 +103,7 @@ try {
         line.getLineFormat().setCustomDashPattern(patterns[i]);
     }
 
-    // Rétablir la dernière ligne en style plein.
+    // Rétablir la dernière ligne à un style plein.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid);
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx);
@@ -112,7 +112,7 @@ try {
 }
 ```
 
-Pour revenir à un style en pointillé prédéfini, transmettez [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) à [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Le style sélectionné contrôle l’apparence de la ligne.
+Pour revenir à un style en pointillés prédéfini, transmettez [LineDashStyle.Dash](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linedashstyle/) à [ILineFormat.setDashStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setDashStyle-byte-). Le style sélectionné contrôle l’apparence de la ligne.
 
 Le résultat dans PowerPoint, de haut en bas : **{4, 2}, 3 pt** ; **{1, 2}, 3 pt** ; **{6, 2, 1, 2}, 3 pt** ; **{4, 2}, 6 pt** ; et **Solid, 3 pt**.
 
@@ -122,15 +122,15 @@ Le résultat dans PowerPoint, de haut en bas : **{4, 2}, 3 pt** ; **{1, 2}, 3 pt
 
 Utilisez [ILineFormat.setCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setCapStyle-byte-) pour définir les extrémités d’une ligne ouverte. La classe [LineCapStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linecapstyle/) propose trois styles d’extrémité explicites :
 
-- `Flat` : Le trait s’arrête au point final.
-- `Round` : Une extrémité semi‑circulaire dépasse le point final de la moitié de la largeur de la ligne.
-- `Square` : Une extrémité carrée dépasse le point final de la moitié de la largeur de la ligne.
+- `Flat` : le trait s’arrête à l’extrémité.
+- `Round` : une extrémité semi‑circulaire s’étend au‑delà de l’extrémité de la moitié de la largeur de la ligne.
+- `Square` : une extrémité carrée s’étend au‑delà de l’extrémité de la moitié de la largeur de la ligne.
 
-La classe inclut également `NotDefined`, qui signifie qu’aucun style d’extrémité n’est explicitement attribué.
+La classe comprend également `NotDefined`, ce qui signifie qu’aucun style d’extrémité n’est explicitement attribué.
 
-Les extrémités diffèrent des pointes de flèche, qui ajoutent des symboles aux extrémités de la ligne, et des jointures, qui contrôlent les coins entre les segments de ligne. Cet exemple désactive les pointes de flèche via [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) et [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) afin de ne comparer que les formes d’extrémité.
+Les extrémités diffèrent des pointes de flèche, qui ajoutent des symboles aux extrémités de la ligne, et des jointures, qui contrôlent les coins entre les segments de ligne. Cet exemple désactive les pointes de flèche via [ILineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setBeginArrowheadStyle-byte-) et [ILineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setEndArrowheadStyle-byte-) afin que seules les formes d’extrémité soient comparées.
 
-L’exemple suivant crée trois lignes horizontales sinon identiques, de 20 points de large. De haut en bas, elles utilisent respectivement des extrémités plates, rondes et carrées. Leurs points d’extrémité ont les mêmes coordonnées horizontales ; les extrémités rondes et carrées s’étendent de 10 points au-delà de chaque point d’extrémité.
+L’exemple suivant crée trois lignes horizontales sinon identiques, d’une largeur de 20 points. De haut en bas, elles utilisent respectivement les extrémités flat, round et square. Leurs extrémités partagent les mêmes coordonnées horizontales ; les extrémités round et square s’étendent de 10 points au‑delà de chaque extrémité.
 
 ```java
 import com.aspose.slides.*;
@@ -160,15 +160,15 @@ try {
 }
 ```
 
-Le résultat dans PowerPoint, de haut en bas : **Flat**, **Round**, et **Square**.
+Le résultat dans PowerPoint, de haut en bas : **Flat**, **Round** et **Square**.
 
 ![Extrémités plates, rondes et carrées sur des lignes épaisses identiques dans PowerPoint](line-caps.png)
 
 ## **Appliquer des effets de croquis aux lignes de forme**
 
-Un effet de croquis rend la ligne d’une forme semblable à un trait dessiné à la main. Utilisez [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) pour accéder aux paramètres de ligne, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) pour accéder aux paramètres de croquis, et [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) pour sélectionner une valeur dans la classe [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
+Un effet de croquis donne à une ligne de forme un aspect dessiné à la main. Utilisez [IShape.getLineFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getLineFormat--) pour accéder aux paramètres de ligne, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getSketchFormat--) pour accéder aux paramètres de croquis, et [ISketchFormat.setSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#setSketchType-int-) pour sélectionner une valeur de la classe [LineSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/).
 
-Le code Java suivant montre comment appliquer un effet [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) , lire la valeur explicitement assignée, et supprimer l’effet avec [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) :
+Le code Java suivant montre comment appliquer un effet [LineSketchType.Curved](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/) , lire la valeur explicitement attribuée, et supprimer l’effet avec [LineSketchType.None](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
 import com.aspose.slides.*;
@@ -189,7 +189,7 @@ try {
 }
 ```
 
-La valeur renvoyée par [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) représente le paramètre assigné directement à la forme. Si le formatage de ligne peut être hérité d’un thème, d’une diapositive maîtresse ou d’une diapositive de mise en page, utilisez [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--), accédez à [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--), et lisez [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--). La valeur effective reflète le formatage réellement appliqué après résolution de l’héritage. Cet exemple nécessite une présentation existante contenant au moins une forme sur la première diapositive et affiche les deux valeurs :
+La valeur renvoyée par [ISketchFormat.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformat/#getSketchType--) représente le paramètre attribué directement à la forme. Si le formatage de la ligne peut être hérité d’un thème, d’une diapositive maîtresse ou d’une diapositive de mise en page, utilisez [ILineFormat.getEffective](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#getEffective--) , accédez à [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformateffectivedata/#getSketchFormat--) , et lisez [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isketchformateffectivedata/#getSketchType--) . La valeur effective reflète le formatage réellement appliqué après résolution de l’héritage. Cet exemple nécessite une présentation existante contenant au moins une forme sur sa première diapositive et affiche les deux valeurs :
 
 ```java
 import com.aspose.slides.*;
@@ -222,7 +222,7 @@ Le style de jointure contrôle la façon dont deux segments de contour se rencon
 
 ![Le style de jointure dans la présentation](join-style-powerpoint.png)
 
-Cet exemple crée trois rectangles noirs avec des contours bleus de 15 points de large. Il utilise [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) pour appliquer respectivement les valeurs miter, bevel et round de la classe [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) afin de comparer la façon dont les coins sont dessinés.
+Cet exemple crée trois rectangles noirs avec des contours bleus de 15 points de largeur. Il utilise [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) pour appliquer respectivement les valeurs miter, bevel et round de [LineJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/), afin de comparer la façon dont les coins sont dessinés.
 
 ```java
 import com.aspose.slides.*;
@@ -268,13 +268,13 @@ try {
 }
 ```
 
-### **Limiter les jointures en pointe aux coins aigus**
+### **Limiter les jointures miter aux coins pointus**
 
-Utilisez [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) avec [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) réglé sur [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) pour limiter la distance d’extension d’un coin pointu.
+Utilisez [ILineFormat.setMiterLimit](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setMiterLimit-float-) avec [ILineFormat.setJoinStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilineformat/#setJoinStyle-byte-) défini sur [LineJoinStyle.Miter](https://reference.aspose.com/slides/androidjava/com.aspose.slides/linejoinstyle/) pour limiter l’étendue d’un coin pointu.
 
-La limite est un rapport entre la distance entre les coins intérieur et extérieur de la jointure et la largeur de la ligne. Par exemple, une valeur de `8` autorise une longueur de pointe allant jusqu’à huit fois la largeur de ligne ; ce n’est pas une mesure en points. Si le coin dépasserait la limite, PowerPoint utilise une jointure biseautée à ce coin. Une limite plus élevée autorise des pointes plus aiguës. Ce réglage n’affecte que les jointures de type miter et ne produit aucun effet visible lorsque le coin reste à l’intérieur des deux limites.
+La limite est un rapport entre la distance séparant le coin intérieur et le coin extérieur de la jointure et la largeur de la ligne. Par exemple, une valeur de `8` autorise une longueur de jointure jusqu’à huit fois la largeur de la ligne ; il ne s’agit pas d’une mesure en points. Si le coin dépasse la limite, PowerPoint utilise une jointure biseautée à ce coin. Une limite plus grande permet des pointes plus aiguës. Ce paramètre n’affecte que les jointures miter, et le modifier n’a aucun effet visible lorsque le coin reste dans les deux limites.
 
-Cet exemple crée deux triangles identiques non remplis avec des contours de 20 points de large. Le triangle gauche utilise une limite de `2`, et le droit utilise `8`. Chaque triangle mesure 80 points de large et 160 points de haut, ce qui donne à son coin supérieur un rapport longueur‑de‑pointe/largeur de ligne d’environ `4.12`. En conséquence, PowerPoint biseautera le sommet gauche et conservera le sommet droit.
+Cet exemple crée deux triangles identiques, non remplis, avec des contours de 20 points de largeur. Le triangle de gauche utilise une limite de `2`, et celui de droite utilise `8`. Chaque triangle mesure 80 points de largeur et 160 points de hauteur, ce qui donne à son coin supérieur un rapport longueur‑miter / largeur de ligne d’environ `4,12`. Par conséquent, PowerPoint biseautera l’apex gauche et préservera l’apex droit.
 
 ```java
 import com.aspose.slides.*;
@@ -305,11 +305,11 @@ try {
 
 Le résultat dans PowerPoint : **Miter limit 2** à gauche et **miter limit 8** à droite.
 
-![Une pointe biseautée avec une limite de pointe de 2 et une pointe pointue avec une limite de pointe de 8 dans PowerPoint](miter-limits.png)
+![Un apex biseauté avec une limite miter de 2 et un apex pointu avec une limite miter de 8 dans PowerPoint](miter-limits.png)
 
 ## **Remplissage en dégradé**
 
-Un remplissage en dégradé mélange des couleurs à travers une forme. Cet exemple remplit une ellipse avec un dégradé linéaire à 45 degrés allant du rouge au violet en utilisant [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--). La méthode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) place les arrêts de couleur aux positions 0 et 1, le début et la fin du dégradé. La suppression des arrêts existants garantit que seules ces deux couleurs sont utilisées.
+Un remplissage en dégradé mélange les couleurs sur une forme. Cet exemple remplit une ellipse avec un dégradé linéaire à un angle de 45 degrés du rouge au violet en utilisant [IFillFormat.getGradientFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getGradientFormat--) . La méthode [IGradientStopCollection.addPresetColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientstopcollection/#addPresetColor-float-int-) place les arrêts de couleur à 0 et 1, le début et la fin du dégradé. Vider les arrêts existants garantit que seules ces deux couleurs sont utilisées.
 
 ```java
 import com.aspose.slides.*;
@@ -336,13 +336,13 @@ Le résultat :
 
 ![L’ellipse avec remplissage en dégradé](gradient-fill.png)
 
-Si un dégradé apparaît différemment dans une image exportée qu’il ne le fait dans PowerPoint, consultez [Choose a Gradient Rendering Style](/slides/fr/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Vous pouvez sélectionner un style de rendu sans changer le remplissage en dégradé stocké dans la présentation.
+Si un dégradé apparaît différemment dans une image exportée que dans PowerPoint, consultez [Choisir un style de rendu de dégradé](/slides/fr/androidjava/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Vous pouvez sélectionner un style de rendu sans modifier le remplissage en dégradé stocké dans la présentation.
 
 ### **Définir l’angle du dégradé linéaire**
 
-Utilisez [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) pour contrôler l’orientation d’un remplissage [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/). L’angle est mesuré en degrés et augmente dans le sens des aiguilles d’une montre : `0` va de gauche à droite, `90` de haut en bas, `180` de droite à gauche et `270` de bas en haut. Les angles fractionnaires sont pris en charge. Les angles finis en dehors de `[0, 360)` sont normalisés à une révolution ; par exemple, `-45` devient `315` et `360` devient `0`.
+Utilisez [IGradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) pour contrôler l’orientation d’un remplissage [GradientShape.Linear](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) . L’angle est mesuré en degrés et augmente dans le sens des aiguilles d’une montre : `0` va de gauche à droite, `90` de haut en bas, `180` de droite à gauche, et `270` de bas en haut. Les angles fractionnaires sont pris en charge. Les angles finis hors de `[0, 360)` sont normalisés à une révolution ; par exemple, `-45` devient `315` et `360` devient `0`.
 
-Cet exemple crée six rectangles avec des arrêts de couleur rouge, vert et bleu identiques aux positions `0`, `0.5` et `1`. Le redimensionnement est désactivé afin que l’angle puisse être comparé indépendamment des proportions des rectangles. Les angles, de gauche à droite, sont `0`, `45` et `90` dans la première rangée, et `135`, `180` et `270` dans la seconde rangée.
+Cet exemple crée six rectangles avec des arrêts de couleur rouge, vert et bleu identiques aux positions `0`, `0.5` et `1`. Le redimensionnement est désactivé afin que l’angle puisse être comparé indépendamment des proportions des rectangles. Les angles, de gauche à droite, sont `0`, `45` et `90` dans la première rangée, et `135`, `180` et `270` dans la deuxième rangée.
 
 ```java
 import com.aspose.slides.*;
@@ -381,13 +381,13 @@ try {
 
 Le résultat dans PowerPoint :
 
-![Dégradés linéaires à 0°, 45° et 90° dans la rangée supérieure, et 135°, 180° et 270° dans la rangée inférieure](linear-gradient-angles.png)
+![Dégradés linéaires à 0, 45 et 90 degrés dans la rangée supérieure, et 135, 180 et 270 degrés dans la rangée inférieure](linear-gradient-angles.png)
 
-### **Mise à l’échelle d’un dégradé linéaire avec la forme**
+### **Redimensionner un dégradé linéaire avec la forme**
 
-[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) accepte une valeur [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/). Définissez‑la explicitement sur `False` pour conserver l’angle géométrique du dégradé lorsque les proportions de la forme changent, ou sur `True` pour mettre le dégradé à l’échelle avec la largeur et la hauteur de la forme. Avec la mise à l’échelle activée, l’angle visible peut différer de l’angle assigné sur une forme non carrée.
+[IGradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientScaled-byte-) accepte une [NullableBool](https://reference.aspose.com/slides/androidjava/com.aspose.slides/nullablebool/) . Réglez‑la explicitement sur `False` pour conserver l’angle géométrique du dégradé lorsque les proportions de la forme changent, ou sur `True` pour mettre à l’échelle le dégradé avec la largeur et la hauteur de la forme. Avec le redimensionnement activé, l’angle visible peut différer de l’angle attribué sur une forme non carrée.
 
-L’exemple suivant utilise un angle de `45` degrés et les mêmes arrêts de couleur que la comparaison d’angles. La colonne de gauche utilise `False` ; la colonne de droite utilise `True`. Chaque colonne contient un rectangle large au-dessus d’un rectangle haut. Les deux commencent avec les mêmes dimensions larges ; la modification de la largeur et de la hauteur du deuxième rectangle montre comment le remplissage réagit au redimensionnement sans changer ses paramètres de dégradé.
+L’exemple suivant utilise un angle de `45` degrés et les mêmes arrêts de couleur que la comparaison d’angles. La colonne de gauche utilise `False` ; la colonne de droite utilise `True`. Chaque colonne contient un rectangle large au-dessus d’un rectangle haut. Les deux commencent avec les mêmes dimensions larges ; modifier la largeur et la hauteur du deuxième rectangle montre comment le remplissage réagit au redimensionnement sans changer ses paramètres de dégradé.
 
 ```java
 import com.aspose.slides.*;
@@ -431,19 +431,19 @@ try {
 }
 ```
 
-Le résultat dans PowerPoint, avec la mise à l’échelle désactivée à gauche et activée à droite :
+Le résultat dans PowerPoint, avec le redimensionnement désactivé à gauche et activé à droite :
 
-![Rectangles larges et hauts avec un dégradé de 45°, comparant LinearGradientScaled False à gauche avec True à droite](linear-gradient-scaling.png)
+![Rectangles larges et hauts avec un dégradé de 45 degrés, comparaison LinearGradientScaled False à gauche et True à droite](linear-gradient-scaling.png)
 
-Avec la mise à l’échelle désactivée, les bandes de couleur diagonales conservent la même orientation dans les deux rectangles. Avec la mise à l’échelle activée, les bandes s’étirent avec les proportions de la forme. Cela aide à reproduire le dégradé d’un modèle lors de l’adaptation d’une forme à une taille différente. Sur un carré, l’activation de la mise à l’échelle ne modifie pas l’apparence de ce dégradé de `45` degrés.
+Lorsque le redimensionnement est désactivé, les bandes de couleur diagonales conservent la même orientation dans les deux rectangles. Lorsqu’il est activé, les bandes s’étirent avec les proportions de la forme. Cela aide à reproduire le dégradé d’un modèle lors de l’adaptation d’une forme à une taille différente. Sur un carré, l’activation du redimensionnement ne change pas l’apparence de ce dégradé de `45` degrés.
 
-Les réglages d’angle et de mise à l’échelle s’appliquent aux dégradés linéaires. Ils ne contrôlent pas les remplissages [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/).
+Les paramètres d’angle et de redimensionnement s’appliquent aux dégradés linéaires. Ils ne contrôlent pas les remplissages [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientshape/) .
 
 ### **Combiner l’angle avec la direction du dégradé**
 
-[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) sélectionne un style de dégradé dans la classe [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) ; il ne remplace pas un angle numérique. Pour un dégradé linéaire, les styles de coin peuvent modifier la zone de répartition des couleurs sans changer l’angle assigné via [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-). Conservez la direction inchangée lors de la comparaison des angles ou du redimensionnement.
+[IGradientFormat.setGradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setGradientDirection-int-) sélectionne un style de dégradé à partir de la classe [GradientDirection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/gradientdirection/) . Ce n’est pas un substitut à un angle numérique. Pour un dégradé linéaire, les styles de coins peuvent modifier la zone sur laquelle les couleurs sont réparties sans changer l’angle attribué via [setLinearGradientAngle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/igradientformat/#setLinearGradientAngle-float-) . Conservez la direction inchangée lors de la comparaison d’angles ou du redimensionnement.
 
-L’exemple suivant applique les mêmes paramètres dans un ordre inverse. Les deux rectangles ont le même aspect : attribuer la direction avant ou après l’angle ne change pas le résultat.
+L’exemple suivant applique les mêmes paramètres dans un ordre inverse. Les deux rectangles ont le même aspect : affecter la direction avant ou après l’angle ne modifie pas le résultat.
 
 ```java
 import com.aspose.slides.*;
@@ -481,9 +481,9 @@ try {
 }
 ```
 
-## **Remplissage de motif**
+## **Remplissage en motif**
 
-Un remplissage de motif applique un motif bicolore, tel que des points, des bandes ou des carreaux. Cet exemple utilise [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) pour sélectionner un motif treillis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) fournit le fond gris clair, et [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) fournit la couleur jaune du motif.
+Un remplissage en motif applique un motif bicolore, comme des points, des rayures ou des damiers. Cet exemple utilise [IPatternFormat.setPatternStyle](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#setPatternStyle-byte-) pour sélectionner un motif treillis. [IPatternFormat.getBackColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getBackColor--) fournit le fond gris clair, et [IPatternFormat.getForeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipatternformat/#getForeColor--) fournit la couleur jaune du motif.
 
 ```java
 import com.aspose.slides.*;
@@ -507,13 +507,13 @@ try {
 
 Le résultat :
 
-![Le rectangle avec remplissage de motif](pattern-fill.png)
+![Le rectangle avec remplissage en motif](pattern-fill.png)
 
 ## **Remplissage d’image**
 
-Un remplissage d’image utilise une image à l’intérieur d’une forme. Cet exemple nécessite une image locale et utilise [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) pour la charger dans la collection d’images de la présentation. Définir [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) sur le mode « tiled » répète l’image à l’intérieur du rectangle. L’image source utilisée ici est affichée ci‑dessous :
+Un remplissage d’image utilise une image à l’intérieur d’une forme. Cet exemple nécessite une image locale et utilise [Images.fromFile](https://reference.aspose.com/slides/androidjava/com.aspose.slides/images/#fromFile-java.lang.String-) pour la charger dans la collection d’images de la présentation. Définir [IPictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) sur le mode mosaïque répète l’image à l’intérieur du rectangle. L’image source utilisée ici est affichée ci‑dessous :
 
-![L’image du lotus](lotus.png)
+![L’image de lotus](lotus.png)
 
 ```java
 import com.aspose.slides.*;
@@ -545,19 +545,19 @@ Le résultat :
 
 ![La forme avec remplissage d’image](picture-fill.png)
 
-### **Tuiler l’image comme texture**
+### **Mosaïquer l’image comme texture**
 
-Si vous voulez définir une image en mode mosaïque comme texture et personnaliser le comportement du tuilage, vous pouvez utiliser les méthodes suivantes de l’interface [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) et de la classe [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) :
+Si vous souhaitez définir une image mosaïquée comme texture et personnaliser le comportement du mosaïquage, vous pouvez utiliser les méthodes suivantes de l’interface [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) et de la classe [PictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/picturefillformat/) :
 
-- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) : Définit le mode de remplissage d’image—soit `Tile` soit `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-) : Définit le mode de remplissage d’image — soit `Tile` soit `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-) : Spécifie l’alignement des tuiles à l’intérieur de la forme.
 - [setTileFlip](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-) : Contrôle si la tuile est retournée horizontalement, verticalement, ou les deux.
-- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-) : Définit le décalage horizontal de la tuile (en points) à partir de l’origine de la forme.
-- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-) : Définit le décalage vertical de la tuile (en points) à partir de l’origine de la forme.
+- [setTileOffsetX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-) : Définit le décalage horizontal de la tuile (en points) par rapport à l’origine de la forme.
+- [setTileOffsetY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-) : Définit le décalage vertical de la tuile (en points) par rapport à l’origine de la forme.
 - [setTileScaleX](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-) : Définit l’échelle horizontale de la tuile en pourcentage.
 - [setTileScaleY](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-) : Définit l’échelle verticale de la tuile en pourcentage.
 
-Cet exemple nécessite une image locale et configure [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) pour la répéter à 50 % de sa taille originale. Des décalages de −32 points déplacent les tuiles horizontalement et verticalement ; l’alignement en bas‑à‑droite et le retournement dans les deux directions déterminent la disposition de la texture répétée.
+Cet exemple nécessite une image locale et configure [IPictureFillFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ipicturefillformat/) pour la répéter à 50 % de sa taille originale. Les décalages de −32 points déplacent les tuiles horizontalement et verticalement ; l’alignement bas‑droite et le retournement dans les deux directions déterminent comment la texture répétée est disposée.
 
 ```java
 import com.aspose.slides.*;
@@ -595,11 +595,11 @@ try {
 
 Le résultat :
 
-![Les options de tuilage](tile-options.png)
+![Les options de mosaïque](tile-options.png)
 
 ## **Remplissage couleur unie**
 
-Un remplissage couleur unie donne à une forme une couleur unique et uniforme. Cet exemple utilise [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) pour sélectionner le mode de remplissage solide et attribue le jaune via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--), puis enregistre le rectangle dans une présentation.
+Un remplissage uni donne à une forme une couleur unique et uniforme. Cet exemple utilise [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) pour sélectionner le mode de remplissage uni et attribue le jaune via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) , puis enregistre le rectangle dans une présentation.
 
 ```java
 import com.aspose.slides.*;
@@ -623,13 +623,82 @@ Le résultat :
 
 ![La forme avec remplissage couleur unie](solid-color-fill.png)
 
+### **Copier les couleurs tout en conservant les références de thème**
+
+Utilisez [IColorFormat.copyFrom](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#copyFrom-com.aspose.slides.IColorFormat-) pour copier une définition de couleur, incluant son type, sa référence de thème et ses transformations. Cela est utile lors du transfert d’une couleur de remplissage entre formes qui doivent continuer à suivre le thème de la présentation. La méthode copie uniquement la couleur ; elle ne copie pas le type de remplissage, le contour ou d’autres formatages de forme. Définissez explicitement le type de remplissage de la destination avec [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) .
+
+Cet exemple crée trois rectangles, de gauche à droite : la source, une copie sensible au thème, et une copie RGB fixe. La source utilise [IColorFormat.setSchemeColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setSchemeColor-int-) pour référencer la première couleur d’accent et ajoute une teinte via [IColorOperationCollection.add](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icoloroperationcollection/#add-int-float-) . La copie RGB utilise la couleur de remplissage effective de la source, de sorte que les trois semblent initialement identiques. Appeler [IColorFormat.setColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#setColor-java.lang.Integer-) définit une valeur RGB fixe et efface toutes les transformations de couleur existantes.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale);
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(65, 105, 225));
+
+    IAutoShape source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140);
+    IAutoShape themeCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140);
+    IAutoShape rgbCopy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140);
+
+    for (IAutoShape shape : new IAutoShape[] { source, themeCopy, rgbCopy }) {
+        shape.getFillFormat().setFillType(FillType.Solid);
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill);
+    }
+
+    IColorFormat sourceColor = source.getFillFormat().getSolidFillColor();
+    sourceColor.setSchemeColor(SchemeColor.Accent1);
+    sourceColor.getColorTransform().add(ColorTransformOperation.Tint, 0.75f);
+
+    themeCopy.getFillFormat().getSolidFillColor().copyFrom(sourceColor);
+    rgbCopy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor());
+
+    IImage before = slide.getImage(1f, 1f);
+    try {
+        before.save("color-copy-before.png", ImageFormat.Png);
+    } finally {
+        before.dispose();
+    }
+
+    // Les références de thème suivent la nouvelle couleur d'accent ; la valeur RGB fixe ne le fait pas.
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(Color.rgb(255, 69, 0));
+
+    IImage after = slide.getImage(1f, 1f);
+    try {
+        after.save("color-copy-after.png", ImageFormat.Png);
+    } finally {
+        after.dispose();
+    }
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Avant le changement de thème, les trois remplissages correspondent :
+
+![Source, destination copyFrom et destination RGB fixe avec des remplissages bleus identiques](color-copy-before.png)
+
+Après le changement de thème, la source et la copie sensible au thème suivent la nouvelle couleur d’accent et conservent leur teinte. La copie RGB fixe reste bleue :
+
+![Source et destination copyFrom avec des remplissages orange, tandis que la destination RGB fixe reste bleue](color-copy-after.png)
+
+La définition copiée est indépendante de la source. Modifier ultérieurement la référence de thème de la source, attribuer une autre couleur, ou ajouter ou supprimer ses transformations ne modifie pas la destination. Un changement de thème affecte toujours les deux formes car chacune fait référence de façon indépendante à la même couleur de thème.
+
+L’enregistrement et la réouverture du PPTX conservent le type de couleur copié retourné par [IColorFormat.getColorType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorType--) , la référence de thème, et la collection de transformations retournée par [IColorFormat.getColorTransform](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icolorformat/#getColorTransform--) . Cela ne convertit pas la définition en RGB.
+
+Lors de la copie entre différents contextes de thème, comme des présentations avec des palettes d’accent différentes, la référence copiée se résout par rapport au thème de destination. La même référence et les mêmes transformations peuvent donc produire une couleur visible différente. Consultez [Thème de la présentation](/slides/fr/androidjava/presentation-theme/) pour plus d’informations sur la configuration des couleurs de thème.
+
 ## **Utiliser l’arrière‑plan de la diapositive comme remplissage de forme**
 
-Utilisez [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) lorsqu’une forme doit correspondre à l’arrière‑plan de la diapositive, par exemple dans un modèle de présentation. Utilisez ensuite [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) avec [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) pour supprimer tout remplissage explicite. Avec cette combinaison, la forme utilise l’arrière‑plan de la diapositive au lieu de son remplissage de style. Activer uniquement le drapeau ne supprime pas un remplissage explicite existant.
+Utilisez [IAutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/#setUseBackgroundFill-boolean-) lorsqu’une forme doit correspondre à l’arrière‑plan de la diapositive, par exemple dans un modèle de présentation. Définissez le type de remplissage avec [IFillFormat.setFillType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) sur [FillType.NotDefined](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) d’abord pour supprimer tout remplissage explicite. Avec cette combinaison, la forme utilise l’arrière‑plan de la diapositive à la place de son remplissage de style. Activer le drapeau seul ne supprime pas un remplissage explicite existant.
 
-Cela diffère de [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) : le remplissage d’arrière‑plan couvre les objets situés derrière la forme avec la zone correspondante de l’arrière‑plan de la diapositive, tandis que « No Fill » laisse ces objets visibles. Un dégradé reste aligné avec la diapositive plutôt que de redémarrer à l’intérieur de chaque forme.
+Cela diffère de [FillType.NoFill](https://reference.aspose.com/slides/androidjava/com.aspose.slides/filltype/) : le remplissage d’arrière‑plan couvre les objets situés derrière la forme avec la zone correspondante de l’arrière‑plan de la diapositive, alors que NoFill laisse ces objets visibles. Un dégradé reste aligné avec la diapositive plutôt que de redémarrer à l’intérieur de chaque forme.
 
-L’exemple suivant crée un arrière‑plan maître hérité par la diapositive et place une bande magenta derrière trois rectangles. Le rectangle de gauche utilise l’arrière‑plan, le rectangle du milieu n’a aucun remplissage, et le rectangle de droite passe du remplissage d’arrière‑plan à un remplissage orange explicite.
+L’exemple suivant crée un arrière‑plan maître hérité par la diapositive et place une bande magenta derrière trois rectangles. Le rectangle gauche utilise l’arrière‑plan, le rectangle du milieu n’a aucun remplissage, et le rectangle droit passe du remplissage d’arrière‑plan à un remplissage orange explicite.
 
 ```java
 import com.aspose.slides.*;
@@ -683,13 +752,13 @@ try {
 
 Le résultat, de gauche à droite : **background fill**, **no fill**, et **explicit fill**. La bande magenta est cachée par les rectangles gauche et droit mais reste visible à travers le rectangle du milieu.
 
-![Remplissage d’arrière‑plan, pas de remplissage et remplissage orange explicite sur une bande magenta](background-fill.png)
+![Remplissage d’arrière‑plan, aucun remplissage et remplissage orange explicite sur une bande magenta](background-fill.png)
 
-Le même comportement s’applique à un arrière‑plan défini directement sur la diapositive ou hérité d’une mise en page. La forme utilise l’arrière‑plan résolu de la diapositive ; l’exemple laisse à la fois les arrière‑plans de la diapositive et de la mise en page indéfinis afin que le maître le fournisse.
+Le même comportement s’applique à un arrière‑plan défini directement sur la diapositive ou hérité d’une mise en page. La forme utilise l’arrière‑plan résolu de la diapositive ; l’exemple laisse les arrière‑plans de la diapositive et de la mise en page non définis afin que le maître les fournisse.
 
 ## **Définir la transparence**
 
-Pour un remplissage solide, le composant alpha de la couleur contrôle l’opacité : 0 est totalement transparent et 255 est totalement opaque. Cet exemple utilise une valeur alpha de 128 pour un rectangle jaune, le rendant approximativement à 50 % transparent afin que le rectangle en dessous reste visible. La couleur est assignée via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--).
+Pour un remplissage uni, le composant alpha de la couleur contrôle l’opacité : 0 est entièrement transparent et 255 est entièrement opaque. Cet exemple utilise une valeur alpha de 128 pour un rectangle jaune, le rendant environ 50 % transparent afin que le rectangle dessous reste visible. La couleur est attribuée via [IFillFormat.getSolidFillColor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ifillformat/#getSolidFillColor--) .
 
 ```java
 import com.aspose.slides.*;
@@ -741,7 +810,7 @@ Le résultat :
 
 ## **Ajouter des effets de biseau 3D**
 
-Utilisez [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) pour donner à une forme de la profondeur et des bords biseautés. Cet exemple crée une ellipse verte avec un contour orange, utilise [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) pour définir la profondeur à 4 points, et applique un biseau supérieur circulaire d’une largeur et hauteur de 6 points via [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--). Une caméra orthographique frontale et un éclairage à trois points rendent le biseau visible.
+Utilisez [IShape.getThreeDFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#getThreeDFormat--) pour donner à une forme de la profondeur et des bords biseautés. Cet exemple crée une ellipse verte avec un contour orange, utilise [IThreeDFormat.setDepth](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#setDepth-double-) pour définir la profondeur à 4 points, et applique un biseau supérieur circulaire d’une largeur et hauteur de 6 points via [IThreeDFormat.getBevelTop](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ithreedformat/#getBevelTop--) . Une caméra orthographique frontale et un éclairage à trois points rendent le biseau visible.
 
 ```java
 import com.aspose.slides.*;
@@ -777,7 +846,7 @@ Le résultat :
 
 ## **Ajouter des effets de rotation 3D**
 
-La vue 3D d’une forme est contrôlée par les paramètres de sa caméra. Cet exemple utilise [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) avec des angles de latitude, longitude et révolution de 40, 35 et 20 degrés respectivement. Il sélectionne une caméra isométrique via [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) et un éclairage équilibré via [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-), puis enregistre le rectangle formaté.
+La vue 3D d’une forme est contrôlée par les paramètres de sa caméra. Cet exemple utilise [ICamera.setRotation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setRotation-float-float-float-) avec des angles de latitude, longitude et révolution de 40, 35 et 20 degrés, respectivement. Il sélectionne une caméra isométrique via [ICamera.setCameraType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/icamera/#setCameraType-int-) et un éclairage équilibré via [ILightRig.setLightType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) , puis enregistre le rectangle formaté.
 
 ```java
 import com.aspose.slides.*;
@@ -802,13 +871,13 @@ Le résultat :
 
 ![L’effet de rotation 3D](3D-rotation-effect.png)
 
-## **Contrôler le rendu en noir et blanc pour les formes**
+## **Contrôler le rendu noir et blanc pour les formes**
 
-La méthode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) spécifie comment une forme individuelle est rendue lorsqu’une présentation est affichée ou traitée en mode noir et blanc. Elle n’active pas l’affichage en noir et blanc en elle‑même, et ne modifie pas le remplissage, le contour ou tout autre formatage de la forme en mode couleur normal.
+La méthode [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) spécifie comment une forme individuelle est rendue lorsqu’une présentation est affichée ou traitée en mode noir et blanc. Elle n’active pas l’affichage noir et blanc en soi, et ne modifie pas le remplissage, le contour ou d’autres formatages de la forme en mode couleur normal.
 
-Utilisez une valeur de la classe [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) pour sélectionner le comportement souhaité. Par exemple, `Automatic` laisse l’application de rendu choisir la conversion, `Gray` et `LightGray` utilisent une couleur grise, `BlackWhite` n’utilise que le noir et le blanc, `Black` et `White` imposent une couleur unique, `Color` conserve la coloration normale, et `Hidden` omet la forme en mode noir et blanc. `NotDefined` signifie qu’aucun mode au niveau de la forme n’est attribué.
+Utilisez une valeur de la classe [BlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/blackwhitemode/) pour sélectionner le comportement souhaité. Par exemple, `Automatic` laisse l’application de rendu choisir la conversion, `Gray` et `LightGray` utilisent une coloration grise, `BlackWhite` n’utilise que le noir et le blanc, `Black` et `White` imposent une couleur unique, `Color` préserve la coloration normale, et `Hidden` omet la forme en mode noir et blanc. `NotDefined` signifie qu’aucun mode au niveau de la forme n’est attribué.
 
-Cet exemple crée un rectangle orange et utilise [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) pour sélectionner une coloration grise. La forme enregistrée conserve son remplissage orange pour l’affichage en couleur normale et demande une coloration grise aux applications qui respectent les paramètres d’affichage noir et blanc :
+Cet exemple crée un rectangle orange et utilise [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) pour sélectionner une coloration grise. La forme enregistrée conserve son remplissage orange pour l’affichage couleur normal et demande une coloration grise aux applications qui respectent les paramètres d’affichage noir et blanc :
 
 ```java
 import com.aspose.slides.*;
@@ -829,11 +898,11 @@ try {
 }
 ```
 
-En mode couleur normal, le rectangle conserve son remplissage orange. Dans un workflow d’affichage en noir et blanc, il utilise la coloration grise parce que son mode est réglé sur `Gray`. Cela vous permet de préserver une diapositive en couleurs complètes tout en définissant un aspect distinct pour l’impression, la prévisualisation ou d’autres workflows qui honorent les paramètres d’affichage noir et blanc de la présentation.
+En mode couleur normal, le rectangle conserve son remplissage orange. Dans un flux de travail d’affichage noir et blanc, il utilise une coloration grise parce que son mode est réglé sur `Gray`. Cela vous permet de conserver une diapositive en couleur complète tout en définissant un aspect distinct pour l’impression, la prévisualisation ou d’autres flux de travail qui respectent les paramètres d’affichage noir et blanc de la présentation.
 
 ## **Réinitialiser le formatage**
 
-Utilisez [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) pour restaurer la position, la taille et le formatage des espaces réservés de diapositive à partir de leurs espaces réservés de mise en page correspondants. Cet exemple nécessite une présentation existante avec des espaces réservés liés à la mise en page et réinitialise chaque diapositive avant d’enregistrer. Les formes sans espace réservé correspondant dans la mise en page ne sont pas réinitialisées.
+Utilisez [ISlide.reset](https://reference.aspose.com/slides/androidjava/com.aspose.slides/islide/#reset--) pour restaurer la position, la taille et le formatage des espaces réservés de la diapositive à partir de leurs espaces réservés de mise en page correspondants. Cet exemple nécessite une présentation existante avec des espaces réservés liés à la mise en page et réinitialise chaque diapositive avant l’enregistrement. Les formes sans espace réservé de mise en page correspondant ne sont pas réinitialisées.
 
 ```java
 import com.aspose.slides.*;
@@ -854,12 +923,12 @@ try {
 
 **Le formatage des formes affecte-t-il la taille finale du fichier de présentation ?**
 
-Les couleurs, les styles de ligne et les paramètres d’effet ajoutent généralement peu de données comparés aux images et médias incorporés. Les remplissages d’image peuvent augmenter la taille du fichier car leurs images sont stockées dans la présentation.
+Les couleurs, styles de ligne et paramètres d’effet ajoutent généralement peu de données comparés aux images et médias intégrés. Les remplissages d’image peuvent augmenter la taille du fichier car leurs images sont stockées dans la présentation.
 
 **Comment puis‑je détecter les formes sur une diapositive qui partagent un formatage identique afin de les regrouper ?**
 
-Comparez les propriétés clés de formatage de chaque forme — remplissage, ligne et paramètres d’effet. Si toutes les valeurs correspondantes sont identiques, considérez leurs styles comme identiques et regroupez logiquement ces formes, ce qui simplifie la gestion des styles ultérieure.
+Comparez les principales propriétés de formatage de chaque forme — remplissage, contour et paramètres d’effet. Si toutes les valeurs correspondantes sont identiques, considérez leurs styles comme identiques et regroupez logiquement ces formes, ce qui simplifie la gestion ultérieure des styles.
 
 **Puis‑je enregistrer un ensemble de styles de forme personnalisés dans un fichier séparé pour les réutiliser dans d’autres présentations ?**
 
-Oui. Stockez des formes d’exemple avec les styles souhaités dans un jeu de diapositives modèle ou un fichier modèle .POTX. Lors de la création d’une nouvelle présentation, ouvrez le modèle, clonez les formes stylisées dont vous avez besoin, et réappliquez leur formatage où cela est requis.
+Oui. Enregistrez des formes d’exemple avec les styles souhaités dans un diaporama modèle ou un fichier de modèle .POTX. Lors de la création d’une nouvelle présentation, ouvrez le modèle, dupliquez les formes stylisées dont vous avez besoin, et réappliquez leur formatage où cela est requis.

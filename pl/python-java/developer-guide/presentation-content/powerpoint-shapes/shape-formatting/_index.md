@@ -8,18 +8,18 @@ keywords:
 - formatowanie kształtu
 - formatowanie linii
 - efekt szkicu
-- szkicowanie linii kształtu
+- linia szkicowa kształtu
 - formatowanie stylu połączenia
-- wypełnienie gradientowe
+- wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
 - wypełnienie kolorem stałym
 - przezroczystość kształtu
-- renderowanie kształtu czarno-białe
+- renderowanie kształtu w czerni i bieli
 - renderowanie kształtu w odcieniach szarości
 - obracanie kształtu
-- efekt fazowania 3D
+- efekt fazy 3D
 - efekt obrotu 3D
 - resetowanie formatowania
 - PowerPoint
@@ -31,15 +31,15 @@ description: "Dowiedz się, jak formatować kształty PowerPoint w Pythonie przy
 ---
 ## **Wprowadzenie**
 
-Formatowanie kształtów w programie PowerPoint poprzez dostosowywanie ich konturów, wypełnień i efektów. Aspose.Slides for Python via Java umożliwia kontrolowanie tych ustawień programowo, w tym przezroczystość, obrót i formatowanie 3D.
+Formatuj kształty w PowerPoint, dostosowując ich kontury, wypełnienia i efekty. Aspose.Slides for Python via Java umożliwia programowe sterowanie tymi ustawieniami, w tym przezroczystością, obrotem i formatowaniem 3D.
 
-![Opcje formatowania kształtu w programie PowerPoint](format-shape-powerpoint.png)
+![Opcje formatowania kształtów w PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python via Java udostępnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji, które są dostępne w programie PowerPoint.
+Aspose.Slides for Python via Java zapewnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
-## **Formatowanie linii**
+## **Formatuj linie**
 
-Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), aby kontrolować obrys kształtu. Ten przykład tworzy prostokąt bez wypełnienia z niebieskim, przerywanym obrysem. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) wybiera linię złożoną gruba‑cienka, natomiast [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) ustawia jej szerokość na 7 punktów, a [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) wybiera wzorzec kreski.
+Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), aby kontrolować obrys kształtu. Ten przykład tworzy prostokąt bez wypełnienia z niebieskim, przerywanym obrysem. [LineFormat.setStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setStyle) wybiera złożoną linię grubą-cienką, natomiast [LineFormat.setWidth](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setWidth) ustawia jej szerokość na 7 punktów, a [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle) wybiera wzór kreski.
 
 ```python
 import jpype
@@ -72,13 +72,13 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-### **Ustawianie własnych wzorców kreskowania linii**
+### **Ustaw niestandardowe wzory kresk linii**
 
-Użyj [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern), gdy wstępnie zdefiniowane style linii nie zapewniają potrzebnych długości kresek i przerw, na przykład w przypadku oznaczeń firmowych lub diagramów technicznych. Przypisanie wzorca automatycznie zmienia styl kreskowania linii na [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
+Użyj [LineFormat.setCustomDashPattern](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCustomDashPattern), gdy wstępnie zdefiniowane style linii nie oferują wymaganych długości kresek i przerw, na przykład dla oznakowanych obrysów lub diagramów technicznych. Przypisanie wzoru automatycznie zmienia styl kreski linii na [LineDashStyle.Custom](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/).
 
-Wpisy w tablicy naprzemiennie określają długość kreski i przerwy, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `[4, 2]` przy szerokości 3 punktów daje kreskę o długości 12 punktów, a następnie przerwę 6‑puntową. Używaj par skończonych, nieujemnych wartości, aby zdefiniować pełne segmenty kreska‑przerwa. Przykład używa dodatnich wartości, aby każda kreska i przerwa były widoczne.
+Elementy tablicy naprzemiennie określają długości kresek i przerw, zaczynając od kreski. Każda wartość jest wielokrotnością szerokości linii: `[4, 2]` przy szerokości 3 punktów daje kreskę o długości 12 punktów, po której następuje przerwa 6 punktów. Używaj par skończonych, nieujemnych wartości, aby zdefiniować pełne segmenty kreska-przerwa. W przykładzie użyto wartości dodatnich, aby każda kreska i przerwa były widoczne.
 
-Ten przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzorce przy szerokości 3 punktów. Czwarta powtarza pierwszy wzorzec przy dwukrotnej szerokości, podwajając zarówno długość kreski, jak i przerwy. Piąta zmienia wzorzec niestandardowy na linię ciągłą.
+Ten przykład tworzy pięć niebieskich linii o tej samej długości i płaskich zakończeniach. Pierwsze trzy porównują wzory przy szerokości 3 punktów. Czwarta powtarza pierwszy wzór przy dwukrotnie większej szerokości, podwajając zarówno długości kresek, jak i przerw. Piąta przełącza się z niestandardowego wzoru na linię ciągłą.
 
 ```python
 import jpype
@@ -114,7 +114,7 @@ try:
         line.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.None_)
         line.getLineFormat().setCustomDashPattern(jpype.JArray(jpype.JFloat)(pattern))
 
-    # Ustaw ostatnią linię na styl ciągły.
+    # Przywróć ostatnią linię do stylu ciągłego.
     slide.getShapes().get_Item(4).getLineFormat().setDashStyle(LineDashStyle.Solid)
 
     presentation.save("custom_dash_patterns.pptx", SaveFormat.Pptx)
@@ -122,25 +122,25 @@ finally:
     presentation.dispose()
 ```
 
-Aby powrócić do wstępnie zdefiniowanego stylu kreskowanego, przekaż [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) do [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Wybrany styl kontroluje wygląd linii.
+Aby zamiast tego wrócić do wstępnie zdefiniowanego stylu przerywanego, przekaż [LineDashStyle.Dash](https://reference.aspose.com/slides/python-java/aspose.slides/linedashstyle/) do [LineFormat.setDashStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setDashStyle). Wybrany styl kontroluje wygląd linii.
 
-Wynik w programie PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
+Wynik w PowerPoint, od góry do dołu: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; oraz **Solid, 3 pt**.
 
-![Trzy własne wzorce kreskowania, szersza linia używająca pierwszego wzorca i linia ciągła w programie PowerPoint](custom-dash-patterns.png)
+![Trzy niestandardowe wzory kresk, szersza linia używająca pierwszego wzoru i linia ciągła w PowerPoint](custom-dash-patterns.png)
 
-### **Ustawianie zakończeń linii**
+### **Ustaw zakończenia linii**
 
-Użyj [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle), aby ustawić końce otwartej linii. Klasa [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) udostępnia trzy wyraźne style zakończeń:
+Użyj [LineFormat.setCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setCapStyle), aby ustawić zakończenia otwartej linii. Klasa [LineCapStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linecapstyle/) udostępnia trzy wyraźne style zakończeń:
 
-- `Flat`: Pędzel zatrzymuje się w punkcie końcowym.
+- `Flat`: Pędzel zatrzymuje się na końcowym punkcie.
 - `Round`: Półokrągłe zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
 - `Square`: Kwadratowe zakończenie wystaje poza punkt końcowy o połowę szerokości linii.
 
-Klasa zawiera także `NotDefined`, co oznacza, że żaden styl zakończenia nie został jawnie przypisany.
+Klasa zawiera także `NotDefined`, co oznacza, że nie przypisano wyraźnie stylu zakończenia.
 
-Zakończenia różnią się od grotów strzałek, które dodają symbole do końców linii, oraz połączeń, które kontrolują narożniki między odcinkami linii. Ten przykład wyłącza groty strzałek przy użyciu [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) i [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle), tak aby porównane zostały wyłącznie kształty zakończeń.
+Zakończenia różnią się od grotów strzałek, które dodają symbole na końcach linii, oraz połączeń, które kontrolują rogi pomiędzy odcinkami linii. Ten przykład wyłącza groty strzałek za pomocą [LineFormat.setBeginArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setBeginArrowheadStyle) i [LineFormat.setEndArrowheadStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setEndArrowheadStyle), aby porównać jedynie kształty zakończeń.
 
-Poniższy przykład tworzy trzy w pozostałych aspektach identyczne poziome linie, o szerokości 20 punktów. Od góry do dołu używają zakończeń płaskich, okrągłych i kwadratowych. Ich punkty końcowe mają te same współrzędne poziome; zakończenia okrągłe i kwadratowe wystają 10 punktów poza każdy koniec.
+Poniższy przykład tworzy trzy w przeciwnym razie identyczne linie poziome o szerokości 20 punktów. Od góry do dołu używają zakończeń odpowiednio płaskiego, okrągłego i kwadratowego. Ich końcowe punkty mają te same współrzędne poziome; zakończenia okrągłe i kwadratowe wystają 10 punktów poza każdy punkt końcowy.
 
 ```python
 import jpype
@@ -175,15 +175,15 @@ finally:
     presentation.dispose()
 ```
 
-Wynik w programie PowerPoint, od góry do dołu: **Flat**, **Round** i **Square**.
+Wynik w PowerPoint, od góry do dołu: **Flat**, **Round**, oraz **Square**.
 
-![Płaskie, okrągłe i kwadratowe zakończenia na identycznych grubych liniach w programie PowerPoint](line-caps.png)
+![Płaskie, okrągłe i kwadratowe zakończenia na identycznych grubych liniach w PowerPoint](line-caps.png)
 
-## **Zastosowanie efektu szkicu do linii kształtu**
+## **Zastosuj efekty szkicu do linii kształtu**
 
-Efekt szkicu sprawia, że linia kształtu wygląda na odręcznie narysowaną. Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), aby uzyskać dostęp do ustawień linii, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat), aby uzyskać dostęp do ustawień szkicu, oraz [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType), aby wybrać wartość z klasy [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
+Efekt szkicu sprawia, że linia kształtu wygląda jak narysowana ręcznie. Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getLineFormat), aby uzyskać dostęp do ustawień linii, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getSketchFormat), aby uzyskać dostęp do ustawień szkicu, oraz [SketchFormat.setSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#setSketchType), aby wybrać wartość z klasy [LineSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/).
 
-Poniższy kod Pythona pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/), odczytać jawnie przypisaną wartość oraz usunąć efekt za pomocą [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
+Poniższy kod w Pythonie pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/) , odczytać wyraźnie przypisaną wartość oraz usunąć efekt za pomocą [LineSketchType.None_](https://reference.aspose.com/slides/python-java/aspose.slides/linesketchtype/):
 
 ```python
 import jpype
@@ -209,7 +209,7 @@ finally:
     presentation.dispose()
 ```
 
-Wartość zwracana przez [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu-matki lub slajdu‑układu, użyj [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) i odczytaj typ szkicu z zwróconego efektywnego formatowania linii, jak pokazano poniżej. Wartość efektywna odzwierciedla formatowanie, które jest faktycznie zastosowane po rozwiązaniu dziedziczenia. Ten przykład wymaga istniejącej prezentacji z co najmniej jednym kształtem na pierwszym slajdzie i drukuje obie wartości:
+Wartość zwrócona przez [SketchFormat.getSketchType](https://reference.aspose.com/slides/python-java/aspose.slides/sketchformat/#getSketchType) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu-matki lub slajdu układu, użyj [LineFormat.getEffective](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#getEffective) i odczytaj typ szkicu z zwróconego efektywnego formatowania linii, jak pokazano poniżej. Wartość efektywna odzwierciedla formatowanie, które jest faktycznie zastosowane po rozwiązaniu dziedziczenia. Ten przykład wymaga istniejącej prezentacji z co najmniej jednym kształtem na pierwszym slajdzie i wypisuje obie wartości:
 
 ```python
 import jpype
@@ -235,7 +235,7 @@ finally:
     presentation.dispose()
 ```
 
-## **Formatowanie stylów połączeń**
+## **Formatuj style połączeń**
 
 Oto trzy dostępne opcje typu połączenia:
 
@@ -243,11 +243,11 @@ Oto trzy dostępne opcje typu połączenia:
 * Miter
 * Bevel
 
-Styl połączenia kontroluje, w jaki sposób dwa odcinki konturu łączą się w narożniku. Użyj **Round** dla zaokrąglonych narożników, **Miter** dla ostrych narożników lub **Bevel** dla spłaszczonych narożników.
+Styl połączenia kontroluje, jak dwa odcinki konturu spotykają się w rogu. Użyj **Round** dla zaokrąglonych rogów, **Miter** dla ostrych rogów lub **Bevel** dla spłaszczonych rogów.
 
 ![Styl połączenia w prezentacji](join-style-powerpoint.png)
 
-Ten przykład tworzy trzy czarne prostokąty z niebieskimi obramowaniami o szerokości 15 punktów. Używa [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle), aby ustawić kolejno wartości miter, bevel i round klasy [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), aby porównać, jak rysowane są narożniki.
+Ten przykład tworzy trzy czarne prostokąty z niebieskimi obramowaniami o szerokości 15 punktów. Używa [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle), aby kolejno ustawić wartości miter, bevel i round w [LineJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), aby porównać, jak rysowane są rogi.
 
 ```python
 import jpype
@@ -298,13 +298,13 @@ finally:
     presentation.dispose()
 ```
 
-### **Ograniczanie połączeń miter przy ostrych narożnikach**
+### **Ogranicz połączenia miter przy ostrych rogach**
 
-Użyj [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) razem z [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) ustawionym na [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), aby ograniczyć, jak daleko ostry narożnik może wystawać.
+Użyj [LineFormat.setMiterLimit](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setMiterLimit) wraz z [LineFormat.setJoinStyle](https://reference.aspose.com/slides/python-java/aspose.slides/lineformat/#setJoinStyle) ustawionym na [LineJoinStyle.Miter](https://reference.aspose.com/slides/python-java/aspose.slides/linejoinstyle/), aby ograniczyć, jak daleko może wystawać ostry róg.
 
-Limit jest stosunkiem odległości pomiędzy wewnętrznym a zewnętrznym narożnikiem połączenia do szerokości linii. Na przykład wartość `8` dopuszcza długość miteru do ośmiu razy szerokości linii; nie jest to pomiar w punktach. Jeśli narożnik przekroczyłby limit, PowerPoint zastosuje połączenie fazowane w tym miejscu. Większy limit umożliwia ostrzejsze punkty. Ustawienie wpływa wyłącznie na połączenia miter i nie ma widocznego efektu, gdy narożnik pozostaje w granicach obu limitów.
+Limit jest stosunkiem odległości między wewnętrznym a zewnętrznym rogiem połączenia do szerokości linii. Na przykład wartość `8` pozwala na długość miteru do ośmiu razy większą od szerokości linii; nie jest to pomiar w punktach. Jeśli róg przekroczy limit, PowerPoint używa połączenia spłaszczonego w tym miejscu. Większy limit umożliwia ostrzejsze punkty. Ustawienie wpływa tylko na połączenia miter i zmiana nie ma widocznego efektu, gdy róg pozostaje w granicach limitów.
 
-Ten przykład tworzy dwa identyczne, nie wypełnione trójkąty z obramowaniami o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, prawy `8`. Każdy trójkąt ma szerokość 80 punktów i wysokość 160 punktów, co daje stosunek długości miteru do szerokości linii w górnym narożniku około `4.12`. W konsekwencji PowerPoint fazuje lewy wierzchołek i zachowuje prawy wierzchołek.
+Ten przykład tworzy dwa identyczne, nie wypełnione trójkąty z obramowaniem o szerokości 20 punktów. Lewy trójkąt używa limitu `2`, a prawy `8`. Każdy trójkąt ma szerokość 80 punktów i wysokość 160 punktów, co daje stosunek długości miteru do szerokości linii w górnym rogu około `4.12`. W konsekwencji PowerPoint spłaszcza lewy wierzchołek i zachowuje prawy.
 
 ```python
 import jpype
@@ -338,13 +338,13 @@ finally:
     presentation.dispose()
 ```
 
-Wynik w programie PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
+Wynik w PowerPoint: **Miter limit 2** po lewej i **miter limit 8** po prawej.
 
-![Fazowany szczyt z limitem miter 2 i ostry szczyt z limitem miter 8 w programie PowerPoint](miter-limits.png)
+![Spłaszczony wierzchołek z limitem miteru 2 i ostrym wierzchołkiem z limitem miteru 8 w PowerPoint](miter-limits.png)
 
-## **Wypełnienie gradientowe**
+## **Wypełnienie gradientem**
 
-Wypełnienie gradientowe miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni od czerwonego do fioletowego przy użyciu [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metoda [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) umieszcza przystanki kolorów na pozycjach 0 i 1, czyli na początku i końcu gradientu. Usunięcie istniejących przystanków zapewnia, że użyte będą tylko te dwa kolory.
+Wypełnienie gradientem miesza kolory w obrębie kształtu. Ten przykład wypełnia elipsę gradientem liniowym pod kątem 45 stopni od czerwonego do fioletowego przy użyciu [FillFormat.getGradientFormat](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getGradientFormat). Metoda [GradientStopCollection.addPresetColor](https://reference.aspose.com/slides/python-java/aspose.slides/gradientstopcollection/#addPresetColor) umieszcza przystanki kolorów na pozycjach 0 i 1, czyli na początku i końcu gradientu. Usunięcie istniejących przystanków zapewnia, że używane będą tylko te dwa kolory.
 
 ```python
 import jpype
@@ -377,13 +377,13 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-Jeśli gradient wygląda inaczej w wyeksportowanym obrazie niż w programie PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu zapisanego w prezentacji.
+Jeśli gradient wygląda inaczej na wyeksportowanym obrazie niż w PowerPoint, zobacz [Choose a Gradient Rendering Style](/slides/pl/python-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Możesz wybrać styl renderowania bez zmiany gradientu zapisanego w prezentacji.
 
-### **Ustawienie kąta gradientu liniowego**
+### **Ustaw kąt gradientu liniowego**
 
-Użyj [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle), aby kontrolować orientację wypełnienia [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). Kąt podawany jest w stopniach i rośnie zgodnie z ruchem wskazówek zegara: `0` przebiega od lewej do prawej, `90` od góry do dołu, `180` od prawej do lewej, a `270` od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty skończone poza zakresem `[0, 360)` są normalizowane do jednej pełnej rotacji; na przykład `-45` staje się `315`, a `360` staje się `0`.
+Użyj [GradientFormat.setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle), aby kontrolować orientację wypełnienia [GradientShape.Linear](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/). Kąt mierzony jest w stopniach i rośnie zgodnie z ruchem wskazówek zegara: `0` działa od lewej do prawej, `90` od góry do dołu, `180` od prawej do lewej i `270` od dołu do góry. Obsługiwane są kąty ułamkowe. Kąty skończone spoza przedziału `[0, 360)` są normalizowane do jednej pełnej rotacji; na przykład `-45` staje się `315`, a `360` staje się `0`.
 
-Ten przykład tworzy sześć prostokątów z identycznymi przystankami czerwonego, zielonego i niebieskiego na pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt mógł być porównywany niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
+Ten przykład tworzy sześć prostokątów z identycznymi przystankami koloru czerwonego, zielonego i niebieskiego na pozycjach `0`, `0.5` i `1`. Skalowanie jest wyłączone, aby kąt można było porównać niezależnie od proporcji prostokątów. Kąty, od lewej do prawej, to `0`, `45` i `90` w pierwszym wierszu oraz `135`, `180` i `270` w drugim wierszu.
 
 ```python
 import jpype
@@ -424,15 +424,15 @@ finally:
     presentation.dispose()
 ```
 
-Wynik w programie PowerPoint:
+Wynik w PowerPoint:
 
 ![Gradienty liniowe pod kątami 0, 45 i 90 stopni w górnym wierszu oraz 135, 180 i 270 stopni w dolnym wierszu](linear-gradient-angles.png)
 
-### **Skalowanie gradientu liniowego razem z kształtem**
+### **Skaluj gradient liniowy z kształtem**
 
-[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Ustaw ją jawnie na `False_`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True_`, aby skalować gradient razem z szerokością i wysokością kształtu. Przy włączonym skalowaniu widoczny kąt może różnić się od przypisanego kąta w przypadku kształtu niebędącego kwadratem.
+[GradientFormat.setLinearGradientScaled](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientScaled) przyjmuje wartość [NullableBool](https://reference.aspose.com/slides/python-java/aspose.slides/nullablebool/). Ustaw ją jawnie na `False_`, aby zachować geometryczny kąt gradientu przy zmianie proporcji kształtu, lub na `True_`, aby skalować gradient wraz z szerokością i wysokością kształtu. Przy włączonej skali widoczny kąt może różnić się od przypisanego kąta w przypadku kształtu niebędącego kwadratem.
 
-Poniższy przykład używa kąta `45` stopni i tych samych przystanków kolorów co w porównaniu kątów. Lewa kolumna używa `False_`; prawa kolumna używa `True_`. Każda kolumna zawiera szeroki prostokąt nad wysokim prostokątem. Oba zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta demonstruje, jak wypełnienie reaguje na zmianę rozmiaru bez zmiany ustawień gradientu.
+Poniższy przykład używa kąta `45` stopni oraz tych samych przystanków kolorów co w porównaniu kątów. Lewa kolumna używa `False_`; prawa kolumna używa `True_`. Każda kolumna zawiera szeroki prostokąt powyżej wysokiego prostokąta. Oba zaczynają się od tych samych szerokich wymiarów; zmiana szerokości i wysokości drugiego prostokąta pokazuje, jak wypełnienie reaguje na zmianę rozmiaru bez zmiany ustawień gradientu.
 
 ```python
 import jpype
@@ -478,19 +478,19 @@ finally:
     presentation.dispose()
 ```
 
-Wynik w programie PowerPoint, przy wyłączonym skalowaniu po lewej i włączonym po prawej:
+Wynik w PowerPoint, przy wyłączonej skali po lewej i włączonej po prawej:
 
-![Szerokie i wysokie prostokąty z gradientem 45‑stopni, porównanie LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
+![Szerokie i wysokie prostokąty z gradientem 45 stopni, porównujące LinearGradientScaled False po lewej i True po prawej](linear-gradient-scaling.png)
 
-Przy wyłączonym skalowaniu przekątne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonym skalowaniu pasma rozciągają się razem z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu przy dostosowywaniu kształtu do innego rozmiaru. Na kwadracie włączenie skalowania nie zmienia wyglądu tego gradientu `45`‑stopniowego.
+Przy wyłączonej skali, ukośne pasma kolorów zachowują tę samą orientację w obu prostokątach. Przy włączonej skali, pasma rozciągają się wraz z proporcjami kształtu. Pomaga to odtworzyć gradient szablonu przy dostosowywaniu kształtu do innego rozmiaru. W przypadku kwadratu, włączenie skali nie zmienia wyglądu tego gradientu o kącie `45` stopni.
 
-Zarówno kąt, jak i ustawienia skalowania dotyczą gradientów liniowych. Nie kontrolują wypełnień [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
+Zarówno ustawienie kąta, jak i skalowania mają zastosowanie do gradientów liniowych. Nie kontrolują one wypełnień [GradientShape.Radial or GradientShape.Rectangle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientshape/).
 
-### **Łączenie kąta z kierunkiem gradientu**
+### **Połącz kąt ze kierunkiem gradientu**
 
-[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) wybiera styl gradientu z klasy [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/); nie jest to zamiennik dla liczbowego kąta. Dla gradientu liniowego style narożników mogą zmienić obszar, na którym rozłożone są kolory, bez zmiany kąta przypisanego przez [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skalowaniu.
+[GradientFormat.setGradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setGradientDirection) wybiera styl gradientu z klasy [GradientDirection](https://reference.aspose.com/slides/python-java/aspose.slides/gradientdirection/). Nie jest to zamiennik kąta numerycznego. Dla gradientu liniowego style rogów mogą zmieniać obszar, na którym rozprowadzane są kolory, bez zmiany kąta przypisanego przez [setLinearGradientAngle](https://reference.aspose.com/slides/python-java/aspose.slides/gradientformat/#setLinearGradientAngle). Zachowaj niezmieniony kierunek przy porównywaniu kątów lub skali.
 
-Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Dwa prostokąty mają taki sam wygląd: ustawienie kierunku przed lub po kącie nie zmienia wyniku.
+Poniższy przykład stosuje te same ustawienia w odwrotnej kolejności. Dwa prostokąty mają taki sam wygląd: przypisanie kierunku przed lub po kącie nie zmienia wyniku.
 
 ```python
 import jpype
@@ -533,7 +533,7 @@ finally:
 
 ## **Wypełnienie wzorem**
 
-Wypełnienie wzorem stosuje dwukolorowy wzór, taki jak kropki, paski lub kratkę. Ten przykład używa [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle), aby wybrać wzór kratkowy. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) zapewnia jasnoszare tło, a [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) dostarcza żółty kolor wzoru.
+Wypełnienie wzorem stosuje dwukolorowy wzór, taki jak kropki, paski lub kratka. Ten przykład używa [PatternFormat.setPatternStyle](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#setPatternStyle), aby wybrać wzór kraty. [PatternFormat.getBackColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getBackColor) dostarcza jasnoszare tło, a [PatternFormat.getForeColor](https://reference.aspose.com/slides/python-java/aspose.slides/patternformat/#getForeColor) dostarcza żółty kolor wzoru.
 
 ```python
 import jpype
@@ -560,13 +560,11 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
-
 ![Prostokąt z wypełnieniem wzorem](pattern-fill.png)
 
 ## **Wypełnienie obrazem**
 
-Wypełnienie obrazem używa obrazu wewnątrz kształtu. Ten przykład wymaga lokalnego obrazu i używa [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), aby załadować go do kolekcji obrazów prezentacji. Ustawienie [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) na tryb kafelkowy powtarza obraz w prostokącie. Poniżej pokazano używany obraz źródłowy:
+Wypełnienie obrazem używa obrazu wewnątrz kształtu. Ten przykład wymaga lokalnego obrazu i używa [Images.fromFile](https://reference.aspose.com/slides/python-java/aspose.slides/images/#fromFile), aby załadować go do kolekcji obrazów prezentacji. Ustawienie [PictureFillFormat.setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode) na tryb kafelkowy powiela obraz wewnątrz prostokąta. Źródłowy obraz użyty tutaj jest pokazany poniżej:
 
 ![Obraz lotosu](lotus.png)
 
@@ -599,23 +597,21 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
-
 ![Kształt z wypełnieniem obrazem](picture-fill.png)
 
 ### **Kafelkowanie obrazu jako tekstury**
 
-Jeśli chcesz ustawić obraz kafelkowany jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić obraz kafelkowy jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Ustawia tryb wypełnienia obrazem — `Tile` lub `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Określa wyrównanie kafelków w kształcie.
+- [setPictureFillMode](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setPictureFillMode): Ustawia tryb wypełnienia obrazu — `Tile` lub `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileAlignment): Określa wyrównanie kafelków wewnątrz kształtu.
 - [setTileFlip](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileFlip): Kontroluje, czy kafelek jest odbity poziomo, pionowo lub w obu kierunkach.
-- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
-- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
+- [setTileOffsetX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetX): Ustawia poziome przesunięcie kafelka (w punktach) od pochodzenia kształtu.
+- [setTileOffsetY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileOffsetY): Ustawia pionowe przesunięcie kafelka (w punktach) od pochodzenia kształtu.
 - [setTileScaleX](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleX): Definiuje poziomą skalę kafelka jako procent.
 - [setTileScaleY](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/#setTileScaleY): Definiuje pionową skalę kafelka jako procent.
 
-Ten przykład wymaga lokalnego obrazu i konfiguruje [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/), aby powtarzał go w 50 % pierwotnego rozmiaru. Przesunięcia o −32 punkty przesuwają kafelki poziomo i pionowo; wyrównanie prawy‑dolny oraz odbicie w obu kierunkach określają, jak powtarzana tekstura jest rozmieszczona.
+Ten przykład wymaga lokalnego obrazu i konfiguruje [PictureFillFormat](https://reference.aspose.com/slides/python-java/aspose.slides/picturefillformat/) , aby powielał go w 50% oryginalnego rozmiaru. Przesunięcia o −32 punkty przesuwają kafelki poziomo i pionowo; wyrównanie do prawego dolnego rogu oraz odbicie w obu kierunkach określają, jak powtarzana tekstura jest rozmieszczona.
 
 ```python
 import jpype
@@ -654,13 +650,11 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
-
 ![Opcje kafelkowania](tile-options.png)
 
 ## **Wypełnienie kolorem stałym**
 
-Wypełnienie stałe nadaje kształtowi jeden, jednolity kolor. Ten przykład używa [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType), aby ustawić tryb wypełnienia stałego i przypisuje żółty kolor za pomocą [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), a następnie zapisuje prostokąt w prezentacji.
+Wypełnienie stałe nadaje kształtowi pojedynczy, jednolity kolor. Ten przykład używa [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType), aby ustawić tryb wypełnienia stałego i przypisuje żółty kolor przez [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor), a następnie zapisuje prostokąt w prezentacji.
 
 ```python
 import jpype
@@ -685,17 +679,88 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
+![Kształt z wypełnieniem jednolitym kolorem](solid-color-fill.png)
 
-![Kształt z wypełnieniem kolorem stałym](solid-color-fill.png)
+### **Kopiuj kolory zachowując odniesienia do motywu**
 
-## **Użycie tła slajdu jako wypełnienia kształtu**
+Użyj [ColorFormat.copyFrom](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#copyFrom), aby skopiować definicję koloru, w tym typ koloru, odniesienie do motywu i transformacje. Jest to przydatne przy przenoszeniu koloru wypełnienia między kształtami, które powinny nadal podążać za motywem prezentacji. Metoda kopiuje tylko kolor: nie kopiuje typu wypełnienia, obrysu ani innych formatowań kształtu. Ustaw typ wypełnienia docelowego eksplicytnie za pomocą [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType).
 
-Użyj [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill), gdy kształt ma odpowiadać tle slajdu, na przykład w szablonie prezentacji. Najpierw ustaw [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) na [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/), aby usunąć wszelkie jawne wypełnienie. Dzięki tej kombinacji kształt używa tła slajdu zamiast własnego wypełnienia stylowego. Samo włączenie flagi nie usuwa istniejącego jawnego wypełnienia.
+Ten przykład tworzy trzy prostokąty, od lewej do prawej: źródłowy, kopię z zachowaniem motywu oraz kopię o stałym RGB. Źródło używa [ColorFormat.setSchemeColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setSchemeColor), aby odwołać się do pierwszego koloru akcentu i dodaje odcień przez [ColorOperationCollection.add](https://reference.aspose.com/slides/python-java/aspose.slides/coloroperationcollection/#add). Kopia RGB używa efektywnego koloru wypełnienia źródła, więc wszystkie trzy początkowo wyglądają identycznie. Wywołanie [ColorFormat.setColor](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#setColor) ustawia stałą wartość RGB i usuwa istniejące transformacje koloru.
 
-Różni się to od [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/): wypełnienie tłem pokrywa obiekty znajdujące się za kształtem obszarem odpowiadającym tle slajdu, natomiast brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie rozpoczyna się wewnątrz każdego kształtu.
+```python
+import jpype
+import asposeslides
 
-Poniższy przykład tworzy tło mastera dziedziczone przez slajd i umieszcza magentowy pasek za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na jawne wypełnienie pomarańczowe.
+if not jpype.isJVMStarted():
+    jpype.startJVM()
+
+from asposeslides.api import ColorTransformOperation, FillType, ImageFormat, Presentation, SaveFormat, SchemeColor, ShapeType, SlideSizeScaleType
+from java.awt import Color
+
+presentation = Presentation()
+try:
+    presentation.getSlideSize().setSize(660, 220, SlideSizeScaleType.DoNotScale)
+    slide = presentation.getSlides().get_Item(0)
+
+    accent_color = Color(65, 105, 225)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    source = slide.getShapes().addAutoShape(ShapeType.Rectangle, 30, 40, 180, 140)
+    theme_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 240, 40, 180, 140)
+    rgb_copy = slide.getShapes().addAutoShape(ShapeType.Rectangle, 450, 40, 180, 140)
+
+    for shape in (source, theme_copy, rgb_copy):
+        shape.getFillFormat().setFillType(FillType.Solid)
+        shape.getLineFormat().getFillFormat().setFillType(FillType.NoFill)
+
+    source_color = source.getFillFormat().getSolidFillColor()
+    source_color.setSchemeColor(SchemeColor.Accent1)
+    source_color.getColorTransform().add(ColorTransformOperation.Tint, 0.75)
+
+    theme_copy.getFillFormat().getSolidFillColor().copyFrom(source_color)
+    rgb_copy.getFillFormat().getSolidFillColor().setColor(source.getFillFormat().getEffective().getSolidFillColor())
+
+    before = slide.getImage(1.0, 1.0)
+    try:
+        before.save("color-copy-before.png", ImageFormat.Png)
+    finally:
+        before.dispose()
+
+    # Odwołania do motywu podążają za nowym kolorem akcentu; stała wartość RGB nie podąża.
+    accent_color = Color(255, 69, 0)
+    presentation.getMasterTheme().getColorScheme().getAccent1().setColor(accent_color)
+
+    after = slide.getImage(1.0, 1.0)
+    try:
+        after.save("color-copy-after.png", ImageFormat.Png)
+    finally:
+        after.dispose()
+    presentation.save("copied_colors.pptx", SaveFormat.Pptx)
+finally:
+    presentation.dispose()
+```
+
+Przed zmianą motywu wszystkie trzy wypełnienia są zgodne:
+
+![Źródło, docelowa kopia copyFrom i stała RGB z identycznym niebieskim wypełnieniem](color-copy-before.png)
+
+Po zmianie motywu źródło i kopia z zachowaniem motywu podążają za nowym kolorem akcentu i zachowują odcień. Kopia stała RGB pozostaje niebieska:
+
+![Źródło i docelowa kopia copyFrom z pomarańczowymi wypełnieniami, podczas gdy docelowa stała RGB pozostaje niebieska](color-copy-after.png)
+
+Skopiowana definicja jest niezależna od źródła. Subsekwentne zmiany odniesienia motywu źródła, przypisanie innego koloru lub dodanie/usunięcie jego transformacji nie zmieniają docelowego kształtu. Zmiana motywu nadal wpływa na oba kształty, ponieważ każdy niezależnie odwołuje się do tego samego koloru motywu.
+
+Zapis i ponowne otwarcie pliku PPTX zachowuje typ skopiowanego koloru zwracany przez [ColorFormat.getColorType](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorType), odniesienie do motywu oraz kolekcję transformacji zwracanych przez [ColorFormat.getColorTransform](https://reference.aspose.com/slides/python-java/aspose.slides/colorformat/#getColorTransform), nie spłaszcza definicji do RGB.
+
+Podczas kopiowania pomiędzy różnymi kontekstami motywu, takimi jak prezentacje z różnymi paletami akcentów, skopiowane odniesienie jest rozwiązywane względem motywu docelowego. To samo odniesienie i transformacje mogą więc dawać inny widoczny kolor. Zobacz [Presentation Theme](/slides/pl/python-java/presentation-theme/) po więcej informacji o konfigurowaniu kolorów motywu.
+
+## **Użyj tła slajdu jako wypełnienia kształtu**
+
+Użyj [AutoShape.setUseBackgroundFill](https://reference.aspose.com/slides/python-java/aspose.slides/autoshape/#setUseBackgroundFill), gdy kształt powinien odpowiadać tłu slajdu, np. w szablonie prezentacji. Ustaw najpierw typ wypełnienia za pomocą [FillFormat.setFillType](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#setFillType) na [FillType.NotDefined](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) , aby usunąć wszelkie wyraźne wypełnienie. W takiej kombinacji kształt używa tła slajdu zamiast swojego wypełnienia stylu. Włączenie samej flagi nie usuwa istniejącego wyraźnego wypełnienia.
+
+Różni się to od [FillType.NoFill](https://reference.aspose.com/slides/python-java/aspose.slides/filltype/) : wypełnienie tłem pokrywa obiekty za kształtem odpowiednim obszarem tła slajdu, podczas gdy brak wypełnienia pozostawia te obiekty widoczne. Gradient pozostaje wyrównany do slajdu, a nie zaczyna się na nowo wewnątrz każdego kształtu.
+
+Poniższy przykład tworzy tło główne dziedziczone przez slajd i umieszcza magentową wstęgę za trzema prostokątami. Lewy prostokąt używa tła, środkowy nie ma wypełnienia, a prawy przełącza się z wypełnienia tłem na wyraźne pomarańczowe wypełnienie.
 
 ```python
 import jpype
@@ -744,7 +809,7 @@ try:
     explicit_shape.getFillFormat().setFillType(FillType.NotDefined)
     explicit_shape.setUseBackgroundFill(True)
 
-    # Wyłącz wypełnienie tłem przed zastosowaniem jawnego wypełnienia.
+    # Wyłącz wypełnienie tłem przed zastosowaniem wyraźnego wypełnienia.
     explicit_shape.setUseBackgroundFill(False)
     explicit_shape.getFillFormat().setFillType(FillType.Solid)
     color = Color(255, 165, 0)
@@ -755,15 +820,15 @@ finally:
     presentation.dispose()
 ```
 
-Wynik, od lewej do prawej: **background fill**, **no fill**, i **explicit fill**. Pasek magentowy jest ukryty przez lewy i prawy prostokąt, ale pozostaje widoczny przez środkowy prostokąt.
+Wynik, od lewej do prawej: **background fill**, **no fill**, oraz **explicit fill**. Magentowa wstęga jest zasłonięta przez lewy i prawy prostokąt, ale pozostaje widoczna przez środkowy prostokąt.
 
-![Wypełnienie tłem, brak wypełnienia i jawne pomarańczowe wypełnienie nad magentowym pasmem](background-fill.png)
+![Wypełnienie tłem, brak wypełnienia i wyraźne pomarańczowe wypełnienie nad magentową wstęgą](background-fill.png)
 
-To samo zachowanie dotyczy tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozwiązanego tła slajdu; przykład pozostawia zarówno tło slajdu, jak i układu niezdefiniowane, tak aby dostarczył je master.
+To samo zachowanie dotyczy tła zdefiniowanego bezpośrednio na slajdzie lub dziedziczonego z układu. Kształt używa rozwiązania tła slajdu; w przykładzie zarówno tła slajdu, jak i układu są nieokreślone, więc dostarcza je główne tło.
 
-## **Ustawienie przezroczystości**
+## **Ustaw przejrzystość**
 
-Dla wypełnienia stałego przezroczystość kontroluje komponent alfa koloru: 0 oznacza całkowitą przezroczystość, a 255 pełną nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, co sprawia, że jest on w przybliżeniu w 50 % przezroczysty, dzięki czemu prostokąt pod nim pozostaje widoczny. Kolor jest przypisany za pomocą [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
+W przypadku wypełnienia stałego, składnik alfa koloru kontroluje nieprzezroczystość: 0 oznacza całkowitą przezroczystość, a 255 pełną nieprzezroczystość. Ten przykład używa wartości alfa 128 dla żółtego prostokąta, co sprawia, że jest on w przybliżeniu 50% przezroczysty, dzięki czemu prostokąt pod nim pozostaje widoczny. Kolor jest przypisany poprzez [FillFormat.getSolidFillColor](https://reference.aspose.com/slides/python-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```python
 import jpype
@@ -791,11 +856,9 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
+![Przezroczysty kształt](shape-transparency.png)
 
-![Przezroczy kształt](shape-transparency.png)
-
-## **Obracanie kształtów**
+## **Obróć kształty**
 
 Użyj [Shape.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setRotation), aby obrócić kształt w płaszczyźnie slajdu. Kąt mierzony jest w stopniach; ten przykład obraca prostokąt o 5 stopni zgodnie z ruchem wskazówek zegara i zapisuje prezentację.
 
@@ -820,13 +883,11 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
-
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodanie efektów fazowania 3D**
+## **Dodaj efekty 3D Bevel**
 
-Użyj [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat), aby dodać kształtowi głębokość i fazowane krawędzie. Ten przykład tworzy zieloną elipsę z pomarańczowym obramowaniem, używa [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth), aby ustawić głębokość na 4 punkty, i stosuje okrągłe fazowanie górne o szerokości i wysokości 6 punktów za pomocą [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Kamera ortograficzna skierowana przodem i oświetlenie trójpunktowe sprawiają, że fazowanie jest widoczne.
+Użyj [Shape.getThreeDFormat](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#getThreeDFormat), aby nadać kształtowi głębokość i krawędzie z fazą. Ten przykład tworzy zieloną elipsę z pomarańczowym obrysem, używa [ThreeDFormat.setDepth](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#setDepth), aby ustawić głębokość na 4 punkty, i stosuje okrągłą fazę górną o szerokości i wysokości 6 punktów poprzez [ThreeDFormat.getBevelTop](https://reference.aspose.com/slides/python-java/aspose.slides/threedformat/#getBevelTop). Kamera ortograficzna skierowana do przodu oraz oświetlenie trójpunktowe sprawiają, że faza jest widoczna.
 
 ```python
 import jpype
@@ -863,13 +924,11 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
+![Efekt 3D bevel](3D-bevel-effect.png)
 
-![Efekt fazowania 3D](3D-bevel-effect.png)
+## **Dodaj efekty obrotu 3D**
 
-## **Dodanie efektów obrotu 3D**
-
-Widok 3D kształtu kontrolowany jest przez ustawienia kamery. Ten przykład używa [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) z kątami szerokości, długości i obrotu wynoszącymi odpowiednio 40, 35 i 20 stopni. Wybiera kamerę izometryczną przez [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) oraz zrównoważone oświetlenie przez [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), a następnie zapisuje sformatowany prostokąt.
+Widok 3D kształtu kontrolowany jest przez ustawienia kamery. Ten przykład używa [Camera.setRotation](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setRotation) z kątami szerokości, długości i obrotu wynoszącymi odpowiednio 40, 35 i 20 stopni. Wybiera kamerę izometryczną poprzez [Camera.setCameraType](https://reference.aspose.com/slides/python-java/aspose.slides/camera/#setCameraType) oraz zrównoważone oświetlenie poprzez [LightRig.setLightType](https://reference.aspose.com/slides/python-java/aspose.slides/lightrig/#setLightType), a następnie zapisuje sformatowany prostokąt.
 
 ```python
 import jpype
@@ -895,17 +954,15 @@ finally:
     presentation.dispose()
 ```
 
-Wynik:
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
-![Efekt obrotu 3D](3D-rotation-effect.png)
+## **Kontroluj renderowanie czarno-białe dla kształtów**
 
-## **Kontrola renderowania czarno‑białego dla kształtów**
+Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) określa, jak pojedynczy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno-białym. Nie włącza ona samej funkcji wyświetlania w czerni i bieli oraz nie zmienia wypełnienia, linii ani innych formatowań kształtu w normalnym trybie kolorowym.
 
-Metoda [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode) określa, jak pojedniowy kształt jest renderowany, gdy prezentacja jest wyświetlana lub przetwarzana w trybie czarno‑białym. Nie włącza ona samego wyświetlania czarno‑białego i nie zmienia wypełnienia, linii ani innych formatów w normalnym trybie kolorów.
+Użyj wartości z klasy [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/), aby wybrać pożądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają szarego zabarwienia, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają jeden kolor, `Color` zachowuje normalne kolory, a `Hidden` pomija kształt w trybie czarno-białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
 
-Użyj wartości z klasy [BlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/blackwhitemode/), aby wybrać żądane zachowanie. Na przykład `Automatic` pozwala aplikacji renderującej wybrać konwersję, `Gray` i `LightGray` używają szarości, `BlackWhite` używa wyłącznie czerni i bieli, `Black` i `White` wymuszają jeden kolor, `Color` zachowuje normalne kolorowanie, a `Hidden` pomija kształt w trybie czarno‑białym. `NotDefined` oznacza, że nie przypisano trybu na poziomie kształtu.
-
-Ten przykład tworzy pomarańczowy prostokąt i używa [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode), aby ustawić tryb na szary. Zapisany kształt zachowuje pomarańczowe wypełnienie w trybie normalnym i żąda szarego kolorowania od aplikacji, które honorują ustawienia wyświetlania czarno‑białego:
+Ten przykład tworzy pomarańczowy prostokąt i używa [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/python-java/aspose.slides/shape/#setBlackWhiteMode), aby ustawić tryb na szary. Zapisany kształt zachowuje pomarańczowe wypełnienie w normalnym trybie kolorowym i żąda szarego zabarwienia od aplikacji respektujących ustawienia wyświetlania czarno-białego:
 
 ```python
 import jpype
@@ -932,11 +989,11 @@ finally:
     presentation.dispose()
 ```
 
-W normalnym trybie kolorów prostokąt zachowuje pomarańczowe wypełnienie. W trybie czarno‑białym używa szarego kolorowania, ponieważ jego tryb jest ustawiony na `Gray`. Dzięki temu możesz zachować slajd w pełnym kolorze, definiując jednocześnie odrębny wygląd dla drukowania, podglądu lub innych procesów, które respektują ustawienia wyświetlania czarno‑białego w prezentacji.
+W normalnym trybie kolorowym prostokąt zachowuje pomarańczowe wypełnienie. W workflow wyświetlania czarno-białego używa szarego zabarwienia, ponieważ jego tryb jest ustawiony na `Gray`. Pozwala to zachować slajd w pełnym kolorze, definiując jednocześnie odrębny wygląd dla druku, podglądu lub innych workflow, które respektują ustawienia wyświetlania czarno-białego prezentacji.
 
 ## **Resetowanie formatowania**
 
-Użyj [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset), aby przywrócić pozycję, rozmiar i formatowanie placeholderów slajdu z odpowiadających im placeholderów układu. Ten przykład wymaga istniejącej prezentacji z placeholderami połączonymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających placeholderów układu nie są resetowane.
+Użyj [Slide.reset](https://reference.aspose.com/slides/python-java/aspose.slides/slide/#reset), aby przywrócić pozycję, rozmiar i formatowanie pól zastępczych slajdu z ich odpowiadającymi polami zastępczymi układu. Ten przykład wymaga istniejącej prezentacji z polami zastępczymi powiązanymi z układem i resetuje każdy slajd przed zapisaniem. Kształty bez odpowiadających pól zastępczych układu nie są resetowane.
 
 ```python
 import jpype
@@ -959,14 +1016,14 @@ finally:
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
+**Czy formatowanie kształtu wpływa na ostateczny rozmiar pliku prezentacji?**
 
-Kolory, style linii i ustawienia efektów zazwyczaj dodają niewiele danych w porównaniu z osadzonymi obrazami i mediami. Wypełnienia obrazami mogą zwiększyć rozmiar pliku, ponieważ ich obrazy są przechowywane w prezentacji.
+Kolory, style linii i ustawienia efektów zazwyczaj dodają niewiele danych w porównaniu z osadzonymi obrazami i multimediami. Wypełnienia obrazem mogą zwiększyć rozmiar pliku, ponieważ ich obrazy są przechowywane w prezentacji.
 
-**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby móc je pogrupować?**
+**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linia i ustawienia efektów. Jeśli wszystkie odpowiadające sobie wartości są zgodne, potraktuj ich style jako identyczne i logicznie pogrupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — wypełnienie, linię i ustawienia efektów. Jeśli wszystkie odpowiadające wartości są zgodne, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
+**Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku, aby ponownie używać ich w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie tam, gdzie jest to wymagane.
+Tak. Przechowuj przykładowe kształty z pożądanymi stylami w zestawie slajdów szablonu lub pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylizowane kształty i ponownie zastosuj ich formatowanie w dowolnym miejscu.

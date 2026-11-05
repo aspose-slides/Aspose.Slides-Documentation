@@ -1,6 +1,6 @@
 ---
-title: Formatear formas de PowerPoint en PHP
-linktitle: Formateo de formas
+title: Formato de formas de PowerPoint en PHP
+linktitle: Formato de forma
 type: docs
 weight: 20
 url: /es/php-java/shape-formatting/
@@ -8,7 +8,7 @@ keywords:
 - formato de forma
 - formato de línea
 - efecto de boceto
-- línea de forma boceto
+- línea de forma bocetada
 - formato de estilo de unión
 - relleno degradado
 - relleno de patrón
@@ -16,8 +16,8 @@ keywords:
 - relleno de textura
 - relleno de color sólido
 - transparencia de forma
-- renderizado de forma en blanco y negro
-- renderizado de forma en escala de grises
+- representación de forma en blanco y negro
+- representación de forma en escala de grises
 - rotar forma
 - efecto de bisel 3D
 - efecto de rotación 3D
@@ -26,19 +26,19 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aprenda a formatear formas de PowerPoint en PHP usando Aspose.Slides—establezca estilos de relleno, línea y efecto para archivos PPT y PPTX con precisión y control total."
+description: "Aprenda cómo formatear formas de PowerPoint en PHP utilizando Aspose.Slides—establezca estilos de relleno, línea y efecto para archivos PPT y PPTX con precisión y control total."
 ---
 ## **Introducción**
 
-Formatea formas en PowerPoint ajustando sus contornos, rellenos y efectos. Aspose.Slides for PHP via Java permite controlar estos ajustes de forma programática, incluyendo transparencia, rotación y formato 3D.
+Da formato a las formas en PowerPoint ajustando sus contornos, rellenos y efectos. Aspose.Slides para PHP a través de Java le permite controlar estas configuraciones programáticamente, incluyendo transparencia, rotación y formato 3D.
 
 ![Opciones de formato de forma en PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java proporciona clases y métodos que le permiten formatear formas utilizando las mismas opciones disponibles en PowerPoint.
+Aspose.Slides para PHP a través de Java proporciona clases y métodos que le permiten dar formato a las formas utilizando las mismas opciones disponibles en PowerPoint.
 
 ## **Formato de líneas**
 
-Utilice [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) para controlar el contorno de una forma. Este ejemplo crea un rectángulo sin relleno con un contorno azul y discontinuo. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) selecciona una línea compuesta gruesa‑delgada, mientras que [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) establece su ancho en 7 puntos y [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) selecciona el patrón de guiones.
+Utilice [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) para controlar el contorno de una forma. Este ejemplo crea un rectángulo sin relleno con un contorno azul y punteado. [LineFormat::setStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setStyle) selecciona una línea compuesta gruesa‑delgada, mientras que [LineFormat::setWidth](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setWidth) establece su ancho a 7 puntos y [LineFormat::setDashStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setDashStyle) selecciona el patrón de guiones.
 
 ```php
 use aspose\slides\FillType;
@@ -68,15 +68,15 @@ try {
 
 El resultado:
 
-![Las líneas formateadas en la presentación](formatted-lines.png)
+![Las líneas con formato en la presentación](formatted-lines.png)
 
-### **Establecer patrones de guiones personalizados**
+### **Establecer patrones de guiones personalizados para líneas**
 
-Utilice [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) cuando los estilos de línea predefinidos no ofrecen las longitudes y espacios de guiones que necesita, por ejemplo para contornos de marca o diagramas técnicos. Asignar un patrón cambia automáticamente el estilo de guiones de la línea a [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
+Utilice [LineFormat::setCustomDashPattern](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCustomDashPattern) cuando los estilos de línea predefinidos no proporcionan las longitudes de guiones y espacios que necesita, por ejemplo para contornos de marca o diagramas técnicos. Asignar un patrón cambia automáticamente el estilo de guiones de la línea a [LineDashStyle::Custom](https://reference.aspose.com/slides/php-java/aspose.slides/linedashstyle/).
 
-Las entradas del array alternan entre longitudes de guión y espacio, comenzando con un guión. Cada valor es múltiplo del ancho de la línea: `[4, 2]` con un ancho de 3 puntos produce un guión de 12 puntos seguido de un espacio de 6 puntos. Use pares de valores finitos y no negativos para definir segmentos completos de guión‑y‑espacio. El ejemplo usa valores positivos para que cada guión y espacio sea visible.
+Las entradas del array se alternan entre longitudes de guión y espacio, comenzando con un guión. Cada valor es un múltiplo del ancho de la línea: `[4, 2]` con un ancho de 3 puntos produce un guión de 12 puntos seguido de un espacio de 6 puntos. Use pares de valores finitos y no negativos para definir segmentos completos de guión‑y‑espacio. El ejemplo utiliza valores positivos para que cada guión y espacio sean visibles.
 
-Este ejemplo crea cinco líneas azules con la misma longitud y extremos planos. Las tres primeras comparan patrones con un ancho de 3 puntos. La cuarta repite el primer patrón al doble del ancho, duplicando tanto la longitud del guión como del espacio. La quinta cambia de un patrón personalizado a una línea sólida.
+Este ejemplo crea cinco líneas azules con la misma longitud y extremos planos. Las tres primeras comparan patrones con un ancho de 3 puntos. La cuarta repite el primer patrón con el doble de ancho, duplicando tanto los guiones como los espacios. La quinta cambia de un patrón personalizado a una línea sólida.
 
 ```php
 use aspose\slides\FillType;
@@ -113,7 +113,7 @@ try {
         $line->getLineFormat()->setCustomDashPattern($patterns[$i]);
     }
 
-    // Devuelve la última línea a un estilo sólido.
+    // Restaurar la última línea a un estilo sólido.
     $slide->getShapes()->get_Item(4)->getLineFormat()->setDashStyle(LineDashStyle::Solid);
 
     $presentation->save("custom_dash_patterns.pptx", SaveFormat::Pptx);
@@ -126,21 +126,21 @@ Para volver a un estilo de guiones predefinido, pase [LineDashStyle::Dash](https
 
 El resultado en PowerPoint, de arriba a abajo: **{4, 2}, 3 pt**; **{1, 2}, 3 pt**; **{6, 2, 1, 2}, 3 pt**; **{4, 2}, 6 pt**; y **Solid, 3 pt**.
 
-![Tres patrones de guiones personalizados, una línea más ancha usando el primer patrón y una línea sólida en PowerPoint](custom-dash-patterns.png)
+![Tres patrones de guiones personalizados, una línea más gruesa usando el primer patrón y una línea sólida en PowerPoint](custom-dash-patterns.png)
 
 ### **Establecer extremos de línea**
 
 Utilice [LineFormat::setCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setCapStyle) para establecer los extremos de una línea abierta. La clase [LineCapStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linecapstyle/) proporciona tres estilos de extremo explícitos:
 
 - `Flat`: El trazo se detiene en el punto final.
-- `Round`: Un extremo semicircular se extiende más allá del punto final hasta la mitad del ancho de la línea.
-- `Square`: Un extremo cuadrado se extiende más allá del punto final hasta la mitad del ancho de la línea.
+- `Round`: Un extremo semicircular se extiende más allá del punto final a la mitad del ancho de la línea.
+- `Square`: Un extremo cuadrado se extiende más allá del punto final a la mitad del ancho de la línea.
 
-La clase también incluye `NotDefined`, que significa que no se ha asignado explícitamente ningún estilo de extremo.
+La clase también incluye `NotDefined`, que indica que no se ha asignado un estilo de extremo explícito.
 
-Los extremos son diferentes de las puntas de flecha, que añaden símbolos a los finales de la línea, y de las uniones, que controlan las esquinas entre segmentos de línea. Este ejemplo desactiva las puntas de flecha mediante [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) y [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) para que solo se comparen las formas de los extremos.
+Los extremos son diferentes de las puntas de flecha, que añaden símbolos a los extremos de la línea, y de las uniones, que controlan las esquinas entre segmentos de línea. Este ejemplo desactiva las puntas de flecha mediante [LineFormat::setBeginArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setBeginArrowheadStyle) y [LineFormat::setEndArrowheadStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setEndArrowheadStyle) para que solo se comparen las formas de los extremos.
 
-El siguiente ejemplo crea tres líneas horizontales idénticas en todo lo demás, con un ancho de 20 puntos. De arriba a abajo, usan extremos planos, redondos y cuadrados. Sus puntos finales comparten las mismas coordenadas horizontales; los extremos redondos y cuadrados se extienden 10 puntos más allá de cada punto final.
+El siguiente ejemplo crea tres líneas horizontales idénticas, de 20 puntos de ancho. De arriba a abajo utilizan extremos plano, redondo y cuadrado. Sus puntos finales comparten las mismas coordenadas horizontales; los extremos redondos y cuadrados se extienden 10 puntos más allá de cada punto final.
 
 ```php
 use aspose\slides\FillType;
@@ -177,11 +177,11 @@ try {
 }
 ```
 
-El resultado en PowerPoint, de arriba a abajo: **Flat**, **Round**, y **Square**.
+El resultado en PowerPoint, de arriba a abajo: **Flat**, **Round** y **Square**.
 
-![Extremos planos, redondos y cuadrados en líneas gruesas idénticas en PowerPoint](line-caps.png)
+![Extremos plano, redondo y cuadrado en líneas gruesas idénticas en PowerPoint](line-caps.png)
 
-## **Aplicar efectos de boceto a las líneas de forma**
+## **Aplicar efectos de boceto a las líneas de la forma**
 
 Un efecto de boceto hace que la línea de una forma parezca dibujada a mano. Utilice [Shape::getLineFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getLineFormat) para acceder a la configuración de la línea, [LineFormat::getSketchFormat](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getSketchFormat) para acceder a la configuración del boceto y [SketchFormat::setSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#setSketchType) para seleccionar un valor de la clase [LineSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/linesketchtype/).
 
@@ -208,7 +208,7 @@ try {
 }
 ```
 
-El valor devuelto por [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) representa la configuración asignada directamente a la forma. Si el formato de línea puede heredarse de un tema, una diapositiva maestra o una diapositiva de diseño, utilice [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), acceda al método `getSketchFormat` del objeto devuelto y lea su valor `getSketchType`. El valor efectivo refleja el formato que se aplica realmente después de resolver la herencia. Este ejemplo requiere una presentación existente con al menos una forma en su primera diapositiva y muestra ambos valores:
+El valor devuelto por [SketchFormat::getSketchType](https://reference.aspose.com/slides/php-java/aspose.slides/sketchformat/#getSketchType) representa la configuración asignada directamente a la forma. Si el formato de línea puede heredarse de un tema, diapositiva maestra o diapositiva de diseño, utilice [LineFormat::getEffective](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#getEffective), acceda al método `getSketchFormat` del objeto devuelto y lea su valor `getSketchType`. El valor efectivo refleja el formato que realmente se aplica después de resolver la herencia. Este ejemplo requiere una presentación existente con al menos una forma en su primera diapositiva y muestra ambos valores:
 
 ```php
 use aspose\slides\Presentation;
@@ -231,17 +231,17 @@ try {
 
 ## **Formato de estilos de unión**
 
-Estas son las tres opciones de tipo de unión:
+Aquí están las tres opciones de tipo de unión:
 
-* Redondo
+* Round
 * Miter
-* Bisel
+* Bevel
 
-El estilo de unión controla cómo se encuentran dos segmentos de contorno en una esquina. Use **Redondo** para esquinas redondeadas, **Miter** para esquinas agudas o **Bisel** para esquinas aplanadas.
+El estilo de unión controla cómo dos segmentos de contorno se encuentran en una esquina. Use **Round** para esquinas redondeadas, **Miter** para esquinas agudas o **Bevel** para esquinas aplanadas.
 
 ![El estilo de unión en la presentación](join-style-powerpoint.png)
 
-Este ejemplo crea tres rectángulos negros con contornos azules de 15 puntos de ancho. Establece [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) a los valores miter, bevel y round de [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) respectivamente, para comparar cómo se dibujan las esquinas.
+Este ejemplo crea tres rectángulos negros con contornos azules de 15 puntos de ancho. Establece [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) a los valores miter, bevel y round de [LineJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/), respectivamente, para comparar cómo se dibujan las esquinas.
 
 ```php
 use aspose\slides\FillType;
@@ -290,13 +290,13 @@ try {
 }
 ```
 
-### **Limitar uniones de tipo Miter en esquinas afiladas**
+### **Limitar uniones de inglete en esquinas agudas**
 
-Utilice [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) con [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) configurado a [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) para limitar cuánto puede extenderse una esquina aguda.
+Utilice [LineFormat::setMiterLimit](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setMiterLimit) con [LineFormat::setJoinStyle](https://reference.aspose.com/slides/php-java/aspose.slides/lineformat/#setJoinStyle) establecido en [LineJoinStyle::Miter](https://reference.aspose.com/slides/php-java/aspose.slides/linejoinstyle/) para limitar cuánto puede extenderse una esquina aguda.
 
-El límite es una razón entre la distancia entre la esquina interior y exterior de la unión y el ancho de la línea. Por ejemplo, un valor de `8` permite una longitud de miter de hasta ocho veces el ancho de la línea; no es una medida en puntos. Si la esquina excediera el límite, PowerPoint utiliza una unión biselada en esa esquina. Un límite mayor permite puntos más agudos. La configuración afecta solo a las uniones miter y no produce ningún efecto visible cuando la esquina se mantiene dentro de ambos límites.
+El límite es una proporción entre la distancia entre la esquina interior y exterior de la unión y el ancho de la línea. Por ejemplo, un valor de `8` permite una longitud de inglete de hasta ocho veces el ancho de la línea; no es una medida en puntos. Si la esquina superaría el límite, PowerPoint utiliza una unión biselada en esa esquina. Un límite mayor permite puntos más agudos. La configuración solo afecta a las uniones de inglete y no produce efecto visible cuando la esquina se mantiene dentro de ambos límites.
 
-Este ejemplo crea dos triángulos idénticos sin relleno con contornos de 20 puntos de ancho. El triángulo izquierdo usa un límite de `2` y el derecho usa `8`. Cada triángulo mide 80 puntos de ancho y 160 puntos de alto, lo que da a su esquina superior una razón longitud‑de‑miter‑a‑ancho‑de‑línea de aproximadamente `4.12`. En consecuencia, PowerPoint bisela el ápice izquierdo y conserva el ápice derecho.
+Este ejemplo crea dos triángulos idénticos sin relleno con contornos de 20 puntos de ancho. El triángulo izquierdo usa un límite de `2` y el derecho `8`. Cada triángulo mide 80 puntos de ancho y 160 puntos de alto, lo que da a su esquina superior una proporción de longitud‑de‑inglete a ancho de línea de aproximadamente `4.12`. En consecuencia, PowerPoint bisela la cúspide izquierda y conserva la cúspide derecha.
 
 ```php
 use aspose\slides\FillType;
@@ -330,13 +330,13 @@ try {
 }
 ```
 
-El resultado en PowerPoint: **Límite de miter 2** a la izquierda y **límite de miter 8** a la derecha.
+El resultado en PowerPoint: **Miter limit 2** a la izquierda y **miter limit 8** a la derecha.
 
-![Una cúspide biselada con límite de miter 2 y una cúspide puntiaguda con límite de miter 8 en PowerPoint](miter-limits.png)
+![Una cúspide biselada con límite de inglete 2 y una cúspide puntiaguda con límite de inglete 8 en PowerPoint](miter-limits.png)
 
 ## **Relleno degradado**
 
-Un relleno degradado combina colores a lo largo de una forma. Este ejemplo rellena una elipse con un degradado lineal a 45 grados de rojo a púrpura utilizando [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). El método [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) coloca los puntos de color en 0 y 1, el inicio y el final del degradado. Borrar los puntos existentes asegura que solo se usen estos dos colores.
+Un relleno degradado mezcla colores a lo largo de una forma. Este ejemplo rellena una elipse con un degradado lineal a 45 grados del rojo al púrpura utilizando [FillFormat::getGradientFormat](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getGradientFormat). El método [GradientStopCollection::addPresetColor](https://reference.aspose.com/slides/php-java/aspose.slides/gradientstopcollection/#addPresetColor) coloca los puntos de color en 0 y 1, el inicio y el final del degradado. Borrar los puntos existentes garantiza que solo se usen esos dos colores.
 
 ```php
 use aspose\slides\FillType;
@@ -368,7 +368,7 @@ El resultado:
 
 ![La elipse con relleno degradado](gradient-fill.png)
 
-Si un degradado se ve diferente en una imagen exportada que en PowerPoint, consulte [Choose a Gradient Rendering Style](/slides/es/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puede seleccionar un estilo de renderizado sin cambiar el relleno degradado almacenado en la presentación.
+Si un degradado se ve distinto en una imagen exportada que en PowerPoint, consulte [Choose a Gradient Rendering Style](/slides/es/php-java/convert-powerpoint-to-png/#choose-a-gradient-rendering-style). Puede seleccionar un estilo de representación sin cambiar el degradado almacenado en la presentación.
 
 ### **Establecer el ángulo del degradado lineal**
 
@@ -422,9 +422,9 @@ El resultado en PowerPoint:
 
 ### **Escalar un degradado lineal con la forma**
 
-[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) acepta un valor [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Establézcalo explícitamente a `False` para mantener el ángulo geométrico del degradado mientras cambian las proporciones de la forma, o a `True` para escalar el degradado con el ancho y alto de la forma. Con el escalado activado, el ángulo visible puede diferir del ángulo asignado en una forma no cuadrada.
+[GradientFormat::setLinearGradientScaled](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientScaled) acepta un valor [NullableBool](https://reference.aspose.com/slides/php-java/aspose.slides/nullablebool/). Establécelo explícitamente en `False` para mantener el ángulo geométrico del degradado mientras cambian las proporciones de la forma, o en `True` para escalar el degradado con el ancho y alto de la forma. Con el escalado activado, el ángulo visible puede diferir del ángulo asignado en una forma no cuadrada.
 
-El siguiente ejemplo usa un ángulo de `45` grados y los mismos puntos de color que la comparación de ángulos. La columna izquierda usa `False`; la columna derecha usa `True`. Cada columna contiene un rectángulo ancho sobre un rectángulo alto. Ambos comienzan con las mismas dimensiones anchas; cambiar el ancho y alto del segundo rectángulo muestra cómo responde el relleno al redimensionamiento sin cambiar sus ajustes de degradado.
+El siguiente ejemplo usa un ángulo de `45` grados y los mismos puntos de color que la comparación de ángulos. La columna izquierda usa `False`; la columna derecha usa `True`. Cada columna contiene un rectángulo ancho encima de un rectángulo alto. Ambos comienzan con las mismas dimensiones anchas; cambiar el ancho y alto del segundo rectángulo muestra cómo responde el relleno al redimensionado sin cambiar sus ajustes de degradado.
 
 ```php
 use aspose\slides\FillType;
@@ -475,15 +475,15 @@ try {
 
 El resultado en PowerPoint, con el escalado desactivado a la izquierda y activado a la derecha:
 
-![Rectángulos anchos y altos con un degradado a 45 grados, comparando LinearGradientScaled False a la izquierda con True a la derecha](linear-gradient-scaling.png)
+![Rectángulos anchos y altos con un degradado de 45 grados, comparando LinearGradientScaled False a la izquierda con True a la derecha](linear-gradient-scaling.png)
 
-Con el escalado desactivado, las bandas de color diagonal conservan la misma orientación en ambos rectángulos. Con el escalado activado, las bandas se estiran con las proporciones de la forma. Esto ayuda a reproducir el degradado de una plantilla al adaptar una forma a otro tamaño. En una forma cuadrada, activar el escalado no cambia la apariencia de este degradado a `45` grados.
+Con el escalado desactivado, las bandas diagonales de color mantienen la misma orientación en ambos rectángulos. Con el escalado activado, las bandas se estiran con las proporciones de la forma. Esto ayuda a reproducir el degradado de una plantilla al adaptar una forma a otro tamaño. En una forma cuadrada, activar el escalado no cambia la apariencia de este degradado de `45` grados.
 
-Tanto el ángulo como la configuración de escalado se aplican a los degradados lineales. No controlan los rellenos [GradientShape::Radial o GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
+Ambos ajustes, ángulo y escalado, se aplican a degradados lineales. No controlan los rellenos [GradientShape::Radial] o [GradientShape::Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientshape/).
 
 ### **Combinar el ángulo con la dirección del degradado**
 
-[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) selecciona un estilo de degradado de la clase [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); no sustituye a un ángulo numérico. Para un degradado lineal, los estilos de esquina pueden cambiar el área sobre la que se distribuyen los colores sin cambiar el ángulo asignado mediante [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Mantenga la dirección sin cambios al comparar ángulos o escalado.
+[GradientFormat::setGradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setGradientDirection) selecciona un estilo de degradado de la clase [GradientDirection](https://reference.aspose.com/slides/php-java/aspose.slides/gradientdirection/); no sustituye a un ángulo numérico. Para un degradado lineal, los estilos de esquina pueden cambiar el área sobre la que se distribuyen los colores sin modificar el ángulo asignado mediante [setLinearGradientAngle](https://reference.aspose.com/slides/php-java/aspose.slides/gradientformat/#setLinearGradientAngle). Mantenga la dirección sin cambios al comparar ángulos o al escalar.
 
 El siguiente ejemplo aplica los mismos ajustes en orden inverso. Los dos rectángulos tienen la misma apariencia: asignar la dirección antes o después del ángulo no altera el resultado.
 
@@ -530,7 +530,7 @@ try {
 
 ## **Relleno de patrón**
 
-Un relleno de patrón aplica un diseño bicolor, como puntos, rayas o cuadros. Este ejemplo usa [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) para seleccionar un patrón de celosía. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) suministra el fondo gris claro, y [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) suministra el color amarillo del patrón.
+Un relleno de patrón aplica un diseño bicolor, como puntos, rayas o cuadros. Este ejemplo usa [PatternFormat::setPatternStyle](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#setPatternStyle) para seleccionar un patrón de enrejado. [PatternFormat::getBackColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getBackColor) proporciona el fondo gris claro, y [PatternFormat::getForeColor](https://reference.aspose.com/slides/php-java/aspose.slides/patternformat/#getForeColor) suministra el color amarillo del patrón.
 
 ```php
 use aspose\slides\FillType;
@@ -561,9 +561,9 @@ El resultado:
 
 ## **Relleno de imagen**
 
-Un relleno de imagen utiliza una imagen dentro de una forma. Este ejemplo necesita una imagen local y usa [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) para cargarla en la colección de imágenes de la presentación. Establecer [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) al modo de mosaico repite la imagen dentro del rectángulo. La imagen fuente utilizada aquí se muestra a continuación:
+Un relleno de imagen usa una imagen dentro de una forma. Este ejemplo requiere una imagen local y utiliza [Images::fromFile](https://reference.aspose.com/slides/php-java/aspose.slides/images/#fromFile) para cargarla en la colección de imágenes de la presentación. Establecer [PictureFillFormat::setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode) en el modo mosaico repite la imagen dentro del rectángulo. La imagen de origen utilizada aquí se muestra a continuación:
 
-![La imagen del loto](lotus.png)
+![La imagen de loto](lotus.png)
 
 ```php
 use aspose\slides\FillType;
@@ -603,15 +603,15 @@ El resultado:
 
 Si desea establecer una imagen en mosaico como textura y personalizar el comportamiento del mosaico, puede usar los siguientes métodos de la clase [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Define el modo de relleno de imagen — `Tile` o `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Establece el modo de relleno de imagen — `Tile` o `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileAlignment): Especifica la alineación de los mosaicos dentro de la forma.
 - [setTileFlip](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileFlip): Controla si el mosaico se voltea horizontalmente, verticalmente o en ambas direcciones.
-- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Define el desplazamiento horizontal del mosaico (en puntos) desde el origen de la forma.
-- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Define el desplazamiento vertical del mosaico (en puntos) desde el origen de la forma.
+- [setTileOffsetX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Establece el desplazamiento horizontal del mosaico (en puntos) desde el origen de la forma.
+- [setTileOffsetY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Establece el desplazamiento vertical del mosaico (en puntos) desde el origen de la forma.
 - [setTileScaleX](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleX): Define la escala horizontal del mosaico como porcentaje.
 - [setTileScaleY](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/#setTileScaleY): Define la escala vertical del mosaico como porcentaje.
 
-Este ejemplo necesita una imagen local y configura [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) para repetirla al 50 % de su tamaño original. Desplazamientos de −32 puntos mueven los mosaicos horizontal y verticalmente; la alineación inferior‑derecha y el volteo en ambas direcciones determinan cómo se organiza la textura repetida.
+Este ejemplo requiere una imagen local y configura [PictureFillFormat](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) para repetirla al 50 % de su tamaño original. Desplazamientos de −32 puntos mueven los mosaicos horizontal y verticalmente; la alineación inferior‑derecha y el volteo en ambas direcciones determinan cómo se organiza la textura repetida.
 
 ```php
 use aspose\slides\FillType;
@@ -657,9 +657,9 @@ El resultado:
 
 ![Las opciones de mosaico](tile-options.png)
 
-## **Relleno sólido de color**
+## **Relleno de color sólido**
 
-Un relleno sólido da a una forma un único color uniforme. Este ejemplo establece [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) al modo de relleno sólido y asigna amarillo mediante [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), luego guarda el rectángulo en una presentación.
+Un relleno sólido da a una forma un solo color uniforme. Este ejemplo establece [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) en el modo de relleno sólido y asigna amarillo mediante [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor), luego guarda el rectángulo en una presentación.
 
 ```php
 use aspose\slides\FillType;
@@ -683,15 +683,92 @@ try {
 
 El resultado:
 
-![La forma con relleno sólido de color](solid-color-fill.png)
+![La forma con relleno de color sólido](solid-color-fill.png)
 
-## **Utilizar el fondo de la diapositiva como relleno de forma**
+### **Copiar colores manteniendo referencias de tema**
 
-Utilice [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) cuando una forma debe coincidir con el fondo de la diapositiva, por ejemplo en una plantilla de presentación. Establezca [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) a [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) primero para eliminar cualquier relleno explícito. Con esta combinación, la forma usa el fondo de la diapositiva en lugar de su estilo de relleno. Activar solo la bandera no elimina un relleno explícito existente.
+Utilice [ColorFormat::copyFrom](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#copyFrom) para copiar una definición de color, incluida su tipo de color, referencia de tema y transformaciones. Esto resulta útil al transferir el color de relleno entre formas que deben seguir el tema de la presentación. El método copia solo el color: no copia el tipo de relleno, el contorno u otro formato de forma. Establezca el tipo de relleno del destino explícitamente con [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType).
 
-Esto difiere de [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): el relleno de fondo cubre los objetos detrás de la forma con el área correspondiente del fondo de la diapositiva, mientras que sin relleno deja esos objetos visibles. Un degradado permanece alineado con la diapositiva en lugar de reiniciarse dentro de cada forma.
+Este ejemplo crea tres rectángulos, de izquierda a derecha: el origen, una copia consciente del tema y una copia RGB fija. El origen usa [ColorFormat::setSchemeColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setSchemeColor) para referenciar el primer color de acento y añade un tinte mediante [ColorOperationCollection::add](https://reference.aspose.com/slides/php-java/aspose.slides/coloroperationcollection/#add). La copia RGB utiliza el color de relleno efectivo del origen, de modo que los tres inicialmente se ven idénticos. Llamar a [ColorFormat::setColor](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#setColor) asigna un valor RGB fijo y elimina cualquier transformación de color existente.
 
-El siguiente ejemplo crea un fondo maestro heredado por la diapositiva y coloca una banda magenta detrás de tres rectángulos. El rectángulo izquierdo usa el fondo, el del medio no tiene relleno y el derecho cambia de relleno de fondo a un relleno naranja explícito.
+```php
+use aspose\slides\ColorTransformOperation;
+use aspose\slides\FillType;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SchemeColor;
+use aspose\slides\ShapeType;
+use aspose\slides\SlideSizeScaleType;
+
+$presentation = new Presentation();
+try {
+    $presentation->getSlideSize()->setSize(660, 220, SlideSizeScaleType::DoNotScale);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $initialAccent = new Java("java.awt.Color", 65, 105, 225);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($initialAccent);
+
+    $source = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 30, 40, 180, 140);
+    $themeCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 240, 40, 180, 140);
+    $rgbCopy = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 450, 40, 180, 140);
+
+    foreach ([$source, $themeCopy, $rgbCopy] as $shape) {
+        $shape->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::NoFill);
+    }
+
+    $sourceColor = $source->getFillFormat()->getSolidFillColor();
+    $sourceColor->setSchemeColor(SchemeColor::Accent1);
+    $sourceColor->getColorTransform()->add(ColorTransformOperation::Tint, 0.75);
+
+    $themeCopy->getFillFormat()->getSolidFillColor()->copyFrom($sourceColor);
+    $rgbCopy->getFillFormat()->getSolidFillColor()->setColor($source->getFillFormat()->getEffective()->getSolidFillColor());
+
+    $before = $slide->getImage(1.0, 1.0);
+    try {
+        $before->save("color-copy-before.png", ImageFormat::Png);
+    } finally {
+        $before->dispose();
+    }
+
+    // Las referencias de tema siguen el nuevo color de acento; el valor RGB fijo no lo hace.
+    $updatedAccent = new Java("java.awt.Color", 255, 69, 0);
+    $presentation->getMasterTheme()->getColorScheme()->getAccent1()->setColor($updatedAccent);
+
+    $after = $slide->getImage(1.0, 1.0);
+    try {
+        $after->save("color-copy-after.png", ImageFormat::Png);
+    } finally {
+        $after->dispose();
+    }
+    $presentation->save("copied_colors.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Antes del cambio de tema, los tres rellenos coinciden:
+
+![Origen, destino copyFrom y destino RGB fijo con rellenos azul idénticos](color-copy-before.png)
+
+Tras el cambio de tema, el origen y la copia consciente del tema siguen el nuevo color de acento y conservan su tinte. La copia RGB fija sigue siendo azul:
+
+![Origen y destino copyFrom con rellenos naranjas, mientras que el destino RGB fijo permanece azul](color-copy-after.png)
+
+La definición copiada es independiente del origen. Cambiar posteriormente la referencia de tema del origen, asignar otro color o añadir o eliminar sus transformaciones no afecta al destino. Un cambio de tema sigue afectando a ambas formas porque cada una hace referencia de forma independiente al mismo color del tema.
+
+Al guardar y volver a abrir el PPTX se conservan el tipo de color copiado devuelto por [ColorFormat::getColorType](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorType), la referencia del tema y la colección de transformaciones devuelta por [ColorFormat::getColorTransform](https://reference.aspose.com/slides/php-java/aspose.slides/colorformat/#getColorTransform); no se aplana la definición a RGB.
+
+Al copiar entre contextos de tema diferentes, como presentaciones con paletas de acento distintas, la referencia copiada se resuelve con respecto al tema del destino. La misma referencia y transformaciones pueden, por tanto, producir un color visible diferente. Vea [Presentation Theme](/slides/es/php-java/presentation-theme/) para más información sobre la configuración de colores del tema.
+
+## **Usar el fondo de la diapositiva como relleno de forma**
+
+Utilice [AutoShape::setUseBackgroundFill](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#setUseBackgroundFill) cuando una forma deba coincidir con el fondo de la diapositiva, por ejemplo en una plantilla de presentación. Establezca el tipo de relleno con [FillFormat::setFillType](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#setFillType) a [FillType::NotDefined](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/) primero para eliminar cualquier relleno explícito. Con esta combinación, la forma usa el fondo de la diapositiva en lugar de su relleno de estilo. Activar solo la bandera no elimina un relleno explícito existente.
+
+Esto difiere de [FillType::NoFill](https://reference.aspose.com/slides/php-java/aspose.slides/filltype/): el relleno de fondo cubre los objetos situados detrás de la forma con el área correspondiente del fondo de la diapositiva, mientras que sin relleno deja esos objetos visibles. Un degradado permanece alineado con la diapositiva en lugar de reiniciarse dentro de cada forma.
+
+El siguiente ejemplo crea un fondo maestro heredado por la diapositiva y coloca una banda magenta detrás de tres rectángulos. El rectángulo izquierdo usa el fondo, el rectángulo central no tiene relleno y el rectángulo derecho cambia del relleno de fondo a un relleno naranja explícito.
 
 ```php
 use aspose\slides\BackgroundType;
@@ -751,15 +828,15 @@ try {
 }
 ```
 
-El resultado, de izquierda a derecha: **relleno de fondo**, **sin relleno** y **relleno explícito**. La banda magenta se oculta detrás de los rectángulos izquierdo y derecho pero sigue visible a través del del medio.
+El resultado, de izquierda a derecha: **background fill**, **no fill** y **explicit fill**. La banda magenta queda oculta por los rectángulos izquierdo y derecho pero sigue visible a través del rectángulo central.
 
 ![Relleno de fondo, sin relleno y relleno naranja explícito sobre una banda magenta](background-fill.png)
 
-El mismo comportamiento se aplica a un fondo definido directamente en la diapositiva o heredado de un diseño. La forma usa el fondo resuelto de la diapositiva; el ejemplo deja sin definir tanto el fondo de la diapositiva como el del diseño para que el maestro lo proporcione.
+El mismo comportamiento se aplica a un fondo definido directamente en la diapositiva o heredado de un diseño. La forma usa el fondo resuelto de la diapositiva; el ejemplo deja ambos fondos, el de la diapositiva y el del diseño, sin definir para que el maestro los suministre.
 
 ## **Establecer transparencia**
 
-Para un relleno sólido, el componente alfa del color controla la opacidad: 0 es totalmente transparente y 255 es totalmente opaco. Este ejemplo usa un valor alfa de 128 para un rectángulo amarillo, haciéndolo aproximadamente un 50 % transparente para que el rectángulo subyacente siga visible. El color se asigna mediante [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
+Para un relleno sólido, el componente alfa del color controla la opacidad: 0 es totalmente transparente y 255 es totalmente opaco. Este ejemplo usa un valor alfa de 128 para un rectángulo amarillo, haciéndolo aproximadamente 50 % transparente para que el rectángulo subyacente siga visible. El color se asigna mediante [FillFormat::getSolidFillColor](https://reference.aspose.com/slides/php-java/aspose.slides/fillformat/#getSolidFillColor).
 
 ```php
 use aspose\slides\FillType;
@@ -812,11 +889,11 @@ try {
 
 El resultado:
 
-![La rotación de la forma](shape-rotation.png)
+![Rotación de la forma](shape-rotation.png)
 
-## **Añadir efectos de bisel 3D**
+## **Agregar efectos de bisel 3D**
 
-Utilice [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) para dar profundidad y bordes biselados a una forma. Este ejemplo crea una elipse verde con un contorno naranja, establece [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) a 4 puntos y aplica un bisel superior circular con ancho y alto de 6 puntos mediante [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Una cámara ortográfica frontal y una iluminación de tres puntos hacen visible el bisel.
+Utilice [Shape::getThreeDFormat](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#getThreeDFormat) para dar a una forma profundidad y bordes biselados. Este ejemplo crea una elipse verde con contorno naranja, establece [ThreeDFormat::setDepth](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#setDepth) a 4 puntos y aplica un bisel superior circular con un ancho y alto de 6 puntos mediante [ThreeDFormat::getBevelTop](https://reference.aspose.com/slides/php-java/aspose.slides/threedformat/#getBevelTop). Una cámara ortográfica frontal y una iluminación de tres puntos hacen visible el bisel.
 
 ```php
 use aspose\slides\BevelPresetType;
@@ -858,9 +935,9 @@ El resultado:
 
 ![El efecto de bisel 3D](3D-bevel-effect.png)
 
-## **Añadir efectos de rotación 3D**
+## **Agregar efectos de rotación 3D**
 
-La vista 3D de una forma se controla mediante la configuración de su cámara. Este ejemplo usa [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) con ángulos de latitud, longitud y revolución de 40, 35 y 20 grados, respectivamente. Selecciona una cámara isométrica mediante [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) y una iluminación equilibrada mediante [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), luego guarda el rectángulo formateado.
+La vista 3D de una forma se controla mediante la configuración de su cámara. Este ejemplo utiliza [Camera::setRotation](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setRotation) con ángulos de latitud, longitud y revolución de 40, 35 y 20 grados, respectivamente. Selecciona una cámara isométrica a través de [Camera::setCameraType](https://reference.aspose.com/slides/php-java/aspose.slides/camera/#setCameraType) y una iluminación equilibrada mediante [LightRig::setLightType](https://reference.aspose.com/slides/php-java/aspose.slides/lightrig/#setLightType), luego guarda el rectángulo con formato.
 
 ```php
 use aspose\slides\CameraPresetType;
@@ -889,13 +966,13 @@ El resultado:
 
 ![El efecto de rotación 3D](3D-rotation-effect.png)
 
-## **Controlar el renderizado en blanco y negro para formas**
+## **Controlar la representación en blanco y negro para formas**
 
-El método [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) especifica cómo se representa una forma individual cuando una presentación se visualiza o procesa en modo blanco y negro. No habilita la visualización en blanco y negro por sí mismo y no cambia el relleno, la línea u otro formato de la forma en modo de color normal.
+El método [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) especifica cómo se representa una forma individual cuando una presentación se visualiza o procesa en modo blanco y negro. No activa la visualización en blanco y negro por sí mismo y no cambia el relleno, la línea u otro formato de la forma en modo de color normal.
 
-Utilice un valor de la clase [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) para seleccionar el comportamiento deseado. Por ejemplo, `Automatic` permite que la aplicación de renderizado elija la conversión, `Gray` y `LightGray` usan tonos de gris, `BlackWhite` usa solo negro y blanco, `Black` y `White` obligan a un único color, `Color` conserva el color normal y `Hidden` omite la forma en modo blanco y negro. `NotDefined` significa que no se ha asignado ningún modo a nivel de forma.
+Utilice un valor de la clase [BlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/blackwhitemode/) para seleccionar el comportamiento deseado. Por ejemplo, `Automatic` permite que la aplicación de renderizado elija la conversión, `Gray` y `LightGray` usan color gris, `BlackWhite` usa solo negro y blanco, `Black` y `White` obligan a un único color, `Color` conserva el color normal y `Hidden` omite la forma en modo blanco y negro. `NotDefined` significa que no se asignó ningún modo a nivel de forma.
 
-Este ejemplo crea un rectángulo naranja y establece [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) a gris. La forma guardada conserva su relleno naranja para la visualización en color normal y solicita coloreado gris a las aplicaciones que respeten la configuración de visualización en blanco y negro:
+Este ejemplo crea un rectángulo naranja y establece [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/php-java/aspose.slides/shape/#setBlackWhiteMode) a gris. La forma guardada conserva su relleno naranja para la visualización en color normal y solicita un color gris a las aplicaciones que respetan la configuración de visualización en blanco y negro:
 
 ```php
 use aspose\slides\BlackWhiteMode;
@@ -920,11 +997,11 @@ try {
 }
 ```
 
-En modo de color normal, el rectángulo mantiene su relleno naranja. En un flujo de trabajo de visualización en blanco y negro, usa color gris porque su modo está configurado a `Gray`. Esto le permite conservar una diapositiva a todo color mientras define una apariencia distinta para la impresión, la vista previa u otros flujos que respeten la configuración de visualización en blanco y negro de la presentación.
+En modo de color normal, el rectángulo mantiene su relleno naranja. En un flujo de trabajo de visualización en blanco y negro, usa el color gris porque su modo está establecido en `Gray`. Esto le permite conservar una diapositiva a todo color mientras define una apariencia distinta para impresión, vista previa u otros flujos que respeten la configuración de visualización en blanco y negro de la presentación.
 
 ## **Restablecer formato**
 
-Utilice [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) para restaurar la posición, el tamaño y el formato de los marcadores de posición de la diapositiva a partir de sus marcadores de posición de diseño correspondientes. Este ejemplo necesita una presentación existente con marcadores de posición vinculados a un diseño y restablece cada diapositiva antes de guardarla. Las formas sin marcadores de posición de diseño correspondientes no se restablecen.
+Utilice [Slide::reset](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#reset) para restaurar la posición, el tamaño y el formato de los marcadores de posición de la diapositiva a partir de sus marcadores de posición de diseño correspondientes. Este ejemplo requiere una presentación existente con marcadores de posición vinculados al diseño y restablece cada diapositiva antes de guardar. Las formas sin marcadores de posición de diseño correspondientes no se restablecen.
 
 ```php
 use aspose\slides\Presentation;
@@ -943,16 +1020,16 @@ try {
 }
 ```
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿El formato de forma afecta al tamaño final del archivo de la presentación?**
+**¿El formato de la forma afecta al tamaño final del archivo de la presentación?**
 
-Los colores, estilos de línea y ajustes de efectos suelen añadir pocos datos en comparación con imágenes y medios incrustados. Los rellenos de imagen pueden aumentar el tamaño del archivo porque sus imágenes se almacenan en la presentación.
+Los colores, estilos de línea y ajustes de efectos añaden pocos datos en comparación con las imágenes y medios incrustados. Los rellenos de imagen pueden incrementar el tamaño del archivo porque sus imágenes se almacenan en la presentación.
 
-**¿Cómo puedo detectar formas en una diapositiva que comparten el mismo formato para poder agruparlas?**
+**¿Cómo puedo detectar formas en una diapositiva que comparten el mismo formato para agruparlas?**
 
-Compare las propiedades clave de formato de cada forma —relleno, línea y ajustes de efectos. Si todos los valores correspondientes coinciden, trate sus estilos como idénticos y agrupe lógicamente esas formas, lo que simplifica la gestión posterior de estilos.
+Compare las propiedades clave de formato de cada forma: relleno, línea y ajustes de efecto. Si todos los valores correspondientes coinciden, trate sus estilos como idénticos y agrupe lógicamente esas formas, lo que simplifica la gestión posterior de estilos.
 
 **¿Puedo guardar un conjunto de estilos de forma personalizados en un archivo separado para reutilizarlos en otras presentaciones?**
 
-Sí. Guarde formas de ejemplo con los estilos deseados en una presentación de plantilla o en un archivo de plantilla .POTX. Al crear una nueva presentación, abra la plantilla, clone las formas con estilo que necesite y vuelva a aplicar su formato donde sea necesario.
+Sí. Guarde formas de muestra con los estilos deseados en una presentación de plantilla o en un archivo .POTX. Al crear una nueva presentación, abra la plantilla, clone las formas con estilo que necesite y vuelva a aplicar su formato donde sea necesario.
